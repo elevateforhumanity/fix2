@@ -6,15 +6,11 @@
  * Licensed Use Only - Unauthorized use prohibited
  */
 
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../supabaseClient.js';
 
 class AdvancedLMSCopilot {
   constructor() {
-    // Use environment variables for Supabase configuration
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://cuxzzpsyufcewtmicszk.supabase.co';
-    const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA';
-    
-    this.supabase = createClient(supabaseUrl, supabaseKey);
+    this.supabase = supabase;
     
     this.isAutopilotEnabled = false;
     this.subscriptionTier = 'autopilot'; // Always enabled
