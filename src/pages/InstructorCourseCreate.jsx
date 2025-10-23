@@ -60,7 +60,6 @@ export default function InstructorCourseCreate() {
         description="Create and manage your courses"
       />
       <Header />
-
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-brand-text mb-2">
@@ -70,7 +69,6 @@ export default function InstructorCourseCreate() {
             Build your course content and publish to students
           </p>
         </div>
-
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
@@ -128,7 +126,6 @@ export default function InstructorCourseCreate() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Modules */}
             <Card>
               <CardHeader>
@@ -154,7 +151,6 @@ export default function InstructorCourseCreate() {
                     </p>
                   </div>
                 ))}
-
                 {/* New Module */}
                 <div className="border-2 border-dashed rounded-lg p-6">
                   <input
@@ -169,7 +165,6 @@ export default function InstructorCourseCreate() {
                       })
                     }
                   />
-
                   {/* Add Lesson Buttons */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     <Button
@@ -205,7 +200,6 @@ export default function InstructorCourseCreate() {
                       Add Quiz
                     </Button>
                   </div>
-
                   {/* Current Module Lessons */}
                   {currentModule.lessons.length > 0 && (
                     <div className="space-y-2 mb-4">
@@ -238,7 +232,6 @@ export default function InstructorCourseCreate() {
                       ))}
                     </div>
                   )}
-
                   <Button onClick={addModule} disabled={!currentModule.title}>
                     <Plus className="w-4 h-4 mr-2" />
                     Add Module
@@ -247,7 +240,6 @@ export default function InstructorCourseCreate() {
               </CardContent>
             </Card>
           </div>
-
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Course Preview */}
@@ -278,7 +270,6 @@ export default function InstructorCourseCreate() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Actions */}
             <Card>
               <CardHeader>
@@ -304,7 +295,6 @@ export default function InstructorCourseCreate() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Help */}
             <Card>
               <CardHeader>
@@ -329,7 +319,6 @@ export default function InstructorCourseCreate() {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

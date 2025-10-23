@@ -136,7 +136,6 @@ export function Docs() {
           </div>
         </div>
       </div>
-
       {/* Document List */}
       {!currentDoc && (
         <div style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
@@ -219,7 +218,6 @@ export function Docs() {
           </div>
         </div>
       )}
-
       {/* Document Editor */}
       {currentDoc && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -275,7 +273,7 @@ export function Docs() {
                 backgroundColor: 'var(--brand-border)',
                 margin: '0 0.5rem',
               }}
-            ></div>
+            />
             <select
               style={{
                 padding: '0.5rem',
@@ -315,7 +313,6 @@ export function Docs() {
               <option>18</option>
             </select>
           </div>
-
           {/* Editor */}
           <div
             style={{

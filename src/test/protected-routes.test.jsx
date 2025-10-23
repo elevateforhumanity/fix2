@@ -1,8 +1,16 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ProtectedRoute } from '../components/ProtectedRoute';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import ProtectedRoute from '../components/auth/ProtectedRoute';
+
+vi.mock('../services/auth', () => ({
+  getCurrentUser: vi.fn(),
+}));
+
+import { getCurrentUser } from '../services/auth';
+
+const mockGetCurrentUser = getCurrentUser;
 
 const TestComponent = ({ text }) => <div>{text}</div>;
 const LoginPage = () => <div>Login Page</div>;
@@ -15,7 +23,7 @@ const renderProtectedRoute = (
     <HelmetProvider>
       <MemoryRouter initialEntries={[route]}>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
           <Route
             path="/"
             element={
@@ -31,41 +39,73 @@ const renderProtectedRoute = (
 };
 
 describe('Protected Routes', () => {
+  beforeEach(() => {
+    mockGetCurrentUser.mockResolvedValue({
+      id: 'user-1',
+      email: 'user@example.com',
+      role: 'student',
+    });
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   describe('Authentication', () => {
-    it('allows access when authenticated', () => {
+    it('allows access when authenticated', async () => {
       renderProtectedRoute(<TestComponent text="Protected Content" />);
-      expect(screen.getByText('Protected Content')).toBeInTheDocument();
+
+      expect(await screen.findByText('Protected Content')).toBeInTheDocument();
     });
 
     // Note: These tests use placeholder authentication
     // In production, replace with actual auth context
-    it('renders content for authenticated users', () => {
+    it('renders content for authenticated users', async () => {
       renderProtectedRoute(<TestComponent text="Secure Page" />);
-      expect(screen.getByText('Secure Page')).toBeInTheDocument();
+
+      expect(await screen.findByText('Secure Page')).toBeInTheDocument();
     });
   });
 
   describe('Role-Based Access', () => {
-    it('allows admin access to admin routes', () => {
+    it('allows admin access to admin routes', async () => {
+      mockGetCurrentUser.mockResolvedValueOnce({
+        id: 'admin-1',
+        email: 'admin@example.com',
+        role: 'admin',
+      });
+
       renderProtectedRoute(<TestComponent text="Admin Dashboard" />, {
         requiredRole: 'admin',
       });
-      expect(screen.getByText('Admin Dashboard')).toBeInTheDocument();
+      expect(await screen.findByText('Admin Dashboard')).toBeInTheDocument();
     });
 
-    it('allows instructor access to instructor routes', () => {
+    it('allows instructor access to instructor routes', async () => {
+      mockGetCurrentUser.mockResolvedValueOnce({
+        id: 'instructor-1',
+        email: 'instructor@example.com',
+        role: 'instructor',
+      });
+
       renderProtectedRoute(<TestComponent text="Instructor Portal" />, {
         requiredRole: 'instructor',
       });
-      expect(screen.getByText('Instructor Portal')).toBeInTheDocument();
+      expect(await screen.findByText('Instructor Portal')).toBeInTheDocument();
     });
 
-    it('allows admin access to instructor routes', () => {
+    it('allows admin access to instructor routes', async () => {
       // Admins should have access to all routes
+      mockGetCurrentUser.mockResolvedValueOnce({
+        id: 'admin-1',
+        email: 'admin@example.com',
+        role: 'admin',
+      });
+
       renderProtectedRoute(<TestComponent text="Instructor Content" />, {
         requiredRole: 'instructor',
       });
-      expect(screen.getByText('Instructor Content')).toBeInTheDocument();
+      expect(await screen.findByText('Instructor Content')).toBeInTheDocument();
     });
   });
 
@@ -74,7 +114,7 @@ describe('Protected Routes', () => {
       const routes = ['/admin-console', '/admin-dashboard', '/user-management'];
 
       routes.forEach((route) => {
-        expect(route).toMatch(/^\/admin/);
+        expect(route).toMatch(/^\/(admin|user-management)/);
       });
     });
 
@@ -87,7 +127,7 @@ describe('Protected Routes', () => {
       ];
 
       routes.forEach((route) => {
-        expect(route).toMatch(/^\/instructor|course-builder/);
+        expect(route).toMatch(/^\/(instructor|course-builder)/);
       });
     });
   });

@@ -31,8 +31,9 @@ app.use(
   cors({
     origin: [
       'http://localhost:3000',
-      'https://workforce.elevateforhumanity.com',
-      'https://*.replit.app',
+      'https://www.elevateforhumanity.org',
+      'https://elevateforhumanity.pages.dev',
+      'https://elevateforhumanity.netlify.app',
     ],
     credentials: true,
   })

@@ -87,7 +87,6 @@ export function NotebookLM() {
         <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>
           📓 NotebookLM
         </h2>
-
         <div style={{ marginBottom: '1.5rem' }}>
           <select
             value={currentNotebook?.id || ''}
@@ -131,7 +130,6 @@ export function NotebookLM() {
             + New Notebook
           </button>
         </div>
-
         <div style={{ marginBottom: '1.5rem' }}>
           <button
             onClick={() => setView('sources')}
@@ -199,7 +197,6 @@ export function NotebookLM() {
           </button>
         </div>
       </div>
-
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div
           style={{
@@ -215,7 +212,6 @@ export function NotebookLM() {
             {currentNotebook?.description || 'AI-powered research assistant'}
           </p>
         </div>
-
         <div style={{ flex: 1, overflowY: 'auto', padding: '2rem' }}>
           {view === 'sources' && (
             <div>
@@ -262,7 +258,6 @@ export function NotebookLM() {
                   📝 Add Text
                 </button>
               </div>
-
               {sources.length === 0 ? (
                 <div
                   style={{
@@ -342,7 +337,6 @@ export function NotebookLM() {
               )}
             </div>
           )}
-
           {view === 'chat' && (
             <div>
               <div
@@ -395,7 +389,6 @@ export function NotebookLM() {
                   </button>
                 </div>
               </div>
-
               {answer && (
                 <div
                   style={{
@@ -457,7 +450,6 @@ export function NotebookLM() {
               )}
             </div>
           )}
-
           {view === 'notes' && (
             <div
               style={{
@@ -473,7 +465,6 @@ export function NotebookLM() {
               <p>AI-generated notes will appear here</p>
             </div>
           )}
-
           {view === 'graph' && (
             <div
               style={{

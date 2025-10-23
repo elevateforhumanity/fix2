@@ -15,7 +15,6 @@ export default function NotFound() {
             Workforce ecosystem.
           </p>
         </div>
-
         <div className="space-y-4">
           <Link
             to="/"
@@ -24,7 +23,6 @@ export default function NotFound() {
             <Home className="h-4 w-4 mr-2" />
             Return to Hub
           </Link>
-
           <button
             onClick={() => window.history.back()}
             className="w-full bg-white text-brand-text border border-brand-border-dark py-3 px-6 rounded-lg hover:bg-brand-surface transition-colors flex items-center justify-center"
@@ -33,7 +31,6 @@ export default function NotFound() {
             Go Back
           </button>
         </div>
-
         <div className="mt-8 text-sm text-brand-text-light">
           <p>
             Need help? Visit our{' '}

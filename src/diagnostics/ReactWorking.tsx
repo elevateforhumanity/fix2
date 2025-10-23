@@ -20,7 +20,6 @@ export default function ReactWorking() {
         If you see this, the JavaScript bundles are loading and executing
         correctly.
       </p>
-
       <h2>Environment Check:</h2>
       <ul>
         <li>
@@ -36,12 +35,10 @@ export default function ReactWorking() {
           ✅ Site URL: <strong>{env('VITE_SITE_URL')}</strong>
         </li>
       </ul>
-
       <p style={{ marginTop: '1rem' }}>
         This is a minimal test app. The full app with all routes is in{' '}
         <code>App.jsx</code>.
       </p>
-
       <div
         style={{
           marginTop: '2rem',
@@ -59,7 +56,6 @@ export default function ReactWorking() {
           and an error boundary so one bad import can't blank the whole site.
         </p>
       </div>
-
       <div
         style={{
           marginTop: '1rem',

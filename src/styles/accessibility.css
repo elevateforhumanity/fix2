@@ -6,16 +6,16 @@
 
 /* High Contrast Mode */
 .high-contrast {
-  --bg-primary: #000000;
+  --bg-primary: #000;
   --bg-secondary: #1a1a1a;
-  --text-primary: #ffffff;
+  --text-primary: #fff;
   --text-secondary: var(--brand-border);
-  --border-color: #ffffff;
-  --link-color: #00ffff;
-  --link-hover: #ffff00;
-  --button-bg: #ffffff;
-  --button-text: #000000;
-  --focus-color: #ffff00;
+  --border-color: #fff;
+  --link-color: #0ff;
+  --link-hover: #ff0;
+  --button-bg: #fff;
+  --button-text: #000;
+  --focus-color: #ff0;
 }
 
 .high-contrast * {
@@ -233,14 +233,14 @@ img:not([alt]) {
 /* High Contrast Preferences */
 @media (prefers-contrast: high) {
   * {
-    border-color: currentColor;
+    border-color: currentcolor;
   }
 
   button,
   input,
   select,
   textarea {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 }
 
@@ -250,17 +250,17 @@ img:not([alt]) {
     display: none !important;
   }
 
-  a[href]:after {
+  a[href]::after {
     content: ' (' attr(href) ')';
   }
 
-  abbr[title]:after {
+  abbr[title]::after {
     content: ' (' attr(title) ')';
   }
 }
 
 /* Mobile Accessibility */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   button,
   a,
   input,

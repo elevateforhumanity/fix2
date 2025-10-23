@@ -65,7 +65,7 @@ const InstructorDashboard = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -79,7 +79,6 @@ const InstructorDashboard = () => {
           + Create New Course
         </Link>
       </div>
-
       {/* Stats Cards */}
       <div className="grid md:grid-cols-4 gap-6">
         <div className="card">
@@ -107,7 +106,6 @@ const InstructorDashboard = () => {
           </div>
         </div>
       </div>
-
       {/* Your Courses */}
       <div>
         <h2 className="text-2xl font-bold mb-6">Your Courses</h2>

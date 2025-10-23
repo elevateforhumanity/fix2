@@ -278,29 +278,37 @@
     <div class="portal-header">
       <div class="container">
         <h1>🎓 Student Portal</h1>
-        <p>Elevate for Humanity Career & Training Institute</p>
+        <p>Elevate for Humanity Career &amp; Training Institute</p>
       </div>
     </div>
 
     <div class="portal-nav">
       <div class="container">
         <div class="nav-tabs">
-          <button class="nav-tab active" onclick="showTab('enrollment')">
+          <button
+            type="button"
+            class="nav-tab active"
+            onclick="showTab('enrollment')"
+          >
             📝 Enrollment
           </button>
-          <button class="nav-tab" onclick="showTab('dashboard')">
+          <button type="button" class="nav-tab" onclick="showTab('dashboard')">
             📊 Dashboard
           </button>
-          <button class="nav-tab" onclick="showTab('courses')">
+          <button type="button" class="nav-tab" onclick="showTab('courses')">
             📚 My Courses
           </button>
-          <button class="nav-tab" onclick="showTab('certificates')">
+          <button
+            type="button"
+            class="nav-tab"
+            onclick="showTab('certificates')"
+          >
             🏆 Certificates
           </button>
-          <button class="nav-tab" onclick="showTab('profile')">
+          <button type="button" class="nav-tab" onclick="showTab('profile')">
             👤 Profile
           </button>
-          <button class="nav-tab" onclick="showTab('support')">
+          <button type="button" class="nav-tab" onclick="showTab('support')">
             💬 Support
           </button>
         </div>
@@ -322,19 +330,21 @@
             <label for="program">Select Training Program *</label>
             <select id="program" name="program" required>
               <option value="">Choose a program...</option>
-              <optgroup label="Healthcare & Public Safety">
+              <optgroup label="Healthcare &amp; Public Safety">
                 <option value="hha">
                   Home Health Aide (HHA) Training - $299
                 </option>
-                <option value="cpr">CPR & OSHA Safety Technician - $89</option>
+                <option value="cpr">
+                  CPR &amp; OSHA Safety Technician - $89
+                </option>
                 <option value="dsp">
                   Direct Support Professional (DSP) - $199
                 </option>
                 <option value="first-aid">
-                  First Aid & Workplace Safety - $79
+                  First Aid &amp; Workplace Safety - $79
                 </option>
               </optgroup>
-              <optgroup label="Technology & Digital Tools">
+              <optgroup label="Technology &amp; Digital Tools">
                 <option value="microsoft">
                   Microsoft Office Specialist - $149
                 </option>
@@ -342,13 +352,13 @@
                   Google Workspace Productivity - $99
                 </option>
                 <option value="digital-literacy">
-                  Digital Literacy & IC3 - $129
+                  Digital Literacy &amp; IC3 - $129
                 </option>
                 <option value="remote-work">
-                  Remote Work & Help Desk - $179
+                  Remote Work &amp; Help Desk - $179
                 </option>
               </optgroup>
-              <optgroup label="Food Service & Business">
+              <optgroup label="Food Service &amp; Business">
                 <option value="servsafe">ServSafe Food Handler - $69</option>
                 <option value="servsafe-manager">
                   ServSafe Manager - $149
@@ -541,14 +551,16 @@
         <h2>📚 My Courses</h2>
 
         <div class="course-card">
-          <h3>CPR & OSHA Safety Technician</h3>
+          <h3>CPR &amp; OSHA Safety Technician</h3>
           <span class="course-status status-completed">Completed</span>
           <div class="progress-bar">
             <div class="progress-fill" style="width: 100%"></div>
           </div>
           <p><strong>Completion Date:</strong> February 28, 2024</p>
           <p><strong>Grade:</strong> 94% (Pass)</p>
-          <button class="btn btn-success">View Certificate</button>
+          <button type="button" class="btn btn-success">
+            View Certificate
+          </button>
         </div>
 
         <div class="course-card">
@@ -560,7 +572,7 @@
           <p><strong>Progress:</strong> 75% Complete</p>
           <p><strong>Next Module:</strong> PowerPoint Advanced Features</p>
           <p><strong>Due Date:</strong> March 15, 2024</p>
-          <button class="btn btn-primary">Continue Course</button>
+          <button type="button" class="btn btn-primary">Continue Course</button>
         </div>
 
         <div class="course-card">
@@ -572,7 +584,7 @@
           <p><strong>Progress:</strong> 30% Complete</p>
           <p><strong>Next Module:</strong> Hazard Recognition</p>
           <p><strong>Due Date:</strong> March 30, 2024</p>
-          <button class="btn btn-primary">Continue Course</button>
+          <button type="button" class="btn btn-primary">Continue Course</button>
         </div>
       </div>
 
@@ -581,15 +593,19 @@
         <h2>🏆 My Certificates</h2>
 
         <div class="certificate">
-          <h3>🏥 CPR & OSHA Safety Technician</h3>
+          <h3>🏥 CPR &amp; OSHA Safety Technician</h3>
           <p><strong>Issued:</strong> February 28, 2024</p>
           <p><strong>Expires:</strong> February 28, 2026</p>
           <p><strong>Certificate ID:</strong> EFH-CPR-2024-001247</p>
           <p><strong>Verification Code:</strong> ABC123XYZ789</p>
           <div style="margin-top: 1rem">
-            <button class="btn btn-primary">Download PDF</button>
-            <button class="btn btn-success">Share on LinkedIn</button>
-            <button class="btn btn-primary">Verify Certificate</button>
+            <button type="button" class="btn btn-primary">Download PDF</button>
+            <button type="button" class="btn btn-success">
+              Share on LinkedIn
+            </button>
+            <button type="button" class="btn btn-primary">
+              Verify Certificate
+            </button>
           </div>
         </div>
 
@@ -720,7 +736,9 @@
             <p><strong>IT Help Desk:</strong> tech@elevateforhumanity.org</p>
             <p><strong>Phone:</strong> (555) 123-4572</p>
             <p><strong>Live Chat:</strong> Available 24/7</p>
-            <button class="btn btn-primary">Start Live Chat</button>
+            <button type="button" class="btn btn-primary">
+              Start Live Chat
+            </button>
           </div>
         </div>
 
@@ -780,7 +798,7 @@
               ❓ <a href="#faq">Frequently Asked Questions</a>
             </li>
             <li style="margin: 0.5rem 0">
-              📋 <a href="#policies">Policies & Procedures</a>
+              📋 <a href="#policies">Policies &amp; Procedures</a>
             </li>
           </ul>
         </div>

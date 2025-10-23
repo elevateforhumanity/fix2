@@ -30,6 +30,9 @@ function getChangeInfo() {
     return JSON.parse(output);
   } catch (error) {
     console.log('⚠️  Could not determine changes, doing full copy');
+    if (error instanceof Error) {
+      console.debug('change detection error:', error.message);
+    }
     return {
       shouldBuild: true,
       appRelevant: [],
@@ -69,7 +72,7 @@ if (cp('sitemaps', path.join(outDir, 'sitemaps'))) {
 
 // 3. Handle different build types
 switch (buildType) {
-  case 'full':
+  case 'full': {
     console.log('🔄 Full deployment - copying all files');
 
     // Copy all HTML files
@@ -101,8 +104,9 @@ switch (buildType) {
       }
     });
     break;
+  }
 
-  case 'pages':
+  case 'pages': {
     console.log('📄 Page-focused deployment');
 
     // Copy changed HTML files
@@ -128,8 +132,9 @@ switch (buildType) {
       }
     });
     break;
+  }
 
-  case 'assets':
+  case 'assets': {
     console.log('🎨 Asset-focused deployment');
 
     // Copy changed assets
@@ -151,8 +156,9 @@ switch (buildType) {
       cp(file, path.join(outDir, file));
     });
     break;
+  }
 
-  case 'seo':
+  case 'seo': {
     console.log('🔍 SEO-focused deployment');
 
     // Copy changed SEO files
@@ -163,6 +169,7 @@ switch (buildType) {
       }
     });
     break;
+  }
 
   default:
     // Copy specific changed files
@@ -198,6 +205,9 @@ try {
   execSync('node scripts/optimize-static-site.mjs', { stdio: 'inherit' });
 } catch (error) {
   console.log('⚠️  Static site optimization failed, continuing...');
+  if (error instanceof Error) {
+    console.debug('optimize-static-site error:', error.message);
+  }
 }
 
 // 5.5. Verify SEO files are preserved
@@ -205,6 +215,9 @@ try {
   execSync('node scripts/verify-seo.mjs', { stdio: 'inherit' });
 } catch (error) {
   console.log('⚠️  SEO verification completed with warnings');
+  if (error instanceof Error) {
+    console.debug('verify-seo warning:', error.message);
+  }
 }
 
 // 6. Generate deployment manifest
@@ -241,8 +254,8 @@ function getDirSize(dirPath) {
         size += fs.statSync(filePath).size;
       }
     }
-  } catch (error) {
-    // Ignore errors
+  } catch {
+    // Ignore directory read errors (e.g. transient deletes)
   }
   return size;
 }

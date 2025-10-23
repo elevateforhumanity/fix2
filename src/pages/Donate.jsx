@@ -61,7 +61,6 @@ export default function Donate() {
             training
           </p>
         </header>
-
         <div
           style={{
             display: 'grid',
@@ -88,7 +87,6 @@ export default function Donate() {
               >
                 Make a Donation
               </h2>
-
               <div style={{ marginBottom: '2rem' }}>
                 <label
                   style={{
@@ -143,7 +141,6 @@ export default function Donate() {
                   </button>
                 </div>
               </div>
-
               <div style={{ marginBottom: '2rem' }}>
                 <label
                   style={{
@@ -220,7 +217,6 @@ export default function Donate() {
                   />
                 )}
               </div>
-
               <button
                 type="submit"
                 style={{
@@ -240,7 +236,6 @@ export default function Donate() {
               </button>
             </form>
           </div>
-
           <div>
             <div
               style={{
@@ -318,7 +313,6 @@ export default function Donate() {
                 <p style={{ color: '#78350f' }}>Sponsors a full scholarship</p>
               </div>
             </div>
-
             <div
               style={{
                 background: 'var(--brand-surface)',

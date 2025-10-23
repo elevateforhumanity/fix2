@@ -48,7 +48,6 @@ export default function About() {
             Learn2Earn Workforce
           </p>
         </header>
-
         {/* Mission Section */}
         <section style={{ marginBottom: '4rem' }}>
           <div
@@ -80,7 +79,6 @@ export default function About() {
                 to prosperity and meaningful careers.
               </p>
             </div>
-
             <div
               style={{
                 background: '#f0fdf4',
@@ -103,7 +101,6 @@ export default function About() {
                 creating thriving communities.
               </p>
             </div>
-
             <div
               style={{
                 background: '#fef3c7',
@@ -127,7 +124,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* Story Section */}
         <section
           style={{
@@ -191,7 +187,6 @@ export default function About() {
             </p>
           </div>
         </section>
-
         {/* What We Do */}
         <section style={{ marginBottom: '4rem' }}>
           <h2
@@ -233,7 +228,6 @@ export default function About() {
             />
           </div>
         </section>
-
         {/* Certifications & Compliance */}
         <section
           style={{
@@ -319,7 +313,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section
           style={{

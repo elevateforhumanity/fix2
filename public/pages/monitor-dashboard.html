@@ -261,6 +261,7 @@
         </div>
 
         <button
+          type="button"
           onclick="saveNotificationSettings()"
           class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
         >
@@ -397,7 +398,7 @@
             views.forEach((view) => {
               const viewTime = new Date(view.timestamp);
               if (
-                viewTime.getHours() === hour.getHours() &&
+                viewTime.getHours() === hour.getHours() &amp;&amp;
                 viewTime.toDateString() === hour.toDateString()
               ) {
                 hourlyCount++;

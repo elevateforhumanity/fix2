@@ -50,12 +50,16 @@ export default function ProgramsIndex() {
                     {p.track}
                   </span>
                   {p.hours && (
-                    <span className="text-xs text-slate-500">{p.hours}</span>
+                    <span className="text-xs text-brand-text-light">
+                      {p.hours}
+                    </span>
                   )}
                 </div>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 {p.blurb && (
-                  <p className="mt-1 text-sm text-slate-600">{p.blurb}</p>
+                  <p className="mt-1 text-sm text-brand-text-muted">
+                    {p.blurb}
+                  </p>
                 )}
               </div>
             </a>

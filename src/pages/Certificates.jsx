@@ -80,7 +80,6 @@ export default function Certificates() {
             View, download, and share your earned certificates
           </p>
         </div>
-
         {/* Stats */}
         <div
           style={{
@@ -112,7 +111,6 @@ export default function Certificates() {
               Certificates Earned
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -135,7 +133,6 @@ export default function Certificates() {
               In Progress
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -162,7 +159,6 @@ export default function Certificates() {
             </div>
           </div>
         </div>
-
         {/* Filter Tabs */}
         <div
           style={{
@@ -239,7 +235,6 @@ export default function Certificates() {
             In Progress ({inProgressCount})
           </button>
         </div>
-
         {/* Certificates List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           {filteredCertificates.map((cert) => (
@@ -294,7 +289,6 @@ export default function Certificates() {
                       {cert.status === 'issued' ? 'Issued' : 'In Progress'}
                     </span>
                   </div>
-
                   {/* Instructor */}
                   <p
                     style={{
@@ -305,7 +299,6 @@ export default function Certificates() {
                   >
                     Instructor: {cert.instructor}
                   </p>
-
                   {/* Details Grid */}
                   <div
                     style={{
@@ -332,7 +325,6 @@ export default function Certificates() {
                         </div>
                       </div>
                     )}
-
                     {cert.certificateId && (
                       <div>
                         <div
@@ -355,7 +347,6 @@ export default function Certificates() {
                         </div>
                       </div>
                     )}
-
                     <div>
                       <div
                         style={{ fontSize: 12, color: '#999', marginBottom: 4 }}
@@ -367,7 +358,6 @@ export default function Certificates() {
                       </div>
                     </div>
                   </div>
-
                   {/* Progress Bar (for in-progress courses) */}
                   {cert.status === 'in-progress' &&
                     cert.progress !== undefined && (
@@ -411,7 +401,6 @@ export default function Certificates() {
                         </div>
                       </div>
                     )}
-
                   {/* Skills */}
                   {cert.skills && cert.skills.length > 0 && (
                     <div>
@@ -441,7 +430,6 @@ export default function Certificates() {
                     </div>
                   )}
                 </div>
-
                 {/* Certificate Preview */}
                 <div
                   style={{
@@ -464,7 +452,6 @@ export default function Certificates() {
                   </span>
                 </div>
               </div>
-
               {/* Actions */}
               {cert.status === 'issued' && (
                 <div
@@ -520,7 +507,6 @@ export default function Certificates() {
                   </button>
                 </div>
               )}
-
               {cert.status === 'in-progress' && (
                 <div
                   style={{
@@ -550,7 +536,6 @@ export default function Certificates() {
             </div>
           ))}
         </div>
-
         {filteredCertificates.length === 0 && (
           <div
             style={{
@@ -590,7 +575,6 @@ export default function Certificates() {
             </Link>
           </div>
         )}
-
         {/* Certificate Verification Info */}
         <div
           style={{

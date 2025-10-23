@@ -1,114 +1,113 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AITutor from "./pages/AITutor";
-import About from "./pages/About";
-import Accessibility from "./pages/Accessibility";
-import AccessibilitySettings from "./pages/AccessibilitySettings";
-import Account from "./pages/Account";
-import AdminConsole from "./pages/AdminConsole";
-import AdminDashboard from "./pages/AdminDashboard";
-import Analytics from "./pages/Analytics";
-import AnalyticsDashboard from "./pages/AnalyticsDashboard";
-import Assignment from "./pages/Assignment";
-import BingSiteVerification from "./pages/BingSiteVerification";
-import Branding from "./pages/Branding";
-import BusinessHub from "./pages/BusinessHub";
-import Calendar from "./pages/Calendar";
-import Certificates from "./pages/Certificates";
-import CloneLanding from "./pages/CloneLanding";
-import Community from "./pages/Community";
-import CommunityHub from "./pages/CommunityHub";
-import Compliance from "./pages/Compliance";
-import Connect from "./pages/Connect";
-import Course from "./pages/Course";
-import CourseBuilder from "./pages/CourseBuilder";
-import CourseCatalog from "./pages/CourseCatalog";
-import CourseDetail from "./pages/CourseDetail";
-import CourseLibrary from "./pages/CourseLibrary";
-import CurriculumUpload from "./pages/CurriculumUpload";
-import Docs from "./pages/Docs";
-import Donate from "./pages/Donate";
-import DonatePage from "./pages/DonatePage";
-import DurableAI from "./pages/DurableAI";
-import DurableFeatures from "./pages/DurableFeatures";
-import DurableLanding from "./pages/DurableLanding";
-import DurablePricing from "./pages/DurablePricing";
-import DurableTemplates from "./pages/DurableTemplates";
-import Ecommerce from "./pages/Ecommerce";
-import Ecosystem from "./pages/Ecosystem";
-import EducatorHub from "./pages/EducatorHub";
-import ElevateBrain from "./pages/ElevateBrain";
-import Email from "./pages/Email";
-import FileManager from "./pages/FileManager";
-import ForgotPassword from "./pages/ForgotPassword";
-import Forms from "./pages/Forms";
-import FundingImpact from "./pages/FundingImpact";
-import GetStarted from "./pages/GetStarted";
-import GoogleAnalyticsSetup from "./pages/GoogleAnalyticsSetup";
-import GoogleSiteVerification from "./pages/GoogleSiteVerification";
-import Government from "./pages/Government";
-import Groups from "./pages/Groups";
-import Home from "./pages/Home";
-import Hub from "./pages/Hub";
-import Instructor from "./pages/Instructor";
-import InstructorEdit from "./pages/InstructorEdit";
-import InstructorNew from "./pages/InstructorNew";
-import Integrations from "./pages/Integrations";
-import KingdomKonnect from "./pages/KingdomKonnect";
-import LMS from "./pages/LMS";
-import LMSLanding from "./pages/LMSLanding";
-import Login from "./pages/Login";
-import MainLanding from "./pages/MainLanding";
-import MentorDirectory from "./pages/MentorDirectory";
-import MentorSignup from "./pages/MentorSignup";
-import Mentorship from "./pages/Mentorship";
-import MobileApp from "./pages/MobileApp";
-import NotebookLM from "./pages/NotebookLM";
-import Notifications from "./pages/Notifications";
-import Partners from "./pages/Partners";
-import Pay from "./pages/Pay";
-import PeerSupport from "./pages/PeerSupport";
-import Philanthropy from "./pages/Philanthropy";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Profile from "./pages/Profile";
-import Programs from "./pages/Programs";
-import Quiz from "./pages/Quiz";
-import RefundPolicy from "./pages/RefundPolicy";
-import ResetPassword from "./pages/ResetPassword";
-import SearchResults from "./pages/SearchResults";
-import SereneComfortCare from "./pages/SereneComfortCare";
-import Settings from "./pages/Settings";
-import Sheets from "./pages/Sheets";
-import Sitemap from "./pages/Sitemap";
-import Sitemap.test from "./pages/Sitemap.test";
-import Sites from "./pages/Sites";
-import Slides from "./pages/Slides";
-import Student from "./pages/Student";
-import StudentDashboard from "./pages/StudentDashboard";
-import StudentHandbook from "./pages/StudentHandbook";
-import StudentHub from "./pages/StudentHub";
-import Support from "./pages/Support";
-import TermsOfService from "./pages/TermsOfService";
-import ThankYou from "./pages/ThankYou";
-import UrbanBuildCrew from "./pages/UrbanBuildCrew";
-import UserManagement from "./pages/UserManagement";
-import VerifyCertificate from "./pages/VerifyCertificate";
-import VerifyEmail from "./pages/VerifyEmail";
-import VideoMeeting from "./pages/VideoMeeting";
-import Vids from "./pages/Vids";
-import Volunteer from "./pages/Volunteer";
-import VolunteerOpportunities from "./pages/VolunteerOpportunities";
-import VolunteerStories from "./pages/VolunteerStories";
-import Wellness from "./pages/Wellness";
-import WellnessResources from "./pages/WellnessResources";
-import NotFound from "./pages/NotFound";
+import { Route, Routes } from 'react-router-dom';
+import AITutor from './pages/AITutor';
+import About from './pages/About';
+import Accessibility from './pages/Accessibility';
+import AccessibilitySettings from './pages/AccessibilitySettings';
+import Account from './pages/Account';
+import AdminConsole from './pages/AdminConsole';
+import AdminDashboard from './pages/AdminDashboard';
+import Analytics from './pages/Analytics';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
+import Assignment from './pages/Assignment';
+import BingSiteVerification from './pages/BingSiteVerification';
+import Branding from './pages/Branding';
+import BusinessHub from './pages/BusinessHub';
+import Calendar from './pages/Calendar';
+import Certificates from './pages/Certificates';
+import CloneLanding from './pages/CloneLanding';
+import Community from './pages/Community';
+import CommunityHub from './pages/CommunityHub';
+import Compliance from './pages/Compliance';
+import Connect from './pages/Connect';
+import Course from './pages/Course';
+import CourseBuilder from './pages/CourseBuilder';
+import CourseCatalog from './pages/CourseCatalog';
+import CourseDetail from './pages/CourseDetail';
+import CourseLibrary from './pages/CourseLibrary';
+import CurriculumUpload from './pages/CurriculumUpload';
+import Docs from './pages/Docs';
+import Donate from './pages/Donate';
+import DonatePage from './pages/DonatePage';
+import DurableAI from './pages/DurableAI';
+import DurableFeatures from './pages/DurableFeatures';
+import DurableLanding from './pages/DurableLanding';
+import DurablePricing from './pages/DurablePricing';
+import DurableTemplates from './pages/DurableTemplates';
+import Ecommerce from './pages/Ecommerce';
+import Ecosystem from './pages/Ecosystem';
+import EducatorHub from './pages/EducatorHub';
+import ElevateBrain from './pages/ElevateBrain';
+import Email from './pages/Email';
+import FileManager from './pages/FileManager';
+import ForgotPassword from './pages/ForgotPassword';
+import Forms from './pages/Forms';
+import FundingImpact from './pages/FundingImpact';
+import GetStarted from './pages/GetStarted';
+import GoogleAnalyticsSetup from './pages/GoogleAnalyticsSetup';
+import GoogleSiteVerification from './pages/GoogleSiteVerification';
+import Government from './pages/Government';
+import Groups from './pages/Groups';
+import Home from './pages/Home';
+import HomePage from './pages/HomePage';
+import Hub from './pages/Hub';
+import Instructor from './pages/Instructor';
+import InstructorEdit from './pages/InstructorEdit';
+import InstructorNew from './pages/InstructorNew';
+import Integrations from './pages/Integrations';
+import KingdomKonnect from './pages/KingdomKonnect';
+import LMS from './pages/LMS';
+import LMSLanding from './pages/LMSLanding';
+import Login from './pages/Login';
+import MainLanding from './pages/MainLanding';
+import MentorDirectory from './pages/MentorDirectory';
+import MentorSignup from './pages/MentorSignup';
+import Mentorship from './pages/Mentorship';
+import MobileApp from './pages/MobileApp';
+import NotFound from './pages/NotFound';
+import NotebookLM from './pages/NotebookLM';
+import Notifications from './pages/Notifications';
+import Partners from './pages/Partners';
+import Pay from './pages/Pay';
+import PeerSupport from './pages/PeerSupport';
+import Philanthropy from './pages/Philanthropy';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Profile from './pages/Profile';
+import Programs from './pages/Programs';
+import Quiz from './pages/Quiz';
+import RefundPolicy from './pages/RefundPolicy';
+import ResetPassword from './pages/ResetPassword';
+import SearchResults from './pages/SearchResults';
+import SereneComfortCare from './pages/SereneComfortCare';
+import Settings from './pages/Settings';
+import Sheets from './pages/Sheets';
+import Sitemap from './pages/Sitemap';
+import SitemapTest from './pages/Sitemap.test';
+import Sites from './pages/Sites';
+import Slides from './pages/Slides';
+import Student from './pages/Student';
+import StudentDashboard from './pages/StudentDashboard';
+import StudentHandbook from './pages/StudentHandbook';
+import StudentHub from './pages/StudentHub';
+import Support from './pages/Support';
+import TermsOfService from './pages/TermsOfService';
+import ThankYou from './pages/ThankYou';
+import UrbanBuildCrew from './pages/UrbanBuildCrew';
+import UserManagement from './pages/UserManagement';
+import VerifyCertificate from './pages/VerifyCertificate';
+import VerifyEmail from './pages/VerifyEmail';
+import VideoMeeting from './pages/VideoMeeting';
+import Vids from './pages/Vids';
+import Volunteer from './pages/Volunteer';
+import VolunteerOpportunities from './pages/VolunteerOpportunities';
+import VolunteerStories from './pages/VolunteerStories';
+import Wellness from './pages/Wellness';
+import WellnessResources from './pages/WellnessResources';
 
 /**
  * Complete Router Configuration
  * Auto-generated by Autopilot
  * 2025-10-13T00:31:16.780Z
- * 
+ *
  * Total Routes: 104
  */
 export default function AppRouter() {
@@ -118,14 +117,20 @@ export default function AppRouter() {
       <Route path="/a-i-tutor" element={<AITutor />} />
       <Route path="/about" element={<About />} />
       <Route path="/accessibility" element={<Accessibility />} />
-      <Route path="/accessibility-settings" element={<AccessibilitySettings />} />
+      <Route
+        path="/accessibility-settings"
+        element={<AccessibilitySettings />}
+      />
       <Route path="/account" element={<Account />} />
       <Route path="/admin-console" element={<AdminConsole />} />
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
       <Route path="/analytics" element={<Analytics />} />
       <Route path="/analytics-dashboard" element={<AnalyticsDashboard />} />
       <Route path="/assignment" element={<Assignment />} />
-      <Route path="/bing-site-verification" element={<BingSiteVerification />} />
+      <Route
+        path="/bing-site-verification"
+        element={<BingSiteVerification />}
+      />
       <Route path="/branding" element={<Branding />} />
       <Route path="/business-hub" element={<BusinessHub />} />
       <Route path="/calendar" element={<Calendar />} />
@@ -160,8 +165,14 @@ export default function AppRouter() {
       <Route path="/forms" element={<Forms />} />
       <Route path="/funding-impact" element={<FundingImpact />} />
       <Route path="/get-started" element={<GetStarted />} />
-      <Route path="/google-analytics-setup" element={<GoogleAnalyticsSetup />} />
-      <Route path="/google-site-verification" element={<GoogleSiteVerification />} />
+      <Route
+        path="/google-analytics-setup"
+        element={<GoogleAnalyticsSetup />}
+      />
+      <Route
+        path="/google-site-verification"
+        element={<GoogleSiteVerification />}
+      />
       <Route path="/government" element={<Government />} />
       <Route path="/groups" element={<Groups />} />
       <Route path="/home" element={<Home />} />
@@ -197,7 +208,7 @@ export default function AppRouter() {
       <Route path="/settings" element={<Settings />} />
       <Route path="/sheets" element={<Sheets />} />
       <Route path="/sitemap" element={<Sitemap />} />
-      <Route path="/sitemap.test" element={<Sitemap.test />} />
+      <Route path="/sitemap.test" element={<SitemapTest />} />
       <Route path="/sites" element={<Sites />} />
       <Route path="/slides" element={<Slides />} />
       <Route path="/student" element={<Student />} />
@@ -214,7 +225,10 @@ export default function AppRouter() {
       <Route path="/video-meeting" element={<VideoMeeting />} />
       <Route path="/vids" element={<Vids />} />
       <Route path="/volunteer" element={<Volunteer />} />
-      <Route path="/volunteer-opportunities" element={<VolunteerOpportunities />} />
+      <Route
+        path="/volunteer-opportunities"
+        element={<VolunteerOpportunities />}
+      />
       <Route path="/volunteer-stories" element={<VolunteerStories />} />
       <Route path="/wellness" element={<Wellness />} />
       <Route path="/wellness-resources" element={<WellnessResources />} />

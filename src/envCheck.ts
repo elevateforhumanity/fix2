@@ -9,10 +9,8 @@ export function assertEnv() {
   if (missing.length) {
     const msg = `Missing required env vars: ${missing.join(', ')}`;
     if (isProd()) {
-      // eslint-disable-next-line no-console
       console.error(msg);
     } else {
-      // eslint-disable-next-line no-console
       console.warn(msg);
     }
   }

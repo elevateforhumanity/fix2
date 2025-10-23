@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, User, LogOut, BookOpen, LayoutDashboard, GraduationCap } from 'lucide-react';
+import { BookOpen, GraduationCap } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../store/authStore';
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -28,38 +28,46 @@ const Header = () => {
               <span className="text-3xl font-bold gradient-text">Elevate</span>
             </motion.div>
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/courses" className="btn-ghost flex items-center space-x-2">
+              <Link
+                to="/courses"
+                className="btn-ghost flex items-center space-x-2"
+              >
                 <BookOpen className="w-5 h-5" />
                 <span>Courses</span>
               </Link>
             </motion.div>
-            
             {isAuthenticated ? (
               <>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/dashboard" className="btn-ghost flex items-center space-x-2">
-                  Dashboard
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to="/dashboard"
+                    className="btn-ghost flex items-center space-x-2"
+                  >
+                    Dashboard
+                  </Link>
+                </motion.div>
                 <Link
                   to="/profile"
                   className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {user?.name}
                 </Link>
-                <button
-                  onClick={logout}
-                  className="ml-4 btn-secondary"
-                >
+                <button onClick={logout} className="ml-4 btn-secondary">
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                <Link
+                  to="/login"
+                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                >
                   Login
                 </Link>
                 <Link to="/register" className="ml-4 btn-primary">
@@ -70,7 +78,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

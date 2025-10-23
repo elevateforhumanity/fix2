@@ -165,24 +165,20 @@ export default function Programs() {
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/programs`}
       />
       <Header />
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-700 via-purple-600 to-purple-700 text-white py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-
         <div className="relative max-w-6xl mx-auto text-center">
           <Badge className="mb-6 text-base px-6 py-2 bg-white/20 backdrop-blur-sm border-white/30 animate-fade-in-down">
             <Sparkles className="h-4 w-4 mr-2" />
             100% FREE • Fully Funded
           </Badge>
-
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up leading-tight">
             Launch Your
             <br />
             <span className="text-yellow-300">Dream Career</span>
           </h1>
-
           <p
             className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto animate-fade-in-up"
             style={{ animationDelay: '100ms' }}
@@ -190,7 +186,6 @@ export default function Programs() {
             Get certified in high-demand careers. Funded by WIOA, DOL, and state
             grants. You pay nothing.
           </p>
-
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div
@@ -224,7 +219,6 @@ export default function Programs() {
           </div>
         </div>
       </section>
-
       {/* Featured Programs */}
       <section className="py-20 px-4 bg-brand-surface">
         <div className="max-w-7xl mx-auto">
@@ -239,7 +233,6 @@ export default function Programs() {
               Our most popular career training programs
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {featuredPrograms.map((program, idx) => (
               <Card
@@ -300,7 +293,6 @@ export default function Programs() {
           </div>
         </div>
       </section>
-
       {/* All Programs with Tabs */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -312,7 +304,6 @@ export default function Programs() {
               Choose the career path that's right for you
             </p>
           </div>
-
           <Tabs
             defaultValue="all"
             className="w-full"
@@ -325,7 +316,6 @@ export default function Programs() {
                 </TabsTrigger>
               ))}
             </TabsList>
-
             <TabsContent value={selectedCategory} className="mt-0">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map((program, idx) => (
@@ -379,7 +369,6 @@ export default function Programs() {
           </Tabs>
         </div>
       </section>
-
       {/* Funding Section */}
       <section className="py-20 px-4 bg-yellow-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -398,7 +387,6 @@ export default function Programs() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="relative bg-gradient-to-br from-blue-700 via-purple-600 to-purple-700 text-white py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
@@ -436,7 +424,6 @@ export default function Programs() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

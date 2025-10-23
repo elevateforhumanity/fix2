@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../lib/seo/SEO';
 
@@ -197,7 +197,6 @@ export default function MainLanding() {
         description="Build professional websites instantly with Durable's AI. Choose from 150+ templates, get advanced features, and transparent pricing. No coding required."
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/main-landing`}
       />
-
       <main id="main-content" style={{ minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
@@ -232,7 +231,6 @@ export default function MainLanding() {
                 $3B+ Market Valuation
               </span>
             </div>
-
             <h1
               style={{
                 fontSize: 'clamp(3rem, 6vw, 5rem)',
@@ -258,7 +256,6 @@ export default function MainLanding() {
               educational initiatives that transform lives and build careers.
               DOL-approved, state-funded, community-focused.
             </p>
-
             {/* Education Impact Metrics */}
             <div
               style={{
@@ -327,7 +324,6 @@ export default function MainLanding() {
                 </div>
               </div>
             </div>
-
             {/* Government Agency Recognition */}
             <div
               style={{
@@ -400,7 +396,6 @@ export default function MainLanding() {
                 📚 DOE Aligned
               </span>
             </div>
-
             {/* Secondary Government Badges */}
             <div
               style={{
@@ -469,7 +464,6 @@ export default function MainLanding() {
                 🎯 OTG Verified
               </span>
             </div>
-
             {/* State & Federal Program Highlights */}
             <div
               style={{
@@ -492,7 +486,6 @@ export default function MainLanding() {
               >
                 🏆 STATE & FEDERAL PROGRAM HIGHLIGHTS
               </h3>
-
               {/* Featured Program Showcase */}
               <div
                 style={{
@@ -515,7 +508,6 @@ export default function MainLanding() {
               >
                 {demos[currentDemo].industry} • {demos[currentDemo].time}
               </div>
-
               {/* Program Benefits Grid */}
               <div
                 style={{
@@ -551,7 +543,6 @@ export default function MainLanding() {
                     apprenticeships
                   </div>
                 </div>
-
                 <div
                   style={{
                     backgroundColor: 'rgba(139, 92, 246, 0.2)',
@@ -578,7 +569,6 @@ export default function MainLanding() {
                     community
                   </div>
                 </div>
-
                 <div
                   style={{
                     backgroundColor: 'rgba(59, 130, 246, 0.2)',
@@ -605,7 +595,6 @@ export default function MainLanding() {
                   </div>
                 </div>
               </div>
-
               <div
                 style={{
                   fontSize: '1.2rem',
@@ -639,10 +628,9 @@ export default function MainLanding() {
                     backgroundColor: '#ff6b6b',
                     animation: 'progress 3s linear infinite',
                   }}
-                ></div>
+                />
               </div>
             </div>
-
             <div
               style={{
                 display: 'flex',
@@ -687,7 +675,6 @@ export default function MainLanding() {
               >
                 🎓 ENROLL NOW - FREE TRAINING
               </button>
-
               {/* Secondary CTA - Pay/Upgrade */}
               <button
                 style={{
@@ -721,7 +708,6 @@ export default function MainLanding() {
               >
                 💳 UPGRADE TO ENTERPRISE
               </button>
-
               {/* Tertiary CTA - Demo */}
               <Link
                 to="/government"
@@ -758,7 +744,6 @@ export default function MainLanding() {
                 🏛️ GOVERNMENT DEMO
               </Link>
             </div>
-
             {/* Urgency Strip */}
             <div
               style={{
@@ -788,7 +773,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* Dynamic Features Showcase */}
         <section
           style={{
@@ -807,7 +791,6 @@ export default function MainLanding() {
             >
               Everything You Need to Succeed Online
             </h2>
-
             <div
               style={{
                 display: 'grid',
@@ -869,7 +852,6 @@ export default function MainLanding() {
                   >
                     {feature.description}
                   </p>
-
                   {currentFeature === index && (
                     <div
                       style={{
@@ -910,7 +892,6 @@ export default function MainLanding() {
                       >
                         🚀 EXPLORE {feature.sector.toUpperCase()}
                       </Link>
-
                       <button
                         style={{
                           padding: '1rem 2.5rem',
@@ -946,7 +927,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* Stats Section */}
         <section
           style={{
@@ -965,7 +945,6 @@ export default function MainLanding() {
             <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>
               Trusted by Thousands Worldwide
             </h2>
-
             <div
               style={{
                 display: 'grid',
@@ -988,7 +967,6 @@ export default function MainLanding() {
                   Websites Created
                 </div>
               </div>
-
               <div style={{ animation: 'countUp 2s ease-out 0.2s both' }}>
                 <div
                   style={{
@@ -1004,7 +982,6 @@ export default function MainLanding() {
                   Uptime Guarantee
                 </div>
               </div>
-
               <div style={{ animation: 'countUp 2s ease-out 0.4s both' }}>
                 <div
                   style={{
@@ -1020,7 +997,6 @@ export default function MainLanding() {
                   Average Build Time
                 </div>
               </div>
-
               <div style={{ animation: 'countUp 2s ease-out 0.6s both' }}>
                 <div
                   style={{
@@ -1039,7 +1015,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* PHENOMENAL PLATFORM SHOWCASE - ALL LANDING PAGES */}
         <section
           style={{
@@ -1075,7 +1050,6 @@ export default function MainLanding() {
               Every landing page, every solution, every pathway to success - all
               integrated into one phenomenal platform
             </p>
-
             {/* Primary Platform Solutions */}
             <div
               style={{
@@ -1130,7 +1104,6 @@ export default function MainLanding() {
                   /philanthropy • $2.4B+ Managed
                 </div>
               </div>
-
               {/* Government Training */}
               <div
                 style={{
@@ -1176,7 +1149,6 @@ export default function MainLanding() {
                   /government • 89% Job Placement
                 </div>
               </div>
-
               {/* LMS Platform */}
               <div
                 style={{
@@ -1222,7 +1194,6 @@ export default function MainLanding() {
                   /lms • 15K+ Graduates
                 </div>
               </div>
-
               {/* Programs Hub */}
               <div
                 style={{
@@ -1269,7 +1240,6 @@ export default function MainLanding() {
                 </div>
               </div>
             </div>
-
             {/* Secondary Platform Features */}
             <div
               style={{
@@ -1374,7 +1344,6 @@ export default function MainLanding() {
                 </div>
               ))}
             </div>
-
             {/* Platform Integration Message */}
             <div
               style={{
@@ -1402,7 +1371,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* Enterprise Testimonials Section */}
         <section
           style={{
@@ -1437,7 +1405,6 @@ export default function MainLanding() {
               See how Fortune 500 organizations achieve measurable impact with
               our enterprise platform
             </p>
-
             <div
               style={{
                 display: 'grid',
@@ -1521,7 +1488,6 @@ export default function MainLanding() {
                   </div>
                 </div>
               </div>
-
               {/* Elevate Learn2Earn Workforce Testimonial */}
               <div
                 style={{
@@ -1598,7 +1564,6 @@ export default function MainLanding() {
                   </div>
                 </div>
               </div>
-
               {/* Grant Management Testimonial */}
               <div
                 style={{
@@ -1675,7 +1640,6 @@ export default function MainLanding() {
                   </div>
                 </div>
               </div>
-
               {/* Enterprise ROI Card */}
               <div
                 style={{
@@ -1732,7 +1696,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* Pricing Section */}
         <section style={{ padding: '5rem 2rem', backgroundColor: 'white' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -1782,7 +1745,6 @@ export default function MainLanding() {
                 🏆 Trusted by 500+ Enterprise Organizations • $2.4B+ Managed
               </span>
             </div>
-
             {/* Billing Toggle */}
             <div
               style={{
@@ -1849,7 +1811,6 @@ export default function MainLanding() {
                 </button>
               </div>
             </div>
-
             <div
               style={{
                 display: 'grid',
@@ -1897,7 +1858,6 @@ export default function MainLanding() {
                   >
                     {plan.badge || plan.sector}
                   </div>
-
                   <h3
                     style={{
                       fontSize: '2rem',
@@ -1907,7 +1867,6 @@ export default function MainLanding() {
                   >
                     {plan.name}
                   </h3>
-
                   <p
                     style={{
                       color: '#718096',
@@ -1917,7 +1876,6 @@ export default function MainLanding() {
                   >
                     {plan.description}
                   </p>
-
                   <div style={{ marginBottom: '2rem' }}>
                     <div
                       style={{
@@ -1977,7 +1935,6 @@ export default function MainLanding() {
                       </div>
                     )}
                   </div>
-
                   <ul
                     style={{
                       listStyle: 'none',
@@ -2011,7 +1968,6 @@ export default function MainLanding() {
                       </li>
                     ))}
                   </ul>
-
                   <button
                     onClick={() => setSelectedPlan(key)}
                     style={{
@@ -2052,7 +2008,6 @@ export default function MainLanding() {
             </div>
           </div>
         </section>
-
         {/* Final CTA Section */}
         <section
           style={{
@@ -2072,7 +2027,6 @@ export default function MainLanding() {
               Join thousands of entrepreneurs and businesses who trust Durable
               to power their online presence. Start building today!
             </p>
-
             <div
               style={{
                 display: 'flex',
@@ -2105,7 +2059,6 @@ export default function MainLanding() {
               >
                 🚀 Start Building Now
               </button>
-
               <Link
                 to="/durable-features"
                 style={{
@@ -2137,7 +2090,6 @@ export default function MainLanding() {
           </div>
         </section>
       </main>
-
       <style jsx>{`
         @keyframes fadeInUp {
           from {

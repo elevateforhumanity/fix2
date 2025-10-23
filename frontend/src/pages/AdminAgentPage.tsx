@@ -24,18 +24,15 @@ export default function AdminAgentPage() {
             language or structured commands
           </p>
         </div>
-
         {/* Agent Console */}
         <AgentConsole
           jwt={jwt}
           commands={commands.commands}
           userRoles={userRoles}
         />
-
         {/* Quick Reference */}
         <div className="mt-12 rounded-2xl border border-neutral-800 bg-neutral-950 p-6 text-white">
           <h2 className="text-xl font-semibold mb-4">Quick Reference</h2>
-
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-sm font-medium text-emerald-400 mb-2">
@@ -47,7 +44,6 @@ export default function AdminAgentPage() {
                 <li>• Generate ETPL reports</li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-sm font-medium text-emerald-400 mb-2">
                 Student Enrollment
@@ -58,7 +54,6 @@ export default function AdminAgentPage() {
                 <li>• Track progress and completions</li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-sm font-medium text-emerald-400 mb-2">
                 Affiliate Management
@@ -69,7 +64,6 @@ export default function AdminAgentPage() {
                 <li>• Calculate commissions</li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-sm font-medium text-emerald-400 mb-2">
                 Payouts & Reports
@@ -82,11 +76,9 @@ export default function AdminAgentPage() {
             </div>
           </div>
         </div>
-
         {/* Example Commands */}
         <div className="mt-8 rounded-2xl border border-neutral-800 bg-neutral-950 p-6 text-white">
           <h2 className="text-xl font-semibold mb-4">Example Commands</h2>
-
           <div className="space-y-4">
             <div>
               <div className="text-sm font-medium text-neutral-400 mb-1">
@@ -97,7 +89,6 @@ export default function AdminAgentPage() {
                 hours, CIP 52.0304"
               </code>
             </div>
-
             <div>
               <div className="text-sm font-medium text-neutral-400 mb-1">
                 Update Tuition:
@@ -106,7 +97,6 @@ export default function AdminAgentPage() {
                 "Update tuition to $1,200 for program abc-123"
               </code>
             </div>
-
             <div>
               <div className="text-sm font-medium text-neutral-400 mb-1">
                 Create Affiliate:
@@ -115,7 +105,6 @@ export default function AdminAgentPage() {
                 "Create gold tier affiliate for user xyz-789"
               </code>
             </div>
-
             <div>
               <div className="text-sm font-medium text-neutral-400 mb-1">
                 Process Payouts:
@@ -126,7 +115,6 @@ export default function AdminAgentPage() {
             </div>
           </div>
         </div>
-
         {/* Security Notice */}
         <div className="mt-8 rounded-xl border border-yellow-800 bg-yellow-950/20 p-4 text-yellow-200">
           <div className="flex items-start gap-3">

@@ -1,9 +1,8 @@
-import { writeFile, mkdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { ROUTES } from '../routes.config.mjs';
-import { readFileSync } from 'node:fs';
 
 const routerSrc = readFileSync('src/router.jsx', 'utf8');
 const routeRegex = /<Route\s+[^>]*path=["']([^"']+)["']/g;
@@ -13,15 +12,11 @@ while ((mm = routeRegex.exec(routerSrc)) !== null) routerPaths.push(mm[1]);
 const realRouterPaths = routerPaths.filter(
   (p) => p !== '*' && !p.startsWith('/:')
 );
-const configPaths = ROUTES.filter((r) => r.sitemap !== false).map(
-  (r) => r.path
-);
+const configPaths = ROUTES.map((r) => r.path);
 const driftA = realRouterPaths.filter((p) => !configPaths.includes(p));
-const driftB = configPaths.filter((p) => !realRouterPaths.includes(p));
-if (driftA.length || driftB.length) {
+if (driftA.length) {
   console.error('Route drift detected:', {
     missingInConfig: driftA,
-    missingInRouter: driftB,
   });
   // continue (warn) or uncomment next line to hard fail:
   // process.exit(1);

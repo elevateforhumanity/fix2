@@ -6,12 +6,12 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      Online Learning Platform | AI & Data Science LMS | Student Dashboard |
+      Online Learning Platform | AI &amp; Data Science LMS | Student Dashboard |
       Elevate for Humanity
     </title>
     <meta
       name="title"
-      content="Online Learning Platform | AI & Data Science LMS | Student Dashboard | Elevate for Humanity"
+      content="Online Learning Platform | AI &amp; Data Science LMS | Student Dashboard | Elevate for Humanity"
     />
     <meta
       name="description"
@@ -23,20 +23,17 @@
     />
 
     <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/lms.html"
-    />
+    <link rel="canonical" href="https://www.elevateforhumanity.org/lms.html" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/lms.html"
+      content="https://www.elevateforhumanity.org/lms.html"
     />
     <meta
       property="og:title"
-      content="Online Learning Platform | AI & Data Science LMS"
+      content="Online Learning Platform | AI &amp; Data Science LMS"
     />
     <meta
       property="og:description"
@@ -44,7 +41,7 @@
     />
     <meta
       property="og:image"
-      content="https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/assets/lms-og.jpg"
+      content="https://www.elevateforhumanity.org/assets/lms-og.jpg"
     />
     <meta property="og:site_name" content="Elevate for Humanity" />
 
@@ -52,11 +49,11 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/lms.html"
+      content="https://www.elevateforhumanity.org/lms.html"
     />
     <meta
       property="twitter:title"
-      content="Online Learning Platform | AI & Data Science LMS"
+      content="Online Learning Platform | AI &amp; Data Science LMS"
     />
     <meta
       property="twitter:description"
@@ -64,10 +61,10 @@
     />
     <meta
       property="twitter:image"
-      content="https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/assets/lms-twitter.jpg"
+      content="https://www.elevateforhumanity.org/assets/lms-twitter.jpg"
     />
 
-    <!-- Security & Performance -->
+    <!-- Security &amp; Performance -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="robots"
@@ -83,7 +80,7 @@
         "@type": "WebApplication",
         "name": "Elevate for Humanity Learning Management System",
         "description": "Interactive online learning platform for AI and data science education",
-        "url": "https://149dac3d-f555-4440-8be8-758dc290baa7-00-18qn78v70z4k6.janeway.replit.dev/lms.html",
+        "url": "https://www.elevateforhumanity.org/lms.html",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Web Browser",
         "offers": {
@@ -266,7 +263,7 @@
       </div>
 
       <!-- Course Dashboard -->
-      <div x-show="user && enrollments.length > 0">
+      <div x-show="user &amp;&amp; enrollments.length > 0">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">My Courses</h2>
 
         <div class="grid lg:grid-cols-2 gap-8 mb-8">
@@ -312,6 +309,7 @@
                 <!-- Quick Actions -->
                 <div class="flex flex-col gap-3">
                   <button
+                    type="button"
                     @click="continueLearning(enrollment.program_slug)"
                     class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                     :data-testid="`button-continue-${enrollment.program_slug}`"
@@ -319,6 +317,7 @@
                     Continue Learning
                   </button>
                   <button
+                    type="button"
                     @click="watchVideos(enrollment.program_slug)"
                     class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors"
                     :data-testid="`button-videos-${enrollment.program_slug}`"
@@ -326,6 +325,7 @@
                     📹 Watch Videos
                   </button>
                   <button
+                    type="button"
                     @click="viewAssignments(enrollment.program_slug)"
                     class="border-2 border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors"
                     :data-testid="`button-assignments-${enrollment.program_slug}`"
@@ -340,7 +340,10 @@
       </div>
 
       <!-- No Courses Message -->
-      <div x-show="user && enrollments.length === 0" class="text-center py-12">
+      <div
+        x-show="user &amp;&amp; enrollments.length === 0"
+        class="text-center py-12"
+      >
         <div class="bg-white rounded-xl shadow-lg p-8">
           <div
             class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
@@ -405,7 +408,7 @@
 
       <!-- Recent Activity -->
       <div
-        x-show="user && enrollments.length > 0"
+        x-show="user &amp;&amp; enrollments.length > 0"
         class="bg-white rounded-xl shadow-lg p-8"
       >
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Activity</h2>
@@ -573,7 +576,7 @@
                         <div class="bg-white rounded-xl p-6 max-w-4xl w-full mx-4">
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-xl font-bold">Course Videos - ${this.getCourseName(slug)}</h3>
-                                <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                                <button type="button" onclick="this.parentElement.parentElement.parentElement.remove()" 
                                         class="text-gray-500 hover:text-gray-700">
                                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>

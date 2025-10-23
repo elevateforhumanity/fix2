@@ -165,7 +165,6 @@ export function ElevateBrain() {
           </button>
         </div>
       </div>
-
       {/* Dashboard */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
         {/* Stats Grid */}
@@ -244,7 +243,6 @@ export function ElevateBrain() {
             </div>
           ))}
         </div>
-
         {/* Quick Actions */}
         <div
           style={{
@@ -329,7 +327,6 @@ export function ElevateBrain() {
             </Link>
           </div>
         </div>
-
         {/* Recent Activity */}
         <div
           style={{
@@ -405,7 +402,6 @@ export function ElevateBrain() {
               ))}
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -478,7 +474,6 @@ export function ElevateBrain() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div
         style={{

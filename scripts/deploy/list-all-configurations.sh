@@ -76,14 +76,10 @@ add_pattern_files "tailwind.config.*" "TAILWIND CONFIGURATIONS"
 # 5. PostCSS configs
 add_pattern_files "postcss.config.*" "POSTCSS CONFIGURATIONS"
 
-# 6. Vercel configs
+# 6. Vercel configs (legacy, retained for reference)
 add_pattern_files "vercel.json" "VERCEL CONFIGURATIONS"
 
-# 7. Replit configs
-add_pattern_files ".replit" "REPLIT CONFIGURATIONS"
-add_pattern_files "replit.nix" "REPLIT NIX CONFIGURATIONS"
-
-# 8. Environment configs
+# 7. Environment configs
 echo -e "${CYAN}📋 Finding Environment Files...${NC}"
 echo "" >> "$OUTPUT_FILE"
 echo "######## ENVIRONMENT FILES ########" >> "$OUTPUT_FILE"
@@ -176,7 +172,6 @@ echo "######## ROOT-LEVEL IMPORTANT FILES ########" >> "$OUTPUT_FILE"
 
 ROOT_FILES=(
     "README.md"
-    "replit.md" 
     "DEPLOYMENT_CHECKLIST.md"
     "setup-guide.md"
     ".gitignore"

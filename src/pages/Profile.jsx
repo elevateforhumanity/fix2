@@ -49,7 +49,6 @@ export default function Profile() {
             Update your personal information and public profile
           </p>
         </div>
-
         {saved && (
           <div
             style={{
@@ -64,7 +63,6 @@ export default function Profile() {
             ✅ Profile updated successfully
           </div>
         )}
-
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
           <div
@@ -79,7 +77,6 @@ export default function Profile() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Personal Information
             </h2>
-
             <div
               style={{
                 display: 'grid',
@@ -114,7 +111,6 @@ export default function Profile() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -142,7 +138,6 @@ export default function Profile() {
                 />
               </div>
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -169,7 +164,6 @@ export default function Profile() {
                 }}
               />
             </div>
-
             <div
               style={{
                 display: 'grid',
@@ -203,7 +197,6 @@ export default function Profile() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -235,7 +228,6 @@ export default function Profile() {
               </div>
             </div>
           </div>
-
           {/* Professional Information */}
           <div
             style={{
@@ -249,7 +241,6 @@ export default function Profile() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Professional Information
             </h2>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -276,7 +267,6 @@ export default function Profile() {
                 }}
               />
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -305,7 +295,6 @@ export default function Profile() {
                 }}
               />
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -332,7 +321,6 @@ export default function Profile() {
                 }}
               />
             </div>
-
             <div
               style={{
                 display: 'grid',
@@ -366,7 +354,6 @@ export default function Profile() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -395,7 +382,6 @@ export default function Profile() {
               </div>
             </div>
           </div>
-
           {/* Address Information */}
           <div
             style={{
@@ -409,7 +395,6 @@ export default function Profile() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Address
             </h2>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -436,7 +421,6 @@ export default function Profile() {
                 }}
               />
             </div>
-
             <div
               style={{
                 display: 'grid',
@@ -471,7 +455,6 @@ export default function Profile() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -498,7 +481,6 @@ export default function Profile() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -526,7 +508,6 @@ export default function Profile() {
                 />
               </div>
             </div>
-
             <div>
               <label
                 style={{
@@ -558,7 +539,6 @@ export default function Profile() {
               </select>
             </div>
           </div>
-
           {/* Action Buttons */}
           <div
             style={{

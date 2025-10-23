@@ -292,7 +292,6 @@ export default function StudentHandbook() {
               </button>
             ))}
           </nav>
-
           {/* Quick Links */}
           <div
             style={{
@@ -345,7 +344,6 @@ export default function StudentHandbook() {
             </div>
           </div>
         </div>
-
         {/* Main Content */}
         <div style={{ flex: 1, padding: 48 }}>
           <div style={{ maxWidth: 800 }}>
@@ -358,7 +356,6 @@ export default function StudentHandbook() {
                 {content[activeSection].title}
               </h1>
             </div>
-
             {/* Content Sections */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               {content[activeSection].sections.map((section, index) => (
@@ -385,7 +382,6 @@ export default function StudentHandbook() {
                 </div>
               ))}
             </div>
-
             {/* Help CTA */}
             <div
               style={{
@@ -424,7 +420,6 @@ export default function StudentHandbook() {
                 Contact Support
               </Link>
             </div>
-
             {/* Download Handbook */}
             <div
               style={{

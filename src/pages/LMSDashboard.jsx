@@ -121,7 +121,6 @@ export default function LMSDashboard() {
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/lms`}
       />
       <Header />
-
       <main className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
@@ -132,7 +131,6 @@ export default function LMSDashboard() {
             Continue your learning journey
           </p>
         </div>
-
         {/* Quick Actions Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {quickActions.map((action, idx) => (
@@ -148,7 +146,6 @@ export default function LMSDashboard() {
             </Link>
           ))}
         </div>
-
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content - Courses */}
           <div className="lg:col-span-2 space-y-6">
@@ -194,7 +191,6 @@ export default function LMSDashboard() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Assignments */}
             <Card>
               <CardHeader>
@@ -242,7 +238,6 @@ export default function LMSDashboard() {
               </CardContent>
             </Card>
           </div>
-
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Upcoming Events */}
@@ -271,7 +266,6 @@ export default function LMSDashboard() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Achievements */}
             <Card>
               <CardHeader>
@@ -305,7 +299,6 @@ export default function LMSDashboard() {
                 </Button>
               </CardContent>
             </Card>
-
             {/* Support */}
             <Card>
               <CardHeader>
@@ -341,7 +334,6 @@ export default function LMSDashboard() {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

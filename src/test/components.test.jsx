@@ -1,9 +1,17 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
-import { ProtectedRoute } from '../components/ProtectedRoute';
+import { MemoryRouter } from 'react-router-dom';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import ProtectedRoute from '../components/auth/ProtectedRoute';
 import AppLayout from '../layouts/AppLayout';
+
+vi.mock('../services/auth', () => ({
+  getCurrentUser: vi.fn(),
+}));
+
+import { getCurrentUser } from '../services/auth';
+
+const mockGetCurrentUser = getCurrentUser;
 
 const renderWithProviders = (component) => {
   return render(
@@ -25,7 +33,9 @@ describe('Component Tests', () => {
       expect(screen.getByText('Home')).toBeInTheDocument();
       expect(screen.getByText('Courses')).toBeInTheDocument();
       expect(screen.getByText('Account')).toBeInTheDocument();
-      expect(screen.getByText('Support')).toBeInTheDocument();
+      expect(
+        screen.getAllByRole('link', { name: 'Support' })[0]
+      ).toBeInTheDocument();
       expect(screen.getByText('Partners')).toBeInTheDocument();
     });
 
@@ -51,49 +61,72 @@ describe('Component Tests', () => {
       expect(screen.getByText('Test Content')).toBeInTheDocument();
     });
 
-    it('sets page title', () => {
+    it('sets page title', async () => {
       renderWithProviders(
         <AppLayout title="Custom Title">
           <div>Content</div>
         </AppLayout>
       );
 
-      // Helmet updates document.title asynchronously
-      setTimeout(() => {
+      await waitFor(() => {
         expect(document.title).toContain('Custom Title');
-      }, 0);
+      });
     });
   });
 
   describe('ProtectedRoute', () => {
-    it('renders children when authenticated', () => {
+    beforeEach(() => {
+      mockGetCurrentUser.mockResolvedValue({
+        id: 'user-1',
+        email: 'user@example.com',
+        role: 'student',
+      });
+    });
+
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('renders children when authenticated', async () => {
       renderWithProviders(
         <ProtectedRoute>
           <div>Protected Content</div>
         </ProtectedRoute>
       );
 
-      expect(screen.getByText('Protected Content')).toBeInTheDocument();
+      expect(await screen.findByText('Protected Content')).toBeInTheDocument();
     });
 
-    it('renders children for admin role', () => {
+    it('renders children for admin role', async () => {
+      mockGetCurrentUser.mockResolvedValueOnce({
+        id: 'admin-1',
+        email: 'admin@example.com',
+        role: 'admin',
+      });
+
       renderWithProviders(
         <ProtectedRoute requiredRole="admin">
           <div>Admin Content</div>
         </ProtectedRoute>
       );
 
-      expect(screen.getByText('Admin Content')).toBeInTheDocument();
+      expect(await screen.findByText('Admin Content')).toBeInTheDocument();
     });
 
-    it('renders children for instructor role', () => {
+    it('renders children for instructor role', async () => {
+      mockGetCurrentUser.mockResolvedValueOnce({
+        id: 'instructor-1',
+        email: 'instructor@example.com',
+        role: 'instructor',
+      });
+
       renderWithProviders(
         <ProtectedRoute requiredRole="instructor">
           <div>Instructor Content</div>
         </ProtectedRoute>
       );
 
-      expect(screen.getByText('Instructor Content')).toBeInTheDocument();
+      expect(await screen.findByText('Instructor Content')).toBeInTheDocument();
     });
   });
 });

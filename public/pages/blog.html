@@ -42,12 +42,12 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      AI & Data Science Blog | Career Insights & Industry News | Elevate for
-      Humanity
+      AI &amp; Data Science Blog | Career Insights &amp; Industry News | Elevate
+      for Humanity
     </title>
     <meta
       name="title"
-      content="AI & Data Science Blog | Career Insights & Industry News | Elevate for Humanity"
+      content="AI &amp; Data Science Blog | Career Insights &amp; Industry News | Elevate for Humanity"
     />
     <meta
       name="description"
@@ -59,17 +59,17 @@
     />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://your-domain.replit.app/blog.html" />
+    <link rel="canonical" href="https://www.elevateforhumanity.org/blog.html" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://your-domain.replit.app/blog.html"
+      content="https://www.elevateforhumanity.org/blog.html"
     />
     <meta
       property="og:title"
-      content="AI & Data Science Blog | Career Insights & Industry News"
+      content="AI &amp; Data Science Blog | Career Insights &amp; Industry News"
     />
     <meta
       property="og:description"
@@ -77,7 +77,7 @@
     />
     <meta
       property="og:image"
-      content="https://your-domain.replit.app/assets/blog-og.jpg"
+      content="https://www.elevateforhumanity.org/assets/blog-og.jpg"
     />
     <meta property="og:site_name" content="Elevate for Humanity" />
 
@@ -85,11 +85,11 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://your-domain.replit.app/blog.html"
+      content="https://www.elevateforhumanity.org/blog.html"
     />
     <meta
       property="twitter:title"
-      content="AI & Data Science Blog | Career Insights & Industry News"
+      content="AI &amp; Data Science Blog | Career Insights &amp; Industry News"
     />
     <meta
       property="twitter:description"
@@ -97,10 +97,10 @@
     />
     <meta
       property="twitter:image"
-      content="https://your-domain.replit.app/assets/blog-twitter.jpg"
+      content="https://www.elevateforhumanity.org/assets/blog-twitter.jpg"
     />
 
-    <!-- Security & Performance -->
+    <!-- Security &amp; Performance -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="robots"
@@ -116,18 +116,18 @@
         "@type": "Blog",
         "name": "Elevate for Humanity Blog",
         "description": "AI and data science career insights, industry news, and student success stories",
-        "url": "https://your-domain.replit.app/blog.html",
+        "url": "https://www.elevateforhumanity.org/blog.html",
         "publisher": {
           "@type": "Organization",
           "name": "Elevate for Humanity",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://your-domain.replit.app/assets/logo.png"
+            "url": "https://www.elevateforhumanity.org/assets/logo.png"
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://your-domain.replit.app/blog.html"
+          "@id": "https://www.elevateforhumanity.org/blog.html"
         }
       }
     </script>
@@ -166,7 +166,7 @@
       <!-- Blog Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          AI & Data Science Insights
+          AI &amp; Data Science Insights
         </h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
           Stay ahead of the curve with expert insights, career advice, and
@@ -196,6 +196,7 @@
             </p>
             <div class="mt-6">
               <button
+                type="button"
                 @click="readArticle('featured')"
                 class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
@@ -222,6 +223,7 @@
       <!-- Blog Categories -->
       <div class="flex flex-wrap gap-4 mb-8">
         <button
+          type="button"
           @click="filterBy = 'all'"
           :class="filterBy === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'"
           class="px-4 py-2 rounded-lg font-medium transition-colors"
@@ -229,6 +231,7 @@
           All Posts
         </button>
         <button
+          type="button"
           @click="filterBy = 'career-tips'"
           :class="filterBy === 'career-tips' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'"
           class="px-4 py-2 rounded-lg font-medium transition-colors"
@@ -236,6 +239,7 @@
           Career Tips
         </button>
         <button
+          type="button"
           @click="filterBy = 'industry-news'"
           :class="filterBy === 'industry-news' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'"
           class="px-4 py-2 rounded-lg font-medium transition-colors"
@@ -243,6 +247,7 @@
           Industry News
         </button>
         <button
+          type="button"
           @click="filterBy = 'student-stories'"
           :class="filterBy === 'student-stories' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'"
           class="px-4 py-2 rounded-lg font-medium transition-colors"
@@ -250,6 +255,7 @@
           Student Stories
         </button>
         <button
+          type="button"
           @click="filterBy = 'workforce-development'"
           :class="filterBy === 'workforce-development' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'"
           class="px-4 py-2 rounded-lg font-medium transition-colors"
@@ -304,6 +310,7 @@
                   ></span>
                 </div>
                 <button
+                  type="button"
                   @click="readArticle(article.id)"
                   class="text-blue-600 hover:text-blue-700 font-medium"
                 >
@@ -335,6 +342,7 @@
                 class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
+                type="button"
                 @click="subscribeNewsletter()"
                 class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >

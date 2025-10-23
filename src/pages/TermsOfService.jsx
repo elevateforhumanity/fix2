@@ -23,7 +23,6 @@ export default function TermsOfService() {
         >
           Last updated: January 1, 2025
         </p>
-
         <div style={{ fontSize: 16, lineHeight: 1.8, color: '#333' }}>
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
@@ -36,7 +35,6 @@ export default function TermsOfService() {
               prohibited from using or accessing this Platform.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               2. Use License
@@ -58,7 +56,6 @@ export default function TermsOfService() {
               </li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               3. User Accounts
@@ -74,7 +71,6 @@ export default function TermsOfService() {
               immediately of any unauthorized use of your account.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               4. Course Enrollment and Access
@@ -90,7 +86,6 @@ export default function TermsOfService() {
               for violation of these Terms.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               5. Intellectual Property
@@ -102,7 +97,6 @@ export default function TermsOfService() {
               is protected by international copyright laws.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               6. User Content
@@ -120,7 +114,6 @@ export default function TermsOfService() {
               third-party rights.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               7. Prohibited Activities
@@ -140,7 +133,6 @@ export default function TermsOfService() {
               <li>Using automated systems to access the Platform</li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               8. Payment Terms
@@ -155,7 +147,6 @@ export default function TermsOfService() {
               a purchase, you agree to their terms and conditions.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               9. Refund Policy
@@ -168,7 +159,6 @@ export default function TermsOfService() {
               for information about refunds and cancellations.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               10. Disclaimer
@@ -181,7 +171,6 @@ export default function TermsOfService() {
               particular purpose, or non-infringement of intellectual property.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               11. Limitations of Liability
@@ -193,7 +182,6 @@ export default function TermsOfService() {
               the use or inability to use the Platform.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               12. Termination
@@ -205,7 +193,6 @@ export default function TermsOfService() {
               right to use the Platform will immediately cease.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               13. Governing Law
@@ -216,7 +203,6 @@ export default function TermsOfService() {
               operates, without regard to its conflict of law provisions.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               14. Changes to Terms
@@ -228,7 +214,6 @@ export default function TermsOfService() {
               changes constitutes acceptance of the new Terms.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               15. Contact Information
@@ -256,7 +241,6 @@ export default function TermsOfService() {
             </div>
           </section>
         </div>
-
         <div
           style={{
             marginTop: 48,

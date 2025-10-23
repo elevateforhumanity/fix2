@@ -97,7 +97,6 @@ export default function LMSLanding() {
         description="Access courses, assignments, grades, and learning resources. Professional LMS platform for students and instructors."
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/lms`}
       />
-
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -130,7 +129,6 @@ export default function LMSLanding() {
           </div>
         </div>
       </header>
-
       <main>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 px-4 text-center overflow-hidden">
@@ -140,7 +138,6 @@ export default function LMSLanding() {
               <CheckCircle2 className="h-4 w-4 mr-2" />
               Trusted by 1,247+ Students
             </Badge>
-
             <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-brand-text leading-tight">
               Your Complete
               <br />
@@ -148,12 +145,10 @@ export default function LMSLanding() {
                 Learning Platform
               </span>
             </h2>
-
             <p className="text-xl md:text-2xl text-brand-text-muted mb-12 max-w-3xl mx-auto">
               Access courses, submit assignments, track your progress, and
               connect with instructors—all in one place.
             </p>
-
             {/* Quick Access Cards */}
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <Link to="/student-dashboard">
@@ -174,7 +169,6 @@ export default function LMSLanding() {
                   </CardContent>
                 </Card>
               </Link>
-
               <Link to="/instructor">
                 <Card className="group hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 hover:border-purple-500 cursor-pointer h-full">
                   <CardHeader className="text-center">
@@ -198,7 +192,6 @@ export default function LMSLanding() {
                   </CardContent>
                 </Card>
               </Link>
-
               <Link to="/course-catalog">
                 <Card className="group hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 hover:border-green-500 cursor-pointer h-full">
                   <CardHeader className="text-center">
@@ -220,7 +213,6 @@ export default function LMSLanding() {
             </div>
           </div>
         </section>
-
         {/* Stats Section */}
         <section className="py-16 px-4 bg-brand-surface">
           <div className="max-w-6xl mx-auto">
@@ -241,7 +233,6 @@ export default function LMSLanding() {
             </div>
           </div>
         </section>
-
         {/* Features Section */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -253,7 +244,6 @@ export default function LMSLanding() {
                 Powerful tools for students and instructors to succeed
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, idx) => (
                 <Card
@@ -261,9 +251,7 @@ export default function LMSLanding() {
                   className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 hover:border-blue-200"
                 >
                   <CardHeader>
-                    <div
-                      className={`w-14 h-14 rounded-xl bg-brand-surface-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                    >
+                    <div className="w-14 h-14 rounded-xl bg-brand-surface-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <feature.icon className={`h-7 w-7 ${feature.color}`} />
                     </div>
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
@@ -276,7 +264,6 @@ export default function LMSLanding() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="relative bg-gradient-to-br from-blue-700 via-purple-600 to-purple-700 text-white py-20 px-4 text-center overflow-hidden">
           <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
@@ -310,7 +297,6 @@ export default function LMSLanding() {
             </div>
           </div>
         </section>
-
         {/* Support Section */}
         <section className="py-16 px-4 bg-brand-surface">
           <div className="max-w-5xl mx-auto">
@@ -339,7 +325,6 @@ export default function LMSLanding() {
                   </Link>
                 </CardContent>
               </Card>
-
               <Card className="text-center hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -361,7 +346,6 @@ export default function LMSLanding() {
                   </Link>
                 </CardContent>
               </Card>
-
               <Card className="text-center hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mx-auto mb-4">

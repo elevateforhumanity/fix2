@@ -230,7 +230,6 @@ export default function EmailEventsPanel() {
           Monitor email delivery, opens, and engagement
         </p>
       </div>
-
       {/* Alert Message */}
       {alertMessage && (
         <div
@@ -256,7 +255,6 @@ export default function EmailEventsPanel() {
           </div>
         </div>
       )}
-
       {/* Stats Cards */}
       {stats.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
@@ -285,7 +283,6 @@ export default function EmailEventsPanel() {
           ))}
         </div>
       )}
-
       {/* Filters */}
       <div className="bg-white rounded-lg shadow p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -309,7 +306,6 @@ export default function EmailEventsPanel() {
               <option value="failed">Failed</option>
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
               Search
@@ -324,11 +320,10 @@ export default function EmailEventsPanel() {
           </div>
         </div>
       </div>
-
       {/* Events Table */}
       {loading ? (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
           <p className="mt-4 text-brand-text-muted">Loading email events...</p>
         </div>
       ) : (
@@ -338,7 +333,6 @@ export default function EmailEventsPanel() {
               Recent Email Events ({filteredEvents.length})
             </h2>
           </div>
-
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-brand-surface">
@@ -504,7 +498,6 @@ export default function EmailEventsPanel() {
               </tbody>
             </table>
           </div>
-
           {filteredEvents.length === 0 && (
             <div className="text-center py-12">
               <p className="text-brand-text-muted">No email events found</p>

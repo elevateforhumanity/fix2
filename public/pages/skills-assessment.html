@@ -84,7 +84,9 @@
         <div
           class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-6 text-white"
         >
-          <h2 class="text-2xl font-bold mb-2">Skills Assessment & Tracking</h2>
+          <h2 class="text-2xl font-bold mb-2">
+            Skills Assessment &amp; Tracking
+          </h2>
           <p class="opacity-90">
             Comprehensive skills evaluation system for federal workforce
             development programs
@@ -125,6 +127,7 @@
             Reading, writing, math, and digital literacy evaluation
           </p>
           <button
+            type="button"
             onclick="startAssessment('basic-skills')"
             class="w-full bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
           >
@@ -144,6 +147,7 @@
             Industry and occupation-specific competency evaluation
           </p>
           <button
+            type="button"
             onclick="startAssessment('job-skills')"
             class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
           >
@@ -159,12 +163,13 @@
             >
           </div>
           <h3 class="text-lg font-semibold mb-2">
-            Soft Skills & Work Readiness
+            Soft Skills &amp; Work Readiness
           </h3>
           <p class="text-gray-600 text-sm mb-4">
             Communication, teamwork, and workplace behavior assessment
           </p>
           <button
+            type="button"
             onclick="startAssessment('soft-skills')"
             class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           >
@@ -240,6 +245,7 @@
           </div>
           <div class="self-end">
             <button
+              type="button"
               onclick="exportAssessments()"
               class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 flex items-center"
             >
@@ -316,6 +322,7 @@
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">New Skills Assessment</h3>
                 <button
+                  type="button"
                   onclick="hideNewAssessmentForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -364,7 +371,7 @@
                             Job-Specific Skills
                           </option>
                           <option value="soft-skills">
-                            Soft Skills & Work Readiness
+                            Soft Skills &amp; Work Readiness
                           </option>
                           <option value="industry-specific">
                             Industry-Specific Assessment
@@ -413,7 +420,7 @@
                   <!-- Skill Areas (Dynamic based on assessment type) -->
                   <div class="bg-gray-50 p-4 rounded">
                     <h4 class="font-medium text-gray-900 mb-3">
-                      Skill Areas & Scores
+                      Skill Areas &amp; Scores
                     </h4>
                     <div id="skill-areas-container">
                       <!-- Will be populated based on assessment type -->
@@ -478,7 +485,7 @@
         ],
         'soft-skills': [
           { name: 'Communication Skills', key: 'communication' },
-          { name: 'Teamwork & Collaboration', key: 'teamwork' },
+          { name: 'Teamwork &amp; Collaboration', key: 'teamwork' },
           { name: 'Problem Solving', key: 'problem_solving' },
           { name: 'Time Management', key: 'time_management' },
           { name: 'Adaptability', key: 'adaptability' },
@@ -539,8 +546,8 @@
                         ${assessment.assessment_date ? new Date(assessment.assessment_date).toLocaleDateString() : 'N/A'}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewAssessment('${assessment.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        <button onclick="editAssessment('${assessment.id}')" class="text-green-600 hover:text-green-900">Edit</button>
+                        <button type="button" onclick="viewAssessment('${assessment.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        <button type="button" onclick="editAssessment('${assessment.id}')" class="text-green-600 hover:text-green-900">Edit</button>
                     </td>
                 `;
           tbody.appendChild(row);

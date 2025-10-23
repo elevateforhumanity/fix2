@@ -33,7 +33,6 @@ export default function Account() {
         >
           My Account
         </h1>
-
         <div
           style={{
             display: 'grid',
@@ -100,7 +99,6 @@ export default function Account() {
               {user.role}
             </div>
           </div>
-
           {/* Account Stats */}
           <div
             style={{
@@ -180,7 +178,6 @@ export default function Account() {
               </div>
             </div>
           </div>
-
           {/* Quick Actions */}
           <div
             style={{
@@ -269,7 +266,6 @@ export default function Account() {
             </div>
           </div>
         </div>
-
         {/* Security Section */}
         <div
           style={{

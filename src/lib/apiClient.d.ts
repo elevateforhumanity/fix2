@@ -1,4 +1,6 @@
-declare module './lib/apiClient.js' {
-  export const apiClient: any;
-  export default apiClient;
+export declare class ApiError extends Error {
+  status: number;
+  constructor(status: number, message: string);
 }
+
+export {};

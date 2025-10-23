@@ -3,7 +3,7 @@
   "type": "module",
   "version": "2.0.0",
   "engines": {
-    "node": ">=20.11.1 <21"
+    "node": ">=20.11.1 <23"
   },
   "packageManager": "pnpm@9.7.0",
   "lint-staged": {
@@ -12,6 +12,11 @@
     ]
   },
   "dependencies": {
+    "@capacitor/app": "^7.0.2",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/haptics": "^7.0.2",
+    "@capacitor/keyboard": "^7.0.2",
+    "@capacitor/status-bar": "^7.0.2",
     "@hookform/resolvers": "^5.2.2",
     "@sentry/react": "^7.99.0",
     "@sentry/tracing": "^7.99.0",
@@ -46,6 +51,9 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/ios": "^7.4.4",
     "@eslint/js": "^9.38.0",
     "@sentry/browser": "^10.20.0",
     "@tailwindcss/forms": "^0.5.10",
@@ -64,6 +72,7 @@
     "eslint": "^9.37.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
+    "glob": "^10.4.5",
     "globals": "^16.4.0",
     "happy-dom": "^20.0.0",
     "husky": "^8.0.0",
@@ -94,6 +103,7 @@
     "clean:full": "rimraf node_modules dist .vite .turbo && pnpm store prune",
     "dev": "vite",
     "build": "node scripts/check-env.js && vite build",
+    "postbuild": "node scripts/postbuild.mjs && node scripts/fix-domain-urls.js && node scripts/update-canonical-urls.js",
     "preview": "vite preview --host 0.0.0.0 --port 8080 --strictPort",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -121,6 +131,10 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "css:lint": "stylelint \"**/*.{css,pcss,scss}\"",
     "css:fix": "stylelint \"**/*.{css,pcss,scss}\" --fix",
-    "doctor": "npm run format && npm run lint:fix && npm run css:fix && npm run build --if-present"
+    "doctor": "npm run format && npm run lint:fix && npm run css:fix && npm run build --if-present",
+    "mobile:copy": "pnpm build && pnpm exec cap copy",
+    "mobile:sync": "pnpm build && pnpm exec cap sync",
+    "mobile:android": "pnpm build && pnpm exec cap open android",
+    "mobile:ios": "pnpm build && pnpm exec cap open ios"
   }
 }

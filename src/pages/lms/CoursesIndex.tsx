@@ -19,10 +19,12 @@ export default function CoursesIndex() {
               href={`/lms/course/${c.id}`}
               className="card p-5 hover:shadow-lg transition"
             >
-              <div className="text-xs text-slate-500">{c.code}</div>
+              <div className="text-xs text-brand-text-light">{c.code}</div>
               <div className="mt-1 text-lg font-semibold">{c.title}</div>
               {c.summary && (
-                <p className="mt-2 text-sm text-slate-600">{c.summary}</p>
+                <p className="mt-2 text-sm text-brand-text-muted">
+                  {c.summary}
+                </p>
               )}
             </a>
           ))}

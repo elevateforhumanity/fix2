@@ -105,7 +105,6 @@ export function GetStarted() {
           Everything you need to start teaching, learning, and collaborating
         </p>
       </div>
-
       {/* Quick Start by Role */}
       <div
         style={{ maxWidth: '1400px', margin: '0 auto', padding: '4rem 2rem' }}
@@ -119,7 +118,6 @@ export function GetStarted() {
         >
           Choose Your Role to Get Started
         </h2>
-
         <div
           style={{
             display: 'grid',
@@ -161,7 +159,6 @@ export function GetStarted() {
               >
                 {role.description}
               </p>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <h4
                   style={{
@@ -182,7 +179,6 @@ export function GetStarted() {
                   ))}
                 </ol>
               </div>
-
               <div>
                 <h4
                   style={{
@@ -219,7 +215,6 @@ export function GetStarted() {
                   ))}
                 </div>
               </div>
-
               <button
                 style={{
                   width: '100%',
@@ -240,7 +235,6 @@ export function GetStarted() {
           ))}
         </div>
       </div>
-
       {/* Training & Certification */}
       <div style={{ backgroundColor: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -253,7 +247,6 @@ export function GetStarted() {
           >
             Training & Certification
           </h2>
-
           <div
             style={{
               display: 'grid',
@@ -299,7 +292,6 @@ export function GetStarted() {
                 Browse Courses →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
               <div
                 style={{
@@ -338,7 +330,6 @@ export function GetStarted() {
                 View Programs →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
               <div
                 style={{
@@ -377,7 +368,6 @@ export function GetStarted() {
                 Watch Demos →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
               <div
                 style={{
@@ -419,7 +409,6 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* Community & Support */}
       <div style={{ padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -432,7 +421,6 @@ export function GetStarted() {
           >
             Connect with the Community
           </h2>
-
           <div
             style={{
               display: 'grid',
@@ -495,7 +483,6 @@ export function GetStarted() {
                 </li>
               </ul>
             </div>
-
             <div
               style={{
                 backgroundColor: '#fff',
@@ -551,7 +538,6 @@ export function GetStarted() {
                 </li>
               </ul>
             </div>
-
             <div
               style={{
                 backgroundColor: '#fff',
@@ -610,7 +596,6 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* Institution Types */}
       <div style={{ backgroundColor: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -623,7 +608,6 @@ export function GetStarted() {
           >
             Solutions by Institution Type
           </h2>
-
           <div
             style={{
               display: 'grid',
@@ -680,7 +664,6 @@ export function GetStarted() {
                 Learn More
               </Link>
             </div>
-
             <div
               style={{
                 border: '2px solid var(--brand-border)',
@@ -730,7 +713,6 @@ export function GetStarted() {
                 Learn More
               </Link>
             </div>
-
             <div
               style={{
                 border: '2px solid var(--brand-border)',
@@ -783,7 +765,6 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
       <div
         style={{

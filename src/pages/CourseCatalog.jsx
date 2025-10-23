@@ -138,7 +138,6 @@ export default function CourseCatalog() {
             Explore our comprehensive training programs designed to launch your
             career
           </p>
-
           {/* Search Bar */}
           <div className="relative max-w-2xl">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -152,7 +151,6 @@ export default function CourseCatalog() {
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Featured Courses */}
         {searchTerm === '' && selectedCategory === 'all' && (
@@ -222,7 +220,6 @@ export default function CourseCatalog() {
             </div>
           </section>
         )}
-
         {/* All Courses with Tabs */}
         <section>
           <h2 className="text-3xl font-bold text-brand-text mb-6">
@@ -230,7 +227,6 @@ export default function CourseCatalog() {
               ? `Search Results (${filteredCourses.length})`
               : 'All Courses'}
           </h2>
-
           <Tabs
             defaultValue="all"
             className="w-full"
@@ -243,7 +239,6 @@ export default function CourseCatalog() {
                 </TabsTrigger>
               ))}
             </TabsList>
-
             <TabsContent value={selectedCategory} className="mt-0">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredCourses.map((course) => (
@@ -301,7 +296,6 @@ export default function CourseCatalog() {
                   </Card>
                 ))}
               </div>
-
               {filteredCourses.length === 0 && (
                 <div className="text-center py-16">
                   <BookOpen className="h-16 w-16 text-slate-300 mx-auto mb-4" />

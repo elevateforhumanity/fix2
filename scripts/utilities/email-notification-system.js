@@ -16,9 +16,9 @@
   See LICENSE file for details.
 */
 
-const nodemailer = require('nodemailer');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import nodemailer from 'nodemailer';
+import path from 'path';
 
 class EFHNotificationSystem {
   constructor() {
@@ -61,7 +61,7 @@ class EFHNotificationSystem {
       weekly: { revenue: 0, enrollments: 0, sales: 0 },
       monthly: { revenue: 0, enrollments: 0, sales: 0 },
       marketplace: {
-        replit: { revenue: 0, views: 0, sales: 0 },
+        cloudflarePages: { revenue: 0, views: 0, sales: 0 },
         flippa: { revenue: 0, views: 0, sales: 0 },
         bizbuysell: { revenue: 0, views: 0, sales: 0 },
         gumroad: { revenue: 0, views: 0, sales: 0 },

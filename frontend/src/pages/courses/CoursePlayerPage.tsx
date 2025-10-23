@@ -87,7 +87,7 @@ const CoursePlayerPage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -127,10 +127,9 @@ const CoursePlayerPage = () => {
             <div
               className="bg-green-600 h-2 rounded-full transition-all"
               style={{ width: `${progressPercentage}%` }}
-            ></div>
+            />
           </div>
         </div>
-
         <div className="overflow-y-auto h-[calc(100vh-140px)]">
           {lessons.map((lesson, index) => (
             <button
@@ -165,7 +164,6 @@ const CoursePlayerPage = () => {
           ))}
         </div>
       </div>
-
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Toggle Sidebar Button */}
@@ -175,7 +173,6 @@ const CoursePlayerPage = () => {
         >
           {sidebarOpen ? '←' : '→'}
         </button>
-
         {/* Video/Content Area */}
         <div className="flex-1 bg-black flex items-center justify-center relative">
           {currentLesson?.videoUrl ? (
@@ -203,7 +200,6 @@ const CoursePlayerPage = () => {
             </div>
           )}
         </div>
-
         {/* Controls */}
         <div className="bg-white border-t p-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -221,13 +217,11 @@ const CoursePlayerPage = () => {
               >
                 ← Previous
               </button>
-
               {!isLessonCompleted(currentLesson?.id) && (
                 <button onClick={markLessonComplete} className="btn-primary">
                   Mark Complete
                 </button>
               )}
-
               <button
                 onClick={goToNextLesson}
                 disabled={currentLessonIndex === lessons.length - 1}

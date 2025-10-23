@@ -45,7 +45,6 @@ export default function DurableFeatures() {
             Everything you need to succeed in your learning journey
           </p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div

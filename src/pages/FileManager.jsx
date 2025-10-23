@@ -171,7 +171,6 @@ export function FileManager() {
           <h1 style={{ fontSize: '1.5rem', fontWeight: '600', margin: 0 }}>
             Elevate Drive
           </h1>
-
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             {storageQuota && (
               <div
@@ -187,7 +186,6 @@ export function FileManager() {
                 used
               </div>
             )}
-
             <button
               onClick={() => setShowUpload(!showUpload)}
               style={{
@@ -202,7 +200,6 @@ export function FileManager() {
             >
               + Upload
             </button>
-
             <button
               onClick={handleCreateFolder}
               style={{
@@ -219,7 +216,6 @@ export function FileManager() {
           </div>
         </div>
       </div>
-
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
         {/* Breadcrumbs */}
         <div
@@ -254,7 +250,6 @@ export function FileManager() {
             </React.Fragment>
           ))}
         </div>
-
         {/* Upload area */}
         {showUpload && (
           <div style={{ marginBottom: '2rem' }}>
@@ -264,7 +259,6 @@ export function FileManager() {
             />
           </div>
         )}
-
         {/* Storage quota bar */}
         {storageQuota && storageQuota.total !== -1 && (
           <div
@@ -310,7 +304,6 @@ export function FileManager() {
             </div>
           </div>
         )}
-
         {/* Files grid */}
         {files.length === 0 ? (
           <div
@@ -386,7 +379,6 @@ export function FileManager() {
                     {!file.isFolder && formatBytes(file.size)}
                   </div>
                 </div>
-
                 <div
                   style={{
                     display: 'flex',

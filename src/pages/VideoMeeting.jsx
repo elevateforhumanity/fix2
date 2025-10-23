@@ -117,7 +117,6 @@ export function VideoMeeting() {
         <p style={{ color: 'var(--brand-text-muted)', marginBottom: '2rem' }}>
           Enter a meeting code to join
         </p>
-
         <input
           type="text"
           placeholder="Meeting code"
@@ -135,7 +134,6 @@ export function VideoMeeting() {
             }
           }}
         />
-
         <button
           onClick={() => {
             const code = document.querySelector('input').value;
@@ -177,7 +175,6 @@ export function VideoMeeting() {
         <p style={{ color: 'var(--brand-text-muted)', marginBottom: '2rem' }}>
           Meeting code: <strong>{meetingCode}</strong>
         </p>
-
         {meeting && (
           <div
             style={{
@@ -199,7 +196,6 @@ export function VideoMeeting() {
             </p>
           </div>
         )}
-
         <div style={{ marginBottom: '1rem' }}>
           <label
             style={{
@@ -228,7 +224,6 @@ export function VideoMeeting() {
             }}
           />
         </div>
-
         <div
           style={{
             display: 'flex',
@@ -259,7 +254,6 @@ export function VideoMeeting() {
             <span style={{ fontSize: '0.875rem' }}>Microphone on</span>
           </label>
         </div>
-
         <button
           onClick={handleJoinMeeting}
           style={{
@@ -276,7 +270,6 @@ export function VideoMeeting() {
         >
           Join Meeting
         </button>
-
         <button
           onClick={() => navigate('/dashboard')}
           style={{

@@ -82,7 +82,6 @@ const LoginPage = () => {
               />
             </div>
           </div>
-
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <Link
@@ -93,7 +92,6 @@ const LoginPage = () => {
               </Link>
             </div>
           </div>
-
           <div>
             <button
               type="submit"

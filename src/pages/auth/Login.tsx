@@ -51,10 +51,10 @@ export default function Login() {
           <div className="card p-6 text-center">
             <div className="text-4xl mb-4">📧</div>
             <h2 className="text-2xl font-semibold">Check Your Email</h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               We sent a magic link to <strong>{email}</strong>
             </p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-brand-text-light">
               Click the link in the email to sign in.
             </p>
             <button
@@ -74,16 +74,14 @@ export default function Login() {
       <div className="container max-w-md mx-auto">
         <div className="card p-6">
           <h1 className="text-2xl font-bold text-center">Welcome Back!</h1>
-          <p className="mt-2 text-center text-slate-600">
+          <p className="mt-2 text-center text-brand-text-muted">
             Sign in to continue your learning journey
           </p>
-
           {error && (
             <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
               {error}
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1">
@@ -98,7 +96,6 @@ export default function Login() {
                 required
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium mb-1">Password</label>
               <input
@@ -110,12 +107,10 @@ export default function Login() {
                 required
               />
             </div>
-
             <button type="submit" className="btn w-full" disabled={loading}>
               {loading ? 'Signing you in...' : 'Sign In →'}
             </button>
           </form>
-
           <div className="mt-4 text-center">
             <button
               onClick={handleMagicLink}
@@ -125,8 +120,7 @@ export default function Login() {
               Send magic link instead
             </button>
           </div>
-
-          <div className="mt-4 text-center text-sm text-slate-600">
+          <div className="mt-4 text-center text-sm text-brand-text-muted">
             <Link to="/auth/forgot-password" className="hover:text-brand-600">
               Forgot password?
             </Link>

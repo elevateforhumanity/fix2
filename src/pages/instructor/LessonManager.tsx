@@ -90,13 +90,12 @@ export default function LessonManager() {
               ← Back to Dashboard
             </Link>
             <h1 className="mt-2 text-3xl font-bold">{course.title}</h1>
-            <p className="mt-1 text-slate-600">Manage lessons</p>
+            <p className="mt-1 text-brand-text-muted">Manage lessons</p>
           </div>
           <button onClick={() => setShowForm(!showForm)} className="btn">
             {showForm ? 'Cancel' : '+ Add Lesson'}
           </button>
         </div>
-
         {showForm && (
           <form onSubmit={handleSubmit} className="mt-6 card p-6 space-y-4">
             <div>
@@ -111,7 +110,6 @@ export default function LessonManager() {
                 required
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium mb-1">
                 Video URL (YouTube embed)
@@ -126,7 +124,6 @@ export default function LessonManager() {
                 placeholder="https://www.youtube.com/embed/..."
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium mb-1">
                 Content (HTML)
@@ -139,13 +136,11 @@ export default function LessonManager() {
                 placeholder="<p>Lesson content here...</p>"
               />
             </div>
-
             <button type="submit" className="btn">
               Add Lesson
             </button>
           </form>
         )}
-
         <div className="mt-8 space-y-3">
           {lessons.map((lesson) => (
             <div
@@ -153,12 +148,14 @@ export default function LessonManager() {
               className="card p-5 flex items-center justify-between"
             >
               <div>
-                <div className="text-xs text-slate-500">
+                <div className="text-xs text-brand-text-light">
                   Lesson {lesson.idx}
                 </div>
                 <div className="font-semibold">{lesson.title}</div>
                 {lesson.video_url && (
-                  <div className="mt-1 text-xs text-slate-500">📹 Video</div>
+                  <div className="mt-1 text-xs text-brand-text-light">
+                    📹 Video
+                  </div>
                 )}
               </div>
               <div className="flex gap-2">
@@ -179,7 +176,7 @@ export default function LessonManager() {
             </div>
           ))}
           {lessons.length === 0 && (
-            <div className="card p-6 text-center text-slate-600">
+            <div className="card p-6 text-center text-brand-text-muted">
               No lessons yet. Add your first lesson to get started!
             </div>
           )}

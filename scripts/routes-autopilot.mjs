@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // ESM Autopilot: scans components, merges with config, generates router, sitemap, and a report.
 
+import crypto from 'node:crypto';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
-import crypto from 'node:crypto';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -90,16 +90,6 @@ function dedupe(arr) {
     seen.add(key);
     return true;
   });
-}
-
-function titleFromRoute(route) {
-  if (route === '/') return 'Home';
-  return route
-    .split('/')
-    .filter(Boolean)
-    .map((seg) => seg.replace(/-/g, ' '))
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join(' • ');
 }
 
 async function ensureNotFound() {
@@ -204,19 +194,16 @@ async function patchMainToUseRouter() {
     if (/RouterProvider/.test(src)) return; // already wired
     const patched = src
       .replace(/from 'react-dom\/client'\)?;?/g, (m) => m) // keep
-      .replace(
-        /createRoot\((.*?)\)\.render\(([\s\S]*?)\);?/m,
-        (_m, el, comp) => {
-          return `createRoot(${el}).render(
+      .replace(/createRoot\((.*?)\)\.render\(([\s\S]*?)\);?/m, (_m, el) => {
+        return `createRoot(${el}).render(
   <React.StrictMode>
     <Suspense fallback={<div style={{padding:20}}>Loading…</div>}>
       <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>
 );`;
-        }
-      )
-      .replace(/import React(,? ?\{?[^\}]*\}?)* from 'react';?/m, (m) =>
+      })
+      .replace(/import React(,? ?\{?[^}]*\}?)* from 'react';?/m, (m) =>
         /Suspense/.test(m)
           ? m
           : `${m}\n// added Suspense import above if needed`

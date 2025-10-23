@@ -72,7 +72,6 @@ export default function Analytics() {
             Track performance metrics and student engagement across all programs
           </p>
         </header>
-
         {/* Key Metrics */}
         <section style={{ marginBottom: '3rem' }}>
           <div
@@ -87,7 +86,6 @@ export default function Analytics() {
             ))}
           </div>
         </section>
-
         {/* Two Column Layout */}
         <div
           style={{
@@ -201,7 +199,6 @@ export default function Analytics() {
               </table>
             </div>
           </section>
-
           {/* Recent Activity */}
           <section>
             <h2
@@ -264,7 +261,6 @@ export default function Analytics() {
             </div>
           </section>
         </div>
-
         {/* Engagement Overview */}
         <section>
           <h2

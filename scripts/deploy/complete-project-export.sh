@@ -82,7 +82,6 @@ PROJECT_FILES=$(find . -type f \
     -not -path "*/.git/*" \
     -not -path "*/efh-deployment-*/*" \
     -not -path "*/efh-ecosystem3-*/*" \
-    -not -path "*/.replit/*" \
     -not -path "*/.upm/*" \
     -not -path "*/attached_assets/Pasted-*" \
     2>/dev/null | wc -l)
@@ -116,7 +115,7 @@ echo "#                              DIRECTORY STRUCTURE" >> "$OUTPUT_FILE"
 echo "################################################################################" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 
-tree -a -I 'node_modules|.git|.replit|.upm|efh-deployment-*|efh-ecosystem3-*|attached_assets/Pasted-*' . 2>/dev/null >> "$OUTPUT_FILE" || {
+tree -a -I 'node_modules|.git|.upm|efh-deployment-*|efh-ecosystem3-*|attached_assets/Pasted-*' . 2>/dev/null >> "$OUTPUT_FILE" || {
     echo "# Tree view not available, using find instead:" >> "$OUTPUT_FILE"
     find . -type d \
         -not -path "*/node_modules/*" \
@@ -294,8 +293,6 @@ ROOT_FILES=(
     ".gitignore"
     "robots.txt"
     "sitemap.xml"
-    ".replit"
-    "replit.nix"
     "LICENSE"
     "CHANGELOG.md"
 )

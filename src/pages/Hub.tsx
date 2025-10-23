@@ -118,7 +118,6 @@ export default function Hub() {
           </div>
         </div>
       </div>
-
       {/* Stats Section */}
       <div className="bg-brand-info text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,7 +141,6 @@ export default function Hub() {
           </div>
         </div>
       </div>
-
       {/* Sister Sites Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
@@ -154,7 +152,6 @@ export default function Hub() {
             Elevate Learn2Earn Workforce
           </p>
         </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sisterSites.map((site) => (
             <Link key={site.name} to={site.path}>
@@ -174,21 +171,18 @@ export default function Hub() {
                     </p>
                   </div>
                 </div>
-
                 <p className="text-brand-text-muted mb-4">{site.description}</p>
-
                 <div className="space-y-2">
                   {site.features.map((feature, index) => (
                     <div
                       key={index}
                       className="flex items-center text-sm text-brand-text-light"
                     >
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></div>
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2" />
                       {feature}
                     </div>
                   ))}
                 </div>
-
                 <div className="mt-4 flex items-center text-brand-info text-sm font-medium">
                   Explore {site.name} →
                 </div>
@@ -197,7 +191,6 @@ export default function Hub() {
           ))}
         </div>
       </div>
-
       {/* Federal Compliance Highlight */}
       <div className="bg-orange-50 border-l-4 border-orange-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -235,7 +228,7 @@ export default function Hub() {
                   'Federal Cost Tracking & Funding',
                 ].map((item, index) => (
                   <div key={index} className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
                     <span className="text-sm text-brand-text">{item}</span>
                   </div>
                 ))}
@@ -244,7 +237,6 @@ export default function Hub() {
           </div>
         </div>
       </div>
-
       {/* Call to Action */}
       <div className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

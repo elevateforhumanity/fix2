@@ -71,7 +71,6 @@ const ForgotPasswordPage = () => {
               placeholder="you@example.com"
             />
           </div>
-
           <div>
             <button
               type="submit"
@@ -81,7 +80,6 @@ const ForgotPasswordPage = () => {
               {loading ? 'Sending...' : 'Send reset instructions'}
             </button>
           </div>
-
           <div className="text-center">
             <Link
               to="/login"

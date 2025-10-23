@@ -20,7 +20,6 @@ export default function StudentPortalLMS() {
           </p>
         </div>
       </div>
-
       {/* Navigation Tabs */}
       <div className="bg-white shadow-md mb-8">
         <div className="max-w-7xl mx-auto px-8">
@@ -88,7 +87,6 @@ export default function StudentPortalLMS() {
           </div>
         </div>
       </div>
-
       {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-8 pb-16">
         {/* Enrollment Tab */}
@@ -100,7 +98,6 @@ export default function StudentPortalLMS() {
               courses include hybrid learning with online modules and hands-on
               skills validation.
             </p>
-
             <form className="space-y-6">
               <div>
                 <label className="block mb-2 font-semibold text-brand-text">
@@ -143,7 +140,6 @@ export default function StudentPortalLMS() {
                   </optgroup>
                 </select>
               </div>
-
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block mb-2 font-semibold text-brand-text">
@@ -164,7 +160,6 @@ export default function StudentPortalLMS() {
                   />
                 </div>
               </div>
-
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block mb-2 font-semibold text-brand-text">
@@ -185,7 +180,6 @@ export default function StudentPortalLMS() {
                   />
                 </div>
               </div>
-
               <div>
                 <label className="block mb-2 font-semibold text-brand-text">
                   Funding Source
@@ -199,7 +193,6 @@ export default function StudentPortalLMS() {
                   <option value="va-benefits">VA Benefits</option>
                 </select>
               </div>
-
               <button
                 type="submit"
                 className="w-full bg-brand-info hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold transition"
@@ -209,7 +202,6 @@ export default function StudentPortalLMS() {
             </form>
           </div>
         )}
-
         {/* Dashboard Tab */}
         {activeTab === 'dashboard' && (
           <div>
@@ -217,7 +209,6 @@ export default function StudentPortalLMS() {
               <strong>Welcome back, Student!</strong> You have 2 active courses
               and 1 completed certification.
             </div>
-
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-brand-info mb-4">
@@ -227,13 +218,12 @@ export default function StudentPortalLMS() {
                   <div
                     className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                     style={{ width: '68%' }}
-                  ></div>
+                  />
                 </div>
                 <p className="text-brand-text">
                   68% Complete - 2 of 3 courses finished
                 </p>
               </div>
-
               <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-brand-info mb-4">
                   Quick Stats
@@ -252,7 +242,6 @@ export default function StudentPortalLMS() {
                 </p>
               </div>
             </div>
-
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h3 className="text-2xl font-bold mb-4">Recent Activity</h3>
               <div className="space-y-3">
@@ -274,12 +263,10 @@ export default function StudentPortalLMS() {
             </div>
           </div>
         )}
-
         {/* Courses Tab */}
         {activeTab === 'courses' && (
           <div className="space-y-6">
             <h2 className="text-3xl font-bold mb-6">📚 My Courses</h2>
-
             <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-semibold text-brand-info">
@@ -293,7 +280,7 @@ export default function StudentPortalLMS() {
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '100%' }}
-                ></div>
+                />
               </div>
               <p className="text-brand-text mb-2">
                 <strong>Completion Date:</strong> February 28, 2024
@@ -305,7 +292,6 @@ export default function StudentPortalLMS() {
                 View Certificate
               </button>
             </div>
-
             <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-semibold text-brand-info">
@@ -319,7 +305,7 @@ export default function StudentPortalLMS() {
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '75%' }}
-                ></div>
+                />
               </div>
               <p className="text-brand-text mb-2">
                 <strong>Progress:</strong> 75% Complete
@@ -334,7 +320,6 @@ export default function StudentPortalLMS() {
                 Continue Course
               </button>
             </div>
-
             <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-semibold text-brand-info">
@@ -348,7 +333,7 @@ export default function StudentPortalLMS() {
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '30%' }}
-                ></div>
+                />
               </div>
               <p className="text-brand-text mb-2">
                 <strong>Progress:</strong> 30% Complete
@@ -365,12 +350,10 @@ export default function StudentPortalLMS() {
             </div>
           </div>
         )}
-
         {/* Certificates Tab */}
         {activeTab === 'certificates' && (
           <div>
             <h2 className="text-3xl font-bold mb-6">🏆 My Certificates</h2>
-
             <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-600 rounded-xl p-8 text-center">
               <h3 className="text-2xl font-bold text-green-700 mb-4">
                 🏥 CPR & OSHA Safety Technician
@@ -395,7 +378,6 @@ export default function StudentPortalLMS() {
             </div>
           </div>
         )}
-
         {/* Profile Tab */}
         {activeTab === 'profile' && (
           <div className="bg-white p-8 rounded-xl shadow-sm">
@@ -437,7 +419,6 @@ export default function StudentPortalLMS() {
             </div>
           </div>
         )}
-
         {/* Support Tab */}
         {activeTab === 'support' && (
           <div className="bg-white p-8 rounded-xl shadow-sm">
@@ -458,7 +439,6 @@ export default function StudentPortalLMS() {
                   <strong>Phone:</strong> (555) 123-4567
                 </p>
               </div>
-
               <div>
                 <h3 className="text-xl font-semibold mb-4">
                   Submit a Support Ticket
@@ -480,7 +460,7 @@ export default function StudentPortalLMS() {
                     <textarea
                       rows="5"
                       className="w-full p-3 border border-brand-border-dark rounded-lg"
-                    ></textarea>
+                    />
                   </div>
                   <button className="bg-brand-info hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold transition">
                     Submit Ticket

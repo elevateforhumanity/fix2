@@ -266,13 +266,15 @@
 
         <div id="programs">
           <div class="program-card" data-program="business">
-            <h3>Business Startup & Marketing</h3>
+            <h3>Business Startup &amp; Marketing</h3>
             <p>
               Comprehensive program covering business fundamentals, startup
               strategies, and marketing techniques.
             </p>
             <p><strong>Investment: $4,950</strong></p>
-            <button class="enroll-btn">Enroll Now - $4,950</button>
+            <button type="button" class="enroll-btn">
+              Enroll Now - $4,950
+            </button>
           </div>
 
           <div class="program-card" data-program="cpr-ems">
@@ -282,7 +284,7 @@
               training certification.
             </p>
             <p><strong>Investment: $125</strong></p>
-            <button class="enroll-btn">Enroll Now - $125</button>
+            <button type="button" class="enroll-btn">Enroll Now - $125</button>
           </div>
 
           <div class="program-card" data-program="building-tech">
@@ -292,7 +294,9 @@
               program.
             </p>
             <p><strong>Investment: $2,950</strong></p>
-            <button class="enroll-btn">Enroll Now - $2,950</button>
+            <button type="button" class="enroll-btn">
+              Enroll Now - $2,950
+            </button>
           </div>
         </div>
       </main>
@@ -336,7 +340,7 @@
         }
 
         // Check program restrictions
-        if (mockCoupon.programs && !mockCoupon.programs.includes(slug)) {
+        if (mockCoupon.programs &amp;&amp; !mockCoupon.programs.includes(slug)) {
           console.log('❌ Program not eligible');
           return { valid: false, reason: 'Not eligible for this program' };
         }
@@ -458,8 +462,8 @@
               <div class="coupon-field">
                 <label>Have a coupon code?</label>
                 <div class="coupon-input">
-                  <input id="cp_${slug}" type="text" placeholder="Enter coupon code (try SAVE10)" />
-                  <button onclick="efhApplyCoupon('${slug}')">Apply</button>
+                  <input id="cp_${slug}" type="text" placeholder="Enter coupon code (try SAVE10)" >
+                  <button type="button" onclick="efhApplyCoupon('${slug}')">Apply</button>
                 </div>
                 <div id="cpout_${slug}" class="coupon-result"></div>
               </div>

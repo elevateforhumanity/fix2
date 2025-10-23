@@ -56,18 +56,15 @@ export default function Account() {
     <section className="section">
       <div className="container max-w-xl mx-auto">
         <h1 className="text-3xl font-bold">My Account</h1>
-
         <div className="card p-6 mt-6 space-y-4">
           <div>
-            <div className="text-sm text-slate-500">Email</div>
+            <div className="text-sm text-brand-text-light">Email</div>
             <div className="font-medium">{user.email}</div>
           </div>
-
           <div>
-            <div className="text-sm text-slate-500">Role</div>
+            <div className="text-sm text-brand-text-light">Role</div>
             <div className="font-medium capitalize">{user.role}</div>
           </div>
-
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
             <input
@@ -77,13 +74,11 @@ export default function Account() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-
           {message && (
             <div className="p-3 bg-brand-50 border border-brand-200 rounded-lg text-sm">
               {message}
             </div>
           )}
-
           <div className="flex gap-3">
             <button className="btn" onClick={save} disabled={saving}>
               {saving ? 'Saving...' : 'Save Changes'}
@@ -93,11 +88,10 @@ export default function Account() {
             </button>
           </div>
         </div>
-
         {user.role === 'instructor' && (
           <div className="mt-6 card p-6">
             <h2 className="text-xl font-semibold">Instructor Tools</h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               Manage your courses and lessons
             </p>
             <a href="/instructor/dashboard" className="btn mt-4 inline-block">

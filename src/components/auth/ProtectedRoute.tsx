@@ -37,7 +37,7 @@ export default function ProtectedRoute({ children, requireRole }: Props) {
             <h2 className="text-xl font-semibold text-red-600">
               Access Denied
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               You don't have permission to access this page.
             </p>
             <a href="/lms" className="btn mt-4">

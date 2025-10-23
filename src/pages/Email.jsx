@@ -83,7 +83,6 @@ export function Email() {
         >
           ✉️ Compose
         </button>
-
         <div
           style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
         >
@@ -164,7 +163,6 @@ export function Email() {
           </button>
         </div>
       </div>
-
       {/* Email List */}
       {!composing && !selectedEmail && (
         <div
@@ -244,7 +242,6 @@ export function Email() {
           ))}
         </div>
       )}
-
       {/* Compose Email */}
       {composing && (
         <div style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
@@ -347,7 +344,6 @@ export function Email() {
           </div>
         </div>
       )}
-
       {/* Email Detail */}
       {selectedEmail && !composing && (
         <div style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
@@ -453,7 +449,6 @@ export function Email() {
           </div>
         </div>
       )}
-
       {/* Empty State */}
       {!composing && !selectedEmail && emails.length === 0 && (
         <div

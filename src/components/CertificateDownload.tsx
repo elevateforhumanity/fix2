@@ -38,7 +38,7 @@ export default function CertificateDownload({
       <div className="flex items-end justify-between gap-4">
         <div>
           <div className="text-2xl font-semibold">Certificate Preview</div>
-          <div className="text-slate-600 text-sm mt-1">
+          <div className="text-brand-text-muted text-sm mt-1">
             SVG download (print-ready)
           </div>
         </div>
@@ -46,25 +46,26 @@ export default function CertificateDownload({
           Download SVG
         </button>
       </div>
-
       {/* Preview */}
       <div className="mt-6 border rounded-lg p-8 bg-white">
         <div className="border-4 border-brand-600 rounded-2xl p-12 text-center">
           <div className="text-3xl font-bold text-brand-600">
             Certificate of Completion
           </div>
-          <div className="mt-8 text-lg text-slate-600">This certifies that</div>
+          <div className="mt-8 text-lg text-brand-text-muted">
+            This certifies that
+          </div>
           <div className="mt-4 text-4xl font-bold text-brand-700">
             {student}
           </div>
-          <div className="mt-4 text-lg text-slate-600">
+          <div className="mt-4 text-lg text-brand-text-muted">
             has successfully completed
           </div>
           <div className="mt-4 text-3xl font-bold text-accent-600">
             {program}
           </div>
-          <div className="mt-8 text-slate-600">Date: {date}</div>
-          <div className="mt-12 flex justify-between text-sm text-slate-600">
+          <div className="mt-8 text-brand-text-muted">Date: {date}</div>
+          <div className="mt-12 flex justify-between text-sm text-brand-text-muted">
             <div>Director</div>
             <div>Registrar</div>
           </div>

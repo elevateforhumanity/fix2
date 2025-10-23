@@ -114,6 +114,7 @@
       <!-- Quick Actions -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <button
+          type="button"
           onclick="showGeneratePIRLForm()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -130,6 +131,7 @@
         </button>
 
         <button
+          type="button"
           onclick="showBulkSubmission()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -146,6 +148,7 @@
         </button>
 
         <button
+          type="button"
           onclick="showReportHistory()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -212,6 +215,7 @@
           </div>
           <div class="self-end">
             <button
+              type="button"
               onclick="exportReports()"
               class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 flex items-center"
             >
@@ -283,6 +287,7 @@
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">Generate PIRL Report</h3>
                 <button
+                  type="button"
                   onclick="hideGeneratePIRLForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -648,8 +653,8 @@
                         ${report.submitted_at ? new Date(report.submitted_at).toLocaleDateString() : 'Not submitted'}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewPIRL('${report.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        ${report.report_status === 'draft' ? `<button onclick="submitPIRL('${report.id}')" class="text-green-600 hover:text-green-900">Submit</button>` : ''}
+                        <button type="button" onclick="viewPIRL('${report.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        ${report.report_status === 'draft' ? `<button type="button" onclick="submitPIRL('${report.id}')" class="text-green-600 hover:text-green-900">Submit</button>` : ''}
                     </td>
                 `;
           tbody.appendChild(row);

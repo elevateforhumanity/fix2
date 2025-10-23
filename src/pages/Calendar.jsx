@@ -213,7 +213,6 @@ export function Calendar() {
           </div>
         </div>
       </div>
-
       {/* Calendar Grid */}
       <div style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
         <div
@@ -247,7 +246,6 @@ export function Calendar() {
               </div>
             ))}
           </div>
-
           {/* Calendar Days */}
           <div
             style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)' }}
@@ -298,7 +296,6 @@ export function Calendar() {
           </div>
         </div>
       </div>
-
       {/* New Event Modal */}
       {showEventModal && (
         <div

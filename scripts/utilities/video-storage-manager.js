@@ -17,23 +17,21 @@
 */
 
 // Video Storage Manager for LMS
-// Uses Replit Object Storage for video content
-
-import path from 'path';
-import fs from 'fs/promises';
+// Uses Cloudflare R2 for video content
 
 class VideoStorageManager {
   constructor() {
-    this.bucketId = process.env.REPLIT_OBJECT_STORAGE_BUCKET_ID;
-    this.baseUrl = `https://storage.replit.com/${this.bucketId}`;
+    this.bucketId = process.env.CLOUDFLARE_R2_BUCKET;
+    this.accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+    this.baseUrl = `https://${this.bucketId}.r2.cloudflarestorage.com`;
   }
 
-  // Upload video to Replit Object Storage
+  // Upload video to Cloudflare R2
   async uploadVideo(videoFile, courseId, lessonId) {
     try {
       const fileName = `videos/${courseId}/${lessonId}/${videoFile.name}`;
 
-      // Use Replit Object Storage API
+      // Use Cloudflare R2 API
       const response = await fetch(`${this.baseUrl}/${fileName}`, {
         method: 'PUT',
         body: videoFile,

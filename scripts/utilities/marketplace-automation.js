@@ -23,11 +23,12 @@ const path = require('path');
 class MarketplaceAutomation {
   constructor() {
     this.listings = {
-      replit: {
-        title: 'Complete Workforce Development LMS with Federal Partnerships',
-        description: this.getListingDescription('replit'),
-        price: 1500, // cycles
-        tags: ['education', 'lms', 'workforce', 'nodejs', 'react'],
+      cloudflarePages: {
+        title:
+          'Cloudflare Pages Deployment: Workforce Development LMS + Automations',
+        description: this.getListingDescription('cloudflarePages'),
+        price: 2500,
+        tags: ['education', 'lms', 'workforce', 'react', 'cloudflare'],
         status: 'draft',
       },
       flippa: {
@@ -75,70 +76,39 @@ class MarketplaceAutomation {
 
   getListingDescription(platform) {
     const descriptions = {
-      replit: `
-        🚀 **Complete Workforce Development Platform Ready to Deploy**
+      cloudflarePages: `
+        🚀 **Cloudflare Pages Deployment Package**
+
+        Deliver the full Elevate for Humanity experience on Cloudflare Pages with optional Netlify previews. This bundle is tuned for the current production stack:
 
         **What You Get:**
-        - ✅ Full Node.js/React codebase (production-ready)
-        - ✅ 33+ pre-built training programs ($89-$22,500 each)
-        - ✅ Federal compliance tools (DOL/WIOA/ETPL approvals)
-        - ✅ Automated Stripe payment processing with revenue splits
-        - ✅ Partner network access and agreements
-        - ✅ Student management & digital certification system
-        - ✅ Buy-now-pay-later integration (Sezzle/Affirm)
-        - ✅ Admin dashboard with real-time analytics
-        - ✅ Mobile-responsive design with Tailwind CSS
+        - ✅ Vite + React frontend with LMS dashboards
+        - ✅ Supabase integration configured for production
+        - ✅ Cloudflare Workers automation scripts
+        - ✅ Stripe Connect enrollment workflows
+        - ✅ Infrastructure-as-code for Cloudflare + Netlify
+        - ✅ Branded marketing pages and SEO metadata
 
-        **Revenue Potential:**
-        - Conservative: $10,000-30,000/month with 10-50 students
-        - Aggressive: $50,000-100,000+/month with full partner utilization
-        - License sales: $2,500-7,500 per sister site
-
-        **Federal Partnerships Included:**
-        - WIOA (Workforce Innovation & Opportunity Act) approvals
-        - ETPL (Eligible Training Provider List) status
-        - DOL compliance frameworks
-        - State workforce development partnerships
-
-        **Technical Stack:**
-        - Backend: Node.js/Express with CommonJS modules
-        - Frontend: React 18 with Vite build system
-        - Database: Supabase (PostgreSQL) with real-time subscriptions
-        - Payments: Stripe Connect with automatic revenue splits
-        - Hosting: Optimized for Replit deployment
-        - Security: JWT authentication, input validation, CORS protection
+        **Hosting & Delivery:**
+        - Primary: Cloudflare Pages (dist/ output)
+        - Edge automations: Cloudflare Workers
+        - Preview builds: Netlify deploy previews (optional)
+        - Backend API: Supabase functions or Cloudflare Workers
 
         **Support Included:**
-        - 📋 Complete setup documentation
-        - 🎥 Video walkthrough tutorials  
-        - 📧 30-day email support
-        - 🤝 Partner introduction calls
-        - 📊 Revenue optimization consultation
+        - 📋 Deployment checklist for Cloudflare + Netlify
+        - 🔐 Secrets management templates
+        - 📧 30-day launch support
+        - 🤝 Supabase project configuration guide
 
-        **Perfect For:**
-        - Community colleges expanding online offerings
-        - Training companies entering workforce development
-        - Entrepreneurs wanting proven education business model
-        - Economic development organizations
-        - Anyone wanting to monetize federal education partnerships
+        **Why Teams Choose This Package:**
+        - Minimal DevOps footprint (no containers required)
+        - Global edge performance out-of-the-box
+        - Stripe-ready enrollment & donation flows
+        - Fully branded marketing landing pages
+        - Compliance-ready LMS modules
 
-        **Immediate Deployment:**
-        This runs on Replit out-of-the-box. No complex setup, no Docker, no virtual environments. Just fork and deploy!
-
-        **Proof of Concept:**
-        - Live demo available upon request
-        - Revenue documentation provided
-        - Partner agreement templates included
-        - Federal compliance certifications attached
-
-        **Why This is Valuable:**
-        - Federal partnerships alone cost $100,000+ to establish independently
-        - Saves 12+ months of development time
-        - Proven revenue model with multiple income streams
-        - Automated systems require minimal day-to-day management
-        - Immediate access to established partner network
-
-        Ready to launch your workforce development empire? This is your shortcut to a 6-figure education business.
+        Launch a modern workforce platform on Cloudflare in days, not months.
       `,
 
       flippa: `
@@ -344,15 +314,14 @@ class MarketplaceAutomation {
     return descriptions[platform] || '';
   }
 
-  async createReplitBounty() {
-    console.log('🎯 Creating Replit Bounty...');
+  async createCloudflareLaunchKit() {
+    console.log('🎯 Creating Cloudflare Pages launch brief...');
 
-    // For Replit Bounties, we'll create a comprehensive post template
-    const bountyPost = {
-      title: this.listings.replit.title,
-      description: this.listings.replit.description,
-      price: this.listings.replit.price,
-      tags: this.listings.replit.tags,
+    const launchBrief = {
+      title: this.listings.cloudflarePages.title,
+      description: this.listings.cloudflarePages.description,
+      price: this.listings.cloudflarePages.price,
+      tags: this.listings.cloudflarePages.tags,
       deliverables: [
         'Complete source code repository',
         'Documentation and setup guides',
@@ -360,7 +329,7 @@ class MarketplaceAutomation {
         'Federal compliance documentation',
         '30-day support period',
       ],
-      timeline: '1-3 days',
+      timeline: '3-5 days',
       requirements: [
         'Must preserve all federal partnership agreements',
         'Buyer must agree to revenue sharing terms',
@@ -369,14 +338,15 @@ class MarketplaceAutomation {
       ],
     };
 
-    // Save template for manual posting
     fs.writeFileSync(
-      path.join(__dirname, 'replit-bounty-template.md'),
-      this.formatBountyTemplate(bountyPost)
+      path.join(__dirname, 'cloudflare-launch-brief.md'),
+      this.formatBountyTemplate(launchBrief)
     );
 
-    console.log('✅ Replit Bounty template created: replit-bounty-template.md');
-    return bountyPost;
+    console.log(
+      '✅ Cloudflare launch brief created: cloudflare-launch-brief.md'
+    );
+    return launchBrief;
   }
 
   async createFlippaListing() {
@@ -423,7 +393,8 @@ class MarketplaceAutomation {
         price: package.price,
         content_type: 'digital',
         tags: ['education', 'business', 'workforce', 'lms', 'startup'],
-        preview_url: process.env.DEMO_URL || 'https://your-demo.replit.app',
+        preview_url:
+          process.env.DEMO_URL || 'https://preview.elevateforhumanity.org',
         download_url: 'Will be provided after purchase',
       };
 
@@ -692,7 +663,7 @@ Please include your background and acquisition experience in your inquiry.
     console.log('🚀 Generating all marketplace listings...');
 
     const results = await Promise.all([
-      this.createReplitBounty(),
+      this.createCloudflareLaunchKit(),
       this.createFlippaListing(),
       this.createGumroadProducts(),
       this.createLinkedInOutreach(),
@@ -729,8 +700,8 @@ Please include your background and acquisition experience in your inquiry.
           groups: 'Entrepreneur groups, workforce development professionals',
           expected_reach: '2000-10000 professionals',
         },
-        replit: {
-          bounties: 'Active developer community',
+        cloudflare: {
+          community: 'Cloudflare Developers + Pages community',
           expected_views: '200-800 qualified developers',
         },
         indiehackers: {

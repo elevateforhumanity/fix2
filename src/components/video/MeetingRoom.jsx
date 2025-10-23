@@ -203,7 +203,6 @@ export function MeetingRoom({
           Joining meeting...
         </div>
       )}
-
       {/* Meeting info bar */}
       <div
         style={{
@@ -227,7 +226,6 @@ export function MeetingRoom({
             Meeting Code: {meetingCode}
           </p>
         </div>
-
         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
           {isRecording && (
             <span
@@ -253,14 +251,12 @@ export function MeetingRoom({
               Recording
             </span>
           )}
-
           <span style={{ fontSize: '0.875rem' }}>
             {participants.length} participant
             {participants.length !== 1 ? 's' : ''}
           </span>
         </div>
       </div>
-
       {/* Jitsi Meet container */}
       <div
         ref={jitsiContainerRef}
@@ -270,7 +266,6 @@ export function MeetingRoom({
           height: '100%',
         }}
       />
-
       {/* Custom controls (optional - Jitsi has built-in controls) */}
       {isModerator && (
         <div
@@ -320,7 +315,6 @@ export function MeetingRoom({
           )}
         </div>
       )}
-
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }

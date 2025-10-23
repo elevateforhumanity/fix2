@@ -25,9 +25,9 @@ VITE_STRIPE_PUBLIC_KEY="pk_test_your_stripe_public_key_here"
 SESSION_SECRET="your-super-secret-session-key-change-this"
 
 # Codespaces / OIDC (placeholders)
-REPLIT_DOMAINS="localhost"
-REPL_ID="elevate-partners-codespaces"
-ISSUER_URL="https://replit.com/oidc"
+ALLOWED_DOMAINS="localhost,.elevateforhumanity.org"
+APP_ID="elevate-partners-codespaces"
+ISSUER_URL="https://auth.elevateforhumanity.org/oidc"
 EOF
 fi
 

@@ -35,7 +35,7 @@ function HomePage() {
           <div className="card p-8 md:p-10 bg-gradient-to-br from-brand-50 to-white border-2 border-brand-200">
             <div className="max-w-2xl">
               <h3 className="text-3xl font-bold">Ready to Change Your Life?</h3>
-              <p className="mt-3 text-lg text-slate-700">
+              <p className="mt-3 text-lg text-brand-text">
                 Join over 1,200 people who've started new careers through our
                 free training programs. No experience needed—we'll teach you
                 everything.
@@ -48,7 +48,7 @@ function HomePage() {
                   Browse All Programs
                 </a>
               </div>
-              <p className="mt-4 text-sm text-slate-500">
+              <p className="mt-4 text-sm text-brand-text-light">
                 💡 Questions? Call us at (317) 555-0100 or email
                 hello@elevateforhumanity.org
               </p>
@@ -66,7 +66,7 @@ function SimplePage({ title }: { title: string }) {
     <section className="section">
       <div className="container">
         <h1 className="text-3xl font-bold">{title}</h1>
-        <p className="mt-2 text-slate-600">Content coming online.</p>
+        <p className="mt-2 text-brand-text-muted">Content coming online.</p>
       </div>
     </section>
   );
@@ -80,7 +80,6 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/programs" element={<ProgramsIndex />} />
           <Route path="/programs/:slug" element={<ProgramPage />} />
-
           {/* Auth Routes */}
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<Signup />} />
@@ -93,7 +92,6 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-
           {/* LMS Routes (Protected) */}
           <Route
             path="/lms"
@@ -113,7 +111,6 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-
           {/* Instructor Routes (Protected - Instructor Role) */}
           <Route
             path="/instructor"
@@ -139,7 +136,6 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-
           {/* Certificate Routes */}
           <Route
             path="/certificates"
@@ -155,11 +151,9 @@ export default function App() {
           />
           <Route path="/verify" element={<VerifyCertificate />} />
           <Route path="/verify/:certNumber" element={<VerifyCertificate />} />
-
           {/* Payment Routes */}
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/cancelled" element={<PaymentCancelled />} />
-
           {/* Other Routes */}
           <Route path="/partners" element={<SimplePage title="Partners" />} />
           <Route path="/apply" element={<SimplePage title="Apply Now" />} />

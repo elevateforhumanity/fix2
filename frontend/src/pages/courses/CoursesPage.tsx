@@ -67,7 +67,7 @@ const CoursesPage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -75,7 +75,6 @@ const CoursesPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold mb-8">All Courses</h1>
-
       {/* Filters */}
       <div className="mb-8 space-y-4">
         {/* Search */}
@@ -88,7 +87,6 @@ const CoursesPage = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
           />
         </div>
-
         {/* Category and Level Filters */}
         <div className="flex flex-wrap gap-4">
           <div className="flex-1 min-w-[200px]">
@@ -107,7 +105,6 @@ const CoursesPage = () => {
               ))}
             </select>
           </div>
-
           <div className="flex-1 min-w-[200px]">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Level
@@ -128,13 +125,11 @@ const CoursesPage = () => {
           </div>
         </div>
       </div>
-
       {/* Results Count */}
       <div className="mb-4 text-gray-600">
         Showing {filteredCourses.length}{' '}
         {filteredCourses.length === 1 ? 'course' : 'courses'}
       </div>
-
       {/* Course Grid */}
       {filteredCourses.length === 0 ? (
         <div className="text-center py-12">

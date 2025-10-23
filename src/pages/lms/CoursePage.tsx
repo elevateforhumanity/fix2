@@ -24,11 +24,11 @@ export default function CoursePage() {
         <div className="container max-w-2xl mx-auto">
           <div className="card p-8 text-center">
             <div className="animate-pulse">
-              <div className="h-8 bg-slate-200 rounded w-3/4 mx-auto mb-4"></div>
-              <div className="h-4 bg-slate-200 rounded w-1/2 mx-auto mb-2"></div>
-              <div className="h-4 bg-slate-200 rounded w-2/3 mx-auto"></div>
+              <div className="h-8 bg-slate-200 rounded w-3/4 mx-auto mb-4" />
+              <div className="h-4 bg-slate-200 rounded w-1/2 mx-auto mb-2" />
+              <div className="h-4 bg-slate-200 rounded w-2/3 mx-auto" />
             </div>
-            <p className="mt-4 text-slate-600">Loading course...</p>
+            <p className="mt-4 text-brand-text-muted">Loading course...</p>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function CoursePage() {
         <div>
           <h1 className="text-3xl font-bold">{course.title}</h1>
           {course.summary && (
-            <p className="mt-2 text-slate-600">{course.summary}</p>
+            <p className="mt-2 text-brand-text-muted">{course.summary}</p>
           )}
           <div className="mt-6 space-y-3">
             {lessons.map((lsn) => (
@@ -49,7 +49,9 @@ export default function CoursePage() {
                 to={`/lms/lesson/${lsn.id}`}
                 className="card p-4 block"
               >
-                <div className="text-xs text-slate-500">Lesson {lsn.idx}</div>
+                <div className="text-xs text-brand-text-light">
+                  Lesson {lsn.idx}
+                </div>
                 <div className="font-semibold">{lsn.title}</div>
               </Link>
             ))}
@@ -57,7 +59,7 @@ export default function CoursePage() {
         </div>
         <aside className="card p-4">
           <div className="font-semibold">Course Info</div>
-          <ul className="mt-2 text-sm text-slate-600 space-y-1">
+          <ul className="mt-2 text-sm text-brand-text-muted space-y-1">
             <li>Code: {course.code}</li>
             <li>Lessons: {lessons.length}</li>
           </ul>

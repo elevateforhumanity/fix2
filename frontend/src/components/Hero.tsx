@@ -73,7 +73,6 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-pink-200/15 to-purple-200/15 rounded-full blur-3xl"
         />
       </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
@@ -94,7 +93,6 @@ const Hero = () => {
                 🎓 DOL Registered Apprenticeship Programs
               </span>
             </motion.div>
-
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +103,6 @@ const Hero = () => {
               Launch Your <span className="gradient-text">Tech Career</span> in
               Healthcare IT
             </motion.h1>
-
             {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -117,7 +114,6 @@ const Hero = () => {
               and Cloud Computing. Earn while you learn with real-world
               experience.
             </motion.p>
-
             {/* Highlights */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -138,7 +134,6 @@ const Hero = () => {
                 </motion.div>
               ))}
             </motion.div>
-
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -166,7 +161,6 @@ const Hero = () => {
                 </motion.button>
               </Link>
             </motion.div>
-
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -186,7 +180,6 @@ const Hero = () => {
               ))}
             </motion.div>
           </motion.div>
-
           {/* Right Column - Visual Highlights */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -213,7 +206,6 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-
               {/* Key Features */}
               <div className="space-y-3">
                 {[
@@ -235,7 +227,6 @@ const Hero = () => {
                 ))}
               </div>
             </motion.div>
-
             {/* Floating Stats Cards */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -250,7 +241,6 @@ const Hero = () => {
                 </div>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

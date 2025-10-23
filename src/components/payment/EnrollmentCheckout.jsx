@@ -60,7 +60,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
           {program.title}
         </h3>
         <p className="text-brand-text-muted mb-4">{program.description}</p>
-
         {/* Program Details */}
         <div className="space-y-2 text-sm">
           {program.duration && (
@@ -83,7 +82,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
           )}
         </div>
       </div>
-
       {/* Price */}
       <div className="bg-blue-50 rounded-lg p-4 mb-6">
         <div className="flex justify-between items-center">
@@ -98,7 +96,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
           </p>
         )}
       </div>
-
       {/* Features */}
       <div className="mb-6 space-y-2">
         <div className="flex items-center gap-2 text-sm text-brand-text">
@@ -118,14 +115,12 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
           <span>Instructor support</span>
         </div>
       </div>
-
       {/* Error Message */}
       {error && (
         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-sm text-red-600">{error}</p>
         </div>
       )}
-
       {/* Action Buttons */}
       <div className="space-y-3">
         <button
@@ -154,7 +149,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
             </>
           )}
         </button>
-
         {onCancel && (
           <button
             onClick={onCancel}
@@ -165,7 +159,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
           </button>
         )}
       </div>
-
       {/* Security Badge */}
       {!isFree && (
         <div className="mt-4 flex items-center justify-center gap-2 text-xs text-brand-text-light">

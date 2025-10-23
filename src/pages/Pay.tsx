@@ -144,7 +144,6 @@ export default function Pay() {
       <h2 className="text-xl font-bold text-brand-text mb-6">
         Complete Your Enrollment Payment
       </h2>
-
       {/* Program Selection */}
       <div className="mb-6">
         <label className="block text-sm font-medium text-brand-text mb-2">
@@ -164,7 +163,6 @@ export default function Pay() {
           ))}
         </select>
       </div>
-
       {selectedProgram && (
         <div className="space-y-6">
           {/* Program Details */}
@@ -185,7 +183,6 @@ export default function Pay() {
               </div>
             </div>
           </div>
-
           {/* Payment Options */}
           <div>
             <h4 className="font-medium text-brand-text mb-3">
@@ -211,7 +208,6 @@ export default function Pay() {
                   </div>
                 </div>
               </label>
-
               <label className="flex items-start space-x-3 p-4 border border-brand-border rounded-lg cursor-pointer hover:bg-brand-surface">
                 <input
                   type="radio"
@@ -238,7 +234,6 @@ export default function Pay() {
                   </div>
                 </div>
               </label>
-
               <label className="flex items-start space-x-3 p-4 border border-green-200 rounded-lg cursor-pointer hover:bg-green-50 bg-green-25">
                 <input
                   type="radio"
@@ -265,7 +260,6 @@ export default function Pay() {
               </label>
             </div>
           </div>
-
           {/* Federal Funding */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
             <h4 className="font-medium text-green-900 mb-2">
@@ -292,7 +286,6 @@ export default function Pay() {
               Apply for Federal Funding →
             </Link>
           </div>
-
           {/* Coupon Code */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -312,7 +305,6 @@ export default function Pay() {
               Available codes: WORKFORCE25 (25% off), EARLYBIRD500 ($500 off)
             </div>
           </div>
-
           {/* Payment Method */}
           <div>
             <h4 className="font-medium text-brand-text mb-3">Payment Method</h4>
@@ -367,7 +359,6 @@ export default function Pay() {
               </div>
             </div>
           </div>
-
           {/* Submit */}
           <div className="space-y-3">
             <button
@@ -376,7 +367,6 @@ export default function Pay() {
             >
               Complete Payment - ${(selectedProgram.price / 4).toLocaleString()}
             </button>
-
             <button
               id="bnplCheckout"
               className="hidden w-full bg-brand-success text-white py-3 px-6 rounded-lg hover:bg-brand-success-hover transition-colors font-medium"
@@ -385,7 +375,6 @@ export default function Pay() {
               Choose Buy Now, Pay Later Plan
             </button>
           </div>
-
           <script>
             {`
               document.addEventListener('DOMContentLoaded', function() {
@@ -545,7 +534,6 @@ export default function Pay() {
             </div>
           ))}
         </div>
-
         <div className="mt-6 text-center">
           <Link
             to="/compliance/eligibility-verification"
@@ -584,12 +572,10 @@ export default function Pay() {
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Payment Form */}
           <div className="lg:col-span-2">{renderPaymentForm()}</div>
-
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Revenue Split Info */}
@@ -614,7 +600,6 @@ export default function Pay() {
                 </div>
               </div>
             </div>
-
             {/* Available Coupons */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-medium text-brand-text mb-4">
@@ -639,7 +624,6 @@ export default function Pay() {
                 ))}
               </div>
             </div>
-
             {/* Federal Funding */}
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
               <h3 className="text-lg font-medium text-green-900 mb-2">
@@ -656,7 +640,6 @@ export default function Pay() {
                 Check Eligibility
               </Link>
             </div>
-
             {/* Support */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-medium text-brand-text mb-4">
@@ -682,7 +665,6 @@ export default function Pay() {
             </div>
           </div>
         </div>
-
         {/* Payment History & Funding Status */}
         <div className="mt-12 grid lg:grid-cols-2 gap-8">
           {renderPaymentHistory()}

@@ -332,7 +332,7 @@ export function WIOAComplianceDashboard() {
   if (!metrics) {
     return (
       <div className="text-center py-8">
-        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
         <p className="mt-4 text-brand-text-muted">
           Loading WIOA compliance data...
         </p>
@@ -382,7 +382,6 @@ export function WIOAComplianceDashboard() {
           </label>
         </div>
       </div>
-
       {/* Compliance Score */}
       <div className="bg-white border rounded-lg p-6 mb-6">
         <div className="flex items-center justify-between">
@@ -404,7 +403,6 @@ export function WIOAComplianceDashboard() {
           </div>
         </div>
       </div>
-
       {/* Real-time Alerts */}
       {metrics.realTimeAlerts.length > 0 && (
         <div className="mb-6">
@@ -439,7 +437,6 @@ export function WIOAComplianceDashboard() {
           </div>
         </div>
       )}
-
       {/* Performance Indicators */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -458,7 +455,6 @@ export function WIOAComplianceDashboard() {
                   {indicator.status.toUpperCase()}
                 </span>
               </div>
-
               <div className="mb-4">
                 <div className="flex items-baseline space-x-2">
                   <span className="text-2xl font-bold text-brand-text">
@@ -474,7 +470,6 @@ export function WIOAComplianceDashboard() {
                   </span>
                 </div>
               </div>
-
               <div className="mb-4">
                 <div className="w-full bg-brand-border rounded-full h-2">
                   <div
@@ -486,10 +481,9 @@ export function WIOAComplianceDashboard() {
                     style={{
                       width: `${Math.min((indicator.actual / indicator.target) * 100, 100)}%`,
                     }}
-                  ></div>
+                  />
                 </div>
               </div>
-
               <div className="flex items-center justify-between text-xs text-brand-text-light">
                 <span>
                   {indicator.trend === 'improving'
@@ -508,7 +502,6 @@ export function WIOAComplianceDashboard() {
           ))}
         </div>
       </div>
-
       {/* Participant Demographics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         <div className="bg-white border rounded-lg p-6">
@@ -548,7 +541,6 @@ export function WIOAComplianceDashboard() {
             </div>
           </div>
         </div>
-
         <div className="bg-white border rounded-lg p-6">
           <h3 className="text-lg font-semibold text-brand-text mb-4">
             📚 Program Performance
@@ -584,7 +576,6 @@ export function WIOAComplianceDashboard() {
           </div>
         </div>
       </div>
-
       {/* Reporting Schedule */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -649,7 +640,6 @@ export function WIOAComplianceDashboard() {
           </table>
         </div>
       </div>
-
       {/* Compliance Areas */}
       <div>
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -666,7 +656,6 @@ export function WIOAComplianceDashboard() {
                   {area.status.replace('_', ' ').toUpperCase()}
                 </span>
               </div>
-
               <div className="mb-4">
                 <div className="text-2xl font-bold text-brand-text mb-1">
                   {area.score}%
@@ -681,10 +670,9 @@ export function WIOAComplianceDashboard() {
                           : 'bg-red-500'
                     }`}
                     style={{ width: `${area.score}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
-
               <div className="text-xs text-brand-text-light space-y-1">
                 <div>Last Audit: {area.lastAudit}</div>
                 <div>Next Review: {area.nextReview}</div>

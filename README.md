@@ -59,6 +59,19 @@ npm run dev
 npm run deploy:cloudflare
 ```
 
+### Option 4: Generate Mobile Builds (Capacitor)
+
+```bash
+# Sync native projects with the latest web build
+pnpm mobile:sync
+
+# Open the native projects (requires Android Studio / Xcode)
+pnpm mobile:android
+pnpm mobile:ios
+```
+
+> The Capacitor projects live in `android/` and `ios/`. Run `pnpm mobile:copy` if you only need assets without re-opening the IDEs.
+
 ---
 
 ## 📦 What's Included

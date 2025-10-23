@@ -42,7 +42,6 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           </Route>
-
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route element={<DashboardLayout />}>
@@ -60,7 +59,6 @@ function App() {
             </Route>
             <Route path="/learn/:courseId" element={<CoursePlayerPage />} />
           </Route>
-
           {/* 404 */}
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />

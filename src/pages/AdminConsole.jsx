@@ -111,7 +111,6 @@ export function AdminConsole() {
         >
           ⚙️ Admin Console
         </h2>
-
         <nav>
           <button
             onClick={() => setView('dashboard')}
@@ -276,7 +275,6 @@ export function AdminConsole() {
           </button>
         </nav>
       </div>
-
       <div style={{ flex: 1, overflowY: 'auto', padding: '2rem' }}>
         {view === 'dashboard' && (
           <div>
@@ -289,7 +287,6 @@ export function AdminConsole() {
             >
               Dashboard
             </h1>
-
             <div
               style={{
                 display: 'grid',
@@ -323,7 +320,6 @@ export function AdminConsole() {
                 color="var(--brand-secondary)"
               />
             </div>
-
             <div
               style={{
                 display: 'grid',
@@ -395,7 +391,6 @@ export function AdminConsole() {
                   ))}
                 </div>
               </div>
-
               <div
                 style={{
                   backgroundColor: '#fff',
@@ -464,7 +459,6 @@ export function AdminConsole() {
             </div>
           </div>
         )}
-
         {view === 'users' && (
           <div>
             <div
@@ -492,7 +486,6 @@ export function AdminConsole() {
                 + Add User
               </button>
             </div>
-
             <div
               style={{
                 backgroundColor: '#fff',
@@ -663,7 +656,6 @@ export function AdminConsole() {
             </div>
           </div>
         )}
-
         {view === 'compliance' && (
           <div>
             <h1
@@ -675,7 +667,6 @@ export function AdminConsole() {
             >
               Compliance Dashboard
             </h1>
-
             <div style={{ display: 'grid', gap: '1.5rem' }}>
               {[
                 {
@@ -750,7 +741,6 @@ export function AdminConsole() {
             </div>
           </div>
         )}
-
         {(view === 'schools' ||
           view === 'billing' ||
           view === 'storage' ||

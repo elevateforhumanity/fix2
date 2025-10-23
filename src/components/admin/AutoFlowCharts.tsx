@@ -93,7 +93,7 @@ export function AutoFlowCharts() {
                 <div
                   className="bg-blue-500 h-3 rounded-full transition-all duration-500"
                   style={{ width: `${step.percentage}%` }}
-                ></div>
+                />
               </div>
               <div className="text-xs text-brand-text-light mt-1">
                 {step.percentage}% conversion
@@ -139,7 +139,7 @@ export function AutoFlowCharts() {
                   <div
                     className="bg-green-500 h-4 rounded-full transition-all duration-500"
                     style={{ width: `${program.rate}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
               <div className="text-sm text-brand-text-muted">
@@ -207,7 +207,7 @@ export function AutoFlowCharts() {
                       : 'bg-red-500'
                 }`}
                 style={{ width: `${risk.percentage}%` }}
-              ></div>
+              />
             </div>
             <div className="text-xs text-brand-text-light mt-1">
               {risk.percentage}% of total
@@ -237,10 +237,9 @@ export function AutoFlowCharts() {
           {isGenerating ? '🔄 Generating...' : '🔄 Refresh Charts'}
         </button>
       </div>
-
       {isGenerating ? (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
           <p className="mt-4 text-brand-text-muted">
             🤖 Copilot is generating your flow charts...
           </p>
@@ -252,7 +251,6 @@ export function AutoFlowCharts() {
               <h3 className="text-lg font-semibold mb-4 text-brand-text">
                 {chart.title}
               </h3>
-
               {chart.type === 'enrollment' && (
                 <EnrollmentFlowChart data={chart.data} />
               )}
@@ -265,7 +263,6 @@ export function AutoFlowCharts() {
               {chart.type === 'attrition' && (
                 <AttritionRiskChart data={chart.data} />
               )}
-
               <div className="mt-4 flex justify-between items-center">
                 <span className="text-xs text-brand-text-light">
                   Last updated: {new Date().toLocaleString()}
@@ -283,7 +280,6 @@ export function AutoFlowCharts() {
           ))}
         </div>
       )}
-
       {/* Auto-Generated Insights */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-4">

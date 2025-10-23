@@ -14,20 +14,19 @@ export default function HomePage() {
           <div className="flex gap-4 justify-center">
             <Link
               to="/programs"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+              className="bg-white text-brand-info px-8 py-3 rounded-lg font-semibold hover:bg-brand-surface-dark transition"
             >
               Explore Programs
             </Link>
             <Link
               to="/get-started"
-              className="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition"
+              className="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-brand-info transition"
             >
               Get Started
             </Link>
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
@@ -38,21 +37,21 @@ export default function HomePage() {
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🎓</div>
               <h3 className="text-2xl font-bold mb-2">Quality Education</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-text-muted">
                 Industry-leading curriculum designed by experts
               </p>
             </div>
             <div className="text-center p-6">
               <div className="text-5xl mb-4">💼</div>
               <h3 className="text-2xl font-bold mb-2">Career Support</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-text-muted">
                 Job placement assistance and career guidance
               </p>
             </div>
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🤝</div>
               <h3 className="text-2xl font-bold mb-2">Community</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-text-muted">
                 Join a supportive network of learners
               </p>
             </div>

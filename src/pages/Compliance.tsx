@@ -153,7 +153,6 @@ export default function Compliance() {
           </div>
         </div>
       </div>
-
       {/* Key Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
         <div className="bg-white p-6 rounded-lg shadow text-center">
@@ -193,7 +192,6 @@ export default function Compliance() {
           </div>
         </div>
       </div>
-
       {/* Compliance Areas Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {complianceAreas.map((area) => (
@@ -233,13 +231,12 @@ export default function Compliance() {
                 <div
                   className="bg-brand-info rounded-full h-2"
                   style={{ width: `${area.completion}%` }}
-                ></div>
+                />
               </div>
             </div>
           </button>
         ))}
       </div>
-
       {/* Recent Activity */}
       <div className="bg-white rounded-lg shadow">
         <div className="p-6 border-b">
@@ -337,7 +334,6 @@ export default function Compliance() {
               <div className="text-purple-700 text-sm">Federal Standards</div>
             </div>
           </div>
-
           {/* Section-specific content */}
           <div className="space-y-6">
             {sectionId === 'iep' && (
@@ -377,7 +373,6 @@ export default function Compliance() {
                 </div>
               </div>
             )}
-
             {sectionId === 'pirl' && (
               <div>
                 <h3 className="text-lg font-medium text-brand-text mb-4">
@@ -415,7 +410,6 @@ export default function Compliance() {
                 </div>
               </div>
             )}
-
             <div className="flex space-x-4">
               <button className="bg-brand-info text-white px-6 py-2 rounded-lg hover:bg-brand-info-hover transition-colors">
                 Generate Report
@@ -471,7 +465,6 @@ export default function Compliance() {
           </div>
         </div>
       </div>
-
       {/* Navigation Tabs */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -493,13 +486,11 @@ export default function Compliance() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeSection === 'overview' && renderOverview()}
         {activeSection !== 'overview' && renderComplianceSection(activeSection)}
       </div>
-
       {/* Federal Compliance Footer */}
       <div className="bg-orange-50 border-t-4 border-orange-400 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

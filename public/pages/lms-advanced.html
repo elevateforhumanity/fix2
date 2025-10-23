@@ -129,6 +129,7 @@
             <!-- User Menu -->
             <div class="relative" x-data="{ open: false }">
               <button
+                type="button"
                 @click="open = !open"
                 class="flex items-center space-x-2 text-gray-700 hover:text-gray-900"
               >
@@ -365,6 +366,7 @@
                   placeholder="Describe your course topic and AI will generate the complete curriculum..."
                 ></textarea>
                 <button
+                  type="button"
                   @click="generateAICourse()"
                   class="mt-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
                 >
@@ -372,7 +374,7 @@
                 </button>
               </div>
 
-              <!-- Drag & Drop Course Builder -->
+              <!-- Drag &amp; Drop Course Builder -->
               <div
                 class="drag-drop-zone rounded-lg p-6"
                 @dragover.prevent="dragOver = true"
@@ -395,7 +397,7 @@
                     />
                   </svg>
                   <p class="text-gray-600">
-                    Drag & drop videos, PDFs, images, or
+                    Drag &amp; drop videos, PDFs, images, or
                     <span class="text-blue-600 cursor-pointer"
                       >browse files</span
                     >
@@ -432,6 +434,7 @@
               <!-- AI Chat Overlay -->
               <div class="absolute bottom-4 right-4 ai-chat-bubble">
                 <button
+                  type="button"
                   @click="toggleAIChat()"
                   class="bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full p-3 shadow-lg"
                 >
@@ -550,6 +553,7 @@
                 placeholder="Ask me anything..."
               />
               <button
+                type="button"
                 @click="sendAIMessage()"
                 class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
               >
@@ -563,6 +567,7 @@
             <h3 class="font-bold text-gray-900 mb-4">📚 Course Navigation</h3>
             <div class="space-y-3">
               <button
+                type="button"
                 @click="currentView = 'create-course'"
                 class="w-full text-left p-3 rounded-lg hover:bg-gray-50"
                 :class="currentView === 'create-course' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'"
@@ -570,6 +575,7 @@
                 🚀 Create Course
               </button>
               <button
+                type="button"
                 @click="currentView = 'course-player'"
                 class="w-full text-left p-3 rounded-lg hover:bg-gray-50"
                 :class="currentView === 'course-player' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'"
@@ -577,6 +583,7 @@
                 📹 Video Player
               </button>
               <button
+                type="button"
                 @click="currentView = 'analytics'"
                 class="w-full text-left p-3 rounded-lg hover:bg-gray-50"
                 :class="currentView === 'analytics' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'"

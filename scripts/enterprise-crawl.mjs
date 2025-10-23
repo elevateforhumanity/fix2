@@ -13,8 +13,8 @@
 import fs from 'fs';
 import path from 'path';
 // node >=18: npm i -D cheerio node-fetch@3 robots-parser
-import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
+import fetch from 'node-fetch';
 import robotsParser from 'robots-parser';
 
 const arg = (k, d = null) => {
@@ -162,9 +162,9 @@ const addToMaster = (relPath) =>
   );
 
 // per-section, per-month, chunked
-for (const [section, list] of Object.entries(bySection)) {
+for (const [section, list] of Object.entries(buckets)) {
   if (!list.length) continue;
-  const monthly = groupByMonth(list);
+  const monthly = byMonth(list);
   for (const [ym, items] of monthly.entries()) {
     // small chunks
     for (let i = 0; i < items.length; i += CHUNK) {
@@ -213,12 +213,12 @@ for (const ping of [
 }
 
 // IndexNow (optional; use for recent URLs and/or master sitemap)
-if (INDEXNOW_KEY) {
+if (INDEXNOW) {
   const endpoint = 'https://api.indexnow.org/indexnow';
   const payload = {
     host: new URL(BASE).host,
-    key: INDEXNOW_KEY,
-    keyLocation: `${BASE}/${INDEXNOW_KEY}.txt`,
+    key: INDEXNOW,
+    keyLocation: `${BASE}/${INDEXNOW}.txt`,
     urlList: [`${BASE}/sitemap_index.xml`, ...latest.map((x) => x.url)],
   };
   try {

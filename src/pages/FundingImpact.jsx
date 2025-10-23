@@ -13,7 +13,6 @@ export default function FundingImpact() {
         Track the impact of workforce funding programs including WIOA, WRG, and
         VR.
       </p>
-
       <div style={{ marginTop: 32 }}>
         <h2>Program Metrics</h2>
         <div
@@ -74,7 +73,6 @@ export default function FundingImpact() {
           </div>
         </div>
       </div>
-
       <div style={{ marginTop: 32 }}>
         <h2>Success Stories</h2>
         <ul>

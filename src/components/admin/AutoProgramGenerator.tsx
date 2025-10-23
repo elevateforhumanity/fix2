@@ -389,7 +389,6 @@ export function AutoProgramGenerator() {
           {isGenerating ? '🔄 Generating...' : '🤖 Generate New Program'}
         </button>
       </div>
-
       {/* National Statistics */}
       {nationalStats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -421,12 +420,11 @@ export function AutoProgramGenerator() {
           </div>
         </div>
       )}
-
       {/* Generation Status */}
       {isGenerating && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
           <div className="flex items-center">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-4"></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-4" />
             <div>
               <h3 className="font-semibold text-blue-900">
                 🤖 AI Program Generator Working...
@@ -444,7 +442,6 @@ export function AutoProgramGenerator() {
           </div>
         </div>
       )}
-
       {/* Generated Programs */}
       <div className="space-y-6">
         {generatedPrograms.map((program) => (
@@ -486,7 +483,6 @@ export function AutoProgramGenerator() {
                 </span>
               </div>
             </div>
-
             {/* National Availability */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <div className="bg-brand-surface rounded p-3">
@@ -528,7 +524,6 @@ export function AutoProgramGenerator() {
                 </div>
               </div>
             </div>
-
             {/* Job Outcomes */}
             <div className="mb-4">
               <div className="text-sm font-medium text-brand-text mb-2">
@@ -545,7 +540,6 @@ export function AutoProgramGenerator() {
                 ))}
               </div>
             </div>
-
             {/* Certifications */}
             <div className="mb-4">
               <div className="text-sm font-medium text-brand-text mb-2">
@@ -562,7 +556,6 @@ export function AutoProgramGenerator() {
                 ))}
               </div>
             </div>
-
             {/* Actions */}
             <div className="flex space-x-3">
               <button
@@ -571,7 +564,6 @@ export function AutoProgramGenerator() {
               >
                 📊 View Details
               </button>
-
               {program.deploymentStatus !== 'deployed_national' && (
                 <button
                   onClick={() => deployNationally(program.id)}
@@ -580,16 +572,13 @@ export function AutoProgramGenerator() {
                   🚀 Deploy Nationally
                 </button>
               )}
-
               <button className="text-sm bg-brand-surface text-purple-700 px-4 py-2 rounded hover:bg-purple-200">
                 🎓 Enroll Students
               </button>
-
               <button className="text-sm bg-brand-surface text-orange-700 px-4 py-2 rounded hover:bg-orange-200">
                 📝 Customize Program
               </button>
             </div>
-
             {/* Expansion Plans */}
             {program.nationalAvailability.expansionPlan.length > 0 && (
               <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded p-3">
@@ -609,7 +598,6 @@ export function AutoProgramGenerator() {
           </div>
         ))}
       </div>
-
       {/* Program Detail Modal */}
       {selectedProgram && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -623,7 +611,6 @@ export function AutoProgramGenerator() {
                 ✕
               </button>
             </div>
-
             <div className="space-y-4">
               <div>
                 <h4 className="font-semibold mb-2">📚 Program Modules:</h4>
@@ -642,7 +629,6 @@ export function AutoProgramGenerator() {
                   </div>
                 ))}
               </div>
-
               <div>
                 <h4 className="font-semibold mb-2">🌍 National Deployment:</h4>
                 <div className="grid grid-cols-2 gap-4 text-sm">

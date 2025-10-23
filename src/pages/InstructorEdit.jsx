@@ -175,7 +175,6 @@ export default function InstructorEdit() {
             </div>
           </div>
         </div>
-
         {saved && (
           <div
             style={{
@@ -190,7 +189,6 @@ export default function InstructorEdit() {
             ✅ Course saved successfully
           </div>
         )}
-
         {/* Tabs */}
         <div
           style={{
@@ -227,7 +225,6 @@ export default function InstructorEdit() {
             </button>
           ))}
         </div>
-
         {/* Tab Content */}
         {activeTab === 'details' && (
           <div>
@@ -243,7 +240,6 @@ export default function InstructorEdit() {
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
                 Course Details
               </h2>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -272,7 +268,6 @@ export default function InstructorEdit() {
                     }}
                   />
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -298,7 +293,6 @@ export default function InstructorEdit() {
                     }}
                   />
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -326,7 +320,6 @@ export default function InstructorEdit() {
                     }}
                   />
                 </div>
-
                 <div
                   style={{
                     display: 'grid',
@@ -366,7 +359,6 @@ export default function InstructorEdit() {
                       </option>
                     </select>
                   </div>
-
                   <div>
                     <label
                       style={{
@@ -395,7 +387,6 @@ export default function InstructorEdit() {
                       <option value="Advanced">Advanced</option>
                     </select>
                   </div>
-
                   <div>
                     <label
                       style={{
@@ -426,7 +417,6 @@ export default function InstructorEdit() {
                     </select>
                   </div>
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -466,7 +456,6 @@ export default function InstructorEdit() {
             </div>
           </div>
         )}
-
         {activeTab === 'curriculum' && (
           <div>
             <div
@@ -505,7 +494,6 @@ export default function InstructorEdit() {
                   + Add Module
                 </button>
               </div>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
               >
@@ -574,7 +562,6 @@ export default function InstructorEdit() {
                         </button>
                       </div>
                     </div>
-
                     <div
                       style={{
                         display: 'flex',
@@ -664,7 +651,6 @@ export default function InstructorEdit() {
             </div>
           </div>
         )}
-
         {activeTab === 'pricing' && (
           <div>
             <div
@@ -678,7 +664,6 @@ export default function InstructorEdit() {
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
                 Pricing
               </h2>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -718,7 +703,6 @@ export default function InstructorEdit() {
                     Set to 0 for a free course
                   </p>
                 </div>
-
                 <div
                   style={{
                     padding: 16,
@@ -759,7 +743,6 @@ export default function InstructorEdit() {
             </div>
           </div>
         )}
-
         {activeTab === 'settings' && (
           <div>
             <div
@@ -773,7 +756,6 @@ export default function InstructorEdit() {
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
                 Course Settings
               </h2>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -846,7 +828,6 @@ export default function InstructorEdit() {
                     </span>
                   </label>
                 </div>
-
                 <div
                   style={{
                     padding: 16,

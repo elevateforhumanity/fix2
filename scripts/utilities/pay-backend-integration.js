@@ -23,7 +23,7 @@ const { createClient } = require('@supabase/supabase-js');
 
 // Provide fallbacks to prevent no-undef during lint where integration host not loaded
 // (These stubs are harmless and can be removed when real server wiring is in place)
-// eslint-disable-next-line no-var
+
 let appRef = global.__EFH_PAY_APP__;
 if (!appRef) {
   const express = require('express');

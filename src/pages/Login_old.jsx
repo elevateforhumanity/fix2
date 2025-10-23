@@ -86,7 +86,6 @@ export default function Login() {
             Sign in to your account
           </p>
         </div>
-
         {/* Error Message */}
         {error && (
           <div
@@ -103,7 +102,6 @@ export default function Login() {
             {error}
           </div>
         )}
-
         {/* Login Form */}
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: 20 }}>
@@ -144,7 +142,6 @@ export default function Login() {
               }
             />
           </div>
-
           <div style={{ marginBottom: 20 }}>
             <label
               htmlFor="password"
@@ -183,7 +180,6 @@ export default function Login() {
               }
             />
           </div>
-
           {/* Remember Me & Forgot Password */}
           <div
             style={{
@@ -226,7 +222,6 @@ export default function Login() {
               Forgot password?
             </Link>
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"
@@ -250,7 +245,6 @@ export default function Login() {
             Sign In
           </button>
         </form>
-
         {/* Divider */}
         <div
           style={{
@@ -283,7 +277,6 @@ export default function Login() {
             }}
           />
         </div>
-
         {/* Social Login Buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <button
@@ -327,7 +320,6 @@ export default function Login() {
             </svg>
             Continue with Google
           </button>
-
           <button
             type="button"
             style={{
@@ -349,13 +341,13 @@ export default function Login() {
             onMouseEnter={(e) => (e.target.style.backgroundColor = '#f8f8f8')}
             onMouseLeave={(e) => (e.target.style.backgroundColor = '#fff')}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
+            <svg width="18" height="18" viewBox="0 0 24 24"
+fill="#1877F2">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
             Continue with Facebook
           </button>
         </div>
-
         {/* Sign Up Link */}
         <div
           style={{
@@ -377,7 +369,6 @@ export default function Login() {
             Sign up
           </Link>
         </div>
-
         {/* Footer Links */}
         <div
           style={{

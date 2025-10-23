@@ -39,7 +39,6 @@ export default function Accessibility() {
           for all users
         </p>
       </header>
-
       <section style={{ marginBottom: '3rem' }}>
         <h2
           style={{
@@ -75,7 +74,6 @@ export default function Accessibility() {
           practices to create an inclusive experience for all users.
         </p>
       </section>
-
       <section style={{ marginBottom: '3rem' }}>
         <h2
           style={{
@@ -109,7 +107,6 @@ export default function Accessibility() {
             content more accessible to people with disabilities.
           </p>
         </div>
-
         <div
           style={{
             backgroundColor: '#f0fdf4',
@@ -133,7 +130,6 @@ export default function Accessibility() {
           </p>
         </div>
       </section>
-
       <section style={{ marginBottom: '3rem' }}>
         <h2
           style={{
@@ -171,7 +167,6 @@ export default function Accessibility() {
               Full keyboard navigation support for users who cannot use a mouse
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -193,7 +188,6 @@ export default function Accessibility() {
               VoiceOver
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -214,7 +208,6 @@ export default function Accessibility() {
               High contrast color schemes for users with visual impairments
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -235,7 +228,6 @@ export default function Accessibility() {
               Descriptive alt text for all images and visual content
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -256,7 +248,6 @@ export default function Accessibility() {
               Closed captions and transcripts for all video and audio content
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -279,7 +270,6 @@ export default function Accessibility() {
           </div>
         </div>
       </section>
-
       <section style={{ marginBottom: '3rem' }}>
         <h2
           style={{
@@ -319,7 +309,6 @@ export default function Accessibility() {
           <li style={{ marginBottom: '0.5rem' }}>Magnification software</li>
         </ul>
       </section>
-
       <section style={{ marginBottom: '3rem' }}>
         <h2
           style={{
@@ -357,7 +346,6 @@ export default function Accessibility() {
           </ul>
         </div>
       </section>
-
       <section
         style={{
           backgroundColor: '#f3f4f6',
@@ -402,7 +390,6 @@ export default function Accessibility() {
           We aim to respond to accessibility feedback within 2 business days.
         </div>
       </section>
-
       <footer
         style={{
           marginTop: '3rem',

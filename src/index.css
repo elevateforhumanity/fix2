@@ -4,10 +4,11 @@
 
 @layer base {
   * {
-    @apply border-slate-200;
+    @apply border-brand-border;
   }
+
   body {
-    @apply bg-white text-slate-900 antialiased;
+    @apply bg-white text-brand-text antialiased;
   }
 }
 
@@ -27,7 +28,7 @@
   }
 
   .card {
-    @apply rounded-xl bg-white shadow-sm border border-slate-200 overflow-hidden
+    @apply rounded-xl bg-white shadow-sm border border-brand-border overflow-hidden
            transition-shadow duration-200 hover:shadow-md;
   }
 

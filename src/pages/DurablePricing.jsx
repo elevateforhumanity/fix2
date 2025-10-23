@@ -62,7 +62,6 @@ export default function DurablePricing() {
             Choose the plan that's right for you
           </p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div

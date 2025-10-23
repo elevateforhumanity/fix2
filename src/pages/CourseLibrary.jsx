@@ -225,7 +225,7 @@ export default function CourseLibrary() {
                 </a>{' '}
                 |{' '}
                 <a
-                  href={`https://youtube.com`}
+                  href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -73,19 +73,18 @@ const PROGRAMS: Program[] = [
 
 export default function ProgramsGrid() {
   return (
-    <section className="section bg-slate-50">
+    <section className="section bg-brand-surface">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
             Empower Your Future Today
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-lg text-brand-text-muted leading-relaxed">
             Join our transformative programs and unlock career opportunities
             that align with industry demands. Flexible, grant-funded options
             mean more possibilities for growth.
           </p>
         </div>
-
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROGRAMS.map((p) => (
             <a
@@ -107,16 +106,18 @@ export default function ProgramsGrid() {
                   <span className="rounded-full bg-brand-50 text-brand-700 px-2.5 py-1 text-xs font-semibold">
                     {p.track}
                   </span>
-                  <span className="text-xs text-slate-500">{p.hours}</span>
+                  <span className="text-xs text-brand-text-light">
+                    {p.hours}
+                  </span>
                 </div>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-1 text-sm text-slate-600">{p.blurb}</p>
+                <p className="mt-1 text-sm text-brand-text-muted">{p.blurb}</p>
                 {!!p.certs?.length && (
                   <div className="mt-3 flex flex-wrap gap-2">
                     {p.certs.map((c) => (
                       <span
                         key={c}
-                        className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-full"
+                        className="text-xs text-brand-text-muted bg-brand-surface-dark px-2 py-1 rounded-full"
                       >
                         {c}
                       </span>
@@ -130,7 +131,6 @@ export default function ProgramsGrid() {
             </a>
           ))}
         </div>
-
         <div className="mt-8 text-center md:hidden">
           <a href="/apply" className="btn">
             Apply Now
