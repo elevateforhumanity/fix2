@@ -26,7 +26,7 @@ export function loadEnv(): AppEnv {
     const issues = parsed.error.issues
       .map((i) => `${i.path.join('.')}: ${i.message}`)
       .join('\n');
-    // eslint-disable-next-line no-console
+
     console.error('\nEnvironment validation failed:\n' + issues + '\n');
     process.exit(1);
   }
@@ -41,6 +41,6 @@ if (
   require.main === module
 ) {
   loadEnv();
-  // eslint-disable-next-line no-console
+
   console.log('✅ Environment variables validated');
 }

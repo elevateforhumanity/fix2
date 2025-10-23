@@ -43,7 +43,6 @@ export default function Ecosystem() {
           each focused on a unique aspect of personal and community development.
         </p>
       </section>
-
       <section
         style={{
           display: 'flex',
@@ -80,7 +79,6 @@ export default function Ecosystem() {
             Visit Main Site
           </a>
         </div>
-
         {/* Sister Site 1 */}
         <div
           style={{
@@ -108,7 +106,6 @@ export default function Ecosystem() {
             Visit Mentorship Hub
           </a>
         </div>
-
         {/* Sister Site 2 */}
         <div
           style={{
@@ -136,7 +133,6 @@ export default function Ecosystem() {
             Visit Volunteer Network
           </a>
         </div>
-
         {/* Sister Site 3 */}
         <div
           style={{
@@ -165,7 +161,6 @@ export default function Ecosystem() {
           </a>
         </div>
       </section>
-
       {/* Suggestions & Summary Section */}
       <section style={{ marginTop: 48 }}>
         <h2 style={{ fontSize: 24, marginBottom: 12 }}>

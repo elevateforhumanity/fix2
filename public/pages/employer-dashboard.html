@@ -115,6 +115,7 @@
       <!-- Quick Actions -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <button
+          type="button"
           onclick="showAddEmployerForm()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -129,6 +130,7 @@
         </button>
 
         <button
+          type="button"
           onclick="showJobPlacementForm()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -143,6 +145,7 @@
         </button>
 
         <button
+          type="button"
           onclick="showPartnershipReport()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -158,6 +161,7 @@
         </button>
 
         <button
+          type="button"
           onclick="showRetentionTracking()"
           class="bg-white p-6 rounded-lg border hover:shadow-md transition-shadow text-left"
         >
@@ -178,6 +182,7 @@
         <div class="border-b border-gray-200">
           <nav class="-mb-px flex">
             <button
+              type="button"
               onclick="showTab('employers')"
               id="employers-tab"
               class="w-1/3 py-2 px-1 text-center border-b-2 border-cyan-500 font-medium text-sm text-cyan-600"
@@ -185,6 +190,7 @@
               Employer Partners
             </button>
             <button
+              type="button"
               onclick="showTab('placements')"
               id="placements-tab"
               class="w-1/3 py-2 px-1 text-center border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300"
@@ -192,6 +198,7 @@
               Job Placements
             </button>
             <button
+              type="button"
               onclick="showTab('commitments')"
               id="commitments-tab"
               class="w-1/3 py-2 px-1 text-center border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300"
@@ -357,6 +364,7 @@
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-semibold">Hiring Commitments</h3>
             <button
+              type="button"
               onclick="showCommitmentForm()"
               class="bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-700 text-sm"
             >
@@ -385,6 +393,7 @@
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">Add Employer Partner</h3>
                 <button
+                  type="button"
                   onclick="hideAddEmployerForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -544,6 +553,7 @@
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">Record Job Placement</h3>
                 <button
+                  type="button"
                   onclick="hideJobPlacementForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -815,8 +825,8 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewEmployer('${employer.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        <button onclick="editEmployer('${employer.id}')" class="text-green-600 hover:text-green-900">Edit</button>
+                        <button type="button" onclick="viewEmployer('${employer.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        <button type="button" onclick="editEmployer('${employer.id}')" class="text-green-600 hover:text-green-900">Edit</button>
                     </td>
                 `;
           tbody.appendChild(row);
@@ -860,8 +870,8 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewPlacement('${placement.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        <button onclick="updateRetention('${placement.id}')" class="text-orange-600 hover:text-orange-900">Update</button>
+                        <button type="button" onclick="viewPlacement('${placement.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        <button type="button" onclick="updateRetention('${placement.id}')" class="text-orange-600 hover:text-orange-900">Update</button>
                     </td>
                 `;
           tbody.appendChild(row);

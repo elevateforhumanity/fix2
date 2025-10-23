@@ -95,7 +95,9 @@
       <label for="licenseInput">Enter Your License Key</label>
       <input id="licenseInput" placeholder="Paste your license key..." />
 
-      <button onclick="validateLicense()">🔍 Validate License</button>
+      <button type="button" onclick="validateLicense()">
+        🔍 Validate License
+      </button>
 
       <div id="output" style="margin-top: 1.5rem"></div>
     </div>
@@ -124,8 +126,8 @@
       <p style="color:green;">✅ License is valid</p>
       <pre>${JSON.stringify(data, null, 2)}</pre>
       <div class="actions">
-        <button onclick="renewLicense('${licenseKey}')">♻️ Renew License</button>
-        <button onclick="downloadPDF('${data.email}')">📄 Download PDF</button>
+        <button type="button" onclick="renewLicense('${licenseKey}')">♻️ Renew License</button>
+        <button type="button" onclick="downloadPDF('${data.email}')">📄 Download PDF</button>
       </div>
     `;
       }

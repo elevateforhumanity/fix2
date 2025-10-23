@@ -1,5 +1,14 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-tailwindcss"],
+  "ignoreFiles": [
+    "dist/**",
+    "android/**",
+    "ios/**",
+    "public/**/*.css",
+    "src/**/*.css",
+    "frontend/**/*.css",
+    "docs/jsdoc/styles/**/*.css"
+  ],
   "rules": {
     "color-hex-length": "short",
     "no-empty-source": null

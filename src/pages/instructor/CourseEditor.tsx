@@ -87,13 +87,11 @@ export default function CourseEditor() {
         <h1 className="text-3xl font-bold">
           {courseId === 'new' ? 'Create Course' : 'Edit Course'}
         </h1>
-
         {error && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
             {error}
           </div>
         )}
-
         <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           <div>
             <label className="block text-sm font-medium mb-1">
@@ -108,7 +106,6 @@ export default function CourseEditor() {
               required
             />
           </div>
-
           <div>
             <label className="block text-sm font-medium mb-1">Title *</label>
             <input
@@ -120,7 +117,6 @@ export default function CourseEditor() {
               required
             />
           </div>
-
           <div>
             <label className="block text-sm font-medium mb-1">Summary</label>
             <textarea
@@ -131,7 +127,6 @@ export default function CourseEditor() {
               placeholder="Brief description of the course"
             />
           </div>
-
           <div>
             <label className="block text-sm font-medium mb-1">Program</label>
             <select
@@ -147,7 +142,6 @@ export default function CourseEditor() {
               ))}
             </select>
           </div>
-
           <div className="flex gap-3">
             <button type="submit" className="btn" disabled={loading}>
               {loading ? 'Saving...' : 'Save Course'}

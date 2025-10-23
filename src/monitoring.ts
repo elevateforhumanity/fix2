@@ -6,14 +6,13 @@ export async function startWebVitals(report?: (m: Metric) => void) {
     const cb =
       report ??
       ((m: Metric) =>
-        console.log(`[web-vitals] ${m.name}:`, m.value, m.id ?? '')); // eslint-disable-line no-console
+        console.log(`[web-vitals] ${m.name}:`, m.value, m.id ?? ''));
     mod.onCLS(cb);
     mod.onFID(cb);
     mod.onLCP(cb);
     if (typeof mod.onINP === 'function') mod.onINP(cb);
     mod.onTTFB(cb);
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn(
       'web-vitals not available or failed to load:',
       (e as Error)?.message ?? e

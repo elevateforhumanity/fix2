@@ -157,7 +157,6 @@ export default function Connect() {
           <div className="text-brand-text-muted text-sm">Mentor Sessions</div>
         </div>
       </div>
-
       {/* Quick Actions */}
       <div className="grid md:grid-cols-3 gap-6">
         <button
@@ -173,7 +172,6 @@ export default function Connect() {
             View Jobs <ChevronRight className="h-4 w-4 ml-1" />
           </div>
         </button>
-
         <button
           onClick={() => setActiveTab('events')}
           className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-left"
@@ -187,7 +185,6 @@ export default function Connect() {
             View Events <ChevronRight className="h-4 w-4 ml-1" />
           </div>
         </button>
-
         <button
           onClick={() => setActiveTab('mentors')}
           className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-left"
@@ -202,7 +199,6 @@ export default function Connect() {
           </div>
         </button>
       </div>
-
       {/* Featured Content */}
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white rounded-lg shadow p-6">
@@ -229,7 +225,6 @@ export default function Connect() {
             View All Events →
           </button>
         </div>
-
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-medium text-brand-text mb-4">
             Top Job Matches
@@ -425,7 +420,7 @@ export default function Connect() {
                 className="border border-brand-border rounded-lg p-6"
               >
                 <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-3"></div>
+                  <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-3" />
                   <h3 className="font-medium text-brand-text">{mentor.name}</h3>
                   <p className="text-sm text-brand-text-muted">
                     {mentor.title}
@@ -434,7 +429,6 @@ export default function Connect() {
                     {mentor.company}
                   </p>
                 </div>
-
                 <div className="flex items-center justify-center space-x-4 mb-4">
                   <div className="flex items-center">
                     <Star className="h-4 w-4 text-yellow-500 mr-1" />
@@ -446,7 +440,6 @@ export default function Connect() {
                     {mentor.sessions} sessions
                   </div>
                 </div>
-
                 <div className="mb-4">
                   <p className="text-sm text-brand-text-muted mb-2">
                     Expertise:
@@ -462,7 +455,6 @@ export default function Connect() {
                     ))}
                   </div>
                 </div>
-
                 <button
                   className={`w-full py-2 px-4 rounded-lg transition-colors ${
                     mentor.available
@@ -510,7 +502,6 @@ export default function Connect() {
           </div>
         </div>
       </div>
-
       {/* Navigation Tabs */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -532,7 +523,6 @@ export default function Connect() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && renderOverview()}

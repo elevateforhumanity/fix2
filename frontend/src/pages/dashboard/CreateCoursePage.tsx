@@ -49,7 +49,6 @@ const CreateCoursePage = () => {
             placeholder="e.g., Complete Web Development Bootcamp"
           />
         </div>
-
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Description *
@@ -65,7 +64,6 @@ const CreateCoursePage = () => {
             placeholder="Describe what students will learn..."
           />
         </div>
-
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -85,7 +83,6 @@ const CreateCoursePage = () => {
               <option value="Data Science">Data Science</option>
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Level *
@@ -103,7 +100,6 @@ const CreateCoursePage = () => {
             </select>
           </div>
         </div>
-
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Price (USD) *
@@ -121,7 +117,6 @@ const CreateCoursePage = () => {
             placeholder="99.99"
           />
         </div>
-
         <div className="flex gap-4">
           <button
             type="button"

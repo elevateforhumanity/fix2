@@ -3,12 +3,13 @@
   Commercial License. No resale, sublicensing, or redistribution allowed.
   See LICENSE file for details.
 */
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AppLayout from '../layouts/AppLayout';
-import { StatCard, LineChart, BarChart, PieChart } from '../components/Chart';
-import { api } from '../lib/api';
+import { BarChart, LineChart, PieChart, StatCard } from '../components/Chart';
 import { LoadingSpinner } from '../components/LoadingSpinner';
+import { AnalyticsPulse } from '../components/admin/AnalyticsPulse';
+import AppLayout from '../layouts/AppLayout';
+import { api } from '../lib/api';
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
@@ -116,7 +117,9 @@ export default function AdminDashboard() {
             🔄 Refresh
           </button>
         </div>
-
+        <div style={{ marginBottom: 40 }}>
+          <AnalyticsPulse />
+        </div>
         {/* Overview Stats */}
         <div
           style={{
@@ -155,7 +158,6 @@ export default function AdminDashboard() {
             color="var(--color-danger)"
           />
         </div>
-
         {/* Charts Grid */}
         <div
           style={{
@@ -184,7 +186,6 @@ export default function AdminDashboard() {
               color="var(--color-primary)"
             />
           </div>
-
           {/* Revenue Trend */}
           <div
             style={{
@@ -204,7 +205,6 @@ export default function AdminDashboard() {
               color="var(--color-success)"
             />
           </div>
-
           {/* Course Enrollments */}
           <div
             style={{
@@ -224,7 +224,6 @@ export default function AdminDashboard() {
               color="var(--color-info)"
             />
           </div>
-
           {/* Users by Role */}
           <div
             style={{
@@ -240,7 +239,6 @@ export default function AdminDashboard() {
             <PieChart data={data.usersByRole} width={500} height={300} />
           </div>
         </div>
-
         {/* Quick Actions */}
         <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 20 }}>
           Quick Actions
@@ -271,7 +269,6 @@ export default function AdminDashboard() {
               Manage users, roles, and permissions
             </p>
           </Link>
-
           <Link
             to="/course-builder"
             style={{
@@ -291,7 +288,6 @@ export default function AdminDashboard() {
               Review and manage all courses
             </p>
           </Link>
-
           <Link
             to="/analytics"
             style={{
@@ -311,7 +307,6 @@ export default function AdminDashboard() {
               View platform analytics and reports
             </p>
           </Link>
-
           <Link
             to="/settings"
             style={{

@@ -52,7 +52,7 @@ a:hover {
 
 header {
   display: block;
-  padding: 0px 4px;
+  padding: 0 4px;
 }
 
 tt,
@@ -189,13 +189,13 @@ h5,
   font-size: 120%;
   font-weight: bold;
   letter-spacing: -0.01em;
-  margin: 8px 0 3px 0;
+  margin: 8px 0 3px;
 }
 
 h6 {
   font-size: 100%;
   letter-spacing: -0.01em;
-  margin: 6px 0 3px 0;
+  margin: 6px 0 3px;
   font-style: italic;
 }
 
@@ -208,7 +208,7 @@ table {
 td,
 th {
   border: 1px solid #ddd;
-  margin: 0px;
+  margin: 0;
   text-align: left;
   vertical-align: top;
   padding: 4px 6px;
@@ -223,6 +223,7 @@ thead tr {
 th {
   border-right: 1px solid #aaa;
 }
+
 tr > th:last-child {
   border-right: 1px solid #ddd;
 }
@@ -231,6 +232,7 @@ tr > th:last-child {
 .attribs {
   color: #999;
 }
+
 .ancestors a,
 .attribs a {
   color: #999 !important;
@@ -263,28 +265,35 @@ tr > th:last-child {
   margin-top: 14px;
   border-left: 2px solid #ddd;
 }
+
 .details dt {
   width: 120px;
   float: left;
   padding-left: 10px;
   padding-top: 6px;
 }
+
 .details dd {
   margin-left: 70px;
 }
+
 .details ul {
   margin: 0;
 }
+
 .details ul {
   list-style-type: none;
 }
+
 .details li {
   margin-left: 30px;
   padding-top: 6px;
 }
+
 .details pre.prettyprint {
   margin: 0;
 }
+
 .details .object-value {
   padding-top: 0;
 }
@@ -326,9 +335,6 @@ tr > th:last-child {
 
 .prettyprint.linenums {
   padding-left: 70px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -346,9 +352,6 @@ tr > th:last-child {
 }
 
 .prettyprint.linenums li * {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }
 

@@ -74,7 +74,6 @@ export default function InstructorNew() {
             Follow the steps to create your course
           </p>
         </div>
-
         {/* Progress Steps */}
         <div
           style={{
@@ -105,7 +104,6 @@ export default function InstructorNew() {
               }}
             />
           </div>
-
           {[
             { num: 1, label: 'Basic Info' },
             { num: 2, label: 'Description' },
@@ -151,7 +149,6 @@ export default function InstructorNew() {
             </div>
           ))}
         </div>
-
         {/* Step Content */}
         <div
           style={{
@@ -176,7 +173,6 @@ export default function InstructorNew() {
               >
                 Let's start with the basics. What's your course about?
               </p>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -216,7 +212,6 @@ export default function InstructorNew() {
                     they'll learn
                   </p>
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -243,7 +238,6 @@ export default function InstructorNew() {
                     }}
                   />
                 </div>
-
                 <div
                   style={{
                     display: 'grid',
@@ -286,7 +280,6 @@ export default function InstructorNew() {
                       </option>
                     </select>
                   </div>
-
                   <div>
                     <label
                       style={{
@@ -320,7 +313,6 @@ export default function InstructorNew() {
               </div>
             </div>
           )}
-
           {step === 2 && (
             <div>
               <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 8 }}>
@@ -336,7 +328,6 @@ export default function InstructorNew() {
                 Describe what students will learn and why they should take your
                 course
               </p>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -377,7 +368,6 @@ export default function InstructorNew() {
                     Minimum 200 characters recommended
                   </p>
                 </div>
-
                 <div
                   style={{
                     padding: 16,
@@ -413,7 +403,6 @@ export default function InstructorNew() {
               </div>
             </div>
           )}
-
           {step === 3 && (
             <div>
               <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 8 }}>
@@ -428,7 +417,6 @@ export default function InstructorNew() {
               >
                 Configure language and pricing for your course
               </p>
-
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
               >
@@ -464,7 +452,6 @@ export default function InstructorNew() {
                     <option value="Chinese">Chinese</option>
                   </select>
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -502,7 +489,6 @@ export default function InstructorNew() {
                     Set to 0 for a free course. You can change this later.
                   </p>
                 </div>
-
                 {parseFloat(courseData.price) > 0 && (
                   <div
                     style={{
@@ -534,7 +520,6 @@ export default function InstructorNew() {
               </div>
             </div>
           )}
-
           {step === 4 && (
             <div>
               <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 8 }}>
@@ -549,7 +534,6 @@ export default function InstructorNew() {
               >
                 Review your course details before creating
               </p>
-
               <div
                 style={{
                   border: '1px solid var(--brand-border)',
@@ -566,7 +550,6 @@ export default function InstructorNew() {
                     {courseData.title || 'Untitled Course'}
                   </div>
                 </div>
-
                 {courseData.subtitle && (
                   <div style={{ marginBottom: 16 }}>
                     <div
@@ -577,7 +560,6 @@ export default function InstructorNew() {
                     <div style={{ fontSize: 14 }}>{courseData.subtitle}</div>
                   </div>
                 )}
-
                 <div style={{ marginBottom: 16 }}>
                   <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>
                     Description
@@ -586,7 +568,6 @@ export default function InstructorNew() {
                     {courseData.description || 'No description provided'}
                   </div>
                 </div>
-
                 <div
                   style={{
                     display: 'grid',
@@ -606,7 +587,6 @@ export default function InstructorNew() {
                       {courseData.category}
                     </div>
                   </div>
-
                   <div>
                     <div
                       style={{ fontSize: 12, color: '#999', marginBottom: 4 }}
@@ -617,7 +597,6 @@ export default function InstructorNew() {
                       {courseData.level}
                     </div>
                   </div>
-
                   <div>
                     <div
                       style={{ fontSize: 12, color: '#999', marginBottom: 4 }}
@@ -628,7 +607,6 @@ export default function InstructorNew() {
                       {courseData.language}
                     </div>
                   </div>
-
                   <div>
                     <div
                       style={{ fontSize: 12, color: '#999', marginBottom: 4 }}
@@ -643,7 +621,6 @@ export default function InstructorNew() {
                   </div>
                 </div>
               </div>
-
               <div
                 style={{
                   padding: 16,
@@ -670,7 +647,6 @@ export default function InstructorNew() {
             </div>
           )}
         </div>
-
         {/* Navigation Buttons */}
         <div
           style={{
@@ -695,7 +671,6 @@ export default function InstructorNew() {
           >
             ← Back
           </button>
-
           {step < 4 ? (
             <button
               onClick={handleNext}

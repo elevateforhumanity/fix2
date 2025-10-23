@@ -23,7 +23,6 @@ export default function RefundPolicy() {
         >
           Last updated: January 1, 2025
         </p>
-
         <div style={{ fontSize: 16, lineHeight: 1.8, color: '#333' }}>
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
@@ -35,7 +34,6 @@ export default function RefundPolicy() {
               guarantee for all paid courses. No questions asked.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Eligibility
@@ -54,7 +52,6 @@ export default function RefundPolicy() {
               </li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               How to Request a Refund
@@ -84,7 +81,6 @@ export default function RefundPolicy() {
               </a>
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Processing Time
@@ -96,7 +92,6 @@ export default function RefundPolicy() {
               financial institution.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Exceptions
@@ -117,7 +112,6 @@ export default function RefundPolicy() {
               </li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Subscription Cancellations
@@ -133,7 +127,6 @@ export default function RefundPolicy() {
               <li>You will retain access until the end of your paid period</li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Course Access After Refund
@@ -144,7 +137,6 @@ export default function RefundPolicy() {
               certificates, and progress data. This action cannot be undone.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Abuse Policy
@@ -156,7 +148,6 @@ export default function RefundPolicy() {
               requesting a refund, or violating our Terms of Service.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               Contact Us
@@ -186,7 +177,6 @@ export default function RefundPolicy() {
             </div>
           </section>
         </div>
-
         <div
           style={{
             marginTop: 48,

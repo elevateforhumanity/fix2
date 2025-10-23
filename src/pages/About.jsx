@@ -122,19 +122,16 @@ export default function About() {
         <section className="relative bg-gradient-to-br from-blue-700 via-purple-600 to-purple-700 text-white py-24 px-4 overflow-hidden">
           <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-
           <div className="relative max-w-6xl mx-auto text-center">
             <Badge className="mb-6 text-base px-6 py-2 bg-white/20 backdrop-blur-sm border-white/30 animate-fade-in-down">
               <Sparkles className="h-4 w-4 mr-2" />
               Transforming Lives Since 2020
             </Badge>
-
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up leading-tight">
               About Elevate
               <br />
               <span className="text-yellow-300">for Humanity</span>
             </h1>
-
             <p
               className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto animate-fade-in-up"
               style={{ animationDelay: '100ms' }}
@@ -142,7 +139,6 @@ export default function About() {
               Transforming lives through accessible education and Learn2Earn
               Workforce programs
             </p>
-
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {stats.map((stat, idx) => (
@@ -159,7 +155,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* Mission, Vision, Values */}
         <section className="py-20 px-4 bg-brand-surface">
           <div className="max-w-7xl mx-auto">
@@ -186,7 +181,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* Story Section */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
@@ -196,7 +190,6 @@ export default function About() {
                 Building Pathways to Prosperity
               </h2>
             </div>
-
             <Card
               className="border-2 shadow-xl animate-fade-in-up"
               style={{ animationDelay: '200ms' }}
@@ -241,7 +234,6 @@ export default function About() {
             </Card>
           </div>
         </section>
-
         {/* What We Do */}
         <section className="py-20 px-4 bg-brand-surface">
           <div className="max-w-7xl mx-auto">
@@ -254,7 +246,6 @@ export default function About() {
                 strengthen communities
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, idx) => (
                 <Card
@@ -278,7 +269,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* Certifications */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
@@ -291,7 +281,6 @@ export default function About() {
                 Fully certified and compliant with all regulatory requirements
               </p>
             </div>
-
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {certifications.map((cert, idx) => (
                 <Card
@@ -308,7 +297,6 @@ export default function About() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="relative bg-gradient-to-br from-blue-700 via-purple-600 to-purple-700 text-white py-20 px-4 overflow-hidden">
           <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />

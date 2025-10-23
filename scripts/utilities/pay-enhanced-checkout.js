@@ -92,7 +92,7 @@ enhancedCheckout.post('/api/checkout', async (req, res, next) => {
     const { coupon: couponCode, program_slug } = metadata || {};
 
     // Helper to compute discount if coupon present
-    // eslint-disable-next-line no-inner-declarations
+
     async function getDiscountedCents(listCents) {
       if (!couponCode) return null;
 

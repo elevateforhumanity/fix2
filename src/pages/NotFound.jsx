@@ -28,11 +28,9 @@ export default function NotFound() {
         >
           404
         </div>
-
         <h1 style={{ fontSize: 36, fontWeight: 700, marginBottom: 16 }}>
           Page Not Found
         </h1>
-
         <p
           style={{
             fontSize: 18,
@@ -44,7 +42,6 @@ export default function NotFound() {
           Oops! The page you're looking for doesn't exist. It might have been
           moved or deleted.
         </p>
-
         <div
           style={{
             display: 'flex',
@@ -85,7 +82,6 @@ export default function NotFound() {
             Browse Courses
           </Link>
         </div>
-
         <div
           style={{
             paddingTop: 32,

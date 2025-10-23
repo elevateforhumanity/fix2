@@ -163,7 +163,6 @@ export default function AgentConsole({
             </div>
           </div>
         </div>
-
         {/* Input Area */}
         <div className="p-6">
           {mode === 'natural' ? (
@@ -207,7 +206,6 @@ export default function AgentConsole({
                   ))}
                 </select>
               </label>
-
               {selectedCmd?.paramsSchema?.properties && (
                 <div className="grid gap-3">
                   {Object.entries(selectedCmd.paramsSchema.properties).map(
@@ -257,7 +255,6 @@ export default function AgentConsole({
                   )}
                 </div>
               )}
-
               <button
                 onClick={runStructured}
                 disabled={loading}
@@ -268,7 +265,6 @@ export default function AgentConsole({
             </div>
           )}
         </div>
-
         {/* Output Area */}
         {output && (
           <div className="border-t border-neutral-800 p-6">
@@ -308,7 +304,6 @@ export default function AgentConsole({
             </div>
           </div>
         )}
-
         {/* History */}
         {history.length > 0 && (
           <div className="border-t border-neutral-800 p-6">

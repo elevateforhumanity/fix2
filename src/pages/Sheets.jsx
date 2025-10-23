@@ -129,9 +129,7 @@ export function Sheets() {
             width: '300px',
           }}
         />
-
         <div style={{ flex: 1 }} />
-
         <button
           style={{
             padding: '0.5rem 1rem',
@@ -143,7 +141,6 @@ export function Sheets() {
         >
           💾 Save
         </button>
-
         <button
           style={{
             padding: '0.5rem 1rem',
@@ -157,7 +154,6 @@ export function Sheets() {
           Share
         </button>
       </div>
-
       {/* Formula bar */}
       <div
         style={{
@@ -182,7 +178,6 @@ export function Sheets() {
           {columnToLetter(selectedCell.col)}
           {selectedCell.row + 1}
         </div>
-
         <input
           type="text"
           value={cellValue}
@@ -200,7 +195,6 @@ export function Sheets() {
           }}
         />
       </div>
-
       {/* Spreadsheet grid */}
       <div style={{ flex: 1, overflow: 'auto', backgroundColor: '#fff' }}>
         <table
@@ -308,7 +302,6 @@ export function Sheets() {
           </tbody>
         </table>
       </div>
-
       {/* Sheet tabs */}
       <div
         style={{

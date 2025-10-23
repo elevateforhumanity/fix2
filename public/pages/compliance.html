@@ -126,6 +126,7 @@
         <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <button
+            type="button"
             onclick="window.location.href='#iep-management'"
             class="bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
           >
@@ -133,6 +134,7 @@
             <div class="text-sm font-medium">Create IEP</div>
           </button>
           <button
+            type="button"
             onclick="window.location.href='#pirl-reporting'"
             class="bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
           >
@@ -140,6 +142,7 @@
             <div class="text-sm font-medium">PIRL Report</div>
           </button>
           <button
+            type="button"
             onclick="window.location.href='#eligibility-check'"
             class="bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
           >
@@ -150,6 +153,7 @@
             <div class="text-sm font-medium">Verify Eligibility</div>
           </button>
           <button
+            type="button"
             onclick="window.location.href='#performance-tracking'"
             class="bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
           >
@@ -181,12 +185,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="createIEP()"
               class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
             >
               Create New IEP
             </button>
             <button
+              type="button"
               onclick="viewIEPs()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -215,12 +221,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="verifyEligibility()"
               class="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700"
             >
               Verify New Participant
             </button>
             <button
+              type="button"
               onclick="viewEligibility()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -244,12 +252,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="generatePIRL()"
               class="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
             >
               Generate PIRL Report
             </button>
             <button
+              type="button"
               onclick="viewPIRLHistory()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -275,12 +285,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="createAssessment()"
               class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700"
             >
               Create Assessment
             </button>
             <button
+              type="button"
               onclick="viewAssessments()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -306,12 +318,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="manageEmployers()"
               class="w-full bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700"
             >
               Manage Employers
             </button>
             <button
+              type="button"
               onclick="trackPlacements()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -337,12 +351,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="viewOutcomes()"
               class="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700"
             >
               View Outcomes
             </button>
             <button
+              type="button"
               onclick="generateMetrics()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -355,7 +371,7 @@
         <div class="bg-white rounded-lg border p-6" id="audit-dashboard">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-900">
-              Audit & Compliance
+              Audit &amp; Compliance
             </h3>
             <div
               class="status-indicator bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
@@ -368,12 +384,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="viewAuditLogs()"
               class="w-full bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700"
             >
               View Audit Logs
             </button>
             <button
+              type="button"
               onclick="generateComplianceReport()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >
@@ -399,12 +417,14 @@
           </p>
           <div class="space-y-3">
             <button
+              type="button"
               onclick="viewCostAnalysis()"
               class="w-full bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700"
             >
               Cost Analysis
             </button>
             <button
+              type="button"
               onclick="generateFundingReport()"
               class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded hover:bg-gray-200"
             >

@@ -184,19 +184,23 @@ export class ContentAutomation {
 
       let data;
       switch (feed.type) {
-        case 'json':
+        case 'json': {
           data = await response.json();
           break;
-        case 'xml':
+        }
+        case 'xml': {
           const text = await response.text();
           data = this.parseXML(text);
           break;
-        case 'rss':
+        }
+        case 'rss': {
           const rssText = await response.text();
           data = this.parseRSS(rssText);
           break;
-        default:
+        }
+        default: {
           data = await response.json();
+        }
       }
 
       const parsed = feed.parser(data);

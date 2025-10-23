@@ -39,7 +39,6 @@ export default function Instructor() {
             in one place.
           </p>
         </header>
-
         {/* Quick Actions */}
         <section style={{ marginBottom: '3rem' }}>
           <h2
@@ -80,7 +79,6 @@ export default function Instructor() {
             />
           </div>
         </section>
-
         {/* Resources Section */}
         <section style={{ marginBottom: '3rem' }}>
           <h2
@@ -120,7 +118,6 @@ export default function Instructor() {
             </ul>
           </div>
         </section>
-
         {/* Support Section */}
         <section
           style={{

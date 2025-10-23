@@ -38,7 +38,7 @@ export default function InstructorDashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Instructor Dashboard</h1>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               Manage your courses and lessons
             </p>
           </div>
@@ -46,29 +46,27 @@ export default function InstructorDashboard() {
             + New Course
           </Link>
         </div>
-
         {/* Stats */}
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           <div className="card p-6">
             <div className="text-3xl font-extrabold text-brand-600">
               {stats.courses}
             </div>
-            <div className="mt-1 text-slate-600">Courses</div>
+            <div className="mt-1 text-brand-text-muted">Courses</div>
           </div>
           <div className="card p-6">
             <div className="text-3xl font-extrabold text-brand-600">
               {stats.lessons}
             </div>
-            <div className="mt-1 text-slate-600">Lessons</div>
+            <div className="mt-1 text-brand-text-muted">Lessons</div>
           </div>
           <div className="card p-6">
             <div className="text-3xl font-extrabold text-brand-600">
               {stats.students}
             </div>
-            <div className="mt-1 text-slate-600">Students</div>
+            <div className="mt-1 text-brand-text-muted">Students</div>
           </div>
         </div>
-
         {/* Courses List */}
         <div className="mt-8">
           <h2 className="text-xl font-semibold">Your Courses</h2>
@@ -79,9 +77,11 @@ export default function InstructorDashboard() {
                 className="card p-5 flex items-center justify-between"
               >
                 <div>
-                  <div className="text-xs text-slate-500">{course.code}</div>
+                  <div className="text-xs text-brand-text-light">
+                    {course.code}
+                  </div>
                   <div className="font-semibold">{course.title}</div>
-                  <div className="mt-1 text-sm text-slate-600">
+                  <div className="mt-1 text-sm text-brand-text-muted">
                     {course.lessons?.[0]?.count || 0} lessons
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function InstructorDashboard() {
               </div>
             ))}
             {courses.length === 0 && (
-              <div className="card p-6 text-center text-slate-600">
+              <div className="card p-6 text-center text-brand-text-muted">
                 No courses yet. Create your first course to get started!
               </div>
             )}

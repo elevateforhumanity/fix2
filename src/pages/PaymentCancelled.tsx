@@ -6,18 +6,16 @@ export default function PaymentCancelled() {
     <section className="section">
       <div className="container max-w-2xl mx-auto">
         <div className="card p-8 text-center">
-          <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 bg-brand-surface rounded-full flex items-center justify-center mx-auto mb-6">
             <XCircle className="w-12 h-12 text-orange-600" />
           </div>
-
-          <h1 className="text-3xl font-bold text-slate-900">
+          <h1 className="text-3xl font-bold text-brand-text">
             Enrollment Cancelled
           </h1>
-          <p className="mt-3 text-lg text-slate-600">
+          <p className="mt-3 text-lg text-brand-text-muted">
             No worries! Your payment was not processed and you haven't been
             charged.
           </p>
-
           <div className="mt-8 space-y-3">
             <Link
               to="/programs"
@@ -30,13 +28,12 @@ export default function PaymentCancelled() {
               Go Home
             </Link>
           </div>
-
-          <div className="mt-8 p-6 bg-slate-50 rounded-lg text-left">
-            <div className="flex items-center gap-2 font-semibold text-slate-900 mb-3">
+          <div className="mt-8 p-6 bg-brand-surface rounded-lg text-left">
+            <div className="flex items-center gap-2 font-semibold text-brand-text mb-3">
               <HelpCircle className="w-5 h-5 text-brand-600" />
               <span>Need Help?</span>
             </div>
-            <p className="text-sm text-slate-600 mb-4">
+            <p className="text-sm text-brand-text-muted mb-4">
               If you had questions or concerns about enrolling, we're here to
               help!
             </p>
@@ -61,18 +58,17 @@ export default function PaymentCancelled() {
               </div>
               <div>
                 <span className="font-medium">💬 Live Chat:</span>{' '}
-                <span className="text-slate-600">
+                <span className="text-brand-text-muted">
                   Click the chat button in the bottom right
                 </span>
               </div>
             </div>
           </div>
-
           <div className="mt-6 p-4 bg-green-50 rounded-lg">
             <div className="font-semibold text-green-900 mb-2">
               💡 Remember: Most Programs are 100% FREE!
             </div>
-            <p className="text-sm text-green-800">
+            <p className="text-sm text-brand-success">
               Many of our programs are fully funded through WIOA and other
               scholarships. Check if you qualify for free training!
             </p>

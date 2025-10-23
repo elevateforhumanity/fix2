@@ -67,7 +67,6 @@ export function LMS() {
           </button>
         </div>
       </div>
-
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <div
           style={{
@@ -145,7 +144,6 @@ export function LMS() {
             👥 Students
           </button>
         </div>
-
         <div style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
           {view === 'courses' && (
             <div>
@@ -228,7 +226,7 @@ export function LMS() {
                             width: `${course.progress}%`,
                             backgroundColor: 'var(--brand-info)',
                           }}
-                        ></div>
+                        />
                       </div>
                     </div>
                     <button
@@ -251,7 +249,6 @@ export function LMS() {
               </div>
             </div>
           )}
-
           {view === 'assignments' && (
             <div
               style={{
@@ -267,7 +264,6 @@ export function LMS() {
               <p>View and manage course assignments</p>
             </div>
           )}
-
           {view === 'grades' && (
             <div
               style={{
@@ -283,7 +279,6 @@ export function LMS() {
               <p>Track student performance and grades</p>
             </div>
           )}
-
           {view === 'students' && (
             <div
               style={{

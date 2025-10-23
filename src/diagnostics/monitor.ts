@@ -31,3 +31,5 @@ window.addEventListener('unhandledrejection', (e: any) => {
   window.__EFH_MONITOR__!.errors.push(payload);
   console.error('[EFH][monitor] unhandledrejection:', payload);
 });
+
+export {};

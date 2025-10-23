@@ -40,7 +40,6 @@ export default function BusinessHub() {
           </div>
         </div>
       </header>
-
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
@@ -70,7 +69,6 @@ export default function BusinessHub() {
             </div>
           </div>
         </div>
-
         {/* Features */}
         <div className="mt-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -104,7 +102,6 @@ export default function BusinessHub() {
                 </div>
               </div>
             </div>
-
             <div className="pt-6">
               <div className="flow-root bg-white rounded-lg px-6 pb-8">
                 <div className="-mt-6">
@@ -135,7 +132,6 @@ export default function BusinessHub() {
                 </div>
               </div>
             </div>
-
             <div className="pt-6">
               <div className="flow-root bg-white rounded-lg px-6 pb-8">
                 <div className="-mt-6">
@@ -169,7 +165,6 @@ export default function BusinessHub() {
           </div>
         </div>
       </main>
-
       {/* Footer */}
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">

@@ -182,7 +182,6 @@ export default function Course() {
               </div>
             </div>
           </div>
-
           {/* Modules & Lessons */}
           <div>
             {course.modules.map((module) => (
@@ -254,7 +253,6 @@ export default function Course() {
             ))}
           </div>
         </div>
-
         {/* Main Content Area */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           {/* Video/Content Player */}
@@ -293,7 +291,6 @@ export default function Course() {
               </div>
             )}
           </div>
-
           {/* Lesson Info & Tabs */}
           <div style={{ flex: 1, overflowY: 'auto', backgroundColor: '#fff' }}>
             <div style={{ padding: 24 }}>
@@ -310,7 +307,6 @@ export default function Course() {
               >
                 Duration: {currentLesson?.duration}
               </p>
-
               {/* Tabs */}
               <div
                 style={{
@@ -361,7 +357,6 @@ export default function Course() {
                   Notes
                 </button>
               </div>
-
               {/* Tab Content */}
               {!showNotes ? (
                 <div>
@@ -383,7 +378,6 @@ export default function Course() {
                     concepts, best practices, and practical applications that
                     you can immediately apply to your projects.
                   </p>
-
                   <h3
                     style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}
                   >
@@ -402,7 +396,6 @@ export default function Course() {
                     <li>Build practical skills through hands-on practice</li>
                     <li>Prepare for the next lesson in the series</li>
                   </ul>
-
                   <h3
                     style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}
                   >
@@ -516,7 +509,6 @@ export default function Course() {
               )}
             </div>
           </div>
-
           {/* Bottom Navigation */}
           <div
             style={{
@@ -546,7 +538,6 @@ export default function Course() {
             >
               ← Previous Lesson
             </button>
-
             <button
               style={{
                 padding: '10px 24px',
@@ -566,7 +557,6 @@ export default function Course() {
                 ? '✓ Completed'
                 : 'Mark as Complete'}
             </button>
-
             <button
               style={{
                 padding: '10px 24px',

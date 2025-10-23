@@ -292,7 +292,6 @@ export default function ChatAssistant({
           </button>
         </div>
       </div>
-
       {!isMinimized && (
         <>
           {/* Messages */}
@@ -358,7 +357,7 @@ export default function ChatAssistant({
                         backgroundColor: 'var(--brand-text-light)',
                         animation: 'typing 1.4s infinite',
                       }}
-                    ></div>
+                    />
                     <div
                       className="typing-dot"
                       style={{
@@ -368,7 +367,7 @@ export default function ChatAssistant({
                         backgroundColor: 'var(--brand-text-light)',
                         animation: 'typing 1.4s infinite 0.2s',
                       }}
-                    ></div>
+                    />
                     <div
                       className="typing-dot"
                       style={{
@@ -378,14 +377,13 @@ export default function ChatAssistant({
                         backgroundColor: 'var(--brand-text-light)',
                         animation: 'typing 1.4s infinite 0.4s',
                       }}
-                    ></div>
+                    />
                   </div>
                 </div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
-
           {/* Quick Actions */}
           {messages.length === 1 && (
             <div
@@ -434,7 +432,6 @@ export default function ChatAssistant({
               </div>
             </div>
           )}
-
           {/* Input */}
           <div
             style={{
@@ -496,7 +493,6 @@ export default function ChatAssistant({
           </div>
         </>
       )}
-
       <style>{`
         @keyframes typing {
           0%, 60%, 100% {

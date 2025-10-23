@@ -145,7 +145,6 @@ export function CopilotAssistant() {
           </p>
         </div>
       </div>
-
       {/* Copilot Messages */}
       <div className="copilot-messages mb-6 space-y-3">
         {copilotMessages.map((msg, index) => (
@@ -173,7 +172,6 @@ export function CopilotAssistant() {
           </div>
         ))}
       </div>
-
       {/* Data Input Area */}
       <div className="mb-6">
         <label className="block text-sm font-medium text-brand-text mb-2">
@@ -196,7 +194,6 @@ Sarah Johnson, IT Support, 2025-01-22, sarah@email.com"
           {isProcessing ? '🔄 Processing...' : '🤖 Analyze Data'}
         </button>
       </div>
-
       {/* Parsed Records Preview */}
       {parsedRecords.length > 0 && (
         <div className="parsed-records">
@@ -250,7 +247,6 @@ Sarah Johnson, IT Support, 2025-01-22, sarah@email.com"
           </div>
         </div>
       )}
-
       {/* Quick Actions */}
       <div className="quick-actions mt-6 p-4 bg-brand-surface rounded-lg">
         <h4 className="font-semibold mb-3">🚀 Quick Actions</h4>

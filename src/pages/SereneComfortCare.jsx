@@ -78,7 +78,6 @@ export function SereneComfortCare() {
           </div>
         </div>
       </div>
-
       {/* Services Section */}
       <div
         style={{
@@ -182,7 +181,6 @@ export function SereneComfortCare() {
           </div>
         </div>
       </div>
-
       {/* Training Programs Section */}
       <div style={{ padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -279,7 +277,6 @@ export function SereneComfortCare() {
           </div>
         </div>
       </div>
-
       {/* Why Choose Us Section */}
       <div
         style={{
@@ -368,7 +365,6 @@ export function SereneComfortCare() {
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
       <div
         style={{
@@ -435,7 +431,6 @@ export function SereneComfortCare() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div
         style={{

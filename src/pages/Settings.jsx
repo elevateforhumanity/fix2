@@ -52,7 +52,6 @@ export default function Settings() {
             Manage your account preferences and application settings
           </p>
         </div>
-
         {saved && (
           <div
             style={{
@@ -67,7 +66,6 @@ export default function Settings() {
             ✅ Settings saved successfully
           </div>
         )}
-
         <form onSubmit={handleSave}>
           {/* Notifications */}
           <div
@@ -82,7 +80,6 @@ export default function Settings() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Notifications
             </h2>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div
                 style={{
@@ -148,7 +145,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -213,7 +209,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -278,7 +273,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -343,7 +337,6 @@ export default function Settings() {
               </div>
             </div>
           </div>
-
           {/* Preferences */}
           <div
             style={{
@@ -357,7 +350,6 @@ export default function Settings() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Preferences
             </h2>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <div>
                 <label
@@ -389,7 +381,6 @@ export default function Settings() {
                   <option value="pt">Português</option>
                 </select>
               </div>
-
               <div>
                 <label
                   style={{
@@ -422,7 +413,6 @@ export default function Settings() {
                   <option value="Asia/Tokyo">Tokyo (JST)</option>
                 </select>
               </div>
-
               <div>
                 <label
                   style={{
@@ -453,7 +443,6 @@ export default function Settings() {
               </div>
             </div>
           </div>
-
           {/* Video Playback */}
           <div
             style={{
@@ -467,7 +456,6 @@ export default function Settings() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Video Playback
             </h2>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div
                 style={{
@@ -533,7 +521,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -598,7 +585,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div>
                 <label
                   style={{
@@ -632,7 +618,6 @@ export default function Settings() {
               </div>
             </div>
           </div>
-
           {/* Security & Privacy */}
           <div
             style={{
@@ -646,7 +631,6 @@ export default function Settings() {
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
               Security & Privacy
             </h2>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div
                 style={{
@@ -712,7 +696,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -777,7 +760,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div
                 style={{
                   display: 'flex',
@@ -842,7 +824,6 @@ export default function Settings() {
                   </span>
                 </label>
               </div>
-
               <div>
                 <label
                   style={{
@@ -875,7 +856,6 @@ export default function Settings() {
               </div>
             </div>
           </div>
-
           {/* Action Buttons */}
           <div
             style={{

@@ -185,7 +185,6 @@ export default function VideoInterview() {
           />
         </div>
       </div>
-
       {/* Question Card */}
       <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
         <h2 className="text-2xl font-bold mb-4">
@@ -201,7 +200,6 @@ export default function VideoInterview() {
           before you start recording.
         </p>
       </div>
-
       {/* Video Container */}
       <div className="bg-gray-900 rounded-lg overflow-hidden mb-6 relative">
         <video
@@ -211,14 +209,12 @@ export default function VideoInterview() {
           className="w-full aspect-video"
           style={{ transform: 'scaleX(-1)' }} // Mirror effect
         />
-
         {/* Timer Overlay */}
         {recording && (
           <div className="absolute top-4 right-4 bg-brand-danger text-white px-4 py-2 rounded-full font-bold">
             🔴 {formatTime(timeLeft)}
           </div>
         )}
-
         {/* Recording Indicator */}
         {recording && (
           <div className="absolute top-4 left-4 flex items-center space-x-2">
@@ -227,7 +223,6 @@ export default function VideoInterview() {
           </div>
         )}
       </div>
-
       {/* Controls */}
       <div className="flex justify-center space-x-4">
         {!recording && !videoBlob && (
@@ -239,7 +234,6 @@ export default function VideoInterview() {
             <span>Start Recording</span>
           </button>
         )}
-
         {recording && (
           <button
             onClick={stopRecording}
@@ -249,7 +243,6 @@ export default function VideoInterview() {
             <span>Stop Recording</span>
           </button>
         )}
-
         {videoBlob && (
           <div className="flex space-x-4">
             <button
@@ -272,7 +265,6 @@ export default function VideoInterview() {
           </div>
         )}
       </div>
-
       {/* Instructions */}
       {!recording && !videoBlob && (
         <div className="mt-6 bg-brand-surface rounded-lg p-4">

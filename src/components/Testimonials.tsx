@@ -31,17 +31,16 @@ const TESTIMONIALS: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <section className="section bg-slate-50">
+    <section className="section bg-brand-surface">
       <div className="container">
         <div className="text-center">
           <h2 className="text-2xl font-semibold">
             Real Stories. Real Results.
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-brand-text-muted">
             92% job placement • 1,247 trained • $2.85M in funding distributed
           </p>
         </div>
-
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="card p-6">
@@ -54,10 +53,10 @@ export default function Testimonials() {
                 />
                 <div>
                   <div className="font-semibold">{t.name}</div>
-                  <div className="text-sm text-slate-600">{t.role}</div>
+                  <div className="text-sm text-brand-text-muted">{t.role}</div>
                 </div>
               </div>
-              <p className="mt-4 text-slate-700">"{t.quote}"</p>
+              <p className="mt-4 text-brand-text">"{t.quote}"</p>
             </div>
           ))}
         </div>

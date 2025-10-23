@@ -140,7 +140,6 @@ export default function Support() {
           >
             Search our knowledge base or contact our support team
           </p>
-
           {/* Search Bar */}
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <input
@@ -165,7 +164,6 @@ export default function Support() {
             />
           </div>
         </div>
-
         {/* Quick Links */}
         <div
           style={{
@@ -203,7 +201,6 @@ export default function Support() {
               Complete guide to using the platform
             </p>
           </Link>
-
           <Link
             to="/courses"
             style={{
@@ -232,7 +229,6 @@ export default function Support() {
               Browse all available courses
             </p>
           </Link>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -259,7 +255,6 @@ export default function Support() {
               Chat with our support team
             </p>
           </div>
-
           <a
             href="mailto:support@elevateforhumanity.org"
             style={{
@@ -289,13 +284,11 @@ export default function Support() {
             </p>
           </a>
         </div>
-
         {/* FAQ Section */}
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 24 }}>
             Frequently Asked Questions
           </h2>
-
           {/* Category Filter */}
           <div
             style={{
@@ -328,7 +321,6 @@ export default function Support() {
               </button>
             ))}
           </div>
-
           {/* FAQ List */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {filteredFaqs.map((faq) => (
@@ -372,7 +364,6 @@ export default function Support() {
               </details>
             ))}
           </div>
-
           {filteredFaqs.length === 0 && (
             <div
               style={{
@@ -388,7 +379,6 @@ export default function Support() {
             </div>
           )}
         </div>
-
         {/* Contact Form */}
         <div
           style={{
@@ -410,7 +400,6 @@ export default function Support() {
           >
             Send us a message and we'll get back to you within 24 hours.
           </p>
-
           {submitted && (
             <div
               style={{
@@ -425,7 +414,6 @@ export default function Support() {
               ✅ Message sent successfully! We'll respond within 24 hours.
             </div>
           )}
-
           <form onSubmit={handleContactSubmit}>
             <div
               style={{
@@ -461,7 +449,6 @@ export default function Support() {
                   }}
                 />
               </div>
-
               <div>
                 <label
                   style={{
@@ -489,7 +476,6 @@ export default function Support() {
                 />
               </div>
             </div>
-
             <div style={{ marginBottom: 16 }}>
               <label
                 style={{
@@ -516,7 +502,6 @@ export default function Support() {
                 }}
               />
             </div>
-
             <div style={{ marginBottom: 20 }}>
               <label
                 style={{
@@ -545,7 +530,6 @@ export default function Support() {
                 }}
               />
             </div>
-
             <button
               type="submit"
               style={{
@@ -563,7 +547,6 @@ export default function Support() {
             </button>
           </form>
         </div>
-
         {/* Support Hours */}
         <div
           style={{

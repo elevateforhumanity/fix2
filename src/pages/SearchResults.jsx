@@ -82,7 +82,6 @@ export default function SearchResults() {
         title={`Search Results for "${query}"`}
         description={`Search results for ${query} on Elevate for Humanity`}
       />
-
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: 32, marginBottom: 8 }}>Search Results</h1>
         <p style={{ fontSize: 16, color: 'var(--brand-secondary)' }}>
@@ -96,7 +95,6 @@ export default function SearchResults() {
           )}
         </p>
       </div>
-
       <div
         style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: 32 }}
       >
@@ -104,7 +102,6 @@ export default function SearchResults() {
         <div>
           <div style={{ position: 'sticky', top: 20 }}>
             <h3 style={{ fontSize: 18, marginBottom: 16 }}>Filters</h3>
-
             <div style={{ marginBottom: 24 }}>
               <label
                 style={{
@@ -137,7 +134,6 @@ export default function SearchResults() {
                 <option value="page">Pages ({stats.pages})</option>
               </select>
             </div>
-
             <div style={{ marginBottom: 24 }}>
               <label
                 style={{
@@ -172,7 +168,6 @@ export default function SearchResults() {
                 </option>
               </select>
             </div>
-
             <div style={{ marginBottom: 24 }}>
               <label
                 style={{
@@ -203,7 +198,6 @@ export default function SearchResults() {
                 <option value="rating">Highest Rated</option>
               </select>
             </div>
-
             <button
               onClick={() =>
                 setFilters({
@@ -226,7 +220,6 @@ export default function SearchResults() {
             </button>
           </div>
         </div>
-
         {/* Results */}
         <div>
           {isLoading ? (

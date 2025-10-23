@@ -150,7 +150,6 @@ export default function DoNotContactPanel() {
           </button>
         </div>
       </div>
-
       {/* Alert Message */}
       {alertMessage && (
         <div
@@ -176,7 +175,6 @@ export default function DoNotContactPanel() {
           </div>
         </div>
       )}
-
       {/* Add Form */}
       {showAddForm && (
         <div className="bg-white rounded-lg shadow p-6 mb-6">
@@ -197,7 +195,6 @@ export default function DoNotContactPanel() {
                 placeholder="user@example.com"
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-brand-text mb-2">
                 Reason
@@ -216,7 +213,6 @@ export default function DoNotContactPanel() {
                 <option value="legal_requirement">Legal Requirement</option>
               </select>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-brand-text mb-2">
                 Details (Optional)
@@ -231,7 +227,6 @@ export default function DoNotContactPanel() {
                 placeholder="Additional context..."
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-brand-text mb-2">
                 Expiration Date (Optional)
@@ -248,7 +243,6 @@ export default function DoNotContactPanel() {
                 Leave empty for permanent block
               </p>
             </div>
-
             <div className="flex gap-3">
               <button
                 type="submit"
@@ -267,7 +261,6 @@ export default function DoNotContactPanel() {
           </form>
         </div>
       )}
-
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div className="bg-white rounded-lg shadow p-6">
@@ -297,7 +290,6 @@ export default function DoNotContactPanel() {
           <div className="text-sm text-brand-text-muted">Permanent Blocks</div>
         </div>
       </div>
-
       {/* Entries Table */}
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="overflow-x-auto">
@@ -377,7 +369,6 @@ export default function DoNotContactPanel() {
             </tbody>
           </table>
         </div>
-
         {entries.length === 0 && (
           <div className="text-center py-12">
             <p className="text-brand-text-light">

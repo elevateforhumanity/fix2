@@ -98,7 +98,6 @@ export default function CourseCreationForm() {
             automatically by the autopilot system.
           </p>
         </div>
-
         {message && (
           <div
             className={`mb-6 p-4 rounded-lg ${
@@ -110,7 +109,6 @@ export default function CourseCreationForm() {
             {message.text}
           </div>
         )}
-
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Course Name */}
           <div>
@@ -129,7 +127,6 @@ export default function CourseCreationForm() {
               The name of the course (e.g., "CNA Training Fall 2025")
             </p>
           </div>
-
           {/* Section */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -146,7 +143,6 @@ export default function CourseCreationForm() {
               Optional section identifier (e.g., "Section A", "Morning Class")
             </p>
           </div>
-
           {/* Room */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -163,7 +159,6 @@ export default function CourseCreationForm() {
               Optional room location (e.g., "Room 301", "Building A")
             </p>
           </div>
-
           {/* Description Heading */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -182,7 +177,6 @@ export default function CourseCreationForm() {
               Heading for the course description section
             </p>
           </div>
-
           {/* Description */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -199,7 +193,6 @@ export default function CourseCreationForm() {
               Detailed description of the course content and objectives
             </p>
           </div>
-
           {/* Course State */}
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
@@ -222,7 +215,6 @@ export default function CourseCreationForm() {
               <strong>Provisioned:</strong> Course is in draft mode
             </p>
           </div>
-
           {/* Submit Button */}
           <div className="flex gap-4 pt-4">
             <button
@@ -273,7 +265,6 @@ export default function CourseCreationForm() {
             </button>
           </div>
         </form>
-
         {/* Help Section */}
         <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
           <h3 className="font-semibold text-blue-900 mb-2">💡 Tips</h3>

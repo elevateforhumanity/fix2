@@ -315,20 +315,17 @@ export default function AutopilotAdmin() {
             {darkMode ? '☀️ Light' : '🌙 Dark'}
           </button>
         </div>
-
         {/* Toast notification */}
         {note && (
           <div className="fixed top-4 right-4 bg-brand-info text-white px-4 py-2 rounded shadow-lg z-50">
             {note}
           </div>
         )}
-
         {/* Orchestrator Section */}
         <div className={`mb-6 p-4 border rounded-lg shadow ${cardClass}`}>
           <h2 className="font-semibold mb-4 text-brand-info text-xl">
             🎯 Orchestrator
           </h2>
-
           {/* Autopilot List */}
           <div className="mb-4">
             <h3 className="font-semibold mb-2">Registered Autopilots</h3>
@@ -377,7 +374,6 @@ export default function AutopilotAdmin() {
               </div>
             )}
           </div>
-
           {/* Action Buttons */}
           <div className="grid md:grid-cols-4 gap-4 mb-4">
             <button
@@ -405,7 +401,6 @@ export default function AutopilotAdmin() {
               📋 Copy URL
             </button>
           </div>
-
           {/* Register Autopilot */}
           <div className={`p-4 border rounded mb-4 ${cardClass}`}>
             <h3 className="font-semibold mb-2">Register New Autopilot</h3>
@@ -436,7 +431,6 @@ export default function AutopilotAdmin() {
               ➕ Register
             </button>
           </div>
-
           {/* Diagnostics Display */}
           {diagnostics && (
             <div className={`p-4 border rounded mb-4 ${cardClass}`}>
@@ -448,7 +442,6 @@ export default function AutopilotAdmin() {
               </pre>
             </div>
           )}
-
           {/* Run Task */}
           <div className={`p-4 border rounded ${cardClass}`}>
             <h3 className="font-semibold mb-2">Run Task</h3>
@@ -490,13 +483,11 @@ export default function AutopilotAdmin() {
             </button>
           </div>
         </div>
-
         {/* Log Analyzer Section */}
         <div className={`mb-6 p-4 border rounded-lg shadow ${cardClass}`}>
           <h2 className="font-semibold mb-4 text-brand-info text-xl">
             📊 Log Analyzer
           </h2>
-
           {/* Filters */}
           <div className="grid md:grid-cols-5 gap-3 mb-4">
             <div>
@@ -544,7 +535,6 @@ export default function AutopilotAdmin() {
               </button>
             </div>
           </div>
-
           {/* Summary Actions */}
           <div className="flex items-center gap-2 mb-4">
             <button
@@ -569,7 +559,6 @@ export default function AutopilotAdmin() {
               <span className="text-sm text-brand-text-light">Working…</span>
             )}
           </div>
-
           {/* Summary Display */}
           {summary && (
             <div className={`p-4 border rounded mb-6 shadow ${cardClass}`}>
@@ -608,7 +597,6 @@ export default function AutopilotAdmin() {
               ) : null}
             </div>
           )}
-
           {/* Logs Table */}
           <div className="overflow-x-auto border rounded">
             <table className="min-w-full text-sm">
@@ -655,7 +643,6 @@ export default function AutopilotAdmin() {
             </table>
           </div>
         </div>
-
         {/* Trends Section */}
         <div className={`mb-6 p-4 border rounded-lg shadow ${cardClass}`}>
           <div className="flex items-center gap-3 mb-4">
@@ -671,7 +658,6 @@ export default function AutopilotAdmin() {
               <option value={60}>60 days</option>
             </select>
           </div>
-
           {statsData && (
             <div className="grid gap-6 md:grid-cols-2">
               {/* Daily OK vs Fail */}
@@ -698,7 +684,6 @@ export default function AutopilotAdmin() {
                   Range: {statsData.range.start} → {statsData.range.end}
                 </p>
               </div>
-
               {/* Failure Rate */}
               <div className={`border rounded-lg p-4 shadow ${cardClass}`}>
                 <h3 className="font-semibold mb-2 text-brand-info">
@@ -719,7 +704,6 @@ export default function AutopilotAdmin() {
                   </LineChart>
                 </ResponsiveContainer>
               </div>
-
               {/* Top Tasks */}
               <div
                 className={`border rounded-lg p-4 shadow md:col-span-2 ${cardClass}`}
@@ -739,7 +723,6 @@ export default function AutopilotAdmin() {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-
               {/* Top Autopilots */}
               <div
                 className={`border rounded-lg p-4 shadow md:col-span-2 ${cardClass}`}
@@ -762,7 +745,6 @@ export default function AutopilotAdmin() {
             </div>
           )}
         </div>
-
         {/* Log Panel */}
         <div
           className={`p-4 rounded-lg font-mono text-sm whitespace-pre-wrap max-h-96 overflow-auto ${

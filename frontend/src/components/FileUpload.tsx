@@ -115,7 +115,6 @@ export default function FileUpload({
           />
         </label>
       </div>
-
       {uploading && (
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm text-neutral-400">
@@ -130,7 +129,6 @@ export default function FileUpload({
           </div>
         </div>
       )}
-
       {uploadedFile && !uploading && (
         <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800 text-emerald-300 text-sm">
           <div className="flex items-start gap-2">
@@ -147,7 +145,6 @@ export default function FileUpload({
           </div>
         </div>
       )}
-
       <div className="text-xs text-neutral-500">
         Maximum file size: {maxSizeMB}MB
         {accept && ` • Accepted types: ${accept}`}

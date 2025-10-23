@@ -29,7 +29,6 @@ export default function Compliance() {
           legal adherence in all our programs and services.
         </p>
       </header>
-
       {/* Federal Compliance */}
       <section style={{ marginBottom: '3rem' }}>
         <h2
@@ -75,7 +74,6 @@ export default function Compliance() {
               Certified: January 2025
             </div>
           </div>
-
           <div
             style={{
               padding: '1.5rem',
@@ -103,7 +101,6 @@ export default function Compliance() {
               Certified: December 2024
             </div>
           </div>
-
           <div
             style={{
               padding: '1.5rem',
@@ -131,7 +128,6 @@ export default function Compliance() {
               Certified: November 2024
             </div>
           </div>
-
           <div
             style={{
               padding: '1.5rem',
@@ -161,7 +157,6 @@ export default function Compliance() {
           </div>
         </div>
       </section>
-
       {/* Accessibility Standards */}
       <section style={{ marginBottom: '3rem' }}>
         <h2
@@ -214,7 +209,6 @@ export default function Compliance() {
           </ul>
         </div>
       </section>
-
       {/* Data Protection */}
       <section style={{ marginBottom: '3rem' }}>
         <h2
@@ -258,7 +252,6 @@ export default function Compliance() {
               Security, availability, and confidentiality controls
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -284,7 +277,6 @@ export default function Compliance() {
               European data protection regulation compliance
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -310,7 +302,6 @@ export default function Compliance() {
               Children's online privacy protection
             </p>
           </div>
-
           <div
             style={{
               padding: '1rem',
@@ -338,7 +329,6 @@ export default function Compliance() {
           </div>
         </div>
       </section>
-
       {/* Quality Assurance */}
       <section style={{ marginBottom: '3rem' }}>
         <h2
@@ -382,7 +372,6 @@ export default function Compliance() {
               Certified: March 2024
             </div>
           </div>
-
           <div
             style={{
               padding: '1.5rem',
@@ -408,7 +397,6 @@ export default function Compliance() {
               Accredited: June 2024
             </div>
           </div>
-
           <div
             style={{
               padding: '1.5rem',
@@ -436,7 +424,6 @@ export default function Compliance() {
           </div>
         </div>
       </section>
-
       {/* Audit & Reporting */}
       <section
         style={{

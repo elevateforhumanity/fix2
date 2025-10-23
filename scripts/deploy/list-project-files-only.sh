@@ -21,7 +21,6 @@ PROJECT_FILES=$(find . -type f \
   -not -path "*/.git/*" \
   -not -path "*/efh-deployment-*/*" \
   -not -path "*/efh-ecosystem3-*/*" \
-  -not -path "*/.replit/*" \
   -not -path "*/.upm/*" \
   -not -path "*/attached_assets/Pasted-*" \
   2>/dev/null | wc -l)
@@ -46,7 +45,6 @@ find . -maxdepth 2 -type f \
   -not -path "*/.git/*" \
   -not -path "*/efh-deployment-*/*" \
   -not -path "*/efh-ecosystem3-*/*" \
-  -not -path "*/.replit/*" \
   2>/dev/null | sort >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 
@@ -121,7 +119,6 @@ find . -type f \
   -not -path "*/.git/*" \
   -not -path "*/efh-deployment-*/*" \
   -not -path "*/efh-ecosystem3-*/*" \
-  -not -path "*/.replit/*" \
   -not -path "*/.upm/*" \
   -not -path "*/attached_assets/Pasted-*" \
   2>/dev/null | sort >> "$OUTPUT_FILE"

@@ -66,7 +66,7 @@ const StudentDashboard = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -78,7 +78,6 @@ const StudentDashboard = () => {
         <h1 className="text-3xl font-bold mb-2">Welcome back, {user?.name}!</h1>
         <p className="text-gray-600">Continue your learning journey</p>
       </div>
-
       {/* Stats Cards */}
       <div className="grid md:grid-cols-4 gap-6">
         <div className="card">
@@ -106,7 +105,6 @@ const StudentDashboard = () => {
           </div>
         </div>
       </div>
-
       {/* My Courses */}
       <div>
         <div className="flex justify-between items-center mb-6">
@@ -118,7 +116,6 @@ const StudentDashboard = () => {
             Browse More →
           </Link>
         </div>
-
         {enrollments.length === 0 ? (
           <div className="card text-center py-12">
             <div className="text-6xl mb-4">📚</div>
@@ -147,7 +144,6 @@ const StudentDashboard = () => {
                 <h3 className="text-xl font-semibold mb-3">
                   {enrollment.course.title}
                 </h3>
-
                 {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex justify-between text-sm text-gray-600 mb-2">
@@ -160,10 +156,9 @@ const StudentDashboard = () => {
                     <div
                       className="bg-primary-600 h-2.5 rounded-full transition-all"
                       style={{ width: `${enrollment.progress}%` }}
-                    ></div>
+                    />
                   </div>
                 </div>
-
                 <Link
                   to={`/learn/${enrollment.courseId}`}
                   className="btn-primary w-full text-center"
@@ -177,7 +172,6 @@ const StudentDashboard = () => {
           </div>
         )}
       </div>
-
       {/* Certificates */}
       {certificates.length > 0 && (
         <div>

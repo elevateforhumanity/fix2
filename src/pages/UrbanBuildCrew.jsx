@@ -78,7 +78,6 @@ export function UrbanBuildCrew() {
           </div>
         </div>
       </div>
-
       {/* Features Section */}
       <div
         style={{
@@ -182,7 +181,6 @@ export function UrbanBuildCrew() {
           </div>
         </div>
       </div>
-
       {/* Programs Section */}
       <div style={{ padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -279,7 +277,6 @@ export function UrbanBuildCrew() {
           </div>
         </div>
       </div>
-
       {/* Stats Section */}
       <div
         style={{
@@ -379,7 +376,6 @@ export function UrbanBuildCrew() {
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
       <div
         style={{
@@ -446,7 +442,6 @@ export function UrbanBuildCrew() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div
         style={{

@@ -281,18 +281,21 @@
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
+              type="button"
               onclick="window.open('/student-acquisition.html', '_blank')"
               class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
             >
               📢 Share Acquisition Page
             </button>
             <button
+              type="button"
               onclick="sendOutreach()"
               class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
             >
               📧 Email Campaign
             </button>
             <button
+              type="button"
               onclick="window.open('/admin-dashboard.html', '_blank')"
               class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
             >
@@ -315,7 +318,7 @@
             .order('created_at', { ascending: false })
             .limit(10);
 
-          if (leads && leads.length > 0) {
+          if (leads &amp;&amp; leads.length > 0) {
             document.getElementById('leads-count').textContent = leads.length;
 
             const leadsList = document.getElementById('leads-list');

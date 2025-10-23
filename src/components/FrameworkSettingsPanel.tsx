@@ -58,7 +58,6 @@ export function FrameworkSettingsPanel() {
           <li>🧪 {config.testing.framework}</li>
         </ul>
       </div>
-
       <div
         style={{
           padding: 20,
@@ -114,7 +113,6 @@ export function FrameworkSettingsPanel() {
           </div>
         )}
       </div>
-
       <div
         style={{
           padding: 20,
@@ -194,7 +192,6 @@ export function FrameworkSettingsPanel() {
           configuration
         </p>
       </div>
-
       <div
         style={{
           display: 'flex',
@@ -230,13 +227,11 @@ export function FrameworkSettingsPanel() {
           </button>
         ))}
       </div>
-
       <div>
         {activeSection === 'overview'
           ? renderOverview()
           : renderConfigSection(activeSection)}
       </div>
-
       <div
         style={{
           marginTop: 32,

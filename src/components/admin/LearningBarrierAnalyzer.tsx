@@ -290,10 +290,9 @@ export function LearningBarrierAnalyzer() {
           </button>
         </div>
       </div>
-
       {isAnalyzing && (
         <div className="text-center py-8 bg-blue-50 rounded-lg mb-6">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mb-4"></div>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mb-4" />
           <p className="text-brand-info font-medium">
             🤖 AI is analyzing learning patterns and identifying barriers...
           </p>
@@ -302,7 +301,6 @@ export function LearningBarrierAnalyzer() {
           </p>
         </div>
       )}
-
       {/* Detected Barriers */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -329,7 +327,6 @@ export function LearningBarrierAnalyzer() {
                   {barrier.severity.toUpperCase()}
                 </span>
               </div>
-
               <div className="mb-4">
                 <div className="flex items-center text-sm text-brand-text-muted mb-2">
                   <span className="font-medium">👥 Affected Students:</span>
@@ -342,7 +339,6 @@ export function LearningBarrierAnalyzer() {
                   {new Date(barrier.identifiedDate).toLocaleDateString()}
                 </div>
               </div>
-
               {/* Auto-Generated Remediation */}
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <div className="flex items-center mb-2">
@@ -362,11 +358,9 @@ export function LearningBarrierAnalyzer() {
                 <p className="text-sm text-green-700 mb-3">
                   {barrier.autoRemediation.description}
                 </p>
-
                 <div className="text-xs text-brand-success mb-3">
                   ⏱️ Estimated time: {barrier.autoRemediation.estimatedTime}
                 </div>
-
                 <div className="mb-3">
                   <div className="text-xs font-medium text-brand-success mb-1">
                     📚 Auto-Generated Resources:
@@ -384,7 +378,6 @@ export function LearningBarrierAnalyzer() {
                     )}
                   </div>
                 </div>
-
                 <div className="flex space-x-2">
                   <button className="text-xs bg-brand-success text-white px-3 py-1 rounded hover:bg-brand-success-hover">
                     🚀 Deploy Now
@@ -398,7 +391,6 @@ export function LearningBarrierAnalyzer() {
           ))}
         </div>
       </div>
-
       {/* Struggling Students */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -463,7 +455,7 @@ export function LearningBarrierAnalyzer() {
                                 : 'bg-red-500'
                           }`}
                           style={{ width: `${student.performanceScore}%` }}
-                        ></div>
+                        />
                       </div>
                       <span className="text-sm font-medium">
                         {student.performanceScore}%
@@ -490,7 +482,6 @@ export function LearningBarrierAnalyzer() {
           </table>
         </div>
       </div>
-
       {/* Real-time Monitoring Status */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h4 className="font-semibold text-blue-900 mb-2">

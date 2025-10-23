@@ -331,7 +331,7 @@ export function AutoAttritionTracker() {
   if (!metrics) {
     return (
       <div className="text-center py-8">
-        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
         <p className="mt-4 text-brand-text-muted">
           Loading attrition tracking data...
         </p>
@@ -366,7 +366,6 @@ export function AutoAttritionTracker() {
           </label>
         </div>
       </div>
-
       {/* Overall Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white border rounded-lg p-6">
@@ -382,7 +381,6 @@ export function AutoAttritionTracker() {
             <div className="text-2xl">👥</div>
           </div>
         </div>
-
         <div className="bg-white border rounded-lg p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -411,7 +409,6 @@ export function AutoAttritionTracker() {
             </span>
           </div>
         </div>
-
         <div className="bg-white border rounded-lg p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -428,7 +425,6 @@ export function AutoAttritionTracker() {
             {metrics.overall.droppedStudents} students dropped
           </div>
         </div>
-
         <div className="bg-white border rounded-lg p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -446,7 +442,6 @@ export function AutoAttritionTracker() {
           </div>
         </div>
       </div>
-
       {/* Program-Specific Metrics */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -491,7 +486,7 @@ export function AutoAttritionTracker() {
                         <div
                           className="bg-green-500 h-2 rounded-full"
                           style={{ width: `${program.retentionRate}%` }}
-                        ></div>
+                        />
                       </div>
                       <span className="text-sm font-medium">
                         {program.retentionRate.toFixed(1)}%
@@ -521,7 +516,6 @@ export function AutoAttritionTracker() {
           </table>
         </div>
       </div>
-
       {/* At-Risk Students */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -551,7 +545,6 @@ export function AutoAttritionTracker() {
                   </div>
                 </div>
               </div>
-
               <div className="mb-4">
                 <div className="text-sm font-medium text-brand-text mb-2">
                   Risk Factors:
@@ -567,7 +560,6 @@ export function AutoAttritionTracker() {
                   ))}
                 </div>
               </div>
-
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-medium text-brand-text">
@@ -580,7 +572,6 @@ export function AutoAttritionTracker() {
                   </span>
                 </div>
               </div>
-
               <div className="mb-4">
                 <div className="text-sm font-medium text-brand-text mb-2">
                   🤖 Auto Actions Taken:
@@ -596,7 +587,6 @@ export function AutoAttritionTracker() {
                   ))}
                 </div>
               </div>
-
               <div className="flex space-x-2">
                 <button className="text-xs bg-brand-success text-white px-3 py-1 rounded hover:bg-brand-success-hover">
                   📞 Contact Student
@@ -609,7 +599,6 @@ export function AutoAttritionTracker() {
           ))}
         </div>
       </div>
-
       {/* Risk Factors Analysis */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -644,7 +633,6 @@ export function AutoAttritionTracker() {
           ))}
         </div>
       </div>
-
       {/* Intervention Results */}
       <div>
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -659,7 +647,6 @@ export function AutoAttritionTracker() {
               <p className="text-sm text-brand-text-muted mb-4">
                 {intervention.description}
               </p>
-
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-brand-text-muted">Success Rate:</span>

@@ -120,7 +120,6 @@ const FullSailLanding = () => {
         </span>
         Available for Qualified Indiana Residents • WIOA Approved Programs
       </div>
-
       {/* Hero Section with Form */}
       <div className="bg-gradient-to-br from-gray-800 to-gray-700 text-white">
         <div className="max-w-7xl mx-auto">
@@ -130,16 +129,13 @@ const FullSailLanding = () => {
               <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold uppercase inline-block w-fit mb-5">
                 89% Job Placement Rate
               </div>
-
               <h1 className="text-4xl lg:text-5xl font-bold mb-5 leading-tight">
                 Start Your Career in Tech & Trades
               </h1>
-
               <p className="text-xl mb-8 text-gray-200 leading-relaxed">
                 Get job-ready in months, not years with industry-recognized
                 certifications and guaranteed employer connections.
               </p>
-
               <ul className="space-y-3 mb-8">
                 {[
                   'Free training for qualified residents',
@@ -157,7 +153,6 @@ const FullSailLanding = () => {
                 ))}
               </ul>
             </div>
-
             {/* Lead Capture Form */}
             <div className="bg-white text-brand-text p-8 lg:p-10 shadow-2xl">
               <div className="text-center mb-8">
@@ -168,7 +163,6 @@ const FullSailLanding = () => {
                   Find out if you qualify for free training
                 </p>
               </div>
-
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label
@@ -187,7 +181,6 @@ const FullSailLanding = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="lastName"
@@ -205,7 +198,6 @@ const FullSailLanding = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="email"
@@ -223,7 +215,6 @@ const FullSailLanding = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="phone"
@@ -241,7 +232,6 @@ const FullSailLanding = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="program"
@@ -266,7 +256,6 @@ const FullSailLanding = () => {
                     <option value="beauty">Beauty & Wellness</option>
                   </select>
                 </div>
-
                 <div>
                   <label
                     htmlFor="employment"
@@ -289,14 +278,12 @@ const FullSailLanding = () => {
                     <option value="student">Student</option>
                   </select>
                 </div>
-
                 <button
                   type="submit"
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded font-bold text-lg uppercase tracking-wider transition-colors"
                 >
                   Get Free Program Info
                 </button>
-
                 <p className="text-xs text-brand-text-muted leading-relaxed mt-4">
                   By submitting this form, you consent to receive emails and
                   texts from Elevate for Humanity. You may opt out at any time.
@@ -307,14 +294,12 @@ const FullSailLanding = () => {
           </div>
         </div>
       </div>
-
       {/* Programs Section */}
       <div className="py-16 px-6 bg-brand-surface">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-brand-text mb-12">
             Choose Your Career Path
           </h2>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, index) => (
               <div
@@ -349,7 +334,6 @@ const FullSailLanding = () => {
           </div>
         </div>
       </div>
-
       {/* Stats Section */}
       <div className="bg-gray-800 text-white py-16 px-6 text-center">
         <div className="max-w-4xl mx-auto">

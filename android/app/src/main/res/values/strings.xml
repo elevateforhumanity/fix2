@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Elevate for Humanity</string>
+    <string name="title_activity_main">Elevate for Humanity</string>
+    <string name="package_name">org.elevateforhumanity.app</string>
+    <string name="custom_url_scheme">org.elevateforhumanity.app</string>
+</resources>

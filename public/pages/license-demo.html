@@ -100,6 +100,7 @@
           />
         </div>
         <button
+          type="button"
           @click="generateLicense()"
           class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
         >
@@ -139,6 +140,7 @@
           </div>
         </div>
         <button
+          type="button"
           @click="copyToClipboard(generatedLicense)"
           class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm"
         >
@@ -157,6 +159,7 @@
             class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
           />
           <button
+            type="button"
             @click="validateLicense()"
             class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
           >
@@ -245,18 +248,21 @@
         <h3 class="text-xl font-bold mb-4">🧪 Test Cases</h3>
         <div class="grid md:grid-cols-3 gap-4">
           <button
+            type="button"
             @click="testExpiredLicense()"
             class="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors"
           >
             Test Expired License
           </button>
           <button
+            type="button"
             @click="testTamperedLicense()"
             class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >
             Test Tampered License
           </button>
           <button
+            type="button"
             @click="testValidLicense()"
             class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
           >

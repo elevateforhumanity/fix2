@@ -30,10 +30,10 @@ export default function ForgotPassword() {
           <div className="card p-6 text-center">
             <div className="text-4xl mb-4">📧</div>
             <h2 className="text-2xl font-semibold">Check Your Email</h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               We sent a password reset link to <strong>{email}</strong>
             </p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-brand-text-light">
               Click the link to reset your password.
             </p>
             <Link to="/auth/login" className="btn mt-4">
@@ -50,16 +50,14 @@ export default function ForgotPassword() {
       <div className="container max-w-md mx-auto">
         <div className="card p-6">
           <h1 className="text-2xl font-bold text-center">Reset Password</h1>
-          <p className="mt-2 text-center text-slate-600">
+          <p className="mt-2 text-center text-brand-text-muted">
             Enter your email to receive a reset link
           </p>
-
           {error && (
             <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
               {error}
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1">Email</label>
@@ -71,13 +69,11 @@ export default function ForgotPassword() {
                 required
               />
             </div>
-
             <button type="submit" className="btn w-full" disabled={loading}>
               {loading ? 'Sending...' : 'Send Reset Link'}
             </button>
           </form>
-
-          <div className="mt-4 text-center text-sm text-slate-600">
+          <div className="mt-4 text-center text-sm text-brand-text-muted">
             <Link to="/auth/login" className="hover:text-brand-600">
               Back to login
             </Link>

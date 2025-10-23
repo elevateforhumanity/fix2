@@ -177,7 +177,6 @@ export function DocumentEditor({
             <h2 style={{ margin: 0, fontSize: '1.125rem' }}>
               Untitled Document
             </h2>
-
             {isSaving ? (
               <span
                 style={{
@@ -198,7 +197,6 @@ export function DocumentEditor({
               </span>
             ) : null}
           </div>
-
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             {/* Collaborators */}
             <div
@@ -242,7 +240,6 @@ export function DocumentEditor({
                 </div>
               )}
             </div>
-
             {canEdit && (
               <>
                 <button
@@ -258,7 +255,6 @@ export function DocumentEditor({
                 >
                   💬 Comment
                 </button>
-
                 <button
                   onClick={() => saveDocument()}
                   style={{
@@ -275,7 +271,6 @@ export function DocumentEditor({
                 </button>
               </>
             )}
-
             <div style={{ position: 'relative' }}>
               <button
                 style={{
@@ -292,7 +287,6 @@ export function DocumentEditor({
             </div>
           </div>
         </div>
-
         {/* Editor */}
         <div
           style={{
@@ -322,7 +316,6 @@ export function DocumentEditor({
           </div>
         </div>
       </div>
-
       {/* Comments sidebar */}
       {showComments && (
         <div
@@ -335,7 +328,6 @@ export function DocumentEditor({
           }}
         >
           <h3 style={{ marginBottom: '1rem' }}>Comments</h3>
-
           {comments.length === 0 ? (
             <p
               style={{ color: 'var(--brand-text-muted)', fontSize: '0.875rem' }}

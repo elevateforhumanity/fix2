@@ -288,7 +288,7 @@ app.post('/api/generate-bulk-licenses', async (req, res) => {
     res.json({
       success: true,
       generated: licenses.length,
-      errors: errors.length,
+      errorCount: errors.length,
       licenses,
       errors,
     });

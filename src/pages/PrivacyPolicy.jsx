@@ -23,7 +23,6 @@ export default function PrivacyPolicy() {
         >
           Last updated: January 1, 2025
         </p>
-
         <div style={{ fontSize: 16, lineHeight: 1.8, color: '#333' }}>
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
@@ -42,7 +41,6 @@ export default function PrivacyPolicy() {
               platform.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               2. Information We Collect
@@ -69,7 +67,6 @@ export default function PrivacyPolicy() {
               <li>Profile information (photo, bio, interests)</li>
               <li>Course progress and completion data</li>
             </ul>
-
             <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}>
               Automatically Collected Information
             </h3>
@@ -86,7 +83,6 @@ export default function PrivacyPolicy() {
               <li>Cookies and similar tracking technologies</li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               3. How We Use Your Information
@@ -108,7 +104,6 @@ export default function PrivacyPolicy() {
               <li>To comply with legal obligations</li>
             </ul>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               4. Sharing Your Information
@@ -139,7 +134,6 @@ export default function PrivacyPolicy() {
             </ul>
             <p>We do not sell your personal information to third parties.</p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               5. Cookies and Tracking Technologies
@@ -152,7 +146,6 @@ export default function PrivacyPolicy() {
               able to use some portions of our platform.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               6. Data Security
@@ -166,7 +159,6 @@ export default function PrivacyPolicy() {
               absolute security.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               7. Your Privacy Rights
@@ -191,7 +183,6 @@ export default function PrivacyPolicy() {
               provided below.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               8. Data Retention
@@ -202,7 +193,6 @@ export default function PrivacyPolicy() {
               unless a longer retention period is required or permitted by law.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               9. Children's Privacy
@@ -214,7 +204,6 @@ export default function PrivacyPolicy() {
               information, please contact us immediately.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               10. International Data Transfers
@@ -226,7 +215,6 @@ export default function PrivacyPolicy() {
               By using our platform, you consent to such transfers.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               11. Updates to This Policy
@@ -238,7 +226,6 @@ export default function PrivacyPolicy() {
               review this Privacy Policy periodically for any changes.
             </p>
           </section>
-
           <section style={{ marginBottom: 32 }}>
             <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 16 }}>
               12. Contact Us
@@ -267,7 +254,6 @@ export default function PrivacyPolicy() {
             </div>
           </section>
         </div>
-
         {/* Related Links */}
         <div
           style={{

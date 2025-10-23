@@ -113,7 +113,6 @@ export default function StudentDashboard() {
               </Avatar>
             </div>
           </div>
-
           {/* Stats Overview */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card>
@@ -167,7 +166,6 @@ export default function StudentDashboard() {
               </CardContent>
             </Card>
           </div>
-
           {/* Quick Actions */}
           <Card>
             <CardHeader>
@@ -191,7 +189,6 @@ export default function StudentDashboard() {
               </div>
             </CardContent>
           </Card>
-
           <div className="grid lg:grid-cols-3 gap-6">
             {/* My Courses */}
             <div className="lg:col-span-2">
@@ -240,7 +237,6 @@ export default function StudentDashboard() {
                 </CardContent>
               </Card>
             </div>
-
             {/* Upcoming Events */}
             <div>
               <Card>

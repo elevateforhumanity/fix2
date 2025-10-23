@@ -106,7 +106,6 @@ export default function Partners() {
             impact and reach more communities in need.
           </p>
         </div>
-
         {/* Stats */}
         <div
           style={{
@@ -139,7 +138,6 @@ export default function Partners() {
               Partner Organizations
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -163,7 +161,6 @@ export default function Partners() {
               Countries Reached
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -187,7 +184,6 @@ export default function Partners() {
               Lives Impacted
             </div>
           </div>
-
           <div
             style={{
               backgroundColor: '#fff',
@@ -212,7 +208,6 @@ export default function Partners() {
             </div>
           </div>
         </div>
-
         {/* Category Filter */}
         <div
           style={{
@@ -243,7 +238,6 @@ export default function Partners() {
             </button>
           ))}
         </div>
-
         {/* Partners Grid */}
         <div
           style={{
@@ -311,7 +305,6 @@ export default function Partners() {
                   </div>
                 </div>
               </div>
-
               <p
                 style={{
                   fontSize: 14,
@@ -322,7 +315,6 @@ export default function Partners() {
               >
                 {partner.description}
               </p>
-
               <div
                 style={{
                   display: 'flex',
@@ -352,7 +344,6 @@ export default function Partners() {
             </div>
           ))}
         </div>
-
         {/* Become a Partner CTA */}
         <div
           style={{
@@ -423,7 +414,6 @@ export default function Partners() {
             </a>
           </div>
         </div>
-
         {/* Partnership Benefits */}
         <div style={{ marginTop: 60 }}>
           <h2
@@ -459,7 +449,6 @@ export default function Partners() {
                 mission and reach.
               </p>
             </div>
-
             <div style={{ textAlign: 'center', padding: 20 }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>🌍</div>
               <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
@@ -476,7 +465,6 @@ export default function Partners() {
                 expertise.
               </p>
             </div>
-
             <div style={{ textAlign: 'center', padding: 20 }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>📊</div>
               <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
@@ -493,7 +481,6 @@ export default function Partners() {
                 efficiency.
               </p>
             </div>
-
             <div style={{ textAlign: 'center', padding: 20 }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>🎯</div>
               <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>

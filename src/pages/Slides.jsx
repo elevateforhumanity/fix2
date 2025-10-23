@@ -185,7 +185,6 @@ export function Slides() {
         >
           {currentSlideData?.elements.map(renderElement)}
         </div>
-
         {/* Navigation */}
         <div
           style={{
@@ -278,7 +277,6 @@ export function Slides() {
         >
           Slides
         </h3>
-
         {presentation?.slidesData.map((slide, index) => (
           <div
             key={slide.id}
@@ -334,7 +332,6 @@ export function Slides() {
             </button>
           </div>
         ))}
-
         <button
           onClick={addSlide}
           style={{
@@ -352,7 +349,6 @@ export function Slides() {
           + New Slide
         </button>
       </div>
-
       {/* Main editor */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {/* Toolbar */}
@@ -377,9 +373,7 @@ export function Slides() {
               width: '300px',
             }}
           />
-
           <div style={{ flex: 1 }} />
-
           <button
             style={{
               padding: '0.5rem 1rem',
@@ -391,7 +385,6 @@ export function Slides() {
           >
             💾 Save
           </button>
-
           <button
             onClick={() => setIsPresentMode(true)}
             style={{
@@ -407,7 +400,6 @@ export function Slides() {
             ▶ Present
           </button>
         </div>
-
         {/* Canvas */}
         <div
           style={{

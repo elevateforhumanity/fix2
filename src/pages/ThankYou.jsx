@@ -19,11 +19,9 @@ export default function ThankYou() {
         }}
       >
         <div style={{ fontSize: 72, marginBottom: 24 }}>🎉</div>
-
         <h1 style={{ fontSize: 36, fontWeight: 700, marginBottom: 16 }}>
           Thank You!
         </h1>
-
         <p
           style={{
             fontSize: 18,
@@ -35,7 +33,6 @@ export default function ThankYou() {
           Your purchase was successful. We've sent a confirmation email with
           your order details and receipt.
         </p>
-
         <div
           style={{
             backgroundColor: '#f0f7ff',
@@ -63,7 +60,6 @@ export default function ThankYou() {
             <li>Join our community forums to connect with other students</li>
           </ul>
         </div>
-
         <div
           style={{
             display: 'flex',
@@ -104,7 +100,6 @@ export default function ThankYou() {
             Back to Home
           </Link>
         </div>
-
         <div
           style={{
             paddingTop: 32,

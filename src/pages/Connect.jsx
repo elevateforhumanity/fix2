@@ -135,7 +135,6 @@ export default function Connect() {
             love to hear from you.
           </p>
         </header>
-
         <div
           style={{
             display: 'grid',
@@ -163,7 +162,6 @@ export default function Connect() {
               >
                 Send Us a Message
               </h2>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
                   style={{
@@ -197,7 +195,6 @@ export default function Connect() {
                   <option value="support">Technical Support</option>
                 </select>
               </div>
-
               <div
                 style={{
                   display: 'grid',
@@ -232,7 +229,6 @@ export default function Connect() {
                     }}
                   />
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -260,7 +256,6 @@ export default function Connect() {
                   />
                 </div>
               </div>
-
               <div
                 style={{
                   display: 'grid',
@@ -294,7 +289,6 @@ export default function Connect() {
                     }}
                   />
                 </div>
-
                 <div>
                   <label
                     style={{
@@ -321,7 +315,6 @@ export default function Connect() {
                   />
                 </div>
               </div>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
                   style={{
@@ -348,7 +341,6 @@ export default function Connect() {
                   }}
                 />
               </div>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
                   style={{
@@ -377,7 +369,6 @@ export default function Connect() {
                   }}
                 />
               </div>
-
               <button
                 type="submit"
                 disabled={loading}
@@ -398,7 +389,6 @@ export default function Connect() {
               </button>
             </form>
           </div>
-
           {/* Contact Information */}
           <div>
             <div
@@ -418,7 +408,6 @@ export default function Connect() {
               >
                 Contact Information
               </h3>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <div
                   style={{
@@ -436,7 +425,6 @@ export default function Connect() {
                   info@elevateforhumanity.org
                 </a>
               </div>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <div
                   style={{
@@ -454,7 +442,6 @@ export default function Connect() {
                   (555) 123-4567
                 </a>
               </div>
-
               <div style={{ marginBottom: '1.5rem' }}>
                 <div
                   style={{
@@ -472,7 +459,6 @@ export default function Connect() {
                 </div>
               </div>
             </div>
-
             <div
               style={{
                 background: 'white',

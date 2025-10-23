@@ -137,7 +137,6 @@ export default function Programs() {
             and advance your career
           </p>
         </header>
-
         {/* Filter Tabs */}
         <div
           style={{
@@ -168,7 +167,6 @@ export default function Programs() {
             </button>
           ))}
         </div>
-
         {/* Programs Grid */}
         <div
           style={{
@@ -182,7 +180,6 @@ export default function Programs() {
             <ProgramCard key={idx} program={program} />
           ))}
         </div>
-
         {/* Funding Information */}
         <section
           style={{
@@ -225,7 +222,6 @@ export default function Programs() {
             />
           </div>
         </section>
-
         {/* CTA Section */}
         <section
           style={{
@@ -344,7 +340,6 @@ function ProgramCard({ program }) {
       >
         {program.description}
       </p>
-
       <div style={{ marginBottom: '1rem' }}>
         <div
           style={{
@@ -357,7 +352,6 @@ function ProgramCard({ program }) {
           ⏱️ Duration: {program.duration}
         </div>
       </div>
-
       <div style={{ marginBottom: '1rem' }}>
         <div
           style={{
@@ -387,7 +381,6 @@ function ProgramCard({ program }) {
           ))}
         </div>
       </div>
-
       <div style={{ marginBottom: '1.5rem' }}>
         <div
           style={{
@@ -403,7 +396,6 @@ function ProgramCard({ program }) {
           {program.funding.join(', ')}
         </div>
       </div>
-
       <Link
         to="/student"
         style={{

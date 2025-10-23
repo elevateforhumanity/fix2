@@ -21,10 +21,9 @@ export default function VerifyCertificate() {
     <section className="section">
       <div className="container max-w-2xl">
         <h1 className="text-3xl font-bold text-center">Verify Certificate</h1>
-        <p className="mt-2 text-center text-slate-600">
+        <p className="mt-2 text-center text-brand-text-muted">
           Enter a certificate number to verify authenticity
         </p>
-
         <form onSubmit={handleVerify} className="mt-8 card p-6">
           <label className="block text-sm font-medium mb-2">
             Certificate Number
@@ -43,7 +42,6 @@ export default function VerifyCertificate() {
             </button>
           </div>
         </form>
-
         {searched && (
           <div className="mt-6">
             {result ? (
@@ -85,7 +83,7 @@ export default function VerifyCertificate() {
                     <h3 className="text-xl font-semibold text-red-700">
                       Invalid Certificate
                     </h3>
-                    <p className="mt-2 text-slate-600">
+                    <p className="mt-2 text-brand-text-muted">
                       This certificate number was not found in our system. It
                       may be invalid, expired, or revoked.
                     </p>

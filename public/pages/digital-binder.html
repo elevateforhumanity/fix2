@@ -238,12 +238,14 @@
               ></p>
               <div class="flex gap-3">
                 <button
+                  type="button"
                   @click="viewCertificate(certificate.id)"
                   class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   View Certificate
                 </button>
                 <button
+                  type="button"
                   @click="downloadCertificate(certificate.id)"
                   class="border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors"
                 >
@@ -324,7 +326,7 @@
           modules: [
             {
               id: 1,
-              name: 'Introduction to AI & Machine Learning',
+              name: 'Introduction to AI &amp; Machine Learning',
               progress: 100,
               status: 'Completed',
               hours: 12,
@@ -338,7 +340,7 @@
             },
             {
               id: 3,
-              name: 'Data Analysis & Visualization',
+              name: 'Data Analysis &amp; Visualization',
               progress: 100,
               status: 'Completed',
               hours: 14,
@@ -352,7 +354,7 @@
             },
             {
               id: 5,
-              name: 'Deep Learning & Neural Networks',
+              name: 'Deep Learning &amp; Neural Networks',
               progress: 75,
               status: 'In Progress',
               hours: 20,
@@ -373,7 +375,7 @@
             },
             {
               id: 8,
-              name: 'AI Ethics & Responsible AI',
+              name: 'AI Ethics &amp; Responsible AI',
               progress: 0,
               status: 'Locked',
               hours: 8,
@@ -387,7 +389,7 @@
             },
             {
               id: 10,
-              name: 'Career Preparation & Portfolio',
+              name: 'Career Preparation &amp; Portfolio',
               progress: 0,
               status: 'Locked',
               hours: 6,
@@ -422,7 +424,8 @@
             {
               id: 2,
               title: 'First Module Complete',
-              description: 'Completed Introduction to AI & Machine Learning',
+              description:
+                'Completed Introduction to AI &amp; Machine Learning',
               completed: true,
               date: '2024-07-15',
             },

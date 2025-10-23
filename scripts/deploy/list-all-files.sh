@@ -42,7 +42,7 @@ echo "" >> "$OUTPUT_FILE"
 # Directory structure overview
 echo "DIRECTORY STRUCTURE OVERVIEW:" >> "$OUTPUT_FILE"
 echo "=============================" >> "$OUTPUT_FILE"
-tree -a -I 'node_modules|.git|.replit|.upm' . 2>/dev/null >> "$OUTPUT_FILE" || {
+tree -a -I 'node_modules|.git|.upm' . 2>/dev/null >> "$OUTPUT_FILE" || {
     echo "Tree command not available, using alternative..." >> "$OUTPUT_FILE"
     find . -type d 2>/dev/null | head -100 | sort >> "$OUTPUT_FILE"
 }

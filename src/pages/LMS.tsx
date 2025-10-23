@@ -28,7 +28,6 @@ export default function LMS() {
   // Lazy load courses on component mount
   useEffect(() => {
     loadCourses();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadCourses = useCallback(async () => {
@@ -252,7 +251,6 @@ export default function LMS() {
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -276,7 +274,7 @@ export default function LMS() {
                         <div
                           className="bg-white rounded-full h-2"
                           style={{ width: '65%' }}
-                        ></div>
+                        />
                       </div>
                       <p className="text-sm text-blue-100 mt-1">65% Complete</p>
                     </div>
@@ -288,7 +286,6 @@ export default function LMS() {
                 </div>
               </div>
             </div>
-
             {/* My Courses */}
             <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-xl font-bold text-brand-text mb-4">
@@ -338,7 +335,7 @@ export default function LMS() {
                               <div
                                 className="bg-brand-info rounded-full h-2"
                                 style={{ width: `${course.completion}%` }}
-                              ></div>
+                              />
                             </div>
                             <p className="text-sm text-brand-text-muted mt-1">
                               {course.completion}% Complete
@@ -368,14 +365,12 @@ export default function LMS() {
                 ))}
               </div>
             </div>
-
             {/* Google Content Library Section */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h3 className="text-lg font-semibold mb-4 flex items-center">
                 <BookOpen className="w-5 h-5 mr-2 text-blue-500" />
                 Google Career Certificates - Available for Enrollment
               </h3>
-
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                   <h4 className="font-medium text-brand-text">
@@ -401,7 +396,6 @@ export default function LMS() {
                     </button>
                   </div>
                 </div>
-
                 <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                   <h4 className="font-medium text-brand-text">
                     Digital Marketing & E-commerce
@@ -426,7 +420,6 @@ export default function LMS() {
                     </button>
                   </div>
                 </div>
-
                 <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                   <h4 className="font-medium text-brand-text">
                     Google Ads Certification
@@ -451,7 +444,6 @@ export default function LMS() {
                     </button>
                   </div>
                 </div>
-
                 <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                   <h4 className="font-medium text-brand-text">
                     Google Analytics Certification
@@ -478,7 +470,6 @@ export default function LMS() {
                 </div>
               </div>
             </div>
-
             {/* Course Modules (if viewing specific course) */}
             {params?.module && (
               <div className="bg-white rounded-lg shadow p-6">
@@ -497,7 +488,7 @@ export default function LMS() {
                         ) : module.current ? (
                           <Play className="h-5 w-5 text-blue-500" />
                         ) : (
-                          <div className="h-5 w-5 border-2 border-brand-border-dark rounded-full"></div>
+                          <div className="h-5 w-5 border-2 border-brand-border-dark rounded-full" />
                         )}
                         <div>
                           <h4
@@ -532,7 +523,6 @@ export default function LMS() {
               </div>
             )}
           </div>
-
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Digital Binder Stats */}
@@ -578,7 +568,6 @@ export default function LMS() {
                 Download Transcript
               </button>
             </div>
-
             {/* Achievements */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-medium text-brand-text mb-4">
@@ -626,7 +615,6 @@ export default function LMS() {
                 ))}
               </div>
             </div>
-
             {/* Federal Compliance Tracking */}
             <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
               <h3 className="text-lg font-medium text-orange-900 mb-2">
@@ -643,7 +631,6 @@ export default function LMS() {
                 View Compliance Records
               </Link>
             </div>
-
             {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-medium text-brand-text mb-4">

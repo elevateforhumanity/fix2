@@ -440,6 +440,7 @@
         </div>
 
         <button
+          type="button"
           class="checkout-btn"
           @click="checkout()"
           :disabled="!selectedProduct || !customerEmail || isProcessing"

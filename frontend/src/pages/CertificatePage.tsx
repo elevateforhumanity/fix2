@@ -54,7 +54,7 @@ const CertificatePage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -90,7 +90,6 @@ const CertificatePage = () => {
             </button>
           </div>
         </div>
-
         {/* Certificate Display */}
         <div className="bg-white rounded-lg shadow-2xl p-12 border-8 border-yellow-400">
           <div className="text-center space-y-6">
@@ -99,10 +98,8 @@ const CertificatePage = () => {
             <h1 className="text-4xl font-bold text-gray-900">
               Certificate of Completion
             </h1>
-
             {/* Divider */}
-            <div className="w-32 h-1 bg-primary-600 mx-auto"></div>
-
+            <div className="w-32 h-1 bg-primary-600 mx-auto" />
             {/* Content */}
             <div className="space-y-4 py-8">
               <p className="text-lg text-gray-600">This certifies that</p>
@@ -119,7 +116,6 @@ const CertificatePage = () => {
                 Instructed by {certificate.course.instructor.name}
               </p>
             </div>
-
             {/* Footer */}
             <div className="pt-8 border-t border-gray-200">
               <div className="flex justify-between items-end">
@@ -144,7 +140,6 @@ const CertificatePage = () => {
                 </div>
               </div>
             </div>
-
             {/* Signature */}
             <div className="pt-8">
               <div className="inline-block">
@@ -156,7 +151,6 @@ const CertificatePage = () => {
             </div>
           </div>
         </div>
-
         {/* Verification */}
         <div className="mt-8 text-center text-sm text-gray-600">
           <p>Verify this certificate at:</p>

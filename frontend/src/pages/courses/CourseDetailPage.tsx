@@ -77,7 +77,7 @@ const CourseDetailPage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -120,7 +120,6 @@ const CourseDetailPage = () => {
             </div>
             <h1 className="text-4xl font-bold mb-4">{course.title}</h1>
             <p className="text-xl text-gray-600 mb-4">{course.description}</p>
-
             {/* Stats */}
             <div className="flex items-center gap-6 text-sm text-gray-600">
               <div className="flex items-center gap-1">
@@ -137,7 +136,6 @@ const CourseDetailPage = () => {
               </div>
             </div>
           </div>
-
           {/* Course Content */}
           <div className="card">
             <h2 className="text-2xl font-bold mb-4">Course Content</h2>
@@ -166,7 +164,6 @@ const CourseDetailPage = () => {
               </div>
             )}
           </div>
-
           {/* Reviews */}
           <div className="card">
             <h2 className="text-2xl font-bold mb-4">Student Reviews</h2>
@@ -208,7 +205,6 @@ const CourseDetailPage = () => {
             )}
           </div>
         </div>
-
         {/* Sidebar */}
         <div>
           <div className="card sticky top-4">

@@ -99,6 +99,7 @@
             This is a protected area. Please authenticate to continue.
           </p>
           <button
+            type="button"
             onclick="redirectToAuth()"
             class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
           >
@@ -127,6 +128,7 @@
             <div class="flex items-center space-x-4">
               <span id="userEmail" class="text-sm text-gray-600"></span>
               <button
+                type="button"
                 onclick="logout()"
                 class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700"
               >
@@ -173,6 +175,7 @@
                   Revenue tracking and partner splits
                 </p>
                 <button
+                  type="button"
                   onclick="loadFinancialData()"
                   class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
                 >
@@ -206,6 +209,7 @@
                   PII-protected student records
                 </p>
                 <button
+                  type="button"
                   onclick="loadStudentData()"
                   class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
                 >
@@ -239,6 +243,7 @@
                   Federal reporting and audit trails
                 </p>
                 <button
+                  type="button"
                   onclick="loadComplianceData()"
                   class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
                 >
@@ -254,6 +259,7 @@
           <div class="flex justify-between items-center mb-4">
             <h3 id="dataTitle" class="text-lg font-medium text-gray-900"></h3>
             <button
+              type="button"
               onclick="closeDataDisplay()"
               class="text-gray-400 hover:text-gray-600"
             >

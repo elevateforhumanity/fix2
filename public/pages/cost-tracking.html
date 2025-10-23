@@ -39,7 +39,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cost Tracking & Federal Funding - DOL/DWD Compliance</title>
+    <title>Cost Tracking &amp; Federal Funding - DOL/DWD Compliance</title>
     <meta
       name="description"
       content="Federal cost tracking and funding management system for workforce development programs"
@@ -64,7 +64,7 @@
           </div>
           <div class="flex items-center">
             <h1 class="text-xl font-bold text-gray-900">
-              Cost Tracking & Federal Funding
+              Cost Tracking &amp; Federal Funding
             </h1>
           </div>
           <div class="flex items-center">
@@ -85,7 +85,7 @@
           class="bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg p-6 text-white"
         >
           <h2 class="text-2xl font-bold mb-2">
-            Cost Tracking & Federal Funding Management
+            Cost Tracking &amp; Federal Funding Management
           </h2>
           <p class="opacity-90">
             Comprehensive federal cost accounting and funding compliance for
@@ -215,7 +215,9 @@
               class="flex justify-between items-center p-3 bg-gray-50 rounded"
             >
               <div>
-                <div class="font-medium">Training Materials & Equipment</div>
+                <div class="font-medium">
+                  Training Materials &amp; Equipment
+                </div>
                 <div class="text-sm text-gray-600">15% of total budget</div>
               </div>
               <div class="text-right">
@@ -257,6 +259,7 @@
       <div class="flex justify-between items-center mb-6">
         <div class="flex space-x-4">
           <button
+            type="button"
             onclick="showRecordCostForm()"
             class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 flex items-center"
           >
@@ -264,6 +267,7 @@
             Record Cost
           </button>
           <button
+            type="button"
             onclick="generateBudgetReport()"
             class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center"
           >
@@ -271,6 +275,7 @@
             Budget Report
           </button>
           <button
+            type="button"
             onclick="showFundingRequests()"
             class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex items-center"
           >
@@ -278,6 +283,7 @@
             Funding Requests
           </button>
           <button
+            type="button"
             onclick="auditTrail()"
             class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 flex items-center"
           >
@@ -322,7 +328,9 @@
       <!-- Cost Records Table -->
       <div class="bg-white rounded-lg border">
         <div class="px-6 py-4 border-b border-gray-200">
-          <h3 class="text-lg font-semibold">Cost Records & Federal Tracking</h3>
+          <h3 class="text-lg font-semibold">
+            Cost Records &amp; Federal Tracking
+          </h3>
         </div>
         <div class="overflow-x-auto">
           <table class="min-w-full divide-y divide-gray-200">
@@ -393,6 +401,7 @@
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">Record Program Cost</h3>
                 <button
+                  type="button"
                   onclick="hideRecordCostForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -447,7 +456,7 @@
                             Personnel (Staff Salaries)
                           </option>
                           <option value="training">
-                            Training Materials & Equipment
+                            Training Materials &amp; Equipment
                           </option>
                           <option value="support_services">
                             Participant Support Services
@@ -456,13 +465,13 @@
                             Administrative Costs
                           </option>
                           <option value="equipment">
-                            Equipment & Technology
+                            Equipment &amp; Technology
                           </option>
                           <option value="facilities">
-                            Facilities & Utilities
+                            Facilities &amp; Utilities
                           </option>
                           <option value="travel">
-                            Travel & Transportation
+                            Travel &amp; Transportation
                           </option>
                           <option value="other">Other Direct Costs</option>
                         </select>
@@ -701,7 +710,7 @@
                       <div>
                         <label
                           class="block text-sm font-medium text-gray-700 mb-1"
-                          >Cost Description & Justification</label
+                          >Cost Description &amp; Justification</label
                         >
                         <textarea
                           name="cost_description"
@@ -786,8 +795,8 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewCostRecord('${record.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        <button onclick="editCostRecord('${record.id}')" class="text-green-600 hover:text-green-900">Edit</button>
+                        <button type="button" onclick="viewCostRecord('${record.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        <button type="button" onclick="editCostRecord('${record.id}')" class="text-green-600 hover:text-green-900">Edit</button>
                     </td>
                 `;
           tbody.appendChild(row);

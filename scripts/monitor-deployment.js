@@ -133,7 +133,7 @@ async function main() {
   }
 
   console.log(
-    '\n⏰ Maximum attempts reached. Please check Vercel deployment status manually.'
+    '\n⏰ Maximum attempts reached. Please check Cloudflare Pages / Netlify deployment status manually.'
   );
   process.exit(1);
 }

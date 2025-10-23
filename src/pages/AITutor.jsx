@@ -95,7 +95,6 @@ export function AITutor() {
         }}
       >
         <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>AI Tutor</h2>
-
         <div style={{ marginBottom: '1.5rem' }}>
           <button
             onClick={() => setMode('chat')}
@@ -146,7 +145,6 @@ export function AITutor() {
             📚 Study Guide
           </button>
         </div>
-
         <button
           onClick={() => {
             setMessages([]);
@@ -165,7 +163,6 @@ export function AITutor() {
           🗑️ Clear Chat
         </button>
       </div>
-
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div
           style={{
@@ -189,7 +186,6 @@ export function AITutor() {
                 : 'Generate comprehensive study guides'}
           </p>
         </div>
-
         <div style={{ flex: 1, overflowY: 'auto', padding: '2rem' }}>
           {messages.length === 0 && (
             <div
@@ -206,7 +202,6 @@ export function AITutor() {
               <p>Ask me anything and I'll help you learn.</p>
             </div>
           )}
-
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -240,7 +235,6 @@ export function AITutor() {
               </div>
             </div>
           ))}
-
           {loading && (
             <div
               style={{
@@ -289,10 +283,8 @@ export function AITutor() {
               </div>
             </div>
           )}
-
           <div ref={messagesEndRef} />
         </div>
-
         <div
           style={{
             backgroundColor: '#fff',
@@ -335,7 +327,6 @@ export function AITutor() {
           </div>
         </div>
       </div>
-
       <style>{`
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }

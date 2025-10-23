@@ -77,7 +77,6 @@ export function KingdomKonnect() {
           </div>
         </div>
       </div>
-
       {/* Features Section */}
       <div
         style={{
@@ -181,7 +180,6 @@ export function KingdomKonnect() {
           </div>
         </div>
       </div>
-
       {/* Programs Section */}
       <div style={{ padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -322,7 +320,6 @@ export function KingdomKonnect() {
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
       <div
         style={{
@@ -388,7 +385,6 @@ export function KingdomKonnect() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div
         style={{

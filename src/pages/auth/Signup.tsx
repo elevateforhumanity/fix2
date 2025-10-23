@@ -44,10 +44,10 @@ export default function Signup() {
           <div className="card p-6 text-center">
             <div className="text-4xl mb-4">✅</div>
             <h2 className="text-2xl font-semibold">Check Your Email</h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-brand-text-muted">
               We sent a confirmation link to <strong>{email}</strong>
             </p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-brand-text-light">
               Click the link to verify your account and start learning.
             </p>
             <Link to="/auth/login" className="btn mt-4">
@@ -66,16 +66,14 @@ export default function Signup() {
           <h1 className="text-2xl font-bold text-center">
             Join Elevate for Humanity
           </h1>
-          <p className="mt-2 text-center text-slate-600">
+          <p className="mt-2 text-center text-brand-text-muted">
             Create your free account and start learning today
           </p>
-
           {error && (
             <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
               {error}
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1">
@@ -89,11 +87,10 @@ export default function Signup() {
                 placeholder="you@example.com"
                 required
               />
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-brand-text-light">
                 We'll send you a confirmation email
               </p>
             </div>
-
             <div>
               <label className="block text-sm font-medium mb-1">Password</label>
               <input
@@ -104,11 +101,10 @@ export default function Signup() {
                 minLength={6}
                 required
               />
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-brand-text-light">
                 At least 6 characters
               </p>
             </div>
-
             <div>
               <label className="block text-sm font-medium mb-1">
                 Confirm Password
@@ -121,13 +117,11 @@ export default function Signup() {
                 required
               />
             </div>
-
             <button type="submit" className="btn w-full" disabled={loading}>
               {loading ? 'Creating account...' : 'Create Account'}
             </button>
           </form>
-
-          <div className="mt-4 text-center text-sm text-slate-600">
+          <div className="mt-4 text-center text-sm text-brand-text-muted">
             Already have an account?{' '}
             <Link
               to="/auth/login"

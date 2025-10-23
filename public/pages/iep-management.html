@@ -107,6 +107,7 @@
       <div class="flex justify-between items-center mb-6">
         <div class="flex space-x-4">
           <button
+            type="button"
             onclick="showCreateIEPForm()"
             class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center"
           >
@@ -114,6 +115,7 @@
             Create New IEP
           </button>
           <button
+            type="button"
             onclick="exportIEPs()"
             class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex items-center"
           >
@@ -206,6 +208,7 @@
                   Create Individual Employment Plan
                 </h3>
                 <button
+                  type="button"
                   onclick="hideCreateIEPForm()"
                   class="text-gray-400 hover:text-gray-600"
                 >
@@ -512,9 +515,9 @@
                         ${new Date(iep.created_at).toLocaleDateString()}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="viewIEP('${iep.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
-                        <button onclick="editIEP('${iep.id}')" class="text-green-600 hover:text-green-900 mr-3">Edit</button>
-                        ${iep.status === 'draft' ? `<button onclick="approveIEP('${iep.id}')" class="text-purple-600 hover:text-purple-900">Approve</button>` : ''}
+                        <button type="button" onclick="viewIEP('${iep.id}')" class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                        <button type="button" onclick="editIEP('${iep.id}')" class="text-green-600 hover:text-green-900 mr-3">Edit</button>
+                        ${iep.status === 'draft' ? `<button type="button" onclick="approveIEP('${iep.id}')" class="text-purple-600 hover:text-purple-900">Approve</button>` : ''}
                     </td>
                 `;
           tbody.appendChild(row);

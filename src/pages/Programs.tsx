@@ -217,7 +217,6 @@ export default function Programs() {
           </div>
         </div>
       </div>
-
       {/* Category Filter */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -238,7 +237,6 @@ export default function Programs() {
           </div>
         </div>
       </div>
-
       {/* Programs Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -256,7 +254,6 @@ export default function Programs() {
                   </div>
                 </div>
               </div>
-
               {/* Program Details */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
@@ -269,14 +266,12 @@ export default function Programs() {
                     </span>
                   )}
                 </div>
-
                 <h3 className="text-xl font-bold text-brand-text mb-2">
                   {program.title}
                 </h3>
                 <p className="text-brand-text-muted text-sm mb-4">
                   {program.description}
                 </p>
-
                 {/* Program Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="flex items-center text-sm text-brand-text-muted">
@@ -296,7 +291,6 @@ export default function Programs() {
                     {program.jobPlacementRate}% placement
                   </div>
                 </div>
-
                 {/* Key Features */}
                 <div className="mb-4">
                   <h4 className="text-sm font-semibold text-brand-text mb-2">
@@ -308,13 +302,12 @@ export default function Programs() {
                         key={index}
                         className="flex items-center text-sm text-brand-text-muted"
                       >
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
                         {feature}
                       </div>
                     ))}
                   </div>
                 </div>
-
                 {/* Outcome Stats */}
                 <div className="bg-brand-surface rounded-lg p-4 mb-4">
                   <div className="grid grid-cols-2 gap-4 text-center">
@@ -336,7 +329,6 @@ export default function Programs() {
                     </div>
                   </div>
                 </div>
-
                 {/* Actions */}
                 <div className="space-y-2">
                   <Link
@@ -357,7 +349,6 @@ export default function Programs() {
           ))}
         </div>
       </div>
-
       {/* Federal Compliance Notice */}
       <div className="bg-orange-50 border-t-4 border-orange-400 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

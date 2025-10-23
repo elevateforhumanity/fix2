@@ -268,7 +268,7 @@
           ></div>
         </div>
         <p id="healthSummary">Analyzing system status...</p>
-        <button class="refresh-btn" onclick="runStatusCheck()">
+        <button type="button" class="refresh-btn" onclick="runStatusCheck()">
           🔄 Refresh Status
         </button>
         <div class="last-updated" id="lastUpdated"></div>
@@ -349,7 +349,7 @@
           ],
         },
         {
-          name: 'Testing & Quality',
+          name: 'Testing &amp; Quality',
           icon: '🧪',
           checks: [
             { name: 'Test Suite', test: () => checkTestSuite() },
@@ -522,7 +522,7 @@
           'Sister Sites': '🌐',
           'Payment System': '💳',
           'Learning Management': '📚',
-          'Testing & Quality': '🧪',
+          'Testing &amp; Quality': '🧪',
           'Deployment Readiness': '🚀',
         };
         return icons[sectionName] || '📊';
@@ -570,7 +570,7 @@
             item.title = result.message;
           }
 
-          if (result.details && result.status === 'error') {
+          if (result.details &amp;&amp; result.status === 'error') {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'error-details';
             errorDiv.textContent = result.details;
@@ -631,13 +631,13 @@
           if (response.ok) {
             const packageData = await response.json();
             const hasDevDeps =
-              packageData.devDependencies &&
+              packageData.devDependencies &amp;&amp;
               Object.keys(packageData.devDependencies).length > 0;
             const hasDeps =
-              packageData.dependencies &&
+              packageData.dependencies &amp;&amp;
               Object.keys(packageData.dependencies).length > 0;
 
-            if (hasDevDeps && hasDeps) {
+            if (hasDevDeps &amp;&amp; hasDeps) {
               return {
                 status: 'working',
                 message: 'Dependencies properly configured',
@@ -691,7 +691,7 @@
           const response = await fetch('/api/healthz');
           if (response.ok) {
             const health = await response.json();
-            if (health.db && health.db.status === 'ok') {
+            if (health.db &amp;&amp; health.db.status === 'ok') {
               return {
                 status: 'working',
                 message: 'Database connected successfully',
@@ -875,7 +875,7 @@
           const response = await fetch('/package.json');
           if (response.ok) {
             const packageData = await response.json();
-            if (packageData.scripts && packageData.scripts.test) {
+            if (packageData.scripts &amp;&amp; packageData.scripts.test) {
               return {
                 status: 'warning',
                 message: 'Test suite configured but has known failures',
