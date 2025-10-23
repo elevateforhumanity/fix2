@@ -16,12 +16,15 @@
   See LICENSE file for details.
 */
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useAnalyticsEvent } from '../analytics/useAnalyticsEvent';
 
 export default function CourseLibrary() {
   const [courses, setCourses] = useState([]);
   const [blogs, setBlogs] = useState([]);
+
+  useAnalyticsEvent('page.view', { page: 'course-library' });
 
   useEffect(() => {
     fetch('/api/checkout/courses')
