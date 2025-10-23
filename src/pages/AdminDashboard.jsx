@@ -5,6 +5,7 @@
 */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAnalyticsEvent } from '../analytics/useAnalyticsEvent';
 import { BarChart, LineChart, PieChart, StatCard } from '../components/Chart';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { AnalyticsPulse } from '../components/admin/AnalyticsPulse';
@@ -14,6 +15,8 @@ import { api } from '../lib/api';
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  useAnalyticsEvent('dashboard.view', { page: 'admin-dashboard' });
 
   useEffect(() => {
     fetchDashboardData();

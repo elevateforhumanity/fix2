@@ -1,10 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAnalyticsEvent } from '../analytics/useAnalyticsEvent';
 
 /**
  * GetStarted Page - Onboarding hub for all user types
  */
 export function GetStarted() {
+  useAnalyticsEvent('page.view', { page: 'get-started' });
   const roles = [
     {
       title: 'Teachers',
