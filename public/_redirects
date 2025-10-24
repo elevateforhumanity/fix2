@@ -1,6 +1,3 @@
-# API proxy to Render backend
-/api/*  https://elevateforhumanity.onrender.com/api/:splat  200
-
 # Static files should be served directly
 /assets/*  /assets/:splat  200
 /*.js  /:splat  200
