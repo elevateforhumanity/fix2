@@ -41,3 +41,8 @@ coverage/
 tmp/
 temp/
 *.tmp
+.pnpm-store/
+
+# Package manager stores
+.pnpm-store/
+node_modules/.cache/
