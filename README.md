@@ -1,6 +1,6 @@
-# fix2 - Gitpod and VS Code Configuration Template
+# Elevate for Humanity - Learning Management System
 
-This repository provides a template configuration to fix VS Code and environment issues when working with Gitpod. Use these configuration files to ensure your repositories work correctly on Gitpod.
+A modern learning management system built with React, Vite, and Supabase, deployed on Netlify.
 
 ## 🚀 Quick Start
 
@@ -8,12 +8,19 @@ Click the button below to open this repository in Gitpod:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elevateforhumanity/fix2)
 
+## 🚀 Tech Stack
+
+- **Frontend**: React + Vite + TypeScript
+- **Styling**: Tailwind CSS
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Hosting**: Netlify
+- **CDN/DNS**: Cloudflare (optional)
+
 ## 📖 Documentation
 
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick copy commands and common customizations
-- **[SETUP_CHECKLIST.md](SETUP_CHECKLIST.md)** - Step-by-step setup checklist
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide for Netlify + Supabase
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guidelines for contributing
-- **[templates/](templates/)** - Pre-configured templates for different project types
 
 ## 📁 What's Included
 
