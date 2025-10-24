@@ -1,43 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "jsx": "react-jsx",
-    "strict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "types": ["node", "vite/client"],
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "scripts", "tests"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "build",
-    "src/diagnostics/monitor.ts",
-    "src/test/smoke.test.tsx",
-    "src/components/classroom/admin/EmailEventsPanel.tsx",
-    "src/api.ts",
-    "src/components/AIPageBuilder.tsx",
-    "src/components/AssetGenerator.tsx",
-    "src/components/FrameworkSettingsPanel.tsx",
-    "src/components/PageManager.tsx",
-    "src/pages/AutopilotAdmin.tsx",
-    "src/pages/DonatePage.tsx",
-    "src/monitoring.ts",
-    "src/services/stripe.ts",
-    "src/router.tsx"
-  ]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

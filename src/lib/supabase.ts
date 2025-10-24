@@ -1,16 +1,21 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://cuxzzpsyufcewtmicszk.supabase.co';
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    'Missing Supabase environment variables. Please check your .env file and ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.'
+  );
+}
 
-// Test connection and log status
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 export const testSupabaseConnection = async () => {
   try {
     console.log('🔌 Testing Supabase connection...');
     console.log('   URL:', supabaseUrl);
-    console.log('   Key valid:', supabaseKey ? 'Yes' : 'No');
+    console.log('   Key valid:', supabaseAnonKey ? 'Yes' : 'No');
     
     const { data, error } = await supabase
       .from('programs')
@@ -28,8 +33,10 @@ export const testSupabaseConnection = async () => {
     return true;
   } catch (err) {
     console.error('Supabase connection failed:', err);
-    console.error('Error type:', err.name);
-    console.error('Error message:', err.message);
+    if (err instanceof Error) {
+      console.error('Error type:', err.name);
+      console.error('Error message:', err.message);
+    }
     return false;
   }
 };
