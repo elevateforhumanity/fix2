@@ -7,17 +7,14 @@
  * Licensed Use Only - Unauthorized use prohibited
  */
 
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../supabaseClient.js';
 
 class AICourseCreator {
   constructor() {
-    this.supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    );
-    this.openaiApiKey = process.env.OPENAI_API_KEY;
-    this.cloudflareAccountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-    this.cloudflareApiToken = process.env.CLOUDFLARE_API_TOKEN;
+    this.supabase = supabase;
+    this.openaiApiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    this.cloudflareAccountId = import.meta.env.VITE_CLOUDFLARE_ACCOUNT_ID;
+    this.cloudflareApiToken = import.meta.env.VITE_CLOUDFLARE_API_TOKEN;
   }
 
   /**

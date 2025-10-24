@@ -1,106 +1,170 @@
-# Deployment Guide
+# Deployment Guide - Elevate for Humanity
 
-## Required Environment Variables
+## Stack Overview
 
-Before deploying, you must configure these environment variables in your deployment platform:
+- **Frontend Hosting**: Netlify
+- **Database + Auth + Backend API**: Supabase
+- **CDN/DNS**: Cloudflare (optional)
 
-### Supabase Configuration
+## Netlify Configuration
+
+### Site Information
+- **Site Name**: elevateforhumanityfix2
+- **Production URL**: https://elevateforhumanityfix2.netlify.app
+- **Repository**: elevateforhumanity/fix2
+- **Deploy URL**: https://app.netlify.com/projects/elevateforhumanityfix2
+
+### Build Settings
+
+**Build command:**
+```bash
+npm run build
+```
+
+**Publish directory:**
+```
+dist
+```
+
+**Node version:**
+```
+18.x or higher
+```
+
+### Environment Variables
+
+Add these in Netlify Dashboard → Site Settings → Environment Variables:
 
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA
 ```
 
-## Netlify Deployment
+### Deploy Settings
 
-### 1. Configure Environment Variables
+- **Auto-deploy**: Enabled on `main` branch
+- **Deploy previews**: Enabled for pull requests
+- **Branch deploys**: Enabled
 
-1. Go to [Netlify Dashboard](https://app.netlify.com/)
-2. Select your site
-3. Go to **Site settings** → **Environment variables**
-4. Add the following variables:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
+## Supabase Configuration
 
-### 2. Build Settings
+### Project Information
+- **Project URL**: https://cuxzzpsyufcewtmicszk.supabase.co
+- **Dashboard**: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
 
-The `netlify.toml` file is already configured:
+### Features Used
+- PostgreSQL Database
+- Authentication (Email/Password, OAuth)
+- Row Level Security (RLS)
+- Storage (if applicable)
+- Edge Functions (if applicable)
 
-```toml
-[build]
-  command = "pnpm install && pnpm run build"
-  publish = "dist"
+### Local Development
+
+1. Install Supabase CLI:
+```bash
+npm install -g supabase
 ```
 
-### 3. Deploy
-
-Push to main branch or trigger manual deploy:
-
+2. Link to project:
 ```bash
-git push origin main
+supabase link --project-ref cuxzzpsyufcewtmicszk
 ```
 
-## Cloudflare Pages Deployment
-
-### 1. Configure Environment Variables
-
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. Navigate to **Pages** → Your project → **Settings** → **Environment variables**
-3. Add for **Production** environment:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
-
-### 2. Build Configuration
-
-- **Build command**: `pnpm install && pnpm run build`
-- **Build output directory**: `dist`
-- **Root directory**: `/`
-- **Node version**: `20`
-
-### 3. Deploy
-
-Connect your GitHub repository or use Wrangler CLI:
-
+3. Pull schema:
 ```bash
-pnpm install -g wrangler
-wrangler pages deploy dist --project-name=elevateforhumanity
+supabase db pull
 ```
 
 ## Local Development
 
-For local development, the `.env` file is already configured. Just run:
-
+1. **Install dependencies:**
 ```bash
-pnpm install
-pnpm run dev
+npm install
+```
+
+2. **Set up environment variables:**
+```bash
+cp .env.example .env
+# Edit .env with your Supabase credentials
+```
+
+3. **Run development server:**
+```bash
+npm run dev
+```
+
+4. **Build for production:**
+```bash
+npm run build
+```
+
+5. **Preview production build:**
+```bash
+npm run preview
+```
+
+## Deployment Process
+
+### Automatic Deployment
+- Push to `main` branch triggers automatic deployment to Netlify
+- Build logs available in Netlify dashboard
+
+### Manual Deployment
+1. Go to Netlify dashboard
+2. Click "Trigger deploy" → "Deploy site"
+
+### Deploy from CLI
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Login
+netlify login
+
+# Deploy
+netlify deploy --prod
 ```
 
 ## Troubleshooting
 
-### Build fails with "Missing environment variables"
+### Build Failures
+1. Check Netlify build logs
+2. Verify environment variables are set
+3. Test build locally: `npm run build`
+4. Check Node version compatibility
 
-Make sure you've added `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to your deployment platform's environment variables.
+### Supabase Connection Issues
+1. Verify `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`
+2. Check Supabase project status
+3. Verify RLS policies allow access
+4. Check browser console for errors
 
-### Styling not showing
+### Routing Issues
+- Netlify uses `public/_redirects` for SPA routing
+- All routes fallback to `/index.html`
+- Static assets served directly
 
-1. Clear browser cache
-2. Check that the CSS file is being loaded in the Network tab
-3. Verify the build output includes `dist/assets/*.css`
+## Custom Domain Setup (Optional)
 
-### 404 errors on page refresh
+### On Netlify:
+1. Go to Site Settings → Domain Management
+2. Add custom domain
+3. Follow DNS configuration instructions
 
-Make sure your deployment platform is configured to redirect all routes to `index.html`:
+### On Cloudflare (if using):
+1. Add CNAME record pointing to Netlify
+2. Enable proxy (orange cloud)
+3. Configure SSL/TLS settings
 
-**Netlify**: Already configured in `netlify.toml`
-**Cloudflare Pages**: Automatically handled
+## Monitoring
 
-## Build Verification
+- **Netlify Analytics**: Available in dashboard
+- **Supabase Logs**: Available in Supabase dashboard
+- **Error Tracking**: Configure Sentry or similar (if needed)
 
-Test the build locally:
+## Support
 
-```bash
-pnpm run build
-pnpm run preview
-```
-
-Visit [http://localhost:8080](http://localhost:8080) to verify.
+- Netlify Docs: https://docs.netlify.com
+- Supabase Docs: https://supabase.com/docs
+- Repository Issues: https://github.com/elevateforhumanity/fix2/issues
