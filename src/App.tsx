@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import ProgramsGrid from './components/ProgramsGrid';
 import Testimonials from './components/Testimonials';
-import ProgramsIndex from './pages/ProgramsIndex';
+import Programs from './pages/Programs';
 import ProgramPage from './pages/ProgramPage';
 import Dashboard from './pages/lms/Dashboard';
 import CoursesIndex from './pages/lms/CoursesIndex';
@@ -78,7 +78,7 @@ export default function App() {
       <SiteLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/programs" element={<ProgramsIndex />} />
+          <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:slug" element={<ProgramPage />} />
           {/* Auth Routes */}
           <Route path="/auth/login" element={<Login />} />

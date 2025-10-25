@@ -1,5 +1,3 @@
-
-
 interface StudentRecord {
   name: string;
   program: string;

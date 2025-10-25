@@ -1,5 +1,3 @@
-
-
 interface CopilotFeature {
   id: string;
   name: string;

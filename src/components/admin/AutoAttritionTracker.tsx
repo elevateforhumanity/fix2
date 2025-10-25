@@ -1,5 +1,3 @@
-
-
 interface AttritionMetrics {
   overall: {
     totalStudents: number;

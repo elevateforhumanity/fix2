@@ -1,5 +1,3 @@
-
-
 interface WIOAMetrics {
   performanceIndicators: PerformanceIndicator[];
   participantData: ParticipantData;

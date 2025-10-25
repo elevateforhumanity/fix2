@@ -1,4 +1,3 @@
-
 import { supabase } from '@/lib/supabase';
 import { resendEmail } from '../../../google-classroom-autopilot/src/email-resend';
 

@@ -1,5 +1,3 @@
-
-
 interface ExcelChartConfig {
   type: 'pie' | 'bar' | 'line' | 'doughnut' | 'column';
   title: string;
