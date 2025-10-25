@@ -15,84 +15,86 @@ All tables in the database have Row Level Security (RLS) enabled. This document 
 
 ### 1. Profiles Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Public profiles viewable | Everyone can view all profiles |
-| INSERT | Users can insert own profile | User can only create their own profile |
-| UPDATE | Users can update own profile | User can only update their own profile |
-| DELETE | Users can delete own profile | User can only delete their own profile |
+| Operation | Policy                       | Access Rule                            |
+| --------- | ---------------------------- | -------------------------------------- |
+| SELECT    | Public profiles viewable     | Everyone can view all profiles         |
+| INSERT    | Users can insert own profile | User can only create their own profile |
+| UPDATE    | Users can update own profile | User can only update their own profile |
+| DELETE    | Users can delete own profile | User can only delete their own profile |
 
 ### 2. Courses Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Courses viewable | Published courses: everyone; Unpublished: instructor only |
-| INSERT | Instructors can insert | Only course instructor can create |
-| UPDATE | Instructors can update | Only course instructor can update |
-| DELETE | Instructors can delete | Only course instructor can delete |
+| Operation | Policy                 | Access Rule                                               |
+| --------- | ---------------------- | --------------------------------------------------------- |
+| SELECT    | Courses viewable       | Published courses: everyone; Unpublished: instructor only |
+| INSERT    | Instructors can insert | Only course instructor can create                         |
+| UPDATE    | Instructors can update | Only course instructor can update                         |
+| DELETE    | Instructors can delete | Only course instructor can delete                         |
 
 ### 3. Modules Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Modules viewable | Published courses: everyone; Enrolled students + instructors |
-| INSERT | Instructors can insert | Only course instructor can create modules |
-| UPDATE | Instructors can update | Only course instructor can update modules |
-| DELETE | Instructors can delete | Only course instructor can delete modules |
+| Operation | Policy                 | Access Rule                                                  |
+| --------- | ---------------------- | ------------------------------------------------------------ |
+| SELECT    | Modules viewable       | Published courses: everyone; Enrolled students + instructors |
+| INSERT    | Instructors can insert | Only course instructor can create modules                    |
+| UPDATE    | Instructors can update | Only course instructor can update modules                    |
+| DELETE    | Instructors can delete | Only course instructor can delete modules                    |
 
 **Access Logic:**
+
 - Public: Can view modules for published courses
 - Instructors: Can view/edit all modules for their courses
 - Students: Can view modules for courses they're enrolled in
 
 ### 4. Enrollments Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Users view own enrollments | User can only see their enrollments |
-| INSERT | Users can enroll | User can enroll themselves in courses |
-| UPDATE | Users can update | User can update their own enrollments |
-| DELETE | Users can delete | User can unenroll from courses |
+| Operation | Policy                     | Access Rule                           |
+| --------- | -------------------------- | ------------------------------------- |
+| SELECT    | Users view own enrollments | User can only see their enrollments   |
+| INSERT    | Users can enroll           | User can enroll themselves in courses |
+| UPDATE    | Users can update           | User can update their own enrollments |
+| DELETE    | Users can delete           | User can unenroll from courses        |
 
 ### 5. Module Progress Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Users view own progress | User can only see their own progress |
-| INSERT | Users can insert progress | User can create progress records for their enrollments |
-| UPDATE | Users can update progress | User can update their own progress |
+| Operation | Policy                    | Access Rule                                            |
+| --------- | ------------------------- | ------------------------------------------------------ |
+| SELECT    | Users view own progress   | User can only see their own progress                   |
+| INSERT    | Users can insert progress | User can create progress records for their enrollments |
+| UPDATE    | Users can update progress | User can update their own progress                     |
 
 ### 6. Assignments Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Students and instructors | Enrolled students + course instructors |
-| INSERT | Instructors can insert | Only course instructor can create assignments |
-| UPDATE | Instructors can update | Only course instructor can update assignments |
-| DELETE | Instructors can delete | Only course instructor can delete assignments |
+| Operation | Policy                   | Access Rule                                   |
+| --------- | ------------------------ | --------------------------------------------- |
+| SELECT    | Students and instructors | Enrolled students + course instructors        |
+| INSERT    | Instructors can insert   | Only course instructor can create assignments |
+| UPDATE    | Instructors can update   | Only course instructor can update assignments |
+| DELETE    | Instructors can delete   | Only course instructor can delete assignments |
 
 **Access Logic:**
+
 - Students: Can view assignments for courses they're enrolled in
 - Instructors: Full CRUD access for their course assignments
 
 ### 7. Submissions Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT (Student) | Users view own submissions | User can see their own submissions |
-| SELECT (Instructor) | Instructors view course submissions | Instructors can see all submissions for their courses |
-| INSERT | Users can submit | User can submit assignments |
-| UPDATE (Student) | Users can update own | User can update their submissions (resubmit) |
-| UPDATE (Instructor) | Instructors can grade | Instructors can update submissions (add grades/feedback) |
+| Operation           | Policy                              | Access Rule                                              |
+| ------------------- | ----------------------------------- | -------------------------------------------------------- |
+| SELECT (Student)    | Users view own submissions          | User can see their own submissions                       |
+| SELECT (Instructor) | Instructors view course submissions | Instructors can see all submissions for their courses    |
+| INSERT              | Users can submit                    | User can submit assignments                              |
+| UPDATE (Student)    | Users can update own                | User can update their submissions (resubmit)             |
+| UPDATE (Instructor) | Instructors can grade               | Instructors can update submissions (add grades/feedback) |
 
 **Note:** Submissions have dual UPDATE policies to allow both student resubmissions and instructor grading.
 
 ### 8. Certificates Table
 
-| Operation | Policy | Access Rule |
-|-----------|--------|-------------|
-| SELECT | Publicly viewable | Anyone can view certificates (for verification) |
-| INSERT | System can insert | Only for completed courses (enforced by trigger) |
+| Operation | Policy            | Access Rule                                      |
+| --------- | ----------------- | ------------------------------------------------ |
+| SELECT    | Publicly viewable | Anyone can view certificates (for verification)  |
+| INSERT    | System can insert | Only for completed courses (enforced by trigger) |
 
 **Note:** Certificates are primarily created by database triggers when a course is completed.
 
@@ -101,6 +103,7 @@ All tables in the database have Row Level Security (RLS) enabled. This document 
 ### Authentication Required
 
 All policies use `auth.uid()` which requires users to be authenticated. Unauthenticated users will have no access except:
+
 - Viewing published courses
 - Viewing public profiles
 - Viewing certificates (for verification)
@@ -108,6 +111,7 @@ All policies use `auth.uid()` which requires users to be authenticated. Unauthen
 ### Instructor Verification
 
 Instructor permissions are verified by checking:
+
 ```sql
 courses.instructor_id = auth.uid()
 ```
@@ -117,6 +121,7 @@ This ensures only the course creator can manage course content.
 ### Student Enrollment Verification
 
 Student access to course materials is verified by checking:
+
 ```sql
 EXISTS (
     SELECT 1 FROM public.enrollments
@@ -128,6 +133,7 @@ EXISTS (
 ### Cascading Deletes
 
 The schema uses `ON DELETE CASCADE` for foreign keys, so:
+
 - Deleting a course deletes all modules, enrollments, and related data
 - Deleting a user deletes their profile, enrollments, and submissions
 - Deleting a module deletes its assignments and progress records
@@ -223,6 +229,7 @@ ORDER BY tablename;
 ```
 
 Expected policy counts:
+
 - profiles: 4 policies
 - courses: 4 policies
 - modules: 4 policies

@@ -121,7 +121,7 @@ export default function AssetGenerator() {
     try {
       const { data: user } = await supabase.auth.getUser();
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('generated_assets')
         .insert({
           name: assetName,

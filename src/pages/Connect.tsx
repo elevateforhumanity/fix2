@@ -6,10 +6,9 @@ import {
   Briefcase,
   MessageCircle,
   Star,
-  Clock,
   ChevronRight,
 } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function Connect() {
   const params = useParams();

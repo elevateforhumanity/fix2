@@ -4,8 +4,8 @@
   See LICENSE file for details.
 */
 
-import React, { useState, useEffect } from 'react';
-import { frameworkSettings } from '../lib/frameworkSettings';
+import { useState, useEffect } from 'react';
+import frameworkSettings from '../lib/frameworkSettings';
 
 export function FrameworkSettingsPanel() {
   const [config] = useState(frameworkSettings.getConfig());
@@ -86,7 +86,7 @@ export function FrameworkSettingsPanel() {
                 color: 'var(--brand-danger)',
               }}
             >
-              {validation.errors.map((error, i) => (
+              {validation.errors.map((error: string, i: number) => (
                 <li key={i} style={{ fontSize: '0.875rem' }}>
                   {error}
                 </li>
@@ -104,7 +104,7 @@ export function FrameworkSettingsPanel() {
                 color: 'var(--brand-warning)',
               }}
             >
-              {validation.warnings.map((warning, i) => (
+              {validation.warnings.map((warning: string, i: number) => (
                 <li key={i} style={{ fontSize: '0.875rem' }}>
                   {warning}
                 </li>
@@ -133,7 +133,7 @@ export function FrameworkSettingsPanel() {
         </p>
         {config.ecosystem.sisterSites && (
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {config.ecosystem.sisterSites.map((site, i) => (
+            {config.ecosystem.sisterSites.map((site: { name: string; url: string }, i: number) => (
               <li
                 key={i}
                 style={{

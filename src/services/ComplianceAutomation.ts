@@ -175,7 +175,7 @@ export class ComplianceAutomation {
 
     for (const rule of this.complianceRules) {
       try {
-        const status = await this.checkRule(rule);
+        const _status = await this.checkRule(rule);
         rule.status = status;
         rule.lastChecked = new Date();
 
@@ -242,21 +242,21 @@ export class ComplianceAutomation {
     'compliant' | 'warning' | 'non-compliant'
   > {
     // Check for common accessibility issues
-    const issues = [];
+    const _issues = [];
 
     // Check for alt text on images
-    const images = document.querySelectorAll('img:not([alt])');
+    const _images = document.querySelectorAll('img:not([alt])');
     if (images.length > 0) issues.push('missing-alt-text');
 
     // Check for proper heading hierarchy
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const _headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     // Logic to verify heading order
 
     // Check for color contrast
     // Would use actual contrast checking library
 
     // Check for keyboard navigation
-    const focusableElements = document.querySelectorAll(
+    const _focusableElements = document.querySelectorAll(
       'a, button, input, select, textarea'
     );
 
@@ -268,16 +268,16 @@ export class ComplianceAutomation {
    */
   private async fixAccessibilityIssues(): Promise<void> {
     // Add missing alt text
-    const images = document.querySelectorAll('img:not([alt])');
+    const _images = document.querySelectorAll('img:not([alt])');
     images.forEach((img) => {
       img.setAttribute('alt', 'Image');
       img.setAttribute('role', 'img');
     });
 
     // Add ARIA labels where missing
-    const buttons = document.querySelectorAll('button:not([aria-label])');
+    const _buttons = document.querySelectorAll('button:not([aria-label])');
     buttons.forEach((button) => {
-      const text = button.textContent?.trim();
+      const _text = button.textContent?.trim();
       if (text) {
         button.setAttribute('aria-label', text);
       }
@@ -295,10 +295,10 @@ export class ComplianceAutomation {
       document.querySelector('[href*="privacy"]') !== null;
 
     // Check for cookie consent
-    const hasCookieConsent = localStorage.getItem('cookie-consent') !== null;
+    const _hasCookieConsent = localStorage.getItem('cookie-consent') !== null;
 
     // Check for data encryption
-    const isHTTPS = window.location.protocol === 'https:';
+    const _isHTTPS = window.location.protocol === 'https:';
 
     return hasPrivacyPolicy && hasCookieConsent && isHTTPS
       ? 'compliant'
@@ -328,7 +328,7 @@ export class ComplianceAutomation {
    * Add cookie consent banner
    */
   private addCookieConsentBanner(): void {
-    const banner = document.createElement('div');
+    const _banner = document.createElement('div');
     banner.className = 'cookie-consent';
     banner.innerHTML = `
       <div style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;">
@@ -354,8 +354,8 @@ export class ComplianceAutomation {
   > {
     try {
       // In production, call SAM.gov API
-      // const response = await fetch('https://api.sam.gov/entity-information/v3/entities?ueiSAM=YOUR_UEI');
-      // const data = await response.json();
+      // const _response = await fetch('https://api.sam.gov/entity-information/v3/entities?ueiSAM=YOUR_UEI');
+      // const _data = await response.json();
       // return data.entityRegistration[0].registrationStatus === 'Active' ? 'compliant' : 'non-compliant';
 
       return 'compliant'; // Simulated
@@ -402,14 +402,14 @@ export class ComplianceAutomation {
    * Get compliance dashboard data
    */
   getDashboardData() {
-    const total = this.complianceRules.length;
-    const compliant = this.complianceRules.filter(
+    const _total = this.complianceRules.length;
+    const _compliant = this.complianceRules.filter(
       (r) => r.status === 'compliant'
     ).length;
-    const warnings = this.complianceRules.filter(
+    const _warnings = this.complianceRules.filter(
       (r) => r.status === 'warning'
     ).length;
-    const nonCompliant = this.complianceRules.filter(
+    const _nonCompliant = this.complianceRules.filter(
       (r) => r.status === 'non-compliant'
     ).length;
 

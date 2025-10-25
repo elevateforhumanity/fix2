@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+
 
 interface LearningBarrier {
   id: string;

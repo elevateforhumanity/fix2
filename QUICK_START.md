@@ -9,6 +9,7 @@ Run this to check your Supabase status and get next steps:
 ```
 
 This will tell you if your Supabase project is:
+
 - ✅ Active and ready (proceed to migrations)
 - ⚠️ Paused (needs restoration)
 - ❌ Not found (needs creation)
@@ -30,17 +31,20 @@ This will tell you if your Supabase project is:
 ### Step 2: Apply Migrations
 
 **Option A: Interactive Wizard (Recommended)**
+
 ```bash
 ./scripts/apply-migrations-interactive.sh
 ```
 
 This wizard will:
+
 - Check if Supabase CLI is installed
 - Offer to install it if needed
 - Guide you through CLI or Dashboard method
 - Show you exactly what to do
 
 **Option B: Supabase CLI (Fastest)**
+
 ```bash
 # Install CLI
 npm install -g supabase
@@ -56,6 +60,7 @@ supabase db push
 ```
 
 **Option C: Dashboard (Manual)**
+
 1. Go to: [SQL Editor](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql)
 2. Click "New Query"
 3. Copy and run each file in order:
@@ -71,6 +76,7 @@ supabase db push
 ```
 
 This will automatically:
+
 - ✅ Build your application
 - ✅ Deploy to Cloudflare Pages
 - ✅ Set GitHub secrets
@@ -85,6 +91,7 @@ This will automatically:
 If your project doesn't exist:
 
 ### 1. Create Project
+
 - Go to: [https://supabase.com/dashboard](https://supabase.com/dashboard)
 - Click "New Project"
 - Name: `elevate-lms`
@@ -94,6 +101,7 @@ If your project doesn't exist:
 - Wait 2-3 minutes...
 
 ### 2. Get Credentials
+
 - Go to: Settings → API
 - Copy:
   - **Project URL**: `https://xxxxxxxxxxxxx.supabase.co`
@@ -103,6 +111,7 @@ If your project doesn't exist:
 ### 3. Update Code
 
 **Update .env:**
+
 ```bash
 VITE_SUPABASE_URL=https://xxxxxxxxxxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGci...
@@ -113,6 +122,7 @@ SUPABASE_SERVICE_KEY=eyJhbGci...
 Replace the fallback URL and key with your new values.
 
 **Update GitHub Secrets:**
+
 ```bash
 gh secret set VITE_SUPABASE_URL -b"https://xxxxxxxxxxxxx.supabase.co"
 gh secret set VITE_SUPABASE_ANON_KEY -b"eyJhbGci..."
@@ -120,12 +130,15 @@ gh secret set SUPABASE_SERVICE_KEY -b"eyJhbGci..."
 ```
 
 ### 4. Apply Migrations
+
 Run the interactive wizard:
+
 ```bash
 ./scripts/apply-migrations-interactive.sh
 ```
 
 ### 5. Deploy
+
 ```bash
 ./scripts/autopilot-complete-deployment.sh
 ```
@@ -135,23 +148,28 @@ Run the interactive wizard:
 ## 🔧 Troubleshooting
 
 ### "Could not resolve host"
+
 - Your Supabase project is paused or doesn't exist
 - Run: `./scripts/check-and-restore-supabase.sh`
 
 ### "Permission denied" errors
+
 - You need the service_role key, not just anon key
 - Get it from: Settings → API in Supabase Dashboard
 
 ### "Table already exists" errors
+
 - Migrations were already applied
 - This is OK! Skip to deployment step
 
 ### "Supabase CLI not found"
+
 ```bash
 npm install -g supabase
 ```
 
 ### "GitHub CLI not found"
+
 ```bash
 # Install from: https://cli.github.com/
 # Or manually add secrets in GitHub Settings
@@ -161,12 +179,12 @@ npm install -g supabase
 
 ## 📚 Documentation
 
-| File | Description |
-|------|-------------|
-| `SUPABASE_STATUS.md` | Complete Supabase status and restoration guide |
-| `supabase/RLS_POLICIES.md` | Detailed RLS policy documentation |
-| `supabase/README.md` | Supabase setup and configuration |
-| `CLOUDFLARE_PAGES_SETUP.md` | Cloudflare Pages deployment guide |
+| File                        | Description                                    |
+| --------------------------- | ---------------------------------------------- |
+| `SUPABASE_STATUS.md`        | Complete Supabase status and restoration guide |
+| `supabase/RLS_POLICIES.md`  | Detailed RLS policy documentation              |
+| `supabase/README.md`        | Supabase setup and configuration               |
+| `CLOUDFLARE_PAGES_SETUP.md` | Cloudflare Pages deployment guide              |
 
 ---
 
@@ -175,23 +193,27 @@ npm install -g supabase
 After running the autopilot:
 
 ### Database (Supabase)
+
 - ✅ 8 tables with RLS enabled
 - ✅ 30+ RLS policies for security
 - ✅ Sample course data
 - ✅ Authentication ready
 
 ### Frontend (Cloudflare Pages)
+
 - ✅ React SPA with routing
 - ✅ Supabase integration
 - ✅ LMS features
 - ✅ SEO optimized
 
 ### Backend (Render)
+
 - ✅ API endpoints
 - ✅ Static file serving
 - ✅ CORS configured
 
 ### CI/CD (GitHub Actions)
+
 - ✅ Auto-deploy on push
 - ✅ Environment variables set
 - ✅ Build and test pipeline
@@ -200,27 +222,29 @@ After running the autopilot:
 
 ## ⏱️ Time Estimates
 
-| Task | Time |
-|------|------|
-| Check Supabase status | 30 seconds |
-| Restore paused project | 2-3 minutes |
-| Create new project | 3-5 minutes |
-| Apply migrations (CLI) | 1-2 minutes |
-| Apply migrations (Dashboard) | 5-10 minutes |
-| Run autopilot deployment | 2-3 minutes |
-| **Total (existing project)** | **5-10 minutes** |
-| **Total (new project)** | **10-15 minutes** |
+| Task                         | Time              |
+| ---------------------------- | ----------------- |
+| Check Supabase status        | 30 seconds        |
+| Restore paused project       | 2-3 minutes       |
+| Create new project           | 3-5 minutes       |
+| Apply migrations (CLI)       | 1-2 minutes       |
+| Apply migrations (Dashboard) | 5-10 minutes      |
+| Run autopilot deployment     | 2-3 minutes       |
+| **Total (existing project)** | **5-10 minutes**  |
+| **Total (new project)**      | **10-15 minutes** |
 
 ---
 
 ## 🆘 Need Help?
 
 1. **Check project status:**
+
    ```bash
    ./scripts/check-and-restore-supabase.sh
    ```
 
 2. **View migration files:**
+
    ```bash
    ./scripts/apply-migrations-interactive.sh
    # Choose option 3

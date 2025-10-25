@@ -422,7 +422,7 @@ export class ContentAutomation {
         <div class="logo-grid">
           ${partners
             .map(
-              (p) => `
+              (p: { url: string; logo: string; name: string }) => `
             <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
               <img src="${p.logo}" alt="${p.name} Logo" loading="lazy" />
               <span class="partner-name">${p.name}</span>

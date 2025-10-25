@@ -10,7 +10,10 @@ export const api = {
   get: async (endpoint) => {
     const response = await fetch(endpoint);
     if (!response.ok) {
-      throw new ApiError(`HTTP ${response.status}: ${response.statusText}`, response.status);
+      throw new ApiError(
+        `HTTP ${response.status}: ${response.statusText}`,
+        response.status
+      );
     }
     return response.json();
   },
@@ -21,7 +24,10 @@ export const api = {
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      throw new ApiError(`HTTP ${response.status}: ${response.statusText}`, response.status);
+      throw new ApiError(
+        `HTTP ${response.status}: ${response.statusText}`,
+        response.status
+      );
     }
     return response.json();
   },
@@ -32,14 +38,20 @@ export const api = {
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      throw new ApiError(`HTTP ${response.status}: ${response.statusText}`, response.status);
+      throw new ApiError(
+        `HTTP ${response.status}: ${response.statusText}`,
+        response.status
+      );
     }
     return response.json();
   },
   delete: async (endpoint) => {
     const response = await fetch(endpoint, { method: 'DELETE' });
     if (!response.ok) {
-      throw new ApiError(`HTTP ${response.status}: ${response.statusText}`, response.status);
+      throw new ApiError(
+        `HTTP ${response.status}: ${response.statusText}`,
+        response.status
+      );
     }
     return response.json();
   },

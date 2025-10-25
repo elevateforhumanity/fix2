@@ -107,7 +107,7 @@ export default function AIPageBuilder() {
     try {
       const { data: user } = await supabase.auth.getUser();
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('generated_pages')
         .insert({
           name: pageName,
