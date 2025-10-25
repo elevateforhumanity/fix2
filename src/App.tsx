@@ -6,6 +6,7 @@ import ProgramsGrid from './components/ProgramsGrid';
 import Testimonials from './components/Testimonials';
 import Programs from './pages/Programs.tsx';
 import ProgramPage from './pages/ProgramPage';
+import LMSCourses from './pages/LMSCourses';
 import Dashboard from './pages/lms/Dashboard';
 import CoursesIndex from './pages/lms/CoursesIndex';
 import CoursePage from './pages/lms/CoursePage';
@@ -101,7 +102,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/lms/courses" element={<CoursesIndex />} />
+          <Route path="/lms/courses" element={<LMSCourses />} />
           <Route path="/lms/course/:courseId" element={<CoursePage />} />
           <Route
             path="/lms/lesson/:lessonId"

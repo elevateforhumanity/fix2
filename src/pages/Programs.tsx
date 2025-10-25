@@ -231,113 +231,65 @@ export default function Programs() {
       </div>
       {/* Programs Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredPrograms.map((program) => (
-            <div
+            <Link
               key={program.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              to={`/programs/${program.id}`}
+              className="group cursor-pointer"
             >
-              {/* Program Image */}
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <Building className="h-12 w-12 mx-auto mb-2" />
-                  <div className="text-sm font-medium">
-                    {program.category.toUpperCase()}
+              {/* Course Cover Image */}
+              <div className="relative overflow-hidden rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300">
+                <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-white">
+                    <Building className="h-16 w-16 opacity-20" />
                   </div>
-                </div>
-              </div>
-              {/* Program Details */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="bg-brand-surface text-brand-info text-xs font-medium px-2 py-1 rounded">
-                    {program.category.toUpperCase()}
-                  </span>
-                  {program.federalFunding && (
-                    <span className="bg-brand-surface text-brand-success text-xs font-medium px-2 py-1 rounded">
-                      Federal Funding
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-white/90 backdrop-blur-sm text-brand-info text-xs font-semibold px-3 py-1 rounded-full">
+                      {program.category.toUpperCase()}
                     </span>
+                  </div>
+                  {program.federalFunding && (
+                    <div className="absolute top-3 right-3">
+                      <span className="bg-green-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        FREE
+                      </span>
+                    </div>
                   )}
                 </div>
-                <h3 className="text-xl font-bold text-brand-text mb-2">
+              </div>
+              {/* Course Info */}
+              <div className="p-4 bg-white">
+                <h3 className="font-semibold text-brand-text mb-1 line-clamp-2 group-hover:text-brand-info transition-colors">
                   {program.title}
                 </h3>
-                <p className="text-brand-text-muted text-sm mb-4">
+                <p className="text-sm text-brand-text-muted mb-3 line-clamp-2">
                   {program.description}
                 </p>
-                {/* Program Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="flex items-center text-sm text-brand-text-muted">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center text-brand-text-muted">
                     <Clock className="h-4 w-4 mr-1" />
                     {program.duration}
                   </div>
-                  <div className="flex items-center text-sm text-brand-text-muted">
-                    <DollarSign className="h-4 w-4 mr-1" />
-                    {program.cost}
-                  </div>
-                  <div className="flex items-center text-sm text-brand-text-muted">
+                  <div className="flex items-center text-brand-text-muted">
                     <Users className="h-4 w-4 mr-1" />
-                    {program.participants} enrolled
-                  </div>
-                  <div className="flex items-center text-sm text-brand-text-muted">
-                    <Award className="h-4 w-4 mr-1" />
-                    {program.jobPlacementRate}% placement
+                    {program.participants}
                   </div>
                 </div>
-                {/* Key Features */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-brand-text mb-2">
-                    Key Features:
-                  </h4>
-                  <div className="space-y-1">
-                    {program.features.slice(0, 3).map((feature, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center text-sm text-brand-text-muted"
-                      >
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
-                        {feature}
-                      </div>
-                    ))}
+                <div className="mt-3 pt-3 border-t border-brand-border">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-brand-text-muted">
+                      <Award className="h-3 w-3 inline mr-1" />
+                      {program.jobPlacementRate}% placement
+                    </span>
+                    <span className="text-brand-info font-semibold text-sm group-hover:underline">
+                      Learn More →
+                    </span>
                   </div>
-                </div>
-                {/* Outcome Stats */}
-                <div className="bg-brand-surface rounded-lg p-4 mb-4">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-brand-success">
-                        {program.jobPlacementRate}%
-                      </div>
-                      <div className="text-xs text-brand-text-muted">
-                        Job Placement
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-brand-info">
-                        {program.averageSalary}
-                      </div>
-                      <div className="text-xs text-brand-text-muted">
-                        Avg. Salary
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Actions */}
-                <div className="space-y-2">
-                  <Link
-                    to={`/programs/${program.id}`}
-                    className="w-full bg-brand-info text-white py-2 px-4 rounded-lg hover:bg-brand-info-hover transition-colors text-center block"
-                  >
-                    View Program Details
-                  </Link>
-                  <Link
-                    to={`/pay?program=${program.id}`}
-                    className="w-full bg-white text-brand-info border border-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors text-center block"
-                  >
-                    Enroll Now
-                  </Link>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
