@@ -3,8 +3,8 @@
 ## Stack Overview
 
 - **Frontend Hosting**: Netlify
+- **CDN/Security/DNS**: Cloudflare (proxy + DDoS protection + caching + R2 storage)
 - **Database + Auth + Backend API**: Supabase
-- **CDN/DNS**: Cloudflare (optional)
 
 ## Netlify Configuration
 
@@ -145,23 +145,82 @@ netlify deploy --prod
 - All routes fallback to `/index.html`
 - Static assets served directly
 
-## Custom Domain Setup (Optional)
+## Cloudflare Configuration
 
-### On Netlify:
+Cloudflare is used for CDN, security, and DNS (NOT Cloudflare Pages).
+
+### Setup:
+1. **DNS Records** (in Cloudflare dashboard):
+   - Point your domain to Netlify
+   - Enable proxy (orange cloud icon) for CDN/security
+   
+2. **SSL/TLS Settings**:
+   - Mode: Full (strict)
+   - Always Use HTTPS: On
+   - Automatic HTTPS Rewrites: On
+
+3. **Security Settings**:
+   - DDoS Protection: Enabled (automatic)
+   - WAF (Web Application Firewall): Configure rules as needed
+   - Bot Fight Mode: Consider enabling
+
+4. **Caching**:
+   - Browser Cache TTL: Respect Existing Headers
+   - Caching Level: Standard
+   - Page Rules: Configure for static assets
+
+5. **R2 Storage** (if using):
+   - Used for some file storage
+   - Configure bucket and access keys
+
+### Custom Domain Setup:
+
+**On Netlify:**
 1. Go to Site Settings → Domain Management
 2. Add custom domain
-3. Follow DNS configuration instructions
+3. Note the DNS target (e.g., `apex-loadbalancer.netlify.com`)
 
-### On Cloudflare (if using):
-1. Add CNAME record pointing to Netlify
-2. Enable proxy (orange cloud)
-3. Configure SSL/TLS settings
+**On Cloudflare:**
+1. Add DNS records:
+   ```
+   Type: CNAME
+   Name: @ (or subdomain)
+   Target: [your-site].netlify.app
+   Proxy: Enabled (orange cloud)
+   ```
+2. SSL/TLS mode: Full (strict)
+3. Verify site loads through Cloudflare
 
 ## Monitoring
 
 - **Netlify Analytics**: Available in dashboard
+- **Cloudflare Analytics**: Traffic, security events, caching stats
 - **Supabase Logs**: Available in Supabase dashboard
 - **Error Tracking**: Configure Sentry or similar (if needed)
+
+## Architecture Summary
+
+```
+User Request
+    ↓
+Cloudflare (CDN/Security/DNS)
+    ├─ DDoS Protection
+    ├─ SSL/TLS Encryption
+    ├─ Caching (static assets)
+    ├─ WAF (firewall rules)
+    └─ R2 Storage (some files)
+    ↓
+Netlify (Frontend Hosting)
+    ├─ Static site serving
+    ├─ Auto-deploy from GitHub
+    └─ Build & optimization
+    ↓
+Supabase (Backend)
+    ├─ PostgreSQL Database
+    ├─ Authentication
+    ├─ Storage
+    └─ Edge Functions
+```
 
 ## Support
 
