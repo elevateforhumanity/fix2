@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Building,
-  Clock,
-  DollarSign,
-  Users,
-  Award,
-} from 'lucide-react';
+import { Building, Clock, DollarSign, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { addBreadcrumbSchema } from '../utils/addCourseSchema';
 

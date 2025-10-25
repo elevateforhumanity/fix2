@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import ProgramsGrid from './components/ProgramsGrid';
 import Testimonials from './components/Testimonials';
-import Programs from './pages/Programs';
+import Programs from './pages/Programs.tsx';
 import ProgramPage from './pages/ProgramPage';
 import Dashboard from './pages/lms/Dashboard';
 import CoursesIndex from './pages/lms/CoursesIndex';
