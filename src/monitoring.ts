@@ -8,7 +8,7 @@ export async function startWebVitals(report?: (m: Metric) => void) {
       ((m: Metric) =>
         console.log(`[web-vitals] ${m.name}:`, m.value, m.id ?? ''));
     mod.onCLS(cb);
-    mod.onFID(cb);
+    // onFID is deprecated in web-vitals v4, use onINP instead
     mod.onLCP(cb);
     if (typeof mod.onINP === 'function') mod.onINP(cb);
     mod.onTTFB(cb);

@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+
 
 export const safeLazy = (
   importFn: () => Promise<any>,

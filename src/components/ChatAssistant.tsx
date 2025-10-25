@@ -11,10 +11,6 @@ import {
   Send,
   Minimize2,
   Maximize2,
-  HelpCircle,
-  Book,
-  Users,
-  Calendar,
 } from 'lucide-react';
 
 interface Message {

@@ -109,8 +109,8 @@ export class SocialMediaAutomation {
    * Schedule posts 3x daily
    */
   scheduleDailyPosts(): void {
-    const today = new Date();
-    const postTimes = [
+    const _today = new Date();
+    const _postTimes = [
       new Date(today.setHours(9, 0, 0, 0)), // 9 AM
       new Date(today.setHours(13, 0, 0, 0)), // 1 PM
       new Date(today.setHours(18, 0, 0, 0)), // 6 PM
@@ -145,7 +145,7 @@ export class SocialMediaAutomation {
    * Generate content based on time of day
    */
   private generateContent(timeSlot: number): string {
-    const contentTemplates = {
+    const _contentTemplates = {
       morning: [
         '🌅 Good morning! Start your career transformation today with Elevate for Humanity. Free training programs available through federal and state funding. #WorkforceDevelopment #CareerTraining',
         '☕ Morning motivation: Your future starts with the right training. Explore our ETPL-approved programs and government-funded opportunities. Apply today! #Education #CareerGrowth',
@@ -165,7 +165,7 @@ export class SocialMediaAutomation {
 
     const slot =
       timeSlot === 0 ? 'morning' : timeSlot === 1 ? 'afternoon' : 'evening';
-    const templates = contentTemplates[slot];
+    const _templates = contentTemplates[slot];
     return templates[Math.floor(Math.random() * templates.length)];
   }
 
@@ -176,7 +176,7 @@ export class SocialMediaAutomation {
     this.scheduledPosts.push(post);
 
     // Schedule actual posting
-    const delay = post.scheduledTime.getTime() - Date.now();
+    const _delay = post.scheduledTime.getTime() - Date.now();
     if (delay > 0) {
       setTimeout(() => {
         this.publishPost(post);
@@ -219,11 +219,11 @@ export class SocialMediaAutomation {
    * Post to Facebook
    */
   private async postToFacebook(post: SocialMediaPost): Promise<void> {
-    const pageAccount = this.accounts.get('facebook-page');
-    const personalAccount = this.accounts.get('facebook-personal');
+    const _pageAccount = this.accounts.get('facebook-page');
+    const _personalAccount = this.accounts.get('facebook-personal');
 
     // Post to both page and personal profile
-    const endpoints = [
+    const _endpoints = [
       {
         url: `https://graph.facebook.com/v18.0/${pageAccount?.accountId}/feed`,
         token: pageAccount?.accessToken,
@@ -255,11 +255,11 @@ export class SocialMediaAutomation {
    * Post to LinkedIn
    */
   private async postToLinkedIn(post: SocialMediaPost): Promise<void> {
-    const companyAccount = this.accounts.get('linkedin-company');
-    const personalAccount = this.accounts.get('linkedin-personal');
+    const _companyAccount = this.accounts.get('linkedin-company');
+    const _personalAccount = this.accounts.get('linkedin-personal');
 
     // Post to both company page and personal profile
-    const endpoints = [
+    const _endpoints = [
       {
         url: `https://api.linkedin.com/v2/ugcPosts`,
         author: `urn:li:organization:${companyAccount?.accountId}`,
@@ -305,7 +305,7 @@ export class SocialMediaAutomation {
    * Post to YouTube (community post)
    */
   private async postToYouTube(post: SocialMediaPost): Promise<void> {
-    const account = this.accounts.get('youtube');
+    const _account = this.accounts.get('youtube');
     if (!account?.accessToken) return;
 
     // YouTube Community Posts API
@@ -357,11 +357,11 @@ export class SocialMediaAutomation {
    * Generate 3x daily report
    */
   async generateDailyReport(): Promise<DailyReport> {
-    const today = new Date();
+    const _today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const todaysPosts = this.scheduledPosts.filter((post) => {
-      const postDate = new Date(post.scheduledTime);
+    const _todaysPosts = this.scheduledPosts.filter((post) => {
+      const _postDate = new Date(post.scheduledTime);
       postDate.setHours(0, 0, 0, 0);
       return postDate.getTime() === today.getTime();
     });
@@ -371,7 +371,7 @@ export class SocialMediaAutomation {
       post.engagement = await this.fetchEngagement(post);
     }
 
-    const totalEngagement = todaysPosts.reduce(
+    const _totalEngagement = todaysPosts.reduce(
       (acc, post) => ({
         likes: acc.likes + (post.engagement?.likes || 0),
         shares: acc.shares + (post.engagement?.shares || 0),
@@ -381,7 +381,7 @@ export class SocialMediaAutomation {
       { likes: 0, shares: 0, comments: 0, views: 0 }
     );
 
-    const topPerforming = todaysPosts
+    const _topPerforming = todaysPosts
       .sort((a, b) => {
         const aTotal =
           (a.engagement?.likes || 0) +
@@ -424,17 +424,17 @@ export class SocialMediaAutomation {
    * Schedule 3x daily reports
    */
   scheduleReports(): void {
-    const reportTimes = [
+    const _reportTimes = [
       new Date().setHours(10, 0, 0, 0), // 10 AM
       new Date().setHours(15, 0, 0, 0), // 3 PM
       new Date().setHours(20, 0, 0, 0), // 8 PM
     ];
 
     reportTimes.forEach((time) => {
-      const delay = time - Date.now();
+      const _delay = time - Date.now();
       if (delay > 0) {
         setTimeout(async () => {
-          const report = await this.generateDailyReport();
+          const _report = await this.generateDailyReport();
           await this.sendReport(report);
         }, delay);
       }

@@ -3,8 +3,8 @@
   Commercial License. No resale, sublicensing, or redistribution allowed.
   See LICENSE file for details.
 */
-import React, { useEffect, useState } from 'react';
-import AppLayout from '../layouts/AppLayout';
+import { useEffect, useState } from 'react';
+import AppLayout from '../layouts/AppLayout.jsx';
 import {
   LineChart,
   Line,

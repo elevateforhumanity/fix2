@@ -27,7 +27,9 @@ Click the button below to open this repository in Gitpod:
 This repository contains essential configuration files that ensure proper VS Code and environment setup in Gitpod:
 
 ### `.gitpod.yml`
+
 The main Gitpod configuration file that:
+
 - Specifies the Docker image to use
 - Defines startup tasks and initialization scripts
 - Lists VS Code extensions to install automatically
@@ -35,7 +37,9 @@ The main Gitpod configuration file that:
 - Sets up GitHub prebuilds for faster workspace starts
 
 ### `.vscode/settings.json`
+
 VS Code workspace settings that:
+
 - Enable format on save
 - Configure code formatting preferences
 - Set up code actions (auto-fix, organize imports)
@@ -43,7 +47,9 @@ VS Code workspace settings that:
 - Set terminal and Git preferences
 
 ### `.vscode/extensions.json`
+
 Recommended VS Code extensions including:
+
 - ESLint for JavaScript/TypeScript linting
 - Prettier for code formatting
 - GitLens for enhanced Git capabilities
@@ -55,26 +61,34 @@ Recommended VS Code extensions including:
 ### Additional Configuration Files
 
 #### `.editorconfig`
+
 Ensures consistent coding styles across different editors and IDEs:
+
 - Character encoding (UTF-8)
 - Line endings (LF)
 - Indentation style and size
 - Trailing whitespace handling
 
 #### `.prettierrc`
+
 Code formatting configuration for Prettier:
+
 - Semicolons, quotes, and trailing commas
 - Print width and tab width
 - Line endings
 
 #### `.eslintrc.json`
+
 JavaScript/TypeScript linting rules:
+
 - Code style enforcement
 - Best practices
 - Error prevention
 
 #### `.gitignore`
+
 Common patterns to exclude from version control:
+
 - Dependencies (node_modules, vendor)
 - Build outputs (dist, build)
 - IDE files
@@ -82,7 +96,9 @@ Common patterns to exclude from version control:
 - Temporary files
 
 #### `.github/workflows/validate.yml`
+
 GitHub Actions workflow that automatically validates:
+
 - YAML syntax in `.gitpod.yml` and templates
 - JSON syntax in VS Code configuration files
 - Presence of essential documentation
@@ -92,10 +108,11 @@ GitHub Actions workflow that automatically validates:
 ### For New Repositories
 
 1. **Copy configuration files to your repository:**
+
    ```bash
    # Copy .gitpod.yml
    cp .gitpod.yml /path/to/your/repo/
-   
+
    # Copy .vscode directory
    cp -r .vscode /path/to/your/repo/
    ```
@@ -133,10 +150,10 @@ tasks:
     init: |
       # Node.js project
       npm install
-      
+
       # Python project
       pip install -r requirements.txt
-      
+
       # Multiple commands
       npm install
       npm run build
@@ -149,8 +166,8 @@ Add ports your application uses:
 ```yaml
 ports:
   - port: 3000
-    onOpen: open-browser  # Options: notify, open-browser, open-preview, ignore
-    visibility: public     # Options: public, private
+    onOpen: open-browser # Options: notify, open-browser, open-preview, ignore
+    visibility: public # Options: public, private
 ```
 
 ### Adding VS Code Extensions
@@ -166,15 +183,19 @@ vscode:
 ## 🐛 Common Issues and Solutions
 
 ### Issue: Extensions not installing automatically
+
 **Solution:** Ensure extension IDs are correct in both `.gitpod.yml` and `.vscode/extensions.json`
 
 ### Issue: Workspace initialization fails
+
 **Solution:** Check the `init` commands in `.gitpod.yml` for errors. View logs in Gitpod terminal.
 
 ### Issue: Port not accessible
+
 **Solution:** Verify port configuration in `.gitpod.yml` and ensure your app is listening on `0.0.0.0` not `localhost`
 
 ### Issue: Formatting not working
+
 **Solution:** Install the Prettier extension and ensure it's set as the default formatter in settings.json
 
 ## 📚 Resources

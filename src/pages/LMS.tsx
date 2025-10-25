@@ -47,7 +47,7 @@ export default function LMS() {
 
   // Lazy load course details only when needed
   const loadCourseDetails = useCallback(
-    async (courseId) => {
+    async (courseId: string) => {
       if (courseDetails.has(courseId)) {
         return courseDetails.get(courseId);
       }

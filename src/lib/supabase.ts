@@ -16,18 +16,18 @@ export const testSupabaseConnection = async () => {
     console.log('🔌 Testing Supabase connection...');
     console.log('   URL:', supabaseUrl);
     console.log('   Key valid:', supabaseAnonKey ? 'Yes' : 'No');
-    
+
     const { data, error } = await supabase
       .from('programs')
       .select('*')
       .limit(1);
-    
+
     if (error) {
       console.error('Supabase connection error:', error);
       console.error('Error details:', error.message, error.code);
       return false;
     }
-    
+
     console.log('✅ Supabase Integration Active!');
     console.log('   Programs found:', data?.length || 0);
     return true;
