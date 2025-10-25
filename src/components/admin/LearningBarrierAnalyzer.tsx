@@ -1,5 +1,3 @@
-
-
 interface LearningBarrier {
   id: string;
   type:

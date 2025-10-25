@@ -5,13 +5,11 @@ import {
   DollarSign,
   Users,
   Award,
-  ChevronRight,
 } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { addBreadcrumbSchema } from '../utils/addCourseSchema';
 
 export default function Programs() {
-  const params = useParams();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Add breadcrumb schema for SEO

@@ -133,18 +133,20 @@ export function FrameworkSettingsPanel() {
         </p>
         {config.ecosystem.sisterSites && (
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {config.ecosystem.sisterSites.map((site: { name: string; url: string }, i: number) => (
-              <li
-                key={i}
-                style={{
-                  fontSize: '0.875rem',
-                  color: 'var(--brand-text-muted)',
-                  marginBottom: 4,
-                }}
-              >
-                🔗 {site.name}
-              </li>
-            ))}
+            {config.ecosystem.sisterSites.map(
+              (site: { name: string; url: string }, i: number) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: '0.875rem',
+                    color: 'var(--brand-text-muted)',
+                    marginBottom: 4,
+                  }}
+                >
+                  🔗 {site.name}
+                </li>
+              )
+            )}
           </ul>
         )}
       </div>

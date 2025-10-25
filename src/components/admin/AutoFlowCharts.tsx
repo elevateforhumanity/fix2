@@ -1,5 +1,3 @@
-
-
 interface FlowChartData {
   type: 'enrollment' | 'retention' | 'completion' | 'attrition';
   title: string;

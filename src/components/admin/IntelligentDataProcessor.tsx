@@ -1,5 +1,3 @@
-
-
 interface ProcessedData {
   students: StudentRecord[];
   programs: ProgramData[];

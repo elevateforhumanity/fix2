@@ -1,5 +1,3 @@
-
-
 export const safeLazy = (
   importFn: () => Promise<any>,
   componentName: string

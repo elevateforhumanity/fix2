@@ -107,7 +107,9 @@ export default function OrchestratorAdmin() {
       setTaskResult(data);
     } catch (error) {
       console.error('Failed to run task:', error);
-      setTaskResult({ error: error instanceof Error ? error.message : 'Unknown error' });
+      setTaskResult({
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
     } finally {
       setLoading(false);
     }
