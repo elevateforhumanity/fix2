@@ -4,12 +4,16 @@
 
 ### Step 1: Prepare Your Images
 
-You need **4 images** total:
+You need images for each program (2 per program) plus 1 social preview:
 
-1. **Hero Image** - Your barber flyer (main banner)
-2. **Barber Card** - Barber collage for program card
-3. **Building Card** - Electrical/Construction/HVAC collage
-4. **Social Preview** - For Facebook/Twitter shares
+**Current Programs:**
+1. **Barber Apprenticeship** - Hero + Card
+2. **CNA (Certified Nursing Assistant)** - Hero + Card
+3. **Building Technician** - Hero + Card
+4. **HVAC Technician** - Hero + Card
+5. **Digital Marketing** - Hero + Card
+6. **Tax Office Startup** - Hero + Card
+7. **Social Preview** - For Facebook/Twitter shares (og.jpg)
 
 ### Step 2: Resize Images (Recommended Sizes)
 

@@ -42,8 +42,8 @@ Place images in `public/images/`:
 | Slug | Name | Images Required |
 |------|------|-----------------|
 | `barber` | Barber Apprenticeship | efh-barber-hero.jpg, efh-barber-card.jpg |
-| `building-tech` | Building Technician | efh-building-tech-hero.jpg, efh-building-tech-card.jpg |
-| `hvac` | HVAC Technician | efh-hvac-hero.jpg, efh-hvac-card.jpg |
+| `cna` | Certified Nursing Assistant (CNA) | efh-cna-hero.jpg, efh-cna-card.jpg |
+| `building-tech` | Building Technician (includes HVAC) | efh-building-tech-hero.jpg, efh-building-tech-card.jpg |
 | `digital-marketing` | Digital Marketing | efh-dm-hero.jpg, efh-dm-card.jpg |
 | `tax-office` | Tax Office Startup | efh-tax-hero.jpg, efh-tax-card.jpg |
 
@@ -53,8 +53,8 @@ All routes are automatically generated:
 
 - `/programs` - Grid of all programs
 - `/programs/barber` - Barber Apprenticeship detail
-- `/programs/building-tech` - Building Technician detail
-- `/programs/hvac` - HVAC Technician detail
+- `/programs/cna` - Certified Nursing Assistant (CNA) detail
+- `/programs/building-tech` - Building Technician detail (includes HVAC)
 - `/programs/digital-marketing` - Digital Marketing detail
 - `/programs/tax-office` - Tax Office Startup detail
 

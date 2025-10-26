@@ -14,18 +14,34 @@ export const programs: Program[] = [
   {
     slug: 'barber',
     name: 'Barber Apprenticeship',
-    tagline: 'Start Your Career in the Barbering Industry',
+    tagline: 'Start Your Career in Barbering',
     summary:
-      'Earn while you learn with paid on-the-job training, related instruction, and State Board preparation.',
+      'Earn while you learn in a 2,000-hour apprenticeship combining related instruction and on-the-job training under licensed mentors. Graduates qualify for Indiana Barber Licensure and gain business-ready skills.',
     bullets: [
-      'Hands-on fades, line-ups, braids, sanitation',
-      'Related instruction + exam prep',
-      'Entrepreneurship & shop operations',
+      'Fades, line-ups, braids, sanitation & skin-care',
+      '144 hours classroom + paid OJT',
+      'State Board prep + entrepreneurship module',
     ],
     funding: ['WRG', 'WIOA', 'Apprenticeship', 'Employer Partners'],
     cta: 'Apply via Indiana Career Connect',
     heroSrc: '/images/efh-barber-hero.jpg',
     cardSrc: '/images/efh-barber-card.jpg',
+  },
+
+  {
+    slug: 'cna',
+    name: 'Certified Nursing Assistant (CNA)',
+    tagline: 'Care • Compassion • Independence',
+    summary:
+      'Prepare for entry-level healthcare roles with the Certified Nursing Assistant credential. Learn patient care, safety, documentation, and ethics to support hospital, long-term care, or home-health teams.',
+    bullets: [
+      'Patient care & safety protocols',
+      'Vital signs, documentation & communication',
+      'Professional role, ethics & client dignity',
+    ],
+    funding: ['WIOA', 'WRG', 'Employer Partners'],
+    heroSrc: '/images/efh-cna-hero.jpg',
+    cardSrc: '/images/efh-cna-card.jpg',
   },
 
   {
@@ -44,21 +60,7 @@ export const programs: Program[] = [
     cardSrc: '/images/efh-building-tech-card.jpg',
   },
 
-  {
-    slug: 'hvac',
-    name: 'HVAC Technician',
-    tagline: 'Install • Service • Maintain',
-    summary:
-      'Job-ready HVAC skills with safety, diagnostics, and customer service for residential/light commercial.',
-    bullets: [
-      'EPA 608 prep & refrigeration cycle',
-      'Airflow, charging, brazing fundamentals',
-      'Troubleshooting & service calls',
-    ],
-    funding: ['WRG', 'WIOA', 'Employer Partners'],
-    heroSrc: '/images/efh-hvac-hero.jpg',
-    cardSrc: '/images/efh-hvac-card.jpg',
-  },
+
 
   {
     slug: 'digital-marketing',
