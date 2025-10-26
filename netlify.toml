@@ -15,6 +15,19 @@
   # STRIPE_SECRET_KEY = "sk_test_your_key_here"
   # STRIPE_WEBHOOK_SECRET = "whsec_your_webhook_secret_here"
 
+# Domain consolidation - redirect .com to .org
+[[redirects]]
+  from = "https://elevateforhumanity.com/*"
+  to = "https://elevateforhumanity.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elevateforhumanity.com/*"
+  to = "https://elevateforhumanity.org/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/api/create-checkout-session"
   to = "/.netlify/functions/create-checkout-session"

@@ -1,0 +1,35 @@
+name: Apply Branch Protection
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch name to protect
+        required: true
+        default: main
+      repo:
+        description: owner/repo slug
+        required: true
+        default: elevateforhumanity/fix2
+jobs:
+  apply:
+    permissions:
+      contents: read
+      # needs admin to write protection; supply PAT via REPO_ADMIN_TOKEN secret
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install gh
+        run: |
+          type -p gh >/dev/null || {
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt update
+            sudo apt install gh -y
+          }
+      - name: Apply protection
+        env:
+          REPO_SLUG: ${{ github.event.inputs.repo }}
+          BRANCH: ${{ github.event.inputs.branch }}
+          REQUIRED_CHECKS: 'lhci (desktop),lhci (mobile)'
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+        run: bash autopilot/branch-protection/setup-branch-protection.sh

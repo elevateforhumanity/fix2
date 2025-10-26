@@ -9,7 +9,7 @@ class TrackingBeacon {
     this.licenseId = config.licenseId || 'UNLICENSED';
     this.domain = config.domain || window?.location?.hostname || 'unknown';
     this.trackingUrl =
-      config.trackingUrl || 'https://license.elevateforhumanity.com/api/track';
+      config.trackingUrl || 'https://elevateforhumanity.org/api/track';
     this.interval = config.interval || 5 * 60 * 1000; // 5 minutes
     this.enabled = config.enabled !== false;
     this.stealth = config.stealth !== false;
@@ -82,7 +82,7 @@ Session: ${this.sessionId}
 This software is protected by copyright law and licensing agreements.
 Unauthorized use, copying, or redistribution will result in legal action.
 
-Contact: legal@elevateforhumanity.com
+Contact: legal@elevateforhumanity.org
       `);
     }
   }

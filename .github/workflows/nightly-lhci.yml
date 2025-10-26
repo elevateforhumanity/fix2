@@ -1,0 +1,72 @@
+name: Nightly Lighthouse
+on:
+  schedule:
+    - cron: '27 2 * * *'
+  workflow_dispatch: {}
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        preset: [desktop, mobile]
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm i -g @lhci/cli
+      - run: node autopilot/performance/fetch-sitemap.mjs
+        env:
+          PERF_SITEMAP_URL: https://www.elevateforhumanity.org/sitemap.xml
+      - name: Run Lighthouse CI
+        run: lhci autorun --config=autopilot/performance/lighthouseci.js
+        env:
+          LH_PRESET: ${{ matrix.preset }}
+      - name: Summarize
+        run: node autopilot/performance/summarize-lh.mjs ${{ matrix.preset }} > ${{ matrix.preset }}.summary.json
+      - name: Upload baseline artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-${{ matrix.preset }}-summary
+          path: ${{ matrix.preset }}.summary.json
+      - name: Commit to perf-baseline branch
+        run: |
+          git fetch origin perf-baseline || true
+          git checkout -B perf-baseline origin/perf-baseline || git checkout -b perf-baseline
+          if [ "${{ matrix.preset }}" = "desktop" ]; then cp desktop.summary.json baseline-desktop-summary.json; fi
+          if [ "${{ matrix.preset }}" = "mobile" ]; then cp mobile.summary.json baseline-mobile-summary.json; fi
+          git add baseline-*.json || true
+          if ! git diff --cached --quiet; then
+            git -c user.name="efh-bot" -c user.email="bot@users.noreply.github.com" commit -m "Update performance baselines (${{ matrix.preset }})"
+            git push origin perf-baseline
+          else
+            echo "No baseline changes for ${{ matrix.preset }}"
+          fi
+
+  notify:
+    needs: lhci
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: baseline-desktop-summary
+          path: .
+      - uses: actions/download-artifact@v4
+        with:
+          name: baseline-mobile-summary
+          path: .
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Send regression notification
+        env:
+          DESKTOP_PATH: desktop.summary.json
+          MOBILE_PATH: mobile.summary.json
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PERF_WEBHOOK }}
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_PERF_WEBHOOK }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+        run: node autopilot/performance/notify-regression.mjs

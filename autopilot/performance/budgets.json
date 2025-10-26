@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/*",
+    "timings": {
+      "first-contentful-paint": 2000,
+      "largest-contentful-paint": 2500,
+      "total-blocking-time": 200,
+      "cumulative-layout-shift": 0.1,
+      "interactive": 4500
+    }
+  },
+  {
+    "path": "/",
+    "timings": {
+      "first-contentful-paint": 1600,
+      "largest-contentful-paint": 2000,
+      "total-blocking-time": 150,
+      "cumulative-layout-shift": 0.08,
+      "interactive": 3500
+    }
+  },
+  {
+    "path": "/programs/*",
+    "timings": {
+      "first-contentful-paint": 2200,
+      "largest-contentful-paint": 2800,
+      "total-blocking-time": 220,
+      "cumulative-layout-shift": 0.1,
+      "interactive": 4800
+    }
+  },
+  {
+    "path": "/blog/*",
+    "timings": {
+      "first-contentful-paint": 2000,
+      "largest-contentful-paint": 2600,
+      "total-blocking-time": 180,
+      "cumulative-layout-shift": 0.1,
+      "interactive": 4200
+    }
+  }
+]

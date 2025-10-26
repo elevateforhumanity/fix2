@@ -33,7 +33,7 @@ const Footer = () => {
             LinkedIn
           </a>
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >

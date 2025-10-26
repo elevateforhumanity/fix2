@@ -3,11 +3,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
-// import { assertEnv } from './envCheck'
-// import { startMonitoring } from './monitoring'
+import { initializeSentry } from './monitoring/sentry';
 
-// assertEnv()
-// startMonitoring()
+// Initialize Sentry Real User Monitoring
+initializeSentry();
 
 declare const __APP_VERSION__: string;
 

@@ -61,9 +61,14 @@ export default function CourseLibrary() {
           property="og:description"
           content="The #1 government-ready LMS for Elevate Learn2Earn Workforce, DOL/DOE/DWD compliance, and dynamic reporting. Outperform LearnWorlds and LearnKey."
         />
-        <meta property="og:image" content="https://yourdomain.com/cover.jpg" />
-        <meta property="og:url" content="https://yourdomain.com/courses" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          property="og:image"
+          content="https://elevateforhumanity.org/og-image.png"
+        />
+        <meta
+          property="og:url"
+          content="https://elevateforhumanity.org/courses"
+        />
       </Helmet>
       <header>
         <div
@@ -228,7 +233,7 @@ export default function CourseLibrary() {
                 </a>{' '}
                 |{' '}
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@elevateforhumanity"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -267,7 +272,7 @@ export default function CourseLibrary() {
       <footer style={{ marginTop: 48, textAlign: 'center', color: '#888' }}>
         <div>
           <a
-            href="https://linkedin.com/company/yourcompany"
+            href="https://linkedin.com/company/elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -275,7 +280,7 @@ export default function CourseLibrary() {
           </a>{' '}
           |{' '}
           <a
-            href="https://facebook.com/yourcompany"
+            href="https://facebook.com/elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -283,7 +288,7 @@ export default function CourseLibrary() {
           </a>{' '}
           |{' '}
           <a
-            href="https://youtube.com/yourcompany"
+            href="https://youtube.com/@elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >

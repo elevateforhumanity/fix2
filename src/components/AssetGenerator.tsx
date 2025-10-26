@@ -80,17 +80,17 @@ export default function AssetGenerator() {
     setGeneratedAsset(null);
 
     try {
-      const response = await fetch(
-        'https://efh-ai-stylist.your-subdomain.workers.dev/generate-asset',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            assetType,
-            content,
-          }),
-        }
-      );
+      const workerUrl =
+        import.meta.env.VITE_AI_STYLIST_URL ||
+        'https://efh-ai-stylist.workers.dev';
+      const response = await fetch(`${workerUrl}/generate-asset`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          assetType,
+          content,
+        }),
+      });
 
       const data = await response.json();
 

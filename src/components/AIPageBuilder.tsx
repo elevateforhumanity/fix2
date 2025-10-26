@@ -46,9 +46,10 @@ export default function AIPageBuilder() {
 
   async function loadTemplates() {
     try {
-      const response = await fetch(
-        'https://efh-ai-stylist.your-subdomain.workers.dev/templates'
-      );
+      const workerUrl =
+        import.meta.env.VITE_AI_STYLIST_URL ||
+        'https://efh-ai-stylist.workers.dev';
+      const response = await fetch(`${workerUrl}/templates`);
       const data = await response.json();
       if (data.success) {
         setTemplates(data.templates);
@@ -63,18 +64,18 @@ export default function AIPageBuilder() {
     setGeneratedPage(null);
 
     try {
-      const response = await fetch(
-        'https://efh-ai-stylist.your-subdomain.workers.dev/generate',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            pageType,
-            description,
-            sections,
-          }),
-        }
-      );
+      const workerUrl =
+        import.meta.env.VITE_AI_STYLIST_URL ||
+        'https://efh-ai-stylist.workers.dev';
+      const response = await fetch(`${workerUrl}/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          pageType,
+          description,
+          sections,
+        }),
+      });
 
       const data = await response.json();
 

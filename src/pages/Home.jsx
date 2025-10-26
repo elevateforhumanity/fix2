@@ -37,14 +37,8 @@ export default function Home() {
     };
   }, []);
 
-  // Fetch latest Durable blog posts
-  const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    fetch('https://api.durable.co/v1/blogs/elevateforhumanity/posts?limit=3')
-      .then((res) => res.json())
-      .then((data) => setBlogs(data.posts || []))
-      .catch(() => setBlogs([]));
-  }, []);
+  // Blog posts - static for now (Durable API removed due to 404)
+  const blogs = [];
 
   return (
     <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
@@ -69,7 +63,6 @@ export default function Home() {
           content="Elevate for Humanity, in partnership with Selfish Inc. dba, delivers DOL-compliant, dynamic online learning and Elevate Learn2Earn Workforce."
         />
         <meta property="og:url" content="https://elevateforhumanity.org/" />
-        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <header>
         <div
@@ -172,45 +165,21 @@ export default function Home() {
       <section style={{ marginTop: 48 }}>
         <h2>Latest News & Updates</h2>
         <ul>
-          {blogs.length > 0 ? (
-            blogs.map((blog) => (
-              <li key={blog.id}>
-                <a href={blog.url} target="_blank" rel="noopener noreferrer">
-                  {blog.title}
-                </a>
-              </li>
-            ))
-          ) : (
-            <>
-              <li>
-                <a
-                  href="https://blog.elevateforhumanity.org/post1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  How Elevate for Humanity Empowers Communities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://blog.elevateforhumanity.org/post2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Selfish Inc. dba Partnership: Expanding Our Impact
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://blog.elevateforhumanity.org/post3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  DOL Compliance: What It Means for Our Learners
-                </a>
-              </li>
-            </>
-          )}
+          <li>
+            <a href="/about" rel="noopener noreferrer">
+              How Elevate for Humanity Empowers Communities
+            </a>
+          </li>
+          <li>
+            <a href="/partners" rel="noopener noreferrer">
+              Selfish Inc. dba Partnership: Expanding Our Impact
+            </a>
+          </li>
+          <li>
+            <a href="/compliance" rel="noopener noreferrer">
+              DOL Compliance: What It Means for Our Learners
+            </a>
+          </li>
         </ul>
       </section>
       <footer style={{ marginTop: 48, textAlign: 'center', color: '#888' }}>
@@ -232,7 +201,7 @@ export default function Home() {
           </a>{' '}
           |{' '}
           <a
-            href="https://youtube.com/elevateforhumanity"
+            href="https://www.youtube.com/@elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >
