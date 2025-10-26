@@ -47,13 +47,18 @@ export const programs: Program[] = [
   {
     slug: 'building-tech',
     name: 'Building Technician',
-    tagline: 'Electrical • Construction • HVAC',
+    tagline: 'Universal Multi-Trade Foundation Program',
     summary:
-      'Cross-trained foundations for facilities and field tech roles with pathways into apprenticeships.',
+      'Cross-trained foundations for facilities and field tech roles with pathways into specialized apprenticeships. This universal program covers multiple trades and prepares you for various career paths in the building trades.',
     bullets: [
-      'Basic electrical (circuits, panels, safety)',
-      'Construction fundamentals & power tools',
-      'HVAC basics (refrigeration, airflow, service)',
+      'Electrical: circuits, panels, wiring, safety & code compliance',
+      'Construction: framing, drywall, power tools, blueprints',
+      'HVAC: refrigeration cycle, airflow, EPA 608 prep, service basics',
+      'Plumbing: pipe fitting, fixtures, drainage systems',
+      'Welding: MIG, TIG, stick welding fundamentals',
+      'Carpentry: measuring, cutting, assembly, finish work',
+      'OSHA-10 certification & workplace safety',
+      'Pathways to specialized apprenticeships in any trade',
     ],
     funding: ['WRG', 'WIOA', 'Employer Partners'],
     heroSrc: '/images/efh-building-tech-hero.jpg',
