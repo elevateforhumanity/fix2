@@ -29,8 +29,8 @@ export default function ProgramDetail() {
 
   const pageTitle = `${p.name} | Elevate for Humanity`;
   const pageDescription = `${p.tagline} - ${p.summary}`;
-  const pageUrl = `https://elevateforhumanity.pages.dev/programs/${p.slug}`;
-  const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc}`;
+  const pageUrl = `https://elevateforhumanity.org/programs/${p.slug}`;
+  const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
 
   return (
     <div className="bg-white">
