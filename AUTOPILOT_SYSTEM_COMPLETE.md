@@ -33,12 +33,14 @@ The Elevate for Humanity project now has **15 fully automated autopilot systems*
 These run automatically during `pnpm build`:
 
 #### 1. Postbuild Script ✅
+
 - **File:** `scripts/postbuild.mjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Generate sitemap.xml, robots.txt, verification files
 - **Output:** 113 routes, sitemap, robots.txt
 
 #### 2. Dynamic Sitemap Generator ✅
+
 - **File:** `scripts/generate-dynamic-sitemap.mjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Generate sitemap with dynamic program routes
@@ -46,36 +48,42 @@ These run automatically during `pnpm build`:
 - **SEO:** Priority 0.8, monthly changefreq for programs
 
 #### 3. Sitemap Splitter ✅
+
 - **File:** `scripts/split-sitemap.mjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Split large sitemaps (>50 URLs)
 - **Current:** 38 URLs (no split needed)
 
 #### 4. Broken Links Fixer ✅
+
 - **File:** `scripts/fix-broken-links.mjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Automatically fix broken internal links
 - **Last Run:** Fixed 28 links in 4 files
 
 #### 5. Domain URL Fixer ✅
+
 - **File:** `scripts/fix-domain-urls.js`
 - **Trigger:** postbuild hook
 - **Purpose:** Normalize domain URLs
 - **Target:** elevateforhumanity.org
 
 #### 6. Canonical URL Updater ✅
+
 - **File:** `scripts/update-canonical-urls.js`
 - **Trigger:** postbuild hook
 - **Purpose:** Update canonical URLs
 - **Target:** www.elevateforhumanity.org
 
 #### 7. Source Maps Remover ✅
+
 - **File:** `scripts/no-source-maps.cjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Remove source maps from production
 - **Security:** Prevents source code exposure
 
 #### 8. Build Verification Autopilot ✅
+
 - **File:** `scripts/autopilot-verify-build.sh`
 - **Trigger:** postbuild hook
 - **Purpose:** Comprehensive build verification
@@ -94,6 +102,7 @@ These run automatically during `pnpm build`:
 These run automatically before build/dev:
 
 #### 9. CI/CD Quality Autopilot ✅
+
 - **File:** `tools/autopilot.mjs`
 - **Trigger:** prebuild & predev hooks
 - **Purpose:** Pre-build quality checks
@@ -107,6 +116,7 @@ These run automatically before build/dev:
 - **Action:** Fails build if issues found
 
 #### 10. Security & Compliance Autopilot ✅
+
 - **File:** `scripts/security-compliance-autopilot.mjs`
 - **Trigger:** postbuild hook
 - **Purpose:** Military-grade security verification
@@ -156,29 +166,34 @@ These run automatically before build/dev:
 These are available for continuous monitoring but not integrated into build (they run in loops):
 
 ### 11. Routes Autopilot 🔧
+
 - **File:** `scripts/routes-autopilot.mjs`
 - **Purpose:** Auto-generate router from pages
 - **Status:** Configured (can timeout)
 - **Note:** Router already properly configured
 
 ### 12. LMS Fixer Autopilot 🔧
+
 - **File:** `scripts/autopilot-fix-lms.mjs`
 - **Purpose:** Orchestrator-based LMS fixes
 - **Status:** Configured
 - **Requires:** ORCHESTRATOR_URL environment variable
 
 ### 13. Advanced Autopilot 🔧
+
 - **File:** `scripts/advanced-autopilot.sh`
 - **Purpose:** Continuous testing and deployment
 - **Status:** Configured
 - **Features:** 50-loop continuous testing
 
 ### 14. Autopilot Loop 🔧
+
 - **File:** `scripts/autopilot-loop.sh`
 - **Purpose:** Continuous monitoring
 - **Status:** Configured
 
 ### 15. Main Autopilot 🔧
+
 - **File:** `scripts/autopilot.sh`
 - **Purpose:** Dev server monitoring
 - **Status:** Configured
@@ -189,6 +204,7 @@ These are available for continuous monitoring but not integrated into build (the
 ## Build Process Flow
 
 ### Development (`pnpm dev`)
+
 ```
 1. CI/CD Quality Autopilot (predev)
    ↓
@@ -196,6 +212,7 @@ These are available for continuous monitoring but not integrated into build (the
 ```
 
 ### Production Build (`pnpm build`)
+
 ```
 1. CI/CD Quality Autopilot (prebuild)
    ↓
@@ -231,6 +248,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### Military-Grade Security
 
 ✅ **7 Security Headers Configured:**
+
 - X-Frame-Options: SAMEORIGIN
 - X-Content-Type-Options: nosniff
 - X-XSS-Protection: 1; mode=block
@@ -242,6 +260,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### Anti-Scraping Protection
 
 ✅ **Enabled Features:**
+
 - Robots meta tags
 - Admin route protection in robots.txt
 - Crawler blocking for sensitive areas
@@ -250,6 +269,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### Watermark System
 
 ✅ **Active Protection:**
+
 - Copyright notices in HTML
 - Author meta tags
 - Image watermark verification
@@ -258,6 +278,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### Duplication Protection
 
 ✅ **Site Takedown Protection:**
+
 - Frame-ancestors CSP (prevents embedding)
 - X-Frame-Options (prevents clickjacking)
 - Unique package identifier (efh-autopilot@2.0.0)
@@ -267,6 +288,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### DOL/DOE/DWD Compliance
 
 ✅ **Compliance Verified:**
+
 - Privacy policy route configured
 - Terms of service route configured
 - Accessibility features present
@@ -280,6 +302,7 @@ These are available for continuous monitoring but not integrated into build (the
 ### Latest Build Test (2025-10-26)
 
 **Pre-Build Checks:**
+
 ```
 ✅ SPA fallback present
 ✅ Security headers configured
@@ -290,6 +313,7 @@ These are available for continuous monitoring but not integrated into build (the
 ```
 
 **Build Autopilots:**
+
 ```
 ✅ 38 URLs in sitemap (20 static + 18 dynamic)
 ✅ 0 broken links
@@ -299,6 +323,7 @@ These are available for continuous monitoring but not integrated into build (the
 ```
 
 **Build Verification:**
+
 ```
 ✅ Source files exist
 ✅ Dist directory valid
@@ -310,6 +335,7 @@ These are available for continuous monitoring but not integrated into build (the
 ```
 
 **Security & Compliance:**
+
 ```
 ✅ 7/7 security headers configured
 ✅ HSTS preload enabled (military-grade)
@@ -323,6 +349,7 @@ These are available for continuous monitoring but not integrated into build (the
 ```
 
 **Compliance Report:**
+
 ```json
 {
   "status": "COMPLIANT",
@@ -353,16 +380,19 @@ pnpm build
 ### Manual Execution
 
 Check autopilot status:
+
 ```bash
 node scripts/check-autopilots.mjs
 ```
 
 Run security check manually:
+
 ```bash
 node scripts/security-compliance-autopilot.mjs
 ```
 
 Run build verification manually:
+
 ```bash
 bash scripts/autopilot-verify-build.sh
 ```
@@ -406,6 +436,7 @@ bash scripts/autopilot-verify-build.sh
 ### Monitoring
 
 The system is self-monitoring:
+
 - Fails build if security issues found
 - Fails build if quality checks fail
 - Generates compliance reports
@@ -414,6 +445,7 @@ The system is self-monitoring:
 ### Troubleshooting
 
 If build fails:
+
 1. Check console output for specific autopilot failure
 2. Run failed autopilot individually
 3. Fix reported issues

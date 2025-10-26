@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { programs } from '../data/programs';
 
 export default function ProgramDetail() {
@@ -8,6 +9,10 @@ export default function ProgramDetail() {
   if (!p) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-20">
+        <Helmet>
+          <title>Program Not Found | Elevate for Humanity</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <h1 className="text-2xl font-bold">Program not found</h1>
         <p className="mt-2 text-slate-600">
           Please return to the programs page.
@@ -22,8 +27,59 @@ export default function ProgramDetail() {
     );
   }
 
+  const pageTitle = `${p.name} | Elevate for Humanity`;
+  const pageDescription = `${p.tagline} - ${p.summary}`;
+  const pageUrl = `https://elevateforhumanity.pages.dev/programs/${p.slug}`;
+  const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc}`;
+
   return (
     <div className="bg-white">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="title" content={pageTitle} />
+        <meta name="description" content={pageDescription} />
+        {/* Canonical URL */}
+        <link rel="canonical" href={pageUrl} />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="Elevate for Humanity" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        {/* Additional SEO */}
+        <meta
+          name="keywords"
+          content={`${p.name}, workforce development, training program, ${p.funding.join(', ')}, Indianapolis`}
+        />
+        <meta name="author" content="Elevate for Humanity" />
+        {/* Structured Data - JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Course',
+            name: p.name,
+            description: p.summary,
+            provider: {
+              '@type': 'Organization',
+              name: 'Elevate for Humanity',
+              url: 'https://elevateforhumanity.pages.dev',
+            },
+            image: imageUrl,
+            offers: {
+              '@type': 'Offer',
+              category: 'Educational',
+            },
+          })}
+        </script>
+      </Helmet>
       {/* HERO */}
       <section className="relative border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

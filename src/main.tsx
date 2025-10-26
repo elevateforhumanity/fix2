@@ -1,6 +1,7 @@
 import './env-guard';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 // import { assertEnv } from './envCheck'
 // import { startMonitoring } from './monitoring'
@@ -51,7 +52,9 @@ if (!el) {
   createRoot(el).render(
     <React.StrictMode>
       <RootErrorBoundary>
-        <App />
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
       </RootErrorBoundary>
     </React.StrictMode>
   );
