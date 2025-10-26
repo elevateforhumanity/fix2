@@ -70,7 +70,7 @@ export default function ProgramDetail() {
             provider: {
               '@type': 'Organization',
               name: 'Elevate for Humanity',
-              url: 'https://elevateforhumanity.pages.dev',
+              url: 'https://elevateforhumanity.org',
             },
             image: imageUrl,
             offers: {
