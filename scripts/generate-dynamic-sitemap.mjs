@@ -29,28 +29,27 @@ console.log(`Found ${programSlugs.length} programs:`, programSlugs);
 // Base URL
 const baseUrl = 'https://elevateforhumanity.org';
 
-// Static routes
+// Static routes - only include main public-facing routes that exist in router.tsx
 const staticRoutes = [
   '/',
   '/about',
   '/hub',
   '/programs',
   '/lms',
-  '/lms/courses',
-  '/contact',
-  '/privacy',
-  '/terms',
-  '/admin',
-  '/admin/users',
-  '/admin/programs',
-  '/admin/courses',
-  '/admin/enrollments',
-  '/admin/settings',
+  '/lms/dashboard',
+  '/lms/courses-index',
+  '/privacy-policy',
+  '/terms-of-service',
+  '/accessibility',
   '/instructor',
-  '/instructor/courses',
-  '/profile',
-  '/login',
-  '/signup',
+  '/student-hub',
+  '/educator-hub',
+  '/business-hub',
+  '/community-hub',
+  '/support',
+  '/connect',
+  '/donate',
+  '/get-started',
 ];
 
 // Generate dynamic program routes
