@@ -16,27 +16,13 @@ export default function Hero() {
               Empower Dreams: Support Skills Development and Transform Lives at
               Elevate for Humanity. Invest in Growth, Today! Marion County.
             </p>
-            <div className="flex flex-wrap gap-4 mb-10">
+            <div className="flex flex-wrap gap-4">
               <a href="/programs" className="btn">
                 Explore Programs
               </a>
               <a href="/apply" className="btn-outline">
                 Apply Now
               </a>
-            </div>
-            <div className="grid grid-cols-2 gap-6 pt-8 border-t border-brand-border">
-              <div>
-                <div className="text-3xl font-bold text-brand-600">1,247</div>
-                <div className="text-sm text-brand-text-muted">
-                  Students Trained
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-brand-600">92%</div>
-                <div className="text-sm text-brand-text-muted">
-                  Job Placement
-                </div>
-              </div>
             </div>
           </div>
         </div>

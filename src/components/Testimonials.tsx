@@ -38,7 +38,7 @@ export default function Testimonials() {
             Real Stories. Real Results.
           </h2>
           <p className="mt-2 text-brand-text-muted">
-            92% job placement • 1,247 trained • $2.85M in funding distributed
+            Transforming lives through education and career development
           </p>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
