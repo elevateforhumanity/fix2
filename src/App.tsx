@@ -63,6 +63,7 @@ class ErrorBoundary extends Component<
 }
 
 // Lazy load pages for better performance
+const EFHLanding = lazy(() => import('./pages/EFHLanding'));
 const Programs = lazy(() => import('./pages/Programs.tsx'));
 const ProgramPage = lazy(() => import('./pages/ProgramPage'));
 const LMSCourses = lazy(() => import('./pages/LMSCourses'));
@@ -73,7 +74,9 @@ const Login = lazy(() => import('./pages/auth/Login'));
 const Signup = lazy(() => import('./pages/auth/Signup'));
 const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
 const Account = lazy(() => import('./pages/auth/Account'));
-const InstructorDashboard = lazy(() => import('./pages/instructor/InstructorDashboard'));
+const InstructorDashboard = lazy(
+  () => import('./pages/instructor/InstructorDashboard')
+);
 const CourseEditor = lazy(() => import('./pages/instructor/CourseEditor'));
 const LessonManager = lazy(() => import('./pages/instructor/LessonManager'));
 const CertificatePage = lazy(() => import('./pages/CertificatePage'));
@@ -87,7 +90,7 @@ function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent" />
         <p className="mt-2 text-gray-600">Loading...</p>
       </div>
     </div>
@@ -143,93 +146,106 @@ function SimplePage({ title }: { title: string }) {
 }
 
 export default function App() {
+  // Toggle between landing pages:
+  // <Route path="/" element={<HomePage />} /> - Original with Hero/TrustStrip
+  // <Route path="/" element={<EFHLanding />} /> - New professional landing
+  
   return (
     <ErrorBoundary>
       <BrowserRouter>
         <SiteLayout>
           <Suspense fallback={<PageLoader />}>
             <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/programs/:slug" element={<ProgramPage />} />
-          {/* Auth Routes */}
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signup" element={<Signup />} />
-          <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-          <Route
-            path="/account"
-            element={
-              <ProtectedRoute>
-                <Account />
-              </ProtectedRoute>
-            }
-          />
-          {/* LMS Routes (Protected) */}
-          <Route
-            path="/lms"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/lms/courses" element={<LMSCourses />} />
-          <Route path="/lms/course/:courseId" element={<CoursePage />} />
-          <Route
-            path="/lms/lesson/:lessonId"
-            element={
-              <ProtectedRoute>
-                <LessonPage />
-              </ProtectedRoute>
-            }
-          />
-          {/* Instructor Routes (Protected - Instructor Role) */}
-          <Route
-            path="/instructor"
-            element={
-              <ProtectedRoute requireRole="instructor">
-                <InstructorDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/instructor/course/:courseId/edit"
-            element={
-              <ProtectedRoute requireRole="instructor">
-                <CourseEditor />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/instructor/course/:courseId/lessons"
-            element={
-              <ProtectedRoute requireRole="instructor">
-                <LessonManager />
-              </ProtectedRoute>
-            }
-          />
-          {/* Certificate Routes */}
-          <Route
-            path="/certificates"
-            element={
-              <ProtectedRoute>
-                <MyCertificates />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/certificate/:certificateId"
-            element={<CertificatePage />}
-          />
-          <Route path="/verify" element={<VerifyCertificate />} />
-          <Route path="/verify/:certNumber" element={<VerifyCertificate />} />
-          {/* Payment Routes */}
-          <Route path="/payment/success" element={<PaymentSuccess />} />
-          <Route path="/payment/cancelled" element={<PaymentCancelled />} />
-          {/* Other Routes */}
-          <Route path="/partners" element={<SimplePage title="Partners" />} />
-          <Route path="/apply" element={<SimplePage title="Apply Now" />} />
-          <Route path="*" element={<SimplePage title="Not Found" />} />
+              <Route path="/" element={<EFHLanding />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/programs/:slug" element={<ProgramPage />} />
+              {/* Auth Routes */}
+              <Route path="/auth/login" element={<Login />} />
+              <Route path="/auth/signup" element={<Signup />} />
+              <Route
+                path="/auth/forgot-password"
+                element={<ForgotPassword />}
+              />
+              <Route
+                path="/account"
+                element={
+                  <ProtectedRoute>
+                    <Account />
+                  </ProtectedRoute>
+                }
+              />
+              {/* LMS Routes (Protected) */}
+              <Route
+                path="/lms"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/lms/courses" element={<LMSCourses />} />
+              <Route path="/lms/course/:courseId" element={<CoursePage />} />
+              <Route
+                path="/lms/lesson/:lessonId"
+                element={
+                  <ProtectedRoute>
+                    <LessonPage />
+                  </ProtectedRoute>
+                }
+              />
+              {/* Instructor Routes (Protected - Instructor Role) */}
+              <Route
+                path="/instructor"
+                element={
+                  <ProtectedRoute requireRole="instructor">
+                    <InstructorDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/instructor/course/:courseId/edit"
+                element={
+                  <ProtectedRoute requireRole="instructor">
+                    <CourseEditor />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/instructor/course/:courseId/lessons"
+                element={
+                  <ProtectedRoute requireRole="instructor">
+                    <LessonManager />
+                  </ProtectedRoute>
+                }
+              />
+              {/* Certificate Routes */}
+              <Route
+                path="/certificates"
+                element={
+                  <ProtectedRoute>
+                    <MyCertificates />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/certificate/:certificateId"
+                element={<CertificatePage />}
+              />
+              <Route path="/verify" element={<VerifyCertificate />} />
+              <Route
+                path="/verify/:certNumber"
+                element={<VerifyCertificate />}
+              />
+              {/* Payment Routes */}
+              <Route path="/payment/success" element={<PaymentSuccess />} />
+              <Route path="/payment/cancelled" element={<PaymentCancelled />} />
+              {/* Other Routes */}
+              <Route
+                path="/partners"
+                element={<SimplePage title="Partners" />}
+              />
+              <Route path="/apply" element={<SimplePage title="Apply Now" />} />
+              <Route path="*" element={<SimplePage title="Not Found" />} />
             </Routes>
           </Suspense>
         </SiteLayout>
