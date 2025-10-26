@@ -47,6 +47,7 @@ All "Apply Now" buttons throughout the site can be configured to link to your Go
 ## Default Behavior
 
 If no Google Form URL is configured, the "Apply Now" buttons will default to:
+
 ```
 https://www.indianacareerconnect.com
 ```
@@ -54,6 +55,7 @@ https://www.indianacareerconnect.com
 ## Where the Apply Button Appears
 
 The "Apply Now" button appears in:
+
 - Homepage hero section
 - Programs page (on each program card)
 - Individual program detail pages
@@ -61,6 +63,7 @@ The "Apply Now" button appears in:
 ## Testing
 
 After configuration:
+
 1. Build the site locally: `npm run build`
 2. Preview: `npm run preview`
 3. Click any "Apply Now" button
@@ -69,11 +72,13 @@ After configuration:
 ## Troubleshooting
 
 ### Button still links to Indiana Career Connect
+
 - Verify the environment variable is set correctly
 - Rebuild the site after adding the variable
 - Check browser console for any errors
 
 ### Form doesn't open
+
 - Ensure the Google Form is set to "Anyone with the link can respond"
 - Check that the URL is complete and correct
 - Test the URL directly in a browser
