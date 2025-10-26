@@ -43,3 +43,24 @@
 # API routes should not be cached
 /api/*
   Cache-Control: no-cache, no-store, must-revalidate
+
+# Sitemap and robots.txt - cache for 1 hour, allow crawlers
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+  X-Robots-Tag: all
+
+/sitemap*.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+  X-Robots-Tag: all
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain
+  X-Robots-Tag: all
+
+/sitemaps/*
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+  X-Robots-Tag: all
