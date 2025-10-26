@@ -189,4 +189,28 @@
     <priority>0.85</priority>
     <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-public-safety-reentry-card.jpg</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://elevateforhumanity.org/eligibility-verification</loc>
+    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elevateforhumanity.org/enroll-complete</loc>
+    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://elevateforhumanity.org/account</loc>
+    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://elevateforhumanity.org/partners</loc>
+    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

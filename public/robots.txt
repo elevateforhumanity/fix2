@@ -16,3 +16,11 @@ Allow: /program/
 
 # Allow LMS public pages
 Allow: /lms/courses
+
+# Allow form pages
+Allow: /connect
+Allow: /eligibility-verification
+Allow: /enroll-complete
+Allow: /account
+Allow: /partners
+Allow: /apply
