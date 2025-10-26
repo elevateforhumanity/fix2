@@ -28,7 +28,6 @@ export default function ProgramCard({ p }: { p: Program }) {
             <li key={i}>{b}</li>
           ))}
         </ul>
-
         <div className="mt-4 flex flex-wrap gap-2 text-xs">
           {p.funding.map((f) => (
             <span
@@ -39,7 +38,6 @@ export default function ProgramCard({ p }: { p: Program }) {
             </span>
           ))}
         </div>
-
         <div className="mt-4 flex gap-3">
           <Link
             to={`/programs/${p.slug}`}

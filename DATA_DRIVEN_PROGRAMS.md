@@ -26,6 +26,7 @@ Edit `src/data/programs.ts`:
 ### 2. Add Images
 
 Place images in `public/images/`:
+
 - `efh-{slug}-hero.jpg` (1200×900) - Detail page hero
 - `efh-{slug}-card.jpg` (1600×900) - Program card thumbnail
 
@@ -39,10 +40,10 @@ Place images in `public/images/`:
 
 ## Current Programs
 
-| Slug | Name | Images Required |
-|------|------|-----------------|
-| `barber` | Barber Apprenticeship | efh-barber-hero.jpg, efh-barber-card.jpg |
-| `cna` | Certified Nursing Assistant (CNA) | efh-cna-hero.jpg, efh-cna-card.jpg |
+| Slug            | Name                                        | Images Required                                        |
+| --------------- | ------------------------------------------- | ------------------------------------------------------ |
+| `barber`        | Barber Apprenticeship                       | efh-barber-hero.jpg, efh-barber-card.jpg               |
+| `cna`           | Certified Nursing Assistant (CNA)           | efh-cna-hero.jpg, efh-cna-card.jpg                     |
 | `building-tech` | Building Technician (Universal Multi-Trade) | efh-building-tech-hero.jpg, efh-building-tech-card.jpg |
 
 ## Routes
@@ -57,12 +58,16 @@ All routes are automatically generated:
 ## Components
 
 ### ProgramCard
+
 Reusable card component used on:
+
 - Landing page (first 2 programs)
 - Programs page (all programs)
 
 ### ProgramDetail
+
 Template for all program detail pages with:
+
 - Hero section with image
 - Program description
 - What you'll learn (bullets)
@@ -72,6 +77,7 @@ Template for all program detail pages with:
 ## Adding a New Program
 
 **Step 1:** Add to `src/data/programs.ts`
+
 ```typescript
 {
   slug: 'welding',
@@ -86,6 +92,7 @@ Template for all program detail pages with:
 ```
 
 **Step 2:** Add images
+
 ```bash
 # Place in public/images/
 efh-welding-hero.jpg (1200×900)
@@ -93,6 +100,7 @@ efh-welding-card.jpg (1600×900)
 ```
 
 **Step 3:** Done!
+
 - Automatically appears on `/programs`
 - Automatically routed to `/programs/welding`
 - No code changes needed
@@ -102,12 +110,14 @@ efh-welding-card.jpg (1600×900)
 **Pattern:** `efh-{slug}-{type}.jpg`
 
 Examples:
+
 - `efh-barber-hero.jpg`
 - `efh-barber-card.jpg`
 - `efh-hvac-hero.jpg`
 - `efh-hvac-card.jpg`
 
 **Why this pattern?**
+
 - Consistent and predictable
 - Easy to find and organize
 - Matches slug for automatic loading
@@ -118,12 +128,14 @@ Examples:
 All content is in one place: `src/data/programs.ts`
 
 **To update:**
+
 1. Edit the program object
 2. Save file
 3. Rebuild: `npm run build`
 4. Deploy
 
 **No need to:**
+
 - Edit multiple files
 - Update routes
 - Change components
@@ -132,6 +144,7 @@ All content is in one place: `src/data/programs.ts`
 ## Fallback Behavior
 
 If an image is missing:
+
 - **Card:** Shows gray box with "Add {slug} image"
 - **Hero:** Shows gradient placeholder with program info
 - **Site still works** - No broken images
@@ -164,10 +177,12 @@ http://localhost:4173/programs/hvac
 ## Migration from Old System
 
 Old routes still work for backwards compatibility:
+
 - `/programs-old` - Old programs page
 - `/program/:slug` - Old program detail
 
 New routes (recommended):
+
 - `/programs` - New data-driven page
 - `/programs/:slug` - New data-driven detail
 

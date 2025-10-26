@@ -15,6 +15,7 @@ python3 tools/make_brand_images.py
 ```
 
 This creates:
+
 - **6 program images** (hero + card for each of 3 programs)
 - **1 social preview** (og.jpg for Facebook/Twitter)
 
@@ -22,16 +23,16 @@ This creates:
 
 ### Program Images
 
-| Program | Hero (1200×900) | Card (1600×900) |
-|---------|-----------------|-----------------|
-| Barber Apprenticeship | `efh-barber-hero.jpg` | `efh-barber-card.jpg` |
-| Building Technician | `efh-building-tech-hero.jpg` | `efh-building-tech-card.jpg` |
-| CNA | `efh-cna-hero.jpg` | `efh-cna-card.jpg` |
+| Program               | Hero (1200×900)              | Card (1600×900)              |
+| --------------------- | ---------------------------- | ---------------------------- |
+| Barber Apprenticeship | `efh-barber-hero.jpg`        | `efh-barber-card.jpg`        |
+| Building Technician   | `efh-building-tech-hero.jpg` | `efh-building-tech-card.jpg` |
+| CNA                   | `efh-cna-hero.jpg`           | `efh-cna-card.jpg`           |
 
 ### Social Preview
 
-| File | Size | Usage |
-|------|------|-------|
+| File     | Size     | Usage                                |
+| -------- | -------- | ------------------------------------ |
 | `og.jpg` | 1200×630 | Facebook, Twitter, LinkedIn previews |
 
 ## Brand Colors
@@ -44,6 +45,7 @@ ORANGE = (255, 102, 0)  # Accent color
 ## Image Design
 
 ### Hero Images (1200×900)
+
 - White background with subtle grid pattern
 - Orange border (6px)
 - Navy title text
@@ -52,6 +54,7 @@ ORANGE = (255, 102, 0)  # Accent color
 - Website URL at bottom
 
 ### Card Images (1600×900)
+
 - White background with subtle grid pattern
 - Orange border (6px)
 - Navy title text
@@ -59,6 +62,7 @@ ORANGE = (255, 102, 0)  # Accent color
 - Navy footer bar with branding
 
 ### Social Preview (1200×630)
+
 - Navy background with orange stripes
 - White title text
 - Orange tagline
@@ -92,6 +96,7 @@ programs = [
 ```
 
 Then run:
+
 ```bash
 npm run make:images
 ```
@@ -137,6 +142,7 @@ python3 -m pip install --user Pillow
 ### "No module named 'PIL'"
 
 Install Pillow:
+
 ```bash
 pip install Pillow
 ```

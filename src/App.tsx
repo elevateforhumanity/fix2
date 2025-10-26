@@ -1,10 +1,6 @@
 import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
-import Hero from './components/Hero';
-import TrustStrip from './components/TrustStrip';
-import ProgramsGrid from './components/ProgramsGrid';
-import Testimonials from './components/Testimonials';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 // Error Boundary Component
@@ -99,42 +95,8 @@ function PageLoader() {
   );
 }
 
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <TrustStrip />
-      <ProgramsGrid />
-      <section className="section">
-        <div className="container">
-          <div className="card p-8 md:p-10 bg-gradient-to-br from-brand-50 to-white border-2 border-brand-200">
-            <div className="max-w-2xl">
-              <h3 className="text-3xl font-bold">Ready to Change Your Life?</h3>
-              <p className="mt-3 text-lg text-brand-text">
-                Join over 1,200 people who've started new careers through our
-                free training programs. No experience needed—we'll teach you
-                everything.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/apply" className="btn text-lg px-6 py-3">
-                  Apply Now (Takes 5 Minutes) →
-                </a>
-                <a href="/programs" className="btn-outline text-lg px-6 py-3">
-                  Browse All Programs
-                </a>
-              </div>
-              <p className="mt-4 text-sm text-brand-text-light">
-                💡 Questions? Call us at (317) 555-0100 or email
-                hello@elevateforhumanity.org
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <Testimonials />
-    </>
-  );
-}
+// HomePage component removed - using EFHLanding instead
+// See routes for current implementation
 
 function SimplePage({ title }: { title: string }) {
   return (
@@ -151,7 +113,7 @@ export default function App() {
   // Toggle between landing pages:
   // <Route path="/" element={<HomePage />} /> - Original with Hero/TrustStrip
   // <Route path="/" element={<EFHLanding />} /> - New professional landing
-  
+
   return (
     <ErrorBoundary>
       <BrowserRouter>
@@ -189,8 +151,22 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/lms/courses" element={<LMSCourses />} />
-              <Route path="/lms/course/:courseId" element={<CoursePage />} />
+              <Route
+                path="/lms/courses"
+                element={
+                  <ProtectedRoute>
+                    <LMSCourses />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/lms/course/:courseId"
+                element={
+                  <ProtectedRoute>
+                    <CoursePage />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/lms/lesson/:lessonId"
                 element={

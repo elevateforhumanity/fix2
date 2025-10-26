@@ -49,6 +49,7 @@ npm run make:images
 ```
 
 The generator will automatically:
+
 - Center-crop photos to fit
 - Arrange in a grid (2×2, 3×2, etc.)
 - Create hero (1200×900) and card (1600×900) images

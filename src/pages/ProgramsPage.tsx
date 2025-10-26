@@ -12,7 +12,6 @@ export default function ProgramsPage() {
           State-funded pathways with real employer partners and paid on-the-job
           training.
         </p>
-
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           {programs.map((p) => (
             <ProgramCard key={p.slug} p={p} />

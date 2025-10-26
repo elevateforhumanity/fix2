@@ -36,7 +36,6 @@ export default function ProgramDetail() {
             </h1>
             <p className="mt-2 text-slate-600">{p.tagline}</p>
             <p className="mt-4 text-slate-700">{p.summary}</p>
-
             <div className="mt-5 flex flex-wrap gap-2 text-xs">
               {p.funding.map((f) => (
                 <span
@@ -47,7 +46,6 @@ export default function ProgramDetail() {
                 </span>
               ))}
             </div>
-
             <div className="mt-6 flex gap-3">
               <a
                 href="https://www.indianacareerconnect.com"
@@ -63,7 +61,6 @@ export default function ProgramDetail() {
               </Link>
             </div>
           </div>
-
           <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-orange-200">
             <img
               src={p.heroSrc}
@@ -85,7 +82,6 @@ export default function ProgramDetail() {
           </div>
         </div>
       </section>
-
       {/* DETAILS */}
       <section className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
@@ -98,7 +94,6 @@ export default function ProgramDetail() {
             ))}
           </ul>
         </div>
-
         <div className="rounded-2xl border border-slate-200 p-5">
           <h3 className="text-lg font-bold text-slate-900">
             Eligibility & Funding

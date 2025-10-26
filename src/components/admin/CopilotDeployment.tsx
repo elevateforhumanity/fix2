@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 interface CopilotFeature {
   id: string;
   name: string;

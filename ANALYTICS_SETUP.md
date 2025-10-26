@@ -3,6 +3,7 @@
 ## Google Analytics 4 (GA4)
 
 ### Step 1: Create GA4 Property
+
 1. Go to [Google Analytics](https://analytics.google.com)
 2. Click **Admin** (gear icon)
 3. Click **Create Property**
@@ -11,6 +12,7 @@
 6. Click **Next** → **Create**
 
 ### Step 2: Get Measurement ID
+
 1. In Property settings, go to **Data Streams**
 2. Click **Add stream** → **Web**
 3. Enter website URL: `https://www.elevateforhumanity.org`
@@ -24,10 +26,15 @@ Add this code to `index.html` before the closing `</head>` tag:
 
 ```html
 <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX');
 </script>
@@ -36,6 +43,7 @@ Add this code to `index.html` before the closing `</head>` tag:
 **Replace `G-XXXXXXXXXX` with your actual Measurement ID**
 
 ### Step 4: Verify Installation
+
 1. Visit your website
 2. In GA4, go to **Reports** → **Realtime**
 3. You should see your visit appear within 30 seconds
@@ -47,24 +55,26 @@ Add event tracking for key actions:
 ```html
 <script>
   // Track button clicks
-  document.querySelectorAll('a[href="/programs"]').forEach(btn => {
+  document.querySelectorAll('a[href="/programs"]').forEach((btn) => {
     btn.addEventListener('click', () => {
       gtag('event', 'view_programs', {
-        'event_category': 'engagement',
-        'event_label': 'Programs Page'
+        event_category: 'engagement',
+        event_label: 'Programs Page',
       });
     });
   });
 
   // Track apply button clicks
-  document.querySelectorAll('a[href*="indianacareerconnect"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      gtag('event', 'apply_click', {
-        'event_category': 'conversion',
-        'event_label': 'Indiana Connect'
+  document
+    .querySelectorAll('a[href*="indianacareerconnect"]')
+    .forEach((btn) => {
+      btn.addEventListener('click', () => {
+        gtag('event', 'apply_click', {
+          event_category: 'conversion',
+          event_label: 'Indiana Connect',
+        });
       });
     });
-  });
 </script>
 ```
 
@@ -73,6 +83,7 @@ Add event tracking for key actions:
 ## Sentry Error Monitoring
 
 ### Step 1: Create Sentry Project
+
 1. Go to [sentry.io](https://sentry.io) and sign up
 2. Click **Create Project**
 3. Select platform: **React**
@@ -80,6 +91,7 @@ Add event tracking for key actions:
 5. Click **Create Project**
 
 ### Step 2: Get DSN
+
 1. After project creation, copy your **DSN** (Data Source Name)
 2. Format: `https://xxxxx@xxxxx.ingest.sentry.io/xxxxx`
 
@@ -128,9 +140,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 Add a test button temporarily:
 
 ```tsx
-<button onClick={() => {
-  throw new Error('Test Sentry error');
-}}>
+<button
+  onClick={() => {
+    throw new Error('Test Sentry error');
+  }}
+>
   Test Error
 </button>
 ```
@@ -190,6 +204,7 @@ Add to `index.html` before `</head>`:
 6. Click **Create Monitor**
 
 ### What You Get
+
 - ✅ Checks site every 5 minutes
 - ✅ Email alerts if site goes down
 - ✅ Public status page (optional)
@@ -200,12 +215,14 @@ Add to `index.html` before `</head>`:
 ## Netlify Analytics (Built-in)
 
 ### Enable Netlify Analytics
+
 1. Go to [Netlify Dashboard](https://app.netlify.com)
 2. Select your site
 3. Go to **Analytics** tab
 4. Click **Enable Analytics** ($9/month)
 
 ### What You Get
+
 - ✅ Server-side tracking (no cookies, no GDPR issues)
 - ✅ Page views and unique visitors
 - ✅ Top pages and referrers
@@ -224,8 +241,8 @@ GA4 can run in "cookieless" mode for basic analytics:
 
 ```javascript
 gtag('config', 'G-XXXXXXXXXX', {
-  'anonymize_ip': true,
-  'client_storage': 'none'
+  anonymize_ip: true,
+  client_storage: 'none',
 });
 ```
 
@@ -234,6 +251,7 @@ This disables cookies but still tracks page views.
 ### GDPR Compliance
 
 If you need full compliance:
+
 1. Add cookie consent banner (use [CookieYes](https://www.cookieyes.com))
 2. Only load GA4 after user consent
 3. Add Privacy Policy page
