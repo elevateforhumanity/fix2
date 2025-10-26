@@ -5,8 +5,8 @@ export default function SEO({
   title = 'Elevate for Humanity - 106+ Workforce Certifications',
   description = 'Indianapolis-based ETPL provider offering 106+ industry-recognized certification programs with 92% job placement rate. 100% FREE through WIOA funding.',
   keywords = 'workforce development, online learning, career training, professional development, LMS, certifications, Indianapolis, WIOA, free training',
-  image = 'https://elevateforhumanity.pages.dev/og-image.svg',
-  url = 'https://elevateforhumanity.pages.dev',
+  image = 'https://elevateforhumanity.org/og-image.svg',
+  url = 'https://elevateforhumanity.org',
   type = 'website',
 }) {
   const fullTitle = title.includes('Elevate for Humanity')
@@ -43,9 +43,9 @@ export default function SEO({
           alternateName: 'EFH Workforce Development',
           description:
             'Indianapolis-based ETPL provider offering 106+ industry-recognized certification programs with 92% job placement rate. FREE workforce development through WIOA funding.',
-          url: 'https://elevateforhumanity.pages.dev',
-          logo: 'https://elevateforhumanity.pages.dev/images/logo.png',
-          image: 'https://elevateforhumanity.pages.dev/og-image.svg',
+          url: 'https://elevateforhumanity.org',
+          logo: 'https://elevateforhumanity.org/images/logo.png',
+          image: 'https://elevateforhumanity.org/og-image.svg',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Indianapolis',
@@ -94,7 +94,7 @@ export default function SEO({
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'Elevate for Humanity',
-          image: 'https://elevateforhumanity.pages.dev/og-image.svg',
+          image: 'https://elevateforhumanity.org/og-image.svg',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Indianapolis',
@@ -102,7 +102,7 @@ export default function SEO({
             addressCountry: 'US',
           },
           telephone: '+1-317-314-3757',
-          url: 'https://elevateforhumanity.pages.dev',
+          url: 'https://elevateforhumanity.org',
           priceRange: 'FREE',
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',

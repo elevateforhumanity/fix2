@@ -9,10 +9,10 @@ export default function Programs() {
   // Add breadcrumb schema for SEO
   useEffect(() => {
     addBreadcrumbSchema([
-      { name: 'Home', url: 'https://elevateforhumanity.pages.dev/' },
+      { name: 'Home', url: 'https://elevateforhumanity.org/' },
       {
         name: 'Programs',
-        url: 'https://elevateforhumanity.pages.dev/programs',
+        url: 'https://elevateforhumanity.org/programs',
       },
     ]);
   }, []);
