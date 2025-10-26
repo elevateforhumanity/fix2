@@ -107,7 +107,7 @@
     "dev": "vite",
     "make:images": "python3 tools/make_brand_images_v2.py",
     "build": "node scripts/check-env.js && vite build",
-    "postbuild": "node scripts/postbuild.mjs && node scripts/fix-domain-urls.js && node scripts/update-canonical-urls.js && node scripts/no-source-maps.cjs",
+    "postbuild": "node scripts/postbuild.mjs && node scripts/generate-dynamic-sitemap.mjs && node scripts/split-sitemap.mjs && node scripts/fix-broken-links.mjs && node scripts/fix-domain-urls.js && node scripts/update-canonical-urls.js && node scripts/no-source-maps.cjs",
     "preview": "vite preview --host 0.0.0.0 --port 8080 --strictPort",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -39,28 +39,23 @@ const svg = `
 `;
 
 try {
-  await sharp(Buffer.from(svg))
-    .jpeg({ quality: 90 })
-    .toFile('public/og.jpg');
-  
+  await sharp(Buffer.from(svg)).jpeg({ quality: 90 }).toFile('public/og.jpg');
+
   console.log('✅ Generated public/og.jpg (1200×630)');
-  
+
   // Also create a PNG version for better quality
-  await sharp(Buffer.from(svg))
-    .png()
-    .toFile('public/og.png');
-  
+  await sharp(Buffer.from(svg)).png().toFile('public/og.png');
+
   console.log('✅ Generated public/og.png (1200×630)');
-  
+
   // Get file sizes
   const jpgSize = fs.statSync('public/og.jpg').size;
   const pngSize = fs.statSync('public/og.png').size;
-  
+
   console.log(`\nFile sizes:`);
   console.log(`  og.jpg: ${(jpgSize / 1024).toFixed(1)} KB`);
   console.log(`  og.png: ${(pngSize / 1024).toFixed(1)} KB`);
   console.log(`\nRecommendation: Use og.jpg for faster loading`);
-  
 } catch (error) {
   console.error('❌ Error generating image:', error.message);
   process.exit(1);

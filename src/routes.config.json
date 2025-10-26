@@ -69,6 +69,8 @@
     "/privacy-policy",
     "/profile",
     "/programs",
+    "/programs/:slug",
+    "/program/:slug",
     "/quiz",
     "/refund-policy",
     "/serene-comfort-care",

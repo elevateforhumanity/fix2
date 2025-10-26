@@ -5,7 +5,7 @@
 */
 
 import { useState, useEffect } from 'react';
-import frameworkSettings from '../lib/frameworkSettings';
+import * as frameworkSettings from '../lib/frameworkSettings';
 
 export function FrameworkSettingsPanel() {
   const [config] = useState(frameworkSettings.getConfig());

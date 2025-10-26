@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 interface FlowChartData {
   type: 'enrollment' | 'retention' | 'completion' | 'attrition';
   title: string;
