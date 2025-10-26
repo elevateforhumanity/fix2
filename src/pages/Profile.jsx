@@ -23,7 +23,7 @@ export default function Profile() {
     bio: '',
     website: '',
     linkedin: '',
-    twitter: '',
+    youtube: '',
   });
 
   const [saved, setSaved] = useState(false);
@@ -363,14 +363,14 @@ export default function Profile() {
                     fontSize: 14,
                   }}
                 >
-                  Twitter
+                  YouTube
                 </label>
                 <input
                   type="text"
-                  name="twitter"
-                  value={formData.twitter}
+                  name="youtube"
+                  value={formData.youtube}
                   onChange={handleChange}
-                  placeholder="@username"
+                  placeholder="@channelname"
                   style={{
                     width: '100%',
                     padding: '10px 12px',

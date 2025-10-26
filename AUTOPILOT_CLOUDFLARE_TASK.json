@@ -1,0 +1,522 @@
+{
+  "task": "cloudflare_complete_configuration",
+  "priority": "high",
+  "assigned_to": "autopilot_orchestrator",
+  "created_at": "2025-10-26T18:00:00Z",
+  "description": "Complete Cloudflare configuration including Workers deployment, DNS setup, API configuration, and environment variable management",
+  "subtasks": [
+    {
+      "id": "cf_001",
+      "name": "Verify Cloudflare Account Setup",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": [],
+      "actions": [
+        {
+          "type": "verify",
+          "description": "Check if CLOUDFLARE_API_TOKEN is set in environment",
+          "command": "test -n \"$CLOUDFLARE_API_TOKEN\" && echo 'Token found' || echo 'Token missing'"
+        },
+        {
+          "type": "verify",
+          "description": "Check if CLOUDFLARE_ACCOUNT_ID is set in environment",
+          "command": "test -n \"$CLOUDFLARE_ACCOUNT_ID\" && echo 'Account ID found' || echo 'Account ID missing'"
+        },
+        {
+          "type": "api_call",
+          "description": "Verify API token has correct permissions",
+          "endpoint": "https://api.cloudflare.com/client/v4/user/tokens/verify",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}"
+          }
+        }
+      ],
+      "success_criteria": [
+        "API token is valid",
+        "Account ID is accessible",
+        "Token has Zone:DNS:Edit and Zone:Zone Settings:Edit permissions"
+      ]
+    },
+    {
+      "id": "cf_002",
+      "name": "Get Cloudflare Zone ID",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_001"],
+      "actions": [
+        {
+          "type": "script",
+          "description": "Run get-cloudflare-zone-id.sh to retrieve zone ID",
+          "command": "bash scripts/get-cloudflare-zone-id.sh"
+        },
+        {
+          "type": "api_call",
+          "description": "Get zone ID for elevateforhumanity.org",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones?name=elevateforhumanity.org",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}"
+          },
+          "extract": "result[0].id",
+          "save_to": "CLOUDFLARE_ZONE_ID"
+        }
+      ],
+      "success_criteria": [
+        "Zone ID retrieved successfully",
+        "Zone ID saved to environment"
+      ]
+    },
+    {
+      "id": "cf_003",
+      "name": "Configure DNS Records",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_002"],
+      "actions": [
+        {
+          "type": "api_call",
+          "description": "List existing DNS records",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/dns_records",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}"
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Create/Update A record for root domain",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/dns_records",
+          "method": "POST",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "type": "A",
+            "name": "@",
+            "content": "75.2.60.5",
+            "ttl": 1,
+            "proxied": true
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Create/Update CNAME for www subdomain",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/dns_records",
+          "method": "POST",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "type": "CNAME",
+            "name": "www",
+            "content": "elevateforhumanity.netlify.app",
+            "ttl": 1,
+            "proxied": true
+          }
+        }
+      ],
+      "success_criteria": [
+        "A record points to Netlify (75.2.60.5)",
+        "CNAME for www is configured",
+        "Proxy (orange cloud) is enabled"
+      ]
+    },
+    {
+      "id": "cf_004",
+      "name": "Configure SSL/TLS Settings",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_003"],
+      "actions": [
+        {
+          "type": "api_call",
+          "description": "Set SSL/TLS mode to Full (strict)",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/ssl",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "full"
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Enable Always Use HTTPS",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/always_use_https",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "on"
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Enable Automatic HTTPS Rewrites",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/automatic_https_rewrites",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "on"
+          }
+        }
+      ],
+      "success_criteria": [
+        "SSL/TLS mode is Full (strict)",
+        "Always Use HTTPS is enabled",
+        "Automatic HTTPS Rewrites is enabled"
+      ]
+    },
+    {
+      "id": "cf_005",
+      "name": "Configure Caching Settings",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_004"],
+      "actions": [
+        {
+          "type": "api_call",
+          "description": "Set caching level to Standard",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/cache_level",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "aggressive"
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Set browser cache TTL",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/browser_cache_ttl",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": 14400
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Enable Brotli compression",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/brotli",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "on"
+          }
+        }
+      ],
+      "success_criteria": [
+        "Caching level is set to aggressive",
+        "Browser cache TTL is 4 hours",
+        "Brotli compression is enabled"
+      ]
+    },
+    {
+      "id": "cf_006",
+      "name": "Configure Security Settings",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_005"],
+      "actions": [
+        {
+          "type": "api_call",
+          "description": "Set security level to Medium",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/security_level",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": "medium"
+          }
+        },
+        {
+          "type": "api_call",
+          "description": "Enable Bot Fight Mode",
+          "endpoint": "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/settings/bot_management",
+          "method": "PATCH",
+          "headers": {
+            "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}",
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "value": {
+              "enable_js": true,
+              "fight_mode": true
+            }
+          }
+        }
+      ],
+      "success_criteria": [
+        "Security level is Medium",
+        "Bot Fight Mode is enabled"
+      ]
+    },
+    {
+      "id": "cf_007",
+      "name": "Deploy Cloudflare Workers",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_006"],
+      "workers": [
+        {
+          "name": "efh-autopilot-orchestrator",
+          "description": "Main orchestrator for autopilot system",
+          "route": "https://efh-autopilot-orchestrator.workers.dev",
+          "capabilities": [
+            "task.orchestrate",
+            "autopilot.manage",
+            "worker.coordinate"
+          ]
+        },
+        {
+          "name": "efh-autopilot-analyzer",
+          "description": "Analyzer for autopilot tasks",
+          "route": "https://efh-autopilot-analyzer.workers.dev",
+          "capabilities": ["task.analyze", "data.process", "insights.generate"]
+        },
+        {
+          "name": "efh-ai-stylist",
+          "description": "AI-powered page and asset generation",
+          "route": "https://efh-ai-stylist.${CLOUDFLARE_ACCOUNT_ID}.workers.dev",
+          "capabilities": [
+            "web.pages.generate",
+            "web.asset.generate",
+            "web.section.generate"
+          ]
+        },
+        {
+          "name": "efh-agent",
+          "description": "AI employee for email and CRM",
+          "route": "https://efh-agent.${CLOUDFLARE_ACCOUNT_ID}.workers.dev",
+          "capabilities": [
+            "email.process",
+            "crm.lead.create",
+            "crm.lead.update",
+            "email.send"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "note",
+          "description": "Worker deployment requires wrangler.toml files and source code",
+          "message": "Create wrangler.toml files for each worker and deploy using: wrangler deploy"
+        }
+      ],
+      "success_criteria": [
+        "All workers are deployed",
+        "Worker URLs are accessible",
+        "Workers are registered with orchestrator"
+      ]
+    },
+    {
+      "id": "cf_008",
+      "name": "Update Environment Variables",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_007"],
+      "actions": [
+        {
+          "type": "update_env",
+          "description": "Update .env.example with actual Cloudflare Worker URLs",
+          "variables": {
+            "ORCHESTRATOR_URL": "https://efh-autopilot-orchestrator.workers.dev",
+            "ANALYZER_URL": "https://efh-autopilot-analyzer.workers.dev",
+            "AGENT_WORKER_URL": "https://efh-agent.${CLOUDFLARE_ACCOUNT_ID}.workers.dev",
+            "AI_STYLIST_URL": "https://efh-ai-stylist.${CLOUDFLARE_ACCOUNT_ID}.workers.dev"
+          }
+        },
+        {
+          "type": "update_source",
+          "description": "Replace placeholder URLs in source code",
+          "files": [
+            "src/components/AIPageBuilder.tsx",
+            "src/components/OrchestratorAdmin.tsx",
+            "src/components/AssetGenerator.tsx",
+            "src/pages/AutopilotAdmin.tsx"
+          ],
+          "replacements": [
+            {
+              "from": "https://efh-ai-stylist.your-subdomain.workers.dev",
+              "to": "https://efh-ai-stylist.${CLOUDFLARE_ACCOUNT_ID}.workers.dev"
+            },
+            {
+              "from": "https://efh-autopilot-orchestrator.your-subdomain.workers.dev",
+              "to": "https://efh-autopilot-orchestrator.workers.dev"
+            }
+          ]
+        }
+      ],
+      "success_criteria": [
+        "Environment variables are updated",
+        "Source code has correct Worker URLs",
+        "No placeholder URLs remain"
+      ]
+    },
+    {
+      "id": "cf_009",
+      "name": "Register Workers with Orchestrator",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_008"],
+      "actions": [
+        {
+          "type": "script",
+          "description": "Run register-autopilots.sh to register all workers",
+          "command": "export ORCHESTRATOR_URL=https://efh-autopilot-orchestrator.workers.dev && bash scripts/register-autopilots.sh"
+        },
+        {
+          "type": "verify",
+          "description": "Verify all workers are registered",
+          "command": "curl https://efh-autopilot-orchestrator.workers.dev/autopilot/list"
+        }
+      ],
+      "success_criteria": [
+        "All workers are registered",
+        "Orchestrator can list all workers",
+        "Workers respond to health checks"
+      ]
+    },
+    {
+      "id": "cf_010",
+      "name": "Configure Netlify Environment Variables",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_009"],
+      "actions": [
+        {
+          "type": "note",
+          "description": "Add Cloudflare variables to Netlify",
+          "variables_to_add": [
+            "CLOUDFLARE_API_TOKEN",
+            "CLOUDFLARE_ACCOUNT_ID",
+            "CLOUDFLARE_ZONE_ID",
+            "ORCHESTRATOR_URL",
+            "ANALYZER_URL",
+            "AGENT_WORKER_URL",
+            "AI_STYLIST_URL"
+          ],
+          "instructions": "Go to Netlify Dashboard → Site Settings → Environment Variables → Add variables"
+        }
+      ],
+      "success_criteria": [
+        "All Cloudflare variables are in Netlify",
+        "Build succeeds with new variables",
+        "Frontend can access Worker URLs"
+      ]
+    },
+    {
+      "id": "cf_011",
+      "name": "Verify Complete Configuration",
+      "assigned_to": "autopilot_orchestrator",
+      "dependencies": ["cf_010"],
+      "actions": [
+        {
+          "type": "script",
+          "description": "Run test-cloudflare.sh to verify configuration",
+          "command": "bash scripts/test-cloudflare.sh"
+        },
+        {
+          "type": "verify",
+          "description": "Check DNS resolution",
+          "command": "dig elevateforhumanity.org"
+        },
+        {
+          "type": "verify",
+          "description": "Check SSL certificate",
+          "command": "curl -I https://elevateforhumanity.org"
+        },
+        {
+          "type": "verify",
+          "description": "Check Worker endpoints",
+          "command": "curl https://efh-autopilot-orchestrator.workers.dev/health"
+        }
+      ],
+      "success_criteria": [
+        "DNS resolves correctly",
+        "SSL certificate is valid",
+        "All Workers are accessible",
+        "No broken links in source code"
+      ]
+    }
+  ],
+  "environment_variables_required": [
+    "CLOUDFLARE_API_TOKEN",
+    "CLOUDFLARE_ACCOUNT_ID",
+    "CLOUDFLARE_ZONE_ID",
+    "ORCHESTRATOR_URL",
+    "ANALYZER_URL",
+    "AGENT_WORKER_URL",
+    "AI_STYLIST_URL"
+  ],
+  "files_to_update": [
+    ".env.example",
+    "src/components/AIPageBuilder.tsx",
+    "src/components/OrchestratorAdmin.tsx",
+    "src/components/AssetGenerator.tsx",
+    "src/pages/AutopilotAdmin.tsx"
+  ],
+  "scripts_to_run": [
+    "scripts/get-cloudflare-zone-id.sh",
+    "scripts/setup-cloudflare-env.sh",
+    "scripts/register-autopilots.sh",
+    "scripts/test-cloudflare.sh"
+  ],
+  "estimated_time": "45-60 minutes",
+  "manual_steps_required": [
+    "Create Cloudflare account if not exists",
+    "Generate API token with correct permissions",
+    "Add environment variables to Netlify dashboard",
+    "Deploy Cloudflare Workers (requires wrangler CLI)",
+    "Verify DNS propagation (may take up to 48 hours)"
+  ],
+  "success_criteria": [
+    "All DNS records are configured",
+    "SSL/TLS is properly configured",
+    "Caching and security settings are optimized",
+    "All Cloudflare Workers are deployed and accessible",
+    "Environment variables are set in all required locations",
+    "No placeholder URLs remain in source code",
+    "All autopilots are registered with orchestrator",
+    "Frontend can communicate with Workers",
+    "No broken links in application"
+  ],
+  "rollback_plan": {
+    "description": "If configuration fails, revert to previous state",
+    "steps": [
+      "Restore DNS records to previous values",
+      "Disable Cloudflare proxy if causing issues",
+      "Remove Worker URLs from environment variables",
+      "Restore placeholder URLs in source code",
+      "Check Netlify build logs for errors"
+    ]
+  },
+  "monitoring": {
+    "description": "Monitor Cloudflare configuration after deployment",
+    "metrics": [
+      "DNS resolution time",
+      "SSL certificate validity",
+      "Cache hit ratio",
+      "Worker response times",
+      "Error rates",
+      "Bandwidth usage"
+    ],
+    "alerts": [
+      "SSL certificate expiration",
+      "High error rates",
+      "Worker downtime",
+      "DNS resolution failures"
+    ]
+  }
+}

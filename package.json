@@ -141,6 +141,8 @@
     "mobile:copy": "pnpm build && pnpm exec cap copy",
     "mobile:sync": "pnpm build && pnpm exec cap sync",
     "mobile:android": "pnpm build && pnpm exec cap open android",
-    "mobile:ios": "pnpm build && pnpm exec cap open ios"
+    "mobile:ios": "pnpm build && pnpm exec cap open ios",
+    "perf:desktop": "LH_PRESET=desktop lhci autorun --config=autopilot/performance/lighthouseci.js",
+    "perf:mobile": "LH_PRESET=mobile lhci autorun --config=autopilot/performance/lighthouseci.js"
   }
 }

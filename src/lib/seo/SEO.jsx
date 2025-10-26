@@ -6,7 +6,7 @@ export const SEO = ({
   description = 'Empowering communities through technology and innovation',
   keywords = 'elevate, humanity, technology, innovation',
   image = '/og-image.jpg',
-  url = 'https://elevateforhumanity.com',
+  url = 'https://elevateforhumanity.org',
 }) => {
   return (
     <Helmet>

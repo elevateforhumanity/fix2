@@ -22,7 +22,8 @@ interface DiagnoseReport {
 }
 
 const ORCHESTRATOR_URL =
-  'https://efh-autopilot-orchestrator.your-subdomain.workers.dev';
+  import.meta.env.VITE_ORCHESTRATOR_URL ||
+  'https://efh-autopilot-orchestrator.workers.dev';
 
 export default function OrchestratorAdmin() {
   const [autopilots, setAutopilots] = useState<Autopilot[]>([]);

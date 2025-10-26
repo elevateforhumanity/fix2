@@ -4,7 +4,7 @@
  */
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'https://elevateforhumanity.onrender.com';
+  import.meta.env.VITE_API_URL || 'https://elevateforhumanity.org/api';
 
 class ApiClient {
   constructor() {

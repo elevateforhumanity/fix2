@@ -17,6 +17,7 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 ### 1. Multiple Duplicate Sitemaps ❌ → ✅
 
 **Before:**
+
 - `public/sitemap.xml` (9KB - current)
 - `public/sitemap-1.xml` (228 bytes - duplicate)
 - `public/sitemap-index.xml` (355 bytes - old)
@@ -30,10 +31,12 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 - `public/sitemaps/sitemap_index.xml` (464 bytes - old)
 
 **After:**
+
 - `public/sitemap.xml` (single authoritative sitemap)
 - Old sitemaps moved to `.backup/old-sitemaps/`
 
 **Action Taken:**
+
 - ✅ Removed duplicate sitemap files
 - ✅ Moved old sitemaps to backup directory
 - ✅ Single sitemap now serves all URLs
@@ -43,16 +46,19 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 ### 2. Wrong Domain in Sitemap ❌ → ✅
 
 **Before:**
+
 ```xml
 <loc>https://elevateforhumanity.pages.dev/programs/barber</loc>
 ```
 
 **After:**
+
 ```xml
 <loc>https://elevateforhumanity.org/programs/barber</loc>
 ```
 
 **Action Taken:**
+
 - ✅ Updated sitemap generator to use primary domain (.org)
 - ✅ Regenerated sitemap with correct domain
 - ✅ All 27 URLs now use elevateforhumanity.org
@@ -62,18 +68,21 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 ### 3. Wrong Canonical URLs ❌ → ✅
 
 **Before (in ProgramDetail.tsx):**
+
 ```typescript
 const pageUrl = `https://elevateforhumanity.pages.dev/programs/${p.slug}`;
 const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc}`;
 ```
 
 **After:**
+
 ```typescript
 const pageUrl = `https://elevateforhumanity.org/programs/${p.slug}`;
 const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
 ```
 
 **Action Taken:**
+
 - ✅ Updated canonical URLs to use primary domain
 - ✅ Updated Open Graph image URLs to use primary domain
 - ✅ All program pages now have correct canonical URLs
@@ -83,6 +92,7 @@ const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
 ### 4. Multiple Sitemap Declarations in robots.txt ❌ → ✅
 
 **Before:**
+
 ```txt
 # Sitemaps
 Sitemap: https://elevateforhumanity.pages.dev/sitemap.xml
@@ -91,12 +101,14 @@ Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 **After:**
+
 ```txt
 # Sitemap (primary domain)
 Sitemap: https://elevateforhumanity.org/sitemap.xml
 ```
 
 **Action Taken:**
+
 - ✅ Consolidated to single sitemap declaration
 - ✅ Uses primary domain only
 - ✅ Cleaner robots.txt configuration
@@ -108,6 +120,7 @@ Sitemap: https://elevateforhumanity.org/sitemap.xml
 ### Single Authoritative Sitemap
 
 **File:** `public/sitemap.xml`
+
 - **Total URLs:** 27
 - **Domain:** https://elevateforhumanity.org
 - **Size:** 9.0 KB
@@ -116,6 +129,7 @@ Sitemap: https://elevateforhumanity.org/sitemap.xml
 ### URL Breakdown
 
 **Static Pages (9 URLs):**
+
 1. `/` - Homepage
 2. `/programs` - Programs listing
 3. `/get-started` - Get started page
@@ -130,37 +144,43 @@ Sitemap: https://elevateforhumanity.org/sitemap.xml
 
 Each of 9 programs has 2 URL patterns:
 
-| # | Program | URLs |
-|---|---------|------|
-| 1 | Barber Apprenticeship | `/programs/barber`, `/program/barber` |
-| 2 | Building Services Tech | `/programs/building-tech`, `/program/building-tech` |
-| 3 | CNA | `/programs/cna`, `/program/cna` |
-| 4 | CPR/AED/First Aid | `/programs/cpr-aed-first-aid`, `/program/cpr-aed-first-aid` |
-| 5 | Business Startup | `/programs/business-startup-marketing`, `/program/business-startup-marketing` |
-| 6 | Tax Office Startup | `/programs/tax-office-startup`, `/program/tax-office-startup` |
-| 7 | Esthetician Services | `/programs/esthetician-client-services`, `/program/esthetician-client-services` |
-| 8 | Beauty Educator | `/programs/beauty-career-educator`, `/program/beauty-career-educator` |
-| 9 | Public Safety Reentry | `/programs/public-safety-reentry`, `/program/public-safety-reentry` |
+| #   | Program                | URLs                                                                            |
+| --- | ---------------------- | ------------------------------------------------------------------------------- |
+| 1   | Barber Apprenticeship  | `/programs/barber`, `/program/barber`                                           |
+| 2   | Building Services Tech | `/programs/building-tech`, `/program/building-tech`                             |
+| 3   | CNA                    | `/programs/cna`, `/program/cna`                                                 |
+| 4   | CPR/AED/First Aid      | `/programs/cpr-aed-first-aid`, `/program/cpr-aed-first-aid`                     |
+| 5   | Business Startup       | `/programs/business-startup-marketing`, `/program/business-startup-marketing`   |
+| 6   | Tax Office Startup     | `/programs/tax-office-startup`, `/program/tax-office-startup`                   |
+| 7   | Esthetician Services   | `/programs/esthetician-client-services`, `/program/esthetician-client-services` |
+| 8   | Beauty Educator        | `/programs/beauty-career-educator`, `/program/beauty-career-educator`           |
+| 9   | Public Safety Reentry  | `/programs/public-safety-reentry`, `/program/public-safety-reentry`             |
 
 ---
 
 ## 🌐 Domain Strategy
 
 ### Primary Domain (National)
+
 **elevateforhumanity.org**
+
 - ✅ Used in sitemap URLs
 - ✅ Used in canonical URLs
 - ✅ Used in Open Graph URLs
 - ✅ Declared in robots.txt
 
 ### Secondary Domain (Cloudflare Pages)
+
 **elevateforhumanity.pages.dev**
+
 - ✅ Serves same content
 - ✅ Redirects to primary domain (via canonical)
 - ✅ Not used in sitemap (avoids duplicate content)
 
 ### WWW Subdomain
+
 **www.elevateforhumanity.org**
+
 - ✅ Redirects to primary domain (308 redirect)
 - ✅ Not needed in sitemap
 
@@ -176,6 +196,7 @@ All program pages now have proper canonical URLs:
 ```
 
 **Benefits:**
+
 - ✅ Prevents duplicate content issues
 - ✅ Consolidates SEO value to primary domain
 - ✅ Clear signal to search engines about preferred URL
@@ -188,23 +209,27 @@ All program pages now have proper canonical URLs:
 ### Sitemap Accessibility
 
 **elevateforhumanity.org:**
+
 - ✅ Sitemap accessible: https://elevateforhumanity.org/sitemap.xml
 - ✅ Status: 200
 - ✅ Content-Type: text/html; charset=utf-8
 - ✅ Size: 11,241 bytes
 
 **elevateforhumanity.pages.dev:**
+
 - ✅ Sitemap accessible: https://elevateforhumanity.pages.dev/sitemap.xml
 - ✅ Status: 200
 - ✅ Content-Type: application/xml
 - ✅ Size: 794 bytes
 
 **www.elevateforhumanity.org:**
+
 - ⚠️ Redirects to non-www (308 redirect) - Expected behavior
 
 ### Robots.txt
 
 **Content:**
+
 ```txt
 User-agent: *
 Allow: /
@@ -227,6 +252,7 @@ Allow: /lms/courses
 ```
 
 **Verification:**
+
 - ✅ Single sitemap declaration
 - ✅ Uses primary domain
 - ✅ Program pages explicitly allowed
@@ -239,6 +265,7 @@ Allow: /lms/courses
 ### Before Consolidation
 
 **Issues:**
+
 - ❌ Multiple sitemaps causing confusion
 - ❌ URLs using .pages.dev domain
 - ❌ Canonical URLs pointing to wrong domain
@@ -248,6 +275,7 @@ Allow: /lms/courses
 ### After Consolidation
 
 **Benefits:**
+
 - ✅ Single authoritative sitemap
 - ✅ All URLs use primary domain (.org)
 - ✅ Canonical URLs properly configured
@@ -263,6 +291,7 @@ Allow: /lms/courses
 ### What Changed
 
 Since you've already submitted your sitemap before, search engines will automatically:
+
 - ✅ Re-crawl your sitemap (every few days)
 - ✅ Discover updated URLs with correct domain
 - ✅ Update their index with new URLs
@@ -272,21 +301,25 @@ Since you've already submitted your sitemap before, search engines will automati
 ### Recommended Action
 
 **Option 1: Let Auto-Discovery Work (Recommended)**
+
 - Do nothing, search engines will update automatically
 - Timeline: 1-2 weeks
 
 **Option 2: Notify Search Engines (Faster)**
+
 - Ping Google and Bing to speed up discovery
 - Timeline: 3-7 days
 
 **Quick Ping URLs:**
 
 **Google:**
+
 ```
 https://www.google.com/ping?sitemap=https%3A%2F%2Felevateforhumanity.org%2Fsitemap.xml
 ```
 
 **Bing:**
+
 ```
 https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumanity.org%2Fsitemap.xml
 ```
@@ -298,11 +331,13 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 ### What to Watch
 
 **Week 1-2:**
+
 - Check if search engines re-crawl sitemap
 - Monitor for any crawl errors
 - Verify new URLs being indexed
 
 **Week 3-4:**
+
 - Confirm all 27 URLs indexed with .org domain
 - Check old .pages.dev URLs being removed
 - Monitor search performance
@@ -310,6 +345,7 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 ### Search Console Checks
 
 **Google Search Console:**
+
 1. Go to **Sitemaps** section
 2. Check last read date (should update within days)
 3. Go to **Coverage** report
@@ -317,6 +353,7 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 5. Check for duplicate content warnings
 
 **Bing Webmaster Tools:**
+
 1. Go to **Sitemaps** section
 2. Check sitemap status
 3. Go to **Indexed Pages**
@@ -330,6 +367,7 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 ### When Adding New Programs
 
 1. **Add program to data:**
+
    ```typescript
    // src/data/programs.ts
    {
@@ -340,16 +378,19 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
    ```
 
 2. **Regenerate sitemap:**
+
    ```bash
    node scripts/generate-program-sitemap.mjs
    ```
 
 3. **Verify:**
+
    ```bash
    node scripts/verify-sitemap-submission.mjs
    ```
 
 4. **Commit and deploy:**
+
    ```bash
    git add public/sitemap.xml src/data/programs.ts
    git commit -m "Add new program and update sitemap"
@@ -364,18 +405,21 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 ## 📁 Files Modified
 
 ### Updated Files
+
 1. `src/pages/ProgramDetail.tsx` - Fixed canonical URLs
 2. `scripts/generate-program-sitemap.mjs` - Updated to use primary domain
 3. `public/sitemap.xml` - Regenerated with correct domain
 4. `public/robots.txt` - Consolidated sitemap declarations
 
 ### Removed Files
+
 1. `public/sitemap-1.xml` - Duplicate
 2. `public/sitemap-index.xml` - Old
 3. `public/sitemap_index.xml` - Old
 4. `public/sitemaps/*.xml` - Old sitemaps (moved to backup)
 
 ### Backup Location
+
 - `.backup/old-sitemaps/` - Contains all removed sitemaps
 
 ---
@@ -402,12 +446,14 @@ https://www.bing.com/webmasters/ping.aspx?siteMap=https%3A%2F%2Felevateforhumani
 Successfully consolidated and optimized sitemap configuration:
 
 **Before:**
+
 - ❌ 11+ duplicate sitemap files
 - ❌ URLs using .pages.dev domain
 - ❌ Canonical URLs pointing to wrong domain
 - ❌ Multiple sitemap declarations in robots.txt
 
 **After:**
+
 - ✅ Single authoritative sitemap
 - ✅ All URLs use primary domain (.org)
 - ✅ Canonical URLs properly configured

@@ -12,7 +12,7 @@
 
 interface SocialMediaPost {
   id: string;
-  platform: 'facebook' | 'linkedin' | 'youtube' | 'twitter';
+  platform: 'facebook' | 'linkedin' | 'youtube';
   content: string;
   mediaUrl?: string;
   scheduledTime: Date;
@@ -130,9 +130,7 @@ export class SocialMediaAutomation {
   /**
    * Select platform for rotation
    */
-  private selectPlatform(
-    index: number
-  ): 'facebook' | 'linkedin' | 'youtube' | 'twitter' {
+  private selectPlatform(index: number): 'facebook' | 'linkedin' | 'youtube' {
     const platforms: ('facebook' | 'linkedin' | 'youtube')[] = [
       'facebook',
       'linkedin',
@@ -480,12 +478,6 @@ export class SocialMediaAutomation {
       },
       youtube: {
         channel: 'https://www.youtube.com/@elevateforhumanity',
-      },
-      twitter: {
-        account: 'https://twitter.com/elevate4humanity',
-      },
-      instagram: {
-        account: 'https://www.instagram.com/elevateforhumanity',
       },
     };
   }
