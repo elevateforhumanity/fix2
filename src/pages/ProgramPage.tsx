@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { getProgramBySlug, type Program } from '../services/programs';
 import { listCoursesByProgram, type Course } from '../services/courses';
 
-const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 'https://www.indianacareerconnect.com';
+const APPLICATION_URL =
+  import.meta.env.VITE_APPLICATION_FORM_URL ||
+  'https://www.indianacareerconnect.com';
 
 export default function ProgramPage() {
   const { slug } = useParams();
@@ -77,7 +79,7 @@ export default function ProgramPage() {
               <p className="mt-3 text-brand-text-muted">{program.blurb}</p>
             )}
             <div className="mt-5 flex flex-wrap gap-3">
-              <a 
+              <a
                 href={APPLICATION_URL}
                 target="_blank"
                 rel="noopener noreferrer"
