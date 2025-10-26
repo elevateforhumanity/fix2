@@ -219,13 +219,13 @@ export default function AnalyticsDashboardRUM() {
   function getRatingColor(rating: string): string {
     switch (rating) {
       case 'good':
-        return 'text-green-600 bg-green-50';
+        return 'text-brand-success bg-green-50';
       case 'needs-improvement':
         return 'text-yellow-600 bg-yellow-50';
       case 'poor':
         return 'text-red-600 bg-red-50';
       default:
-        return 'text-gray-600 bg-gray-50';
+        return 'text-brand-text-muted bg-brand-surface';
     }
   }
 
@@ -236,9 +236,9 @@ export default function AnalyticsDashboardRUM() {
       case 'warning':
         return 'text-yellow-600 bg-yellow-50';
       case 'info':
-        return 'text-blue-600 bg-blue-50';
+        return 'text-brand-info bg-blue-50';
       default:
-        return 'text-gray-600 bg-gray-50';
+        return 'text-brand-text-muted bg-brand-surface';
     }
   }
 
@@ -248,7 +248,7 @@ export default function AnalyticsDashboardRUM() {
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-gray-600">Loading analytics...</p>
+            <p className="mt-4 text-brand-text-muted">Loading analytics...</p>
           </div>
         </div>
       </AppLayout>
@@ -260,26 +260,26 @@ export default function AnalyticsDashboardRUM() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-brand-text">
             Real User Monitoring
           </h1>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-brand-text-muted">
             Performance metrics, user behavior, and system health
           </p>
         </div>
         {/* Performance Metrics */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-xl font-semibold text-brand-text mb-4">
             Web Vitals & Performance
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {performanceMetrics.map((metric) => (
               <div
                 key={metric.name}
-                className="bg-white rounded-lg shadow p-6 border border-gray-200"
+                className="bg-white rounded-lg shadow p-6 border border-brand-border"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-medium text-gray-700">
+                  <h3 className="text-sm font-medium text-brand-text">
                     {metric.name}
                   </h3>
                   <span
@@ -290,9 +290,9 @@ export default function AnalyticsDashboardRUM() {
                     {metric.rating.replace('-', ' ')}
                   </span>
                 </div>
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-3xl font-bold text-brand-text">
                   {metric.value}
-                  <span className="text-lg text-gray-500 ml-1">
+                  <span className="text-lg text-brand-text-light ml-1">
                     {metric.unit}
                   </span>
                 </p>
@@ -303,37 +303,37 @@ export default function AnalyticsDashboardRUM() {
         {/* Current Session */}
         {currentSession && (
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-brand-text mb-4">
               Current Session
             </h2>
-            <div className="bg-white rounded-lg shadow p-6 border border-gray-200">
+            <div className="bg-white rounded-lg shadow p-6 border border-brand-border">
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div>
-                  <p className="text-sm text-gray-600">Session ID</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                  <p className="text-sm text-brand-text-muted">Session ID</p>
+                  <p className="text-lg font-semibold text-brand-text">
                     {currentSession.id}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Duration</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                  <p className="text-sm text-brand-text-muted">Duration</p>
+                  <p className="text-lg font-semibold text-brand-text">
                     {formatDuration(currentSession.duration)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Page Views</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                  <p className="text-sm text-brand-text-muted">Page Views</p>
+                  <p className="text-lg font-semibold text-brand-text">
                     {currentSession.pageViews}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Interactions</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                  <p className="text-sm text-brand-text-muted">Interactions</p>
+                  <p className="text-lg font-semibold text-brand-text">
                     {currentSession.interactions}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Errors</p>
+                  <p className="text-sm text-brand-text-muted">Errors</p>
                   <p className="text-lg font-semibold text-red-600">
                     {currentSession.errors}
                   </p>
@@ -344,23 +344,23 @@ export default function AnalyticsDashboardRUM() {
         )}
         {/* Recent Errors */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-xl font-semibold text-brand-text mb-4">
             Recent Errors & Warnings
           </h2>
-          <div className="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div className="bg-white rounded-lg shadow border border-brand-border overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-brand-surface">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                     Message
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                     Level
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                     Count
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                     Last Seen
                   </th>
                 </tr>
@@ -368,7 +368,7 @@ export default function AnalyticsDashboardRUM() {
               <tbody className="bg-white divide-y divide-gray-200">
                 {recentErrors.map((error, index) => (
                   <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text">
                       {error.message}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -380,10 +380,10 @@ export default function AnalyticsDashboardRUM() {
                         {error.level}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text">
                       {error.count}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-light">
                       {new Date(error.lastSeen).toLocaleString()}
                     </td>
                   </tr>
@@ -397,15 +397,15 @@ export default function AnalyticsDashboardRUM() {
           <h3 className="text-lg font-semibold text-blue-900 mb-2">
             Sentry Integration
           </h3>
-          <p className="text-blue-700 mb-4">
+          <p className="text-brand-info mb-4">
             This dashboard displays real-time performance metrics and error
             tracking powered by Sentry Real User Monitoring (RUM).
           </p>
-          <div className="space-y-2 text-sm text-blue-600">
+          <div className="space-y-2 text-sm text-brand-info">
             <p>
               <strong>Status:</strong>{' '}
               {import.meta.env.VITE_SENTRY_DSN ? (
-                <span className="text-green-600">✓ Configured</span>
+                <span className="text-brand-success">✓ Configured</span>
               ) : (
                 <span className="text-yellow-600">⚠ Not configured</span>
               )}

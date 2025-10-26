@@ -30,6 +30,6 @@ jobs:
         env:
           REPO_SLUG: ${{ github.event.inputs.repo }}
           BRANCH: ${{ github.event.inputs.branch }}
-          REQUIRED_CHECKS: 'lhci (desktop),lhci (mobile)'
+          REQUIRED_CHECKS: 'build-test,check'
           GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
         run: bash autopilot/branch-protection/setup-branch-protection.sh

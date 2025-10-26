@@ -14,17 +14,21 @@ This file tests that branch protection is working correctly.
 ## Test Results
 
 ### Test 1: Direct Push to Main ✅ BLOCKED
+
 ```
 remote: error: GH013: Repository rule violations found for refs/heads/main.
 remote: - Changes must be made through a pull request.
 ! [remote rejected] main -> main (push declined due to repository rule violations)
 ```
+
 **Result:** ✅ PASSED - Branch protection working correctly!
 
 ### Test 2: Feature Branch Push
+
 Testing now...
 
 ### Test 3: PR Required
+
 Will verify after push...
 
 ## Conclusion
