@@ -26,11 +26,13 @@ npm run make:logo
 This will generate:
 
 ### Favicons
+
 - `public/favicon.png` (512×512)
 - `public/favicon.ico` (16, 32, 48, 64px)
 - `public/apple-touch-icon.png` (180×180)
 
 ### Logo Variants
+
 - `public/images/efh-logo.png` (original)
 - `public/images/efh-logo-1024.png`
 - `public/images/efh-logo-512.png`
@@ -39,11 +41,13 @@ This will generate:
 - `public/images/efh-logo-64.png`
 
 ### Social Media
+
 - `public/og-logo.jpg` (1200×630 Open Graph banner)
 
 ## 🔄 Automatic Integration
 
 The logo assets are automatically:
+
 - Used in HTML `<head>` tags
 - Included in program posters
 - Deployed with the site
