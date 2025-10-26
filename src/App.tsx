@@ -1,29 +1,98 @@
+import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import ProgramsGrid from './components/ProgramsGrid';
 import Testimonials from './components/Testimonials';
-import Programs from './pages/Programs.tsx';
-import ProgramPage from './pages/ProgramPage';
-import LMSCourses from './pages/LMSCourses';
-import Dashboard from './pages/lms/Dashboard';
-import CoursesIndex from './pages/lms/CoursesIndex';
-import CoursePage from './pages/lms/CoursePage';
-import LessonPage from './pages/lms/LessonPage';
-import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
-import ForgotPassword from './pages/auth/ForgotPassword';
-import Account from './pages/auth/Account';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import InstructorDashboard from './pages/instructor/InstructorDashboard';
-import CourseEditor from './pages/instructor/CourseEditor';
-import LessonManager from './pages/instructor/LessonManager';
-import CertificatePage from './pages/CertificatePage';
-import MyCertificates from './pages/MyCertificates';
-import VerifyCertificate from './pages/VerifyCertificate';
-import PaymentSuccess from './pages/PaymentSuccess';
-import PaymentCancelled from './pages/PaymentCancelled';
+
+// Error Boundary Component
+class ErrorBoundary extends Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error?: Error }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8 text-center">
+            <div className="text-red-500 text-6xl mb-4">⚠️</div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Oops! Something went wrong
+            </h1>
+            <p className="text-gray-600 mb-6">
+              We're sorry for the inconvenience. Please try refreshing the page.
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Refresh Page
+            </button>
+            {this.state.error && (
+              <details className="mt-4 text-left">
+                <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
+                  Technical Details
+                </summary>
+                <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">
+                  {this.state.error.toString()}
+                </pre>
+              </details>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+// Lazy load pages for better performance
+const Programs = lazy(() => import('./pages/Programs.tsx'));
+const ProgramPage = lazy(() => import('./pages/ProgramPage'));
+const LMSCourses = lazy(() => import('./pages/LMSCourses'));
+const Dashboard = lazy(() => import('./pages/lms/Dashboard'));
+const CoursePage = lazy(() => import('./pages/lms/CoursePage'));
+const LessonPage = lazy(() => import('./pages/lms/LessonPage'));
+const Login = lazy(() => import('./pages/auth/Login'));
+const Signup = lazy(() => import('./pages/auth/Signup'));
+const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
+const Account = lazy(() => import('./pages/auth/Account'));
+const InstructorDashboard = lazy(() => import('./pages/instructor/InstructorDashboard'));
+const CourseEditor = lazy(() => import('./pages/instructor/CourseEditor'));
+const LessonManager = lazy(() => import('./pages/instructor/LessonManager'));
+const CertificatePage = lazy(() => import('./pages/CertificatePage'));
+const MyCertificates = lazy(() => import('./pages/MyCertificates'));
+const VerifyCertificate = lazy(() => import('./pages/VerifyCertificate'));
+const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
+const PaymentCancelled = lazy(() => import('./pages/PaymentCancelled'));
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+        <p className="mt-2 text-gray-600">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 function HomePage() {
   return (
@@ -75,9 +144,11 @@ function SimplePage({ title }: { title: string }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <SiteLayout>
-        <Routes>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <SiteLayout>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:slug" element={<ProgramPage />} />
@@ -159,8 +230,10 @@ export default function App() {
           <Route path="/partners" element={<SimplePage title="Partners" />} />
           <Route path="/apply" element={<SimplePage title="Apply Now" />} />
           <Route path="*" element={<SimplePage title="Not Found" />} />
-        </Routes>
-      </SiteLayout>
-    </BrowserRouter>
+            </Routes>
+          </Suspense>
+        </SiteLayout>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

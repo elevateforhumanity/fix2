@@ -26,7 +26,8 @@ export default function LMSCourses() {
       progress: 0,
       enrolled: false,
       coverImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      description: 'Master AI and machine learning fundamentals with hands-on projects',
+      description:
+        'Master AI and machine learning fundamentals with hands-on projects',
     },
     {
       id: 'data-science',
@@ -40,7 +41,8 @@ export default function LMSCourses() {
       progress: 0,
       enrolled: false,
       coverImage: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      description: 'Comprehensive data science training with real-world applications',
+      description:
+        'Comprehensive data science training with real-world applications',
     },
     {
       id: 'cybersecurity',
@@ -54,7 +56,8 @@ export default function LMSCourses() {
       progress: 0,
       enrolled: false,
       coverImage: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      description: 'Advanced cybersecurity training for enterprise environments',
+      description:
+        'Advanced cybersecurity training for enterprise environments',
     },
     {
       id: 'web-development',
@@ -166,7 +169,8 @@ export default function LMSCourses() {
       progress: 0,
       enrolled: false,
       coverImage: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
-      description: 'Learn professional welding techniques and get AWS certified',
+      description:
+        'Learn professional welding techniques and get AWS certified',
     },
     {
       id: 'hvac',
@@ -198,11 +202,11 @@ export default function LMSCourses() {
             Explore Our Courses
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl">
-            Choose from 100+ industry-recognized certification programs. All courses are 100% free with federal funding.
+            Choose from 100+ industry-recognized certification programs. All
+            courses are 100% free with federal funding.
           </p>
         </div>
       </div>
-
       {/* Category Filter */}
       <div className="bg-white border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -223,7 +227,6 @@ export default function LMSCourses() {
           </div>
         </div>
       </div>
-
       {/* Courses Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -240,21 +243,18 @@ export default function LMSCourses() {
                   style={{ background: course.coverImage }}
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full p-4">
                     <Play className="h-8 w-8 text-blue-600 fill-blue-600" />
                   </div>
                 </div>
-
                 {/* Level Badge */}
                 <div className="absolute top-3 left-3">
                   <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">
                     {course.level}
                   </span>
                 </div>
-
                 {/* FREE Badge */}
                 <div className="absolute top-3 right-3">
                   <span className="bg-green-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -262,7 +262,6 @@ export default function LMSCourses() {
                   </span>
                 </div>
               </div>
-
               {/* Course Info */}
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -270,20 +269,16 @@ export default function LMSCourses() {
                     {categories.find((c) => c.id === course.category)?.name}
                   </span>
                 </div>
-
                 <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
                   {course.title}
                 </h3>
-
                 <p className="text-sm text-gray-600 mb-3 line-clamp-2">
                   {course.description}
                 </p>
-
                 <div className="flex items-center gap-1 text-xs text-gray-500 mb-3">
                   <Award className="h-3 w-3" />
                   <span>{course.instructor}</span>
                 </div>
-
                 <div className="flex items-center justify-between text-sm text-gray-600 pt-3 border-t border-gray-100">
                   <div className="flex items-center gap-1">
                     <BookOpen className="h-4 w-4" />
@@ -294,7 +289,6 @@ export default function LMSCourses() {
                     <span>{course.duration}</span>
                   </div>
                 </div>
-
                 <div className="flex items-center gap-1 text-xs text-gray-500 mt-2">
                   <Users className="h-3 w-3" />
                   <span>{course.students.toLocaleString()} students</span>
