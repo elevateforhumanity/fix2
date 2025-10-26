@@ -49,7 +49,7 @@ export const programs: Program[] = [
     name: 'Building Technician',
     tagline: 'Universal Multi-Trade Foundation Program',
     summary:
-      'Cross-trained foundations for facilities and field tech roles with pathways into specialized apprenticeships. This universal program covers multiple trades and prepares you for various career paths in the building trades.',
+      'Cross-trained foundations for facilities, maintenance, and field tech roles with pathways into specialized apprenticeships. This universal program covers multiple trades and prepares you for various career paths in the building trades, facilities management, and maintenance operations.',
     bullets: [
       'Electrical: circuits, panels, wiring, safety & code compliance',
       'Construction: framing, drywall, power tools, blueprints',
@@ -57,7 +57,10 @@ export const programs: Program[] = [
       'Plumbing: pipe fitting, fixtures, drainage systems',
       'Welding: MIG, TIG, stick welding fundamentals',
       'Carpentry: measuring, cutting, assembly, finish work',
+      'Janitorial: cleaning protocols, equipment operation, safety procedures',
+      'Maintenance: preventive maintenance, troubleshooting, repair basics',
       'OSHA-10 certification & workplace safety',
+      'Job roles: Electrician, HVAC Tech, Plumber, Welder, Carpenter, Maintenance Tech, Facilities Tech, Janitorial Supervisor',
       'Pathways to specialized apprenticeships in any trade',
     ],
     funding: ['WRG', 'WIOA', 'Employer Partners'],
