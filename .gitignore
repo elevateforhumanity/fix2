@@ -31,6 +31,11 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+.env.test
+*.env
+!.env.example
 
 # Testing
 coverage/
@@ -43,3 +48,28 @@ temp/
 *.tmp
 .env.render
 .pnpm-store/
+
+# Security - Never commit these
+*secret*
+*private*
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+id_rsa*
+id_dsa*
+*.asc
+*.gpg
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+database.json
+
+# Backup files
+*.bak
+*.backup
+*.old
+*~
