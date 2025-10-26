@@ -107,6 +107,7 @@
     "predev": "node tools/autopilot.mjs",
     "dev": "vite",
     "make:images": "python3 tools/make_brand_images.py",
+    "make:logo": "python3 tools/make_logo_assets.py",
     "prebuild": "node tools/autopilot.mjs",
     "build": "node scripts/check-env.js && vite build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/generate-dynamic-sitemap.mjs && node scripts/split-sitemap.mjs && node scripts/fix-broken-links.mjs && node scripts/fix-domain-urls.js && node scripts/update-canonical-urls.js && node scripts/no-source-maps.cjs && bash scripts/autopilot-verify-build.sh && node scripts/security-compliance-autopilot.mjs",
