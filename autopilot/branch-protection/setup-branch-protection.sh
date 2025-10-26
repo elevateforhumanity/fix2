@@ -3,7 +3,7 @@ set -euo pipefail
 
 : "${REPO_SLUG:=elevateforhumanity/fix2}"
 : "${BRANCH:=main}"
-: "${REQUIRED_CHECKS:=lhci (desktop),lhci (mobile)}"
+: "${REQUIRED_CHECKS:=build-test,check}"
 : "${REVIEWERS:=1}"
 : "${DISMISS_STALE:=true}"
 : "${ENFORCE_ADMINS:=true}"

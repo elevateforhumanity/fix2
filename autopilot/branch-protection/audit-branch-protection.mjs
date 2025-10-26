@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 const REPO_SLUG = process.env.REPO_SLUG || 'elevateforhumanity/fix2';
 const BRANCH = process.env.BRANCH || 'main';
-const REQUIRED = (process.env.REQUIRED_CHECKS || 'lhci (desktop),lhci (mobile)')
+const REQUIRED = (process.env.REQUIRED_CHECKS || 'build-test,check')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
