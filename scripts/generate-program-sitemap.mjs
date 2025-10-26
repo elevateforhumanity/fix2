@@ -18,8 +18,8 @@ const programSlugs = slugMatches.map((match) => match[1]);
 
 console.log('Found programs:', programSlugs);
 
-// Base domain
-const domain = 'https://elevateforhumanity.pages.dev';
+// Base domain - use primary domain for SEO
+const domain = 'https://elevateforhumanity.org';
 const now = new Date().toISOString();
 
 // Static pages with priorities
