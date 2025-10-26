@@ -65,6 +65,8 @@ class ErrorBoundary extends Component<
 // Lazy load pages for better performance
 const EFHLanding = lazy(() => import('./pages/EFHLanding'));
 const Programs = lazy(() => import('./pages/Programs.tsx'));
+const ProgramsPage = lazy(() => import('./pages/ProgramsPage'));
+const ProgramDetail = lazy(() => import('./pages/ProgramDetail'));
 const ProgramPage = lazy(() => import('./pages/ProgramPage'));
 const LMSCourses = lazy(() => import('./pages/LMSCourses'));
 const Dashboard = lazy(() => import('./pages/lms/Dashboard'));
@@ -157,8 +159,12 @@ export default function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<EFHLanding />} />
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/programs/:slug" element={<ProgramPage />} />
+              {/* New data-driven programs */}
+              <Route path="/programs" element={<ProgramsPage />} />
+              <Route path="/programs/:slug" element={<ProgramDetail />} />
+              {/* Legacy routes - keep for backwards compatibility */}
+              <Route path="/programs-old" element={<Programs />} />
+              <Route path="/program/:slug" element={<ProgramPage />} />
               {/* Auth Routes */}
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />

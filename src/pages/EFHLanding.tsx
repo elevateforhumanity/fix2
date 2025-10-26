@@ -1,3 +1,6 @@
+import ProgramCard from '../components/ProgramCard';
+import { programs } from '../data/programs';
+
 export default function EFHLanding() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -77,71 +80,10 @@ export default function EFHLanding() {
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Barber Apprenticeship */}
-            <article className="group rounded-2xl bg-white p-5 ring-1 ring-slate-200 hover:shadow-md transition">
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100">
-                <img
-                  src="/images/efh-barber-card.jpg"
-                  alt="Barber Apprenticeship — fades, braids, line-ups"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = `
-                      <div class="flex items-center justify-center h-full">
-                        <span class="text-sm text-slate-500">Add efh-barber-card.jpg to public/images/</span>
-                      </div>
-                    `;
-                  }}
-                />
-              </div>
-              <div className="mt-4">
-                <h4 className="text-xl font-bold text-slate-900">Barber Apprenticeship</h4>
-                <p className="mt-1 text-slate-600">2,000 hrs • Paid OJT • 144 hrs related instruction • State Board prep • Entrepreneurship</p>
-                <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span className="rounded-full bg-orange-50 px-2 py-1 text-orange-700 ring-1 ring-orange-200">State‑Approved</span>
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">Earn While You Learn</span>
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">WRG/WIOA Eligible</span>
-                </div>
-                <div className="mt-4 flex gap-3">
-                  <a href="/programs#barber" className="rounded-lg bg-orange-600 px-4 py-2 text-white font-semibold hover:bg-orange-700">Program Details</a>
-                  <a href="https://www.indianacareerconnect.com" className="rounded-lg border border-slate-300 px-4 py-2 font-semibold hover:border-slate-400">Apply</a>
-                </div>
-              </div>
-            </article>
-
-            {/* Building Technician */}
-            <article className="group rounded-2xl bg-white p-5 ring-1 ring-slate-200 hover:shadow-md transition">
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100">
-                <img
-                  src="/images/efh-building-card.jpg"
-                  alt="Building Technician — Electrical, Construction, HVAC"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = `
-                      <div class="flex items-center justify-center h-full">
-                        <span class="text-sm text-slate-500">Add efh-building-card.jpg to public/images/</span>
-                      </div>
-                    `;
-                  }}
-                />
-              </div>
-              <div className="mt-4">
-                <h4 className="text-xl font-bold text-slate-900">Building Technician</h4>
-                <p className="mt-1 text-slate-600">Electrical • Construction • HVAC • OSHA‑10 • Employer placement • Apprenticeship pathways</p>
-                <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span className="rounded-full bg-orange-50 px-2 py-1 text-orange-700 ring-1 ring-orange-200">State‑Approved</span>
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">Hands‑On</span>
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">WRG/WIOA Eligible</span>
-                </div>
-                <div className="mt-4 flex gap-3">
-                  <a href="/programs#building" className="rounded-lg bg-orange-600 px-4 py-2 text-white font-semibold hover:bg-orange-700">Program Details</a>
-                  <a href="https://www.indianacareerconnect.com" className="rounded-lg border border-slate-300 px-4 py-2 font-semibold hover:border-slate-400">Apply</a>
-                </div>
-              </div>
-            </article>
+            {/* Show first 2 programs from data */}
+            {programs.slice(0, 2).map((p) => (
+              <ProgramCard key={p.slug} p={p} />
+            ))}
           </div>
         </div>
       </section>
