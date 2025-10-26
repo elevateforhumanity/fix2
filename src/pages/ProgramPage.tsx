@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getProgramBySlug, type Program } from '../services/programs';
 import { listCoursesByProgram, type Course } from '../services/courses';
 
+const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 'https://www.indianacareerconnect.com';
+
 export default function ProgramPage() {
   const { slug } = useParams();
   const [program, setProgram] = useState<Program | null>(null);
@@ -75,7 +77,12 @@ export default function ProgramPage() {
               <p className="mt-3 text-brand-text-muted">{program.blurb}</p>
             )}
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href="/apply" className="btn text-lg px-6 py-3">
+              <a 
+                href={APPLICATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn text-lg px-6 py-3"
+              >
                 Apply Now (It's Free!) →
               </a>
               <a href="/contact" className="btn-outline text-lg px-6 py-3">
