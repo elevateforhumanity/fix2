@@ -72,8 +72,7 @@ export default function EFHLanding() {
                 </a>
               </div>
               <p className="mt-3 text-xs text-brand-text-light">
-                Funding streams supported: WIOA • WRG • WEX • OJT •
-                Apprenticeship
+                Start with Indiana Career Connect • Funding: WIOA • WRG • WEX • OJT • Apprenticeship
               </p>
             </div>
             <div className="relative">

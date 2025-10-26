@@ -1,8 +1,15 @@
-# Google Form Application Setup
+# Application Process Setup
 
 ## Overview
 
-All "Apply Now" buttons throughout the site can be configured to link to your Google Form for program applications.
+**Indiana Career Connect is the first step** for all state and federal workforce programs. All "Apply Now" buttons throughout the site link to Indiana Career Connect by default, which is the official gateway for:
+
+- WIOA (Workforce Innovation and Opportunity Act) funding
+- WRG (Workforce Ready Grant) programs
+- State apprenticeship programs
+- Federal workforce development initiatives
+
+You can optionally configure a Google Form for additional pre-screening or information gathering.
 
 ## Setup Instructions
 
@@ -44,13 +51,21 @@ All "Apply Now" buttons throughout the site can be configured to link to your Go
 5. Click **Save**
 6. Trigger a new deployment
 
-## Default Behavior
+## Default Behavior (Recommended)
 
-If no Google Form URL is configured, the "Apply Now" buttons will default to:
+**By default**, all "Apply Now" buttons link to:
 
 ```
 https://www.indianacareerconnect.com
 ```
+
+**This is the required first step** for applicants to:
+1. Create an Indiana Career Connect account
+2. Access state and federal funding (WIOA, WRG, etc.)
+3. Connect with workforce development resources
+4. Begin the official enrollment process
+
+**This default should remain unchanged** unless you have a specific pre-screening process.
 
 ## Where the Apply Button Appears
 
