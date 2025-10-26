@@ -2,7 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { programs } from '../data/programs';
 
-const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 'https://www.indianacareerconnect.com';
+const APPLICATION_URL =
+  import.meta.env.VITE_APPLICATION_FORM_URL ||
+  'https://www.indianacareerconnect.com';
 
 export default function ProgramDetail() {
   const { slug } = useParams();

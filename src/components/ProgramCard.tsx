@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import type { Program } from '../data/programs';
 
-const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 'https://www.indianacareerconnect.com';
+const APPLICATION_URL =
+  import.meta.env.VITE_APPLICATION_FORM_URL ||
+  'https://www.indianacareerconnect.com';
 
 export default function ProgramCard({ p }: { p: Program }) {
   return (

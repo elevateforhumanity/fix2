@@ -16,8 +16,8 @@ export default function ProgramsPage() {
                 Our Programs
               </h1>
               <p className="mt-4 text-lg text-brand-text-muted leading-relaxed">
-                State-funded pathways with real employer partners and paid on-the-job
-                training. Start your career without the debt.
+                State-funded pathways with real employer partners and paid
+                on-the-job training. Start your career without the debt.
               </p>
               <div className="mt-6 flex flex-wrap gap-2 text-sm">
                 <span className="rounded-full bg-white px-3 py-1 text-brand-text font-medium shadow-sm">
@@ -45,7 +45,6 @@ export default function ProgramsPage() {
           </div>
         </div>
       </section>
-
       {/* Programs Grid */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
