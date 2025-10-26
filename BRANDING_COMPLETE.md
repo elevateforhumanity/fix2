@@ -9,12 +9,14 @@ Complete unified branding system for Elevate for Humanity with professional post
 ### 1. Unified Program Poster System ✅
 
 **Generated**: 27 professional program posters
+
 - 9 programs × 3 variants each
 - Hero images (1200×900) for banners
 - Card images (1600×900) for program grids
 - OG images (1200×630) for social media
 
 **Brand Elements**:
+
 - Orange border (#FF6600)
 - Navy text (#0B2545)
 - White background
@@ -24,6 +26,7 @@ Complete unified branding system for Elevate for Humanity with professional post
 - 2×2 photo collage layout with realistic descriptions
 
 **Programs Covered**:
+
 1. Barber Apprenticeship Program
 2. Building Services Technician
 3. Certified Nursing Assistant (CNA)
@@ -39,12 +42,14 @@ Complete unified branding system for Elevate for Humanity with professional post
 **Script**: `tools/make_logo_assets.py`
 
 **Generates**:
+
 - Favicons (PNG + ICO format)
 - Apple touch icon (180×180)
 - Logo variants (1024, 512, 256, 128, 64px)
 - OG social media banner (1200×630)
 
 **Features**:
+
 - Preserves Empowerment Center ring
 - Maintains aspect ratio
 - Optimized for web
@@ -54,6 +59,7 @@ Complete unified branding system for Elevate for Humanity with professional post
 ### 3. Hero Images & Banners ✅
 
 **Generated**:
+
 - Main hero banner (1920×600)
 - Programs page banner (1920×400)
 - CTA banner (1200×300)
@@ -64,6 +70,7 @@ Complete unified branding system for Elevate for Humanity with professional post
 ### 4. Google Form Integration ✅
 
 **Feature**: Configurable application form URL
+
 - Environment variable: `VITE_APPLICATION_FORM_URL`
 - Fallback to Indiana Career Connect
 - Opens in new tab with proper security attributes
@@ -72,12 +79,14 @@ Complete unified branding system for Elevate for Humanity with professional post
 ### 5. Visual Polish Enhancements ✅
 
 **Homepage**:
+
 - Professional hero banner with gradient
 - Polished imagery throughout
 - Enhanced Programs page with hero section
 - Improved visual hierarchy
 
 **Programs Page**:
+
 - Hero banner section
 - Professional card layouts
 - Consistent branding
@@ -121,12 +130,12 @@ npm run make:logo
 
 ## 🎯 Brand Colors
 
-| Color | Hex | RGB | Usage |
-|-------|-----|-----|-------|
-| Navy | #0B2545 | (11, 37, 69) | Primary text, headers |
-| Orange | #FF6600 | (255, 102, 0) | Accents, borders, CTAs |
-| White | #FFFFFF | (255, 255, 255) | Backgrounds |
-| Light Gray | #F8FAFCF | (248, 250, 252) | Subtle backgrounds |
+| Color      | Hex      | RGB             | Usage                  |
+| ---------- | -------- | --------------- | ---------------------- |
+| Navy       | #0B2545  | (11, 37, 69)    | Primary text, headers  |
+| Orange     | #FF6600  | (255, 102, 0)   | Accents, borders, CTAs |
+| White      | #FFFFFF  | (255, 255, 255) | Backgrounds            |
+| Light Gray | #F8FAFCF | (248, 250, 252) | Subtle backgrounds     |
 
 ## 📝 Typography
 
@@ -140,6 +149,7 @@ All fonts are Gitpod-safe system fonts.
 ## 🚀 Deployment Status
 
 ### ✅ Completed
+
 - [x] Unified poster system
 - [x] Hero images generated
 - [x] Logo asset generator created
@@ -150,6 +160,7 @@ All fonts are Gitpod-safe system fonts.
 - [x] Git commits made
 
 ### ⏳ Pending
+
 - [ ] Upload EFH logo to `assets/efh-logo-source.png`
 - [ ] Run `npm run make:logo` to generate logo assets
 - [ ] Update HTML `<head>` with favicon links (optional)
@@ -165,18 +176,21 @@ All fonts are Gitpod-safe system fonts.
 ## 🔄 Workflow
 
 ### For New Programs
+
 1. Add program to `tools/make_brand_images.py` PROGRAMS array
 2. Run `npm run make:images`
 3. Add program to `src/data/programs.ts`
 4. Commit and deploy
 
 ### For Logo Updates
+
 1. Place new logo at `assets/efh-logo-source.png`
 2. Run `npm run make:logo`
 3. Commit generated assets
 4. Deploy
 
 ### For Visual Updates
+
 1. Edit poster generator script
 2. Regenerate images
 3. Test in preview
@@ -185,6 +199,7 @@ All fonts are Gitpod-safe system fonts.
 ## 🎓 LMS Integration
 
 **Milady Certification**: Already integrated in LMS
+
 - Location: `scripts/utilities/dual-certificate-system.js`
 - Template: `certificates/templates/milady-template.html`
 - Colors: Primary #8b1538, Secondary #f4c2c2
@@ -207,6 +222,7 @@ All fonts are Gitpod-safe system fonts.
 ## 📞 Support
 
 For questions or issues:
+
 - Check documentation files
 - Review script comments
 - Test locally before deploying

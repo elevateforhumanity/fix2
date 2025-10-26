@@ -2,6 +2,8 @@ import { PropsWithChildren } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ChatAssistant from '../components/ChatAssistant';
 
+const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 'https://www.indianacareerconnect.com';
+
 export default function SiteLayout({ children }: PropsWithChildren) {
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -39,9 +41,14 @@ export default function SiteLayout({ children }: PropsWithChildren) {
               >
                 Sign In
               </Link>
-              <Link to="/apply" className="btn">
+              <a 
+                href={APPLICATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+              >
                 Apply Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>

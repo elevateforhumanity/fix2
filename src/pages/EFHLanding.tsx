@@ -39,9 +39,9 @@ export default function EFHLanding() {
         </div>
       </header>
       {/* Heritage hero banner */}
-      <section className="relative">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="relative bg-gradient-to-br from-orange-50 via-white to-white">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-200">
                 Indiana • Workforce Development
@@ -72,7 +72,8 @@ export default function EFHLanding() {
                 </a>
               </div>
               <p className="mt-3 text-xs text-brand-text-light">
-                Start with Indiana Career Connect • Funding: WIOA • WRG • WEX • OJT • Apprenticeship
+                Start with Indiana Career Connect • Funding: WIOA • WRG • WEX •
+                OJT • Apprenticeship
               </p>
             </div>
             <div className="relative">

@@ -60,6 +60,7 @@ https://www.indianacareerconnect.com
 ```
 
 **This is the required first step** for applicants to:
+
 1. Create an Indiana Career Connect account
 2. Access state and federal funding (WIOA, WRG, etc.)
 3. Connect with workforce development resources

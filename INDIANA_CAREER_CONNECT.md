@@ -23,28 +23,33 @@ Indiana Career Connect is the state's comprehensive workforce development platfo
 ## 💰 Funding Programs Available
 
 ### 1. WIOA (Workforce Innovation and Opportunity Act)
+
 - Federal workforce development funding
 - Covers training costs for eligible individuals
 - Requires Indiana Career Connect account
 - Income and eligibility requirements apply
 
 ### 2. WRG (Workforce Ready Grant)
+
 - Indiana state-funded program
 - Covers tuition for high-demand careers
 - Must be Indiana resident
 - Requires Indiana Career Connect registration
 
 ### 3. WEX (Work Experience)
+
 - Paid work experience programs
 - On-the-job training opportunities
 - Employer partnerships
 
 ### 4. OJT (On-the-Job Training)
+
 - Employer-sponsored training
 - Earn while you learn
 - Direct placement opportunities
 
 ### 5. Registered Apprenticeships
+
 - DOL-approved apprenticeship programs
 - Structured training + employment
 - Industry-recognized credentials
@@ -52,28 +57,36 @@ Indiana Career Connect is the state's comprehensive workforce development platfo
 ## 🚀 Application Process
 
 ### Step 1: Create Indiana Career Connect Account
+
 Applicants must first register at indianacareerconnect.com to:
+
 - Create their profile
 - Complete eligibility assessments
 - Access funding applications
 - Connect with case managers
 
 ### Step 2: Meet with Workforce Advisor
+
 After registration, applicants:
+
 - Schedule appointment with local WorkOne office
 - Discuss career goals and training options
 - Determine funding eligibility
 - Create Individual Employment Plan (IEP)
 
 ### Step 3: Select Training Program
+
 With advisor guidance:
+
 - Choose from approved training providers (EFH is approved)
 - Select specific program/certification
 - Submit funding application
 - Receive approval
 
 ### Step 4: Enroll at EFH
+
 Once approved:
+
 - Contact EFH directly
 - Complete enrollment paperwork
 - Begin training
@@ -115,46 +128,57 @@ All EFH programs are eligible for state and federal funding through Indiana Care
 Applicants should visit their local WorkOne office for in-person assistance:
 
 ### Indianapolis Region
+
 - **WorkOne Indianapolis**
   - Multiple locations throughout Marion County
   - Career counseling and funding assistance
   - Computer access for applications
 
 ### Statewide
+
 - WorkOne offices in all 92 Indiana counties
 - Find nearest location: https://www.in.gov/dwd/workone-centers/
 
 ## 🔄 Integration with EFH Website
 
 ### Apply Now Buttons
+
 All "Apply Now" buttons on the EFH website:
+
 - Link directly to Indiana Career Connect
 - Open in new tab for user convenience
 - Include proper security attributes (rel="noopener noreferrer")
 
 ### Locations
+
 - Homepage hero section
 - Programs page (each program card)
 - Individual program detail pages
 - Footer call-to-action
 
 ### Technical Implementation
+
 ```javascript
-const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || 
-                       'https://www.indianacareerconnect.com';
+const APPLICATION_URL =
+  import.meta.env.VITE_APPLICATION_FORM_URL ||
+  'https://www.indianacareerconnect.com';
 ```
 
 ## 📊 Reporting & Compliance
 
 ### For EFH
+
 As an approved training provider, EFH must:
+
 - Report student enrollment to Indiana Career Connect
 - Track attendance and progress
 - Submit completion data
 - Maintain compliance with state requirements
 
 ### For Students
+
 Students funded through Indiana Career Connect must:
+
 - Maintain satisfactory progress
 - Meet attendance requirements
 - Complete program within approved timeframe
@@ -163,14 +187,18 @@ Students funded through Indiana Career Connect must:
 ## 🎓 Credentials & Verification
 
 ### Industry-Recognized Credentials
+
 All EFH programs lead to:
+
 - State licensure (where applicable)
 - Industry certifications
 - Stackable credentials
 - Portable credentials recognized nationwide
 
 ### Verification
+
 Credentials earned through EFH programs are:
+
 - Recorded in Indiana Career Connect system
 - Accessible to employers
 - Verifiable online
@@ -179,14 +207,18 @@ Credentials earned through EFH programs are:
 ## 💼 Employer Partnerships
 
 ### For Employers
+
 Indiana Career Connect enables employers to:
+
 - Post job openings
 - Search qualified candidates
 - Access training grants
 - Partner with training providers
 
 ### EFH Employer Network
+
 EFH maintains partnerships with employers who:
+
 - Hire program graduates
 - Provide OJT opportunities
 - Sponsor apprenticeships
@@ -195,11 +227,13 @@ EFH maintains partnerships with employers who:
 ## 📞 Support & Resources
 
 ### For Applicants
+
 - **Indiana Career Connect Support**: Contact through website
 - **WorkOne Centers**: In-person assistance
 - **EFH Admissions**: (Contact info to be added)
 
 ### For Current Students
+
 - **Case Manager**: Assigned through WorkOne
 - **EFH Student Services**: Program-specific support
 - **Financial Aid Office**: Funding questions
@@ -207,6 +241,7 @@ EFH maintains partnerships with employers who:
 ## ✅ Best Practices
 
 ### For Applicants
+
 1. **Start early** - Registration and approval takes time
 2. **Gather documents** - ID, income verification, etc.
 3. **Attend appointments** - Meet with advisor promptly
@@ -214,6 +249,7 @@ EFH maintains partnerships with employers who:
 5. **Complete requirements** - Follow through on all steps
 
 ### For EFH Staff
+
 1. **Verify eligibility** - Confirm funding approval before enrollment
 2. **Track progress** - Report to Indiana Career Connect regularly
 3. **Maintain compliance** - Follow all state requirements
@@ -223,12 +259,14 @@ EFH maintains partnerships with employers who:
 ## 🔐 Privacy & Security
 
 ### Data Protection
+
 - Indiana Career Connect maintains secure student data
 - FERPA compliance for educational records
 - Confidential case management
 - Secure document upload
 
 ### Information Sharing
+
 - EFH shares only required data with Indiana Career Connect
 - Students control their profile information
 - Employers see only approved information
@@ -237,7 +275,9 @@ EFH maintains partnerships with employers who:
 ## 📈 Success Metrics
 
 ### Program Outcomes
+
 Indiana Career Connect tracks:
+
 - Enrollment rates
 - Completion rates
 - Credential attainment
@@ -245,7 +285,9 @@ Indiana Career Connect tracks:
 - Wage gains
 
 ### EFH Performance
+
 As an approved provider, EFH reports:
+
 - Student progress
 - Completion rates
 - Credential attainment
@@ -255,6 +297,7 @@ As an approved provider, EFH reports:
 ## 🚀 Future Enhancements
 
 ### Planned Improvements
+
 - Direct API integration with Indiana Career Connect
 - Real-time enrollment status updates
 - Automated progress reporting
