@@ -23,7 +23,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        landing: path.resolve(__dirname, 'index-landing.html'),
+        landing: path.resolve(__dirname, 'public/index-landing.html'),
       },
       output: {
         manualChunks: {
