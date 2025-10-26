@@ -9,16 +9,19 @@ Professional branded posters for all 9 programs with consistent visual identity 
 Every poster includes:
 
 ### Header Section
+
 - **ELEVATE FOR HUMANITY** (DejaVu Serif Bold)
 - Career & Technical Institute
 - "Career & Technical Training That Elevates Communities"
 
 ### Middle Section
+
 - Full-color, realistic photo collage (2×2 grid)
 - Program name in bold navy
 - Orange tagline directly below the title
 
 ### Footer Section
+
 - Learn, Grow, Achieve
 - www.elevateforhumanity.org
 
@@ -39,25 +42,25 @@ All fonts are Gitpod-safe with no external dependencies.
 
 ## 🎓 Programs (9 Posters)
 
-| # | Program Title | Tagline | Visual Focus |
-|---|---------------|---------|--------------|
-| 1 | Barber Apprenticeship Program | Start Your Career in the Barbering Industry | Barbers, clients, tools |
-| 2 | Building Services Technician | Construction • Electrical • HVAC Training | Workers in safety gear, wiring |
-| 3 | Certified Nursing Assistant (CNA) | Launch a Career in Healthcare | Students in scrubs, caregiving |
-| 4 | CPR, AED & First Aid Certification | Learn to Save Lives with Confidence | Hands-on CPR mannequin |
-| 5 | Business Start-Up & Marketing | Turn Your Vision Into a Business | Entrepreneurial classroom |
-| 6 | Tax Office Startup | Become a Certified Tax Professional | Students at computers |
-| 7 | Professional Esthetician & Client Services | Train for Beauty & Wellness Careers | Skincare and salon scenes |
-| 8 | Beauty & Career Educator Program | Lead & Inspire the Next Generation | Instructor teaching students |
-| 9 | Public Safety Reentry Specialist | Empower Returning Citizens for Success | Mentoring, workforce programs |
+| #   | Program Title                              | Tagline                                     | Visual Focus                   |
+| --- | ------------------------------------------ | ------------------------------------------- | ------------------------------ |
+| 1   | Barber Apprenticeship Program              | Start Your Career in the Barbering Industry | Barbers, clients, tools        |
+| 2   | Building Services Technician               | Construction • Electrical • HVAC Training   | Workers in safety gear, wiring |
+| 3   | Certified Nursing Assistant (CNA)          | Launch a Career in Healthcare               | Students in scrubs, caregiving |
+| 4   | CPR, AED & First Aid Certification         | Learn to Save Lives with Confidence         | Hands-on CPR mannequin         |
+| 5   | Business Start-Up & Marketing              | Turn Your Vision Into a Business            | Entrepreneurial classroom      |
+| 6   | Tax Office Startup                         | Become a Certified Tax Professional         | Students at computers          |
+| 7   | Professional Esthetician & Client Services | Train for Beauty & Wellness Careers         | Skincare and salon scenes      |
+| 8   | Beauty & Career Educator Program           | Lead & Inspire the Next Generation          | Instructor teaching students   |
+| 9   | Public Safety Reentry Specialist           | Empower Returning Citizens for Success      | Mentoring, workforce programs  |
 
 ## 📐 Image Sizes Generated
 
-| Type | Dimensions | Use |
-|------|------------|-----|
+| Type | Dimensions  | Use                                |
+| ---- | ----------- | ---------------------------------- |
 | Hero | 1200×900 px | Site banners, program detail pages |
-| Card | 1600×900 px | Program grid cards, listings |
-| OG | 1200×630 px | Social media previews (Open Graph) |
+| Card | 1600×900 px | Program grid cards, listings       |
+| OG   | 1200×630 px | Social media previews (Open Graph) |
 
 ## 📁 Output Directory
 
@@ -107,6 +110,7 @@ This runs `tools/make_brand_images.py` which generates all 27 images with consis
 ### Automatic Regeneration
 
 Images can be regenerated automatically during:
+
 - Local development builds
 - CI/CD pipelines
 - Netlify deployments
@@ -133,7 +137,7 @@ To modify the poster design:
 - **Quality**: 95% (optimized)
 - **Color Space**: RGB
 - **Compression**: Optimized for web
-- **Average File Size**: 
+- **Average File Size**:
   - Hero: ~150KB
   - Card: ~165KB
   - OG: ~130KB
@@ -154,6 +158,7 @@ To modify the poster design:
 ## 🚀 Deployment
 
 Images are automatically included in the build and deployed to:
+
 - Netlify: `public/images/programs/`
 - Production URL: `https://elevateforhumanity.org/images/programs/`
 
