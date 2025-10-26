@@ -1,18 +1,3 @@
 User-agent: *
 Allow: /
-
-# Sitemap (primary domain)
-Sitemap: https://elevateforhumanity.org/sitemap.xml
-
-# Disallow admin and auth pages
-Disallow: /admin/
-Disallow: /login
-Disallow: /signup
-Disallow: /profile
-
-# Allow program pages
-Allow: /programs/
-Allow: /program/
-
-# Allow LMS public pages
-Allow: /lms/courses
+Sitemap: https://elevateforhumanity.pages.dev/sitemap.xml

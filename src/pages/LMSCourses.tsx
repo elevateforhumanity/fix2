@@ -194,14 +194,14 @@ export default function LMSCourses() {
       : courses.filter((course) => course.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-brand-surface">
       {/* Hero Section */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-brand-text mb-4">
             Explore Our Courses
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-brand-text-muted max-w-3xl">
             Choose from 100+ industry-recognized certification programs. All
             courses are 100% free with federal funding.
           </p>
@@ -217,8 +217,8 @@ export default function LMSCourses() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-brand-info text-white shadow-md'
+                    : 'bg-brand-surface-dark text-brand-text hover:bg-brand-border'
                 }`}
               >
                 {category.name} ({category.count})
@@ -246,12 +246,12 @@ export default function LMSCourses() {
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full p-4">
-                    <Play className="h-8 w-8 text-blue-600 fill-blue-600" />
+                    <Play className="h-8 w-8 text-brand-info fill-blue-600" />
                   </div>
                 </div>
                 {/* Level Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">
+                  <span className="bg-white/90 backdrop-blur-sm text-brand-text text-xs font-semibold px-3 py-1 rounded-full">
                     {course.level}
                   </span>
                 </div>
@@ -265,21 +265,21 @@ export default function LMSCourses() {
               {/* Course Info */}
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">
+                  <span className="text-xs font-medium text-brand-info uppercase tracking-wide">
                     {categories.find((c) => c.id === course.category)?.name}
                   </span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-semibold text-brand-text mb-2 line-clamp-2 group-hover:text-brand-info transition-colors">
                   {course.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                <p className="text-sm text-brand-text-muted mb-3 line-clamp-2">
                   {course.description}
                 </p>
-                <div className="flex items-center gap-1 text-xs text-gray-500 mb-3">
+                <div className="flex items-center gap-1 text-xs text-brand-text-light mb-3">
                   <Award className="h-3 w-3" />
                   <span>{course.instructor}</span>
                 </div>
-                <div className="flex items-center justify-between text-sm text-gray-600 pt-3 border-t border-gray-100">
+                <div className="flex items-center justify-between text-sm text-brand-text-muted pt-3 border-t border-gray-100">
                   <div className="flex items-center gap-1">
                     <BookOpen className="h-4 w-4" />
                     <span>{course.lessons} lessons</span>
@@ -289,7 +289,7 @@ export default function LMSCourses() {
                     <span>{course.duration}</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-xs text-gray-500 mt-2">
+                <div className="flex items-center gap-1 text-xs text-brand-text-light mt-2">
                   <Users className="h-3 w-3" />
                   <span>{course.students.toLocaleString()} students</span>
                 </div>

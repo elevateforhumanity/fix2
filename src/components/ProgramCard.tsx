@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import type { Program } from '../data/programs';
 
+const APPLICATION_URL =
+  import.meta.env.VITE_APPLICATION_FORM_URL ||
+  'https://www.indianacareerconnect.com';
+
 export default function ProgramCard({ p }: { p: Program }) {
   return (
     <article className="group rounded-2xl bg-white p-5 ring-1 ring-slate-200 hover:shadow-md transition">
@@ -13,17 +17,17 @@ export default function ProgramCard({ p }: { p: Program }) {
           onError={(e) => {
             e.currentTarget.style.display = 'none';
             e.currentTarget.parentElement!.innerHTML = `
-              <div class="flex items-center justify-center h-full bg-gray-100">
-                <span class="text-sm text-slate-500">Add ${p.slug} image</span>
+              <div class="flex items-center justify-center h-full bg-brand-surface-dark">
+                <span class="text-sm text-brand-text-light">Add ${p.slug} image</span>
               </div>
             `;
           }}
         />
       </div>
       <div className="mt-4">
-        <h4 className="text-xl font-bold text-slate-900">{p.name}</h4>
-        <p className="mt-1 text-slate-600">{p.tagline}</p>
-        <ul className="mt-3 list-disc pl-5 text-sm text-slate-600 space-y-1">
+        <h4 className="text-xl font-bold text-brand-text">{p.name}</h4>
+        <p className="mt-1 text-brand-text-muted">{p.tagline}</p>
+        <ul className="mt-3 list-disc pl-5 text-sm text-brand-text-muted space-y-1">
           {p.bullets.map((b, i) => (
             <li key={i}>{b}</li>
           ))}
@@ -46,10 +50,12 @@ export default function ProgramCard({ p }: { p: Program }) {
             Program Details
           </Link>
           <a
-            href="https://www.indianacareerconnect.com"
-            className="rounded-lg border border-slate-300 px-4 py-2 font-semibold hover:border-slate-400"
+            href={APPLICATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-brand-border-dark px-4 py-2 font-semibold hover:border-slate-400"
           >
-            {p.cta ?? 'Apply'}
+            {p.cta ?? 'Apply Now'}
           </a>
         </div>
       </div>

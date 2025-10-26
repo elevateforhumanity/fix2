@@ -1,192 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://elevateforhumanity.org/</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/programs/placeholder.jpg</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/placeholder.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/get-started</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/get-started</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/apply</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/apply</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/connect</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/connect</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/analytics</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/analytics</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/donate</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/donate</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/federal-apprenticeships</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/federal-apprenticeships</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/about</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/analytics.html</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/assets/og/efh-hero.png</image:loc></image:image>
+    <priority>0.5</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/barber</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/cna-hha</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-barber-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/cna.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/program/barber</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/welding-aws</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-barber-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/welding.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/building-tech</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/nail-tech</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-building-tech-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/nails.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/program/building-tech</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/cdl</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-building-tech-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/cdl.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/cna</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/office-tech</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-cna-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/office.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/program/cna</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
+    <loc>https://elevateforhumanity.pages.dev/programs/osha10</loc>
+    <lastmod>2025-10-26T21:36:40.369Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-cna-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/cpr-aed-first-aid</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-cpr-aed-first-aid-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/cpr-aed-first-aid</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-cpr-aed-first-aid-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/business-startup-marketing</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-business-startup-marketing-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/business-startup-marketing</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-business-startup-marketing-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/tax-office-startup</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-tax-office-startup-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/tax-office-startup</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-tax-office-startup-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/esthetician-client-services</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-esthetician-client-services-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/esthetician-client-services</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-esthetician-client-services-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/beauty-career-educator</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-beauty-career-educator-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/beauty-career-educator</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-beauty-career-educator-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/programs/public-safety-reentry</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-public-safety-reentry-card.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://elevateforhumanity.org/program/public-safety-reentry</loc>
-    <lastmod>2025-10-26T17:28:24.404Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image><image:loc>https://elevateforhumanity.org/images/programs/efh-public-safety-reentry-card.jpg</image:loc></image:image>
+    <priority>0.75</priority>
+    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/osha.jpg</image:loc></image:image>
   </url>
 </urlset>

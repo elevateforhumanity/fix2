@@ -79,6 +79,7 @@ The "Branch Protection Guard" workflow continuously monitors protection settings
 - **Auto-updates:** Adds comment to existing issue if already open
 
 **Manual audit:**
+
 ```bash
 REPO_SLUG=elevateforhumanity/fix2 BRANCH=main GITHUB_TOKEN=$GH_TOKEN \
 node autopilot/branch-protection/audit-branch-protection.mjs
@@ -89,6 +90,7 @@ node autopilot/branch-protection/audit-branch-protection.mjs
 ### Bypassing checks (emergency only)
 
 If you need to bypass checks temporarily:
+
 1. Go to Settings → Branches → Edit rule
 2. Uncheck "Do not allow bypassing the above settings"
 3. Admins can then force-merge
