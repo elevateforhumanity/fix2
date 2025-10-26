@@ -67,35 +67,5 @@ export const programs: Program[] = [
 
 
 
-  {
-    slug: 'digital-marketing',
-    name: 'Digital Marketing',
-    tagline: 'Content • Ads • Analytics',
-    summary:
-      'Practical marketing skills for small business—social, search, email, and analytics with real campaigns.',
-    bullets: [
-      'Social & content strategy',
-      'Search & paid ads basics',
-      'Analytics & reporting',
-    ],
-    funding: ['WRG', 'WIOA'],
-    heroSrc: '/images/efh-dm-hero.jpg',
-    cardSrc: '/images/efh-dm-card.jpg',
-  },
 
-  {
-    slug: 'tax-office',
-    name: 'Tax Office Startup',
-    tagline: 'Launch • Operate • Grow',
-    summary:
-      'Learn the essentials to open and operate a compliant, client-ready tax preparation practice.',
-    bullets: [
-      'Intake & compliance workflows',
-      'Software & e-file setup',
-      'Client experience & growth plan',
-    ],
-    funding: ['WRG', 'WIOA'],
-    heroSrc: '/images/efh-tax-hero.jpg',
-    cardSrc: '/images/efh-tax-card.jpg',
-  },
 ];
