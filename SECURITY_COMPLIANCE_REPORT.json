@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-10-26T14:13:04.903Z",
+  "status": "COMPLIANT",
+  "issuesFound": 0,
+  "checks": {
+    "securityHeaders": "CHECKED",
+    "antiScraping": "CHECKED",
+    "watermark": "CHECKED",
+    "dolCompliance": "CHECKED",
+    "duplicationProtection": "CHECKED",
+    "sslConfiguration": "CHECKED",
+    "dataProtection": "CHECKED"
+  },
+  "militaryGrade": true,
+  "dolDoeCompliant": true,
+  "antiScrapingEnabled": true,
+  "watermarkVerified": true
+}
