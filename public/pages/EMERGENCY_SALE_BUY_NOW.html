@@ -327,10 +327,10 @@
     </div>
 
     <script>
-      // Initialize Stripe
+      // Initialize Stripe - Use environment variable
       const stripe = Stripe(
-        'pk_live_51QKf1pLnR5uCr7QFPRO67YbLsefbX0z9pJCjR0g3QH3WGbqxNIgNNDnHfTGhEZSY9gCrR9KbKxGqKxVn8FtJd1x00XYpMBqCf'
-      ); // Replace with your publishable key
+        window.STRIPE_PUBLISHABLE_KEY || 'pk_test_placeholder'
+      ); // Set STRIPE_PUBLISHABLE_KEY in your environment
 
       // Countdown timer
       function startCountdown() {
