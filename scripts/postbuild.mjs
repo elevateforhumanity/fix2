@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { ROUTES } from '../routes.config.mjs';
@@ -73,6 +73,15 @@ async function verificationFiles() {
 (async () => {
   await mkdir(distDir, { recursive: true });
   await Promise.all([buildSitemap(), buildRobots(), verificationFiles()]);
+  
+  // Copy static landing page
+  const landingSource = path.resolve('public/index-landing.html');
+  const landingDest = path.join(distDir, 'index-landing.html');
+  if (existsSync(landingSource)) {
+    await copyFile(landingSource, landingDest);
+    console.log('Copied index-landing.html to dist/');
+  }
+  
   console.log(
     `Postbuild: sitemap.xml (${routesForSitemap.length} routes), robots.txt, verification files done.`
   );
