@@ -3,15 +3,15 @@ import { useParams, Link } from 'react-router-dom';
 import { getProgramBySlug, type Program } from '../services/programs';
 import { listCoursesByProgram, type Course } from '../services/courses';
 
-const APPLICATION_URL =
-  import.meta.env.VITE_APPLICATION_FORM_URL ||
-  'https://www.indianacareerconnect.com';
+const GOOGLE_FORM_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
+const INDIANA_CAREER_CONNECT_URL = 'https://www.indianacareerconnect.com';
 
 export default function ProgramPage() {
   const { slug } = useParams();
   const [program, setProgram] = useState<Program | null>(null);
   const [courses, setCourses] = useState<Course[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [applicationUrl, setApplicationUrl] = useState<string>(GOOGLE_FORM_URL);
 
   useEffect(() => {
     if (!slug) return;
@@ -21,6 +21,11 @@ export default function ProgramPage() {
         setProgram(p);
         const cs = await listCoursesByProgram(p.id);
         setCourses(cs);
+        
+        // Check if program requires Indiana Career Connect (state/federal funding)
+        // For now, use Google Form for all programs since we don't have funding data in Supabase
+        // TODO: Add funding column to programs table in Supabase
+        setApplicationUrl(GOOGLE_FORM_URL);
       } catch (e: any) {
         setError(e.message);
       }
@@ -80,7 +85,7 @@ export default function ProgramPage() {
             )}
             <div className="mt-5 flex flex-wrap gap-3">
               <a
-                href={APPLICATION_URL}
+                href={applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn text-lg px-6 py-3"
