@@ -254,26 +254,29 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-brand-text mb-3">Legal</h4>
+              <h4 className="font-semibold text-brand-text mb-3">Contact</h4>
               <ul className="space-y-2 text-sm text-brand-text-muted">
                 <li>
+                  <a href="tel:+13173143757" className="hover:text-brand-600">
+                    📞 (317) 314-3757
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@elevateforhumanity.org" className="hover:text-brand-600">
+                    ✉️ info@elevateforhumanity.org
+                  </a>
+                </li>
+                <li>
+                  <span>📍 Indianapolis, IN</span>
+                </li>
+                <li className="pt-2">
                   <Link to="/privacy-policy" className="hover:text-brand-600">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link to="/terms-of-service" className="hover:text-brand-600">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/refund-policy" className="hover:text-brand-600">
-                    Refund Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/accessibility" className="hover:text-brand-600">
-                    Accessibility
+                    Terms
                   </Link>
                 </li>
               </ul>
