@@ -1,6 +1,11 @@
 /**
  * REVENUE SPLIT SYSTEM
  * Automated 50/50 revenue sharing with credentialing partners
+ * 
+ * REVENUE MODEL:
+ * - Self-Pay Programs: 50% EFH (paid first), 50% Partners
+ * - Government Programs (WIOA/WRG/OJT): FREE to students, 100% to EFH, NO split
+ * - Instructors: NO monetary payment (credentialing only)
  */
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -32,12 +37,12 @@ class RevenueSplitSystem {
       // Get or create partner Connect account
       const partnerAccount = await this.getPartnerAccount(partnerId);
 
-      // Calculate revenue split
+      // Calculate revenue split (50% EFH, 50% Partners)
       const totalAmount = program.student_price * 100; // Convert to cents
-      const partnerRevenue = Math.round(totalAmount * 0.5);
-      const elevateRevenue = totalAmount - partnerRevenue;
+      const efhRevenue = Math.round(totalAmount * 0.5); // EFH gets paid first
+      const partnerRevenue = totalAmount - efhRevenue;
 
-      // Create payment intent with automatic transfer
+      // Create payment intent - EFH receives payment first
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount: totalAmount,
         currency: 'usd',
@@ -45,19 +50,21 @@ class RevenueSplitSystem {
         confirmation_method: 'manual',
         confirm: true,
         return_url: 'https://elevateforhumanity.org/enrollment/complete',
-        application_fee_amount: partnerRevenue,
-        transfer_data: {
-          destination: partnerAccount.id,
-        },
+        // Note: Partner transfer happens separately after EFH receives payment
+        // application_fee_amount: partnerRevenue,
+        // transfer_data: {
+        //   destination: partnerAccount.id,
+        // },
         metadata: {
           program_id: programId,
           partner_id: partnerId,
           student_email: studentEmail,
           student_name: studentName,
+          efh_revenue: (efhRevenue / 100).toString(),
           partner_revenue: (partnerRevenue / 100).toString(),
-          elevate_revenue: (elevateRevenue / 100).toString(),
           enrollment_type: 'partner_program',
           dual_certification: 'true',
+          payment_order: 'efh_first_then_partner',
         },
       });
 
@@ -68,9 +75,10 @@ class RevenueSplitSystem {
         partner_id: partnerId,
         student_email: studentEmail,
         total_amount: totalAmount / 100,
+        efh_revenue: efhRevenue / 100,
         partner_revenue: partnerRevenue / 100,
-        elevate_revenue: elevateRevenue / 100,
         status: paymentIntent.status,
+        payment_order: 'efh_first',
       });
 
       return {
@@ -96,6 +104,7 @@ class RevenueSplitSystem {
 
   /**
    * Create Stripe Checkout session with revenue split
+   * EFH receives payment first, then transfers to partner
    */
   async createCheckoutSession(
     programId,
@@ -133,17 +142,17 @@ class RevenueSplitSystem {
       metadata: {
         program_id: programId,
         partner_id: partnerId,
+        partner_account_id: partnerAccount.id,
+        efh_revenue: (program.student_price * 0.5).toString(),
         partner_revenue: (program.student_price * 0.5).toString(),
-        elevate_revenue: (program.student_price * 0.5).toString(),
+        payment_order: 'efh_first_then_partner',
       },
       payment_intent_data: {
-        application_fee_amount: Math.round(program.student_price * 100 * 0.5),
-        transfer_data: {
-          destination: partnerAccount.id,
-        },
+        // EFH receives payment first - partner transfer happens in webhook
         metadata: {
           enrollment_type: 'partner_program',
           dual_certification: 'true',
+          partner_account_id: partnerAccount.id,
         },
       },
     });
@@ -212,12 +221,26 @@ class RevenueSplitSystem {
 
   /**
    * Handle successful payment webhook
+   * EFH receives payment first, then transfers to partner
    */
   async handlePaymentSuccess(paymentIntent) {
     const metadata = paymentIntent.metadata;
 
     if (metadata.enrollment_type === 'partner_program') {
-      // Trigger enrollment process
+      // Step 1: EFH has already received payment
+      console.log(`✅ EFH received payment: ${paymentIntent.amount / 100}`);
+
+      // Step 2: Transfer 50% to partner
+      if (metadata.partner_account_id) {
+        const partnerAmount = Math.round(paymentIntent.amount * 0.5);
+        await this.transferToPartner(
+          partnerAmount,
+          metadata.partner_account_id,
+          paymentIntent.id
+        );
+      }
+
+      // Step 3: Trigger enrollment process
       await this.triggerEnrollment({
         payment_intent_id: paymentIntent.id,
         program_id: metadata.program_id,
@@ -226,11 +249,37 @@ class RevenueSplitSystem {
         student_name: metadata.student_name,
       });
 
-      // Send confirmation emails
+      // Step 4: Send confirmation emails
       await this.sendEnrollmentConfirmation(metadata);
 
-      // Notify partner
+      // Step 5: Notify partner
       await this.notifyPartner(metadata);
+    }
+  }
+
+  /**
+   * Transfer funds to partner after EFH receives payment
+   */
+  async transferToPartner(amount, partnerAccountId, paymentIntentId) {
+    try {
+      const transfer = await this.stripe.transfers.create({
+        amount: amount,
+        currency: 'usd',
+        destination: partnerAccountId,
+        metadata: {
+          payment_intent_id: paymentIntentId,
+          transfer_type: 'partner_revenue_split',
+          split_percentage: '50',
+        },
+      });
+
+      console.log(
+        `💸 Transferred $${amount / 100} to partner: ${partnerAccountId}`
+      );
+      return transfer;
+    } catch (error) {
+      console.error('Partner transfer failed:', error);
+      throw error;
     }
   }
 
@@ -379,8 +428,16 @@ if (require.main === module) {
   const revenueSplit = new RevenueSplitSystem();
 
   console.log('🏦 REVENUE SPLIT SYSTEM INITIALIZED');
-  console.log('💰 50% to Elevate for Humanity');
-  console.log('🤝 50% to Credentialing Partners');
-  console.log('🎓 Dual certification delivery');
-  console.log('⚡ Automated enrollment process');
+  console.log('');
+  console.log('💰 SELF-PAY PROGRAMS:');
+  console.log('  - 50% to Elevate for Humanity (paid first)');
+  console.log('  - 50% to Credentialing Partners');
+  console.log('  - Instructors: NO payment (credentialing only)');
+  console.log('');
+  console.log('🎓 GOVERNMENT PROGRAMS (WIOA/WRG/OJT):');
+  console.log('  - FREE to students');
+  console.log('  - 100% to EFH');
+  console.log('  - NO revenue split');
+  console.log('');
+  console.log('⚡ Automated enrollment and dual certification');
 }
