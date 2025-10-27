@@ -1,8 +1,8 @@
 /**
  * Netlify Function: Job Placement Tracking
- * 
+ *
  * Tracks student job placements and outcomes for reporting to WIOA/WRG.
- * 
+ *
  * Endpoint: POST /.netlify/functions/job-placement-tracking
  */
 
@@ -30,7 +30,8 @@ exports.handler = async (event, context) => {
     if (event.httpMethod === 'GET') {
       const { data: placements, error } = await supabase
         .from('job_placements')
-        .select(`
+        .select(
+          `
           *,
           students (
             first_name,
@@ -41,7 +42,8 @@ exports.handler = async (event, context) => {
             program_name,
             funding_source
           )
-        `)
+        `
+        )
         .order('placement_date', { ascending: false });
 
       if (error) throw error;
@@ -50,9 +52,13 @@ exports.handler = async (event, context) => {
       const stats = {
         total_placements: placements.length,
         placements_last_30_days: placements.filter(
-          (p) => new Date(p.placement_date) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+          (p) =>
+            new Date(p.placement_date) >
+            new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
         ).length,
-        average_salary: placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) / placements.length || 0,
+        average_salary:
+          placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) /
+            placements.length || 0,
         placement_rate: 0, // Calculate from enrollments vs placements
         by_program: {},
         by_funding_source: {},
@@ -93,12 +99,17 @@ exports.handler = async (event, context) => {
       const placementData = JSON.parse(event.body);
 
       // Validate required fields
-      if (!placementData.student_id || !placementData.employer_name || !placementData.job_title) {
+      if (
+        !placementData.student_id ||
+        !placementData.employer_name ||
+        !placementData.job_title
+      ) {
         return {
           statusCode: 400,
           headers,
           body: JSON.stringify({
-            error: 'Missing required fields: student_id, employer_name, job_title',
+            error:
+              'Missing required fields: student_id, employer_name, job_title',
           }),
         };
       }
@@ -124,7 +135,8 @@ exports.handler = async (event, context) => {
           job_title: placementData.job_title,
           starting_salary: placementData.starting_salary,
           employment_type: placementData.employment_type || 'full-time',
-          placement_date: placementData.placement_date || new Date().toISOString(),
+          placement_date:
+            placementData.placement_date || new Date().toISOString(),
           industry: placementData.industry,
           location: placementData.location,
           benefits: placementData.benefits || {},

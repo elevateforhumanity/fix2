@@ -5,6 +5,7 @@
 Your Netlify setup is already properly configured:
 
 ### netlify.toml ✅
+
 ```toml
 [build]
   command = "pnpm install && pnpm run build"
@@ -18,12 +19,14 @@ Your Netlify setup is already properly configured:
   VITE_SUPABASE_ANON_KEY = "..." ✅ Set
 ```
 
-### public/_redirects ✅
+### public/\_redirects ✅
+
 ```
 /* /index.html 200  ✅ SPA fallback
 ```
 
 ### package.json ✅
+
 ```json
 {
   "scripts": {
@@ -33,6 +36,7 @@ Your Netlify setup is already properly configured:
 ```
 
 ### vite.config.js ✅ (JUST FIXED)
+
 ```javascript
 build: {
   sourcemap: false,  ✅ Fixed - was causing build failure
@@ -54,13 +58,16 @@ build: {
 ## Next Steps
 
 ### Option 1: Merge the PR (Recommended)
+
 1. Go to: https://github.com/elevateforhumanity/fix2/pulls
 2. Find PR: "Fix: Disable sourcemaps to fix Netlify build"
 3. Merge it
 4. Netlify will auto-deploy
 
 ### Option 2: Manual Deploy
+
 If you want to test first:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 2. Click "Trigger deploy" → "Clear cache and deploy site"
 3. Wait 2-3 minutes
@@ -73,35 +80,43 @@ If you want to test first:
 Your Netlify site will have these pages ready to embed in Durable:
 
 ### 1. Donation Page
+
 **URL:** https://elevateforhumanityfix2.netlify.app/donate
 
 **Embed in Durable:**
+
 ```html
-<iframe 
-  src="https://elevateforhumanityfix2.netlify.app/donate" 
-  width="100%" 
-  height="800px" 
-  frameborder="0">
+<iframe
+  src="https://elevateforhumanityfix2.netlify.app/donate"
+  width="100%"
+  height="800px"
+  frameborder="0"
+>
 </iframe>
 ```
 
 ### 2. Scholarship Application
+
 **URL:** https://elevateforhumanityfix2.netlify.app/apply-scholarship
 
 **Embed in Durable:**
+
 ```html
-<iframe 
-  src="https://elevateforhumanityfix2.netlify.app/apply-scholarship" 
-  width="100%" 
-  height="1200px" 
-  frameborder="0">
+<iframe
+  src="https://elevateforhumanityfix2.netlify.app/apply-scholarship"
+  width="100%"
+  height="1200px"
+  frameborder="0"
+>
 </iframe>
 ```
 
 ### 3. Programs Page
+
 **URL:** https://elevateforhumanityfix2.netlify.app/programs
 
 **Link from Durable:**
+
 ```html
 <a href="https://elevateforhumanityfix2.netlify.app/programs">
   View All Programs

@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Post to Social Media
- * 
+ *
  * Posts generated content to Facebook, Instagram, and LinkedIn.
  * Retrieves scheduled posts from database and publishes them.
- * 
+ *
  * Endpoint: POST /.netlify/functions/post-to-social-media
  */
 
@@ -71,7 +71,9 @@ exports.handler = async (event, context) => {
         return {
           statusCode: 400,
           headers,
-          body: JSON.stringify({ error: `Unsupported platform: ${targetPlatform}` }),
+          body: JSON.stringify({
+            error: `Unsupported platform: ${targetPlatform}`,
+          }),
         };
     }
 

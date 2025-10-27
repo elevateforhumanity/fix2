@@ -7,12 +7,14 @@ Automated posting to Facebook, Instagram, and LinkedIn for the 90-day content ca
 This system automatically posts AI-generated content to social media platforms 3 times per day.
 
 **Platforms:**
+
 - ✅ Facebook (Page posts)
 - ✅ Instagram (Feed posts with images)
 - ✅ LinkedIn (Organization posts)
 - ❌ TikTok (Manual posting - no API access)
 
 **Schedule:**
+
 - 9 AM EST - Morning post
 - 1 PM EST - Afternoon post
 - 7 PM EST - Evening post
@@ -159,6 +161,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/post-scheduled-co
 ### Automated Posting
 
 GitHub Actions automatically posts 3x daily:
+
 - 9 AM EST (14:00 UTC)
 - 1 PM EST (18:00 UTC)
 - 7 PM EST (00:00 UTC)
@@ -166,18 +169,21 @@ GitHub Actions automatically posts 3x daily:
 ## Content Requirements
 
 ### Facebook
+
 - ✅ Text only
 - ✅ Text + image
 - ✅ Text + video
 - Max: 63,206 characters
 
 ### Instagram
+
 - ❌ Text only (requires image)
 - ✅ Text + image (required)
 - ✅ Text + video
 - Max: 2,200 characters
 
 ### LinkedIn
+
 - ✅ Text only
 - ✅ Text + image
 - ✅ Text + video
@@ -206,7 +212,7 @@ const imageUrl = `https://res.cloudinary.com/your-cloud/image/upload/w_1080,h_10
 
 ```sql
 -- Recent posts
-SELECT 
+SELECT
   id,
   platform,
   content,
@@ -220,7 +226,7 @@ ORDER BY published_date DESC
 LIMIT 20;
 
 -- Posts by platform
-SELECT 
+SELECT
   platform,
   COUNT(*) as total_posts,
   SUM(likes) as total_likes,
@@ -235,7 +241,7 @@ GROUP BY platform;
 
 ```sql
 -- Upcoming posts
-SELECT 
+SELECT
   platform,
   scheduled_date,
   content,
@@ -251,16 +257,19 @@ ORDER BY scheduled_date ASC;
 ### Posting Times
 
 **Facebook:**
+
 - Best: 1-4 PM EST (weekdays)
 - Good: 9 AM-12 PM EST
 - Avoid: Late night, early morning
 
 **Instagram:**
+
 - Best: 11 AM-1 PM, 7-9 PM EST
 - Good: 9-11 AM EST
 - Avoid: 3-4 PM EST
 
 **LinkedIn:**
+
 - Best: 7-9 AM, 5-6 PM EST (weekdays)
 - Good: 12-1 PM EST
 - Avoid: Weekends
@@ -286,30 +295,36 @@ ORDER BY scheduled_date ASC;
 ### Facebook Errors
 
 **Error:** "Invalid OAuth access token"
+
 - **Solution:** Regenerate long-lived token
 - **Solution:** Check token hasn't expired (60 days)
 
 **Error:** "Permissions error"
+
 - **Solution:** Ensure `pages_manage_posts` permission
 - **Solution:** Re-authorize app
 
 ### Instagram Errors
 
 **Error:** "Media URL is not accessible"
+
 - **Solution:** Ensure image URL is publicly accessible
 - **Solution:** Use HTTPS URLs only
 
 **Error:** "Caption is too long"
+
 - **Solution:** Limit to 2,200 characters
 - **Solution:** Move hashtags to first comment
 
 ### LinkedIn Errors
 
 **Error:** "Access token expired"
+
 - **Solution:** LinkedIn tokens expire after 60 days
 - **Solution:** Implement token refresh flow
 
 **Error:** "Organization not found"
+
 - **Solution:** Verify organization ID
 - **Solution:** Ensure app has access to organization
 
@@ -329,17 +344,20 @@ Implement OAuth refresh flow:
 
 ```javascript
 const refreshToken = async () => {
-  const response = await fetch('https://www.linkedin.com/oauth/v2/accessToken', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: process.env.LINKEDIN_REFRESH_TOKEN,
-      client_id: process.env.LINKEDIN_CLIENT_ID,
-      client_secret: process.env.LINKEDIN_CLIENT_SECRET,
-    }),
-  });
-  
+  const response = await fetch(
+    'https://www.linkedin.com/oauth/v2/accessToken',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: process.env.LINKEDIN_REFRESH_TOKEN,
+        client_id: process.env.LINKEDIN_CLIENT_ID,
+        client_secret: process.env.LINKEDIN_CLIENT_SECRET,
+      }),
+    }
+  );
+
   const data = await response.json();
   return data.access_token;
 };
@@ -348,14 +366,17 @@ const refreshToken = async () => {
 ## Rate Limits
 
 ### Facebook
+
 - 200 calls per hour per user
 - 4,800 calls per day per app
 
 ### Instagram
+
 - 200 calls per hour per user
 - 4,800 calls per day per app
 
 ### LinkedIn
+
 - 100 posts per day per organization
 - 500 API calls per day per app
 
@@ -367,7 +388,7 @@ Track engagement metrics:
 // Update engagement metrics
 const updateEngagement = async (contentId, platform) => {
   let metrics;
-  
+
   switch (platform) {
     case 'facebook':
       metrics = await getFacebookMetrics(postId);
@@ -379,7 +400,7 @@ const updateEngagement = async (contentId, platform) => {
       metrics = await getLinkedInMetrics(postId);
       break;
   }
-  
+
   await supabase
     .from('generated_content')
     .update({
@@ -402,6 +423,7 @@ const updateEngagement = async (contentId, platform) => {
 ## Support
 
 For issues:
+
 1. Check Netlify function logs
 2. Review platform API status pages
 3. Verify access tokens haven't expired

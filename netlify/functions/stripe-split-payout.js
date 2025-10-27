@@ -1,14 +1,14 @@
 /**
  * Netlify Function: Stripe Split Payout
- * 
+ *
  * Handles revenue sharing for course/program payments:
  * - 60% to Elevate for Humanity (operations)
  * - 25% to instructor (teaching fees)
  * - 10% to Selfish Inc Foundation (scholarships)
  * - 5% to platform (maintenance)
- * 
+ *
  * Uses Stripe Connect for automated payouts.
- * 
+ *
  * Endpoint: POST /.netlify/functions/stripe-split-payout
  */
 
@@ -41,21 +41,31 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { payment_intent_id, amount, program_id, instructor_id, funding_source } = JSON.parse(event.body);
+    const {
+      payment_intent_id,
+      amount,
+      program_id,
+      instructor_id,
+      funding_source,
+    } = JSON.parse(event.body);
 
     if (!payment_intent_id || !amount || !program_id) {
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({
-          error: 'Missing required fields: payment_intent_id, amount, program_id',
+          error:
+            'Missing required fields: payment_intent_id, amount, program_id',
         }),
       };
     }
 
     // Skip split payout for government-funded programs (WIOA, WRG, OJT)
     // These are FREE to students and EFH receives 100% of government reimbursement
-    if (funding_source && ['WIOA', 'WRG', 'OJT'].includes(funding_source.toUpperCase())) {
+    if (
+      funding_source &&
+      ['WIOA', 'WRG', 'OJT'].includes(funding_source.toUpperCase())
+    ) {
       return {
         statusCode: 200,
         headers,
@@ -82,13 +92,13 @@ exports.handler = async (event, context) => {
     // Calculate split amounts (in cents)
     // Model: 50% to EFH, 50% to Partners
     const totalAmount = amount; // Already in cents
-    const efhShare = Math.floor(totalAmount * 0.50); // 50% to EFH
+    const efhShare = Math.floor(totalAmount * 0.5); // 50% to EFH
     const partnerShare = totalAmount - efhShare; // 50% to Partners
-    
+
     // Partner share distribution (can be customized per program)
     const instructorPercentage = instructor?.payout_percentage || 80; // 80% of partner share = 40% of total
     const selfishIncPercentage = 20; // 20% of partner share = 10% of total
-    
+
     const splits = {
       efh: efhShare, // 50% to EFH
       instructor: Math.floor(partnerShare * (instructorPercentage / 100)), // Default: 40% of total
@@ -97,7 +107,8 @@ exports.handler = async (event, context) => {
     };
 
     // Adjust for rounding (ensure total equals original amount)
-    const splitTotal = splits.efh + splits.instructor + splits.selfish_inc + splits.platform;
+    const splitTotal =
+      splits.efh + splits.instructor + splits.selfish_inc + splits.platform;
     if (splitTotal !== totalAmount) {
       splits.efh += totalAmount - splitTotal;
     }

@@ -15,7 +15,7 @@ jobs:
   generate-content:
     runs-on: ubuntu-latest
     name: Generate Social Media Content
-    
+
     steps:
       - name: Generate content for next 7 days
         run: |
@@ -25,12 +25,12 @@ jobs:
               "days": ${{ github.event.inputs.days || 7 }},
               "programs": ["Tax Business", "Barber", "Building Tech", "Healthcare"]
             }'
-      
+
       - name: Notify on success
         if: success()
         run: |
           echo "✅ Content generated successfully for next ${{ github.event.inputs.days || 7 }} days"
-      
+
       - name: Notify on failure
         if: failure()
         run: |

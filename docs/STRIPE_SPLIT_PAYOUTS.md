@@ -4,25 +4,27 @@ Automated revenue sharing for Elevate for Humanity using Stripe Connect.
 
 ## Revenue Split Model
 
-**IMPORTANT:** Split payouts only apply to **self-pay programs**. 
+**IMPORTANT:** Split payouts only apply to **self-pay programs**.
 
 **Government-Funded Programs (WIOA, WRG, OJT):**
+
 - FREE to students
 - EFH receives 100% of government reimbursement
 - No split payout (instructors paid separately via salary/contract)
 
 **Self-Pay Programs:**
+
 - Students pay tuition directly
 - 50/50 split between EFH and Partners
 
 Every self-pay program payment is automatically split:
 
-| Recipient | Percentage | Purpose |
-|-----------|------------|---------|
-| **Elevate for Humanity** | 50% | Operations, facilities, staff, technology |
-| **Partners (Total)** | 50% | Instructors + Selfish Inc Foundation |
-| ↳ Instructor | 40% (80% of partner share) | Teaching fees, curriculum development |
-| ↳ Selfish Inc Foundation | 10% (20% of partner share) | Scholarships, emergency assistance |
+| Recipient                | Percentage                 | Purpose                                   |
+| ------------------------ | -------------------------- | ----------------------------------------- |
+| **Elevate for Humanity** | 50%                        | Operations, facilities, staff, technology |
+| **Partners (Total)**     | 50%                        | Instructors + Selfish Inc Foundation      |
+| ↳ Instructor             | 40% (80% of partner share) | Teaching fees, curriculum development     |
+| ↳ Selfish Inc Foundation | 10% (20% of partner share) | Scholarships, emergency assistance        |
 
 ### Example: $1,000 Program Payment
 
@@ -36,11 +38,13 @@ Every self-pay program payment is automatically split:
 Programs have **50% markup** for profit:
 
 **Example: Tax Business Program**
+
 - **Cost:** $2,000 (instruction, materials, facilities)
 - **Markup:** $1,000 (50% profit margin)
 - **Price:** $3,000 (student pays)
 
 **Revenue Split on $3,000:**
+
 - **EFH:** $1,500 (covers $2,000 cost + contributes to overhead)
 - **Instructor:** $1,200 (teaching fees)
 - **Selfish Inc:** $300 (scholarships)
@@ -97,6 +101,7 @@ export STRIPE_SELFISH_INC_ACCOUNT_ID="acct_xxxxxxxxxxxxx"
 ```
 
 Or use the Stripe Dashboard:
+
 1. Go to **Connect** → **Accounts**
 2. Click **+ New account**
 3. Select **Express**
@@ -166,6 +171,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-connect-on
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -178,6 +184,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-connect-on
 **2. Redirect Instructor to Onboarding URL**
 
 The instructor completes:
+
 - Identity verification
 - Bank account details
 - Tax information (W-9)
@@ -218,8 +225,9 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payo
 ### View Payouts
 
 **Supabase Dashboard:**
+
 ```sql
-SELECT 
+SELECT
   sp.*,
   i.first_name || ' ' || i.last_name as instructor_name,
   i.email as instructor_email
@@ -230,6 +238,7 @@ LIMIT 100;
 ```
 
 **Stripe Dashboard:**
+
 1. Go to **Connect** → **Transfers**
 2. Filter by date, account, or amount
 3. View transfer details and status
@@ -238,7 +247,7 @@ LIMIT 100;
 
 ```sql
 -- Total payouts by recipient
-SELECT 
+SELECT
   SUM(efh_amount) / 100.0 as efh_total,
   SUM(instructor_amount) / 100.0 as instructor_total,
   SUM(selfish_inc_amount) / 100.0 as selfish_inc_total,
@@ -248,7 +257,7 @@ FROM split_payouts
 WHERE created_at >= NOW() - INTERVAL '30 days';
 
 -- Payouts by instructor
-SELECT 
+SELECT
   i.first_name || ' ' || i.last_name as instructor,
   COUNT(*) as payout_count,
   SUM(sp.instructor_amount) / 100.0 as total_earned
@@ -275,6 +284,7 @@ WHERE email = 'instructor@example.com';
 ```
 
 This would result in:
+
 - EFH: 50% ($500)
 - Instructor: 45% ($450) - 90% of $500 partner share
 - Selfish Inc: 5% ($50) - 10% of $500 partner share
@@ -305,6 +315,7 @@ To add more recipients (e.g., referral partners):
 Stripe automatically generates 1099-K forms for instructors earning >$600/year.
 
 **Enable in Stripe Dashboard:**
+
 1. Go to **Connect** → **Settings**
 2. Enable **Tax reporting**
 3. Set threshold: $600
@@ -316,7 +327,7 @@ Generate annual payout reports for tax purposes:
 
 ```sql
 -- Annual instructor payouts
-SELECT 
+SELECT
   i.first_name || ' ' || i.last_name as instructor,
   i.email,
   i.stripe_account_id,
@@ -337,6 +348,7 @@ ORDER BY total_earned DESC;
 **Error:** "No such destination"
 
 **Solution:**
+
 - Verify instructor has completed Stripe Connect onboarding
 - Check `stripe_account_id` is correct in database
 - Ensure account status is `active`
@@ -344,6 +356,7 @@ ORDER BY total_earned DESC;
 **Error:** "Insufficient funds"
 
 **Solution:**
+
 - Ensure payment has settled (usually 2-3 days)
 - Check platform account balance in Stripe Dashboard
 - Adjust payout schedule if needed
@@ -351,12 +364,14 @@ ORDER BY total_earned DESC;
 ### Payout Not Triggered
 
 **Check:**
+
 1. Webhook is configured correctly
 2. Webhook secret matches env var
 3. Netlify function logs for errors
 4. Supabase `activity_log` for webhook events
 
 **Manual Trigger:**
+
 ```bash
 # Manually trigger split payout
 curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payout \
@@ -372,11 +387,13 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payo
 ### Instructor Can't Complete Onboarding
 
 **Common Issues:**
+
 - Invalid SSN/EIN
 - Bank account verification failed
 - Identity verification failed
 
 **Solution:**
+
 1. Check Stripe Dashboard → Connect → Accounts
 2. View account details and requirements
 3. Generate new onboarding link
@@ -396,6 +413,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payo
 ### Fraud Prevention
 
 Stripe Radar is automatically enabled:
+
 - Machine learning fraud detection
 - 3D Secure for high-risk payments
 - Velocity checks
@@ -406,6 +424,7 @@ Stripe Radar is automatically enabled:
 ### PCI Compliance
 
 Stripe handles PCI compliance:
+
 - No card data touches your servers
 - Stripe Checkout is PCI Level 1 certified
 - Automatic security updates
@@ -427,6 +446,7 @@ Stripe handles PCI compliance:
 ## Support
 
 For issues:
+
 1. Check Netlify function logs
 2. Review Stripe Dashboard events
 3. Query Supabase `activity_log` table

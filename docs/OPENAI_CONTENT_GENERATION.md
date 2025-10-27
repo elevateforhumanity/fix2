@@ -11,6 +11,7 @@ This system automatically generates social media posts for TikTok, Facebook, Ins
 **ROI:** 1,016% (45x return on marketing spend)
 
 **Expected Outcomes:**
+
 - 180 enrollments
 - $900K revenue
 - $450K net profit
@@ -89,6 +90,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 **Endpoint:** `POST /.netlify/functions/generate-social-content`
 
 **Request:**
+
 ```json
 {
   "content_type": "success-story",
@@ -99,6 +101,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 ```
 
 **Content Types:**
+
 - `success-story` - Student transformation stories
 - `program-highlight` - Program features and benefits
 - `funding-info` - FREE training through WIOA/WRG
@@ -109,12 +112,14 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 - `motivation-monday` - Inspirational messages
 
 **Platforms:**
+
 - `tiktok` - 150 chars, 5 hashtags, short & punchy
 - `facebook` - 300 chars, 3 hashtags, conversational
 - `instagram` - 200 chars, 10 hashtags, visual & inspirational
 - `linkedin` - 400 chars, 3 hashtags, professional & data-driven
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -130,6 +135,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 **Endpoint:** `POST /.netlify/functions/generate-content-calendar`
 
 **Request:**
+
 ```json
 {
   "days": 7,
@@ -138,6 +144,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -162,13 +169,13 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-
 
 Based on the 90-Day Content Pipeline:
 
-| Day | Theme | Content Type | Focus |
-|-----|-------|--------------|-------|
-| **Monday** | Motivation Monday | motivation-monday | Inspire action, career goals |
-| **Tuesday** | Tip Tuesday | tip-tuesday | Career advice, practical tips |
-| **Wednesday** | Success Story | success-story | Student transformations |
-| **Thursday** | Program Highlight | program-highlight | Program features, benefits |
-| **Friday** | Call to Action | call-to-action | Apply now, limited spots |
+| Day           | Theme             | Content Type      | Focus                         |
+| ------------- | ----------------- | ----------------- | ----------------------------- |
+| **Monday**    | Motivation Monday | motivation-monday | Inspire action, career goals  |
+| **Tuesday**   | Tip Tuesday       | tip-tuesday       | Career advice, practical tips |
+| **Wednesday** | Success Story     | success-story     | Student transformations       |
+| **Thursday**  | Program Highlight | program-highlight | Program features, benefits    |
+| **Friday**    | Call to Action    | call-to-action    | Apply now, limited spots      |
 
 ## Automation
 
@@ -180,7 +187,7 @@ GitHub Actions workflow runs daily at 6 AM EST:
 # .github/workflows/daily-content-generation.yml
 on:
   schedule:
-    - cron: '0 11 * * *'  # 6 AM EST (11 AM UTC)
+    - cron: '0 11 * * *' # 6 AM EST (11 AM UTC)
 ```
 
 Generates 7 days of content in advance (28 posts total).
@@ -188,6 +195,7 @@ Generates 7 days of content in advance (28 posts total).
 ### Manual Trigger
 
 Trigger manually from GitHub Actions tab:
+
 1. Go to **Actions** → **Daily Content Generation**
 2. Click **Run workflow**
 3. Enter number of days (default: 7)
@@ -199,7 +207,7 @@ Trigger manually from GitHub Actions tab:
 
 ```sql
 -- View all scheduled posts
-SELECT 
+SELECT
   id,
   platform,
   program,
@@ -212,7 +220,7 @@ WHERE status = 'scheduled'
 ORDER BY scheduled_date ASC;
 
 -- View posts by platform
-SELECT 
+SELECT
   platform,
   COUNT(*) as post_count,
   MIN(scheduled_date) as first_post,
@@ -229,7 +237,7 @@ Content is saved as `draft` or `scheduled` status. You can edit before publishin
 ```sql
 -- Update content
 UPDATE generated_content
-SET 
+SET
   content = 'Updated content here...',
   status = 'approved'
 WHERE id = 'uuid';
@@ -240,7 +248,7 @@ WHERE id = 'uuid';
 ```sql
 -- Approve for publishing
 UPDATE generated_content
-SET 
+SET
   status = 'approved',
   approved_by = 'user-uuid'
 WHERE id = 'uuid';
@@ -251,7 +259,7 @@ WHERE id = 'uuid';
 ```sql
 -- Mark as published
 UPDATE generated_content
-SET 
+SET
   status = 'published',
   published_date = NOW()
 WHERE id = 'uuid';
@@ -262,14 +270,16 @@ WHERE id = 'uuid';
 ### TikTok
 
 **Specs:**
+
 - Max length: 150 characters
 - Hashtags: 5
 - Style: Short, punchy, trending
 - Best times: 6-10 AM, 7-11 PM EST
 
 **Example:**
+
 ```
-🔥 FREE Barber training = $45K/year job! 
+🔥 FREE Barber training = $45K/year job!
 No cost. Government-funded. 92% placement rate.
 Apply now! 💈✂️
 #BarberLife #FreeTraining #CareerChange #Indianapolis #WIOA
@@ -278,14 +288,16 @@ Apply now! 💈✂️
 ### Facebook
 
 **Specs:**
+
 - Max length: 300 characters
 - Hashtags: 3
 - Style: Conversational, community-focused
 - Best times: 1-4 PM EST
 
 **Example:**
+
 ```
-Meet Marcus! He went from minimum wage to owning his own barber shop after completing our FREE apprenticeship program. 
+Meet Marcus! He went from minimum wage to owning his own barber shop after completing our FREE apprenticeship program.
 
 "This program changed my life. I'm now earning $45K/year and giving back to my community."
 
@@ -297,12 +309,14 @@ Ready to start YOUR transformation? Training is 100% FREE through WIOA. Apply to
 ### Instagram
 
 **Specs:**
+
 - Max length: 200 characters
 - Hashtags: 10
 - Style: Visual, inspirational
 - Best times: 11 AM-1 PM, 7-9 PM EST
 
 **Example:**
+
 ```
 ✨ From unemployed to business owner ✨
 
@@ -316,12 +330,14 @@ Your turn. Apply today. 👇
 ### LinkedIn
 
 **Specs:**
+
 - Max length: 400 characters
 - Hashtags: 3
 - Style: Professional, data-driven
 - Best times: 7-9 AM, 5-6 PM EST
 
 **Example:**
+
 ```
 Workforce Development Success Story
 
@@ -343,10 +359,12 @@ Interested in workforce development partnerships? Let's connect.
 ### OpenAI Pricing
 
 **GPT-4:**
+
 - Input: $0.03 per 1K tokens (~750 words)
 - Output: $0.06 per 1K tokens (~750 words)
 
 **Estimated Costs:**
+
 - Single post: ~$0.01-0.02
 - 7-day calendar (28 posts): ~$0.28-0.56
 - 90-day calendar (270 posts): ~$2.70-5.40
@@ -356,6 +374,7 @@ Interested in workforce development partnerships? Let's connect.
 ### Rate Limiting
 
 Built-in rate limiting:
+
 - 1 second delay between API calls
 - Prevents hitting OpenAI rate limits
 - Ensures stable generation
@@ -366,7 +385,7 @@ Built-in rate limiting:
 
 ```sql
 -- Daily generation stats
-SELECT 
+SELECT
   DATE(generated_at) as date,
   COUNT(*) as posts_generated,
   COUNT(DISTINCT platform) as platforms,
@@ -381,7 +400,7 @@ ORDER BY date DESC;
 
 ```sql
 -- Engagement metrics by platform
-SELECT 
+SELECT
   platform,
   AVG(likes) as avg_likes,
   AVG(comments) as avg_comments,
@@ -423,28 +442,34 @@ GROUP BY platform;
 ### OpenAI API Errors
 
 **Error:** "Rate limit exceeded"
+
 - **Solution:** Increase delay between API calls (currently 1 second)
 - **Solution:** Upgrade OpenAI plan for higher limits
 
 **Error:** "Invalid API key"
+
 - **Solution:** Verify `OPENAI_API_KEY` in Netlify env vars
 - **Solution:** Generate new API key from OpenAI dashboard
 
 **Error:** "Model not found"
+
 - **Solution:** Ensure you have access to GPT-4
 - **Solution:** Fallback to GPT-3.5-turbo if needed
 
 ### Content Quality Issues
 
 **Problem:** Content too generic
+
 - **Solution:** Add more specific prompts with program details
 - **Solution:** Include student names, numbers, locations
 
 **Problem:** Wrong tone/style
+
 - **Solution:** Adjust temperature (0.7-0.9 for creativity)
 - **Solution:** Refine system prompt with brand voice
 
 **Problem:** Too long/short
+
 - **Solution:** Adjust max_tokens parameter
 - **Solution:** Add character limit to prompt
 
@@ -458,6 +483,7 @@ GROUP BY platform;
 ## Support
 
 For issues:
+
 1. Check Netlify function logs
 2. Review OpenAI API status
 3. Query Supabase `activity_log` table

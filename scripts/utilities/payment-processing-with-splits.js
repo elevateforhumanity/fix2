@@ -17,7 +17,7 @@
 */
 
 // Enhanced Payment Processing with Revenue Splits and Partner Notifications
-// 
+//
 // REVENUE MODEL:
 // - Self-Pay Programs: 50% EFH (paid first), 50% Partners
 // - Government Programs (WIOA/WRG/OJT): FREE to students, 100% to EFH, NO split
@@ -89,9 +89,7 @@ class PaymentProcessor {
 
     try {
       // Step 1: EFH gets paid first (already happened via Stripe)
-      console.log(
-        `✅ EFH received: $${metadata.efh_amount_cents / 100} (50%)`
-      );
+      console.log(`✅ EFH received: $${metadata.efh_amount_cents / 100} (50%)`);
 
       // Step 2: Transfer to partner (if connect account exists)
       if (metadata.partner_connect_acc && metadata.partner_connect_acc !== '') {

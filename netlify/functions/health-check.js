@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Health Check
- * 
+ *
  * Monitors system health and sends alerts if issues detected.
  * Checks: Database, APIs, scheduled jobs, error rates.
- * 
+ *
  * Endpoint: GET /.netlify/functions/health-check
  */
 
@@ -76,7 +76,7 @@ exports.handler = async (event, context) => {
       if (process.env.STRIPE_SECRET_KEY) {
         const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
         await stripe.balance.retrieve();
-        
+
         checks.stripe.status = 'healthy';
         checks.stripe.message = 'Connected';
         checks.stripe.responseTime = Date.now() - stripeStart;
@@ -97,7 +97,7 @@ exports.handler = async (event, context) => {
       if (process.env.OPENAI_API_KEY) {
         const response = await fetch('https://api.openai.com/v1/models', {
           headers: {
-            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           },
         });
 

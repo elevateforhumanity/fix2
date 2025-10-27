@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Post Scheduled Content
- * 
+ *
  * Finds and posts content scheduled for today to specified platform.
  * Called by GitHub Actions workflow 3x daily.
- * 
+ *
  * Endpoint: POST /.netlify/functions/post-scheduled-content
  */
 

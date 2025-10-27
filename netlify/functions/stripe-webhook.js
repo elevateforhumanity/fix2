@@ -54,26 +54,34 @@ exports.handler = async (event) => {
         // 1. Create enrollment record in Supabase
         if (session.metadata?.programId) {
           try {
-            const response = await fetch(`${process.env.FRONTEND_URL}/.netlify/functions/enrollment-sync`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                first_name: session.customer_details?.name?.split(' ')[0] || 'Unknown',
-                last_name: session.customer_details?.name?.split(' ').slice(1).join(' ') || 'Unknown',
-                email: session.customer_details?.email,
-                phone: session.customer_details?.phone || '',
-                program_id: session.metadata.programId,
-                program_name: session.metadata.programName,
-                funding_source: 'self-pay',
-                status: 'active',
-                metadata: {
-                  payment_intent_id: session.payment_intent,
-                  amount_paid: session.amount_total,
-                  stripe_session_id: session.id,
-                },
-              }),
-            });
-            
+            const response = await fetch(
+              `${process.env.FRONTEND_URL}/.netlify/functions/enrollment-sync`,
+              {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  first_name:
+                    session.customer_details?.name?.split(' ')[0] || 'Unknown',
+                  last_name:
+                    session.customer_details?.name
+                      ?.split(' ')
+                      .slice(1)
+                      .join(' ') || 'Unknown',
+                  email: session.customer_details?.email,
+                  phone: session.customer_details?.phone || '',
+                  program_id: session.metadata.programId,
+                  program_name: session.metadata.programName,
+                  funding_source: 'self-pay',
+                  status: 'active',
+                  metadata: {
+                    payment_intent_id: session.payment_intent,
+                    amount_paid: session.amount_total,
+                    stripe_session_id: session.id,
+                  },
+                }),
+              }
+            );
+
             const enrollmentResult = await response.json();
             console.log('Enrollment created:', enrollmentResult);
           } catch (error) {
@@ -84,18 +92,21 @@ exports.handler = async (event) => {
         // 2. Trigger split payout (only for self-pay programs)
         if (session.payment_intent && session.amount_total > 0) {
           try {
-            const payoutResponse = await fetch(`${process.env.FRONTEND_URL}/.netlify/functions/stripe-split-payout`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                payment_intent_id: session.payment_intent,
-                amount: session.amount_total,
-                program_id: session.metadata?.programId,
-                instructor_id: session.metadata?.instructorId,
-                funding_source: session.metadata?.fundingSource || 'self-pay',
-              }),
-            });
-            
+            const payoutResponse = await fetch(
+              `${process.env.FRONTEND_URL}/.netlify/functions/stripe-split-payout`,
+              {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  payment_intent_id: session.payment_intent,
+                  amount: session.amount_total,
+                  program_id: session.metadata?.programId,
+                  instructor_id: session.metadata?.instructorId,
+                  funding_source: session.metadata?.fundingSource || 'self-pay',
+                }),
+              }
+            );
+
             const payoutResult = await payoutResponse.json();
             console.log('Split payout processed:', payoutResult);
           } catch (error) {
@@ -123,7 +134,7 @@ exports.handler = async (event) => {
       case 'payment_intent.succeeded': {
         const paymentIntent = stripeEvent.data.object;
         console.log('PaymentIntent succeeded:', paymentIntent.id);
-        
+
         await supabase.from('activity_log').insert({
           entity_type: 'payment_intent',
           entity_id: paymentIntent.id,
@@ -134,14 +145,14 @@ exports.handler = async (event) => {
           },
           created_at: new Date().toISOString(),
         });
-        
+
         break;
       }
 
       case 'payment_intent.payment_failed': {
         const paymentIntent = stripeEvent.data.object;
         console.error('Payment failed:', paymentIntent.id);
-        
+
         await supabase.from('activity_log').insert({
           entity_type: 'payment_intent',
           entity_id: paymentIntent.id,
@@ -152,7 +163,7 @@ exports.handler = async (event) => {
           },
           created_at: new Date().toISOString(),
         });
-        
+
         break;
       }
 
@@ -160,17 +171,19 @@ exports.handler = async (event) => {
         // Stripe Connect account updated
         const account = stripeEvent.data.object;
         console.log('Stripe Connect account updated:', account.id);
-        
+
         if (account.metadata?.instructor_id) {
           await supabase
             .from('instructors')
             .update({
-              stripe_account_status: account.charges_enabled ? 'active' : 'pending',
+              stripe_account_status: account.charges_enabled
+                ? 'active'
+                : 'pending',
               updated_at: new Date().toISOString(),
             })
             .eq('stripe_account_id', account.id);
         }
-        
+
         break;
       }
 

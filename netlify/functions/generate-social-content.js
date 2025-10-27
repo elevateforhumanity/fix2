@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Generate Social Content
- * 
+ *
  * Uses OpenAI to generate social media posts for TikTok, Facebook, Instagram, LinkedIn.
  * Based on the 90-day content calendar and program information.
- * 
+ *
  * Endpoint: POST /.netlify/functions/generate-social-content
  */
 
@@ -41,7 +41,8 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { content_type, platform, program, theme, custom_prompt } = JSON.parse(event.body);
+    const { content_type, platform, program, theme, custom_prompt } =
+      JSON.parse(event.body);
 
     // Validate inputs
     if (!content_type || !platform) {
@@ -55,7 +56,13 @@ exports.handler = async (event, context) => {
     }
 
     // Build prompt based on content type and platform
-    const prompt = buildPrompt(content_type, platform, program, theme, custom_prompt);
+    const prompt = buildPrompt(
+      content_type,
+      platform,
+      program,
+      theme,
+      custom_prompt
+    );
 
     // Generate content using OpenAI
     const completion = await openai.createChatCompletion({
@@ -193,7 +200,7 @@ function buildPrompt(contentType, platform, program, theme, customPrompt) {
       Include ${spec.hashtags} relevant hashtags.
       Keep it under ${spec.maxLength} characters. Style: ${spec.style}.`,
 
-    'testimonial': `Create a ${platform} post featuring a student testimonial for ${program || 'our programs'}. 
+    testimonial: `Create a ${platform} post featuring a student testimonial for ${program || 'our programs'}. 
       Use a quote format. Make it authentic and emotional.
       Focus on personal transformation and gratitude.
       Include ${spec.hashtags} relevant hashtags.
@@ -212,7 +219,8 @@ function buildPrompt(contentType, platform, program, theme, customPrompt) {
       Keep it under ${spec.maxLength} characters. Style: ${spec.style}.`,
   };
 
-  const template = contentTemplates[contentType] || contentTemplates['program-highlight'];
+  const template =
+    contentTemplates[contentType] || contentTemplates['program-highlight'];
 
   if (theme) {
     return `${template}\n\nAdditional theme/context: ${theme}`;

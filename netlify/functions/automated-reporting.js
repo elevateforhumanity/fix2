@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Automated Reporting
- * 
+ *
  * Generates automated reports for WIOA/WRG compliance, stakeholders, and internal use.
  * Can be triggered manually or via scheduled function.
- * 
+ *
  * Endpoint: POST /.netlify/functions/automated-reporting
  */
 
@@ -35,9 +35,13 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { report_type, start_date, end_date } = JSON.parse(event.body || '{}');
+    const { report_type, start_date, end_date } = JSON.parse(
+      event.body || '{}'
+    );
 
-    const startDate = start_date || new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    const startDate =
+      start_date ||
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
     const endDate = end_date || new Date().toISOString();
 
     let report = {};
@@ -123,7 +127,9 @@ async function generateMonthlyReport(supabase, startDate, endDate) {
     .lte('placement_date', endDate);
 
   // Calculate metrics
-  const avgSalary = placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) / placements.length || 0;
+  const avgSalary =
+    placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) /
+      placements.length || 0;
 
   return {
     period: { start: startDate, end: endDate },
@@ -151,16 +157,20 @@ async function generateMonthlyReport(supabase, startDate, endDate) {
 async function generateWIOAReport(supabase, startDate, endDate) {
   const { data: enrollments } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       *,
       students (*),
       job_placements (*)
-    `)
+    `
+    )
     .eq('funding_source', 'WIOA')
     .gte('created_at', startDate)
     .lte('created_at', endDate);
 
-  const placed = enrollments.filter((e) => e.job_placements && e.job_placements.length > 0);
+  const placed = enrollments.filter(
+    (e) => e.job_placements && e.job_placements.length > 0
+  );
   const retained = placed.filter((e) => {
     const placementDate = new Date(e.job_placements[0].placement_date);
     const sixMonthsAgo = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
@@ -177,7 +187,10 @@ async function generateWIOAReport(supabase, startDate, endDate) {
       six_month_retention: retained.length,
       retention_rate: (retained.length / placed.length) * 100 || 0,
       average_wage: Math.round(
-        placed.reduce((sum, e) => sum + (e.job_placements[0]?.starting_salary || 0), 0) / placed.length || 0
+        placed.reduce(
+          (sum, e) => sum + (e.job_placements[0]?.starting_salary || 0),
+          0
+        ) / placed.length || 0
       ),
     },
     demographics: {
@@ -192,11 +205,13 @@ async function generateWIOAReport(supabase, startDate, endDate) {
 async function generatePlacementReport(supabase, startDate, endDate) {
   const { data: placements } = await supabase
     .from('job_placements')
-    .select(`
+    .select(
+      `
       *,
       students (*),
       enrollments (*)
-    `)
+    `
+    )
     .gte('placement_date', startDate)
     .lte('placement_date', endDate);
 
@@ -205,7 +220,8 @@ async function generatePlacementReport(supabase, startDate, endDate) {
     summary: {
       total_placements: placements.length,
       average_salary: Math.round(
-        placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) / placements.length || 0
+        placements.reduce((sum, p) => sum + (p.starting_salary || 0), 0) /
+          placements.length || 0
       ),
       by_program: groupBy(placements, (p) => p.enrollments?.program_name),
       by_industry: groupBy(placements, 'industry'),
@@ -253,7 +269,10 @@ async function generateFinancialReport(supabase, startDate, endDate) {
   return {
     period: { start: startDate, end: endDate },
     revenue: {
-      total_estimated: Object.values(revenueBySource).reduce((sum, s) => sum + s.estimated_revenue, 0),
+      total_estimated: Object.values(revenueBySource).reduce(
+        (sum, s) => sum + s.estimated_revenue,
+        0
+      ),
       by_source: revenueBySource,
     },
     enrollments: {
