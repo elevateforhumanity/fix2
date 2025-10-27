@@ -7,6 +7,7 @@ Successfully implemented an automated file-based routing system that generates r
 ## What Was Built
 
 ### 1. Route Generator (`scripts/generate-routes.mjs`)
+
 - Scans `src/pages/**` for all `.tsx` and `.jsx` files
 - Auto-generates routes with kebab-case paths
 - Validates override references at build time
@@ -15,23 +16,27 @@ Successfully implemented an automated file-based routing system that generates r
 - **Result**: 149 routes from 150 page files
 
 ### 2. Route Overrides (`routes.overrides.mjs`)
+
 - Defines special routes (home, dynamic params, 404)
 - Overrides default auto-generated paths
 - Build fails if override references missing file
 - Easy to maintain and extend
 
 ### 3. Simplified App (`src/App.tsx`)
+
 - Reduced from 467 lines to 11 lines
 - No manual route management
 - Clean, maintainable code
 
 ### 4. Enhanced Error Handling
+
 - Global error logging in `index.html`
 - Route-level error boundary
 - Suspense fallback for lazy loading
 - Sourcemaps enabled for debugging
 
 ### 5. Build Integration
+
 - Auto-generates routes on every build (`prebuild` script)
 - Validates all routes before build completes
 - No manual intervention needed
@@ -39,6 +44,7 @@ Successfully implemented an automated file-based routing system that generates r
 ## Current State
 
 ### Pages Breakdown
+
 - **Total Files**: 150 page files
 - **Generated Routes**: 149 routes (1 test file excluded)
 - **Fully Built**: ~107 pages (50+ lines with real functionality)
@@ -47,23 +53,27 @@ Successfully implemented an automated file-based routing system that generates r
 ### Stub Pages Identified
 
 #### Priority 1: Core Business (Need Content)
+
 - `Government.jsx` (16 lines) - WIOA/government programs
 - `Philanthropy.jsx` (16 lines) - Nonprofit info
 - `Community.jsx` (27 lines) - Community features
 - `DonatePage.tsx` (15 lines) - Donation page
 
 #### Priority 2: Platform Features (Functional Stubs)
+
 - `Branding.jsx`, `Ecommerce.jsx`, `Forms.jsx`, `Groups.jsx`
 - `Integrations.jsx`, `MobileApp.jsx`, `Notifications.jsx`
 - `Sites.jsx`, `UserManagement.jsx`, `Vids.jsx`
 - `AccessibilitySettings.jsx`
 
 #### Priority 3: LMS/Education
+
 - `GradeBook.jsx`, `LiveClassRoom.jsx`, `LiveClassSchedule.jsx`
 - `QuizBuilder.jsx`, `QuizResults.jsx`, `QuizTake.jsx`
 - `StudentGrades.jsx`, `NotificationCenter.jsx`, `NotificationSettings.jsx`
 
 #### Priority 4: Sister Sites
+
 - `sisters/VolunteerOpportunities.jsx`, `sisters/PeerSupport.jsx`
 - `sisters/Volunteer.jsx`, `sisters/Wellness.jsx`
 - `sisters/MentorDirectory.jsx`, `sisters/VolunteerStories.jsx`
@@ -72,24 +82,28 @@ Successfully implemented an automated file-based routing system that generates r
 ## Benefits
 
 ### Maintainability
+
 - No manual route management
 - Add pages by creating files
 - Automatic path generation
 - Clear override system
 
 ### Safety
+
 - Build-time validation
 - Type-safe imports
 - Error boundaries
 - No runtime route failures
 
 ### Scalability
+
 - Handles 149+ routes easily
 - No performance impact
 - Code-splitting automatic
 - Easy to add new pages
 
 ### Debuggability
+
 - Sourcemaps enabled
 - Error boundaries catch failures
 - Global error logging
@@ -100,11 +114,13 @@ Successfully implemented an automated file-based routing system that generates r
 ### Adding a New Page
 
 1. Create file in `src/pages/`:
+
    ```bash
    touch src/pages/NewFeature.tsx
    ```
 
 2. Build automatically generates route:
+
    ```
    src/pages/NewFeature.tsx → /new-feature
    ```
@@ -114,11 +130,13 @@ Successfully implemented an automated file-based routing system that generates r
 ### Adding a Dynamic Route
 
 1. Create the page file:
+
    ```bash
    touch src/pages/BlogPost.tsx
    ```
 
 2. Add override in `routes.overrides.mjs`:
+
    ```javascript
    { file: 'BlogPost.tsx', path: '/blog/:slug' }
    ```
@@ -208,6 +226,7 @@ npx eslint src/pages --ext .tsx,.jsx
 ## Maintenance
 
 The routing system is self-maintaining:
+
 - Routes auto-generate on every build
 - No manual updates needed
 - Overrides are explicit and validated
