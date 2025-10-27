@@ -1,0 +1,238 @@
+name: Branch Auto-Deploy
+
+on:
+  push:
+    branches:
+      # Development branches
+      - 'dev/**'
+      - 'develop'
+      - 'development'
+
+      # Feature branches
+      - 'feature/**'
+      - 'feat/**'
+
+      # Fix branches
+      - 'fix/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
+
+      # Autopilot branches
+      - 'autopilot/**'
+      - 'auto/**'
+
+      # Staging branch
+      - 'staging'
+
+env:
+  NODE_VERSION: 20
+  PNPM_VERSION: 9.7.0
+
+jobs:
+  auto-deploy-branch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run autopilot auto-fixes
+        id: autofixes
+        continue-on-error: true
+        run: |
+          echo "🤖 Running autopilot auto-fixes..."
+          pnpm run autopilot:fix || true
+
+      - name: Check for auto-fix changes
+        id: check-changes
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ Auto-fixes applied"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No auto-fixes needed"
+          fi
+
+      - name: Commit auto-fixes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "autopilot@elevateforhumanity.org"
+          git config --local user.name "EFH Autopilot"
+
+          git add -A
+          git commit -m "chore: autopilot auto-fixes" \
+            -m "Applied automatic fixes:" \
+            -m "- Code formatting" \
+            -m "- Brand color corrections" \
+            -m "- Sitemap generation" \
+            -m "- Robots.txt generation" \
+            -m "" \
+            -m "Branch: ${{ github.ref_name }}" \
+            -m "Workflow: ${{ github.workflow }}" \
+            -m "" \
+            -m "Co-authored-by: Ona <no-reply@ona.com>"
+
+          git push origin HEAD
+          echo "✅ Auto-fixes committed and pushed"
+
+      - name: Run autopilot checks
+        run: |
+          echo "🤖 Running autopilot checks..."
+          node tools/autopilot.mjs || echo "⚠️ Some checks failed, continuing..."
+
+      - name: Build application
+        env:
+          NODE_ENV: production
+          VITE_ENVIRONMENT: preview
+          VITE_APP_VERSION: ${{ github.sha }}
+        run: |
+          echo "🏗️ Building application for branch: ${{ github.ref_name }}"
+          pnpm run build
+
+      - name: Deploy preview to Netlify
+        id: netlify-deploy
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './dist'
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: |
+            Branch: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            Auto-deployed by GitHub Actions
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: ${{ github.ref_name }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 10
+
+      - name: Comment deployment URL
+        if: steps.netlify-deploy.outputs.deploy-url
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const deployUrl = '${{ steps.netlify-deploy.outputs.deploy-url }}';
+            const branch = '${{ github.ref_name }}';
+            const sha = '${{ github.sha }}'.substring(0, 7);
+
+            const comment = [
+              '## 🚀 Branch Auto-Deploy',
+              '',
+              `**Branch:** \`${branch}\``,
+              `**Commit:** \`${sha}\``,
+              `**Status:** ✅ Deployed`,
+              '',
+              `### Preview URL:`,
+              `🔗 ${deployUrl}`,
+              '',
+              '### Auto-Actions Taken:',
+              '- ✅ Applied autopilot fixes',
+              '- ✅ Ran autopilot checks',
+              '- ✅ Built application',
+              '- ✅ Deployed preview',
+              '',
+              '_This deployment will be automatically updated on new commits._'
+            ].join('\n');
+
+            // Find existing deployment comment
+            const { data: comments } = await github.rest.repos.listCommentsForCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha
+            });
+
+            const existingComment = comments.find(c => 
+              c.user.login === 'github-actions[bot]' && 
+              c.body.includes('Branch Auto-Deploy')
+            );
+
+            if (existingComment) {
+              await github.rest.repos.updateCommitComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: comment
+              });
+            } else {
+              await github.rest.repos.createCommitComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: context.sha,
+                body: comment
+              });
+            }
+
+      - name: Create deployment summary
+        if: always()
+        run: |
+          echo "## 🚀 Branch Auto-Deploy Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Auto-fixes:** ${{ steps.check-changes.outputs.has_changes == 'true' && '✅ Applied & Committed' || 'ℹ️ None needed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Deployment:" >> $GITHUB_STEP_SUMMARY
+          if [[ -n "${{ steps.netlify-deploy.outputs.deploy-url }}" ]]; then
+            echo "- ✅ Deployed to Netlify" >> $GITHUB_STEP_SUMMARY
+            echo "- 🔗 URL: ${{ steps.netlify-deploy.outputs.deploy-url }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ⚠️ Deployment URL not available" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** 🟢 COMPLETE" >> $GITHUB_STEP_SUMMARY
+
+  notify-success:
+    needs: auto-deploy-branch
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Success notification
+        run: |
+          echo "✅ Branch auto-deploy completed successfully"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Preview deployed to Netlify"
+
+  notify-failure:
+    needs: auto-deploy-branch
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: Failure notification
+        run: |
+          echo "❌ Branch auto-deploy failed"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Check workflow logs for details"

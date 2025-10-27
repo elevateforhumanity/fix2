@@ -59,11 +59,13 @@ describe('EmailEventsPanel', () => {
 
   it('has filter and search controls', async () => {
     render(<EmailEventsPanel />);
-    
+
     // Wait for loading to complete
     await screen.findByText('Recent Email Events');
-    
+
     expect(screen.getByText('Filter by Status')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Search by recipient or subject/i)).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(/Search by recipient or subject/i)
+    ).toBeInTheDocument();
   });
 });

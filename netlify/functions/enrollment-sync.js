@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Enrollment Sync
- * 
+ *
  * Syncs student enrollment data from external systems (Google Forms, Zapier, etc.)
  * to Supabase database in real-time.
- * 
+ *
  * Endpoint: POST /.netlify/functions/enrollment-sync
  */
 
@@ -43,7 +43,11 @@ exports.handler = async (event, context) => {
     const enrollmentData = JSON.parse(event.body);
 
     // Validate required fields
-    if (!enrollmentData.first_name || !enrollmentData.last_name || !enrollmentData.email) {
+    if (
+      !enrollmentData.first_name ||
+      !enrollmentData.last_name ||
+      !enrollmentData.email
+    ) {
       return {
         statusCode: 400,
         headers,
@@ -102,7 +106,8 @@ exports.handler = async (event, context) => {
         student_id: studentId,
         program_id: enrollmentData.program_id,
         program_name: enrollmentData.program_name,
-        enrollment_date: enrollmentData.enrollment_date || new Date().toISOString(),
+        enrollment_date:
+          enrollmentData.enrollment_date || new Date().toISOString(),
         funding_source: enrollmentData.funding_source || 'self-pay',
         status: enrollmentData.status || 'pending',
         metadata: enrollmentData.metadata || {},

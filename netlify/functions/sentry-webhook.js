@@ -1,8 +1,8 @@
 /**
  * Netlify Function: Sentry Webhook
- * 
+ *
  * Receives Sentry error notifications and forwards to Slack.
- * 
+ *
  * Endpoint: POST /.netlify/functions/sentry-webhook
  */
 
@@ -42,11 +42,7 @@ exports.handler = async (event, context) => {
     }
 
     // Extract relevant information from Sentry event
-    const {
-      action,
-      data,
-      actor,
-    } = sentryEvent;
+    const { action, data, actor } = sentryEvent;
 
     // Only process error events
     if (action !== 'created' && action !== 'resolved') {
@@ -83,7 +79,10 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ success: true, message: 'Notification sent to Slack' }),
+      body: JSON.stringify({
+        success: true,
+        message: 'Notification sent to Slack',
+      }),
     };
   } catch (error) {
     console.error('Sentry webhook error:', error);
@@ -105,7 +104,7 @@ function buildSlackMessage(action, issue, actor) {
   const isResolved = action === 'resolved';
   const color = isResolved ? '#36a64f' : '#ff0000';
   const emoji = isResolved ? '✅' : '🚨';
-  
+
   const title = issue.title || issue.message || 'Unknown Error';
   const culprit = issue.culprit || 'Unknown';
   const level = issue.level || 'error';

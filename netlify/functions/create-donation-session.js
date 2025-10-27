@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Create Donation Session
- * 
+ *
  * Creates Stripe Checkout session for donations to Selfish Inc Foundation.
  * Supports one-time and recurring (monthly) donations.
- * 
+ *
  * Endpoint: POST /.netlify/functions/create-donation-session
  */
 
@@ -64,8 +64,11 @@ exports.handler = async (event, context) => {
             currency: 'usd',
             product_data: {
               name: 'Monthly Donation to Selfish Inc Foundation',
-              description: 'Recurring monthly donation supporting scholarships and community programs',
-              images: ['https://elevateforhumanity.org/images/selfish-inc-logo.png'],
+              description:
+                'Recurring monthly donation supporting scholarships and community programs',
+              images: [
+                'https://elevateforhumanity.org/images/selfish-inc-logo.png',
+              ],
             },
             unit_amount: Math.round(amount * 100),
             recurring: {
@@ -83,8 +86,11 @@ exports.handler = async (event, context) => {
             currency: 'usd',
             product_data: {
               name: 'Donation to Selfish Inc Foundation',
-              description: 'Tax-deductible donation supporting scholarships and community programs',
-              images: ['https://elevateforhumanity.org/images/selfish-inc-logo.png'],
+              description:
+                'Tax-deductible donation supporting scholarships and community programs',
+              images: [
+                'https://elevateforhumanity.org/images/selfish-inc-logo.png',
+              ],
             },
             unit_amount: Math.round(amount * 100),
           },

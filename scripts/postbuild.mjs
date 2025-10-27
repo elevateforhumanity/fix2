@@ -1,26 +1,10 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { mkdir, writeFile, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { ROUTES } from '../routes.config.mjs';
 
-const routerSrc = readFileSync('src/router.jsx', 'utf8');
-const routeRegex = /<Route\s+[^>]*path=["']([^"']+)["']/g;
-const routerPaths = [];
-let mm;
-while ((mm = routeRegex.exec(routerSrc)) !== null) routerPaths.push(mm[1]);
-const realRouterPaths = routerPaths.filter(
-  (p) => p !== '*' && !p.startsWith('/:')
-);
-const configPaths = ROUTES.map((r) => r.path);
-const driftA = realRouterPaths.filter((p) => !configPaths.includes(p));
-if (driftA.length) {
-  console.error('Route drift detected:', {
-    missingInConfig: driftA,
-  });
-  // continue (warn) or uncomment next line to hard fail:
-  // process.exit(1);
-}
+// Route validation removed - routes are now auto-generated in src/router/AppRoutes.tsx
 
 const distDir = path.resolve('dist');
 if (!existsSync(distDir)) {
