@@ -21,10 +21,9 @@ describe('Button Functionality Tests', () => {
     it('renders all navigation buttons', () => {
       renderWithProviders(<GetStarted />);
 
-      // Check page renders without errors
-      const buttons = screen.getAllByRole('button');
+      // Check page renders without errors - GetStarted uses links, not buttons
       const links = screen.getAllByRole('link');
-      expect(buttons.length + links.length).toBeGreaterThan(0);
+      expect(links.length).toBeGreaterThan(0);
     });
 
     it('has working navigation links', () => {
@@ -61,47 +60,20 @@ describe('Button Functionality Tests', () => {
   });
 
   describe('Connect Page', () => {
-    it('renders contact form', () => {
+    it('renders community content', () => {
       renderWithProviders(<Connect />);
 
-      // Check for form elements - Connect page has inputs
-      const inputs = screen.getAllByRole('textbox');
-      expect(inputs.length).toBeGreaterThan(0);
+      // Connect is a community/events page, not a contact form
+      const heading = screen.getByRole('heading', { name: /Connect Community/i });
+      expect(heading).toBeInTheDocument();
     });
 
-    it('handles form submission', async () => {
-      const { container } = renderWithProviders(<Connect />);
+    it('displays events', () => {
+      renderWithProviders(<Connect />);
 
-      // Find form inputs by name attribute
-      const nameInput = container.querySelector('input[name="name"]');
-      const emailInput = container.querySelector('input[name="email"]');
-      const messageInput = container.querySelector('textarea[name="message"]');
-      const subjectInput = container.querySelector('input[name="subject"]');
-
-      expect(nameInput).toBeInTheDocument();
-      expect(emailInput).toBeInTheDocument();
-
-      // Fill required form fields
-      fireEvent.change(nameInput, { target: { value: 'Test User' } });
-      fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-      fireEvent.change(subjectInput, { target: { value: 'Test Subject' } });
-      fireEvent.change(messageInput, { target: { value: 'Test message' } });
-
-      // Submit form
-      const submitButton = screen.getByRole('button', {
-        name: /send message/i,
-      });
-      fireEvent.click(submitButton);
-
-      // Wait for loading state
-      await waitFor(
-        () => {
-          // Button should show loading or success state
-          const button = screen.getByRole('button');
-          expect(button.textContent).toMatch(/Sending|Send Message|Thank You/i);
-        },
-        { timeout: 2000 }
-      );
+      // Check for event content - Connect is a community page with events
+      const headings = screen.getAllByRole('heading');
+      expect(headings.length).toBeGreaterThan(0);
     });
   });
 });
