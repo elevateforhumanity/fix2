@@ -64,31 +64,36 @@ Complete automation and philanthropic infrastructure for Elevate for Humanity.
 - `netlify/functions/stripe-connect-onboarding.js`
 - `netlify/functions/stripe-webhook.js` (updated)
 - `docs/STRIPE_SPLIT_PAYOUTS.md`
+- `docs/REVENUE_SPLIT_MODEL.md` (comprehensive revenue model documentation)
 - `supabase/migrations/20250127_create_stripe_split_tables.sql`
 
 **Revenue Model:**
 
-- **50% to EFH** (operations, facilities, technology)
-- **50% to Partners:**
-  - 40% to Instructor (80% of partner share)
-  - 10% to Selfish Inc (20% of partner share)
-
-**Important:** Split payouts only apply to **self-pay programs**. Government-funded programs (WIOA, WRG, OJT) are FREE to students and EFH receives 100% of reimbursement.
+- **Self-Pay Programs:**
+  - 50% to Elevate for Humanity (EFH)
+  - 50% to Partners (credentialing partner organization)
+  - EFH gets paid first, then Partners
+  - Instructors receive NO monetary payment (credentialing only)
+  
+- **Government Programs (WIOA/WRG/OJT):**
+  - FREE to students
+  - 100% to EFH
+  - NO revenue split
 
 **Features:**
 
-- Automated revenue splitting via Stripe Connect
-- Instructor onboarding for payouts
-- Customizable payout percentages per instructor
-- Tax reporting (1099-K) for instructors
+- Automated 50/50 revenue splitting via Stripe Connect
+- EFH receives payment first, then transfers to Partners
+- Instructor onboarding infrastructure (for future use)
+- Funding source detection (skips split for government programs)
 - Database tables: instructors, split_payouts, instructor_programs
 
 **Impact:**
 
-- Automated revenue sharing
-- Transparent instructor payments
-- $300K+ annual scholarships to Selfish Inc
+- Automated revenue sharing with partners
+- Transparent payment processing
 - Zero manual payout processing
+- Government program compliance
 
 ---
 
