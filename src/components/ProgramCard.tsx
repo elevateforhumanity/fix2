@@ -1,11 +1,23 @@
 import { Link } from 'react-router-dom';
 import type { Program } from '../data/programs';
 
-const APPLICATION_URL =
-  import.meta.env.VITE_APPLICATION_FORM_URL ||
-  'https://www.indianacareerconnect.com';
+const GOOGLE_FORM_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
+const INDIANA_CAREER_CONNECT_URL = 'https://www.indianacareerconnect.com';
+
+// State/federal funded programs require Indiana Career Connect first
+const STATE_FUNDED_PROGRAMS = ['WIOA', 'WRG', 'WEX', 'OJT', 'Apprenticeship'];
+
+function getApplicationUrl(program: Program): string {
+  // Check if program has state/federal funding
+  const hasStateFunding = program.funding.some((f) =>
+    STATE_FUNDED_PROGRAMS.includes(f)
+  );
+  
+  return hasStateFunding ? INDIANA_CAREER_CONNECT_URL : GOOGLE_FORM_URL;
+}
 
 export default function ProgramCard({ p }: { p: Program }) {
+  const applicationUrl = getApplicationUrl(p);
   return (
     <article className="group rounded-2xl bg-white p-5 ring-1 ring-slate-200 hover:shadow-md transition">
       <div className="aspect-[16/9] w-full overflow-hidden rounded-xl">
@@ -50,7 +62,7 @@ export default function ProgramCard({ p }: { p: Program }) {
             Program Details
           </Link>
           <a
-            href={APPLICATION_URL}
+            href={applicationUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg border border-brand-border-dark px-4 py-2 font-semibold hover:border-slate-400"

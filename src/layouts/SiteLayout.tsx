@@ -2,9 +2,8 @@ import { PropsWithChildren } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ChatAssistant from '../components/ChatAssistant';
 
-const APPLICATION_URL =
-  import.meta.env.VITE_APPLICATION_FORM_URL ||
-  'https://www.indianacareerconnect.com';
+// Default to Google Form for general applications
+const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
 
 export default function SiteLayout({ children }: PropsWithChildren) {
   return (
