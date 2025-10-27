@@ -1,7 +1,6 @@
 import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
-import ProtectedRoute from './components/auth/ProtectedRoute';
 
 // Error Boundary
 class ErrorBoundary extends Component<
@@ -47,119 +46,6 @@ class ErrorBoundary extends Component<
   }
 }
 
-// ============================================
-// LAZY LOAD ALL PAGES
-// ============================================
-
-// Public Pages
-const EFHLanding = lazy(() => import('./pages/EFHLanding'));
-const About = lazy(() => import('./pages/About'));
-const Accessibility = lazy(() => import('./pages/Accessibility'));
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./pages/TermsOfService'));
-const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
-const Contact = lazy(() => import('./pages/Connect'));
-const Support = lazy(() => import('./pages/Support'));
-const Partners = lazy(() => import('./pages/Partners'));
-
-// Programs
-const ProgramsPage = lazy(() => import('./pages/ProgramsPage'));
-const ProgramDetail = lazy(() => import('./pages/ProgramDetail'));
-
-// Auth
-const Login = lazy(() => import('./pages/auth/Login'));
-const Signup = lazy(() => import('./pages/auth/Signup'));
-const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
-const Account = lazy(() => import('./pages/auth/Account'));
-const VerifyEmail = lazy(() => import('./pages/VerifyEmail'));
-const ResetPassword = lazy(() => import('./pages/ResetPassword'));
-
-// LMS - Student
-const Dashboard = lazy(() => import('./pages/lms/Dashboard'));
-const LMSCourses = lazy(() => import('./pages/LMSCourses'));
-const CoursePage = lazy(() => import('./pages/lms/CoursePage'));
-const LessonPage = lazy(() => import('./pages/lms/LessonPage'));
-const StudentDashboard = lazy(() => import('./pages/StudentDashboard'));
-const StudentHandbook = lazy(() => import('./pages/StudentHandbook'));
-const StudentHub = lazy(() => import('./pages/StudentHub'));
-
-// LMS - Instructor
-const InstructorDashboard = lazy(() => import('./pages/instructor/InstructorDashboard'));
-const CourseEditor = lazy(() => import('./pages/instructor/CourseEditor'));
-const LessonManager = lazy(() => import('./pages/instructor/LessonManager'));
-const InstructorCourseCreate = lazy(() => import('./pages/InstructorCourseCreate'));
-const GradeBook = lazy(() => import('./pages/GradeBook'));
-const CurriculumUpload = lazy(() => import('./pages/CurriculumUpload'));
-
-// Certificates
-const MyCertificates = lazy(() => import('./pages/MyCertificates'));
-const CertificatePage = lazy(() => import('./pages/CertificatePage'));
-const VerifyCertificate = lazy(() => import('./pages/VerifyCertificate'));
-
-// Courses & Learning
-const CourseLibrary = lazy(() => import('./pages/CourseLibrary'));
-const CourseCatalog = lazy(() => import('./pages/CourseCatalog'));
-const CourseDetail = lazy(() => import('./pages/CourseDetail'));
-const CourseBuilder = lazy(() => import('./pages/CourseBuilder'));
-const Assignment = lazy(() => import('./pages/Assignment'));
-const Quiz = lazy(() => import('./pages/Quiz'));
-const QuizResults = lazy(() => import('./pages/QuizResults'));
-const QuizBuilder = lazy(() => import('./pages/QuizBuilder'));
-
-// Community & Social
-const Community = lazy(() => import('./pages/Community'));
-const CommunityHub = lazy(() => import('./pages/CommunityHub'));
-const Hub = lazy(() => import('./pages/Hub'));
-const Groups = lazy(() => import('./pages/Groups'));
-const Connect = lazy(() => import('./pages/Connect'));
-
-// AI & Advanced Features
-const AITutor = lazy(() => import('./pages/AITutor'));
-const ElevateBrain = lazy(() => import('./pages/ElevateBrain'));
-const NotebookLM = lazy(() => import('./pages/NotebookLM'));
-
-// Live Learning
-const LiveClassRoom = lazy(() => import('./pages/LiveClassRoom'));
-const LiveClassSchedule = lazy(() => import('./pages/LiveClassSchedule'));
-const VideoMeeting = lazy(() => import('./pages/VideoMeeting'));
-
-// Admin & Management
-const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
-const AdminConsole = lazy(() => import('./pages/AdminConsole'));
-const UserManagement = lazy(() => import('./pages/UserManagement'));
-const Analytics = lazy(() => import('./pages/Analytics'));
-const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
-const Compliance = lazy(() => import('./pages/Compliance'));
-const Branding = lazy(() => import('./pages/Branding'));
-const AutopilotAdmin = lazy(() => import('./pages/AutopilotAdmin'));
-
-// Resources & Info
-const FundingImpact = lazy(() => import('./pages/FundingImpact'));
-const Government = lazy(() => import('./pages/Government'));
-const Philanthropy = lazy(() => import('./pages/Philanthropy'));
-const BusinessHub = lazy(() => import('./pages/BusinessHub'));
-const EducatorHub = lazy(() => import('./pages/EducatorHub'));
-
-// Utilities
-const Calendar = lazy(() => import('./pages/Calendar'));
-const Notifications = lazy(() => import('./pages/Notifications'));
-const NotificationCenter = lazy(() => import('./pages/NotificationCenter'));
-const FileManager = lazy(() => import('./pages/FileManager'));
-const Settings = lazy(() => import('./pages/Settings'));
-const Profile = lazy(() => import('./pages/Profile'));
-
-// Payment
-const Pay = lazy(() => import('./pages/Pay'));
-const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
-const PaymentCancelled = lazy(() => import('./pages/PaymentCancelled'));
-const Donate = lazy(() => import('./pages/Donate'));
-
-// Other
-const GetStarted = lazy(() => import('./pages/GetStarted'));
-const ThankYou = lazy(() => import('./pages/ThankYou'));
-const Sitemap = lazy(() => import('./pages/Sitemap'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-
 // Loading Component
 function PageLoader() {
   return (
@@ -172,17 +58,174 @@ function PageLoader() {
   );
 }
 
-// Simple Page Component for placeholders
-function SimplePage({ title }: { title: string }) {
-  return (
-    <section className="section">
-      <div className="container">
-        <h1 className="text-3xl font-bold">{title}</h1>
-        <p className="mt-2 text-brand-text-muted">Content coming soon.</p>
-      </div>
-    </section>
-  );
-}
+// Lazy load all 145 pages
+const AITutor = lazy(() => import('./pages/AITutor'));
+const About = lazy(() => import('./pages/About'));
+const Accessibility = lazy(() => import('./pages/Accessibility'));
+const AccessibilitySettings = lazy(
+  () => import('./pages/AccessibilitySettings')
+);
+const Account = lazy(() => import('./pages/Account'));
+const AdminConsole = lazy(() => import('./pages/AdminConsole'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const Analytics = lazy(() => import('./pages/Analytics'));
+const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
+const AnalyticsDashboardRUM = lazy(
+  () => import('./pages/AnalyticsDashboardRUM')
+);
+const Assignment = lazy(() => import('./pages/Assignment'));
+const AutopilotAdmin = lazy(() => import('./pages/AutopilotAdmin'));
+const BingSiteVerification = lazy(() => import('./pages/BingSiteVerification'));
+const Branding = lazy(() => import('./pages/Branding'));
+const BusinessHub = lazy(() => import('./pages/BusinessHub'));
+const Calendar = lazy(() => import('./pages/Calendar'));
+const CertificatePage = lazy(() => import('./pages/CertificatePage'));
+const Certificates = lazy(() => import('./pages/Certificates'));
+const CloneLanding = lazy(() => import('./pages/CloneLanding'));
+const Community = lazy(() => import('./pages/Community'));
+const CommunityHub = lazy(() => import('./pages/CommunityHub'));
+const Compliance = lazy(() => import('./pages/Compliance'));
+const Connect = lazy(() => import('./pages/Connect'));
+const Course = lazy(() => import('./pages/Course'));
+const CourseBuilder = lazy(() => import('./pages/CourseBuilder'));
+const CourseCatalog = lazy(() => import('./pages/CourseCatalog'));
+const CourseDetail = lazy(() => import('./pages/CourseDetail'));
+const CourseLibrary = lazy(() => import('./pages/CourseLibrary'));
+const CurriculumUpload = lazy(() => import('./pages/CurriculumUpload'));
+const Docs = lazy(() => import('./pages/Docs'));
+const Donate = lazy(() => import('./pages/Donate'));
+const DonatePage = lazy(() => import('./pages/DonatePage'));
+const DurableAI = lazy(() => import('./pages/DurableAI'));
+const DurableFeatures = lazy(() => import('./pages/DurableFeatures'));
+const DurableLanding = lazy(() => import('./pages/DurableLanding'));
+const DurablePricing = lazy(() => import('./pages/DurablePricing'));
+const DurableTemplates = lazy(() => import('./pages/DurableTemplates'));
+const EFHLanding = lazy(() => import('./pages/EFHLanding'));
+const Ecommerce = lazy(() => import('./pages/Ecommerce'));
+const Ecosystem = lazy(() => import('./pages/Ecosystem'));
+const EducatorHub = lazy(() => import('./pages/EducatorHub'));
+const ElevateBrain = lazy(() => import('./pages/ElevateBrain'));
+const Email = lazy(() => import('./pages/Email'));
+const FileManager = lazy(() => import('./pages/FileManager'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const Forms = lazy(() => import('./pages/Forms'));
+const FullSailLanding = lazy(() => import('./pages/FullSailLanding'));
+const FundingImpact = lazy(() => import('./pages/FundingImpact'));
+const GetStarted = lazy(() => import('./pages/GetStarted'));
+const GoogleAnalyticsSetup = lazy(() => import('./pages/GoogleAnalyticsSetup'));
+const GoogleSiteVerification = lazy(
+  () => import('./pages/GoogleSiteVerification')
+);
+const Government = lazy(() => import('./pages/Government'));
+const GradeBook = lazy(() => import('./pages/GradeBook'));
+const Groups = lazy(() => import('./pages/Groups'));
+const Home = lazy(() => import('./pages/Home'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const Hub = lazy(() => import('./pages/Hub'));
+const Instructor = lazy(() => import('./pages/Instructor'));
+const InstructorCourseCreate = lazy(
+  () => import('./pages/InstructorCourseCreate')
+);
+const InstructorEdit = lazy(() => import('./pages/InstructorEdit'));
+const InstructorNew = lazy(() => import('./pages/InstructorNew'));
+const Integrations = lazy(() => import('./pages/Integrations'));
+const KingdomKonnect = lazy(() => import('./pages/KingdomKonnect'));
+const LMS = lazy(() => import('./pages/LMS'));
+const LMSCourses = lazy(() => import('./pages/LMSCourses'));
+const LMSDashboard = lazy(() => import('./pages/LMSDashboard'));
+const LMSLanding = lazy(() => import('./pages/LMSLanding'));
+const LiveClassRoom = lazy(() => import('./pages/LiveClassRoom'));
+const LiveClassSchedule = lazy(() => import('./pages/LiveClassSchedule'));
+const Login = lazy(() => import('./pages/Login'));
+const MainLanding = lazy(() => import('./pages/MainLanding'));
+const MobileApp = lazy(() => import('./pages/MobileApp'));
+const MyCertificates = lazy(() => import('./pages/MyCertificates'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const NotebookLM = lazy(() => import('./pages/NotebookLM'));
+const NotificationCenter = lazy(() => import('./pages/NotificationCenter'));
+const NotificationSettings = lazy(() => import('./pages/NotificationSettings'));
+const Notifications = lazy(() => import('./pages/Notifications'));
+const Partners = lazy(() => import('./pages/Partners'));
+const Pay = lazy(() => import('./pages/Pay'));
+const PaymentCancelled = lazy(() => import('./pages/PaymentCancelled'));
+const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
+const Philanthropy = lazy(() => import('./pages/Philanthropy'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const ProfessionalHome = lazy(() => import('./pages/ProfessionalHome'));
+const ProfessionalSite = lazy(() => import('./pages/ProfessionalSite'));
+const Profile = lazy(() => import('./pages/Profile'));
+const ProgramDetail = lazy(() => import('./pages/ProgramDetail'));
+const ProgramPage = lazy(() => import('./pages/ProgramPage'));
+const Programs = lazy(() => import('./pages/Programs'));
+const ProgramsDurable = lazy(() => import('./pages/ProgramsDurable'));
+const ProgramsIndex = lazy(() => import('./pages/ProgramsIndex'));
+const ProgramsPage = lazy(() => import('./pages/ProgramsPage'));
+const Quiz = lazy(() => import('./pages/Quiz'));
+const QuizBuilder = lazy(() => import('./pages/QuizBuilder'));
+const QuizResults = lazy(() => import('./pages/QuizResults'));
+const QuizTake = lazy(() => import('./pages/QuizTake'));
+const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const SearchResults = lazy(() => import('./pages/SearchResults'));
+const SereneComfortCare = lazy(() => import('./pages/SereneComfortCare'));
+const Settings = lazy(() => import('./pages/Settings'));
+const Sheets = lazy(() => import('./pages/Sheets'));
+const Signup = lazy(() => import('./pages/Signup'));
+const Sitemap = lazy(() => import('./pages/Sitemap'));
+const Sites = lazy(() => import('./pages/Sites'));
+const Slides = lazy(() => import('./pages/Slides'));
+const SocialMediaManager = lazy(() => import('./pages/SocialMediaManager'));
+const Student = lazy(() => import('./pages/Student'));
+const StudentDashboard = lazy(() => import('./pages/StudentDashboard'));
+const StudentGrades = lazy(() => import('./pages/StudentGrades'));
+const StudentHandbook = lazy(() => import('./pages/StudentHandbook'));
+const StudentHub = lazy(() => import('./pages/StudentHub'));
+const StudentPortalLMS = lazy(() => import('./pages/StudentPortalLMS'));
+const Support = lazy(() => import('./pages/Support'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const TestPage = lazy(() => import('./pages/TestPage'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
+const UrbanBuildCrew = lazy(() => import('./pages/UrbanBuildCrew'));
+const UserManagement = lazy(() => import('./pages/UserManagement'));
+const VerifyCertificate = lazy(() => import('./pages/VerifyCertificate'));
+const VerifyEmail = lazy(() => import('./pages/VerifyEmail'));
+const VideoMeeting = lazy(() => import('./pages/VideoMeeting'));
+const Vids = lazy(() => import('./pages/Vids'));
+const auth_Account = lazy(() => import('./pages/auth/Account'));
+const auth_ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
+const auth_Login = lazy(() => import('./pages/auth/Login'));
+const auth_Signup = lazy(() => import('./pages/auth/Signup'));
+const instructor_CourseEditor = lazy(
+  () => import('./pages/instructor/CourseEditor')
+);
+const instructor_InstructorDashboard = lazy(
+  () => import('./pages/instructor/InstructorDashboard')
+);
+const instructor_LessonManager = lazy(
+  () => import('./pages/instructor/LessonManager')
+);
+const lms_CoursePage = lazy(() => import('./pages/lms/CoursePage'));
+const lms_CoursesIndex = lazy(() => import('./pages/lms/CoursesIndex'));
+const lms_Dashboard = lazy(() => import('./pages/lms/Dashboard'));
+const lms_LessonPage = lazy(() => import('./pages/lms/LessonPage'));
+const lms_QuizBlock = lazy(() => import('./pages/lms/QuizBlock'));
+const sisters_MentorDirectory = lazy(
+  () => import('./pages/sisters/MentorDirectory')
+);
+const sisters_MentorSignup = lazy(() => import('./pages/sisters/MentorSignup'));
+const sisters_Mentorship = lazy(() => import('./pages/sisters/Mentorship'));
+const sisters_PeerSupport = lazy(() => import('./pages/sisters/PeerSupport'));
+const sisters_Volunteer = lazy(() => import('./pages/sisters/Volunteer'));
+const sisters_VolunteerOpportunities = lazy(
+  () => import('./pages/sisters/VolunteerOpportunities')
+);
+const sisters_VolunteerStories = lazy(
+  () => import('./pages/sisters/VolunteerStories')
+);
+const sisters_Wellness = lazy(() => import('./pages/sisters/Wellness'));
+const sisters_WellnessResources = lazy(
+  () => import('./pages/sisters/WellnessResources')
+);
 
 export default function App() {
   return (
@@ -191,485 +234,229 @@ export default function App() {
         <SiteLayout>
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              {/* ============================================ */}
-              {/* PUBLIC PAGES */}
-              {/* ============================================ */}
+              {/* Home */}
               <Route path="/" element={<EFHLanding />} />
+              {/* All 145 Pages */}
+              <Route path="/aitutor" element={<AITutor />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/support" element={<Support />} />
-              <Route path="/partners" element={<Partners />} />
-              <Route path="/get-started" element={<GetStarted />} />
-              <Route path="/thank-you" element={<ThankYou />} />
-              
-              {/* Legal */}
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/refund-policy" element={<RefundPolicy />} />
               <Route path="/accessibility" element={<Accessibility />} />
-              
-              {/* Sitemap */}
-              <Route path="/sitemap" element={<Sitemap />} />
-
-              {/* ============================================ */}
-              {/* PROGRAMS */}
-              {/* ============================================ */}
-              <Route path="/programs" element={<ProgramsPage />} />
-              <Route path="/programs/:slug" element={<ProgramDetail />} />
-              <Route path="/apply" element={<SimplePage title="Apply Now" />} />
-
-              {/* ============================================ */}
-              {/* AUTHENTICATION */}
-              {/* ============================================ */}
-              <Route path="/auth/login" element={<Login />} />
-              <Route path="/auth/signup" element={<Signup />} />
-              <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-              <Route path="/auth/reset-password" element={<ResetPassword />} />
-              <Route path="/verify-email" element={<VerifyEmail />} />
               <Route
-                path="/account"
-                element={
-                  <ProtectedRoute>
-                    <Account />
-                  </ProtectedRoute>
-                }
+                path="/accessibilitysettings"
+                element={<AccessibilitySettings />}
+              />
+              <Route path="/account" element={<Account />} />
+              <Route path="/adminconsole" element={<AdminConsole />} />
+              <Route path="/admindashboard" element={<AdminDashboard />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route
+                path="/analyticsdashboard"
+                element={<AnalyticsDashboard />}
               />
               <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                }
+                path="/analyticsdashboardrum"
+                element={<AnalyticsDashboardRUM />}
               />
+              <Route path="/assignment" element={<Assignment />} />
+              <Route path="/autopilotadmin" element={<AutopilotAdmin />} />
               <Route
-                path="/settings"
-                element={
-                  <ProtectedRoute>
-                    <Settings />
-                  </ProtectedRoute>
-                }
+                path="/bingsiteverification"
+                element={<BingSiteVerification />}
               />
-
-              {/* ============================================ */}
-              {/* LMS - STUDENT PORTAL */}
-              {/* ============================================ */}
-              <Route
-                path="/lms"
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/lms/courses"
-                element={
-                  <ProtectedRoute>
-                    <LMSCourses />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/lms/course/:courseId"
-                element={
-                  <ProtectedRoute>
-                    <CoursePage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/lms/lesson/:lessonId"
-                element={
-                  <ProtectedRoute>
-                    <LessonPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/student-dashboard"
-                element={
-                  <ProtectedRoute>
-                    <StudentDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/student-handbook"
-                element={
-                  <ProtectedRoute>
-                    <StudentHandbook />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/student-hub"
-                element={
-                  <ProtectedRoute>
-                    <StudentHub />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* COURSES & LEARNING */}
-              {/* ============================================ */}
-              <Route
-                path="/course-library"
-                element={
-                  <ProtectedRoute>
-                    <CourseLibrary />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/course-catalog"
-                element={
-                  <ProtectedRoute>
-                    <CourseCatalog />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/course/:courseId"
-                element={
-                  <ProtectedRoute>
-                    <CourseDetail />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/assignment/:assignmentId"
-                element={
-                  <ProtectedRoute>
-                    <Assignment />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/quiz/:quizId"
-                element={
-                  <ProtectedRoute>
-                    <Quiz />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/quiz/:quizId/results"
-                element={
-                  <ProtectedRoute>
-                    <QuizResults />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* INSTRUCTOR PORTAL */}
-              {/* ============================================ */}
-              <Route
-                path="/instructor"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <InstructorDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/instructor/course/:courseId/edit"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <CourseEditor />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/instructor/course/:courseId/lessons"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <LessonManager />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/instructor/course/create"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <InstructorCourseCreate />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/course-builder"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <CourseBuilder />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/quiz-builder"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <QuizBuilder />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/gradebook"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <GradeBook />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/curriculum-upload"
-                element={
-                  <ProtectedRoute requireRole="instructor">
-                    <CurriculumUpload />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* CERTIFICATES */}
-              {/* ============================================ */}
-              <Route
-                path="/certificates"
-                element={
-                  <ProtectedRoute>
-                    <MyCertificates />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/certificate/:certificateId" element={<CertificatePage />} />
-              <Route path="/verify" element={<VerifyCertificate />} />
-              <Route path="/verify/:certNumber" element={<VerifyCertificate />} />
-
-              {/* ============================================ */}
-              {/* COMMUNITY & SOCIAL */}
-              {/* ============================================ */}
-              <Route
-                path="/community"
-                element={
-                  <ProtectedRoute>
-                    <Community />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/community-hub"
-                element={
-                  <ProtectedRoute>
-                    <CommunityHub />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/hub"
-                element={
-                  <ProtectedRoute>
-                    <Hub />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/groups"
-                element={
-                  <ProtectedRoute>
-                    <Groups />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/connect"
-                element={
-                  <ProtectedRoute>
-                    <Connect />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* AI & ADVANCED FEATURES */}
-              {/* ============================================ */}
-              <Route
-                path="/ai-tutor"
-                element={
-                  <ProtectedRoute>
-                    <AITutor />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/elevate-brain"
-                element={
-                  <ProtectedRoute>
-                    <ElevateBrain />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/notebook-lm"
-                element={
-                  <ProtectedRoute>
-                    <NotebookLM />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* LIVE LEARNING */}
-              {/* ============================================ */}
-              <Route
-                path="/live-classroom"
-                element={
-                  <ProtectedRoute>
-                    <LiveClassRoom />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/live-schedule"
-                element={
-                  <ProtectedRoute>
-                    <LiveClassSchedule />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/video-meeting/:meetingId"
-                element={
-                  <ProtectedRoute>
-                    <VideoMeeting />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* ADMIN & MANAGEMENT */}
-              {/* ============================================ */}
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/console"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <AdminConsole />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/users"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <UserManagement />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/analytics"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <Analytics />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/analytics"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <AnalyticsDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/compliance"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <Compliance />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/branding"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <Branding />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/autopilot"
-                element={
-                  <ProtectedRoute requireRole="admin">
-                    <AutopilotAdmin />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* RESOURCES & INFO */}
-              {/* ============================================ */}
-              <Route path="/funding-impact" element={<FundingImpact />} />
-              <Route path="/government" element={<Government />} />
-              <Route path="/philanthropy" element={<Philanthropy />} />
-              <Route path="/business-hub" element={<BusinessHub />} />
-              <Route path="/educator-hub" element={<EducatorHub />} />
-
-              {/* ============================================ */}
-              {/* UTILITIES */}
-              {/* ============================================ */}
-              <Route
-                path="/calendar"
-                element={
-                  <ProtectedRoute>
-                    <Calendar />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/notifications"
-                element={
-                  <ProtectedRoute>
-                    <Notifications />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/notification-center"
-                element={
-                  <ProtectedRoute>
-                    <NotificationCenter />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/file-manager"
-                element={
-                  <ProtectedRoute>
-                    <FileManager />
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* ============================================ */}
-              {/* PAYMENT & DONATIONS */}
-              {/* ============================================ */}
-              <Route path="/pay" element={<Pay />} />
-              <Route path="/payment/success" element={<PaymentSuccess />} />
-              <Route path="/payment/cancelled" element={<PaymentCancelled />} />
+              <Route path="/branding" element={<Branding />} />
+              <Route path="/businesshub" element={<BusinessHub />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/certificatepage" element={<CertificatePage />} />
+              <Route path="/certificates" element={<Certificates />} />
+              <Route path="/clonelanding" element={<CloneLanding />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/communityhub" element={<CommunityHub />} />
+              <Route path="/compliance" element={<Compliance />} />
+              <Route path="/connect" element={<Connect />} />
+              <Route path="/course" element={<Course />} />
+              <Route path="/coursebuilder" element={<CourseBuilder />} />
+              <Route path="/coursecatalog" element={<CourseCatalog />} />
+              <Route path="/coursedetail" element={<CourseDetail />} />
+              <Route path="/courselibrary" element={<CourseLibrary />} />
+              <Route path="/curriculumupload" element={<CurriculumUpload />} />
+              <Route path="/docs" element={<Docs />} />
               <Route path="/donate" element={<Donate />} />
-
-              {/* ============================================ */}
-              {/* 404 NOT FOUND */}
-              {/* ============================================ */}
+              <Route path="/donatepage" element={<DonatePage />} />
+              <Route path="/durableai" element={<DurableAI />} />
+              <Route path="/durablefeatures" element={<DurableFeatures />} />
+              <Route path="/durablelanding" element={<DurableLanding />} />
+              <Route path="/durablepricing" element={<DurablePricing />} />
+              <Route path="/durabletemplates" element={<DurableTemplates />} />
+              <Route path="/ecommerce" element={<Ecommerce />} />
+              <Route path="/ecosystem" element={<Ecosystem />} />
+              <Route path="/educatorhub" element={<EducatorHub />} />
+              <Route path="/elevatebrain" element={<ElevateBrain />} />
+              <Route path="/email" element={<Email />} />
+              <Route path="/filemanager" element={<FileManager />} />
+              <Route path="/forgotpassword" element={<ForgotPassword />} />
+              <Route path="/forms" element={<Forms />} />
+              <Route path="/fullsaillanding" element={<FullSailLanding />} />
+              <Route path="/fundingimpact" element={<FundingImpact />} />
+              <Route path="/getstarted" element={<GetStarted />} />
+              <Route
+                path="/googleanalyticssetup"
+                element={<GoogleAnalyticsSetup />}
+              />
+              <Route
+                path="/googlesiteverification"
+                element={<GoogleSiteVerification />}
+              />
+              <Route path="/government" element={<Government />} />
+              <Route path="/gradebook" element={<GradeBook />} />
+              <Route path="/groups" element={<Groups />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/homepage" element={<HomePage />} />
+              <Route path="/hub" element={<Hub />} />
+              <Route path="/instructor" element={<Instructor />} />
+              <Route
+                path="/instructorcoursecreate"
+                element={<InstructorCourseCreate />}
+              />
+              <Route path="/instructoredit" element={<InstructorEdit />} />
+              <Route path="/instructornew" element={<InstructorNew />} />
+              <Route path="/integrations" element={<Integrations />} />
+              <Route path="/kingdomkonnect" element={<KingdomKonnect />} />
+              <Route path="/lms" element={<LMS />} />
+              <Route path="/lmscourses" element={<LMSCourses />} />
+              <Route path="/lmsdashboard" element={<LMSDashboard />} />
+              <Route path="/lmslanding" element={<LMSLanding />} />
+              <Route path="/liveclassroom" element={<LiveClassRoom />} />
+              <Route
+                path="/liveclassschedule"
+                element={<LiveClassSchedule />}
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/mainlanding" element={<MainLanding />} />
+              <Route path="/mobileapp" element={<MobileApp />} />
+              <Route path="/mycertificates" element={<MyCertificates />} />
+              <Route path="/notfound" element={<NotFound />} />
+              <Route path="/notebooklm" element={<NotebookLM />} />
+              <Route
+                path="/notificationcenter"
+                element={<NotificationCenter />}
+              />
+              <Route
+                path="/notificationsettings"
+                element={<NotificationSettings />}
+              />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/pay" element={<Pay />} />
+              <Route path="/paymentcancelled" element={<PaymentCancelled />} />
+              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+              <Route path="/philanthropy" element={<Philanthropy />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/professionalhome" element={<ProfessionalHome />} />
+              <Route path="/professionalsite" element={<ProfessionalSite />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/programdetail" element={<ProgramDetail />} />
+              <Route path="/programpage" element={<ProgramPage />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/programsdurable" element={<ProgramsDurable />} />
+              <Route path="/programsindex" element={<ProgramsIndex />} />
+              <Route path="/programspage" element={<ProgramsPage />} />
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/quizbuilder" element={<QuizBuilder />} />
+              <Route path="/quizresults" element={<QuizResults />} />
+              <Route path="/quiztake" element={<QuizTake />} />
+              <Route path="/refundpolicy" element={<RefundPolicy />} />
+              <Route path="/resetpassword" element={<ResetPassword />} />
+              <Route path="/searchresults" element={<SearchResults />} />
+              <Route
+                path="/serenecomfortcare"
+                element={<SereneComfortCare />}
+              />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/sheets" element={<Sheets />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="/sites" element={<Sites />} />
+              <Route path="/slides" element={<Slides />} />
+              <Route
+                path="/socialmediamanager"
+                element={<SocialMediaManager />}
+              />
+              <Route path="/student" element={<Student />} />
+              <Route path="/studentdashboard" element={<StudentDashboard />} />
+              <Route path="/studentgrades" element={<StudentGrades />} />
+              <Route path="/studenthandbook" element={<StudentHandbook />} />
+              <Route path="/studenthub" element={<StudentHub />} />
+              <Route path="/studentportallms" element={<StudentPortalLMS />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/termsofservice" element={<TermsOfService />} />
+              <Route path="/testpage" element={<TestPage />} />
+              <Route path="/thankyou" element={<ThankYou />} />
+              <Route path="/urbanbuildcrew" element={<UrbanBuildCrew />} />
+              <Route path="/usermanagement" element={<UserManagement />} />
+              <Route
+                path="/verifycertificate"
+                element={<VerifyCertificate />}
+              />
+              <Route path="/verifyemail" element={<VerifyEmail />} />
+              <Route path="/videomeeting" element={<VideoMeeting />} />
+              <Route path="/vids" element={<Vids />} />
+              <Route path="/auth/account" element={<auth_Account />} />
+              <Route
+                path="/auth/forgotpassword"
+                element={<auth_ForgotPassword />}
+              />
+              <Route path="/auth/login" element={<auth_Login />} />
+              <Route path="/auth/signup" element={<auth_Signup />} />
+              <Route
+                path="/instructor/courseeditor"
+                element={<instructor_CourseEditor />}
+              />
+              <Route
+                path="/instructor/instructordashboard"
+                element={<instructor_InstructorDashboard />}
+              />
+              <Route
+                path="/instructor/lessonmanager"
+                element={<instructor_LessonManager />}
+              />
+              <Route path="/lms/coursepage" element={<lms_CoursePage />} />
+              <Route path="/lms/coursesindex" element={<lms_CoursesIndex />} />
+              <Route path="/lms/dashboard" element={<lms_Dashboard />} />
+              <Route path="/lms/lessonpage" element={<lms_LessonPage />} />
+              <Route path="/lms/quizblock" element={<lms_QuizBlock />} />
+              <Route
+                path="/sisters/mentordirectory"
+                element={<sisters_MentorDirectory />}
+              />
+              <Route
+                path="/sisters/mentorsignup"
+                element={<sisters_MentorSignup />}
+              />
+              <Route
+                path="/sisters/mentorship"
+                element={<sisters_Mentorship />}
+              />
+              <Route
+                path="/sisters/peersupport"
+                element={<sisters_PeerSupport />}
+              />
+              <Route
+                path="/sisters/volunteer"
+                element={<sisters_Volunteer />}
+              />
+              <Route
+                path="/sisters/volunteeropportunities"
+                element={<sisters_VolunteerOpportunities />}
+              />
+              <Route
+                path="/sisters/volunteerstories"
+                element={<sisters_VolunteerStories />}
+              />
+              <Route path="/sisters/wellness" element={<sisters_Wellness />} />
+              <Route
+                path="/sisters/wellnessresources"
+                element={<sisters_WellnessResources />}
+              />
+              {/* 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

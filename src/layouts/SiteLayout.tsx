@@ -70,7 +70,6 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                 Elevate for Humanity
               </span>
             </Link>
-
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6">
               {navigation.map((section) => (
@@ -106,7 +105,6 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                 </div>
               ))}
             </nav>
-
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
               <Link
@@ -124,7 +122,6 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                 Apply Now
               </a>
             </div>
-
             {/* Mobile Menu Button */}
             <button
               className="lg:hidden"
@@ -138,7 +135,6 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
             </button>
           </div>
         </div>
-
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-brand-border bg-white">
@@ -189,12 +185,9 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
           </div>
         )}
       </header>
-
       <main className="flex-1">{children}</main>
-
       {/* Chat Assistant */}
       <ChatAssistant />
-
       {/* Footer */}
       <footer className="mt-16 border-t bg-brand-surface-dark">
         <div className="container py-12">
@@ -216,10 +209,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/programs/barber"
-                    className="hover:text-brand-600"
-                  >
+                  <Link to="/programs/barber" className="hover:text-brand-600">
                     Barber Apprenticeship
                   </Link>
                 </li>
@@ -272,10 +262,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/terms-of-service"
-                    className="hover:text-brand-600"
-                  >
+                  <Link to="/terms-of-service" className="hover:text-brand-600">
                     Terms of Service
                   </Link>
                 </li>
