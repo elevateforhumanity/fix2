@@ -17,14 +17,23 @@ export default function Sitemap() {
       links: [
         { to: '/programs', label: 'All Programs' },
         { to: '/programs/barber', label: 'Barber Apprenticeship' },
-        { to: '/programs/building-tech', label: 'Building Services Technician' },
+        {
+          to: '/programs/building-tech',
+          label: 'Building Services Technician',
+        },
         { to: '/programs/cna', label: 'Certified Nursing Assistant' },
         { to: '/programs/cpr-aed-first-aid', label: 'CPR, AED & First Aid' },
-        { to: '/programs/business-startup-marketing', label: 'Business Start-Up' },
+        {
+          to: '/programs/business-startup-marketing',
+          label: 'Business Start-Up',
+        },
         { to: '/programs/tax-office-startup', label: 'Tax Office Startup' },
         { to: '/programs/esthetician-client-services', label: 'Esthetician' },
         { to: '/programs/beauty-career-educator', label: 'Beauty Educator' },
-        { to: '/programs/public-safety-reentry', label: 'Public Safety Reentry' },
+        {
+          to: '/programs/public-safety-reentry',
+          label: 'Public Safety Reentry',
+        },
       ],
     },
     {
@@ -74,7 +83,6 @@ export default function Sitemap() {
         <p className="text-brand-text-muted mb-12">
           Complete overview of all pages on Elevate for Humanity
         </p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sections.map((section) => (
             <div key={section.title}>

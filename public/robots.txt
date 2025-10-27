@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
-Sitemap: https://elevateforhumanity.pages.dev/sitemap.xml
+
+Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_netlify/

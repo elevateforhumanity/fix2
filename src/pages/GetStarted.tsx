@@ -11,10 +11,10 @@ export default function GetStarted() {
               Get Started with Elevate for Humanity
             </h1>
             <p className="text-xl text-brand-text-muted">
-              Your journey to a new career starts here. Follow these simple steps.
+              Your journey to a new career starts here. Follow these simple
+              steps.
             </p>
           </div>
-
           <div className="space-y-8">
             {/* Step 1 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-brand-border">
@@ -27,7 +27,8 @@ export default function GetStarted() {
                     Browse Programs
                   </h2>
                   <p className="text-brand-text-muted mb-4">
-                    Explore our 9 career training programs and find the one that matches your goals.
+                    Explore our 9 career training programs and find the one that
+                    matches your goals.
                   </p>
                   <Link
                     to="/programs"
@@ -38,7 +39,6 @@ export default function GetStarted() {
                 </div>
               </div>
             </div>
-
             {/* Step 2 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-brand-border">
               <div className="flex items-start gap-4">
@@ -50,7 +50,8 @@ export default function GetStarted() {
                     Check Funding Options
                   </h2>
                   <p className="text-brand-text-muted mb-4">
-                    Most programs are funded through WIOA, WRG, or other state/federal programs.
+                    Most programs are funded through WIOA, WRG, or other
+                    state/federal programs.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium">
@@ -72,7 +73,6 @@ export default function GetStarted() {
                 </div>
               </div>
             </div>
-
             {/* Step 3 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-brand-border">
               <div className="flex items-start gap-4">
@@ -84,7 +84,8 @@ export default function GetStarted() {
                     Apply Online
                   </h2>
                   <p className="text-brand-text-muted mb-4">
-                    Complete your application through Indiana Career Connect or our online form.
+                    Complete your application through Indiana Career Connect or
+                    our online form.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
@@ -102,7 +103,6 @@ export default function GetStarted() {
                 </div>
               </div>
             </div>
-
             {/* Step 4 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-brand-border">
               <div className="flex items-start gap-4">
@@ -114,7 +114,8 @@ export default function GetStarted() {
                     Start Learning
                   </h2>
                   <p className="text-brand-text-muted mb-4">
-                    Once approved, you'll receive access to your student portal and can begin your training.
+                    Once approved, you'll receive access to your student portal
+                    and can begin your training.
                   </p>
                   <Link
                     to="/lms"
@@ -126,7 +127,6 @@ export default function GetStarted() {
               </div>
             </div>
           </div>
-
           {/* CTA */}
           <div className="mt-12 text-center bg-gradient-to-r from-orange-50 to-blue-50 rounded-xl p-8">
             <h3 className="text-2xl font-bold text-brand-text mb-2">
