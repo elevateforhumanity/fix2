@@ -1,0 +1,41 @@
+name: Scheduled Social Media Posts
+
+on:
+  schedule:
+    # Run 3 times per day: 9 AM, 1 PM, 7 PM EST (14:00, 18:00, 00:00 UTC)
+    - cron: '0 14 * * *'  # 9 AM EST
+    - cron: '0 18 * * *'  # 1 PM EST
+    - cron: '0 0 * * *'   # 7 PM EST
+  workflow_dispatch:
+
+jobs:
+  post-scheduled-content:
+    runs-on: ubuntu-latest
+    name: Post Scheduled Social Media Content
+    
+    steps:
+      - name: Post to Facebook
+        run: |
+          curl -X POST ${{ secrets.FRONTEND_URL }}/.netlify/functions/post-scheduled-content \
+            -H "Content-Type: application/json" \
+            -d '{"platform": "facebook"}'
+      
+      - name: Post to Instagram
+        run: |
+          curl -X POST ${{ secrets.FRONTEND_URL }}/.netlify/functions/post-scheduled-content \
+            -H "Content-Type: application/json" \
+            -d '{"platform": "instagram"}'
+      
+      - name: Post to LinkedIn
+        run: |
+          curl -X POST ${{ secrets.FRONTEND_URL }}/.netlify/functions/post-scheduled-content \
+            -H "Content-Type: application/json" \
+            -d '{"platform": "linkedin"}'
+      
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Social media posts published successfully"
+      
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ Social media posting failed"
