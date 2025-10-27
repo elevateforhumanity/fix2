@@ -66,9 +66,10 @@ describe('Route Tests', () => {
     });
 
     it('renders ResetPassword page', () => {
-      renderWithRouter(<ResetPassword />);
+      // ResetPassword requires a token query param
+      renderWithRouter(<ResetPassword />, { route: '/reset-password?token=test-token' });
       expect(
-        screen.getByRole('heading', { name: /Reset Password/i })
+        screen.getByRole('heading', { name: /Reset Your Password/i })
       ).toBeInTheDocument();
     });
 
