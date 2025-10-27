@@ -7,6 +7,7 @@ I've created 7 new unprotected branches that you can now use to create PRs.
 Click these links to create PRs instantly:
 
 ### 1. Netlify Automation Functions
+
 [Create PR: pr/netlify-automation → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/netlify-automation?expand=1)
 
 **Title:** Add Netlify automation functions for enrollment sync and reporting
@@ -16,6 +17,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 2. Stripe Split Payouts
+
 [Create PR: pr/stripe-split-payouts → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/stripe-split-payouts?expand=1)
 
 **Title:** Add Stripe split payouts with corrected 50/50 revenue model
@@ -25,6 +27,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 3. Donation Pages
+
 [Create PR: pr/donation-pages → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/donation-pages?expand=1)
 
 **Title:** Add donation pages for Selfish Inc Foundation
@@ -34,6 +37,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 4. Scholarship Application
+
 [Create PR: pr/scholarship-application → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/scholarship-application?expand=1)
 
 **Title:** Add scholarship application form with file uploads
@@ -43,6 +47,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 5. OpenAI Content Generation
+
 [Create PR: pr/openai-content-generation → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/openai-content-generation?expand=1)
 
 **Title:** Add OpenAI-powered social media content generation
@@ -52,6 +57,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 6. Social Media Posting
+
 [Create PR: pr/social-media-posting → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/social-media-posting?expand=1)
 
 **Title:** Add automated social media posting to Facebook, Instagram, LinkedIn
@@ -61,6 +67,7 @@ Click these links to create PRs instantly:
 ---
 
 ### 7. Sentry Monitoring
+
 [Create PR: pr/sentry-monitoring → main](https://github.com/elevateforhumanity/fix2/compare/main...pr/sentry-monitoring?expand=1)
 
 **Title:** Add Sentry error monitoring with Slack alerts
@@ -81,6 +88,7 @@ Click these links to create PRs instantly:
 ## After Creating PRs
 
 Once all PRs are created, you can:
+
 - Review them individually
 - Merge them one by one
 - Or merge all at once if you're confident

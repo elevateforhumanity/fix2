@@ -1,7 +1,7 @@
 {
-  "name": "ElevateEDU - Education Platform",
-  "short_name": "ElevateEDU",
-  "description": "Complete education platform with 15 integrated tools",
+  "name": "Elevate for Humanity",
+  "short_name": "Elevate",
+  "description": "WIOA-funded career training, apprenticeships, and certifications with 92% job placement",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Generate Content Calendar
- * 
+ *
  * Generates a batch of social media posts for the 90-day content calendar.
  * Creates posts for all platforms based on the marketing pipeline.
- * 
+ *
  * Endpoint: POST /.netlify/functions/generate-content-calendar
  */
 
@@ -41,7 +41,10 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { days = 7, programs = ['Tax Business', 'Barber', 'Building Tech', 'Healthcare'] } = JSON.parse(event.body || '{}');
+    const {
+      days = 7,
+      programs = ['Tax Business', 'Barber', 'Building Tech', 'Healthcare'],
+    } = JSON.parse(event.body || '{}');
 
     // Content calendar structure (from 90-Day-Content-Pipeline.md)
     const weeklySchedule = {
@@ -57,7 +60,13 @@ exports.handler = async (event, context) => {
 
     // Generate posts for each day
     for (let day = 0; day < days; day++) {
-      const dayOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'][day % 5];
+      const dayOfWeek = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+      ][day % 5];
       const schedule = weeklySchedule[dayOfWeek];
       const program = programs[day % programs.length];
 
@@ -93,7 +102,9 @@ exports.handler = async (event, context) => {
               program,
               theme: schedule.theme,
               content,
-              scheduled_date: new Date(Date.now() + day * 24 * 60 * 60 * 1000).toISOString(),
+              scheduled_date: new Date(
+                Date.now() + day * 24 * 60 * 60 * 1000
+              ).toISOString(),
               status: 'scheduled',
               generated_at: new Date().toISOString(),
             })
@@ -113,7 +124,10 @@ exports.handler = async (event, context) => {
           // Rate limiting: wait 1 second between API calls
           await new Promise((resolve) => setTimeout(resolve, 1000));
         } catch (error) {
-          console.error(`Failed to generate ${platform} post for day ${day}:`, error);
+          console.error(
+            `Failed to generate ${platform} post for day ${day}:`,
+            error
+          );
         }
       }
     }
@@ -160,9 +174,17 @@ exports.handler = async (event, context) => {
 function buildDailyPrompt(schedule, platform, program, day) {
   const platformSpecs = {
     tiktok: { maxLength: 150, hashtags: 5, style: 'short, punchy, trending' },
-    facebook: { maxLength: 300, hashtags: 3, style: 'conversational, community-focused' },
+    facebook: {
+      maxLength: 300,
+      hashtags: 3,
+      style: 'conversational, community-focused',
+    },
     instagram: { maxLength: 200, hashtags: 10, style: 'visual, inspirational' },
-    linkedin: { maxLength: 400, hashtags: 3, style: 'professional, data-driven' },
+    linkedin: {
+      maxLength: 400,
+      hashtags: 3,
+      style: 'professional, data-driven',
+    },
   };
 
   const spec = platformSpecs[platform] || platformSpecs.facebook;

@@ -5,11 +5,13 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ## Functions
 
 ### 1. enrollment-sync.js
+
 **Purpose:** Sync student enrollments from external systems to Supabase  
 **Endpoint:** `POST /.netlify/functions/enrollment-sync`  
 **Use case:** Google Forms, Zapier, manual API calls
 
 **Request:**
+
 ```json
 {
   "first_name": "John",
@@ -26,6 +28,7 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -36,12 +39,15 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 ### 2. job-placement-tracking.js
+
 **Purpose:** Track student job placements and outcomes  
 **Endpoints:**
+
 - `GET /.netlify/functions/job-placement-tracking` - Get placements & stats
 - `POST /.netlify/functions/job-placement-tracking` - Record new placement
 
 **POST Request:**
+
 ```json
 {
   "student_id": "uuid",
@@ -62,6 +68,7 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 **GET Response:**
+
 ```json
 {
   "placements": [...],
@@ -77,10 +84,12 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 ### 3. automated-reporting.js
+
 **Purpose:** Generate automated reports for compliance and stakeholders  
 **Endpoint:** `POST /.netlify/functions/automated-reporting`
 
 **Request:**
+
 ```json
 {
   "report_type": "monthly",
@@ -90,12 +99,14 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 **Report Types:**
+
 - `monthly` - Monthly summary report
 - `wioa` - WIOA compliance report
 - `placement` - Job placement report
 - `financial` - Financial/revenue report
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -110,14 +121,17 @@ Serverless functions for enrollment sync, job tracking, reporting, and payments.
 ```
 
 ### 4. create-checkout-session.js
+
 **Purpose:** Create Stripe checkout session for payments  
 **Endpoint:** `POST /.netlify/functions/create-checkout-session`
 
 ### 5. create-enrollment-session.js
+
 **Purpose:** Create Stripe checkout session for program enrollment  
 **Endpoint:** `POST /.netlify/functions/create-enrollment-session`
 
 ### 6. stripe-webhook.js
+
 **Purpose:** Handle Stripe webhook events  
 **Endpoint:** `POST /.netlify/functions/stripe-webhook`
 
@@ -193,7 +207,7 @@ name: Monthly Report
 
 on:
   schedule:
-    - cron: '0 9 1 * *'  # 9am on 1st of month
+    - cron: '0 9 1 * *' # 9am on 1st of month
   workflow_dispatch:
 
 jobs:
@@ -232,6 +246,7 @@ netlify dev
 ```
 
 Functions available at:
+
 - http://localhost:8888/.netlify/functions/enrollment-sync
 - http://localhost:8888/.netlify/functions/job-placement-tracking
 - http://localhost:8888/.netlify/functions/automated-reporting
@@ -265,6 +280,7 @@ curl -X POST http://localhost:8888/.netlify/functions/enrollment-sync \
 ### Error Tracking
 
 Errors are logged to:
+
 - Netlify function logs
 - Supabase activity_log table
 - (Optional) Sentry integration
@@ -289,6 +305,7 @@ if (apiKey !== process.env.API_KEY) {
 ### Rate Limiting
 
 Netlify provides built-in rate limiting:
+
 - Free tier: 125k requests/month
 - Pro tier: 1M requests/month
 

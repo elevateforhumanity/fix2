@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { GraduationCap, Heart, DollarSign, FileText, CheckCircle } from 'lucide-react';
+import {
+  GraduationCap,
+  Heart,
+  DollarSign,
+  FileText,
+  CheckCircle,
+} from 'lucide-react';
 
 export default function ApplyScholarship() {
   const [step, setStep] = useState(1);
@@ -14,29 +20,29 @@ export default function ApplyScholarship() {
     city: '',
     state: 'IN',
     zip: '',
-    
+
     // Scholarship Type
     scholarship_type: '',
     program_interest: '',
-    
+
     // Eligibility
     household_income: '',
     household_size: '',
     employment_status: '',
     education_level: '',
-    
+
     // Circumstances
     is_single_parent: false,
     is_formerly_incarcerated: false,
     is_homeless: false,
     is_veteran: false,
     has_disability: false,
-    
+
     // Essay
     why_scholarship: '',
     career_goals: '',
     financial_need: '',
-    
+
     // Supporting Documents
     proof_of_income: null,
     identification: null,
@@ -51,7 +57,8 @@ export default function ApplyScholarship() {
       name: 'Full-Ride Scholarship',
       amount: '$5,000',
       description: 'Covers tuition, books, transportation, and childcare',
-      eligibility: 'Single parents, formerly incarcerated, homeless, or veterans',
+      eligibility:
+        'Single parents, formerly incarcerated, homeless, or veterans',
     },
     {
       id: 'partial',
@@ -114,10 +121,13 @@ export default function ApplyScholarship() {
         }
       });
 
-      const response = await fetch('/.netlify/functions/submit-scholarship-application', {
-        method: 'POST',
-        body: submitData,
-      });
+      const response = await fetch(
+        '/.netlify/functions/submit-scholarship-application',
+        {
+          method: 'POST',
+          body: submitData,
+        }
+      );
 
       const result = await response.json();
 
@@ -139,8 +149,8 @@ export default function ApplyScholarship() {
           <CheckCircle className="w-24 h-24 text-green-500 mx-auto mb-6" />
           <h1 className="text-4xl font-bold mb-4">Application Submitted!</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Thank you for applying for a Selfish Inc Foundation scholarship. We'll review your
-            application and contact you within 2-3 weeks.
+            Thank you for applying for a Selfish Inc Foundation scholarship.
+            We'll review your application and contact you within 2-3 weeks.
           </p>
           <div className="bg-blue-50 rounded-xl p-6 mb-8">
             <h3 className="font-bold mb-2">What Happens Next?</h3>
@@ -180,13 +190,15 @@ export default function ApplyScholarship() {
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <GraduationCap className="w-16 h-16 mx-auto mb-4" />
-          <h1 className="text-4xl font-bold text-center mb-4">Scholarship Application</h1>
+          <h1 className="text-4xl font-bold text-center mb-4">
+            Scholarship Application
+          </h1>
           <p className="text-center text-xl">
-            Apply for financial assistance to pursue your workforce training goals
+            Apply for financial assistance to pursue your workforce training
+            goals
           </p>
         </div>
       </div>
-
       {/* Progress Steps */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-8">
@@ -194,7 +206,9 @@ export default function ApplyScholarship() {
             <div key={s} className="flex items-center flex-1">
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                  step >= s ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
+                  step >= s
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-200 text-gray-500'
                 }`}
               >
                 {s}
@@ -207,8 +221,10 @@ export default function ApplyScholarship() {
             </div>
           ))}
         </div>
-
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-2xl shadow-xl p-8"
+        >
           {/* Step 1: Personal Information */}
           {step === 1 && (
             <div>
@@ -337,12 +353,12 @@ export default function ApplyScholarship() {
               </div>
             </div>
           )}
-
           {/* Step 2: Scholarship & Program */}
           {step === 2 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6">Scholarship & Program Selection</h2>
-              
+              <h2 className="text-2xl font-bold mb-6">
+                Scholarship & Program Selection
+              </h2>
               <div className="mb-8">
                 <label className="block text-sm font-medium text-gray-700 mb-4">
                   Select Scholarship Type *
@@ -353,7 +369,10 @@ export default function ApplyScholarship() {
                       key={scholarship.id}
                       type="button"
                       onClick={() =>
-                        setFormData({ ...formData, scholarship_type: scholarship.id })
+                        setFormData({
+                          ...formData,
+                          scholarship_type: scholarship.id,
+                        })
                       }
                       className={`p-6 rounded-lg border-2 text-left transition-all ${
                         formData.scholarship_type === scholarship.id
@@ -362,16 +381,23 @@ export default function ApplyScholarship() {
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-lg">{scholarship.name}</h3>
-                        <span className="text-blue-600 font-bold">{scholarship.amount}</span>
+                        <h3 className="font-bold text-lg">
+                          {scholarship.name}
+                        </h3>
+                        <span className="text-blue-600 font-bold">
+                          {scholarship.amount}
+                        </span>
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{scholarship.description}</p>
-                      <p className="text-xs text-gray-500">{scholarship.eligibility}</p>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {scholarship.description}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {scholarship.eligibility}
+                      </p>
                     </button>
                   ))}
                 </div>
               </div>
-
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Program of Interest *
@@ -393,12 +419,12 @@ export default function ApplyScholarship() {
               </div>
             </div>
           )}
-
           {/* Step 3: Eligibility & Circumstances */}
           {step === 3 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6">Eligibility & Financial Information</h2>
-              
+              <h2 className="text-2xl font-bold mb-6">
+                Eligibility & Financial Information
+              </h2>
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -472,7 +498,6 @@ export default function ApplyScholarship() {
                   </select>
                 </div>
               </div>
-
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-4">
                   Special Circumstances (check all that apply)
@@ -480,8 +505,14 @@ export default function ApplyScholarship() {
                 <div className="space-y-3">
                   {[
                     { name: 'is_single_parent', label: 'Single Parent' },
-                    { name: 'is_formerly_incarcerated', label: 'Formerly Incarcerated' },
-                    { name: 'is_homeless', label: 'Homeless or Housing Insecure' },
+                    {
+                      name: 'is_formerly_incarcerated',
+                      label: 'Formerly Incarcerated',
+                    },
+                    {
+                      name: 'is_homeless',
+                      label: 'Homeless or Housing Insecure',
+                    },
                     { name: 'is_veteran', label: 'Veteran' },
                     { name: 'has_disability', label: 'Person with Disability' },
                   ].map((item) => (
@@ -500,12 +531,12 @@ export default function ApplyScholarship() {
               </div>
             </div>
           )}
-
           {/* Step 4: Essays & Documents */}
           {step === 4 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6">Essays & Supporting Documents</h2>
-              
+              <h2 className="text-2xl font-bold mb-6">
+                Essays & Supporting Documents
+              </h2>
               <div className="space-y-6 mb-8">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -552,9 +583,10 @@ export default function ApplyScholarship() {
                   />
                 </div>
               </div>
-
               <div className="space-y-4">
-                <h3 className="font-bold text-lg mb-4">Upload Supporting Documents</h3>
+                <h3 className="font-bold text-lg mb-4">
+                  Upload Supporting Documents
+                </h3>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Proof of Income (pay stubs, tax return, etc.) *
@@ -593,13 +625,13 @@ export default function ApplyScholarship() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                   <p className="text-sm text-gray-500 mt-1">
-                    Letters of recommendation, proof of special circumstances, etc.
+                    Letters of recommendation, proof of special circumstances,
+                    etc.
                   </p>
                 </div>
               </div>
             </div>
           )}
-
           {/* Navigation Buttons */}
           <div className="flex justify-between mt-8 pt-6 border-t">
             {step > 1 && (

@@ -74,7 +74,6 @@ Complete automation and philanthropic infrastructure for Elevate for Humanity.
   - 50% to Partners (credentialing partner organization)
   - EFH gets paid first, then Partners
   - Instructors receive NO monetary payment (credentialing only)
-  
 - **Government Programs (WIOA/WRG/OJT):**
   - FREE to students
   - 100% to EFH
