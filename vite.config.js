@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true, // Enable sourcemaps for debugging
+    sourcemap: false, // Disable sourcemaps for production
     target: 'es2019',
     minify: 'terser',
     terserOptions: {
