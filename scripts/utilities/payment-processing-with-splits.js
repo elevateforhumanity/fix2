@@ -17,6 +17,12 @@
 */
 
 // Enhanced Payment Processing with Revenue Splits and Partner Notifications
+// 
+// REVENUE MODEL:
+// - Self-Pay Programs: 50% EFH (paid first), 50% Partners
+// - Government Programs (WIOA/WRG/OJT): FREE to students, 100% to EFH, NO split
+// - Instructors: NO monetary payment (credentialing only)
+//
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require('nodemailer');
 
@@ -30,7 +36,7 @@ const transporter = nodemailer.createTransporter({
 });
 
 class PaymentProcessor {
-  // Process payment with automatic 50/50 split
+  // Process payment with automatic 50/50 split (EFH paid first)
   async processPaymentWithSplit(paymentData) {
     const {
       program_slug,
@@ -41,15 +47,15 @@ class PaymentProcessor {
     } = paymentData;
 
     try {
-      // Calculate splits
-      const platformAmount = Math.round(amount_cents * 0.5);
-      const partnerAmount = amount_cents - platformAmount;
+      // Calculate splits (50% EFH, 50% Partners)
+      const efhAmount = Math.round(amount_cents * 0.5);
+      const partnerAmount = amount_cents - efhAmount;
 
       console.log(`💰 Processing payment: $${amount_cents / 100}`);
-      console.log(`📊 Platform gets: $${platformAmount / 100} (50%)`);
-      console.log(`🤝 Partner gets: $${partnerAmount / 100} (50%)`);
+      console.log(`📊 EFH gets: $${efhAmount / 100} (50% - paid first)`);
+      console.log(`🤝 Partner gets: $${partnerAmount / 100} (50% - after EFH)`);
 
-      // Create payment intent
+      // Create payment intent - EFH receives payment first
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amount_cents,
         currency: 'usd',
@@ -57,17 +63,18 @@ class PaymentProcessor {
           program_slug,
           customer_email,
           customer_name,
-          platform_amount_cents: platformAmount.toString(),
+          efh_amount_cents: efhAmount.toString(),
           partner_amount_cents: partnerAmount.toString(),
           partner_connect_acc,
-          split_type: '50_50_platform_first',
+          split_type: '50_50_efh_first',
+          payment_order: 'efh_first_then_partner',
         },
       });
 
       return {
         success: true,
         payment_intent: paymentIntent,
-        platform_amount: platformAmount,
+        efh_amount: efhAmount,
         partner_amount: partnerAmount,
       };
     } catch (error) {
@@ -81,9 +88,9 @@ class PaymentProcessor {
     const metadata = paymentIntent.metadata;
 
     try {
-      // Step 1: Platform gets paid (already happened via Stripe)
+      // Step 1: EFH gets paid first (already happened via Stripe)
       console.log(
-        `✅ Platform received: $${metadata.platform_amount_cents / 100}`
+        `✅ EFH received: $${metadata.efh_amount_cents / 100} (50%)`
       );
 
       // Step 2: Transfer to partner (if connect account exists)
@@ -94,6 +101,9 @@ class PaymentProcessor {
           program_slug: metadata.program_slug,
           customer_email: metadata.customer_email,
         });
+        console.log(
+          `💸 Partner receives: $${metadata.partner_amount_cents / 100} (50%)`
+        );
       }
 
       // Step 3: Notify partner with student details
