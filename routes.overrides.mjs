@@ -24,6 +24,10 @@ export default [
   // Scholarships
   { file: 'ApplyScholarship.tsx', path: '/apply-scholarship' },
 
+  // Donations
+  { file: 'Donate.tsx', path: '/donate' },
+  { file: 'DonateSuccess.tsx', path: '/donate/success' },
+
   // 404 – the generator will put this last
   { file: 'NotFound.tsx', path: '*' },
 ];
