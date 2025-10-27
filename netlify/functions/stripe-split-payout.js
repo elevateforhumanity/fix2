@@ -41,7 +41,7 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { payment_intent_id, amount, program_id, instructor_id } = JSON.parse(event.body);
+    const { payment_intent_id, amount, program_id, instructor_id, funding_source } = JSON.parse(event.body);
 
     if (!payment_intent_id || !amount || !program_id) {
       return {
@@ -49,6 +49,20 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({
           error: 'Missing required fields: payment_intent_id, amount, program_id',
+        }),
+      };
+    }
+
+    // Skip split payout for government-funded programs (WIOA, WRG, OJT)
+    // These are FREE to students and EFH receives 100% of government reimbursement
+    if (funding_source && ['WIOA', 'WRG', 'OJT'].includes(funding_source.toUpperCase())) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          success: true,
+          message: 'Government-funded program - no split payout needed',
+          funding_source,
         }),
       };
     }

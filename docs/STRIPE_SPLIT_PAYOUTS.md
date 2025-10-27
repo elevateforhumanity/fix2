@@ -4,9 +4,18 @@ Automated revenue sharing for Elevate for Humanity using Stripe Connect.
 
 ## Revenue Split Model
 
-**Primary Split:** 50/50 between Elevate for Humanity and Partners
+**IMPORTANT:** Split payouts only apply to **self-pay programs**. 
 
-Every program payment is automatically split:
+**Government-Funded Programs (WIOA, WRG, OJT):**
+- FREE to students
+- EFH receives 100% of government reimbursement
+- No split payout (instructors paid separately via salary/contract)
+
+**Self-Pay Programs:**
+- Students pay tuition directly
+- 50/50 split between EFH and Partners
+
+Every self-pay program payment is automatically split:
 
 | Recipient | Percentage | Purpose |
 |-----------|------------|---------|

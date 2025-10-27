@@ -81,7 +81,7 @@ exports.handler = async (event) => {
           }
         }
 
-        // 2. Trigger split payout
+        // 2. Trigger split payout (only for self-pay programs)
         if (session.payment_intent && session.amount_total > 0) {
           try {
             const payoutResponse = await fetch(`${process.env.FRONTEND_URL}/.netlify/functions/stripe-split-payout`, {
@@ -92,6 +92,7 @@ exports.handler = async (event) => {
                 amount: session.amount_total,
                 program_id: session.metadata?.programId,
                 instructor_id: session.metadata?.instructorId,
+                funding_source: session.metadata?.fundingSource || 'self-pay',
               }),
             });
             
