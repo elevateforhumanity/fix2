@@ -21,7 +21,7 @@ export default function ProgramPage() {
         setProgram(p);
         const cs = await listCoursesByProgram(p.id);
         setCourses(cs);
-        
+
         // Check if program requires Indiana Career Connect (state/federal funding)
         // For now, use Google Form for all programs since we don't have funding data in Supabase
         // TODO: Add funding column to programs table in Supabase

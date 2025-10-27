@@ -12,7 +12,7 @@ function getApplicationUrl(program: Program): string {
   const hasStateFunding = program.funding.some((f) =>
     STATE_FUNDED_PROGRAMS.includes(f)
   );
-  
+
   return hasStateFunding ? INDIANA_CAREER_CONNECT_URL : GOOGLE_FORM_URL;
 }
 
