@@ -12,19 +12,26 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false, // Disable sourcemaps in production
+    sourcemap: true, // Enable sourcemaps for debugging
+    target: 'es2019',
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true, // Remove all console.* calls in production
+        drop_console: false, // Keep console for error tracking
         drop_debugger: true,
       },
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          supabase: ['@supabase/supabase-js'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-router')) return 'vendor-router';
+            if (id.includes('@supabase')) return 'vendor-supabase';
+            if (id.includes('stripe')) return 'vendor-stripe';
+            if (id.includes('react') || id.includes('react-dom'))
+              return 'vendor-react';
+            return 'vendor';
+          }
         },
       },
     },

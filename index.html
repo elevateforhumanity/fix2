@@ -65,6 +65,16 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script> -->
 
+    <!-- Global Error Logging -->
+    <script>
+      window.addEventListener('error', (e) =>
+        console.error('GlobalError:', e.error || e.message)
+      );
+      window.addEventListener('unhandledrejection', (e) =>
+        console.error('UnhandledRejection:', e.reason)
+      );
+    </script>
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
