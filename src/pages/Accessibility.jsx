@@ -368,17 +368,17 @@ export default function Accessibility() {
           improvement, please don't hesitate to contact us.
         </p>
         <div style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: 'var(--brand-text)' }}>Email:</strong>{' '}
+          <strong style={{ color: 'var(--brand-text)' }}>Contact:</strong>{' '}
           <a
-            href="mailto:accessibility@elevateforhumanity.org"
+            href="/connect"
             style={{ color: 'var(--brand-info)' }}
           >
-            accessibility@elevateforhumanity.org
+            Use our contact form
           </a>
         </div>
         <div style={{ marginBottom: '1rem' }}>
           <strong style={{ color: 'var(--brand-text)' }}>Phone:</strong>{' '}
-          <span style={{ color: 'var(--brand-text)' }}>(555) 123-4567</span>
+          <span style={{ color: 'var(--brand-text)' }}>(317) 314-3757</span>
         </div>
         <div
           style={{

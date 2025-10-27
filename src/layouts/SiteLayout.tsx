@@ -262,12 +262,15 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@elevateforhumanity.org" className="hover:text-brand-600">
-                    ✉️ info@elevateforhumanity.org
-                  </a>
+                  <Link to="/connect" className="hover:text-brand-600">
+                    ✉️ Contact Form
+                  </Link>
                 </li>
                 <li>
                   <span>📍 Indianapolis, IN</span>
+                </li>
+                <li>
+                  <span className="text-xs">elevateforhumanity.org</span>
                 </li>
                 <li className="pt-2">
                   <Link to="/privacy-policy" className="hover:text-brand-600">
