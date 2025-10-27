@@ -20,5 +20,17 @@
 /sitemap-courses.xml  /sitemap-courses.xml  200
 /robots.txt  /robots.txt  200
 
+# Redirect old static LMS pages to real React LMS
+/pages/lms.html  /lms  301
+/pages/lms-courses.html  /lms/courses  301
+/pages/lms-dashboard.html  /lms  301
+/pages/lms-enrollment.html  /lms  301
+/pages/lms-advanced.html  /lms  301
+/pages/lms-ecosystem-complete.html  /lms  301
+/lms-test-index.html  /lms  301
+/pages/lms-certificates.html  /lms  301
+/pages/lms-profile.html  /lms  301
+/pages/lms-support.html  /lms  301
+
 # Always serve the SPA entry for client-routed paths
 /*   /index.html   200
