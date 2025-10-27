@@ -8,36 +8,43 @@
 ## 📱 Social Media Accounts Configuration
 
 ### Personal Facebook Profile
+
 **URL:** https://www.facebook.com/elevate.founder  
 **Status:** ✅ Active  
 **Purpose:** Personal brand, founder story, behind-the-scenes
 
 **Monetization:**
+
 - Facebook Stars (live streams)
 - In-stream ads (videos 1min+)
 - Branded content partnerships
 
 ### Facebook Page (Business)
+
 **URL:** https://www.facebook.com/elevateforhumanity  
 **Status:** ✅ Active  
 **Purpose:** Official organization page, program updates
 
 **Monetization:**
+
 - Page monetization (10K followers required)
 - Branded content
 - Facebook Shops integration
 
 ### YouTube Channel
+
 **URL:** https://www.youtube.com/@elevateforhumanity  
 **Status:** ✅ Active  
 **Purpose:** Long-form content, tutorials, success stories
 
 **Monetization Requirements:**
+
 - ✅ 1,000 subscribers
 - ✅ 4,000 watch hours (12 months)
 - ✅ AdSense account linked
 
 **Revenue Streams:**
+
 - Ad revenue (pre-roll, mid-roll, display)
 - Channel memberships ($4.99/month)
 - Super Chat/Super Thanks
@@ -45,38 +52,45 @@
 - Affiliate links
 
 ### Instagram
+
 **URL:** https://www.instagram.com/elevateforhumanity  
 **Status:** ⚠️ Needs verification  
 **Purpose:** Visual content, reels, stories
 
 **Monetization:**
+
 - Instagram Reels Bonus Program
 - Branded content partnerships
 - Instagram Shopping
 - Affiliate marketing
 
 ### TikTok
+
 **URL:** https://www.tiktok.com/@elevateforhumanity  
 **Status:** ⚠️ Needs setup  
 **Purpose:** Short-form viral content, reels
 
 **Monetization Requirements:**
+
 - 10,000 followers
 - 100,000 video views (30 days)
 - 18+ years old
 
 **Revenue Streams:**
+
 - TikTok Creator Fund
 - TikTok LIVE gifts
 - Brand partnerships
 - Affiliate marketing
 
 ### LinkedIn
+
 **URL:** https://www.linkedin.com/company/elevateforhumanity  
 **Status:** ✅ Active  
 **Purpose:** Professional content, B2B partnerships
 
 **Monetization:**
+
 - Sponsored content
 - LinkedIn Learning partnerships
 - B2B lead generation
@@ -88,7 +102,9 @@
 ### Content Pillars (3 posts/day)
 
 #### Morning Post (9 AM EST)
+
 **Format:** Motivational/Educational
+
 - Success stories (30-60 sec)
 - "Day in the life" of students
 - Quick tips/facts
@@ -97,7 +113,9 @@
 **Platforms:** TikTok, Instagram Reels, YouTube Shorts, Facebook Reels
 
 #### Afternoon Post (1 PM EST)
+
 **Format:** Engaging/Interactive
+
 - Q&A sessions
 - Polls and questions
 - Behind-the-scenes
@@ -106,7 +124,9 @@
 **Platforms:** Instagram Stories, Facebook Stories, TikTok
 
 #### Evening Post (7 PM EST)
+
 **Format:** Inspirational/Call-to-Action
+
 - Transformation stories
 - Enrollment opportunities
 - Community highlights
@@ -121,20 +141,26 @@
 ### Current Automation (Active)
 
 #### 1. Daily Content Generation
+
 **Workflow:** `.github/workflows/daily-content-generation.yml`
+
 - Runs daily at 6 AM EST
 - Generates 7 days of content
 - Uses OpenAI GPT-4
 - Stores in Supabase
 
 #### 2. Scheduled Social Posts
+
 **Workflow:** `.github/workflows/scheduled-social-posts.yml`
+
 - Posts 3x daily (9 AM, 1 PM, 7 PM EST)
 - Facebook, Instagram, LinkedIn
 - TikTok requires manual posting (no API)
 
 #### 3. Content Calendar
+
 **File:** `marketing/content-calendar/90-Day-Content-Pipeline.md`
+
 - 90-day content plan
 - 270 posts total
 - Platform-specific formatting
@@ -143,18 +169,21 @@
 ### Netlify Functions (Active)
 
 #### `/generate-social-content`
+
 - AI-powered content generation
 - Platform-specific optimization
 - Hashtag recommendations
 - Character limits enforced
 
 #### `/post-to-social-media`
+
 - Multi-platform posting
 - Image/video upload
 - Scheduling support
 - Analytics tracking
 
 #### `/generate-content-calendar`
+
 - Bulk content generation
 - Program-specific themes
 - Seasonal campaigns
@@ -167,12 +196,14 @@
 ### YouTube Monetization
 
 #### Requirements Checklist
+
 - [x] 1,000 subscribers
 - [x] 4,000 watch hours
 - [ ] AdSense account linked
 - [ ] Channel review passed
 
 #### Setup Steps
+
 1. Go to YouTube Studio → Monetization
 2. Accept YouTube Partner Program terms
 3. Connect AdSense account
@@ -184,6 +215,7 @@
    - ✅ Bumper ads
 
 #### Revenue Optimization
+
 - Upload 3-5 videos/week
 - Videos 8-15 minutes (mid-roll ads)
 - Shorts for discovery (Shorts Fund)
@@ -193,24 +225,30 @@
 ### Facebook/Instagram Monetization
 
 #### In-Stream Ads (Facebook)
+
 **Requirements:**
+
 - 10,000 page followers
 - 600,000 total minutes viewed (60 days)
 - 5 active videos
 
 **Setup:**
+
 1. Go to Creator Studio → Monetization
 2. Apply for In-Stream Ads
 3. Set ad breaks (manual or automatic)
 4. Enable mid-roll ads (1 min+ videos)
 
 #### Reels Bonus Program
+
 **Requirements:**
+
 - Professional account
 - Meet community standards
 - Invited by Meta
 
 **Earnings:**
+
 - $0.01 - $0.05 per view
 - Bonus for viral reels
 - Performance-based payouts
@@ -218,18 +256,21 @@
 ### TikTok Creator Fund
 
 #### Requirements
+
 - 10,000 followers
 - 100,000 video views (30 days)
 - 18+ years old
 - Original content
 
 #### Setup
+
 1. Go to Profile → Creator Tools
 2. Apply for Creator Fund
 3. Wait for approval (1-2 weeks)
 4. Enable monetization
 
 #### Earnings
+
 - $0.02 - $0.04 per 1,000 views
 - Bonus for trending content
 - Brand partnership opportunities
@@ -241,18 +282,21 @@
 ### Metrics to Monitor
 
 #### Growth Metrics
+
 - Follower count (daily)
 - Engagement rate (likes, comments, shares)
 - Reach and impressions
 - Profile visits
 
 #### Monetization Metrics
+
 - Ad revenue (YouTube)
 - Creator Fund earnings (TikTok)
 - Reels bonus (Instagram/Facebook)
 - Affiliate commissions
 
 #### Content Performance
+
 - Top-performing posts
 - Best posting times
 - Hashtag effectiveness
@@ -261,6 +305,7 @@
 ### Reporting Automation
 
 **Function:** `/automated-reporting`
+
 - Daily analytics summary
 - Weekly performance report
 - Monthly revenue report
@@ -273,24 +318,28 @@
 ### Organic Growth Tactics
 
 #### 1. Consistent Posting
+
 - 3 posts/day minimum
 - Same times daily
 - Platform-specific content
 - Cross-promotion
 
 #### 2. Engagement Optimization
+
 - Respond to comments (1 hour)
 - Use trending sounds/hashtags
 - Collaborate with creators
 - Host live sessions
 
 #### 3. Content Optimization
+
 - Hook in first 3 seconds
 - Captions with keywords
 - Clear CTAs
 - Shareable content
 
 #### 4. Hashtag Strategy
+
 - 5-10 hashtags per post
 - Mix of popular and niche
 - Branded hashtags
@@ -299,12 +348,14 @@
 ### Paid Growth (Optional)
 
 #### Facebook/Instagram Ads
+
 - Promote top-performing reels
 - Target lookalike audiences
 - $5-10/day budget
 - A/B test creatives
 
 #### TikTok Promote
+
 - Boost viral videos
 - Target specific demographics
 - $20/day budget
@@ -337,12 +388,13 @@
      - Funding & Resources
 
 3. **API Integration**
+
    ```javascript
    // Already configured in scripts/social-media-automation.js
    const durableConfig = {
      blogUrl: 'https://elevateforhumanity.durable.co/blog',
      apiUrl: 'https://api.durable.co/v1/blogs/elevateforhumanity',
-     apiKey: process.env.DURABLE_API_KEY
+     apiKey: process.env.DURABLE_API_KEY,
    };
    ```
 
@@ -419,23 +471,27 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 ### Conservative Estimates (6 months)
 
 #### YouTube
+
 - 10,000 subscribers
 - 100,000 views/month
 - **Revenue:** $200-500/month
 
 #### TikTok
+
 - 50,000 followers
 - 1M views/month
 - **Revenue:** $20-40/month (Creator Fund)
 - **Revenue:** $500-1,000/month (Brand deals)
 
 #### Instagram/Facebook
+
 - 25,000 followers
 - 500K reach/month
 - **Revenue:** $100-300/month (Reels bonus)
 - **Revenue:** $300-800/month (Sponsored posts)
 
 #### Total Projected Revenue
+
 **$1,120 - $2,640/month** (after 6 months of consistent posting)
 
 ---
@@ -474,6 +530,7 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 ## 🔄 Automation Status
 
 ### ✅ Currently Active
+
 - Daily content generation (6 AM EST)
 - Scheduled social posts (3x daily)
 - Blog system (backend ready)
@@ -481,6 +538,7 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 - Content calendar (90 days)
 
 ### ⚠️ Needs Configuration
+
 - Durable blog API key
 - TikTok access token (when available)
 - YouTube API integration
@@ -488,6 +546,7 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 - Monetization account linking
 
 ### 🚀 Coming Soon
+
 - Video generation automation
 - Thumbnail creation (AI)
 - Hashtag optimization (AI)
@@ -499,17 +558,20 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 ## 📞 Support & Resources
 
 ### Documentation
+
 - [Social Media Automation Guide](./docs/SOCIAL_MEDIA_AUTOMATION.md)
 - [Content Generation Guide](./docs/OPENAI_CONTENT_GENERATION.md)
 - [90-Day Content Calendar](./marketing/content-calendar/90-Day-Content-Pipeline.md)
 
 ### Tools
+
 - OpenAI GPT-4 (content generation)
 - Supabase (content storage)
 - Netlify Functions (automation)
 - GitHub Actions (scheduling)
 
 ### APIs
+
 - Facebook Graph API
 - Instagram Graph API
 - LinkedIn API
@@ -525,4 +587,4 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 
 ---
 
-*Generated by Ona - Social Media Monetization System*
+_Generated by Ona - Social Media Monetization System_

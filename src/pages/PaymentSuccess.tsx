@@ -98,10 +98,10 @@ export default function PaymentSuccess() {
           <p className="mt-6 text-sm text-brand-text-light">
             Need help? Contact us at{' '}
             <a
-              href="mailto:support@elevateforhumanity.org"
+              href="mailto:elevateforhumanity@gmail.com"
               className="text-brand-600 hover:underline"
             >
-              support@elevateforhumanity.org
+              elevateforhumanity@gmail.com
             </a>
           </p>
         </div>

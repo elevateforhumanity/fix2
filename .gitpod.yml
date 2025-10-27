@@ -1,0 +1,27 @@
+tasks:
+  - name: Install Dependencies
+    init: |
+      corepack enable || true
+      npm i -g pnpm@9 || true
+      pnpm install
+  - name: Dev Server
+    command: |
+      pnpm dev
+
+ports:
+  - port: 5173
+    onOpen: open-preview
+    visibility: public
+  - port: 3000
+    visibility: public
+  - port: 8080
+    visibility: public
+  - port: 54321
+    onOpen: ignore
+    visibility: public
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
+    - dbaeumer.vscode-eslint
+    - bradlc.vscode-tailwindcss

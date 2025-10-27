@@ -13,11 +13,13 @@
 **Configuration:** 50 URLs per sitemap (Google recommended limit)
 
 **Current Status:**
+
 - Main sitemap: 37 URLs (under 50 limit)
 - No splitting needed currently
 - Auto-splits when exceeding 50 URLs
 
 **How It Works:**
+
 ```javascript
 const URLS_PER_SITEMAP = 50;
 
@@ -28,6 +30,7 @@ const URLS_PER_SITEMAP = 50;
 ```
 
 **Postbuild Process:**
+
 ```bash
 1. Generate dynamic sitemap
 2. Split sitemap (if > 50 URLs)
@@ -40,11 +43,13 @@ const URLS_PER_SITEMAP = 50;
 ```
 
 **Files Generated:**
+
 - `dist/sitemap.xml` - Main sitemap (37 URLs)
 - `dist/sitemap-complete.xml` - Complete sitemap (25KB)
 - `dist/robots.txt` - Search engine instructions
 
 **When Splitting Occurs:**
+
 - Automatically when sitemap exceeds 50 URLs
 - Creates numbered sitemaps: sitemap-1.xml, sitemap-2.xml, etc.
 - Creates sitemap-index.xml as master index
@@ -59,6 +64,7 @@ const URLS_PER_SITEMAP = 50;
 **Configuration File:** `public/sister_sites_nav_config.json`
 
 #### 1. Kingdom Konnect
+
 - **Display Name:** Kingdom Konnect
 - **URL:** /kingdom-konnect
 - **Description:** Faith-based community development and spiritual workforce empowerment
@@ -67,6 +73,7 @@ const URLS_PER_SITEMAP = 50;
 - **Privacy:** Public
 
 #### 2. Urban Build Crew
+
 - **Display Name:** Urban Build Crew
 - **URL:** /urban-build-crew
 - **Description:** Construction, trades, and urban workforce development programs
@@ -75,6 +82,7 @@ const URLS_PER_SITEMAP = 50;
 - **Privacy:** Public
 
 #### 3. Serene Comfort Care
+
 - **Display Name:** Serene Comfort Care
 - **URL:** /serene-comfort-care
 - **Description:** Healthcare services and professional training programs
@@ -83,6 +91,7 @@ const URLS_PER_SITEMAP = 50;
 - **Privacy:** Public
 
 #### 4. Elevate Brain (Internal)
+
 - **Display Name:** Elevate Brain (Private)
 - **URL:** /elevate-brain
 - **Description:** Internal operations and analytics dashboard
@@ -93,6 +102,7 @@ const URLS_PER_SITEMAP = 50;
 ### Sister Sites Pages:
 
 **Available Pages:**
+
 - `/sister-sites` - Overview of all sister sites
 - `/sister-sites-health-check` - Health check dashboard
 - `/kingdom-konnect` - Faith-based programs
@@ -101,6 +111,7 @@ const URLS_PER_SITEMAP = 50;
 
 **Sister Site Components:**
 Located in `src/pages/sisters/`:
+
 - MentorDirectory.jsx
 - MentorSignup.jsx
 - Mentorship.jsx
@@ -118,6 +129,7 @@ Located in `src/pages/sisters/`:
 ### ✅ Active Partner Forms:
 
 #### 1. Contact Form
+
 **Location:** `/connect` page  
 **Google Form ID:** `1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ`  
 **Type:** Embedded (no iframe)  
@@ -125,12 +137,14 @@ Located in `src/pages/sisters/`:
 **Purpose:** General inquiries and contact
 
 **Form Fields:**
+
 - Name
 - Email
 - Message
 - Subject
 
 #### 2. Partnership Inquiry Form
+
 **Location:** `/connect` page  
 **Google Form ID:** `1FAIpQLSelwhp447q7cRXyn_yoqVNkbSpEk9kqldGOpSefVAN-tEnvNQ`  
 **Type:** Embedded (no iframe)  
@@ -138,6 +152,7 @@ Located in `src/pages/sisters/`:
 **Purpose:** Partnership and collaboration inquiries
 
 **Form Fields:**
+
 - Organization Name
 - Contact Person
 - Email
@@ -147,18 +162,21 @@ Located in `src/pages/sisters/`:
 ### ⚠️ Forms Needing Setup:
 
 #### 3. Program Application Form
+
 **Status:** ⚠️ Placeholder  
 **Current ID:** `1FAIpQLSd_PROGRAM_FORM_ID`  
 **Needs:** Real Google Form ID  
 **Purpose:** Program enrollment applications
 
 #### 4. Eligibility Verification Form
+
 **Status:** ⚠️ Placeholder  
 **Current ID:** `1FAIpQLSd_ELIGIBILITY_FORM_ID`  
 **Needs:** Real Google Form ID  
 **Purpose:** WIOA/WRG eligibility checking
 
 #### 5. Support Form
+
 **Status:** ⚠️ Placeholder  
 **Current ID:** `1FAIpQLSd_SUPPORT_FORM_ID`  
 **Needs:** Real Google Form ID  
@@ -173,6 +191,7 @@ Located in `src/pages/sisters/`:
 **Search Results:** No references to "Universal Mouse" or "universalmouse" found in codebase.
 
 **Possible Actions:**
+
 1. **If Universal Mouse is a partner:** Add to Partners page
 2. **If Universal Mouse is a sister site:** Add to sister_sites_nav_config.json
 3. **If Universal Mouse needs a form:** Create Google Form and add to Connect page
@@ -180,6 +199,7 @@ Located in `src/pages/sisters/`:
 **To Add Universal Mouse as Partner:**
 
 Edit `src/pages/Partners.jsx`:
+
 ```javascript
 {
   id: 7,
@@ -195,6 +215,7 @@ Edit `src/pages/Partners.jsx`:
 **To Add Universal Mouse as Sister Site:**
 
 Edit `public/sister_sites_nav_config.json`:
+
 ```json
 "universal-mouse": {
   "display_name": "Universal Mouse",
@@ -251,6 +272,7 @@ Edit `public/sister_sites_nav_config.json`:
 **Configured in:** `public/sister_sites_nav_config.json`
 
 **Features:**
+
 - Dropdown navigation for each site
 - Public/private access control
 - Landing page URLs
@@ -258,6 +280,7 @@ Edit `public/sister_sites_nav_config.json`:
 - Descriptions for SEO
 
 **Usage:**
+
 ```javascript
 // Load config
 const sisterSites = require('./sister_sites_nav_config.json');
@@ -265,7 +288,7 @@ const sisterSites = require('./sister_sites_nav_config.json');
 // Access site info
 const kingdomKonnect = sisterSites['kingdom-konnect'];
 console.log(kingdomKonnect.display_name); // "Kingdom Konnect"
-console.log(kingdomKonnect.landing_url);  // "/kingdom-konnect"
+console.log(kingdomKonnect.landing_url); // "/kingdom-konnect"
 ```
 
 ---
@@ -275,17 +298,20 @@ console.log(kingdomKonnect.landing_url);  // "/kingdom-konnect"
 ### Current Sitemap Structure:
 
 **Main Sitemap (sitemap.xml):**
+
 - 37 URLs currently
 - Includes all public pages
 - Auto-generated on build
 - Updated with each deployment
 
 **Complete Sitemap (sitemap-complete.xml):**
+
 - 25KB comprehensive sitemap
 - Includes all routes and dynamic pages
 - Backup/reference sitemap
 
 **Robots.txt:**
+
 ```
 User-agent: *
 Allow: /
@@ -305,6 +331,7 @@ Allow: /lms/courses
 ### When Sitemap Grows:
 
 **Automatic Splitting (> 50 URLs):**
+
 1. Creates `sitemap-1.xml` (first 50 URLs)
 2. Creates `sitemap-2.xml` (next 50 URLs)
 3. Creates `sitemap-3.xml` (next 50 URLs)
@@ -313,6 +340,7 @@ Allow: /lms/courses
 6. Updates `robots.txt` to reference index
 
 **Benefits:**
+
 - ✅ Google recommended limit (50 URLs per sitemap)
 - ✅ Faster crawling and indexing
 - ✅ Better organization
@@ -356,6 +384,7 @@ Allow: /lms/courses
 ### Step 1: Add to Configuration
 
 Edit `public/sister_sites_nav_config.json`:
+
 ```json
 "new-site": {
   "display_name": "New Site Name",
@@ -370,6 +399,7 @@ Edit `public/sister_sites_nav_config.json`:
 ### Step 2: Create Landing Page
 
 Create `src/pages/NewSite.jsx`:
+
 ```jsx
 export default function NewSite() {
   return (
@@ -411,14 +441,15 @@ Sitemap auto-generates from routes, so no manual update needed.
 ### Step 2: Add to Connect Page
 
 Edit `public/pages/connect.html` or create new page:
+
 ```html
-<form 
-  action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" 
-  method="POST" 
+<form
+  action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+  method="POST"
   target="_blank"
 >
-  <input type="text" name="entry.FIELD_ID" placeholder="Name" required>
-  <input type="email" name="entry.FIELD_ID" placeholder="Email" required>
+  <input type="text" name="entry.FIELD_ID" placeholder="Name" required />
+  <input type="email" name="entry.FIELD_ID" placeholder="Email" required />
   <textarea name="entry.FIELD_ID" placeholder="Message" required></textarea>
   <button type="submit">Submit</button>
 </form>
@@ -466,4 +497,4 @@ Edit `public/pages/connect.html` or create new page:
 
 ---
 
-*Generated by Ona - Affiliate Sites Audit System*
+_Generated by Ona - Affiliate Sites Audit System_

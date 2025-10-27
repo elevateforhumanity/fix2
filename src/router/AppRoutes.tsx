@@ -92,7 +92,7 @@ const Page_60 = lazy(() => import('../pages/InstructorCourseCreate.jsx'));
 const Page_61 = lazy(() => import('../pages/InstructorEdit.jsx'));
 const Page_62 = lazy(() => import('../pages/InstructorNew.jsx'));
 const Page_63 = lazy(() => import('../pages/Integrations.jsx'));
-const Page_64 = lazy(() => import('../pages/KingdomKonnect.jsx'));
+// Removed: Kingdom Konnect (generic partnership page)
 const Page_65 = lazy(() => import('../pages/LMS.tsx'));
 const Page_66 = lazy(() => import('../pages/LMSCourses.tsx'));
 const Page_67 = lazy(() => import('../pages/LMSDashboard.jsx'));
@@ -250,7 +250,7 @@ export default function AppRoutes() {
             <Route path="/instructor-edit" element={<Page_61 />} />
             <Route path="/instructor-new" element={<Page_62 />} />
             <Route path="/integrations" element={<Page_63 />} />
-            <Route path="/kingdom-konnect" element={<Page_64 />} />
+            {/* Removed: Kingdom Konnect route */}
             <Route path="/lms" element={<Page_65 />} />
             <Route path="/lms/courses" element={<Page_66 />} />
             <Route path="/lmsdashboard" element={<Page_67 />} />
