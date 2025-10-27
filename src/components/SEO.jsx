@@ -56,7 +56,7 @@ export default function SEO({
             '@type': 'ContactPoint',
             telephone: '+1-317-314-3757',
             contactType: 'customer service',
-            email: 'info@elevateforhumanity.org',
+            email: 'elevateforhumanity@gmail.com',
             availableLanguage: ['English'],
           },
           sameAs: [
