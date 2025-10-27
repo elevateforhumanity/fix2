@@ -64,7 +64,9 @@ describe('Button Functionality Tests', () => {
       renderWithProviders(<Connect />);
 
       // Connect is a community/events page, not a contact form
-      const heading = screen.getByRole('heading', { name: /Connect Community/i });
+      const heading = screen.getByRole('heading', {
+        name: /Connect Community/i,
+      });
       expect(heading).toBeInTheDocument();
     });
 
