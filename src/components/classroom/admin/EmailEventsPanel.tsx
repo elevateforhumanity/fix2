@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { resendEmail } from '../../../google-classroom-autopilot/src/email-resend';
 
 interface EmailEvent {
   id: string;
@@ -134,16 +134,24 @@ export default function EmailEventsPanel() {
         return;
       }
 
-      const result = await resendEmail(eventId, user.id);
+      // Call Supabase function to resend email
+      const { data: result, error } = await supabase.rpc('resend_email', {
+        p_event_id: eventId,
+        p_user_id: user.id,
+      });
 
-      if (result.success) {
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      if (result?.success) {
         setAlertMessage({
           type: 'success',
-          text: `Email resent successfully to ${result.recipient}`,
+          text: `Email resent successfully to ${result.recipient || 'recipient'}`,
         });
         // Reload data to show new event
         await loadData();
-      } else if (result.skipped) {
+      } else if (result?.skipped) {
         setAlertMessage({
           type: 'error',
           text: result.reason || 'Email cannot be resent',
@@ -151,7 +159,7 @@ export default function EmailEventsPanel() {
       } else {
         setAlertMessage({
           type: 'error',
-          text: result.error || result.message || 'Failed to resend email',
+          text: result?.error || result?.message || 'Failed to resend email',
         });
       }
     } catch (error: any) {
