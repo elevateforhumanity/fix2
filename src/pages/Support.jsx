@@ -256,7 +256,7 @@ export default function Support() {
             </p>
           </div>
           <a
-            href="mailto:support@elevateforhumanity.org"
+            href="mailto:elevateforhumanity@gmail.com"
             style={{
               backgroundColor: '#fff',
               padding: 24,

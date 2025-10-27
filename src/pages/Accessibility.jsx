@@ -369,10 +369,7 @@ export default function Accessibility() {
         </p>
         <div style={{ marginBottom: '1rem' }}>
           <strong style={{ color: 'var(--brand-text)' }}>Contact:</strong>{' '}
-          <a
-            href="/connect"
-            style={{ color: 'var(--brand-info)' }}
-          >
+          <a href="/connect" style={{ color: 'var(--brand-info)' }}>
             Use our contact form
           </a>
         </div>

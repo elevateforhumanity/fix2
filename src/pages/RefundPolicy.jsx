@@ -74,10 +74,10 @@ export default function RefundPolicy() {
             <p>
               Alternatively, you can contact our support team at{' '}
               <a
-                href="mailto:refunds@elevateforhumanity.org"
+                href="mailto:elevateforhumanity@gmail.com"
                 style={{ color: 'var(--brand-info)' }}
               >
-                refunds@elevateforhumanity.org
+                elevateforhumanity@gmail.com
               </a>
             </p>
           </section>

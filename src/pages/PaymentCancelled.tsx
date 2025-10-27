@@ -50,10 +50,10 @@ export default function PaymentCancelled() {
               <div>
                 <span className="font-medium">✉️ Email:</span>{' '}
                 <a
-                  href="mailto:support@elevateforhumanity.org"
+                  href="mailto:elevateforhumanity@gmail.com"
                   className="text-brand-600 hover:underline"
                 >
-                  support@elevateforhumanity.org
+                  elevateforhumanity@gmail.com
                 </a>
               </div>
               <div>
