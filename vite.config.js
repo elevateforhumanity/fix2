@@ -39,10 +39,10 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    host: '0.0.0.0',
-    strictPort: false,
+    host: true, // Listen on 0.0.0.0 for Gitpod
+    strictPort: true,
     hmr: {
-      clientPort: 5173,
+      clientPort: 443, // Gitpod previews are HTTPS
     },
   },
   preview: {

@@ -11,6 +11,7 @@
 **Current Phone Number:** (317) 314-3757
 
 **Found in:**
+
 - CREDENTIALING_PARTNERS_REPORT.md
 - Washington Square Workforce Hub Proposal
 - ETPL Multi-State Proposal
@@ -27,6 +28,7 @@
 **Environment Variable:** `VITE_APPLICATION_FORM_URL`
 
 **Used in:**
+
 1. `src/components/ProgramCard.tsx` - Program application buttons
 2. `src/layouts/SiteLayout.tsx` - Header "Apply Now" button
 3. `src/pages/EFHLanding.tsx` - Landing page CTA
@@ -44,6 +46,7 @@
 **Location:** `dist/pages/connect.html` and `public/pages/connect.html`
 
 **Working Forms:**
+
 1. **Contact Form**
    - Action: `https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ/formResponse`
    - Method: POST
@@ -80,6 +83,7 @@
 **Location:** `dist/pages/elevate-store.html` and `public/pages/elevate-store.html`
 
 **Issues:**
+
 - 3 iframes found in store page
 - iframes are not accessible
 - iframes can break on mobile
@@ -96,6 +100,7 @@
 You need to create these forms in Google Forms:
 
 #### Program Application Form
+
 1. Go to https://forms.google.com
 2. Create new form: "Program Application"
 3. Add fields:
@@ -109,6 +114,7 @@ You need to create these forms in Google Forms:
 5. Update placeholder: `1FAIpQLSd_PROGRAM_FORM_ID`
 
 #### Eligibility Verification Form
+
 1. Create new form: "Eligibility Check"
 2. Add fields:
    - Full Name (required)
@@ -121,6 +127,7 @@ You need to create these forms in Google Forms:
 4. Update placeholder: `1FAIpQLSd_ELIGIBILITY_FORM_ID`
 
 #### Support Form
+
 1. Create new form: "Support Request"
 2. Add fields:
    - Name (required)
@@ -142,15 +149,21 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 ### 3. Replace iframe Forms
 
 **Current (iframe - BAD):**
+
 ```html
 <iframe src="https://docs.google.com/forms/..."></iframe>
 ```
 
 **Replace with (embedded - GOOD):**
+
 ```html
-<form action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST" target="_blank">
-  <input type="text" name="entry.FIELD_ID" placeholder="Name" required>
-  <input type="email" name="entry.FIELD_ID" placeholder="Email" required>
+<form
+  action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+  method="POST"
+  target="_blank"
+>
+  <input type="text" name="entry.FIELD_ID" placeholder="Name" required />
+  <input type="email" name="entry.FIELD_ID" placeholder="Email" required />
   <textarea name="entry.FIELD_ID" placeholder="Message" required></textarea>
   <button type="submit">Submit</button>
 </form>
@@ -169,6 +182,7 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 7. Example: `entry.123456789` is the field ID for that input
 
 **Field ID Format:**
+
 - Name field: `entry.123456789`
 - Email field: `entry.987654321`
 - Message field: `entry.456789123`
@@ -180,28 +194,23 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 **File:** `src/pages/Connect.tsx` or `public/pages/connect.html`
 
 ```html
-<form 
-  action="https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ/formResponse" 
-  method="POST" 
+<form
+  action="https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ/formResponse"
+  method="POST"
   target="_blank"
   class="contact-form"
 >
-  <input 
-    type="text" 
-    name="entry.1234567890" 
-    placeholder="Your Name" 
-    required 
+  <input type="text" name="entry.1234567890" placeholder="Your Name" required />
+  <input
+    type="email"
+    name="entry.0987654321"
+    placeholder="Your Email"
+    required
   />
-  <input 
-    type="email" 
-    name="entry.0987654321" 
-    placeholder="Your Email" 
-    required 
-  />
-  <textarea 
-    name="entry.1122334455" 
-    placeholder="Your Message" 
-    rows="5" 
+  <textarea
+    name="entry.1122334455"
+    placeholder="Your Message"
+    rows="5"
     required
   ></textarea>
   <button type="submit" class="btn">Send Message</button>
@@ -209,6 +218,7 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 ```
 
 **Benefits:**
+
 - ✅ No iframe
 - ✅ Fully accessible
 - ✅ Mobile responsive
@@ -270,7 +280,10 @@ Add to `src/layouts/SiteLayout.tsx` footer:
       </a>
     </li>
     <li>
-      <a href="mailto:info@elevateforhumanity.org" className="hover:text-brand-600">
+      <a
+        href="mailto:info@elevateforhumanity.org"
+        className="hover:text-brand-600"
+      >
         ✉️ info@elevateforhumanity.org
       </a>
     </li>
@@ -286,16 +299,19 @@ Add to `src/layouts/SiteLayout.tsx` footer:
 ## 🎯 Summary
 
 ### ✅ What's Working
+
 - Phone number (317) 314-3757 is consistent
 - 2 embedded forms on Connect page (no iframes)
 - Environment variable setup for application form URL
 
 ### ⚠️ What Needs Fixing
+
 - 3 placeholder form IDs need real Google Form IDs
 - 3 iframes in store page need to be replaced
 - Contact information not in footer
 
 ### 📝 Next Steps
+
 1. Create 3 missing Google Forms
 2. Get form IDs and field IDs
 3. Update placeholder form IDs
@@ -312,4 +328,4 @@ Add to `src/layouts/SiteLayout.tsx` footer:
 
 ---
 
-*Generated by Ona - Contact Information Audit*
+_Generated by Ona - Contact Information Audit_
