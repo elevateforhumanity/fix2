@@ -21,6 +21,9 @@ export default [
   { file: 'Pay.tsx', path: '/pay' },
   { file: 'VerifyCertificate.tsx', path: '/verify' },
 
+  // Scholarships
+  { file: 'ApplyScholarship.tsx', path: '/apply-scholarship' },
+
   // Donations
   { file: 'Donate.tsx', path: '/donate' },
   { file: 'DonateSuccess.tsx', path: '/donate/success' },
