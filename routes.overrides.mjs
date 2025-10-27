@@ -21,6 +21,9 @@ export default [
   { file: 'Pay.tsx', path: '/pay' },
   { file: 'VerifyCertificate.tsx', path: '/verify' },
 
+  // Scholarships
+  { file: 'ApplyScholarship.tsx', path: '/apply-scholarship' },
+
   // 404 – the generator will put this last
   { file: 'NotFound.tsx', path: '*' },
 ];
