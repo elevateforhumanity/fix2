@@ -5,6 +5,7 @@ Comprehensive error tracking and performance monitoring with Slack integration.
 ## Overview
 
 Sentry monitors:
+
 - ✅ Frontend errors (React)
 - ✅ Backend errors (Netlify Functions)
 - ✅ Performance issues
@@ -14,6 +15,7 @@ Sentry monitors:
 - ✅ System health
 
 **Alerts sent to Slack for:**
+
 - Critical errors
 - High error rates
 - System health issues
@@ -32,6 +34,7 @@ Sentry monitors:
 Create separate projects for better organization:
 
 **Frontend Project:**
+
 1. Click **Projects** → **Create Project**
 2. Platform: **React**
 3. Name: "EFH Frontend"
@@ -39,6 +42,7 @@ Create separate projects for better organization:
 5. Copy the **DSN** (starts with `https://`)
 
 **Backend Project:**
+
 1. Click **Projects** → **Create Project**
 2. Platform: **Node.js**
 3. Name: "EFH Backend"
@@ -156,7 +160,7 @@ exports.handler = async (event, context) => {
         context,
       },
     });
-    
+
     // Return error response
     return {
       statusCode: 500,
@@ -190,10 +194,11 @@ GitHub Actions runs health checks every hour:
 # .github/workflows/health-check.yml
 on:
   schedule:
-    - cron: '0 * * * *'  # Every hour
+    - cron: '0 * * * *' # Every hour
 ```
 
 **Checks:**
+
 - Database connectivity
 - Stripe API
 - OpenAI API
@@ -206,6 +211,7 @@ curl https://elevateforhumanity.org/.netlify/functions/health-check
 ```
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -240,17 +246,20 @@ curl https://elevateforhumanity.org/.netlify/functions/health-check
 ### Alert Types
 
 **🚨 Critical Errors:**
+
 - Unhandled exceptions
 - Database failures
 - Payment processing errors
 - API failures
 
 **⚠️ Warnings:**
+
 - High error rate (>50/hour)
 - Slow response times (>5s)
 - Failed scheduled jobs
 
 **✅ Resolutions:**
+
 - Issues marked as resolved
 - System health restored
 
@@ -279,13 +288,15 @@ const sendSlackAlert = async (message) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       text: '🚨 Custom Alert',
-      attachments: [{
-        color: '#ff0000',
-        title: 'Alert Title',
-        text: message,
-        footer: 'EFH Monitoring',
-        ts: Math.floor(Date.now() / 1000),
-      }],
+      attachments: [
+        {
+          color: '#ff0000',
+          title: 'Alert Title',
+          text: message,
+          footer: 'EFH Monitoring',
+          ts: Math.floor(Date.now() / 1000),
+        },
+      ],
     }),
   });
 };
@@ -319,6 +330,7 @@ try {
 ### Automatic Performance Tracking
 
 Sentry automatically tracks:
+
 - Page load times
 - API call durations
 - Database query times
@@ -329,6 +341,7 @@ Sentry automatically tracks:
 ### Ignore Errors
 
 Already configured to ignore:
+
 - Browser extension errors
 - Network errors (transient)
 - ResizeObserver errors (harmless)
@@ -337,6 +350,7 @@ Already configured to ignore:
 ### Sensitive Data
 
 Automatically redacted:
+
 - Passwords
 - API keys
 - Tokens
@@ -348,6 +362,7 @@ Automatically redacted:
 ### Sentry Dashboard
 
 View in Sentry:
+
 1. **Issues:** All errors grouped by type
 2. **Performance:** Transaction times, slow queries
 3. **Releases:** Track errors by deployment
@@ -356,14 +371,17 @@ View in Sentry:
 ### Key Metrics
 
 **Error Rate:**
+
 - Target: <10 errors/hour
 - Alert: >50 errors/hour
 
 **Response Time:**
+
 - Target: <500ms average
 - Alert: >2s average
 
 **Uptime:**
+
 - Target: 99.9%
 - Alert: <99%
 
@@ -372,12 +390,14 @@ View in Sentry:
 ### Sentry Not Capturing Errors
 
 **Check:**
+
 1. `VITE_SENTRY_DSN` is set in Netlify env vars
 2. DSN is correct (starts with `https://`)
 3. Sentry is initialized in `main.tsx`
 4. Error is not in ignore list
 
 **Test:**
+
 ```typescript
 import { captureMessage } from './config/sentry';
 
@@ -387,12 +407,14 @@ captureMessage('Test error from frontend', 'error');
 ### Slack Alerts Not Working
 
 **Check:**
+
 1. `SLACK_WEBHOOK_URL` is set in Netlify env vars
 2. Webhook URL is correct
 3. Sentry webhook is configured
 4. Channel exists and bot has access
 
 **Test:**
+
 ```bash
 curl -X POST https://elevateforhumanity.org/.netlify/functions/sentry-webhook \
   -H "Content-Type: application/json" \
@@ -411,12 +433,14 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/sentry-webhook \
 ### Health Check Failing
 
 **Check:**
+
 1. Database is accessible
 2. API keys are valid
 3. Network connectivity
 4. Rate limits not exceeded
 
 **Debug:**
+
 ```bash
 curl -v https://elevateforhumanity.org/.netlify/functions/health-check
 ```
@@ -452,11 +476,13 @@ curl -v https://elevateforhumanity.org/.netlify/functions/health-check
 ### Sentry Pricing
 
 **Free Tier:**
+
 - 5,000 errors/month
 - 10,000 performance transactions/month
 - 1 project
 
 **Team Plan ($26/month):**
+
 - 50,000 errors/month
 - 100,000 performance transactions/month
 - Unlimited projects
@@ -479,6 +505,7 @@ curl -v https://elevateforhumanity.org/.netlify/functions/health-check
 ## Support
 
 For issues:
+
 1. Check Sentry dashboard for errors
 2. Review Netlify function logs
 3. Test Slack webhook manually

@@ -1,7 +1,7 @@
 /**
  * REVENUE SPLIT SYSTEM
  * Automated 50/50 revenue sharing with credentialing partners
- * 
+ *
  * REVENUE MODEL:
  * - Self-Pay Programs: 50% EFH (paid first), 50% Partners
  * - Government Programs (WIOA/WRG/OJT): FREE to students, 100% to EFH, NO split

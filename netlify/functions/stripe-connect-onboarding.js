@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Stripe Connect Onboarding
- * 
+ *
  * Creates Stripe Connect account links for instructors to onboard
  * and receive split payouts.
- * 
+ *
  * Endpoint: POST /.netlify/functions/stripe-connect-onboarding
  */
 
@@ -36,7 +36,9 @@ exports.handler = async (event, context) => {
       process.env.SUPABASE_SERVICE_KEY
     );
 
-    const { instructor_id, email, return_url, refresh_url } = JSON.parse(event.body);
+    const { instructor_id, email, return_url, refresh_url } = JSON.parse(
+      event.body
+    );
 
     if (!instructor_id || !email) {
       return {
@@ -86,8 +88,10 @@ exports.handler = async (event, context) => {
     // Create account link for onboarding
     const accountLink = await stripe.accountLinks.create({
       account: accountId,
-      refresh_url: refresh_url || `${process.env.FRONTEND_URL}/instructor/connect/refresh`,
-      return_url: return_url || `${process.env.FRONTEND_URL}/instructor/connect/return`,
+      refresh_url:
+        refresh_url || `${process.env.FRONTEND_URL}/instructor/connect/refresh`,
+      return_url:
+        return_url || `${process.env.FRONTEND_URL}/instructor/connect/return`,
       type: 'account_onboarding',
     });
 

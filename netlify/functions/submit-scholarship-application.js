@@ -1,9 +1,9 @@
 /**
  * Netlify Function: Submit Scholarship Application
- * 
+ *
  * Handles scholarship application submissions with file uploads.
  * Stores data in Supabase and uploads files to Supabase Storage.
- * 
+ *
  * Endpoint: POST /.netlify/functions/submit-scholarship-application
  */
 
@@ -60,7 +60,7 @@ exports.handler = async (event, context) => {
 
     // Upload files to Supabase Storage
     const uploadedFiles = {};
-    
+
     for (const [fieldName, file] of Object.entries(files)) {
       const fileName = `${Date.now()}-${file.filename}`;
       const filePath = `scholarship-applications/${formData.email}/${fileName}`;
