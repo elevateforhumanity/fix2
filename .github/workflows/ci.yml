@@ -11,10 +11,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: corepack enable || true
-      - run: |
-          if [ -f pnpm-lock.yaml ]; then pnpm i --frozen-lockfile;
-          elif [ -f bun.lockb ]; then curl -fsSL https://bun.sh/install | bash && export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bun install;
-          else npm ci; fi
-      - run: npm run build --if-present
-      - run: npm test --if-present
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build --if-present
+      - run: pnpm test --if-present
