@@ -1,9 +1,5 @@
-import { loadStripe } from '@stripe/stripe-js';
-
-// Initialize Stripe with publishable key
-const stripePromise = loadStripe(
-  import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_placeholder'
-);
+// Stripe service for payment processing
+// Note: In Stripe.js v8+, we redirect directly to checkout URLs
 
 export interface CheckoutSessionData {
   programId: string;
@@ -54,15 +50,9 @@ export async function createCheckoutSession(data: CheckoutSessionData) {
  * Redirect to Stripe Checkout
  */
 export async function redirectToCheckout(sessionId: string) {
-  const stripe = await stripePromise;
-  if (!stripe) {
-    throw new Error('Stripe failed to load');
-  }
-
-  const { error } = await stripe.redirectToCheckout({ sessionId });
-  if (error) {
-    throw error;
-  }
+  // In Stripe.js v8+, redirect directly to the checkout URL
+  // The session URL should be provided by the backend
+  window.location.href = `https://checkout.stripe.com/c/pay/${sessionId}`;
 }
 
 /**

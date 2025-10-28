@@ -1,18 +1,9 @@
 import { useState } from 'react';
-import {
-  CreditCard,
-  DollarSign,
-  FileText,
-  CheckCircle,
-  AlertCircle,
-  Clock,
-  Receipt,
-} from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { CreditCard, DollarSign, FileText, Receipt } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Pay() {
-  const params = useParams();
-  const [selectedProgram, setSelectedProgram] = useState(null);
+  const [selectedProgram, setSelectedProgram] = useState<any>(null);
 
   const programs = [
     {
@@ -227,12 +218,14 @@ export default function Pay() {
                     installment
                   </div>
                   <div className="text-xs text-brand-text-light mt-1">
-                    {selectedProgram.installments.map((installment, index) => (
-                      <div key={index}>
-                        ${installment.amount.toLocaleString()} -{' '}
-                        {installment.due}
-                      </div>
-                    ))}
+                    {selectedProgram.installments.map(
+                      (installment: any, index: number) => (
+                        <div key={index}>
+                          ${installment.amount.toLocaleString()} -{' '}
+                          {installment.due}
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </label>
@@ -273,14 +266,16 @@ export default function Pay() {
               funding:
             </p>
             <div className="flex flex-wrap gap-2">
-              {selectedProgram.fundingOptions.map((option, index) => (
-                <span
-                  key={index}
-                  className="bg-brand-surface text-brand-success text-xs px-2 py-1 rounded"
-                >
-                  {option}
-                </span>
-              ))}
+              {selectedProgram.fundingOptions.map(
+                (option: any, index: number) => (
+                  <span
+                    key={index}
+                    className="bg-brand-surface text-brand-success text-xs px-2 py-1 rounded"
+                  >
+                    {option}
+                  </span>
+                )
+              )}
             </div>
             <Link
               to="/compliance/eligibility-verification"
@@ -534,7 +529,9 @@ export default function Pay() {
                   <div className="text-sm text-brand-text mt-1">
                     $
                     {(
-                      application.approvedAmount || application.requestedAmount
+                      application.approvedAmount ||
+                      application.requestedAmount ||
+                      0
                     ).toLocaleString()}
                   </div>
                 </div>

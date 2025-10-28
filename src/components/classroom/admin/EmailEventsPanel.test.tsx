@@ -35,8 +35,11 @@ vi.mock('@/lib/supabase', () => ({
       return Promise.resolve({ data: null, error: null });
     }),
     channel: vi.fn(() => ({
-      on: vi.fn(() => ({
-        subscribe: vi.fn(),
+      on: vi.fn(function (this: any) {
+        return this;
+      }),
+      subscribe: vi.fn(() => ({
+        unsubscribe: vi.fn(),
       })),
     })),
   },
@@ -61,7 +64,7 @@ describe('EmailEventsPanel', () => {
     render(<EmailEventsPanel />);
 
     // Wait for loading to complete
-    await screen.findByText('Recent Email Events');
+    await screen.findByText(/Recent Email Events/i);
 
     expect(screen.getByText('Filter by Status')).toBeInTheDocument();
     expect(

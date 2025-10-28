@@ -54,7 +54,7 @@ jobs:
 
           # Accessibility & Media
           post_bridge "/enqueue axe_a11y_scan url=https://elevateforhumanity.org"
-          
+
           # Internationalization
           post_bridge "/enqueue i18n_build locales=en,es"
 

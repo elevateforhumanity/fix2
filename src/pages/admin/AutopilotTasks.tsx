@@ -27,7 +27,7 @@ export default function AutopilotTasks() {
   useEffect(() => {
     loadTasks();
     loadStats();
-    
+
     // Refresh every 10 seconds
     const interval = setInterval(() => {
       loadTasks();
@@ -73,7 +73,9 @@ export default function AutopilotTasks() {
 
   const approveTask = async (id: number) => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const response = await fetch(import.meta.env.VITE_AUTOPILOT_WORKER_URL, {
@@ -183,7 +185,6 @@ export default function AutopilotTasks() {
             🔄 Refresh
           </button>
         </div>
-
         {/* Stats */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-6">
@@ -192,7 +193,9 @@ export default function AutopilotTasks() {
                 key={stat.status}
                 className="bg-white rounded-lg shadow p-4 text-center"
               >
-                <div className="text-2xl mb-1">{getStatusIcon(stat.status)}</div>
+                <div className="text-2xl mb-1">
+                  {getStatusIcon(stat.status)}
+                </div>
                 <div className="text-2xl font-bold">{stat.count}</div>
                 <div className="text-sm text-gray-600 capitalize">
                   {stat.status}
@@ -206,11 +209,18 @@ export default function AutopilotTasks() {
             ))}
           </div>
         )}
-
         {/* Filters */}
         <div className="bg-white rounded-lg shadow mb-6">
           <div className="flex border-b overflow-x-auto">
-            {['all', 'queued', 'running', 'needs_approval', 'succeeded', 'failed', 'skipped'].map((f) => (
+            {[
+              'all',
+              'queued',
+              'running',
+              'needs_approval',
+              'succeeded',
+              'failed',
+              'skipped',
+            ].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -225,7 +235,6 @@ export default function AutopilotTasks() {
             ))}
           </div>
         </div>
-
         {/* Tasks List */}
         {loading ? (
           <div className="text-center py-12">
@@ -246,8 +255,12 @@ export default function AutopilotTasks() {
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl">{getStatusIcon(task.status)}</span>
-                      <h3 className="text-xl font-bold">#{task.id} - {task.kind}</h3>
+                      <span className="text-2xl">
+                        {getStatusIcon(task.status)}
+                      </span>
+                      <h3 className="text-xl font-bold">
+                        #{task.id} - {task.kind}
+                      </h3>
                       <span
                         className={`px-3 py-1 rounded-full text-sm font-semibold ${getStatusColor(
                           task.status
@@ -262,17 +275,26 @@ export default function AutopilotTasks() {
                       )}
                     </div>
                     <div className="text-sm text-gray-600 space-y-1">
-                      <p>Priority: {task.priority} | Attempts: {task.attempts}/{task.max_attempts}</p>
-                      <p>Created: {new Date(task.created_at).toLocaleString()}</p>
+                      <p>
+                        Priority: {task.priority} | Attempts: {task.attempts}/
+                        {task.max_attempts}
+                      </p>
+                      <p>
+                        Created: {new Date(task.created_at).toLocaleString()}
+                      </p>
                       {task.started_at && (
-                        <p>Started: {new Date(task.started_at).toLocaleString()}</p>
+                        <p>
+                          Started: {new Date(task.started_at).toLocaleString()}
+                        </p>
                       )}
                       {task.completed_at && (
-                        <p>Completed: {new Date(task.completed_at).toLocaleString()}</p>
+                        <p>
+                          Completed:{' '}
+                          {new Date(task.completed_at).toLocaleString()}
+                        </p>
                       )}
                     </div>
                   </div>
-
                   {/* Actions */}
                   <div className="flex gap-2 ml-4">
                     {task.status === 'needs_approval' && (
@@ -291,7 +313,9 @@ export default function AutopilotTasks() {
                         🔄 Retry
                       </button>
                     )}
-                    {['queued', 'running', 'needs_approval'].includes(task.status) && (
+                    {['queued', 'running', 'needs_approval'].includes(
+                      task.status
+                    ) && (
                       <button
                         onClick={() => cancelTask(task.id)}
                         className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
@@ -301,7 +325,6 @@ export default function AutopilotTasks() {
                     )}
                   </div>
                 </div>
-
                 {/* Payload */}
                 {Object.keys(task.payload).length > 0 && (
                   <details className="mt-4">
@@ -313,11 +336,12 @@ export default function AutopilotTasks() {
                     </pre>
                   </details>
                 )}
-
                 {/* Error */}
                 {task.error && (
                   <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded">
-                    <p className="text-sm font-semibold text-red-900 mb-1">Error:</p>
+                    <p className="text-sm font-semibold text-red-900 mb-1">
+                      Error:
+                    </p>
                     <p className="text-sm text-red-800">{task.error}</p>
                   </div>
                 )}

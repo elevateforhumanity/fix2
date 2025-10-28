@@ -109,7 +109,7 @@ export default function AutopilotAdmin() {
   const ANALYZER_BASE = 'https://efh-autopilot-analyzer.workers.dev';
 
   // Toast notification
-  const toast = (msg: string, type: 'success' | 'error' | 'info' = 'info') => {
+  const toast = (msg: string, _type: 'success' | 'error' | 'info' = 'info') => {
     setNote(msg);
     setTimeout(() => setNote(''), 3000);
   };

@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import AppLayout from '../layouts/AppLayout';
+import AppLayout from '../layouts/AppLayout.jsx';
 import {
   zapierSocial,
   postToSocialMedia,

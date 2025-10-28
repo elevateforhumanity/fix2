@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  GraduationCap,
-  Heart,
-  DollarSign,
-  FileText,
-  CheckCircle,
-} from 'lucide-react';
+import { GraduationCap, CheckCircle } from 'lucide-react';
 
 export default function ApplyScholarship() {
   const [step, setStep] = useState(1);
@@ -116,8 +110,8 @@ export default function ApplyScholarship() {
       // Create FormData for file uploads
       const submitData = new FormData();
       Object.keys(formData).forEach((key) => {
-        if (formData[key] !== null) {
-          submitData.append(key, formData[key]);
+        if ((formData as any)[key] !== null) {
+          submitData.append(key, (formData as any)[key]);
         }
       });
 
@@ -530,7 +524,7 @@ export default function ApplyScholarship() {
                         type="checkbox"
                         aria-label="checkbox input"
                         name={item.name}
-                        checked={formData[item.name]}
+                        checked={(formData as any)[item.name]}
                         onChange={handleInputChange}
                         className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-600"
                       />

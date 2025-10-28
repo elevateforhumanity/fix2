@@ -494,7 +494,12 @@ serve(async (req) => {
 
     // ==================== ENQUEUE ====================
     if (cmd === 'enqueue') {
-      const { kind, payload = {}, priority = 5, requires_approval = false } = body;
+      const {
+        kind,
+        payload = {},
+        priority = 5,
+        requires_approval = false,
+      } = body;
       const { error } = await supabase.from('automation.tasks').insert([
         {
           kind,
