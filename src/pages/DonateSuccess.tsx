@@ -9,16 +9,51 @@ export default function DonateSuccess() {
   const [donation, setDonation] = useState<any>(null);
 
   useEffect(() => {
-    if (sessionId) {
-      // TODO: Fetch donation details from Stripe
-      // For now, show success message
-      setLoading(false);
-      setDonation({
-        amount: 100,
-        type: 'one-time',
-        date: new Date().toLocaleDateString(),
-      });
-    }
+    const fetchDonationDetails = async () => {
+      if (!sessionId) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Call Netlify function to fetch Stripe session details
+        const response = await fetch(
+          `/.netlify/functions/stripe-webhook?session_id=${sessionId}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch donation details');
+        }
+
+        const data = await response.json();
+
+        setDonation({
+          amount: data.amount_total ? data.amount_total / 100 : 100,
+          type: data.mode === 'subscription' ? 'monthly' : 'one-time',
+          date: new Date().toLocaleDateString(),
+          email: data.customer_email,
+          receiptUrl: data.receipt_url,
+        });
+      } catch (error) {
+        console.error('Error fetching donation details:', error);
+        // Fallback to default values
+        setDonation({
+          amount: 100,
+          type: 'one-time',
+          date: new Date().toLocaleDateString(),
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDonationDetails();
   }, [sessionId]);
 
   if (loading) {

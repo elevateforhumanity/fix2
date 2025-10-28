@@ -71,7 +71,10 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
               </span>
             </Link>
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav
+              role="navigation"
+              className="hidden lg:flex items-center gap-6"
+            >
               {navigation.map((section) => (
                 <div
                   key={section.label}
@@ -185,7 +188,9 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
           </div>
         )}
       </header>
-      <main className="flex-1">{children}</main>
+      <main role="main" className="flex-1">
+        {children}
+      </main>
       {/* Chat Assistant */}
       <ChatAssistant />
       {/* Footer */}

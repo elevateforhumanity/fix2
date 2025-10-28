@@ -147,6 +147,7 @@ export default function StudentPortalLMS() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -156,6 +157,7 @@ export default function StudentPortalLMS() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -167,6 +169,7 @@ export default function StudentPortalLMS() {
                   </label>
                   <input
                     type="email"
+                    aria-label="email input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -176,6 +179,7 @@ export default function StudentPortalLMS() {
                   </label>
                   <input
                     type="tel"
+                    aria-label="tel input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -389,6 +393,7 @@ export default function StudentPortalLMS() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   defaultValue="John Doe"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -399,6 +404,7 @@ export default function StudentPortalLMS() {
                 </label>
                 <input
                   type="email"
+                  aria-label="email input"
                   defaultValue="john.doe@example.com"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -409,6 +415,7 @@ export default function StudentPortalLMS() {
                 </label>
                 <input
                   type="tel"
+                  aria-label="tel input"
                   defaultValue="(555) 123-4567"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -450,6 +457,7 @@ export default function StudentPortalLMS() {
                     </label>
                     <input
                       type="text"
+                      aria-label="text input"
                       className="w-full p-3 border border-brand-border-dark rounded-lg"
                     />
                   </div>

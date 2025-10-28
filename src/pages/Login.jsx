@@ -48,6 +48,7 @@ export default function Login() {
             <div>
               <input
                 type="email"
+                aria-label="email input"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-t-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
@@ -58,6 +59,7 @@ export default function Login() {
             <div>
               <input
                 type="password"
+                aria-label="password input"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-b-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"

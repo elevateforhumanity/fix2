@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import AppLayout from '../layouts/AppLayout';
+import AppLayout from '../layouts/AppLayout.jsx';
 import {
   zapierSocial,
   postToSocialMedia,
@@ -164,7 +164,7 @@ export default function SocialMediaManager() {
         </div>
         {/* Tabs */}
         <div className="border-b border-brand-border mb-6">
-          <nav className="-mb-px flex space-x-8">
+          <nav role="navigation" className="-mb-px flex space-x-8">
             <button
               onClick={() => setActiveTab('post')}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
@@ -213,6 +213,7 @@ export default function SocialMediaManager() {
                   <label key={platform} className="flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       checked={selectedPlatforms.includes(platform)}
                       onChange={() => togglePlatform(platform)}
                       className="h-4 w-4 text-brand-info focus:ring-brand-focus border-brand-border-dark rounded"
@@ -247,6 +248,7 @@ export default function SocialMediaManager() {
               </label>
               <input
                 type="url"
+                aria-label="url input"
                 value={mediaUrl}
                 onChange={(e) => setMediaUrl(e.target.value)}
                 className="w-full px-3 py-2 border border-brand-border-dark rounded-md focus:outline-none focus:ring-2 focus:ring-brand-focus"
@@ -260,6 +262,7 @@ export default function SocialMediaManager() {
               </label>
               <input
                 type="datetime-local"
+                aria-label="datetime-local input"
                 value={scheduledTime}
                 onChange={(e) => setScheduledTime(e.target.value)}
                 className="w-full px-3 py-2 border border-brand-border-dark rounded-md focus:outline-none focus:ring-2 focus:ring-brand-focus"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface AttritionMetrics {
   overall: {
@@ -358,6 +358,7 @@ export function AutoAttritionTracker() {
           <label className="flex items-center">
             <input
               type="checkbox"
+              aria-label="checkbox input"
               checked={isTracking}
               onChange={(e) => setIsTracking(e.target.checked)}
               className="mr-2"

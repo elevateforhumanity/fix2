@@ -36,7 +36,7 @@ export default function CourseBuilder() {
   }
 
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1>Course Builder</h1>
       <form onSubmit={addModule} style={{ marginBottom: 16 }}>
         <input

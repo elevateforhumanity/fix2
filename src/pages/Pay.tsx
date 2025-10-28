@@ -1,18 +1,9 @@
 import { useState } from 'react';
-import {
-  CreditCard,
-  DollarSign,
-  FileText,
-  CheckCircle,
-  AlertCircle,
-  Clock,
-  Receipt,
-} from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { CreditCard, DollarSign, FileText, Receipt } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Pay() {
-  const params = useParams();
-  const [selectedProgram, setSelectedProgram] = useState(null);
+  const [selectedProgram, setSelectedProgram] = useState<any>(null);
 
   const programs = [
     {
@@ -192,6 +183,7 @@ export default function Pay() {
               <label className="flex items-start space-x-3 p-4 border border-brand-border rounded-lg cursor-pointer hover:bg-brand-surface">
                 <input
                   type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="full"
                   className="mt-1"
@@ -211,6 +203,7 @@ export default function Pay() {
               <label className="flex items-start space-x-3 p-4 border border-brand-border rounded-lg cursor-pointer hover:bg-brand-surface">
                 <input
                   type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="installments"
                   className="mt-1"
@@ -225,18 +218,21 @@ export default function Pay() {
                     installment
                   </div>
                   <div className="text-xs text-brand-text-light mt-1">
-                    {selectedProgram.installments.map((installment, index) => (
-                      <div key={index}>
-                        ${installment.amount.toLocaleString()} -{' '}
-                        {installment.due}
-                      </div>
-                    ))}
+                    {selectedProgram.installments.map(
+                      (installment: any, index: number) => (
+                        <div key={index}>
+                          ${installment.amount.toLocaleString()} -{' '}
+                          {installment.due}
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </label>
               <label className="flex items-start space-x-3 p-4 border border-green-200 rounded-lg cursor-pointer hover:bg-green-50 bg-green-25">
                 <input
                   type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="bnpl"
                   className="mt-1"
@@ -270,14 +266,16 @@ export default function Pay() {
               funding:
             </p>
             <div className="flex flex-wrap gap-2">
-              {selectedProgram.fundingOptions.map((option, index) => (
-                <span
-                  key={index}
-                  className="bg-brand-surface text-brand-success text-xs px-2 py-1 rounded"
-                >
-                  {option}
-                </span>
-              ))}
+              {selectedProgram.fundingOptions.map(
+                (option: any, index: number) => (
+                  <span
+                    key={index}
+                    className="bg-brand-surface text-brand-success text-xs px-2 py-1 rounded"
+                  >
+                    {option}
+                  </span>
+                )
+              )}
             </div>
             <Link
               to="/compliance/eligibility-verification"
@@ -294,6 +292,7 @@ export default function Pay() {
             <div className="flex space-x-2">
               <input
                 type="text"
+                aria-label="text input"
                 placeholder="Enter coupon code"
                 className="flex-1 border border-brand-border-dark rounded-lg px-3 py-2"
               />
@@ -322,6 +321,7 @@ export default function Pay() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     placeholder="1234 5678 9012 3456"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -332,6 +332,7 @@ export default function Pay() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     placeholder="MM/YY"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -342,6 +343,7 @@ export default function Pay() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     placeholder="123"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -352,6 +354,7 @@ export default function Pay() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     placeholder="12345"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -526,7 +529,9 @@ export default function Pay() {
                   <div className="text-sm text-brand-text mt-1">
                     $
                     {(
-                      application.approvedAmount || application.requestedAmount
+                      application.approvedAmount ||
+                      application.requestedAmount ||
+                      0
                     ).toLocaleString()}
                   </div>
                 </div>

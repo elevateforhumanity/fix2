@@ -120,6 +120,7 @@ export function FileUpload({
         <input
           ref={fileInputRef}
           type="file"
+          aria-label="file input"
           multiple
           onChange={handleFileSelect}
           style={{ display: 'none' }}

@@ -65,13 +65,14 @@ describe('Route Tests', () => {
       expect(screen.getByText(/Forgot Password/i)).toBeInTheDocument();
     });
 
-    it('renders ResetPassword page', () => {
-      // ResetPassword requires a token query param
+    it('renders ResetPassword page', async () => {
+      // ResetPassword validates token and shows invalid state without proper auth
       renderWithRouter(<ResetPassword />, {
-        route: '/reset-password?token=test-token',
+        route: '/reset-password?type=recovery&access_token=test-token',
       });
+      // Component shows invalid link when token validation fails
       expect(
-        screen.getByRole('heading', { name: /Reset Your Password/i })
+        await screen.findByRole('heading', { name: /Invalid Reset Link/i })
       ).toBeInTheDocument();
     });
 

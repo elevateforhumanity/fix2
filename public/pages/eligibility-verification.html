@@ -50,7 +50,10 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Navigation Header -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav
+      role="navigation"
+      class="bg-white border-b border-gray-200 sticky top-0 z-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -78,7 +81,7 @@
       </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <main role="main" class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <!-- Page Header -->
       <div class="mb-8">
         <div
@@ -301,6 +304,7 @@
                   type="button"
                   onclick="hideNewVerificationForm()"
                   class="text-gray-400 hover:text-gray-600"
+                  aria-label="Action button"
                 >
                   <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
@@ -321,6 +325,7 @@
                         >
                         <input
                           type="text"
+                          aria-label="text input"
                           name="participant_name"
                           required
                           class="w-full border rounded px-3 py-2"
@@ -333,6 +338,7 @@
                         >
                         <input
                           type="email"
+                          aria-label="email input"
                           name="email"
                           required
                           class="w-full border rounded px-3 py-2"
@@ -369,6 +375,7 @@
                         >
                         <input
                           type="text"
+                          aria-label="text input"
                           name="ssn"
                           class="w-full border rounded px-3 py-2"
                           placeholder="XXX-XX-XXXX"
@@ -392,6 +399,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="age_18_24"
                               class="mr-2"
@@ -401,6 +409,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="age_25_plus"
                               class="mr-2"
@@ -410,6 +419,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="age_55_plus"
                               class="mr-2"
@@ -428,6 +438,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="low_income"
                               class="mr-2"
@@ -437,6 +448,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="public_assistance"
                               class="mr-2"
@@ -446,6 +458,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="food_stamps"
                               class="mr-2"
@@ -464,6 +477,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="basic_skills_deficient"
                               class="mr-2"
@@ -473,6 +487,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="english_learner"
                               class="mr-2"
@@ -482,6 +497,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="offender"
                               class="mr-2"
@@ -491,6 +507,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="homeless"
                               class="mr-2"
@@ -500,6 +517,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="pregnant_parenting"
                               class="mr-2"
@@ -509,6 +527,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="disabled"
                               class="mr-2"
@@ -527,6 +546,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="veteran"
                               class="mr-2"
@@ -536,6 +556,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="dislocated_worker"
                               class="mr-2"
@@ -545,6 +566,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="displaced_homemaker"
                               class="mr-2"
@@ -554,6 +576,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="eligibility"
                               value="seasonal_farmworker"
                               class="mr-2"
@@ -579,6 +602,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="drivers_license"
                               class="mr-2"
@@ -588,6 +612,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="passport"
                               class="mr-2"
@@ -597,6 +622,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="birth_certificate"
                               class="mr-2"
@@ -606,6 +632,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="ss_card"
                               class="mr-2"
@@ -623,6 +650,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="tax_returns"
                               class="mr-2"
@@ -632,6 +660,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="pay_stubs"
                               class="mr-2"
@@ -641,6 +670,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="unemployment_records"
                               class="mr-2"
@@ -650,6 +680,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="benefit_statements"
                               class="mr-2"
@@ -667,6 +698,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="diploma"
                               class="mr-2"
@@ -676,6 +708,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="transcripts"
                               class="mr-2"
@@ -685,6 +718,7 @@
                           <label class="flex items-center">
                             <input
                               type="checkbox"
+                              aria-label="checkbox input"
                               name="documentation"
                               value="certifications"
                               class="mr-2"
@@ -996,7 +1030,7 @@
     <!-- EFH Header will be injected here -->
     <div id="efh-header"></div>
 
-    <main class="container mx-auto px-4 py-8">
+    <main role="main" class="container mx-auto px-4 py-8">
       <!-- WIOA Eligibility Header -->
       <div
         class="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-8 mb-8"
@@ -1058,6 +1092,7 @@
                 <label class="flex items-center">
                   <input
                     type="checkbox"
+                    aria-label="checkbox input"
                     name="barriers"
                     value="basic-skills"
                     class="mr-2"
@@ -1067,6 +1102,7 @@
                 <label class="flex items-center">
                   <input
                     type="checkbox"
+                    aria-label="checkbox input"
                     name="barriers"
                     value="disability"
                     class="mr-2"
@@ -1076,6 +1112,7 @@
                 <label class="flex items-center">
                   <input
                     type="checkbox"
+                    aria-label="checkbox input"
                     name="barriers"
                     value="offender"
                     class="mr-2"
@@ -1085,6 +1122,7 @@
                 <label class="flex items-center">
                   <input
                     type="checkbox"
+                    aria-label="checkbox input"
                     name="barriers"
                     value="homeless"
                     class="mr-2"
@@ -1124,6 +1162,7 @@
                   >
                   <input
                     type="text"
+                    aria-label="text input"
                     name="entry.1010101010"
                     required
                     class="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-blue-500"
@@ -1136,6 +1175,7 @@
                   >
                   <input
                     type="email"
+                    aria-label="email input"
                     name="entry.2020202020"
                     required
                     class="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-blue-500"
@@ -1148,6 +1188,7 @@
                   >
                   <input
                     type="tel"
+                    aria-label="tel input"
                     name="entry.2020202021"
                     required
                     class="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-blue-500"
@@ -1160,6 +1201,7 @@
                   >
                   <input
                     type="date"
+                    aria-label="date input"
                     name="entry.2020202022"
                     required
                     class="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-blue-500"
@@ -1171,6 +1213,7 @@
                   >
                   <input
                     type="text"
+                    aria-label="text input"
                     name="entry.2020202023"
                     required
                     class="w-full p-2 border rounded text-sm focus:ring-2 focus:ring-blue-500"
@@ -1187,6 +1230,7 @@
                   <label class="flex items-center text-sm">
                     <input
                       type="radio"
+                      aria-label="radio input"
                       name="entry.2020202024"
                       value="Unemployed"
                       class="mr-2"
@@ -1197,6 +1241,7 @@
                   <label class="flex items-center text-sm">
                     <input
                       type="radio"
+                      aria-label="radio input"
                       name="entry.2020202024"
                       value="Underemployed"
                       class="mr-2"
@@ -1207,6 +1252,7 @@
                   <label class="flex items-center text-sm">
                     <input
                       type="radio"
+                      aria-label="radio input"
                       name="entry.2020202024"
                       value="Dislocated Worker"
                       class="mr-2"
@@ -1217,6 +1263,7 @@
                   <label class="flex items-center text-sm">
                     <input
                       type="radio"
+                      aria-label="radio input"
                       name="entry.2020202024"
                       value="Youth (16-24)"
                       class="mr-2"
@@ -1276,6 +1323,7 @@
                   <label class="flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       name="entry.4040404040"
                       value="Basic Skills Deficient"
                       class="mr-1"
@@ -1285,6 +1333,7 @@
                   <label class="flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       name="entry.4040404040"
                       value="Individual with Disability"
                       class="mr-1"
@@ -1294,6 +1343,7 @@
                   <label class="flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       name="entry.4040404040"
                       value="Ex-Offender"
                       class="mr-1"
@@ -1303,6 +1353,7 @@
                   <label class="flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       name="entry.4040404040"
                       value="Homeless"
                       class="mr-1"

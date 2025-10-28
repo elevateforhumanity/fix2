@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface LearningBarrier {
   id: string;
   type:
@@ -273,6 +275,7 @@ export function LearningBarrierAnalyzer() {
           <label className="flex items-center">
             <input
               type="checkbox"
+              aria-label="checkbox input"
               checked={autoRemediationEnabled}
               onChange={(e) => setAutoRemediationEnabled(e.target.checked)}
               className="mr-2"

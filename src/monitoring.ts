@@ -23,8 +23,8 @@ export async function startWebVitals(report?: (m: Metric) => void) {
 // Sentry (optional; enable when DSN is present)
 const dsn = import.meta.env.VITE_SENTRY_DSN;
 if (dsn) {
-  import('@sentry/browser')
-    .then((Sentry) => {
+  import('@sentry/browser' as any)
+    .then((Sentry: any) => {
       Sentry.init({
         dsn,
         tracesSampleRate: 0.1,

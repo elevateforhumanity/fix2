@@ -51,7 +51,7 @@ export default function DoNotContactPanel() {
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.rpc('add_to_do_not_contact', {
+    const { error } = await supabase.rpc('add_to_do_not_contact', {
       p_email: newEntry.email,
       p_reason: newEntry.reason,
       p_reason_details: newEntry.reason_details || null,
@@ -84,7 +84,7 @@ export default function DoNotContactPanel() {
       return;
     }
 
-    const { data, error } = await supabase.rpc('remove_from_do_not_contact', {
+    const { error } = await supabase.rpc('remove_from_do_not_contact', {
       p_email: email,
     });
 
@@ -186,6 +186,7 @@ export default function DoNotContactPanel() {
               </label>
               <input
                 type="email"
+                aria-label="email input"
                 required
                 value={newEntry.email}
                 onChange={(e) =>
@@ -233,6 +234,7 @@ export default function DoNotContactPanel() {
               </label>
               <input
                 type="datetime-local"
+                aria-label="datetime-local input"
                 value={newEntry.expires_at}
                 onChange={(e) =>
                   setNewEntry({ ...newEntry, expires_at: e.target.value })

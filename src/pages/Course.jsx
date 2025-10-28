@@ -225,6 +225,7 @@ export default function Course() {
                   >
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       checked={completedLessons.includes(lesson.id)}
                       onChange={() => toggleComplete(lesson.id)}
                       onClick={(e) => e.stopPropagation()}

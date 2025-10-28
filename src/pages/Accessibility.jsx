@@ -21,6 +21,7 @@ import React from 'react';
 export default function Accessibility() {
   return (
     <main
+      role="main"
       id="main-content"
       style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}
     >
@@ -34,9 +35,56 @@ export default function Accessibility() {
         >
           Accessibility Statement
         </h1>
-        <p style={{ fontSize: '1.2rem', color: 'var(--brand-text-muted)' }}>
+        <p
+          style={{
+            fontSize: '1.2rem',
+            color: 'var(--brand-text-muted)',
+            marginBottom: '2rem',
+          }}
+        >
           Elevate for Humanity is committed to ensuring digital accessibility
           for all users
+        </p>
+        {/* WCAG 2.1 AA Accessibility Badge */}
+        <div
+          style={{
+            display: 'inline-block',
+            backgroundColor: '#10b981',
+            color: 'white',
+            padding: '1rem 2rem',
+            borderRadius: '12px',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            marginBottom: '1rem',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              marginBottom: '0.5rem',
+            }}
+          >
+            ✓ WCAG 2.1 AA
+          </div>
+          <div style={{ fontSize: '0.9rem', opacity: 0.9 }}>
+            Accessibility Committed
+          </div>
+        </div>
+        <p
+          style={{
+            fontSize: '1rem',
+            color: 'var(--brand-text-muted)',
+            maxWidth: '800px',
+            margin: '1rem auto 0',
+            lineHeight: '1.6',
+          }}
+        >
+          Our website is actively moving toward full WCAG 2.1 AA compliance —
+          ensuring every visitor, including those using screen readers or
+          keyboard navigation, can experience Elevate for Humanity's content
+          with ease. We're improving color contrast, text clarity, form labels,
+          and navigation structure to make the site accessible, inclusive, and
+          welcoming for all.
         </p>
       </header>
       <section style={{ marginBottom: '3rem' }}>
@@ -90,6 +138,7 @@ export default function Accessibility() {
             padding: '1.5rem',
             borderRadius: '8px',
             marginBottom: '1rem',
+            border: '2px solid #10b981',
           }}
         >
           <h3
@@ -99,13 +148,60 @@ export default function Accessibility() {
               color: 'var(--brand-info)',
             }}
           >
-            WCAG 2.1 AA Compliance
+            🌟 WCAG 2.1 AA Accessibility Commitment
           </h3>
-          <p style={{ color: 'var(--brand-text)', marginBottom: '1rem' }}>
-            Our website follows the Web Content Accessibility Guidelines (WCAG)
-            2.1 Level AA standards. These guidelines explain how to make web
-            content more accessible to people with disabilities.
+          <p
+            style={{
+              color: 'var(--brand-text)',
+              marginBottom: '1rem',
+              fontWeight: '500',
+            }}
+          >
+            Our website is in the process of becoming fully accessible —
+            designed so everyone, including people with vision, hearing, or
+            mobility challenges, can use it easily.
           </p>
+          <p style={{ color: 'var(--brand-text)', marginBottom: '1rem' }}>
+            <strong>What this means:</strong>
+          </p>
+          <ul
+            style={{
+              color: 'var(--brand-text)',
+              paddingLeft: '1.5rem',
+              marginBottom: '1rem',
+            }}
+          >
+            <li style={{ marginBottom: '0.5rem' }}>
+              It speaks clearly to screen readers
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              It shows enough color contrast so everyone can read it
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              It works just as well with a keyboard as with a mouse
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              It's predictable, easy to navigate, and friendly to all users
+            </li>
+          </ul>
+          <div
+            style={{
+              backgroundColor: '#f0fdf4',
+              padding: '1rem',
+              borderRadius: '6px',
+              marginTop: '1rem',
+            }}
+          >
+            <p style={{ color: '#166534', fontSize: '0.95rem', margin: 0 }}>
+              <strong>Breaking it down:</strong>
+              <br />• <strong>WCAG 2.1</strong> → The official rulebook for
+              accessibility (set by the World Wide Web Consortium)
+              <br />• <strong>AA Level</strong> → The "gold standard" most
+              professional and government websites aim for
+              <br />• <strong>Accessibility Committed</strong> → We actively
+              maintain and improve accessibility standards across our platform
+            </p>
+          </div>
         </div>
         <div
           style={{

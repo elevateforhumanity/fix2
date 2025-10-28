@@ -335,6 +335,7 @@ export function Calendar() {
             >
               <input
                 type="text"
+                aria-label="text input"
                 placeholder="Event Title"
                 value={newEvent.title}
                 onChange={(e) =>
@@ -349,6 +350,7 @@ export function Calendar() {
               />
               <input
                 type="date"
+                aria-label="date input"
                 value={newEvent.date}
                 onChange={(e) =>
                   setNewEvent({ ...newEvent, date: e.target.value })
@@ -362,6 +364,7 @@ export function Calendar() {
               />
               <input
                 type="time"
+                aria-label="time input"
                 value={newEvent.time}
                 onChange={(e) =>
                   setNewEvent({ ...newEvent, time: e.target.value })

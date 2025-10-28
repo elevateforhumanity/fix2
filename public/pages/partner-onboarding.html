@@ -219,13 +219,28 @@
         <h3>Sign MOU Online</h3>
         <form id="mouForm">
           <label>Organization Name *</label>
-          <input type="text" required placeholder="Your Organization" />
+          <input
+            type="text"
+            aria-label="text input"
+            required
+            placeholder="Your Organization"
+          />
 
           <label>Contact Person *</label>
-          <input type="text" required placeholder="Full Name" />
+          <input
+            type="text"
+            aria-label="text input"
+            required
+            placeholder="Full Name"
+          />
 
           <label>Email *</label>
-          <input type="email" required placeholder="email@organization.org" />
+          <input
+            type="email"
+            aria-label="email input"
+            required
+            placeholder="email@organization.org"
+          />
 
           <label>Partnership Type *</label>
           <select required>
@@ -238,7 +253,7 @@
           </select>
 
           <label>Upload Signed MOU (PDF) *</label>
-          <input type="file" accept=".pdf" required />
+          <input type="file" aria-label="file input" accept=".pdf" required />
 
           <button type="submit" class="btn">Submit MOU</button>
         </form>
@@ -253,7 +268,12 @@
 
         <form id="credentialsForm">
           <label>Organization Name *</label>
-          <input type="text" required placeholder="Your Organization" />
+          <input
+            type="text"
+            aria-label="text input"
+            required
+            placeholder="Your Organization"
+          />
 
           <label>Credential Type *</label>
           <select required>
@@ -269,12 +289,13 @@
           <label>Document Name *</label>
           <input
             type="text"
+            aria-label="text input"
             required
             placeholder="e.g., WIOA Certification 2025"
           />
 
           <label>Expiration Date (if applicable)</label>
-          <input type="date" />
+          <input type="date" aria-label="date input" />
 
           <label>Upload Document (PDF, JPG, PNG) *</label>
           <div
@@ -395,11 +416,17 @@
         <h3 style="margin-top: 2rem">Post a Job Opening</h3>
         <form id="jobForm">
           <label>Company Name *</label>
-          <input type="text" required placeholder="Your Company" />
+          <input
+            type="text"
+            aria-label="text input"
+            required
+            placeholder="Your Company"
+          />
 
           <label>Job Title *</label>
           <input
             type="text"
+            aria-label="text input"
             required
             placeholder="e.g., Construction Apprentice"
           />
@@ -412,13 +439,26 @@
           ></textarea>
 
           <label>Required Skills</label>
-          <input type="text" placeholder="e.g., OSHA 10, Blueprint Reading" />
+          <input
+            type="text"
+            aria-label="text input"
+            placeholder="e.g., OSHA 10, Blueprint Reading"
+          />
 
           <label>Salary Range</label>
-          <input type="text" placeholder="e.g., $15-20/hour" />
+          <input
+            type="text"
+            aria-label="text input"
+            placeholder="e.g., $15-20/hour"
+          />
 
           <label>Contact Email *</label>
-          <input type="email" required placeholder="hiring@company.com" />
+          <input
+            type="email"
+            aria-label="email input"
+            required
+            placeholder="hiring@company.com"
+          />
 
           <button type="submit" class="btn">Post Job</button>
         </form>

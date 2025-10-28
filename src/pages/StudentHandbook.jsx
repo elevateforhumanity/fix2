@@ -252,7 +252,7 @@ export default function StudentHandbook() {
           <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 24 }}>
             Student Handbook
           </h2>
-          <nav>
+          <nav role="navigation">
             {sections.map((section) => (
               <button
                 key={section.id}

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface ExcelChartConfig {
   type: 'pie' | 'bar' | 'line' | 'doughnut' | 'column';
   title: string;
@@ -37,7 +39,7 @@ export function ExcelChartGenerator() {
   });
   const [isGenerating, setIsGenerating] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     generateAvailableCharts();
   }, []);
 
@@ -481,6 +483,7 @@ fill="white" />
             </label>
             <input
               type="text"
+              aria-label="text input"
               value={exportOptions.fileName}
               onChange={(e) =>
                 setExportOptions((prev) => ({
@@ -514,6 +517,7 @@ fill="white" />
             <label className="flex items-center">
               <input
                 type="checkbox"
+                aria-label="checkbox input"
                 checked={exportOptions.includeCharts}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -528,6 +532,7 @@ fill="white" />
             <label className="flex items-center">
               <input
                 type="checkbox"
+                aria-label="checkbox input"
                 checked={exportOptions.includeRawData}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -544,6 +549,7 @@ fill="white" />
             <label className="flex items-center">
               <input
                 type="checkbox"
+                aria-label="checkbox input"
                 checked={exportOptions.includeFormatting}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -609,6 +615,7 @@ fill="white" />
                 <label className="flex items-center">
                   <input
                     type="checkbox"
+                    aria-label="checkbox input"
                     checked={selectedCharts.includes(chart.title)}
                     onChange={() => toggleChartSelection(chart.title)}
                     className="mr-2"

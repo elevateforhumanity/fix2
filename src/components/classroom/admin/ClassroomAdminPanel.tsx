@@ -303,6 +303,7 @@ export default function ClassroomAdminPanel() {
               </label>
               <input
                 type="number"
+                aria-label="number input"
                 min="1"
                 max="10"
                 value={priority}

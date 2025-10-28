@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface ProcessedData {
   students: StudentRecord[];
   programs: ProgramData[];
@@ -264,7 +266,7 @@ export function IntelligentDataProcessor() {
     });
   };
 
-  const generateMonthlyTrends = (students: StudentRecord[]): any[] => {
+  const generateMonthlyTrends = (_students: StudentRecord[]): any[] => {
     // Generate sample monthly trend data
     return [
       { month: 'Jan', enrolled: 25, completed: 20, retention: 85 },
@@ -277,7 +279,7 @@ export function IntelligentDataProcessor() {
   const generateFlowCharts = (
     students: StudentRecord[],
     programs: ProgramData[],
-    analytics: AnalyticsData
+    _analytics: AnalyticsData
   ): FlowChartConfig[] => {
     return [
       {
@@ -289,7 +291,7 @@ export function IntelligentDataProcessor() {
           { stage: 'Enrolled', count: students.length },
           {
             stage: 'Active',
-            count: students.filter((s) => s.status === 'active').length,
+            count: students.filter((s: any) => s.status === 'active').length,
           },
         ],
         autoUpdate: true,
@@ -310,15 +312,15 @@ export function IntelligentDataProcessor() {
         data: [
           {
             level: 'Low Risk',
-            count: students.filter((s) => s.riskLevel === 'low').length,
+            count: students.filter((s: any) => s.riskLevel === 'low').length,
           },
           {
             level: 'Medium Risk',
-            count: students.filter((s) => s.riskLevel === 'medium').length,
+            count: students.filter((s: any) => s.riskLevel === 'medium').length,
           },
           {
             level: 'High Risk',
-            count: students.filter((s) => s.riskLevel === 'high').length,
+            count: students.filter((s: any) => s.riskLevel === 'high').length,
           },
         ],
         autoUpdate: true,

@@ -119,6 +119,7 @@ export function VideoMeeting() {
         </p>
         <input
           type="text"
+          aria-label="text input"
           placeholder="Meeting code"
           style={{
             width: '100%',
@@ -209,6 +210,7 @@ export function VideoMeeting() {
           </label>
           <input
             type="text"
+            aria-label="text input"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             placeholder="Enter your name"
@@ -239,7 +241,7 @@ export function VideoMeeting() {
               cursor: 'pointer',
             }}
           >
-            <input type="checkbox" defaultChecked />
+            <input type="checkbox" aria-label="checkbox input" defaultChecked />
             <span style={{ fontSize: '0.875rem' }}>Camera on</span>
           </label>
           <label
@@ -250,7 +252,7 @@ export function VideoMeeting() {
               cursor: 'pointer',
             }}
           >
-            <input type="checkbox" defaultChecked />
+            <input type="checkbox" aria-label="checkbox input" defaultChecked />
             <span style={{ fontSize: '0.875rem' }}>Microphone on</span>
           </label>
         </div>

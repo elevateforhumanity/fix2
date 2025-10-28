@@ -256,6 +256,7 @@ export default function InstructorEdit() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     name="title"
                     value={courseData.title}
                     onChange={handleChange}
@@ -281,6 +282,7 @@ export default function InstructorEdit() {
                   </label>
                   <input
                     type="text"
+                    aria-label="text input"
                     name="subtitle"
                     value={courseData.subtitle}
                     onChange={handleChange}
@@ -516,6 +518,7 @@ export default function InstructorEdit() {
                     >
                       <input
                         type="text"
+                        aria-label="text input"
                         value={module.title}
                         onChange={(e) => {
                           const newModules = [...modules];
@@ -591,6 +594,7 @@ export default function InstructorEdit() {
                           </span>
                           <input
                             type="text"
+                            aria-label="text input"
                             value={lesson.title}
                             onChange={(e) => {
                               const newModules = [...modules];
@@ -680,6 +684,7 @@ export default function InstructorEdit() {
                   </label>
                   <input
                     type="number"
+                    aria-label="number input"
                     name="price"
                     value={courseData.price}
                     onChange={handleChange}
@@ -788,6 +793,7 @@ export default function InstructorEdit() {
                   >
                     <input
                       type="checkbox"
+                      aria-label="checkbox input"
                       checked={courseData.published}
                       onChange={() =>
                         setCourseData({

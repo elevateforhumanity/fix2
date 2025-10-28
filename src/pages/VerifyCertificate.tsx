@@ -31,6 +31,7 @@ export default function VerifyCertificate() {
           <div className="flex gap-3">
             <input
               type="text"
+              aria-label="text input"
               value={certNumber}
               onChange={(e) => setCertNumber(e.target.value)}
               className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300 font-mono"
