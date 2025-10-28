@@ -6,7 +6,8 @@ export default function ReactWorking() {
   const reactVersion: string = (React as any).version || 'unknown';
 
   return (
-    <main role="main"
+    <main
+      role="main"
       style={{
         fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto',
         padding: '2rem',

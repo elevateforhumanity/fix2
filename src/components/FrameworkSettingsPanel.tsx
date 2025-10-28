@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import * as frameworkSettings from '../lib/frameworkSettings';
 
 export function FrameworkSettingsPanel() {
-  const [config] = useState(frameworkSettings.getConfig());
+  const [config] = useState(frameworkSettings.getConfig() as any);
   const [validation, setValidation] = useState(
     frameworkSettings.validateFrameworkCompatibility()
   );

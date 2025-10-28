@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Lock } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
@@ -10,8 +11,41 @@ export default function ResetPassword() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [validatingToken, setValidatingToken] = useState(true);
+  const [tokenValid, setTokenValid] = useState(false);
 
-  const token = searchParams.get('token');
+  const accessToken = searchParams.get('access_token');
+  const type = searchParams.get('type');
+
+  useEffect(() => {
+    validateToken();
+  }, [accessToken, type]);
+
+  const validateToken = async () => {
+    setValidatingToken(true);
+
+    // Check if this is a password recovery link
+    if (type === 'recovery' && accessToken) {
+      try {
+        // Set the session with the recovery token
+        const { error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: searchParams.get('refresh_token') || '',
+        });
+
+        if (error) throw error;
+
+        setTokenValid(true);
+      } catch (err: any) {
+        console.error('Token validation error:', err);
+        setTokenValid(false);
+      }
+    } else {
+      setTokenValid(false);
+    }
+
+    setValidatingToken(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,11 +64,16 @@ export default function ResetPassword() {
     setLoading(true);
 
     try {
-      // TODO: Implement password reset with Supabase
-      // const { error } = await supabase.auth.updateUser({ password });
-      // if (error) throw error;
+      const { error } = await supabase.auth.updateUser({
+        password: password,
+      });
+
+      if (error) throw error;
 
       setSuccess(true);
+
+      // Sign out and redirect to login
+      await supabase.auth.signOut();
       setTimeout(() => navigate('/auth/login'), 2000);
     } catch (err: any) {
       setError(err.message || 'Failed to reset password');
@@ -43,7 +82,18 @@ export default function ResetPassword() {
     }
   };
 
-  if (!token) {
+  if (validatingToken) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-brand-surface">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
+          <p className="text-brand-text-muted">Validating reset link...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!tokenValid) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-brand-surface">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
@@ -104,7 +154,8 @@ export default function ResetPassword() {
               New Password
             </label>
             <input
-              type="password" aria-label="password input"
+              type="password"
+              aria-label="password input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"
@@ -118,7 +169,8 @@ export default function ResetPassword() {
               Confirm Password
             </label>
             <input
-              type="password" aria-label="password input"
+              type="password"
+              aria-label="password input"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"

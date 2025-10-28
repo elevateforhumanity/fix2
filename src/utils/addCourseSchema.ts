@@ -30,7 +30,7 @@ export function addCourseSchema(course: CourseSchemaProps) {
       ? `P${course.duration.match(/\d+/)?.[0]}M`
       : 'P12W'; // default
 
-  const schema = {
+  const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: course.name,
@@ -63,7 +63,7 @@ export function addCourseSchema(course: CourseSchemaProps) {
 
   // Add rating if provided
   if (course.rating && course.reviewCount) {
-    schema['aggregateRating'] = {
+    schema.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: course.rating.toString(),
       reviewCount: course.reviewCount.toString(),
@@ -74,12 +74,12 @@ export function addCourseSchema(course: CourseSchemaProps) {
 
   // Add category/about if provided
   if (course.category) {
-    schema['about'] = course.category;
+    schema.about = course.category;
   }
 
   // Add skills/teaches if provided
   if (course.skills && course.skills.length > 0) {
-    schema['teaches'] = course.skills;
+    schema.teaches = course.skills;
   }
 
   // Create and append script tag

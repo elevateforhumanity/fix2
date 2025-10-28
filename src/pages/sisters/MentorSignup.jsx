@@ -37,7 +37,8 @@ export default function MentorSignup() {
             Email:
             <input
               name="email"
-              type="email" aria-label="email input"
+              type="email"
+              aria-label="email input"
               value={form.email}
               onChange={handleChange}
               required

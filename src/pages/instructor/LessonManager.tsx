@@ -103,7 +103,8 @@ export default function LessonManager() {
                 Lesson Title *
               </label>
               <input
-                type="text" aria-label="text input"
+                type="text"
+                aria-label="text input"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 className="w-full px-3 py-2 border rounded-lg"
@@ -115,7 +116,8 @@ export default function LessonManager() {
                 Video URL (YouTube embed)
               </label>
               <input
-                type="url" aria-label="url input"
+                type="url"
+                aria-label="url input"
                 value={form.video_url}
                 onChange={(e) =>
                   setForm({ ...form, video_url: e.target.value })

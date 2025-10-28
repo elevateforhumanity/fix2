@@ -244,11 +244,11 @@ class DataSynchronizationManager {
   /**
    * Sync data manually (for offline recovery)
    */
-  async syncTable(table: string, localData: any[]): Promise<void> {
+  async syncTable(table: string, localData: any[]): Promise<any[]> {
     const state = this.syncState.get(table);
     if (!state) {
       console.error(`[DataSync] No sync state for ${table}`);
-      return;
+      return [];
     }
 
     this.updateSyncState(table, { syncInProgress: true });

@@ -39,7 +39,8 @@ export default function QuizBlock({ lessonId }: { lessonId: string }) {
             {(item.options || []).map((opt: string) => (
               <label key={opt} className="flex items-center gap-2">
                 <input
-                  type="radio" aria-label="radio input"
+                  type="radio"
+                  aria-label="radio input"
                   name={item.id}
                   value={opt}
                   onChange={(e) =>

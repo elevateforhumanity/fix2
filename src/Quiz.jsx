@@ -60,7 +60,8 @@ export default function Quiz() {
             {q.options.map((opt, j) => (
               <label key={j} style={{ display: 'block', marginLeft: 16 }}>
                 <input
-                  type="radio" aria-label="radio input"
+                  type="radio"
+                  aria-label="radio input"
                   name={`q${i}`}
                   checked={answers[i] === j}
                   onChange={() => handleSelect(i, j)}

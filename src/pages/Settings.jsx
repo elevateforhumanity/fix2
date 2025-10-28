@@ -109,7 +109,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.emailNotifications}
                     onChange={() => handleToggle('emailNotifications')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -173,7 +174,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.courseUpdates}
                     onChange={() => handleToggle('courseUpdates')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -237,7 +239,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.weeklyDigest}
                     onChange={() => handleToggle('weeklyDigest')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -299,7 +302,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.marketingEmails}
                     onChange={() => handleToggle('marketingEmails')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -485,7 +489,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.autoplay}
                     onChange={() => handleToggle('autoplay')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -549,7 +554,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.subtitles}
                     onChange={() => handleToggle('subtitles')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -660,7 +666,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.twoFactorAuth}
                     onChange={() => handleToggle('twoFactorAuth')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -724,7 +731,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.publicProfile}
                     onChange={() => handleToggle('publicProfile')}
                     style={{ opacity: 0, width: 0, height: 0 }}
@@ -788,7 +796,8 @@ export default function Settings() {
                   }}
                 >
                   <input
-                    type="checkbox" aria-label="checkbox input"
+                    type="checkbox"
+                    aria-label="checkbox input"
                     checked={settings.showProgress}
                     onChange={() => handleToggle('showProgress')}
                     style={{ opacity: 0, width: 0, height: 0 }}

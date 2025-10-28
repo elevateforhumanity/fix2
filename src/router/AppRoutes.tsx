@@ -153,31 +153,32 @@ const Page_121 = lazy(() => import('../pages/VerifyCertificate.tsx'));
 const Page_122 = lazy(() => import('../pages/VerifyEmail.jsx'));
 const Page_123 = lazy(() => import('../pages/VideoMeeting.jsx'));
 const Page_124 = lazy(() => import('../pages/Vids.jsx'));
-const Page_125 = lazy(() => import('../pages/auth/Account.tsx'));
-const Page_126 = lazy(() => import('../pages/auth/ForgotPassword.tsx'));
-const Page_127 = lazy(() => import('../pages/auth/Login.tsx'));
-const Page_128 = lazy(() => import('../pages/auth/Signup.tsx'));
-const Page_129 = lazy(() => import('../pages/instructor/CourseEditor.tsx'));
-const Page_130 = lazy(
+const Page_125 = lazy(() => import('../pages/admin/AutopilotTasks.tsx'));
+const Page_126 = lazy(() => import('../pages/auth/Account.tsx'));
+const Page_127 = lazy(() => import('../pages/auth/ForgotPassword.tsx'));
+const Page_128 = lazy(() => import('../pages/auth/Login.tsx'));
+const Page_129 = lazy(() => import('../pages/auth/Signup.tsx'));
+const Page_130 = lazy(() => import('../pages/instructor/CourseEditor.tsx'));
+const Page_131 = lazy(
   () => import('../pages/instructor/InstructorDashboard.tsx')
 );
-const Page_131 = lazy(() => import('../pages/instructor/LessonManager.tsx'));
-const Page_132 = lazy(() => import('../pages/lms/CoursePage.tsx'));
-const Page_133 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
-const Page_134 = lazy(() => import('../pages/lms/Dashboard.tsx'));
-const Page_135 = lazy(() => import('../pages/lms/LessonPage.tsx'));
-const Page_136 = lazy(() => import('../pages/lms/QuizBlock.tsx'));
-const Page_137 = lazy(() => import('../pages/sisters/MentorDirectory.jsx'));
-const Page_138 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
-const Page_139 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
-const Page_140 = lazy(() => import('../pages/sisters/PeerSupport.jsx'));
-const Page_141 = lazy(() => import('../pages/sisters/Volunteer.jsx'));
-const Page_142 = lazy(
+const Page_132 = lazy(() => import('../pages/instructor/LessonManager.tsx'));
+const Page_133 = lazy(() => import('../pages/lms/CoursePage.tsx'));
+const Page_134 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
+const Page_135 = lazy(() => import('../pages/lms/Dashboard.tsx'));
+const Page_136 = lazy(() => import('../pages/lms/LessonPage.tsx'));
+const Page_137 = lazy(() => import('../pages/lms/QuizBlock.tsx'));
+const Page_138 = lazy(() => import('../pages/sisters/MentorDirectory.jsx'));
+const Page_139 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
+const Page_140 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
+const Page_141 = lazy(() => import('../pages/sisters/PeerSupport.jsx'));
+const Page_142 = lazy(() => import('../pages/sisters/Volunteer.jsx'));
+const Page_143 = lazy(
   () => import('../pages/sisters/VolunteerOpportunities.jsx')
 );
-const Page_143 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
-const Page_144 = lazy(() => import('../pages/sisters/Wellness.jsx'));
-const Page_145 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
+const Page_144 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
+const Page_145 = lazy(() => import('../pages/sisters/Wellness.jsx'));
+const Page_146 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
 
 export default function AppRoutes() {
   return (
@@ -309,33 +310,34 @@ export default function AppRoutes() {
             <Route path="/verify-email" element={<Page_122 />} />
             <Route path="/video-meeting" element={<Page_123 />} />
             <Route path="/vids" element={<Page_124 />} />
-            <Route path="/auth/account" element={<Page_125 />} />
-            <Route path="/auth/forgot-password" element={<Page_126 />} />
-            <Route path="/auth/login" element={<Page_127 />} />
-            <Route path="/auth/signup" element={<Page_128 />} />
-            <Route path="/instructor/course-editor" element={<Page_129 />} />
+            <Route path="/admin/autopilot-tasks" element={<Page_125 />} />
+            <Route path="/auth/account" element={<Page_126 />} />
+            <Route path="/auth/forgot-password" element={<Page_127 />} />
+            <Route path="/auth/login" element={<Page_128 />} />
+            <Route path="/auth/signup" element={<Page_129 />} />
+            <Route path="/instructor/course-editor" element={<Page_130 />} />
             <Route
               path="/instructor/instructor-dashboard"
-              element={<Page_130 />}
+              element={<Page_131 />}
             />
-            <Route path="/instructor/lesson-manager" element={<Page_131 />} />
-            <Route path="/lms/course/:courseId" element={<Page_132 />} />
-            <Route path="/lms/courses-index" element={<Page_133 />} />
-            <Route path="/lms/dashboard" element={<Page_134 />} />
-            <Route path="/lms/lesson/:lessonId" element={<Page_135 />} />
-            <Route path="/lms/quiz-block" element={<Page_136 />} />
-            <Route path="/sisters/mentor-directory" element={<Page_137 />} />
-            <Route path="/sisters/mentor-signup" element={<Page_138 />} />
-            <Route path="/sisters/mentorship" element={<Page_139 />} />
-            <Route path="/sisters/peer-support" element={<Page_140 />} />
-            <Route path="/sisters/volunteer" element={<Page_141 />} />
+            <Route path="/instructor/lesson-manager" element={<Page_132 />} />
+            <Route path="/lms/course/:courseId" element={<Page_133 />} />
+            <Route path="/lms/courses-index" element={<Page_134 />} />
+            <Route path="/lms/dashboard" element={<Page_135 />} />
+            <Route path="/lms/lesson/:lessonId" element={<Page_136 />} />
+            <Route path="/lms/quiz-block" element={<Page_137 />} />
+            <Route path="/sisters/mentor-directory" element={<Page_138 />} />
+            <Route path="/sisters/mentor-signup" element={<Page_139 />} />
+            <Route path="/sisters/mentorship" element={<Page_140 />} />
+            <Route path="/sisters/peer-support" element={<Page_141 />} />
+            <Route path="/sisters/volunteer" element={<Page_142 />} />
             <Route
               path="/sisters/volunteer-opportunities"
-              element={<Page_142 />}
+              element={<Page_143 />}
             />
-            <Route path="/sisters/volunteer-stories" element={<Page_143 />} />
-            <Route path="/sisters/wellness" element={<Page_144 />} />
-            <Route path="/sisters/wellness-resources" element={<Page_145 />} />
+            <Route path="/sisters/volunteer-stories" element={<Page_144 />} />
+            <Route path="/sisters/wellness" element={<Page_145 />} />
+            <Route path="/sisters/wellness-resources" element={<Page_146 />} />
             <Route path="*" element={<Page_74 />} />
           </Routes>
         </SiteLayout>

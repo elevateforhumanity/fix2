@@ -175,8 +175,8 @@ export class ComplianceAutomation {
 
     for (const rule of this.complianceRules) {
       try {
-        const _status = await this.checkRule(rule);
-        rule.status = status;
+        const status = await this.checkRule(rule);
+        rule.status = status as 'compliant' | 'warning' | 'non-compliant';
         rule.lastChecked = new Date();
 
         if (status !== 'compliant' && rule.autoFix) {
@@ -242,23 +242,21 @@ export class ComplianceAutomation {
     'compliant' | 'warning' | 'non-compliant'
   > {
     // Check for common accessibility issues
-    const _issues = [];
+    const issues: string[] = [];
 
     // Check for alt text on images
-    const _images = document.querySelectorAll('img:not([alt])');
+    const images = document.querySelectorAll('img:not([alt])');
     if (images.length > 0) issues.push('missing-alt-text');
 
     // Check for proper heading hierarchy
-    const _headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    // const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     // Logic to verify heading order
 
     // Check for color contrast
     // Would use actual contrast checking library
 
     // Check for keyboard navigation
-    const _focusableElements = document.querySelectorAll(
-      'a, button, input, select, textarea'
-    );
+    // const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
 
     return issues.length === 0 ? 'compliant' : 'warning';
   }
@@ -268,16 +266,16 @@ export class ComplianceAutomation {
    */
   private async fixAccessibilityIssues(): Promise<void> {
     // Add missing alt text
-    const _images = document.querySelectorAll('img:not([alt])');
-    images.forEach((img) => {
+    const images = document.querySelectorAll('img:not([alt])');
+    images.forEach((img: any) => {
       img.setAttribute('alt', 'Image');
       img.setAttribute('role', 'img');
     });
 
     // Add ARIA labels where missing
-    const _buttons = document.querySelectorAll('button:not([aria-label])');
-    buttons.forEach((button) => {
-      const _text = button.textContent?.trim();
+    const buttons = document.querySelectorAll('button:not([aria-label])');
+    buttons.forEach((button: any) => {
+      const text = button.textContent?.trim();
       if (text) {
         button.setAttribute('aria-label', text);
       }
@@ -295,10 +293,10 @@ export class ComplianceAutomation {
       document.querySelector('[href*="privacy"]') !== null;
 
     // Check for cookie consent
-    const _hasCookieConsent = localStorage.getItem('cookie-consent') !== null;
+    const hasCookieConsent = localStorage.getItem('cookie-consent') !== null;
 
     // Check for data encryption
-    const _isHTTPS = window.location.protocol === 'https:';
+    const isHTTPS = window.location.protocol === 'https:';
 
     return hasPrivacyPolicy && hasCookieConsent && isHTTPS
       ? 'compliant'
@@ -328,7 +326,7 @@ export class ComplianceAutomation {
    * Add cookie consent banner
    */
   private addCookieConsentBanner(): void {
-    const _banner = document.createElement('div');
+    const banner = document.createElement('div');
     banner.className = 'cookie-consent';
     banner.innerHTML = `
       <div style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;">
@@ -402,14 +400,14 @@ export class ComplianceAutomation {
    * Get compliance dashboard data
    */
   getDashboardData() {
-    const _total = this.complianceRules.length;
-    const _compliant = this.complianceRules.filter(
+    const total = this.complianceRules.length;
+    const compliant = this.complianceRules.filter(
       (r) => r.status === 'compliant'
     ).length;
-    const _warnings = this.complianceRules.filter(
+    const warnings = this.complianceRules.filter(
       (r) => r.status === 'warning'
     ).length;
-    const _nonCompliant = this.complianceRules.filter(
+    const nonCompliant = this.complianceRules.filter(
       (r) => r.status === 'non-compliant'
     ).length;
 
