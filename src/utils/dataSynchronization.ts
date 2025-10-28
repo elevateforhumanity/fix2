@@ -4,6 +4,7 @@
  * Handles real-time updates, conflict resolution, and offline sync
  */
 
+import { useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 
@@ -319,8 +320,6 @@ export const dataSyncManager = new DataSynchronizationManager();
 
 // Export hook for React components
 export function useDataSync(config: SyncConfig) {
-  const { useEffect } = require('react');
-
   useEffect(() => {
     const cleanup = dataSyncManager.subscribe(config);
     return cleanup;
