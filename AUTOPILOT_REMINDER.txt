@@ -1,0 +1,28 @@
+
+🤖 AUTOPILOT SETUP REMINDER
+
+ONE-TIME MANUAL STEP REQUIRED:
+
+Supabase security requires you to paste SQL into their dashboard.
+This is a one-time setup, then autopilot handles everything.
+
+WHAT TO DO:
+1. Open: COMPLETE_SETUP.sql (should be open in your editor)
+2. Copy ALL contents (Ctrl+A, Ctrl+C)
+3. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new
+4. Paste (Ctrl+V)
+5. Click "Run"
+6. Done!
+
+AFTER THIS:
+- Autopilot handles all future updates
+- No more manual steps
+- Everything automated
+
+WHY THIS STEP:
+Supabase doesn't allow automated table creation via API (security).
+This is industry standard for database security.
+
+VERIFY:
+Run: pnpm autopilot:migrate
+Should show: ✅ DATABASE ALREADY CONFIGURED!
