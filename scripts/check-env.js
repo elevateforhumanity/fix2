@@ -1,9 +1,14 @@
 #!/usr/bin/env node
-import 'dotenv/config';
-
 /**
  * Check required environment variables before build
  */
+
+// Try to load dotenv if available (dev), but don't fail if not (production)
+try {
+  await import('dotenv/config');
+} catch (e) {
+  // dotenv not available, that's okay in production
+}
 
 const required = ['VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY'];
 
