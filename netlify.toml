@@ -47,6 +47,41 @@
   [functions."*"]
     timeout = 30
 
+# Netlify Plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    output_path = "reports/lighthouse.html"
+
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs.cache_paths]
+    paths = ["node_modules", ".pnpm-store"]
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+  [plugins.inputs]
+    skipPatterns = ["/api/*", "*.pdf"]
+    todoPatterns = []
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://elevateforhumanity.org"
+    sitemapPath = "/sitemap.xml"
+    providers = ["google", "bing"]
+
+# Supabase Integration
+[[plugins]]
+  package = "@supabase/netlify-integration"
+
+# Cloudflare Integration (for CDN/DNS if using Cloudflare)
+[[plugins]]
+  package = "netlify-plugin-cloudflare-cache-purge"
+  [plugins.inputs]
+    # Add your Cloudflare zone ID and API token as environment variables
+    # CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN
+
 # Domain consolidation - redirect .com to .org
 [[redirects]]
   from = "https://elevateforhumanity.com/*"
