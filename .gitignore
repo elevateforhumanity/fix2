@@ -73,3 +73,8 @@ database.json
 *.backup
 *.old
 *~
+
+# Local Netlify folder
+.netlify
+netlify/functions/node_modules/
+netlify/functions/package-lock.json
