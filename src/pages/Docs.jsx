@@ -79,6 +79,7 @@ export function Docs() {
             {currentDoc && (
               <input
                 type="text"
+                aria-label="text input"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 style={{

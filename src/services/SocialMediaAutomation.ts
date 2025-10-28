@@ -109,14 +109,14 @@ export class SocialMediaAutomation {
    * Schedule posts 3x daily
    */
   scheduleDailyPosts(): void {
-    const _today = new Date();
-    const _postTimes = [
+    const today = new Date();
+    const postTimes = [
       new Date(today.setHours(9, 0, 0, 0)), // 9 AM
       new Date(today.setHours(13, 0, 0, 0)), // 1 PM
       new Date(today.setHours(18, 0, 0, 0)), // 6 PM
     ];
 
-    postTimes.forEach((time, index) => {
+    postTimes.forEach((time: Date, index: number) => {
       this.schedulePost({
         id: `post-${Date.now()}-${index}`,
         platform: this.selectPlatform(index),
@@ -143,7 +143,7 @@ export class SocialMediaAutomation {
    * Generate content based on time of day
    */
   private generateContent(timeSlot: number): string {
-    const _contentTemplates = {
+    const contentTemplates = {
       morning: [
         '🌅 Good morning! Start your career transformation today with Elevate for Humanity. Free training programs available through federal and state funding. #WorkforceDevelopment #CareerTraining',
         '☕ Morning motivation: Your future starts with the right training. Explore our ETPL-approved programs and government-funded opportunities. Apply today! #Education #CareerGrowth',
@@ -163,7 +163,7 @@ export class SocialMediaAutomation {
 
     const slot =
       timeSlot === 0 ? 'morning' : timeSlot === 1 ? 'afternoon' : 'evening';
-    const _templates = contentTemplates[slot];
+    const templates = contentTemplates[slot];
     return templates[Math.floor(Math.random() * templates.length)];
   }
 
@@ -174,7 +174,7 @@ export class SocialMediaAutomation {
     this.scheduledPosts.push(post);
 
     // Schedule actual posting
-    const _delay = post.scheduledTime.getTime() - Date.now();
+    const delay = post.scheduledTime.getTime() - Date.now();
     if (delay > 0) {
       setTimeout(() => {
         this.publishPost(post);
@@ -217,11 +217,11 @@ export class SocialMediaAutomation {
    * Post to Facebook
    */
   private async postToFacebook(post: SocialMediaPost): Promise<void> {
-    const _pageAccount = this.accounts.get('facebook-page');
-    const _personalAccount = this.accounts.get('facebook-personal');
+    const pageAccount = this.accounts.get('facebook-page');
+    const personalAccount = this.accounts.get('facebook-personal');
 
     // Post to both page and personal profile
-    const _endpoints = [
+    const endpoints = [
       {
         url: `https://graph.facebook.com/v18.0/${pageAccount?.accountId}/feed`,
         token: pageAccount?.accessToken,
@@ -253,11 +253,11 @@ export class SocialMediaAutomation {
    * Post to LinkedIn
    */
   private async postToLinkedIn(post: SocialMediaPost): Promise<void> {
-    const _companyAccount = this.accounts.get('linkedin-company');
-    const _personalAccount = this.accounts.get('linkedin-personal');
+    const companyAccount = this.accounts.get('linkedin-company');
+    const personalAccount = this.accounts.get('linkedin-personal');
 
     // Post to both company page and personal profile
-    const _endpoints = [
+    const endpoints = [
       {
         url: `https://api.linkedin.com/v2/ugcPosts`,
         author: `urn:li:organization:${companyAccount?.accountId}`,
@@ -303,7 +303,7 @@ export class SocialMediaAutomation {
    * Post to YouTube (community post)
    */
   private async postToYouTube(post: SocialMediaPost): Promise<void> {
-    const _account = this.accounts.get('youtube');
+    const account = this.accounts.get('youtube');
     if (!account?.accessToken) return;
 
     // YouTube Community Posts API
@@ -355,11 +355,11 @@ export class SocialMediaAutomation {
    * Generate 3x daily report
    */
   async generateDailyReport(): Promise<DailyReport> {
-    const _today = new Date();
+    const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const _todaysPosts = this.scheduledPosts.filter((post) => {
-      const _postDate = new Date(post.scheduledTime);
+    const todaysPosts = this.scheduledPosts.filter((post) => {
+      const postDate = new Date(post.scheduledTime);
       postDate.setHours(0, 0, 0, 0);
       return postDate.getTime() === today.getTime();
     });
@@ -369,8 +369,8 @@ export class SocialMediaAutomation {
       post.engagement = await this.fetchEngagement(post);
     }
 
-    const _totalEngagement = todaysPosts.reduce(
-      (acc, post) => ({
+    const totalEngagement = todaysPosts.reduce(
+      (acc: any, post: any) => ({
         likes: acc.likes + (post.engagement?.likes || 0),
         shares: acc.shares + (post.engagement?.shares || 0),
         comments: acc.comments + (post.engagement?.comments || 0),
@@ -379,8 +379,8 @@ export class SocialMediaAutomation {
       { likes: 0, shares: 0, comments: 0, views: 0 }
     );
 
-    const _topPerforming = todaysPosts
-      .sort((a, b) => {
+    const topPerforming = todaysPosts
+      .sort((a: any, b: any) => {
         const aTotal =
           (a.engagement?.likes || 0) +
           (a.engagement?.shares || 0) +
@@ -407,7 +407,7 @@ export class SocialMediaAutomation {
   /**
    * Fetch engagement metrics for a post
    */
-  private async fetchEngagement(post: SocialMediaPost): Promise<any> {
+  private async fetchEngagement(_post: SocialMediaPost): Promise<any> {
     // Simulate fetching engagement data
     // In production, call actual social media APIs
     return {
@@ -422,17 +422,17 @@ export class SocialMediaAutomation {
    * Schedule 3x daily reports
    */
   scheduleReports(): void {
-    const _reportTimes = [
+    const reportTimes = [
       new Date().setHours(10, 0, 0, 0), // 10 AM
       new Date().setHours(15, 0, 0, 0), // 3 PM
       new Date().setHours(20, 0, 0, 0), // 8 PM
     ];
 
-    reportTimes.forEach((time) => {
-      const _delay = time - Date.now();
+    reportTimes.forEach((time: number) => {
+      const delay = time - Date.now();
       if (delay > 0) {
         setTimeout(async () => {
-          const _report = await this.generateDailyReport();
+          const report = await this.generateDailyReport();
           await this.sendReport(report);
         }, delay);
       }

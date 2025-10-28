@@ -46,7 +46,10 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav
+      role="navigation"
+      class="bg-white border-b border-gray-200 sticky top-0 z-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -315,19 +318,40 @@
               >
               <div class="space-y-2">
                 <label class="flex items-center">
-                  <input type="checkbox" checked class="mr-2" /> New
-                  Sale/License Purchase
+                  <input
+                    type="checkbox"
+                    aria-label="checkbox input"
+                    checked
+                    class="mr-2"
+                  />
+                  New Sale/License Purchase
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" checked class="mr-2" /> Daily Revenue
-                  Summary
+                  <input
+                    type="checkbox"
+                    aria-label="checkbox input"
+                    checked
+                    class="mr-2"
+                  />
+                  Daily Revenue Summary
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" checked class="mr-2" /> Listing View
-                  Milestones
+                  <input
+                    type="checkbox"
+                    aria-label="checkbox input"
+                    checked
+                    class="mr-2"
+                  />
+                  Listing View Milestones
                 </label>
                 <label class="flex items-center">
-                  <input type="checkbox" checked class="mr-2" /> System Alerts
+                  <input
+                    type="checkbox"
+                    aria-label="checkbox input"
+                    checked
+                    class="mr-2"
+                  />
+                  System Alerts
                 </label>
               </div>
             </div>

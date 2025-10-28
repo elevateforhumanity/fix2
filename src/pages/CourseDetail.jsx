@@ -79,7 +79,7 @@ export default function CourseDetail() {
   const [enrolled, setEnrolled] = useState(false);
 
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1 style={{ fontSize: 32 }}>{course.title}</h1>
       <img
         src={course.coverUrl}

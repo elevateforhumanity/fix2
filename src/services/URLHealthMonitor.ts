@@ -161,13 +161,13 @@ export class URLHealthMonitor {
    * Check if a URL is healthy before providing it
    */
   async checkURL(url: string): Promise<URLCheck> {
-    const _startTime = Date.now();
+    const startTime = Date.now();
 
     try {
-      const _controller = new AbortController();
-      const _timeoutId = setTimeout(() => controller.abort(), 10000);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      const _response = await fetch(url, {
+      const response = await fetch(url, {
         method: 'HEAD',
         signal: controller.signal,
         headers: {
@@ -176,7 +176,7 @@ export class URLHealthMonitor {
       });
 
       clearTimeout(timeoutId);
-      const _responseTime = Date.now() - startTime;
+      const responseTime = Date.now() - startTime;
 
       const check: URLCheck = {
         url,
@@ -206,18 +206,18 @@ export class URLHealthMonitor {
    * Check specific endpoint
    */
   async checkEndpoint(endpointId: string): Promise<URLCheck> {
-    const _endpoint = this.endpoints.get(endpointId);
+    const endpoint = this.endpoints.get(endpointId);
     if (!endpoint) {
       throw new Error(`Endpoint ${endpointId} not found`);
     }
 
-    const _startTime = Date.now();
+    const startTime = Date.now();
 
     try {
-      const _controller = new AbortController();
-      const _timeoutId = setTimeout(() => controller.abort(), endpoint.timeout);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), endpoint.timeout);
 
-      const _response = await fetch(endpoint.url, {
+      const response = await fetch(endpoint.url, {
         method: 'HEAD',
         signal: controller.signal,
         headers: {
@@ -226,9 +226,9 @@ export class URLHealthMonitor {
       });
 
       clearTimeout(timeoutId);
-      const _responseTime = Date.now() - startTime;
+      const responseTime = Date.now() - startTime;
 
-      const _isExpectedStatus = endpoint.expectedStatus
+      const isExpectedStatus = endpoint.expectedStatus
         ? endpoint.expectedStatus.includes(response.status)
         : response.ok;
 
@@ -266,11 +266,11 @@ export class URLHealthMonitor {
    * Check all endpoints
    */
   async checkAllEndpoints(): Promise<Map<string, URLCheck>> {
-    const _checks = new Map<string, URLCheck>();
+    const checks = new Map<string, URLCheck>();
 
-    for (const [id, endpoint] of this.endpoints) {
+    for (const [id, _endpoint] of this.endpoints) {
       try {
-        const _check = await this.checkEndpoint(id);
+        const check = await this.checkEndpoint(id);
         checks.set(id, check);
       } catch (error) {
         console.error(`Error checking endpoint ${id}:`, error);
@@ -284,20 +284,20 @@ export class URLHealthMonitor {
    * Get safe URL - only returns URL if it's healthy
    */
   async getSafeURL(endpointId: string): Promise<string | null> {
-    const _endpoint = this.endpoints.get(endpointId);
+    const endpoint = this.endpoints.get(endpointId);
     if (!endpoint) {
       return null;
     }
 
     // Check if we have recent health data
-    const _cachedCheck = this.healthStatus.get(endpointId);
+    const cachedCheck = this.healthStatus.get(endpointId);
     if (cachedCheck && Date.now() - cachedCheck.lastChecked.getTime() < 60000) {
       // Use cached data if less than 1 minute old
       return cachedCheck.status === 'healthy' ? endpoint.url : null;
     }
 
     // Perform fresh check
-    const _check = await this.checkEndpoint(endpointId);
+    const check = await this.checkEndpoint(endpointId);
     return check.status === 'healthy' ? endpoint.url : null;
   }
 
@@ -308,7 +308,7 @@ export class URLHealthMonitor {
     primaryId: string,
     fallbackId: string
   ): Promise<string | null> {
-    const _primaryURL = await this.getSafeURL(primaryId);
+    const primaryURL = await this.getSafeURL(primaryId);
     if (primaryURL) {
       return primaryURL;
     }
@@ -361,7 +361,7 @@ export class URLHealthMonitor {
       this.checkEndpoint(id);
 
       // Schedule periodic checks
-      const _interval = setInterval(() => {
+      const interval = setInterval(() => {
         this.checkEndpoint(id);
       }, endpoint.checkInterval);
 
@@ -373,7 +373,7 @@ export class URLHealthMonitor {
    * Stop monitoring
    */
   stopMonitoring(): void {
-    for (const [id, interval] of this.checkIntervals) {
+    for (const [_id, interval] of this.checkIntervals) {
       clearInterval(interval);
     }
     this.checkIntervals.clear();
@@ -383,12 +383,18 @@ export class URLHealthMonitor {
    * Get health dashboard data
    */
   getHealthDashboard() {
-    const _endpoints = Array.from(this.endpoints.values());
-    const _checks = Array.from(this.healthStatus.entries());
+    const endpoints = Array.from(this.endpoints.values());
+    const checks = Array.from(this.healthStatus.entries());
 
-    const _healthy = checks.filter(([_, c]) => c.status === 'healthy').length;
-    const _degraded = checks.filter(([_, c]) => c.status === 'degraded').length;
-    const _down = checks.filter(([_, c]) => c.status === 'down').length;
+    const healthy = checks.filter(
+      ([_, c]: [string, any]) => c.status === 'healthy'
+    ).length;
+    const degraded = checks.filter(
+      ([_, c]: [string, any]) => c.status === 'degraded'
+    ).length;
+    const down = checks.filter(
+      ([_, c]: [string, any]) => c.status === 'down'
+    ).length;
 
     return {
       summary: {
@@ -398,7 +404,7 @@ export class URLHealthMonitor {
         down,
         healthRate: (healthy / endpoints.length) * 100,
       },
-      endpoints: endpoints.map((e) => ({
+      endpoints: endpoints.map((e: any) => ({
         id: e.id,
         name: e.name,
         url: e.url,
@@ -416,7 +422,7 @@ export class URLHealthMonitor {
   async validateBeforeDisplay(
     url: string
   ): Promise<{ valid: boolean; message?: string }> {
-    const _check = await this.checkURL(url);
+    const check = await this.checkURL(url);
 
     if (check.status === 'healthy') {
       return { valid: true };
@@ -449,10 +455,10 @@ export class URLHealthMonitor {
     const brokenLinks: string[] = [];
 
     // Check all links in the document
-    const _links = document.querySelectorAll('a[href]');
+    const links = document.querySelectorAll('a[href]');
 
     for (const link of Array.from(links)) {
-      const _href = link.getAttribute('href');
+      const href = link.getAttribute('href');
       if (
         !href ||
         href.startsWith('#') ||
@@ -462,10 +468,10 @@ export class URLHealthMonitor {
         continue;
       }
 
-      const _fullURL = href.startsWith('http')
+      const fullURL = href.startsWith('http')
         ? href
         : new URL(href, window.location.origin).href;
-      const _check = await this.checkURL(fullURL);
+      const check = await this.checkURL(fullURL);
 
       if (check.status === 'down') {
         brokenLinks.push(fullURL);
@@ -479,19 +485,19 @@ export class URLHealthMonitor {
    * Auto-fix broken links
    */
   async autoFixBrokenLinks(): Promise<void> {
-    const _brokenLinks = await this.findBrokenLinks();
+    const brokenLinks = await this.findBrokenLinks();
 
     for (const brokenURL of brokenLinks) {
       // Find all elements with this URL
-      const _elements = document.querySelectorAll(`a[href="${brokenURL}"]`);
+      const elements = document.querySelectorAll(`a[href="${brokenURL}"]`);
 
-      elements.forEach((element) => {
+      elements.forEach((element: any) => {
         // Add warning indicator
         element.classList.add('broken-link');
         element.setAttribute('title', 'This link may not be working');
 
         // Optionally disable the link
-        element.addEventListener('click', (e) => {
+        element.addEventListener('click', (e: Event) => {
           e.preventDefault();
           alert('This link is currently unavailable. Please try again later.');
         });

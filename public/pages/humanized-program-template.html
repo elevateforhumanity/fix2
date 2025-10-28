@@ -73,7 +73,7 @@
       </nav>
     </header>
 
-    <main class="program-page">
+    <main role="main" class="program-page">
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
@@ -466,12 +466,14 @@
               <div class="form-row">
                 <input
                   type="text"
+                  aria-label="text input"
                   name="firstName"
                   placeholder="First Name"
                   required
                 />
                 <input
                   type="text"
+                  aria-label="text input"
                   name="lastName"
                   placeholder="Last Name"
                   required
@@ -481,12 +483,14 @@
               <div class="form-row">
                 <input
                   type="email"
+                  aria-label="email input"
                   name="email"
                   placeholder="Email Address"
                   required
                 />
                 <input
                   type="tel"
+                  aria-label="tel input"
                   name="phone"
                   placeholder="Phone Number"
                   required
@@ -512,13 +516,23 @@
 
               <div class="form-row">
                 <label class="checkbox-label">
-                  <input type="checkbox" name="fundingInterest" value="yes" />
+                  <input
+                    type="checkbox"
+                    aria-label="checkbox input"
+                    name="fundingInterest"
+                    value="yes"
+                  />
                   <span class="checkmark"></span>
                   I'm interested in learning about funding options
                 </label>
               </div>
 
-              <input type="hidden" name="program" value="{{PROGRAM_ID}}" />
+              <input
+                type="hidden"
+                aria-label="hidden input"
+                name="program"
+                value="{{PROGRAM_ID}}"
+              />
 
               <button type="submit" class="btn-primary btn-large">
                 Start My Application

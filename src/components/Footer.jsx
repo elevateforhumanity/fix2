@@ -15,6 +15,7 @@ const Footer = () => {
           <Link to="/about">About</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/accessibility">Accessibility</Link>
         </div>
         <div className="footer-section">
           <h4>Connect</h4>
@@ -42,6 +43,33 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap',
+            marginBottom: '1rem',
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            <span style={{ fontSize: '1.2rem' }}>✊🏿</span>
+            <span>Buy Black Certified</span>
+          </div>
+        </div>
         <p>
           &copy; {new Date().getFullYear()} Elevate for Humanity. All rights
           reserved.

@@ -144,6 +144,7 @@ export default function Support() {
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <input
               type="text"
+              aria-label="text input"
               placeholder="Search for answers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -436,6 +437,7 @@ export default function Support() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="name"
                   value={contactForm.name}
                   onChange={handleContactChange}
@@ -462,6 +464,7 @@ export default function Support() {
                 </label>
                 <input
                   type="email"
+                  aria-label="email input"
                   name="email"
                   value={contactForm.email}
                   onChange={handleContactChange}
@@ -489,6 +492,7 @@ export default function Support() {
               </label>
               <input
                 type="text"
+                aria-label="text input"
                 name="subject"
                 value={contactForm.subject}
                 onChange={handleContactChange}

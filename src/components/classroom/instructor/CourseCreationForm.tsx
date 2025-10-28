@@ -117,6 +117,7 @@ export default function CourseCreationForm() {
             </label>
             <input
               type="text"
+              aria-label="text input"
               value={formData.name}
               onChange={(e) => handleChange('name', e.target.value)}
               placeholder="e.g., CNA Training Fall 2025"
@@ -134,6 +135,7 @@ export default function CourseCreationForm() {
             </label>
             <input
               type="text"
+              aria-label="text input"
               value={formData.section}
               onChange={(e) => handleChange('section', e.target.value)}
               placeholder="e.g., Section A, Morning Class"
@@ -150,6 +152,7 @@ export default function CourseCreationForm() {
             </label>
             <input
               type="text"
+              aria-label="text input"
               value={formData.room}
               onChange={(e) => handleChange('room', e.target.value)}
               placeholder="e.g., Room 301, Building A"
@@ -166,6 +169,7 @@ export default function CourseCreationForm() {
             </label>
             <input
               type="text"
+              aria-label="text input"
               value={formData.descriptionHeading}
               onChange={(e) =>
                 handleChange('descriptionHeading', e.target.value)

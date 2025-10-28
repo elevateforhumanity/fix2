@@ -284,6 +284,7 @@ export function Email() {
             >
               <input
                 type="email"
+                aria-label="email input"
                 placeholder="To"
                 value={newEmail.to}
                 onChange={(e) =>
@@ -298,6 +299,7 @@ export function Email() {
               />
               <input
                 type="text"
+                aria-label="text input"
                 placeholder="Subject"
                 value={newEmail.subject}
                 onChange={(e) =>

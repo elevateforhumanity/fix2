@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import {
   BookOpen,
   Play,
@@ -20,9 +20,8 @@ export default function LMS() {
     enrolled?: boolean;
     [k: string]: any;
   }
-  const [courses, setCourses] = useState<CourseLite[]>([]);
+  const [_courses, setCourses] = useState<CourseLite[]>([]);
   const [loading, setLoading] = useState(true);
-  const [courseDetails, setCourseDetails] = useState(new Map());
   // Placeholder state removed to reduce lint noise (restore when implementing features)
 
   // Lazy load courses on component mount
@@ -30,7 +29,7 @@ export default function LMS() {
     loadCourses();
   }, []);
 
-  const loadCourses = useCallback(async () => {
+  const loadCourses = async () => {
     try {
       setLoading(true);
       const response = await fetch('/api/lms/courses');
@@ -43,39 +42,9 @@ export default function LMS() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
-  // Lazy load course details only when needed
-  const loadCourseDetails = useCallback(
-    async (courseId: string) => {
-      if (courseDetails.has(courseId)) {
-        return courseDetails.get(courseId);
-      }
-
-      try {
-        const response = await fetch(`/api/lms/course/${courseId}`);
-        if (response.ok) {
-          const data = await response.json();
-          setCourseDetails((prev) => new Map(prev).set(courseId, data));
-          return data;
-        }
-      } catch (error) {
-        console.error('Failed to load course details:', error);
-      }
-      return null;
-    },
-    [courseDetails]
-  );
-
-  // Memoize filtered courses to prevent unnecessary re-renders
-  const enrolledCourses = useMemo(
-    () => courses.filter((c) => c.enrolled),
-    [courses]
-  );
-  const availableCourses = useMemo(
-    () => courses.filter((c) => !c.enrolled),
-    [courses]
-  );
+  // Note: Course details lazy loading and filtering removed as unused
 
   if (loading) {
     return (

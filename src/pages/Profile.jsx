@@ -98,6 +98,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
@@ -124,6 +125,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
@@ -151,6 +153,7 @@ export default function Profile() {
               </label>
               <input
                 type="email"
+                aria-label="email input"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -184,6 +187,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="tel"
+                  aria-label="tel input"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -254,6 +258,7 @@ export default function Profile() {
               </label>
               <input
                 type="text"
+                aria-label="text input"
                 name="organization"
                 value={formData.organization}
                 onChange={handleChange}
@@ -308,6 +313,7 @@ export default function Profile() {
               </label>
               <input
                 type="url"
+                aria-label="url input"
                 name="website"
                 value={formData.website}
                 onChange={handleChange}
@@ -341,6 +347,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={handleChange}
@@ -367,6 +374,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="youtube"
                   value={formData.youtube}
                   onChange={handleChange}
@@ -408,6 +416,7 @@ export default function Profile() {
               </label>
               <input
                 type="text"
+                aria-label="text input"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
@@ -442,6 +451,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
@@ -468,6 +478,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="state"
                   value={formData.state}
                   onChange={handleChange}
@@ -494,6 +505,7 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
+                  aria-label="text input"
                   name="zip"
                   value={formData.zip}
                   onChange={handleChange}

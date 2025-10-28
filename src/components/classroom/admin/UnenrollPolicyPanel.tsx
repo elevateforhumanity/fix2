@@ -168,6 +168,7 @@ export default function UnenrollPolicyPanel() {
           >
             <input
               type="checkbox"
+              aria-label="checkbox input"
               checked={autoUnenroll}
               onChange={(e) => setAutoUnenroll(e.target.checked)}
               style={{ marginRight: '0.5rem', width: '20px', height: '20px' }}
@@ -194,6 +195,7 @@ export default function UnenrollPolicyPanel() {
           >
             <input
               type="checkbox"
+              aria-label="checkbox input"
               checked={dryRunMode}
               onChange={(e) => setDryRunMode(e.target.checked)}
               style={{ marginRight: '0.5rem', width: '20px', height: '20px' }}
@@ -225,6 +227,7 @@ export default function UnenrollPolicyPanel() {
           </label>
           <input
             type="number"
+            aria-label="number input"
             min="1"
             max="365"
             value={gracePeriodDays}

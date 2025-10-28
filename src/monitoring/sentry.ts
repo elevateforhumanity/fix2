@@ -10,7 +10,7 @@ export function initializeSentry() {
   // No-op: Sentry removed
 }
 
-export function setSentryUser(user: {
+export function setSentryUser(_user: {
   id: string;
   email?: string;
   username?: string;
@@ -23,14 +23,14 @@ export function clearSentryUser() {
   // No-op: Sentry removed
 }
 
-export function setSentryContext(key: string, context: Record<string, any>) {
+export function setSentryContext(_key: string, _context: Record<string, any>) {
   // No-op: Sentry removed
 }
 
 export function addSentryBreadcrumb(
-  message: string,
-  category: string,
-  data?: Record<string, any>
+  _message: string,
+  _category: string,
+  _data?: Record<string, any>
 ) {
   // No-op: Sentry removed
 }
@@ -46,23 +46,23 @@ export function captureMessage(
   console.log(`[${level}]`, message);
 }
 
-export function startTransaction(name: string, op: string) {
+export function startTransaction(_name: string, _op: string) {
   return null;
 }
 
-export function trackPageView(pageName: string, url: string) {
+export function trackPageView(_pageName: string, _url: string) {
   // No-op: Sentry removed
 }
 
 export function trackEvent(
-  eventName: string,
-  properties?: Record<string, any>
+  _eventName: string,
+  _properties?: Record<string, any>
 ) {
   // No-op: Sentry removed
 }
 
 export function measurePerformance(
-  name: string,
+  _name: string,
   fn: () => void | Promise<void>
 ) {
   return fn();

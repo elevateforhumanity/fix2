@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
 interface Submission {
@@ -383,6 +384,7 @@ export default function GradingInterface() {
                       <div className="flex items-center gap-2">
                         <input
                           type="number"
+                          aria-label="number input"
                           min="0"
                           max={submission.max_points}
                           value={grading[submission.id] || 0}

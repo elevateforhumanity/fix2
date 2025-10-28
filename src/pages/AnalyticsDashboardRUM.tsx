@@ -4,8 +4,8 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Sentry, trackEvent, addSentryBreadcrumb } from '../monitoring/sentry';
-import AppLayout from '../layouts/AppLayout';
+import { trackEvent } from '../monitoring/sentry';
+import AppLayout from '../layouts/AppLayout.jsx';
 
 interface PerformanceMetric {
   name: string;

@@ -109,7 +109,7 @@ export default function AutopilotAdmin() {
   const ANALYZER_BASE = 'https://efh-autopilot-analyzer.workers.dev';
 
   // Toast notification
-  const toast = (msg: string, type: 'success' | 'error' | 'info' = 'info') => {
+  const toast = (msg: string, _type: 'success' | 'error' | 'info' = 'info') => {
     setNote(msg);
     setTimeout(() => setNote(''), 3000);
   };
@@ -494,6 +494,7 @@ export default function AutopilotAdmin() {
               <label className="block text-sm">From</label>
               <input
                 type="date"
+                aria-label="date input"
                 className={`border p-2 rounded w-full ${inputClass}`}
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
@@ -503,6 +504,7 @@ export default function AutopilotAdmin() {
               <label className="block text-sm">To</label>
               <input
                 type="date"
+                aria-label="date input"
                 className={`border p-2 rounded w-full ${inputClass}`}
                 value={to}
                 onChange={(e) => setTo(e.target.value)}

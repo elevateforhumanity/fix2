@@ -15,7 +15,7 @@ export default function Assignment() {
   }
 
   return (
-    <main style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
       <h1>Assignment: AI Essay</h1>
       <p>
         Write a short essay (100-300 words):

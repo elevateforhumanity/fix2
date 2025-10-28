@@ -50,7 +50,10 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Navigation Header -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav
+      role="navigation"
+      class="bg-white border-b border-gray-200 sticky top-0 z-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -74,7 +77,7 @@
       </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <main role="main" class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <!-- Page Header -->
       <div class="mb-8">
         <div
@@ -211,6 +214,7 @@
                   type="button"
                   onclick="hideCreateIEPForm()"
                   class="text-gray-400 hover:text-gray-600"
+                  aria-label="Action button"
                 >
                   <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
@@ -231,6 +235,7 @@
                         >
                         <input
                           type="text"
+                          aria-label="text input"
                           name="participant_name"
                           required
                           class="w-full border rounded px-3 py-2"
@@ -286,6 +291,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="barriers"
                             value="transportation"
                             class="mr-2"
@@ -297,6 +303,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="barriers"
                             value="childcare"
                             class="mr-2"
@@ -308,6 +315,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="barriers"
                             value="education"
                             class="mr-2"
@@ -319,6 +327,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="barriers"
                             value="skills"
                             class="mr-2"
@@ -330,6 +339,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="barriers"
                             value="other"
                             class="mr-2"
@@ -356,6 +366,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="services"
                             value="career_counseling"
                             class="mr-2"
@@ -367,6 +378,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="services"
                             value="skills_training"
                             class="mr-2"
@@ -378,6 +390,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="services"
                             value="job_placement"
                             class="mr-2"
@@ -389,6 +402,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="services"
                             value="support_services"
                             class="mr-2"
@@ -400,6 +414,7 @@
                         <label class="flex items-center">
                           <input
                             type="checkbox"
+                            aria-label="checkbox input"
                             name="services"
                             value="follow_up"
                             class="mr-2"
@@ -421,6 +436,7 @@
                         >
                         <input
                           type="date"
+                          aria-label="date input"
                           name="start_date"
                           class="w-full border rounded px-3 py-2"
                         />
@@ -432,6 +448,7 @@
                         >
                         <input
                           type="date"
+                          aria-label="date input"
                           name="target_completion"
                           class="w-full border rounded px-3 py-2"
                         />

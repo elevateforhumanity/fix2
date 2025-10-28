@@ -37,6 +37,7 @@ export default function CourseLibrary() {
 
   return (
     <main
+      role="main"
       style={{
         padding: 32,
         background: 'var(--brand-surface)',
@@ -87,7 +88,10 @@ export default function CourseLibrary() {
           Official U.S. Government Contractor | DOL/DOE/DWD Compliant | SAM
           Registered
         </div>
-        <nav style={{ marginBottom: 32, textAlign: 'center' }}>
+        <nav
+          role="navigation"
+          style={{ marginBottom: 32, textAlign: 'center' }}
+        >
           <a href="/" style={{ margin: '0 12px', fontWeight: 'bold' }}>
             Home
           </a>

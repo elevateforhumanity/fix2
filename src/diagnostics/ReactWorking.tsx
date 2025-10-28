@@ -7,6 +7,7 @@ export default function ReactWorking() {
 
   return (
     <main
+      role="main"
       style={{
         fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto',
         padding: '2rem',

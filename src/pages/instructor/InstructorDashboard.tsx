@@ -25,10 +25,25 @@ export default function InstructorDashboard() {
       0
     );
 
+    // Count unique students enrolled in any course
+    const courseIds = coursesData?.map((c) => c.id) || [];
+    let studentCount = 0;
+
+    if (courseIds.length > 0) {
+      const { data: enrollments } = await supa
+        .from('enrollments')
+        .select('user_id')
+        .in('course_id', courseIds);
+
+      // Count unique students
+      const uniqueStudents = new Set(enrollments?.map((e) => e.user_id) || []);
+      studentCount = uniqueStudents.size;
+    }
+
     setStats({
       courses: coursesData?.length || 0,
       lessons: totalLessons || 0,
-      students: 0, // TODO: Count from enrollments
+      students: studentCount,
     });
   }
 
