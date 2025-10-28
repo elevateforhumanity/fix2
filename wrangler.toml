@@ -4,6 +4,12 @@ name = "autopilot-deploy-worker"
 main = "workers/autopilot-deploy-worker.ts"
 compatibility_date = "2024-01-01"
 
+# Routes - integrate with Netlify site
+routes = [
+  { pattern = "elevateforhumanity.org/api/worker/*", zone_name = "elevateforhumanity.org" },
+  { pattern = "elevateforhumanityfix2.netlify.app/api/worker/*", zone_name = "elevateforhumanityfix2.netlify.app" }
+]
+
 # Account details (set via wrangler login or env vars)
 # account_id = "your-cloudflare-account-id"
 

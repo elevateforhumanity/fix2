@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "integrations": {
+    "netlify": {
+      "siteId": "12f120ab-3f63-419b-bc49-430f043415c1",
+      "siteName": "elevateforhumanityfix2",
+      "url": "https://elevateforhumanityfix2.netlify.app",
+      "functions": {
+        "directory": "netlify/functions",
+        "count": 17,
+        "runtime": "nodejs20.x"
+      },
+      "build": {
+        "command": "pnpm install && pnpm run build",
+        "publish": "dist",
+        "environment": {
+          "NODE_VERSION": "20.11.1",
+          "PNPM_VERSION": "9.7.0"
+        }
+      }
+    },
+    "supabase": {
+      "projectRef": "cuxzzpsyufcewtmicszk",
+      "url": "https://cuxzzpsyufcewtmicszk.supabase.co",
+      "database": {
+        "tables": 16,
+        "migrations": 17,
+        "rlsEnabled": true
+      },
+      "auth": {
+        "providers": ["email"],
+        "jwtExpiry": 3600
+      },
+      "storage": {
+        "buckets": ["course-materials", "user-uploads", "certificates", "generated-content"]
+      }
+    },
+    "cloudflare": {
+      "workers": {
+        "name": "autopilot-deploy-worker",
+        "routes": [
+          "elevateforhumanity.org/api/worker/*",
+          "elevateforhumanityfix2.netlify.app/api/worker/*"
+        ]
+      },
+      "dns": {
+        "zone": "elevateforhumanity.org",
+        "records": []
+      }
+    },
+    "github": {
+      "repository": "elevateforhumanity/fix2",
+      "defaultBranch": "main",
+      "workflows": 18,
+      "branchProtection": true
+    }
+  },
+  "dataFlow": {
+    "frontend": "Netlify (Static Site)",
+    "backend": "Netlify Functions + Supabase",
+    "cdn": "Cloudflare Workers (Optional)",
+    "database": "Supabase PostgreSQL",
+    "auth": "Supabase Auth",
+    "storage": "Supabase Storage"
+  },
+  "endpoints": {
+    "site": "https://elevateforhumanityfix2.netlify.app",
+    "api": "https://elevateforhumanityfix2.netlify.app/api",
+    "supabase": "https://cuxzzpsyufcewtmicszk.supabase.co",
+    "functions": "https://elevateforhumanityfix2.netlify.app/.netlify/functions"
+  }
+}
