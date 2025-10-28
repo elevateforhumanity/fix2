@@ -310,7 +310,7 @@ export default function TimelineView({
     return '•';
   };
 
-  const getEventColor = (type: string, status?: string) => {
+  const getEventColor = (_type: string, status?: string) => {
     if (
       status === 'completed' ||
       status === 'delivered' ||
