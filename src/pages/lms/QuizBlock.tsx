@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { supa } from '../../services/supa';
 
-export default function QuizBlock({ lessonId }: { lessonId: string }) {
+export default function QuizBlock({ lessonId }: { lessonId?: string } = {}) {
   const [q, setQ] = useState<any[]>([]);
   const [a, setA] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
+    if (!lessonId) return;
     supa
       .from('quiz_questions')
       .select('id, prompt, options')
