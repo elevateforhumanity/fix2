@@ -71,16 +71,9 @@
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 
-# Supabase Integration
-[[plugins]]
-  package = "@supabase/netlify-integration"
-
-# Cloudflare Integration (for CDN/DNS if using Cloudflare)
-[[plugins]]
-  package = "netlify-plugin-cloudflare-cache-purge"
-  [plugins.inputs]
-    # Add your Cloudflare zone ID and API token as environment variables
-    # CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN
+# Note: Supabase integration should be enabled via Netlify Dashboard
+# Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
+# Search for "Supabase" and enable it there
 
 # Domain consolidation - redirect .com to .org
 [[redirects]]
