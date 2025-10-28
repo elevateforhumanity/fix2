@@ -56,6 +56,9 @@ importers:
       express:
         specifier: ^5.1.0
         version: 5.1.0
+      glob:
+        specifier: ^10.4.5
+        version: 10.4.5
       jsdom:
         specifier: 23.2.0
         version: 23.2.0
@@ -192,9 +195,6 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^7.0.0
         version: 7.0.0(eslint@9.37.0(jiti@1.21.7))
-      glob:
-        specifier: ^10.4.5
-        version: 10.4.5
       globals:
         specifier: ^16.4.0
         version: 16.4.0
