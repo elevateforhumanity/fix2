@@ -98,6 +98,9 @@ importers:
       rollup-plugin-visualizer:
         specifier: 6.0.3
         version: 6.0.3(rollup@4.52.4)
+      sitemap:
+        specifier: ^8.0.1
+        version: 8.0.1
       slugify:
         specifier: 1.6.6
         version: 1.6.6
@@ -225,9 +228,6 @@ importers:
       rimraf:
         specifier: 5.0.10
         version: 5.0.10
-      sitemap:
-        specifier: ^8.0.1
-        version: 8.0.1
       sitemap-generator-cli:
         specifier: ^7.5.0
         version: 7.5.0
