@@ -410,10 +410,10 @@ Go to **Repository → Settings → Secrets and variables → Actions → New re
 
 ### Troubleshooting Contacts
 
-- **Supabase Issues:** ************\_\_\_************
-- **Netlify Issues:** ************\_\_\_************
-- **GitHub Actions Issues:** ************\_\_\_************
-- **Slack Issues:** ************\_\_\_************
+- **Supabase Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
+- **Netlify Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
+- **GitHub Actions Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
+- **Slack Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
 
 ### Important URLs
 
@@ -439,9 +439,9 @@ Go to **Repository → Settings → Secrets and variables → Actions → New re
 - [ ] Documentation is up to date
 - [ ] Monitoring is active
 
-**Deployment Date:** ******\_\_\_******  
-**Deployed By:** ******\_\_\_******  
-**Verified By:** ******\_\_\_******
+**Deployment Date:** **\*\***\_\_\_**\*\***  
+**Deployed By:** **\*\***\_\_\_**\*\***  
+**Verified By:** **\*\***\_\_\_**\*\***
 
 ---
 

@@ -1,3 +1,5 @@
+import { lazy } from 'react';
+
 export const safeLazy = (
   importFn: () => Promise<any>,
   componentName: string
