@@ -4,7 +4,6 @@ import { getProgramBySlug, type Program } from '../services/programs';
 import { listCoursesByProgram, type Course } from '../services/courses';
 
 const GOOGLE_FORM_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
-const INDIANA_CAREER_CONNECT_URL = 'https://www.indianacareerconnect.com';
 
 export default function ProgramPage() {
   const { slug } = useParams();
@@ -26,7 +25,8 @@ export default function ProgramPage() {
         // Programs can have a 'funding_type' field: 'state', 'federal', 'private', or null
         // State/federal funded programs use Indiana Career Connect, others use Google Form
         const requiresStateForm =
-          p.funding_type === 'state' || p.funding_type === 'federal';
+          (p as any).funding_type === 'state' ||
+          (p as any).funding_type === 'federal';
         setApplicationUrl(
           requiresStateForm
             ? 'https://indianacareerconnect.com'

@@ -11,15 +11,15 @@ jobs:
     # Only run if comment starts with /
     if: startsWith(github.event.comment.body, '/')
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Parse and forward command
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
-          
+
           # Create JSON payload
           PAYLOAD=$(jq -nc --arg t "$COMMENT_BODY" '{text:$t}')
-          
+
           # Forward to autopilot bridge
           RESPONSE=$(curl -sS -X POST "${{ secrets.AUTOPILOT_BRIDGE_URL }}" \
             -H "Content-Type: application/json" \
@@ -27,27 +27,27 @@ jobs:
             -d "$PAYLOAD" \
             -w "\nHTTP_CODE:%{http_code}" \
             2>&1)
-          
+
           HTTP_CODE=$(echo "$RESPONSE" | grep "HTTP_CODE:" | cut -d: -f2)
           BODY=$(echo "$RESPONSE" | sed '/HTTP_CODE:/d')
-          
+
           echo "Response Code: $HTTP_CODE"
           echo "Response Body: $BODY"
-          
+
           # Post result as comment
           if [ "$HTTP_CODE" = "200" ]; then
             RESULT="✅ Command executed successfully\n\`\`\`json\n$BODY\n\`\`\`"
           else
             RESULT="❌ Command failed (HTTP $HTTP_CODE)\n\`\`\`json\n$BODY\n\`\`\`"
           fi
-          
+
           # Use GitHub API to post comment
           curl -X POST \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             "${{ github.event.comment.issue_url || github.event.comment.pull_request_url }}/comments" \
             -d "{\"body\":\"$RESULT\"}"
-      
+
       - name: Log command
         if: always()
         run: |

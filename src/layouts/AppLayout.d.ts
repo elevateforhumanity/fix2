@@ -1,10 +1,8 @@
-declare module '../layouts/AppLayout' {
-  import { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
-  interface AppLayoutProps {
-    children: ReactNode;
-  }
-
-  const AppLayout: FC<AppLayoutProps>;
-  export default AppLayout;
+interface AppLayoutProps {
+  children: ReactNode;
 }
+
+declare const AppLayout: FC<AppLayoutProps>;
+export default AppLayout;

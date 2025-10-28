@@ -5,6 +5,7 @@
 Your complete "Puppet Master Autopilot" system is now installed. Control your entire platform through simple commands in GitHub comments or Slack.
 
 **Architecture:**
+
 - **Command Bridge** - Parses `/commands` from GitHub/Slack
 - **Task Queue** - Supabase-based queue with DAG support
 - **Workers** - Supabase Edge Functions + GitHub Actions
@@ -16,6 +17,7 @@ Your complete "Puppet Master Autopilot" system is now installed. Control your en
 ## 📋 What's Included
 
 ### Database Schema (`007_autopilot_system.sql`)
+
 - ✅ `automation.tasks` - Main task queue
 - ✅ `automation.task_edges` - DAG dependencies (parent → child)
 - ✅ `automation.health_log` - Monitoring and alerts
@@ -24,14 +26,17 @@ Your complete "Puppet Master Autopilot" system is now installed. Control your en
 - ✅ RLS policies for security
 
 ### Supabase Edge Functions
+
 - ✅ `autopilot-worker` - Main task processor
 - ✅ `autopilot-bridge` - Command parser
 
 ### GitHub Actions Workflows
+
 - ✅ `autopilot-comment-bridge.yml` - Comment → Command
 - ✅ `autopilot-master.yml` - Scheduled processing
 
 ### Admin UI
+
 - ✅ `src/pages/admin/AutopilotTasks.tsx` - Task management dashboard
 
 ---
@@ -83,6 +88,7 @@ supabase functions deploy autopilot-bridge \
 **In Supabase Function Settings:**
 
 For `autopilot-worker`:
+
 ```
 SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
@@ -92,6 +98,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 ```
 
 For `autopilot-bridge`:
+
 ```
 AUTOPILOT_SECRET=same_secret_as_worker
 AUTOPILOT_URL=https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker
@@ -102,6 +109,7 @@ AUTOPILOT_URL=https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker
 Go to: `Settings → Secrets and variables → Actions`
 
 Add these secrets:
+
 ```
 AUTOPILOT_WORKER_URL=https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker
 AUTOPILOT_BRIDGE_URL=https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-bridge
@@ -113,6 +121,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 ### Step 6: Configure Frontend Environment
 
 Add to `.env` or Netlify environment variables:
+
 ```
 VITE_AUTOPILOT_WORKER_URL=https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker
 VITE_AUTOPILOT_SECRET=same_secret_as_functions
@@ -181,37 +190,46 @@ curl -X POST "https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker" \
 ## 📊 Available Task Types
 
 ### Infrastructure
+
 - `db_migrate` - Run database migrations
 - `db_rls_fix` - Fix RLS policies
 - `redeploy` - Trigger Netlify rebuild
 - `cache_purge` - Clear CDN cache
 
 ### Accessibility & Media
+
 - `axe_a11y_scan` - Run accessibility audit
 - `caption_vod` - Generate video captions
 - `transcript_audio` - Generate audio transcripts
 
 ### Mobile
+
 - `mobile_publish` - Publish to app stores (requires approval)
 
 ### Realtime & Collaboration
+
 - `realtime_collab_boot` - Initialize realtime features
 
 ### Internationalization
+
 - `i18n_build` - Build translation files
 
 ### AI/ML
+
 - `ai_features_boot` - Initialize AI features
 
 ### Communications & Auth (require approval)
+
 - `email_connect` - Connect email service
 - `sms_connect` - Connect SMS service
 - `oauth_connect` - Configure OAuth providers
 
 ### Payments (requires approval)
+
 - `payments_expand` - Expand payment options
 
 ### Security & Compliance
+
 - `security_audit` - Run security checks
 - `compliance_report` - Generate compliance report
 - `gdpr_tools` - GDPR data export/delete tools
@@ -235,6 +253,7 @@ values (10, 12), (11, 12);
 ```
 
 **Example Workflow:**
+
 1. Enqueue `db_migrate` (id=10) and `db_rls_fix` (id=11)
 2. Enqueue `redeploy` (id=12)
 3. Create edges: 10→12 and 11→12
@@ -267,6 +286,7 @@ select * from automation.task_stats;
 ### Slack Notifications
 
 All task events are automatically posted to Slack:
+
 - ✅ Task succeeded
 - ❌ Task failed
 - 🟡 Task needs approval
@@ -277,17 +297,21 @@ All task events are automatically posted to Slack:
 ## 🔒 Security
 
 ### RLS Policies
+
 - Only admin users can view/manage tasks
 - Service role required for task creation
 - All actions logged to health_log
 
 ### Secrets Management
+
 - Never commit `AUTOPILOT_SECRET` to git
 - Use environment variables only
 - Rotate secrets periodically
 
 ### Approval Gates
+
 Risky tasks automatically require approval:
+
 - OAuth connections
 - Payment integrations
 - Email/SMS services
@@ -302,6 +326,7 @@ Risky tasks automatically require approval:
 ### Tasks Not Processing
 
 1. Check worker is deployed:
+
    ```bash
    curl https://YOUR_PROJECT.supabase.co/functions/v1/autopilot-worker \
      -H "x-autopilot-sign: YOUR_SECRET" \
