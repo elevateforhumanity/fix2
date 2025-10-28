@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm install --frozen-lockfile && pnpm run build"
+  command = "pnpm install && pnpm run build"
   publish = "dist"
   functions = "netlify/functions"
 
@@ -20,10 +20,8 @@
 
 # Production context: main branch deploys
 [context.production]
-  command = "pnpm install --frozen-lockfile && pnpm run build"
+  command = "pnpm install && NODE_ENV=production pnpm run build"
   publish = "dist"
-  [context.production.environment]
-    NODE_ENV = "production"
 
 # Deploy Preview context: pull request deploys
 [context.deploy-preview]
