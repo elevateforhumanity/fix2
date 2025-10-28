@@ -493,7 +493,8 @@ export default function AutopilotAdmin() {
             <div>
               <label className="block text-sm">From</label>
               <input
-                type="date" aria-label="date input"
+                type="date"
+                aria-label="date input"
                 className={`border p-2 rounded w-full ${inputClass}`}
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
@@ -502,7 +503,8 @@ export default function AutopilotAdmin() {
             <div>
               <label className="block text-sm">To</label>
               <input
-                type="date" aria-label="date input"
+                type="date"
+                aria-label="date input"
                 className={`border p-2 rounded w-full ${inputClass}`}
                 value={to}
                 onChange={(e) => setTo(e.target.value)}

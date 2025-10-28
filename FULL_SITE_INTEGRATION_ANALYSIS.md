@@ -46,18 +46,21 @@ Elevate for Humanity Platform
 ### 🔗 Integration Points
 
 **1. Unified Routing System**
+
 - **File:** `src/router/AppRoutes.tsx` (auto-generated)
 - **Routes:** 144 pages, all lazy-loaded
 - **Layout:** All wrapped in `<SiteLayout>` component
 - **Navigation:** Universal nav menu across all pages
 
 **2. Shared Authentication**
+
 - **Service:** `src/services/auth.ts` + `src/contexts/AuthContext.jsx`
 - **Provider:** Supabase Auth
 - **Scope:** ALL pages use same auth state
 - **Features:** Login, signup, magic links, password reset
 
 **3. Common Services**
+
 - `src/services/courses.ts` - Course management
 - `src/services/certificates.ts` - Certificate generation
 - `src/services/stripe.ts` - Payment processing
@@ -66,12 +69,14 @@ Elevate for Humanity Platform
 - `src/services/supa.ts` - Database client
 
 **4. Shared Components**
+
 - `ChatAssistant.tsx` - AI chat on every page
 - `NavBar.jsx` - Universal navigation
 - `ProtectedRoute.jsx` - Auth guards
 - `GoogleAnalytics.jsx` - Tracking across site
 
 **5. Centralized State**
+
 - `AuthContext.jsx` - User authentication state
 - `ThemeContext.jsx` - UI theme preferences
 - `ProgressContext.jsx` - Learning progress
@@ -83,6 +88,7 @@ Elevate for Humanity Platform
 ### 📚 Learning Management System (LMS)
 
 **Pages:** 15 LMS-specific pages
+
 - `/lms` - Student dashboard
 - `/lms/courses` - Course catalog
 - `/lms/courses/:id` - Course player
@@ -100,6 +106,7 @@ Elevate for Humanity Platform
 - `/assignment` - Assignments
 
 **Features:**
+
 - ✅ Video-based learning
 - ✅ Progress tracking
 - ✅ Quiz system
@@ -112,6 +119,7 @@ Elevate for Humanity Platform
 ### 👨‍🏫 Instructor Portal
 
 **Pages:** 8 instructor pages
+
 - `/instructor` - Instructor dashboard
 - `/instructor/dashboard` - Analytics
 - `/instructor/course-create` - Course builder
@@ -122,6 +130,7 @@ Elevate for Humanity Platform
 - `/course-builder` - Visual course builder
 
 **Features:**
+
 - ✅ Course creation
 - ✅ Content management
 - ✅ Student analytics
@@ -131,6 +140,7 @@ Elevate for Humanity Platform
 ### 🎓 Programs & Courses
 
 **Pages:** 12 program pages
+
 - `/programs` - All programs
 - `/programs/:slug` - Program detail
 - `/programs/barber` - Barber apprenticeship
@@ -145,6 +155,7 @@ Elevate for Humanity Platform
 - `/course-catalog` - Course catalog
 
 **Programs Offered:**
+
 1. Barber Apprenticeship
 2. Building Services Technician
 3. Certified Nursing Assistant (CNA)
@@ -159,6 +170,7 @@ Elevate for Humanity Platform
 ### 💰 Payment & Enrollment
 
 **Pages:** 8 payment pages
+
 - `/pay` - Payment page
 - `/payment-success` - Success confirmation
 - `/payment-cancelled` - Cancellation page
@@ -169,6 +181,7 @@ Elevate for Humanity Platform
 - `/funding-impact` - Funding information
 
 **Features:**
+
 - ✅ Stripe integration
 - ✅ Split payouts (revenue sharing)
 - ✅ Scholarship applications
@@ -179,6 +192,7 @@ Elevate for Humanity Platform
 ### 👥 Community & Support
 
 **Pages:** 12 community pages
+
 - `/community` - Community hub
 - `/community-hub` - Discussion forums
 - `/hub` - Student hub
@@ -193,6 +207,7 @@ Elevate for Humanity Platform
 - `/sisters/volunteer` - Volunteer opportunities
 
 **Features:**
+
 - ✅ Discussion forums
 - ✅ Study groups
 - ✅ Mentorship matching
@@ -203,6 +218,7 @@ Elevate for Humanity Platform
 ### 🏢 Business & Partners
 
 **Pages:** 10 business pages
+
 - `/partners` - Partner portal
 - `/business-hub` - Business hub
 - `/educator-hub` - Educator resources
@@ -215,6 +231,7 @@ Elevate for Humanity Platform
 - `/analytics` - Analytics dashboard
 
 **Features:**
+
 - ✅ Partner onboarding
 - ✅ Revenue sharing
 - ✅ Compliance reporting
@@ -224,6 +241,7 @@ Elevate for Humanity Platform
 ### 🔧 Admin & Management
 
 **Pages:** 15 admin pages
+
 - `/admin-dashboard` - Admin dashboard
 - `/admin-console` - Admin console
 - `/autopilot-admin` - Autopilot control
@@ -241,6 +259,7 @@ Elevate for Humanity Platform
 - `/slides` - Presentation builder
 
 **Features:**
+
 - ✅ User management
 - ✅ Content management
 - ✅ Analytics & reporting
@@ -252,11 +271,13 @@ Elevate for Humanity Platform
 ### 📱 Mobile & Apps
 
 **Platforms:**
+
 - ✅ iOS App (Capacitor)
 - ✅ Android App (Capacitor)
 - ✅ Progressive Web App (PWA)
 
 **Features:**
+
 - Native mobile experience
 - Offline course access
 - Push notifications
@@ -266,6 +287,7 @@ Elevate for Humanity Platform
 ### 🤖 Automation & AI
 
 **Features:**
+
 - ✅ AI Tutor (ChatGPT integration)
 - ✅ Content generation (OpenAI)
 - ✅ Social media automation (Zapier)
@@ -282,6 +304,7 @@ Elevate for Humanity Platform
 ### ✅ Shared Services Across All Pages
 
 **1. Authentication (100% integrated)**
+
 ```typescript
 // Used by ALL pages
 import { useAuth } from '../services/auth';
@@ -292,6 +315,7 @@ const { user, loading } = useAuth();
 ```
 
 **2. Database (100% integrated)**
+
 ```typescript
 // Single Supabase client used everywhere
 import { supabase } from '../supabaseClient';
@@ -301,6 +325,7 @@ import { supa } from '../services/supa';
 ```
 
 **3. Navigation (100% integrated)**
+
 ```typescript
 // Universal navigation on every page
 <SiteLayout>
@@ -310,11 +335,12 @@ import { supa } from '../services/supa';
 ```
 
 **4. Chat Assistant (100% integrated)**
+
 ```typescript
 // AI chat available on every page
-<ChatAssistant 
-  pageContext="courses" 
-  userRole={user?.role} 
+<ChatAssistant
+  pageContext="courses"
+  userRole={user?.role}
 />
 ```
 
@@ -339,6 +365,7 @@ Real-time Updates (All Connected Clients)
 ### ✅ Build Integration
 
 **Single Build Process:**
+
 ```bash
 pnpm build
   ↓
@@ -352,6 +379,7 @@ Deployed to Netlify
 ```
 
 **Output:**
+
 - `dist/index.html` - Single entry point
 - `dist/assets/*.js` - Code-split chunks
 - `dist/assets/*.css` - Unified styles
@@ -382,6 +410,7 @@ Deployed to Netlify
 17. **`sentry-webhook.js`** - Error monitoring
 
 **All functions integrated with:**
+
 - Supabase database
 - Stripe API
 - OpenAI API
@@ -395,23 +424,27 @@ Deployed to Netlify
 **80+ Scripts in `/scripts/` directory:**
 
 ### Deployment Automation
+
 - `autopilot-zero-touch-deploy.sh` - Fully automated deployment
 - `autonomous-deploy.sh` - Self-healing deployment
 - `deploy-secure.sh` - Secure deployment
 - `auto-deploy.sh` - Quick deployment
 
 ### Content Management
+
 - `create-all-missing-pages.sh` - Generate missing pages
 - `fix-brand-colors.js` - Brand consistency
 - `generate-routes.mjs` - Route generation
 - `crawl-site.mjs` - Site crawler
 
 ### Database Management
+
 - `apply-migrations-interactive.sh` - Database migrations
 - `check-and-restore-supabase.sh` - Database backup/restore
 - `add-vita-course.sql` - Add IRS VITA course
 
 ### Monitoring & Health
+
 - `ecosystem-health.sh` - System health check
 - `audit.sh` - Security audit
 - `diagnostic-routing.sh` - Route diagnostics
@@ -447,10 +480,12 @@ Deployed to Netlify
 ### All 146 Pages (Categorized)
 
 **Authentication (8 pages)**
+
 - /login, /signup, /forgot-password, /reset-password
 - /verify-email, /account, /profile, /auth/account
 
 **LMS & Learning (25 pages)**
+
 - /lms, /lms/courses, /lms/dashboard, /course, /course-detail
 - /course-catalog, /course-library, /course-builder, /curriculum-upload
 - /certificates, /my-certificates, /certificate-page, /verify
@@ -460,6 +495,7 @@ Deployed to Netlify
 - /student-dashboard, /student-handbook, /student-hub
 
 **Programs (12 pages)**
+
 - /programs, /programs/:slug, /program-page, /programs-index
 - /programs/barber, /programs/building-tech, /programs/cna
 - /programs/cpr-aed-first-aid, /programs/business-startup-marketing
@@ -467,11 +503,13 @@ Deployed to Netlify
 - /programs/beauty-career-educator, /programs/public-safety-reentry
 
 **Instructor (8 pages)**
+
 - /instructor, /instructor/dashboard, /instructor-course-create
 - /instructor/course-editor, /instructor/lesson-manager
 - /instructor-edit, /instructor-new, /course-builder
 
 **Admin (15 pages)**
+
 - /admin-dashboard, /admin-console, /autopilot-admin
 - /analytics, /analytics-dashboard, /analytics-dashboard-rum
 - /user-management, /file-manager, /email, /notifications
@@ -479,6 +517,7 @@ Deployed to Netlify
 - /sites, /forms, /sheets, /slides
 
 **Community (12 pages)**
+
 - /community, /community-hub, /hub, /groups, /calendar
 - /connect, /support, /sisters/mentorship, /sisters/mentor-directory
 - /sisters/mentor-signup, /sisters/peer-support, /sisters/wellness
@@ -486,31 +525,37 @@ Deployed to Netlify
 - /sisters/volunteer-opportunities, /sisters/volunteer-stories
 
 **Business & Partners (10 pages)**
+
 - /partners, /business-hub, /educator-hub, /government
 - /philanthropy, /funding-impact, /ecosystem, /integrations
 - /compliance, /mobile-app
 
 **Payment & Enrollment (8 pages)**
+
 - /pay, /payment-success, /payment-cancelled
 - /donate, /donate-page, /donate/success
 - /apply-scholarship, /get-started
 
 **Information (15 pages)**
+
 - /, /home, /home-page, /about, /docs
 - /privacy-policy, /terms-of-service, /refund-policy
 - /accessibility, /accessibility-settings, /sitemap
 - /search-results, /thank-you, /test-page, /404
 
 **Landing Pages (10 pages)**
+
 - /main-landing, /efh-landing, /full-sail-landing
 - /durable-landing, /durable-ai, /durable-features
 - /durable-pricing, /durable-templates, /clone-landing
 - /professional-home, /professional-site
 
 **Sister Sites (3 pages)**
+
 - /serene-comfort-care, /urban-build-crew, /elevate-brain
 
 **Utilities (10 pages)**
+
 - /google-analytics-setup, /google-site-verification
 - /bing-site-verification, /notebook-lm, /video-meeting
 - /vids, /ecommerce, /email, /file-manager, /forms
@@ -588,6 +633,7 @@ Users (Web + Mobile)
 8. **Analytics** - Live dashboard updates
 
 **Powered by:**
+
 - Supabase Realtime subscriptions
 - Custom DataSynchronizationManager
 - WebSocket connections
@@ -600,6 +646,7 @@ Users (Web + Mobile)
 ### ✅ This is ONE Fully Integrated Application
 
 **Evidence:**
+
 1. **Single codebase** - All code in one repository
 2. **Unified routing** - React Router manages all 146 pages
 3. **Shared authentication** - One auth system for everything
@@ -614,6 +661,7 @@ Users (Web + Mobile)
 ### 🎯 Not Separate Systems
 
 This is **NOT**:
+
 - ❌ Multiple separate applications
 - ❌ Microservices architecture
 - ❌ Different codebases
@@ -621,6 +669,7 @@ This is **NOT**:
 - ❌ Disconnected features
 
 This **IS**:
+
 - ✅ Single Page Application (SPA)
 - ✅ Monolithic frontend with modular features
 - ✅ Unified user experience
@@ -633,6 +682,7 @@ This **IS**:
 **Conservative Estimate: $1,500,000 - $3,000,000**
 
 **Breakdown:**
+
 - LMS Platform: $500,000 - $800,000
 - Admin & Management: $200,000 - $400,000
 - Payment & Enrollment: $150,000 - $300,000
@@ -644,6 +694,7 @@ This **IS**:
 - AI Features: $100,000 - $200,000
 
 **Annual Revenue Potential: $500,000 - $2,000,000**
+
 - SaaS subscriptions: $200,000 - $800,000
 - Revenue sharing: $200,000 - $800,000
 - Enterprise licensing: $100,000 - $400,000

@@ -146,7 +146,8 @@ export default function ProfessionalSite() {
                     First Name *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -155,7 +156,8 @@ export default function ProfessionalSite() {
                     Last Name *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -166,7 +168,8 @@ export default function ProfessionalSite() {
                     Email Address *
                   </label>
                   <input
-                    type="email" aria-label="email input"
+                    type="email"
+                    aria-label="email input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -175,7 +178,8 @@ export default function ProfessionalSite() {
                     Phone Number *
                   </label>
                   <input
-                    type="tel" aria-label="tel input"
+                    type="tel"
+                    aria-label="tel input"
                     className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
                   />
                 </div>
@@ -388,7 +392,8 @@ export default function ProfessionalSite() {
                   Full Name
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   defaultValue="John Doe"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -398,7 +403,8 @@ export default function ProfessionalSite() {
                   Email
                 </label>
                 <input
-                  type="email" aria-label="email input"
+                  type="email"
+                  aria-label="email input"
                   defaultValue="john.doe@example.com"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -408,7 +414,8 @@ export default function ProfessionalSite() {
                   Phone
                 </label>
                 <input
-                  type="tel" aria-label="tel input"
+                  type="tel"
+                  aria-label="tel input"
                   defaultValue="(555) 123-4567"
                   className="w-full p-3 border border-brand-border-dark rounded-lg"
                 />
@@ -449,7 +456,8 @@ export default function ProfessionalSite() {
                       Subject
                     </label>
                     <input
-                      type="text" aria-label="text input"
+                      type="text"
+                      aria-label="text input"
                       className="w-full p-3 border border-brand-border-dark rounded-lg"
                     />
                   </div>

@@ -97,7 +97,8 @@ export default function Profile() {
                   First Name *
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
@@ -123,7 +124,8 @@ export default function Profile() {
                   Last Name *
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
@@ -150,7 +152,8 @@ export default function Profile() {
                 Email Address *
               </label>
               <input
-                type="email" aria-label="email input"
+                type="email"
+                aria-label="email input"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -183,7 +186,8 @@ export default function Profile() {
                   Phone Number
                 </label>
                 <input
-                  type="tel" aria-label="tel input"
+                  type="tel"
+                  aria-label="tel input"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -253,7 +257,8 @@ export default function Profile() {
                 Organization
               </label>
               <input
-                type="text" aria-label="text input"
+                type="text"
+                aria-label="text input"
                 name="organization"
                 value={formData.organization}
                 onChange={handleChange}
@@ -307,7 +312,8 @@ export default function Profile() {
                 Website
               </label>
               <input
-                type="url" aria-label="url input"
+                type="url"
+                aria-label="url input"
                 name="website"
                 value={formData.website}
                 onChange={handleChange}
@@ -340,7 +346,8 @@ export default function Profile() {
                   LinkedIn
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={handleChange}
@@ -366,7 +373,8 @@ export default function Profile() {
                   YouTube
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="youtube"
                   value={formData.youtube}
                   onChange={handleChange}
@@ -407,7 +415,8 @@ export default function Profile() {
                 Street Address
               </label>
               <input
-                type="text" aria-label="text input"
+                type="text"
+                aria-label="text input"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
@@ -441,7 +450,8 @@ export default function Profile() {
                   City
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
@@ -467,7 +477,8 @@ export default function Profile() {
                   State
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="state"
                   value={formData.state}
                   onChange={handleChange}
@@ -493,7 +504,8 @@ export default function Profile() {
                   ZIP
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   name="zip"
                   value={formData.zip}
                   onChange={handleChange}

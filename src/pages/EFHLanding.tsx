@@ -21,7 +21,10 @@ export default function EFHLanding() {
               </h1>
             </div>
           </div>
-          <nav role="navigation" className="hidden md:flex items-center gap-6 text-sm">
+          <nav
+            role="navigation"
+            className="hidden md:flex items-center gap-6 text-sm"
+          >
             <a className="hover:text-orange-600" href="/">
               Home
             </a>
