@@ -10,6 +10,7 @@
 **Purpose:** CDN, Security, and Storage ONLY
 
 ### Current Usage:
+
 1. **CDN (Content Delivery Network)**
    - Not currently used for hosting
    - Can be used for static assets (images, videos)
@@ -28,6 +29,7 @@
      - Image storage: `this.cloudflareApiToken`
 
 ### Environment Variables:
+
 ```bash
 CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
 CLOUDFLARE_ACCOUNT_ID=your-cloudflare-account-id
@@ -36,6 +38,7 @@ VITE_CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
 ```
 
 ### Files Using Cloudflare:
+
 - `src/lms/ai-course-creator.js` - Video and image storage
 - `src/lms/learnworlds-superior-features.js` - Course media
 - `src/lms/copilot-autopilot.js` - Automated content
@@ -49,6 +52,7 @@ VITE_CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
 **Primary Hosting Platform**
 
 ### Configuration:
+
 **File:** `netlify.toml`
 
 ```toml
@@ -59,6 +63,7 @@ VITE_CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
 ```
 
 ### Build Process:
+
 1. Install dependencies: `pnpm install`
 2. Build application: `vite build`
 3. Post-build scripts:
@@ -69,9 +74,11 @@ VITE_CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
 4. Deploy to: `dist/` directory
 
 ### Netlify Functions:
+
 Located in: `netlify/functions/`
 
 **Active Functions:**
+
 - `create-checkout-session.js` - Stripe checkout
 - `create-enrollment-session.js` - Student enrollment
 - `stripe-webhook.js` - Stripe webhooks
@@ -82,6 +89,7 @@ Located in: `netlify/functions/`
 - `submit-scholarship-application.js` - Scholarship forms
 
 ### Domain Configuration:
+
 ```toml
 # Redirect .com to .org
 [[redirects]]
@@ -92,6 +100,7 @@ Located in: `netlify/functions/`
 ```
 
 ### Security Headers:
+
 - Content-Security-Policy
 - Strict-Transport-Security
 - X-Frame-Options
@@ -107,11 +116,13 @@ Located in: `netlify/functions/`
 **Database and Authentication**
 
 ### Connection Details:
+
 - **URL:** `https://cuxzzpsyufcewtmicszk.supabase.co`
 - **Status:** ✅ Connected and working
 - **File:** `src/supabaseClient.js`
 
 ### Environment Variables:
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -119,10 +130,13 @@ SUPABASE_SERVICE_KEY=your-service-role-key-here
 ```
 
 ### Database Tables:
+
 **Verified Working:**
+
 - ✅ `programs` - Program listings
 
 **Need Migration:**
+
 - ⚠️ `courses` - LMS courses
 - ⚠️ `lessons` - Course lessons
 - ⚠️ `enrollments` - Student enrollments
@@ -130,6 +144,7 @@ SUPABASE_SERVICE_KEY=your-service-role-key-here
 - ⚠️ `certificates` - Completion certificates
 
 ### Migrations Available:
+
 Located in: `supabase/migrations/`
 
 1. `001_lms_schema.sql` - LMS database structure
@@ -140,6 +155,7 @@ Located in: `supabase/migrations/`
 6. `20250127_create_generated_content.sql` - Content generation
 
 ### To Apply Migrations:
+
 ```bash
 # Install Supabase CLI
 npm install -g supabase
@@ -161,6 +177,7 @@ supabase db push
 ## 📋 Deployment Checklist
 
 ### Pre-Deployment:
+
 - [x] Cloudflare configured for CDN/security/storage only
 - [x] Netlify configured as primary host
 - [x] Supabase connected
@@ -173,6 +190,7 @@ supabase db push
 ### Environment Variables Needed in Netlify:
 
 **Required:**
+
 ```bash
 # Supabase (already in netlify.toml)
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -189,6 +207,7 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewfor
 ```
 
 **Optional (for AI features):**
+
 ```bash
 # OpenAI (for AI course creation)
 OPENAI_API_KEY=sk-proj-...
@@ -203,6 +222,7 @@ VITE_CLOUDFLARE_API_TOKEN=your-token
 ### Deployment Steps:
 
 1. **Commit Changes:**
+
 ```bash
 git add -A
 git commit -m "feat: deployment ready with universal navigation and partner portal"
@@ -220,6 +240,7 @@ git push origin main
    - Verify all pages load correctly
 
 4. **Apply Database Migrations:**
+
 ```bash
 supabase db push
 ```
@@ -237,19 +258,23 @@ supabase db push
 ## 🌐 Live URLs
 
 ### Production Site:
+
 **Primary:** https://elevateforhumanity.org
 
 ### Partner Pages:
+
 - **Selfish Inc:** https://elevateforhumanity.org/pages/selfish-inc.html
 - **Partner Onboarding:** https://elevateforhumanity.org/pages/partner-onboarding.html
 - **All Partners:** https://elevateforhumanity.org/pages/partners.html
 
 ### LMS Pages:
+
 - **Student Portal:** https://elevateforhumanity.org/student-portal-lms
 - **Instructor Portal:** https://elevateforhumanity.org/instructor
 - **Course Creation:** https://elevateforhumanity.org/instructor-course-create
 
 ### Application Pages:
+
 - **Apply:** https://elevateforhumanity.org/apply
 - **Programs:** https://elevateforhumanity.org/programs
 - **Employers:** https://elevateforhumanity.org/employers
@@ -293,16 +318,16 @@ supabase db push
 
 ## ✅ Status Summary
 
-| Component | Status | Purpose |
-|-----------|--------|---------|
-| **Cloudflare** | ✅ Configured | CDN, Security, Storage (optional) |
-| **Netlify** | ✅ Ready | Primary Hosting Platform |
-| **Supabase** | ✅ Connected | Database & Authentication |
-| **Migrations** | ⚠️ Pending | Need to apply to database |
-| **Environment Vars** | ⚠️ Partial | Need Stripe, Google Form |
-| **Build Process** | ✅ Working | Vite + Post-build scripts |
-| **Functions** | ✅ Ready | 8 Netlify functions |
-| **Domain** | ✅ Configured | .com → .org redirect |
+| Component            | Status        | Purpose                           |
+| -------------------- | ------------- | --------------------------------- |
+| **Cloudflare**       | ✅ Configured | CDN, Security, Storage (optional) |
+| **Netlify**          | ✅ Ready      | Primary Hosting Platform          |
+| **Supabase**         | ✅ Connected  | Database & Authentication         |
+| **Migrations**       | ⚠️ Pending    | Need to apply to database         |
+| **Environment Vars** | ⚠️ Partial    | Need Stripe, Google Form          |
+| **Build Process**    | ✅ Working    | Vite + Post-build scripts         |
+| **Functions**        | ✅ Ready      | 8 Netlify functions               |
+| **Domain**           | ✅ Configured | .com → .org redirect              |
 
 ---
 
@@ -311,6 +336,7 @@ supabase db push
 **Current Status:** All configurations are correct. Ready to push to GitHub for automatic Netlify deployment.
 
 **Next Steps:**
+
 1. Commit and push changes
 2. Netlify will auto-deploy
 3. Apply Supabase migrations
