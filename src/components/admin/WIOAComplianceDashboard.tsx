@@ -364,7 +364,7 @@ export function WIOAComplianceDashboard() {
           </select>
           <label className="flex items-center">
             <input
-              type="checkbox"
+              type="checkbox" aria-label="checkbox input"
               checked={autoReporting}
               onChange={(e) => setAutoReporting(e.target.checked)}
               className="mr-2"
@@ -373,7 +373,7 @@ export function WIOAComplianceDashboard() {
           </label>
           <label className="flex items-center">
             <input
-              type="checkbox"
+              type="checkbox" aria-label="checkbox input"
               checked={realTimeMode}
               onChange={(e) => setRealTimeMode(e.target.checked)}
               className="mr-2"

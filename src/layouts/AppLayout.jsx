@@ -17,7 +17,7 @@ export default function AppLayout({ title, children }) {
         Skip to content
       </a>
       <header style={{ padding: '12px 24px', background: '#0f172a' }}>
-        <nav style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+        <nav role="navigation" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <NavLink style={linkStyle} to="/">
             Home
           </NavLink>
@@ -35,7 +35,7 @@ export default function AppLayout({ title, children }) {
           </NavLink>
         </nav>
       </header>
-      <main id="main-content">{children}</main>
+      <main role="main" id="main-content">{children}</main>
       <footer
         style={{
           padding: 24,

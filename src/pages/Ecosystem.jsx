@@ -20,7 +20,7 @@ import React from 'react';
 
 export default function Ecosystem() {
   return (
-    <main
+    <main role="main"
       style={{
         maxWidth: 900,
         margin: '40px auto',

@@ -13,7 +13,7 @@ const demoThreads = [
 export default function Community() {
   const [threads] = useState(demoThreads);
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1>Community Forum</h1>
       <ul>
         {threads.map((t) => (

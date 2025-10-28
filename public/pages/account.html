@@ -320,7 +320,7 @@
     <header>
       <div class="bar wrap">
         <div class="brand"><a href="hub.html">Elevate for Humanity</a></div>
-        <nav style="display: flex; gap: 8px; align-items: center">
+        <nav role="navigation" style="display: flex; gap: 8px; align-items: center">
           <a class="btn" href="programs.html">Programs</a>
           <a class="btn" href="lms.html">LMS</a>
           <a class="btn" href="connect.html">Connect</a>
@@ -329,7 +329,7 @@
       </div>
     </header>
 
-    <main class="wrap">
+    <main role="main" class="wrap">
       <!-- Hero Section -->
       <div class="hero">
         <h1>👤 Your Account Dashboard</h1>
@@ -353,7 +353,7 @@
             <label for="email">Email</label>
             <input
               id="email"
-              type="email"
+              type="email" aria-label="email input"
               placeholder="you@example.com"
               autocomplete="email"
             />
@@ -465,7 +465,7 @@
                 >Full Name *</label
               >
               <input
-                type="text"
+                type="text" aria-label="text input"
                 name="entry.7777777777"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -477,7 +477,7 @@
                 >Email Address *</label
               >
               <input
-                type="email"
+                type="email" aria-label="email input"
                 name="entry.8888888888"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -489,7 +489,7 @@
                 >Phone Number</label
               >
               <input
-                type="tel"
+                type="tel" aria-label="tel input"
                 name="entry.8888888889"
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                 placeholder="(555) 123-4567"
@@ -522,7 +522,7 @@
             <div class="grid md:grid-cols-3 gap-4">
               <label class="flex items-center">
                 <input
-                  type="radio"
+                  type="radio" aria-label="radio input"
                   name="entry.8888888891"
                   value="Low"
                   class="mr-2"
@@ -532,7 +532,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="radio"
+                  type="radio" aria-label="radio input"
                   name="entry.8888888891"
                   value="Medium"
                   class="mr-2"
@@ -542,7 +542,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="radio"
+                  type="radio" aria-label="radio input"
                   name="entry.8888888891"
                   value="High"
                   class="mr-2"

@@ -201,7 +201,7 @@ export default function Donate() {
                 </button>
                 {amount === 'custom' && (
                   <input
-                    type="number"
+                    type="number" aria-label="number input"
                     placeholder="Enter amount"
                     value={customAmount}
                     onChange={(e) => setCustomAmount(e.target.value)}

@@ -53,7 +53,7 @@ export default function Signup() {
           )}
           <div className="rounded-md shadow-sm space-y-4">
             <input
-              type="text"
+              type="text" aria-label="text input"
               required
               className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"
               placeholder="Full Name"
@@ -61,7 +61,7 @@ export default function Signup() {
               onChange={(e) => setFullName(e.target.value)}
             />
             <input
-              type="email"
+              type="email" aria-label="email input"
               required
               className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"
               placeholder="Email address"
@@ -69,7 +69,7 @@ export default function Signup() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="password"
+              type="password" aria-label="password input"
               required
               minLength={6}
               className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"

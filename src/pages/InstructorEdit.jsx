@@ -255,7 +255,7 @@ export default function InstructorEdit() {
                     Course Title *
                   </label>
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     name="title"
                     value={courseData.title}
                     onChange={handleChange}
@@ -280,7 +280,7 @@ export default function InstructorEdit() {
                     Subtitle
                   </label>
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     name="subtitle"
                     value={courseData.subtitle}
                     onChange={handleChange}
@@ -515,7 +515,7 @@ export default function InstructorEdit() {
                       }}
                     >
                       <input
-                        type="text"
+                        type="text" aria-label="text input"
                         value={module.title}
                         onChange={(e) => {
                           const newModules = [...modules];
@@ -590,7 +590,7 @@ export default function InstructorEdit() {
                                 : '📄'}
                           </span>
                           <input
-                            type="text"
+                            type="text" aria-label="text input"
                             value={lesson.title}
                             onChange={(e) => {
                               const newModules = [...modules];
@@ -679,7 +679,7 @@ export default function InstructorEdit() {
                     Course Price (USD)
                   </label>
                   <input
-                    type="number"
+                    type="number" aria-label="number input"
                     name="price"
                     value={courseData.price}
                     onChange={handleChange}
@@ -787,7 +787,7 @@ export default function InstructorEdit() {
                     }}
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" aria-label="checkbox input"
                       checked={courseData.published}
                       onChange={() =>
                         setCourseData({

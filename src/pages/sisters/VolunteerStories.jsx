@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function VolunteerStories() {
   return (
-    <main style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
       <h1>Volunteer Stories</h1>
       <p>
         Read inspiring stories from our volunteers about their experiences and

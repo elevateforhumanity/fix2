@@ -274,7 +274,7 @@ export function LearningBarrierAnalyzer() {
         <div className="flex items-center space-x-4">
           <label className="flex items-center">
             <input
-              type="checkbox"
+              type="checkbox" aria-label="checkbox input"
               checked={autoRemediationEnabled}
               onChange={(e) => setAutoRemediationEnabled(e.target.checked)}
               className="mr-2"

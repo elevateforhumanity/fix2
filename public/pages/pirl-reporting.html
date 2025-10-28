@@ -50,7 +50,7 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Navigation Header -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav role="navigation" class="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -78,7 +78,7 @@
       </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <main role="main" class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <!-- Page Header -->
       <div class="mb-8">
         <div
@@ -290,7 +290,7 @@
                   type="button"
                   onclick="hideGeneratePIRLForm()"
                   class="text-gray-400 hover:text-gray-600"
-                >
+                 aria-label="Action button">
                   <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
               </div>
@@ -350,7 +350,7 @@
                           >Social Security Number</label
                         >
                         <input
-                          type="text"
+                          type="text" aria-label="text input"
                           name="ssn"
                           class="w-full border rounded px-3 py-2"
                           placeholder="XXX-XX-XXXX"
@@ -362,7 +362,7 @@
                           >Date of Birth</label
                         >
                         <input
-                          type="date"
+                          type="date" aria-label="date input"
                           name="date_of_birth"
                           class="w-full border rounded px-3 py-2"
                         />
@@ -456,7 +456,7 @@
                           >Wages at Entry (Quarterly)</label
                         >
                         <input
-                          type="number"
+                          type="number" aria-label="number input"
                           name="wages_entry"
                           class="w-full border rounded px-3 py-2"
                           placeholder="0.00"
@@ -469,7 +469,7 @@
                           >Wages at Exit (Quarterly)</label
                         >
                         <input
-                          type="number"
+                          type="number" aria-label="number input"
                           name="wages_exit"
                           class="w-full border rounded px-3 py-2"
                           placeholder="0.00"
@@ -534,7 +534,7 @@
                       <div>
                         <label class="flex items-center">
                           <input
-                            type="checkbox"
+                            type="checkbox" aria-label="checkbox input"
                             name="demographics"
                             value="veteran"
                             class="mr-2"
@@ -545,7 +545,7 @@
                       <div>
                         <label class="flex items-center">
                           <input
-                            type="checkbox"
+                            type="checkbox" aria-label="checkbox input"
                             name="demographics"
                             value="disabled"
                             class="mr-2"
@@ -556,7 +556,7 @@
                       <div>
                         <label class="flex items-center">
                           <input
-                            type="checkbox"
+                            type="checkbox" aria-label="checkbox input"
                             name="demographics"
                             value="homeless"
                             class="mr-2"
@@ -567,7 +567,7 @@
                       <div>
                         <label class="flex items-center">
                           <input
-                            type="checkbox"
+                            type="checkbox" aria-label="checkbox input"
                             name="demographics"
                             value="ex_offender"
                             class="mr-2"
@@ -578,7 +578,7 @@
                       <div>
                         <label class="flex items-center">
                           <input
-                            type="checkbox"
+                            type="checkbox" aria-label="checkbox input"
                             name="demographics"
                             value="low_income"
                             class="mr-2"

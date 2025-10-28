@@ -482,7 +482,7 @@ fill="white" />
               File Name
             </label>
             <input
-              type="text"
+              type="text" aria-label="text input"
               value={exportOptions.fileName}
               onChange={(e) =>
                 setExportOptions((prev) => ({
@@ -515,7 +515,7 @@ fill="white" />
           <div className="space-y-2">
             <label className="flex items-center">
               <input
-                type="checkbox"
+                type="checkbox" aria-label="checkbox input"
                 checked={exportOptions.includeCharts}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -529,7 +529,7 @@ fill="white" />
             </label>
             <label className="flex items-center">
               <input
-                type="checkbox"
+                type="checkbox" aria-label="checkbox input"
                 checked={exportOptions.includeRawData}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -545,7 +545,7 @@ fill="white" />
           <div className="space-y-2">
             <label className="flex items-center">
               <input
-                type="checkbox"
+                type="checkbox" aria-label="checkbox input"
                 checked={exportOptions.includeFormatting}
                 onChange={(e) =>
                   setExportOptions((prev) => ({
@@ -610,7 +610,7 @@ fill="white" />
               <div className="absolute top-2 right-2 z-10">
                 <label className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="checkbox" aria-label="checkbox input"
                     checked={selectedCharts.includes(chart.title)}
                     onChange={() => toggleChartSelection(chart.title)}
                     className="mr-2"

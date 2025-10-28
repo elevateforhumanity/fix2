@@ -111,7 +111,7 @@ export function AdminConsole() {
         >
           ⚙️ Admin Console
         </h2>
-        <nav>
+        <nav role="navigation">
           <button
             onClick={() => setView('dashboard')}
             style={{

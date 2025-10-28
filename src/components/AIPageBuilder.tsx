@@ -297,7 +297,7 @@ export default function AIPageBuilder() {
                   Page Name
                 </label>
                 <input
-                  type="text"
+                  type="text" aria-label="text input"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                   placeholder="e.g., Home Page"
                   value={pageName}
@@ -309,7 +309,7 @@ export default function AIPageBuilder() {
                   URL Slug
                 </label>
                 <input
-                  type="text"
+                  type="text" aria-label="text input"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                   placeholder="e.g., home"
                   value={pageSlug}

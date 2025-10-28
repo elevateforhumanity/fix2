@@ -185,7 +185,7 @@ export default function DoNotContactPanel() {
                 Email Address
               </label>
               <input
-                type="email"
+                type="email" aria-label="email input"
                 required
                 value={newEntry.email}
                 onChange={(e) =>
@@ -232,7 +232,7 @@ export default function DoNotContactPanel() {
                 Expiration Date (Optional)
               </label>
               <input
-                type="datetime-local"
+                type="datetime-local" aria-label="datetime-local input"
                 value={newEntry.expires_at}
                 onChange={(e) =>
                   setNewEntry({ ...newEntry, expires_at: e.target.value })

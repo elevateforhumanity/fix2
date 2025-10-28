@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function WellnessResources() {
   return (
-    <main style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
       <h1>Wellness Resources</h1>
       <p>
         Find helpful resources for your physical, mental, and emotional
