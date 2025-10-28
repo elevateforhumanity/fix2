@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface ProcessedData {
   students: StudentRecord[];
   programs: ProgramData[];

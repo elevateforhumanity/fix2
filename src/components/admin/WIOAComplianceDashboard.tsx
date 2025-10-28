@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface WIOAMetrics {
   performanceIndicators: PerformanceIndicator[];
   participantData: ParticipantData;

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface ExcelChartConfig {
   type: 'pie' | 'bar' | 'line' | 'doughnut' | 'column';
   title: string;
@@ -37,7 +39,7 @@ export function ExcelChartGenerator() {
   });
   const [isGenerating, setIsGenerating] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     generateAvailableCharts();
   }, []);
 

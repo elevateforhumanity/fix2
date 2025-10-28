@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface LearningBarrier {
   id: string;
   type:
