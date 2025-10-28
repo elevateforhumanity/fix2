@@ -3,38 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SiteLayout from '../layouts/SiteLayout';
 
-interface RouteErrorBoundaryProps {
-  children: React.ReactNode;
-}
-
-interface RouteErrorBoundaryState {
-  e: Error | null;
-}
-
-class RouteErrorBoundary extends React.Component<
-  RouteErrorBoundaryProps,
-  RouteErrorBoundaryState
-> {
-  constructor(p: RouteErrorBoundaryProps) {
-    super(p);
-    this.state = { e: null };
-  }
-  static getDerivedStateFromError(e: Error): RouteErrorBoundaryState {
-    return { e };
-  }
-  componentDidCatch(e: Error, i: React.ErrorInfo): void {
-    console.error('Route error:', e, i);
-  }
-  render() {
-    return this.state.e
-      ? React.createElement(
-          'pre',
-          null,
-          String(this.state.e?.message || this.state.e)
-        )
-      : this.props.children;
-  }
-}
+class RouteErrorBoundary extends React.Component{constructor(p){super(p);this.state={e:null}}static getDerivedStateFromError(e){return{e}}componentDidCatch(e,i){console.error('Route error:',e,i)}render(){return this.state.e?React.createElement('pre',null,String(this.state.e?.message||this.state.e)):this.props.children}}
 const Fallback = () => <div className="min-h-screen grid place-items-center">Loading…</div>;
 
 const Page_0 = lazy(() => import('../pages/AITutor.jsx'));
@@ -174,6 +143,7 @@ const Page_133 = lazy(() => import('../pages/lms/CoursePage.tsx'));
 const Page_134 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
 const Page_135 = lazy(() => import('../pages/lms/Dashboard.tsx'));
 const Page_136 = lazy(() => import('../pages/lms/LessonPage.tsx'));
+const Page_137 = lazy(() => import('../pages/lms/QuizBlock.tsx'));
 const Page_138 = lazy(() => import('../pages/sisters/MentorDirectory.jsx'));
 const Page_139 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
 const Page_140 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
@@ -326,6 +296,7 @@ export default function AppRoutes(){
             <Route path="/lms/courses-index" element={<Page_134 />} />
             <Route path="/lms/dashboard" element={<Page_135 />} />
             <Route path="/lms/lesson/:lessonId" element={<Page_136 />} />
+            <Route path="/lms/quiz-block" element={<Page_137 />} />
             <Route path="/sisters/mentor-directory" element={<Page_138 />} />
             <Route path="/sisters/mentor-signup" element={<Page_139 />} />
             <Route path="/sisters/mentorship" element={<Page_140 />} />
