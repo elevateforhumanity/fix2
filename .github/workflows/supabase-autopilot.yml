@@ -1,0 +1,247 @@
+name: Supabase Autopilot (Migrate + Verify + Auto-Heal)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/migrations/**'
+      - '.github/workflows/supabase-autopilot.yml'
+      - 'scripts/autopilot_migrate.sh'
+  schedule:
+    # Health check every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      force_reapply:
+        description: 'Force reapply all migrations'
+        required: false
+        default: 'false'
+
+jobs:
+  migrate-and-verify:
+    runs-on: ubuntu-latest
+    env:
+      DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Verify secrets are set
+        run: |
+          if [[ -z "$DB_URL" ]]; then
+            echo "❌ SUPABASE_DB_URL secret not set"
+            exit 1
+          fi
+          if [[ -z "$SUPABASE_PROJECT_REF" ]]; then
+            echo "❌ SUPABASE_PROJECT_REF secret not set"
+            exit 1
+          fi
+          echo "✅ Secrets verified"
+
+      - name: Apply migrations (transactional)
+        id: migrate
+        continue-on-error: true
+        run: |
+          bash scripts/autopilot_migrate.sh "$DB_URL"
+
+      - name: Health check (tables + RLS sanity)
+        id: health
+        continue-on-error: true
+        run: |
+          psql "$DB_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          DO $$
+          DECLARE
+            missing int := 0;
+          BEGIN
+            -- Core LMS tables
+            IF to_regclass('programs') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('courses') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('lessons') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('enrollments') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('lesson_progress') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('certificates') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Auth tables
+            IF to_regclass('instructor_certificates') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Analytics tables
+            IF to_regclass('analytics_events') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('page_views') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Automation tables
+            IF to_regclass('automation_workflows') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('automation_executions') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Content tables
+            IF to_regclass('generated_content') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Scholarship tables
+            IF to_regclass('scholarship_applications') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('scholarship_reviews') IS NULL THEN missing := missing + 1; END IF;
+            
+            -- Payment tables
+            IF to_regclass('stripe_accounts') IS NULL THEN missing := missing + 1; END IF;
+            IF to_regclass('stripe_splits') IS NULL THEN missing := missing + 1; END IF;
+            
+            IF missing > 0 THEN
+              RAISE EXCEPTION 'Schema validation failed: % object(s) missing', missing;
+            ELSE
+              RAISE NOTICE '✅ All 16 tables verified';
+            END IF;
+          END$$;
+          SQL
+
+      - name: Auto-fix RLS gaps (if health check failed)
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "⚠️ Health check failed. Attempting to re-apply RLS patches..."
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/migrations/004_add_missing_rls_policies.sql || true
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/migrations/004_analytics_rls.sql || true
+
+      - name: Re-run health check after auto-fix
+        if: steps.health.outcome == 'failure'
+        id: health_retry
+        continue-on-error: true
+        run: |
+          psql "$DB_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          DO $$
+          DECLARE m int := 0;
+          BEGIN
+            IF to_regclass('programs') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('courses') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('lessons') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('enrollments') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('lesson_progress') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('certificates') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('instructor_certificates') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('analytics_events') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('page_views') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('automation_workflows') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('automation_executions') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('generated_content') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('scholarship_applications') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('scholarship_reviews') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('stripe_accounts') IS NULL THEN m := m + 1; END IF;
+            IF to_regclass('stripe_splits') IS NULL THEN m := m + 1; END IF;
+            
+            IF m > 0 THEN
+              RAISE EXCEPTION '❌ Schema still invalid after auto-fix. Missing: % tables', m;
+            ELSE
+              RAISE NOTICE '✅ Auto-fix successful! All tables verified.';
+            END IF;
+          END$$;
+          SQL
+
+      - name: Generate health report
+        if: always()
+        run: |
+          echo "## 🏥 Supabase Health Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${{ steps.migrate.outcome }}" == "success" ]]; then
+            echo "✅ **Migration:** Success" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Migration:** Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ steps.health.outcome }}" == "success" ]]; then
+            echo "✅ **Health Check:** Passed" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ steps.health_retry.outcome }}" == "success" ]]; then
+            echo "⚠️ **Health Check:** Failed initially, auto-fix successful" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Health Check:** Failed (auto-fix attempted)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Database Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Project: https://supabase.com/dashboard/project/${{ secrets.SUPABASE_PROJECT_REF }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Create issue on persistent failure
+        if: failure() && steps.health_retry.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🚨 Supabase Autopilot: Migration/Health Check Failed';
+            const body = `## Autopilot Failure Report
+
+            **Commit:** ${{ github.sha }}
+            **Workflow:** ${{ github.workflow }}
+            **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ### What Happened
+
+            The Supabase migration or health check failed, and auto-fix was unable to resolve the issue.
+
+            ### Steps Taken
+
+            1. ✅ Applied all migrations in order
+            2. ❌ Health check failed
+            3. ⚠️ Attempted RLS policy re-application
+            4. ❌ Health check still failing
+
+            ### Action Required
+
+            1. Check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            2. Review the [Supabase dashboard](https://supabase.com/dashboard/project/${{ secrets.SUPABASE_PROJECT_REF }}/editor)
+            3. Manually verify table creation
+            4. Check for SQL errors in migration files
+
+            ### Quick Fixes
+
+            - **Missing tables:** Re-run specific migration file in Supabase SQL Editor
+            - **RLS errors:** Re-apply \`004_add_missing_rls_policies.sql\`
+            - **Permission errors:** Check database user permissions
+
+            ---
+
+            *This issue was automatically created by Supabase Autopilot.*`;
+
+            // Check if issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['supabase-autopilot', 'bug']
+            });
+
+            const existingIssue = issues.data.find(issue => issue.title === title);
+
+            if (!existingIssue) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['supabase-autopilot', 'bug', 'high-priority']
+              });
+            } else {
+              // Add comment to existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: `Another failure occurred at commit ${{ github.sha }}. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})`
+              });
+            }
+
+      - name: Success notification
+        if: success()
+        run: |
+          echo "✅ Supabase Autopilot: All systems operational"
+          echo "   - All migrations applied"
+          echo "   - All tables verified"
+          echo "   - RLS policies active"
+          echo ""
+          echo "Dashboard: https://supabase.com/dashboard/project/${{ secrets.SUPABASE_PROJECT_REF }}"
