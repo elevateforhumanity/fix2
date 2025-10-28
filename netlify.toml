@@ -18,6 +18,70 @@
   # STRIPE_SECRET_KEY = "sk_test_your_key_here"
   # STRIPE_WEBHOOK_SECRET = "whsec_your_webhook_secret_here"
 
+# Production context: main branch deploys
+[context.production]
+  command = "pnpm install --frozen-lockfile && pnpm run build"
+  publish = "dist"
+  [context.production.environment]
+    NODE_ENV = "production"
+
+# Deploy Preview context: pull request deploys
+[context.deploy-preview]
+  command = "pnpm install --frozen-lockfile && pnpm run build"
+  publish = "dist"
+  [context.deploy-preview.environment]
+    NODE_ENV = "development"
+
+# Branch deploy context: all other branches
+[context.branch-deploy]
+  command = "pnpm install --frozen-lockfile && pnpm run build"
+  publish = "dist"
+  [context.branch-deploy.environment]
+    NODE_ENV = "development"
+
+# Functions configuration
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  # Increase timeout for AI/API operations
+  [functions."*"]
+    timeout = 30
+
+# Netlify Plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    output_path = "reports/lighthouse.html"
+
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs.cache_paths]
+    paths = ["node_modules", ".pnpm-store"]
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+  [plugins.inputs]
+    skipPatterns = ["/api/*", "*.pdf"]
+    todoPatterns = []
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://elevateforhumanity.org"
+    sitemapPath = "/sitemap.xml"
+    providers = ["google", "bing"]
+
+# Supabase Integration
+[[plugins]]
+  package = "@supabase/netlify-integration"
+
+# Cloudflare Integration (for CDN/DNS if using Cloudflare)
+[[plugins]]
+  package = "netlify-plugin-cloudflare-cache-purge"
+  [plugins.inputs]
+    # Add your Cloudflare zone ID and API token as environment variables
+    # CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN
+
 # Domain consolidation - redirect .com to .org
 [[redirects]]
   from = "https://elevateforhumanity.com/*"
@@ -31,9 +95,20 @@
   status = 301
   force = true
 
+# API function redirects
+[[redirects]]
+  from = "/api/automated-reporting"
+  to = "/.netlify/functions/automated-reporting"
+  status = 200
+
 [[redirects]]
   from = "/api/create-checkout-session"
   to = "/.netlify/functions/create-checkout-session"
+  status = 200
+
+[[redirects]]
+  from = "/api/create-donation-session"
+  to = "/.netlify/functions/create-donation-session"
   status = 200
 
 [[redirects]]
@@ -42,8 +117,68 @@
   status = 200
 
 [[redirects]]
+  from = "/api/enrollment-sync"
+  to = "/.netlify/functions/enrollment-sync"
+  status = 200
+
+[[redirects]]
+  from = "/api/generate-content-calendar"
+  to = "/.netlify/functions/generate-content-calendar"
+  status = 200
+
+[[redirects]]
+  from = "/api/generate-social-content"
+  to = "/.netlify/functions/generate-social-content"
+  status = 200
+
+[[redirects]]
+  from = "/api/health-check"
+  to = "/.netlify/functions/health-check"
+  status = 200
+
+[[redirects]]
+  from = "/api/health-db"
+  to = "/.netlify/functions/health-db"
+  status = 200
+
+[[redirects]]
+  from = "/api/job-placement-tracking"
+  to = "/.netlify/functions/job-placement-tracking"
+  status = 200
+
+[[redirects]]
+  from = "/api/post-scheduled-content"
+  to = "/.netlify/functions/post-scheduled-content"
+  status = 200
+
+[[redirects]]
+  from = "/api/post-to-social-media"
+  to = "/.netlify/functions/post-to-social-media"
+  status = 200
+
+[[redirects]]
+  from = "/api/sentry-webhook"
+  to = "/.netlify/functions/sentry-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-connect-onboarding"
+  to = "/.netlify/functions/stripe-connect-onboarding"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-split-payout"
+  to = "/.netlify/functions/stripe-split-payout"
+  status = 200
+
+[[redirects]]
   from = "/api/stripe-webhook"
   to = "/.netlify/functions/stripe-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/submit-scholarship-application"
+  to = "/.netlify/functions/submit-scholarship-application"
   status = 200
 
 [[redirects]]
