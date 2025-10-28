@@ -277,9 +277,9 @@ export function IntelligentDataProcessor() {
   };
 
   const generateFlowCharts = (
-    students: StudentRecord[],
+    _students: StudentRecord[],
     programs: ProgramData[],
-    analytics: AnalyticsData
+    _analytics: AnalyticsData
   ): FlowChartConfig[] => {
     return [
       {
