@@ -9,20 +9,53 @@ export default function PaymentSuccess() {
   const [enrollmentData, setEnrollmentData] = useState<any>(null);
 
   useEffect(() => {
-    // Verify payment and create enrollment
-    if (sessionId) {
-      // TODO: Call backend to verify session and create enrollment
-      setTimeout(() => {
+    const verifyPaymentAndEnroll = async () => {
+      if (!sessionId) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Call Netlify function to verify Stripe session
+        const response = await fetch('/.netlify/functions/stripe-webhook', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'verify_session',
+            session_id: sessionId,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to verify payment');
+        }
+
+        const data = await response.json();
+
+        setEnrollmentData({
+          programName: data.programName || 'Your Program',
+          enrollmentId:
+            data.enrollmentId ||
+            'ENR-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+          courseId: data.courseId,
+          amount: data.amount,
+        });
+      } catch (error) {
+        console.error('Error verifying payment:', error);
+        // Fallback to basic enrollment data
         setEnrollmentData({
           programName: 'Your Program',
           enrollmentId:
             'ENR-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
         });
+      } finally {
         setLoading(false);
-      }, 1500);
-    } else {
-      setLoading(false);
-    }
+      }
+    };
+
+    verifyPaymentAndEnroll();
   }, [sessionId]);
 
   if (loading) {

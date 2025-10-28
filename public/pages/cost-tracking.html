@@ -50,7 +50,10 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Navigation Header -->
-    <nav role="navigation" class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav
+      role="navigation"
+      class="bg-white border-b border-gray-200 sticky top-0 z-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -404,7 +407,8 @@
                   type="button"
                   onclick="hideRecordCostForm()"
                   class="text-gray-400 hover:text-gray-600"
-                 aria-label="Action button">
+                  aria-label="Action button"
+                >
                   <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
               </div>
@@ -484,7 +488,8 @@
                           >Amount</label
                         >
                         <input
-                          type="number" aria-label="number input"
+                          type="number"
+                          aria-label="number input"
                           name="amount"
                           step="0.01"
                           required
@@ -498,7 +503,8 @@
                           >Transaction Date</label
                         >
                         <input
-                          type="date" aria-label="date input"
+                          type="date"
+                          aria-label="date input"
                           name="transaction_date"
                           required
                           class="w-full border rounded px-3 py-2"
@@ -553,7 +559,8 @@
                           >Grant Number</label
                         >
                         <input
-                          type="text" aria-label="text input"
+                          type="text"
+                          aria-label="text input"
                           name="grant_number"
                           class="w-full border rounded px-3 py-2"
                           placeholder="e.g., WI-2024-001"
@@ -566,7 +573,8 @@
                         >Budget Line Item</label
                       >
                       <input
-                        type="text" aria-label="text input"
+                        type="text"
+                        aria-label="text input"
                         name="budget_line_item"
                         class="w-full border rounded px-3 py-2"
                         placeholder="e.g., Personnel - Case Manager"
@@ -588,7 +596,8 @@
                         <div class="flex space-x-4">
                           <label class="flex items-center">
                             <input
-                              type="radio" aria-label="radio input"
+                              type="radio"
+                              aria-label="radio input"
                               name="assignment_type"
                               value="direct"
                               class="mr-2"
@@ -598,7 +607,8 @@
                           </label>
                           <label class="flex items-center">
                             <input
-                              type="radio" aria-label="radio input"
+                              type="radio"
+                              aria-label="radio input"
                               name="assignment_type"
                               value="indirect"
                               class="mr-2"
@@ -608,7 +618,8 @@
                           </label>
                           <label class="flex items-center">
                             <input
-                              type="radio" aria-label="radio input"
+                              type="radio"
+                              aria-label="radio input"
                               name="assignment_type"
                               value="administrative"
                               class="mr-2"
@@ -670,7 +681,8 @@
                           >Vendor/Payee</label
                         >
                         <input
-                          type="text" aria-label="text input"
+                          type="text"
+                          aria-label="text input"
                           name="vendor_name"
                           class="w-full border rounded px-3 py-2"
                           placeholder="Vendor or employee name"
@@ -683,7 +695,8 @@
                             >Invoice/Receipt Number</label
                           >
                           <input
-                            type="text" aria-label="text input"
+                            type="text"
+                            aria-label="text input"
                             name="receipt_number"
                             class="w-full border rounded px-3 py-2"
                             placeholder="Invoice #12345"

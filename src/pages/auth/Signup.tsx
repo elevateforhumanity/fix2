@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signUp } from '../../services/auth';
 
 export default function Signup() {
-  const navigate = useNavigate();
+  // const _navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -80,7 +80,8 @@ export default function Signup() {
                 Email Address
               </label>
               <input
-                type="email" aria-label="email input"
+                type="email"
+                aria-label="email input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
@@ -94,7 +95,8 @@ export default function Signup() {
             <div>
               <label className="block text-sm font-medium mb-1">Password</label>
               <input
-                type="password" aria-label="password input"
+                type="password"
+                aria-label="password input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
@@ -110,7 +112,8 @@ export default function Signup() {
                 Confirm Password
               </label>
               <input
-                type="password" aria-label="password input"
+                type="password"
+                aria-label="password input"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"

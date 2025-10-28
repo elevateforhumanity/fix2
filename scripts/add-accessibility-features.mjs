@@ -77,7 +77,9 @@ function processFile(filePath) {
 
   if (modified) {
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`✅ Fixed ${fileFixCount} issues in ${path.relative(rootDir, filePath)}`);
+    console.log(
+      `✅ Fixed ${fileFixCount} issues in ${path.relative(rootDir, filePath)}`
+    );
   }
 
   return modified;

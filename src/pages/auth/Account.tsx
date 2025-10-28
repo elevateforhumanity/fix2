@@ -68,7 +68,8 @@ export default function Account() {
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
             <input
-              type="text" aria-label="text input"
+              type="text"
+              aria-label="text input"
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
               value={name}
               onChange={(e) => setName(e.target.value)}

@@ -1,14 +1,13 @@
-declare module '../lib/seo/SEO' {
-  import { FC } from 'react';
+import { FC } from 'react';
 
-  interface SEOProps {
-    title?: string;
-    description?: string;
-    keywords?: string;
-    image?: string;
-    url?: string;
-  }
-
-  const SEO: FC<SEOProps>;
-  export default SEO;
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+  canonical?: string;
 }
+
+declare const SEO: FC<SEOProps>;
+export default SEO;

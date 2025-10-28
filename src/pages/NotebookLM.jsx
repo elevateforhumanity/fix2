@@ -359,7 +359,8 @@ export function NotebookLM() {
                 </h2>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && askQuestion()}

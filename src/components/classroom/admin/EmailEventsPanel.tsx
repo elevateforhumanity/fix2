@@ -318,7 +318,8 @@ export default function EmailEventsPanel() {
               Search
             </label>
             <input
-              type="text" aria-label="text input"
+              type="text"
+              aria-label="text input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by recipient or subject..."

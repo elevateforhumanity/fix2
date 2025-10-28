@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import AppLayout from '../layouts/AppLayout';
+import AppLayout from '../layouts/AppLayout.jsx';
 import {
   zapierSocial,
   postToSocialMedia,
@@ -212,7 +212,8 @@ export default function SocialMediaManager() {
                 {['facebook', 'linkedin', 'youtube'].map((platform) => (
                   <label key={platform} className="flex items-center">
                     <input
-                      type="checkbox" aria-label="checkbox input"
+                      type="checkbox"
+                      aria-label="checkbox input"
                       checked={selectedPlatforms.includes(platform)}
                       onChange={() => togglePlatform(platform)}
                       className="h-4 w-4 text-brand-info focus:ring-brand-focus border-brand-border-dark rounded"
@@ -246,7 +247,8 @@ export default function SocialMediaManager() {
                 Media URL (Optional)
               </label>
               <input
-                type="url" aria-label="url input"
+                type="url"
+                aria-label="url input"
                 value={mediaUrl}
                 onChange={(e) => setMediaUrl(e.target.value)}
                 className="w-full px-3 py-2 border border-brand-border-dark rounded-md focus:outline-none focus:ring-2 focus:ring-brand-focus"
@@ -259,7 +261,8 @@ export default function SocialMediaManager() {
                 Schedule for Later (Optional)
               </label>
               <input
-                type="datetime-local" aria-label="datetime-local input"
+                type="datetime-local"
+                aria-label="datetime-local input"
                 value={scheduledTime}
                 onChange={(e) => setScheduledTime(e.target.value)}
                 className="w-full px-3 py-2 border border-brand-border-dark rounded-md focus:outline-none focus:ring-2 focus:ring-brand-focus"

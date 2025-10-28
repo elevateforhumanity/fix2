@@ -8,8 +8,8 @@ import {
 } from '../../services/courses';
 import QuizBlock from './QuizBlock';
 
-export default function LessonPage() {
-  const { lessonId } = useParams();
+export default function LessonPage(_props?: any) {
+  const { lessonId } = useParams<{ lessonId?: string }>();
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [siblings, setSiblings] = useState<Lesson[]>([]);
 

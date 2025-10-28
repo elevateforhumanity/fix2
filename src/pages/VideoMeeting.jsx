@@ -118,7 +118,8 @@ export function VideoMeeting() {
           Enter a meeting code to join
         </p>
         <input
-          type="text" aria-label="text input"
+          type="text"
+          aria-label="text input"
           placeholder="Meeting code"
           style={{
             width: '100%',
@@ -208,7 +209,8 @@ export function VideoMeeting() {
             Your Name
           </label>
           <input
-            type="text" aria-label="text input"
+            type="text"
+            aria-label="text input"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             placeholder="Enter your name"

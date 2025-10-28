@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  GraduationCap,
-  Heart,
-  DollarSign,
-  FileText,
-  CheckCircle,
-} from 'lucide-react';
+import { GraduationCap, CheckCircle } from 'lucide-react';
 
 export default function ApplyScholarship() {
   const [step, setStep] = useState(1);
@@ -116,8 +110,8 @@ export default function ApplyScholarship() {
       // Create FormData for file uploads
       const submitData = new FormData();
       Object.keys(formData).forEach((key) => {
-        if (formData[key] !== null) {
-          submitData.append(key, formData[key]);
+        if ((formData as any)[key] !== null) {
+          submitData.append(key, (formData as any)[key]);
         }
       });
 
@@ -235,7 +229,8 @@ export default function ApplyScholarship() {
                     First Name *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     name="first_name"
                     value={formData.first_name}
                     onChange={handleInputChange}
@@ -248,7 +243,8 @@ export default function ApplyScholarship() {
                     Last Name *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     name="last_name"
                     value={formData.last_name}
                     onChange={handleInputChange}
@@ -261,7 +257,8 @@ export default function ApplyScholarship() {
                     Email *
                   </label>
                   <input
-                    type="email" aria-label="email input"
+                    type="email"
+                    aria-label="email input"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -274,7 +271,8 @@ export default function ApplyScholarship() {
                     Phone *
                   </label>
                   <input
-                    type="tel" aria-label="tel input"
+                    type="tel"
+                    aria-label="tel input"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
@@ -287,7 +285,8 @@ export default function ApplyScholarship() {
                     Date of Birth *
                   </label>
                   <input
-                    type="date" aria-label="date input"
+                    type="date"
+                    aria-label="date input"
                     name="date_of_birth"
                     value={formData.date_of_birth}
                     onChange={handleInputChange}
@@ -300,7 +299,8 @@ export default function ApplyScholarship() {
                     Address *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
@@ -313,7 +313,8 @@ export default function ApplyScholarship() {
                     City *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
@@ -342,7 +343,8 @@ export default function ApplyScholarship() {
                     ZIP Code *
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     name="zip"
                     value={formData.zip}
                     onChange={handleInputChange}
@@ -450,7 +452,8 @@ export default function ApplyScholarship() {
                     Household Size *
                   </label>
                   <input
-                    type="number" aria-label="number input"
+                    type="number"
+                    aria-label="number input"
                     name="household_size"
                     value={formData.household_size}
                     onChange={handleInputChange}
@@ -518,9 +521,10 @@ export default function ApplyScholarship() {
                   ].map((item) => (
                     <label key={item.name} className="flex items-center">
                       <input
-                        type="checkbox" aria-label="checkbox input"
+                        type="checkbox"
+                        aria-label="checkbox input"
                         name={item.name}
-                        checked={formData[item.name]}
+                        checked={(formData as any)[item.name]}
                         onChange={handleInputChange}
                         className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-600"
                       />
@@ -592,7 +596,8 @@ export default function ApplyScholarship() {
                     Proof of Income (pay stubs, tax return, etc.) *
                   </label>
                   <input
-                    type="file" aria-label="file input"
+                    type="file"
+                    aria-label="file input"
                     name="proof_of_income"
                     onChange={handleFileChange}
                     required
@@ -605,7 +610,8 @@ export default function ApplyScholarship() {
                     Photo ID (driver's license, state ID, etc.) *
                   </label>
                   <input
-                    type="file" aria-label="file input"
+                    type="file"
+                    aria-label="file input"
                     name="identification"
                     onChange={handleFileChange}
                     required
@@ -618,7 +624,8 @@ export default function ApplyScholarship() {
                     Additional Documents (optional)
                   </label>
                   <input
-                    type="file" aria-label="file input"
+                    type="file"
+                    aria-label="file input"
                     name="additional_docs"
                     onChange={handleFileChange}
                     accept=".pdf,.jpg,.jpeg,.png"

@@ -212,7 +212,8 @@ export default function IdentityMappingPanel() {
         </p>
         <input
           ref={fileInputRef}
-          type="file" aria-label="file input"
+          type="file"
+          aria-label="file input"
           accept=".csv"
           onChange={handleFileUpload}
           disabled={uploading}
