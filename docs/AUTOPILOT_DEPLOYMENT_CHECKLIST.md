@@ -410,10 +410,10 @@ Go to **Repository → Settings → Secrets and variables → Actions → New re
 
 ### Troubleshooting Contacts
 
-- **Supabase Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
-- **Netlify Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
-- **GitHub Actions Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
-- **Slack Issues:** ****\*\*\*\*****\_\_\_****\*\*\*\*****
+- **Supabase Issues:** \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- **Netlify Issues:** \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- **GitHub Actions Issues:** \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- **Slack Issues:** \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
 
 ### Important URLs
 
