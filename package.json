@@ -30,6 +30,8 @@
     "jsdom": "23.2.0",
     "lucide-react": "^0.545.0",
     "node-fetch": "3.3.2",
+    "openai": "^6.7.0",
+    "parse-multipart-data": "^1.5.0",
     "postcss": "^8.5.6",
     "prop-types": "15.8.1",
     "react": "19.1.1",
@@ -89,8 +91,8 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
     "vite-plugin-html": "^3.2.0",
-    "vite-ssg": "^0.24.0",
     "vite-plugin-ssr": "^0.4.142",
+    "vite-ssg": "^0.24.0",
     "vitest": "^3.2.4",
     "web-vitals": "^5.1.0",
     "wrangler": "^4.43.0"
