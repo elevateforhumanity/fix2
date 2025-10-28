@@ -116,7 +116,23 @@ async function main() {
   lines.push(``);
   // Error boundary
   lines.push(
-    `class RouteErrorBoundary extends React.Component{constructor(p){super(p);this.state={e:null}}static getDerivedStateFromError(e){return{e}}componentDidCatch(e,i){console.error('Route error:',e,i)}render(){return this.state.e?React.createElement('pre',null,String(this.state.e?.message||this.state.e)):this.props.children}}`
+    `class RouteErrorBoundary extends React.Component<{children: React.ReactNode}, {e: Error | null}> {`,
+    `  constructor(props: {children: React.ReactNode}) {`,
+    `    super(props);`,
+    `    this.state = {e: null};`,
+    `  }`,
+    `  static getDerivedStateFromError(error: Error) {`,
+    `    return {e: error};`,
+    `  }`,
+    `  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {`,
+    `    console.error('Route error:', error, errorInfo);`,
+    `  }`,
+    `  render() {`,
+    `    return this.state.e`,
+    `      ? React.createElement('pre', null, String(this.state.e?.message || this.state.e))`,
+    `      : this.props.children;`,
+    `  }`,
+    `}`
   );
   lines.push(
     `const Fallback = () => <div className="min-h-screen grid place-items-center">Loading…</div>;`
