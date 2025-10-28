@@ -58,11 +58,12 @@
   [plugins.inputs]
     paths = ["node_modules", ".pnpm-store"]
 
-[[plugins]]
-  package = "netlify-plugin-checklinks"
-  [plugins.inputs]
-    skipPatterns = ["/api/*", "*.pdf"]
-    todoPatterns = []
+# Disabled due to plugin error
+# [[plugins]]
+#   package = "netlify-plugin-checklinks"
+#   [plugins.inputs]
+#     skipPatterns = ["/api/*", "*.pdf"]
+#     todoPatterns = []
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
