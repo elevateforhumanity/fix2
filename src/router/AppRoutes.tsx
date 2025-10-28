@@ -3,7 +3,23 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SiteLayout from '../layouts/SiteLayout';
 
-class RouteErrorBoundary extends React.Component{constructor(p){super(p);this.state={e:null}}static getDerivedStateFromError(e){return{e}}componentDidCatch(e,i){console.error('Route error:',e,i)}render(){return this.state.e?React.createElement('pre',null,String(this.state.e?.message||this.state.e)):this.props.children}}
+class RouteErrorBoundary extends React.Component<{children: React.ReactNode}, {e: Error | null}> {
+  constructor(props: {children: React.ReactNode}) {
+    super(props);
+    this.state = {e: null};
+  }
+  static getDerivedStateFromError(error: Error) {
+    return {e: error};
+  }
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Route error:', error, errorInfo);
+  }
+  render() {
+    return this.state.e
+      ? React.createElement('pre', null, String(this.state.e?.message || this.state.e))
+      : this.props.children;
+  }
+}
 const Fallback = () => <div className="min-h-screen grid place-items-center">Loading…</div>;
 
 const Page_0 = lazy(() => import('../pages/AITutor.jsx'));
