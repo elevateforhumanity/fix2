@@ -84,7 +84,7 @@
     </header>
 
     <!-- Purchase Details -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
+    <main role="main" class="max-w-6xl mx-auto px-4 py-12">
       <div x-show="purchaseData" class="space-y-8">
         <!-- Package Summary -->
         <div class="bg-white rounded-xl shadow-lg p-6">
@@ -272,7 +272,7 @@
             </p>
             <div class="flex gap-4">
               <input
-                type="text"
+                type="text" aria-label="text input"
                 value="https://elevateforhumanity.org/store?ref=emergency-buyer"
                 readonly
                 class="flex-1 px-3 py-2 border border-yellow-300 rounded text-sm"

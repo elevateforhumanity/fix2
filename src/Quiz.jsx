@@ -49,7 +49,7 @@ export default function Quiz() {
   );
 
   return (
-    <main style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
       <h1>{demoQuiz.title}</h1>
       <form onSubmit={handleSubmit}>
         {demoQuiz.questions.map((q, i) => (
@@ -60,7 +60,7 @@ export default function Quiz() {
             {q.options.map((opt, j) => (
               <label key={j} style={{ display: 'block', marginLeft: 16 }}>
                 <input
-                  type="radio"
+                  type="radio" aria-label="radio input"
                   name={`q${i}`}
                   checked={answers[i] === j}
                   onChange={() => handleSelect(i, j)}

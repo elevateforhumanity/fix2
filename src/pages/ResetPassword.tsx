@@ -104,7 +104,7 @@ export default function ResetPassword() {
               New Password
             </label>
             <input
-              type="password"
+              type="password" aria-label="password input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"
@@ -118,7 +118,7 @@ export default function ResetPassword() {
               Confirm Password
             </label>
             <input
-              type="password"
+              type="password" aria-label="password input"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"

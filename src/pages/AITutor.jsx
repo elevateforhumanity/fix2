@@ -294,7 +294,7 @@ export function AITutor() {
         >
           <div style={{ display: 'flex', gap: '1rem' }}>
             <input
-              type="text"
+              type="text" aria-label="text input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}

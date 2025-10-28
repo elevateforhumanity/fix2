@@ -315,7 +315,7 @@
                 >Full Name *</label
               >
               <input
-                type="text"
+                type="text" aria-label="text input"
                 name="entry.1045781291"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -328,7 +328,7 @@
                 >Email Address *</label
               >
               <input
-                type="email"
+                type="email" aria-label="email input"
                 name="entry.1166974658"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -341,7 +341,7 @@
                 >Phone Number *</label
               >
               <input
-                type="tel"
+                type="tel" aria-label="tel input"
                 name="entry.1065046570"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -378,7 +378,7 @@
             <div class="grid md:grid-cols-2 gap-4">
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="WIO - Workforce Innovation"
                   class="mr-2"
@@ -387,7 +387,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="WEX - Work Experience"
                   class="mr-2"
@@ -396,7 +396,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="WRG - Workforce Ready Grant"
                   class="mr-2"
@@ -405,7 +405,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="OJT - On-the-Job Training"
                   class="mr-2"
@@ -414,7 +414,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="Apprenticeship"
                   class="mr-2"
@@ -423,7 +423,7 @@
               </label>
               <label class="flex items-center">
                 <input
-                  type="checkbox"
+                  type="checkbox" aria-label="checkbox input"
                   name="entry.1357310962"
                   value="ETPL Training"
                   class="mr-2"
@@ -488,7 +488,7 @@
                 >Organization Name *</label
               >
               <input
-                type="text"
+                type="text" aria-label="text input"
                 name="entry.1891404661"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
@@ -501,7 +501,7 @@
                 >Website and Social Media Link *</label
               >
               <input
-                type="url"
+                type="url" aria-label="url input"
                 name="entry.1492820972"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
@@ -514,7 +514,7 @@
                 >Contact Person *</label
               >
               <input
-                type="text"
+                type="text" aria-label="text input"
                 name="entry.548951721"
                 required
                 class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
@@ -558,7 +558,7 @@
       <!-- Main Content Tabs -->
       <div class="bg-white rounded-xl shadow-lg mb-8">
         <div class="border-b border-gray-200">
-          <nav class="flex space-x-8 px-6">
+          <nav role="navigation" class="flex space-x-8 px-6">
             <button
               type="button"
               @click="activeTab = 'community'"

@@ -19,7 +19,7 @@ export default function MentorSignup() {
   }
 
   return (
-    <main style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
       <h1>Mentor Signup</h1>
       {!submitted ? (
         <form onSubmit={handleSubmit}>
@@ -37,7 +37,7 @@ export default function MentorSignup() {
             Email:
             <input
               name="email"
-              type="email"
+              type="email" aria-label="email input"
               value={form.email}
               onChange={handleChange}
               required

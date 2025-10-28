@@ -77,7 +77,7 @@ export function ElevateBrain() {
                 Access Code
               </label>
               <input
-                type="password"
+                type="password" aria-label="password input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter access code"

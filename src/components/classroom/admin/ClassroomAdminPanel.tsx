@@ -302,7 +302,7 @@ export default function ClassroomAdminPanel() {
                 Priority (1-10, higher = more urgent)
               </label>
               <input
-                type="number"
+                type="number" aria-label="number input"
                 min="1"
                 max="10"
                 value={priority}

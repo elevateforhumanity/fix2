@@ -197,7 +197,7 @@ export default function MainLanding() {
         description="Build professional websites instantly with Durable's AI. Choose from 150+ templates, get advanced features, and transparent pricing. No coding required."
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/main-landing`}
       />
-      <main id="main-content" style={{ minHeight: '100vh' }}>
+      <main role="main" id="main-content" style={{ minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
           style={{

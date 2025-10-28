@@ -20,7 +20,7 @@ import React from 'react';
 
 export default function Accessibility() {
   return (
-    <main
+    <main role="main"
       id="main-content"
       style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}
     >

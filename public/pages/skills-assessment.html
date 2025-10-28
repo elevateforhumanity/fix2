@@ -50,7 +50,7 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <!-- Navigation Header -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav role="navigation" class="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
@@ -78,7 +78,7 @@
       </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <main role="main" class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <!-- Page Header -->
       <div class="mb-8">
         <div
@@ -325,7 +325,7 @@
                   type="button"
                   onclick="hideNewAssessmentForm()"
                   class="text-gray-400 hover:text-gray-600"
-                >
+                 aria-label="Action button">
                   <i data-lucide="x" class="h-6 w-6"></i>
                 </button>
               </div>
@@ -408,7 +408,7 @@
                           >Assessor</label
                         >
                         <input
-                          type="text"
+                          type="text" aria-label="text input"
                           name="assessor_name"
                           class="w-full border rounded px-3 py-2"
                           placeholder="Assessor name"
@@ -611,10 +611,10 @@
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">${skill.name}</label>
-                        <input type="hidden" name="skill_area" value="${skill.key}">
+                        <input type="hidden" aria-label="hidden input" name="skill_area" value="${skill.key}">
                     </div>
                     <div>
-                        <input type="number" 
+                        <input type="number" aria-label="number input" 
                                name="score_${skill.key}" 
                                min="0" 
                                max="100" 

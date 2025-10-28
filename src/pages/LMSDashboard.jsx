@@ -121,7 +121,7 @@ export default function LMSDashboard() {
         canonical={`${import.meta.env.VITE_SITE_URL || ''}/lms`}
       />
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main role="main" className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-brand-text mb-2">
