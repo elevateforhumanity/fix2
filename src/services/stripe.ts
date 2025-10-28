@@ -18,23 +18,28 @@ export interface CheckoutSessionData {
  */
 export async function createCheckoutSession(data: CheckoutSessionData) {
   try {
-    // TODO: Replace with your actual backend API endpoint
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        programId: data.programId,
-        programName: data.programName,
-        price: data.price,
-        successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancelUrl: `${window.location.origin}/payment/cancelled`,
-      }),
-    });
+    // Call Netlify function to create Stripe checkout session
+    const response = await fetch(
+      '/.netlify/functions/create-checkout-session',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          programId: data.programId,
+          programName: data.programName,
+          price: data.price,
+          userId: data.userId,
+          successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancelUrl: `${window.location.origin}/payment/cancelled`,
+        }),
+      }
+    );
 
     if (!response.ok) {
-      throw new Error('Failed to create checkout session');
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Failed to create checkout session');
     }
 
     const { sessionId } = await response.json();
@@ -65,20 +70,26 @@ export async function redirectToCheckout(sessionId: string) {
  */
 export async function enrollFree(programId: string, userId: string) {
   try {
-    // TODO: Replace with your actual backend API endpoint
-    const response = await fetch('/api/enroll-free', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        programId,
-        userId,
-      }),
-    });
+    // Call Netlify function to create free enrollment
+    const response = await fetch(
+      '/.netlify/functions/create-enrollment-session',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          programId,
+          userId,
+          price: 0,
+          isFree: true,
+        }),
+      }
+    );
 
     if (!response.ok) {
-      throw new Error('Failed to enroll');
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Failed to enroll');
     }
 
     return await response.json();

@@ -383,7 +383,8 @@ export default function GradingInterface() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2">
                         <input
-                          type="number" aria-label="number input"
+                          type="number"
+                          aria-label="number input"
                           min="0"
                           max={submission.max_points}
                           value={grading[submission.id] || 0}

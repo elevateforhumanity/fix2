@@ -363,7 +363,8 @@ export function Slides() {
           }}
         >
           <input
-            type="text" aria-label="text input"
+            type="text"
+            aria-label="text input"
             value={presentation?.title || 'Untitled Presentation'}
             style={{
               border: 'none',

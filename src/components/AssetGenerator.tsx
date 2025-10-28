@@ -276,7 +276,8 @@ export default function AssetGenerator() {
                   Asset Name
                 </label>
                 <input
-                  type="text" aria-label="text input"
+                  type="text"
+                  aria-label="text input"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                   placeholder="e.g., Program Launch Social Post"
                   value={assetName}

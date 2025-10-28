@@ -81,7 +81,10 @@ export default function Home() {
           Official U.S. Government Contractor | DOL/DOE/DWD Compliant | SAM
           Registered
         </div>
-        <nav role="navigation" style={{ marginBottom: 32, textAlign: 'center' }}>
+        <nav
+          role="navigation"
+          style={{ marginBottom: 32, textAlign: 'center' }}
+        >
           <Link to="/" style={{ margin: '0 12px', fontWeight: 'bold' }}>
             Home
           </Link>

@@ -191,7 +191,8 @@ export default function Pay() {
             <div className="space-y-3">
               <label className="flex items-start space-x-3 p-4 border border-brand-border rounded-lg cursor-pointer hover:bg-brand-surface">
                 <input
-                  type="radio" aria-label="radio input"
+                  type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="full"
                   className="mt-1"
@@ -210,7 +211,8 @@ export default function Pay() {
               </label>
               <label className="flex items-start space-x-3 p-4 border border-brand-border rounded-lg cursor-pointer hover:bg-brand-surface">
                 <input
-                  type="radio" aria-label="radio input"
+                  type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="installments"
                   className="mt-1"
@@ -236,7 +238,8 @@ export default function Pay() {
               </label>
               <label className="flex items-start space-x-3 p-4 border border-green-200 rounded-lg cursor-pointer hover:bg-green-50 bg-green-25">
                 <input
-                  type="radio" aria-label="radio input"
+                  type="radio"
+                  aria-label="radio input"
                   name="payment_option"
                   value="bnpl"
                   className="mt-1"
@@ -293,7 +296,8 @@ export default function Pay() {
             </label>
             <div className="flex space-x-2">
               <input
-                type="text" aria-label="text input"
+                type="text"
+                aria-label="text input"
                 placeholder="Enter coupon code"
                 className="flex-1 border border-brand-border-dark rounded-lg px-3 py-2"
               />
@@ -321,7 +325,8 @@ export default function Pay() {
                     Card Number
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     placeholder="1234 5678 9012 3456"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -331,7 +336,8 @@ export default function Pay() {
                     Expiry Date
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     placeholder="MM/YY"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -341,7 +347,8 @@ export default function Pay() {
                     CVC
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     placeholder="123"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />
@@ -351,7 +358,8 @@ export default function Pay() {
                     ZIP Code
                   </label>
                   <input
-                    type="text" aria-label="text input"
+                    type="text"
+                    aria-label="text input"
                     placeholder="12345"
                     className="w-full border border-brand-border-dark rounded px-3 py-2"
                   />

@@ -357,7 +357,8 @@ export function AutoAttritionTracker() {
           </div>
           <label className="flex items-center">
             <input
-              type="checkbox" aria-label="checkbox input"
+              type="checkbox"
+              aria-label="checkbox input"
               checked={isTracking}
               onChange={(e) => setIsTracking(e.target.checked)}
               className="mr-2"

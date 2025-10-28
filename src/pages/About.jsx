@@ -109,6 +109,7 @@ export default function About() {
     'DWD Certified',
     'DOE Approved',
     'Veteran-Owned Small Business',
+    'Buy Black Certified',
     'ETPL Provider',
     'DOL Apprenticeship Sponsor',
     'WIOA Approved',
@@ -203,9 +204,12 @@ export default function About() {
                   , Elevate for Humanity emerged from a vision to create
                   meaningful pathways to prosperity through education and
                   Learn2Earn Workforce programs. As a certified{' '}
-                  <strong>Veteran-Owned Small Business</strong>, we understand
-                  the challenges faced by those seeking to transform their lives
-                  through education.
+                  <strong>Veteran-Owned Small Business</strong> and{' '}
+                  <strong className="text-brand-success">
+                    Buy Black Certified
+                  </strong>{' '}
+                  organization, we understand the challenges faced by those
+                  seeking to transform their lives through education.
                 </p>
                 <p>
                   In partnership with Selfish Inc. dba, we've built a
