@@ -14,7 +14,7 @@ const demoAnalytics = [
 
 export default function AnalyticsDashboard() {
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1>Analytics Dashboard</h1>
       <p>View learner progress, engagement, and export reports.</p>
       <table

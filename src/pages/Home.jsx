@@ -41,7 +41,7 @@ export default function Home() {
   const blogs = [];
 
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <Helmet>
         <title>
           Elevate for Humanity | Nonprofit Partnership with Selfish Inc. dba
@@ -81,7 +81,7 @@ export default function Home() {
           Official U.S. Government Contractor | DOL/DOE/DWD Compliant | SAM
           Registered
         </div>
-        <nav style={{ marginBottom: 32, textAlign: 'center' }}>
+        <nav role="navigation" style={{ marginBottom: 32, textAlign: 'center' }}>
           <Link to="/" style={{ margin: '0 12px', fontWeight: 'bold' }}>
             Home
           </Link>

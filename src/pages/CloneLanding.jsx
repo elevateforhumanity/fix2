@@ -7,7 +7,7 @@ import React from 'react';
 
 export default function CloneLanding() {
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1>Welcome to the Clone Landing Page</h1>
       <p>
         This is a placeholder for the Clone Landing page. Use this space to

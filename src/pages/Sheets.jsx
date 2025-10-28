@@ -119,7 +119,7 @@ export function Sheets() {
         }}
       >
         <input
-          type="text"
+          type="text" aria-label="text input"
           value={spreadsheet?.title || 'Untitled Spreadsheet'}
           style={{
             border: 'none',
@@ -179,7 +179,7 @@ export function Sheets() {
           {selectedCell.row + 1}
         </div>
         <input
-          type="text"
+          type="text" aria-label="text input"
           value={cellValue}
           onChange={handleCellChange}
           onKeyPress={(e) => {
@@ -276,7 +276,7 @@ export function Sheets() {
                   >
                     {isEditing && isCellSelected(row, col) ? (
                       <input
-                        type="text"
+                        type="text" aria-label="text input"
                         value={cellValue}
                         onChange={handleCellChange}
                         onBlur={handleCellSubmit}

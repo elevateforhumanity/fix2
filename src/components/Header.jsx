@@ -8,7 +8,7 @@ const Header = () => {
         <Link to="/" className="header-logo">
           <h1>Elevate for Humanity</h1>
         </Link>
-        <nav className="header-nav">
+        <nav role="navigation" className="header-nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/blog">Blog</Link>

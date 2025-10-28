@@ -7,7 +7,7 @@ import React from 'react';
 
 export default function FundingImpact() {
   return (
-    <main style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <h1>Funding Impact</h1>
       <p>
         Track the impact of workforce funding programs including WIOA, WRG, and

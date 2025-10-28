@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface ProcessedData {
   students: StudentRecord[];
   programs: ProgramData[];
@@ -275,9 +277,9 @@ export function IntelligentDataProcessor() {
   };
 
   const generateFlowCharts = (
-    students: StudentRecord[],
+    _students: StudentRecord[],
     programs: ProgramData[],
-    analytics: AnalyticsData
+    _analytics: AnalyticsData
   ): FlowChartConfig[] => {
     return [
       {
