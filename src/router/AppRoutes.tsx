@@ -3,30 +3,8 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SiteLayout from '../layouts/SiteLayout';
 
-class RouteErrorBoundary extends React.Component {
-  constructor(p) {
-    super(p);
-    this.state = { e: null };
-  }
-  static getDerivedStateFromError(e) {
-    return { e };
-  }
-  componentDidCatch(e, i) {
-    console.error('Route error:', e, i);
-  }
-  render() {
-    return this.state.e
-      ? React.createElement(
-          'pre',
-          null,
-          String(this.state.e?.message || this.state.e)
-        )
-      : this.props.children;
-  }
-}
-const Fallback = () => (
-  <div className="min-h-screen grid place-items-center">Loading…</div>
-);
+class RouteErrorBoundary extends React.Component{constructor(p){super(p);this.state={e:null}}static getDerivedStateFromError(e){return{e}}componentDidCatch(e,i){console.error('Route error:',e,i)}render(){return this.state.e?React.createElement('pre',null,String(this.state.e?.message||this.state.e)):this.props.children}}
+const Fallback = () => <div className="min-h-screen grid place-items-center">Loading…</div>;
 
 const Page_0 = lazy(() => import('../pages/AITutor.jsx'));
 const Page_1 = lazy(() => import('../pages/About.jsx'));
@@ -159,9 +137,7 @@ const Page_127 = lazy(() => import('../pages/auth/ForgotPassword.tsx'));
 const Page_128 = lazy(() => import('../pages/auth/Login.tsx'));
 const Page_129 = lazy(() => import('../pages/auth/Signup.tsx'));
 const Page_130 = lazy(() => import('../pages/instructor/CourseEditor.tsx'));
-const Page_131 = lazy(
-  () => import('../pages/instructor/InstructorDashboard.tsx')
-);
+const Page_131 = lazy(() => import('../pages/instructor/InstructorDashboard.tsx'));
 const Page_132 = lazy(() => import('../pages/instructor/LessonManager.tsx'));
 const Page_133 = lazy(() => import('../pages/lms/CoursePage.tsx'));
 const Page_134 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
@@ -173,14 +149,12 @@ const Page_139 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
 const Page_140 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
 const Page_141 = lazy(() => import('../pages/sisters/PeerSupport.jsx'));
 const Page_142 = lazy(() => import('../pages/sisters/Volunteer.jsx'));
-const Page_143 = lazy(
-  () => import('../pages/sisters/VolunteerOpportunities.jsx')
-);
+const Page_143 = lazy(() => import('../pages/sisters/VolunteerOpportunities.jsx'));
 const Page_144 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
 const Page_145 = lazy(() => import('../pages/sisters/Wellness.jsx'));
 const Page_146 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
 
-export default function AppRoutes() {
+export default function AppRoutes(){
   return (
     <RouteErrorBoundary>
       <Suspense fallback={<Fallback />}>
@@ -316,10 +290,7 @@ export default function AppRoutes() {
             <Route path="/auth/login" element={<Page_128 />} />
             <Route path="/auth/signup" element={<Page_129 />} />
             <Route path="/instructor/course-editor" element={<Page_130 />} />
-            <Route
-              path="/instructor/instructor-dashboard"
-              element={<Page_131 />}
-            />
+            <Route path="/instructor/instructor-dashboard" element={<Page_131 />} />
             <Route path="/instructor/lesson-manager" element={<Page_132 />} />
             <Route path="/lms/course/:courseId" element={<Page_133 />} />
             <Route path="/lms/courses-index" element={<Page_134 />} />
@@ -331,10 +302,7 @@ export default function AppRoutes() {
             <Route path="/sisters/mentorship" element={<Page_140 />} />
             <Route path="/sisters/peer-support" element={<Page_141 />} />
             <Route path="/sisters/volunteer" element={<Page_142 />} />
-            <Route
-              path="/sisters/volunteer-opportunities"
-              element={<Page_143 />}
-            />
+            <Route path="/sisters/volunteer-opportunities" element={<Page_143 />} />
             <Route path="/sisters/volunteer-stories" element={<Page_144 />} />
             <Route path="/sisters/wellness" element={<Page_145 />} />
             <Route path="/sisters/wellness-resources" element={<Page_146 />} />
