@@ -1,0 +1,116 @@
+name: Autopilot Master
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tasks:
+        description: 'Comma-separated task kinds to enqueue'
+        required: false
+        default: 'db_migrate,redeploy'
+  schedule:
+    - cron: '*/15 * * * *' # Every 15 minutes
+
+jobs:
+  autopilot:
+    runs-on: ubuntu-latest
+    env:
+      WORKER_ENDPOINT: ${{ secrets.AUTOPILOT_WORKER_URL }}
+      BRIDGE_ENDPOINT: ${{ secrets.AUTOPILOT_BRIDGE_URL }}
+      AUTOPILOT_SECRET: ${{ secrets.AUTOPILOT_SECRET }}
+      NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      HEALTH_URL: https://elevateforhumanity.org/api/health
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ALL_IN_ONE SQL migration
+        run: |
+          cat supabase/migrations/*.sql > supabase/migrations/ALL_IN_ONE.sql
+          echo "✅ Combined $(ls supabase/migrations/*.sql | wc -l) migration files"
+
+      - name: Enqueue tasks
+        run: |
+          post_worker() {
+            curl -sS -X POST "$WORKER_ENDPOINT" \
+              -H "Content-Type: application/json" \
+              -H "x-autopilot-sign: $AUTOPILOT_SECRET" \
+              -d "$1" >/dev/null
+          }
+
+          post_bridge() {
+            curl -sS -X POST "$BRIDGE_ENDPOINT" \
+              -H "Content-Type: application/json" \
+              -H "x-bridge-sign: $AUTOPILOT_SECRET" \
+              -d "{\"text\":\"$1\"}" >/dev/null
+          }
+
+          # Infrastructure tasks
+          post_worker "{\"task\":\"enqueue\",\"kind\":\"db_migrate\",\"payload\":$(jq -Rs . < supabase/migrations/ALL_IN_ONE.sql)}"
+          post_bridge "/enqueue db_rls_fix"
+          post_bridge "/enqueue redeploy"
+
+          # Accessibility & Media
+          post_bridge "/enqueue axe_a11y_scan url=https://elevateforhumanity.org"
+          
+          # Internationalization
+          post_bridge "/enqueue i18n_build locales=en,es"
+
+          # AI Features
+          post_bridge "/enqueue ai_features_boot"
+
+          # Security & Compliance
+          post_bridge "/enqueue security_audit"
+          post_bridge "/enqueue compliance_report"
+
+          echo "✅ Tasks enqueued"
+
+      - name: Process task queue
+        run: |
+          # Run worker loop 3 times to process tasks
+          for i in {1..3}; do
+            echo "Loop $i..."
+            curl -sS -X POST "$WORKER_ENDPOINT" \
+              -H "Content-Type: application/json" \
+              -H "x-autopilot-sign: $AUTOPILOT_SECRET" \
+              -d '{"task":"loop"}' || true
+            sleep 2
+          done
+          echo "✅ Queue processed"
+
+      - name: Health check
+        id: health
+        continue-on-error: true
+        run: |
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" "$HEALTH_URL" || echo 000)
+          echo "code=$CODE" >> $GITHUB_OUTPUT
+          echo "Health check: $CODE"
+
+      - name: Trigger rebuild if unhealthy
+        if: steps.health.outputs.code != '200'
+        run: |
+          echo "⚠️ Site unhealthy (HTTP ${{ steps.health.outputs.code }}), triggering rebuild..."
+          curl -X POST "$NETLIFY_BUILD_HOOK" || true
+
+      - name: Get task status
+        run: |
+          curl -sS -X POST "$WORKER_ENDPOINT" \
+            -H "Content-Type: application/json" \
+            -H "x-autopilot-sign: $AUTOPILOT_SECRET" \
+            -d '{"task":"status","limit":10}' | jq .
+
+      - name: Notify Slack on success
+        if: success()
+        run: |
+          curl -X POST -H 'Content-Type: application/json' \
+            --data "{\"text\":\"✅ Autopilot Master complete - Health: ${{ steps.health.outputs.code }}\"}" \
+            "$SLACK_WEBHOOK_URL" || true
+
+      - name: Notify Slack on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-Type: application/json' \
+            --data "{\"text\":\"❌ Autopilot Master failed - Check Actions logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "$SLACK_WEBHOOK_URL" || true
