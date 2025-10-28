@@ -60,7 +60,7 @@ export default function InstructorCourseCreate() {
         description="Create and manage your courses"
       />
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main role="main" className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-brand-text mb-2">
             Create New Course
@@ -86,7 +86,7 @@ export default function InstructorCourseCreate() {
                     Course Title
                   </label>
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
                     placeholder="e.g., Construction Pre-Apprenticeship"
                     value={course.title}
@@ -121,7 +121,7 @@ export default function InstructorCourseCreate() {
                     <p className="text-xs text-brand-text-light">
                       PNG, JPG up to 5MB
                     </p>
-                    <input type="file" className="hidden" accept="image/*" />
+                    <input type="file" aria-label="file input" className="hidden" accept="image/*" />
                   </div>
                 </div>
               </CardContent>
@@ -154,7 +154,7 @@ export default function InstructorCourseCreate() {
                 {/* New Module */}
                 <div className="border-2 border-dashed rounded-lg p-6">
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     className="w-full px-4 py-2 border rounded-lg mb-4"
                     placeholder="Module Title (e.g., Introduction to Safety)"
                     value={currentModule.title}
@@ -221,7 +221,7 @@ export default function InstructorCourseCreate() {
                             <CheckSquare className="w-4 h-4" />
                           )}
                           <input
-                            type="text"
+                            type="text" aria-label="text input"
                             className="flex-1 px-2 py-1 text-sm border rounded"
                             placeholder={`${lesson.type} title...`}
                           />

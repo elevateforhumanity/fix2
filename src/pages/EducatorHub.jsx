@@ -17,7 +17,7 @@ export default function EducatorHub() {
                 Elevate for Humanity
               </h1>
             </div>
-            <nav className="hidden md:flex space-x-8">
+            <nav role="navigation" className="hidden md:flex space-x-8">
               <a
                 href="/programs"
                 className="text-brand-text-light hover:text-brand-text"
@@ -41,7 +41,7 @@ export default function EducatorHub() {
         </div>
       </header>
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main role="main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-brand-text sm:text-5xl md:text-6xl">
             Educator Hub

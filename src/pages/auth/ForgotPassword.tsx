@@ -62,7 +62,7 @@ export default function ForgotPassword() {
             <div>
               <label className="block text-sm font-medium mb-1">Email</label>
               <input
-                type="email"
+                type="email" aria-label="email input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"

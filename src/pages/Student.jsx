@@ -20,7 +20,7 @@ import React from 'react';
 
 export default function Student() {
   return (
-    <main
+    <main role="main"
       style={{
         maxWidth: 700,
         margin: '40px auto',

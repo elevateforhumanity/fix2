@@ -31,11 +31,11 @@ export default function CurriculumUpload() {
   };
 
   return (
-    <main style={{ padding: 32 }}>
+    <main role="main" style={{ padding: 32 }}>
       <h1>AI Curriculum Upload</h1>
       <form onSubmit={handleUpload}>
         <input
-          type="file"
+          type="file" aria-label="file input"
           accept=".pdf,.docx,.txt,.mp4"
           onChange={(e) => setFile(e.target.files[0])}
           required

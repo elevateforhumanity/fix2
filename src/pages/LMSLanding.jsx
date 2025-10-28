@@ -129,7 +129,7 @@ export default function LMSLanding() {
           </div>
         </div>
       </header>
-      <main>
+      <main role="main">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 px-4 text-center overflow-hidden">
           <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] bg-[size:20px_20px]" />

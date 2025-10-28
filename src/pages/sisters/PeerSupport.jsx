@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PeerSupport() {
   return (
-    <main style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
+    <main role="main" style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
       <h1>Peer Support</h1>
       <p>
         Connect with fellow students and community members for encouragement,

@@ -98,7 +98,7 @@ export default function CourseEditor() {
               Course Code *
             </label>
             <input
-              type="text"
+              type="text" aria-label="text input"
               value={form.code}
               onChange={(e) => setForm({ ...form, code: e.target.value })}
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
@@ -109,7 +109,7 @@ export default function CourseEditor() {
           <div>
             <label className="block text-sm font-medium mb-1">Title *</label>
             <input
-              type="text"
+              type="text" aria-label="text input"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"

@@ -118,7 +118,7 @@ export function VideoMeeting() {
           Enter a meeting code to join
         </p>
         <input
-          type="text"
+          type="text" aria-label="text input"
           placeholder="Meeting code"
           style={{
             width: '100%',
@@ -208,7 +208,7 @@ export function VideoMeeting() {
             Your Name
           </label>
           <input
-            type="text"
+            type="text" aria-label="text input"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             placeholder="Enter your name"
@@ -239,7 +239,7 @@ export function VideoMeeting() {
               cursor: 'pointer',
             }}
           >
-            <input type="checkbox" defaultChecked />
+            <input type="checkbox" aria-label="checkbox input" defaultChecked />
             <span style={{ fontSize: '0.875rem' }}>Camera on</span>
           </label>
           <label
@@ -250,7 +250,7 @@ export function VideoMeeting() {
               cursor: 'pointer',
             }}
           >
-            <input type="checkbox" defaultChecked />
+            <input type="checkbox" aria-label="checkbox input" defaultChecked />
             <span style={{ fontSize: '0.875rem' }}>Microphone on</span>
           </label>
         </div>

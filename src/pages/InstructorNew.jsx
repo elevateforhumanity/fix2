@@ -188,7 +188,7 @@ export default function InstructorNew() {
                     Course Title *
                   </label>
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     name="title"
                     value={courseData.title}
                     onChange={handleChange}
@@ -224,7 +224,7 @@ export default function InstructorNew() {
                     Subtitle
                   </label>
                   <input
-                    type="text"
+                    type="text" aria-label="text input"
                     name="subtitle"
                     value={courseData.subtitle}
                     onChange={handleChange}
@@ -464,7 +464,7 @@ export default function InstructorNew() {
                     Course Price (USD)
                   </label>
                   <input
-                    type="number"
+                    type="number" aria-label="number input"
                     name="price"
                     value={courseData.price}
                     onChange={handleChange}

@@ -63,7 +63,7 @@ export default function Mentorship() {
       <header>
         <NavBar />
       </header>
-      <main id="main-content" tabIndex={-1} style={{ padding: 32 }}>
+      <main role="main" id="main-content" tabIndex={-1} style={{ padding: 32 }}>
         <h1>Mentorship Hub</h1>
         <p>
           Connect with experienced mentors for career guidance, skill
