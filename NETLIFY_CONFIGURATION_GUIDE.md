@@ -5,6 +5,7 @@
 ### Method 1: Netlify Dashboard (Easiest)
 
 1. **Go to Netlify Dashboard**
+
    ```
    https://app.netlify.com/sites/elevateforhumanityfix2/deploys
    ```
@@ -65,21 +66,25 @@ netlify build && netlify deploy --prod
 **Navigate to:** Site Settings → Build & Deploy → Build Settings
 
 **Build Command:**
+
 ```bash
 pnpm install && pnpm run build
 ```
 
 **Publish Directory:**
+
 ```
 dist
 ```
 
 **Functions Directory:**
+
 ```
 netlify/functions
 ```
 
 **Base Directory:**
+
 ```
 (leave empty)
 ```
@@ -89,6 +94,7 @@ netlify/functions
 **Navigate to:** Site Settings → Environment Variables
 
 **Required Variables:**
+
 ```bash
 # Supabase Configuration
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -103,6 +109,7 @@ GENERATE_SOURCEMAP=false
 ```
 
 **Optional Variables (Add Later):**
+
 ```bash
 # Stripe (for payments)
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_your_key_here
@@ -118,16 +125,19 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewfor
 **Navigate to:** Site Settings → Build & Deploy → Build Settings
 
 **Build Image:**
+
 ```
 Ubuntu Focal 20.04 (default)
 ```
 
 **Node Version:**
+
 ```
 20.11.1 (set via NODE_VERSION env var)
 ```
 
 **Package Manager:**
+
 ```
 pnpm (detected automatically)
 ```
@@ -137,16 +147,19 @@ pnpm (detected automatically)
 **Navigate to:** Site Settings → Build & Deploy → Deploy Contexts
 
 **Production Branch:**
+
 ```
 main
 ```
 
 **Branch Deploys:**
+
 ```
 All branches (or specific branches only)
 ```
 
 **Deploy Previews:**
+
 ```
 ✅ Any pull request against your production branch
 ```
@@ -156,17 +169,20 @@ All branches (or specific branches only)
 **Navigate to:** Site Settings → Domain Management
 
 **Primary Domain:**
+
 ```
 www.elevateforhumanity.org
 ```
 
 **Domain Aliases:**
+
 ```
 elevateforhumanity.org (redirects to www)
 elevateforhumanityfix2.netlify.app (Netlify subdomain)
 ```
 
 **SSL/TLS Certificate:**
+
 ```
 ✅ Automatic HTTPS with Let's Encrypt
 ```
@@ -180,17 +196,20 @@ elevateforhumanityfix2.netlify.app (Netlify subdomain)
 #### Issue 1: Build Command Failed
 
 **Error:**
+
 ```
 Build script returned non-zero exit code: 1
 ```
 
 **Solutions:**
+
 1. Check `package.json` scripts are correct
 2. Verify all dependencies are in `package.json`
 3. Check for TypeScript errors
 4. Review build logs for specific errors
 
 **Fix:**
+
 ```bash
 # Test build locally first
 pnpm install
@@ -205,11 +224,13 @@ git push origin main
 #### Issue 2: Environment Variables Missing
 
 **Error:**
+
 ```
 VITE_SUPABASE_URL is not defined
 ```
 
 **Solution:**
+
 1. Go to Site Settings → Environment Variables
 2. Add missing variables
 3. Trigger new deploy
@@ -217,11 +238,13 @@ VITE_SUPABASE_URL is not defined
 #### Issue 3: Out of Build Minutes
 
 **Error:**
+
 ```
 Build minutes exceeded for this month
 ```
 
 **Solution:**
+
 1. Check usage: Site Settings → Usage & Billing
 2. Wait until next month (free tier resets)
 3. Or upgrade to Personal plan ($9/month)
@@ -229,6 +252,7 @@ Build minutes exceeded for this month
 #### Issue 4: Plugin Errors
 
 **Error:**
+
 ```
 Plugin "@netlify/plugin-lighthouse" internal error
 ```
@@ -239,11 +263,13 @@ Already fixed in latest commit - plugin disabled in `netlify.toml`
 #### Issue 5: Function Build Errors
 
 **Error:**
+
 ```
 Error bundling function: programs
 ```
 
 **Solution:**
+
 1. Check `netlify/functions/` files for syntax errors
 2. Verify `@netlify/functions` is in `devDependencies`
 3. Check function imports are correct
@@ -253,6 +279,7 @@ Error bundling function: programs
 ## Deployment Checklist
 
 ### Pre-Deployment
+
 - [x] All code committed to Git
 - [x] Build passes locally (`pnpm build`)
 - [x] All tests pass (`pnpm test`)
@@ -260,6 +287,7 @@ Error bundling function: programs
 - [x] `netlify.toml` configured correctly
 
 ### Netlify Configuration
+
 - [ ] Site connected to GitHub repository
 - [ ] Build command set: `pnpm install && pnpm run build`
 - [ ] Publish directory set: `dist`
@@ -268,6 +296,7 @@ Error bundling function: programs
 - [ ] SSL certificate active
 
 ### Post-Deployment
+
 - [ ] Build completes successfully
 - [ ] Site loads without errors
 - [ ] All pages accessible
@@ -317,7 +346,7 @@ Error bundling function: programs
     Referrer-Policy = "strict-origin-when-cross-origin"
 ```
 
-### _redirects (Already Configured)
+### \_redirects (Already Configured)
 
 ```
 # SPA history fallback
@@ -335,21 +364,25 @@ Error bundling function: programs
 ### Option 1: Via Netlify Dashboard
 
 1. **Login to Netlify**
+
    ```
    https://app.netlify.com
    ```
 
 2. **Select Your Site**
+
    ```
    elevateforhumanityfix2
    ```
 
 3. **Go to Deploys Tab**
+
    ```
    Click "Deploys" in top navigation
    ```
 
 4. **Trigger Deploy**
+
    ```
    Click "Trigger deploy" button
    Select "Deploy site"
@@ -405,11 +438,13 @@ netlify deploy --prod --dir=dist
 ### Real-Time Logs
 
 **Dashboard:**
+
 ```
 https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 ```
 
 **What to Watch:**
+
 1. **Build Start** - Cloning repository
 2. **Install Dependencies** - pnpm install
 3. **Build Process** - pnpm build
@@ -453,11 +488,13 @@ https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 ### After Successful Deploy
 
 1. **Check Site Loads**
+
    ```
    https://www.elevateforhumanity.org
    ```
 
 2. **Test Key Pages**
+
    ```
    / (home)
    /programs
@@ -467,6 +504,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/deploys
    ```
 
 3. **Test Coming Soon Pages**
+
    ```
    /community
    /sisters/volunteer-opportunities
@@ -474,12 +512,14 @@ https://app.netlify.com/sites/elevateforhumanityfix2/deploys
    ```
 
 4. **Test API Endpoints**
+
    ```
    /api/public/programs.json
    /api/public/courses.json
    ```
 
 5. **Check Sitemaps**
+
    ```
    /sitemap.xml
    /sitemap-static.xml
@@ -502,6 +542,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 **Cause:** Build taking longer than 15 minutes (free tier limit)
 
 **Solution:**
+
 - Optimize build process
 - Remove unnecessary dependencies
 - Disable heavy plugins
@@ -512,6 +553,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 **Cause:** pnpm lock file issues or missing packages
 
 **Solution:**
+
 ```bash
 # Regenerate lock file
 rm pnpm-lock.yaml
@@ -526,6 +568,7 @@ git push
 **Cause:** TypeScript or import errors in functions
 
 **Solution:**
+
 - Check `netlify/functions/*.ts` for errors
 - Verify all imports are correct
 - Test functions locally
@@ -535,6 +578,7 @@ git push
 **Cause:** Site not properly linked to repository
 
 **Solution:**
+
 1. Go to Site Settings → Build & Deploy
 2. Click "Link repository"
 3. Select GitHub and your repository
@@ -545,12 +589,14 @@ git push
 ## Support Resources
 
 ### Netlify Documentation
+
 - **Main Docs:** https://docs.netlify.com
 - **Build Settings:** https://docs.netlify.com/configure-builds/overview/
 - **Functions:** https://docs.netlify.com/functions/overview/
 - **Troubleshooting:** https://docs.netlify.com/configure-builds/troubleshooting-tips/
 
 ### Get Help
+
 - **Community Forum:** https://answers.netlify.com
 - **Support Email:** support@netlify.com
 - **Status Page:** https://www.netlifystatus.com
