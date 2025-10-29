@@ -55,10 +55,11 @@
     timeout = 30
 
 # Netlify Plugins
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-  [plugins.inputs]
-    output_path = "reports/lighthouse.html"
+# Disabled due to puppeteer module compatibility issue
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+#   [plugins.inputs]
+#     output_path = "reports/lighthouse.html"
 
 [[plugins]]
   package = "netlify-plugin-cache"

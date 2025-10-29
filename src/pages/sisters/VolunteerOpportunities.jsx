@@ -1,15 +1,21 @@
 import React from 'react';
+import ComingSoon from '../../components/ComingSoon';
 
 export default function VolunteerOpportunities() {
   return (
-    <main role="main" style={{ padding: 32 }}>
-      <h1>Volunteer Opportunities</h1>
-      <p>This is a placeholder for Volunteer Opportunities.</p>
-      <p>
-        To view this page in development, run the command:{' '}
-        <code>npm run dev</code> and open <code>http://localhost:5173/</code> in
-        your browser.
-      </p>
-    </main>
+    <ComingSoon
+      title="Volunteer Opportunities"
+      description="Make a difference in your community by volunteering with Elevate for Humanity. Help students succeed through mentorship, tutoring, and community support."
+      icon="🤝"
+      features={[
+        'Mentor students in your area of expertise',
+        'Assist with career workshops and job fairs',
+        'Support community outreach programs',
+        'Help with administrative tasks and events',
+        'Flexible scheduling to fit your availability',
+        'Make a lasting impact on students\' lives',
+      ]}
+      launchDate="Q1 2025"
+    />
   );
 }

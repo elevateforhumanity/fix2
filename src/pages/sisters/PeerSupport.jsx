@@ -1,19 +1,21 @@
 import React from 'react';
+import ComingSoon from '../../components/ComingSoon';
 
 export default function PeerSupport() {
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
-      <h1>Peer Support</h1>
-      <p>
-        Connect with fellow students and community members for encouragement,
-        advice, and shared experiences.
-      </p>
-      <ul>
-        <li>Join a peer support group</li>
-        <li>Share your story or challenges</li>
-        <li>Find a study buddy or accountability partner</li>
-        <li>Access mental health and wellness resources</li>
-      </ul>
-    </main>
+    <ComingSoon
+      title="Peer Support Network"
+      description="Connect with fellow students for encouragement, advice, and shared experiences. Build a supportive community that helps you succeed."
+      icon="💬"
+      features={[
+        'Join peer support groups by program or interest',
+        'Share your story and challenges in a safe space',
+        'Find study buddies and accountability partners',
+        'Access mental health and wellness resources',
+        'Participate in group discussions and forums',
+        'Get support from students who understand your journey',
+      ]}
+      launchDate="Q1 2025"
+    />
   );
 }

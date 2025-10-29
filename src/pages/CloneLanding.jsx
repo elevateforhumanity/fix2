@@ -4,16 +4,23 @@
   See LICENSE file for details.
 */
 import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 export default function CloneLanding() {
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
-      <h1>Welcome to the Clone Landing Page</h1>
-      <p>
-        This is a placeholder for the Clone Landing page. Use this space to
-        introduce your platform, highlight key features, or direct users to
-        important sections of your ecosystem.
-      </p>
-    </main>
+    <ComingSoon
+      title="White Label Platform"
+      description="Launch your own branded workforce development platform with our white label solution. Perfect for organizations, schools, and training providers."
+      icon="🎨"
+      features={[
+        'Fully customizable branding and design',
+        'Your logo, colors, and domain name',
+        'Complete LMS and course management',
+        'Student enrollment and tracking',
+        'Payment processing and reporting',
+        'Dedicated support and training',
+      ]}
+      launchDate="Q2 2025"
+    />
   );
 }
