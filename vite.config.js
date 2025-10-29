@@ -1,9 +1,50 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import sitemap from 'vite-plugin-sitemap';
+
+// Define all routes for sitemap generation
+const routes = [
+  '/',
+  '/programs',
+  '/programs/barber',
+  '/programs/building-tech',
+  '/programs/cna',
+  '/programs/cpr-aed-first-aid',
+  '/programs/business-startup-marketing',
+  '/programs/tax-office-startup',
+  '/programs/esthetician-client-services',
+  '/programs/beauty-career-educator',
+  '/programs/public-safety-reentry',
+  '/lms',
+  '/lms/courses',
+  '/certificates',
+  '/verify',
+  '/about',
+  '/partners',
+  '/support',
+  '/community',
+  '/connect',
+  '/auth/login',
+  '/auth/signup',
+  '/legal/terms',
+  '/legal/privacy',
+  '/legal/ip-notice',
+  '/legal/dmca',
+];
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    sitemap({
+      hostname: 'https://elevateforhumanity.org',
+      dynamicRoutes: routes,
+      outDir: 'dist',
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    }),
+  ],
   base: '/',
   resolve: {
     alias: {
