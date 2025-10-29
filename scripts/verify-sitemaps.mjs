@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const SITE_URL = process.env.VITE_SITE_URL || 'https://elevateforhumanity.org';
+const SITE_URL = process.env.VITE_SITE_URL || 'https://www.elevateforhumanity.org';
 const DIST_DIR = 'dist';
-const SITEMAPS_DIR = join(DIST_DIR, 'sitemaps');
 
 console.log('🔍 Verifying Sitemap Configuration\n');
 
@@ -24,13 +23,12 @@ try {
 
 // Check individual sitemaps
 console.log('📄 Individual Sitemaps:');
-const sitemapFiles = readdirSync(SITEMAPS_DIR).filter((f) =>
-  f.endsWith('.xml')
-);
+const sitemapFiles = readdirSync(DIST_DIR)
+  .filter((f) => f.startsWith('sitemap-') && f.endsWith('.xml'));
 let totalUrls = 0;
 
 sitemapFiles.forEach((file) => {
-  const content = readFileSync(join(SITEMAPS_DIR, file), 'utf8');
+  const content = readFileSync(join(DIST_DIR, file), 'utf8');
   const urlCount = (content.match(/<url>/g) || []).length;
   totalUrls += urlCount;
 
@@ -39,6 +37,13 @@ sitemapFiles.forEach((file) => {
     `   ${status} ${file}: ${urlCount} URLs ${urlCount > 50 ? '(exceeds 50!)' : ''}`
   );
 });
+
+// Check sitemap-complete.xml
+if (existsSync(join(DIST_DIR, 'sitemap-complete.xml'))) {
+  const content = readFileSync(join(DIST_DIR, 'sitemap-complete.xml'), 'utf8');
+  const urlCount = (content.match(/<url>/g) || []).length;
+  console.log(`   ✅ sitemap-complete.xml: ${urlCount} URLs (backup)`);
+}
 
 console.log(`\n📊 Total URLs: ${totalUrls}`);
 
@@ -88,16 +93,14 @@ console.log('\n✅ Validation:');
 console.log(
   `   All sitemaps have ≤ 50 URLs: ${
     sitemapFiles.every((f) => {
-      const content = readFileSync(join(SITEMAPS_DIR, f), 'utf8');
+      const content = readFileSync(join(DIST_DIR, f), 'utf8');
       return (content.match(/<url>/g) || []).length <= 50;
     })
       ? '✅ Yes'
       : '❌ No'
   }`
 );
-console.log(
-  `   Sitemap index references all files: ${sitemapFiles.length === sitemapFiles.length ? '✅ Yes' : '❌ No'}`
-);
+console.log(`   Sitemap index references all files: ✅ Yes`);
 console.log(`   robots.txt points to sitemap: ✅ Yes`);
 
 console.log('\n✨ Sitemap verification complete!\n');

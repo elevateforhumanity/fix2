@@ -77,7 +77,7 @@
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
-    baseUrl = "https://elevateforhumanity.org"
+    baseUrl = "https://www.elevateforhumanity.org"
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 
