@@ -21,7 +21,7 @@ vi.mock('../../lib/supabase', () => ({
 describe('AIPageBuilder', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    
+
     // Setup default mock chain
     mockSingle.mockResolvedValue({ data: null, error: null });
     mockSelect.mockReturnValue({ single: mockSingle });
@@ -48,10 +48,10 @@ describe('AIPageBuilder', () => {
       // Simulate having a generated page and filling in required fields
       // Note: This is a simplified test - in a real scenario, you'd need to
       // trigger the page generation and form filling through the UI
-      
+
       // The key assertion is that when savePage is called,
       // it should use user.user?.id, not user?.user?.id
-      
+
       // We can verify this by checking the insert call
       await waitFor(() => {
         if (mockInsert.mock.calls.length > 0) {
