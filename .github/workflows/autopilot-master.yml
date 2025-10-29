@@ -84,33 +84,61 @@ jobs:
         id: health
         continue-on-error: true
         run: |
-          CODE=$(curl -s -o /dev/null -w "%{http_code}" "$HEALTH_URL" || echo 000)
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" "$HEALTH_URL" 2>/dev/null || echo "000")
           echo "code=$CODE" >> $GITHUB_OUTPUT
-          echo "Health check: $CODE"
+          echo "Health check returned: HTTP $CODE"
+          if [ "$CODE" = "200" ]; then
+            echo "✅ Site is healthy"
+          else
+            echo "⚠️ Site returned non-200 status"
+          fi
 
       - name: Trigger rebuild if unhealthy
         if: steps.health.outputs.code != '200'
         run: |
           echo "⚠️ Site unhealthy (HTTP ${{ steps.health.outputs.code }}), triggering rebuild..."
-          curl -X POST "$NETLIFY_BUILD_HOOK" || true
+          if [ -n "$NETLIFY_BUILD_HOOK" ]; then
+            curl -X POST "$NETLIFY_BUILD_HOOK" || echo "Failed to trigger build hook"
+          else
+            echo "⚠️ NETLIFY_BUILD_HOOK not configured, skipping rebuild"
+          fi
 
       - name: Get task status
+        continue-on-error: true
         run: |
-          curl -sS -X POST "$WORKER_ENDPOINT" \
-            -H "Content-Type: application/json" \
-            -H "x-autopilot-sign: $AUTOPILOT_SECRET" \
-            -d '{"task":"status","limit":10}' | jq .
+          if [ -n "$WORKER_ENDPOINT" ] && [ -n "$AUTOPILOT_SECRET" ]; then
+            echo "Fetching task status..."
+            curl -sS -X POST "$WORKER_ENDPOINT" \
+              -H "Content-Type: application/json" \
+              -H "x-autopilot-sign: $AUTOPILOT_SECRET" \
+              -d '{"task":"status","limit":10}' | jq . || echo "Failed to get task status"
+          else
+            echo "⚠️ Worker endpoint not configured, skipping task status"
+          fi
 
       - name: Notify Slack on success
-        if: success()
+        if: success() && env.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         run: |
-          curl -X POST -H 'Content-Type: application/json' \
-            --data "{\"text\":\"✅ Autopilot Master complete - Health: ${{ steps.health.outputs.code }}\"}" \
-            "$SLACK_WEBHOOK_URL" || true
+          HEALTH_CODE="${{ steps.health.outputs.code }}"
+          HEALTH_STATUS="unknown"
+          if [ "$HEALTH_CODE" = "200" ]; then
+            HEALTH_STATUS="✅ healthy"
+          else
+            HEALTH_STATUS="⚠️ unhealthy (HTTP $HEALTH_CODE)"
+          fi
+          
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"text\":\"✅ Autopilot Master complete\\nHealth: $HEALTH_STATUS\\nRun: ${{ github.run_id }}\"}" \
+            "$SLACK_WEBHOOK_URL" || echo "Failed to send Slack notification"
 
       - name: Notify Slack on failure
-        if: failure()
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         run: |
-          curl -X POST -H 'Content-Type: application/json' \
-            --data "{\"text\":\"❌ Autopilot Master failed - Check Actions logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
-            "$SLACK_WEBHOOK_URL" || true
+          LOGS_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"text\":\"❌ Autopilot Master failed\\nLogs: $LOGS_URL\"}" \
+            "$SLACK_WEBHOOK_URL" || echo "Failed to send Slack notification"
