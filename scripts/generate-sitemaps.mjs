@@ -15,9 +15,10 @@ const DIST_DIR = './dist';
 const supabaseUrl = process.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 // Fetch programs from Supabase
 async function fetchPrograms() {
@@ -25,7 +26,7 @@ async function fetchPrograms() {
     console.warn('⚠️  Supabase not configured, using empty programs list');
     return [];
   }
-  
+
   try {
     const { data, error } = await supabase
       .from('programs')
@@ -37,7 +38,7 @@ async function fetchPrograms() {
       console.warn('⚠️  Failed to fetch programs:', error.message);
       return [];
     }
-    
+
     return data || [];
   } catch (error) {
     console.warn('⚠️  Failed to fetch programs:', error.message);
@@ -51,7 +52,7 @@ async function fetchCourses() {
     console.warn('⚠️  Supabase not configured, using empty courses list');
     return [];
   }
-  
+
   try {
     const { data, error } = await supabase
       .from('courses')
@@ -63,7 +64,7 @@ async function fetchCourses() {
       console.warn('⚠️  Failed to fetch courses:', error.message);
       return [];
     }
-    
+
     return data || [];
   } catch (error) {
     console.warn('⚠️  Failed to fetch courses:', error.message);
