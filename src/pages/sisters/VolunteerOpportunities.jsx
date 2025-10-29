@@ -13,7 +13,7 @@ export default function VolunteerOpportunities() {
         'Support community outreach programs',
         'Help with administrative tasks and events',
         'Flexible scheduling to fit your availability',
-        'Make a lasting impact on students\' lives',
+        "Make a lasting impact on students' lives",
       ]}
       launchDate="Q1 2025"
     />

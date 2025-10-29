@@ -44,20 +44,16 @@ export default function ComingSoon({
         <meta name="description" content={description} />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
-
       <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-brand-100 py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="text-6xl mb-6 animate-bounce">{icon}</div>
-            <h1 className="text-5xl font-bold text-brand-900 mb-4">
-              {title}
-            </h1>
+            <h1 className="text-5xl font-bold text-brand-900 mb-4">{title}</h1>
             <p className="text-xl text-brand-700 max-w-2xl mx-auto">
               {description}
             </p>
           </div>
-
           {/* Coming Soon Card */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-8">
             <div className="text-center mb-8">
@@ -68,10 +64,10 @@ export default function ComingSoon({
                 Be the First to Know
               </h2>
               <p className="text-brand-600">
-                Sign up to get notified when this feature launches and receive exclusive early access.
+                Sign up to get notified when this feature launches and receive
+                exclusive early access.
               </p>
             </div>
-
             {/* Email Signup Form */}
             {!submitted ? (
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -110,7 +106,6 @@ export default function ComingSoon({
               </div>
             )}
           </div>
-
           {/* Features Preview */}
           {features.length > 0 && (
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
@@ -130,7 +125,6 @@ export default function ComingSoon({
               </div>
             </div>
           )}
-
           {/* Back to Home */}
           <div className="text-center mt-12">
             <a
