@@ -127,7 +127,7 @@ jobs:
           else
             HEALTH_STATUS="⚠️ unhealthy (HTTP $HEALTH_CODE)"
           fi
-          
+
           curl -X POST \
             -H "Content-Type: application/json" \
             -d "{\"text\":\"✅ Autopilot Master complete\\nHealth: $HEALTH_STATUS\\nRun: ${{ github.run_id }}\"}" \
