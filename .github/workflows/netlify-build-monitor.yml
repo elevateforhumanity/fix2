@@ -82,25 +82,25 @@ jobs:
           script: |
             const title = '🚨 Netlify Build Monitor: Errors Detected';
             const body = `## Build Monitor Alert
-            
+
             The automated build monitor has detected errors that will cause Netlify builds to fail.
-            
+
             ### Status
             - TypeScript: ${{ steps.typecheck.outputs.status || 'failed' }}
             - ESLint: ${{ steps.lint.outputs.status || 'failed' }}
             - Build: ${{ steps.build.outputs.status || 'failed' }}
-            
+
             ### Action Required
             1. Check open PRs for fixes
             2. Merge PRs that resolve errors
             3. Monitor this workflow for success
-            
+
             ### Workflow Run
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
+
             ---
             *This issue was automatically created by the Netlify Build Monitor*`;
-            
+
             // Check if issue already exists
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -108,7 +108,7 @@ jobs:
               state: 'open',
               labels: 'netlify-monitor'
             });
-            
+
             if (issues.data.length === 0) {
               await github.rest.issues.create({
                 owner: context.repo.owner,

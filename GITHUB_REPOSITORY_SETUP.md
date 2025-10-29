@@ -3,6 +3,7 @@
 ## Current Status
 
 ### Repository Information
+
 - **Name**: fix2
 - **Owner**: elevateforhumanity
 - **URL**: https://github.com/elevateforhumanity/fix2
@@ -10,9 +11,11 @@
 - **Visibility**: Public
 
 ### Branch Protection Status
+
 ⚠️ **ALL BRANCHES ARE PROTECTED** - This is preventing direct pushes
 
 **Active Ruleset**: "Gitpod" (ID: 9199163)
+
 - **Enforcement**: Active
 - **Target**: All branches (~ALL)
 - **Rules**:
@@ -27,6 +30,7 @@
 You need to manually disable the branch protection to allow deployments:
 
 **Option A: Disable Ruleset (Recommended)**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/rules
 2. Find the "Gitpod" ruleset
 3. Click "Edit"
@@ -34,6 +38,7 @@ You need to manually disable the branch protection to allow deployments:
 5. Click "Save changes"
 
 **Option B: Modify Ruleset to Exclude Main**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/rules
 2. Edit the "Gitpod" ruleset
 3. Under "Target branches", change from "All branches" to specific branches
@@ -41,6 +46,7 @@ You need to manually disable the branch protection to allow deployments:
 5. Save changes
 
 **Option C: Remove Branch Protection Entirely**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/branches
 2. Find "main" branch protection
 3. Click "Delete" or "Edit"
@@ -49,17 +55,20 @@ You need to manually disable the branch protection to allow deployments:
 ### 2. Configure Netlify Integration
 
 **Check Current Integration**:
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/installations
 2. Look for "Netlify" app
 3. Verify it has access to the repository
 
 **If Not Installed**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 2. Click "Link to GitHub"
 3. Authorize Netlify app
 4. Select the fix2 repository
 
 **Configure Deploy Settings**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 2. Under "Build settings":
    - Build command: `pnpm install --frozen-lockfile && pnpm run build`
@@ -73,6 +82,7 @@ You need to manually disable the branch protection to allow deployments:
 ### 3. Configure Supabase Integration
 
 **Enable Supabase Integration**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
 2. Search for "Supabase"
 3. Click "Enable"
@@ -80,6 +90,7 @@ You need to manually disable the branch protection to allow deployments:
 5. Select project: `cuxzzpsyufcewtmicszk`
 
 **Verify Environment Variables**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/env
 2. Verify these are set:
    - `SUPABASE_URL`
@@ -104,38 +115,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: pnpm/action-setup@v2
         with:
           version: 9.7.0
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20.11.1'
           cache: 'pnpm'
-      
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Build
         run: pnpm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
           publish-dir: './dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
+          deploy-message: 'Deploy from GitHub Actions'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 ```
 
 **Required Secrets**:
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 2. Add these secrets:
    - `NETLIFY_AUTH_TOKEN`: Your Netlify token
@@ -146,12 +158,14 @@ jobs:
 ### 5. Configure Branch Settings
 
 **Recommended Branch Structure**:
+
 - `main` - Production branch (auto-deploys to Netlify)
 - `develop` - Development branch (deploy previews)
 - `feature/*` - Feature branches (deploy previews)
 - `fix/*` - Bug fix branches (deploy previews)
 
 **Branch Protection Rules** (After removing current protection):
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/branches
 2. Add rule for `main`:
    - Require pull request reviews: Optional (1 approval)
@@ -162,6 +176,7 @@ jobs:
 ### 6. Clean Up Old Branches
 
 **Delete Unused Branches**:
+
 ```bash
 # List all branches
 gh api repos/elevateforhumanity/fix2/branches --jq '.[].name'
@@ -171,6 +186,7 @@ gh api -X DELETE repos/elevateforhumanity/fix2/git/refs/heads/BRANCH_NAME
 ```
 
 **Branches to Consider Deleting**:
+
 - Old feature branches that are merged
 - Dependabot branches
 - Experimental branches
@@ -178,6 +194,7 @@ gh api -X DELETE repos/elevateforhumanity/fix2/git/refs/heads/BRANCH_NAME
 ## Deployment Workflow
 
 ### Current Workflow (With Protection)
+
 1. Create feature branch
 2. Make changes
 3. Push to branch
@@ -186,6 +203,7 @@ gh api -X DELETE repos/elevateforhumanity/fix2/git/refs/heads/BRANCH_NAME
 6. Netlify auto-deploys
 
 ### Recommended Workflow (After Removing Protection)
+
 1. Make changes on main or feature branch
 2. Push directly to main (or create PR)
 3. Netlify auto-deploys on push to main
@@ -196,6 +214,7 @@ gh api -X DELETE repos/elevateforhumanity/fix2/git/refs/heads/BRANCH_NAME
 After making changes:
 
 1. **Test Direct Push**:
+
    ```bash
    git checkout main
    git pull origin main
@@ -218,20 +237,24 @@ After making changes:
 ## Troubleshooting
 
 ### "Push Declined Due to Repository Rule Violations"
+
 - Branch protection is still active
 - Follow steps in section 1 to disable
 
 ### "Build Failed" in Netlify
+
 - Check build logs in Netlify dashboard
 - Verify environment variables are set
 - Test build locally: `pnpm install && pnpm run build`
 
 ### "Cannot Find Package" Errors
+
 - Ensure all dependencies are in package.json
 - Check that production dependencies aren't in devDependencies
 - Verify pnpm-lock.yaml is committed
 
 ### Supabase Connection Issues
+
 - Verify environment variables in Netlify
 - Check Supabase project is active
 - Test connection with health check endpoint
@@ -245,6 +268,7 @@ The following commits are ready to push once branch protection is removed:
 3. **Documentation** - Comprehensive setup guides
 
 **Branches with Changes**:
+
 - `netlify/plugins-and-redeploy` - Latest fixes (4 commits ahead)
 - `main` - Base branch (needs updates)
 
