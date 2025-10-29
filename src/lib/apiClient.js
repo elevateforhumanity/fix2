@@ -1,7 +1,7 @@
 export class ApiError extends Error {
   constructor(status, message) {
-    if (status < 0) {
-      throw new Error('Invalid status code');
+    if (status < 100 || status > 599) {
+      throw new Error('Invalid status code: must be between 100 and 599');
     }
     super(message);
     this.status = status;
