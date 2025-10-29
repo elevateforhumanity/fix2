@@ -409,8 +409,8 @@ export default function Course() {
                       gap: 12,
                     }}
                   >
-                    <a
-                      href="#"
+                    <button
+                      onClick={() => alert('Resource download coming soon!')}
                       style={{
                         padding: 12,
                         backgroundColor: '#f8f8f8',
@@ -420,13 +420,16 @@ export default function Course() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 12,
+                        border: 'none',
+                        cursor: 'pointer',
+                        width: '100%',
                       }}
                     >
                       <span>📄</span>
                       <span style={{ fontSize: 14 }}>Lesson Slides (PDF)</span>
-                    </a>
-                    <a
-                      href="#"
+                    </button>
+                    <button
+                      onClick={() => alert('Resource download coming soon!')}
                       style={{
                         padding: 12,
                         backgroundColor: '#f8f8f8',
@@ -436,13 +439,16 @@ export default function Course() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 12,
+                        border: 'none',
+                        cursor: 'pointer',
+                        width: '100%',
                       }}
                     >
                       <span>💻</span>
                       <span style={{ fontSize: 14 }}>Code Examples (ZIP)</span>
-                    </a>
-                    <a
-                      href="#"
+                    </button>
+                    <button
+                      onClick={() => alert('Resource download coming soon!')}
                       style={{
                         padding: 12,
                         backgroundColor: '#f8f8f8',
@@ -452,11 +458,14 @@ export default function Course() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 12,
+                        border: 'none',
+                        cursor: 'pointer',
+                        width: '100%',
                       }}
                     >
                       <span>📝</span>
                       <span style={{ fontSize: 14 }}>Practice Exercises</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               ) : (
