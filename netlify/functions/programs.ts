@@ -8,9 +8,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Missing Supabase environment variables');
 }
 
-const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 export const handler: Handler = async () => {
   if (!supabase) {

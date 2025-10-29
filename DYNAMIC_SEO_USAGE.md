@@ -7,6 +7,7 @@ Complete guide for using the DynamicSEO component across all pages.
 ## 📦 Installation
 
 Already installed! The component is ready to use:
+
 - `src/components/DynamicSEO.tsx`
 - `react-helmet-async` dependency
 - `HelmetProvider` in App.tsx
@@ -28,7 +29,7 @@ export default function AboutPage() {
         description="Learn about Elevate for Humanity's mission to provide workforce development and apprenticeship programs."
         canonical="/about"
       />
-      
+
       <main>
         <h1>About Elevate for Humanity</h1>
         {/* page content */}
@@ -60,7 +61,10 @@ export default function ProgramPage({ program }) {
     <>
       <DynamicSEO
         title={program.title}
-        description={program.description || `Enroll in ${program.title}, a state-approved workforce apprenticeship program.`}
+        description={
+          program.description ||
+          `Enroll in ${program.title}, a state-approved workforce apprenticeship program.`
+        }
         canonical={`/programs/${program.slug}`}
         keywords={[
           program.title,
@@ -72,7 +76,7 @@ export default function ProgramPage({ program }) {
         ogImage={program.coverImage}
         structuredData={schema}
       />
-      
+
       <main>
         <h1>{program.title}</h1>
         {/* program content */}
@@ -116,7 +120,7 @@ export default function CoursePage({ course }) {
         ogImage={course.thumbnail}
         structuredData={schema}
       />
-      
+
       <main>
         <h1>{course.title}</h1>
         {/* course content */}
@@ -157,7 +161,7 @@ export default function BlogPost({ post }) {
         ogImage={post.featuredImage}
         structuredData={schema}
       />
-      
+
       <article>
         <h1>{post.title}</h1>
         {/* article content */}
@@ -192,7 +196,7 @@ export default function ProgramsPage({ programs }) {
           'ETPL',
         ]}
       />
-      
+
       <main>
         <h1>Training Programs</h1>
         {/* programs list */}
@@ -221,7 +225,7 @@ export default function StudentDashboard() {
         noindex={true}
         nofollow={true}
       />
-      
+
       <main>
         <h1>My Dashboard</h1>
         {/* dashboard content */}
@@ -244,7 +248,10 @@ export default function ProgramPage({ program }) {
   const breadcrumbs = createBreadcrumbSchema([
     { name: 'Home', url: 'https://elevateforhumanity.org' },
     { name: 'Programs', url: 'https://elevateforhumanity.org/programs' },
-    { name: program.title, url: `https://elevateforhumanity.org/programs/${program.slug}` },
+    {
+      name: program.title,
+      url: `https://elevateforhumanity.org/programs/${program.slug}`,
+    },
   ]);
 
   return (
@@ -255,7 +262,7 @@ export default function ProgramPage({ program }) {
         canonical={`/programs/${program.slug}`}
         structuredData={breadcrumbs}
       />
-      
+
       {/* page content */}
     </>
   );
@@ -305,7 +312,7 @@ export default function EventPage({ event }) {
         canonical={`/events/${event.slug}`}
         structuredData={eventSchema}
       />
-      
+
       {/* event content */}
     </>
   );
@@ -318,52 +325,57 @@ export default function EventPage({ event }) {
 
 ### DynamicSEO Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | string | Site default | Page title (auto-appends " \| Elevate for Humanity") |
-| `description` | string | Site default | Meta description (160 chars recommended) |
-| `keywords` | string[] | Site defaults | Additional keywords (merged with defaults) |
-| `canonical` | string | Current URL | Canonical URL (relative or absolute) |
-| `ogType` | string | 'website' | Open Graph type (website, article, profile) |
-| `ogImage` | string | Default OG image | Open Graph image URL |
-| `ogImageWidth` | number | 1200 | OG image width |
-| `ogImageHeight` | number | 630 | OG image height |
-| `twitterCard` | string | 'summary_large_image' | Twitter card type |
-| `twitterSite` | string | '@elevateforhumanity' | Twitter site handle |
-| `twitterCreator` | string | '@elevateforhumanity' | Twitter creator handle |
-| `structuredData` | object | undefined | JSON-LD structured data |
-| `noindex` | boolean | false | Prevent search engine indexing |
-| `nofollow` | boolean | false | Prevent following links |
+| Prop             | Type     | Default               | Description                                          |
+| ---------------- | -------- | --------------------- | ---------------------------------------------------- |
+| `title`          | string   | Site default          | Page title (auto-appends " \| Elevate for Humanity") |
+| `description`    | string   | Site default          | Meta description (160 chars recommended)             |
+| `keywords`       | string[] | Site defaults         | Additional keywords (merged with defaults)           |
+| `canonical`      | string   | Current URL           | Canonical URL (relative or absolute)                 |
+| `ogType`         | string   | 'website'             | Open Graph type (website, article, profile)          |
+| `ogImage`        | string   | Default OG image      | Open Graph image URL                                 |
+| `ogImageWidth`   | number   | 1200                  | OG image width                                       |
+| `ogImageHeight`  | number   | 630                   | OG image height                                      |
+| `twitterCard`    | string   | 'summary_large_image' | Twitter card type                                    |
+| `twitterSite`    | string   | '@elevateforhumanity' | Twitter site handle                                  |
+| `twitterCreator` | string   | '@elevateforhumanity' | Twitter creator handle                               |
+| `structuredData` | object   | undefined             | JSON-LD structured data                              |
+| `noindex`        | boolean  | false                 | Prevent search engine indexing                       |
+| `nofollow`       | boolean  | false                 | Prevent following links                              |
 
 ---
 
 ## 🎯 SEO Best Practices
 
 ### Title Tags
+
 - ✅ Keep under 60 characters
 - ✅ Include primary keyword
 - ✅ Make it unique per page
 - ✅ Front-load important words
 
 ### Meta Descriptions
+
 - ✅ Keep 150-160 characters
 - ✅ Include call-to-action
 - ✅ Use active voice
 - ✅ Include target keywords naturally
 
 ### Keywords
+
 - ✅ 5-10 keywords per page
 - ✅ Mix of broad and specific
 - ✅ Include location (Indianapolis, Indiana)
 - ✅ Include program/course names
 
 ### Canonical URLs
+
 - ✅ Always set canonical
 - ✅ Use absolute URLs for external
 - ✅ Use relative URLs for internal
 - ✅ Avoid duplicate content
 
 ### Structured Data
+
 - ✅ Use appropriate schema type
 - ✅ Include all required fields
 - ✅ Test with Google Rich Results
@@ -397,16 +409,16 @@ export default defineConfig({
           .from('programs')
           .select('slug')
           .eq('published', true);
-        
+
         // Fetch courses
         const { data: courses } = await supabase
           .from('courses')
           .select('id')
           .eq('published', true);
-        
+
         return [
-          ...programs.map(p => `/programs/${p.slug}`),
-          ...courses.map(c => `/lms/course/${c.id}`),
+          ...programs.map((p) => `/programs/${p.slug}`),
+          ...courses.map((c) => `/lms/course/${c.id}`),
         ];
       },
     }),
@@ -419,22 +431,26 @@ export default defineConfig({
 ## 🧪 Testing
 
 ### 1. View Page Source
+
 ```bash
 # After deployment, view source of any page
 curl https://elevateforhumanity.org/programs/barber | grep -A5 "<title>"
 ```
 
 ### 2. Google Rich Results Test
+
 - URL: https://search.google.com/test/rich-results
 - Enter your page URL
 - Verify structured data appears
 
 ### 3. Facebook Sharing Debugger
+
 - URL: https://developers.facebook.com/tools/debug
 - Enter your page URL
 - Verify Open Graph preview
 
 ### 4. Twitter Card Validator
+
 - URL: https://cards-dev.twitter.com/validator
 - Enter your page URL
 - Verify Twitter Card preview
@@ -444,18 +460,21 @@ curl https://elevateforhumanity.org/programs/barber | grep -A5 "<title>"
 ## 📈 Expected Results
 
 ### Per-Page Optimization
+
 - ✅ Each program ranks for its own keywords
 - ✅ Each course appears in search results
 - ✅ Rich snippets with ratings/images
 - ✅ Social media previews work correctly
 
 ### Search Rankings
+
 - "barber apprenticeship Indianapolis" → Your barber program page
 - "CNA training Indiana" → Your CNA program page
 - "tax preparer certification" → Your tax program page
 - "Elevate for Humanity" → Your homepage
 
 ### Traffic Increase
+
 - 10x more indexed pages
 - 5x more organic keywords
 - 3x more organic traffic
@@ -468,6 +487,7 @@ curl https://elevateforhumanity.org/programs/barber | grep -A5 "<title>"
 **Dynamic SEO Implementation: COMPLETE**
 
 You now have:
+
 - ✅ DynamicSEO component for all pages
 - ✅ Helper functions for common schemas
 - ✅ HelmetProvider in App.tsx
@@ -477,6 +497,7 @@ You now have:
 - ✅ Social media optimization
 
 **Next Steps:**
+
 1. Add DynamicSEO to existing pages
 2. Test with Google Rich Results
 3. Deploy and verify

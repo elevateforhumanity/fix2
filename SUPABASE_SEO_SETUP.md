@@ -26,7 +26,7 @@ Create public views that expose only SEO-safe fields:
 
 -- Programs public view (SEO fields only)
 CREATE OR REPLACE VIEW public.programs_public AS
-SELECT 
+SELECT
   id,
   title,
   slug,
@@ -40,7 +40,7 @@ WHERE published = true;
 
 -- Courses public view (SEO fields only)
 CREATE OR REPLACE VIEW public.courses_public AS
-SELECT 
+SELECT
   c.id,
   c.title as name,
   c.slug,
@@ -75,6 +75,7 @@ COMMENT ON VIEW public.courses_public IS 'Public SEO data for courses - read-onl
 ```
 
 **Apply migration:**
+
 ```bash
 psql $SUPABASE_DB_URL -f supabase/migrations/008_seo_public_views.sql
 ```
@@ -328,7 +329,7 @@ export default function ProgramPage() {
     <>
       {/* Auto-SEO from Supabase */}
       <ProgramSEO slug={slug!} />
-      
+
       <main>
         {loading && <div>Loading...</div>}
         {error && <div>Program not found</div>}
@@ -363,7 +364,7 @@ export default function CoursePage() {
     <>
       {/* Auto-SEO from Supabase */}
       <CourseSEO slug={slug!} />
-      
+
       <main>
         {loading && <div>Loading...</div>}
         {error && <div>Course not found</div>}
@@ -454,7 +455,7 @@ BEGIN
   -- Log the change
   INSERT INTO public.build_triggers (table_name, action, row_id)
   VALUES (TG_TABLE_NAME, TG_OP, NEW.id);
-  
+
   RETURN NEW;
 END;
 $$;
@@ -523,11 +524,13 @@ serve(async (req) => {
 ```
 
 **Deploy function:**
+
 ```bash
 supabase functions deploy netlify-rebuild --no-verify-jwt
 ```
 
 **Set environment variable:**
+
 ```bash
 supabase secrets set NETLIFY_BUILD_HOOK=https://api.netlify.com/build_hooks/YOUR_HOOK_ID
 ```
@@ -594,6 +597,7 @@ export const config = { path: '/og-image' };
 ```
 
 **Use in ProgramSEO:**
+
 ```typescript
 const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitle=${encodeURIComponent(program.track)}`;
 ```
@@ -603,12 +607,14 @@ const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitl
 ## ✅ Checklist
 
 ### Security
+
 - [ ] Apply migration 008 (public views)
 - [ ] Enable RLS on base tables
 - [ ] Test that anon key can't access base tables
 - [ ] Verify views return only published content
 
 ### Implementation
+
 - [ ] Create useProgramSEO hook
 - [ ] Create useCourseSEO hook
 - [ ] Create ProgramSEO component
@@ -617,12 +623,14 @@ const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitl
 - [ ] Add CourseSEO to course pages
 
 ### Optimization
+
 - [ ] Install SWR for caching
 - [ ] Update hooks with SWR
 - [ ] Test cache behavior
 - [ ] Set appropriate cache duration
 
 ### Automation
+
 - [ ] Create Netlify build hook
 - [ ] Apply migration 009 (triggers)
 - [ ] Deploy netlify-rebuild function
@@ -630,6 +638,7 @@ const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitl
 - [ ] Test auto-rebuild on content change
 
 ### Quality
+
 - [ ] Every program has title, summary, cover image
 - [ ] Every course has name, description, hero image
 - [ ] All images have alt text
@@ -641,6 +650,7 @@ const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitl
 ## 🧪 Testing
 
 ### Test SEO Data Fetching
+
 ```bash
 # Test program view
 curl "https://YOUR_SUPABASE_URL/rest/v1/programs_public?slug=eq.barber-apprenticeship" \
@@ -652,11 +662,13 @@ curl "https://YOUR_SUPABASE_URL/rest/v1/courses_public?slug=eq.intro-to-barberin
 ```
 
 ### Test Auto-Rebuild
+
 1. Update a program in Supabase
 2. Check build_triggers table
 3. Verify Netlify build started
 
 ### Test OG Images
+
 ```bash
 # Visit in browser
 https://elevateforhumanity.org/og-image?title=Barber%20Apprenticeship&subtitle=Workforce%20Training
@@ -667,12 +679,14 @@ https://elevateforhumanity.org/og-image?title=Barber%20Apprenticeship&subtitle=W
 ## 📊 Expected Results
 
 ### Before
+
 - Manual SEO for each page
 - Static meta tags
 - No automatic updates
 - Generic OG images
 
 ### After
+
 - ✅ Automatic SEO from Supabase
 - ✅ Dynamic meta tags per program/course
 - ✅ Auto-rebuild on content changes
@@ -687,6 +701,7 @@ https://elevateforhumanity.org/og-image?title=Barber%20Apprenticeship&subtitle=W
 **Supabase-Powered SEO: READY TO IMPLEMENT**
 
 You now have:
+
 - ✅ Secure public views for SEO data
 - ✅ Custom hooks for data fetching
 - ✅ Auto-SEO wrapper components
@@ -695,6 +710,7 @@ You now have:
 - ✅ Dynamic OG image generation
 
 **Next Steps:**
+
 1. Apply Supabase migrations
 2. Create hooks and components
 3. Add to page components

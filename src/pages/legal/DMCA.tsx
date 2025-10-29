@@ -47,7 +47,8 @@ export function DMCA() {
           <br />
           Indianapolis, IN 46240
           <br />
-          Email: <a href="mailto:legal@elevateforhumanity.org">
+          Email:{' '}
+          <a href="mailto:legal@elevateforhumanity.org">
             legal@elevateforhumanity.org
           </a>
           <br />

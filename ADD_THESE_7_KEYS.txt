@@ -1,0 +1,31 @@
+🔑 ADD THESE 7 REMAINING API KEYS
+==================================
+
+Paste these keys here or add to Netlify Dashboard:
+https://app.netlify.com/sites/elevateforhumanityfix2/settings/env
+
+1. VITE_STRIPE_PUBLISHABLE_KEY (pk_live_...)
+   Get from: https://dashboard.stripe.com/apikeys
+
+2. STRIPE_WEBHOOK_SECRET (whsec_...)
+   Get from: https://dashboard.stripe.com/webhooks
+
+3. FACEBOOK_PAGE_ID (numeric)
+   Get from: https://developers.facebook.com/apps
+
+4. FACEBOOK_PAGE_ACCESS_TOKEN (long string)
+   Get from: https://developers.facebook.com/apps
+
+5. LINKEDIN_ACCESS_TOKEN (long string)
+   Get from: https://www.linkedin.com/developers/apps
+
+6. LINKEDIN_ORGANIZATION_ID (numeric)
+   Get from: https://www.linkedin.com/developers/apps
+
+7. SUPABASE_SERVICE_KEY (eyJ...)
+   Get from: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
+
+PLUS: Create 4 storage buckets (2 minutes)
+https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets
+
+Then autonomous system will finish everything!

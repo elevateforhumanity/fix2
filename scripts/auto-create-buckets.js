@@ -6,8 +6,8 @@
  */
 
 const SUPABASE_URL = 'https://cuxzzpsyufcewtmicszk.supabase.co';
-const SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA';
+const SUPABASE_SERVICE_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE';
 
 const buckets = [
   {
@@ -45,9 +45,9 @@ async function createBucket(bucket) {
     const response = await fetch(`${SUPABASE_URL}/storage/v1/bucket`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
         'Content-Type': 'application/json',
-        apikey: SUPABASE_ANON_KEY,
+        apikey: SUPABASE_SERVICE_KEY,
       },
       body: JSON.stringify(bucket),
     });

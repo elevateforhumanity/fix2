@@ -25,6 +25,7 @@ Elevate for Humanity is an **enterprise-grade Learning Management System (LMS)**
 ## 🚀 Tech Stack
 
 ### Frontend
+
 - **React 19** - Latest React with concurrent features
 - **Vite 6** - Lightning-fast build tool
 - **TypeScript** - Type-safe development
@@ -33,15 +34,18 @@ Elevate for Humanity is an **enterprise-grade Learning Management System (LMS)**
 - **Zustand** - State management
 
 ### Backend & Services
+
 - **Supabase** - PostgreSQL database + authentication + storage
 - **Netlify** - Hosting + 17 serverless functions
 - **Cloudflare Workers** - Edge computing for AI/automation
 - **Stripe Connect** - Payment processing + revenue sharing
 
 ### Mobile
+
 - **Capacitor** - Native iOS/Android apps
 
 ### DevOps
+
 - **GitHub Actions** - CI/CD automation
 - **Autopilot System** - 25+ automated task types
 - **Health Monitoring** - Real-time system checks
@@ -278,6 +282,7 @@ Feel free to submit issues or pull requests to improve this template configurati
 **Production:** [https://elevateforhumanity.org](https://elevateforhumanity.org)
 
 ### Quick Links
+
 - [Browse Programs](https://elevateforhumanity.org/programs)
 - [Student Dashboard](https://elevateforhumanity.org/lms)
 - [Verify Certificate](https://elevateforhumanity.org/verify)
@@ -295,6 +300,7 @@ Indianapolis, IN 46240
 - **Legal:** legal@elevateforhumanity.org
 
 ### Social Media
+
 - [Facebook](https://www.facebook.com/elevateforhumanity)
 - [LinkedIn](https://www.linkedin.com/company/elevate-for-humanity)
 - [YouTube](https://www.youtube.com/@elevateforhumanity)

@@ -104,9 +104,7 @@ export function Privacy() {
           updating the "Last Updated" date.
         </p>
         <h2>Contact Us</h2>
-        <p>
-          For privacy-related questions or requests, contact us at:
-        </p>
+        <p>For privacy-related questions or requests, contact us at:</p>
         <p>
           Elevate for Humanity
           <br />
@@ -114,7 +112,8 @@ export function Privacy() {
           <br />
           Indianapolis, IN 46240
           <br />
-          Email: <a href="mailto:privacy@elevateforhumanity.org">
+          Email:{' '}
+          <a href="mailto:privacy@elevateforhumanity.org">
             privacy@elevateforhumanity.org
           </a>
           <br />
