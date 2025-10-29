@@ -28,6 +28,7 @@ bash scripts/autopilot-netlify-zero-touch.sh
 ## ✅ What Gets Configured Automatically
 
 ### 1. Environment Variables (Automated)
+
 - AUTOPILOT_MODE=autonomous
 - AUTOPILOT_ENABLED=true
 - AUTOPILOT_AUTO_FIX=true
@@ -38,15 +39,18 @@ bash scripts/autopilot-netlify-zero-touch.sh
 - Build configuration
 
 ### 2. Build Hooks (Automated)
+
 - Autopilot Auto-Deploy (main)
 - Manual Production (main)
 - Staging Deploy (staging)
 
 ### 3. Deploy Notifications (Automated)
+
 - Email on deploy failed
 - Email on deploy succeeded
 
 ### 4. Build Settings (Already Configured)
+
 - Build command: `pnpm install && pnpm run build`
 - Publish directory: `dist`
 - Functions directory: `netlify/functions`
@@ -54,6 +58,7 @@ bash scripts/autopilot-netlify-zero-touch.sh
 - PNPM version: 9.7.0
 
 ### 5. Security Headers (Already Configured)
+
 - X-Frame-Options
 - X-Content-Type-Options
 - X-XSS-Protection
@@ -63,11 +68,13 @@ bash scripts/autopilot-netlify-zero-touch.sh
 - Content-Security-Policy
 
 ### 6. Redirects (Already Configured)
+
 - SPA fallback
 - Domain consolidation (.com → .org)
 - 20+ API function routes
 
 ### 7. Functions (Already Deployed)
+
 - 20+ serverless functions
 - Health checks
 - Stripe payments
@@ -79,6 +86,7 @@ bash scripts/autopilot-netlify-zero-touch.sh
 ## 🎯 Zero Manual Steps
 
 The script automatically:
+
 1. ✅ Installs Netlify CLI (if needed)
 2. ✅ Authenticates (via token)
 3. ✅ Links to your site
@@ -95,11 +103,13 @@ The script automatically:
 ## 📋 Prerequisites
 
 ### Required
+
 - Node.js 20+ installed
 - Git repository cloned
 - `.env` file with your credentials
 
 ### Optional (Auto-installed)
+
 - Netlify CLI (script installs if missing)
 
 ---
@@ -155,6 +165,7 @@ bash scripts/autopilot-netlify-zero-touch.sh
 ## 🔄 Re-running
 
 Safe to run multiple times:
+
 - Updates existing variables
 - Skips existing hooks
 - Idempotent operations
@@ -171,27 +182,32 @@ bash scripts/autopilot-netlify-zero-touch.sh
 After running the script:
 
 ### ✅ Live Production Site
+
 - URL: https://elevateforhumanity.org
 - SSL: Enabled
 - CDN: Global
 - Functions: 20+ endpoints
 
 ### ✅ Automated Deployments
+
 - Push to main → Auto-deploy
 - Build hooks configured
 - GitHub Actions integrated
 
 ### ✅ Monitoring
+
 - Email notifications
 - Build status
 - Error alerts
 
 ### ✅ Database Integration
+
 - Supabase connected
 - Environment synced
 - Functions configured
 
 ### ✅ Payment Processing
+
 - Stripe configured
 - Webhooks ready
 - Checkout sessions
@@ -201,11 +217,13 @@ After running the script:
 ## 🐛 Troubleshooting
 
 ### Error: "NETLIFY_AUTH_TOKEN not set"
+
 ```bash
 export NETLIFY_AUTH_TOKEN='your_token_here'
 ```
 
 ### Error: "Not authenticated"
+
 ```bash
 # Get new token
 # https://app.netlify.com/user/applications#personal-access-tokens
@@ -213,12 +231,14 @@ export NETLIFY_AUTH_TOKEN='new_token'
 ```
 
 ### Error: "Site not found"
+
 ```bash
 # Verify site ID in script
 # Should be: 12f120ab-3f63-419b-bc49-430f043415c1
 ```
 
 ### Build fails
+
 ```bash
 # Test locally first
 pnpm install
@@ -235,18 +255,21 @@ netlify deploy --prod
 These are truly optional - site works without them:
 
 ### Enable Analytics (30 seconds)
+
 ```bash
 netlify open:admin
 # Click "Analytics" → "Enable"
 ```
 
 ### Add Supabase Integration (2 minutes)
+
 ```bash
 netlify open:admin
 # Click "Integrations" → Search "Supabase" → Enable
 ```
 
 ### Configure Slack Notifications (1 minute)
+
 ```bash
 # Add to .env
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
@@ -260,18 +283,21 @@ bash scripts/autopilot-netlify-zero-touch.sh
 ## 🔐 Security
 
 ### Auth Token
+
 - Keep secret
 - Don't commit to git
 - Use environment variable
 - Rotate periodically
 
 ### Environment Variables
+
 - Encrypted by Netlify
 - Not exposed client-side
 - Scoped to contexts
 - Secure by default
 
 ### Build Hooks
+
 - Treat as secrets
 - Don't expose publicly
 - Regenerate if compromised
@@ -281,21 +307,25 @@ bash scripts/autopilot-netlify-zero-touch.sh
 ## 📈 Monitoring
 
 ### Check Build Status
+
 ```bash
 netlify watch
 ```
 
 ### View Logs
+
 ```bash
 netlify logs
 ```
 
 ### Open Dashboard
+
 ```bash
 netlify open:admin
 ```
 
 ### Check Site
+
 ```bash
 curl https://elevateforhumanity.org/api/health
 ```
@@ -305,17 +335,20 @@ curl https://elevateforhumanity.org/api/health
 ## 🆘 Support
 
 ### Script Issues
+
 - Check output for errors
 - Verify auth token valid
 - Ensure .env file exists
 - Check network connection
 
 ### Netlify Issues
+
 - Dashboard: https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1
 - Docs: https://docs.netlify.com
 - Support: https://www.netlify.com/support/
 
 ### GitHub Actions
+
 - Workflows: https://github.com/elevateforhumanity/fix2/actions
 - Logs: Check individual workflow runs
 
@@ -324,6 +357,7 @@ curl https://elevateforhumanity.org/api/health
 ## 🎉 Success Criteria
 
 Configuration complete when:
+
 - [x] Script runs without errors
 - [x] Environment variables set
 - [x] Build hooks created
@@ -337,6 +371,7 @@ Configuration complete when:
 ## 📝 Summary
 
 **Automated:**
+
 - ✅ 100% of configuration
 - ✅ Environment variables
 - ✅ Build hooks
@@ -347,11 +382,13 @@ Configuration complete when:
 - ✅ Functions
 
 **Manual:**
+
 - ❌ Nothing required
 - ⚠️ Optional: Analytics (30 sec)
 - ⚠️ Optional: Supabase integration (2 min)
 
 **Total Time:**
+
 - Required: 5 minutes (all automated)
 - Optional: 2.5 minutes (if you want extras)
 
@@ -384,6 +421,6 @@ netlify watch
 
 **Zero manual steps. Fully automated. Production ready.** 🎯
 
-*Last Updated: 2025-10-29*  
-*Script: scripts/autopilot-netlify-zero-touch.sh*  
-*Site: elevateforhumanityfix2 (12f120ab-3f63-419b-bc49-430f043415c1)*
+_Last Updated: 2025-10-29_  
+_Script: scripts/autopilot-netlify-zero-touch.sh_  
+_Site: elevateforhumanityfix2 (12f120ab-3f63-419b-bc49-430f043415c1)_
