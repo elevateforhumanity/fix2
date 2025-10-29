@@ -3,25 +3,24 @@
   Commercial License. No resale, sublicensing, or redistribution allowed.
   See LICENSE file for details.
 */
-import React, { useState } from 'react';
-
-const demoThreads = [
-  { id: 1, title: 'Welcome to the Community!', posts: 5 },
-  { id: 2, title: 'Share your progress', posts: 3 },
-];
+import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 export default function Community() {
-  const [threads] = useState(demoThreads);
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
-      <h1>Community Forum</h1>
-      <ul>
-        {threads.map((t) => (
-          <li key={t.id} style={{ marginBottom: 12 }}>
-            <strong>{t.title}</strong> ({t.posts} posts)
-          </li>
-        ))}
-      </ul>
-    </main>
+    <ComingSoon
+      title="Community Forum"
+      description="Connect with fellow students, share your progress, ask questions, and build lasting relationships in our supportive community forum."
+      icon="🏘️"
+      features={[
+        'Participate in discussion threads by topic',
+        'Share your learning journey and progress',
+        'Ask questions and get help from peers',
+        'Network with students in your program',
+        'Join study groups and accountability circles',
+        'Celebrate achievements together',
+      ]}
+      launchDate="Q1 2025"
+    />
   );
 }

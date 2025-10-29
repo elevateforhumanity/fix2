@@ -1,16 +1,21 @@
 import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 export default function ProfessionalHome() {
   return (
-    <div className="min-h-screen bg-brand-surface py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Professional Development</h1>
-        <div className="bg-white p-8 rounded-lg shadow">
-          <p className="text-lg text-brand-text">
-            Advance your career with our professional development programs
-          </p>
-        </div>
-      </div>
-    </div>
+    <ComingSoon
+      title="Professional Development Hub"
+      description="Advance your career with our comprehensive professional development programs designed for working professionals seeking to upskill and grow."
+      icon="💼"
+      features={[
+        'Executive leadership training programs',
+        'Industry-specific certifications',
+        'Flexible evening and weekend classes',
+        'Online and hybrid learning options',
+        'Career advancement coaching',
+        'Professional networking opportunities',
+      ]}
+      launchDate="Q2 2025"
+    />
   );
 }

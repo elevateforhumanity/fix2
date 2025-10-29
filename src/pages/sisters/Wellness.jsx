@@ -1,19 +1,21 @@
 import React from 'react';
+import ComingSoon from '../../components/ComingSoon';
 
 export default function Wellness() {
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 800, margin: '0 auto' }}>
-      <h1>Wellness</h1>
-      <p>
-        Explore resources and tips for maintaining your physical, mental, and
-        emotional wellness as a student and community member.
-      </p>
-      <ul>
-        <li>Self-care strategies</li>
-        <li>Stress management techniques</li>
-        <li>Healthy habits for daily life</li>
-        <li>Access to wellness workshops and events</li>
-      </ul>
-    </main>
+    <ComingSoon
+      title="Wellness Center"
+      description="Explore resources and tips for maintaining your physical, mental, and emotional wellness. Your well-being is essential to your success."
+      icon="🧘"
+      features={[
+        'Self-care strategies and daily wellness tips',
+        'Stress management and mindfulness techniques',
+        'Healthy habits for work-life balance',
+        'Access to wellness workshops and events',
+        'Mental health resources and support',
+        'Fitness and nutrition guidance',
+      ]}
+      launchDate="Q1 2025"
+    />
   );
 }

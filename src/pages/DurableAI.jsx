@@ -1,27 +1,21 @@
 import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 export default function DurableAI() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-brand-text mb-4">
-            AI-Powered Learning
-          </h1>
-          <p className="text-xl text-brand-text-muted max-w-3xl mx-auto">
-            Personalized education powered by artificial intelligence
-          </p>
-        </div>
-        <div className="bg-white p-8 rounded-lg shadow-xl">
-          <h2 className="text-3xl font-bold mb-6">Features</h2>
-          <ul className="space-y-4 text-lg">
-            <li>✨ Adaptive learning paths</li>
-            <li>🎯 Personalized recommendations</li>
-            <li>📊 Real-time progress tracking</li>
-            <li>🤖 AI tutoring assistance</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <ComingSoon
+      title="AI-Powered Learning"
+      description="Experience the future of education with our AI-powered learning platform. Get personalized recommendations, adaptive learning paths, and intelligent tutoring."
+      icon="🤖"
+      features={[
+        'Adaptive learning paths tailored to your pace',
+        'AI-powered personalized recommendations',
+        'Real-time progress tracking and analytics',
+        'Intelligent tutoring and instant feedback',
+        'Automated skill gap analysis',
+        'Smart content recommendations',
+      ]}
+      launchDate="Q2 2025"
+    />
   );
 }

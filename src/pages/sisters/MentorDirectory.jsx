@@ -1,26 +1,21 @@
 import React from 'react';
-import AppLayout from '../../layouts/AppLayout';
-import { useAnalytics } from '../../hooks/useAnalytics';
+import ComingSoon from '../../components/ComingSoon';
 
 export default function MentorDirectory() {
-  useAnalytics('Mentors');
-  const mentors = [
-    { name: 'Jane Smith', area: 'Construction Industry Mentor' },
-    { name: 'Michael Johnson', area: 'Financial Literacy Mentor' },
-    { name: 'Maria Garcia', area: 'Music & Dance Mentor' },
-  ];
   return (
-    <AppLayout title="Mentors">
-      <div style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
-        <h1>Mentor Directory</h1>
-        <ul>
-          {mentors.map((m) => (
-            <li key={m.name}>
-              {m.name} – {m.area}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </AppLayout>
+    <ComingSoon
+      title="Mentor Directory"
+      description="Connect with experienced mentors who can guide you through your career journey. Browse profiles, read reviews, and find the perfect mentor for your goals."
+      icon="👥"
+      features={[
+        'Search mentors by industry and expertise',
+        'View detailed mentor profiles and backgrounds',
+        'Read reviews from other students',
+        'Schedule one-on-one mentoring sessions',
+        'Access career guidance and advice',
+        'Build lasting professional relationships',
+      ]}
+      launchDate="Q1 2025"
+    />
   );
 }
