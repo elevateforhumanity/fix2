@@ -3,6 +3,7 @@
 ## Branch: `fix/aipagebuilder-user-id-bug`
 
 ### Summary
+
 Fixed two critical bugs in the codebase that were affecting functionality and data integrity.
 
 ---
@@ -10,17 +11,21 @@ Fixed two critical bugs in the codebase that were affecting functionality and da
 ## Bug #1: AIPageBuilder User ID Extraction (CRITICAL)
 
 ### Issue
+
 **File**: `src/components/AIPageBuilder.tsx`  
 **Line**: 123  
 **Severity**: HIGH - Active bug causing save failures
 
 ### Problem
+
 The `savePage()` function incorrectly accessed the user ID with double optional chaining:
+
 ```typescript
-created_by: user?.user?.id
+created_by: user?.user?.id;
 ```
 
 The Supabase `getUser()` method returns:
+
 ```typescript
 {
   data: {
@@ -31,29 +36,36 @@ The Supabase `getUser()` method returns:
 ```
 
 Since the response is destructured as `const { data: user }`, the variable `user` already contains the `data` object. The correct access pattern should be:
+
 ```typescript
-created_by: user.user?.id
+created_by: user.user?.id;
 ```
 
 ### Impact
+
 - ❌ Page saves would fail silently or with incorrect user attribution
 - ❌ Database records would have `null` or `undefined` for `created_by` field
 - ❌ User tracking and permissions would be broken
 - ❌ Affects AI-generated page functionality
 
 ### Fix
+
 Changed line 123 from:
+
 ```typescript
 created_by: user?.user?.id,
 ```
 
 To:
+
 ```typescript
 created_by: user.user?.id,
 ```
 
 ### Testing
+
 Created comprehensive test suite in `src/components/__tests__/AIPageBuilder.test.tsx`:
+
 - ✅ Verifies correct user ID extraction
 - ✅ Handles missing user gracefully
 - ✅ Handles authentication errors
@@ -64,12 +76,15 @@ Created comprehensive test suite in `src/components/__tests__/AIPageBuilder.test
 ## Bug #2: ApiError Status Code Validation (MEDIUM)
 
 ### Issue
+
 **File**: `src/lib/apiClient.js`  
 **Lines**: 3-5  
 **Severity**: MEDIUM - Edge case bug affecting error handling
 
 ### Problem
+
 The `ApiError` class only validated that status codes were not negative:
+
 ```javascript
 if (status < 0) {
   throw new Error('Invalid status code');
@@ -79,13 +94,16 @@ if (status < 0) {
 This allowed invalid HTTP status codes like `0`, `1`, `99`, `600`, `1000`, etc. to pass validation. Valid HTTP status codes are in the range **100-599**.
 
 ### Impact
+
 - ⚠️ Invalid status codes could be created
 - ⚠️ Error handling logic might behave unexpectedly
 - ⚠️ API error responses could be malformed
 - ⚠️ Debugging would be more difficult with invalid status codes
 
 ### Fix
+
 Changed validation to enforce proper HTTP status code range:
+
 ```javascript
 if (status < 100 || status > 599) {
   throw new Error('Invalid status code: must be between 100 and 599');
@@ -93,7 +111,9 @@ if (status < 100 || status > 599) {
 ```
 
 ### Testing
+
 Updated and expanded test suite in `src/api.test.ts`:
+
 - ✅ Tests negative status codes (should throw)
 - ✅ Tests status codes below 100 (should throw)
 - ✅ Tests status codes above 599 (should throw)
@@ -105,21 +125,27 @@ Updated and expanded test suite in `src/api.test.ts`:
 ## Verification
 
 ### Tests
+
 ```bash
 pnpm test -- src/api.test.ts --run
 ```
+
 **Result**: ✅ All 5 tests passing
 
 ### TypeScript
+
 ```bash
 pnpm typecheck
 ```
+
 **Result**: ✅ No errors
 
 ### ESLint
+
 ```bash
 pnpm lint
 ```
+
 **Result**: ✅ No errors
 
 ---
@@ -134,7 +160,7 @@ pnpm lint
    - Enhanced status code validation
    - Now enforces HTTP status code range 100-599
 
-3. **src/components/__tests__/AIPageBuilder.test.tsx** (NEW)
+3. **src/components/**tests**/AIPageBuilder.test.tsx** (NEW)
    - Created comprehensive test suite for AIPageBuilder
    - Tests user ID extraction patterns
    - Tests error handling scenarios
@@ -149,15 +175,17 @@ pnpm lint
 ## Additional Bugs Identified (Not Fixed in This PR)
 
 ### AuthContext Blocking Bug (DORMANT)
+
 **File**: `src/contexts/AuthContext.jsx`  
 **Severity**: CRITICAL (if used)  
 **Status**: Not currently used in production
 
 The `AuthContext` component blocks all rendering until auth loads:
+
 ```jsx
 return (
   <AuthContext.Provider value={value}>
-    {!loading && children}  // ❌ Blocks ALL rendering
+    {!loading && children} // ❌ Blocks ALL rendering
   </AuthContext.Provider>
 );
 ```
@@ -165,10 +193,11 @@ return (
 **Impact**: Would cause blank screens on all pages (including public pages) during auth check.
 
 **Recommendation**: Remove the conditional rendering and let individual routes handle loading state:
+
 ```jsx
 return (
   <AuthContext.Provider value={value}>
-    {children}  // ✅ Always render
+    {children} // ✅ Always render
   </AuthContext.Provider>
 );
 ```
@@ -180,13 +209,17 @@ return (
 ## Configuration Status
 
 ### API Keys Status
+
 The repository has comprehensive documentation for API key setup:
+
 - ✅ `.env.example` with all required keys documented
 - ✅ `ADD_YOUR_API_KEYS_NOW.md` with setup instructions
 - ✅ `ADD_THESE_7_KEYS.txt` with specific missing keys listed
 
 ### Missing Configuration
+
 According to `ADD_THESE_7_KEYS.txt`, the following keys need to be added:
+
 1. `VITE_STRIPE_PUBLISHABLE_KEY`
 2. `STRIPE_WEBHOOK_SECRET`
 3. `FACEBOOK_PAGE_ID`
@@ -202,12 +235,14 @@ According to `ADD_THESE_7_KEYS.txt`, the following keys need to be added:
 ## Recommendations
 
 ### Immediate Actions
+
 1. ✅ Merge this PR to fix the active bugs
 2. ⚠️ Create `.env` file from `.env.example` and add API keys
 3. ⚠️ Add environment variables to Netlify/deployment platform
 4. ⚠️ Create Supabase storage buckets as documented
 
 ### Future Improvements
+
 1. Fix or remove the unused `AuthContext` component
 2. Add more comprehensive tests for AIPageBuilder UI interactions
 3. Consider adding integration tests for Supabase operations
