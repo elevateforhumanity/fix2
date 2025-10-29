@@ -9,6 +9,7 @@ bash scripts/autopilot-configure-netlify-now.sh
 ```
 
 **That's it!** The script will:
+
 1. ✅ Ask for your Netlify token (one-time)
 2. ✅ Test connection
 3. ✅ Install Netlify CLI (if needed)
@@ -25,6 +26,7 @@ bash scripts/autopilot-configure-netlify-now.sh
 ### 1. Netlify Personal Access Token
 
 The script will guide you through getting it:
+
 - Opens: https://app.netlify.com/user/applications#personal-access-tokens
 - You click: "New access token"
 - You copy the token
@@ -37,12 +39,15 @@ The script will guide you through getting it:
 ## 🚀 Complete Walkthrough
 
 ### Step 1: Run the Script
+
 ```bash
 bash scripts/autopilot-configure-netlify-now.sh
 ```
 
 ### Step 2: Get Token (Guided)
+
 The script will show you:
+
 ```
 ▶ Getting Netlify Auth Token
 
@@ -59,6 +64,7 @@ Paste your Netlify token: [paste here]
 ```
 
 ### Step 3: Autopilot Takes Over
+
 ```
 ✓ Token saved to .env
 ✓ Connected to site: elevateforhumanityfix2
@@ -70,6 +76,7 @@ Paste your Netlify token: [paste here]
 ```
 
 ### Step 4: Done!
+
 ```
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
@@ -95,6 +102,7 @@ Everything is configured and ready! 🚀
 ## ✅ What Gets Configured
 
 ### 1. Environment Variables (Automated)
+
 ```bash
 AUTOPILOT_MODE=autonomous
 AUTOPILOT_ENABLED=true
@@ -114,6 +122,7 @@ SUPABASE_PROJECT_REF=cuxzzpsyufcewtmicszk
 Plus any Stripe/Google variables in your .env
 
 ### 2. Build Hooks (Automated)
+
 - **Autopilot Auto-Deploy** (main branch)
 - **Manual Production Deploy** (main branch)
 - **Staging Environment** (staging branch)
@@ -121,10 +130,12 @@ Plus any Stripe/Google variables in your .env
 Hook URLs saved to `.env.netlify`
 
 ### 3. Deploy Notifications (Automated)
+
 - Email on deploy failed
 - Email on deploy succeeded
 
 ### 4. Verification (Automated)
+
 - Tests all configurations
 - Verifies site connection
 - Checks build settings
@@ -135,6 +146,7 @@ Hook URLs saved to `.env.netlify`
 ## 🔄 Re-running
 
 Safe to run multiple times:
+
 ```bash
 bash scripts/autopilot-configure-netlify-now.sh
 ```
@@ -146,6 +158,7 @@ If token already exists in .env, it will ask if you want to use it or enter a ne
 ## 🎯 Time Required
 
 **Total time:** 5 minutes
+
 - Get token: 2 minutes (one-time)
 - Script runs: 3 minutes (automated)
 
@@ -171,21 +184,27 @@ open https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1
 ## 🐛 Troubleshooting
 
 ### Script says "Token may be invalid"
+
 **Solution:** Get a new token
+
 1. Go to: https://app.netlify.com/user/applications#personal-access-tokens
 2. Delete old token
 3. Create new token
 4. Re-run script
 
 ### Script can't find .env file
+
 **Solution:** Create it
+
 ```bash
 cp .env.example .env
 # Edit .env with your values
 ```
 
 ### Environment variables not loading
+
 **Solution:** Check .env file has values
+
 ```bash
 cat .env | grep SUPABASE
 # Should show your Supabase credentials
@@ -196,13 +215,16 @@ cat .env | grep SUPABASE
 ## 🔐 Security
 
 ### Token Storage
+
 - Saved to `.env` (gitignored)
 - Not committed to repository
 - Only used for configuration
 - Can be deleted after setup
 
 ### Token Permissions
+
 The token needs:
+
 - Read site settings
 - Write environment variables
 - Create build hooks
@@ -213,12 +235,14 @@ The token needs:
 ## 📝 Summary
 
 **What you do:**
+
 1. Run one command
 2. Get Netlify token (2 minutes)
 3. Paste token
 4. Done!
 
 **What autopilot does:**
+
 1. ✅ Saves token securely
 2. ✅ Tests connection
 3. ✅ Installs CLI
@@ -229,6 +253,7 @@ The token needs:
 8. ✅ Shows completion report
 
 **Result:**
+
 - Fully configured Netlify site
 - All automation enabled
 - Production ready
@@ -247,6 +272,6 @@ bash scripts/autopilot-configure-netlify-now.sh
 
 ---
 
-*Last Updated: 2025-10-29*  
-*Script: scripts/autopilot-configure-netlify-now.sh*  
-*Site: elevateforhumanityfix2 (12f120ab-3f63-419b-bc49-430f043415c1)*
+_Last Updated: 2025-10-29_  
+_Script: scripts/autopilot-configure-netlify-now.sh_  
+_Site: elevateforhumanityfix2 (12f120ab-3f63-419b-bc49-430f043415c1)_
