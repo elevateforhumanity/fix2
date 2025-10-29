@@ -2,6 +2,7 @@ import { PropsWithChildren, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import ChatAssistant from '../components/ChatAssistant';
+import FooterLegal from '../components/FooterLegal';
 
 const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
 
@@ -376,6 +377,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
           </div>
         </div>
       </footer>
+      <FooterLegal />
     </div>
   );
 }

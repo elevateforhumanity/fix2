@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_netlify/
 
 Sitemap: https://elevateforhumanity.org/sitemap.xml
 Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
@@ -7,8 +10,30 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 # Crawl-delay
 Crawl-delay: 1
 
-# Disallow admin areas
-User-agent: *
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_netlify/
+# AI crawlers (discourage training on our content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
