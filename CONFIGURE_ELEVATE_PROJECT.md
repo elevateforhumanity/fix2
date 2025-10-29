@@ -142,6 +142,7 @@ pnpm dev
 Visit: http://localhost:5173
 
 Test:
+
 - Homepage loads
 - Can view programs
 - Can view courses
@@ -180,6 +181,7 @@ https://www.elevateforhumanity.org
 ```
 
 Test:
+
 - Homepage loads
 - Programs page works
 - Courses page works
@@ -203,6 +205,7 @@ I can create a script to automate this. Just provide:
 4. **Database Password:** `_____________`
 
 Then I'll:
+
 - ✅ Update all config files
 - ✅ Run migrations
 - ✅ Test build
