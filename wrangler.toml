@@ -11,7 +11,7 @@ routes = [
 ]
 
 # Account details (set via wrangler login or env vars)
-# account_id = "your-cloudflare-account-id"
+account_id = "6ba1d2a52a3fa230972960db307ac7c0"
 
 # Workers KV for state storage (optional)
 # kv_namespaces = [

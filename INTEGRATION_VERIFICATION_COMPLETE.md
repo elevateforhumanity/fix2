@@ -16,6 +16,7 @@
 ## 1. Netlify Configuration ✅
 
 ### Deployment Setup
+
 ```toml
 Site ID: 12f120ab-3f63-419b-bc49-430f043415c1
 Site Name: elevateforhumanityfix2
@@ -24,6 +25,7 @@ Status: CONFIGURED ✅
 ```
 
 ### Build Configuration ✅
+
 ```toml
 [build]
   command = "pnpm install && pnpm run build"
@@ -39,29 +41,31 @@ Status: CONFIGURED ✅
 ```
 
 ### Serverless Functions ✅
+
 **Total Functions**: 17 configured
 
-| Function | Purpose | Integration |
-|----------|---------|-------------|
-| automated-reporting.js | Generate reports | Supabase ✅ |
-| create-checkout-session.js | Stripe checkout | Stripe ✅ |
-| create-donation-session.js | Donations | Stripe ✅ |
-| create-enrollment-session.js | Enrollments | Stripe ✅ |
-| enrollment-sync.js | Sync enrollments | Supabase ✅ |
-| generate-content-calendar.js | AI content | OpenAI ✅ + Supabase ✅ |
-| generate-social-content.js | AI social posts | OpenAI ✅ + Supabase ✅ |
-| health-check.js | System health | All services ✅ |
-| health-db.js | Database health | Supabase ✅ |
-| job-placement-tracking.js | Track placements | Supabase ✅ |
-| post-scheduled-content.js | Schedule posts | Supabase ✅ |
-| post-to-social-media.js | Post to social | Supabase ✅ |
-| sentry-webhook.js | Error monitoring | Sentry ✅ |
-| stripe-connect-onboarding.js | Stripe Connect | Stripe ✅ + Supabase ✅ |
-| stripe-split-payout.js | Revenue splits | Stripe ✅ + Supabase ✅ |
-| stripe-webhook.js | Stripe events | Stripe ✅ + Supabase ✅ |
-| submit-scholarship-application.js | Applications | Supabase ✅ |
+| Function                          | Purpose          | Integration             |
+| --------------------------------- | ---------------- | ----------------------- |
+| automated-reporting.js            | Generate reports | Supabase ✅             |
+| create-checkout-session.js        | Stripe checkout  | Stripe ✅               |
+| create-donation-session.js        | Donations        | Stripe ✅               |
+| create-enrollment-session.js      | Enrollments      | Stripe ✅               |
+| enrollment-sync.js                | Sync enrollments | Supabase ✅             |
+| generate-content-calendar.js      | AI content       | OpenAI ✅ + Supabase ✅ |
+| generate-social-content.js        | AI social posts  | OpenAI ✅ + Supabase ✅ |
+| health-check.js                   | System health    | All services ✅         |
+| health-db.js                      | Database health  | Supabase ✅             |
+| job-placement-tracking.js         | Track placements | Supabase ✅             |
+| post-scheduled-content.js         | Schedule posts   | Supabase ✅             |
+| post-to-social-media.js           | Post to social   | Supabase ✅             |
+| sentry-webhook.js                 | Error monitoring | Sentry ✅               |
+| stripe-connect-onboarding.js      | Stripe Connect   | Stripe ✅ + Supabase ✅ |
+| stripe-split-payout.js            | Revenue splits   | Stripe ✅ + Supabase ✅ |
+| stripe-webhook.js                 | Stripe events    | Stripe ✅ + Supabase ✅ |
+| submit-scholarship-application.js | Applications     | Supabase ✅             |
 
 ### Function Dependencies ✅
+
 ```json
 {
   "@supabase/supabase-js": "2.57.4",
@@ -73,7 +77,9 @@ Status: CONFIGURED ✅
 ```
 
 ### Environment Variables ✅
+
 **Configured in netlify.toml**:
+
 - ✅ `VITE_SUPABASE_URL` - Supabase project URL
 - ✅ `VITE_SUPABASE_ANON_KEY` - Supabase public key
 - ✅ `NODE_VERSION` - Node.js version
@@ -83,6 +89,7 @@ Status: CONFIGURED ✅
 - ✅ `GENERATE_SOURCEMAP` - Source map control
 
 **To be added in Netlify Dashboard**:
+
 - ⏳ `VITE_APPLICATION_FORM_URL` - Google Form URL
 - ⏳ `VITE_STRIPE_PUBLISHABLE_KEY` - Stripe public key
 - ⏳ `STRIPE_SECRET_KEY` - Stripe secret key
@@ -95,6 +102,7 @@ Status: CONFIGURED ✅
 ## 2. Supabase Configuration ✅
 
 ### Project Details
+
 ```
 Project Ref: cuxzzpsyufcewtmicszk
 URL: https://cuxzzpsyufcewtmicszk.supabase.co
@@ -102,30 +110,32 @@ Status: CONFIGURED ✅
 ```
 
 ### Database Schema ✅
+
 **Tables**: 16 defined
 **Migrations**: 17 SQL files ready
 
-| Migration | Purpose |
-|-----------|---------|
-| 001_lms_schema.sql | LMS core tables |
-| 002_auth_instructor_certificates.sql | Auth & certificates |
-| 003_analytics_events.sql | Analytics tracking |
-| 004_add_missing_rls_policies.sql | Security policies |
-| 004_analytics_rls.sql | Analytics security |
-| 005_notifications.sql | Notification system |
-| 006_add_funding_type.sql | Funding tracking |
-| 007_autopilot_system.sql | Autopilot tables |
-| 20250127000000_autopilot_logging.sql | Logging system |
-| 20250127000001_autopilot_phase4_dashboard.sql | Dashboard |
-| 20250127_create_automation_tables.sql | Automation |
-| 20250127_create_generated_content.sql | Content generation |
-| 20250127_create_scholarship_applications.sql | Scholarships |
-| 20250127_create_stripe_split_tables.sql | Revenue splits |
-| 20250128000000_alerting_rules.sql | Alert system |
-| 20250128000001_performance_profiling.sql | Performance |
-| ALL_IN_ONE__paste_into_dashboard.sql | Complete schema |
+| Migration                                     | Purpose             |
+| --------------------------------------------- | ------------------- |
+| 001_lms_schema.sql                            | LMS core tables     |
+| 002_auth_instructor_certificates.sql          | Auth & certificates |
+| 003_analytics_events.sql                      | Analytics tracking  |
+| 004_add_missing_rls_policies.sql              | Security policies   |
+| 004_analytics_rls.sql                         | Analytics security  |
+| 005_notifications.sql                         | Notification system |
+| 006_add_funding_type.sql                      | Funding tracking    |
+| 007_autopilot_system.sql                      | Autopilot tables    |
+| 20250127000000_autopilot_logging.sql          | Logging system      |
+| 20250127000001_autopilot_phase4_dashboard.sql | Dashboard           |
+| 20250127_create_automation_tables.sql         | Automation          |
+| 20250127_create_generated_content.sql         | Content generation  |
+| 20250127_create_scholarship_applications.sql  | Scholarships        |
+| 20250127_create_stripe_split_tables.sql       | Revenue splits      |
+| 20250128000000_alerting_rules.sql             | Alert system        |
+| 20250128000001_performance_profiling.sql      | Performance         |
+| ALL_IN_ONE\_\_paste_into_dashboard.sql        | Complete schema     |
 
 ### Authentication ✅
+
 ```json
 {
   "providers": ["email"],
@@ -136,19 +146,24 @@ Status: CONFIGURED ✅
 ```
 
 ### Storage Buckets ✅
+
 **Configured buckets**:
+
 1. ✅ `course-materials` - Course files
 2. ✅ `user-uploads` - User content
 3. ✅ `certificates` - Generated certificates
 4. ✅ `generated-content` - AI-generated content
 
 ### Row Level Security (RLS) ✅
+
 - ✅ RLS enabled on all tables
 - ✅ Policies defined in migrations
 - ✅ User-based access control
 
 ### Client Configuration ✅
+
 **File**: `src/services/supa.ts`
+
 ```typescript
 import { createClient } from '@supabase/supabase-js';
 
@@ -161,7 +176,9 @@ export const supa = createClient(supaUrl, supaAnon, {
 ```
 
 ### Function Integration ✅
+
 **Functions using Supabase**: 13 out of 17
+
 - automated-reporting.js ✅
 - enrollment-sync.js ✅
 - generate-content-calendar.js ✅
@@ -177,7 +194,9 @@ export const supa = createClient(supaUrl, supaAnon, {
 - submit-scholarship-application.js ✅
 
 ### Frontend Integration ✅
+
 **Service files using Supabase**: 37 references
+
 - All pages connect via `src/services/supa.ts`
 - Authentication flows configured
 - Data fetching implemented
@@ -188,6 +207,7 @@ export const supa = createClient(supaUrl, supaAnon, {
 ## 3. Cloudflare Configuration ✅
 
 ### Worker Setup
+
 ```toml
 Name: autopilot-deploy-worker
 Main: workers/autopilot-deploy-worker.ts
@@ -196,23 +216,28 @@ Status: CONFIGURED ✅
 ```
 
 ### Routes ✅
+
 **Configured routes**:
+
 1. ✅ `elevateforhumanity.org/api/worker/*`
 2. ✅ `elevateforhumanityfix2.netlify.app/api/worker/*`
 
 ### Cron Triggers ✅
+
 ```toml
 [triggers]
 crons = ["*/10 * * * *"]  # Every 10 minutes
 ```
 
 ### Environment Variables ✅
+
 ```toml
 [vars]
 ENVIRONMENT = "production"
 ```
 
 ### Secrets (To be configured) ⏳
+
 - `AUTOPILOT_TOKEN` - Autopilot authentication
 - `NETLIFY_TOKEN` - Netlify API access
 - `NETLIFY_SITE_ID` - Site identifier
@@ -220,7 +245,9 @@ ENVIRONMENT = "production"
 - `SUPABASE_URL` - Supabase endpoint
 
 ### Worker File ✅
+
 **File**: `workers/autopilot-deploy-worker.ts` (5.9 KB)
+
 - Health check endpoint
 - Deployment triggers
 - Status monitoring
@@ -231,6 +258,7 @@ ENVIRONMENT = "production"
 ## 4. Integration Architecture ✅
 
 ### Data Flow
+
 ```
 User Browser
     ↓
@@ -251,18 +279,21 @@ Netlify (Static Site)
 ### Service Connections
 
 **Frontend → Supabase**:
+
 - ✅ Direct connection via `@supabase/supabase-js`
 - ✅ Environment variables configured
 - ✅ Authentication flows
 - ✅ Real-time subscriptions
 
 **Netlify Functions → Supabase**:
+
 - ✅ 13 functions integrated
 - ✅ Database operations
 - ✅ Storage operations
 - ✅ Auth operations
 
 **Netlify Functions → Stripe**:
+
 - ✅ 7 functions integrated
 - ✅ Checkout sessions
 - ✅ Webhooks
@@ -270,12 +301,14 @@ Netlify (Static Site)
 - ✅ Split payouts
 
 **Netlify Functions → OpenAI**:
+
 - ✅ 3 functions integrated
 - ✅ Content generation
 - ✅ Social media posts
 - ✅ Content calendar
 
 **Cloudflare Workers → Netlify**:
+
 - ✅ Routes configured
 - ✅ Health checks
 - ✅ Deployment triggers
@@ -287,30 +320,33 @@ Netlify (Static Site)
 
 ### Main Configuration Files
 
-| File | Purpose | Status |
-|------|---------|--------|
-| netlify.toml | Netlify deployment | ✅ Configured |
-| wrangler.toml | Cloudflare workers | ✅ Configured |
-| .integration-config.json | Integration map | ✅ Configured |
-| .autopilot-config.json | Autopilot settings | ✅ Configured |
-| netlify/functions/package.json | Function deps | ✅ Configured |
-| supabase/migrations/*.sql | Database schema | ✅ Ready (17 files) |
+| File                           | Purpose            | Status              |
+| ------------------------------ | ------------------ | ------------------- |
+| netlify.toml                   | Netlify deployment | ✅ Configured       |
+| wrangler.toml                  | Cloudflare workers | ✅ Configured       |
+| .integration-config.json       | Integration map    | ✅ Configured       |
+| .autopilot-config.json         | Autopilot settings | ✅ Configured       |
+| netlify/functions/package.json | Function deps      | ✅ Configured       |
+| supabase/migrations/\*.sql     | Database schema    | ✅ Ready (17 files) |
 
 ### Environment Configuration
 
 **Netlify Environment** (netlify.toml):
+
 - ✅ Supabase URL and keys
 - ✅ Build settings
 - ✅ Node version
 - ✅ Function timeout (30s)
 
 **Cloudflare Environment** (wrangler.toml):
+
 - ✅ Worker routes
 - ✅ Cron triggers
 - ✅ Environment variables
 - ⏳ Secrets (to be added)
 
 **Supabase Environment** (migrations):
+
 - ✅ Database schema
 - ✅ RLS policies
 - ✅ Storage buckets
@@ -321,6 +357,7 @@ Netlify (Static Site)
 ## 6. Verification Checklist ✅
 
 ### Netlify ✅
+
 - [x] netlify.toml configured
 - [x] 17 functions present
 - [x] Function dependencies installed
@@ -331,6 +368,7 @@ Netlify (Static Site)
 - [x] OpenAI integration configured
 
 ### Supabase ✅
+
 - [x] Project created (cuxzzpsyufcewtmicszk)
 - [x] Client configured (src/services/supa.ts)
 - [x] 17 migrations ready
@@ -341,6 +379,7 @@ Netlify (Static Site)
 - [x] 13 functions integrated
 
 ### Cloudflare ✅
+
 - [x] wrangler.toml configured
 - [x] Worker file present (autopilot-deploy-worker.ts)
 - [x] Routes configured (2 routes)
@@ -349,6 +388,7 @@ Netlify (Static Site)
 - [ ] Secrets to be added (manual step)
 
 ### Integration ✅
+
 - [x] .integration-config.json present
 - [x] Frontend → Supabase connected
 - [x] Functions → Supabase connected (13 functions)
@@ -362,7 +402,9 @@ Netlify (Static Site)
 ## 7. Manual Steps Required ⏳
 
 ### Netlify Dashboard
+
 Add these environment variables:
+
 1. `VITE_APPLICATION_FORM_URL` - Google Form URL
 2. `VITE_STRIPE_PUBLISHABLE_KEY` - Stripe public key
 3. `STRIPE_SECRET_KEY` - Stripe secret key
@@ -371,13 +413,16 @@ Add these environment variables:
 6. `SUPABASE_SERVICE_KEY` - Supabase service role key
 
 **How to add**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys#environment
 2. Click "Add variable"
 3. Add each variable with its value
 4. Click "Save"
 
 ### Supabase Dashboard
+
 Apply migrations:
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
 2. Open SQL Editor
 3. Copy content from `supabase/migrations/ALL_IN_ONE__paste_into_dashboard.sql`
@@ -385,6 +430,7 @@ Apply migrations:
 5. Verify tables created
 
 Create storage buckets:
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets
 2. Create buckets:
    - `course-materials` (public)
@@ -393,7 +439,9 @@ Create storage buckets:
    - `generated-content` (private)
 
 ### Cloudflare Dashboard
+
 Add worker secrets:
+
 ```bash
 wrangler secret put AUTOPILOT_TOKEN
 wrangler secret put NETLIFY_TOKEN
@@ -403,6 +451,7 @@ wrangler secret put SUPABASE_URL
 ```
 
 Deploy worker:
+
 ```bash
 cd /workspaces/fix2
 wrangler deploy
@@ -413,12 +462,14 @@ wrangler deploy
 ## 8. Testing Integration
 
 ### Test Netlify Build
+
 ```bash
 pnpm run build
 # Should succeed with Supabase env vars
 ```
 
 ### Test Supabase Connection
+
 ```bash
 # In browser console after site loads:
 console.log(window.supabase)
@@ -426,12 +477,14 @@ console.log(window.supabase)
 ```
 
 ### Test Function Locally
+
 ```bash
 netlify dev
 # Visit: http://localhost:8888/.netlify/functions/health-check
 ```
 
 ### Test Cloudflare Worker
+
 ```bash
 wrangler dev
 # Visit: http://localhost:8787/api/worker/health
@@ -442,18 +495,21 @@ wrangler dev
 ## 9. Documentation References
 
 ### Setup Guides
+
 - `SUPABASE_CONFIGURATION.md` - Complete Supabase setup
 - `NETLIFY_CONFIGURATION_COMPLETE.md` - Netlify setup
 - `STRIPE_CONFIGURATION.md` - Stripe integration
 - `DEPLOY_NOW.md` - Deployment instructions
 
 ### Configuration Files
+
 - `netlify.toml` - Netlify configuration
 - `wrangler.toml` - Cloudflare configuration
 - `.integration-config.json` - Integration mapping
 - `.autopilot-config.json` - Autopilot settings
 
 ### API Documentation
+
 - `API_DOCUMENTATION.md` - API endpoints
 - `API_QUICK_REFERENCE.md` - Quick reference
 
@@ -463,13 +519,13 @@ wrangler dev
 
 ### Configuration Status
 
-| Service | Status | Functions | Integration |
-|---------|--------|-----------|-------------|
-| **Netlify** | ✅ Configured | 17 functions | ✅ Complete |
-| **Supabase** | ✅ Configured | 13 functions | ✅ Complete |
-| **Cloudflare** | ✅ Configured | 1 worker | ✅ Complete |
-| **Stripe** | ✅ Configured | 7 functions | ✅ Complete |
-| **OpenAI** | ✅ Configured | 3 functions | ✅ Complete |
+| Service        | Status        | Functions    | Integration |
+| -------------- | ------------- | ------------ | ----------- |
+| **Netlify**    | ✅ Configured | 17 functions | ✅ Complete |
+| **Supabase**   | ✅ Configured | 13 functions | ✅ Complete |
+| **Cloudflare** | ✅ Configured | 1 worker     | ✅ Complete |
+| **Stripe**     | ✅ Configured | 7 functions  | ✅ Complete |
+| **OpenAI**     | ✅ Configured | 3 functions  | ✅ Complete |
 
 ### Integration Points
 
@@ -496,6 +552,7 @@ wrangler dev
 **Answer**: ✅ **YES - All code is properly configured for all three services**
 
 **Proof**:
+
 1. ✅ Netlify: 17 functions configured with dependencies
 2. ✅ Supabase: Client configured, 17 migrations ready, 13 functions integrated
 3. ✅ Cloudflare: Worker configured with routes and cron triggers

@@ -1,7 +1,7 @@
 {
   "version": "7.0",
   "mode": "autonomous",
-  "deployed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "deployed_at": "2025-10-29T04:00:00Z",
   "autopilot_secret": "ff870a439ce0a300223e...",
   "phases": {
     "phase1": "Automated Migrations",

@@ -15,7 +15,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -84,24 +84,24 @@ jobs:
           script: |
             const title = '🚨 Autopilot: Build Failure Detected';
             const body = `## Build Failure
-            
+
             The autonomous autopilot detected a build failure.
-            
+
             **Time**: ${new Date().toISOString()}
             **Branch**: main
             **Workflow**: ${context.workflow}
-            
+
             ### Actions Taken
             - ✅ TypeScript check: ${context.payload.steps?.typecheck?.outcome || 'unknown'}
             - ✅ ESLint check: ${context.payload.steps?.lint?.outcome || 'unknown'}
             - ❌ Build: FAILED
-            
+
             ### Next Steps
             The autopilot will continue monitoring and attempt fixes on the next run.
-            
+
             ---
             *This issue was created automatically by the autonomous autopilot system.*`;
-            
+
             // Check if issue already exists
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -109,7 +109,7 @@ jobs:
               state: 'open',
               labels: ['autopilot', 'build-failure']
             });
-            
+
             if (issues.data.length === 0) {
               await github.rest.issues.create({
                 owner: context.repo.owner,
