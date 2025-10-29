@@ -31,6 +31,7 @@
 ### Step 2: Verify Build Settings
 
 After linking, verify these settings:
+
 - **Build command**: `pnpm install --frozen-lockfile && pnpm run build`
 - **Publish directory**: `dist`
 - **Functions directory**: `netlify/functions`
@@ -38,6 +39,7 @@ After linking, verify these settings:
 ### Step 3: Trigger Deploy
 
 After connecting, Netlify should automatically trigger a build. If not:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 2. Click "Trigger deploy" → "Deploy site"
 
@@ -79,11 +81,13 @@ https://app.netlify.com/sites/elevateforhumanityfix2/settings/env
 Once deployed, test these endpoints:
 
 **Health Check**:
+
 ```bash
 curl https://elevateforhumanityfix2.netlify.app/api/health-check
 ```
 
 **Database Health**:
+
 ```bash
 curl https://elevateforhumanityfix2.netlify.app/api/health-db
 ```
@@ -124,6 +128,7 @@ After deployment succeeds:
 ## 📚 Documentation Reference
 
 All configuration details are in:
+
 - `NETLIFY_CONFIGURATION_COMPLETE.md` - Full Netlify setup
 - `NETLIFY_ENV_VARS_NEEDED.md` - Environment variables
 - `NETLIFY_DOMAIN_SETUP.md` - Custom domain setup
@@ -134,16 +139,19 @@ All configuration details are in:
 ## 🆘 Troubleshooting
 
 ### Build Still Failing
+
 - Check build logs for specific errors
 - Verify all environment variables are set
 - Test build locally: `pnpm install && pnpm run build`
 
 ### Functions Not Working
+
 - Check function logs in Netlify dashboard
 - Verify environment variables are available to functions
 - Test locally: `netlify dev`
 
 ### Site Not Loading
+
 - Check deploy status in Netlify dashboard
 - Verify DNS settings if using custom domain
 - Check browser console for errors
@@ -151,6 +159,7 @@ All configuration details are in:
 ## 🎉 Success Criteria
 
 Deployment is successful when:
+
 1. ✅ Build completes without errors
 2. ✅ Site is accessible
 3. ✅ All 17 functions deployed
@@ -161,6 +170,7 @@ Deployment is successful when:
 ## 📞 Support
 
 If you encounter issues:
+
 1. Check Netlify build logs
 2. Review documentation files
 3. Test locally first

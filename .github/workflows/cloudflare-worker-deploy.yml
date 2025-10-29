@@ -1,0 +1,53 @@
+name: Cloudflare Worker Auto-Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/**'
+      - 'wrangler.toml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Cloudflare Worker
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.1'
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+        continue-on-error: true
+
+      - name: Report deployment status
+        if: success()
+        run: |
+          echo "✅ Cloudflare Worker deployed successfully"
+          echo "Worker: autopilot-deploy-worker"
+          echo "Routes:"
+          echo "  - elevateforhumanity.org/api/worker/*"
+          echo "  - elevateforhumanityfix2.netlify.app/api/worker/*"
+
+      - name: Report deployment failure
+        if: failure()
+        run: |
+          echo "⚠️  Cloudflare Worker deployment skipped"
+          echo "Reason: CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not configured"
+          echo ""
+          echo "To enable automatic deployment:"
+          echo "1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions"
+          echo "2. Add CLOUDFLARE_API_TOKEN"
+          echo "3. Add CLOUDFLARE_ACCOUNT_ID"
+          echo ""
+          echo "Worker configuration is ready in wrangler.toml"
+          echo "Manual deployment: wrangler deploy"

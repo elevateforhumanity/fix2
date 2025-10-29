@@ -1,12 +1,14 @@
 # Connect GitHub to Netlify - Step by Step
 
 ## Current Status
+
 - ✅ Only 1 Netlify site exists (elevateforhumanityfix2)
 - ✅ All code pushed to GitHub main branch
 - ✅ All configuration complete
 - ❌ GitHub App not connected (causing deploy failures)
 
 ## The Problem
+
 Netlify can't access your GitHub repository because the Netlify GitHub App isn't installed/connected.
 
 **Error**: `Host key verification failed. Could not read from remote repository.`
@@ -16,15 +18,19 @@ Netlify can't access your GitHub repository because the Netlify GitHub App isn't
 ### Option 1: Connect via Netlify Dashboard (Recommended)
 
 #### Step 1: Go to Site Settings
+
 Open: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 
 #### Step 2: Find "Continuous Deployment" Section
+
 Scroll down to the "Continuous Deployment" section
 
 #### Step 3: Link Repository
+
 You'll see one of these options:
 
 **If you see "Link to repository"**:
+
 1. Click "Link to repository"
 2. Select "GitHub"
 3. Click "Authorize Netlify" if prompted
@@ -33,6 +39,7 @@ You'll see one of these options:
 6. Click "Save"
 
 **If you see "Configure repository"**:
+
 1. Click "Configure repository"
 2. Click "Edit settings"
 3. Verify repository: `elevateforhumanity/fix2`
@@ -40,6 +47,7 @@ You'll see one of these options:
 5. Click "Save"
 
 **If you see "Repository not found"**:
+
 1. Click "Configure Netlify on GitHub"
 2. This opens GitHub
 3. Click "Configure" next to Netlify
@@ -49,6 +57,7 @@ You'll see one of these options:
 7. Go back to Netlify and refresh
 
 #### Step 4: Verify Build Settings
+
 After linking, verify these settings are correct:
 
 - **Build command**: `pnpm install --frozen-lockfile && pnpm run build`
@@ -58,6 +67,7 @@ After linking, verify these settings are correct:
 If they're wrong, click "Edit settings" and update them.
 
 #### Step 5: Trigger Deploy
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 2. Click "Trigger deploy" → "Deploy site"
 3. Watch the build logs
@@ -65,9 +75,11 @@ If they're wrong, click "Edit settings" and update them.
 ### Option 2: Install Netlify GitHub App Manually
 
 #### Step 1: Go to GitHub Apps
+
 Open: https://github.com/apps/netlify
 
 #### Step 2: Install the App
+
 1. Click "Install" or "Configure"
 2. Select account: `elevateforhumanity`
 3. Under "Repository access":
@@ -76,6 +88,7 @@ Open: https://github.com/apps/netlify
 4. Click "Install" or "Save"
 
 #### Step 3: Return to Netlify
+
 1. Go back to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 2. The repository should now be connected
 3. Trigger a deploy
@@ -85,6 +98,7 @@ Open: https://github.com/apps/netlify
 If the GitHub App doesn't work, you can use a deploy key:
 
 #### Step 1: Get the Deploy Key
+
 A deploy key was already created. The public key is:
 
 ```
@@ -92,6 +106,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCPMF79Mgb22CIPTyLQlABDdrff0NWGApQoZAv+I06Y
 ```
 
 #### Step 2: Add to GitHub
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/keys
 2. Click "Add deploy key"
 3. Title: `Netlify Deploy Key`
@@ -100,6 +115,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCPMF79Mgb22CIPTyLQlABDdrff0NWGApQoZAv+I06Y
 6. Click "Add key"
 
 #### Step 3: Update Netlify
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 2. The connection should now work
 3. Trigger a deploy
@@ -128,6 +144,7 @@ After connecting, verify:
 ## Expected Build Output
 
 When successful, you'll see:
+
 ```
 ✓ Build completed
 ✓ Functions deployed (17 functions)
@@ -142,11 +159,13 @@ When successful, you'll see:
    - Should load without errors
 
 2. **Test health check**:
+
    ```bash
    curl https://elevateforhumanityfix2.netlify.app/api/health-check
    ```
 
 3. **Add missing environment variables**:
+
    ```bash
    netlify env:set OPENAI_API_KEY "your-key"
    netlify env:set STRIPE_WEBHOOK_SECRET "whsec_your_secret"
@@ -159,19 +178,23 @@ When successful, you'll see:
 ## Troubleshooting
 
 ### "Repository not found"
+
 - Install Netlify GitHub App (Option 2 above)
 - Make sure app has access to the repository
 
 ### "Permission denied"
+
 - Use deploy key method (Option 3 above)
 - Ensure "Allow write access" is checked
 
 ### Build still failing
+
 - Check build logs for specific errors
 - Verify environment variables are set
 - Test build locally: `pnpm install && pnpm run build`
 
 ### "Host key verification failed"
+
 - GitHub connection not properly set up
 - Try Option 1, then Option 2, then Option 3
 

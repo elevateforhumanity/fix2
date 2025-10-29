@@ -1,7 +1,9 @@
 # Netlify Environment Variables Configuration
 
 ## Currently Configured (from env:list output)
+
 ✅ Already set in Netlify:
+
 - `NODE_VERSION` - 20.11.1
 - `PNPM_VERSION` - 9.7.0
 - `NODE_OPTIONS` - --max_old_space_size=4096
@@ -21,11 +23,13 @@
 ## Required by Netlify Functions (Missing)
 
 ### OpenAI Integration
+
 - `OPENAI_API_KEY` - Required for content generation functions
   - Get from: https://platform.openai.com/api-keys
   - Scope: All (Builds, Functions, Runtime)
 
 ### Social Media Automation (Optional)
+
 - `FACEBOOK_PAGE_ACCESS_TOKEN` - For Facebook posting
 - `FACEBOOK_PAGE_ID` - Facebook page ID
 - `INSTAGRAM_ACCESS_TOKEN` - For Instagram posting
@@ -34,9 +38,11 @@
 - `LINKEDIN_ORGANIZATION_ID` - LinkedIn organization ID
 
 ### Monitoring & Notifications (Optional)
+
 - `SLACK_WEBHOOK_URL` - For Slack notifications
 
 ### Stripe Configuration (Additional)
+
 - `STRIPE_WEBHOOK_SECRET` - For webhook verification
   - Get from: Stripe Dashboard > Developers > Webhooks
   - Scope: All (Functions, Runtime)
@@ -45,11 +51,13 @@
   - Scope: All (Functions, Runtime)
 
 ### Application Configuration
+
 - `FRONTEND_URL` - Your production URL
   - Value: `https://elevateforhumanity.org` or `https://elevateforhumanityfix2.netlify.app`
   - Scope: All
 
 ### Supabase (Additional)
+
 - `SUPABASE_URL` - Same as VITE_SUPABASE_URL (for functions)
   - Value: `https://cuxzzpsyufcewtmicszk.supabase.co`
   - Scope: All (Functions, Runtime)
@@ -60,6 +68,7 @@
 ## Priority Setup
 
 ### Critical (Required for Core Functionality)
+
 1. `OPENAI_API_KEY` - Content generation won't work without this
 2. `STRIPE_WEBHOOK_SECRET` - Payment webhooks will fail without this
 3. `FRONTEND_URL` - Needed for CORS and redirects
@@ -67,6 +76,7 @@
 5. `SUPABASE_SERVICE_KEY` - Functions need this
 
 ### Optional (Enhanced Features)
+
 - Social media variables - Only if using social media automation
 - Slack webhook - Only if using Slack notifications
 - Stripe connected account - Only if using split payouts
@@ -74,6 +84,7 @@
 ## How to Add Environment Variables
 
 ### Via Netlify CLI:
+
 ```bash
 export NETLIFY_AUTH_TOKEN="nfp_ZQh1EUwZgJt939dcD3kb9sEYGk7DDgwPbaae"
 
@@ -100,6 +111,7 @@ netlify env:set SLACK_WEBHOOK_URL "https://hooks.slack.com/services/YOUR/WEBHOOK
 ```
 
 ### Via Netlify Dashboard:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix2/settings/env
 2. Click "Add a variable"
 3. Enter key and value
@@ -107,7 +119,9 @@ netlify env:set SLACK_WEBHOOK_URL "https://hooks.slack.com/services/YOUR/WEBHOOK
 5. Click "Create variable"
 
 ## Verification
+
 After adding variables, verify with:
+
 ```bash
 netlify env:list
 ```

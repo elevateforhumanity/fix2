@@ -3,7 +3,9 @@
 ## Current Status
 
 ### ✅ Environment Variables Configured
+
 All Supabase environment variables are set in Netlify:
+
 - `SUPABASE_URL` - Project URL
 - `SUPABASE_ANON_KEY` - Public anonymous key
 - `SUPABASE_SERVICE_KEY` - Service role key (full access)
@@ -16,9 +18,11 @@ All Supabase environment variables are set in Netlify:
 - `VITE_SUPABASE_ANON_KEY` - Frontend anonymous key
 
 ### ✅ Database Schema
+
 The following tables are defined in migrations:
 
 **Core LMS Tables**:
+
 - `programs` - Course programs/tracks
 - `courses` - Individual courses
 - `lessons` - Course lessons/modules
@@ -29,25 +33,30 @@ The following tables are defined in migrations:
 - `certificates` - Course completion certificates
 
 **User Management**:
+
 - `profiles` - User profiles
 - `notifications` - User notifications
 - `notification_preferences` - Notification settings
 
 **Analytics**:
+
 - `analytics_events` - Event tracking
 
 **Automation**:
+
 - `automation.admin_users` - Admin users
 - `automation.health_log` - System health logs
 - `automation.tasks` - Automation tasks
 - `automation.task_edges` - Task dependencies
 
 ### ✅ Row Level Security (RLS)
+
 All tables have RLS policies configured. See `supabase/RLS_POLICIES.md` for details.
 
 ## Database Migrations
 
 ### Available Migrations
+
 Located in `supabase/migrations/`:
 
 1. `001_lms_schema.sql` - Core LMS schema
@@ -68,11 +77,13 @@ Located in `supabase/migrations/`:
 16. `20250128000001_performance_profiling.sql` - Performance monitoring
 
 ### All-in-One Migration
+
 `ALL_IN_ONE__paste_into_dashboard.sql` - Complete schema in one file
 
 ## How to Apply Migrations
 
 ### Option 1: Supabase Dashboard (Recommended)
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
 2. Click "SQL Editor" in left sidebar
 3. Click "New query"
@@ -81,7 +92,9 @@ Located in `supabase/migrations/`:
 6. Click "Run"
 
 ### Option 2: Individual Migrations
+
 Run each migration file in order:
+
 1. Go to SQL Editor
 2. For each file in `supabase/migrations/` (in order):
    - Copy file contents
@@ -89,6 +102,7 @@ Run each migration file in order:
    - Run
 
 ### Option 3: Supabase CLI (If installed)
+
 ```bash
 # Link to project
 supabase link --project-ref cuxzzpsyufcewtmicszk
@@ -100,12 +114,14 @@ supabase db push
 ## Authentication Configuration
 
 ### Current Setup
+
 - **Provider**: Supabase Auth
 - **JWT Secret**: Configured in environment variables
 - **Anon Key**: Public access key for client-side
 - **Service Key**: Full access key for server-side
 
 ### Recommended Auth Settings
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users
 2. Configure:
    - **Email Auth**: Enable
@@ -115,7 +131,9 @@ supabase db push
    - **Refresh Token Rotation**: Enable
 
 ### Social Auth (Optional)
+
 Configure in: Authentication > Providers
+
 - Google OAuth
 - GitHub OAuth
 - Facebook OAuth
@@ -123,6 +141,7 @@ Configure in: Authentication > Providers
 ## Storage Configuration
 
 ### Buckets to Create
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets
 
 2. Create these buckets:
@@ -132,6 +151,7 @@ Configure in: Authentication > Providers
    - `generated-content` - AI-generated content
 
 3. Configure bucket policies:
+
    ```sql
    -- Allow authenticated users to upload to user-uploads
    create policy "Users can upload own files"
@@ -149,11 +169,13 @@ Configure in: Authentication > Providers
 ## API Settings
 
 ### Current Configuration
+
 - **URL**: https://cuxzzpsyufcewtmicszk.supabase.co
 - **Anon Key**: Configured
 - **Service Role Key**: Configured
 
 ### API Settings to Verify
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 
 2. Check:
@@ -162,7 +184,9 @@ Configure in: Authentication > Providers
    - **Realtime**: Enabled for tables that need it
 
 ### Enable Realtime (Optional)
+
 For tables that need real-time updates:
+
 ```sql
 alter publication supabase_realtime add table notifications;
 alter publication supabase_realtime add table lesson_progress;
@@ -171,12 +195,15 @@ alter publication supabase_realtime add table lesson_progress;
 ## Database Functions
 
 ### Existing Functions
+
 Check `supabase/functions/` directory for Edge Functions:
+
 - Custom business logic
 - Scheduled tasks
 - Webhooks
 
 ### Deploy Edge Functions
+
 ```bash
 # Deploy all functions
 supabase functions deploy
@@ -188,12 +215,14 @@ supabase functions deploy function-name
 ## Security Checklist
 
 ### ✅ Completed
+
 - [x] Environment variables configured
 - [x] RLS policies defined
 - [x] JWT secret configured
 - [x] Service role key secured
 
 ### ⏳ To Verify in Dashboard
+
 - [ ] RLS enabled on all tables
 - [ ] Auth settings configured
 - [ ] Storage buckets created
@@ -203,32 +232,33 @@ supabase functions deploy function-name
 ## Testing Supabase Connection
 
 ### Test from Netlify Function
+
 The `health-check` function tests Supabase connectivity:
+
 ```bash
 curl https://elevateforhumanityfix2.netlify.app/api/health-check
 ```
 
 ### Test from Frontend
+
 ```javascript
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
   process.env.VITE_SUPABASE_ANON_KEY
-)
+);
 
 // Test query
-const { data, error } = await supabase
-  .from('programs')
-  .select('*')
-  .limit(1)
+const { data, error } = await supabase.from('programs').select('*').limit(1);
 
-console.log(data, error)
+console.log(data, error);
 ```
 
 ## Monitoring & Logs
 
 ### Database Logs
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/logs/postgres-logs
 2. Monitor:
    - Slow queries
@@ -236,6 +266,7 @@ console.log(data, error)
    - Connection issues
 
 ### API Logs
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/logs/edge-logs
 2. Monitor:
    - API requests
@@ -245,15 +276,18 @@ console.log(data, error)
 ## Backup & Recovery
 
 ### Automatic Backups
+
 Supabase provides automatic daily backups.
 
 ### Manual Backup
+
 ```bash
 # Export database
 pg_dump -h db.cuxzzpsyufcewtmicszk.supabase.co -U postgres -d postgres > backup.sql
 ```
 
 ### Restore from Backup
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/database/backups
 2. Select backup
 3. Click "Restore"
@@ -261,13 +295,17 @@ pg_dump -h db.cuxzzpsyufcewtmicszk.supabase.co -U postgres -d postgres > backup.
 ## Performance Optimization
 
 ### Indexes
+
 Check `supabase/migrations/` for index definitions:
+
 - `idx_courses_program_id` - Course lookups
 - `idx_lessons_course_id_idx` - Lesson queries
 - Additional indexes in migration files
 
 ### Query Optimization
+
 Use the SQL Editor to:
+
 1. Run `EXPLAIN ANALYZE` on slow queries
 2. Add indexes where needed
 3. Optimize RLS policies
@@ -275,16 +313,19 @@ Use the SQL Editor to:
 ## Troubleshooting
 
 ### Connection Issues
+
 - Verify `SUPABASE_URL` is correct
 - Check API keys are valid
 - Ensure RLS policies allow access
 
 ### Authentication Issues
+
 - Check JWT secret matches
 - Verify user exists in auth.users
 - Check RLS policies for user's role
 
 ### Function Errors
+
 - Check function logs in dashboard
 - Verify environment variables
 - Test with service role key

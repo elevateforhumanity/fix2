@@ -32,7 +32,12 @@
         "jwtExpiry": 3600
       },
       "storage": {
-        "buckets": ["course-materials", "user-uploads", "certificates", "generated-content"]
+        "buckets": [
+          "course-materials",
+          "user-uploads",
+          "certificates",
+          "generated-content"
+        ]
       }
     },
     "cloudflare": {
