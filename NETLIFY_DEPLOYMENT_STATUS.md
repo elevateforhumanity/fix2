@@ -11,26 +11,32 @@
 ## Issues Fixed
 
 ### Issue 1: Cache Plugin Failure ✅
+
 **Error:** "Some specified paths were not resolved, unable to cache dependencies"
 
 **Root Cause:**
+
 - `netlify-plugin-cache` trying to cache `.pnpm-store` path
 - Path doesn't exist in Netlify build environment
 - Causing build to fail
 
 **Solution:**
+
 - Disabled `netlify-plugin-cache` in `netlify.toml`
 - Netlify's built-in caching is sufficient
 - Reduces plugin complexity
 
 ### Issue 2: Lighthouse Plugin Error ✅
+
 **Error:** "Plugin '@netlify/plugin-lighthouse' internal error"
 
 **Root Cause:**
+
 - Puppeteer module compatibility issue
 - Named export 'PuppeteerNode' not found
 
 **Solution:**
+
 - Already disabled in previous commit
 - Not critical for deployment
 
@@ -41,6 +47,7 @@
 ### Method 1: Netlify Dashboard (Recommended)
 
 1. **Go to Deploys Page:**
+
    ```
    https://app.netlify.com/sites/elevateforhumanityfix2/deploys
    ```
@@ -61,6 +68,7 @@
 ### Method 2: Check Live Site
 
 Once deployed, verify:
+
 ```
 https://www.elevateforhumanity.org
 ```
@@ -78,19 +86,25 @@ Should load without errors.
 3. Common issues:
 
 #### Error: "Build exceeded maximum allowed runtime"
+
 **Solution:** Build is taking too long (>15 min on free tier)
+
 - Check for infinite loops in build scripts
 - Disable heavy plugins
 - Optimize build process
 
 #### Error: "Command failed with exit code 1"
+
 **Solution:** Build script error
+
 - Check `package.json` scripts
 - Verify all dependencies installed
 - Test build locally: `pnpm build`
 
 #### Error: "Module not found"
+
 **Solution:** Missing dependency
+
 - Check `package.json` has all dependencies
 - Verify imports are correct
 - Run `pnpm install` locally
@@ -104,6 +118,7 @@ If deploy fails:
    - Click "Options" → "Retry deploy"
 
 2. **Via Git:**
+
    ```bash
    git commit --allow-empty -m "chore: trigger Netlify rebuild"
    git push origin main
@@ -119,6 +134,7 @@ If deploy fails:
 ## Current Configuration
 
 ### Build Settings
+
 ```toml
 [build]
   command = "pnpm install && pnpm run build"
@@ -134,6 +150,7 @@ If deploy fails:
 ```
 
 ### Active Plugins
+
 ```toml
 # Only sitemap submission plugin active
 [[plugins]]
@@ -145,6 +162,7 @@ If deploy fails:
 ```
 
 ### Disabled Plugins
+
 ```toml
 # Lighthouse - puppeteer compatibility issue
 # Cache - path resolution errors
@@ -190,33 +208,39 @@ If deploy fails:
 After successful deployment:
 
 ### Basic Checks
+
 - [ ] Homepage loads: https://www.elevateforhumanity.org
 - [ ] No console errors in browser
 - [ ] Images load correctly
 - [ ] Navigation works
 
 ### Page Checks
+
 - [ ] Programs page: /programs
 - [ ] LMS page: /lms/courses
 - [ ] Donate page: /donate
 - [ ] Legal pages: /legal/privacy
 
 ### Coming Soon Pages
+
 - [ ] Community: /community
 - [ ] Volunteer: /sisters/volunteer-opportunities
 - [ ] Professional: /professional-home
 
 ### API Endpoints
+
 - [ ] Programs JSON: /api/public/programs.json
 - [ ] Courses JSON: /api/public/courses.json
 
 ### Sitemaps
+
 - [ ] Sitemap index: /sitemap.xml
 - [ ] Static sitemap: /sitemap-static.xml
 - [ ] Programs sitemap: /sitemap-programs.xml
 - [ ] Courses sitemap: /sitemap-courses.xml
 
 ### SSL/Security
+
 - [ ] HTTPS working (green padlock)
 - [ ] No mixed content warnings
 - [ ] Security headers present
@@ -226,6 +250,7 @@ After successful deployment:
 ## Troubleshooting Commands
 
 ### Check Deployment Status
+
 ```bash
 # Via Netlify CLI
 netlify status
@@ -238,6 +263,7 @@ netlify deploy:get <deploy-id>
 ```
 
 ### Test Build Locally
+
 ```bash
 # Clean install
 rm -rf node_modules dist
@@ -251,6 +277,7 @@ pnpm preview
 ```
 
 ### Check Environment Variables
+
 ```bash
 # List all env vars in Netlify
 netlify env:list
@@ -264,17 +291,20 @@ netlify env:get VITE_SUPABASE_URL
 ## Next Steps
 
 ### Immediate (Now)
+
 1. ✅ Monitor Netlify dashboard for deployment status
 2. ⏳ Wait for "Published" status (2-3 minutes)
 3. ⏳ Test live site once deployed
 
 ### After Successful Deploy
+
 1. Test all critical pages
 2. Verify Coming Soon pages work
 3. Check API endpoints
 4. Submit sitemap to Google Search Console
 
 ### If Deploy Fails
+
 1. Check build logs for specific error
 2. Review error message
 3. Apply fix based on error type
@@ -288,11 +318,13 @@ netlify env:get VITE_SUPABASE_URL
 ### If You Need Help
 
 **Netlify Support:**
+
 - Community: https://answers.netlify.com
 - Email: support@netlify.com
 - Status: https://www.netlifystatus.com
 
 **Documentation:**
+
 - Build Settings: https://docs.netlify.com/configure-builds/overview/
 - Troubleshooting: https://docs.netlify.com/configure-builds/troubleshooting-tips/
 - Functions: https://docs.netlify.com/functions/overview/
@@ -302,23 +334,27 @@ netlify env:get VITE_SUPABASE_URL
 ## Summary
 
 **What Was Fixed:**
+
 - ✅ Disabled cache plugin causing path resolution errors
 - ✅ Disabled Lighthouse plugin with compatibility issues
 - ✅ Simplified plugin configuration
 - ✅ Committed and pushed to main branch
 
 **Current Status:**
+
 - ✅ Code pushed to GitHub
 - ⏳ Netlify deployment triggered
 - ⏳ Waiting for build to complete
 
 **Expected Result:**
+
 - ✅ Build completes successfully
 - ✅ Site deploys to production
 - ✅ All pages accessible
 - ✅ No plugin errors
 
 **Monitor At:**
+
 ```
 https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 ```

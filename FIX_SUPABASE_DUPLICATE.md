@@ -25,6 +25,7 @@ env:
 Your codebase uses: `cuxzzpsyufcewtmicszk`
 
 Check which project this is:
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
 2. Note the project name (probably "elevateforhumanity's Project")
 
@@ -52,11 +53,13 @@ postgres://postgres:[YOUR_PASSWORD]@db.cuxzzpsyufcewtmicszk.supabase.co:5432/pos
 ### Step 4: Get Correct Values
 
 **Database URL:**
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/database
 2. Copy "Connection string" under "Connection pooling"
 3. Replace `[YOUR-PASSWORD]` with your database password
 
 **Service Role Key:**
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 2. Copy "service_role" key (under "Project API keys")
 3. **⚠️ Keep this secret!**
@@ -73,6 +76,7 @@ After updating secrets:
 ## Why This Happened
 
 You likely:
+
 1. Created "elevate" project first (test)
 2. Set GitHub secrets to point to it
 3. Created "elevateforhumanity's Project" later (production)
@@ -114,6 +118,7 @@ After fixing secrets:
 ## Expected Result
 
 **Before Fix:**
+
 ```
 ❌ Migration: Failed
 ❌ Health Check: Failed
@@ -121,6 +126,7 @@ Reason: Trying to create tables in wrong project
 ```
 
 **After Fix:**
+
 ```
 ✅ Migration: Success
 ✅ Health Check: Passed
@@ -148,6 +154,7 @@ grep "SUPABASE_URL" .env
 ---
 
 **Next Steps:**
+
 1. Update GitHub secrets (5 min)
 2. Test workflow manually (2 min)
 3. Delete duplicate project (2 min)
