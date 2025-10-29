@@ -6,34 +6,65 @@
 
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import { createClient } from '@supabase/supabase-js';
 
 const SITE_URL = 'https://www.elevateforhumanity.org';
 const DIST_DIR = './dist';
 
-// Fetch programs from public API
+// Initialize Supabase client
+const supabaseUrl = process.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY;
+
+const supabase = supabaseUrl && supabaseAnonKey
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
+
+// Fetch programs from Supabase
 async function fetchPrograms() {
+  if (!supabase) {
+    console.warn('⚠️  Supabase not configured, using empty programs list');
+    return [];
+  }
+  
   try {
-    const response = await fetch(`${SITE_URL}/api/public/programs.json`);
-    if (!response.ok) {
-      console.warn('⚠️  Programs API not available, using empty list');
+    const { data, error } = await supabase
+      .from('programs')
+      .select('id, slug, title, updated_at')
+      .eq('status', 'published')
+      .order('title');
+
+    if (error) {
+      console.warn('⚠️  Failed to fetch programs:', error.message);
       return [];
     }
-    return await response.json();
+    
+    return data || [];
   } catch (error) {
     console.warn('⚠️  Failed to fetch programs:', error.message);
     return [];
   }
 }
 
-// Fetch courses from public API
+// Fetch courses from Supabase
 async function fetchCourses() {
+  if (!supabase) {
+    console.warn('⚠️  Supabase not configured, using empty courses list');
+    return [];
+  }
+  
   try {
-    const response = await fetch(`${SITE_URL}/api/public/courses.json`);
-    if (!response.ok) {
-      console.warn('⚠️  Courses API not available, using empty list');
+    const { data, error } = await supabase
+      .from('courses')
+      .select('id, slug, title, updated_at')
+      .eq('status', 'published')
+      .order('title');
+
+    if (error) {
+      console.warn('⚠️  Failed to fetch courses:', error.message);
       return [];
     }
-    return await response.json();
+    
+    return data || [];
   } catch (error) {
     console.warn('⚠️  Failed to fetch courses:', error.message);
     return [];
@@ -83,15 +114,60 @@ function getStaticPages() {
   const now = new Date().toISOString().split('T')[0];
   return [
     { loc: `${SITE_URL}/`, lastmod: now, changefreq: 'daily', priority: '1.0' },
-    { loc: `${SITE_URL}/about`, lastmod: now, changefreq: 'monthly', priority: '0.8' },
-    { loc: `${SITE_URL}/programs`, lastmod: now, changefreq: 'weekly', priority: '0.9' },
-    { loc: `${SITE_URL}/lms/courses`, lastmod: now, changefreq: 'weekly', priority: '0.9' },
-    { loc: `${SITE_URL}/get-started`, lastmod: now, changefreq: 'monthly', priority: '0.8' },
-    { loc: `${SITE_URL}/donate`, lastmod: now, changefreq: 'monthly', priority: '0.7' },
-    { loc: `${SITE_URL}/legal/terms-of-use`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/privacy`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/dmca`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/legal-ipnotice`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
+    {
+      loc: `${SITE_URL}/about`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      loc: `${SITE_URL}/programs`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/lms/courses`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/get-started`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      loc: `${SITE_URL}/donate`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.7',
+    },
+    {
+      loc: `${SITE_URL}/legal/terms-of-use`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/privacy`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/dmca`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/legal-ipnotice`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
   ];
 }
 
@@ -101,7 +177,10 @@ async function main() {
   const now = new Date().toISOString().split('T')[0];
 
   // Fetch dynamic content
-  const [programs, courses] = await Promise.all([fetchPrograms(), fetchCourses()]);
+  const [programs, courses] = await Promise.all([
+    fetchPrograms(),
+    fetchCourses(),
+  ]);
 
   console.log(`✅ Found ${programs.length} programs`);
   console.log(`✅ Found ${courses.length} courses`);

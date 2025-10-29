@@ -10,28 +10,30 @@ export interface DynamicSEOProps {
   description?: string;
   keywords?: string[];
   canonical?: string;
-  
+
   // Open Graph
   ogType?: 'website' | 'article' | 'profile';
   ogImage?: string;
   ogImageWidth?: number;
   ogImageHeight?: number;
-  
+
   // Twitter
   twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
   twitterSite?: string;
   twitterCreator?: string;
-  
+
   // Structured Data
   structuredData?: Record<string, any>;
-  
+
   // Additional
   noindex?: boolean;
   nofollow?: boolean;
 }
 
-const DEFAULT_TITLE = 'Elevate for Humanity LMS | Workforce Training & Apprenticeship Platform';
-const DEFAULT_DESCRIPTION = 'Enterprise-grade LMS for workforce training, apprenticeships, and government programs. Built with React 19, Supabase, and Stripe Connect. 106+ certifications, 92% job placement.';
+const DEFAULT_TITLE =
+  'Elevate for Humanity LMS | Workforce Training & Apprenticeship Platform';
+const DEFAULT_DESCRIPTION =
+  'Enterprise-grade LMS for workforce training, apprenticeships, and government programs. Built with React 19, Supabase, and Stripe Connect. 106+ certifications, 92% job placement.';
 const DEFAULT_KEYWORDS = [
   'React LMS',
   'Workforce Development',
@@ -62,32 +64,33 @@ export default function DynamicSEO({
   nofollow = false,
 }: DynamicSEOProps) {
   // Build full title
-  const fullTitle = title 
-    ? `${title} | Elevate for Humanity`
-    : DEFAULT_TITLE;
-  
+  const fullTitle = title ? `${title} | Elevate for Humanity` : DEFAULT_TITLE;
+
   // Use provided or default description
   const metaDescription = description || DEFAULT_DESCRIPTION;
-  
+
   // Combine keywords
-  const allKeywords = keywords 
+  const allKeywords = keywords
     ? [...DEFAULT_KEYWORDS, ...keywords]
     : DEFAULT_KEYWORDS;
-  
+
   // Build canonical URL
-  const canonicalUrl = canonical 
+  const canonicalUrl = canonical
     ? `${SITE_URL}${canonical.startsWith('/') ? canonical : `/${canonical}`}`
     : SITE_URL;
-  
+
   // Use provided or default OG image
-  const ogImageUrl = ogImage 
-    ? (ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`)
+  const ogImageUrl = ogImage
+    ? ogImage.startsWith('http')
+      ? ogImage
+      : `${SITE_URL}${ogImage}`
     : DEFAULT_OG_IMAGE;
-  
+
   // Build robots meta
-  const robotsContent = noindex || nofollow
-    ? `${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`
-    : 'index,follow';
+  const robotsContent =
+    noindex || nofollow
+      ? `${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`
+      : 'index,follow';
 
   return (
     <Helmet>
@@ -97,7 +100,6 @@ export default function DynamicSEO({
       <meta name="keywords" content={allKeywords.join(', ')} />
       <link rel="canonical" href={canonicalUrl} />
       <meta name="robots" content={robotsContent} />
-      
       {/* Open Graph */}
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
@@ -107,7 +109,6 @@ export default function DynamicSEO({
       <meta property="og:image:width" content={ogImageWidth.toString()} />
       <meta property="og:image:height" content={ogImageHeight.toString()} />
       <meta property="og:site_name" content="Elevate for Humanity" />
-      
       {/* Twitter Card */}
       <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:site" content={twitterSite} />
@@ -115,7 +116,6 @@ export default function DynamicSEO({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={ogImageUrl} />
-      
       {/* Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
@@ -218,7 +218,9 @@ export function createArticleSchema(article: {
   };
 }
 
-export function createBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+export function createBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

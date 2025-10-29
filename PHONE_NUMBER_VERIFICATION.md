@@ -13,36 +13,43 @@ The correct phone number **(317) 314-3757** is consistently used across all file
 ### ✅ Source Files (10 instances)
 
 1. **src/lms/copilot-autopilot.js**
+
    ```javascript
-   contact_phone: '317-314-3757'
+   contact_phone: '317-314-3757';
    ```
 
 2. **src/components/SEO.jsx** (2 instances)
+
    ```javascript
-   telephone: '+1-317-314-3757'
+   telephone: '+1-317-314-3757';
    ```
 
 3. **src/layouts/SiteLayout.tsx** (2 instances)
+
    ```tsx
    <a href="tel:+13173143757">📞 (317) 314-3757</a>
    ```
 
 4. **src/pages/legal/Privacy.tsx**
+
    ```tsx
-   Phone: <a href="tel:+13173143757">(317) 314-3757</a>
+   Phone: <a href="tel:+13173143757">(317) 314-3757</a>;
    ```
 
 5. **src/pages/legal/DMCA.tsx**
+
    ```tsx
-   Phone: <a href="tel:+13173143757">(317) 314-3757</a>
+   Phone: <a href="tel:+13173143757">(317) 314-3757</a>;
    ```
 
 6. **src/pages/Accessibility.jsx**
+
    ```jsx
    <span>(317) 314-3757</span>
    ```
 
 7. **index.html** (2 instances)
+
    ```json
    "telephone": "+1-317-314-3757"
    ```
@@ -57,6 +64,7 @@ The correct phone number **(317) 314-3757** is consistently used across all file
 ## 📍 Where the Phone Number Appears
 
 ### Public-Facing Pages
+
 - ✅ Homepage (index.html schema)
 - ✅ Site footer (SiteLayout.tsx)
 - ✅ Legal pages (Privacy, DMCA)
@@ -64,6 +72,7 @@ The correct phone number **(317) 314-3757** is consistently used across all file
 - ✅ SEO component (structured data)
 
 ### Backend/Config
+
 - ✅ Autopilot configuration
 - ✅ LICENSE file
 
@@ -125,6 +134,7 @@ Indianapolis, IN 46240
 (317) 314-3757
 
 **Email:**
+
 - General: info@elevateforhumanity.org
 - Legal: legal@elevateforhumanity.org
 - Privacy: privacy@elevateforhumanity.org
@@ -134,6 +144,7 @@ Indianapolis, IN 46240
 https://elevateforhumanity.org
 
 **Social Media:**
+
 - Facebook: https://www.facebook.com/elevateforhumanity
 - LinkedIn: https://www.linkedin.com/company/elevate-for-humanity
 - YouTube: https://www.youtube.com/@elevateforhumanity

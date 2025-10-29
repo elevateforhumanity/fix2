@@ -144,6 +144,9 @@ importers:
       '@eslint/js':
         specifier: ^9.38.0
         version: 9.38.0
+      '@netlify/functions':
+        specifier: ^5.0.1
+        version: 5.0.1
       '@netlify/plugin-lighthouse':
         specifier: ^6.0.3
         version: 6.0.3(typescript@5.9.3)
@@ -1438,9 +1441,17 @@ packages:
   '@munter/tap-render@0.2.0':
     resolution: {integrity: sha512-m6xHJ6MhWBj2+BmxmRmdLas6P6yvrsThoRsOsrnZkTbJq9yPgxilqCGxKrPO9sFrsj9of5keUlLw5PkEjEj5kQ==}
 
+  '@netlify/functions@5.0.1':
+    resolution: {integrity: sha512-olCwsnp0GDpjSYPfWrtUIvOsZcrRta6lxwZWfl3XxucXOw5AcGDKSqKGRElzyyZoRA8OXVh5B5NHj5Jd4PRx+A==}
+    engines: {node: '>=18.0.0'}
+
   '@netlify/plugin-lighthouse@6.0.3':
     resolution: {integrity: sha512-qzmiQn32jwyHfxH4xOk3S8OIWOZW/U7u0Qw6w2yatST8V0Q3FWg/CT45yI/kY0u/08vrW1Znhts/XGX/P1TyCg==}
     engines: {node: '>=18.14.0'}
+
+  '@netlify/types@2.1.0':
+    resolution: {integrity: sha512-ktUb5d58pt1lQGXO5E9S0F1ljM0g+CoQuGTVII0IxBc0apmPq5RI0o3OWLY7U3ZERRiYTg5UfjiMihBEzuZsuw==}
+    engines: {node: ^18.14.0 || >=20}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -8222,6 +8233,10 @@ snapshots:
     dependencies:
       pause-stream: 0.0.11
 
+  '@netlify/functions@5.0.1':
+    dependencies:
+      '@netlify/types': 2.1.0
+
   '@netlify/plugin-lighthouse@6.0.3(typescript@5.9.3)':
     dependencies:
       chalk: 4.1.2
@@ -8241,6 +8256,8 @@ snapshots:
       - supports-color
       - typescript
       - utf-8-validate
+
+  '@netlify/types@2.1.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
