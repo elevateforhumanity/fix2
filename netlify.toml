@@ -61,10 +61,11 @@
 #   [plugins.inputs]
 #     output_path = "reports/lighthouse.html"
 
-[[plugins]]
-  package = "netlify-plugin-cache"
-  [plugins.inputs]
-    paths = ["node_modules", ".pnpm-store"]
+# Disabled - causing cache resolution errors
+# [[plugins]]
+#   package = "netlify-plugin-cache"
+#   [plugins.inputs]
+#     paths = ["node_modules", ".pnpm-store"]
 
 # Disabled due to plugin error
 # [[plugins]]

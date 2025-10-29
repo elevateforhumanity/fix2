@@ -13,7 +13,7 @@ export default function Volunteer() {
         'Track your volunteer hours and impact',
         'Receive volunteer training and resources',
         'Join our community of dedicated volunteers',
-        'Make a meaningful difference in students\' lives',
+        "Make a meaningful difference in students' lives",
       ]}
       launchDate="Q1 2025"
     />
