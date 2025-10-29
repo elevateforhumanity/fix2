@@ -3,6 +3,7 @@
 ## Issue
 
 GitHub Actions workflow `supabase-autopilot.yml` is failing with:
+
 ```
 ❌ Migration: Failed
 ❌ Health Check: Failed (auto-fix attempted)
@@ -11,16 +12,19 @@ GitHub Actions workflow `supabase-autopilot.yml` is failing with:
 ## Root Causes
 
 ### 1. Scheduled Health Checks Running Too Frequently
+
 - Workflow runs every 30 minutes via cron schedule
 - Tries to re-apply migrations that are already applied
 - Causes conflicts and failures
 
 ### 2. Migration Script Not Idempotent
+
 - `autopilot_migrate.sh` doesn't check if migrations already applied
 - Re-running causes SQL errors
 - No migration tracking table
 
 ### 3. Missing GitHub Secrets
+
 - Workflow requires `SUPABASE_DB_URL` secret
 - Requires `SUPABASE_SERVICE_ROLE_KEY` secret
 - Requires `SUPABASE_PROJECT_REF` secret
@@ -33,6 +37,7 @@ GitHub Actions workflow `supabase-autopilot.yml` is failing with:
 **Why:** Migrations should only run when code changes, not on schedule
 
 **How:**
+
 1. Edit `.github/workflows/supabase-autopilot.yml`
 2. Comment out or remove the schedule trigger:
 
@@ -101,6 +106,7 @@ done
 **Why:** Workflow needs credentials to connect to Supabase
 
 **How:**
+
 1. Go to GitHub repository settings
 2. Navigate to: Settings → Secrets and variables → Actions
 3. Add these secrets:
@@ -112,6 +118,7 @@ SUPABASE_PROJECT_REF=cuxzzpsyufcewtmicszk
 ```
 
 **Get values from:**
+
 - Supabase Dashboard → Project Settings → Database
 - Supabase Dashboard → Project Settings → API
 
@@ -169,6 +176,7 @@ Change health check to only verify, not fix:
 ### Step 3: Only Run Migrations on Code Changes
 
 Migrations should only run when:
+
 - Migration files are modified
 - Manually triggered via workflow_dispatch
 - NOT on schedule
@@ -207,11 +215,13 @@ After fix is applied:
 If you don't need automated health checks at all:
 
 1. Delete or rename the workflow file:
+
    ```bash
    mv .github/workflows/supabase-autopilot.yml .github/workflows/supabase-autopilot.yml.disabled
    ```
 
 2. Commit and push:
+
    ```bash
    git add .github/workflows/
    git commit -m "chore: disable Supabase autopilot health checks"

@@ -3,7 +3,7 @@
 // Description: Intellectual Property Notice page
 // Route: /legal/ip-notice
 // =============================
-export function LegalIPNotice() {
+export default function LegalIPNotice() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="mb-6 text-3xl font-semibold tracking-tight">

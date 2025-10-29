@@ -3,7 +3,7 @@
 // Description: Terms of Use with anti-copying, anti-reverse engineering, and anti-scraping clauses
 // Route: /legal/terms
 // =============================
-export function TermsOfUse() {
+export default function TermsOfUse() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="mb-6 text-3xl font-semibold tracking-tight">

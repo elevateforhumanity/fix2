@@ -12,6 +12,7 @@ You have **2 Supabase projects** that may be causing confusion:
 **Current project in use:** `cuxzzpsyufcewtmicszk`
 
 This project reference is used throughout the codebase in:
+
 - `.env` file
 - `netlify.toml`
 - `.integration-config.json`
@@ -23,11 +24,13 @@ This project reference is used throughout the codebase in:
 ### Option 1: Keep "elevateforhumanity's Project" (Recommended)
 
 **Why:**
+
 - More descriptive name
 - Likely the main production project
 - Already configured in codebase
 
 **Steps:**
+
 1. Verify this is project `cuxzzpsyufcewtmicszk`
 2. Delete the "elevate" project
 3. Keep using current configuration
@@ -35,10 +38,12 @@ This project reference is used throughout the codebase in:
 ### Option 2: Keep "elevate" Project
 
 **Why:**
+
 - Shorter, cleaner name
 - Easier to reference
 
 **Steps:**
+
 1. Get project ref for "elevate" project
 2. Update all references in codebase
 3. Delete "elevateforhumanity's Project"
@@ -48,6 +53,7 @@ This project reference is used throughout the codebase in:
 ### Via Supabase Dashboard (Recommended)
 
 1. **Login to Supabase:**
+
    ```
    https://supabase.com/dashboard
    ```
@@ -112,18 +118,19 @@ curl -H "apikey: YOUR_ANON_KEY" \
 
 ## Decision Matrix
 
-| Factor | Keep "elevate" | Keep "elevateforhumanity's Project" |
-|--------|----------------|-------------------------------------|
-| **Name Clarity** | ❌ Generic | ✅ Descriptive |
-| **Current Config** | ❌ Need to update | ✅ Already configured |
-| **Effort** | ⚠️ Medium (update code) | ✅ Low (delete other) |
-| **Risk** | ⚠️ Medium (config changes) | ✅ Low (no changes) |
+| Factor             | Keep "elevate"             | Keep "elevateforhumanity's Project" |
+| ------------------ | -------------------------- | ----------------------------------- |
+| **Name Clarity**   | ❌ Generic                 | ✅ Descriptive                      |
+| **Current Config** | ❌ Need to update          | ✅ Already configured               |
+| **Effort**         | ⚠️ Medium (update code)    | ✅ Low (delete other)               |
+| **Risk**           | ⚠️ Medium (config changes) | ✅ Low (no changes)                 |
 
 **Recommendation:** Keep "elevateforhumanity's Project" (cuxzzpsyufcewtmicszk)
 
 ## Automated Cleanup Script
 
 I can create an autopilot script to:
+
 1. Verify which project is active
 2. Check for data in each project
 3. Safely delete the unused project
@@ -170,12 +177,14 @@ supabase projects list
 ## What Happens After Deletion
 
 ### Immediate Effects
+
 - ✅ Project removed from dashboard
 - ✅ Database deleted
 - ✅ API endpoints disabled
 - ✅ No more confusion
 
 ### No Impact On
+
 - ✅ Active project (cuxzzpsyufcewtmicszk)
 - ✅ Current codebase
 - ✅ Netlify deployment
@@ -186,12 +195,14 @@ supabase projects list
 **If you're not sure which to delete:**
 
 1. **Check project with data:**
+
    ```
    Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
    Count tables with data
    ```
 
 2. **Check the other project:**
+
    ```
    Go to other project in dashboard
    Check if it has any tables or data
@@ -204,6 +215,7 @@ supabase projects list
 ## Need Help?
 
 I can help you:
+
 1. ✅ Identify which project to keep
 2. ✅ Verify data before deletion
 3. ✅ Create backup before deletion
@@ -217,11 +229,13 @@ Just let me know which project you want to keep!
 **Action:** Delete the "elevate" project (if it's not cuxzzpsyufcewtmicszk)
 
 **Reason:**
+
 - Your codebase uses `cuxzzpsyufcewtmicszk`
 - This is likely "elevateforhumanity's Project"
 - The "elevate" project is probably empty or a test
 
 **Steps:**
+
 1. Go to Supabase Dashboard
 2. Open the "elevate" project
 3. Check if it's empty (no tables/data)
