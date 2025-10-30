@@ -88,7 +88,9 @@ export default function LiveClassSchedule() {
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">🎯 One-Click Join</div>
-                <p className="text-sm text-brand-text-muted">Join sessions instantly</p>
+                <p className="text-sm text-brand-text-muted">
+                  Join sessions instantly
+                </p>
               </div>
             </div>
             <p className="mt-6 text-sm text-brand-text-muted">

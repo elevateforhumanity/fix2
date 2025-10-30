@@ -91,7 +91,9 @@ export default function LiveClassRoom() {
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">✓ Chat & Q&A</div>
-                <p className="text-sm text-brand-text-muted">Ask questions anytime</p>
+                <p className="text-sm text-brand-text-muted">
+                  Ask questions anytime
+                </p>
               </div>
             </div>
             <p className="mt-6 text-sm text-brand-text-muted">
@@ -103,7 +105,9 @@ export default function LiveClassRoom() {
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-2xl font-bold mb-4">{session.title}</h2>
-              <p className="text-brand-text-muted mb-4">{session.description}</p>
+              <p className="text-brand-text-muted mb-4">
+                {session.description}
+              </p>
               {!joined ? (
                 <button
                   onClick={handleJoinSession}

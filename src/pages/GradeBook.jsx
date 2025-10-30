@@ -245,7 +245,10 @@ export default function GradeBook() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
                       {students.map((student) => (
-                        <tr key={student.userId} className="hover:bg-brand-surface">
+                        <tr
+                          key={student.userId}
+                          className="hover:bg-brand-surface"
+                        >
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-brand-text">
                             {student.userId.substring(0, 8)}...
                           </td>

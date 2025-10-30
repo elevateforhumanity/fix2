@@ -139,7 +139,9 @@ export default function Donate() {
                 <div className="text-2xl font-bold text-brand-info mb-2">
                   {level.label}
                 </div>
-                <div className="text-sm text-brand-text-muted">{level.description}</div>
+                <div className="text-sm text-brand-text-muted">
+                  {level.description}
+                </div>
               </button>
             ))}
           </div>
@@ -192,7 +194,9 @@ export default function Donate() {
                 transportation, and childcare for students who couldn't
                 otherwise afford training.
               </p>
-              <div className="text-2xl font-bold text-brand-info">$500K/year</div>
+              <div className="text-2xl font-bold text-brand-info">
+                $500K/year
+              </div>
               <div className="text-sm text-brand-text-light">
                 200 students supported
               </div>
@@ -207,7 +211,9 @@ export default function Donate() {
               <div className="text-2xl font-bold text-purple-600">
                 $250K/year
               </div>
-              <div className="text-sm text-brand-text-light">500 families helped</div>
+              <div className="text-sm text-brand-text-light">
+                500 families helped
+              </div>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <Users className="w-12 h-12 text-brand-success mb-4" />

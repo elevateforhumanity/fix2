@@ -200,7 +200,9 @@ export default function NotificationCenter() {
           </div>
         ) : filteredNotifications.length === 0 ? (
           <div className="bg-white rounded-lg shadow p-12 text-center">
-            <p className="text-brand-text-light text-lg">No notifications to display</p>
+            <p className="text-brand-text-light text-lg">
+              No notifications to display
+            </p>
           </div>
         ) : (
           <div className="space-y-3">
