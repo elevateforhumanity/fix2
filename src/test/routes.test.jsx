@@ -4,19 +4,21 @@ import { vi } from 'vitest';
 vi.mock('../supabaseClient', () => ({
   supabase: {
     auth: {
-      getSession: vi.fn().mockResolvedValue({ data: { session: null }, error: null }),
+      getSession: vi
+        .fn()
+        .mockResolvedValue({ data: { session: null }, error: null }),
       onAuthStateChange: vi.fn().mockReturnValue({
-        data: { subscription: { unsubscribe: vi.fn() } }
+        data: { subscription: { unsubscribe: vi.fn() } },
       }),
-      signOut: vi.fn().mockResolvedValue({ error: null })
+      signOut: vi.fn().mockResolvedValue({ error: null }),
     },
     from: vi.fn().mockReturnValue({
       select: vi.fn().mockReturnValue({
-        limit: vi.fn().mockResolvedValue({ data: [], error: null })
-      })
-    })
+        limit: vi.fn().mockResolvedValue({ data: [], error: null }),
+      }),
+    }),
   },
-  testSupabaseConnection: vi.fn().mockResolvedValue(true)
+  testSupabaseConnection: vi.fn().mockResolvedValue(true),
 }));
 
 import { describe, it, expect } from 'vitest';

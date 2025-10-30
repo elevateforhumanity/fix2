@@ -3,7 +3,8 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const SITE_URL = process.env.VITE_SITE_URL || 'https://www.elevateforhumanity.org';
+const SITE_URL =
+  process.env.VITE_SITE_URL || 'https://www.elevateforhumanity.org';
 const DIST_DIR = 'dist';
 
 console.log('🔍 Verifying Sitemap Configuration\n');
@@ -23,8 +24,9 @@ try {
 
 // Check individual sitemaps
 console.log('📄 Individual Sitemaps:');
-const sitemapFiles = readdirSync(DIST_DIR)
-  .filter((f) => f.startsWith('sitemap-') && f.endsWith('.xml'));
+const sitemapFiles = readdirSync(DIST_DIR).filter(
+  (f) => f.startsWith('sitemap-') && f.endsWith('.xml')
+);
 let totalUrls = 0;
 
 sitemapFiles.forEach((file) => {
