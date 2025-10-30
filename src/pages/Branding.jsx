@@ -82,12 +82,12 @@ export default function Branding() {
             <div className="text-center">
               <div className="h-24 bg-brand-info rounded-lg mb-2" />
               <div className="font-medium">Info Blue</div>
-              <div className="text-sm text-brand-text-muted">#3B82F6</div>
+              <div className="text-sm text-brand-text-muted">var(--brand-info)</div>
             </div>
             <div className="text-center">
               <div className="h-24 bg-brand-success rounded-lg mb-2" />
               <div className="font-medium">Success Green</div>
-              <div className="text-sm text-brand-text-muted">#10B981</div>
+              <div className="text-sm text-brand-text-muted">var(--brand-success)</div>
             </div>
           </div>
         </div>

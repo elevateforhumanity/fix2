@@ -134,7 +134,7 @@ export default function QuizBuilder() {
         )}
         {success && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-            <p className="text-green-800">{success}</p>
+            <p className="text-brand-success">{success}</p>
           </div>
         )}
         {loading ? (
@@ -157,7 +157,7 @@ export default function QuizBuilder() {
                     onChange={(e) =>
                       setNewQuestion({ ...newQuestion, prompt: e.target.value })
                     }
-                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-focus"
                     rows="3"
                     placeholder="Enter your question here..."
                   />
@@ -172,7 +172,7 @@ export default function QuizBuilder() {
                       type="text"
                       value={option}
                       onChange={(e) => handleOptionChange(idx, e.target.value)}
-                      className="w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-brand-focus"
                       placeholder={`Option ${idx + 1}`}
                     />
                   ))}
@@ -186,7 +186,7 @@ export default function QuizBuilder() {
                     onChange={(e) =>
                       setNewQuestion({ ...newQuestion, answer: e.target.value })
                     }
-                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-focus"
                   >
                     <option value="">Select correct answer...</option>
                     {newQuestion.options
@@ -201,7 +201,7 @@ export default function QuizBuilder() {
                 <button
                   onClick={handleAddQuestion}
                   disabled={saving}
-                  className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-bold transition"
+                  className="w-full py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover disabled:opacity-50 font-bold transition"
                 >
                   {saving ? 'Adding...' : 'Add Question'}
                 </button>
@@ -213,7 +213,7 @@ export default function QuizBuilder() {
                 Existing Questions ({questions.length})
               </h2>
               {questions.length === 0 ? (
-                <p className="text-gray-500 text-center py-8">
+                <p className="text-brand-text-light text-center py-8">
                   No questions yet. Add your first question above!
                 </p>
               ) : (
@@ -229,7 +229,7 @@ export default function QuizBuilder() {
                         </h3>
                         <button
                           onClick={() => handleDeleteQuestion(question.id)}
-                          className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                          className="px-3 py-1 bg-brand-danger text-white rounded hover:bg-brand-danger-hover text-sm"
                         >
                           Delete
                         </button>
@@ -243,7 +243,7 @@ export default function QuizBuilder() {
                               key={optIdx}
                               className={
                                 option === question.answer
-                                  ? 'text-green-600 font-bold'
+                                  ? 'text-brand-success font-bold'
                                   : ''
                               }
                             >

@@ -11,6 +11,7 @@ bash scripts/autopilot-configure-netlify-now.sh
 ## What Happens
 
 ### 1. Script Asks for Token
+
 ```
 ▶ Getting Netlify Auth Token
 
@@ -25,6 +26,7 @@ Press ENTER when you have your token ready...
 ```
 
 ### 2. You Get the Token (2 minutes)
+
 1. Click this link: **https://app.netlify.com/user/applications#personal-access-tokens**
 2. Click **"New access token"**
 3. Name: **"Autopilot Configuration"**
@@ -32,11 +34,13 @@ Press ENTER when you have your token ready...
 5. **Copy the token** (you'll only see it once!)
 
 ### 3. Paste Token
+
 ```
 Paste your Netlify token: [paste here and press ENTER]
 ```
 
 ### 4. Autopilot Configures Everything (3 minutes)
+
 ```
 ✓ Token saved to .env
 ✓ Connected to site: elevateforhumanityfix2
@@ -48,6 +52,7 @@ Paste your Netlify token: [paste here and press ENTER]
 ```
 
 ### 5. Done!
+
 ```
 ╔═══════════════════════════════════════════════════════════╗
 ║   ✅ CONFIGURATION COMPLETE                              ║

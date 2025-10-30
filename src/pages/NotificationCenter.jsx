@@ -145,7 +145,7 @@ export default function NotificationCenter() {
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm"
+              className="px-4 py-2 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover transition text-sm"
             >
               Mark All as Read
             </button>
@@ -163,8 +163,8 @@ export default function NotificationCenter() {
               onClick={() => setFilter('all')}
               className={`flex-1 px-6 py-3 font-medium transition ${
                 filter === 'all'
-                  ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'border-b-2 border-blue-600 text-brand-info'
+                  : 'text-brand-text-muted hover:text-brand-text'
               }`}
             >
               All ({notifications.length})
@@ -173,8 +173,8 @@ export default function NotificationCenter() {
               onClick={() => setFilter('unread')}
               className={`flex-1 px-6 py-3 font-medium transition ${
                 filter === 'unread'
-                  ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'border-b-2 border-blue-600 text-brand-info'
+                  : 'text-brand-text-muted hover:text-brand-text'
               }`}
             >
               Unread ({unreadCount})
@@ -183,8 +183,8 @@ export default function NotificationCenter() {
               onClick={() => setFilter('read')}
               className={`flex-1 px-6 py-3 font-medium transition ${
                 filter === 'read'
-                  ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'border-b-2 border-blue-600 text-brand-info'
+                  : 'text-brand-text-muted hover:text-brand-text'
               }`}
             >
               Read ({notifications.length - unreadCount})
@@ -200,7 +200,7 @@ export default function NotificationCenter() {
           </div>
         ) : filteredNotifications.length === 0 ? (
           <div className="bg-white rounded-lg shadow p-12 text-center">
-            <p className="text-gray-500 text-lg">No notifications to display</p>
+            <p className="text-brand-text-light text-lg">No notifications to display</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -209,7 +209,7 @@ export default function NotificationCenter() {
                 key={notification.id}
                 className={`border-2 rounded-lg p-4 transition ${
                   notification.read
-                    ? 'bg-white border-gray-200'
+                    ? 'bg-white border-brand-border'
                     : getNotificationColor(notification.type)
                 } ${!notification.read ? 'shadow-md' : ''}`}
               >
@@ -222,22 +222,22 @@ export default function NotificationCenter() {
                       <h3 className="font-bold text-lg mb-1">
                         {notification.title}
                         {!notification.read && (
-                          <span className="ml-2 px-2 py-1 bg-blue-600 text-white text-xs rounded-full">
+                          <span className="ml-2 px-2 py-1 bg-brand-info text-white text-xs rounded-full">
                             New
                           </span>
                         )}
                       </h3>
-                      <p className="text-gray-700 mb-2">
+                      <p className="text-brand-text mb-2">
                         {notification.message}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-brand-text-light">
                         {new Date(notification.created_at).toLocaleString()}
                       </p>
                       {notification.link && (
                         <Link
                           to={notification.link}
                           onClick={() => markAsRead(notification.id)}
-                          className="inline-block mt-2 text-blue-600 hover:underline text-sm font-medium"
+                          className="inline-block mt-2 text-brand-info hover:underline text-sm font-medium"
                         >
                           View Details →
                         </Link>
@@ -248,14 +248,14 @@ export default function NotificationCenter() {
                     {!notification.read && (
                       <button
                         onClick={() => markAsRead(notification.id)}
-                        className="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm transition"
+                        className="px-3 py-1 bg-brand-surface text-brand-info rounded hover:bg-blue-200 text-sm transition"
                       >
                         Mark Read
                       </button>
                     )}
                     <button
                       onClick={() => deleteNotification(notification.id)}
-                      className="px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 text-sm transition"
+                      className="px-3 py-1 bg-brand-surface text-red-700 rounded hover:bg-red-200 text-sm transition"
                     >
                       Delete
                     </button>
