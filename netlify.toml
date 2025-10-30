@@ -72,7 +72,7 @@
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
-    baseUrl = "https://www.elevateforhumanity.org"
+    baseUrl = "https://elevateforhumanityfix2.netlify.app"
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 
@@ -80,18 +80,7 @@
 # Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
 # Search for "Supabase" and enable it there
 
-# Domain consolidation - redirect .com to .org
-[[redirects]]
-  from = "https://elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
-  status = 301
-  force = true
+# No domain redirects - deploying to elevateforhumanityfix2.netlify.app
 
 # API function redirects
 [[redirects]]

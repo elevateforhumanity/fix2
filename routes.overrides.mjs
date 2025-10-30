@@ -2,7 +2,8 @@
 /** @type {Array<{ file: string; path: string }>} */
 export default [
   // Home
-  { file: 'EFHLanding.tsx', path: '/' },
+  { file: 'Home.jsx', path: '/' },
+  { file: 'EFHLanding.tsx', path: '/efh-landing' },
 
   // Dynamic/program routes
   { file: 'ProgramDetail.tsx', path: '/programs/:slug' },
