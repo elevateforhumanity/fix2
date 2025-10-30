@@ -17,26 +17,46 @@ export default function AppLayout({ title, children }) {
         Skip to content
       </a>
       <header style={{ padding: '12px 24px', background: '#0f172a' }}>
-        <nav
-          role="navigation"
-          style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}
-        >
-          <NavLink style={linkStyle} to="/">
-            Home
-          </NavLink>
-          <NavLink style={linkStyle} to="/courses">
-            Courses
-          </NavLink>
-          <NavLink style={linkStyle} to="/account">
-            Account
-          </NavLink>
-          <NavLink style={linkStyle} to="/support">
-            Support
-          </NavLink>
-          <NavLink style={linkStyle} to="/partners">
-            Partners
-          </NavLink>
-        </nav>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <nav
+            role="navigation"
+            style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}
+          >
+            <NavLink style={linkStyle} to="/">
+              Home
+            </NavLink>
+            <NavLink style={linkStyle} to="/courses">
+              Courses
+            </NavLink>
+            <NavLink style={linkStyle} to="/account">
+              Account
+            </NavLink>
+            <NavLink style={linkStyle} to="/support">
+              Support
+            </NavLink>
+            <NavLink style={linkStyle} to="/partners">
+              Partners
+            </NavLink>
+          </nav>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            padding: '6px 12px',
+            background: 'linear-gradient(to right, #059669, #10b981)',
+            color: 'white',
+            borderRadius: '9999px',
+            fontSize: '13px',
+            fontWeight: 600,
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+            </svg>
+            <span>Buy Black Certified</span>
+          </div>
+        </div>
       </header>
       <main role="main" id="main-content">
         {children}

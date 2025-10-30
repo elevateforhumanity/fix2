@@ -69,6 +69,16 @@ export default function Partners() {
       website: 'https://www.hrci.org',
       since: '2020',
     },
+    {
+      id: 7,
+      name: 'IRS VITA Program',
+      category: 'Financial Education',
+      description:
+        'Recognized IRS Financial Education and Asset Building Partner providing free tax preparation services and financial literacy programs.',
+      logo: '💰',
+      website: 'https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers',
+      since: '2024',
+    },
   ];
 
   const categories = [
@@ -76,9 +86,10 @@ export default function Partners() {
     'Education',
     'Technology',
     'Healthcare',
-    'Environment',
-    'Youth Development',
-    'Gender Equality',
+    'Financial Education',
+    'Government',
+    'Professional Development',
+    'Human Resources',
   ];
   const [selectedCategory, setSelectedCategory] = React.useState('All');
 
