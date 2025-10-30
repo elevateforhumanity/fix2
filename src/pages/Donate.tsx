@@ -104,8 +104,8 @@ export default function Donate() {
               onClick={() => setDonationType('one-time')}
               className={`flex-1 py-4 px-6 rounded-lg font-semibold transition-all ${
                 donationType === 'one-time'
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-brand-info text-white shadow-lg'
+                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-border'
               }`}
             >
               One-Time Donation
@@ -114,8 +114,8 @@ export default function Donate() {
               onClick={() => setDonationType('monthly')}
               className={`flex-1 py-4 px-6 rounded-lg font-semibold transition-all ${
                 donationType === 'monthly'
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-brand-info text-white shadow-lg'
+                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-border'
               }`}
             >
               Monthly Giving
@@ -133,19 +133,19 @@ export default function Donate() {
                 className={`p-6 rounded-lg border-2 transition-all text-left ${
                   amount === level.amount
                     ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-200 hover:border-blue-300'
+                    : 'border-brand-border hover:border-blue-300'
                 }`}
               >
-                <div className="text-2xl font-bold text-blue-600 mb-2">
+                <div className="text-2xl font-bold text-brand-info mb-2">
                   {level.label}
                 </div>
-                <div className="text-sm text-gray-600">{level.description}</div>
+                <div className="text-sm text-brand-text-muted">{level.description}</div>
               </button>
             ))}
           </div>
           {/* Custom Amount */}
           <div className="mb-8">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-brand-text mb-2">
               Or enter a custom amount:
             </label>
             <div className="relative">
@@ -161,7 +161,7 @@ export default function Donate() {
                   setAmount(null);
                 }}
                 placeholder="Enter amount"
-                className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none text-lg"
+                className="w-full pl-12 pr-4 py-4 border-2 border-brand-border rounded-lg focus:border-blue-600 focus:outline-none text-lg"
               />
             </div>
           </div>
@@ -173,53 +173,53 @@ export default function Donate() {
             Donate {amount || customAmount ? `$${amount || customAmount}` : ''}{' '}
             {donationType === 'monthly' ? 'Monthly' : 'Now'}
           </button>
-          <p className="text-center text-sm text-gray-500 mt-4">
+          <p className="text-center text-sm text-brand-text-light mt-4">
             Selfish Inc Foundation is a 501(c)(3) nonprofit. Your donation is
             tax-deductible.
           </p>
         </div>
       </div>
       {/* Impact Stories */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-brand-surface py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Your Impact</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <GraduationCap className="w-12 h-12 text-blue-600 mb-4" />
+              <GraduationCap className="w-12 h-12 text-brand-info mb-4" />
               <h3 className="text-xl font-bold mb-4">Scholarships</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-brand-text-muted mb-4">
                 Full-ride and partial scholarships cover tuition, books,
                 transportation, and childcare for students who couldn't
                 otherwise afford training.
               </p>
-              <div className="text-2xl font-bold text-blue-600">$500K/year</div>
-              <div className="text-sm text-gray-500">
+              <div className="text-2xl font-bold text-brand-info">$500K/year</div>
+              <div className="text-sm text-brand-text-light">
                 200 students supported
               </div>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <Heart className="w-12 h-12 text-purple-600 mb-4" />
               <h3 className="text-xl font-bold mb-4">Emergency Assistance</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-brand-text-muted mb-4">
                 Emergency grants help students facing crisis situations stay
                 enrolled and complete their training programs.
               </p>
               <div className="text-2xl font-bold text-purple-600">
                 $250K/year
               </div>
-              <div className="text-sm text-gray-500">500 families helped</div>
+              <div className="text-sm text-brand-text-light">500 families helped</div>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <Users className="w-12 h-12 text-green-600 mb-4" />
+              <Users className="w-12 h-12 text-brand-success mb-4" />
               <h3 className="text-xl font-bold mb-4">Community Hubs</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-brand-text-muted mb-4">
                 Community hubs provide training space, computer labs, food
                 pantry, and support services in underserved neighborhoods.
               </p>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-brand-success">
                 $150K/year
               </div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-brand-text-light">
                 10,000 visitors annually
               </div>
             </div>
@@ -233,29 +233,29 @@ export default function Donate() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-100">
-            <Gift className="w-12 h-12 text-blue-600 mb-4" />
+            <Gift className="w-12 h-12 text-brand-info mb-4" />
             <h3 className="text-2xl font-bold mb-4">Corporate Sponsorships</h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-brand-text-muted mb-6">
               Partner with us to support workforce development and gain access
               to our talent pipeline.
             </p>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-brand-info mr-2">•</span>
                 <span>Founding Partner: $50K+ (named scholarship program)</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-brand-info mr-2">•</span>
                 <span>Premier Partner: $25K-49K (logo on website)</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-brand-info mr-2">•</span>
                 <span>Supporting Partner: $10K-24K (event invitations)</span>
               </li>
             </ul>
             <a
               href="/contact"
-              className="inline-block bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-block bg-brand-info text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-info-hover transition-colors"
             >
               Become a Sponsor
             </a>
@@ -263,7 +263,7 @@ export default function Donate() {
           <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-100">
             <Heart className="w-12 h-12 text-purple-600 mb-4" />
             <h3 className="text-2xl font-bold mb-4">Legacy Giving</h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-brand-text-muted mb-6">
               Create a lasting impact through planned giving, bequests, or
               endowments.
             </p>
@@ -283,7 +283,7 @@ export default function Donate() {
             </ul>
             <a
               href="/contact"
-              className="inline-block bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              className="inline-block bg-brand-secondary text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-secondary-hover transition-colors"
             >
               Learn More
             </a>
@@ -294,11 +294,11 @@ export default function Donate() {
       <div className="bg-blue-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Tax-Deductible Donations</h3>
-          <p className="text-gray-700 mb-4">
+          <p className="text-brand-text mb-4">
             Selfish Inc Foundation is a 501(c)(3) nonprofit organization. Your
             donation is tax-deductible to the fullest extent allowed by law.
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-brand-text-muted">
             EIN: [To be provided] | Questions? Email: finance@selfishinc.org
           </p>
         </div>

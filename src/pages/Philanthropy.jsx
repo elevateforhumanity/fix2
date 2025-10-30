@@ -64,7 +64,7 @@ export default function Philanthropy() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="/donate"
-                className="btn bg-white text-brand-primary hover:bg-gray-100"
+                className="btn bg-white text-brand-primary hover:bg-brand-surface-dark"
               >
                 Donate Now
               </a>

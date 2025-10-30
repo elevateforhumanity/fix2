@@ -161,7 +161,7 @@ export default function NotificationSettings() {
         )}
         {success && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-            <p className="text-green-800">{success}</p>
+            <p className="text-brand-success">{success}</p>
           </div>
         )}
         {loading ? (
@@ -183,19 +183,19 @@ export default function NotificationSettings() {
                       className="p-6 flex items-start justify-between"
                     >
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 mb-1">
+                        <h3 className="font-semibold text-brand-text mb-1">
                           {setting.label}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-brand-text-muted">
                           {setting.description}
                         </p>
                       </div>
                       <button
                         onClick={() => handleToggle(setting.key)}
-                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4 ${
+                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-focus focus:ring-offset-2 ml-4 ${
                           preferences[setting.key]
-                            ? 'bg-blue-600'
-                            : 'bg-gray-200'
+                            ? 'bg-brand-info'
+                            : 'bg-brand-border'
                         }`}
                       >
                         <span
@@ -216,14 +216,14 @@ export default function NotificationSettings() {
               <button
                 onClick={fetchPreferences}
                 disabled={saving}
-                className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 transition"
+                className="px-6 py-3 bg-brand-border text-brand-text rounded-lg hover:bg-gray-300 disabled:opacity-50 transition"
               >
                 Reset
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition font-bold"
+                className="px-8 py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover disabled:opacity-50 transition font-bold"
               >
                 {saving ? 'Saving...' : 'Save Settings'}
               </button>
@@ -233,7 +233,7 @@ export default function NotificationSettings() {
               <h3 className="font-bold text-blue-900 mb-2">
                 About Notifications
               </h3>
-              <ul className="text-sm text-blue-800 space-y-1">
+              <ul className="text-sm text-brand-info space-y-1">
                 <li>• You can change these settings at any time</li>
                 <li>
                   • Critical account and security notifications cannot be

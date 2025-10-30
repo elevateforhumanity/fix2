@@ -69,29 +69,29 @@ export default function LiveClassSchedule() {
             <h2 className="text-2xl font-bold mb-4">
               Live Class Scheduling Coming Soon
             </h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-brand-text mb-6">
               We're building a comprehensive scheduling system for live classes
               with:
             </p>
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">📆 Calendar Integration</div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-brand-text-muted">
                   Sync with Google Calendar, Outlook
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">🔔 Reminders</div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-brand-text-muted">
                   Email and push notifications
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">🎯 One-Click Join</div>
-                <p className="text-sm text-gray-600">Join sessions instantly</p>
+                <p className="text-sm text-brand-text-muted">Join sessions instantly</p>
               </div>
             </div>
-            <p className="mt-6 text-sm text-gray-600">
+            <p className="mt-6 text-sm text-brand-text-muted">
               This feature requires additional setup. Contact your administrator
               for more information.
             </p>
@@ -112,13 +112,13 @@ export default function LiveClassSchedule() {
                     >
                       <div>
                         <h3 className="font-bold text-lg">{session.title}</h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-brand-text-muted">
                           {new Date(session.scheduled_at).toLocaleTimeString()}
                         </p>
                       </div>
                       <Link
                         to={`/live-classroom/${session.id}`}
-                        className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-bold"
+                        className="px-6 py-2 bg-brand-success text-white rounded-lg hover:bg-brand-success-hover font-bold"
                       >
                         Join Now
                       </Link>
@@ -133,7 +133,7 @@ export default function LiveClassSchedule() {
                 <h2 className="text-2xl font-bold">Upcoming Classes</h2>
               </div>
               {upcomingSessions.length === 0 ? (
-                <div className="p-6 text-center text-gray-500">
+                <div className="p-6 text-center text-brand-text-light">
                   <p>No upcoming live classes scheduled</p>
                   <p className="text-sm mt-2">
                     Check back later for new sessions
@@ -144,17 +144,17 @@ export default function LiveClassSchedule() {
                   {upcomingSessions.map((session) => (
                     <div
                       key={session.id}
-                      className="p-6 hover:bg-gray-50 transition"
+                      className="p-6 hover:bg-brand-surface transition"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <h3 className="font-bold text-lg mb-2">
                             {session.title}
                           </h3>
-                          <p className="text-gray-600 mb-2">
+                          <p className="text-brand-text-muted mb-2">
                             {session.description}
                           </p>
-                          <div className="flex gap-4 text-sm text-gray-500">
+                          <div className="flex gap-4 text-sm text-brand-text-light">
                             <span>
                               📅{' '}
                               {new Date(
@@ -172,7 +172,7 @@ export default function LiveClassSchedule() {
                         </div>
                         <Link
                           to={`/live-classroom/${session.id}`}
-                          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold ml-4"
+                          className="px-6 py-2 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover font-bold ml-4"
                         >
                           View Details
                         </Link>
