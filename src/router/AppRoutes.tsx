@@ -216,7 +216,8 @@ export default function AppRoutes(){
             <Route path="/durable-landing" element={<Page_35 />} />
             <Route path="/durable-pricing" element={<Page_36 />} />
             <Route path="/durable-templates" element={<Page_37 />} />
-            <Route path="/" element={<Page_38 />} />
+            <Route path="/efh-landing" element={<Page_38 />} />
+            <Route path="/" element={<Page_55 />} />
             <Route path="/ecommerce" element={<Page_39 />} />
             <Route path="/ecosystem" element={<Page_40 />} />
             <Route path="/educator-hub" element={<Page_41 />} />
