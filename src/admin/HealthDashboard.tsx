@@ -133,7 +133,7 @@ export default function HealthDashboard() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-          <p className="mt-4 text-slate-600">Loading dashboard...</p>
+          <p className="mt-4 text-brand-text-muted">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -147,8 +147,8 @@ export default function HealthDashboard() {
           <h2 className="text-2xl font-semibold text-slate-800 mb-2">
             Access Denied
           </h2>
-          <p className="text-slate-600">{error}</p>
-          <p className="text-sm text-slate-500 mt-4">
+          <p className="text-brand-text-muted">{error}</p>
+          <p className="text-sm text-brand-text-light mt-4">
             Contact your administrator to request access to the health
             dashboard.
           </p>
@@ -180,25 +180,25 @@ export default function HealthDashboard() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'ok':
-        return 'text-green-600 bg-green-50';
+        return 'text-brand-success bg-green-50';
       case 'warn':
         return 'text-yellow-600 bg-yellow-50';
       case 'error':
         return 'text-red-600 bg-red-50';
       default:
-        return 'text-slate-600 bg-slate-50';
+        return 'text-brand-text-muted bg-brand-surface';
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6">
+    <div className="min-h-screen bg-brand-surface p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">
+          <h1 className="text-3xl font-bold text-brand-text">
             System Health Dashboard
           </h1>
-          <p className="text-slate-600 mt-2">
+          <p className="text-brand-text-muted mt-2">
             Real-time monitoring of autopilot system health and performance
           </p>
         </div>
@@ -207,7 +207,7 @@ export default function HealthDashboard() {
           {systemHealth.map((item) => (
             <div
               key={item.kind}
-              className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm"
+              className="bg-white rounded-xl border border-brand-border p-6 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold capitalize text-slate-800">
@@ -221,19 +221,19 @@ export default function HealthDashboard() {
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Uptime (24h):</span>
-                  <span className="font-semibold text-slate-900">
+                  <span className="text-brand-text-muted">Uptime (24h):</span>
+                  <span className="font-semibold text-brand-text">
                     {item.uptime_24h?.toFixed(2) || 0}%
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Last check:</span>
-                  <span className="text-slate-900">
+                  <span className="text-brand-text-muted">Last check:</span>
+                  <span className="text-brand-text">
                     {new Date(item.last_check).toLocaleTimeString()}
                   </span>
                 </div>
                 <div className="flex gap-4 mt-3 pt-3 border-t">
-                  <span className="text-green-600">✅ {item.ok_24h}</span>
+                  <span className="text-brand-success">✅ {item.ok_24h}</span>
                   <span className="text-yellow-600">⚠️ {item.warn_24h}</span>
                   <span className="text-red-600">❌ {item.error_24h}</span>
                 </div>
@@ -243,21 +243,21 @@ export default function HealthDashboard() {
         </div>
         {/* 7-Day Summary Cards */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-slate-900 mb-4">
+          <h2 className="text-xl font-semibold text-brand-text mb-4">
             7-Day Summary
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {['site', 'db', 'deploy', 'migration', 'rollback'].map((kind) => (
               <div
                 key={kind}
-                className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm"
+                className="bg-white rounded-xl border border-brand-border p-4 shadow-sm"
               >
-                <div className="text-sm font-medium text-slate-500 capitalize mb-3">
+                <div className="text-sm font-medium text-brand-text-light capitalize mb-3">
                   {kind}
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-green-600">✅ OK</span>
+                    <span className="text-brand-success">✅ OK</span>
                     <span className="font-semibold">
                       {totals[`${kind}:ok`] ?? 0}
                     </span>
@@ -282,41 +282,41 @@ export default function HealthDashboard() {
         {/* Recent Incidents */}
         {incidents.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-slate-900 mb-4">
+            <h2 className="text-xl font-semibold text-brand-text mb-4">
               Recent Incidents (24h)
             </h2>
-            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-xl border border-brand-border shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-slate-200">
-                  <thead className="bg-slate-50">
+                  <thead className="bg-brand-surface">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                         Time
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                         Source
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                         Kind
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                         Status
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                         Details
                       </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-slate-200">
                     {incidents.map((incident) => (
-                      <tr key={incident.id} className="hover:bg-slate-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900">
+                      <tr key={incident.id} className="hover:bg-brand-surface">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text">
                           {new Date(incident.checked_at).toLocaleString()}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 capitalize">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-muted capitalize">
                           {incident.source}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 capitalize">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-muted capitalize">
                           {incident.kind}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -326,7 +326,7 @@ export default function HealthDashboard() {
                             {getStatusEmoji(incident.status)} {incident.status}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-sm text-slate-600">
+                        <td className="px-6 py-4 text-sm text-brand-text-muted">
                           {incident.detail || 'No details'}
                           {incident.http_code && (
                             <span className="ml-2 text-slate-400">
@@ -344,27 +344,27 @@ export default function HealthDashboard() {
         )}
         {/* Hourly Activity Table */}
         <div>
-          <h2 className="text-xl font-semibold text-slate-900 mb-4">
+          <h2 className="text-xl font-semibold text-brand-text mb-4">
             Hourly Activity (7 days)
           </h2>
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="bg-white rounded-xl border border-brand-border shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-slate-200">
-                <thead className="bg-slate-50">
+                <thead className="bg-brand-surface">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                       Hour
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                       Kind
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                       Count
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
                       Avg Response
                     </th>
                   </tr>
@@ -373,7 +373,7 @@ export default function HealthDashboard() {
                   {loading ? (
                     <tr>
                       <td
-                        className="px-6 py-4 text-center text-slate-500"
+                        className="px-6 py-4 text-center text-brand-text-light"
                         colSpan={5}
                       >
                         Loading...
@@ -382,7 +382,7 @@ export default function HealthDashboard() {
                   ) : rollupData.length === 0 ? (
                     <tr>
                       <td
-                        className="px-6 py-4 text-center text-slate-500"
+                        className="px-6 py-4 text-center text-brand-text-light"
                         colSpan={5}
                       >
                         No data available
@@ -390,11 +390,11 @@ export default function HealthDashboard() {
                     </tr>
                   ) : (
                     rollupData.slice(0, 100).map((row, i) => (
-                      <tr key={i} className="hover:bg-slate-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900">
+                      <tr key={i} className="hover:bg-brand-surface">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text">
                           {new Date(row.hour).toLocaleString()}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 capitalize">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-muted capitalize">
                           {row.kind}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -404,10 +404,10 @@ export default function HealthDashboard() {
                             {getStatusEmoji(row.status)} {row.status}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text">
                           {row.cnt}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-muted">
                           {row.avg_response_time
                             ? `${row.avg_response_time}ms`
                             : '-'}
@@ -421,7 +421,7 @@ export default function HealthDashboard() {
           </div>
         </div>
         {/* Footer */}
-        <div className="mt-8 text-center text-sm text-slate-500">
+        <div className="mt-8 text-center text-sm text-brand-text-light">
           <p>Last updated: {new Date().toLocaleString()}</p>
           <p className="mt-1">Auto-refreshes every 30 seconds</p>
         </div>

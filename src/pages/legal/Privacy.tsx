@@ -10,7 +10,7 @@ export default function Privacy() {
         Privacy Policy
       </h1>
       <div className="prose prose-gray max-w-none">
-        <p className="text-gray-600 mb-4">
+        <p className="text-brand-text-muted mb-4">
           <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
         </p>
         <h2>Introduction</h2>

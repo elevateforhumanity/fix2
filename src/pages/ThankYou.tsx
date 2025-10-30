@@ -6,8 +6,8 @@ export default function ThankYou() {
     <div className="min-h-screen bg-gradient-to-b from-white to-brand-surface flex items-center justify-center">
       <div className="container max-w-2xl">
         <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-            <CheckCircle className="h-12 w-12 text-green-600" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-surface rounded-full mb-6">
+            <CheckCircle className="h-12 w-12 text-brand-success" />
           </div>
           <h1 className="text-4xl font-bold text-brand-text mb-4">
             Thank You!
