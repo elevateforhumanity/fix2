@@ -43,9 +43,4 @@ vars = { ENVIRONMENT = "development" }
 name = "autopilot-deploy-worker"
 vars = { ENVIRONMENT = "production" }
 
-# Build configuration
-[build]
-command = "npm install && npm run build"
-
-[build.upload]
-format = "service-worker"
+# Build configuration - Workers are deployed directly from TypeScript
