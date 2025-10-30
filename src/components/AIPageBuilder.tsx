@@ -120,7 +120,7 @@ export default function AIPageBuilder() {
           sections: generatedPage.sections,
           theme: generatedPage.theme,
           status: 'draft',
-          created_by: user?.user?.id,
+          created_by: user.user?.id,
         })
         .select()
         .single();

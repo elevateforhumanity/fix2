@@ -115,7 +115,7 @@ function showEnvErrorBanner(errors: string[]) {
     top: 0;
     left: 0;
     right: 0;
-    background: #dc2626;
+    background: var(--brand-danger);
     color: white;
     padding: 1rem;
     z-index: 9999;

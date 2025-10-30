@@ -120,8 +120,8 @@ export default function StudentGrades() {
   };
 
   const getGradeColor = (percentage) => {
-    if (percentage >= 90) return 'text-green-600';
-    if (percentage >= 80) return 'text-blue-600';
+    if (percentage >= 90) return 'text-brand-success';
+    if (percentage >= 80) return 'text-brand-info';
     if (percentage >= 70) return 'text-yellow-600';
     if (percentage >= 60) return 'text-orange-600';
     return 'text-red-600';
@@ -177,11 +177,11 @@ export default function StudentGrades() {
                 <h2 className="text-2xl font-bold">Course Grades</h2>
               </div>
               {enrollments.length === 0 ? (
-                <div className="p-6 text-center text-gray-500">
+                <div className="p-6 text-center text-brand-text-light">
                   <p>You are not enrolled in any courses yet.</p>
                   <a
                     href="/programs"
-                    className="text-blue-600 hover:underline mt-2 inline-block"
+                    className="text-brand-info hover:underline mt-2 inline-block"
                   >
                     Browse Programs
                   </a>
@@ -199,18 +199,18 @@ export default function StudentGrades() {
                     return (
                       <div
                         key={enrollment.course_id}
-                        className="p-6 hover:bg-gray-50 transition"
+                        className="p-6 hover:bg-brand-surface transition"
                       >
                         <div className="flex justify-between items-start">
                           <div className="flex-1">
-                            <h3 className="text-lg font-bold text-gray-900">
+                            <h3 className="text-lg font-bold text-brand-text">
                               {enrollment.courses?.title || 'Unknown Course'}
                             </h3>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-brand-text-light">
                               {enrollment.courses?.code}
                             </p>
                             {courseGrade && (
-                              <p className="text-sm text-gray-600 mt-2">
+                              <p className="text-sm text-brand-text-muted mt-2">
                                 {courseGrade.correct} / {courseGrade.total}{' '}
                                 quizzes correct
                               </p>
@@ -220,24 +220,24 @@ export default function StudentGrades() {
                             <div className={`text-4xl font-bold ${gradeColor}`}>
                               {letterGrade}
                             </div>
-                            <div className="text-lg text-gray-600">
+                            <div className="text-lg text-brand-text-muted">
                               {percentage}%
                             </div>
                             {courseGrade ? (
                               <div className="mt-2">
                                 {percentage >= 70 ? (
-                                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                                  <span className="px-3 py-1 bg-brand-surface text-brand-success rounded-full text-xs font-semibold">
                                     Passing
                                   </span>
                                 ) : (
-                                  <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-semibold">
+                                  <span className="px-3 py-1 bg-brand-surface text-red-800 rounded-full text-xs font-semibold">
                                     Needs Improvement
                                   </span>
                                 )}
                               </div>
                             ) : (
                               <div className="mt-2">
-                                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-semibold">
+                                <span className="px-3 py-1 bg-brand-surface-dark text-brand-text-muted rounded-full text-xs font-semibold">
                                   No Grades Yet
                                 </span>
                               </div>
@@ -255,24 +255,24 @@ export default function StudentGrades() {
               <h3 className="text-lg font-bold mb-4">Grading Scale</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">A</div>
-                  <div className="text-sm text-gray-600">90-100%</div>
+                  <div className="text-2xl font-bold text-brand-success">A</div>
+                  <div className="text-sm text-brand-text-muted">90-100%</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">B</div>
-                  <div className="text-sm text-gray-600">80-89%</div>
+                  <div className="text-2xl font-bold text-brand-info">B</div>
+                  <div className="text-sm text-brand-text-muted">80-89%</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-yellow-600">C</div>
-                  <div className="text-sm text-gray-600">70-79%</div>
+                  <div className="text-sm text-brand-text-muted">70-79%</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-600">D</div>
-                  <div className="text-sm text-gray-600">60-69%</div>
+                  <div className="text-sm text-brand-text-muted">60-69%</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-red-600">F</div>
-                  <div className="text-sm text-gray-600">0-59%</div>
+                  <div className="text-sm text-brand-text-muted">0-59%</div>
                 </div>
               </div>
             </div>

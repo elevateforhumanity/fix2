@@ -61,7 +61,7 @@ export default function DonateSuccess() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4" />
-          <p className="text-gray-600">Processing your donation...</p>
+          <p className="text-brand-text-muted">Processing your donation...</p>
         </div>
       </div>
     );
@@ -74,23 +74,23 @@ export default function DonateSuccess() {
         <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
           <div className="mb-8">
             <CheckCircle className="w-24 h-24 text-green-500 mx-auto mb-6" />
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl font-bold text-brand-text mb-4">
               Thank You for Your Generosity!
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-brand-text-muted mb-8">
               Your donation will help transform lives through education and
               workforce development.
             </p>
           </div>
           {/* Donation Details */}
           {donation && (
-            <div className="bg-gray-50 rounded-xl p-8 mb-8">
+            <div className="bg-brand-surface rounded-xl p-8 mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-left">
                 <div>
-                  <div className="text-sm text-gray-500 mb-1">
+                  <div className="text-sm text-brand-text-light mb-1">
                     Donation Amount
                   </div>
-                  <div className="text-2xl font-bold text-blue-600">
+                  <div className="text-2xl font-bold text-brand-info">
                     ${donation.amount}
                     {donation.type === 'monthly' && (
                       <span className="text-base">/month</span>
@@ -98,18 +98,18 @@ export default function DonateSuccess() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500 mb-1">
+                  <div className="text-sm text-brand-text-light mb-1">
                     Donation Type
                   </div>
-                  <div className="text-lg font-semibold text-gray-900 capitalize">
+                  <div className="text-lg font-semibold text-brand-text capitalize">
                     {donation.type === 'monthly'
                       ? 'Monthly Recurring'
                       : 'One-Time'}
                   </div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500 mb-1">Date</div>
-                  <div className="text-lg font-semibold text-gray-900">
+                  <div className="text-sm text-brand-text-light mb-1">Date</div>
+                  <div className="text-lg font-semibold text-brand-text">
                     {donation.date}
                   </div>
                 </div>
@@ -122,21 +122,21 @@ export default function DonateSuccess() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
+                <span className="text-brand-text">
                   <strong>Email Receipt:</strong> You'll receive a
                   tax-deductible receipt via email within 24 hours.
                 </span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
+                <span className="text-brand-text">
                   <strong>Impact Report:</strong> We'll send quarterly updates
                   showing how your donation is making a difference.
                 </span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
+                <span className="text-brand-text">
                   <strong>Student Stories:</strong> Hear directly from students
                   whose lives you're helping transform.
                 </span>
@@ -144,7 +144,7 @@ export default function DonateSuccess() {
               {donation?.type === 'monthly' && (
                 <li className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">
+                  <span className="text-brand-text">
                     <strong>Monthly Giving:</strong> Your card will be charged
                     automatically each month. You can cancel anytime.
                   </span>
@@ -154,11 +154,11 @@ export default function DonateSuccess() {
           </div>
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="flex items-center justify-center gap-2 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            <button className="flex items-center justify-center gap-2 bg-brand-info text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-info-hover transition-colors">
               <Download className="w-5 h-5" />
               Download Receipt
             </button>
-            <button className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+            <button className="flex items-center justify-center gap-2 bg-brand-surface-dark text-brand-text py-3 px-6 rounded-lg font-semibold hover:bg-brand-border transition-colors">
               <Share2 className="w-5 h-5" />
               Share Your Impact
             </button>
@@ -245,19 +245,19 @@ export default function DonateSuccess() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/"
-              className="bg-white text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-50 transition-colors border-2 border-gray-200"
+              className="bg-white text-brand-text py-3 px-6 rounded-lg font-semibold hover:bg-brand-surface transition-colors border-2 border-brand-border"
             >
               Return Home
             </Link>
             <Link
               to="/programs"
-              className="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="bg-brand-info text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-info-hover transition-colors"
             >
               Explore Programs
             </Link>
             <Link
               to="/volunteer"
-              className="bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              className="bg-brand-secondary text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-secondary-hover transition-colors"
             >
               Volunteer With Us
             </Link>

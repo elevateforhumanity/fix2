@@ -138,19 +138,19 @@ export default function AutopilotTasks() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'succeeded':
-        return 'bg-green-100 text-green-800';
+        return 'bg-brand-surface text-brand-success';
       case 'failed':
-        return 'bg-red-100 text-red-800';
+        return 'bg-brand-surface text-red-800';
       case 'running':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-brand-surface text-brand-info';
       case 'needs_approval':
         return 'bg-yellow-100 text-yellow-800';
       case 'queued':
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-brand-surface-dark text-brand-text';
       case 'skipped':
-        return 'bg-gray-100 text-gray-600';
+        return 'bg-brand-surface-dark text-brand-text-muted';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-brand-surface-dark text-brand-text';
     }
   };
 
@@ -180,7 +180,7 @@ export default function AutopilotTasks() {
           <h1 className="text-3xl font-bold">Autopilot Tasks</h1>
           <button
             onClick={() => loadTasks()}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-4 py-2 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover"
           >
             🔄 Refresh
           </button>
@@ -197,11 +197,11 @@ export default function AutopilotTasks() {
                   {getStatusIcon(stat.status)}
                 </div>
                 <div className="text-2xl font-bold">{stat.count}</div>
-                <div className="text-sm text-gray-600 capitalize">
+                <div className="text-sm text-brand-text-muted capitalize">
                   {stat.status}
                 </div>
                 {stat.avg_duration_seconds && (
-                  <div className="text-xs text-gray-500 mt-1">
+                  <div className="text-xs text-brand-text-light mt-1">
                     ~{stat.avg_duration_seconds}s avg
                   </div>
                 )}
@@ -226,8 +226,8 @@ export default function AutopilotTasks() {
                 onClick={() => setFilter(f)}
                 className={`px-6 py-3 font-medium transition whitespace-nowrap ${
                   filter === f
-                    ? 'border-b-2 border-blue-600 text-blue-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'border-b-2 border-blue-600 text-brand-info'
+                    : 'text-brand-text-muted hover:text-brand-text'
                 }`}
               >
                 {f.charAt(0).toUpperCase() + f.slice(1).replace('_', ' ')}
@@ -239,11 +239,11 @@ export default function AutopilotTasks() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-gray-600">Loading tasks...</p>
+            <p className="mt-4 text-brand-text-muted">Loading tasks...</p>
           </div>
         ) : tasks.length === 0 ? (
           <div className="bg-white rounded-lg shadow p-12 text-center">
-            <p className="text-gray-500 text-lg">No tasks found</p>
+            <p className="text-brand-text-light text-lg">No tasks found</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -269,12 +269,12 @@ export default function AutopilotTasks() {
                         {task.status}
                       </span>
                       {task.requires_approval && (
-                        <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold">
+                        <span className="px-3 py-1 bg-brand-surface text-brand-warning rounded-full text-sm font-semibold">
                           Requires Approval
                         </span>
                       )}
                     </div>
-                    <div className="text-sm text-gray-600 space-y-1">
+                    <div className="text-sm text-brand-text-muted space-y-1">
                       <p>
                         Priority: {task.priority} | Attempts: {task.attempts}/
                         {task.max_attempts}
@@ -300,7 +300,7 @@ export default function AutopilotTasks() {
                     {task.status === 'needs_approval' && (
                       <button
                         onClick={() => approveTask(task.id)}
-                        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm font-bold"
+                        className="px-4 py-2 bg-brand-success text-white rounded hover:bg-brand-success-hover text-sm font-bold"
                       >
                         ✓ Approve
                       </button>
@@ -308,7 +308,7 @@ export default function AutopilotTasks() {
                     {task.status === 'failed' && (
                       <button
                         onClick={() => retryTask(task.id)}
-                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                        className="px-4 py-2 bg-brand-info text-white rounded hover:bg-brand-info-hover text-sm"
                       >
                         🔄 Retry
                       </button>
@@ -318,7 +318,7 @@ export default function AutopilotTasks() {
                     ) && (
                       <button
                         onClick={() => cancelTask(task.id)}
-                        className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                        className="px-4 py-2 bg-brand-danger text-white rounded hover:bg-brand-danger-hover text-sm"
                       >
                         ✗ Cancel
                       </button>
@@ -328,10 +328,10 @@ export default function AutopilotTasks() {
                 {/* Payload */}
                 {Object.keys(task.payload).length > 0 && (
                   <details className="mt-4">
-                    <summary className="cursor-pointer text-sm font-semibold text-gray-700 hover:text-gray-900">
+                    <summary className="cursor-pointer text-sm font-semibold text-brand-text hover:text-brand-text">
                       View Payload
                     </summary>
-                    <pre className="mt-2 p-4 bg-gray-50 rounded text-xs overflow-x-auto">
+                    <pre className="mt-2 p-4 bg-brand-surface rounded text-xs overflow-x-auto">
                       {JSON.stringify(task.payload, null, 2)}
                     </pre>
                   </details>

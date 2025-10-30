@@ -9,7 +9,7 @@ export default function ProgramsPage() {
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-300">
+              <span className="inline-flex items-center rounded-full bg-brand-surface px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-300">
                 Indiana Workforce Development
               </span>
               <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-text">

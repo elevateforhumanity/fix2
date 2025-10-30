@@ -49,7 +49,7 @@ export default function Accessibility() {
         <div
           style={{
             display: 'inline-block',
-            backgroundColor: '#10b981',
+            backgroundColor: 'var(--brand-success)',
             color: 'white',
             padding: '1rem 2rem',
             borderRadius: '12px',
@@ -138,7 +138,7 @@ export default function Accessibility() {
             padding: '1.5rem',
             borderRadius: '8px',
             marginBottom: '1rem',
-            border: '2px solid #10b981',
+            border: '2px solid var(--brand-success)',
           }}
         >
           <h3

@@ -142,7 +142,7 @@ export default function ApplyScholarship() {
         <div className="max-w-2xl mx-auto px-4 py-16 text-center">
           <CheckCircle className="w-24 h-24 text-green-500 mx-auto mb-6" />
           <h1 className="text-4xl font-bold mb-4">Application Submitted!</h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-brand-text-muted mb-8">
             Thank you for applying for a Selfish Inc Foundation scholarship.
             We'll review your application and contact you within 2-3 weeks.
           </p>
@@ -150,26 +150,26 @@ export default function ApplyScholarship() {
             <h3 className="font-bold mb-2">What Happens Next?</h3>
             <ul className="text-left space-y-2">
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">1.</span>
+                <span className="text-brand-info mr-2">1.</span>
                 <span>Application review (1-2 weeks)</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">2.</span>
+                <span className="text-brand-info mr-2">2.</span>
                 <span>Interview (if selected)</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">3.</span>
+                <span className="text-brand-info mr-2">3.</span>
                 <span>Award notification (2-3 weeks)</span>
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">4.</span>
+                <span className="text-brand-info mr-2">4.</span>
                 <span>Enrollment in program</span>
               </li>
             </ul>
           </div>
           <a
             href="/"
-            className="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-brand-info text-white py-3 px-8 rounded-lg font-semibold hover:bg-brand-info-hover transition-colors"
           >
             Return Home
           </a>
@@ -201,15 +201,15 @@ export default function ApplyScholarship() {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                   step >= s
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-500'
+                    ? 'bg-brand-info text-white'
+                    : 'bg-brand-border text-brand-text-light'
                 }`}
               >
                 {s}
               </div>
               {s < 4 && (
                 <div
-                  className={`flex-1 h-1 mx-2 ${step > s ? 'bg-blue-600' : 'bg-gray-200'}`}
+                  className={`flex-1 h-1 mx-2 ${step > s ? 'bg-brand-info' : 'bg-brand-border'}`}
                 />
               )}
             </div>
@@ -225,7 +225,7 @@ export default function ApplyScholarship() {
               <h2 className="text-2xl font-bold mb-6">Personal Information</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     First Name *
                   </label>
                   <input
@@ -235,11 +235,11 @@ export default function ApplyScholarship() {
                     value={formData.first_name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Last Name *
                   </label>
                   <input
@@ -249,11 +249,11 @@ export default function ApplyScholarship() {
                     value={formData.last_name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Email *
                   </label>
                   <input
@@ -263,11 +263,11 @@ export default function ApplyScholarship() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Phone *
                   </label>
                   <input
@@ -277,11 +277,11 @@ export default function ApplyScholarship() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Date of Birth *
                   </label>
                   <input
@@ -291,11 +291,11 @@ export default function ApplyScholarship() {
                     value={formData.date_of_birth}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Address *
                   </label>
                   <input
@@ -305,11 +305,11 @@ export default function ApplyScholarship() {
                     value={formData.address}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     City *
                   </label>
                   <input
@@ -319,11 +319,11 @@ export default function ApplyScholarship() {
                     value={formData.city}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     State *
                   </label>
                   <select
@@ -331,7 +331,7 @@ export default function ApplyScholarship() {
                     value={formData.state}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="IN">Indiana</option>
                     <option value="TN">Tennessee</option>
@@ -339,7 +339,7 @@ export default function ApplyScholarship() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     ZIP Code *
                   </label>
                   <input
@@ -349,7 +349,7 @@ export default function ApplyScholarship() {
                     value={formData.zip}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function ApplyScholarship() {
                 Scholarship & Program Selection
               </h2>
               <div className="mb-8">
-                <label className="block text-sm font-medium text-gray-700 mb-4">
+                <label className="block text-sm font-medium text-brand-text mb-4">
                   Select Scholarship Type *
                 </label>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -379,21 +379,21 @@ export default function ApplyScholarship() {
                       className={`p-6 rounded-lg border-2 text-left transition-all ${
                         formData.scholarship_type === scholarship.id
                           ? 'border-blue-600 bg-blue-50'
-                          : 'border-gray-200 hover:border-blue-300'
+                          : 'border-brand-border hover:border-blue-300'
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <h3 className="font-bold text-lg">
                           {scholarship.name}
                         </h3>
-                        <span className="text-blue-600 font-bold">
+                        <span className="text-brand-info font-bold">
                           {scholarship.amount}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="text-sm text-brand-text-muted mb-2">
                         {scholarship.description}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-brand-text-light">
                         {scholarship.eligibility}
                       </p>
                     </button>
@@ -401,7 +401,7 @@ export default function ApplyScholarship() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-brand-text mb-2">
                   Program of Interest *
                 </label>
                 <select
@@ -409,7 +409,7 @@ export default function ApplyScholarship() {
                   value={formData.program_interest}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 >
                   <option value="">Select a program...</option>
                   {programs.map((program) => (
@@ -429,7 +429,7 @@ export default function ApplyScholarship() {
               </h2>
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Annual Household Income *
                   </label>
                   <select
@@ -437,7 +437,7 @@ export default function ApplyScholarship() {
                     value={formData.household_income}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="">Select range...</option>
                     <option value="0-15000">$0 - $15,000</option>
@@ -448,7 +448,7 @@ export default function ApplyScholarship() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Household Size *
                   </label>
                   <input
@@ -459,11 +459,11 @@ export default function ApplyScholarship() {
                     onChange={handleInputChange}
                     required
                     min="1"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Employment Status *
                   </label>
                   <select
@@ -471,7 +471,7 @@ export default function ApplyScholarship() {
                     value={formData.employment_status}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="">Select status...</option>
                     <option value="unemployed">Unemployed</option>
@@ -481,7 +481,7 @@ export default function ApplyScholarship() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Highest Education Level *
                   </label>
                   <select
@@ -489,7 +489,7 @@ export default function ApplyScholarship() {
                     value={formData.education_level}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="">Select level...</option>
                     <option value="less-than-hs">Less than High School</option>
@@ -502,7 +502,7 @@ export default function ApplyScholarship() {
                 </div>
               </div>
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-4">
+                <label className="block text-sm font-medium text-brand-text mb-4">
                   Special Circumstances (check all that apply)
                 </label>
                 <div className="space-y-3">
@@ -526,9 +526,9 @@ export default function ApplyScholarship() {
                         name={item.name}
                         checked={(formData as any)[item.name]}
                         onChange={handleInputChange}
-                        className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-600"
+                        className="w-5 h-5 text-brand-info border-brand-border-dark rounded focus:ring-blue-600"
                       />
-                      <span className="ml-3 text-gray-700">{item.label}</span>
+                      <span className="ml-3 text-brand-text">{item.label}</span>
                     </label>
                   ))}
                 </div>
@@ -543,7 +543,7 @@ export default function ApplyScholarship() {
               </h2>
               <div className="space-y-6 mb-8">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Why do you need this scholarship? * (250 words max)
                   </label>
                   <textarea
@@ -553,12 +553,12 @@ export default function ApplyScholarship() {
                     required
                     rows={4}
                     maxLength={1500}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Describe your financial need and how this scholarship will help you..."
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     What are your career goals? * (250 words max)
                   </label>
                   <textarea
@@ -568,12 +568,12 @@ export default function ApplyScholarship() {
                     required
                     rows={4}
                     maxLength={1500}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Describe your career aspirations and how this training will help you achieve them..."
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Describe your financial situation (250 words max)
                   </label>
                   <textarea
@@ -582,7 +582,7 @@ export default function ApplyScholarship() {
                     onChange={handleInputChange}
                     rows={4}
                     maxLength={1500}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Provide details about your financial situation and any barriers you face..."
                   />
                 </div>
@@ -592,7 +592,7 @@ export default function ApplyScholarship() {
                   Upload Supporting Documents
                 </h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Proof of Income (pay stubs, tax return, etc.) *
                   </label>
                   <input
@@ -602,11 +602,11 @@ export default function ApplyScholarship() {
                     onChange={handleFileChange}
                     required
                     accept=".pdf,.jpg,.jpeg,.png"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Photo ID (driver's license, state ID, etc.) *
                   </label>
                   <input
@@ -616,11 +616,11 @@ export default function ApplyScholarship() {
                     onChange={handleFileChange}
                     required
                     accept=".pdf,.jpg,.jpeg,.png"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-brand-text mb-2">
                     Additional Documents (optional)
                   </label>
                   <input
@@ -629,9 +629,9 @@ export default function ApplyScholarship() {
                     name="additional_docs"
                     onChange={handleFileChange}
                     accept=".pdf,.jpg,.jpeg,.png"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-brand-text-light mt-1">
                     Letters of recommendation, proof of special circumstances,
                     etc.
                   </p>
@@ -645,7 +645,7 @@ export default function ApplyScholarship() {
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="px-6 py-3 border-2 border-gray-300 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="px-6 py-3 border-2 border-brand-border-dark rounded-lg font-semibold hover:bg-brand-surface transition-colors"
               >
                 Previous
               </button>
@@ -654,7 +654,7 @@ export default function ApplyScholarship() {
               <button
                 type="button"
                 onClick={() => setStep(step + 1)}
-                className="ml-auto px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="ml-auto px-6 py-3 bg-brand-info text-white rounded-lg font-semibold hover:bg-brand-info-hover transition-colors"
               >
                 Next
               </button>
