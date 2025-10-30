@@ -116,35 +116,130 @@ function getStaticPages() {
   return [
     // High priority pages
     { loc: `${SITE_URL}/`, lastmod: now, changefreq: 'daily', priority: '1.0' },
-    { loc: `${SITE_URL}/about`, lastmod: now, changefreq: 'monthly', priority: '0.9' },
-    { loc: `${SITE_URL}/programs`, lastmod: now, changefreq: 'weekly', priority: '0.9' },
-    { loc: `${SITE_URL}/lms/courses`, lastmod: now, changefreq: 'weekly', priority: '0.9' },
-    { loc: `${SITE_URL}/get-started`, lastmod: now, changefreq: 'monthly', priority: '0.9' },
-    { loc: `${SITE_URL}/donate`, lastmod: now, changefreq: 'monthly', priority: '0.8' },
-    { loc: `${SITE_URL}/connect`, lastmod: now, changefreq: 'monthly', priority: '0.8' },
-    
+    {
+      loc: `${SITE_URL}/about`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/programs`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/lms/courses`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/get-started`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.9',
+    },
+    {
+      loc: `${SITE_URL}/donate`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      loc: `${SITE_URL}/connect`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+
     // Auth pages
-    { loc: `${SITE_URL}/login`, lastmod: now, changefreq: 'monthly', priority: '0.7' },
-    { loc: `${SITE_URL}/signup`, lastmod: now, changefreq: 'monthly', priority: '0.7' },
-    
+    {
+      loc: `${SITE_URL}/login`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.7',
+    },
+    {
+      loc: `${SITE_URL}/signup`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.7',
+    },
+
     // LMS pages
-    { loc: `${SITE_URL}/lms`, lastmod: now, changefreq: 'weekly', priority: '0.8' },
-    { loc: `${SITE_URL}/lmsdashboard`, lastmod: now, changefreq: 'weekly', priority: '0.7' },
-    { loc: `${SITE_URL}/course-catalog`, lastmod: now, changefreq: 'weekly', priority: '0.8' },
-    
+    {
+      loc: `${SITE_URL}/lms`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.8',
+    },
+    {
+      loc: `${SITE_URL}/lmsdashboard`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.7',
+    },
+    {
+      loc: `${SITE_URL}/course-catalog`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.8',
+    },
+
     // Community pages
-    { loc: `${SITE_URL}/community`, lastmod: now, changefreq: 'weekly', priority: '0.7' },
-    { loc: `${SITE_URL}/partners`, lastmod: now, changefreq: 'monthly', priority: '0.6' },
-    
+    {
+      loc: `${SITE_URL}/community`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.7',
+    },
+    {
+      loc: `${SITE_URL}/partners`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.6',
+    },
+
     // Legal pages
-    { loc: `${SITE_URL}/legal/terms-of-use`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/privacy`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/dmca`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    { loc: `${SITE_URL}/legal/legal-ipnotice`, lastmod: now, changefreq: 'yearly', priority: '0.3' },
-    
+    {
+      loc: `${SITE_URL}/legal/terms-of-use`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/privacy`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/dmca`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+    {
+      loc: `${SITE_URL}/legal/legal-ipnotice`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.3',
+    },
+
     // Support pages
-    { loc: `${SITE_URL}/support`, lastmod: now, changefreq: 'monthly', priority: '0.5' },
-    { loc: `${SITE_URL}/accessibility`, lastmod: now, changefreq: 'yearly', priority: '0.4' },
+    {
+      loc: `${SITE_URL}/support`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: '0.5',
+    },
+    {
+      loc: `${SITE_URL}/accessibility`,
+      lastmod: now,
+      changefreq: 'yearly',
+      priority: '0.4',
+    },
   ];
 }
 
@@ -199,17 +294,15 @@ async function main() {
   console.log('✅ Generated sitemap.xml (index)');
 
   // Generate complete sitemap (all URLs in one file for backup)
-  const allUrls = [
-    ...getStaticPages(),
-    ...programUrls,
-    ...courseUrls,
-  ];
+  const allUrls = [...getStaticPages(), ...programUrls, ...courseUrls];
   const completeSitemap = generateSitemap(allUrls);
   writeFileSync(join(DIST_DIR, 'sitemap-complete.xml'), completeSitemap);
   console.log('✅ Generated sitemap-complete.xml');
 
   console.log('🎉 Sitemap generation complete!');
-  console.log(`📊 Total URLs: ${allUrls.length} (${getStaticPages().length} static, ${programs.length} programs, ${courses.length} courses)`);
+  console.log(
+    `📊 Total URLs: ${allUrls.length} (${getStaticPages().length} static, ${programs.length} programs, ${courses.length} courses)`
+  );
 }
 
 main().catch((error) => {

@@ -39,19 +39,21 @@ function exec(command, options = {}) {
 function checkSecurityVulnerabilities() {
   console.log('🔒 Checking security vulnerabilities...');
   const result = exec('pnpm audit --audit-level=high --json', { silent: true });
-  
+
   if (result.success) {
     try {
       const audit = JSON.parse(result.output);
       const criticalCount = audit.metadata?.vulnerabilities?.critical || 0;
       const highCount = audit.metadata?.vulnerabilities?.high || 0;
-      
+
       if (criticalCount === 0 && highCount === 0) {
         console.log('✅ No critical or high vulnerabilities\n');
         return { fixed: true };
       }
-      
-      console.log(`⚠️  Found ${criticalCount} critical and ${highCount} high vulnerabilities`);
+
+      console.log(
+        `⚠️  Found ${criticalCount} critical and ${highCount} high vulnerabilities`
+      );
       return { fixed: false, count: criticalCount + highCount };
     } catch (e) {
       // If parsing fails, assume no vulnerabilities
@@ -59,13 +61,13 @@ function checkSecurityVulnerabilities() {
       return { fixed: true };
     }
   }
-  
+
   return { fixed: true };
 }
 
 function fixSecurityVulnerabilities() {
   console.log('🔧 Fixing security vulnerabilities...');
-  
+
   // Already removed vulnerable packages in previous step
   console.log('✅ Vulnerable dev dependencies already removed\n');
   return true;
@@ -74,25 +76,25 @@ function fixSecurityVulnerabilities() {
 function checkFailingTests() {
   console.log('🧪 Checking test suite...');
   const result = exec('pnpm test --run', { silent: true });
-  
+
   if (result.success) {
     console.log('✅ All tests passing\n');
     return { fixed: true };
   }
-  
+
   console.log('⚠️  Some tests failing');
   return { fixed: false };
 }
 
 function fixFailingTests() {
   console.log('🔧 Fixing failing tests...');
-  
+
   // Fix routes.test.jsx by mocking Supabase
   const testFile = 'src/test/routes.test.jsx';
-  
+
   if (existsSync(testFile)) {
     let content = readFileSync(testFile, 'utf8');
-    
+
     // Add mock for Supabase at the top
     if (!content.includes('vi.mock')) {
       const mockCode = `import { vi } from 'vitest';
@@ -123,7 +125,7 @@ vi.mock('../supabaseClient', () => ({
       return true;
     }
   }
-  
+
   console.log('✅ Test fixes applied\n');
   return true;
 }
@@ -131,12 +133,12 @@ vi.mock('../supabaseClient', () => ({
 function checkTypeScriptErrors() {
   console.log('📘 Checking TypeScript...');
   const result = exec('pnpm typecheck', { silent: true });
-  
+
   if (result.success) {
     console.log('✅ No TypeScript errors\n');
     return { fixed: true };
   }
-  
+
   console.log('⚠️  TypeScript errors found');
   return { fixed: false };
 }
@@ -149,12 +151,12 @@ function fixTypeScriptErrors() {
 function checkESLintErrors() {
   console.log('📋 Checking ESLint...');
   const result = exec('pnpm lint', { silent: true });
-  
+
   if (result.success) {
     console.log('✅ No ESLint errors\n');
     return { fixed: true };
   }
-  
+
   console.log('⚠️  ESLint errors found');
   return { fixed: false };
 }
@@ -169,12 +171,12 @@ function fixESLintErrors() {
 function checkBuildErrors() {
   console.log('🏗️  Checking build...');
   const result = exec('pnpm build', { silent: true });
-  
+
   if (result.success) {
     console.log('✅ Build successful\n');
     return { fixed: true };
   }
-  
+
   console.log('⚠️  Build errors found');
   return { fixed: false };
 }
@@ -186,39 +188,40 @@ function fixBuildErrors() {
 
 function checkMissingEnvVars() {
   console.log('🔑 Checking environment variables...');
-  
+
   // Check if .env exists
   if (!existsSync('.env')) {
     console.log('⚠️  .env file missing');
     return { fixed: false };
   }
-  
+
   const envContent = readFileSync('.env', 'utf8');
-  const requiredVars = [
-    'VITE_SUPABASE_URL',
-    'VITE_SUPABASE_ANON_KEY',
-  ];
-  
-  const missing = requiredVars.filter(v => !envContent.includes(v));
-  
+  const requiredVars = ['VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY'];
+
+  const missing = requiredVars.filter((v) => !envContent.includes(v));
+
   if (missing.length === 0) {
     console.log('✅ Required environment variables present\n');
     return { fixed: true };
   }
-  
+
   console.log(`⚠️  Missing env vars: ${missing.join(', ')}`);
   return { fixed: false };
 }
 
 function fixMissingEnvVars() {
   console.log('🔧 Creating .env file from template...');
-  
+
   if (!existsSync('.env')) {
     // Copy from netlify.toml which has the Supabase keys
     const netlifyConfig = readFileSync('netlify.toml', 'utf8');
-    const supabaseUrl = netlifyConfig.match(/VITE_SUPABASE_URL = "([^"]+)"/)?.[1];
-    const supabaseKey = netlifyConfig.match(/VITE_SUPABASE_ANON_KEY = "([^"]+)"/)?.[1];
-    
+    const supabaseUrl = netlifyConfig.match(
+      /VITE_SUPABASE_URL = "([^"]+)"/
+    )?.[1];
+    const supabaseKey = netlifyConfig.match(
+      /VITE_SUPABASE_ANON_KEY = "([^"]+)"/
+    )?.[1];
+
     if (supabaseUrl && supabaseKey) {
       const envContent = `# Auto-generated by autopilot
 VITE_SUPABASE_URL=${supabaseUrl}
@@ -232,7 +235,7 @@ VITE_SUPABASE_ANON_KEY=${supabaseKey}
       return true;
     }
   }
-  
+
   console.log('✅ .env file already exists\n');
   return true;
 }
@@ -243,46 +246,46 @@ async function runAutopilotLoop() {
     console.log(`\n${'='.repeat(60)}`);
     console.log(`🔄 Autopilot Iteration ${iteration}/${MAX_ITERATIONS}`);
     console.log(`${'='.repeat(60)}\n`);
-    
+
     const issues = [];
-    
+
     // Check all issues
     const securityCheck = checkSecurityVulnerabilities();
     if (!securityCheck.fixed) {
       issues.push('security');
       fixSecurityVulnerabilities();
     }
-    
+
     const envCheck = checkMissingEnvVars();
     if (!envCheck.fixed) {
       issues.push('env-vars');
       fixMissingEnvVars();
     }
-    
+
     const tsCheck = checkTypeScriptErrors();
     if (!tsCheck.fixed) {
       issues.push('typescript');
       fixTypeScriptErrors();
     }
-    
+
     const eslintCheck = checkESLintErrors();
     if (!eslintCheck.fixed) {
       issues.push('eslint');
       fixESLintErrors();
     }
-    
+
     const buildCheck = checkBuildErrors();
     if (!buildCheck.fixed) {
       issues.push('build');
       fixBuildErrors();
     }
-    
+
     const testCheck = checkFailingTests();
     if (!testCheck.fixed) {
       issues.push('tests');
       fixFailingTests();
     }
-    
+
     // Check if all fixed
     if (issues.length === 0) {
       allFixed = true;
@@ -291,17 +294,17 @@ async function runAutopilotLoop() {
       console.log('='.repeat(60) + '\n');
       break;
     }
-    
+
     console.log(`\n📊 Issues remaining: ${issues.join(', ')}`);
     console.log(`🔄 Continuing to next iteration...\n`);
   }
-  
+
   if (!allFixed) {
     console.log('\n⚠️  Reached maximum iterations. Some issues may remain.');
     console.log('Please review the output above for details.\n');
     process.exit(1);
   }
-  
+
   return true;
 }
 
