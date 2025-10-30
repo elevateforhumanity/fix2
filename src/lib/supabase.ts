@@ -1,17 +1,30 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
+// Don't crash if env vars are missing - allow preview/dev to render
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error(
-    'Missing Supabase environment variables. Please check your .env file and ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.'
+  console.warn(
+    '⚠️  Supabase env vars not configured. Data features will be disabled.',
+    '\nSet VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to enable.'
   );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Export null if not configured, so components can check and render fallback
+export const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey, {
+        auth: { persistSession: false }
+      })
+    : null;
 
 export const testSupabaseConnection = async () => {
+  if (!supabase) {
+    console.warn('⚠️  Supabase not configured - skipping connection test');
+    return false;
+  }
+
   try {
     console.log('🔌 Testing Supabase connection...');
     console.log('   URL:', supabaseUrl);

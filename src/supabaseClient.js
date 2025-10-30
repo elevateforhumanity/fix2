@@ -1,19 +1,29 @@
 import { createClient } from '@supabase/supabase-js';
 
 // SECURITY: Always use environment variables - never hardcode credentials
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error('❌ Missing Supabase configuration');
-  console.error('   Required: VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY');
-  console.error('   Check .env file or Netlify environment variables');
+  console.warn('⚠️  Supabase env vars not configured. Data features will be disabled.');
+  console.warn('   Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to enable.');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+// Export null if not configured - prevents crashes in preview/dev
+export const supabase =
+  supabaseUrl && supabaseKey
+    ? createClient(supabaseUrl, supabaseKey, {
+        auth: { persistSession: false }
+      })
+    : null;
 
 // Test connection and log status
 export const testSupabaseConnection = async () => {
+  if (!supabase) {
+    console.warn('⚠️  Supabase not configured - skipping connection test');
+    return false;
+  }
+
   try {
     console.log('🔌 Testing Supabase connection...');
     console.log('   URL:', supabaseUrl);
