@@ -21,6 +21,11 @@ class AdvancedLMSCopilot {
    * Get all API keys and configuration from Supabase
    */
   async getAllKeys() {
+    if (!this.supabase) {
+      console.warn('Supabase not configured, using default keys');
+      return this.getDefaultKeys();
+    }
+
     try {
       const { data, error } = await this.supabase
         .from('system_configuration')
