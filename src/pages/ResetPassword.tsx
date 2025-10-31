@@ -22,6 +22,8 @@ export default function ResetPassword() {
   }, [accessToken, type]);
 
   const validateToken = async () => {
+    if (!supabase) return;
+    
     setValidatingToken(true);
 
     // Check if this is a password recovery link
@@ -48,6 +50,8 @@ export default function ResetPassword() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (!supabase) return;
+    
     e.preventDefault();
     setError('');
 

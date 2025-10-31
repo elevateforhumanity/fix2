@@ -32,6 +32,8 @@ export default function CourseCreationForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (!supabase) return;
+    
     e.preventDefault();
     setLoading(true);
     setMessage(null);

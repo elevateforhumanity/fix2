@@ -116,6 +116,11 @@ export default function AssetGenerator() {
       return;
     }
 
+    if (!supabase) {
+      alert('Database not configured');
+      return;
+    }
+
     setSaving(true);
 
     try {

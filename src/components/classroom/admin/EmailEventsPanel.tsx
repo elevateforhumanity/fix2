@@ -57,6 +57,8 @@ export default function EmailEventsPanel() {
     checkAdminStatus();
     loadData();
 
+    if (!supabase) return;
+
     // Subscribe to real-time updates
     const subscription = supabase
       .channel('email_events')
@@ -75,6 +77,7 @@ export default function EmailEventsPanel() {
   }, []);
 
   const checkAdminStatus = async () => {
+    if (!supabase) return;
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -92,6 +95,8 @@ export default function EmailEventsPanel() {
   };
 
   const loadData = async () => {
+    if (!supabase) return;
+    
     setLoading(true);
 
     // Load recent events
@@ -117,6 +122,8 @@ export default function EmailEventsPanel() {
   };
 
   const handleResend = async (eventId: string) => {
+    if (!supabase) return;
+    
     setResendingIds((prev) => new Set(prev).add(eventId));
     setAlertMessage(null);
 

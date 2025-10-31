@@ -29,6 +29,8 @@ export default function TimelineView({
   }, [entityType, entityId]);
 
   const loadTimeline = async () => {
+    if (!supabase) return;
+    
     setLoading(true);
     const allEvents: TimelineEvent[] = [];
 

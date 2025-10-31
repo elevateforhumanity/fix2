@@ -103,6 +103,11 @@ export default function AIPageBuilder() {
       return;
     }
 
+    if (!supabase) {
+      alert('Database not configured');
+      return;
+    }
+
     setSaving(true);
 
     try {
@@ -144,6 +149,11 @@ export default function AIPageBuilder() {
   async function publishPage() {
     if (!generatedPage || !pageName || !pageSlug) {
       alert('Please save the page first');
+      return;
+    }
+
+    if (!supabase) {
+      alert('Database not configured');
       return;
     }
 

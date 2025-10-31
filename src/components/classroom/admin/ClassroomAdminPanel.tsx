@@ -127,6 +127,10 @@ export default function ClassroomAdminPanel() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedTemplate) return;
+    if (!supabase) {
+      setMessage({ type: 'error', text: 'Database not configured' });
+      return;
+    }
 
     setLoading(true);
     setMessage(null);

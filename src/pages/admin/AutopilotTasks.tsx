@@ -38,6 +38,8 @@ export default function AutopilotTasks() {
   }, [filter]);
 
   const loadTasks = async () => {
+    if (!supabase) return;
+    
     try {
       let query = supabase
         .from('automation.tasks')
@@ -60,6 +62,8 @@ export default function AutopilotTasks() {
   };
 
   const loadStats = async () => {
+    if (!supabase) return;
+    
     try {
       const { data, error } = await supabase
         .from('automation.task_stats')
@@ -72,6 +76,8 @@ export default function AutopilotTasks() {
   };
 
   const approveTask = async (id: number) => {
+    if (!supabase) return;
+    
     try {
       const {
         data: { user },

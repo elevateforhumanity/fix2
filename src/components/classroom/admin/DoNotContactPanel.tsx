@@ -31,6 +31,7 @@ export default function DoNotContactPanel() {
   }, []);
 
   const loadEntries = async () => {
+    if (!supabase) return;
     setLoading(true);
     const { data, error } = await supabase
       .from('do_not_contact')
@@ -50,6 +51,7 @@ export default function DoNotContactPanel() {
 
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!supabase) return;
 
     const { error } = await supabase.rpc('add_to_do_not_contact', {
       p_email: newEntry.email,
@@ -83,6 +85,7 @@ export default function DoNotContactPanel() {
     if (!confirm(`Remove ${email} from Do Not Contact list?`)) {
       return;
     }
+    if (!supabase) return;
 
     const { error } = await supabase.rpc('remove_from_do_not_contact', {
       p_email: email,

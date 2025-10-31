@@ -42,6 +42,7 @@ export default function PageManager() {
   }, [selectedPage]);
 
   async function loadPages() {
+    if (!supabase) return;
     setLoading(true);
     try {
       const { data, error } = await supabase
@@ -59,6 +60,7 @@ export default function PageManager() {
   }
 
   async function loadVersions(pageId: string) {
+    if (!supabase) return;
     try {
       const { data, error } = await supabase
         .from('page_versions')
@@ -74,6 +76,7 @@ export default function PageManager() {
   }
 
   async function updatePageStatus(pageId: string, status: string) {
+    if (!supabase) return;
     try {
       const updates: any = { status };
       if (status === 'published') {
@@ -97,6 +100,7 @@ export default function PageManager() {
 
   async function deletePage(pageId: string) {
     if (!confirm('Are you sure you want to delete this page?')) return;
+    if (!supabase) return;
 
     try {
       const { error } = await supabase
@@ -117,6 +121,7 @@ export default function PageManager() {
 
   async function saveEdits() {
     if (!selectedPage) return;
+    if (!supabase) return;
 
     try {
       const { error } = await supabase
@@ -145,6 +150,7 @@ export default function PageManager() {
   async function rollbackToVersion(version: PageVersion) {
     if (!selectedPage) return;
     if (!confirm(`Rollback to version ${version.version}?`)) return;
+    if (!supabase) return;
 
     try {
       const { error } = await supabase
