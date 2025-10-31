@@ -546,6 +546,10 @@ class AICourseCreator {
    * Save complete course to Supabase database
    */
   async saveCourseToDatabase(courseData) {
+    if (!this.supabase) {
+      throw new Error('Database service is not available');
+    }
+
     try {
       // Insert course
       const { data: course, error: courseError } = await this.supabase
