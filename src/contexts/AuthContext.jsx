@@ -10,6 +10,11 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     // Check active sessions
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
@@ -29,7 +34,7 @@ export function AuthProvider({ children }) {
   const value = {
     user,
     loading,
-    signOut: () => supabase.auth.signOut(),
+    signOut: () => supabase?.auth.signOut(),
   };
 
   return (
