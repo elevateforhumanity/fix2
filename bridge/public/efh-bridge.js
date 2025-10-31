@@ -1,15 +1,15 @@
 /**
  * EFH Bridge Script - Durable Content Injector
  * Version: 1.0.0
- * 
+ *
  * Injects dynamic content into Durable.co pages via data-efh-slot attributes
- * 
+ *
  * Usage in Durable:
- * <script src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
- *         data-efh-org="elevate-for-humanity" 
- *         data-env="prod" 
+ * <script src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+ *         data-efh-org="elevate-for-humanity"
+ *         data-env="prod"
  *         defer></script>
- * 
+ *
  * Add slots: <div data-efh-slot="hero"></div>
  */
 
@@ -21,7 +21,7 @@
   const ORG = currentScript?.getAttribute('data-efh-org') || 'efh';
   const ENV = currentScript?.getAttribute('data-env') || 'prod';
   const BASE_URL = 'https://elevateforhumanityfix2.netlify.app';
-  
+
   // Configuration endpoint
   const configUrl = `${BASE_URL}/api/efh-config.json?org=${ORG}&env=${ENV}&t=${Date.now()}`;
 
@@ -42,7 +42,8 @@
   }
 
   // Helper to find slot elements
-  const getSlot = (slotName) => document.querySelector(`[data-efh-slot="${slotName}"]`);
+  const getSlot = (slotName) =>
+    document.querySelector(`[data-efh-slot="${slotName}"]`);
 
   // Sanitize HTML to prevent XSS
   const sanitize = (str) => {
@@ -98,7 +99,11 @@
   }
 
   // Inject Programs Grid
-  if (Array.isArray(config.programs) && config.programs.length > 0 && getSlot('programs')) {
+  if (
+    Array.isArray(config.programs) &&
+    config.programs.length > 0 &&
+    getSlot('programs')
+  ) {
     const programsSlot = getSlot('programs');
     programsSlot.innerHTML = `
       <div style="
@@ -107,7 +112,9 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         padding: 24px 0;
       ">
-        ${config.programs.map(program => `
+        ${config.programs
+          .map(
+            (program) => `
           <div style="
             border: 2px solid #e5e7eb;
             border-radius: 16px;
@@ -140,14 +147,20 @@
               <span style="transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)';" onmouseout="this.style.transform='translateX(0)';">→</span>
             </a>
           </div>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
     `;
     console.log('[EFH Bridge] Programs grid injected');
   }
 
   // Inject Features Section
-  if (Array.isArray(config.features) && config.features.length > 0 && getSlot('features')) {
+  if (
+    Array.isArray(config.features) &&
+    config.features.length > 0 &&
+    getSlot('features')
+  ) {
     const featuresSlot = getSlot('features');
     featuresSlot.innerHTML = `
       <div style="
@@ -156,7 +169,9 @@
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         padding: 24px 0;
       ">
-        ${config.features.map(feature => `
+        ${config.features
+          .map(
+            (feature) => `
           <div style="text-align: center; padding: 24px;">
             <div style="
               font-size: 3rem;
@@ -174,14 +189,20 @@
               line-height: 1.6;
             ">${sanitize(feature.description)}</p>
           </div>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
     `;
     console.log('[EFH Bridge] Features section injected');
   }
 
   // Inject Testimonials
-  if (Array.isArray(config.testimonials) && config.testimonials.length > 0 && getSlot('testimonials')) {
+  if (
+    Array.isArray(config.testimonials) &&
+    config.testimonials.length > 0 &&
+    getSlot('testimonials')
+  ) {
     const testimonialsSlot = getSlot('testimonials');
     testimonialsSlot.innerHTML = `
       <div style="
@@ -190,7 +211,9 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         padding: 24px 0;
       ">
-        ${config.testimonials.map(testimonial => `
+        ${config.testimonials
+          .map(
+            (testimonial) => `
           <blockquote style="
             border-left: 4px solid #667eea;
             padding: 24px;
@@ -211,7 +234,9 @@
               font-weight: 600;
             ">— ${sanitize(testimonial.author)}</cite>
           </blockquote>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
     `;
     console.log('[EFH Bridge] Testimonials section injected');

@@ -59,12 +59,12 @@ netlify deploy --prod
 In your Durable.co site settings, add this to the **Custom Code** section (in `<head>`):
 
 ```html
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 ```
 
 ### Step 2: Add Content Slots
@@ -117,22 +117,27 @@ To update content on your Durable site:
 ## Available Slots
 
 ### Hero Section
+
 - **Slot:** `data-efh-slot="hero"`
 - **Config:** `hero.title`, `hero.subtitle`, `hero.ctaLabel`, `hero.ctaUrl`
 
 ### Programs Grid
+
 - **Slot:** `data-efh-slot="programs"`
 - **Config:** `programs[]` array with `name`, `url`, `summary`
 
 ### Features Section
+
 - **Slot:** `data-efh-slot="features"`
 - **Config:** `features[]` array with `icon`, `title`, `description`
 
 ### Testimonials
+
 - **Slot:** `data-efh-slot="testimonials"`
 - **Config:** `testimonials[]` array with `quote`, `author`
 
 ### Call to Action
+
 - **Slot:** `data-efh-slot="cta"`
 - **Config:** `cta.title`, `cta.subtitle`, `cta.label`, `cta.url`
 
@@ -162,11 +167,13 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ### Bridge script not loading
 
 **Check:**
+
 - Script URL is correct
 - Durable allows custom scripts
 - No CORS errors in console
 
 **Fix:**
+
 ```bash
 # Verify deployment
 netlify status
@@ -176,11 +183,13 @@ curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ### Content not appearing
 
 **Check:**
+
 - Slots exist: `<div data-efh-slot="hero"></div>`
 - Config JSON is valid
 - Browser console for errors
 
 **Fix:**
+
 ```bash
 # Validate JSON
 cat bridge/api/efh-config.json | jq .
@@ -226,6 +235,7 @@ cat bridge/api/efh-config.json | jq .
 **Zero maintenance required!**
 
 To update content:
+
 1. Edit `bridge/api/efh-config.json`
 2. Redeploy
 3. Done!

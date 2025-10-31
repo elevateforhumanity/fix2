@@ -16,20 +16,21 @@ Your project currently has **6 Durable-themed pages** that are **NOT using actua
 
 ### Existing Durable Pages
 
-| Page | Route | Current Implementation | Uses Durable? |
-|------|-------|----------------------|---------------|
-| DurableLanding | `/durable-landing` | Custom React component | ❌ No |
-| DurableFeatures | `/durable-features` | Custom React component | ❌ No |
-| DurablePricing | `/durable-pricing` | Custom React component | ❌ No |
-| DurableTemplates | `/durable-templates` | Custom React component | ❌ No |
-| DurableAI | `/durable-ai` | ComingSoon component | ❌ No |
-| ProgramsDurable | `/programs-durable` | Custom React component | ❌ No |
+| Page             | Route                | Current Implementation | Uses Durable? |
+| ---------------- | -------------------- | ---------------------- | ------------- |
+| DurableLanding   | `/durable-landing`   | Custom React component | ❌ No         |
+| DurableFeatures  | `/durable-features`  | Custom React component | ❌ No         |
+| DurablePricing   | `/durable-pricing`   | Custom React component | ❌ No         |
+| DurableTemplates | `/durable-templates` | Custom React component | ❌ No         |
+| DurableAI        | `/durable-ai`        | ComingSoon component   | ❌ No         |
+| ProgramsDurable  | `/programs-durable`  | Custom React component | ❌ No         |
 
 ### Current Content Type
 
 All pages contain **static, hardcoded content** about "Durable Skills" (soft skills, career development) - NOT content from Durable.co CMS.
 
 **Example from DurableLanding.jsx:**
+
 ```jsx
 <h1>Durable Skills for Lasting Success</h1>
 <p>Build the foundational skills that employers value most</p>
@@ -51,6 +52,7 @@ This is **thematic content** about durable/soft skills, not a Durable CMS integr
 ### 2. Documentation Exists But Not Implemented
 
 Found 3 documentation files:
+
 - `ZERO_MAINTENANCE_DURABLE_SETUP.md` - Iframe integration guide
 - `DURABLE_IMPLEMENTATION_GUIDE.md` - Multiple integration methods
 - `DURABLE_AUTO_SYNC_GUIDE.md` - Auto-sync strategies
@@ -71,6 +73,7 @@ All "Durable" pages are actually about **durable skills** (communication, proble
 **Best for:** Hands-off content management
 
 **Pros:**
+
 - ✅ Zero maintenance - updates appear instantly
 - ✅ No code changes needed for content updates
 - ✅ No API keys or configuration required
@@ -78,16 +81,18 @@ All "Durable" pages are actually about **durable skills** (communication, proble
 - ✅ 5-minute setup time
 
 **Cons:**
+
 - ⚠️ Limited SEO (iframe content not indexed well)
 - ⚠️ Requires Durable to allow iframe embedding
 - ⚠️ No control over styling from your side
 - ⚠️ Potential X-Frame-Options blocking
 
 **Implementation:**
+
 ```jsx
 export default function DurableLanding() {
   return (
-    <iframe 
+    <iframe
       src="https://YOUR-SITE.durable.co"
       style={{
         position: 'fixed',
@@ -95,7 +100,7 @@ export default function DurableLanding() {
         left: 0,
         width: '100%',
         height: '100%',
-        border: 'none'
+        border: 'none',
       }}
       title="Elevate for Humanity"
     />
@@ -104,6 +109,7 @@ export default function DurableLanding() {
 ```
 
 **Setup Required:**
+
 1. Create/identify your Durable.co website
 2. Get the Durable URL (e.g., `elevateforhumanity.durable.co`)
 3. Run the setup script: `./scripts/setup-durable-zero-maintenance.sh`
@@ -116,6 +122,7 @@ export default function DurableLanding() {
 **Best for:** Full control with auto-sync
 
 **Pros:**
+
 - ✅ Full SEO benefits
 - ✅ Control over styling
 - ✅ Real-time content updates
@@ -123,12 +130,14 @@ export default function DurableLanding() {
 - ✅ Better performance
 
 **Cons:**
+
 - ⚠️ Requires Durable API (check if available)
 - ⚠️ Need API keys and configuration
 - ⚠️ More complex setup
 - ⚠️ Requires maintenance
 
 **Implementation:**
+
 ```jsx
 import { useEffect, useState } from 'react';
 
@@ -138,22 +147,21 @@ export default function DurableLanding() {
   useEffect(() => {
     fetch('https://api.durable.co/v1/sites/YOUR_SITE_ID/content', {
       headers: {
-        'Authorization': 'Bearer YOUR_API_KEY'
-      }
+        Authorization: 'Bearer YOUR_API_KEY',
+      },
     })
-      .then(res => res.json())
-      .then(data => setContent(data));
+      .then((res) => res.json())
+      .then((data) => setContent(data));
   }, []);
 
   if (!content) return <div>Loading...</div>;
 
-  return (
-    <div dangerouslySetInnerHTML={{ __html: content.html }} />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: content.html }} />;
 }
 ```
 
 **Setup Required:**
+
 1. Check if Durable provides an API
 2. Get API credentials
 3. Add to `.env`: `VITE_DURABLE_API_KEY`, `VITE_DURABLE_SITE_ID`
@@ -167,6 +175,7 @@ export default function DurableLanding() {
 **Best for:** If you don't actually need Durable CMS
 
 **Pros:**
+
 - ✅ Already implemented
 - ✅ Full control over content
 - ✅ No external dependencies
@@ -174,6 +183,7 @@ export default function DurableLanding() {
 - ✅ Full SEO benefits
 
 **Cons:**
+
 - ⚠️ Manual content updates required
 - ⚠️ No CMS for non-technical editors
 - ⚠️ Content lives in code
@@ -188,11 +198,13 @@ Your pages already work perfectly as custom React components. If the content is 
 **Best for:** Flexibility
 
 **Strategy:**
+
 - Keep custom React components for structure
 - Fetch specific content blocks from Durable
 - Maintain control over layout and styling
 
 **Implementation:**
+
 ```jsx
 import { useEffect, useState } from 'react';
 
@@ -202,7 +214,7 @@ export default function DurableLanding() {
   useEffect(() => {
     // Fetch only specific content blocks from Durable
     fetch('/.netlify/functions/durable-proxy?section=hero')
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(setDurableContent);
   }, []);
 
@@ -210,12 +222,12 @@ export default function DurableLanding() {
     <div className="min-h-screen">
       {/* Your custom header */}
       <Header />
-      
+
       {/* Durable content block */}
       {durableContent && (
         <div dangerouslySetInnerHTML={{ __html: durableContent.html }} />
       )}
-      
+
       {/* Your custom footer */}
       <Footer />
     </div>
@@ -230,6 +242,7 @@ export default function DurableLanding() {
 Based on research of Durable.co:
 
 ### What Durable Provides:
+
 - ✅ AI website builder
 - ✅ Visual editor for content
 - ✅ Built-in hosting
@@ -239,6 +252,7 @@ Based on research of Durable.co:
 - ✅ Invoicing and CRM tools
 
 ### What Durable May NOT Provide:
+
 - ❓ Public API (needs verification)
 - ❓ Webhook support (needs verification)
 - ❓ Iframe embedding allowed (needs testing)
@@ -246,6 +260,7 @@ Based on research of Durable.co:
 - ❓ Export functionality (needs verification)
 
 ### To Verify:
+
 1. Check Durable documentation for API access
 2. Test if your Durable site allows iframe embedding
 3. Contact Durable support about integration options
@@ -259,11 +274,13 @@ Based on research of Durable.co:
 **If you already have content on Durable.co:**
 
 **Recommended:** Option 1 (Full Iframe Embed)
+
 - Fastest implementation (5 minutes)
 - Zero maintenance forever
 - Content updates instantly
 
 **Steps:**
+
 1. Get your Durable URL
 2. Run: `./scripts/setup-durable-zero-maintenance.sh`
 3. Edit script to set your Durable URL
@@ -277,16 +294,19 @@ Based on research of Durable.co:
 **If you're not using Durable.co CMS:**
 
 **Recommended:** Option 3 (Keep Current Custom Content)
+
 - Already working perfectly
 - No external dependencies
 - Full control
 
 **Steps:**
+
 1. Keep existing pages as-is
 2. Update content directly in React components
 3. No additional setup needed
 
 **Alternative:** Consider renaming pages to avoid confusion:
+
 - `DurableLanding.jsx` → `DurableSkillsLanding.jsx`
 - `DurableFeatures.jsx` → `DurableSkillsFeatures.jsx`
 - etc.
@@ -302,6 +322,7 @@ This clarifies that "Durable" refers to durable skills, not Durable.co CMS.
 **Recommended:** Start with Option 1, upgrade to Option 2 if needed
 
 **Steps:**
+
 1. Create account on Durable.co
 2. Build your site using Durable's AI builder
 3. Get your Durable URL
@@ -314,6 +335,7 @@ This clarifies that "Durable" refers to durable skills, not Durable.co CMS.
 ## Technical Compatibility Check
 
 ### Your Current Stack:
+
 - ✅ React 19.1.1
 - ✅ Vite build system
 - ✅ React Router for routing
@@ -323,13 +345,13 @@ This clarifies that "Durable" refers to durable skills, not Durable.co CMS.
 
 ### Compatibility with Durable:
 
-| Integration Method | Compatible? | Notes |
-|-------------------|-------------|-------|
-| Iframe Embed | ✅ Yes | Works with any stack |
-| API Integration | ✅ Yes | If Durable provides API |
-| Scheduled Scraping | ✅ Yes | Via GitHub Actions |
-| Webhook Sync | ✅ Yes | Via Netlify Functions |
-| Custom Domain | ✅ Yes | Point subdomain to Durable |
+| Integration Method | Compatible? | Notes                      |
+| ------------------ | ----------- | -------------------------- |
+| Iframe Embed       | ✅ Yes      | Works with any stack       |
+| API Integration    | ✅ Yes      | If Durable provides API    |
+| Scheduled Scraping | ✅ Yes      | Via GitHub Actions         |
+| Webhook Sync       | ✅ Yes      | Via Netlify Functions      |
+| Custom Domain      | ✅ Yes      | Point subdomain to Durable |
 
 **Verdict:** Your stack is fully compatible with all Durable integration methods.
 
@@ -338,18 +360,21 @@ This clarifies that "Durable" refers to durable skills, not Durable.co CMS.
 ## Cost Analysis
 
 ### Option 1: Iframe Embed
+
 - **Setup Time:** 5 minutes
 - **Maintenance Time:** 0 hours/month
 - **Complexity:** Low
 - **Cost:** $0 (just Durable subscription)
 
 ### Option 2: API Integration
+
 - **Setup Time:** 2-4 hours
 - **Maintenance Time:** 1-2 hours/month
 - **Complexity:** Medium
 - **Cost:** $0 (just Durable subscription)
 
 ### Option 3: Keep Custom Content
+
 - **Setup Time:** 0 minutes (already done)
 - **Maintenance Time:** 2-4 hours/month (manual updates)
 - **Complexity:** Low
@@ -360,12 +385,14 @@ This clarifies that "Durable" refers to durable skills, not Durable.co CMS.
 ## Security Considerations
 
 ### Iframe Embed:
+
 - ✅ Isolated from your main app
 - ✅ No API keys to manage
 - ⚠️ Ensure HTTPS only
 - ⚠️ Set appropriate CSP headers
 
 ### API Integration:
+
 - ⚠️ Store API keys securely in `.env`
 - ⚠️ Never expose keys in client-side code
 - ⚠️ Use environment variables: `VITE_DURABLE_API_KEY`
@@ -417,11 +444,13 @@ Before deploying any Durable integration:
 ## Support Resources
 
 ### Durable.co Resources:
+
 - Help Center: https://help.durable.co
 - Check for API documentation
 - Contact support for integration questions
 
 ### Your Documentation:
+
 - `ZERO_MAINTENANCE_DURABLE_SETUP.md` - Iframe guide
 - `DURABLE_IMPLEMENTATION_GUIDE.md` - Multiple methods
 - `DURABLE_AUTO_SYNC_GUIDE.md` - Auto-sync strategies
@@ -432,6 +461,7 @@ Before deploying any Durable integration:
 ## Conclusion
 
 ### Current Status:
+
 - ✅ 6 Durable-themed pages exist
 - ❌ No actual Durable.co integration
 - ✅ Pages work as custom React components
@@ -452,8 +482,9 @@ Before deploying any Durable integration:
 ### Best Integration Method:
 
 For **zero maintenance** and **instant updates**:
+
 ```jsx
-<iframe 
+<iframe
   src="https://YOUR-SITE.durable.co"
   style={{ width: '100%', height: '100vh', border: 'none' }}
   title="Elevate for Humanity"

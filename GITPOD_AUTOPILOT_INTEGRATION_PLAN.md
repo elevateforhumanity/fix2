@@ -19,6 +19,7 @@ The proposed Gitpod autopilot architecture provides a **clean, modular approach*
 Your project already has:
 
 ✅ **Autopilot System v7.0** (Autonomous mode)
+
 - Database schema: `automation.tasks`, `automation.task_edges`, `automation.health_log`
 - Supabase Edge Functions: `autopilot-worker`, `autopilot-bridge`
 - GitHub Actions: `autopilot-comment-bridge.yml`, `autopilot-master.yml`
@@ -26,21 +27,25 @@ Your project already has:
 - Configuration: `.autopilot-config.json`
 
 ✅ **Cloudflare Worker**
+
 - `workers/autopilot-deploy-worker.ts`
 - Handles: deploy triggers, status checks, rollbacks, cache purging
 - Cron: Every 10 minutes for health checks
 - Configuration: `wrangler.toml`
 
 ✅ **Netlify Functions** (18 functions)
+
 - Health checks, deployments, Stripe, social media, reporting
 - Configuration: `netlify.toml` with full routing
 
 ✅ **Gitpod Configuration**
+
 - `.gitpod.yml` with dev server setup
 - `.gitpod.Dockerfile` (uses workspace-full)
 - Ports: 5173 (Vite), 3000, 8080, 54321 (Supabase)
 
 ✅ **Bootstrap Scripts**
+
 - `autopilot-autonomous-setup.sh`
 - `autopilot-full-setup.sh`
 - `bootstrap-agents.sh`
@@ -49,12 +54,14 @@ Your project already has:
 ### What's Missing
 
 ❌ **Durable Integration**
+
 - No Durable URL configured
 - No Durable API keys
 - No bridge script for Durable embedding
 - No architecture selector (Options A/B/C)
 
 ❌ **Unified Selector Interface**
+
 - No interactive menu for choosing integration method
 - No prerequisite checker
 - No environment validation
@@ -68,12 +75,14 @@ Your project already has:
 **Concept:** Paste `<script>` once in Durable → Everything automated thereafter
 
 **Pros:**
+
 - ✅ Minimal Durable changes (one-time)
 - ✅ Full automation after setup
 - ✅ Bridge script manages all updates
 - ✅ Works with existing Cloudflare Worker
 
 **Cons:**
+
 - ⚠️ Requires Durable to allow custom scripts
 - ⚠️ Need to verify Durable's script injection capabilities
 - ⚠️ Bridge script must be hosted and maintained
@@ -87,12 +96,14 @@ Your project already has:
 **Concept:** Netlify hosts shell, embeds Durable via iframe
 
 **Pros:**
+
 - ✅ No Durable changes after domain setup
 - ✅ Full control over shell/wrapper
 - ✅ Already have Netlify infrastructure
 - ✅ Can add custom header/footer
 
 **Cons:**
+
 - ⚠️ SEO limitations (iframe content)
 - ⚠️ Potential X-Frame-Options blocking
 - ⚠️ Need to manage two sites (Netlify + Durable)
@@ -106,12 +117,14 @@ Your project already has:
 **Concept:** Add GTM container once → Autopilot manages via GTM
 
 **Pros:**
+
 - ✅ One-time GTM setup in Durable
 - ✅ Full control via GTM tags
 - ✅ Can inject any scripts/content
 - ✅ No ongoing Durable changes
 
 **Cons:**
+
 - ⚠️ Requires GTM account and setup
 - ⚠️ Additional complexity (GTM API)
 - ⚠️ Need to manage GTM container
@@ -126,6 +139,7 @@ Your project already has:
 ### 1. Gitpod Configuration
 
 **Current:**
+
 ```yaml
 # .gitpod.yml
 tasks:
@@ -135,13 +149,14 @@ tasks:
     command: pnpm dev
 
 ports:
-  - port: 5173  # Vite
+  - port: 5173 # Vite
   - port: 3000
   - port: 8080
   - port: 54321 # Supabase
 ```
 
 **Proposed Addition:**
+
 ```yaml
 tasks:
   - name: Setup
@@ -154,9 +169,9 @@ tasks:
       bash scripts/select-architecture.sh
 
 ports:
-  - port: 5173  # Vite (keep existing)
-  - port: 8888  # Netlify dev (add)
-  - port: 8787  # Cloudflare worker dev (add)
+  - port: 5173 # Vite (keep existing)
+  - port: 8888 # Netlify dev (add)
+  - port: 8787 # Cloudflare worker dev (add)
 ```
 
 **Recommendation:** ✅ **Merge** - Add new ports and selector script
@@ -166,12 +181,14 @@ ports:
 ### 2. Environment Variables
 
 **Current:** `.env` has:
+
 - ✅ Supabase credentials
 - ✅ Cloudflare tokens
 - ✅ Netlify tokens (in netlify.toml)
 - ❌ No Durable configuration
 
 **Proposed Addition:**
+
 ```bash
 # Durable (informational, no public API)
 DURABLE_PUBLIC_URL=https://<your-durable-subdomain>.durable.co
@@ -190,18 +207,21 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Current:** 18 functions in `netlify/functions/`
 
 **Proposed Addition:**
+
 - `deploys.ts` - List recent deploys
 - `trigger.ts` - Trigger deploy
 - `env-set.ts` - Manage env vars
 - `lead-intake.ts` - Forms backend
 
 **Conflict Analysis:**
+
 - ❌ `deploys.ts` - **CONFLICT** - Similar to existing health-check.js
 - ❌ `trigger.ts` - **CONFLICT** - Overlaps with autopilot-deploy-worker.ts
 - ✅ `env-set.ts` - **NEW** - Useful addition
 - ✅ `lead-intake.ts` - **NEW** - Useful addition
 
 **Recommendation:** ⚠️ **Selective Integration**
+
 - Skip `deploys.ts` and `trigger.ts` (use existing Cloudflare Worker)
 - Add `env-set.ts` and `lead-intake.ts` as new functions
 
@@ -210,15 +230,18 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 ### 4. Cloudflare Worker
 
 **Current:** `workers/autopilot-deploy-worker.ts`
+
 - Handles: deploy triggers, status checks, rollbacks, cache purging
 - Cron: Every 10 minutes
 
 **Proposed:** `worker/src/index.ts`
+
 - Similar functionality
 - Scheduled checks
 - Supabase integration
 
 **Conflict Analysis:**
+
 - ❌ **DUPLICATE** - Both workers do the same thing
 
 **Recommendation:** ❌ **Skip** - Keep existing worker, enhance if needed
@@ -230,6 +253,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Current:** ❌ None
 
 **Proposed:** `bridge/public/efh-bridge.js`
+
 - Injects content into Durable slots
 - Fetches config from API
 - Manages hero, programs, etc.
@@ -243,6 +267,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Current:** Multiple bootstrap scripts exist
 
 **Proposed:**
+
 - `select-architecture.sh` - Interactive selector
 - `check-prereqs.sh` - Prerequisite checker
 - `bootstrap-option-a.sh` - Option A setup
@@ -260,6 +285,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Issue:** Both architectures have a Cloudflare Worker for autopilot
 
 **Resolution:**
+
 - ✅ Keep existing `workers/autopilot-deploy-worker.ts`
 - ❌ Skip proposed `worker/src/index.ts`
 - ✅ Enhance existing worker with any missing features
@@ -271,6 +297,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Issue:** Proposed `deploys.ts` and `trigger.ts` overlap with existing functionality
 
 **Resolution:**
+
 - ❌ Skip `deploys.ts` (use existing health-check.js)
 - ❌ Skip `trigger.ts` (use existing Cloudflare Worker)
 - ✅ Add `env-set.ts` (new functionality)
@@ -283,6 +310,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Issue:** Existing `.gitpod.yml` is simpler than proposed
 
 **Resolution:**
+
 - ✅ Merge configurations
 - ✅ Add new ports (8888, 8787)
 - ✅ Add selector script task
@@ -295,6 +323,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Issue:** Proposed structure uses `worker/` but existing uses `workers/`
 
 **Resolution:**
+
 - ✅ Keep existing `workers/` directory
 - ❌ Don't create new `worker/` directory
 - ✅ Add `bridge/` directory (new)
@@ -309,6 +338,7 @@ GTM_CONTAINER_ID=GTM-XXXXXXX
 **Goal:** Add missing Durable integration pieces
 
 1. **Create Bridge Directory**
+
    ```bash
    mkdir -p bridge/public bridge/api
    ```
@@ -558,10 +588,10 @@ ports:
   - port: 5173
     onOpen: open-preview
     visibility: public
-  - port: 8888  # Netlify dev
+  - port: 8888 # Netlify dev
     onOpen: ignore
     visibility: public
-  - port: 8787  # Cloudflare worker dev
+  - port: 8787 # Cloudflare worker dev
     onOpen: ignore
     visibility: public
   - port: 3000

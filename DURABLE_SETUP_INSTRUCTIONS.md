@@ -67,12 +67,12 @@ git push origin main
 4. Add this to the `<head>` section:
 
 ```html
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 ```
 
 **⚠️ Important:** This is a **one-time setup**. You'll never need to edit this again!
@@ -90,6 +90,7 @@ In your Durable page editor, add these HTML elements where you want dynamic cont
 ```
 
 **What appears:**
+
 - Large gradient hero banner
 - Title: "Elevate for Humanity Empowerment Center"
 - Subtitle with program highlights
@@ -104,6 +105,7 @@ In your Durable page editor, add these HTML elements where you want dynamic cont
 ```
 
 **What appears:**
+
 - Responsive grid of 6 programs
 - Barber Apprenticeship
 - HVAC & Welding
@@ -121,6 +123,7 @@ In your Durable page editor, add these HTML elements where you want dynamic cont
 ```
 
 **What appears:**
+
 - 6 feature cards with icons
 - Job Placement
 - Industry Certifications
@@ -138,6 +141,7 @@ In your Durable page editor, add these HTML elements where you want dynamic cont
 ```
 
 **What appears:**
+
 - 4 testimonial cards
 - Real quotes from graduates
 - Names and roles
@@ -151,6 +155,7 @@ In your Durable page editor, add these HTML elements where you want dynamic cont
 ```
 
 **What appears:**
+
 - Large gradient CTA banner
 - "Ready to Transform Your Future?"
 - "Start Your Application" button
@@ -317,10 +322,12 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ### Bridge script not loading
 
 **Symptoms:**
+
 - No content appears in slots
 - Console shows 404 error for bridge script
 
 **Solution:**
+
 ```bash
 # Verify deployment
 netlify status
@@ -337,10 +344,12 @@ pnpm build && netlify deploy --prod
 ### Content not appearing
 
 **Symptoms:**
+
 - Bridge script loads but slots are empty
 - No errors in console
 
 **Solution:**
+
 1. Check slots exist: `<div data-efh-slot="hero"></div>`
 2. Verify config is valid JSON:
    ```bash
@@ -353,6 +362,7 @@ pnpm build && netlify deploy --prod
 ### CORS errors
 
 **Symptoms:**
+
 - Console shows CORS policy errors
 - Bridge script blocked
 
@@ -374,6 +384,7 @@ Add to `netlify.toml`:
 ```
 
 Then redeploy:
+
 ```bash
 pnpm build && netlify deploy --prod
 ```
@@ -383,10 +394,12 @@ pnpm build && netlify deploy --prod
 ### Durable doesn't allow custom scripts
 
 **Symptoms:**
+
 - Can't find "Custom Code" section in Durable
 - Script tag gets removed when saving
 
 **Solution:**
+
 1. Check Durable plan (may require paid plan)
 2. Contact Durable support to enable custom scripts
 3. Alternative: Use Option B (Netlify Shell) instead
@@ -492,12 +505,12 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 **Your Script Tag (Copy This):**
 
 ```html
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 ```
 
 **Paste this ONCE in Durable custom code, and you're done forever!**

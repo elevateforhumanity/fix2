@@ -22,6 +22,7 @@ Automated SEO deployment with self-healing capabilities and chunked rollout.
 **Purpose:** Deploy SEO improvements in chunks of 50 pages with automatic rollback on failure.
 
 **Features:**
+
 - ✅ Chunked deployment (50 pages at a time)
 - ✅ Automatic backup before each chunk
 - ✅ Health checks after each deployment
@@ -31,11 +32,13 @@ Automated SEO deployment with self-healing capabilities and chunked rollout.
 - ✅ Final coverage report
 
 **Usage:**
+
 ```bash
 ./scripts/seo-autopilot.sh
 ```
 
 **What it does:**
+
 1. Creates initial backup
 2. Runs health check
 3. Deploys changes in chunks of 50 pages
@@ -46,6 +49,7 @@ Automated SEO deployment with self-healing capabilities and chunked rollout.
 5. Generates final SEO coverage report
 
 **Logs:**
+
 - Main log: `logs/seo-autopilot/deployment_TIMESTAMP.log`
 - Error log: `logs/seo-autopilot/errors_TIMESTAMP.log`
 - Backups: `backups/seo-autopilot/backup_TIMESTAMP.tar.gz`
@@ -55,6 +59,7 @@ Automated SEO deployment with self-healing capabilities and chunked rollout.
 **Purpose:** Fast validation of SEO implementation and coverage.
 
 **Features:**
+
 - ✅ Component existence check
 - ✅ Integration verification
 - ✅ Build validation
@@ -62,11 +67,13 @@ Automated SEO deployment with self-healing capabilities and chunked rollout.
 - ✅ Overall SEO score
 
 **Usage:**
+
 ```bash
 ./scripts/validate-seo.sh
 ```
 
 **Output:**
+
 ```
 📊 SEO Coverage Report:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -85,6 +92,7 @@ Overall SEO Score: 100% ✅ EXCELLENT
 **Purpose:** Continuous health monitoring with auto-healing.
 
 **Features:**
+
 - ✅ Runs checks every 5 minutes
 - ✅ Tracks failure count
 - ✅ Auto-heals after 3 consecutive failures
@@ -92,6 +100,7 @@ Overall SEO Score: 100% ✅ EXCELLENT
 - ✅ Statistics tracking
 
 **Usage:**
+
 ```bash
 # Run in foreground
 ./scripts/seo-monitor.sh
@@ -104,18 +113,21 @@ pkill -f seo-monitor.sh
 ```
 
 **Checks performed:**
+
 1. Component existence
 2. Integration verification
 3. Build health
 4. SEO coverage percentage
 
 **Auto-healing triggers:**
+
 - Restores missing files from git
 - Cleans build cache
 - Rebuilds project
 - Resets failure count on success
 
 **Logs:**
+
 - Monitor log: `logs/seo-monitor/monitor_TIMESTAMP.log`
 
 ## 🏗️ Architecture
@@ -125,6 +137,7 @@ pkill -f seo-monitor.sh
 Located at: `src/components/UniversalSEO.tsx`
 
 **Features:**
+
 - Automatic title generation from route
 - Canonical URL generation
 - Open Graph tags
@@ -133,6 +146,7 @@ Located at: `src/components/UniversalSEO.tsx`
 - Customizable per-page via props
 
 **Integration:**
+
 ```tsx
 // In SiteLayout.tsx
 import UniversalSEO from '../components/UniversalSEO';
@@ -141,7 +155,7 @@ import UniversalSEO from '../components/UniversalSEO';
 <UniversalSEO />  // Uses defaults
 
 // Or with custom props
-<UniversalSEO 
+<UniversalSEO
   title="Custom Title"
   description="Custom description"
   image="/custom-image.jpg"
@@ -162,6 +176,7 @@ import UniversalSEO from '../components/UniversalSEO';
 ### Chunk Size
 
 Edit `seo-autopilot.sh`:
+
 ```bash
 CHUNK_SIZE=50  # Change to desired chunk size
 ```
@@ -169,6 +184,7 @@ CHUNK_SIZE=50  # Change to desired chunk size
 ### Monitoring Interval
 
 Edit `seo-monitor.sh`:
+
 ```bash
 CHECK_INTERVAL=300  # Seconds between checks (default: 5 minutes)
 ```
@@ -176,18 +192,19 @@ CHECK_INTERVAL=300  # Seconds between checks (default: 5 minutes)
 ### Alert Threshold
 
 Edit `seo-monitor.sh`:
+
 ```bash
 ALERT_THRESHOLD=3  # Failures before auto-heal
 ```
 
 ## 📊 Coverage Targets
 
-| Metric | Target | Current |
-|--------|--------|---------|
-| Canonical URLs | 100% | Check with validate script |
-| Open Graph Tags | 100% | Check with validate script |
-| Twitter Cards | 100% | Check with validate script |
-| Meta Descriptions | 100% | Check with validate script |
+| Metric            | Target | Current                    |
+| ----------------- | ------ | -------------------------- |
+| Canonical URLs    | 100%   | Check with validate script |
+| Open Graph Tags   | 100%   | Check with validate script |
+| Twitter Cards     | 100%   | Check with validate script |
+| Meta Descriptions | 100%   | Check with validate script |
 
 ## 🔍 Troubleshooting
 
@@ -241,21 +258,25 @@ git checkout HEAD -- src/layouts/SiteLayout.tsx
 ## 🎯 Best Practices
 
 1. **Always run validation before deployment:**
+
    ```bash
    ./scripts/validate-seo.sh
    ```
 
 2. **Monitor logs during autopilot:**
+
    ```bash
    tail -f logs/seo-autopilot/deployment_*.log
    ```
 
 3. **Keep backups for 30 days:**
+
    ```bash
    find backups/seo-autopilot -mtime +30 -delete
    ```
 
 4. **Test in development first:**
+
    ```bash
    npm run dev
    # Check meta tags in browser DevTools
@@ -278,6 +299,7 @@ Create a simple dashboard to track SEO health:
 ## 🚨 Alerts
 
 The monitoring script supports integration with:
+
 - Slack webhooks
 - Email notifications
 - PagerDuty
@@ -337,6 +359,7 @@ npm run build
 ## 📞 Support
 
 For issues or questions:
+
 1. Check logs in `logs/seo-autopilot/`
 2. Run validation script for diagnostics
 3. Review this README

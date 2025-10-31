@@ -24,6 +24,7 @@ The Durable Bridge Autopilot ensures your Durable integration never breaks by:
 **Workflow:** `.github/workflows/durable-bridge-autopilot.yml`
 
 **What's Checked:**
+
 1. Bridge script availability (HTTP 200)
 2. Configuration file accessibility
 3. JSON validity
@@ -40,6 +41,7 @@ The Durable Bridge Autopilot ensures your Durable integration never breaks by:
 ```
 
 **Output:**
+
 - ✅ Pass/fail for each check
 - 🔧 Auto-heal attempts
 - 📊 Summary with metrics
@@ -54,6 +56,7 @@ The Durable Bridge Autopilot ensures your Durable integration never breaks by:
 **Script:** `scripts/test-durable-bridge.sh`
 
 **Tests:**
+
 1. Script loading
 2. Configuration loading
 3. Hero section data
@@ -72,6 +75,7 @@ The Durable Bridge Autopilot ensures your Durable integration never breaks by:
 ```
 
 **Output:**
+
 - Test results (pass/fail)
 - Success rate percentage
 - JSON test report
@@ -113,6 +117,7 @@ The autopilot automatically fixes common issues:
 **When:** Health check fails AND auto-heal unsuccessful
 
 **Issue Contains:**
+
 - Problem description
 - Issues found count
 - Fixes attempted
@@ -139,22 +144,26 @@ gh issue view <issue-number>
 ### GitHub Actions
 
 View all autopilot runs:
+
 ```
 https://github.com/elevateforhumanity/fix2/actions
 ```
 
 **Workflows:**
+
 - `Durable Bridge Autopilot` - Health monitoring
 - `Durable Bridge Auto-Deploy` - Deployment automation
 
 ### Status Files
 
 **Health Status:**
+
 ```bash
 cat logs/durable-bridge-status.json | jq .
 ```
 
 **Test Report:**
+
 ```bash
 cat logs/durable-bridge-test-report.json | jq .
 ```
@@ -162,11 +171,13 @@ cat logs/durable-bridge-test-report.json | jq .
 ### Logs
 
 **Health Log:**
+
 ```bash
 tail -f logs/durable-bridge-health.log
 ```
 
 **View Recent:**
+
 ```bash
 tail -50 logs/durable-bridge-health.log
 ```
@@ -181,6 +192,7 @@ tail -50 logs/durable-bridge-health.log
 **File:** `.github/workflows/durable-bridge-autopilot.yml`
 
 **Steps:**
+
 1. Run health check script
 2. Parse results
 3. Create health report
@@ -194,6 +206,7 @@ tail -50 logs/durable-bridge-health.log
 **File:** `.github/workflows/durable-bridge-autopilot.yml` (job: auto-heal)
 
 **Steps:**
+
 1. Rebuild bridge files
 2. Deploy to Netlify
 3. Verify recovery
@@ -208,12 +221,14 @@ tail -50 logs/durable-bridge-health.log
 **Location:** `logs/durable-bridge-health.log`
 
 **Contains:**
+
 - Timestamp for each check
 - Check results (SUCCESS/ERROR/WARNING)
 - Auto-heal actions
 - Recovery attempts
 
 **Example:**
+
 ```
 [2025-10-31 13:00:00] INFO: Checking bridge script
 [2025-10-31 13:00:01] SUCCESS: Bridge script returned 200 OK
@@ -226,6 +241,7 @@ tail -50 logs/durable-bridge-health.log
 **Location:** `logs/durable-bridge-status.json`
 
 **Contains:**
+
 ```json
 {
   "timestamp": "2025-10-31T13:00:00Z",
@@ -246,6 +262,7 @@ tail -50 logs/durable-bridge-health.log
 **Location:** `logs/durable-bridge-test-report.json`
 
 **Contains:**
+
 ```json
 {
   "timestamp": "2025-10-31T13:00:00Z",
@@ -285,16 +302,19 @@ tail -50 logs/durable-bridge-health.log
 ### Health Check Failing
 
 **Check logs:**
+
 ```bash
 cat logs/durable-bridge-health.log | tail -50
 ```
 
 **View status:**
+
 ```bash
 cat logs/durable-bridge-status.json | jq .
 ```
 
 **Manual fix:**
+
 ```bash
 ./scripts/deploy-durable-bridge.sh
 ```
@@ -302,11 +322,13 @@ cat logs/durable-bridge-status.json | jq .
 ### Auto-Heal Not Working
 
 **Check GitHub Actions:**
+
 ```
 https://github.com/elevateforhumanity/fix2/actions
 ```
 
 **Manual recovery:**
+
 ```bash
 # 1. Restore files
 git checkout HEAD -- bridge/
@@ -321,11 +343,13 @@ netlify deploy --prod
 ### Tests Failing
 
 **Run tests locally:**
+
 ```bash
 ./scripts/test-durable-bridge.sh
 ```
 
 **Check specific test:**
+
 ```bash
 # Test bridge script
 curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
@@ -376,16 +400,19 @@ gh run view <run-id> --log
 ## 📊 Monitoring Best Practices
 
 ### Daily
+
 - ✅ Check GitHub Actions for failures
 - ✅ Review health log for warnings
 - ✅ Verify metrics are within range
 
 ### Weekly
+
 - ✅ Review all autopilot issues
 - ✅ Check response time trends
 - ✅ Verify auto-heal success rate
 
 ### Monthly
+
 - ✅ Review logs for patterns
 - ✅ Update health check thresholds
 - ✅ Optimize auto-heal strategies
@@ -414,16 +441,19 @@ gh run view <run-id> --log
 ## 📈 Success Metrics
 
 ### Uptime
+
 - **Target:** 99.9%
 - **Current:** Monitored every 30 min
 - **Recovery Time:** < 5 minutes
 
 ### Auto-Heal Success Rate
+
 - **Target:** 95%
 - **Tracked:** In status files
 - **Reported:** In GitHub Actions
 
 ### Response Time
+
 - **Target:** < 2 seconds
 - **Monitored:** Every health check
 - **Alerted:** If > 2 seconds
@@ -497,6 +527,7 @@ gh run view <run-id> --log
 ### Metrics Collection
 
 All health checks and tests generate metrics:
+
 - Response times
 - Success rates
 - Issue frequencies
@@ -505,6 +536,7 @@ All health checks and tests generate metrics:
 ### Optimization
 
 Based on metrics, the autopilot:
+
 - Adjusts thresholds
 - Improves auto-heal strategies
 - Identifies patterns
@@ -515,15 +547,18 @@ Based on metrics, the autopilot:
 ## 📞 Support
 
 ### Documentation
+
 - System Cheat Sheet: `SYSTEM_CHEAT_SHEET.md`
 - Setup Guide: `DURABLE_SETUP_INSTRUCTIONS.md`
 - This Guide: `DURABLE_BRIDGE_AUTOPILOT.md`
 
 ### Monitoring
+
 - GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 - Netlify Dashboard: https://app.netlify.com/sites/elevateforhumanityfix2
 
 ### Logs
+
 - Health: `logs/durable-bridge-health.log`
 - Status: `logs/durable-bridge-status.json`
 - Tests: `logs/durable-bridge-test-report.json`
@@ -539,7 +574,7 @@ Based on metrics, the autopilot:
 ✅ **Heals** issues without manual intervention  
 ✅ **Alerts** you only when it can't fix something  
 ✅ **Logs** everything for audit trail  
-✅ **Reports** metrics and status  
+✅ **Reports** metrics and status
 
 **Result:** Zero-maintenance, self-healing Durable integration that never breaks!
 

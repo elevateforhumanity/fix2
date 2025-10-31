@@ -7,6 +7,7 @@
 ## 🚀 Quick Start Commands
 
 ### Development
+
 ```bash
 # Start dev server
 pnpm dev
@@ -28,6 +29,7 @@ pnpm format
 ```
 
 ### Deployment
+
 ```bash
 # Deploy to Netlify (auto via git push)
 git add .
@@ -46,6 +48,7 @@ netlify status
 ## 🏥 Health Checks
 
 ### System Health Check
+
 ```bash
 # Full system health check
 ./scripts/durable-bridge-health-check.sh
@@ -61,6 +64,7 @@ curl https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/
 ```
 
 ### Quick Verification
+
 ```bash
 # Verify bridge script
 curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
@@ -77,6 +81,7 @@ curl -o /dev/null -s -w "Response time: %{time_total}s\n" https://elevateforhuma
 ## 🔧 Durable Bridge Operations
 
 ### Deploy Bridge
+
 ```bash
 # Automated deployment
 ./scripts/deploy-durable-bridge.sh
@@ -89,6 +94,7 @@ git add . && git commit -m "Update bridge" && git push
 ```
 
 ### Update Content
+
 ```bash
 # Edit configuration
 nano bridge/api/efh-config.json
@@ -101,6 +107,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ```
 
 ### Health Monitoring
+
 ```bash
 # Run health check
 ./scripts/durable-bridge-health-check.sh
@@ -117,6 +124,7 @@ cat logs/durable-bridge-status.json | jq .
 ## 🤖 Autopilot Operations
 
 ### Autopilot Status
+
 ```bash
 # Check autopilot configuration
 cat .autopilot-config.json | jq .
@@ -129,6 +137,7 @@ open https://github.com/elevateforhumanity/fix2/actions
 ```
 
 ### Manual Triggers
+
 ```bash
 # Trigger health check workflow
 gh workflow run durable-bridge-autopilot.yml
@@ -145,6 +154,7 @@ gh run list --limit 5
 ## 📊 Monitoring & Logs
 
 ### View Logs
+
 ```bash
 # Durable bridge health log
 tail -f logs/durable-bridge-health.log
@@ -160,6 +170,7 @@ cat build.log
 ```
 
 ### Check Status Files
+
 ```bash
 # Bridge status
 cat logs/durable-bridge-status.json | jq .
@@ -173,6 +184,7 @@ cat logs/durable-bridge-test-report.json | jq .
 ## 🔄 Common Workflows
 
 ### Update Durable Content
+
 ```bash
 # 1. Edit config
 nano bridge/api/efh-config.json
@@ -188,6 +200,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ```
 
 ### Fix Broken Bridge
+
 ```bash
 # 1. Run health check
 ./scripts/durable-bridge-health-check.sh
@@ -203,6 +216,7 @@ curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ```
 
 ### Emergency Recovery
+
 ```bash
 # 1. Check what's broken
 ./scripts/durable-bridge-health-check.sh
@@ -223,6 +237,7 @@ curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ## 🗄️ Database Operations
 
 ### Supabase
+
 ```bash
 # Check connection
 curl https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/
@@ -239,6 +254,7 @@ supabase db dump
 ## 🌐 URLs & Endpoints
 
 ### Production URLs
+
 ```
 Main Site: https://elevateforhumanityfix2.netlify.app
 Bridge Script: https://elevateforhumanityfix2.netlify.app/efh-bridge.js
@@ -247,6 +263,7 @@ Supabase: https://cuxzzpsyufcewtmicszk.supabase.co
 ```
 
 ### GitHub
+
 ```
 Repository: https://github.com/elevateforhumanity/fix2
 Actions: https://github.com/elevateforhumanity/fix2/actions
@@ -254,6 +271,7 @@ Issues: https://github.com/elevateforhumanity/fix2/issues
 ```
 
 ### Netlify
+
 ```
 Dashboard: https://app.netlify.com/sites/elevateforhumanityfix2
 Deploys: https://app.netlify.com/sites/elevateforhumanityfix2/deploys
@@ -264,6 +282,7 @@ Deploys: https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 ## 🔍 Troubleshooting
 
 ### Bridge Not Loading
+
 ```bash
 # 1. Check if file exists
 curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
@@ -279,6 +298,7 @@ curl -X PURGE https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ```
 
 ### Configuration Issues
+
 ```bash
 # 1. Validate JSON locally
 cat bridge/api/efh-config.json | jq .
@@ -291,6 +311,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ```
 
 ### Build Failures
+
 ```bash
 # 1. Check build log
 cat build.log
@@ -306,6 +327,7 @@ pnpm lint
 ```
 
 ### Deployment Failures
+
 ```bash
 # 1. Check Netlify logs
 netlify logs
@@ -325,6 +347,7 @@ netlify status
 ## 📝 File Locations
 
 ### Important Files
+
 ```
 Bridge Script: bridge/public/efh-bridge.js
 Configuration: bridge/api/efh-config.json
@@ -335,6 +358,7 @@ Autopilot Config: .autopilot-config.json
 ```
 
 ### Logs
+
 ```
 Health Log: logs/durable-bridge-health.log
 Status File: logs/durable-bridge-status.json
@@ -343,6 +367,7 @@ Build Log: build.log
 ```
 
 ### Documentation
+
 ```
 Setup Guide: DURABLE_SETUP_INSTRUCTIONS.md
 Zero Manual: ZERO_MANUAL_DURABLE_SETUP.md
@@ -357,6 +382,7 @@ This Cheat Sheet: SYSTEM_CHEAT_SHEET.md
 ## 🎯 Daily Operations
 
 ### Morning Check
+
 ```bash
 # 1. Check system health
 ./scripts/durable-bridge-health-check.sh
@@ -372,6 +398,7 @@ curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ```
 
 ### Before Making Changes
+
 ```bash
 # 1. Pull latest
 git pull origin main
@@ -384,6 +411,7 @@ cp bridge/api/efh-config.json bridge/api/efh-config.json.backup
 ```
 
 ### After Making Changes
+
 ```bash
 # 1. Validate changes
 cat bridge/api/efh-config.json | jq .
@@ -403,6 +431,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ## 🚨 Emergency Procedures
 
 ### Site Down
+
 ```bash
 # 1. Check Netlify status
 netlify status
@@ -419,6 +448,7 @@ curl -I https://elevateforhumanityfix2.netlify.app
 ```
 
 ### Bridge Broken
+
 ```bash
 # 1. Run health check
 ./scripts/durable-bridge-health-check.sh
@@ -434,6 +464,7 @@ git checkout HEAD -- bridge/
 ```
 
 ### Data Loss
+
 ```bash
 # 1. Check git history
 git log --oneline bridge/api/efh-config.json
@@ -450,17 +481,20 @@ git checkout <commit-hash> -- bridge/api/efh-config.json
 ## 📞 Support Resources
 
 ### Documentation
+
 - Setup: `DURABLE_SETUP_INSTRUCTIONS.md`
 - Zero Manual: `ZERO_MANUAL_DURABLE_SETUP.md`
 - Quick Start: `DURABLE_GITPOD_QUICKSTART.md`
 - This Cheat Sheet: `SYSTEM_CHEAT_SHEET.md`
 
 ### External Resources
+
 - Netlify Docs: https://docs.netlify.com
 - Supabase Docs: https://supabase.com/docs
 - GitHub Actions: https://docs.github.com/actions
 
 ### Monitoring
+
 - GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 - Netlify Dashboard: https://app.netlify.com/sites/elevateforhumanityfix2
 
@@ -469,6 +503,7 @@ git checkout <commit-hash> -- bridge/api/efh-config.json
 ## 🔐 Environment Variables
 
 ### Required Variables
+
 ```bash
 # Supabase
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -483,6 +518,7 @@ GITHUB_TOKEN=<your-token>
 ```
 
 ### Check Variables
+
 ```bash
 # View .env (local)
 cat .env
@@ -499,18 +535,21 @@ gh secret list
 ## 🎓 Best Practices
 
 ### Before Deploying
+
 1. ✅ Validate JSON: `cat bridge/api/efh-config.json | jq .`
 2. ✅ Run tests: `./scripts/test-durable-bridge.sh`
 3. ✅ Check health: `./scripts/durable-bridge-health-check.sh`
 4. ✅ Review changes: `git diff`
 
 ### After Deploying
+
 1. ✅ Verify URLs work
 2. ✅ Check logs for errors
 3. ✅ Test in browser
 4. ✅ Monitor for 5 minutes
 
 ### Regular Maintenance
+
 1. ✅ Run health check daily
 2. ✅ Review logs weekly
 3. ✅ Update dependencies monthly
@@ -521,16 +560,19 @@ gh secret list
 ## 📊 Metrics to Monitor
 
 ### Performance
+
 - Response time < 2 seconds
 - Bridge script size < 10KB
 - Config file size < 5KB
 
 ### Health
+
 - HTTP 200 status codes
 - Valid JSON configuration
 - All required fields present
 
 ### Content
+
 - Programs count ≥ 6
 - Features count ≥ 6
 - Testimonials count ≥ 4
@@ -540,12 +582,14 @@ gh secret list
 ## 🔄 Automation Status
 
 ### Active Workflows
+
 - ✅ Durable Bridge Auto-Deploy (on push)
 - ✅ Durable Bridge Autopilot (every 30 min)
 - ✅ Health Check (every 30 min)
 - ✅ Auto-Heal (on failure)
 
 ### Manual Workflows
+
 - Deploy: `./scripts/deploy-durable-bridge.sh`
 - Health Check: `./scripts/durable-bridge-health-check.sh`
 - Test: `./scripts/test-durable-bridge.sh`
@@ -555,12 +599,14 @@ gh secret list
 ## 💡 Quick Tips
 
 ### Speed Up Deployment
+
 ```bash
 # Skip tests for quick deploy
 git add . && git commit -m "Quick fix" && git push
 ```
 
 ### View Real-Time Logs
+
 ```bash
 # Follow health log
 tail -f logs/durable-bridge-health.log
@@ -570,6 +616,7 @@ netlify watch
 ```
 
 ### Validate Before Commit
+
 ```bash
 # Pre-commit checks
 cat bridge/api/efh-config.json | jq .
@@ -578,6 +625,7 @@ pnpm typecheck
 ```
 
 ### Quick Status Check
+
 ```bash
 # One-liner status
 curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js && echo "✅ Bridge OK"
@@ -588,6 +636,7 @@ curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js && echo "✅ Br
 ## 🎯 Common Tasks
 
 ### Add New Program
+
 ```bash
 # 1. Edit config
 nano bridge/api/efh-config.json
@@ -601,6 +650,7 @@ cat bridge/api/efh-config.json | jq .
 ```
 
 ### Update Hero Section
+
 ```bash
 # 1. Edit config
 nano bridge/api/efh-config.json
@@ -611,6 +661,7 @@ nano bridge/api/efh-config.json
 ```
 
 ### Add Testimonial
+
 ```bash
 # 1. Edit config
 nano bridge/api/efh-config.json

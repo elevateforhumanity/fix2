@@ -31,12 +31,12 @@ bash scripts/select-architecture.sh
 
 ```html
 <!-- Paste this ONCE in Durable custom code -->
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 
 <!-- Add slots where you want dynamic content -->
 <div data-efh-slot="hero"></div>
@@ -155,12 +155,12 @@ curl https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 4. Paste this in the `<head>` section:
 
 ```html
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 ```
 
 5. Add slots where you want content:
@@ -178,6 +178,7 @@ curl https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 ### Step 4: Test (1 minute)
 
 Visit your Durable site. You should see:
+
 - Hero section with title, subtitle, and CTA
 - Programs grid with 4 programs
 
@@ -219,12 +220,16 @@ netlify deploy --dir=bridge/public --prod
 if (cfg.testimonials && slot('[data-efh-slot="testimonials"]')) {
   slot('[data-efh-slot="testimonials"]').innerHTML = `
     <div class="testimonials">
-      ${cfg.testimonials.map(t => `
+      ${cfg.testimonials
+        .map(
+          (t) => `
         <blockquote>
           <p>"${t.quote}"</p>
           <cite>— ${t.author}</cite>
         </blockquote>
-      `).join('')}
+      `
+        )
+        .join('')}
     </div>
   `;
 }
@@ -248,11 +253,13 @@ if (cfg.testimonials && slot('[data-efh-slot="testimonials"]')) {
 ### Bridge script not loading
 
 **Check:**
+
 1. Script URL is correct: `https://elevateforhumanityfix2.netlify.app/efh-bridge.js`
 2. Durable allows custom scripts
 3. No CORS errors in browser console
 
 **Fix:**
+
 ```bash
 # Verify deployment
 netlify status
@@ -267,11 +274,13 @@ netlify logs
 ### Content not appearing
 
 **Check:**
+
 1. Slots exist in Durable: `<div data-efh-slot="hero"></div>`
 2. Config JSON is valid
 3. Browser console for errors
 
 **Fix:**
+
 ```bash
 # Validate JSON
 cat bridge/api/efh-config.json | jq .
@@ -285,10 +294,12 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json
 ### CORS errors
 
 **Check:**
+
 1. `ALLOWED_ORIGIN` in `.env`
 2. Netlify headers configuration
 
 **Fix:**
+
 ```toml
 # In netlify.toml
 [[headers]]
@@ -381,7 +392,9 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 ```javascript
 // In workers/autopilot-deploy-worker.ts
 async function checkBridgeHealth() {
-  const response = await fetch('https://elevateforhumanityfix2.netlify.app/efh-bridge.js');
+  const response = await fetch(
+    'https://elevateforhumanityfix2.netlify.app/efh-bridge.js'
+  );
   return response.ok;
 }
 ```
@@ -391,6 +404,7 @@ async function checkBridgeHealth() {
 ## Cost
 
 **Option A:**
+
 - Netlify: Free tier (already using)
 - Cloudflare: Free tier (already using)
 - Durable: Your existing subscription
@@ -403,17 +417,20 @@ async function checkBridgeHealth() {
 ### Best Practices
 
 1. **Validate config JSON**
+
    ```bash
    cat bridge/api/efh-config.json | jq . || echo "Invalid JSON"
    ```
 
 2. **Sanitize HTML**
+
    ```javascript
    // In bridge script
    const sanitize = (str) => str.replace(/[<>]/g, '');
    ```
 
 3. **Use HTTPS only**
+
    ```javascript
    if (location.protocol !== 'https:') {
      console.warn('Bridge requires HTTPS');
@@ -462,21 +479,25 @@ async function checkBridgeHealth() {
 ## Summary
 
 **What you're adding:**
+
 - Bridge script for Durable integration
 - Config-driven content management
 - Zero-maintenance updates
 
 **What stays the same:**
+
 - Existing autopilot system
 - Cloudflare Worker
 - Netlify Functions
 - Supabase database
 
 **Time investment:**
+
 - Setup: 7 minutes
 - Maintenance: 0 minutes
 
 **Result:**
+
 - Update Durable content by editing JSON
 - No Durable edits after initial setup
 - Fully automated
@@ -492,12 +513,12 @@ async function checkBridgeHealth() {
 **Your exact script tag:**
 
 ```html
-<script 
-  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" 
-  data-efh-org="elevate-for-humanity" 
-  data-env="prod" 
-  defer>
-</script>
+<script
+  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+  data-efh-org="elevate-for-humanity"
+  data-env="prod"
+  defer
+></script>
 ```
 
 **Paste this once in Durable, and you're done! 🎉**
