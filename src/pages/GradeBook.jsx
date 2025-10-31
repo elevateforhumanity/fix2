@@ -25,6 +25,12 @@ export default function GradeBook() {
   }, [selectedCourse]);
 
   const fetchCourses = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);
@@ -49,6 +55,12 @@ export default function GradeBook() {
   };
 
   const fetchStudentGrades = async (courseId) => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);
