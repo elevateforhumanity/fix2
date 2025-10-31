@@ -78,3 +78,4 @@ database.json
 .netlify
 netlify/functions/node_modules/
 netlify/functions/package-lock.json
+core.*
