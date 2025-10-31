@@ -24,7 +24,7 @@ export default function NotificationCenter() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -56,7 +56,7 @@ export default function NotificationCenter() {
 
   const markAsRead = async (notificationId) => {
     if (!supabase) return;
-    
+
     try {
       const { error: updateError } = await supabase
         .from('notifications')
@@ -77,7 +77,7 @@ export default function NotificationCenter() {
 
   const markAllAsRead = async () => {
     if (!supabase) return;
-    
+
     try {
       const {
         data: { user },

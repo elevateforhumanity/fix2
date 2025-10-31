@@ -23,7 +23,7 @@ export default function LiveClassSchedule() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);

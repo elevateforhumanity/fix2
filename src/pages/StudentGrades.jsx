@@ -23,7 +23,7 @@ export default function StudentGrades() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);

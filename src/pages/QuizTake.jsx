@@ -28,7 +28,7 @@ export default function QuizTake() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -75,7 +75,7 @@ export default function QuizTake() {
       setError('Database service is not available');
       return;
     }
-    
+
     try {
       setSubmitting(true);
       setError(null);

@@ -24,7 +24,7 @@ export default function QuizResults() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);

@@ -9,12 +9,12 @@ export function ElevateBrain() {
     e.preventDefault();
     try {
       const { supabase } = await import('../supabaseClient');
-      
+
       if (!supabase) {
         alert('Authentication service is not available');
         return;
       }
-      
+
       const {
         data: { user },
       } = await supabase.auth.getUser();

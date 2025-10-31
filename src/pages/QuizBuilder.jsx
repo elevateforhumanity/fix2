@@ -31,7 +31,7 @@ export default function QuizBuilder() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -58,7 +58,7 @@ export default function QuizBuilder() {
       setError('Database service is not available');
       return;
     }
-    
+
     try {
       setSaving(true);
       setError(null);

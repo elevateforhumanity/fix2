@@ -25,7 +25,7 @@ export default function LiveClassRoom() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);

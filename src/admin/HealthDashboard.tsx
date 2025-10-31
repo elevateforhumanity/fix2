@@ -67,7 +67,7 @@ export default function HealthDashboard() {
       setLoading(false);
       return;
     }
-    
+
     const {
       data: { user },
     } = await supabase.auth.getUser();

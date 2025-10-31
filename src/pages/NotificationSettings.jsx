@@ -32,7 +32,7 @@ export default function NotificationSettings() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -78,7 +78,7 @@ export default function NotificationSettings() {
       setError('Database service is not available');
       return;
     }
-    
+
     try {
       setSaving(true);
       setError(null);

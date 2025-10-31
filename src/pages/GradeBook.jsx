@@ -30,7 +30,7 @@ export default function GradeBook() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -60,7 +60,7 @@ export default function GradeBook() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       setError(null);
