@@ -68,10 +68,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ "$CLOUDFLARE_API_TOKEN" = "your-cloudflare-api-token" ] || [ "$CLOUDFLARE_API_TOKEN" = "OKzsSHpywRhxg2wW-wZoMcU5FoQiPXn-lakzATU9" ]; then
-    echo "🤖 Launching Puppeteer to create API token..."
+    echo "🤖 Launching Enhanced Puppeteer to create/update API token..."
     echo ""
     
-    if node scripts/puppeteer-cloudflare-token.js; then
+    if node scripts/puppeteer-update-cloudflare-token.js; then
         echo "✅ API token created successfully"
         # Reload environment
         export $(cat .env | grep -v '^#' | grep -v '^$' | xargs)

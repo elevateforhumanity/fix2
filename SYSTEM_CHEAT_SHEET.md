@@ -149,6 +149,28 @@ gh workflow run durable-bridge-auto-deploy.yml
 gh run list --limit 5
 ```
 
+### 🤖 AI Agent Operations
+
+```bash
+# Trigger AI code review
+gh workflow run ai-agent-autopilot.yml -f agent_task=code_review
+
+# Trigger security scan
+gh workflow run ai-agent-autopilot.yml -f agent_task=security_scan
+
+# Trigger performance audit
+gh workflow run ai-agent-autopilot.yml -f agent_task=performance_audit
+
+# Trigger documentation check
+gh workflow run ai-agent-autopilot.yml -f agent_task=documentation_check
+
+# View AI agent results
+curl https://efh-autopilot-metrics.workers.dev/ai-summary | jq .
+
+# Check recent AI reviews
+gh run list --workflow=ai-agent-autopilot.yml --limit 5
+```
+
 ---
 
 ## 📊 Monitoring & Logs

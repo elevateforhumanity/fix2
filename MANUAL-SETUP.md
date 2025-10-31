@@ -9,7 +9,7 @@ Since the Cloudflare API token needs proper permissions, here's the manual setup
 3. Use **"Edit Cloudflare Workers"** template
 4. Ensure these permissions are selected:
    - **Workers Scripts:Edit**
-   - **Workers KV Storage:Edit** 
+   - **Workers KV Storage:Edit**
    - **Workers Routes:Edit**
    - **Account Settings:Read**
 5. Click **"Continue to summary"**
@@ -30,6 +30,7 @@ CLOUDFLARE_API_TOKEN=your-new-token-here
 ```
 
 This will:
+
 - ✅ Generate AUTOPILOT_TOKEN
 - ✅ Deploy Durable Object worker
 - ✅ Set worker secrets
@@ -108,7 +109,8 @@ curl https://efh-autopilot-metrics.workers.dev/summary | jq
 
 **Error**: "Authentication error [code: 10000]"
 
-**Solution**: 
+**Solution**:
+
 1. Verify token has "Workers Scripts:Edit" permission
 2. Create new token if needed
 3. Update `.env` and run script again
@@ -118,6 +120,7 @@ curl https://efh-autopilot-metrics.workers.dev/summary | jq
 **Error**: Workflow shows "⚠️ Not stored"
 
 **Solution**:
+
 1. Verify secret name is exactly `AUTOPILOT_TOKEN`
 2. Check secret value matches `.env` file
 3. Re-run workflow after fixing
@@ -125,6 +128,7 @@ curl https://efh-autopilot-metrics.workers.dev/summary | jq
 ### Worker Returns 404
 
 **Solution**:
+
 1. Check Cloudflare dashboard for deployed worker
 2. Wait 2-3 minutes for DNS propagation
 3. Verify worker name is `efh-autopilot-metrics`

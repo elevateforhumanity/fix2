@@ -92,6 +92,12 @@ export class AutopilotMetrics {
         case '/alerts':
           return await this.handleAlerts(corsHeaders);
 
+        case '/store-ai-results':
+          return await this.handleStoreAIResults(request, corsHeaders);
+
+        case '/ai-summary':
+          return await this.handleAISummary(corsHeaders);
+
         default:
           return new Response(JSON.stringify({ error: 'Not found' }), {
             status: 404,
@@ -356,6 +362,75 @@ export class AutopilotMetrics {
       mtbf: Math.round(mtbf * 10) / 10,
       mttr: Math.round(mttr * 10) / 10,
     };
+  }
+
+  // Store AI agent results
+  private async handleStoreAIResults(
+    request: Request,
+    corsHeaders: any
+  ): Promise<Response> {
+    if (request.method !== 'POST') {
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const aiResults = await request.json();
+
+    // Store AI results separately
+    const aiResultsKey = `ai-results-${Date.now()}`;
+    await this.state.storage.put(aiResultsKey, aiResults);
+
+    // Keep track of AI result keys
+    const aiKeys =
+      (await this.state.storage.get<string[]>('ai-result-keys')) || [];
+    aiKeys.push(aiResultsKey);
+
+    // Keep only last 100 AI results
+    if (aiKeys.length > 100) {
+      const oldKey = aiKeys.shift();
+      if (oldKey) {
+        await this.state.storage.delete(oldKey);
+      }
+    }
+
+    await this.state.storage.put('ai-result-keys', aiKeys);
+
+    return new Response(
+      JSON.stringify({
+        ok: true,
+        stored: true,
+        key: aiResultsKey,
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
+    );
+  }
+
+  // Get AI results summary
+  private async handleAISummary(corsHeaders: any): Promise<Response> {
+    const aiKeys =
+      (await this.state.storage.get<string[]>('ai-result-keys')) || [];
+
+    const recentResults = [];
+    for (const key of aiKeys.slice(-10)) {
+      const result = await this.state.storage.get(key);
+      if (result) {
+        recentResults.push(result);
+      }
+    }
+
+    return new Response(
+      JSON.stringify({
+        totalResults: aiKeys.length,
+        recentResults: recentResults.reverse(),
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
+    );
   }
 
   // Alarm handler for scheduled tasks
