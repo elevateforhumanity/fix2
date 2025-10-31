@@ -28,7 +28,7 @@ jobs:
   inline-health-check:
     runs-on: ubuntu-latest
     name: Inline System Health Check
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -129,11 +129,11 @@ jobs:
         run: |
           echo "🔍 Checking environment variables..."
           MISSING_VARS=()
-          
+
           # Check critical env vars
           [ -z "$VITE_SUPABASE_URL" ] && MISSING_VARS+=("VITE_SUPABASE_URL")
           [ -z "$VITE_SUPABASE_ANON_KEY" ] && MISSING_VARS+=("VITE_SUPABASE_ANON_KEY")
-          
+
           if [ ${#MISSING_VARS[@]} -eq 0 ]; then
             echo "status=passed" >> $GITHUB_OUTPUT
             echo "✅ All required environment variables present"
@@ -151,13 +151,13 @@ jobs:
         run: |
           echo "🔍 Checking critical files..."
           MISSING_FILES=()
-          
+
           # Check critical files exist
           [ ! -f "bridge/public/efh-bridge.js" ] && MISSING_FILES+=("bridge/public/efh-bridge.js")
           [ ! -f "bridge/api/efh-config.json" ] && MISSING_FILES+=("bridge/api/efh-config.json")
           [ ! -f "package.json" ] && MISSING_FILES+=("package.json")
           [ ! -f "vite.config.js" ] && MISSING_FILES+=("vite.config.js")
-          
+
           if [ ${#MISSING_FILES[@]} -eq 0 ]; then
             echo "status=passed" >> $GITHUB_OUTPUT
             echo "✅ All critical files present"
@@ -172,16 +172,16 @@ jobs:
         run: |
           echo "🔍 Validating JSON files..."
           INVALID_JSON=()
-          
+
           # Check JSON files
           if ! jq empty bridge/api/efh-config.json 2>/dev/null; then
             INVALID_JSON+=("bridge/api/efh-config.json")
           fi
-          
+
           if ! jq empty package.json 2>/dev/null; then
             INVALID_JSON+=("package.json")
           fi
-          
+
           if [ ${#INVALID_JSON[@]} -eq 0 ]; then
             echo "status=passed" >> $GITHUB_OUTPUT
             echo "✅ All JSON files valid"
@@ -204,10 +204,10 @@ jobs:
             "${{ steps.file_check.outputs.status }}"
             "${{ steps.json_check.outputs.status }}"
           )
-          
+
           PASSED=0
           FAILED=0
-          
+
           for status in "${CHECKS[@]}"; do
             if [ "$status" = "passed" ]; then
               PASSED=$((PASSED + 1))
@@ -215,15 +215,15 @@ jobs:
               FAILED=$((FAILED + 1))
             fi
           done
-          
+
           TOTAL=${#CHECKS[@]}
           SUCCESS_RATE=$(echo "scale=1; $PASSED * 100 / $TOTAL" | bc)
-          
+
           echo "passed=$PASSED" >> $GITHUB_OUTPUT
           echo "failed=$FAILED" >> $GITHUB_OUTPUT
           echo "total=$TOTAL" >> $GITHUB_OUTPUT
           echo "success_rate=$SUCCESS_RATE" >> $GITHUB_OUTPUT
-          
+
           if [ $FAILED -eq 0 ]; then
             echo "status=healthy" >> $GITHUB_OUTPUT
           elif [ $FAILED -le 2 ]; then
@@ -232,6 +232,58 @@ jobs:
             echo "status=critical" >> $GITHUB_OUTPUT
           fi
 
+      - name: Send results to Durable Object
+        id: send_to_durable
+        run: |
+          echo "📤 Sending check results to Durable Object..."
+          
+          # Prepare JSON payload
+          cat > check-result.json <<EOF
+          {
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "runId": "${{ github.run_id }}",
+            "branch": "${{ github.ref_name }}",
+            "commit": "${{ github.sha }}",
+            "checks": {
+              "typecheck": "${{ steps.typecheck.outputs.status }}",
+              "eslint": "${{ steps.eslint.outputs.status }}",
+              "build": "${{ steps.build.outputs.status }}",
+              "durableHealth": "${{ steps.durable_health.outputs.status }}",
+              "durableTests": "${{ steps.durable_tests.outputs.status }}",
+              "envCheck": "${{ steps.env_check.outputs.status }}",
+              "fileCheck": "${{ steps.file_check.outputs.status }}",
+              "jsonCheck": "${{ steps.json_check.outputs.status }}"
+            },
+            "overall": {
+              "status": "${{ steps.overall.outputs.status }}",
+              "passed": ${{ steps.overall.outputs.passed }},
+              "failed": ${{ steps.overall.outputs.failed }},
+              "total": ${{ steps.overall.outputs.total }},
+              "successRate": ${{ steps.overall.outputs.success_rate }}
+            },
+            "autoFixAttempted": ${{ steps.overall.outputs.status == 'degraded' || steps.overall.outputs.status == 'critical' }},
+            "alertSent": ${{ steps.overall.outputs.status == 'critical' }},
+            "issueCreated": ${{ steps.overall.outputs.status == 'critical' }}
+          }
+          EOF
+          
+          # Send to Durable Object
+          if [ -n "${{ secrets.AUTOPILOT_TOKEN }}" ]; then
+            RESPONSE=$(curl -s -X POST \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer ${{ secrets.AUTOPILOT_TOKEN }}" \
+              -d @check-result.json \
+              https://efh-autopilot-metrics.workers.dev/store)
+            
+            echo "Response: $RESPONSE"
+            echo "✅ Results sent to Durable Object"
+            echo "durable_stored=true" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️ AUTOPILOT_TOKEN not configured, skipping Durable Object storage"
+            echo "durable_stored=false" >> $GITHUB_OUTPUT
+          fi
+        continue-on-error: true
+
       - name: Create inline check summary
         run: |
           echo "## 🏥 Advanced Autopilot - Inline Health Check" >> $GITHUB_STEP_SUMMARY
@@ -239,8 +291,9 @@ jobs:
           echo "**Overall Status:** ${{ steps.overall.outputs.status }}" >> $GITHUB_STEP_SUMMARY
           echo "**Success Rate:** ${{ steps.overall.outputs.success_rate }}%" >> $GITHUB_STEP_SUMMARY
           echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "**Durable Storage:** ${{ steps.send_to_durable.outputs.durable_stored == 'true' && '✅ Stored' || '⚠️ Not stored' }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           echo "### 📊 Check Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
@@ -254,7 +307,7 @@ jobs:
           echo "| File Integrity | ${{ steps.file_check.outputs.status == 'passed' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| JSON Validation | ${{ steps.json_check.outputs.status == 'passed' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           echo "### 📈 Statistics" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Passed:** ${{ steps.overall.outputs.passed }}/${{ steps.overall.outputs.total }}" >> $GITHUB_STEP_SUMMARY
@@ -280,27 +333,27 @@ jobs:
         if: steps.overall.outputs.status == 'degraded' || steps.overall.outputs.status == 'critical'
         run: |
           echo "🔧 Attempting auto-fix..."
-          
+
           # Fix TypeScript issues
           if [ "${{ steps.typecheck.outputs.status }}" = "failed" ]; then
             echo "Attempting TypeScript auto-fix..."
             # TypeScript issues usually need manual fix
             echo "⚠️ TypeScript issues require manual review"
           fi
-          
+
           # Fix ESLint issues
           if [ "${{ steps.eslint.outputs.status }}" = "failed" ]; then
             echo "Attempting ESLint auto-fix..."
             pnpm lint --fix || true
           fi
-          
+
           # Fix Durable bridge
           if [ "${{ steps.durable_health.outputs.status }}" = "failed" ]; then
             echo "Attempting Durable bridge fix..."
             chmod +x scripts/deploy-durable-bridge.sh
             ./scripts/deploy-durable-bridge.sh || true
           fi
-          
+
           echo "✅ Auto-fix attempts complete"
 
       - name: Send Zapier alert if critical
@@ -367,7 +420,7 @@ jobs:
               *This issue was automatically created by the Advanced Autopilot Inline Check.*`,
               labels: ['autopilot', 'critical', 'inline-check', 'auto-created']
             });
-            
+
             console.log('Created issue:', issue.data.number);
 
       - name: Fail workflow if critical

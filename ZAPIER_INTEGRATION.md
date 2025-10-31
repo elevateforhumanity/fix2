@@ -7,12 +7,14 @@
 ## 🔔 Overview
 
 The Durable Bridge Autopilot can send alerts to Zapier when:
+
 - Health checks fail
 - Tests fail
 - Auto-heal is unsuccessful
 - Manual intervention is needed
 
 Zapier can then:
+
 - Send emails
 - Post to Slack/Discord/Teams
 - Create tickets in Jira/Asana
@@ -34,16 +36,19 @@ Zapier can then:
 ### Step 2: Configure Environment Variable
 
 **Option A: Local (.env file)**
+
 ```bash
 echo "ZAPIER_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/xxxxx/xxxxx/" >> .env
 ```
 
 **Option B: GitHub Secrets**
+
 ```bash
 gh secret set ZAPIER_WEBHOOK_URL --body "https://hooks.zapier.com/hooks/catch/xxxxx/xxxxx/"
 ```
 
 **Option C: Netlify Environment**
+
 ```bash
 netlify env:set ZAPIER_WEBHOOK_URL "https://hooks.zapier.com/hooks/catch/xxxxx/xxxxx/"
 ```
@@ -105,21 +110,25 @@ When an alert is sent, Zapier receives this JSON payload:
 ## 🎯 Alert Types
 
 ### test_failure
+
 **When:** Automated tests fail  
 **Severity:** High  
 **Triggered by:** `scripts/test-durable-bridge.sh`
 
 ### health_check_failed
+
 **When:** Health check finds issues that can't be auto-healed  
 **Severity:** High  
 **Triggered by:** `scripts/durable-bridge-health-check.sh`
 
 ### auto_heal_failed
+
 **When:** Auto-heal attempts fail  
 **Severity:** Critical  
 **Triggered by:** GitHub Actions workflow
 
 ### deployment_failed
+
 **When:** Deployment to Netlify fails  
 **Severity:** High  
 **Triggered by:** GitHub Actions workflow
@@ -134,6 +143,7 @@ When an alert is sent, Zapier receives this JSON payload:
 **Action:** Gmail (Send Email)
 
 **Email Template:**
+
 ```
 Subject: 🚨 Durable Bridge Alert: {{alert_type}}
 
@@ -167,6 +177,7 @@ Action Required: Please investigate and resolve the issues.
 **Action:** Slack (Send Channel Message)
 
 **Message Template:**
+
 ```
 :rotating_light: *Durable Bridge Alert*
 
@@ -199,6 +210,7 @@ Action Required: Please investigate and resolve the issues.
 **Action:** Twilio (Send SMS)
 
 **SMS Template:**
+
 ```
 🚨 CRITICAL: Durable Bridge {{alert_type}}
 {{message}}
@@ -213,6 +225,7 @@ Check: {{urls__github_actions}}
 **Action:** Jira (Create Issue)
 
 **Issue Template:**
+
 ```
 Summary: Durable Bridge Alert: {{alert_type}}
 
@@ -258,6 +271,7 @@ You can manually send alerts for testing or custom scenarios:
 ```
 
 **Parameters:**
+
 1. Alert type (string)
 2. Message (string)
 3. Severity (low/medium/high/critical)
@@ -269,11 +283,13 @@ You can manually send alerts for testing or custom scenarios:
 ### Alert Not Received
 
 **Check webhook URL:**
+
 ```bash
 echo $ZAPIER_WEBHOOK_URL
 ```
 
 **Test manually:**
+
 ```bash
 curl -X POST "$ZAPIER_WEBHOOK_URL" \
   -H "Content-Type: application/json" \
@@ -281,6 +297,7 @@ curl -X POST "$ZAPIER_WEBHOOK_URL" \
 ```
 
 **Check Zapier dashboard:**
+
 - Go to Zap history
 - Look for recent webhook catches
 - Check for errors
@@ -288,16 +305,19 @@ curl -X POST "$ZAPIER_WEBHOOK_URL" \
 ### Webhook URL Not Set
 
 If you see:
+
 ```
 ⚠️  ZAPIER_WEBHOOK_URL not configured
 ```
 
 Set it in `.env`:
+
 ```bash
 echo "ZAPIER_WEBHOOK_URL=your-webhook-url" >> .env
 ```
 
 Or as environment variable:
+
 ```bash
 export ZAPIER_WEBHOOK_URL="your-webhook-url"
 ```
@@ -316,6 +336,7 @@ export ZAPIER_WEBHOOK_URL="your-webhook-url"
 ### Rate Limiting
 
 To avoid alert spam, the system:
+
 - Only sends alerts when issues can't be auto-fixed
 - Logs all alerts to `logs/zapier-alerts.log`
 - Includes full context to reduce follow-up alerts
@@ -327,6 +348,7 @@ To avoid alert spam, the system:
 ### 1. Use Filters in Zapier
 
 Only alert on critical issues:
+
 ```
 Filter: severity equals "critical" OR severity equals "high"
 ```
@@ -334,16 +356,19 @@ Filter: severity equals "critical" OR severity equals "high"
 ### 2. Set Up Multiple Actions
 
 **For High Severity:**
+
 - Send email
 - Post to Slack
 - Create ticket
 
 **For Low Severity:**
+
 - Just log to spreadsheet
 
 ### 3. Include Context
 
 Always include:
+
 - Links to GitHub Actions
 - Links to logs
 - System information
@@ -370,6 +395,7 @@ Always include:
 ### Data Privacy
 
 The alert payload includes:
+
 - ✅ System information (safe)
 - ✅ Public URLs (safe)
 - ✅ Test results (safe)
@@ -439,15 +465,18 @@ grep "test_failure\|health_check_failed" logs/zapier-alerts.log | tail -10
 ## 📞 Support
 
 ### Documentation
+
 - This guide: `ZAPIER_INTEGRATION.md`
 - Autopilot guide: `DURABLE_BRIDGE_AUTOPILOT.md`
 - System cheat sheet: `SYSTEM_CHEAT_SHEET.md`
 
 ### Zapier Resources
+
 - Zapier Help: https://help.zapier.com
 - Webhook Documentation: https://zapier.com/apps/webhook/help
 
 ### Testing
+
 ```bash
 # Test alert script
 ./scripts/zapier-alert.sh "test" "Testing" "low"
@@ -470,7 +499,7 @@ grep "test_failure\|health_check_failed" logs/zapier-alerts.log | tail -10
 ✅ **Flexible Actions** - Email, Slack, SMS, tickets, etc.  
 ✅ **Smart Filtering** - Only alert on real issues  
 ✅ **Complete Audit** - All alerts logged  
-✅ **Easy Setup** - Just add webhook URL  
+✅ **Easy Setup** - Just add webhook URL
 
 **Result:** Never miss a critical issue, stay informed without alert fatigue!
 
