@@ -96,7 +96,7 @@ export default function EmailEventsPanel() {
 
   const loadData = async () => {
     if (!supabase) return;
-    
+
     setLoading(true);
 
     // Load recent events
@@ -123,7 +123,7 @@ export default function EmailEventsPanel() {
 
   const handleResend = async (eventId: string) => {
     if (!supabase) return;
-    
+
     setResendingIds((prev) => new Set(prev).add(eventId));
     setAlertMessage(null);
 

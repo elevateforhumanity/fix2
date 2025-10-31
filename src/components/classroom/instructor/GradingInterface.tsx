@@ -62,7 +62,7 @@ export default function GradingInterface() {
 
   const loadCourses = async () => {
     if (!supabase) return;
-    
+
     const { data, error } = await supabase
       .from('classroom_courses')
       .select('id, name')
@@ -79,7 +79,7 @@ export default function GradingInterface() {
 
   const loadCourseworks = async (courseId: string) => {
     if (!supabase) return;
-    
+
     const { data, error } = await supabase
       .from('classroom_coursework')
       .select('id, title, max_points')
@@ -97,7 +97,7 @@ export default function GradingInterface() {
 
   const loadSubmissions = async (courseworkId: string) => {
     if (!supabase) return;
-    
+
     setLoading(true);
 
     const { data, error } = await supabase
@@ -152,7 +152,7 @@ export default function GradingInterface() {
 
   const handleGradeSubmit = async (submission: Submission) => {
     if (!supabase) return;
-    
+
     const grade = grading[submission.id];
 
     if (grade < 0 || grade > submission.max_points) {
@@ -201,7 +201,7 @@ export default function GradingInterface() {
 
   const handleBulkGrade = async () => {
     if (!supabase) return;
-    
+
     const ungradedSubmissions = submissions.filter(
       (sub) => !sub.assigned_grade && grading[sub.id] !== undefined
     );

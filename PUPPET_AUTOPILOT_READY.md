@@ -26,6 +26,7 @@ bash scripts/puppet-deploy-now.sh
 ## 🎯 What You'll Get
 
 After running the script:
+
 - ✅ Your React app live at https://elevateforhumanity.org
 - ✅ Home.jsx as the homepage (NO MORE Durable)
 - ✅ All your pages working
@@ -36,16 +37,19 @@ After running the script:
 After this first deployment, you can use:
 
 **Option 1: GitHub Actions (Automatic)**
+
 - Every push to main = automatic deployment
 - Setup instructions in: `AUTOPILOT_DEPLOY_SETUP.md`
 
 **Option 2: Command Line**
+
 ```bash
 pnpm run build
 netlify deploy --prod --dir=dist
 ```
 
 **Option 3: Drag & Drop**
+
 - Go to Netlify dashboard
 - Drag `dist/` folder to deploy
 
@@ -54,6 +58,7 @@ netlify deploy --prod --dir=dist
 ## 🎬 START NOW
 
 Run this command:
+
 ```bash
 bash scripts/puppet-deploy-now.sh
 ```

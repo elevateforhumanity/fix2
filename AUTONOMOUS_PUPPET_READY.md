@@ -23,6 +23,7 @@ The puppet autopilot just needs ONE thing from you: a Netlify token.
 ```
 
 **That's it!** The script will:
+
 - ✅ Ask for your token (paste it once)
 - ✅ Save it to .env for future use
 - ✅ Automatically find your Netlify site
@@ -35,6 +36,7 @@ The puppet autopilot just needs ONE thing from you: a Netlify token.
 ## 🎯 What Makes It Autonomous
 
 The puppet autopilot:
+
 1. **Loads API keys** from .env automatically
 2. **Finds your Netlify site** by name
 3. **Adds all secrets** via Netlify API
@@ -114,6 +116,7 @@ export NETLIFY_AUTH_TOKEN='your-token-here'
 **Answer:** It CAN! The only thing it needs is authentication (the Netlify token).
 
 Once you provide that ONE token, the puppet:
+
 - ✅ Does everything else automatically
 - ✅ No more manual steps
 - ✅ No clicking through dashboards

@@ -19,6 +19,12 @@ export default function QuizResults() {
   }, [quizId]);
 
   const fetchQuizResults = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);

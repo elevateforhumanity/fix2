@@ -76,7 +76,8 @@ export default function Partners() {
       description:
         'Recognized IRS Financial Education and Asset Building Partner providing free tax preparation services and financial literacy programs.',
       logo: '💰',
-      website: 'https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers',
+      website:
+        'https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers',
       since: '2024',
     },
   ];

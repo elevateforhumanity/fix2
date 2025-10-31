@@ -11,7 +11,7 @@ export async function safeFetch<T = any>(
     const response = await fetch(url, {
       ...options,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         ...options?.headers,
       },
     });
@@ -24,7 +24,10 @@ export async function safeFetch<T = any>(
     const data = await response.json();
     return data as T;
   } catch (error) {
-    console.warn(`Fetch error: ${url}`, error instanceof Error ? error.message : error);
+    console.warn(
+      `Fetch error: ${url}`,
+      error instanceof Error ? error.message : error
+    );
     return null;
   }
 }
@@ -38,15 +41,18 @@ export async function safeSupabaseQuery<T = any>(
 ): Promise<T[]> {
   try {
     const { data, error } = await queryFn();
-    
+
     if (error) {
       console.warn('Supabase query error:', error.message);
       return [];
     }
-    
+
     return data ?? [];
   } catch (error) {
-    console.warn('Supabase query failed:', error instanceof Error ? error.message : error);
+    console.warn(
+      'Supabase query failed:',
+      error instanceof Error ? error.message : error
+    );
     return [];
   }
 }

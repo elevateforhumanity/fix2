@@ -53,12 +53,14 @@ Value: pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10
 Once secrets are added, the autopilot will deploy automatically when you:
 
 **Option A: Push to main branch**
+
 ```bash
 git commit --allow-empty -m "Trigger autopilot deployment"
 git push origin main
 ```
 
 **Option B: Manual trigger**
+
 1. Go to: [https://github.com/elevateforhumanity/fix2/actions](https://github.com/elevateforhumanity/fix2/actions)
 2. Click **"Deploy to Netlify"** workflow
 3. Click **"Run workflow"** → **"Run workflow"**
@@ -73,6 +75,7 @@ git push origin main
 ## 🔄 Future Deployments
 
 Every time you push to main branch, the autopilot will:
+
 - ✅ Build your app
 - ✅ Run tests
 - ✅ Deploy to Netlify

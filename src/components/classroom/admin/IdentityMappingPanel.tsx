@@ -40,7 +40,7 @@ export default function IdentityMappingPanel() {
 
   const loadBatches = async () => {
     if (!supabase) return;
-    
+
     const { data, error } = await supabase
       .from('lms_identity_import')
       .select('import_batch_id, lms_source, imported_at, applied')
@@ -70,7 +70,7 @@ export default function IdentityMappingPanel() {
 
   const loadSummary = async () => {
     if (!supabase) return;
-    
+
     const { data, error } = await supabase
       .from('v_lms_identity_summary')
       .select('*');
@@ -84,7 +84,7 @@ export default function IdentityMappingPanel() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (!supabase) return;
-    
+
     const file = event.target.files?.[0];
     if (!file) return;
 
@@ -161,7 +161,7 @@ export default function IdentityMappingPanel() {
 
   const handleApplyBatch = async (batchId: string) => {
     if (!supabase) return;
-    
+
     setApplying(true);
     setMessage(null);
 

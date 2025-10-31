@@ -48,7 +48,7 @@ export default function UnenrollPolicyPanel() {
 
   const loadPolicy = async () => {
     if (!supabase) return;
-    
+
     setLoading(true);
     try {
       const { data, error } = await supabase
@@ -80,7 +80,7 @@ export default function UnenrollPolicyPanel() {
 
   const loadCandidates = async () => {
     if (!supabase) return;
-    
+
     try {
       const { data, error } = await supabase
         .from('v_unenroll_candidates')

@@ -19,6 +19,12 @@ export default function NotificationCenter() {
   }, []);
 
   const fetchNotifications = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);
@@ -49,6 +55,8 @@ export default function NotificationCenter() {
   };
 
   const markAsRead = async (notificationId) => {
+    if (!supabase) return;
+    
     try {
       const { error: updateError } = await supabase
         .from('notifications')
@@ -68,6 +76,8 @@ export default function NotificationCenter() {
   };
 
   const markAllAsRead = async () => {
+    if (!supabase) return;
+    
     try {
       const {
         data: { user },

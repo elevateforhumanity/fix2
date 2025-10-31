@@ -27,6 +27,12 @@ export default function NotificationSettings() {
   }, []);
 
   const fetchPreferences = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);
@@ -68,6 +74,11 @@ export default function NotificationSettings() {
   };
 
   const handleSave = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      return;
+    }
+    
     try {
       setSaving(true);
       setError(null);

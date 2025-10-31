@@ -18,6 +18,12 @@ export default function StudentGrades() {
   }, []);
 
   const fetchStudentGrades = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);

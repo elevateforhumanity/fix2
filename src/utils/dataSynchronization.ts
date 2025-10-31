@@ -35,7 +35,7 @@ class DataSynchronizationManager {
    */
   subscribe(config: SyncConfig): () => void {
     if (!supabase) return () => {};
-    
+
     const { table, onUpdate, onInsert, onDelete, filter } = config;
     const channelName = `sync_${table}_${Date.now()}`;
 
@@ -249,7 +249,7 @@ class DataSynchronizationManager {
    */
   async syncTable(table: string, localData: any[]): Promise<any[]> {
     if (!supabase) return [];
-    
+
     const state = this.syncState.get(table);
     if (!state) {
       console.error(`[DataSync] No sync state for ${table}`);

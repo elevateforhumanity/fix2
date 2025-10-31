@@ -119,7 +119,6 @@ export default function VITAProgram() {
             </div>
           </div>
         </section>
-
         {/* Recognition Section */}
         <section className="py-16 px-4 bg-green-50">
           <div className="max-w-6xl mx-auto text-center">
@@ -136,7 +135,6 @@ export default function VITAProgram() {
             </div>
           </div>
         </section>
-
         {/* Services Section */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -169,7 +167,6 @@ export default function VITAProgram() {
             </div>
           </div>
         </section>
-
         {/* Benefits & Eligibility Section */}
         <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-7xl mx-auto">
@@ -196,7 +193,6 @@ export default function VITAProgram() {
                   </ul>
                 </CardContent>
               </Card>
-
               {/* Eligibility */}
               <Card className="border-2 shadow-xl">
                 <CardHeader>
@@ -222,7 +218,6 @@ export default function VITAProgram() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-green-700 to-emerald-600 text-white">
           <div className="max-w-4xl mx-auto text-center">

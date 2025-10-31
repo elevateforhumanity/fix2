@@ -30,7 +30,7 @@ export default function TimelineView({
 
   const loadTimeline = async () => {
     if (!supabase) return;
-    
+
     setLoading(true);
     const allEvents: TimelineEvent[] = [];
 

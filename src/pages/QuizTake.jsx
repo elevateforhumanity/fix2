@@ -23,6 +23,12 @@ export default function QuizTake() {
   }, [lessonId]);
 
   const fetchQuizQuestions = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       setError(null);
@@ -65,6 +71,11 @@ export default function QuizTake() {
   };
 
   const handleSubmitQuiz = async () => {
+    if (!supabase) {
+      setError('Database service is not available');
+      return;
+    }
+    
     try {
       setSubmitting(true);
       setError(null);

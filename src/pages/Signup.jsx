@@ -12,12 +12,12 @@ export default function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    
+
     if (!supabase) {
       setError('Authentication service is not available');
       return;
     }
-    
+
     setLoading(true);
     setError('');
 
