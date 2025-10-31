@@ -205,4 +205,15 @@ EOF
 echo "📝 Test report: logs/durable-bridge-test-report.json"
 echo ""
 
+# Send Zapier alert if tests failed
+if [ $TESTS_FAILED -gt 0 ]; then
+  if [ -x "scripts/zapier-alert.sh" ]; then
+    echo -e "${YELLOW}📤 Sending alert to Zapier...${NC}"
+    ./scripts/zapier-alert.sh "test_failure" \
+      "Durable Bridge tests failed: $TESTS_FAILED/$TOTAL_TESTS tests failed" \
+      "high"
+    echo ""
+  fi
+fi
+
 exit $EXIT_CODE

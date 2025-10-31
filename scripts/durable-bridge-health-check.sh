@@ -279,4 +279,15 @@ EOF
 
 log "INFO: Status file created at logs/durable-bridge-status.json"
 
+# Send Zapier alert if issues found and not all fixed
+if [ $ISSUES_FOUND -gt 0 ] && [ $FIXES_APPLIED -lt $ISSUES_FOUND ]; then
+  if [ -x "scripts/zapier-alert.sh" ]; then
+    echo ""
+    echo -e "${YELLOW}📤 Sending alert to Zapier...${NC}"
+    ./scripts/zapier-alert.sh "health_check_failed" \
+      "Durable Bridge health check found $ISSUES_FOUND issue(s), only $FIXES_APPLIED fixed" \
+      "high"
+  fi
+fi
+
 exit $EXIT_CODE
