@@ -79,3 +79,15 @@ database.json
 netlify/functions/node_modules/
 netlify/functions/package-lock.json
 core.*
+# Temporary logs and outputs (cleanup)
+*.log
+*-summary.txt
+check-result.json
+autopilot-config-summary.txt
+cloudflare-token.txt
+
+# Keep important logs in logs/ directory
+!logs/**/*.log
+
+# Keep build artifacts that are needed
+!dist/**
