@@ -236,7 +236,7 @@ jobs:
         id: send_to_durable
         run: |
           echo "📤 Sending check results to Durable Object..."
-          
+
           # Prepare JSON payload
           cat > check-result.json <<EOF
           {
@@ -266,7 +266,7 @@ jobs:
             "issueCreated": ${{ steps.overall.outputs.status == 'critical' }}
           }
           EOF
-          
+
           # Send to Durable Object
           if [ -n "${{ secrets.AUTOPILOT_TOKEN }}" ]; then
             RESPONSE=$(curl -s -X POST \

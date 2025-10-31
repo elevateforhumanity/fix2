@@ -11,6 +11,7 @@ Run this single command to configure everything automatically:
 ```
 
 This script will:
+
 1. ✅ Install Puppeteer (if needed)
 2. ✅ Prompt for Cloudflare credentials
 3. ✅ Automatically create Cloudflare API token with correct permissions
@@ -29,7 +30,9 @@ This script will:
 ## 🎯 What Gets Configured
 
 ### 1. Cloudflare API Token
+
 The Puppeteer script automatically:
+
 - Logs into your Cloudflare account
 - Creates a new API token named "EFH Autopilot Durable Objects"
 - Configures these permissions:
@@ -41,18 +44,22 @@ The Puppeteer script automatically:
 - Saves the token to `.env`
 
 ### 2. Durable Object Worker
+
 Deploys `efh-autopilot-metrics` worker with:
+
 - Persistent storage for check results
 - Historical data tracking (30 days)
 - Metrics calculation (MTBF, MTTR, uptime)
 - API endpoints for querying data
 
 ### 3. GitHub Integration
+
 - Sets `AUTOPILOT_TOKEN` secret
 - Enables automatic data flow from workflows
 - Configures inline check reporting
 
 ### 4. Automatic Data Flow
+
 ```
 GitHub Actions → Inline Checks → Durable Object → Historical Storage → Metrics API
 ```
@@ -111,6 +118,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 📈 Metrics Explained
 
 ### Summary Metrics
+
 - **Total Checks**: Number of checks stored
 - **Healthy/Degraded/Critical**: Status distribution
 - **Average Success Rate**: Overall system health percentage
@@ -119,6 +127,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 - **MTTR**: Mean Time To Recovery (hours)
 
 ### Check Result Structure
+
 ```json
 {
   "timestamp": "2025-10-31T13:00:00Z",
@@ -151,6 +160,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 🔄 How It Works
 
 ### Automatic Workflow
+
 1. **Trigger**: Push to main/develop, PR, or hourly schedule
 2. **Checks Run**: 8 comprehensive checks execute
 3. **Results Collected**: Success/failure status gathered
@@ -160,6 +170,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 7. **Alerts**: Sent if status is critical
 
 ### Data Retention
+
 - **Recent Checks**: Last 1000 checks in memory
 - **Historical Data**: 30 days in Durable Object storage
 - **Automatic Cleanup**: Runs daily via alarm
@@ -167,18 +178,22 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 🛠️ Troubleshooting
 
 ### Puppeteer Fails to Create Token
+
 - **Issue**: 2FA enabled on Cloudflare account
 - **Solution**: Script waits 60 seconds for manual 2FA completion
 
 ### Worker Deployment Fails
+
 - **Issue**: API token lacks permissions
 - **Solution**: Manually add "Workers Scripts:Edit" permission
 
 ### GitHub Secret Not Set
+
 - **Issue**: GitHub CLI not authenticated
 - **Solution**: Run `gh auth login` or set manually
 
 ### Worker Not Responding
+
 - **Issue**: Deployment propagation delay
 - **Solution**: Wait 2-3 minutes and try again
 
@@ -194,6 +209,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 🎉 Success Indicators
 
 When fully configured, you'll see:
+
 - ✅ Worker deployed at `https://efh-autopilot-metrics.workers.dev`
 - ✅ GitHub workflow runs show "Durable Storage: ✅ Stored"
 - ✅ API endpoints return data
@@ -210,6 +226,7 @@ When fully configured, you'll see:
 ## 📞 Support
 
 If you encounter issues:
+
 1. Check `autopilot-config-summary.txt` for status
 2. Review GitHub Actions logs
 3. Test worker endpoint manually
@@ -218,6 +235,7 @@ If you encounter issues:
 ## 🚀 Next Steps
 
 After setup:
+
 1. Monitor first few workflow runs
 2. Check metrics API for data
 3. Customize alert thresholds if needed

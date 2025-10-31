@@ -5,18 +5,21 @@
 Your autopilot system is now **fully configured** with automatic Durable Objects integration!
 
 ### 🤖 Puppeteer Automation
+
 - **Automatic Cloudflare login**
 - **API token creation** with correct permissions
 - **2FA handling** (waits for manual completion)
 - **Automatic .env updates**
 
 ### ☁️ Durable Objects Integration
+
 - **Persistent metrics storage** (30 days retention)
 - **Historical data tracking** (last 1000 checks)
 - **Real-time metrics calculation**
 - **Automatic cleanup** (daily via alarms)
 
 ### 📊 Metrics Tracked
+
 - Total checks run
 - Healthy/Degraded/Critical counts
 - Average success rate
@@ -66,6 +69,7 @@ Your autopilot system is now **fully configured** with automatic Durable Objects
 ```
 
 This single command:
+
 1. ✅ Installs Puppeteer
 2. ✅ Prompts for Cloudflare credentials
 3. ✅ Creates API token automatically
@@ -88,11 +92,13 @@ That's it! Everything else is automatic.
 Once deployed, access your metrics at:
 
 ### Summary
+
 ```bash
 curl https://efh-autopilot-metrics.workers.dev/summary
 ```
 
 Returns:
+
 ```json
 {
   "totalChecks": 42,
@@ -109,21 +115,25 @@ Returns:
 ```
 
 ### Recent Checks
+
 ```bash
 curl https://efh-autopilot-metrics.workers.dev/recent?limit=10
 ```
 
 ### Historical Data
+
 ```bash
 curl https://efh-autopilot-metrics.workers.dev/history?hours=24
 ```
 
 ### Trend Analysis
+
 ```bash
 curl https://efh-autopilot-metrics.workers.dev/trends?hours=24
 ```
 
 ### Alert History
+
 ```bash
 curl https://efh-autopilot-metrics.workers.dev/alerts
 ```
@@ -131,6 +141,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 🎯 What Happens Automatically
 
 ### Every Push to Main/Develop
+
 1. GitHub Actions triggers
 2. 8 inline checks run:
    - TypeScript validation
@@ -147,11 +158,13 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 6. Available via API instantly
 
 ### Hourly Schedule
+
 - Same checks run automatically
 - Continuous monitoring
 - No manual intervention needed
 
 ### On Critical Issues
+
 - Auto-fix attempted
 - Zapier alert sent
 - GitHub issue created
@@ -160,6 +173,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 ## 📈 Metrics Dashboard (Coming Soon)
 
 The data is ready for visualization:
+
 - Real-time status
 - Historical trends
 - Success rate graphs
@@ -177,21 +191,25 @@ The data is ready for visualization:
 ## 📝 Files Created
 
 ### Scripts
+
 - `scripts/full-autopilot-setup.sh` - Complete automation
 - `scripts/auto-configure-autopilot.sh` - Configuration
 - `scripts/puppeteer-cloudflare-token.js` - Token creation
 - `scripts/deploy-durable-metrics.sh` - Worker deployment
 
 ### Workers
+
 - `workers/autopilot-metrics-durable.ts` - Durable Object
 - `workers/wrangler-metrics.toml` - Configuration
 
 ### Documentation
+
 - `AUTOPILOT-SETUP.md` - Setup guide
 - `TEST-AUTOPILOT.md` - Testing guide
 - `AUTOPILOT-COMPLETE.md` - This file
 
 ### Workflows
+
 - `.github/workflows/advanced-autopilot-inline-check.yml` - Updated with Durable integration
 
 ## ✅ Verification Checklist
@@ -217,16 +235,19 @@ You'll know it's working when:
 ## 🚨 If Something Goes Wrong
 
 ### Puppeteer Fails
+
 - Check Cloudflare credentials
 - Handle 2FA manually (script waits 60s)
 - Create token manually if needed
 
 ### Worker Won't Deploy
+
 - Verify API token permissions
 - Check Cloudflare account has Workers enabled
 - Try manual deployment: `cd workers && wrangler deploy --config wrangler-metrics.toml`
 
 ### Data Not Flowing
+
 - Verify GitHub secret matches worker token
 - Check workflow logs for errors
 - Test worker endpoint manually
@@ -285,6 +306,7 @@ Your autopilot is configured and ready to run. Just execute:
 And watch the magic happen! 🚀
 
 **Data will automatically feed into Durable Objects** on every:
+
 - Push to main/develop
 - Pull request
 - Hourly schedule

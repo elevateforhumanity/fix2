@@ -13,10 +13,13 @@ echo ""
 cd "$(dirname "$0")/.."
 
 # Check if puppeteer is installed
-if ! npm list puppeteer &> /dev/null; then
+if ! pnpm list puppeteer &> /dev/null; then
     echo "📦 Installing Puppeteer..."
-    npm install puppeteer
+    pnpm add -D puppeteer
     echo "✅ Puppeteer installed"
+    echo ""
+else
+    echo "✅ Puppeteer already installed"
     echo ""
 fi
 
@@ -60,11 +63,11 @@ fi
 
 # Step 1: Create Cloudflare API token using Puppeteer
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Step 1: Creating Cloudflare API Token"
+echo "Step 1: Checking Cloudflare API Token"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ "$CLOUDFLARE_API_TOKEN" = "your-cloudflare-api-token" ]; then
+if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ "$CLOUDFLARE_API_TOKEN" = "your-cloudflare-api-token" ] || [ "$CLOUDFLARE_API_TOKEN" = "OKzsSHpywRhxg2wW-wZoMcU5FoQiPXn-lakzATU9" ]; then
     echo "🤖 Launching Puppeteer to create API token..."
     echo ""
     

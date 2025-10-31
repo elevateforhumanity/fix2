@@ -9,6 +9,7 @@
 ```
 
 **What it does:**
+
 - Prompts for Cloudflare email/password
 - Launches Puppeteer browser (you'll see it)
 - Logs into Cloudflare
@@ -18,6 +19,7 @@
 - Tests everything
 
 **Expected Output:**
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🚀 Full Autopilot Setup - Complete Automation
@@ -126,6 +128,7 @@ curl https://efh-autopilot-metrics.workers.dev/trends?hours=24 | jq
 ## 🔍 Debugging
 
 ### Worker Not Responding
+
 ```bash
 # Check Cloudflare dashboard
 open https://dash.cloudflare.com/workers
@@ -136,6 +139,7 @@ wrangler tail --config wrangler-metrics.toml
 ```
 
 ### Data Not Flowing
+
 ```bash
 # Check GitHub workflow logs
 gh run list --workflow=advanced-autopilot-inline-check.yml
@@ -145,6 +149,7 @@ gh run view <run-id> --log
 ```
 
 ### Token Issues
+
 ```bash
 # Verify token in .env
 grep AUTOPILOT_TOKEN .env
@@ -155,15 +160,15 @@ gh secret list | grep AUTOPILOT_TOKEN
 
 ## 📊 Expected Timeline
 
-| Time | Event | Status |
-|------|-------|--------|
-| T+0 | Run setup script | 🚀 Starting |
-| T+1min | Puppeteer creates token | 🤖 Automating |
-| T+2min | Worker deployed | ☁️ Deploying |
-| T+3min | GitHub secret set | 🔐 Configuring |
-| T+5min | First workflow runs | ✅ Testing |
-| T+8min | Data appears in Durable Object | 📊 Flowing |
-| T+10min | Metrics available via API | 🎉 Complete |
+| Time    | Event                          | Status         |
+| ------- | ------------------------------ | -------------- |
+| T+0     | Run setup script               | 🚀 Starting    |
+| T+1min  | Puppeteer creates token        | 🤖 Automating  |
+| T+2min  | Worker deployed                | ☁️ Deploying   |
+| T+3min  | GitHub secret set              | 🔐 Configuring |
+| T+5min  | First workflow runs            | ✅ Testing     |
+| T+8min  | Data appears in Durable Object | 📊 Flowing     |
+| T+10min | Metrics available via API      | 🎉 Complete    |
 
 ## 🎉 What Success Looks Like
 
@@ -177,15 +182,19 @@ After successful setup:
 ## 🚨 Common Issues
 
 ### Issue: Puppeteer Can't Login
+
 **Solution**: Check Cloudflare email/password, handle 2FA manually
 
 ### Issue: Worker Deployment Fails
+
 **Solution**: Verify API token has "Workers Scripts:Edit" permission
 
 ### Issue: GitHub Secret Not Set
+
 **Solution**: Run `gh auth login` or set manually in GitHub UI
 
 ### Issue: Data Not Storing
+
 **Solution**: Check AUTOPILOT_TOKEN matches in GitHub secrets and worker
 
 ## 📝 Manual Verification Checklist
