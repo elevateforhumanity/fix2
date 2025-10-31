@@ -5,10 +5,13 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL!,
-  import.meta.env.VITE_SUPABASE_ANON_KEY!
-);
+const supabase =
+  import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY
+    ? createClient(
+        import.meta.env.VITE_SUPABASE_URL,
+        import.meta.env.VITE_SUPABASE_ANON_KEY
+      )
+    : null;
 
 interface HealthRollup {
   hour: string;
@@ -59,6 +62,12 @@ export default function HealthDashboard() {
   }, []);
 
   async function checkAdminAccess() {
+    if (!supabase) {
+      setError('Database service is not available');
+      setLoading(false);
+      return;
+    }
+    
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -85,6 +94,7 @@ export default function HealthDashboard() {
   }
 
   async function loadDashboardData() {
+    if (!supabase) return;
     if (!isAdmin) return;
 
     try {
