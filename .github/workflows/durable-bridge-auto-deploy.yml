@@ -18,7 +18,7 @@ jobs:
   deploy-bridge:
     runs-on: ubuntu-latest
     name: Deploy Durable Bridge
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -59,7 +59,7 @@ jobs:
             echo "⚠️ efh-bridge.js not in dist, checking public"
             ls -lh public/efh-bridge.js
           fi
-          
+
           if [ -f "dist/api/efh-config.json" ]; then
             echo "✅ efh-config.json found in dist"
             ls -lh dist/api/efh-config.json
@@ -74,7 +74,7 @@ jobs:
           publish-dir: './dist'
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy Durable bridge - ${{ github.event.head_commit.message }}"
+          deploy-message: 'Deploy Durable bridge - ${{ github.event.head_commit.message }}'
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: false
@@ -86,10 +86,10 @@ jobs:
         run: |
           echo "⏳ Waiting for deployment to propagate..."
           sleep 10
-          
+
           echo "🔍 Verifying bridge script..."
           curl -I https://elevateforhumanityfix2.netlify.app/efh-bridge.js || echo "⚠️ Bridge script not yet available"
-          
+
           echo "🔍 Verifying config..."
           curl -I https://elevateforhumanityfix2.netlify.app/api/efh-config.json || echo "⚠️ Config not yet available"
 
