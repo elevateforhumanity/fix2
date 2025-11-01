@@ -26,3 +26,4 @@
   console.log('🔄 Loading EFH Bridge...');
 })();
 // Auto-deployed Sat Nov  1 22:59:08 UTC 2025
+// Force Netlify rebuild - Sat Nov  1 23:12:52 UTC 2025
