@@ -1,4 +1,11 @@
-# API proxy to Render backend
+# Static API JSON files - serve directly (MUST come first)
+/api/efh-config.json  /api/efh-config.json  200
+/api/programs.json  /api/programs.json  200
+/api/partnerships.json  /api/partnerships.json  200
+/api/stats.json  /api/stats.json  200
+/api/health.json  /api/health.json  200
+
+# API proxy to Render backend (for dynamic endpoints only)
 /api/*  https://elevateforhumanity.onrender.com/api/:splat  200
 
 # Static files should be served directly
