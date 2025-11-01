@@ -35,6 +35,11 @@
       "name": "Leadership Development",
       "url": "/programs/leadership",
       "summary": "Build leadership capabilities. Develop the soft skills and management expertise employers value most."
+    },
+    {
+      "name": "Certified Peer Recovery Specialist (CPRS)",
+      "url": "/programs/cprs",
+      "summary": "Launch a rewarding career in mental health recovery. WIOA/WRG funded program combining clinical training with peer support skills. $5,000 per student funding available."
     }
   ],
   "features": [
@@ -97,6 +102,8 @@
     "graduates": "5,000+",
     "jobPlacementRate": "92%",
     "averageSalaryIncrease": "$15,000",
-    "programsOffered": "12+"
+    "programsOffered": "13+",
+    "newPrograms": ["CPRS - Certified Peer Recovery Specialist"],
+    "fundingAvailable": "WIOA, WRG, Apprenticeship Grants"
   }
 }

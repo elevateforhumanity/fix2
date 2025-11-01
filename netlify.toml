@@ -84,6 +84,37 @@
 
 # No domain redirects - deploying to elevateforhumanityfix2.netlify.app
 
+# Static API files - serve directly (must come BEFORE function redirects)
+[[redirects]]
+  from = "/api/efh-config.json"
+  to = "/api/efh-config.json"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/api/programs.json"
+  to = "/api/programs.json"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/api/partnerships.json"
+  to = "/api/partnerships.json"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/api/stats.json"
+  to = "/api/stats.json"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/api/health.json"
+  to = "/api/health.json"
+  status = 200
+  force = false
+
 # API function redirects
 [[redirects]]
   from = "/api/automated-reporting"
