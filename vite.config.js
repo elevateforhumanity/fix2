@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import sitemap from 'vite-plugin-sitemap';
+import { copyFileSync, mkdirSync } from 'fs';
 
 // Define all routes for sitemap generation
 const routes = [
@@ -44,6 +45,20 @@ export default defineConfig({
       priority: 0.8,
       lastmod: new Date().toISOString(),
     }),
+    {
+      name: 'copy-bridge-files',
+      closeBundle() {
+        // Copy bridge files to dist after build
+        try {
+          mkdirSync('dist/api', { recursive: true });
+          copyFileSync('public/efh-bridge.js', 'dist/efh-bridge.js');
+          copyFileSync('public/api/efh-config.json', 'dist/api/efh-config.json');
+          console.log('✅ Bridge files copied to dist/');
+        } catch (err) {
+          console.error('⚠️ Failed to copy bridge files:', err.message);
+        }
+      },
+    },
   ],
   base: '/',
   resolve: {
