@@ -1,16 +1,18 @@
 /**
  * EFH Bridge Script - Durable Content Injector
- * Version: 1.0.0
+ * Version: 1.1.0
  *
  * Injects dynamic content into Durable.co pages via data-efh-slot attributes
  *
  * Usage in Durable:
- * <script src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+ * <script src="https://elevateforhumanity.github.io/fix2/efh-bridge.js"
  *         data-efh-org="elevate-for-humanity"
  *         data-env="prod"
  *         defer></script>
  *
  * Add slots: <div data-efh-slot="hero"></div>
+ *
+ * The script automatically detects its source URL and loads config from the same location.
  */
 
 (async () => {
@@ -20,7 +22,13 @@
   const currentScript = document.currentScript;
   const ORG = currentScript?.getAttribute('data-efh-org') || 'efh';
   const ENV = currentScript?.getAttribute('data-env') || 'prod';
-  const BASE_URL = 'https://elevateforhumanityfix2.netlify.app';
+
+  // Determine BASE_URL from script source or use GitHub Pages as default
+  const scriptSrc = currentScript?.src || '';
+  const BASE_URL = scriptSrc.includes('github.io')
+    ? 'https://elevateforhumanity.github.io/fix2'
+    : currentScript?.getAttribute('data-base-url') ||
+      'https://elevateforhumanity.github.io/fix2';
 
   // Configuration endpoint
   const configUrl = `${BASE_URL}/api/efh-config.json?org=${ORG}&env=${ENV}&t=${Date.now()}`;
@@ -286,3 +294,4 @@
 
   console.log('[EFH Bridge] Initialization complete ✅');
 })();
+// Updated Sat Nov  1 10:35:01 UTC 2025
