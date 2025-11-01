@@ -2,7 +2,6 @@
   command = "rm -rf dist node_modules/.vite && pnpm install && pnpm run build"
   publish = "dist"
   functions = "netlify/functions"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 
 [build.environment]
   NODE_VERSION = "20.11.1"
