@@ -35,7 +35,10 @@
   "auto_deploy": {
     "enabled": true,
     "on_success": true,
-    "on_fix": true
+    "on_fix": true,
+    "auto_push": true,
+    "auto_commit": true,
+    "frequency": "every_30_minutes"
   },
   "notifications": {
     "github_issues": true,
@@ -54,5 +57,15 @@
     "max_iterations": "unlimited",
     "stop_condition": "zero_errors",
     "check_interval": "30_minutes"
+  },
+  "cheatsheet_autopilot": {
+    "enabled": true,
+    "auto_push_enabled": true,
+    "auto_deploy_enabled": true,
+    "auto_fix_enabled": true,
+    "health_monitoring": true,
+    "bridge_monitoring": true,
+    "self_healing": true,
+    "zero_manual_intervention": true
   }
 }
