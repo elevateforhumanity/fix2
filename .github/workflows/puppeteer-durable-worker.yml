@@ -2,14 +2,18 @@ name: Puppeteer Worker - Durable Integration
 
 on:
   schedule:
-    # Run every 6 hours to check and update Durable integration
-    - cron: '0 */6 * * *'
+    # Run every 30 minutes until successful, then every 6 hours
+    - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
       force_integration:
         description: 'Force Durable integration'
         required: false
         default: 'false'
+  workflow_run:
+    workflows: ["Puppeteer Worker - Durable Integration"]
+    types:
+      - completed
 
 jobs:
   puppeteer-integration:
@@ -60,10 +64,21 @@ jobs:
           if [ -f "logs/durable-integration-status.json" ]; then
             SUCCESS=$(jq -r '.success' logs/durable-integration-status.json)
             echo "success=$SUCCESS" >> $GITHUB_OUTPUT
-            echo "✅ Status file found"
+            echo "✅ Status file found: success=$SUCCESS"
           else
             echo "success=false" >> $GITHUB_OUTPUT
             echo "⚠️ Status file not found"
+          fi
+
+      - name: Check if should retry
+        id: retry
+        run: |
+          if [ "${{ steps.status.outputs.success }}" = "false" ]; then
+            echo "should_retry=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Integration failed, will retry in 30 minutes"
+          else
+            echo "should_retry=false" >> $GITHUB_OUTPUT
+            echo "✅ Integration successful, switching to 6-hour schedule"
           fi
 
       - name: Commit integration status
@@ -222,3 +237,48 @@ jobs:
                 body: '✅ Puppeteer worker successfully integrated bridge with Durable.co. Closing this issue.'
               });
             }
+
+      - name: Trigger retry if failed
+        if: steps.status.outputs.success == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('⚠️ Integration failed, scheduling retry...');
+            
+            // Wait 30 minutes then trigger again
+            setTimeout(async () => {
+              try {
+                await github.rest.actions.createWorkflowDispatch({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: 'puppeteer-durable-worker.yml',
+                  ref: 'main'
+                });
+                console.log('✅ Retry scheduled');
+              } catch (error) {
+                console.log('⚠️ Could not schedule retry:', error.message);
+              }
+            }, 1800000); // 30 minutes
+
+      - name: Update retry counter
+        if: steps.status.outputs.success == 'false'
+        run: |
+          # Track retry attempts
+          RETRY_FILE="logs/puppeteer-retry-count.txt"
+          
+          if [ -f "$RETRY_FILE" ]; then
+            RETRY_COUNT=$(cat "$RETRY_FILE")
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+          else
+            RETRY_COUNT=1
+          fi
+          
+          echo "$RETRY_COUNT" > "$RETRY_FILE"
+          echo "📊 Retry attempt: $RETRY_COUNT"
+          
+          # Commit retry count
+          git config --local user.email "puppeteer@elevateforhumanity.org"
+          git config --local user.name "EFH Puppeteer Worker"
+          git add "$RETRY_FILE" || true
+          git commit -m "chore: puppeteer retry attempt $RETRY_COUNT" || true
+          git push origin main || true

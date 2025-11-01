@@ -1,0 +1,199 @@
+name: Loop Until Success - Durable Integration
+
+on:
+  schedule:
+    # Check every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-and-retry:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check integration status
+        id: check
+        run: |
+          echo "🔍 Checking Durable integration status..."
+          
+          # Check if status file exists
+          if [ -f "logs/durable-integration-status.json" ]; then
+            SUCCESS=$(jq -r '.success' logs/durable-integration-status.json 2>/dev/null || echo "false")
+            TIMESTAMP=$(jq -r '.timestamp' logs/durable-integration-status.json 2>/dev/null || echo "unknown")
+            
+            echo "success=$SUCCESS" >> $GITHUB_OUTPUT
+            echo "timestamp=$TIMESTAMP" >> $GITHUB_OUTPUT
+            
+            if [ "$SUCCESS" = "true" ]; then
+              echo "✅ Integration successful!"
+              echo "   Timestamp: $TIMESTAMP"
+              echo "integrated=true" >> $GITHUB_OUTPUT
+            else
+              echo "⚠️ Integration not yet successful"
+              echo "   Last attempt: $TIMESTAMP"
+              echo "integrated=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "⚠️ No integration status found"
+            echo "   Integration has not been attempted yet"
+            echo "success=false" >> $GITHUB_OUTPUT
+            echo "integrated=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check Puppeteer workflow status
+        id: workflow_status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('🔍 Checking Puppeteer workflow status...');
+            
+            const workflows = await github.rest.actions.listWorkflowRunsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'puppeteer-durable-worker.yml',
+              per_page: 5
+            });
+            
+            const latestRun = workflows.data.workflow_runs[0];
+            
+            if (latestRun) {
+              console.log(`Latest run: ${latestRun.status} - ${latestRun.conclusion}`);
+              core.setOutput('workflow_status', latestRun.status);
+              core.setOutput('workflow_conclusion', latestRun.conclusion || 'none');
+              core.setOutput('workflow_id', latestRun.id);
+              
+              if (latestRun.status === 'completed' && latestRun.conclusion === 'success') {
+                console.log('✅ Latest workflow run was successful');
+                core.setOutput('should_retry', 'false');
+              } else if (latestRun.status === 'in_progress' || latestRun.status === 'queued') {
+                console.log('⏳ Workflow is currently running');
+                core.setOutput('should_retry', 'false');
+              } else {
+                console.log('⚠️ Workflow failed or not run yet');
+                core.setOutput('should_retry', 'true');
+              }
+            } else {
+              console.log('⚠️ No workflow runs found');
+              core.setOutput('should_retry', 'true');
+            }
+
+      - name: Trigger Puppeteer worker if needed
+        if: steps.check.outputs.integrated == 'false' && steps.workflow_status.outputs.should_retry == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('🤖 Integration not successful, triggering Puppeteer worker...');
+            
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'puppeteer-durable-worker.yml',
+                ref: 'main'
+              });
+              console.log('✅ Puppeteer worker triggered');
+            } catch (error) {
+              console.log('⚠️ Could not trigger workflow:', error.message);
+              console.log('   It may already be running');
+            }
+
+      - name: Update loop status
+        run: |
+          mkdir -p logs
+          
+          cat > logs/loop-status.json << EOF
+          {
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "integrated": "${{ steps.check.outputs.integrated }}",
+            "workflow_status": "${{ steps.workflow_status.outputs.workflow_status }}",
+            "workflow_conclusion": "${{ steps.workflow_status.outputs.workflow_conclusion }}",
+            "should_retry": "${{ steps.workflow_status.outputs.should_retry }}",
+            "next_check": "15 minutes"
+          }
+          EOF
+          
+          echo "📝 Loop status updated"
+
+      - name: Commit loop status
+        run: |
+          git config --local user.email "loop@elevateforhumanity.org"
+          git config --local user.name "EFH Loop Monitor"
+          
+          git add logs/loop-status.json || true
+          git commit -m "chore: loop monitor status update
+
+          Integration Status: ${{ steps.check.outputs.integrated }}
+          Workflow Status: ${{ steps.workflow_status.outputs.workflow_status }}
+          Should Retry: ${{ steps.workflow_status.outputs.should_retry }}
+          
+          Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes"
+          
+          git push origin main || echo "Nothing to push"
+
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## 🔄 Loop Until Success Monitor" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check.outputs.integrated }}" = "true" ]; then
+            echo "### ✅ Integration Successful!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Bridge is successfully integrated with Durable.co" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Status:** Loop will continue monitoring every 15 minutes" >> $GITHUB_STEP_SUMMARY
+            echo "**Action:** Maintaining integration" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ⚠️ Integration Not Yet Successful" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Workflow Status:** ${{ steps.workflow_status.outputs.workflow_status }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Workflow Conclusion:** ${{ steps.workflow_status.outputs.workflow_conclusion }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Should Retry:** ${{ steps.workflow_status.outputs.should_retry }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            if [ "${{ steps.workflow_status.outputs.should_retry }}" = "true" ]; then
+              echo "**Action:** Triggered Puppeteer worker" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "**Action:** Waiting for current workflow to complete" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Next check in 15 minutes*" >> $GITHUB_STEP_SUMMARY
+
+      - name: Success notification
+        if: steps.check.outputs.integrated == 'true'
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ SUCCESS! Bridge is integrated with Durable.co"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Integration timestamp: ${{ steps.check.outputs.timestamp }}"
+          echo ""
+          echo "The loop will continue monitoring to ensure integration stays active."
+          echo ""
+
+      - name: Retry notification
+        if: steps.check.outputs.integrated == 'false' && steps.workflow_status.outputs.should_retry == 'true'
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔄 Retrying integration..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Puppeteer worker has been triggered."
+          echo "Loop will check again in 15 minutes."
+          echo ""

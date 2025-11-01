@@ -109,6 +109,23 @@ jobs:
               console.log('⚠️ Could not trigger (may already be running):', error.message);
             }
 
+      - name: Trigger Loop Until Success Monitor
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('🔄 Triggering Loop Until Success Monitor...');
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'loop-until-success.yml',
+                ref: 'main'
+              });
+              console.log('✅ Loop Monitor triggered');
+            } catch (error) {
+              console.log('⚠️ Could not trigger (may already be running):', error.message);
+            }
+
       - name: Create orchestration summary
         run: |
           cat > MASTER_ORCHESTRATOR_STATUS.md << 'EOF'
