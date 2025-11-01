@@ -67,5 +67,33 @@
     "bridge_monitoring": true,
     "self_healing": true,
     "zero_manual_intervention": true
+  },
+  "puppet_autopilot": {
+    "enabled": true,
+    "netlify_deploy": true,
+    "bridge_deploy": true,
+    "durable_integration": true,
+    "auto_verify": true,
+    "orders": {
+      "deploy_bridge_to_netlify": "every_hour",
+      "verify_bridge_endpoints": "every_30_minutes",
+      "generate_durable_code": "every_2_hours",
+      "monitor_integration": "continuous",
+      "self_heal_on_failure": "immediate"
+    }
+  },
+  "deployment_targets": {
+    "netlify": {
+      "site_id": "elevateforhumanityfix2",
+      "url": "https://elevateforhumanityfix2.netlify.app",
+      "auto_deploy": true,
+      "include_bridge": true
+    },
+    "durable": {
+      "site_url": "https://www.elevateforhumanity.org",
+      "integration_method": "bridge_injection",
+      "auto_update": true,
+      "manual_setup_required": "one_time_only"
+    }
   }
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
-# Puppet Autopilot - Deploy to Netlify NOW
-# This script will deploy your built React app to Netlify
+# Puppet Autopilot - Deploy to Netlify NOW with Bridge
+# This script will deploy your built React app + Bridge to Netlify
 
 set -e
 
@@ -15,6 +15,24 @@ if [ ! -d "dist" ]; then
 fi
 
 echo "✅ dist/ folder ready with your React app"
+echo ""
+
+# Verify bridge files
+echo "🔍 Verifying bridge files..."
+if [ -f "dist/efh-bridge.js" ]; then
+    echo "✅ Bridge script found in dist/"
+else
+    echo "❌ Bridge script missing! Building again..."
+    pnpm run build
+fi
+
+if [ -f "dist/api/efh-config.json" ]; then
+    echo "✅ Bridge config found in dist/"
+else
+    echo "❌ Bridge config missing! Building again..."
+    pnpm run build
+fi
+
 echo ""
 
 # Check for Netlify CLI
@@ -59,9 +77,16 @@ netlify deploy --prod --dir=dist
 echo ""
 echo "✅ DEPLOYMENT COMPLETE!"
 echo ""
-echo "Your React app is now live at:"
-echo "  https://elevateforhumanity.org"
+echo "Your React app + Bridge is now live at:"
+echo "  https://elevateforhumanityfix2.netlify.app"
 echo ""
-echo "The Durable landing page has been replaced with your Home.jsx"
+echo "Bridge endpoints:"
+echo "  https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+echo "  https://elevateforhumanityfix2.netlify.app/api/efh-config.json"
+echo ""
+echo "🎯 Next: Add bridge to www.elevateforhumanity.org (Durable)"
+echo ""
+echo "Copy this to Durable Custom Code:"
+echo '<script src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js" data-efh-org="elevate-for-humanity" data-env="prod" defer></script>'
 echo ""
 echo "🤖 Puppet Autopilot: Mission Complete!"
