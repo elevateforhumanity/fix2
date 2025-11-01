@@ -25,3 +25,4 @@
   document.head.appendChild(script);
   console.log('🔄 Loading EFH Bridge...');
 })();
+// Auto-deployed Sat Nov  1 22:59:08 UTC 2025
