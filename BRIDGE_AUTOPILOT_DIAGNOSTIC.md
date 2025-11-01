@@ -22,18 +22,18 @@ The Durable Bridge and Autopilot systems are configured but the bridge files are
 
 ### Source Files Status
 
-| File | Location | Status | Size |
-|------|----------|--------|------|
-| `efh-bridge.js` | `bridge/public/` | ✅ Exists | 9.1 KB |
-| `efh-config.json` | `bridge/api/` | ✅ Exists | 4.0 KB |
-| `efh-bridge.js` | `public/` | ✅ Copied | 9.1 KB |
-| `efh-config.json` | `public/api/` | ✅ Copied | 4.0 KB |
+| File              | Location         | Status    | Size   |
+| ----------------- | ---------------- | --------- | ------ |
+| `efh-bridge.js`   | `bridge/public/` | ✅ Exists | 9.1 KB |
+| `efh-config.json` | `bridge/api/`    | ✅ Exists | 4.0 KB |
+| `efh-bridge.js`   | `public/`        | ✅ Copied | 9.1 KB |
+| `efh-config.json` | `public/api/`    | ✅ Copied | 4.0 KB |
 
 ### Production Endpoints Status
 
-| Endpoint | Expected URL | Status | Issue |
-|----------|-------------|--------|-------|
-| Bridge Script | `https://elevateforhumanityfix2.netlify.app/efh-bridge.js` | ❌ 404 | Not in dist/ |
+| Endpoint      | Expected URL                                                     | Status | Issue        |
+| ------------- | ---------------------------------------------------------------- | ------ | ------------ |
+| Bridge Script | `https://elevateforhumanityfix2.netlify.app/efh-bridge.js`       | ❌ 404 | Not in dist/ |
 | Configuration | `https://elevateforhumanityfix2.netlify.app/api/efh-config.json` | ❌ 404 | Not in dist/ |
 
 ### Bridge Features
@@ -78,36 +78,36 @@ The bridge script provides:
 
 ### Monitoring Features
 
-| Feature | Status | Frequency |
-|---------|--------|-----------|
-| TypeScript Check | ✅ Enabled | Every 30 min |
-| ESLint Check | ✅ Enabled | Every 30 min |
+| Feature            | Status     | Frequency    |
+| ------------------ | ---------- | ------------ |
+| TypeScript Check   | ✅ Enabled | Every 30 min |
+| ESLint Check       | ✅ Enabled | Every 30 min |
 | Build Verification | ✅ Enabled | Every 30 min |
-| Test Suite | ✅ Enabled | Every 30 min |
-| Security Scan | ✅ Enabled | Every 30 min |
-| Netlify Builds | ✅ Enabled | Every 30 min |
-| Supabase Health | ✅ Enabled | Every 30 min |
-| Cloudflare Health | ✅ Enabled | Every 30 min |
+| Test Suite         | ✅ Enabled | Every 30 min |
+| Security Scan      | ✅ Enabled | Every 30 min |
+| Netlify Builds     | ✅ Enabled | Every 30 min |
+| Supabase Health    | ✅ Enabled | Every 30 min |
+| Cloudflare Health  | ✅ Enabled | Every 30 min |
 
 ### Auto-Fix Capabilities
 
-| Issue Type | Auto-Fix Enabled |
-|------------|------------------|
-| TypeScript Errors | ✅ Yes |
-| ESLint Errors | ✅ Yes |
-| Build Errors | ✅ Yes |
-| Netlify Failures | ✅ Yes |
-| Test Failures | ✅ Yes |
-| Dependency Updates | ✅ Yes |
+| Issue Type         | Auto-Fix Enabled |
+| ------------------ | ---------------- |
+| TypeScript Errors  | ✅ Yes           |
+| ESLint Errors      | ✅ Yes           |
+| Build Errors       | ✅ Yes           |
+| Netlify Failures   | ✅ Yes           |
+| Test Failures      | ✅ Yes           |
+| Dependency Updates | ✅ Yes           |
 
 ### Autonomous Features
 
-| Feature | Status |
-|---------|--------|
-| Self-Healing | ✅ Enabled |
-| Continuous Optimization | ✅ Enabled |
-| Predictive Maintenance | ✅ Enabled |
-| Auto-Scaling | ✅ Enabled |
+| Feature                  | Status     |
+| ------------------------ | ---------- |
+| Self-Healing             | ✅ Enabled |
+| Continuous Optimization  | ✅ Enabled |
+| Predictive Maintenance   | ✅ Enabled |
+| Auto-Scaling             | ✅ Enabled |
 | Zero Manual Intervention | ✅ Enabled |
 
 ---
@@ -117,6 +117,7 @@ The bridge script provides:
 ### Bridge-Specific Workflows
 
 #### `durable-bridge-autopilot.yml`
+
 - **Trigger:** Every 30 minutes, on push to `bridge/**`, manual
 - **Purpose:** Monitor bridge health and auto-heal
 - **Jobs:**
@@ -125,6 +126,7 @@ The bridge script provides:
 - **Status:** ✅ Configured
 
 **Health Checks:**
+
 1. Bridge script availability (HTTP 200)
 2. Configuration file availability (HTTP 200)
 3. JSON validity
@@ -135,6 +137,7 @@ The bridge script provides:
 8. Local files sync
 
 #### `durable-bridge-auto-deploy.yml`
+
 - **Trigger:** Push to `bridge/**`, manual
 - **Purpose:** Auto-deploy bridge changes
 - **Jobs:**
@@ -145,6 +148,7 @@ The bridge script provides:
 - **Status:** ✅ Configured
 
 #### `autopilot-comment-bridge.yml`
+
 - **Trigger:** Issue/PR comments starting with `/`
 - **Purpose:** Forward commands to autopilot bridge
 - **Status:** ✅ Configured
@@ -153,6 +157,7 @@ The bridge script provides:
 ### Autopilot Workflows
 
 #### `autopilot-master.yml`
+
 - **Trigger:** Push to main, every 15 minutes, manual
 - **Purpose:** Enqueue and process autopilot tasks
 - **Tasks:**
@@ -167,6 +172,7 @@ The bridge script provides:
 - **Status:** ✅ Configured
 
 #### `autopilot-phase3-selfheal.yml`
+
 - **Trigger:** Every 5 minutes, manual
 - **Purpose:** Monitor site health and auto-heal
 - **Checks:**
@@ -186,14 +192,14 @@ The bridge script provides:
 
 ### Bridge Scripts
 
-| Script | Purpose | Status |
-|--------|---------|--------|
-| `durable-bridge-health-check.sh` | Run 8 health tests, auto-heal | ✅ Exists |
-| `test-durable-bridge.sh` | Run 10 functionality tests | ✅ Exists |
-| `deploy-durable-bridge.sh` | Deploy bridge to Netlify | ✅ Exists |
-| `setup-durable-option-a.sh` | Initial bridge setup | ✅ Exists |
-| `setup-durable-zero-maintenance.sh` | Zero-maintenance setup | ✅ Exists |
-| `deploy-durable-metrics.sh` | Deploy with metrics | ✅ Exists |
+| Script                              | Purpose                       | Status    |
+| ----------------------------------- | ----------------------------- | --------- |
+| `durable-bridge-health-check.sh`    | Run 8 health tests, auto-heal | ✅ Exists |
+| `test-durable-bridge.sh`            | Run 10 functionality tests    | ✅ Exists |
+| `deploy-durable-bridge.sh`          | Deploy bridge to Netlify      | ✅ Exists |
+| `setup-durable-option-a.sh`         | Initial bridge setup          | ✅ Exists |
+| `setup-durable-zero-maintenance.sh` | Zero-maintenance setup        | ✅ Exists |
+| `deploy-durable-metrics.sh`         | Deploy with metrics           | ✅ Exists |
 
 ### Health Check Features
 
@@ -391,26 +397,26 @@ Updated `vite.config.js` to add a custom plugin that copies bridge files after b
 
 ### Required Secrets
 
-| Secret | Purpose | Status | Used By |
-|--------|---------|--------|---------|
-| `NETLIFY_AUTH_TOKEN` | Deploy to Netlify | ✅ Set | All deploy workflows |
-| `NETLIFY_SITE_ID` | Target site | ✅ Set | All deploy workflows |
-| `NETLIFY_BUILD_HOOK` | Trigger builds | ✅ Set | Autopilot workflows |
-| `AUTOPILOT_SECRET` | Authenticate autopilot | ✅ Set | All autopilot workflows |
-| `AUTOPILOT_BRIDGE_URL` | Bridge endpoint | ⚠️ Unknown | Comment bridge |
-| `AUTOPILOT_WORKER_URL` | Worker endpoint | ⚠️ Unknown | Master autopilot |
-| `SLACK_WEBHOOK_URL` | Notifications | ⚠️ Unknown | Self-heal workflow |
-| `SUPABASE_PROJECT_REF` | Database health | ✅ Set | Self-heal workflow |
-| `SUPABASE_DB_URL` | Database connection | ✅ Set | Self-heal workflow |
+| Secret                 | Purpose                | Status     | Used By                 |
+| ---------------------- | ---------------------- | ---------- | ----------------------- |
+| `NETLIFY_AUTH_TOKEN`   | Deploy to Netlify      | ✅ Set     | All deploy workflows    |
+| `NETLIFY_SITE_ID`      | Target site            | ✅ Set     | All deploy workflows    |
+| `NETLIFY_BUILD_HOOK`   | Trigger builds         | ✅ Set     | Autopilot workflows     |
+| `AUTOPILOT_SECRET`     | Authenticate autopilot | ✅ Set     | All autopilot workflows |
+| `AUTOPILOT_BRIDGE_URL` | Bridge endpoint        | ⚠️ Unknown | Comment bridge          |
+| `AUTOPILOT_WORKER_URL` | Worker endpoint        | ⚠️ Unknown | Master autopilot        |
+| `SLACK_WEBHOOK_URL`    | Notifications          | ⚠️ Unknown | Self-heal workflow      |
+| `SUPABASE_PROJECT_REF` | Database health        | ✅ Set     | Self-heal workflow      |
+| `SUPABASE_DB_URL`      | Database connection    | ✅ Set     | Self-heal workflow      |
 
 ### Environment Variables
 
-| Variable | Value | Purpose |
-|----------|-------|---------|
-| `NODE_VERSION` | 20.11.1 | Node.js version |
-| `PNPM_VERSION` | 9.7.0 | Package manager |
-| `NODE_OPTIONS` | --max_old_space_size=4096 | Memory limit |
-| `CI` | true | CI environment flag |
+| Variable       | Value                     | Purpose             |
+| -------------- | ------------------------- | ------------------- |
+| `NODE_VERSION` | 20.11.1                   | Node.js version     |
+| `PNPM_VERSION` | 9.7.0                     | Package manager     |
+| `NODE_OPTIONS` | --max_old_space_size=4096 | Memory limit        |
+| `CI`           | true                      | CI environment flag |
 
 ---
 

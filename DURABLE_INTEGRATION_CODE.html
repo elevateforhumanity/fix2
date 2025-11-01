@@ -86,32 +86,32 @@ The bridge includes inline styles, but you can override them:
   }
 
   /* Hero section customization */
-  [data-efh-slot="hero"] {
+  [data-efh-slot='hero'] {
     margin: 0;
   }
 
   /* Programs grid customization */
-  [data-efh-slot="programs"] {
+  [data-efh-slot='programs'] {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 1rem;
   }
 
   /* Features section customization */
-  [data-efh-slot="features"] {
+  [data-efh-slot='features'] {
     background: #f9fafb;
     padding: 3rem 1rem;
   }
 
   /* Testimonials customization */
-  [data-efh-slot="testimonials"] {
+  [data-efh-slot='testimonials'] {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 1rem;
   }
 
   /* CTA section customization */
-  [data-efh-slot="cta"] {
+  [data-efh-slot='cta'] {
     margin: 3rem 0 0 0;
   }
 </style>
@@ -138,58 +138,58 @@ No need to edit Durable after initial setup!
 Example of a complete page with all sections:
 -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elevate for Humanity - Programs</title>
-  
-  <!-- EFH Bridge Script -->
-  <script
-    src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
-    data-efh-org="elevate-for-humanity"
-    data-env="prod"
-    defer
-  ></script>
-</head>
-<body>
-  <!-- Your Durable header/nav here -->
-  
-  <!-- Hero Section -->
-  <div data-efh-slot="hero"></div>
-  
-  <!-- Programs Section -->
-  <section style="max-width: 1200px; margin: 3rem auto; padding: 0 1rem;">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
-      Our Programs
-    </h2>
-    <div data-efh-slot="programs"></div>
-  </section>
-  
-  <!-- Features Section -->
-  <section style="background: #f9fafb; padding: 3rem 1rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
-        Why Choose Us
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elevate for Humanity - Programs</title>
+
+    <!-- EFH Bridge Script -->
+    <script
+      src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+      data-efh-org="elevate-for-humanity"
+      data-env="prod"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Your Durable header/nav here -->
+
+    <!-- Hero Section -->
+    <div data-efh-slot="hero"></div>
+
+    <!-- Programs Section -->
+    <section style="max-width: 1200px; margin: 3rem auto; padding: 0 1rem">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem">
+        Our Programs
       </h2>
-      <div data-efh-slot="features"></div>
-    </div>
-  </section>
-  
-  <!-- Testimonials Section -->
-  <section style="max-width: 1200px; margin: 3rem auto; padding: 0 1rem;">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
-      Success Stories
-    </h2>
-    <div data-efh-slot="testimonials"></div>
-  </section>
-  
-  <!-- CTA Section -->
-  <div data-efh-slot="cta"></div>
-  
-  <!-- Your Durable footer here -->
-</body>
+      <div data-efh-slot="programs"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="background: #f9fafb; padding: 3rem 1rem">
+      <div style="max-width: 1200px; margin: 0 auto">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem">
+          Why Choose Us
+        </h2>
+        <div data-efh-slot="features"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="max-width: 1200px; margin: 3rem auto; padding: 0 1rem">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem">
+        Success Stories
+      </h2>
+      <div data-efh-slot="testimonials"></div>
+    </section>
+
+    <!-- CTA Section -->
+    <div data-efh-slot="cta"></div>
+
+    <!-- Your Durable footer here -->
+  </body>
 </html>
 
 <!-- ============================================ -->

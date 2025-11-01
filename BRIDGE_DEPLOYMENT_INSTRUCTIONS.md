@@ -11,23 +11,27 @@
 ### Option A: Host Bridge on Netlify (Recommended)
 
 **Pros:**
+
 - Automatic deployments via autopilot
 - Version control for content
 - Health monitoring
 - Self-healing
 
 **Cons:**
+
 - Requires Netlify configuration
 - Currently returning 404
 
 ### Option B: Host Bridge on Durable Directly (Quick Start)
 
 **Pros:**
+
 - No external dependencies
 - Works immediately
 - Simple setup
 
 **Cons:**
+
 - Manual updates required
 - No autopilot integration
 - No health monitoring
@@ -94,6 +98,7 @@ If Netlify is not working, you can embed the bridge directly in Durable:
 ### Step 1: Copy Bridge Script to Durable
 
 1. **Get the bridge script:**
+
    ```bash
    cat /workspaces/fix2/dist/efh-bridge.js
    ```
@@ -101,13 +106,14 @@ If Netlify is not working, you can embed the bridge directly in Durable:
 2. **In Durable Custom Code:**
    ```html
    <script>
-   // Paste the entire contents of efh-bridge.js here
+     // Paste the entire contents of efh-bridge.js here
    </script>
    ```
 
 ### Step 2: Copy Configuration to Durable
 
 1. **Get the configuration:**
+
    ```bash
    cat /workspaces/fix2/dist/api/efh-config.json
    ```
@@ -115,9 +121,9 @@ If Netlify is not working, you can embed the bridge directly in Durable:
 2. **In Durable Custom Code (before bridge script):**
    ```html
    <script>
-   window.EFH_CONFIG = {
-     // Paste the entire contents of efh-config.json here
-   };
+     window.EFH_CONFIG = {
+       // Paste the entire contents of efh-config.json here
+     };
    </script>
    ```
 
@@ -130,6 +136,7 @@ Update the bridge script to use `window.EFH_CONFIG` instead of fetching from URL
 ## 📋 Current File Locations
 
 ### In Repository
+
 ```
 /workspaces/fix2/
 ├── bridge/
@@ -168,6 +175,7 @@ curl -I https://elevateforhumanityfix2.netlify.app
 ```
 
 **Possible Issues:**
+
 - Site not linked to GitHub repo
 - Build failed
 - Site not published
@@ -176,6 +184,7 @@ curl -I https://elevateforhumanityfix2.netlify.app
 ### Check 2: Build Settings
 
 In Netlify dashboard, verify:
+
 - **Build command:** `rm -rf dist node_modules/.vite && pnpm install && pnpm run build`
 - **Publish directory:** `dist`
 - **Node version:** 20.11.1
@@ -183,6 +192,7 @@ In Netlify dashboard, verify:
 ### Check 3: Environment Variables
 
 Required in Netlify:
+
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
 - `NODE_VERSION=20.11.1`
@@ -202,6 +212,7 @@ Required in Netlify:
 ### Immediate (Choose One):
 
 **Option 1: Fix Netlify (Best for long-term)**
+
 1. Log into Netlify dashboard
 2. Check site configuration
 3. Trigger manual deploy
@@ -209,6 +220,7 @@ Required in Netlify:
 5. Add to Durable
 
 **Option 2: Direct Embed (Quick start)**
+
 1. Copy bridge files from dist/
 2. Embed directly in Durable
 3. Test functionality
@@ -282,6 +294,7 @@ Required in Netlify:
 ## 🔄 Content Updates (After Setup)
 
 ### With Netlify (Automatic):
+
 ```bash
 # 1. Edit configuration
 nano bridge/api/efh-config.json
@@ -297,6 +310,7 @@ git push origin main
 ```
 
 ### With Direct Embed (Manual):
+
 1. Edit configuration in repository
 2. Copy new config to Durable
 3. Save and publish Durable site
@@ -361,11 +375,13 @@ Once Netlify is configured:
 ## 📞 Support
 
 ### Files to Check
+
 - **Setup Guide:** `DURABLE_BRIDGE_SETUP.md`
 - **Integration Code:** `DURABLE_INTEGRATION_CODE.html`
 - **This Guide:** `BRIDGE_DEPLOYMENT_INSTRUCTIONS.md`
 
 ### Scripts to Run
+
 ```bash
 # Health check
 ./scripts/durable-bridge-health-check.sh
@@ -378,6 +394,7 @@ Once Netlify is configured:
 ```
 
 ### Logs to View
+
 ```bash
 # Health log
 cat logs/durable-bridge-health.log
@@ -393,7 +410,7 @@ cat logs/durable-bridge-status.json | jq .
 **Bridge Files:** ✅ Ready in `dist/`  
 **Netlify Site:** ❌ Returns 404 (needs configuration)  
 **Durable Site:** ✅ Live at www.elevateforhumanity.org  
-**Integration Code:** ✅ Ready to copy-paste  
+**Integration Code:** ✅ Ready to copy-paste
 
 **Next Step:** Choose Option A (fix Netlify) or Option B (direct embed)
 

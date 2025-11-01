@@ -35,6 +35,7 @@ git push origin main
 ```
 
 **Bridge URLs after deployment:**
+
 - Script: `https://elevateforhumanityfix2.netlify.app/efh-bridge.js`
 - Config: `https://elevateforhumanityfix2.netlify.app/api/efh-config.json`
 
@@ -81,11 +82,13 @@ In your Durable page editor, add these HTML blocks where you want content:
 ## 📋 What the Bridge Will Inject
 
 ### Hero Section
+
 - Title: "Elevate for Humanity Empowerment Center"
 - Subtitle: Transform Your Future Through Skills Training
 - CTA Button: "Apply Now"
 
 ### Programs (6 Programs)
+
 1. Barber Apprenticeship
 2. HVAC & Welding
 3. Healthcare (CNA/QMA)
@@ -94,6 +97,7 @@ In your Durable page editor, add these HTML blocks where you want content:
 6. Leadership Development
 
 ### Features (6 Features)
+
 - Job Placement
 - Industry Certifications
 - Financial Support
@@ -102,9 +106,11 @@ In your Durable page editor, add these HTML blocks where you want content:
 - Fast Track
 
 ### Testimonials (4 Testimonials)
+
 - Real success stories from graduates
 
 ### Call to Action
+
 - "Ready to Transform Your Future?"
 - Application button
 
@@ -125,6 +131,7 @@ Content appears on Durable site
 ```
 
 **Benefits:**
+
 - ✅ Update content by editing `bridge/api/efh-config.json`
 - ✅ No need to edit Durable site after initial setup
 - ✅ Automatic deployments via autopilot
@@ -135,6 +142,7 @@ Content appears on Durable site
 ## 🎨 Styling
 
 The bridge includes inline styles that match modern design:
+
 - Gradient backgrounds
 - Hover effects
 - Responsive grid layouts
@@ -252,14 +260,17 @@ You don't need to manually deploy after the initial setup!
 ## 🔗 URLs Summary
 
 ### Current Status
+
 - **Durable Site:** https://www.elevateforhumanity.org (live)
 - **Netlify Site:** https://elevateforhumanityfix2.netlify.app (404 - needs deployment)
 
 ### After Deployment
+
 - **Bridge Script:** https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 - **Configuration:** https://elevateforhumanityfix2.netlify.app/api/efh-config.json
 
 ### Durable Integration
+
 - **Main Site:** https://www.elevateforhumanity.org
 - **With Bridge:** Content injected via bridge script
 

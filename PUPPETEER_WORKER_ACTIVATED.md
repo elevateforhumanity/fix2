@@ -91,41 +91,49 @@ Once secrets are added, the Puppeteer worker will run automatically!
 You now have **8 autopilot systems** working together:
 
 ### 1. Master Orchestrator
+
 - **Frequency:** Every 30 minutes
 - **Purpose:** Coordinate all autopilots
 - **Status:** ✅ ACTIVE
 
 ### 2. Autonomous Netlify Deploy
+
 - **Frequency:** Every hour
 - **Purpose:** Deploy bridge to Netlify
 - **Status:** ✅ ACTIVE
 
 ### 3. Puppeteer Durable Worker ⭐ NEW
+
 - **Frequency:** Every 6 hours
 - **Purpose:** Integrate bridge with Durable
 - **Status:** ✅ ACTIVE (needs secrets)
 
 ### 4. Puppet Durable Integration
+
 - **Frequency:** Every 2 hours
 - **Purpose:** Generate integration code
 - **Status:** ✅ ACTIVE
 
 ### 5. Cheatsheet Autopilot
+
 - **Frequency:** Every 30 minutes
 - **Purpose:** Auto-push and auto-fix
 - **Status:** ✅ ACTIVE
 
 ### 6. Bridge Health Monitor
+
 - **Frequency:** Every 30 minutes
 - **Purpose:** Monitor bridge health
 - **Status:** ✅ ACTIVE
 
 ### 7. Self-Heal Monitor
+
 - **Frequency:** Every 5 minutes
 - **Purpose:** Fix issues immediately
 - **Status:** ✅ ACTIVE
 
 ### 8. Auto-Push Workflow
+
 - **Frequency:** Every 30 minutes
 - **Purpose:** Commit and push changes
 - **Status:** ✅ ACTIVE
@@ -197,6 +205,7 @@ Bridge is integrated automatically!
 **File:** `scripts/puppeteer-durable-integration.js`
 
 This is the automation script that:
+
 - Logs into Durable.co
 - Navigates the dashboard
 - Adds bridge code
@@ -207,6 +216,7 @@ This is the automation script that:
 **File:** `.github/workflows/puppeteer-durable-worker.yml`
 
 This workflow:
+
 - Runs every 6 hours
 - Executes the Puppeteer script
 - Uploads screenshots
@@ -218,6 +228,7 @@ This workflow:
 **File:** `.github/workflows/master-orchestrator.yml`
 
 Now includes:
+
 - Puppeteer worker trigger
 - Coordinates all 8 autopilots
 
@@ -249,6 +260,7 @@ gh workflow run puppeteer-durable-worker.yml
 **URL:** https://github.com/elevateforhumanity/fix2/actions
 
 **Look for:**
+
 - "Puppeteer Worker - Durable Integration"
 - Check run status
 - View logs
@@ -257,6 +269,7 @@ gh workflow run puppeteer-durable-worker.yml
 ### Workflow Artifacts
 
 Each run creates:
+
 - Screenshot of Durable dashboard
 - Integration status JSON
 - Detailed logs
@@ -266,6 +279,7 @@ Each run creates:
 ### Status Reports
 
 The worker creates:
+
 - `logs/durable-integration-status.json` - Status file
 - `logs/durable-integration-screenshot.png` - Screenshot
 - GitHub issue (if failed)
@@ -278,6 +292,7 @@ The worker creates:
 ### If Worker Fails
 
 The worker will:
+
 1. ✅ Create a GitHub issue
 2. ✅ Include screenshot
 3. ✅ Provide error details
@@ -287,15 +302,18 @@ The worker will:
 ### Common Issues
 
 **1. Credentials not set**
+
 - Add `DURABLE_EMAIL` and `DURABLE_PASSWORD` secrets
 - Verify they're correct
 
 **2. Durable UI changed**
+
 - Worker may need updates
 - Check screenshot to see what happened
 - Manual intervention may be needed
 
 **3. Integration already exists**
+
 - Worker will detect this
 - Won't duplicate code
 - Will verify and report success
@@ -325,10 +343,12 @@ Contains the exact code to copy-paste.
 ### What You Need To Do
 
 **ONE-TIME:**
+
 1. Add `DURABLE_EMAIL` secret to GitHub
 2. Add `DURABLE_PASSWORD` secret to GitHub
 
 **AFTER THAT:**
+
 - NOTHING! 🎉
 
 ### What Happens Automatically
@@ -345,15 +365,15 @@ Contains the exact code to copy-paste.
 
 ## 📅 Schedule
 
-| Autopilot | Frequency | Next Run |
-|-----------|-----------|----------|
-| Master Orchestrator | 30 min | In 30 min |
-| Netlify Deploy | 1 hour | In 1 hour |
+| Autopilot            | Frequency   | Next Run       |
+| -------------------- | ----------- | -------------- |
+| Master Orchestrator  | 30 min      | In 30 min      |
+| Netlify Deploy       | 1 hour      | In 1 hour      |
 | **Puppeteer Worker** | **6 hours** | **In 6 hours** |
-| Puppet Integration | 2 hours | In 2 hours |
-| Health Check | 30 min | In 30 min |
-| Auto-Push | 30 min | In 30 min |
-| Self-Heal | 5 min | In 5 min |
+| Puppet Integration   | 2 hours     | In 2 hours     |
+| Health Check         | 30 min      | In 30 min      |
+| Auto-Push            | 30 min      | In 30 min      |
+| Self-Heal            | 5 min       | In 5 min       |
 
 ---
 
@@ -432,6 +452,7 @@ All automatically, no human required!
 **ZERO MANUAL WORK!** 🎉
 
 The Puppeteer worker will:
+
 - Log into Durable automatically
 - Add bridge code automatically
 - Verify integration automatically
