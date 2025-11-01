@@ -27,6 +27,7 @@ gh secret set ANTHROPIC_API_KEY --body "YOUR_ANTHROPIC_KEY_HERE"
 ### Step 3: Verify Setup
 
 Once added, your GitHub secrets should have:
+
 - ✅ `OPENAI_API_KEY` (already set)
 - ✅ `ANTHROPIC_API_KEY` (just added)
 - ✅ `AUTOPILOT_TOKEN` (optional, for Durable Objects)
@@ -70,12 +71,14 @@ When you create a PR, you'll see **5 AI comments**:
 ## 🔧 Configuration Files
 
 Your AI workflows are here:
+
 - `.github/workflows/ai-agent-gpt4.yml` - GPT-4 agents
 - `.github/workflows/ai-agent-claude.yml` - Claude agents
 
 ## 📚 Full Documentation
 
 See `DUAL-AI-SYSTEM.md` for complete details on:
+
 - How the dual AI system works
 - Why use both GPT-4 and Claude
 - Example AI comments
@@ -85,11 +88,13 @@ See `DUAL-AI-SYSTEM.md` for complete details on:
 ## ⚠️ Troubleshooting
 
 **If workflows don't run:**
+
 1. Check API keys are set in GitHub secrets
 2. Verify workflows are on `main` branch: `ls .github/workflows/ai-agent-*.yml`
 3. Check workflow runs: https://github.com/elevateforhumanity/fix2/actions
 
 **If you see API errors:**
+
 - OpenAI: Check key starts with `sk-proj-...` or `sk-...`
 - Anthropic: Check key starts with `sk-ant-...`
 - Verify keys have sufficient credits
