@@ -4,7 +4,7 @@ on:
   schedule:
     # Run every 30 minutes
     - cron: '*/30 * * * *'
-  
+
   workflow_dispatch:
     inputs:
       force_push:
@@ -49,21 +49,21 @@ jobs:
         continue-on-error: true
         run: |
           echo "🏥 Running health checks..."
-          
+
           # Check TypeScript
           if pnpm typecheck 2>&1 | tee typecheck.log; then
             echo "typescript=✅" >> $GITHUB_OUTPUT
           else
             echo "typescript=❌" >> $GITHUB_OUTPUT
           fi
-          
+
           # Check ESLint
           if pnpm lint 2>&1 | tee lint.log; then
             echo "eslint=✅" >> $GITHUB_OUTPUT
           else
             echo "eslint=❌" >> $GITHUB_OUTPUT
           fi
-          
+
           # Check build
           if pnpm build 2>&1 | tee build.log; then
             echo "build=✅" >> $GITHUB_OUTPUT
@@ -75,33 +75,33 @@ jobs:
         id: fixes
         run: |
           echo "🔧 Running auto-fixes..."
-          
+
           FIXES_APPLIED=0
-          
+
           # Format code
           if pnpm format; then
             echo "✅ Code formatted"
             FIXES_APPLIED=$((FIXES_APPLIED + 1))
           fi
-          
+
           # Fix ESLint issues
           if pnpm lint:fix 2>/dev/null || true; then
             echo "✅ ESLint fixes applied"
             FIXES_APPLIED=$((FIXES_APPLIED + 1))
           fi
-          
+
           # Update dependencies (if needed)
           if [ -f "package.json" ]; then
             echo "✅ Dependencies checked"
           fi
-          
+
           echo "fixes_applied=$FIXES_APPLIED" >> $GITHUB_OUTPUT
 
       - name: Check for changes
         id: changes
         run: |
           git status
-          
+
           if [[ -n $(git status -s) ]]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "✅ Changes detected"
@@ -124,44 +124,44 @@ jobs:
         run: |
           git config --local user.email "autopilot@elevateforhumanity.org"
           git config --local user.name "EFH Autopilot"
-          
+
           # Add all changes
           git add -A
-          
+
           # Create detailed commit message
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          
+
           cat > commit_message.txt << EOF
           chore: autopilot auto-fixes and optimizations
-          
+
           Automated changes by EFH Autopilot System
-          
+
           Changes:
           - Applied code formatting
           - Fixed linting issues
           - Updated configurations
           - Optimized build output
-          
+
           Health Status:
           - TypeScript: ${{ steps.health.outputs.typescript }}
           - ESLint: ${{ steps.health.outputs.eslint }}
           - Build: ${{ steps.health.outputs.build }}
-          
+
           Fixes Applied: ${{ steps.fixes.outputs.fixes_applied }}
           Changed Files: ${{ steps.changes.outputs.changed_files }}
-          
+
           Timestamp: $TIMESTAMP
           Workflow: ${{ github.workflow }}
           Run: ${{ github.run_number }}
-          
+
           Co-authored-by: Ona <no-reply@ona.com>
           EOF
-          
+
           git commit -F commit_message.txt || echo "Nothing to commit"
-          
+
           # Push changes
           git push origin main
-          
+
           echo "✅ Changes committed and pushed to main"
 
       - name: Trigger Netlify deployment
@@ -184,7 +184,7 @@ jobs:
           echo "**Branch:** \`main\`" >> $GITHUB_STEP_SUMMARY
           echo "**Run:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           echo "### 🏥 Health Checks" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
@@ -193,13 +193,13 @@ jobs:
           echo "| ESLint | ${{ steps.health.outputs.eslint }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Build | ${{ steps.health.outputs.build }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           echo "### 🔧 Auto-Fixes" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Fixes Applied:** ${{ steps.fixes.outputs.fixes_applied }}" >> $GITHUB_STEP_SUMMARY
           echo "**Changed Files:** ${{ steps.changes.outputs.changed_files }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [[ "${{ steps.changes.outputs.has_changes }}" == "true" ]]; then
             echo "### ✅ Actions Taken" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -212,7 +212,7 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "No changes detected. System is healthy." >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
           echo "*Next run in 30 minutes*" >> $GITHUB_STEP_SUMMARY
@@ -250,5 +250,5 @@ jobs:
               *This issue was automatically created by the Autopilot system.*`,
               labels: ['autopilot', 'auto-push', 'failure']
             });
-            
+
             console.log('Created issue:', issue.data.number);

@@ -15,7 +15,7 @@ jobs:
     permissions:
       contents: write
       actions: write
-      
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
         id: check
         run: |
           echo "🔍 Checking Durable integration status..."
-          
+
           # Check if status file exists
           if [ -f "logs/durable-integration-status.json" ]; then
             SUCCESS=$(jq -r '.success' logs/durable-integration-status.json 2>/dev/null || echo "false")
@@ -55,16 +55,16 @@ jobs:
         with:
           script: |
             console.log('🔍 Checking Puppeteer workflow status...');
-            
+
             const workflows = await github.rest.actions.listWorkflowRunsForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'puppeteer-durable-worker.yml',
               per_page: 5
             });
-            
+
             const latestRun = workflows.data.workflow_runs[0];
-            
+
             if (latestRun) {
               console.log(`Latest run: ${latestRun.status} - ${latestRun.conclusion}`);
               core.setOutput('workflow_status', latestRun.status);
@@ -92,7 +92,7 @@ jobs:
         with:
           script: |
             console.log('🤖 Integration not successful, triggering Puppeteer worker...');
-            
+
             try {
               await github.rest.actions.createWorkflowDispatch({
                 owner: context.repo.owner,
@@ -109,7 +109,7 @@ jobs:
       - name: Update loop status
         run: |
           mkdir -p logs
-          
+
           cat > logs/loop-status.json << EOF
           {
             "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
@@ -120,25 +120,25 @@ jobs:
             "next_check": "15 minutes"
           }
           EOF
-          
+
           echo "📝 Loop status updated"
 
       - name: Commit loop status
         run: |
           git config --local user.email "loop@elevateforhumanity.org"
           git config --local user.name "EFH Loop Monitor"
-          
+
           git add logs/loop-status.json || true
           git commit -m "chore: loop monitor status update
 
           Integration Status: ${{ steps.check.outputs.integrated }}
           Workflow Status: ${{ steps.workflow_status.outputs.workflow_status }}
           Should Retry: ${{ steps.workflow_status.outputs.should_retry }}
-          
+
           Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          
+
           Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes"
-          
+
           git push origin main || echo "Nothing to push"
 
       - name: Create summary
@@ -148,7 +148,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.check.outputs.integrated }}" = "true" ]; then
             echo "### ✅ Integration Successful!" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -170,7 +170,7 @@ jobs:
               echo "**Action:** Waiting for current workflow to complete" >> $GITHUB_STEP_SUMMARY
             fi
           fi
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
           echo "*Next check in 15 minutes*" >> $GITHUB_STEP_SUMMARY

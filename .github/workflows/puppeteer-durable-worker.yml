@@ -11,7 +11,7 @@ on:
         required: false
         default: 'false'
   workflow_run:
-    workflows: ["Puppeteer Worker - Durable Integration"]
+    workflows: ['Puppeteer Worker - Durable Integration']
     types:
       - completed
 
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
         run: |
           echo "🤖 Starting Puppeteer Worker for Durable Integration..."
           echo ""
-          
+
           chmod +x scripts/puppeteer-durable-integration.js
           node scripts/puppeteer-durable-integration.js || echo "Integration attempted"
 
@@ -86,7 +86,7 @@ jobs:
         run: |
           git config --local user.email "puppeteer@elevateforhumanity.org"
           git config --local user.name "EFH Puppeteer Worker"
-          
+
           git add logs/durable-integration-status.json || true
           git commit -m "chore: puppeteer worker completed Durable integration
 
@@ -94,12 +94,12 @@ jobs:
           - Logged into Durable.co
           - Added bridge script to head section
           - Verified integration on site
-          
+
           Status: ✅ SUCCESS
           Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          
+
           Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes"
-          
+
           git push origin main || echo "Nothing to push"
 
       - name: Create summary
@@ -109,7 +109,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.status.outputs.success }}" = "true" ]; then
             echo "### ✅ Integration Successful" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -135,7 +135,7 @@ jobs:
             echo "2. Review screenshot artifact" >> $GITHUB_STEP_SUMMARY
             echo "3. Add code manually if needed (see PUPPET_DURABLE_INTEGRATION.html)" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
           echo "*Next puppeteer run in 6 hours*" >> $GITHUB_STEP_SUMMARY
@@ -151,7 +151,7 @@ jobs:
               state: 'open',
               labels: 'puppeteer-worker,durable-integration'
             });
-            
+
             if (issues.data.length === 0) {
               await github.rest.issues.create({
                 owner: context.repo.owner,
@@ -221,7 +221,7 @@ jobs:
               state: 'open',
               labels: 'puppeteer-worker,durable-integration'
             });
-            
+
             for (const issue of issues.data) {
               await github.rest.issues.update({
                 owner: context.repo.owner,
@@ -244,7 +244,7 @@ jobs:
         with:
           script: |
             console.log('⚠️ Integration failed, scheduling retry...');
-            
+
             // Wait 30 minutes then trigger again
             setTimeout(async () => {
               try {
@@ -265,17 +265,17 @@ jobs:
         run: |
           # Track retry attempts
           RETRY_FILE="logs/puppeteer-retry-count.txt"
-          
+
           if [ -f "$RETRY_FILE" ]; then
             RETRY_COUNT=$(cat "$RETRY_FILE")
             RETRY_COUNT=$((RETRY_COUNT + 1))
           else
             RETRY_COUNT=1
           fi
-          
+
           echo "$RETRY_COUNT" > "$RETRY_FILE"
           echo "📊 Retry attempt: $RETRY_COUNT"
-          
+
           # Commit retry count
           git config --local user.email "puppeteer@elevateforhumanity.org"
           git config --local user.name "EFH Puppeteer Worker"

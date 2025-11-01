@@ -7,10 +7,8 @@ on:
       - 'supabase/migrations/**'
       - '.github/workflows/supabase-autopilot.yml'
       - 'scripts/autopilot_migrate.sh'
-  # DISABLED: Scheduled health checks cause migration conflicts
-  # Only run when migrations are actually changed or manually triggered
-  # schedule:
-  #   - cron: '*/30 * * * *'
+  schedule:
+    - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
       force_reapply:

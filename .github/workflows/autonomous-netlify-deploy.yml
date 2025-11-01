@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,9 +36,9 @@ jobs:
         run: |
           echo "🔨 Building project with bridge files..."
           pnpm build
-          
+
           echo "✅ Build complete"
-          
+
           # Verify bridge files exist
           if [ -f "dist/efh-bridge.js" ]; then
             echo "✅ Bridge script found in dist/"
@@ -47,7 +47,7 @@ jobs:
             echo "❌ Bridge script missing from dist/"
             exit 1
           fi
-          
+
           if [ -f "dist/api/efh-config.json" ]; then
             echo "✅ Bridge config found in dist/"
             ls -lh dist/api/efh-config.json
@@ -80,11 +80,11 @@ jobs:
         id: verify
         run: |
           echo "🔍 Verifying bridge endpoints..."
-          
+
           # Check bridge script
           BRIDGE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://elevateforhumanityfix2.netlify.app/efh-bridge.js)
           echo "Bridge script status: $BRIDGE_STATUS"
-          
+
           if [ "$BRIDGE_STATUS" = "200" ]; then
             echo "✅ Bridge script is accessible"
             echo "bridge_ok=true" >> $GITHUB_OUTPUT
@@ -92,11 +92,11 @@ jobs:
             echo "❌ Bridge script returned $BRIDGE_STATUS"
             echo "bridge_ok=false" >> $GITHUB_OUTPUT
           fi
-          
+
           # Check config
           CONFIG_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://elevateforhumanityfix2.netlify.app/api/efh-config.json)
           echo "Config status: $CONFIG_STATUS"
-          
+
           if [ "$CONFIG_STATUS" = "200" ]; then
             echo "✅ Config is accessible"
             echo "config_ok=true" >> $GITHUB_OUTPUT
@@ -104,7 +104,7 @@ jobs:
             echo "❌ Config returned $CONFIG_STATUS"
             echo "config_ok=false" >> $GITHUB_OUTPUT
           fi
-          
+
           # Overall status
           if [ "$BRIDGE_STATUS" = "200" ] && [ "$CONFIG_STATUS" = "200" ]; then
             echo "status=success" >> $GITHUB_OUTPUT
@@ -120,23 +120,23 @@ jobs:
         run: |
           cat > AUTONOMOUS_DURABLE_INTEGRATION.md << 'EOF'
           # Autonomous Durable Integration - READY
-          
+
           **Status:** ✅ Bridge deployed and verified
           **Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          
+
           ## 🤖 Autopilot Has Deployed Your Bridge
-          
+
           The bridge is now live and ready to integrate with www.elevateforhumanity.org
-          
+
           ### Bridge Endpoints (LIVE)
-          
+
           - **Script:** https://elevateforhumanityfix2.netlify.app/efh-bridge.js ✅
           - **Config:** https://elevateforhumanityfix2.netlify.app/api/efh-config.json ✅
-          
+
           ### Integration Code for Durable
-          
+
           Add this to your Durable.co site Custom Code section:
-          
+
           ```html
           <script
             src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
@@ -145,9 +145,9 @@ jobs:
             defer
           ></script>
           ```
-          
+
           Add these slots to your Durable pages:
-          
+
           ```html
           <div data-efh-slot="hero"></div>
           <div data-efh-slot="programs"></div>
@@ -155,20 +155,20 @@ jobs:
           <div data-efh-slot="testimonials"></div>
           <div data-efh-slot="cta"></div>
           ```
-          
+
           ## 🔄 Automatic Updates
-          
+
           The autopilot will:
           - Deploy updates every hour
           - Monitor bridge health every 30 minutes
           - Auto-heal if issues detected
           - Push content changes automatically
-          
+
           **You don't need to do anything else!**
-          
+
           Just add the code to Durable once, and the autopilot handles everything.
           EOF
-          
+
           echo "✅ Integration instructions created"
 
       - name: Commit integration instructions
@@ -176,19 +176,19 @@ jobs:
         run: |
           git config --local user.email "autopilot@elevateforhumanity.org"
           git config --local user.name "EFH Autopilot"
-          
+
           git add AUTONOMOUS_DURABLE_INTEGRATION.md || true
           git commit -m "chore: autonomous bridge deployment verified
 
           Bridge endpoints verified and accessible:
           - efh-bridge.js: ✅ HTTP 200
           - efh-config.json: ✅ HTTP 200
-          
+
           Deployment: #${{ github.run_number }}
           Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          
+
           Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes to commit"
-          
+
           git push origin main || echo "Nothing to push"
 
       - name: Create deployment summary
@@ -199,7 +199,7 @@ jobs:
           echo "**Run:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.verify.outputs.status }}" = "success" ]; then
             echo "### ✅ Deployment Successful" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -219,7 +219,7 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "Bridge endpoints not accessible. Will retry on next run." >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
           echo "*Next autonomous deploy in 1 hour*" >> $GITHUB_STEP_SUMMARY
