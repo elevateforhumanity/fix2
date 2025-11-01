@@ -23,12 +23,24 @@
   const ORG = currentScript?.getAttribute('data-efh-org') || 'efh';
   const ENV = currentScript?.getAttribute('data-env') || 'prod';
 
-  // Determine BASE_URL from script source or use GitHub Pages as default
+  // Determine BASE_URL from script source - auto-detect deployment location
   const scriptSrc = currentScript?.src || '';
-  const BASE_URL = scriptSrc.includes('github.io')
-    ? 'https://elevateforhumanity.github.io/fix2'
-    : currentScript?.getAttribute('data-base-url') ||
-      'https://elevateforhumanity.github.io/fix2';
+  let BASE_URL;
+  
+  if (scriptSrc.includes('github.io')) {
+    // GitHub Pages deployment
+    BASE_URL = 'https://elevateforhumanity.github.io/fix2';
+  } else if (scriptSrc.includes('netlify.app')) {
+    // Netlify deployment - extract base URL from script source
+    const url = new URL(scriptSrc);
+    BASE_URL = `${url.protocol}//${url.host}`;
+  } else if (currentScript?.getAttribute('data-base-url')) {
+    // Manual override via attribute
+    BASE_URL = currentScript.getAttribute('data-base-url');
+  } else {
+    // Default fallback
+    BASE_URL = 'https://elevateforhumanity.github.io/fix2';
+  }
 
   // Configuration endpoint
   const configUrl = `${BASE_URL}/api/efh-config.json?org=${ORG}&env=${ENV}&t=${Date.now()}`;
