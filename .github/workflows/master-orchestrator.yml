@@ -92,6 +92,23 @@ jobs:
               console.log('⚠️ Could not trigger (may already be running):', error.message);
             }
 
+      - name: Trigger Puppeteer Durable Worker
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('🤖 Triggering Puppeteer Durable Worker...');
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'puppeteer-durable-worker.yml',
+                ref: 'main'
+              });
+              console.log('✅ Puppeteer Durable Worker triggered');
+            } catch (error) {
+              console.log('⚠️ Could not trigger (may already be running):', error.message);
+            }
+
       - name: Create orchestration summary
         run: |
           cat > MASTER_ORCHESTRATOR_STATUS.md << 'EOF'

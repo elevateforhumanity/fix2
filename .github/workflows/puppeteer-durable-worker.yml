@@ -1,0 +1,224 @@
+name: Puppeteer Worker - Durable Integration
+
+on:
+  schedule:
+    # Run every 6 hours to check and update Durable integration
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_integration:
+        description: 'Force Durable integration'
+        required: false
+        default: 'false'
+
+jobs:
+  puppeteer-integration:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g puppeteer
+          npm install puppeteer
+
+      - name: Create logs directory
+        run: mkdir -p logs
+
+      - name: Run Puppeteer Durable Integration
+        env:
+          DURABLE_EMAIL: ${{ secrets.DURABLE_EMAIL }}
+          DURABLE_PASSWORD: ${{ secrets.DURABLE_PASSWORD }}
+        run: |
+          echo "🤖 Starting Puppeteer Worker for Durable Integration..."
+          echo ""
+          
+          chmod +x scripts/puppeteer-durable-integration.js
+          node scripts/puppeteer-durable-integration.js || echo "Integration attempted"
+
+      - name: Upload screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: durable-integration-screenshot-${{ github.run_number }}
+          path: logs/durable-integration-screenshot.png
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Read integration status
+        id: status
+        run: |
+          if [ -f "logs/durable-integration-status.json" ]; then
+            SUCCESS=$(jq -r '.success' logs/durable-integration-status.json)
+            echo "success=$SUCCESS" >> $GITHUB_OUTPUT
+            echo "✅ Status file found"
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Status file not found"
+          fi
+
+      - name: Commit integration status
+        if: steps.status.outputs.success == 'true'
+        run: |
+          git config --local user.email "puppeteer@elevateforhumanity.org"
+          git config --local user.name "EFH Puppeteer Worker"
+          
+          git add logs/durable-integration-status.json || true
+          git commit -m "chore: puppeteer worker completed Durable integration
+
+          🤖 Puppeteer Worker Actions:
+          - Logged into Durable.co
+          - Added bridge script to head section
+          - Verified integration on site
+          
+          Status: ✅ SUCCESS
+          Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes"
+          
+          git push origin main || echo "Nothing to push"
+
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## 🤖 Puppeteer Worker - Durable Integration" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.status.outputs.success }}" = "true" ]; then
+            echo "### ✅ Integration Successful" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Puppeteer worker successfully:" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Logged into Durable.co" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Added bridge script to head section" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Saved changes" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Verified integration on site" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Bridge is now integrated with www.elevateforhumanity.org!**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ⚠️ Integration Incomplete" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Puppeteer worker attempted integration but some steps may require manual intervention." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Possible reasons:**" >> $GITHUB_STEP_SUMMARY
+            echo "- Durable.co UI changed" >> $GITHUB_STEP_SUMMARY
+            echo "- Credentials not set or incorrect" >> $GITHUB_STEP_SUMMARY
+            echo "- Site structure different than expected" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Manual steps:**" >> $GITHUB_STEP_SUMMARY
+            echo "1. Check workflow logs for details" >> $GITHUB_STEP_SUMMARY
+            echo "2. Review screenshot artifact" >> $GITHUB_STEP_SUMMARY
+            echo "3. Add code manually if needed (see PUPPET_DURABLE_INTEGRATION.html)" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Next puppeteer run in 6 hours*" >> $GITHUB_STEP_SUMMARY
+
+      - name: Create issue if failed
+        if: steps.status.outputs.success == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'puppeteer-worker,durable-integration'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🤖 Puppeteer Worker: Durable Integration Incomplete',
+                body: `## Puppeteer Worker Status
+                
+                The Puppeteer worker attempted to integrate the bridge with Durable.co but was unable to complete all steps automatically.
+                
+                **Timestamp:** ${new Date().toISOString()}
+                
+                ### What the Worker Tried
+                
+                1. Login to Durable.co
+                2. Navigate to site settings
+                3. Find Custom Code section
+                4. Add bridge script to head
+                5. Save changes
+                6. Verify integration
+                
+                ### Manual Steps Required
+                
+                Please add this code to Durable.co manually:
+                
+                **Location:** Settings → Custom Code → Head Section
+                
+                \`\`\`html
+                <script
+                  src="https://elevateforhumanityfix2.netlify.app/efh-bridge.js"
+                  data-efh-org="elevate-for-humanity"
+                  data-env="prod"
+                  defer
+                ></script>
+                \`\`\`
+                
+                **Then add content slots to pages:**
+                
+                \`\`\`html
+                <div data-efh-slot="hero"></div>
+                <div data-efh-slot="programs"></div>
+                <div data-efh-slot="features"></div>
+                <div data-efh-slot="testimonials"></div>
+                <div data-efh-slot="cta"></div>
+                \`\`\`
+                
+                ### Troubleshooting
+                
+                - Check workflow logs: [Run #${{ github.run_number }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                - Review screenshot artifact
+                - Verify Durable credentials are set correctly
+                
+                ---
+                
+                *This issue was created by Puppeteer Worker and will auto-close when integration succeeds.*`,
+                labels: ['puppeteer-worker', 'durable-integration', 'manual-intervention']
+              });
+            }
+
+      - name: Close issue if successful
+        if: steps.status.outputs.success == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'puppeteer-worker,durable-integration'
+            });
+            
+            for (const issue of issues.data) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '✅ Puppeteer worker successfully integrated bridge with Durable.co. Closing this issue.'
+              });
+            }
