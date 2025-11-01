@@ -53,7 +53,10 @@ export default defineConfig({
           mkdirSync('dist/api', { recursive: true });
           copyFileSync('public/efh-bridge.js', 'dist/efh-bridge.js');
           copyFileSync('public/inject-bridge.js', 'dist/inject-bridge.js');
-          copyFileSync('public/auto-inject-bridge.html', 'dist/auto-inject-bridge.html');
+          copyFileSync(
+            'public/auto-inject-bridge.html',
+            'dist/auto-inject-bridge.html'
+          );
           copyFileSync(
             'public/api/efh-config.json',
             'dist/api/efh-config.json'
