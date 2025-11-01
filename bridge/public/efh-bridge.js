@@ -26,7 +26,7 @@
   // Determine BASE_URL from script source - auto-detect deployment location
   const scriptSrc = currentScript?.src || '';
   let BASE_URL;
-  
+
   if (scriptSrc.includes('github.io')) {
     // GitHub Pages deployment
     BASE_URL = 'https://elevateforhumanity.github.io/fix2';
