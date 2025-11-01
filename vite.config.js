@@ -52,11 +52,13 @@ export default defineConfig({
         try {
           mkdirSync('dist/api', { recursive: true });
           copyFileSync('public/efh-bridge.js', 'dist/efh-bridge.js');
+          copyFileSync('public/inject-bridge.js', 'dist/inject-bridge.js');
+          copyFileSync('public/auto-inject-bridge.html', 'dist/auto-inject-bridge.html');
           copyFileSync(
             'public/api/efh-config.json',
             'dist/api/efh-config.json'
           );
-          console.log('✅ Bridge files copied to dist/');
+          console.log('✅ All bridge files copied to dist/');
         } catch (err) {
           console.error('⚠️ Failed to copy bridge files:', err.message);
         }
