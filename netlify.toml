@@ -179,10 +179,12 @@
   to = "/.netlify/functions/courses"
   status = 200
 
+# SPA redirect - exclude static API files
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = {path = "!/api/*.json"}
 
 [[headers]]
   for = "/assets/*"
