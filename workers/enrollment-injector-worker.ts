@@ -6,6 +6,7 @@
  *
  * DEPLOYMENT: This runs at the CDN edge, before Durable.co even sees the request.
  * AUTOPILOT: Fully autonomous - no manual intervention required.
+ * STATUS: Ready for deployment via GitHub Actions
  */
 
 const ENROLLMENT_HTML = `
