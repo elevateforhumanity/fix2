@@ -7,6 +7,7 @@
 ## Orchestrated Workflows
 
 ### 1. Autonomous Netlify Deploy
+
 - **Status:** ✅ Triggered
 - **Frequency:** Every hour
 - **Actions:**
@@ -16,6 +17,7 @@
   - Generate integration code
 
 ### 2. Puppet Durable Integration
+
 - **Status:** ✅ Triggered
 - **Frequency:** Every 2 hours
 - **Actions:**
@@ -25,6 +27,7 @@
   - Monitor integration status
 
 ### 3. Bridge Health Check
+
 - **Status:** ✅ Triggered
 - **Frequency:** Every 30 minutes
 - **Actions:**
@@ -34,6 +37,7 @@
   - Alert on failures
 
 ### 4. Auto-Push Workflow
+
 - **Status:** ✅ Active
 - **Frequency:** Every 30 minutes
 - **Actions:**
@@ -43,6 +47,7 @@
   - Trigger deployments
 
 ### 5. Self-Heal Monitor
+
 - **Status:** ✅ Active
 - **Frequency:** Every 5 minutes
 - **Actions:**
@@ -65,14 +70,14 @@ The Master Orchestrator ensures:
 
 ## Schedule
 
-| Workflow | Frequency | Next Run |
-|----------|-----------|----------|
-| Master Orchestrator | 30 min | In 30 min |
-| Netlify Deploy | 1 hour | In 1 hour |
-| Puppet Integration | 2 hours | In 2 hours |
-| Bridge Health | 30 min | In 30 min |
-| Auto-Push | 30 min | In 30 min |
-| Self-Heal | 5 min | In 5 min |
+| Workflow            | Frequency | Next Run   |
+| ------------------- | --------- | ---------- |
+| Master Orchestrator | 30 min    | In 30 min  |
+| Netlify Deploy      | 1 hour    | In 1 hour  |
+| Puppet Integration  | 2 hours   | In 2 hours |
+| Bridge Health       | 30 min    | In 30 min  |
+| Auto-Push           | 30 min    | In 30 min  |
+| Self-Heal           | 5 min     | In 5 min   |
 
 ## What You Need To Do
 
