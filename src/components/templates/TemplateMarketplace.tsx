@@ -17,7 +17,8 @@ const templates: Template[] = [
     id: 'trade-school',
     name: 'Trade School Template',
     category: 'trade',
-    description: 'Perfect for barber schools, HVAC training, and electrical programs',
+    description:
+      'Perfect for barber schools, HVAC training, and electrical programs',
     preview: '🔧',
     programs: ['Barber', 'HVAC', 'Electrician'],
     courses: 15,
@@ -50,7 +51,8 @@ const templates: Template[] = [
     id: 'business',
     name: 'Business School',
     category: 'business',
-    description: 'Professional template for business and entrepreneurship programs',
+    description:
+      'Professional template for business and entrepreneurship programs',
     preview: '💼',
     programs: ['Entrepreneurship', 'Marketing', 'Management'],
     courses: 10,
@@ -81,7 +83,9 @@ const categories = [
 
 export const TemplateMarketplace: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(
+    null
+  );
   const [isInstalling, setIsInstalling] = useState(false);
 
   const filteredTemplates =
@@ -108,13 +112,14 @@ export const TemplateMarketplace: React.FC = () => {
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Template Marketplace</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Template Marketplace
+          </h1>
           <p className="text-gray-600">
             Choose a professional template to get started in minutes
           </p>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Category Filter */}
         <div className="mb-8">
@@ -135,7 +140,6 @@ export const TemplateMarketplace: React.FC = () => {
             ))}
           </div>
         </div>
-
         {/* Template Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTemplates.map((template) => (
@@ -148,20 +152,21 @@ export const TemplateMarketplace: React.FC = () => {
               <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                 <div className="text-8xl">{template.preview}</div>
               </div>
-
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-gray-900">{template.name}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {template.name}
+                  </h3>
                   {template.featured && (
                     <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded">
                       ⭐ Featured
                     </span>
                   )}
                 </div>
-
-                <p className="text-gray-600 text-sm mb-4">{template.description}</p>
-
+                <p className="text-gray-600 text-sm mb-4">
+                  {template.description}
+                </p>
                 <div className="space-y-2 text-sm text-gray-700">
                   <div className="flex items-center">
                     <span className="font-medium mr-2">📚 Programs:</span>
@@ -176,7 +181,6 @@ export const TemplateMarketplace: React.FC = () => {
                     <span>{template.pages.length}</span>
                   </div>
                 </div>
-
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -190,22 +194,24 @@ export const TemplateMarketplace: React.FC = () => {
             </div>
           ))}
         </div>
-
         {filteredTemplates.length === 0 && (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🔍</div>
-            <p className="text-xl text-gray-600">No templates found in this category</p>
+            <p className="text-xl text-gray-600">
+              No templates found in this category
+            </p>
           </div>
         )}
       </div>
-
       {/* Template Detail Modal */}
       {selectedTemplate && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">{selectedTemplate.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                {selectedTemplate.name}
+              </h2>
               <button
                 onClick={() => setSelectedTemplate(null)}
                 className="text-gray-500 hover:text-gray-700 text-2xl"
@@ -213,44 +219,49 @@ export const TemplateMarketplace: React.FC = () => {
                 ✕
               </button>
             </div>
-
             {/* Modal Content */}
             <div className="p-6">
               {/* Preview */}
               <div className="h-64 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center mb-6">
                 <div className="text-9xl">{selectedTemplate.preview}</div>
               </div>
-
               {/* Description */}
               <div className="mb-6">
                 <h3 className="font-semibold text-lg mb-2">Description</h3>
                 <p className="text-gray-600">{selectedTemplate.description}</p>
               </div>
-
               {/* Included Programs */}
               <div className="mb-6">
-                <h3 className="font-semibold text-lg mb-3">Included Programs</h3>
+                <h3 className="font-semibold text-lg mb-3">
+                  Included Programs
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {selectedTemplate.programs.map((program, index) => (
-                    <div key={index} className="p-3 bg-blue-50 rounded-lg text-center">
+                    <div
+                      key={index}
+                      className="p-3 bg-blue-50 rounded-lg text-center"
+                    >
                       <div className="font-medium text-blue-900">{program}</div>
                     </div>
                   ))}
                 </div>
               </div>
-
               {/* Included Pages */}
               <div className="mb-6">
                 <h3 className="font-semibold text-lg mb-3">Included Pages</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {selectedTemplate.pages.map((page, index) => (
-                    <div key={index} className="p-3 bg-gray-50 rounded-lg text-center">
-                      <div className="text-sm font-medium text-gray-700">{page}</div>
+                    <div
+                      key={index}
+                      className="p-3 bg-gray-50 rounded-lg text-center"
+                    >
+                      <div className="text-sm font-medium text-gray-700">
+                        {page}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
-
               {/* Features */}
               <div className="mb-6">
                 <h3 className="font-semibold text-lg mb-3">What's Included</h3>
@@ -265,7 +276,8 @@ export const TemplateMarketplace: React.FC = () => {
                   </li>
                   <li className="flex items-center text-gray-700">
                     <span className="mr-2">✅</span>
-                    {selectedTemplate.pages.length} professionally designed pages
+                    {selectedTemplate.pages.length} professionally designed
+                    pages
                   </li>
                   <li className="flex items-center text-gray-700">
                     <span className="mr-2">✅</span>
@@ -281,7 +293,6 @@ export const TemplateMarketplace: React.FC = () => {
                   </li>
                 </ul>
               </div>
-
               {/* Install Button */}
               <button
                 onClick={() => handleInstall(selectedTemplate)}
@@ -297,9 +308,9 @@ export const TemplateMarketplace: React.FC = () => {
                   '🚀 Install This Template'
                 )}
               </button>
-
               <p className="text-sm text-gray-500 text-center mt-4">
-                Installation takes about 30 seconds. You can customize everything after installation.
+                Installation takes about 30 seconds. You can customize
+                everything after installation.
               </p>
             </div>
           </div>

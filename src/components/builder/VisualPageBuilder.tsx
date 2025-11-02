@@ -32,9 +32,21 @@ const componentLibrary = [
     defaultContent: {
       title: 'Our Features',
       features: [
-        { icon: '📚', title: 'Expert Training', description: 'Learn from industry professionals' },
-        { icon: '💼', title: 'Job Placement', description: '92% placement rate' },
-        { icon: '📱', title: 'Mobile Learning', description: 'Learn anywhere, anytime' },
+        {
+          icon: '📚',
+          title: 'Expert Training',
+          description: 'Learn from industry professionals',
+        },
+        {
+          icon: '💼',
+          title: 'Job Placement',
+          description: '92% placement rate',
+        },
+        {
+          icon: '📱',
+          title: 'Mobile Learning',
+          description: 'Learn anywhere, anytime',
+        },
       ],
     },
   },
@@ -68,7 +80,9 @@ export const VisualPageBuilder: React.FC = () => {
     title: 'New Page',
     components: [],
   });
-  const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
+  const [selectedComponent, setSelectedComponent] = useState<string | null>(
+    null
+  );
   const [isDragging, setIsDragging] = useState(false);
   const [showComponentLibrary, setShowComponentLibrary] = useState(true);
 
@@ -111,7 +125,8 @@ export const VisualPageBuilder: React.FC = () => {
       const index = prev.components.findIndex((c) => c.id === id);
       if (index === -1) return prev;
       if (direction === 'up' && index === 0) return prev;
-      if (direction === 'down' && index === prev.components.length - 1) return prev;
+      if (direction === 'down' && index === prev.components.length - 1)
+        return prev;
 
       const newComponents = [...prev.components];
       const targetIndex = direction === 'up' ? index - 1 : index + 1;
@@ -136,7 +151,9 @@ export const VisualPageBuilder: React.FC = () => {
             }`}
             onClick={() => setSelectedComponent(component.id)}
           >
-            <h1 className="text-5xl font-bold mb-4">{component.content.title}</h1>
+            <h1 className="text-5xl font-bold mb-4">
+              {component.content.title}
+            </h1>
             <p className="text-xl mb-8">{component.content.subtitle}</p>
             <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
               {component.content.ctaText}
@@ -150,12 +167,16 @@ export const VisualPageBuilder: React.FC = () => {
             className={`relative p-12 ${isSelected ? 'ring-4 ring-blue-500 rounded-lg' : ''}`}
             onClick={() => setSelectedComponent(component.id)}
           >
-            <h2 className="text-3xl font-bold text-center mb-12">{component.content.title}</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              {component.content.title}
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {component.content.features.map((feature: any, index: number) => (
                 <div key={index} className="text-center">
                   <div className="text-5xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
@@ -171,8 +192,12 @@ export const VisualPageBuilder: React.FC = () => {
             }`}
             onClick={() => setSelectedComponent(component.id)}
           >
-            <h2 className="text-3xl font-bold mb-4">{component.content.title}</h2>
-            <p className="text-xl text-gray-600 mb-8">{component.content.description}</p>
+            <h2 className="text-3xl font-bold mb-4">
+              {component.content.title}
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              {component.content.description}
+            </p>
             <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
               {component.content.buttonText}
             </button>
@@ -190,10 +215,12 @@ export const VisualPageBuilder: React.FC = () => {
             <div className="text-4xl text-blue-600 mb-4">"</div>
             <p className="text-lg italic mb-6">{component.content.quote}</p>
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+              <div className="w-12 h-12 bg-gray-300 rounded-full mr-4" />
               <div>
                 <div className="font-semibold">{component.content.author}</div>
-                <div className="text-sm text-gray-600">{component.content.role}</div>
+                <div className="text-sm text-gray-600">
+                  {component.content.role}
+                </div>
               </div>
             </div>
           </div>
@@ -221,7 +248,6 @@ export const VisualPageBuilder: React.FC = () => {
             ✕
           </button>
         </div>
-
         <div className="space-y-4">
           {Object.entries(component.content).map(([key, value]) => {
             if (typeof value === 'string') {
@@ -235,7 +261,10 @@ export const VisualPageBuilder: React.FC = () => {
                     value={value}
                     onChange={(e) =>
                       updateComponent(component.id, {
-                        content: { ...component.content, [key]: e.target.value },
+                        content: {
+                          ...component.content,
+                          [key]: e.target.value,
+                        },
                       })
                     }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -245,7 +274,6 @@ export const VisualPageBuilder: React.FC = () => {
             }
             return null;
           })}
-
           <div className="pt-4 border-t border-gray-200 space-y-2">
             <button
               onClick={() => moveComponent(component.id, 'up')}
@@ -274,12 +302,13 @@ export const VisualPageBuilder: React.FC = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Component Library Sidebar */}
-      <div className={`w-64 bg-white border-r border-gray-200 overflow-y-auto ${showComponentLibrary ? '' : 'hidden'}`}>
+      <div
+        className={`w-64 bg-white border-r border-gray-200 overflow-y-auto ${showComponentLibrary ? '' : 'hidden'}`}
+      >
         <div className="p-4 border-b border-gray-200">
           <h2 className="font-semibold text-lg">Components</h2>
           <p className="text-sm text-gray-600">Drag or click to add</p>
         </div>
-
         <div className="p-4 space-y-2">
           {componentLibrary.map((component) => (
             <button
@@ -293,7 +322,6 @@ export const VisualPageBuilder: React.FC = () => {
           ))}
         </div>
       </div>
-
       {/* Canvas */}
       <div className="flex-1 overflow-y-auto p-8">
         <div className="max-w-5xl mx-auto">
@@ -314,7 +342,6 @@ export const VisualPageBuilder: React.FC = () => {
                 placeholder="Page Title"
               />
             </div>
-
             <div className="flex items-center space-x-2">
               <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
                 💾 Save Draft
@@ -324,14 +351,15 @@ export const VisualPageBuilder: React.FC = () => {
               </button>
             </div>
           </div>
-
           {/* Page Canvas */}
           <div className="bg-white rounded-lg shadow-lg min-h-screen p-8">
             {page.components.length === 0 ? (
               <div className="text-center py-20 text-gray-400">
                 <div className="text-6xl mb-4">📄</div>
                 <p className="text-lg">Your page is empty</p>
-                <p className="text-sm">Add components from the sidebar to get started</p>
+                <p className="text-sm">
+                  Add components from the sidebar to get started
+                </p>
               </div>
             ) : (
               <div className="space-y-6">
@@ -345,7 +373,6 @@ export const VisualPageBuilder: React.FC = () => {
           </div>
         </div>
       </div>
-
       {/* Properties Panel */}
       {selectedComponent && (
         <div className="w-80 bg-white border-l border-gray-200 overflow-y-auto">
