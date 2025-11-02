@@ -158,6 +158,179 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      {/* ENROLLMENT PROGRAMS SECTION */}
+      <section
+        style={{
+          marginTop: 48,
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          padding: 48,
+          borderRadius: 16,
+          color: '#fff',
+          textAlign: 'center',
+        }}
+      >
+        <h2 style={{ fontSize: 32, marginBottom: 16, color: '#fff' }}>
+          🎓 Enroll in Our Programs Today
+        </h2>
+        <p
+          style={{
+            fontSize: 18,
+            marginBottom: 32,
+            maxWidth: 700,
+            margin: '0 auto 32px',
+          }}
+        >
+          Transform your career with our DOL-compliant workforce training
+          programs. Federal funding available for eligible participants.
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 24,
+            marginBottom: 32,
+          }}
+        >
+          <div
+            style={{
+              background: 'rgba(255,255,255,0.15)',
+              padding: 24,
+              borderRadius: 12,
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <div style={{ fontSize: 40, marginBottom: 12 }}>💻</div>
+            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
+              AI & Machine Learning
+            </h3>
+            <p style={{ fontSize: 14, marginBottom: 16 }}>
+              12-week intensive program with industry certifications
+            </p>
+            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
+              $1,997
+            </div>
+            <div style={{ fontSize: 12, marginBottom: 16 }}>
+              89% job placement rate
+            </div>
+            <Link
+              to="/programs"
+              style={{
+                background: '#fff',
+                color: '#667eea',
+                padding: '10px 20px',
+                borderRadius: 8,
+                fontWeight: 'bold',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}
+            >
+              Enroll Now
+            </Link>
+          </div>
+          <div
+            style={{
+              background: 'rgba(255,255,255,0.15)',
+              padding: 24,
+              borderRadius: 12,
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <div style={{ fontSize: 40, marginBottom: 12 }}>📊</div>
+            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
+              Data Science Bootcamp
+            </h3>
+            <p style={{ fontSize: 14, marginBottom: 16 }}>
+              16-week comprehensive analytics training
+            </p>
+            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
+              $4,950
+            </div>
+            <div style={{ fontSize: 12, marginBottom: 16 }}>
+              92% job placement rate
+            </div>
+            <Link
+              to="/programs"
+              style={{
+                background: '#fff',
+                color: '#667eea',
+                padding: '10px 20px',
+                borderRadius: 8,
+                fontWeight: 'bold',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}
+            >
+              Enroll Now
+            </Link>
+          </div>
+          <div
+            style={{
+              background: 'rgba(255,255,255,0.15)',
+              padding: 24,
+              borderRadius: 12,
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <div style={{ fontSize: 40, marginBottom: 12 }}>🔒</div>
+            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
+              Cybersecurity Specialist
+            </h3>
+            <p style={{ fontSize: 14, marginBottom: 16 }}>
+              20-week certification program
+            </p>
+            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
+              $3,495
+            </div>
+            <div style={{ fontSize: 12, marginBottom: 16 }}>
+              95% job placement rate
+            </div>
+            <Link
+              to="/programs"
+              style={{
+                background: '#fff',
+                color: '#667eea',
+                padding: '10px 20px',
+                borderRadius: 8,
+                fontWeight: 'bold',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}
+            >
+              Enroll Now
+            </Link>
+          </div>
+        </div>
+        <div style={{ marginTop: 32 }}>
+          <Link
+            to="/programs"
+            style={{
+              background: '#fff',
+              color: '#667eea',
+              padding: '16px 32px',
+              borderRadius: 8,
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              fontSize: 18,
+              display: 'inline-block',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+            }}
+          >
+            View All 50+ Programs →
+          </Link>
+        </div>
+        <div
+          style={{
+            marginTop: 32,
+            padding: 16,
+            background: 'rgba(255,255,255,0.1)',
+            borderRadius: 8,
+            fontSize: 14,
+          }}
+        >
+          ✅ Federal Funding Available | ✅ DOL Compliant | ✅ Industry
+          Certifications
+        </div>
+      </section>
       <section style={{ marginTop: 32, textAlign: 'center' }}>
         <h2>Contact Us</h2>
         <p>

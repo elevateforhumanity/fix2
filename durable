@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Durable Autopilot Runner
+# Simple command: ./durable [method]
+
+METHOD=${1:-workers}
+
+echo "🤖 Starting Durable Autopilot..."
+echo "   Method: $METHOD"
+echo ""
+
+# Check if credentials are set
+if [ -z "$DURABLE_EMAIL" ] || [ -z "$DURABLE_PASSWORD" ]; then
+    echo "⚠️  Credentials not set in environment"
+    echo ""
+    echo "Using default credentials from script..."
+    echo "Email: Elevateforhumanity@gmail.com"
+    echo ""
+fi
+
+# Run the appropriate autopilot
+case $METHOD in
+  workers)
+    echo "Using Workers + Custom HTML + DNS approach..."
+    node durable-workers-autopilot.js
+    ;;
+  regenerate)
+    echo "Using AI Regenerate approach..."
+    node durable-regenerate-autopilot.js
+    ;;
+  ai)
+    echo "Using AI Assistant approach..."
+    node durable-ai-autopilot.js
+    ;;
+  manual)
+    echo "Using manual HTML injection approach..."
+    node durable-autopilot.js
+    ;;
+  *)
+    echo "Unknown method: $METHOD"
+    echo ""
+    echo "Usage: ./durable [method]"
+    echo ""
+    echo "Methods:"
+    echo "  workers     - Use Durable Workers + Custom HTML (default)"
+    echo "  regenerate  - Use AI Regenerate feature"
+    echo "  ai          - Use AI Assistant"
+    echo "  manual      - Manual HTML injection"
+    echo ""
+    exit 1
+    ;;
+esac
+
