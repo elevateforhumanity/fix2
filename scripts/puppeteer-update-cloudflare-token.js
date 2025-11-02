@@ -19,16 +19,14 @@ const TOKEN_NAME = 'EFH Autopilot Durable Objects';
 const REQUIRED_PERMISSIONS = {
   Account: {
     'Account Settings': 'Read',
+    'Workers Scripts': 'Edit',
+    'Workers KV Storage': 'Edit',
   },
   User: {
     'User Details': 'Read',
   },
   Zone: {
     'Workers Routes': 'Edit',
-  },
-  Account: {
-    'Workers Scripts': 'Edit',
-    'Workers KV Storage': 'Edit',
   },
 };
 
