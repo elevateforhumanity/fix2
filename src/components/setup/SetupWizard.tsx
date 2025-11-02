@@ -45,11 +45,36 @@ const steps: WizardStep[] = [
 ];
 
 const trainingTypes = [
-  { value: 'trade', label: 'Trade Skills', icon: '🔧', programs: ['Barber', 'HVAC', 'Electrician'] },
-  { value: 'healthcare', label: 'Healthcare', icon: '🏥', programs: ['CNA', 'Medical Assistant', 'Phlebotomy'] },
-  { value: 'technology', label: 'Technology', icon: '💻', programs: ['Web Development', 'Cybersecurity', 'Data Science'] },
-  { value: 'business', label: 'Business', icon: '💼', programs: ['Entrepreneurship', 'Marketing', 'Management'] },
-  { value: 'government', label: 'Government/WIOA', icon: '🏛️', programs: ['Apprenticeships', 'Job Training', 'Upskilling'] },
+  {
+    value: 'trade',
+    label: 'Trade Skills',
+    icon: '🔧',
+    programs: ['Barber', 'HVAC', 'Electrician'],
+  },
+  {
+    value: 'healthcare',
+    label: 'Healthcare',
+    icon: '🏥',
+    programs: ['CNA', 'Medical Assistant', 'Phlebotomy'],
+  },
+  {
+    value: 'technology',
+    label: 'Technology',
+    icon: '💻',
+    programs: ['Web Development', 'Cybersecurity', 'Data Science'],
+  },
+  {
+    value: 'business',
+    label: 'Business',
+    icon: '💼',
+    programs: ['Entrepreneurship', 'Marketing', 'Management'],
+  },
+  {
+    value: 'government',
+    label: 'Government/WIOA',
+    icon: '🏛️',
+    programs: ['Apprenticeships', 'Job Training', 'Upskilling'],
+  },
 ];
 
 const audienceOptions = [
@@ -92,7 +117,7 @@ export const SetupWizard: React.FC = () => {
     try {
       // Generate organization setup
       await generateOrganization(setupData);
-      
+
       // Redirect to dashboard
       setTimeout(() => {
         navigate('/admin/dashboard');
@@ -151,7 +176,9 @@ export const SetupWizard: React.FC = () => {
                     }`}
                   >
                     <div className="text-4xl mb-2">{type.icon}</div>
-                    <div className="font-semibold text-lg mb-1">{type.label}</div>
+                    <div className="font-semibold text-lg mb-1">
+                      {type.label}
+                    </div>
                     <div className="text-sm text-gray-600">
                       {type.programs.join(', ')}
                     </div>
@@ -159,7 +186,6 @@ export const SetupWizard: React.FC = () => {
                 ))}
               </div>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 How many programs will you offer?
@@ -196,7 +222,9 @@ export const SetupWizard: React.FC = () => {
                       onChange={(e) => {
                         const newAudience = e.target.checked
                           ? [...setupData.targetAudience, option.value]
-                          : setupData.targetAudience.filter((a) => a !== option.value);
+                          : setupData.targetAudience.filter(
+                              (a) => a !== option.value
+                            );
                         updateData('targetAudience', newAudience);
                       }}
                       className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
@@ -235,7 +263,6 @@ export const SetupWizard: React.FC = () => {
                 </label>
               </div>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Primary Color (Optional)
@@ -266,24 +293,31 @@ export const SetupWizard: React.FC = () => {
                 <div>
                   <dt className="text-sm text-gray-600">Training Type</dt>
                   <dd className="font-medium">
-                    {trainingTypes.find((t) => t.value === setupData.trainingType)?.label}
+                    {
+                      trainingTypes.find(
+                        (t) => t.value === setupData.trainingType
+                      )?.label
+                    }
                   </dd>
                 </div>
                 <div>
                   <dt className="text-sm text-gray-600">Program Count</dt>
-                  <dd className="font-medium">{setupData.programCount} programs</dd>
+                  <dd className="font-medium">
+                    {setupData.programCount} programs
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-sm text-gray-600">Target Audience</dt>
                   <dd className="font-medium">
                     {setupData.targetAudience
-                      .map((a) => audienceOptions.find((o) => o.value === a)?.label)
+                      .map(
+                        (a) => audienceOptions.find((o) => o.value === a)?.label
+                      )
                       .join(', ')}
                   </dd>
                 </div>
               </dl>
             </div>
-
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
               <h4 className="font-semibold mb-2">What we'll create for you:</h4>
               <ul className="space-y-2 text-sm text-gray-700">
@@ -295,11 +329,12 @@ export const SetupWizard: React.FC = () => {
                 <li>✅ Sample certificates</li>
               </ul>
             </div>
-
             {isGenerating && (
               <div className="text-center py-8">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                <p className="mt-4 text-gray-600">Generating your platform...</p>
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
+                <p className="mt-4 text-gray-600">
+                  Generating your platform...
+                </p>
               </div>
             )}
           </div>
@@ -351,7 +386,6 @@ export const SetupWizard: React.FC = () => {
             </span>
           </div>
         </div>
-
         {/* Main Card */}
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="mb-8">
@@ -360,9 +394,7 @@ export const SetupWizard: React.FC = () => {
             </h2>
             <p className="text-gray-600">{steps[currentStep].description}</p>
           </div>
-
           {renderStepContent()}
-
           {/* Navigation Buttons */}
           <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
             <button
@@ -372,7 +404,6 @@ export const SetupWizard: React.FC = () => {
             >
               Back
             </button>
-
             {currentStep === steps.length - 1 ? (
               <button
                 onClick={handleComplete}
@@ -392,10 +423,12 @@ export const SetupWizard: React.FC = () => {
             )}
           </div>
         </div>
-
         {/* Help Text */}
         <div className="mt-6 text-center text-sm text-gray-600">
-          Need help? <a href="/support" className="text-blue-600 hover:underline">Contact Support</a>
+          Need help?{' '}
+          <a href="/support" className="text-blue-600 hover:underline">
+            Contact Support
+          </a>
         </div>
       </div>
     </div>
