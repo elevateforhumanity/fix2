@@ -6,12 +6,17 @@ echo "📦 Copying bridge files to dist..."
 # Ensure dist exists
 mkdir -p dist
 
-# Copy bridge files
+# Copy bridge files from public/
 cp public/inject-bridge.js dist/ 2>/dev/null || echo "⚠️  inject-bridge.js not found"
 cp public/auto-inject-bridge.html dist/ 2>/dev/null || echo "⚠️  auto-inject-bridge.html not found"
+cp public/efh-bridge.js dist/ 2>/dev/null || echo "ℹ️  efh-bridge.js not in public"
 
-# Copy efh-bridge.js if it exists
-cp public/efh-bridge.js dist/ 2>/dev/null || echo "ℹ️  efh-bridge.js not in public (may be in bridge/)"
+# Copy ALL files from bridge/public/ to dist/
+if [ -d "bridge/public" ]; then
+  echo "📦 Copying files from bridge/public/ to dist/..."
+  cp bridge/public/* dist/ 2>/dev/null || echo "⚠️  No files in bridge/public/"
+  echo "✅ Bridge files copied from bridge/public/"
+fi
 
 echo "✅ Bridge files copied to dist"
-ls -la dist/ | grep -E "(inject|efh-bridge)" || echo "No bridge files found in dist"
+ls -la dist/ | grep -E "(inject|efh-bridge|enrollment)" || echo "No bridge files found in dist"
