@@ -1,5 +1,6 @@
 # Cloudflare Worker: Enrollment Injector
 # This worker intercepts ALL traffic to elevateforhumanity.org at the DNS/CDN level
+# Autopilot: Fully autonomous deployment via GitHub Actions
 
 name = "enrollment-injector"
 main = "workers/enrollment-injector-worker.ts"
