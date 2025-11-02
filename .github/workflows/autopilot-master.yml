@@ -65,7 +65,16 @@ jobs:
           post_bridge "/enqueue security_audit"
           post_bridge "/enqueue compliance_report"
 
+          # Cloudflare Worker Deployment
+          post_bridge "/enqueue cloudflare_worker_deploy"
+          post_bridge "/enqueue check_autopilot_tasks"
+
           echo "✅ Tasks enqueued"
+
+      - name: Check autopilot tasks
+        run: |
+          echo "🤖 Checking .autopilot-tasks directory..."
+          node scripts/autopilot-check-tasks.cjs || echo "⚠️ Task check failed"
 
       - name: Process task queue
         run: |

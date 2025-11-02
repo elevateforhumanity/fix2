@@ -74,12 +74,16 @@
     "bridge_deploy": true,
     "durable_integration": true,
     "auto_verify": true,
+    "cloudflare_deploy": true,
     "orders": {
       "deploy_bridge_to_netlify": "every_hour",
       "verify_bridge_endpoints": "every_30_minutes",
       "generate_durable_code": "every_2_hours",
       "monitor_integration": "continuous",
-      "self_heal_on_failure": "immediate"
+      "self_heal_on_failure": "immediate",
+      "check_autopilot_tasks": "every_10_minutes",
+      "deploy_cloudflare_worker": "pending_token",
+      "update_api_tokens": "as_needed"
     }
   },
   "deployment_targets": {
