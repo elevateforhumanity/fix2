@@ -220,6 +220,39 @@ When conversation is cleared, Ona should:
 
 ---
 
+## Additional Critical Principles:
+
+### From Later in Conversation:
+
+**"If an autopilot cant do a task update the autopilot or use the autopilot to instruct the worker"**
+- Don't say "autopilot can't do this"
+- Either UPDATE the autopilot with new capability
+- Or USE autopilot to INSTRUCT worker to do it
+
+**"If we dont have scripts always create what we need"**
+- Never say "we don't have a script for this"
+- CREATE THE SCRIPT immediately
+- Don't ask, don't wait, just CREATE IT
+
+**"If the console log fails always fix the problem and try again"**
+- Command fails? → FIX IT
+- Then TRY AGAIN
+- Keep fixing until SUCCESS
+- Never stop at failure
+
+**"Run workers without no limitation until successful jobs"**
+- NO max attempts
+- NO timeouts
+- NO giving up
+- RUN UNTIL SUCCESS
+
+**"Before deployments go to netlify verify they will be successful do a healthcheck if there are errors fix than deploy"**
+- NEVER deploy without verification
+- Run health checks FIRST
+- If errors found → FIX THEM
+- Verify again → THEN deploy
+- Only deploy when healthy
+
 ## Key Quotes from User:
 
 > "Can't you use the key or the autopilot or the autopilot to guide the worker i asked you to think strategically"

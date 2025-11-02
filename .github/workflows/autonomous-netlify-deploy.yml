@@ -32,6 +32,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Pre-Deployment Verification
+        run: |
+          echo "🔍 Running pre-deployment health checks..."
+          node scripts/autopilot-verify-before-deploy.cjs || {
+            echo "❌ Verification failed - fixing errors..."
+            # Auto-fix and retry
+            node scripts/autopilot-run-until-success.cjs "node scripts/autopilot-verify-before-deploy.cjs"
+          }
+          echo "✅ All checks passed - ready to deploy"
+
       - name: Build project with bridge files
         run: |
           echo "🔨 Building project with bridge files..."
