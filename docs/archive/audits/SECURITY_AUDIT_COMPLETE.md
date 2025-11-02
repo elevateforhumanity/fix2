@@ -143,7 +143,7 @@ Content-Security-Policy:
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com;
   img-src 'self' data: https:;
-  connect-src 'self' https://*.supabase.co https://elevateforhumanity.onrender.com https://api.stripe.com;
+  connect-src 'self' https://*.supabase.co https://elevateforhumanity.org https://api.stripe.com;
   frame-src https://js.stripe.com;
   object-src 'none';
   base-uri 'self';

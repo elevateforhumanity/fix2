@@ -218,7 +218,7 @@ VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 - `elevateforhumanity.org` (primary)
 - `elevateforhumanity.com` (redirects to .org)
 - `elevateforhumanity.pages.dev` (Cloudflare Pages?)
-- `elevateforhumanity.onrender.com` (backend API)
+- `elevateforhumanity.org` (backend API)
 
 **Impact:** SEO confusion, broken links  
 **Fix:** Standardize on single primary domain

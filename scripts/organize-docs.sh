@@ -23,10 +23,10 @@ move_files() {
     local destination=$2
     local count=0
     
-    for file in $pattern 2>/dev/null; do
-        if [ -f "$file" ]; then
-            mv "$file" "$destination/"
-            ((count++))
+    for file in $pattern; do
+        if [ -f "$file" ] 2>/dev/null; then
+            mv "$file" "$destination/" 2>/dev/null || true
+            count=$((count + 1))
         fi
     done
     

@@ -124,7 +124,7 @@ const Pg_AnalyticsDashboardRUM = React.lazy(
 
 1. ✅ **Durable Blog API** - Removed failing API call (404 error)
 2. ✅ **Static Blog URLs** - Replaced with internal navigation
-3. ✅ **Old Deployment URL** - Updated from onrender.com to elevateforhumanity.org
+3. ✅ **Old Deployment URL** - Updated from netlify.app to elevateforhumanity.org
 
 #### High Priority Fixes (4)
 

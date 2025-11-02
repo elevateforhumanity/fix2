@@ -79,7 +79,7 @@ VITE_APP_VERSION=2.0.0
 
 - ❌ → ✅ Durable blog API (404 error) - Removed
 - ❌ → ✅ Static blog URLs - Replaced with internal navigation
-- ❌ → ✅ Old deployment URL (onrender.com) - Updated to .org
+- ❌ → ✅ Old deployment URL (netlify.app) - Updated to .org
 - ⚠️ → ✅ Cloudflare Worker placeholders - Now use environment variables
 - ⚠️ → ✅ Social media placeholders - Updated to actual profiles
 - ⚠️ → ✅ Partner websites - Updated with real partners

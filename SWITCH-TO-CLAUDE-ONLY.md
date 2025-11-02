@@ -3,6 +3,7 @@
 ## Why Claude Only?
 
 **Most Intelligent & Real-World Analysis:**
+
 - ✅ More honest (admits uncertainty, doesn't hallucinate)
 - ✅ Better at catching real bugs (not fake ones)
 - ✅ Deeper architectural understanding
@@ -61,11 +62,11 @@ gh pr create --title "Test: Claude AI Agents" --body "Testing Claude-only setup"
 
 ## Cost Comparison
 
-| Setup | Agents | Cost/PR | Quality |
-|-------|--------|---------|---------|
-| GPT-4 Only | 3 | $0.07 | Good |
-| Claude Only | 2 | $0.05 | **Excellent** |
-| Both | 5 | $0.12 | Good (redundant) |
+| Setup       | Agents | Cost/PR | Quality          |
+| ----------- | ------ | ------- | ---------------- |
+| GPT-4 Only  | 3      | $0.07   | Good             |
+| Claude Only | 2      | $0.05   | **Excellent**    |
+| Both        | 5      | $0.12   | Good (redundant) |
 
 **Claude-only = Best quality at lowest cost** ✅
 
@@ -74,24 +75,28 @@ gh pr create --title "Test: Claude AI Agents" --body "Testing Claude-only setup"
 **Same Code, Different Analysis:**
 
 **GPT-4 Says:**
+
 > "Consider adding error handling here. You might want to use try-catch. Also, this could be refactored for better readability. Consider using async/await..."
 
-*(Generic, obvious, not specific)*
+_(Generic, obvious, not specific)_
 
 **Claude Says:**
+
 > "Line 47: This authentication check has a race condition. If two requests arrive simultaneously, both could pass the check before the token is invalidated. Use a distributed lock or atomic operation. Example: `await redis.set('lock:' + userId, '1', 'NX', 'EX', 5)`"
 
-*(Specific, actionable, catches real bug)*
+_(Specific, actionable, catches real bug)_
 
 ## Why Not Both?
 
 **Redundancy Issues:**
+
 - Both AIs often find the same issues
 - Creates noise (10 comments instead of 5)
 - Wastes time reading duplicate feedback
 - Higher cost for minimal benefit
 
 **Claude alone gives you:**
+
 - Highest quality analysis
 - Most actionable feedback
 - Lowest cost

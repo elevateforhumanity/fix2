@@ -114,12 +114,12 @@ Comprehensive audit of environment variables and external URLs has been complete
 - `https://elevateforhumanity.org` - Primary domain ✅
 - `https://www.elevateforhumanity.org` - WWW subdomain ✅
 - `https://elevateforhumanity.com` - ⚠️ Should redirect to .org
-- `https://elevateforhumanity.onrender.com` - ❌ Old deployment, should be removed
+- `https://elevateforhumanity.org` - ❌ Old deployment, should be removed
 
 **Action Required:**
 
 - Set up redirect from .com to .org
-- Remove references to onrender.com
+- Remove references to netlify.app
 
 #### API Endpoints (9)
 
@@ -236,7 +236,7 @@ Comprehensive audit of environment variables and external URLs has been complete
    - Action: Remove or implement actual blog posts
 
 3. ❌ **Old Deployment URL** - Should be removed
-   - URL: elevateforhumanity.onrender.com
+   - URL: elevateforhumanity.org
    - Action: Remove all references
 
 ### High Priority (Should Fix)
@@ -375,7 +375,7 @@ bash scripts/verify-env-vars.sh
 3. ✅ **Remove Broken Links**
    - Remove Durable blog API call
    - Remove static blog post URLs
-   - Remove onrender.com references
+   - Remove netlify.app references
 
 ### High Priority
 

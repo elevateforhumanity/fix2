@@ -28,7 +28,7 @@ STEP 2: RENDER (BACKEND) - 10 minutes
 
 [ ] 1. Generate JWT secret:
        node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-[ ] 2. Go to dashboard.render.com
+[ ] 2. Go to app.netlify.com
 [ ] 3. Sign in with GitHub
 [ ] 4. Click "New +" → "Web Service"
 [ ] 5. Connect repository: elevateforhumanity/fix2
@@ -101,7 +101,7 @@ DEPLOYMENT COMPLETE! 🎉
 
 Your LMS is live at:
   Frontend: https://elevateforhumanity.pages.dev
-  Backend:  https://efh-lms-backend.onrender.com
+  Backend:  https://elevateforhumanity.org
   Database: Supabase (managed)
 
 Cost: $0/month (free tier)

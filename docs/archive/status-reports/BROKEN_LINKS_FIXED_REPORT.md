@@ -84,7 +84,7 @@ const blogs = [];
 
 ```javascript
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'https://elevateforhumanity.onrender.com';
+  import.meta.env.VITE_API_URL || 'https://elevateforhumanity.org';
 ```
 
 **After:**
