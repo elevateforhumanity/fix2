@@ -2,12 +2,12 @@
 
 /**
  * AUTOPILOT: CHECK AND EXECUTE PENDING TASKS
- * 
+ *
  * This script:
  * 1. Checks .autopilot-tasks/ directory for pending tasks
  * 2. Executes tasks that are ready
  * 3. Updates task status
- * 
+ *
  * Runs automatically via autopilot-master workflow every 15 minutes
  */
 
@@ -27,7 +27,7 @@ if (!fs.existsSync(tasksDir)) {
 }
 
 // Read all task files
-const taskFiles = fs.readdirSync(tasksDir).filter(f => f.endsWith('.json'));
+const taskFiles = fs.readdirSync(tasksDir).filter((f) => f.endsWith('.json'));
 
 if (taskFiles.length === 0) {
   console.log('✅ No pending tasks found');
@@ -40,7 +40,7 @@ console.log(`📋 Found ${taskFiles.length} task(s):\n`);
 let tasksExecuted = 0;
 let tasksFailed = 0;
 
-taskFiles.forEach(taskFile => {
+taskFiles.forEach((taskFile) => {
   const taskPath = path.join(tasksDir, taskFile);
   const task = JSON.parse(fs.readFileSync(taskPath, 'utf8'));
 
@@ -65,31 +65,32 @@ taskFiles.forEach(taskFile => {
       // Execute the task based on type
       if (task.task_type === 'deployment' && task.required_action.script) {
         const script = path.join(__dirname, '..', task.required_action.script);
-        
+
         if (fs.existsSync(script)) {
           console.log(`   Running: ${task.required_action.script}`);
-          
+
           // Check if we have the required token
           const envPath = path.join(__dirname, '..', '.env');
           if (fs.existsSync(envPath)) {
             const envContent = fs.readFileSync(envPath, 'utf8');
-            const hasToken = envContent.includes('CLOUDFLARE_API_TOKEN=') && 
-                           !envContent.includes('CLOUDFLARE_API_TOKEN=your-token');
-            
+            const hasToken =
+              envContent.includes('CLOUDFLARE_API_TOKEN=') &&
+              !envContent.includes('CLOUDFLARE_API_TOKEN=your-token');
+
             if (hasToken) {
               const output = execSync(`node ${script}`, {
                 cwd: path.join(__dirname, '..'),
                 encoding: 'utf8',
-                stdio: 'pipe'
+                stdio: 'pipe',
               });
-              
+
               console.log(output);
-              
+
               // Update task status
               task.status = 'COMPLETED';
               task.completed_at = new Date().toISOString();
               fs.writeFileSync(taskPath, JSON.stringify(task, null, 2));
-              
+
               console.log('   ✅ Task completed successfully\n');
               tasksExecuted++;
             } else {
@@ -104,13 +105,13 @@ taskFiles.forEach(taskFile => {
       }
     } catch (error) {
       console.log(`   ❌ Task failed: ${error.message}\n`);
-      
+
       // Update task status
       task.status = 'FAILED';
       task.error = error.message;
       task.failed_at = new Date().toISOString();
       fs.writeFileSync(taskPath, JSON.stringify(task, null, 2));
-      
+
       tasksFailed++;
     }
   } else {
@@ -121,7 +122,9 @@ taskFiles.forEach(taskFile => {
 console.log('=====================================');
 console.log(`✅ Tasks executed: ${tasksExecuted}`);
 console.log(`❌ Tasks failed: ${tasksFailed}`);
-console.log(`⏳ Tasks pending: ${taskFiles.length - tasksExecuted - tasksFailed}`);
+console.log(
+  `⏳ Tasks pending: ${taskFiles.length - tasksExecuted - tasksFailed}`
+);
 console.log('');
 
 if (tasksExecuted > 0) {

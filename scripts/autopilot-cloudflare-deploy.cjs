@@ -2,7 +2,7 @@
 
 /**
  * AUTOPILOT: Cloudflare Worker Deployment
- * 
+ *
  * This script uses the autopilot system to deploy the enrollment injector worker
  * to Cloudflare. It reads credentials from environment variables and executes
  * the deployment autonomously.
@@ -17,7 +17,8 @@ console.log('==========================================\n');
 
 // Check for Cloudflare credentials
 const CLOUDFLARE_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
-const CLOUDFLARE_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || '6ba1d2a52a3fa230972960db307ac7c0';
+const CLOUDFLARE_ACCOUNT_ID =
+  process.env.CLOUDFLARE_ACCOUNT_ID || '6ba1d2a52a3fa230972960db307ac7c0';
 
 if (!CLOUDFLARE_API_TOKEN) {
   console.log('❌ CLOUDFLARE_API_TOKEN not found in environment');
@@ -29,9 +30,13 @@ if (!CLOUDFLARE_API_TOKEN) {
   console.log('   export CLOUDFLARE_API_TOKEN="your_token_here"');
   console.log('');
   console.log('2. Or run with the token:');
-  console.log('   CLOUDFLARE_API_TOKEN="your_token" node scripts/autopilot-cloudflare-deploy.js');
+  console.log(
+    '   CLOUDFLARE_API_TOKEN="your_token" node scripts/autopilot-cloudflare-deploy.js'
+  );
   console.log('');
-  console.log('Get your token from: https://dash.cloudflare.com/profile/api-tokens');
+  console.log(
+    'Get your token from: https://dash.cloudflare.com/profile/api-tokens'
+  );
   process.exit(1);
 }
 
@@ -43,14 +48,16 @@ console.log('');
 const steps = [
   {
     name: 'Validate Worker Configuration',
-    command: 'wrangler deploy --config wrangler-enrollment.toml --env production --dry-run',
-    description: 'Checking worker configuration and syntax'
+    command:
+      'wrangler deploy --config wrangler-enrollment.toml --env production --dry-run',
+    description: 'Checking worker configuration and syntax',
   },
   {
     name: 'Deploy Worker to Cloudflare',
-    command: 'wrangler deploy --config wrangler-enrollment.toml --env production',
-    description: 'Deploying enrollment injector to Cloudflare edge network'
-  }
+    command:
+      'wrangler deploy --config wrangler-enrollment.toml --env production',
+    description: 'Deploying enrollment injector to Cloudflare edge network',
+  },
 ];
 
 let deploymentSuccess = false;
@@ -69,10 +76,10 @@ for (let i = 0; i < steps.length; i++) {
       env: {
         ...process.env,
         CLOUDFLARE_API_TOKEN,
-        CLOUDFLARE_ACCOUNT_ID
+        CLOUDFLARE_ACCOUNT_ID,
       },
       encoding: 'utf8',
-      stdio: 'pipe'
+      stdio: 'pipe',
     });
 
     console.log(output);
@@ -94,21 +101,27 @@ for (let i = 0; i < steps.length; i++) {
     console.log('Error output:');
     console.log(error.stdout || error.message);
     console.log('');
-    
+
     // Provide helpful error messages
     if (error.message.includes('Authentication')) {
       console.log('💡 The API token appears to be invalid or expired.');
-      console.log('   Get a new token from: https://dash.cloudflare.com/profile/api-tokens');
+      console.log(
+        '   Get a new token from: https://dash.cloudflare.com/profile/api-tokens'
+      );
     } else if (error.message.includes('permission')) {
-      console.log('💡 The API token doesn\'t have the required permissions.');
+      console.log("💡 The API token doesn't have the required permissions.");
       console.log('   Required permissions:');
       console.log('   - Account > Cloudflare Workers Scripts > Edit');
       console.log('   - Zone > Workers Routes > Edit');
     } else if (error.message.includes('zone')) {
-      console.log('💡 The domain might not be configured in your Cloudflare account.');
-      console.log('   Make sure elevateforhumanity.org is added to your Cloudflare account.');
+      console.log(
+        '💡 The domain might not be configured in your Cloudflare account.'
+      );
+      console.log(
+        '   Make sure elevateforhumanity.org is added to your Cloudflare account.'
+      );
     }
-    
+
     process.exit(1);
   }
 }
@@ -118,12 +131,12 @@ if (deploymentSuccess) {
   console.log('');
   console.log('🎉 AUTOPILOT DEPLOYMENT COMPLETE!');
   console.log('=================================\n');
-  
+
   if (workerUrl) {
     console.log('🌐 Worker URL:', workerUrl);
     console.log('');
   }
-  
+
   console.log('✅ Deployment Status: SUCCESS');
   console.log('✅ Worker Name: enrollment-injector');
   console.log('✅ Environment: production');
@@ -142,26 +155,28 @@ if (deploymentSuccess) {
   console.log('   5. Add route: elevateforhumanity.org/*');
   console.log('   6. Select worker: enrollment-injector');
   console.log('');
-  console.log('🚀 Once routes are configured, the autopilot will run autonomously!');
+  console.log(
+    '🚀 Once routes are configured, the autopilot will run autonomously!'
+  );
   console.log('');
-  
+
   // Update autopilot config
   try {
     const configPath = path.join(__dirname, '..', '.autopilot-config.json');
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    
+
     if (!config.deployment_targets) {
       config.deployment_targets = {};
     }
-    
+
     config.deployment_targets.cloudflare = {
       worker_name: 'enrollment-injector',
       worker_url: workerUrl,
       deployed_at: new Date().toISOString(),
       status: 'active',
-      auto_deploy: true
+      auto_deploy: true,
     };
-    
+
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     console.log('✅ Autopilot configuration updated');
   } catch (error) {

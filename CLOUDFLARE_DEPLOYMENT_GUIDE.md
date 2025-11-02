@@ -44,6 +44,7 @@ wrangler deploy --config wrangler-enrollment.toml --env production
 ### Step 3: Check the Output
 
 The command will show you:
+
 - ✅ If successful: Worker URL (e.g., `https://enrollment-injector.your-subdomain.workers.dev`)
 - ❌ If failed: The actual error message
 
@@ -96,6 +97,7 @@ Once deployed and routes are configured:
 If you see an error during manual deployment, share the error message and I can help troubleshoot.
 
 The most common issues are:
+
 - **"Authentication error"** - Token is invalid or expired
 - **"Insufficient permissions"** - Token doesn't have Workers Scripts Edit permission
 - **"Zone not found"** - Domain isn't added to your Cloudflare account

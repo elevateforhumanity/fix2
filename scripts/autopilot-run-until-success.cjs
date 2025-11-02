@@ -2,12 +2,12 @@
 
 /**
  * AUTOPILOT: RUN UNTIL SUCCESS - NO LIMITATIONS
- * 
+ *
  * This script runs a command/worker until it succeeds.
  * NO max attempts, NO timeouts, NO giving up.
- * 
+ *
  * Usage: node scripts/autopilot-run-until-success.cjs <command>
- * 
+ *
  * Example: node scripts/autopilot-run-until-success.cjs "npm run build"
  */
 
@@ -42,7 +42,7 @@ while (!success) {
     const output = execSync(command, {
       cwd: path.join(__dirname, '..'),
       encoding: 'utf8',
-      stdio: 'pipe'
+      stdio: 'pipe',
     });
 
     console.log(output);
@@ -50,17 +50,16 @@ while (!success) {
     console.log('─────────────────────────────────────');
     console.log(`\n🎉 Job completed successfully after ${attempt} attempt(s)`);
     success = true;
-
   } catch (error) {
     lastError = error;
     console.log('❌ FAILED\n');
-    
+
     if (error.stdout) {
       console.log('Output:');
       console.log(error.stdout);
       console.log('');
     }
-    
+
     if (error.stderr) {
       console.log('Error:');
       console.log(error.stderr);
@@ -73,15 +72,17 @@ while (!success) {
     let fixed = false;
 
     // Check for missing dependencies
-    if (error.message.includes('Cannot find module') || 
-        error.message.includes('MODULE_NOT_FOUND')) {
+    if (
+      error.message.includes('Cannot find module') ||
+      error.message.includes('MODULE_NOT_FOUND')
+    ) {
       console.log('💡 Detected: Missing dependency');
       console.log('🔧 Fixing: Installing dependencies...\n');
-      
+
       try {
         execSync('pnpm install', {
           cwd: path.join(__dirname, '..'),
-          stdio: 'inherit'
+          stdio: 'inherit',
         });
         console.log('\n✅ Dependencies installed');
         fixed = true;
@@ -91,16 +92,18 @@ while (!success) {
     }
 
     // Check for permission errors
-    if (error.message.includes('EACCES') || 
-        error.message.includes('permission denied')) {
+    if (
+      error.message.includes('EACCES') ||
+      error.message.includes('permission denied')
+    ) {
       console.log('💡 Detected: Permission error');
       console.log('🔧 Fixing: Updating permissions...\n');
-      
+
       // Try to fix permissions on common directories
       try {
         execSync('chmod -R u+rwx scripts/ 2>/dev/null || true', {
           cwd: path.join(__dirname, '..'),
-          stdio: 'inherit'
+          stdio: 'inherit',
         });
         console.log('✅ Permissions updated');
         fixed = true;
@@ -110,21 +113,25 @@ while (!success) {
     }
 
     // Check for authentication errors
-    if (error.message.includes('Authentication') || 
-        error.message.includes('401') ||
-        error.message.includes('403')) {
+    if (
+      error.message.includes('Authentication') ||
+      error.message.includes('401') ||
+      error.message.includes('403')
+    ) {
       console.log('💡 Detected: Authentication error');
       console.log('🔧 This requires valid credentials');
       console.log('   Autopilot should provide fresh token\n');
     }
 
     // Check for network errors
-    if (error.message.includes('ECONNREFUSED') || 
-        error.message.includes('ETIMEDOUT') ||
-        error.message.includes('network')) {
+    if (
+      error.message.includes('ECONNREFUSED') ||
+      error.message.includes('ETIMEDOUT') ||
+      error.message.includes('network')
+    ) {
       console.log('💡 Detected: Network error');
       console.log('🔧 Waiting 5 seconds before retry...\n');
-      
+
       // Wait before retry
       execSync('sleep 5');
       fixed = true;

@@ -2,14 +2,14 @@
 
 /**
  * AUTOPILOT: UPDATE TOKEN AND DEPLOY (ZERO INTERACTION)
- * 
+ *
  * Usage: node scripts/autopilot-update-token-deploy.cjs <CLOUDFLARE_API_TOKEN>
- * 
+ *
  * The autopilot calls this with a fresh token and it:
  * 1. Updates .env file
  * 2. Deploys worker
  * 3. Reports success
- * 
+ *
  * ZERO MANUAL INTERACTION
  */
 
@@ -28,7 +28,9 @@ if (!token) {
   console.log('');
   console.log('Usage: node scripts/autopilot-update-token-deploy.cjs <TOKEN>');
   console.log('');
-  console.log('The autopilot should call this script with a valid Cloudflare API token.');
+  console.log(
+    'The autopilot should call this script with a valid Cloudflare API token.'
+  );
   console.log('');
   process.exit(1);
 }
@@ -55,7 +57,7 @@ CLOUDFLARE_ACCOUNT_ID=6ba1d2a52a3fa230972960db307ac7c0
 
 // Replace token in env content
 const lines = envContent.split('\n');
-const newLines = lines.map(line => {
+const newLines = lines.map((line) => {
   if (line.startsWith('CLOUDFLARE_API_TOKEN=')) {
     return `CLOUDFLARE_API_TOKEN=${token}`;
   }
@@ -75,7 +77,7 @@ try {
   const output = execSync('node scripts/autopilot-deploy-now.cjs', {
     cwd: path.join(__dirname, '..'),
     encoding: 'utf8',
-    stdio: 'pipe'
+    stdio: 'pipe',
   });
 
   console.log(output);
@@ -89,18 +91,17 @@ try {
   console.log('🌐 Next: Configure routes in Cloudflare dashboard');
   console.log('   Or the autopilot can do this via API');
   console.log('');
-
 } catch (error) {
   console.log('\n❌ Deployment failed');
   console.log('Error:', error.message);
-  
+
   if (error.stdout) {
     console.log('\nOutput:');
     console.log(error.stdout);
   }
-  
+
   console.log('\n🤖 AUTOPILOT: Trying alternative deployment...\n');
-  
+
   // Try direct wrangler deploy
   try {
     console.log('Attempting direct wrangler deployment...');
@@ -111,16 +112,15 @@ try {
         env: {
           ...process.env,
           CLOUDFLARE_API_TOKEN: token,
-          CLOUDFLARE_ACCOUNT_ID: '6ba1d2a52a3fa230972960db307ac7c0'
+          CLOUDFLARE_ACCOUNT_ID: '6ba1d2a52a3fa230972960db307ac7c0',
         },
         encoding: 'utf8',
-        stdio: 'pipe'
+        stdio: 'pipe',
       }
     );
-    
+
     console.log(directOutput);
     console.log('\n✅ ALTERNATIVE DEPLOYMENT SUCCESSFUL!');
-    
   } catch (altError) {
     console.log('❌ Alternative deployment also failed');
     console.log('Error:', altError.message);

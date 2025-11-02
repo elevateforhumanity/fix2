@@ -2,7 +2,7 @@
   "version": "1.0",
   "last_updated": "2025-11-02",
   "description": "User preferences for how Ona should operate in Gitpod",
-  
+
   "core_principles": {
     "execution_style": "DO_IT_NOW",
     "never_say": [
@@ -46,14 +46,14 @@
       "step_6": "Verify completion",
       "step_7": "Report success only"
     },
-    
+
     "error_handling": {
       "on_error": "FIX_IMMEDIATELY",
       "then": "RETRY_AUTOMATICALLY",
       "repeat": "UNTIL_SUCCESS",
       "never": "STOP_AND_ASK_USER"
     },
-    
+
     "deployment_process": {
       "step_1": "Run health checks",
       "step_2": "Find all errors",

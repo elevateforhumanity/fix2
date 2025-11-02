@@ -2,7 +2,7 @@
 
 /**
  * AUTOPILOT: Trigger Cloudflare Worker Deployment via GitHub Actions
- * 
+ *
  * This uses the GitHub API to trigger the cloudflare-worker-deploy workflow.
  * The workflow has access to the CLOUDFLARE_API_TOKEN secret in GitHub.
  */
@@ -17,7 +17,9 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 if (!GITHUB_TOKEN) {
   console.log('⚠️  No GitHub token found in environment');
   console.log('');
-  console.log('The autopilot can still trigger the workflow using the repository dispatch method.');
+  console.log(
+    'The autopilot can still trigger the workflow using the repository dispatch method.'
+  );
   console.log('Attempting deployment...\n');
 }
 
@@ -25,7 +27,7 @@ if (!GITHUB_TOKEN) {
 function triggerWorkflow() {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
-      ref: 'main'
+      ref: 'main',
     });
 
     const options = {
@@ -36,8 +38,8 @@ function triggerWorkflow() {
         'User-Agent': 'Autopilot-Deploy-Script',
         'Content-Type': 'application/json',
         'Content-Length': data.length,
-        'Accept': 'application/vnd.github.v3+json'
-      }
+        Accept: 'application/vnd.github.v3+json',
+      },
     };
 
     if (GITHUB_TOKEN) {
@@ -50,7 +52,7 @@ function triggerWorkflow() {
 
     const req = https.request(options, (res) => {
       let responseData = '';
-      
+
       res.on('data', (chunk) => {
         responseData += chunk;
       });
@@ -59,12 +61,16 @@ function triggerWorkflow() {
         if (res.statusCode === 204) {
           console.log('✅ Workflow triggered successfully!\n');
           console.log('📊 Check status at:');
-          console.log('   https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml\n');
+          console.log(
+            '   https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml\n'
+          );
           console.log('⏱️  The workflow will:');
           console.log('   1. Checkout code');
           console.log('   2. Setup Node.js and pnpm');
           console.log('   3. Install dependencies');
-          console.log('   4. Deploy worker using CLOUDFLARE_API_TOKEN from GitHub secrets');
+          console.log(
+            '   4. Deploy worker using CLOUDFLARE_API_TOKEN from GitHub secrets'
+          );
           console.log('   5. Report deployment status\n');
           console.log('🎯 Expected completion: 20-30 seconds\n');
           resolve();
@@ -72,7 +78,9 @@ function triggerWorkflow() {
           console.log('⚠️  Authentication required');
           console.log('');
           console.log('The workflow can also be triggered manually:');
-          console.log('1. Go to: https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml');
+          console.log(
+            '1. Go to: https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml'
+          );
           console.log('2. Click "Run workflow"');
           console.log('3. Select branch: main');
           console.log('4. Click "Run workflow"\n');
@@ -89,7 +97,9 @@ function triggerWorkflow() {
       console.log('❌ Request failed:', error.message);
       console.log('');
       console.log('💡 Alternative: Trigger workflow manually');
-      console.log('   Go to: https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml');
+      console.log(
+        '   Go to: https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml'
+      );
       console.log('   Click "Run workflow"\n');
       reject(error);
     });
@@ -107,7 +117,9 @@ function triggerViaCommit() {
   console.log('   - workers/**');
   console.log('   - wrangler*.toml');
   console.log('');
-  console.log('Any commit to these files will trigger deployment automatically.\n');
+  console.log(
+    'Any commit to these files will trigger deployment automatically.\n'
+  );
 }
 
 // Execute
@@ -126,16 +138,22 @@ triggerWorkflow()
     console.log('');
     console.log('💡 AUTOPILOT RECOMMENDATION:');
     console.log('');
-    console.log('Since the GitHub secrets are configured, the easiest way to deploy is:');
+    console.log(
+      'Since the GitHub secrets are configured, the easiest way to deploy is:'
+    );
     console.log('');
     console.log('1. Make a small change to trigger the workflow:');
-    console.log('   echo "# Autopilot deployment" >> workers/enrollment-injector-worker.ts');
+    console.log(
+      '   echo "# Autopilot deployment" >> workers/enrollment-injector-worker.ts'
+    );
     console.log('   git add workers/enrollment-injector-worker.ts');
     console.log('   git commit -m "Trigger autopilot deployment"');
     console.log('   git push');
     console.log('');
     console.log('2. Or trigger manually in GitHub:');
-    console.log('   https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml');
+    console.log(
+      '   https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml'
+    );
     console.log('');
     triggerViaCommit();
   });

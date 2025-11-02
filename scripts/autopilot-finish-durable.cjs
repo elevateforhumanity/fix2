@@ -2,14 +2,14 @@
 
 /**
  * AUTOPILOT: FINISH DURABLE DEPLOYMENT
- * 
+ *
  * This script completes the Durable integration by:
  * 1. Verifying enrollment code is ready
  * 2. Checking if Cloudflare worker can deploy
  * 3. Using bridge method as fallback
  * 4. Deploying to Netlify
  * 5. Verifying it's live
- * 
+ *
  * NO LIMITATIONS - Run until successful
  */
 
@@ -24,7 +24,11 @@ console.log('========================================\n');
 console.log('📋 Step 1: Verify enrollment code');
 console.log('─────────────────────────────────────\n');
 
-const enrollmentCodePath = path.join(__dirname, '..', 'DURABLE_ENROLLMENT_CODE.html');
+const enrollmentCodePath = path.join(
+  __dirname,
+  '..',
+  'DURABLE_ENROLLMENT_CODE.html'
+);
 if (!fs.existsSync(enrollmentCodePath)) {
   console.log('❌ DURABLE_ENROLLMENT_CODE.html not found');
   process.exit(1);
@@ -43,7 +47,10 @@ const bridgePublicPath = path.join(__dirname, '..', 'bridge', 'public');
 const distPath = path.join(__dirname, '..', 'dist');
 
 // Copy enrollment-injector.js to dist
-const enrollmentInjectorSrc = path.join(bridgePublicPath, 'enrollment-injector.js');
+const enrollmentInjectorSrc = path.join(
+  bridgePublicPath,
+  'enrollment-injector.js'
+);
 const enrollmentInjectorDest = path.join(distPath, 'enrollment-injector.js');
 
 if (fs.existsSync(enrollmentInjectorSrc)) {
@@ -52,7 +59,7 @@ if (fs.existsSync(enrollmentInjectorSrc)) {
 } else {
   console.log('⚠️  enrollment-injector.js not found in bridge/public/');
   console.log('   Creating it now...\n');
-  
+
   // Create the enrollment injector
   const injectorCode = `
 /**
@@ -90,7 +97,7 @@ if (fs.existsSync(enrollmentInjectorSrc)) {
   }
 })();
 `;
-  
+
   fs.writeFileSync(enrollmentInjectorDest, injectorCode);
   console.log('✅ Created enrollment-injector.js in dist/\n');
 }
@@ -133,7 +140,7 @@ try {
   console.log('Running pre-deployment verification...');
   execSync('node scripts/autopilot-verify-before-deploy.cjs', {
     cwd: path.join(__dirname, '..'),
-    stdio: 'inherit'
+    stdio: 'inherit',
   });
   console.log('✅ All checks passed\n');
 } catch (error) {
@@ -147,14 +154,17 @@ console.log('──────────────────────�
 try {
   execSync('git add dist/enrollment-injector.js dist/enrollment-test.html', {
     cwd: path.join(__dirname, '..'),
-    stdio: 'inherit'
+    stdio: 'inherit',
   });
-  
-  execSync('git commit --no-verify -m "Autopilot: Deploy enrollment injector to Netlify\n\nCo-authored-by: Ona <no-reply@ona.com>"', {
-    cwd: path.join(__dirname, '..'),
-    stdio: 'inherit'
-  });
-  
+
+  execSync(
+    'git commit --no-verify -m "Autopilot: Deploy enrollment injector to Netlify\n\nCo-authored-by: Ona <no-reply@ona.com>"',
+    {
+      cwd: path.join(__dirname, '..'),
+      stdio: 'inherit',
+    }
+  );
+
   console.log('✅ Changes committed\n');
 } catch (error) {
   console.log('⚠️  Commit failed or nothing to commit\n');
@@ -167,7 +177,7 @@ console.log('──────────────────────�
 try {
   execSync('git push', {
     cwd: path.join(__dirname, '..'),
-    stdio: 'inherit'
+    stdio: 'inherit',
   });
   console.log('✅ Pushed to GitHub\n');
 } catch (error) {
@@ -187,27 +197,38 @@ console.log('📋 Step 8: Verify deployment');
 console.log('─────────────────────────────────────\n');
 
 try {
-  const testUrl = 'https://elevateforhumanityfix2.netlify.app/enrollment-injector.js';
+  const testUrl =
+    'https://elevateforhumanityfix2.netlify.app/enrollment-injector.js';
   console.log(`Testing: ${testUrl}`);
-  
-  const response = execSync(`curl -s -o /dev/null -w "%{http_code}" "${testUrl}"`, {
-    encoding: 'utf8'
-  }).trim();
-  
+
+  const response = execSync(
+    `curl -s -o /dev/null -w "%{http_code}" "${testUrl}"`,
+    {
+      encoding: 'utf8',
+    }
+  ).trim();
+
   if (response === '200') {
     console.log('✅ Enrollment injector is LIVE on Netlify!\n');
     console.log('🌐 URLs:');
-    console.log('   Injector: https://elevateforhumanityfix2.netlify.app/enrollment-injector.js');
-    console.log('   Test page: https://elevateforhumanityfix2.netlify.app/enrollment-test.html');
+    console.log(
+      '   Injector: https://elevateforhumanityfix2.netlify.app/enrollment-injector.js'
+    );
+    console.log(
+      '   Test page: https://elevateforhumanityfix2.netlify.app/enrollment-test.html'
+    );
     console.log('');
   } else {
     console.log(`⚠️  Got HTTP ${response}, waiting longer...`);
     execSync('sleep 30');
     // Retry
-    const retryResponse = execSync(`curl -s -o /dev/null -w "%{http_code}" "${testUrl}"`, {
-      encoding: 'utf8'
-    }).trim();
-    
+    const retryResponse = execSync(
+      `curl -s -o /dev/null -w "%{http_code}" "${testUrl}"`,
+      {
+        encoding: 'utf8',
+      }
+    ).trim();
+
     if (retryResponse === '200') {
       console.log('✅ Enrollment injector is LIVE on Netlify!\n');
     } else {
@@ -227,7 +248,11 @@ console.log('✅ Test page created');
 console.log('✅ Ready for Durable integration');
 console.log('');
 console.log('📋 Next Steps:');
-console.log('   1. Test: https://elevateforhumanityfix2.netlify.app/enrollment-test.html');
-console.log('   2. Add script to Durable site: <script src="https://elevateforhumanityfix2.netlify.app/enrollment-injector.js"></script>');
+console.log(
+  '   1. Test: https://elevateforhumanityfix2.netlify.app/enrollment-test.html'
+);
+console.log(
+  '   2. Add script to Durable site: <script src="https://elevateforhumanityfix2.netlify.app/enrollment-injector.js"></script>'
+);
 console.log('   3. Or use Cloudflare Worker for automatic injection');
 console.log('');
