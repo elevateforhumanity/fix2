@@ -55,8 +55,11 @@
   "loop_until_perfect": {
     "enabled": true,
     "max_iterations": "unlimited",
-    "stop_condition": "zero_errors",
-    "check_interval": "30_minutes"
+    "max_retries": "unlimited",
+    "stop_condition": "success_only",
+    "check_interval": "30_minutes",
+    "retry_on_failure": "always",
+    "give_up": "never"
   },
   "cheatsheet_autopilot": {
     "enabled": true,
