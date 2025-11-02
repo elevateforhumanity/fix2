@@ -11,13 +11,14 @@ account_id = "6ba1d2a52a3fa230972960db307ac7c0"
 
 # CRITICAL: Route configuration
 # This tells Cloudflare to route ALL traffic through this worker
-routes = [
-  { pattern = "elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" },
-  { pattern = "www.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
-]
+# NOTE: Routes commented out for initial deployment - will be enabled after worker is live
+# routes = [
+#   { pattern = "elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" },
+#   { pattern = "www.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
+# ]
 
-# Alternative: Use workers.dev subdomain for testing
-# workers_dev = true
+# Use workers.dev subdomain for initial deployment
+workers_dev = true
 
 # Environment variables
 [vars]
