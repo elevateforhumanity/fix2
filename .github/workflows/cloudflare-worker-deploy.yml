@@ -34,28 +34,23 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --config wrangler-enrollment.toml
-        continue-on-error: true
+          command: deploy --config wrangler-enrollment.toml --env production
 
-      - name: Report deployment status
+      - name: Report deployment success
         if: success()
         run: |
-          echo "✅ Cloudflare Worker deployed successfully"
-          echo "Worker: autopilot-deploy-worker"
+          echo "✅ Cloudflare Worker deployed successfully!"
+          echo ""
+          echo "Worker: enrollment-injector"
+          echo "Environment: production"
           echo "Routes:"
-          echo "  - elevateforhumanity.org/api/worker/*"
-          echo "  - elevateforhumanityfix2.netlify.app/api/worker/*"
-
-      - name: Report deployment failure
-        if: failure()
-        run: |
-          echo "⚠️  Cloudflare Worker deployment skipped"
-          echo "Reason: CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not configured"
+          echo "  - elevateforhumanity.org/*"
+          echo "  - www.elevateforhumanity.org/*"
           echo ""
-          echo "To enable automatic deployment:"
-          echo "1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions"
-          echo "2. Add CLOUDFLARE_API_TOKEN"
-          echo "3. Add CLOUDFLARE_ACCOUNT_ID"
+          echo "The enrollment programs are now live at:"
+          echo "  https://www.elevateforhumanity.org"
           echo ""
-          echo "Worker configuration is ready in wrangler.toml"
-          echo "Manual deployment: wrangler deploy"
+          echo "Programs injected:"
+          echo "  - Barber Training Program"
+          echo "  - Building Technology Program"
+          echo "  - Certified Nursing Assistant (CNA)"
