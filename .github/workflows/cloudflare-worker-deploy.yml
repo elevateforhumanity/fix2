@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - 'workers/**'
-      - 'wrangler.toml'
+      - 'wrangler*.toml'
   workflow_dispatch:
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+          command: deploy --config wrangler-enrollment.toml
         continue-on-error: true
 
       - name: Report deployment status
