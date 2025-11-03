@@ -1,71 +1,21 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Barber Page - Copy Code</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      h1 {
-        color: #4d4b37;
-      }
-      .code-box {
-        position: relative;
-        background: #f5f5f5;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        padding: 50px 20px 20px 20px;
-        margin: 20px 0;
-      }
-      .copy-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #4d4b37;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .copy-btn:hover {
-        background: #3a3829;
-      }
-      .success {
-        position: absolute;
-        top: 15px;
-        right: 120px;
-        color: green;
-        font-weight: bold;
-        display: none;
-      }
-      pre {
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        font-size: 12px;
-        max-height: 500px;
-        overflow-y: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>🪒 Barber Apprenticeship Page</h1>
-    <p>
-      <strong>Instructions:</strong> Click the Copy button, then paste into
-      Durable Custom HTML block
-    </p>
+#!/usr/bin/env node
 
-    <div class="code-box">
-      <button class="copy-btn" onclick="copyCode()">📋 COPY</button>
-      <span class="success" id="success">✅ Copied!</span>
-      <pre
-        id="code"
-      ><div class="relative z-10 container mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20">
+/**
+ * Inject Barber Apprenticeship Page into Durable
+ * Matches existing site styling
+ */
+
+import puppeteer from 'puppeteer';
+import fs from 'fs';
+
+const CONFIG = {
+  email: process.env.DURABLE_EMAIL || 'Elevateforhumanity@gmail.com',
+  password: process.env.DURABLE_PASSWORD || 'Elijah1$',
+  timeout: 120000,
+};
+
+// Barber page HTML (from copy-pages.html)
+const BARBER_HTML = `<div class="relative z-10 container mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20">
   
   <div class="flex flex-col gap-6 max-w-4xl mx-auto mb-12 text-center">
     <h1 class="heading-xlarge" style="color:#000000">
@@ -242,19 +192,114 @@
     <p class="mt-4" style="color:#000000">Questions? <a href="/contact" style="color:#4D4B37;text-decoration:underline">Contact us</a> for more information.</p>
   </div>
 
-</div></pre>
-    </div>
+</div>`;
 
-    <script>
-      function copyCode() {
-        const code = document.getElementById('code').textContent;
-        navigator.clipboard.writeText(code).then(() => {
-          document.getElementById('success').style.display = 'inline';
-          setTimeout(() => {
-            document.getElementById('success').style.display = 'none';
-          }, 2000);
-        });
+async function injectBarberPage() {
+  console.log('🚀 Injecting Barber Apprenticeship Page into Durable');
+  console.log('');
+
+  let browser;
+  try {
+    browser = await puppeteer.launch({
+      headless: false, // Show browser so you can see what's happening
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--window-size=1920,1080',
+      ],
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1920, height: 1080 });
+
+    // Login to Durable
+    console.log('🔐 Logging into Durable.co...');
+    await page.goto('https://durable.co/login', {
+      waitUntil: 'networkidle2',
+      timeout: CONFIG.timeout,
+    });
+
+    await page.waitForSelector('input[type="email"]', { timeout: 10000 });
+    await page.type('input[type="email"]', CONFIG.email);
+    await page.type('input[type="password"]', CONFIG.password);
+
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      page.click('button[type="submit"]'),
+    ]);
+
+    console.log('✅ Logged in successfully');
+    console.log('');
+
+    // Wait a bit for dashboard to load
+    await page.waitForTimeout(3000);
+
+    console.log('📸 Taking screenshot of current state...');
+    await page.screenshot({ path: 'durable-dashboard.png', fullPage: true });
+    console.log('✅ Screenshot saved as durable-dashboard.png');
+    console.log('');
+
+    console.log('🔍 Looking for site editor or pages section...');
+    
+    // Try to find and click on "Pages" or "Edit Site" button
+    const possibleSelectors = [
+      'a[href*="pages"]',
+      'button:has-text("Pages")',
+      'a:has-text("Edit")',
+      'button:has-text("Edit Site")',
+      '[data-testid="pages"]',
+      '[data-testid="edit-site"]',
+    ];
+
+    let found = false;
+    for (const selector of possibleSelectors) {
+      try {
+        await page.waitForSelector(selector, { timeout: 2000 });
+        console.log(`✅ Found element: ${selector}`);
+        await page.click(selector);
+        found = true;
+        break;
+      } catch (e) {
+        // Try next selector
       }
-    </script>
-  </body>
-</html>
+    }
+
+    if (!found) {
+      console.log('⚠️  Could not find pages/edit button automatically');
+      console.log('📋 Manual steps needed:');
+      console.log('1. Navigate to your site editor');
+      console.log('2. Create a new page: "Barber Apprenticeship"');
+      console.log('3. Set slug: /programs/barber');
+      console.log('4. Add Custom HTML block');
+      console.log('5. Paste the code from public/copy-pages.html');
+      console.log('');
+      console.log('Browser will stay open for 2 minutes so you can do this manually...');
+      await page.waitForTimeout(120000);
+    } else {
+      await page.waitForTimeout(5000);
+      console.log('📸 Taking screenshot after navigation...');
+      await page.screenshot({ path: 'durable-editor.png', fullPage: true });
+      console.log('✅ Screenshot saved as durable-editor.png');
+      console.log('');
+      console.log('Browser will stay open for 2 minutes so you can complete the setup...');
+      await page.waitForTimeout(120000);
+    }
+
+    console.log('');
+    console.log('✅ Script complete');
+    console.log('');
+    console.log('📋 HTML code is ready in: public/copy-pages.html');
+    console.log('🌐 Or visit: https://main--elevateforhumanityfix.netlify.app/copy-pages.html');
+
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    throw error;
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
+  }
+}
+
+injectBarberPage().catch(console.error);

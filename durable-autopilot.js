@@ -28,7 +28,8 @@ const CONFIG = {
   siteUrl: 'https://www.elevateforhumanity.org',
   enrollmentPageUrl: 'https://www.elevateforhumanity.org/elevate',
   siteName: 'Elevate for Humanity',
-  enrollmentScriptUrl: 'https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js',
+  enrollmentScriptUrl:
+    'https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js',
   enrollmentCodeFile: path.join(__dirname, 'DURABLE_ENROLLMENT_CODE.html'),
   screenshotDir: path.join(__dirname, 'logs'),
   headless: 'new', // Use new headless mode
@@ -342,7 +343,9 @@ async function runDurableAutopilot() {
 
     // Try to find Settings link/button
     const settingsFound = await page.evaluate(() => {
-      const elements = Array.from(document.querySelectorAll('a, button, div, span'));
+      const elements = Array.from(
+        document.querySelectorAll('a, button, div, span')
+      );
       const settingsElement = elements.find(
         (el) =>
           el.textContent.toLowerCase().includes('settings') ||
@@ -358,7 +361,9 @@ async function runDurableAutopilot() {
     });
 
     if (!settingsFound) {
-      log.warning('Could not find Settings automatically, trying direct URL...');
+      log.warning(
+        'Could not find Settings automatically, trying direct URL...'
+      );
       await page.goto('https://durable.co/sites/settings', {
         waitUntil: 'networkidle2',
         timeout: CONFIG.timeout,
@@ -374,7 +379,9 @@ async function runDurableAutopilot() {
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const customCodeFound = await page.evaluate(() => {
-      const elements = Array.from(document.querySelectorAll('button, a, div, span, h2, h3'));
+      const elements = Array.from(
+        document.querySelectorAll('button, a, div, span, h2, h3')
+      );
       const customCodeElement = elements.find(
         (el) =>
           el.textContent.toLowerCase().includes('custom code') ||
@@ -418,7 +425,7 @@ async function runDurableAutopilot() {
           const textarea = elements[0];
 
           // Get existing content
-          const existingCode = await page.evaluate(el => el.value, textarea);
+          const existingCode = await page.evaluate((el) => el.value, textarea);
 
           // Check if enrollment script already exists
           if (existingCode.includes(CONFIG.enrollmentScriptUrl)) {
@@ -434,11 +441,15 @@ async function runDurableAutopilot() {
           await new Promise((resolve) => setTimeout(resolve, 500));
 
           // Set the value
-          await page.evaluate((el, code) => {
-            el.value = code;
-            el.dispatchEvent(new Event('input', { bubbles: true }));
-            el.dispatchEvent(new Event('change', { bubbles: true }));
-          }, textarea, newCode);
+          await page.evaluate(
+            (el, code) => {
+              el.value = code;
+              el.dispatchEvent(new Event('input', { bubbles: true }));
+              el.dispatchEvent(new Event('change', { bubbles: true }));
+            },
+            textarea,
+            newCode
+          );
 
           scriptInjected = true;
           log.success('Enrollment script injected into head section');
@@ -458,18 +469,22 @@ async function runDurableAutopilot() {
         const textareas = await page.$$('textarea');
         if (textareas.length > 0) {
           const textarea = textareas[0];
-          const existingCode = await page.evaluate(el => el.value, textarea);
+          const existingCode = await page.evaluate((el) => el.value, textarea);
 
           if (existingCode.includes(CONFIG.enrollmentScriptUrl)) {
             log.success('Enrollment script already exists');
             scriptInjected = true;
           } else {
             const newCode = existingCode + '\n\n' + enrollmentScriptTag;
-            await page.evaluate((el, code) => {
-              el.value = code;
-              el.dispatchEvent(new Event('input', { bubbles: true }));
-              el.dispatchEvent(new Event('change', { bubbles: true }));
-            }, textarea, newCode);
+            await page.evaluate(
+              (el, code) => {
+                el.value = code;
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+              },
+              textarea,
+              newCode
+            );
 
             scriptInjected = true;
             log.success('Enrollment script injected');
@@ -557,7 +572,9 @@ async function runDurableAutopilot() {
     // Check if enrollment script is loaded
     const scriptLoaded = await page.evaluate((scriptUrl) => {
       const scripts = Array.from(document.querySelectorAll('script'));
-      return scripts.some((script) => script.src && script.src.includes(scriptUrl));
+      return scripts.some(
+        (script) => script.src && script.src.includes(scriptUrl)
+      );
     }, CONFIG.enrollmentScriptUrl);
 
     // Check if enrollment section is visible
@@ -577,7 +594,9 @@ async function runDurableAutopilot() {
       success = true;
     } else if (scriptLoaded) {
       log.success('✅ Enrollment script is loaded');
-      log.warning('⚠️ Enrollment programs not visible yet (may need page refresh)');
+      log.warning(
+        '⚠️ Enrollment programs not visible yet (may need page refresh)'
+      );
       success = true; // Script is injected, that's the main goal
     } else if (enrollmentVisible) {
       log.success('✅ Enrollment programs are visible');
@@ -586,7 +605,11 @@ async function runDurableAutopilot() {
     } else {
       log.warning('Enrollment script and programs not detected');
       log.info('Please verify the script was added to the /elevate page');
-      log.info('Script to add: <script src="' + CONFIG.enrollmentScriptUrl + '" defer></script>');
+      log.info(
+        'Script to add: <script src="' +
+          CONFIG.enrollmentScriptUrl +
+          '" defer></script>'
+      );
     }
 
     await takeScreenshot(page, '16-verification');

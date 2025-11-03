@@ -1,71 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Barber Page - Copy Code</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      h1 {
-        color: #4d4b37;
-      }
-      .code-box {
-        position: relative;
-        background: #f5f5f5;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        padding: 50px 20px 20px 20px;
-        margin: 20px 0;
-      }
-      .copy-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #4d4b37;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .copy-btn:hover {
-        background: #3a3829;
-      }
-      .success {
-        position: absolute;
-        top: 15px;
-        right: 120px;
-        color: green;
-        font-weight: bold;
-        display: none;
-      }
-      pre {
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        font-size: 12px;
-        max-height: 500px;
-        overflow-y: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>🪒 Barber Apprenticeship Page</h1>
-    <p>
-      <strong>Instructions:</strong> Click the Copy button, then paste into
-      Durable Custom HTML block
-    </p>
-
-    <div class="code-box">
-      <button class="copy-btn" onclick="copyCode()">📋 COPY</button>
-      <span class="success" id="success">✅ Copied!</span>
-      <pre
-        id="code"
-      ><div class="relative z-10 container mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20">
+<div class="relative z-10 container mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20">
   
   <div class="flex flex-col gap-6 max-w-4xl mx-auto mb-12 text-center">
     <h1 class="heading-xlarge" style="color:#000000">
@@ -242,19 +175,4 @@
     <p class="mt-4" style="color:#000000">Questions? <a href="/contact" style="color:#4D4B37;text-decoration:underline">Contact us</a> for more information.</p>
   </div>
 
-</div></pre>
-    </div>
-
-    <script>
-      function copyCode() {
-        const code = document.getElementById('code').textContent;
-        navigator.clipboard.writeText(code).then(() => {
-          document.getElementById('success').style.display = 'inline';
-          setTimeout(() => {
-            document.getElementById('success').style.display = 'none';
-          }, 2000);
-        });
-      }
-    </script>
-  </body>
-</html>
+</div>

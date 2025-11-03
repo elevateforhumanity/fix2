@@ -1,0 +1,109 @@
+<!-- 
+  DURABLE PAGE TEMPLATE
+  
+  This template uses your Durable site's exact styling.
+  Copy this into a Custom HTML block in Durable.
+-->
+
+<div class="relative z-10 container mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20">
+  <!-- Page Header -->
+  <div class="flex flex-col gap-6 max-w-4xl mx-auto mb-12">
+    <h1 class="heading-xlarge text-center" style="color: #000000">
+      [PAGE TITLE]
+    </h1>
+    <p class="body-large text-center" style="color: #000000">
+      [PAGE SUBTITLE/DESCRIPTION]
+    </p>
+  </div>
+
+  <!-- Content Section -->
+  <div class="flex flex-col gap-8">
+    <!-- Text + Image Section -->
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
+      <div class="flex-1">
+        <div class="rich-text-block" style="color: #000000">
+          <h2>Section Heading</h2>
+          <p>
+            Your content goes here. This uses Durable's rich-text-block class so
+            it inherits all your site's styling.
+          </p>
+        </div>
+      </div>
+      <div class="flex-1">
+        <!-- Optional image -->
+        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded">
+          <img
+            src="YOUR_IMAGE_URL"
+            alt="Description"
+            class="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="flex flex-wrap relative justify-start gap-6">
+      <!-- Card 1 -->
+      <div class="group w-full lg:w-[calc(50%-12px)] relative overflow-hidden">
+        <div class="transition-all h-full">
+          <div class="flex flex-col h-full">
+            <div class="flex flex-col items-start py-6" style="color: #000000">
+              <p class="heading-medium mb-4" style="color: currentColor">
+                Card Title
+              </p>
+              <div class="rich-text-block mb-4" style="color: currentColor">
+                Card content goes here.
+              </div>
+              <a
+                href="/link"
+                class="button w-full md:w-max"
+                style="border-width: 2px; border-style: solid; box-shadow: none"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group w-full lg:w-[calc(50%-12px)] relative overflow-hidden">
+        <div class="transition-all h-full">
+          <div class="flex flex-col h-full">
+            <div class="flex flex-col items-start py-6" style="color: #000000">
+              <p class="heading-medium mb-4" style="color: currentColor">
+                Card Title
+              </p>
+              <div class="rich-text-block mb-4" style="color: currentColor">
+                Card content goes here.
+              </div>
+              <a
+                href="/link"
+                class="button w-full md:w-max"
+                style="border-width: 2px; border-style: solid; box-shadow: none"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-8">
+      <a
+        href="/contact"
+        class="button"
+        style="
+          border-width: 2px;
+          border-style: solid;
+          box-shadow: none;
+          display: inline-block;
+        "
+      >
+        Get Started Today →
+      </a>
+    </div>
+  </div>
+</div>

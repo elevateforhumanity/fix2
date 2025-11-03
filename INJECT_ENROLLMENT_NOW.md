@@ -5,6 +5,7 @@ The Puppeteer automation is failing because Durable.co changed their login page.
 ## What You'll See After Injection
 
 A beautiful enrollment section with:
+
 - **Barber Apprenticeship** - 2,000 hours, State Licensure
 - **Building Services Technician** - Multi-Trade, OSHA-10
 - **Certified Nursing Assistant** - Healthcare, CNA Certification
@@ -22,8 +23,12 @@ A beautiful enrollment section with:
    - Look for "Head Code" or "Custom HTML"
 
 3. **Add This Script**
+
    ```html
-   <script src="https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js" defer></script>
+   <script
+     src="https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js"
+     defer
+   ></script>
    ```
 
 4. **Save Changes**
@@ -38,6 +43,7 @@ A beautiful enrollment section with:
 ## What the Script Does
 
 The enrollment-injector.js script:
+
 1. Waits for your Durable page to load
 2. Finds the best injection point (after first section)
 3. Injects a beautiful enrollment section with program cards
@@ -46,12 +52,14 @@ The enrollment-injector.js script:
 ## Troubleshooting
 
 **If you don't see it:**
+
 - Clear browser cache and refresh
 - Check browser console for errors (F12)
 - Verify the script tag was added correctly
 - Wait 2-3 minutes for Durable's CDN to update
 
 **If it looks broken:**
+
 - The script includes all styling inline, so it should work immediately
 - Check if there are any JavaScript errors in console
 
@@ -67,6 +75,7 @@ If the script doesn't work, you can inject the HTML directly into a page section
 ## Need Help?
 
 The enrollment section is fully styled and ready to go. Once injected, visitors will see:
+
 - 3 featured programs with descriptions
 - Funding information (WRG, WIOA, Apprenticeship)
 - "Learn More" buttons for each program

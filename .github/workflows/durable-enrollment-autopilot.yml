@@ -39,7 +39,7 @@ jobs:
         run: |
           echo "🤖 Starting Durable Enrollment Autopilot..."
           echo ""
-          
+
           chmod +x durable-autopilot.js
           node durable-autopilot.js || echo "Autopilot completed with warnings"
 
