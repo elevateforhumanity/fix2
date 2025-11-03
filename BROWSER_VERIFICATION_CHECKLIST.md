@@ -1,6 +1,7 @@
 # Browser Verification Checklist ✅
 
 ## Site URL
+
 **Production**: [https://main--elevateforhumanityfix.netlify.app/](https://main--elevateforhumanityfix.netlify.app/)
 
 ---
@@ -34,6 +35,7 @@ These checks have been automated and verified:
 ## 🔍 Browser Testing (30 seconds)
 
 ### Test 1: Meta Tags & Titles Per Page
+
 **What to check**: Browser tab title changes when navigating
 
 1. Open [https://main--elevateforhumanityfix.netlify.app/](https://main--elevateforhumanityfix.netlify.app/)
@@ -49,6 +51,7 @@ These checks have been automated and verified:
 ---
 
 ### Test 2: SPA Redirect (Hard Refresh)
+
 **What to check**: Sub-routes don't 404 on hard refresh
 
 1. Navigate to [https://main--elevateforhumanityfix.netlify.app/programs](https://main--elevateforhumanityfix.netlify.app/programs)
@@ -61,6 +64,7 @@ These checks have been automated and verified:
 ---
 
 ### Test 3: Assets Loading (Network Tab)
+
 **What to check**: All JavaScript files load successfully
 
 1. Open DevTools (`F12` or `Cmd+Option+I`)
@@ -78,6 +82,7 @@ These checks have been automated and verified:
 ---
 
 ### Test 4: Console Clean (No Errors)
+
 **What to check**: No React/provider errors in console
 
 1. Open DevTools (`F12`)
@@ -128,23 +133,27 @@ If everything is working correctly, you should see:
 ## 🐛 Troubleshooting
 
 ### If Test 1 Fails (Titles Don't Change)
+
 - Check: Is `<Helmet>` being used in page components?
 - Check: Is there only ONE `<HelmetProvider>` in main.tsx?
 - Fix: Verify App.tsx uses `<Helmet>` not `<HelmetProvider>`
 
 ### If Test 2 Fails (404 on Refresh)
+
 - Check: Does netlify.toml have the SPA redirect?
 - Check: Is `force = false` set on the redirect?
 - Fix: Redeploy with correct netlify.toml
 
 ### If Test 3 Fails (Assets 404)
+
 - Check: Are assets being served as `text/html`?
 - Check: Is the SPA redirect catching asset files?
 - Fix: Ensure `force = false` in netlify.toml redirect
 
 ### If Test 4 Fails (Console Errors)
+
 - Check: What's the exact error message?
-- Check: Is it a missing env var? (VITE_* prefix required)
+- Check: Is it a missing env var? (VITE\_\* prefix required)
 - Check: Is it a duplicate provider error?
 - Fix: Based on specific error message
 
@@ -153,16 +162,19 @@ If everything is working correctly, you should see:
 ## 📝 Additional Checks (Optional)
 
 ### Navigation Test
+
 - [ ] All nav links work
 - [ ] Dropdowns open/close correctly
 - [ ] Mobile menu works (resize browser)
 
 ### Form Test
+
 - [ ] Contact form loads
 - [ ] Form validation works
 - [ ] Submit button is clickable
 
 ### Performance Test
+
 - [ ] Page loads in < 3 seconds
 - [ ] No layout shift on load
 - [ ] Images load properly

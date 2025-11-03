@@ -5,7 +5,9 @@ export default function App() {
   return (
     <>
       <Helmet>
-        <title>Elevate for Humanity | Workforce Training & Career Development</title>
+        <title>
+          Elevate for Humanity | Workforce Training & Career Development
+        </title>
         <meta
           name="description"
           content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."

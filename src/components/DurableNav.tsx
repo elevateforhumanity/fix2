@@ -37,7 +37,7 @@ export default function DurableNav() {
                 background: 'var(--color-brown)',
                 marginBottom: '5px',
               }}
-             />
+            />
             <div
               style={{
                 width: '24px',
@@ -45,14 +45,14 @@ export default function DurableNav() {
                 background: 'var(--color-brown)',
                 marginBottom: '5px',
               }}
-             />
+            />
             <div
               style={{
                 width: '24px',
                 height: '2px',
                 background: 'var(--color-brown)',
               }}
-             />
+            />
           </button>
           <ul className="nav-menu">
             <li>
