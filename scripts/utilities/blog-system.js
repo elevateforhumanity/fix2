@@ -269,6 +269,10 @@ class BlogSystem {
 
     // Share a post
     this.router.post('/api/blog/posts/:id/share', this.sharePost.bind(this));
+
+    // Durable injection worker endpoint
+    this.router.post('/api/blog/durable-inject', this.handleDurableInjection.bind(this));
+    this.router.get('/api/blog/durable-status', this.checkDurableStatus.bind(this));
   }
 
   async getAllPosts(req, res) {
@@ -507,6 +511,75 @@ class BlogSystem {
 
   getRouter() {
     return this.router;
+  }
+
+  // Durable injection handler - triggered via Zapier
+  async handleDurableInjection(req, res) {
+    try {
+      console.log('[Blog Worker] Triggering Durable injection...');
+
+      // Call Netlify function to inject enrollment script
+      const netlifyFunctionUrl =
+        'https://elevateforhumanityfix2.netlify.app/.netlify/functions/durable-inject';
+
+      const response = await fetch(netlifyFunctionUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: process.env.DURABLE_EMAIL || 'Elevateforhumanity@gmail.com',
+          password: process.env.DURABLE_PASSWORD || 'Elijah1$',
+        }),
+      });
+
+      const data = await response.json();
+
+      console.log('[Blog Worker] Injection result:', data);
+
+      res.json({
+        success: data.success || false,
+        message: data.message || data.error,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      console.error('[Blog Worker] Injection error:', error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
+
+  // Check if enrollment script is present on Durable site
+  async checkDurableStatus(req, res) {
+    try {
+      console.log('[Blog Worker] Checking Durable site status...');
+
+      const siteResponse = await fetch('https://www.elevateforhumanity.org');
+      const html = await siteResponse.text();
+
+      const hasEnrollmentScript =
+        html.includes('enrollment-injector.js') ||
+        html.includes('Enroll in Our Programs');
+
+      res.json({
+        success: true,
+        hasEnrollmentScript,
+        message: hasEnrollmentScript
+          ? 'Enrollment script is present'
+          : 'Enrollment script not found',
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      console.error('[Blog Worker] Status check error:', error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        timestamp: new Date().toISOString(),
+      });
+    }
   }
 }
 
