@@ -62,12 +62,37 @@
       border: 1px solid #e5e7eb;
       border-radius: 4px;
       padding: 12px;
+      padding-top: 40px;
       margin-top: 12px;
       font-family: monospace;
       font-size: 12px;
-      max-height: 200px;
+      max-height: 400px;
       overflow-y: auto;
       color: #6b7280;
+      position: relative;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .code-container {
+      position: relative;
+      margin-top: 12px;
+    }
+    .copy-corner-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #4D4B37;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 10;
+    }
+    .copy-corner-btn:hover {
+      background: #3a3829;
     }
   </style>
 </head>
@@ -78,15 +103,17 @@
     <h2>🪒 Barber Apprenticeship</h2>
     <div class="instructions">
       <strong>Instructions:</strong><br>
-      1. Click "Copy Code" button below<br>
+      1. Click "Copy" button in the corner of the code box<br>
       2. Go to Durable → Create new page: "Barber Apprenticeship" with slug "/programs/barber"<br>
       3. Add Custom HTML block<br>
       4. Paste the code (Ctrl+V or Cmd+V)<br>
       5. Save and Publish
     </div>
-    <button class="copy-btn" onclick="copyCode('barber')">📋 Copy Code</button>
-    <span class="success" id="success-barber">✅ Copied!</span>
-    <div class="code-preview">Click "Copy Code" to copy the full HTML...</div>
+    <div class="code-container">
+      <button class="copy-corner-btn" onclick="copyCode('barber')">📋 Copy</button>
+      <span class="success" id="success-barber">✅ Copied!</span>
+      <div class="code-preview" id="preview-barber"></div>
+    </div>
   </div>
 
   <textarea id="barber-code" style="position:absolute;left:-9999px">
@@ -271,6 +298,13 @@
   </textarea>
 
   <script>
+    // Show code preview on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const textarea = document.getElementById('barber-code');
+      const preview = document.getElementById('preview-barber');
+      preview.textContent = textarea.value;
+    });
+
     function copyCode(pageId) {
       const textarea = document.getElementById(pageId + '-code');
       
