@@ -34,7 +34,7 @@
               <div style="background:#F2F0D9;padding:8px 12px;border-radius:6px;font-size:13px;margin-bottom:20px;display:inline-block;color:#4D4B37">
                 💰 WRG • WIOA • Apprenticeship
               </div>
-              <a href="/programs" class="button w-full md:w-max" style="border-width:2px;border-style:solid;box-shadow:none">
+              <a href="/barber-apprenticeship" class="button w-full md:w-max" style="border-width:2px;border-style:solid;box-shadow:none">
                 Learn More →
               </a>
             </div>
