@@ -17,11 +17,6 @@ export interface DynamicSEOProps {
   ogImageWidth?: number;
   ogImageHeight?: number;
 
-  // Twitter
-  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
-  twitterSite?: string;
-  twitterCreator?: string;
-
   // Structured Data
   structuredData?: Record<string, any>;
 
@@ -56,9 +51,6 @@ export default function DynamicSEO({
   ogImage,
   ogImageWidth = 1200,
   ogImageHeight = 630,
-  twitterCard = 'summary_large_image',
-  twitterSite = '@elevateforhumanity',
-  twitterCreator = '@elevateforhumanity',
   structuredData,
   noindex = false,
   nofollow = false,
@@ -109,13 +101,6 @@ export default function DynamicSEO({
       <meta property="og:image:width" content={ogImageWidth.toString()} />
       <meta property="og:image:height" content={ogImageHeight.toString()} />
       <meta property="og:site_name" content="Elevate for Humanity" />
-      {/* Twitter Card */}
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:site" content={twitterSite} />
-      <meta name="twitter:creator" content={twitterCreator} />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={ogImageUrl} />
       {/* Structured Data */}
       {structuredData && (
         <script type="application/ld+json">

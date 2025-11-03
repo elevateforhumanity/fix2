@@ -667,7 +667,6 @@ class LearnWorldsSuperiorFeatures {
       },
       socialMedia: {
         facebook: true,
-        twitter: true,
         linkedin: true,
         instagram: true,
         youtube: true,
