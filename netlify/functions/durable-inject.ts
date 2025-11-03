@@ -217,7 +217,9 @@ const handler: Handler = async (event: HandlerEvent) => {
     // Method 2: Try to add HTML block via UI
     const htmlBlockAdded = await page.evaluate((script) => {
       // Look for "Add" or "+" buttons
-      const buttons = Array.from(document.querySelectorAll('button, [role="button"]'));
+      const buttons = Array.from(
+        document.querySelectorAll('button, [role="button"]')
+      );
       const addBtn = buttons.find(
         (b) =>
           b.textContent?.toLowerCase().includes('add') ||
@@ -237,7 +239,9 @@ const handler: Handler = async (event: HandlerEvent) => {
 
       // Try to find HTML/Custom Code option
       const htmlOptionClicked = await page.evaluate(() => {
-        const options = Array.from(document.querySelectorAll('button, div, [role="button"]'));
+        const options = Array.from(
+          document.querySelectorAll('button, div, [role="button"]')
+        );
         const htmlOption = options.find(
           (o) =>
             o.textContent?.toLowerCase().includes('html') ||
@@ -258,7 +262,9 @@ const handler: Handler = async (event: HandlerEvent) => {
         // Try to inject into newly opened field
         const injectedInNewField = await page.evaluate((script) => {
           const textareas = Array.from(document.querySelectorAll('textarea'));
-          const editables = Array.from(document.querySelectorAll('[contenteditable="true"]'));
+          const editables = Array.from(
+            document.querySelectorAll('[contenteditable="true"]')
+          );
           const allFields = [...textareas, ...editables];
 
           for (const field of allFields) {
@@ -306,7 +312,9 @@ const handler: Handler = async (event: HandlerEvent) => {
     // Method 3: Use Durable AI to add the script
     const aiPromptSent = await page.evaluate((script) => {
       // Look for AI chat or command input
-      const inputs = Array.from(document.querySelectorAll('input[type="text"], textarea'));
+      const inputs = Array.from(
+        document.querySelectorAll('input[type="text"], textarea')
+      );
       const aiInput = inputs.find(
         (i) =>
           i.placeholder?.toLowerCase().includes('ask') ||
@@ -354,7 +362,10 @@ const handler: Handler = async (event: HandlerEvent) => {
     }
 
     // If all methods fail, save screenshot and return instructions
-    const screenshot = await page.screenshot({ encoding: 'base64', fullPage: false });
+    const screenshot = await page.screenshot({
+      encoding: 'base64',
+      fullPage: false,
+    });
     await browser.close();
 
     return {

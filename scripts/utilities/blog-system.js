@@ -271,8 +271,14 @@ class BlogSystem {
     this.router.post('/api/blog/posts/:id/share', this.sharePost.bind(this));
 
     // Durable injection worker endpoint
-    this.router.post('/api/blog/durable-inject', this.handleDurableInjection.bind(this));
-    this.router.get('/api/blog/durable-status', this.checkDurableStatus.bind(this));
+    this.router.post(
+      '/api/blog/durable-inject',
+      this.handleDurableInjection.bind(this)
+    );
+    this.router.get(
+      '/api/blog/durable-status',
+      this.checkDurableStatus.bind(this)
+    );
   }
 
   async getAllPosts(req, res) {

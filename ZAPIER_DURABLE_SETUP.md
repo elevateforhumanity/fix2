@@ -55,13 +55,14 @@ The Cloudflare Worker needs your Durable credentials:
 wrangler secret put DURABLE_EMAIL --config wrangler-durable-injection.toml
 # Enter: Elevateforhumanity@gmail.com
 
-wrangler secret put AUTOPILOT_TOKEN --config wrangler-durable-injection.toml  
+wrangler secret put AUTOPILOT_TOKEN --config wrangler-durable-injection.toml
 # Enter: 7b9645cd105ae8c8ec81d9b05a52ffd46c5832dec703689e37ba295b60f09c77
 ```
 
 ### Step 3: Test the Flow
 
 **Manual Test:**
+
 ```bash
 curl -X POST https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev \
   -H "Authorization: Bearer 7b9645cd105ae8c8ec81d9b05a52ffd46c5832dec703689e37ba295b60f09c77" \
@@ -70,6 +71,7 @@ curl -X POST https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev \
 ```
 
 **Expected Response:**
+
 ```json
 {
   "success": true,
@@ -92,11 +94,13 @@ Once Zapier is configured:
 ## 📊 Monitoring
 
 **Check if script is present:**
+
 ```bash
 curl -s https://www.elevateforhumanity.org | grep -q "enrollment-injector.js" && echo "✅ Present" || echo "❌ Missing"
 ```
 
 **Check worker health:**
+
 ```bash
 curl https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev/health
 ```
@@ -106,10 +110,12 @@ curl https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev/health
 If you want to trigger it once manually instead of scheduling:
 
 **Zapier Zap:**
+
 1. **Trigger:** Webhook (Catch Hook)
 2. **Action:** Webhooks by Zapier (POST to worker)
 
 Then trigger via:
+
 ```bash
 curl -X POST https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID/
 ```

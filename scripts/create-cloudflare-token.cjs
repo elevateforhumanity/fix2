@@ -7,7 +7,8 @@
 
 const https = require('https');
 
-const CLOUDFLARE_EMAIL = process.env.CLOUDFLARE_EMAIL || 'elevateforhumanity@gmail.com';
+const CLOUDFLARE_EMAIL =
+  process.env.CLOUDFLARE_EMAIL || 'elevateforhumanity@gmail.com';
 const CLOUDFLARE_GLOBAL_API_KEY = process.env.CLOUDFLARE_GLOBAL_API_KEY;
 
 async function createAPIToken() {
@@ -33,14 +34,20 @@ async function createAPIToken() {
       {
         effect: 'allow',
         resources: {
-          'com.cloudflare.api.account.*': '*'
+          'com.cloudflare.api.account.*': '*',
         },
         permission_groups: [
-          { id: 'c8fed203ed3043cba015a93ad1616f1f', name: 'Workers Scripts Write' },
-          { id: 'e086da7e2179491d91ee5f35b3ca210a', name: 'Workers Routes Write' }
-        ]
-      }
-    ]
+          {
+            id: 'c8fed203ed3043cba015a93ad1616f1f',
+            name: 'Workers Scripts Write',
+          },
+          {
+            id: 'e086da7e2179491d91ee5f35b3ca210a',
+            name: 'Workers Routes Write',
+          },
+        ],
+      },
+    ],
   };
 
   const options = {
@@ -50,14 +57,16 @@ async function createAPIToken() {
     headers: {
       'X-Auth-Email': CLOUDFLARE_EMAIL,
       'X-Auth-Key': CLOUDFLARE_GLOBAL_API_KEY,
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   };
 
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
       let data = '';
-      res.on('data', (chunk) => { data += chunk; });
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
       res.on('end', () => {
         try {
           const response = JSON.parse(data);

@@ -1,6 +1,7 @@
 # Cloudflare API Token Setup - Required for Worker Deployment
 
 ## Current Status
+
 - ✅ Cloudflare Worker code ready: `workers/enrollment-injector-worker.ts`
 - ✅ Worker configuration ready: `wrangler-enrollment.toml`
 - ✅ GitHub Actions workflow ready: `.github/workflows/cloudflare-worker-deploy.yml`
@@ -9,6 +10,7 @@
 ## Why Autopilot Cannot Create Token
 
 Cloudflare API tokens **cannot be created programmatically** without existing authentication:
+
 - Need Global API Key OR valid API token to create new tokens
 - Current token in `.env` is invalid (returns 403/1000 error)
 - Puppeteer automation requires Cloudflare login credentials (email + password)
@@ -16,6 +18,7 @@ Cloudflare API tokens **cannot be created programmatically** without existing au
 ## Solution: Manual Token Creation (One-Time Setup)
 
 ### Step 1: Create API Token
+
 1. Go to: https://dash.cloudflare.com/profile/api-tokens
 2. Click "Create Token"
 3. Click "Create Custom Token"
@@ -30,6 +33,7 @@ Cloudflare API tokens **cannot be created programmatically** without existing au
 7. **COPY THE TOKEN** (you won't see it again!)
 
 ### Step 2: Add Token to GitHub Secrets
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 2. Click "New repository secret"
 3. Name: `CLOUDFLARE_API_TOKEN`
@@ -37,13 +41,17 @@ Cloudflare API tokens **cannot be created programmatically** without existing au
 5. Click "Add secret"
 
 ### Step 3: Trigger Deployment
+
 The worker will deploy automatically when you:
+
 - Push changes to `workers/` folder, OR
 - Push changes to `wrangler*.toml` files, OR
 - Manually trigger workflow at: https://github.com/elevateforhumanity/fix2/actions/workflows/cloudflare-worker-deploy.yml
 
 ### Step 4: Verify Deployment
+
 After deployment completes:
+
 ```bash
 # Check if worker is live
 curl https://enrollment-injector.workers.dev
@@ -55,6 +63,7 @@ curl https://www.elevateforhumanity.org | grep "Enroll in Our Programs"
 ## Alternative: Use Global API Key (Not Recommended)
 
 If you have your Cloudflare Global API Key:
+
 ```bash
 export CLOUDFLARE_EMAIL="elevateforhumanity@gmail.com"
 export CLOUDFLARE_GLOBAL_API_KEY="your-global-key"
@@ -84,6 +93,7 @@ Until Cloudflare Worker is deployed, you can manually add the enrollment script 
 1. Go to Durable.co site editor
 2. Add custom HTML block
 3. Paste:
+
 ```html
 <script src="https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js"></script>
 ```

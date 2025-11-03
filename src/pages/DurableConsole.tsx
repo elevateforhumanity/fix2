@@ -8,7 +8,10 @@ export default function DurableConsole() {
   const [logs, setLogs] = useState<string[]>([]);
 
   const addLog = (message: string) => {
-    setLogs((prev) => [...prev, `[${new Date().toLocaleTimeString()}] ${message}`]);
+    setLogs((prev) => [
+      ...prev,
+      `[${new Date().toLocaleTimeString()}] ${message}`,
+    ]);
   };
 
   const injectEnrollmentScript = async () => {
@@ -77,9 +80,9 @@ export default function DurableConsole() {
             🎓 Durable Integration Console
           </h1>
           <p className="text-gray-600 mb-8">
-            Automated enrollment program injection for www.elevateforhumanity.org
+            Automated enrollment program injection for
+            www.elevateforhumanity.org
           </p>
-
           {/* Credentials Section */}
           <div className="mb-8 p-6 bg-blue-50 rounded-xl">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
@@ -112,7 +115,6 @@ export default function DurableConsole() {
               </div>
             </div>
           </div>
-
           {/* Actions Section */}
           <div className="mb-8 space-y-4">
             <button
@@ -135,12 +137,12 @@ export default function DurableConsole() {
                       r="10"
                       stroke="currentColor"
                       strokeWidth="4"
-                    ></circle>
+                     />
                     <path
                       className="opacity-75"
                       fill="currentColor"
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
+                     />
                   </svg>
                   Injecting...
                 </span>
@@ -148,7 +150,6 @@ export default function DurableConsole() {
                 '🚀 Inject Enrollment Script to Durable'
               )}
             </button>
-
             <button
               onClick={testEnrollmentScript}
               className="w-full bg-gray-100 text-gray-700 font-semibold py-3 px-6 rounded-xl hover:bg-gray-200 transition-all"
@@ -156,7 +157,6 @@ export default function DurableConsole() {
               👁️ Preview Enrollment Script
             </button>
           </div>
-
           {/* Status Section */}
           {status && (
             <div
@@ -169,7 +169,6 @@ export default function DurableConsole() {
               <p className="font-semibold">{status}</p>
             </div>
           )}
-
           {/* Logs Section */}
           {logs.length > 0 && (
             <div className="mb-8">
@@ -185,7 +184,6 @@ export default function DurableConsole() {
               </div>
             </div>
           )}
-
           {/* Info Section */}
           <div className="p-6 bg-purple-50 rounded-xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">
@@ -223,7 +221,6 @@ export default function DurableConsole() {
               </li>
             </ul>
           </div>
-
           {/* Script Info */}
           <div className="mt-6 p-4 bg-gray-50 rounded-xl">
             <p className="text-sm text-gray-600">
