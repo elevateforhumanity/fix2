@@ -30,9 +30,29 @@ export default function DurableConsole() {
         setStatus('✅ Enrollment script injected successfully!');
         addLog('✅ Script injected to Durable site');
         addLog('✅ Enrollment programs now visible');
+        addLog('🔗 Check: https://www.elevateforhumanity.org');
       } else {
-        setStatus(`❌ Error: ${data.error}`);
-        addLog(`❌ Error: ${data.error}`);
+        setStatus(`❌ ${data.error}`);
+        addLog(`❌ ${data.error}`);
+
+        if (data.scriptTag) {
+          addLog('📋 Script to add manually:');
+          addLog(data.scriptTag);
+        }
+
+        if (data.instructions) {
+          addLog('');
+          addLog('📝 Manual steps:');
+          data.instructions.forEach((instruction: string) => {
+            addLog(`   ${instruction}`);
+          });
+        }
+
+        if (data.screenshot) {
+          addLog('');
+          addLog('📸 Screenshot saved - check console');
+          console.log('Durable editor screenshot:', data.screenshot);
+        }
       }
     } catch (error) {
       setStatus(`❌ Error: ${error.message}`);

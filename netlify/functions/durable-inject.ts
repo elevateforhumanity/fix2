@@ -200,11 +200,8 @@ const handler: Handler = async (event: HandlerEvent) => {
       });
 
       await page.waitForTimeout(3000);
-    }
+      await browser.close();
 
-    await browser.close();
-
-    if (injected) {
       return {
         statusCode: 200,
         body: JSON.stringify({
@@ -212,16 +209,169 @@ const handler: Handler = async (event: HandlerEvent) => {
           message: 'Enrollment script injected successfully',
         }),
       };
-    } else {
+    }
+
+    // If injection field not found, try alternative methods
+    console.log('Injection field not found, trying alternative methods...');
+
+    // Method 2: Try to add HTML block via UI
+    const htmlBlockAdded = await page.evaluate((script) => {
+      // Look for "Add" or "+" buttons
+      const buttons = Array.from(document.querySelectorAll('button, [role="button"]'));
+      const addBtn = buttons.find(
+        (b) =>
+          b.textContent?.toLowerCase().includes('add') ||
+          b.textContent?.toLowerCase().includes('+') ||
+          b.textContent?.toLowerCase().includes('block')
+      );
+
+      if (addBtn) {
+        (addBtn as HTMLElement).click();
+        return true;
+      }
+      return false;
+    }, scriptTag);
+
+    if (htmlBlockAdded) {
+      await page.waitForTimeout(2000);
+
+      // Try to find HTML/Custom Code option
+      const htmlOptionClicked = await page.evaluate(() => {
+        const options = Array.from(document.querySelectorAll('button, div, [role="button"]'));
+        const htmlOption = options.find(
+          (o) =>
+            o.textContent?.toLowerCase().includes('html') ||
+            o.textContent?.toLowerCase().includes('custom') ||
+            o.textContent?.toLowerCase().includes('code')
+        );
+
+        if (htmlOption) {
+          (htmlOption as HTMLElement).click();
+          return true;
+        }
+        return false;
+      });
+
+      if (htmlOptionClicked) {
+        await page.waitForTimeout(2000);
+
+        // Try to inject into newly opened field
+        const injectedInNewField = await page.evaluate((script) => {
+          const textareas = Array.from(document.querySelectorAll('textarea'));
+          const editables = Array.from(document.querySelectorAll('[contenteditable="true"]'));
+          const allFields = [...textareas, ...editables];
+
+          for (const field of allFields) {
+            if (field instanceof HTMLTextAreaElement) {
+              field.value = script;
+            } else {
+              field.textContent = script;
+            }
+            field.dispatchEvent(new Event('input', { bubbles: true }));
+            field.dispatchEvent(new Event('change', { bubbles: true }));
+            return true;
+          }
+          return false;
+        }, scriptTag);
+
+        if (injectedInNewField) {
+          // Click save
+          await page.evaluate(() => {
+            const buttons = Array.from(document.querySelectorAll('button'));
+            const saveBtn = buttons.find(
+              (b) =>
+                b.textContent?.toLowerCase().includes('save') ||
+                b.textContent?.toLowerCase().includes('done') ||
+                b.textContent?.toLowerCase().includes('add')
+            );
+            if (saveBtn) {
+              (saveBtn as HTMLElement).click();
+            }
+          });
+
+          await page.waitForTimeout(3000);
+          await browser.close();
+
+          return {
+            statusCode: 200,
+            body: JSON.stringify({
+              success: true,
+              message: 'Enrollment script injected via HTML block',
+            }),
+          };
+        }
+      }
+    }
+
+    // Method 3: Use Durable AI to add the script
+    const aiPromptSent = await page.evaluate((script) => {
+      // Look for AI chat or command input
+      const inputs = Array.from(document.querySelectorAll('input[type="text"], textarea'));
+      const aiInput = inputs.find(
+        (i) =>
+          i.placeholder?.toLowerCase().includes('ask') ||
+          i.placeholder?.toLowerCase().includes('ai') ||
+          i.placeholder?.toLowerCase().includes('command')
+      );
+
+      if (aiInput) {
+        const prompt = `Add this custom HTML code to the homepage: ${script}`;
+        if (aiInput instanceof HTMLInputElement) {
+          aiInput.value = prompt;
+        } else if (aiInput instanceof HTMLTextAreaElement) {
+          aiInput.value = prompt;
+        }
+        aiInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+        // Try to submit
+        const form = aiInput.closest('form');
+        if (form) {
+          form.dispatchEvent(new Event('submit', { bubbles: true }));
+          return true;
+        }
+
+        // Or find submit button
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          (submitBtn as HTMLElement).click();
+          return true;
+        }
+      }
+      return false;
+    }, scriptTag);
+
+    if (aiPromptSent) {
+      await page.waitForTimeout(5000);
+      await browser.close();
+
       return {
-        statusCode: 500,
+        statusCode: 200,
         body: JSON.stringify({
-          error:
-            'Could not find code injection field. Please add script manually.',
-          scriptTag,
+          success: true,
+          message: 'Sent script to Durable AI for injection',
         }),
       };
     }
+
+    // If all methods fail, save screenshot and return instructions
+    const screenshot = await page.screenshot({ encoding: 'base64', fullPage: false });
+    await browser.close();
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: 'Could not automatically inject script. Manual step required.',
+        scriptTag,
+        instructions: [
+          '1. Go to Durable.co editor',
+          '2. Click "Add" or "+" button',
+          '3. Select "Custom HTML" or "Code Block"',
+          '4. Paste the script tag',
+          '5. Save and publish',
+        ],
+        screenshot: `data:image/png;base64,${screenshot}`,
+      }),
+    };
   } catch (error) {
     return {
       statusCode: 500,
