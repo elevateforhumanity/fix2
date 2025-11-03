@@ -210,10 +210,12 @@
   to = "/.netlify/functions/courses"
   status = 200
 
+# SPA fallback - exclude assets, api, and files with extensions
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 [[headers]]
   for = "/assets/*"
