@@ -26,7 +26,9 @@ const CONFIG = {
   email: process.env.DURABLE_EMAIL || 'Elevateforhumanity@gmail.com',
   password: process.env.DURABLE_PASSWORD || 'Elijah1$',
   siteUrl: 'https://www.elevateforhumanity.org',
+  enrollmentPageUrl: 'https://www.elevateforhumanity.org/elevate',
   siteName: 'Elevate for Humanity',
+  enrollmentScriptUrl: 'https://main--elevateforhumanityfix.netlify.app/enrollment-injector.js',
   enrollmentCodeFile: path.join(__dirname, 'DURABLE_ENROLLMENT_CODE.html'),
   screenshotDir: path.join(__dirname, 'logs'),
   headless: 'new', // Use new headless mode
@@ -87,14 +89,9 @@ async function runDurableAutopilot() {
     process.exit(1);
   }
 
-  // Validate enrollment code file
-  if (!fs.existsSync(CONFIG.enrollmentCodeFile)) {
-    log.error(`Enrollment code file not found: ${CONFIG.enrollmentCodeFile}`);
-    process.exit(1);
-  }
-
-  const enrollmentCode = fs.readFileSync(CONFIG.enrollmentCodeFile, 'utf8');
-  log.success(`Loaded enrollment code (${enrollmentCode.length} characters)`);
+  // Enrollment script tag to inject
+  const enrollmentScriptTag = `<script src="${CONFIG.enrollmentScriptUrl}" defer></script>`;
+  log.success(`Enrollment script ready: ${CONFIG.enrollmentScriptUrl}`);
 
   let browser;
   let success = false;
@@ -339,190 +336,112 @@ async function runDurableAutopilot() {
     log.success('Login successful!');
     await takeScreenshot(page, '07-dashboard');
 
-    // Step 4: Find and select site
-    log.step(4, 'Finding site...');
+    // Step 4: Navigate to Settings
+    log.step(4, 'Navigating to Settings...');
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    // Try to find site by name or URL
-    const siteFound = await page.evaluate(
-      (siteName, siteUrl) => {
-        const links = Array.from(document.querySelectorAll('a, div, span'));
-        const siteElement = links.find(
-          (el) =>
-            el.textContent.includes(siteName) ||
-            el.textContent.includes('elevateforhumanity') ||
-            (el.href && el.href.includes('elevateforhumanity'))
-        );
-
-        if (siteElement) {
-          // Find edit button near this element
-          const parent = siteElement.closest(
-            '[class*="card"], [class*="site"], [class*="item"]'
-          );
-          if (parent) {
-            const editBtn = parent.querySelector('button, a');
-            if (editBtn) {
-              editBtn.click();
-              return true;
-            }
-          }
-          siteElement.click();
-          return true;
-        }
-        return false;
-      },
-      CONFIG.siteName,
-      CONFIG.siteUrl
-    );
-
-    if (!siteFound) {
-      log.warning(
-        'Could not find site automatically, trying alternative methods...'
+    // Try to find Settings link/button
+    const settingsFound = await page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('a, button, div, span'));
+      const settingsElement = elements.find(
+        (el) =>
+          el.textContent.toLowerCase().includes('settings') ||
+          el.getAttribute('aria-label')?.toLowerCase().includes('settings') ||
+          el.href?.includes('settings')
       );
 
-      // Try clicking first site/edit button
-      try {
-        await page.evaluate(() => {
-          const editButtons = Array.from(
-            document.querySelectorAll('button, a')
-          );
-          const editBtn = editButtons.find(
-            (btn) =>
-              btn.textContent.toLowerCase().includes('edit') ||
-              btn.textContent.toLowerCase().includes('manage')
-          );
-          if (editBtn) editBtn.click();
-        });
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-      } catch (e) {
-        log.error('Could not find site to edit');
-        await takeScreenshot(page, '08-site-not-found');
-        throw new Error('Site not found');
-      }
-    }
-
-    log.success('Site selected');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    await takeScreenshot(page, '09-site-editor');
-
-    // Step 5: Wait for editor to load
-    log.step(5, 'Waiting for editor to load...');
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-
-    const editorLoaded = await page.evaluate(() => {
-      return (
-        document.querySelector(
-          '[class*="editor"], [class*="canvas"], iframe'
-        ) !== null
-      );
-    });
-
-    if (!editorLoaded) {
-      log.warning('Editor may not be loaded, continuing anyway...');
-    } else {
-      log.success('Editor loaded');
-    }
-
-    await takeScreenshot(page, '10-editor-ready');
-
-    // Step 6: Add Custom HTML block
-    log.step(6, 'Adding Custom HTML block...');
-
-    // Try to find "Add Section" or "+" button
-    const addButtonFound = await page.evaluate(() => {
-      const buttons = Array.from(
-        document.querySelectorAll('button, a, div[role="button"]')
-      );
-      const addBtn = buttons.find(
-        (btn) =>
-          btn.textContent.toLowerCase().includes('add section') ||
-          btn.textContent.toLowerCase().includes('add block') ||
-          btn.textContent === '+' ||
-          btn.getAttribute('aria-label')?.toLowerCase().includes('add')
-      );
-
-      if (addBtn) {
-        addBtn.click();
+      if (settingsElement) {
+        settingsElement.click();
         return true;
       }
       return false;
     });
 
-    if (!addButtonFound) {
-      log.warning('Could not find "Add Section" button automatically');
-      log.info('You may need to add the Custom HTML block manually');
-      log.info('The code is ready in: ' + CONFIG.enrollmentCodeFile);
-      await takeScreenshot(page, '11-add-button-not-found');
-    } else {
-      log.success('Clicked "Add Section" button');
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      await takeScreenshot(page, '12-add-menu-open');
-
-      // Try to find Custom HTML option
-      const htmlBlockFound = await page.evaluate(() => {
-        const options = Array.from(
-          document.querySelectorAll('button, a, div[role="button"], li')
-        );
-        const htmlOption = options.find(
-          (opt) =>
-            opt.textContent.toLowerCase().includes('custom html') ||
-            opt.textContent.toLowerCase().includes('html') ||
-            opt.textContent.toLowerCase().includes('code') ||
-            opt.textContent.toLowerCase().includes('embed')
-        );
-
-        if (htmlOption) {
-          htmlOption.click();
-          return true;
-        }
-        return false;
+    if (!settingsFound) {
+      log.warning('Could not find Settings automatically, trying direct URL...');
+      await page.goto('https://durable.co/sites/settings', {
+        waitUntil: 'networkidle2',
+        timeout: CONFIG.timeout,
       });
-
-      if (!htmlBlockFound) {
-        log.warning('Could not find Custom HTML option');
-        log.info('Look for: Custom HTML, Code Block, or Embed option');
-        await takeScreenshot(page, '13-html-option-not-found');
-      } else {
-        log.success('Selected Custom HTML block');
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        await takeScreenshot(page, '14-html-block-added');
-      }
     }
 
-    // Step 7: Paste enrollment code
-    log.step(7, 'Pasting enrollment code...');
+    log.success('Navigated to Settings');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await takeScreenshot(page, '08-settings-page');
 
-    // Try to find code editor/textarea
-    const codeEditorSelectors = [
-      'textarea',
-      '[contenteditable="true"]',
-      '.code-editor',
-      '[class*="editor"]',
-      'iframe',
+    // Step 5: Find Custom Code section
+    log.step(5, 'Finding Custom Code section...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const customCodeFound = await page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('button, a, div, span, h2, h3'));
+      const customCodeElement = elements.find(
+        (el) =>
+          el.textContent.toLowerCase().includes('custom code') ||
+          el.textContent.toLowerCase().includes('custom html') ||
+          el.textContent.toLowerCase().includes('advanced')
+      );
+
+      if (customCodeElement) {
+        customCodeElement.click();
+        return true;
+      }
+      return false;
+    });
+
+    if (!customCodeFound) {
+      log.warning('Could not find Custom Code section automatically');
+      await takeScreenshot(page, '09-custom-code-not-found');
+    } else {
+      log.success('Found Custom Code section');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await takeScreenshot(page, '10-custom-code-section');
+    }
+
+    // Step 6: Find Head Code textarea
+    log.step(6, 'Finding Head Code textarea...');
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const headCodeSelectors = [
+      'textarea[name="head"]',
+      'textarea[placeholder*="head" i]',
+      'textarea[placeholder*="<head>" i]',
+      '[data-testid="head-code"]',
+      '.head-code-editor',
     ];
 
-    let codePasted = false;
-    for (const selector of codeEditorSelectors) {
+    let scriptInjected = false;
+    for (const selector of headCodeSelectors) {
       try {
         const elements = await page.$$(selector);
         if (elements.length > 0) {
-          // Try to paste into the last textarea/editor (usually the new one)
-          const editor = elements[elements.length - 1];
+          const textarea = elements[0];
 
-          await editor.click();
+          // Get existing content
+          const existingCode = await page.evaluate(el => el.value, textarea);
+
+          // Check if enrollment script already exists
+          if (existingCode.includes(CONFIG.enrollmentScriptUrl)) {
+            log.success('Enrollment script already exists in head section');
+            scriptInjected = true;
+            break;
+          }
+
+          // Add enrollment script
+          const newCode = existingCode + '\n\n' + enrollmentScriptTag;
+
+          await textarea.click();
           await new Promise((resolve) => setTimeout(resolve, 500));
 
-          // Clear existing content
-          await page.keyboard.down('Control');
-          await page.keyboard.press('A');
-          await page.keyboard.up('Control');
-          await page.keyboard.press('Backspace');
+          // Set the value
+          await page.evaluate((el, code) => {
+            el.value = code;
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+            el.dispatchEvent(new Event('change', { bubbles: true }));
+          }, textarea, newCode);
 
-          // Paste code
-          await editor.type(enrollmentCode, { delay: 10 });
-
-          codePasted = true;
-          log.success('Enrollment code pasted successfully');
+          scriptInjected = true;
+          log.success('Enrollment script injected into head section');
           break;
         }
       } catch (e) {
@@ -530,42 +449,73 @@ async function runDurableAutopilot() {
       }
     }
 
-    if (!codePasted) {
-      log.warning('Could not paste code automatically');
+    // Fallback: Try to find any textarea and inject
+    if (!scriptInjected) {
+      log.warning('Could not find head code textarea with specific selectors');
+      log.info('Trying to find any textarea...');
+
+      try {
+        const textareas = await page.$$('textarea');
+        if (textareas.length > 0) {
+          const textarea = textareas[0];
+          const existingCode = await page.evaluate(el => el.value, textarea);
+
+          if (existingCode.includes(CONFIG.enrollmentScriptUrl)) {
+            log.success('Enrollment script already exists');
+            scriptInjected = true;
+          } else {
+            const newCode = existingCode + '\n\n' + enrollmentScriptTag;
+            await page.evaluate((el, code) => {
+              el.value = code;
+              el.dispatchEvent(new Event('input', { bubbles: true }));
+              el.dispatchEvent(new Event('change', { bubbles: true }));
+            }, textarea, newCode);
+
+            scriptInjected = true;
+            log.success('Enrollment script injected');
+          }
+        }
+      } catch (e) {
+        log.error('Could not inject script: ' + e.message);
+      }
+    }
+
+    if (!scriptInjected) {
+      log.error('Could not inject enrollment script automatically');
       log.info('Manual step required:');
-      log.info('1. Find the code editor/textarea');
-      log.info('2. Paste the contents of: ' + CONFIG.enrollmentCodeFile);
-      await takeScreenshot(page, '15-code-editor-not-found');
+      log.info('1. Go to Settings → Custom Code');
+      log.info('2. Add to Head section: ' + enrollmentScriptTag);
+      await takeScreenshot(page, '11-injection-failed');
     }
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    await takeScreenshot(page, '16-code-pasted');
+    await takeScreenshot(page, '12-script-injected');
 
-    // Step 8: Publish changes
-    log.step(8, 'Publishing changes...');
+    // Step 7: Save changes
+    log.step(7, 'Saving changes...');
 
-    const publishButtonFound = await page.evaluate(() => {
+    const saveButtonFound = await page.evaluate(() => {
       const buttons = Array.from(document.querySelectorAll('button, a'));
-      const publishBtn = buttons.find(
+      const saveBtn = buttons.find(
         (btn) =>
-          btn.textContent.toLowerCase().includes('publish') ||
           btn.textContent.toLowerCase().includes('save') ||
-          btn.textContent.toLowerCase().includes('update')
+          btn.textContent.toLowerCase().includes('update') ||
+          btn.textContent.toLowerCase().includes('apply')
       );
 
-      if (publishBtn) {
-        publishBtn.click();
+      if (saveBtn) {
+        saveBtn.click();
         return true;
       }
       return false;
     });
 
-    if (!publishButtonFound) {
-      log.warning('Could not find Publish button');
-      log.info('Look for: Publish, Save, or Update button (usually top-right)');
-      await takeScreenshot(page, '17-publish-button-not-found');
+    if (!saveButtonFound) {
+      log.warning('Could not find Save button');
+      log.info('Look for: Save, Update, or Apply button');
+      await takeScreenshot(page, '13-save-button-not-found');
     } else {
-      log.success('Clicked Publish button');
+      log.success('Clicked Save button');
       await new Promise((resolve) => setTimeout(resolve, 3000));
 
       // Handle confirmation modal if it appears
@@ -578,7 +528,7 @@ async function runDurableAutopilot() {
             (btn) =>
               btn.textContent.toLowerCase().includes('confirm') ||
               btn.textContent.toLowerCase().includes('yes') ||
-              btn.textContent.toLowerCase().includes('publish')
+              btn.textContent.toLowerCase().includes('save')
           );
           if (confirmBtn) confirmBtn.click();
         });
@@ -587,43 +537,59 @@ async function runDurableAutopilot() {
         // No confirmation modal
       }
 
-      await takeScreenshot(page, '18-published');
+      await takeScreenshot(page, '14-saved');
     }
 
-    // Step 9: Verify deployment
-    log.step(9, 'Verifying deployment...');
-    log.info('Waiting 10 seconds for CDN propagation...');
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    // Step 8: Verify deployment on /elevate page
+    log.step(8, 'Verifying deployment...');
+    log.info('Checking enrollment page: ' + CONFIG.enrollmentPageUrl);
+    log.info('Waiting 5 seconds for CDN propagation...');
+    await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    await page.goto(CONFIG.siteUrl, {
+    await page.goto(CONFIG.enrollmentPageUrl, {
       waitUntil: 'networkidle2',
       timeout: CONFIG.timeout,
     });
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    await takeScreenshot(page, '19-live-site');
+    await takeScreenshot(page, '15-enrollment-page');
+
+    // Check if enrollment script is loaded
+    const scriptLoaded = await page.evaluate((scriptUrl) => {
+      const scripts = Array.from(document.querySelectorAll('script'));
+      return scripts.some((script) => script.src && script.src.includes(scriptUrl));
+    }, CONFIG.enrollmentScriptUrl);
 
     // Check if enrollment section is visible
     const enrollmentVisible = await page.evaluate(() => {
       const text = document.body.textContent;
       return (
         text.includes('Enroll in Our Programs Today') ||
-        text.includes('AI & Machine Learning') ||
-        text.includes('Data Science Bootcamp') ||
-        text.includes('Cybersecurity Specialist')
+        text.includes('Barber Apprenticeship') ||
+        text.includes('Building Services Technician') ||
+        text.includes('Certified Nursing Assistant')
       );
     });
 
-    if (enrollmentVisible) {
-      log.success('✨ Enrollment programs are LIVE on the website!');
+    if (scriptLoaded && enrollmentVisible) {
+      log.success('✨ Enrollment script loaded and programs are LIVE!');
+      log.success(`Visit: ${CONFIG.enrollmentPageUrl}`);
+      success = true;
+    } else if (scriptLoaded) {
+      log.success('✅ Enrollment script is loaded');
+      log.warning('⚠️ Enrollment programs not visible yet (may need page refresh)');
+      success = true; // Script is injected, that's the main goal
+    } else if (enrollmentVisible) {
+      log.success('✅ Enrollment programs are visible');
+      log.warning('⚠️ Script tag not detected (may be inline)');
       success = true;
     } else {
-      log.warning('Enrollment programs not visible yet');
-      log.info('This may be due to CDN caching. Wait 60 seconds and refresh.');
-      log.info('Or check if the code was pasted correctly.');
+      log.warning('Enrollment script and programs not detected');
+      log.info('Please verify the script was added to the /elevate page');
+      log.info('Script to add: <script src="' + CONFIG.enrollmentScriptUrl + '" defer></script>');
     }
 
-    await takeScreenshot(page, '20-verification');
+    await takeScreenshot(page, '16-verification');
 
     // Save status
     const status = {
