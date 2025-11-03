@@ -41,17 +41,41 @@ window.addEventListener('error', (e) =>
   console.error('Global error:', (e as any).error || e.message)
 );
 
+console.log('🚀 main.tsx executing...');
+console.log('document:', typeof document);
+console.log('document.getElementById:', typeof document.getElementById);
+
 const el = document.getElementById('root');
+console.log('root element:', el);
+
 if (!el) {
   console.error('#root not found; check index.html');
+  // Create a visible error message
+  const errorDiv = document.createElement('div');
+  errorDiv.style.cssText = 'padding:20px;background:red;color:white;font-size:20px;';
+  errorDiv.textContent = '❌ ERROR: #root element not found!';
+  document.body.appendChild(errorDiv);
 } else {
-  createRoot(el).render(
-    <React.StrictMode>
-      <RootErrorBoundary>
-        <HelmetProvider>
-          <App />
-        </HelmetProvider>
-      </RootErrorBoundary>
-    </React.StrictMode>
-  );
+  console.log('✅ Found root element, creating React root...');
+  try {
+    const root = createRoot(el);
+    console.log('✅ React root created, rendering...');
+    root.render(
+      <React.StrictMode>
+        <RootErrorBoundary>
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
+        </RootErrorBoundary>
+      </React.StrictMode>
+    );
+    console.log('✅ Render called successfully');
+  } catch (error) {
+    console.error('❌ Error during render:', error);
+    // Create a visible error message
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = 'padding:20px;background:red;color:white;font-size:20px;';
+    errorDiv.textContent = '❌ ERROR: ' + (error as Error).message;
+    document.body.appendChild(errorDiv);
+  }
 }
