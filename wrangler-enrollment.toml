@@ -7,7 +7,7 @@ main = "workers/enrollment-injector-worker.ts"
 compatibility_date = "2024-01-01"
 
 # Account ID (your Cloudflare account)
-account_id = "6ba1d2a52a3fa230972960db307ac7c0"
+account_id = "ebd4dda1304d9f951e834139182b2aa1"
 
 # CRITICAL: Route configuration
 # This tells Cloudflare to route ALL traffic through this worker
@@ -17,8 +17,10 @@ account_id = "6ba1d2a52a3fa230972960db307ac7c0"
 #   { pattern = "www.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
 # ]
 
-# Use workers.dev subdomain for initial deployment
-workers_dev = true
+# Deploy without routes - domain not on Cloudflare
+# Domain elevateforhumanity.org is hosted on Durable.co
+# Worker will be accessible via direct URL only
+workers_dev = false
 
 # Environment variables
 [vars]
