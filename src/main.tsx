@@ -60,21 +60,16 @@ if (!el) {
   try {
     const root = createRoot(el);
     console.log('✅ React root created, rendering...');
-    root.render(
-      <React.StrictMode>
-        <RootErrorBoundary>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
-        </RootErrorBoundary>
-      </React.StrictMode>
-    );
+    
+    // Simplest possible render - no wrappers
+    root.render(<App />);
+    
     console.log('✅ Render called successfully');
   } catch (error) {
     console.error('❌ Error during render:', error);
     // Create a visible error message
     const errorDiv = document.createElement('div');
-    errorDiv.style.cssText = 'padding:20px;background:red;color:white;font-size:20px;';
+    errorDiv.style.cssText = 'padding:20px;background:red;color:white;font-size:20px;position:fixed;top:0;left:0;right:0;z-index:99999;';
     errorDiv.textContent = '❌ ERROR: ' + (error as Error).message;
     document.body.appendChild(errorDiv);
   }
