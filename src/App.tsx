@@ -1,13 +1,8 @@
-import { BrowserRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import AppRoutes from './router/AppRoutes';
-
 export default function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </HelmetProvider>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>Hello World!</h1>
+      <p>If you see this, React is working.</p>
+    </div>
   );
 }
