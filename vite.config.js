@@ -35,6 +35,9 @@ const routes = [
 ];
 
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(process.env.VITE_BUILD_ID || 'dev'),
+  },
   plugins: [
     react(),
     sitemap({
