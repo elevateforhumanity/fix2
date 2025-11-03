@@ -5,6 +5,13 @@ import { HelmetProvider } from 'react-helmet-async';
 import './styles/durable-design.css';
 import App from './App';
 
+// IMMEDIATE TEST: Add a marker to prove this script is executing
+const testMarker = document.createElement('div');
+testMarker.id = 'script-executing-marker';
+testMarker.style.cssText = 'position:fixed;top:0;left:0;right:0;background:blue;color:white;padding:10px;text-align:center;z-index:99999;font-size:20px;';
+testMarker.textContent = '🔵 SCRIPT IS EXECUTING!';
+document.body.appendChild(testMarker);
+
 declare const __APP_VERSION__: string;
 
 class RootErrorBoundary extends React.Component<
