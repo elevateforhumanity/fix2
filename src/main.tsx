@@ -2,6 +2,7 @@ import './env-guard';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import './styles/durable-design.css';
 import App from './App';
 
 declare const __APP_VERSION__: string;
