@@ -1,5 +1,15 @@
 import React from 'react';
-import { Award, CheckCircle, Clock, DollarSign, Users, BookOpen, ExternalLink, Phone, Mail } from 'lucide-react';
+import {
+  Award,
+  CheckCircle,
+  Clock,
+  DollarSign,
+  Users,
+  BookOpen,
+  ExternalLink,
+  Phone,
+  Mail,
+} from 'lucide-react';
 
 /**
  * Certiport Authorized Testing Center
@@ -11,69 +21,75 @@ const CertiportTestingCenter = () => {
   const certifications = [
     {
       name: 'Microsoft Office Specialist (MOS)',
-      description: 'Industry-recognized certification for Microsoft Office proficiency',
+      description:
+        'Industry-recognized certification for Microsoft Office proficiency',
       exams: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'Access'],
       icon: '💼',
-      color: 'blue'
+      color: 'blue',
     },
     {
       name: 'IC3 Digital Literacy',
       description: 'Global standard for digital literacy certification',
       exams: ['Computing Fundamentals', 'Key Applications', 'Living Online'],
       icon: '💻',
-      color: 'green'
+      color: 'green',
     },
     {
       name: 'Adobe Certified Professional',
       description: 'Validate skills in Adobe Creative Cloud applications',
       exams: ['Photoshop', 'Illustrator', 'InDesign', 'Premiere Pro'],
       icon: '🎨',
-      color: 'purple'
+      color: 'purple',
     },
     {
       name: 'Autodesk Certified User',
       description: 'Professional certification for Autodesk design software',
       exams: ['AutoCAD', 'Revit', 'Fusion 360', 'Maya'],
       icon: '🏗️',
-      color: 'orange'
+      color: 'orange',
     },
     {
       name: 'Entrepreneurship and Small Business (ESB)',
       description: 'Certification for entrepreneurial and business skills',
       exams: ['ESB Certification Exam'],
       icon: '🚀',
-      color: 'pink'
+      color: 'pink',
     },
     {
       name: 'IT Specialist',
       description: 'Entry-level IT certification for technical skills',
-      exams: ['Software Development', 'Networking', 'Cybersecurity', 'Cloud Computing'],
+      exams: [
+        'Software Development',
+        'Networking',
+        'Cybersecurity',
+        'Cloud Computing',
+      ],
       icon: '🔧',
-      color: 'indigo'
-    }
+      color: 'indigo',
+    },
   ];
 
   const benefits = [
     {
       title: 'Industry-Recognized Credentials',
       description: 'Earn certifications recognized by employers worldwide',
-      icon: Award
+      icon: Award,
     },
     {
       title: 'Flexible Scheduling',
       description: 'Schedule your exam at a time that works for you',
-      icon: Clock
+      icon: Clock,
     },
     {
       title: 'Immediate Results',
       description: 'Get your exam results immediately upon completion',
-      icon: CheckCircle
+      icon: CheckCircle,
     },
     {
       title: 'Professional Environment',
       description: 'Take exams in a secure, proctored testing environment',
-      icon: Users
-    }
+      icon: Users,
+    },
   ];
 
   const getColorClasses = (color) => {
@@ -83,7 +99,7 @@ const CertiportTestingCenter = () => {
       purple: 'bg-purple-100 text-purple-800 border-purple-300',
       orange: 'bg-orange-100 text-orange-800 border-orange-300',
       pink: 'bg-pink-100 text-pink-800 border-pink-300',
-      indigo: 'bg-indigo-100 text-indigo-800 border-indigo-300'
+      indigo: 'bg-indigo-100 text-indigo-800 border-indigo-300',
     };
     return colors[color] || colors.blue;
   };
@@ -104,8 +120,8 @@ const CertiportTestingCenter = () => {
               Elevate for Humanity Career and Training Institute
             </p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Take industry-recognized certification exams at our authorized testing center. 
-              Microsoft, Adobe, Autodesk, and more.
+              Take industry-recognized certification exams at our authorized
+              testing center. Microsoft, Adobe, Autodesk, and more.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -127,17 +143,18 @@ const CertiportTestingCenter = () => {
           </div>
         </div>
       </div>
-
       {/* About Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">About Our Testing Center</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            About Our Testing Center
+          </h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            As a Certiport Authorized Testing Center (CATC), we provide a professional, 
-            secure environment for taking industry-recognized certification exams. Our facility 
-            meets all Certiport standards for testing security and candidate experience.
+            As a Certiport Authorized Testing Center (CATC), we provide a
+            professional, secure environment for taking industry-recognized
+            certification exams. Our facility meets all Certiport standards for
+            testing security and candidate experience.
           </p>
-
           <div className="grid md:grid-cols-4 gap-6 mt-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -153,13 +170,17 @@ const CertiportTestingCenter = () => {
             })}
           </div>
         </div>
-
         {/* Available Certifications */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Available Certifications</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Available Certifications
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
-              <div key={index} className={`border-2 rounded-lg p-6 ${getColorClasses(cert.color)}`}>
+              <div
+                key={index}
+                className={`border-2 rounded-lg p-6 ${getColorClasses(cert.color)}`}
+              >
                 <div className="text-4xl mb-4">{cert.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{cert.name}</h3>
                 <p className="text-sm mb-4">{cert.description}</p>
@@ -178,10 +199,11 @@ const CertiportTestingCenter = () => {
             ))}
           </div>
         </div>
-
         {/* How It Works */}
         <div className="bg-blue-50 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">How to Take an Exam</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            How to Take an Exam
+          </h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
@@ -221,7 +243,6 @@ const CertiportTestingCenter = () => {
             </div>
           </div>
         </div>
-
         {/* Pricing */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">Exam Pricing</h2>
@@ -245,17 +266,21 @@ const CertiportTestingCenter = () => {
               </div>
             </div>
             <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6 text-center">
-              <p className="font-bold text-lg mb-2">Training Program Participants</p>
+              <p className="font-bold text-lg mb-2">
+                Training Program Participants
+              </p>
               <p className="text-gray-700">
-                Exam fees may be covered by WIOA/WRG funding for eligible participants in our training programs
+                Exam fees may be covered by WIOA/WRG funding for eligible
+                participants in our training programs
               </p>
             </div>
           </div>
         </div>
-
         {/* Testing Requirements */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Testing Requirements</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Testing Requirements
+          </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4">What to Bring</h3>
@@ -293,10 +318,14 @@ const CertiportTestingCenter = () => {
             </div>
           </div>
         </div>
-
         {/* Schedule Section */}
-        <div id="schedule" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg p-12 mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Ready to Get Certified?</h2>
+        <div
+          id="schedule"
+          className="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg p-12 mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4 text-center">
+            Ready to Get Certified?
+          </h2>
           <p className="text-xl mb-8 text-center">
             Schedule your certification exam at our authorized testing center
           </p>
@@ -317,34 +346,41 @@ const CertiportTestingCenter = () => {
             </a>
           </div>
         </div>
-
         {/* Contact Info */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Testing Center Information</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Testing Center Information
+          </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-lg mb-6">
-              <strong>Elevate for Humanity Career and Training Institute</strong><br />
+              <strong>
+                Elevate for Humanity Career and Training Institute
+              </strong>
+              <br />
               Certiport Authorized Testing Center
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold mb-2">Contact Us</h3>
                 <p className="text-gray-700">
-                  Email: elevateforhumanity@gmail.com<br />
+                  Email: elevateforhumanity@gmail.com
+                  <br />
                   Phone: (317) 314-3757
                 </p>
               </div>
               <div>
                 <h3 className="font-bold mb-2">Testing Hours</h3>
                 <p className="text-gray-700">
-                  By Appointment Only<br />
+                  By Appointment Only
+                  <br />
                   Monday - Friday: 9 AM - 5 PM
                 </p>
               </div>
             </div>
             <div className="mt-6 pt-6 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                For Certiport customer support: 1-888-999-9830 (Option 2)<br />
+                For Certiport customer support: 1-888-999-9830 (Option 2)
+                <br />
                 Or email: customerservices@certiport.com
               </p>
             </div>

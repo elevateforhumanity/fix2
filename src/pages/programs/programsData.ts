@@ -113,19 +113,20 @@ export const programsData = {
     slug: 'hvac',
     title: 'HVAC & Welding',
     subtitle:
-      'Master heating, ventilation, air conditioning systems and welding techniques. Enter high-paying skilled trades with strong job security.',
+      'Master heating, ventilation, air conditioning systems and welding techniques. Enter high-paying skilled trades with strong job security. ETPL Approved!',
     duration: '8-16 weeks',
     format: 'Hybrid - Classroom + Hands-on Labs',
     certification: 'EPA 608 Certification, Welding Certification',
     cost: '$0 with approved funding (WRG/WIOA)',
     badges: [
-      '💰 WRG Funded',
+      '✅ WRG APPROVED',
+      '✅ ETPL APPROVED',
       '💰 WIOA Funded',
       '🔥 EPA Certified',
       '⏱️ 8-16 Weeks',
     ],
     overview:
-      'Combine two in-demand skilled trades in one comprehensive program. Learn HVAC installation, maintenance, and repair alongside professional welding techniques. Graduate with dual certifications and multiple career pathways.',
+      '✅ NOW APPROVED FOR WRG FUNDING & ETPL! Combine two in-demand skilled trades in one comprehensive program. Learn HVAC installation, maintenance, and repair alongside professional welding techniques. Graduate with dual certifications and multiple career pathways. This program is officially approved for Workforce Ready Grant (WRG) funding and listed on the Eligible Training Provider List (ETPL).',
     skills: [
       'HVAC system installation and repair',
       'Refrigeration cycles and controls',

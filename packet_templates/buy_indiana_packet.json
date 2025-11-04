@@ -1,0 +1,23 @@
+{
+  "certification_type": "buy_indiana",
+  "status": "draft",
+  "priority": "high",
+  "deadline": null,
+  "fields": {
+    "business_name": "[AUTO-FILLED]",
+    "dba": "[AUTO-FILLED]",
+    "ein": "[AUTO-FILLED]",
+    "bidder_id": "[AUTO-FILLED]",
+    "business_address_street": "[AUTO-FILLED]",
+    "business_address_city": "[AUTO-FILLED]",
+    "business_address_state": "[AUTO-FILLED]",
+    "business_address_zip": "[AUTO-FILLED]",
+    "phone": "[AUTO-FILLED]",
+    "email": "[AUTO-FILLED]",
+    "indiana_registered": true,
+    "indiana_taxes": true
+  },
+  "required_attachments": ["indiana_registration", "tax_registration"],
+  "estimated_time": "2-4 weeks",
+  "difficulty": "easy"
+}

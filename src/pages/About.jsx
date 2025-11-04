@@ -105,18 +105,18 @@ export default function About() {
   ];
 
   const certifications = [
-    'DOL Compliant',
-    'DWD Certified',
-    'DOE Approved',
-    'IRS VITA Partner',
-    'Financial Education Partner',
-    'Asset Building Partner',
-    'Veteran-Owned Small Business',
-    'Buy Black Certified',
-    'ETPL Provider',
-    'DOL Apprenticeship Sponsor',
-    'WIOA Approved',
-    'Government Contractor',
+    { name: 'DOL Compliant', category: 'Federal' },
+    { name: 'DWD Certified', category: 'State' },
+    { name: 'DOE Approved', category: 'Federal' },
+    { name: 'IRS VITA Partner (SIDN: S28011182)', category: 'Federal' },
+    { name: 'SAM.gov Registered (3 Entities)', category: 'Federal' },
+    { name: 'Indiana State Bidder (ID: 0000067741)', category: 'State' },
+    { name: 'ByBlack Certified Business', category: 'Diversity' },
+    { name: '501(c)(3) Nonprofit', category: 'Tax Status' },
+    { name: 'ETPL Provider', category: 'Federal' },
+    { name: 'DOL Apprenticeship Sponsor', category: 'Federal' },
+    { name: 'WIOA Approved', category: 'Federal' },
+    { name: 'Government Contractor', category: 'Federal' },
   ];
 
   return (
@@ -206,23 +206,34 @@ export default function About() {
                   </strong>
                   , Elevate for Humanity emerged from a vision to create
                   meaningful pathways to prosperity through education and
-                  Learn2Earn Workforce programs. As a certified{' '}
-                  <strong>Veteran-Owned Small Business</strong> and{' '}
+                  Learn2Earn Workforce programs. Operating through{' '}
+                  <strong className="text-purple-600">
+                    Selfish Inc. / Rise Forward Foundation
+                  </strong>
+                  , a{' '}
+                  <strong className="text-purple-600">
+                    501(c)(3) nonprofit organization
+                  </strong>
+                  , we are a{' '}
                   <strong className="text-brand-success">
-                    Buy Black Certified
+                    ByBlack Certified Business
                   </strong>{' '}
-                  organization, we understand the challenges faced by those
-                  seeking to transform their lives through education.
+                  and <strong>SAM.gov registered government contractor</strong>{' '}
+                  with three active federal entities. We understand the
+                  challenges faced by those seeking to transform their lives
+                  through education.
                 </p>
                 <p>
-                  In partnership with Selfish Inc. dba, we've built a
-                  government-compliant nonprofit dedicated to accessible,
-                  high-quality education. We are{' '}
+                  We are fully certified and compliant:{' '}
                   <strong className="text-brand-success">
                     DOL, DWD, and DOE compliant
                   </strong>
-                  , committed to transparency, accessibility, and student
-                  success.
+                  , with active registrations in{' '}
+                  <strong>SAM.gov (3 entities)</strong>,{' '}
+                  <strong>Indiana State Procurement (2 entities)</strong>, and{' '}
+                  <strong>IRS VITA authorization (SIDN: S28011182)</strong>. Our
+                  commitment to transparency, accessibility, and student success
+                  is backed by comprehensive federal and state certifications.
                 </p>
                 <p className="text-xl font-semibold text-brand-text">
                   Today, we serve over{' '}
@@ -288,7 +299,7 @@ export default function About() {
                 Fully certified and compliant with all regulatory requirements
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {certifications.map((cert, idx) => (
                 <Card
                   key={idx}
@@ -297,7 +308,10 @@ export default function About() {
                 >
                   <CardContent className="p-6">
                     <CheckCircle2 className="h-8 w-8 text-brand-success mx-auto mb-3" />
-                    <p className="font-semibold text-brand-text">{cert}</p>
+                    <p className="font-semibold text-brand-text">{cert.name}</p>
+                    <Badge className="mt-2" variant="secondary">
+                      {cert.category}
+                    </Badge>
                   </CardContent>
                 </Card>
               ))}

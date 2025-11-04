@@ -17,54 +17,71 @@ const __dirname = path.dirname(__filename);
 async function fetchHTML(url) {
   return new Promise((resolve, reject) => {
     const client = url.startsWith('https') ? https : http;
-    
-    client.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-      }
-    }, (res) => {
-      let data = '';
-      
-      res.on('data', (chunk) => {
-        data += chunk;
+
+    client
+      .get(
+        url,
+        {
+          headers: {
+            'User-Agent':
+              'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          },
+        },
+        (res) => {
+          let data = '';
+
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+
+          res.on('end', () => {
+            resolve(data);
+          });
+        }
+      )
+      .on('error', (err) => {
+        reject(err);
       });
-      
-      res.on('end', () => {
-        resolve(data);
-      });
-    }).on('error', (err) => {
-      reject(err);
-    });
   });
 }
 
 async function downloadImage(url, filename) {
   return new Promise((resolve, reject) => {
     const client = url.startsWith('https') ? https : http;
-    
-    client.get(url, (res) => {
-      if (res.statusCode === 302 || res.statusCode === 301) {
-        // Follow redirect
-        downloadImage(res.headers.location, filename).then(resolve).catch(reject);
-        return;
-      }
-      
-      const filePath = path.join(process.cwd(), 'public', 'images', 'partners', filename);
-      const fileStream = require('fs').createWriteStream(filePath);
-      
-      res.pipe(fileStream);
-      
-      fileStream.on('finish', () => {
-        fileStream.close();
-        resolve(filePath);
-      });
-      
-      fileStream.on('error', (err) => {
+
+    client
+      .get(url, (res) => {
+        if (res.statusCode === 302 || res.statusCode === 301) {
+          // Follow redirect
+          downloadImage(res.headers.location, filename)
+            .then(resolve)
+            .catch(reject);
+          return;
+        }
+
+        const filePath = path.join(
+          process.cwd(),
+          'public',
+          'images',
+          'partners',
+          filename
+        );
+        const fileStream = require('fs').createWriteStream(filePath);
+
+        res.pipe(fileStream);
+
+        fileStream.on('finish', () => {
+          fileStream.close();
+          resolve(filePath);
+        });
+
+        fileStream.on('error', (err) => {
+          reject(err);
+        });
+      })
+      .on('error', (err) => {
         reject(err);
       });
-    }).on('error', (err) => {
-      reject(err);
-    });
   });
 }
 
@@ -73,7 +90,7 @@ async function scrapeJRIPrograms() {
 
   const urls = [
     'https://learning.employindy.org',
-    'https://jri.employindy.org'
+    'https://jri.employindy.org',
   ];
 
   const scrapedData = [];
@@ -82,34 +99,37 @@ async function scrapeJRIPrograms() {
     try {
       console.log(`Fetching: ${url}`);
       const html = await fetchHTML(url);
-      
+
       // Extract program titles
       const titleMatches = html.match(/<h[1-3][^>]*>([^<]+)<\/h[1-3]>/gi) || [];
       const titles = titleMatches
-        .map(match => match.replace(/<[^>]+>/g, '').trim())
-        .filter(title => title.length > 5 && title.length < 100);
-      
+        .map((match) => match.replace(/<[^>]+>/g, '').trim())
+        .filter((title) => title.length > 5 && title.length < 100);
+
       // Extract course/badge mentions
-      const courseMatches = html.match(/badge|course|certification|skill|training/gi) || [];
-      
+      const courseMatches =
+        html.match(/badge|course|certification|skill|training/gi) || [];
+
       // Extract logo URLs
-      const logoMatches = html.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/gi) || [];
+      const logoMatches =
+        html.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/gi) || [];
       const logos = logoMatches
-        .map(match => {
+        .map((match) => {
           const srcMatch = match.match(/src=["']([^"']+)["']/);
           return srcMatch ? srcMatch[1] : null;
         })
-        .filter(src => src && (src.includes('logo') || src.includes('brand')));
+        .filter(
+          (src) => src && (src.includes('logo') || src.includes('brand'))
+        );
 
       scrapedData.push({
         source: url,
         titles: [...new Set(titles)].slice(0, 10),
         courseCount: courseMatches.length,
-        logos: logos.slice(0, 3)
+        logos: logos.slice(0, 3),
       });
 
       console.log(`✅ Found ${titles.length} titles from ${url}`);
-      
     } catch (error) {
       console.log(`❌ Error scraping ${url}:`, error.message);
     }
@@ -127,10 +147,11 @@ async function generateJRICoursesData() {
     provider: 'EmployIndy',
     organization: 'Elevate for Humanity Career and Training Institute',
     facilitator: 'Elizabeth Greene',
-    registrationLink: 'https://learning.employindy.org/jri-participant-elevatehumanitycareertraining',
+    registrationLink:
+      'https://learning.employindy.org/jri-participant-elevatehumanitycareertraining',
     portalLink: 'https://jri.employindy.org',
     learningHubLink: 'https://learning.employindy.org',
-    
+
     badges: [
       {
         id: 'professional-skills',
@@ -141,10 +162,10 @@ async function generateJRICoursesData() {
           'Workplace etiquette and behavior',
           'Time management and punctuality',
           'Work ethic and reliability',
-          'Professionalism in communication'
+          'Professionalism in communication',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
+        credential: 'Digital Badge',
       },
       {
         id: 'communication',
@@ -155,10 +176,10 @@ async function generateJRICoursesData() {
           'Written communication',
           'Active listening',
           'Non-verbal communication',
-          'Email and professional correspondence'
+          'Email and professional correspondence',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
+        credential: 'Digital Badge',
       },
       {
         id: 'problem-solving',
@@ -169,10 +190,10 @@ async function generateJRICoursesData() {
           'Analyzing situations',
           'Generating solutions',
           'Decision-making processes',
-          'Creative thinking'
+          'Creative thinking',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
+        credential: 'Digital Badge',
       },
       {
         id: 'teamwork',
@@ -183,10 +204,10 @@ async function generateJRICoursesData() {
           'Collaboration skills',
           'Conflict resolution',
           'Supporting team members',
-          'Contributing to team goals'
+          'Contributing to team goals',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
+        credential: 'Digital Badge',
       },
       {
         id: 'digital-literacy',
@@ -197,10 +218,10 @@ async function generateJRICoursesData() {
           'Internet and email usage',
           'Microsoft Office basics',
           'Online safety and security',
-          'Digital communication tools'
+          'Digital communication tools',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
+        credential: 'Digital Badge',
       },
       {
         id: 'career-planning',
@@ -211,22 +232,20 @@ async function generateJRICoursesData() {
           'Resume writing',
           'Job search strategies',
           'Interview preparation',
-          'Professional development planning'
+          'Professional development planning',
         ],
         duration: 'Self-paced',
-        credential: 'Digital Badge'
-      }
+        credential: 'Digital Badge',
+      },
     ],
 
-
-    
     benefits: [
       'Free training with no hidden costs',
       'Self-paced online learning',
       'Employer-recognized digital badges',
       'Career advancement opportunities',
       'Facilitator support and guidance',
-      'Shareable credentials for LinkedIn and resumes'
+      'Shareable credentials for LinkedIn and resumes',
     ],
 
     eligibility: [
@@ -234,8 +253,8 @@ async function generateJRICoursesData() {
       'No prior experience required',
       'Must be 18 years or older',
       'Access to computer and internet required',
-      'Commitment to complete all six badge courses'
-    ]
+      'Commitment to complete all six badge courses',
+    ],
   };
 
   return jriCourses;
@@ -267,17 +286,17 @@ export default jobReadyIndyCourses;
 async function main() {
   try {
     console.log('🚀 Starting Job Ready Indy program scraper\n');
-    
+
     // Ensure images directory exists
     const imagesDir = path.join(process.cwd(), 'public', 'images', 'partners');
     await fs.mkdir(imagesDir, { recursive: true });
-    
+
     const scrapedPrograms = await scrapeJRIPrograms();
     const jriData = await generateJRICoursesData();
-    
+
     // Add scraped data to JRI data
     jriData.scrapedData = scrapedPrograms;
-    
+
     await saveJRIData(jriData);
 
     console.log('\n✅ Job Ready Indy programs successfully scraped and saved!');
@@ -287,7 +306,6 @@ async function main() {
     console.log(`   - Portal: ${jriData.portalLink}`);
     console.log(`   - Facilitator: ${jriData.facilitator}`);
     console.log(`   - Scraped sources: ${scrapedPrograms.length}`);
-    
   } catch (error) {
     console.error('❌ Error:', error);
     process.exit(1);

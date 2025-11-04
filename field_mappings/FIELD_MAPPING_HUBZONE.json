@@ -1,0 +1,91 @@
+{
+  "certification_type": "hubzone",
+  "portal_url": "https://certify.sba.gov",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.selfish_inc.legal_name",
+      "selector": "input[id='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "uei": {
+      "source": "entities.selfish_inc.uei",
+      "selector": "input[id='uei']",
+      "type": "text",
+      "required": true
+    },
+    "principal_office_address": {
+      "source": "business.primary_address.street",
+      "selector": "input[id='principal_address']",
+      "type": "text",
+      "required": true
+    },
+    "principal_office_city": {
+      "source": "business.primary_address.city",
+      "selector": "input[id='principal_city']",
+      "type": "text",
+      "required": true
+    },
+    "principal_office_zip": {
+      "source": "business.primary_address.zip",
+      "selector": "input[id='principal_zip']",
+      "type": "text",
+      "required": true
+    },
+    "hubzone_verified": {
+      "source": "static:true",
+      "selector": "input[id='hubzone_verified']",
+      "type": "checkbox",
+      "required": true
+    },
+    "total_employees": {
+      "source": "business.employees",
+      "selector": "input[id='total_employees']",
+      "type": "number",
+      "required": true
+    },
+    "hubzone_employees": {
+      "source": "static:calculated",
+      "selector": "input[id='hubzone_employees']",
+      "type": "number",
+      "required": true,
+      "note": "Must be 35% of total"
+    },
+    "owner_name": {
+      "source": "owner.full_name",
+      "selector": "input[id='owner_name']",
+      "type": "text",
+      "required": true
+    },
+    "owner_citizenship": {
+      "source": "owner.citizenship",
+      "selector": "select[id='citizenship']",
+      "type": "select",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "lease_or_deed",
+      "selector": "input[id='file_lease']",
+      "required": true
+    },
+    {
+      "name": "employee_list_with_addresses",
+      "selector": "input[id='file_employees']",
+      "required": true
+    },
+    {
+      "name": "employee_residency_proof",
+      "selector": "input[id='file_residency']",
+      "required": true
+    },
+    {
+      "name": "hubzone_map_verification",
+      "selector": "input[id='file_hubzone_map']",
+      "required": true
+    }
+  ],
+  "submit_button": "button[id='submit_hubzone']"
+}

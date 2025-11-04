@@ -55,19 +55,67 @@ const Footer = () => {
         >
           <div
             style={{
+              backgroundColor: '#7c3aed',
+              color: '#fff',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              fontSize: '0.85rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            <span>🏛️</span>
+            <span>501(c)(3) Nonprofit</span>
+          </div>
+          <div
+            style={{
               backgroundColor: '#000',
               color: '#fff',
               padding: '0.5rem 1rem',
               borderRadius: '8px',
               fontWeight: 'bold',
-              fontSize: '0.9rem',
+              fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
             }}
           >
             <span style={{ fontSize: '1.2rem' }}>✊🏿</span>
-            <span>Buy Black Certified</span>
+            <span>ByBlack Certified</span>
+          </div>
+          <div
+            style={{
+              backgroundColor: '#1e40af',
+              color: '#fff',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              fontSize: '0.85rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            <span>✅</span>
+            <span>SAM.gov Registered</span>
+          </div>
+          <div
+            style={{
+              backgroundColor: '#059669',
+              color: '#fff',
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              fontSize: '0.85rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            <span>📋</span>
+            <span>IRS VITA Partner</span>
           </div>
         </div>
         <p>

@@ -1,5 +1,16 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle, HardHat, Users, Wrench, ExternalLink, Phone, Mail, Building } from 'lucide-react';
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  HardHat,
+  Users,
+  Wrench,
+  ExternalLink,
+  Phone,
+  Mail,
+  Building,
+} from 'lucide-react';
 
 /**
  * NCCER CareerStarter Program
@@ -10,7 +21,8 @@ import { Award, BookOpen, CheckCircle, HardHat, Users, Wrench, ExternalLink, Pho
 
 const NCCERCareerStarter = () => {
   const nccerUrl = 'https://www.nccer.org';
-  const careerStarterUrl = 'https://www.nccer.org/workforce-development/careerstarter';
+  const careerStarterUrl =
+    'https://www.nccer.org/workforce-development/careerstarter';
 
   const constructionPathways = [
     {
@@ -18,66 +30,66 @@ const NCCERCareerStarter = () => {
       description: 'Build structures, frameworks, and finish work',
       icon: '🔨',
       careers: ['Carpenter', 'Framer', 'Finish Carpenter'],
-      salary: '$35,000 - $65,000/year'
+      salary: '$35,000 - $65,000/year',
     },
     {
       title: 'Electrical',
       description: 'Install and maintain electrical systems',
       icon: '⚡',
       careers: ['Electrician', 'Electrical Technician', 'Wireman'],
-      salary: '$40,000 - $75,000/year'
+      salary: '$40,000 - $75,000/year',
     },
     {
       title: 'HVAC',
       description: 'Heating, ventilation, and air conditioning systems',
       icon: '❄️',
       careers: ['HVAC Technician', 'HVAC Installer', 'Service Tech'],
-      salary: '$38,000 - $70,000/year'
+      salary: '$38,000 - $70,000/year',
     },
     {
       title: 'Plumbing',
       description: 'Install and repair water and drainage systems',
       icon: '🚰',
       careers: ['Plumber', 'Pipefitter', 'Steamfitter'],
-      salary: '$40,000 - $75,000/year'
+      salary: '$40,000 - $75,000/year',
     },
     {
       title: 'Welding',
       description: 'Join metal parts using various welding techniques',
       icon: '🔥',
       careers: ['Welder', 'Fabricator', 'Welding Inspector'],
-      salary: '$35,000 - $70,000/year'
+      salary: '$35,000 - $70,000/year',
     },
     {
       title: 'Heavy Equipment',
       description: 'Operate construction machinery and equipment',
       icon: '🚜',
       careers: ['Equipment Operator', 'Crane Operator', 'Excavator Operator'],
-      salary: '$40,000 - $80,000/year'
-    }
+      salary: '$40,000 - $80,000/year',
+    },
   ];
 
   const programBenefits = [
     {
       title: 'Industry-Recognized Credentials',
       description: 'Earn NCCER certifications recognized nationwide',
-      icon: Award
+      icon: Award,
     },
     {
       title: 'Hands-On Training',
       description: 'Learn through practical, real-world construction projects',
-      icon: Wrench
+      icon: Wrench,
     },
     {
       title: 'Job Placement Support',
       description: 'Connect with entry-level construction job opportunities',
-      icon: Building
+      icon: Building,
     },
     {
       title: 'Career Exploration',
       description: 'Explore multiple construction trades before specializing',
-      icon: HardHat
-    }
+      icon: HardHat,
+    },
   ];
 
   return (
@@ -96,8 +108,8 @@ const NCCERCareerStarter = () => {
               National Center for Construction Education and Research
             </p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Explore construction careers and connect with entry-level job opportunities. 
-              Earn industry-recognized NCCER credentials.
+              Explore construction careers and connect with entry-level job
+              opportunities. Earn industry-recognized NCCER credentials.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -119,18 +131,19 @@ const NCCERCareerStarter = () => {
           </div>
         </div>
       </div>
-
       {/* About Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">About NCCER CareerStarter</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            About NCCER CareerStarter
+          </h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            NCCER CareerStarter is a workforce development program that helps students explore 
-            construction careers and connect with entry-level job opportunities. Through hands-on 
-            training and industry-recognized credentials, participants gain the skills needed to 
-            succeed in the construction industry.
+            NCCER CareerStarter is a workforce development program that helps
+            students explore construction careers and connect with entry-level
+            job opportunities. Through hands-on training and industry-recognized
+            credentials, participants gain the skills needed to succeed in the
+            construction industry.
           </p>
-
           <div className="grid md:grid-cols-4 gap-6 mt-8">
             {programBenefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -146,16 +159,24 @@ const NCCERCareerStarter = () => {
             })}
           </div>
         </div>
-
         {/* Construction Pathways */}
         <div id="explore" className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Construction Career Pathways</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Construction Career Pathways
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {constructionPathways.map((pathway, index) => (
-              <div key={index} className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+              <div
+                key={index}
+                className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition"
+              >
                 <div className="text-5xl mb-4 text-center">{pathway.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-center">{pathway.title}</h3>
-                <p className="text-gray-700 mb-4 text-center">{pathway.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-center">
+                  {pathway.title}
+                </h3>
+                <p className="text-gray-700 mb-4 text-center">
+                  {pathway.description}
+                </p>
                 <div className="space-y-2 mb-4">
                   <p className="font-semibold text-sm">Career Options:</p>
                   <ul className="space-y-1">
@@ -168,16 +189,19 @@ const NCCERCareerStarter = () => {
                   </ul>
                 </div>
                 <div className="bg-green-50 p-3 rounded text-center">
-                  <p className="text-sm font-semibold text-green-800">{pathway.salary}</p>
+                  <p className="text-sm font-semibold text-green-800">
+                    {pathway.salary}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
         {/* Program Features */}
         <div className="bg-orange-50 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Program Features</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Program Features
+          </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4">Training Components</h3>
@@ -231,12 +255,14 @@ const NCCERCareerStarter = () => {
             </div>
           </div>
         </div>
-
         {/* NCCER Credentials */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">NCCER Credentials</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            NCCER Credentials
+          </h2>
           <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-            Earn industry-recognized NCCER credentials that are valued by employers nationwide
+            Earn industry-recognized NCCER credentials that are valued by
+            employers nationwide
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="border-2 border-orange-200 rounded-lg p-6 text-center">
@@ -262,10 +288,11 @@ const NCCERCareerStarter = () => {
             </div>
           </div>
         </div>
-
         {/* Eligibility */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Who Can Participate?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Who Can Participate?
+          </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4">Ideal Candidates</h3>
@@ -311,34 +338,40 @@ const NCCERCareerStarter = () => {
             </div>
           </div>
         </div>
-
         {/* Funding */}
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-center text-green-900">Funding Available</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center text-green-900">
+            Funding Available
+          </h2>
           <p className="text-center text-gray-700 mb-6 max-w-2xl mx-auto">
-            Training may be available at no cost through WIOA/WRG funding for eligible participants
+            Training may be available at no cost through WIOA/WRG funding for
+            eligible participants
           </p>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="bg-white p-6 rounded-lg">
               <h3 className="font-bold mb-2">WIOA Funding</h3>
               <p className="text-gray-700">
-                Workforce Innovation and Opportunity Act funding for eligible individuals
+                Workforce Innovation and Opportunity Act funding for eligible
+                individuals
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg">
               <h3 className="font-bold mb-2">Workforce Ready Grant</h3>
               <p className="text-gray-700">
-                Indiana's WRG program covers training costs for high-demand occupations
+                Indiana's WRG program covers training costs for high-demand
+                occupations
               </p>
             </div>
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg p-12 mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Start Your Construction Career</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center">
+            Start Your Construction Career
+          </h2>
           <p className="text-xl mb-8 text-center">
-            Join NCCER CareerStarter and explore rewarding construction career opportunities
+            Join NCCER CareerStarter and explore rewarding construction career
+            opportunities
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -359,7 +392,6 @@ const NCCERCareerStarter = () => {
             </a>
           </div>
         </div>
-
         {/* Contact Info */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Get Started Today</h2>
@@ -384,7 +416,8 @@ const NCCERCareerStarter = () => {
           </div>
           <div className="pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600">
-              <strong>NCCER Program Manager:</strong> Karina Kuchta<br />
+              <strong>NCCER Program Manager:</strong> Karina Kuchta
+              <br />
               Phone: 386-518-6500 ext. 6938
             </p>
           </div>

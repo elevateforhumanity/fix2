@@ -44,42 +44,57 @@ export default function Home() {
     <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
       <Helmet>
         <title>
-          Elevate for Humanity | Nonprofit Partnership with Selfish Inc. dba
+          Elevate for Humanity | 501(c)(3) Nonprofit | ByBlack Certified |
+          Government Contractor
         </title>
         <meta
           name="description"
-          content="Elevate for Humanity, in partnership with Selfish Inc. dba, delivers DOL-compliant, dynamic online learning and Elevate Learn2Earn Workforce. Contact us via chat or SMS."
+          content="501(c)(3) nonprofit, ByBlack Certified Business, SAM.gov registered government contractor. DOL-compliant workforce training, IRS VITA partner. Serving communities through federal and state contracts."
         />
         <meta
           name="keywords"
-          content="LMS, nonprofit, Selfish Inc, Elevate for Humanity, DOL compliant, Google Ad Grant, Elevate Learn2Earn Workforce, online courses, chat, Twilio, government contractor, best LMS, LearnWorlds alternative, LearnKey alternative"
+          content="501c3 nonprofit, ByBlack certified, government contractor, SAM.gov, DOL compliant, VITA partner, workforce training, Indiana state bidder, minority owned business, Learn2Earn, online courses, federal contracts"
         />
         <meta
           property="og:title"
-          content="Elevate for Humanity | Nonprofit Partnership with Selfish Inc. dba"
+          content="Elevate for Humanity | 501(c)(3) Nonprofit | ByBlack Certified | Government Contractor"
         />
         <meta
           property="og:description"
-          content="Elevate for Humanity, in partnership with Selfish Inc. dba, delivers DOL-compliant, dynamic online learning and Elevate Learn2Earn Workforce."
+          content="501(c)(3) nonprofit, ByBlack Certified Business, SAM.gov registered government contractor serving communities through workforce training and education."
         />
         <meta property="og:url" content="https://elevateforhumanity.org/" />
       </Helmet>
       <header>
         <div
           style={{
-            background: '#e3f2fd',
-            padding: 12,
-            borderRadius: 8,
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            padding: 16,
+            borderRadius: 12,
             margin: '16px 0',
             fontWeight: 'bold',
             textAlign: 'center',
+            color: 'white',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
           }}
         >
-          <span role="img" aria-label="government">
-            🏛️
-          </span>{' '}
-          Official U.S. Government Contractor | DOL/DOE/DWD Compliant | SAM
-          Registered
+          <div style={{ fontSize: 18, marginBottom: 8 }}>
+            <span role="img" aria-label="nonprofit">
+              🏛️
+            </span>{' '}
+            501(c)(3) Nonprofit Organization{' '}
+            <span role="img" aria-label="certified">
+              ✅
+            </span>{' '}
+            ByBlack Certified Business
+          </div>
+          <div style={{ fontSize: 14, opacity: 0.95 }}>
+            SAM.gov Registered (3 Entities) | Indiana State Bidder | IRS VITA
+            Partner (SIDN: S28011182)
+          </div>
+          <div style={{ fontSize: 14, opacity: 0.95, marginTop: 4 }}>
+            DOL/DOE/DWD Compliant | Official U.S. Government Contractor
+          </div>
         </div>
         <nav
           role="navigation"
@@ -116,13 +131,24 @@ export default function Home() {
       >
         <h1 style={{ fontSize: 36, marginBottom: 12 }}>Elevate for Humanity</h1>
         <h2 style={{ fontSize: 24, marginBottom: 8, color: '#1976d2' }}>
-          In Proud Partnership with Selfish Inc. dba
+          Selfish Inc. / Rise Forward Foundation
         </h2>
+        <h3
+          style={{
+            fontSize: 18,
+            marginBottom: 12,
+            color: '#7c3aed',
+            fontWeight: 'bold',
+          }}
+        >
+          501(c)(3) Nonprofit | ByBlack Certified | Government Contractor
+        </h3>
         <p style={{ fontSize: 18, color: '#444' }}>
-          Our nonprofit partnership delivers accessible, DOL-compliant online
-          learning and Elevate Learn2Earn Workforce solutions. Powered by a
-          Google Ad Grant, we reach more learners and empower communities
-          nationwide.
+          Our 501(c)(3) nonprofit delivers accessible, DOL-compliant online
+          learning and Elevate Learn2Earn Workforce solutions. As a ByBlack
+          Certified Business with 3 active SAM.gov registrations, we're
+          positioned to serve communities through federal and state contracts.
+          Powered by a Google Ad Grant, we reach more learners nationwide.
         </p>
         <div style={{ marginTop: 16 }}>
           <a

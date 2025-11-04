@@ -1,5 +1,12 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle, ExternalLink, Users, TrendingUp } from 'lucide-react';
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  ExternalLink,
+  Users,
+  TrendingUp,
+} from 'lucide-react';
 import { jobReadyIndyCourses } from '../data/jobReadyIndyCourses';
 
 /**
@@ -16,16 +23,16 @@ const JobReadyIndy = () => {
 
   const iconMap = {
     'professional-skills': Users,
-    'communication': BookOpen,
+    communication: BookOpen,
     'problem-solving': TrendingUp,
-    'teamwork': Users,
+    teamwork: Users,
     'digital-literacy': BookOpen,
-    'career-planning': Award
+    'career-planning': Award,
   };
 
-  const badges = jriData.badges.map(badge => ({
+  const badges = jriData.badges.map((badge) => ({
     ...badge,
-    icon: iconMap[badge.id] || BookOpen
+    icon: iconMap[badge.id] || BookOpen,
   }));
 
   return (
@@ -35,15 +42,14 @@ const JobReadyIndy = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-4">Job Ready Indy</h1>
-            <p className="text-2xl mb-6">
-              {jriData.organization}
-            </p>
+            <p className="text-2xl mb-6">{jriData.organization}</p>
             <p className="text-lg mb-4 text-blue-100">
               Facilitator: {jriData.facilitator}
             </p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Build essential workplace skills through EmployIndy's Job Ready Indy program. 
-              Earn digital badges recognized by employers across Indianapolis.
+              Build essential workplace skills through EmployIndy's Job Ready
+              Indy program. Earn digital badges recognized by employers across
+              Indianapolis.
             </p>
             <a
               href={jriRegistrationLink}
@@ -57,17 +63,18 @@ const JobReadyIndy = () => {
           </div>
         </div>
       </div>
-
       {/* Program Overview */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">What is Job Ready Indy?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            What is Job Ready Indy?
+          </h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            Job Ready Indy (JRI) is a free, online program that helps you develop the essential 
-            skills employers are looking for. Complete six badge courses to demonstrate your 
-            workplace readiness and stand out to employers.
+            Job Ready Indy (JRI) is a free, online program that helps you
+            develop the essential skills employers are looking for. Complete six
+            badge courses to demonstrate your workplace readiness and stand out
+            to employers.
           </p>
-
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -98,15 +105,19 @@ const JobReadyIndy = () => {
             </div>
           </div>
         </div>
-
         {/* Six Badge Courses */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Six Badge Courses</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Six Badge Courses
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {badges.map((badge, index) => {
               const Icon = badge.icon;
               return (
-                <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+                >
                   <div className="flex items-center mb-4">
                     <div className="bg-blue-100 rounded-full p-3 mr-4">
                       <Icon className="w-6 h-6 text-blue-600" />
@@ -119,7 +130,6 @@ const JobReadyIndy = () => {
             })}
           </div>
         </div>
-
         {/* How It Works */}
         <div className="bg-blue-50 rounded-lg p-8 mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">How It Works</h2>
@@ -162,10 +172,11 @@ const JobReadyIndy = () => {
             </div>
           </div>
         </div>
-
         {/* Benefits */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Program Benefits</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Program Benefits
+          </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start">
               <CheckCircle className="w-6 h-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
@@ -199,7 +210,8 @@ const JobReadyIndy = () => {
               <div>
                 <h3 className="font-bold mb-2">Career Advancement</h3>
                 <p className="text-gray-700">
-                  Build skills that help you get hired and advance in your career
+                  Build skills that help you get hired and advance in your
+                  career
                 </p>
               </div>
             </div>
@@ -223,10 +235,11 @@ const JobReadyIndy = () => {
             </div>
           </div>
         </div>
-
         {/* Access Links */}
         <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Get Started Today</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Get Started Today
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <a
               href={jriRegistrationLink}
@@ -247,9 +260,7 @@ const JobReadyIndy = () => {
               className="bg-white text-blue-600 p-6 rounded-lg hover:bg-gray-100 transition text-center"
             >
               <h3 className="font-bold text-xl mb-2">Access Portal</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Login to JRI courses
-              </p>
+              <p className="text-sm text-gray-700 mb-4">Login to JRI courses</p>
               <ExternalLink className="w-6 h-6 mx-auto" />
             </a>
             <a
@@ -259,19 +270,17 @@ const JobReadyIndy = () => {
               className="bg-white text-blue-600 p-6 rounded-lg hover:bg-gray-100 transition text-center"
             >
               <h3 className="font-bold text-xl mb-2">Learning Hub</h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Access all resources
-              </p>
+              <p className="text-sm text-gray-700 mb-4">Access all resources</p>
               <ExternalLink className="w-6 h-6 mx-auto" />
             </a>
           </div>
         </div>
-
         {/* Facilitator Info */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
           <p className="text-lg text-gray-700 mb-6">
-            Our certified Job Ready Indy facilitator is here to support you through the program
+            Our certified Job Ready Indy facilitator is here to support you
+            through the program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

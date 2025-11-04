@@ -1,0 +1,85 @@
+{
+  "certification_type": "dbe_acdbe",
+  "portal_url": "https://in.gov/indot",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.curvature.legal_name",
+      "selector": "input[name='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "dba": {
+      "source": "entities.curvature.dba",
+      "selector": "input[name='dba']",
+      "type": "text",
+      "required": false
+    },
+    "uei": {
+      "source": "entities.curvature.uei",
+      "selector": "input[name='uei']",
+      "type": "text",
+      "required": true
+    },
+    "cage_code": {
+      "source": "entities.curvature.cage_code",
+      "selector": "input[name='cage_code']",
+      "type": "text",
+      "required": true
+    },
+    "indot_status": {
+      "source": "entities.curvature.indot_status",
+      "selector": "input[name='indot_approved']",
+      "type": "text",
+      "required": false
+    },
+    "owner_name": {
+      "source": "owner.full_name",
+      "selector": "input[name='owner_name']",
+      "type": "text",
+      "required": true
+    },
+    "owner_race": {
+      "source": "owner.race_ethnicity",
+      "selector": "select[name='owner_race']",
+      "type": "select",
+      "required": true
+    },
+    "owner_gender": {
+      "source": "owner.gender",
+      "selector": "select[name='owner_gender']",
+      "type": "select",
+      "required": true
+    },
+    "social_disadvantage": {
+      "source": "disadvantaged_status.social_disadvantage",
+      "selector": "textarea[name='social_disadvantage']",
+      "type": "textarea",
+      "required": true
+    },
+    "economic_disadvantage": {
+      "source": "disadvantaged_status.economic_disadvantage",
+      "selector": "textarea[name='economic_disadvantage']",
+      "type": "textarea",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "articles_of_organization",
+      "selector": "input[name='file_articles']",
+      "required": true
+    },
+    {
+      "name": "financial_statements",
+      "selector": "input[name='file_financials']",
+      "required": true
+    },
+    {
+      "name": "sam_registration",
+      "selector": "input[name='file_sam']",
+      "required": true
+    }
+  ],
+  "submit_button": "button[name='submit']"
+}

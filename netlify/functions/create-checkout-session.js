@@ -10,23 +10,23 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { 
-      programId, 
-      programName, 
-      price, 
-      successUrl, 
+    const {
+      programId,
+      programName,
+      price,
+      successUrl,
       cancelUrl,
       planId,
       productType,
-      productName
+      productName,
     } = JSON.parse(event.body);
 
     // Handle certification purchases
     if (productType === 'certification') {
       const certificationPrices = {
-        'individual': 44.95,
+        individual: 44.95,
         'team-5': 199.95,
-        'salon': 699.95
+        salon: 699.95,
       };
 
       const certPrice = certificationPrices[planId];
@@ -53,8 +53,12 @@ exports.handler = async (event) => {
           },
         ],
         mode: 'payment',
-        success_url: successUrl || `${event.headers.origin}/lms/enrollment-success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: cancelUrl || `${event.headers.origin}/lms/client-safety-certification`,
+        success_url:
+          successUrl ||
+          `${event.headers.origin}/lms/enrollment-success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url:
+          cancelUrl ||
+          `${event.headers.origin}/lms/client-safety-certification`,
         metadata: {
           productType: 'certification',
           planId,

@@ -1,5 +1,16 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle, DollarSign, Users, FileText, ExternalLink, Phone, Mail, Calculator } from 'lucide-react';
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  DollarSign,
+  Users,
+  FileText,
+  ExternalLink,
+  Phone,
+  Mail,
+  Calculator,
+} from 'lucide-react';
 
 /**
  * VITA Tax Certification Program
@@ -23,9 +34,9 @@ const VITATaxCertification = () => {
         'Earned Income Tax Credit (EITC)',
         'Child Tax Credit',
         'Basic income reporting',
-        'Form 1040 preparation'
+        'Form 1040 preparation',
       ],
-      color: 'blue'
+      color: 'blue',
     },
     {
       level: 'Intermediate',
@@ -37,9 +48,9 @@ const VITATaxCertification = () => {
         'Rental property income',
         'Education credits',
         'Retirement income',
-        'Capital gains and losses'
+        'Capital gains and losses',
       ],
-      color: 'green'
+      color: 'green',
     },
     {
       level: 'Advanced',
@@ -51,40 +62,40 @@ const VITATaxCertification = () => {
         'Foreign income',
         'Alternative Minimum Tax',
         'Complex investments',
-        'Multi-state returns'
+        'Multi-state returns',
       ],
-      color: 'purple'
-    }
+      color: 'purple',
+    },
   ];
 
   const benefits = [
     {
       title: 'IRS Certification',
       description: 'Earn official IRS VITA certification',
-      icon: Award
+      icon: Award,
     },
     {
       title: 'Free Training',
       description: 'Complete training at no cost through Link+Learn',
-      icon: BookOpen
+      icon: BookOpen,
     },
     {
       title: 'Help Your Community',
       description: 'Provide free tax preparation services to those in need',
-      icon: Users
+      icon: Users,
     },
     {
       title: 'Career Skills',
       description: 'Build valuable tax preparation and accounting skills',
-      icon: Calculator
-    }
+      icon: Calculator,
+    },
   ];
 
   const getColorClasses = (color) => {
     const colors = {
       blue: 'bg-blue-50 border-blue-300 text-blue-900',
       green: 'bg-green-50 border-green-300 text-green-900',
-      purple: 'bg-purple-50 border-purple-300 text-purple-900'
+      purple: 'bg-purple-50 border-purple-300 text-purple-900',
     };
     return colors[color] || colors.blue;
   };
@@ -101,12 +112,10 @@ const VITATaxCertification = () => {
             <h1 className="text-5xl font-bold mb-4">
               VITA Tax Certification Program
             </h1>
-            <p className="text-2xl mb-6">
-              IRS Volunteer Income Tax Assistance
-            </p>
+            <p className="text-2xl mb-6">IRS Volunteer Income Tax Assistance</p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Get certified to provide free tax preparation services through the IRS VITA program. 
-              Training powered by Link+Learn Taxes.
+              Get certified to provide free tax preparation services through the
+              IRS VITA program. Training powered by Link+Learn Taxes.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -128,17 +137,16 @@ const VITATaxCertification = () => {
           </div>
         </div>
       </div>
-
       {/* Program Overview */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">About VITA</h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            The Volunteer Income Tax Assistance (VITA) program offers free tax help to people who 
-            generally make $64,000 or less, persons with disabilities, and limited English-speaking 
-            taxpayers. IRS-certified volunteers provide free basic income tax return preparation.
+            The Volunteer Income Tax Assistance (VITA) program offers free tax
+            help to people who generally make $64,000 or less, persons with
+            disabilities, and limited English-speaking taxpayers. IRS-certified
+            volunteers provide free basic income tax return preparation.
           </p>
-
           <div className="grid md:grid-cols-4 gap-6 mt-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -154,19 +162,25 @@ const VITATaxCertification = () => {
             })}
           </div>
         </div>
-
         {/* Certification Levels */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Certification Levels</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Certification Levels
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {certificationLevels.map((cert, index) => (
-              <div key={index} className={`border-2 rounded-lg p-6 ${getColorClasses(cert.color)}`}>
+              <div
+                key={index}
+                className={`border-2 rounded-lg p-6 ${getColorClasses(cert.color)}`}
+              >
                 <div className="text-center mb-4">
                   <span className="inline-block bg-white px-4 py-2 rounded-full font-bold text-lg">
                     {cert.level}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-center">{cert.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-center">
+                  {cert.title}
+                </h3>
                 <p className="text-sm mb-4 text-center">{cert.description}</p>
                 <div className="space-y-2">
                   <p className="font-semibold text-sm">Topics Covered:</p>
@@ -183,10 +197,11 @@ const VITATaxCertification = () => {
             ))}
           </div>
         </div>
-
         {/* Link+Learn Platform */}
         <div className="bg-blue-50 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Link+Learn Taxes Platform</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Link+Learn Taxes Platform
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Training Features</h3>
@@ -250,10 +265,11 @@ const VITATaxCertification = () => {
             </div>
           </div>
         </div>
-
         {/* Who Can Benefit */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Who Should Get Certified?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Who Should Get Certified?
+          </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4">Perfect For:</h3>
@@ -307,12 +323,14 @@ const VITATaxCertification = () => {
             </div>
           </div>
         </div>
-
         {/* Career Opportunities */}
         <div className="bg-green-50 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Career Pathways</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Career Pathways
+          </h2>
           <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-            VITA certification can lead to paid positions in tax preparation and accounting
+            VITA certification can lead to paid positions in tax preparation and
+            accounting
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
@@ -320,28 +338,38 @@ const VITATaxCertification = () => {
               <p className="text-gray-700 mb-4">
                 Work for tax preparation firms during tax season
               </p>
-              <p className="text-lg font-semibold text-green-600">$25,000 - $45,000/season</p>
+              <p className="text-lg font-semibold text-green-600">
+                $25,000 - $45,000/season
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Enrolled Agent</h3>
               <p className="text-gray-700 mb-4">
                 Advance to IRS Enrolled Agent certification
               </p>
-              <p className="text-lg font-semibold text-green-600">$45,000 - $75,000/year</p>
+              <p className="text-lg font-semibold text-green-600">
+                $45,000 - $75,000/year
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Tax Consultant</h3>
               <p className="text-gray-700 mb-4">
                 Start your own tax preparation business
               </p>
-              <p className="text-lg font-semibold text-green-600">$50,000 - $100,000+/year</p>
+              <p className="text-lg font-semibold text-green-600">
+                $50,000 - $100,000+/year
+              </p>
             </div>
           </div>
         </div>
-
         {/* Enroll Section */}
-        <div id="enroll" className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-12 mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Get Started Today</h2>
+        <div
+          id="enroll"
+          className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-12 mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4 text-center">
+            Get Started Today
+          </h2>
           <p className="text-xl mb-8 text-center">
             Register for VITA certification training through Link+Learn
           </p>
@@ -366,12 +394,14 @@ const VITATaxCertification = () => {
             </a>
           </div>
         </div>
-
         {/* Contact Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Questions About VITA Certification?</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Questions About VITA Certification?
+          </h2>
           <p className="text-lg text-gray-700 mb-6">
-            Contact us for more information about the VITA tax certification program
+            Contact us for more information about the VITA tax certification
+            program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

@@ -1,5 +1,16 @@
 import React from 'react';
-import { Award, Heart, CheckCircle, Users, Clock, BookOpen, ExternalLink, Phone, Mail, AlertCircle } from 'lucide-react';
+import {
+  Award,
+  Heart,
+  CheckCircle,
+  Users,
+  Clock,
+  BookOpen,
+  ExternalLink,
+  Phone,
+  Mail,
+  AlertCircle,
+} from 'lucide-react';
 
 /**
  * CPR & First Aid Training
@@ -10,16 +21,18 @@ import { Award, Heart, CheckCircle, Users, Clock, BookOpen, ExternalLink, Phone,
 
 const CPRFirstAidTraining = () => {
   const hsiUrl = 'https://www.hsi.com';
-  const hsiProgramsUrl = 'https://hsi.com/solutions/cpr-aed-first-aid-training/programs';
-  const hsiRSVUrl = 'https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification';
+  const hsiProgramsUrl =
+    'https://hsi.com/solutions/cpr-aed-first-aid-training/programs';
+  const hsiRSVUrl =
+    'https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification';
   const hsiSafetyUrl = 'http://store.osmanager4.com/emss/groups/523';
-  
+
   // Pricing with 50% markup (includes all supplies, instruction, shipping)
   const pricing = {
     'cpr-aed-all-ages': { cost: 60, price: 90 },
     'cpr-aed-adult': { cost: 50, price: 75 },
     'first-aid-cpr-all-ages': { cost: 80, price: 120 },
-    'first-aid-cpr-adult': { cost: 70, price: 105 }
+    'first-aid-cpr-adult': { cost: 70, price: 105 },
   };
 
   const courses = [
@@ -36,11 +49,12 @@ const CPRFirstAidTraining = () => {
         'Child CPR and AED',
         'Infant CPR',
         'Choking relief for all ages',
-        'Emergency response procedures'
+        'Emergency response procedures',
       ],
-      enrollmentUrl: 'https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3',
+      enrollmentUrl:
+        'https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3',
       color: 'red',
-      icon: '❤️'
+      icon: '❤️',
     },
     {
       id: 'cpr-aed-adult',
@@ -55,11 +69,12 @@ const CPRFirstAidTraining = () => {
         'AED operation',
         'Adult choking relief',
         'Emergency scene assessment',
-        'Calling for help'
+        'Calling for help',
       ],
-      enrollmentUrl: 'https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35',
+      enrollmentUrl:
+        'https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35',
       color: 'blue',
-      icon: '💙'
+      icon: '💙',
     },
     {
       id: 'first-aid-cpr-all-ages',
@@ -75,11 +90,12 @@ const CPRFirstAidTraining = () => {
         'AED use',
         'Bleeding control',
         'Shock management',
-        'Burns, fractures, and sprains'
+        'Burns, fractures, and sprains',
       ],
-      enrollmentUrl: 'https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8',
+      enrollmentUrl:
+        'https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8',
       color: 'green',
-      icon: '💚'
+      icon: '💚',
     },
     {
       id: 'first-aid-cpr-adult',
@@ -95,35 +111,36 @@ const CPRFirstAidTraining = () => {
         'Wound care',
         'Medical emergencies',
         'Environmental emergencies',
-        'Injury assessment'
+        'Injury assessment',
       ],
-      enrollmentUrl: 'https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47',
+      enrollmentUrl:
+        'https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47',
       color: 'purple',
-      icon: '💜'
-    }
+      icon: '💜',
+    },
   ];
 
   const benefits = [
     {
       title: 'Training Supplies Shipped Home',
       description: 'Practice manikins and materials delivered to your door',
-      icon: '📦'
+      icon: '📦',
     },
     {
       title: 'Nationally Recognized',
       description: 'Certifications accepted by employers nationwide',
-      icon: Award
+      icon: Award,
     },
     {
       title: 'Online + Live Training',
       description: 'Self-paced online modules plus live skills session',
-      icon: BookOpen
+      icon: BookOpen,
     },
     {
       title: '2-Year Certification',
       description: 'Valid for 2 years from date of completion',
-      icon: Clock
-    }
+      icon: Clock,
+    },
   ];
 
   const getColorClasses = (color) => {
@@ -131,7 +148,7 @@ const CPRFirstAidTraining = () => {
       red: 'bg-red-50 border-red-300',
       blue: 'bg-blue-50 border-blue-300',
       green: 'bg-green-50 border-green-300',
-      purple: 'bg-purple-50 border-purple-300'
+      purple: 'bg-purple-50 border-purple-300',
     };
     return colors[color] || colors.red;
   };
@@ -152,8 +169,9 @@ const CPRFirstAidTraining = () => {
               Training Supplies Shipped to Your Home
             </p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Get certified in CPR and First Aid with our convenient home training program. 
-              Complete online training, receive practice manikins at home, and attend live skills session.
+              Get certified in CPR and First Aid with our convenient home
+              training program. Complete online training, receive practice
+              manikins at home, and attend live skills session.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -175,24 +193,30 @@ const CPRFirstAidTraining = () => {
           </div>
         </div>
       </div>
-
       {/* About Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Convenient Home Training Program</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Convenient Home Training Program
+          </h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            Get nationally recognized CPR and First Aid certifications with training supplies 
-            delivered right to your home. Our program combines online learning with live skills 
-            practice to ensure you're prepared for real emergencies.
+            Get nationally recognized CPR and First Aid certifications with
+            training supplies delivered right to your home. Our program combines
+            online learning with live skills practice to ensure you're prepared
+            for real emergencies.
           </p>
-
           <div className="grid md:grid-cols-4 gap-6 mt-8">
             {benefits.map((benefit, index) => {
-              const Icon = typeof benefit.icon === 'string' ? null : benefit.icon;
+              const Icon =
+                typeof benefit.icon === 'string' ? null : benefit.icon;
               return (
                 <div key={index} className="text-center">
                   <div className="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl">
-                    {Icon ? <Icon className="w-8 h-8 text-red-600" /> : benefit.icon}
+                    {Icon ? (
+                      <Icon className="w-8 h-8 text-red-600" />
+                    ) : (
+                      benefit.icon
+                    )}
                   </div>
                   <h3 className="font-bold mb-2">{benefit.title}</h3>
                   <p className="text-sm text-gray-600">{benefit.description}</p>
@@ -201,17 +225,24 @@ const CPRFirstAidTraining = () => {
             })}
           </div>
         </div>
-
         {/* Courses */}
         <div id="courses" className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Available Courses</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Available Courses
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {courses.map((course, index) => (
-              <div key={index} className={`border-2 rounded-lg p-6 ${getColorClasses(course.color)}`}>
+              <div
+                key={index}
+                className={`border-2 rounded-lg p-6 ${getColorClasses(course.color)}`}
+              >
                 <div className="text-5xl mb-4 text-center">{course.icon}</div>
-                <h3 className="text-2xl font-bold mb-3 text-center">{course.title}</h3>
-                <p className="text-gray-700 mb-4 text-center">{course.description}</p>
-                
+                <h3 className="text-2xl font-bold mb-3 text-center">
+                  {course.title}
+                </h3>
+                <p className="text-gray-700 mb-4 text-center">
+                  {course.description}
+                </p>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   <div className="bg-white p-3 rounded-lg">
                     <p className="text-xs text-gray-600 mb-1">Duration</p>
@@ -223,12 +254,15 @@ const CPRFirstAidTraining = () => {
                   </div>
                   <div className="bg-green-100 p-3 rounded-lg">
                     <p className="text-xs text-gray-600 mb-1">Price</p>
-                    <p className="font-bold text-lg text-green-700">${course.price}</p>
+                    <p className="font-bold text-lg text-green-700">
+                      ${course.price}
+                    </p>
                   </div>
                 </div>
-
                 <div className="mb-6">
-                  <p className="font-semibold mb-2 text-sm">What You'll Learn:</p>
+                  <p className="font-semibold mb-2 text-sm">
+                    What You'll Learn:
+                  </p>
                   <ul className="space-y-1">
                     {course.topics.map((topic, idx) => (
                       <li key={idx} className="flex items-start text-sm">
@@ -238,12 +272,12 @@ const CPRFirstAidTraining = () => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="bg-white p-4 rounded-lg mb-4">
                   <p className="text-sm font-semibold mb-1">Certification:</p>
-                  <p className="text-sm text-gray-700">{course.certification}</p>
+                  <p className="text-sm text-gray-700">
+                    {course.certification}
+                  </p>
                 </div>
-
                 <a
                   href="#enroll"
                   className="block w-full bg-white border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-800 hover:text-white transition text-center"
@@ -254,19 +288,18 @@ const CPRFirstAidTraining = () => {
             ))}
           </div>
         </div>
-
         {/* How It Works */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">How Home Training Works</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            How Home Training Works
+          </h2>
           <div className="grid md:grid-cols-5 gap-4">
             <div className="text-center">
               <div className="bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
               <h3 className="font-bold mb-2">Enroll & Pay</h3>
-              <p className="text-sm">
-                Register and pay for your course
-              </p>
+              <p className="text-sm">Register and pay for your course</p>
             </div>
             <div className="text-center">
               <div className="bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
@@ -282,34 +315,29 @@ const CPRFirstAidTraining = () => {
                 3
               </div>
               <h3 className="font-bold mb-2">Online Training</h3>
-              <p className="text-sm">
-                Complete self-paced online modules
-              </p>
+              <p className="text-sm">Complete self-paced online modules</p>
             </div>
             <div className="text-center">
               <div className="bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 4
               </div>
               <h3 className="font-bold mb-2">Live Skills Session</h3>
-              <p className="text-sm">
-                Attend hands-on practice session
-              </p>
+              <p className="text-sm">Attend hands-on practice session</p>
             </div>
             <div className="text-center">
               <div className="bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 5
               </div>
               <h3 className="font-bold mb-2">Get Certified</h3>
-              <p className="text-sm">
-                Receive your certification card
-              </p>
+              <p className="text-sm">Receive your certification card</p>
             </div>
           </div>
         </div>
-
         {/* Who Needs This */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Who Needs CPR/First Aid Certification?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Who Needs CPR/First Aid Certification?
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="border-2 border-gray-200 rounded-lg p-6">
               <Users className="w-12 h-12 text-blue-600 mb-4" />
@@ -367,14 +395,16 @@ const CPRFirstAidTraining = () => {
             </div>
           </div>
         </div>
-
         {/* Home Delivery Highlight */}
         <div className="bg-gradient-to-r from-green-50 to-blue-50 border-4 border-green-400 rounded-lg p-8 mb-12">
           <div className="text-center mb-6">
             <div className="text-6xl mb-4">📦</div>
-            <h2 className="text-3xl font-bold mb-4 text-green-800">Training Supplies Delivered to Your Home!</h2>
+            <h2 className="text-3xl font-bold mb-4 text-green-800">
+              Training Supplies Delivered to Your Home!
+            </h2>
             <p className="text-xl text-gray-700 mb-6">
-              We ship practice manikins and all training materials directly to your door
+              We ship practice manikins and all training materials directly to
+              your door
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -383,7 +413,9 @@ const CPRFirstAidTraining = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>CPR practice manikins (adult, child, infant as needed)</span>
+                  <span>
+                    CPR practice manikins (adult, child, infant as needed)
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
@@ -412,7 +444,9 @@ const CPRFirstAidTraining = () => {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>Training supplies shipped within 2-3 business days</span>
+                  <span>
+                    Training supplies shipped within 2-3 business days
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
@@ -422,10 +456,14 @@ const CPRFirstAidTraining = () => {
             </div>
           </div>
         </div>
-
         {/* Enrollment Section */}
-        <div id="enroll" className="bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg p-12 mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Ready to Get Certified?</h2>
+        <div
+          id="enroll"
+          className="bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg p-12 mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4 text-center">
+            Ready to Get Certified?
+          </h2>
           <p className="text-xl mb-8 text-center">
             Contact us to enroll in CPR and First Aid training
           </p>
@@ -446,12 +484,14 @@ const CPRFirstAidTraining = () => {
             </a>
           </div>
         </div>
-
         {/* Additional Safety Courses */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Online Safety Training Courses</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Online Safety Training Courses
+          </h2>
           <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-            Expand your safety knowledge with our comprehensive online safety training courses
+            Expand your safety knowledge with our comprehensive online safety
+            training courses
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="border-2 border-gray-200 rounded-lg p-6">
@@ -518,12 +558,14 @@ const CPRFirstAidTraining = () => {
             </a>
           </div>
         </div>
-
         {/* Remote Skills Verification */}
         <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-center">Remote Skills Verification (RSV)</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            Remote Skills Verification (RSV)
+          </h2>
           <p className="text-center text-gray-700 mb-6 max-w-2xl mx-auto">
-            Can't attend an in-person skills session? Complete your certification with Remote Skills Verification
+            Can't attend an in-person skills session? Complete your
+            certification with Remote Skills Verification
           </p>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="bg-white p-6 rounded-lg">
@@ -589,10 +631,11 @@ const CPRFirstAidTraining = () => {
             </a>
           </div>
         </div>
-
         {/* Contact Info */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Questions About CPR/First Aid Training?</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Questions About CPR/First Aid Training?
+          </h2>
           <p className="text-lg text-gray-700 mb-6">
             Contact us for more information about certification courses
           </p>

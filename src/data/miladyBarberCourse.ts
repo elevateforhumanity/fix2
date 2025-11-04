@@ -13,13 +13,14 @@ export const miladyBarberCourse = {
   certification: 'Indiana State Barber License',
   dolRegistered: true,
   etplApproved: true,
-  
+
   modules: [
     {
       id: 'module-1',
       title: 'Module 1: Professional Foundations',
       hours: 80,
-      description: 'Introduction to barbering profession, history, and professional standards',
+      description:
+        'Introduction to barbering profession, history, and professional standards',
       lessons: [
         {
           id: 'lesson-1-1',
@@ -29,8 +30,8 @@ export const miladyBarberCourse = {
             'Ancient barbering traditions',
             'Evolution of the profession',
             'Modern barbering industry',
-            'Professional organizations and standards'
-          ]
+            'Professional organizations and standards',
+          ],
         },
         {
           id: 'lesson-1-2',
@@ -40,8 +41,8 @@ export const miladyBarberCourse = {
             'Personal grooming and hygiene',
             'Professional conduct and ethics',
             'Client communication skills',
-            'Building a professional reputation'
-          ]
+            'Building a professional reputation',
+          ],
         },
         {
           id: 'lesson-1-3',
@@ -51,8 +52,8 @@ export const miladyBarberCourse = {
             'Barbershop operations',
             'Appointment scheduling',
             'Inventory management',
-            'Customer service excellence'
-          ]
+            'Customer service excellence',
+          ],
         },
         {
           id: 'lesson-1-4',
@@ -62,17 +63,18 @@ export const miladyBarberCourse = {
             'Indiana State Board requirements',
             'Licensing procedures',
             'Scope of practice',
-            'Legal responsibilities'
-          ]
-        }
-      ]
+            'Legal responsibilities',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-2',
       title: 'Module 2: Infection Control & Safety',
       hours: 100,
-      description: 'Comprehensive training in sanitation, sterilization, and safety protocols',
+      description:
+        'Comprehensive training in sanitation, sterilization, and safety protocols',
       lessons: [
         {
           id: 'lesson-2-1',
@@ -82,8 +84,8 @@ export const miladyBarberCourse = {
             'Microbiology basics',
             'Pathogen transmission',
             'Universal precautions',
-            'Disease prevention'
-          ]
+            'Disease prevention',
+          ],
         },
         {
           id: 'lesson-2-2',
@@ -93,8 +95,8 @@ export const miladyBarberCourse = {
             'Cleaning vs. disinfection vs. sterilization',
             'Chemical disinfectants',
             'Autoclave operation',
-            'Tool and equipment sanitation'
-          ]
+            'Tool and equipment sanitation',
+          ],
         },
         {
           id: 'lesson-2-3',
@@ -104,8 +106,8 @@ export const miladyBarberCourse = {
             'OSHA regulations for barbershops',
             'Bloodborne pathogen exposure control',
             'Personal protective equipment (PPE)',
-            'Emergency procedures'
-          ]
+            'Emergency procedures',
+          ],
         },
         {
           id: 'lesson-2-4',
@@ -115,12 +117,12 @@ export const miladyBarberCourse = {
             'Fire safety and prevention',
             'Chemical safety and storage',
             'Ergonomics and injury prevention',
-            'First aid basics'
-          ]
-        }
-      ]
+            'First aid basics',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-3',
       title: 'Module 3: Anatomy, Physiology & Trichology',
@@ -135,8 +137,8 @@ export const miladyBarberCourse = {
             'Layers of the skin',
             'Skin types and conditions',
             'Skin disorders and diseases',
-            'Aging and skin care'
-          ]
+            'Aging and skin care',
+          ],
         },
         {
           id: 'lesson-3-2',
@@ -146,8 +148,8 @@ export const miladyBarberCourse = {
             'Hair anatomy and composition',
             'Hair growth cycles',
             'Hair types and textures',
-            'Factors affecting hair growth'
-          ]
+            'Factors affecting hair growth',
+          ],
         },
         {
           id: 'lesson-3-3',
@@ -157,8 +159,8 @@ export const miladyBarberCourse = {
             'Scalp anatomy',
             'Common scalp conditions',
             'Scalp treatments and massages',
-            'Product recommendations'
-          ]
+            'Product recommendations',
+          ],
         },
         {
           id: 'lesson-3-4',
@@ -168,12 +170,12 @@ export const miladyBarberCourse = {
             'Alopecia and hair loss',
             'Dandruff and seborrhea',
             'Infections and infestations',
-            'When to refer to medical professionals'
-          ]
-        }
-      ]
+            'When to refer to medical professionals',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-4',
       title: 'Module 4: Haircutting Fundamentals',
@@ -188,8 +190,8 @@ export const miladyBarberCourse = {
             'Clippers and trimmers',
             'Shears and razors',
             'Combs and brushes',
-            'Tool maintenance and care'
-          ]
+            'Tool maintenance and care',
+          ],
         },
         {
           id: 'lesson-4-2',
@@ -199,8 +201,8 @@ export const miladyBarberCourse = {
             'Sectioning and parting',
             'Cutting angles and elevations',
             'Blunt cutting',
-            'Point cutting and texturizing'
-          ]
+            'Point cutting and texturizing',
+          ],
         },
         {
           id: 'lesson-4-3',
@@ -210,19 +212,19 @@ export const miladyBarberCourse = {
             'Clipper-over-comb technique',
             'Guard work and blending',
             'Fades (low, mid, high)',
-            'Taper techniques'
-          ]
+            'Taper techniques',
+          ],
         },
         {
           id: 'lesson-4-4',
-          title: 'Classic Men\'s Cuts',
+          title: "Classic Men's Cuts",
           duration: '40 hours',
           topics: [
             'Business professional cuts',
             'Crew cuts and flat tops',
             'Pompadours and quiffs',
-            'Traditional barbering styles'
-          ]
+            'Traditional barbering styles',
+          ],
         },
         {
           id: 'lesson-4-5',
@@ -232,12 +234,12 @@ export const miladyBarberCourse = {
             'Contemporary fades',
             'Textured crops',
             'Undercuts and disconnected styles',
-            'Creative designs and patterns'
-          ]
-        }
-      ]
+            'Creative designs and patterns',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-5',
       title: 'Module 5: Beard Design & Facial Hair',
@@ -252,8 +254,8 @@ export const miladyBarberCourse = {
             'Facial hair growth patterns',
             'Beard types and styles',
             'Face shapes and beard recommendations',
-            'Beard care and maintenance'
-          ]
+            'Beard care and maintenance',
+          ],
         },
         {
           id: 'lesson-5-2',
@@ -263,8 +265,8 @@ export const miladyBarberCourse = {
             'Trimmer techniques',
             'Shear work on beards',
             'Line-up and edging',
-            'Blending beard to haircut'
-          ]
+            'Blending beard to haircut',
+          ],
         },
         {
           id: 'lesson-5-3',
@@ -274,8 +276,8 @@ export const miladyBarberCourse = {
             'Straight razor safety and handling',
             'Shaving preparation and lathering',
             'Shaving techniques and strokes',
-            'Hot towel services'
-          ]
+            'Hot towel services',
+          ],
         },
         {
           id: 'lesson-5-4',
@@ -285,12 +287,12 @@ export const miladyBarberCourse = {
             'Mustache styles and trimming',
             'Sideburn design',
             'Detailing and precision work',
-            'Product application'
-          ]
-        }
-      ]
+            'Product application',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-6',
       title: 'Module 6: Hair Coloring & Chemical Services',
@@ -305,8 +307,8 @@ export const miladyBarberCourse = {
             'Color wheel and theory',
             'Natural hair color levels',
             'Client consultation for color',
-            'Patch testing and safety'
-          ]
+            'Patch testing and safety',
+          ],
         },
         {
           id: 'lesson-6-2',
@@ -316,8 +318,8 @@ export const miladyBarberCourse = {
             'Permanent vs. semi-permanent color',
             'Gray coverage',
             'Highlights and lowlights',
-            'Fashion colors and trends'
-          ]
+            'Fashion colors and trends',
+          ],
         },
         {
           id: 'lesson-6-3',
@@ -327,8 +329,8 @@ export const miladyBarberCourse = {
             'Chemical relaxer application',
             'Texturizing services',
             'Curl reformation',
-            'Chemical safety protocols'
-          ]
+            'Chemical safety protocols',
+          ],
         },
         {
           id: 'lesson-6-4',
@@ -338,12 +340,12 @@ export const miladyBarberCourse = {
             'Permanent wave chemistry',
             'Rod selection and wrapping',
             'Processing and neutralizing',
-            'Troubleshooting chemical services'
-          ]
-        }
-      ]
+            'Troubleshooting chemical services',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-7',
       title: 'Module 7: Styling & Finishing',
@@ -358,8 +360,8 @@ export const miladyBarberCourse = {
             'Blow-dryer and attachment use',
             'Directional drying',
             'Volume and texture creation',
-            'Heat protection'
-          ]
+            'Heat protection',
+          ],
         },
         {
           id: 'lesson-7-2',
@@ -369,8 +371,8 @@ export const miladyBarberCourse = {
             'Pomades, waxes, and gels',
             'Styling creams and mousses',
             'Finishing sprays',
-            'Product recommendations by hair type'
-          ]
+            'Product recommendations by hair type',
+          ],
         },
         {
           id: 'lesson-7-3',
@@ -380,8 +382,8 @@ export const miladyBarberCourse = {
             'Flat iron techniques',
             'Curling iron use',
             'Heat styling safety',
-            'Creating various textures'
-          ]
+            'Creating various textures',
+          ],
         },
         {
           id: 'lesson-7-4',
@@ -391,12 +393,12 @@ export const miladyBarberCourse = {
             'Edge work and line-ups',
             'Neck shaving and cleanup',
             'Final touches and inspection',
-            'Client education on home styling'
-          ]
-        }
-      ]
+            'Client education on home styling',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-8',
       title: 'Module 8: Business & Client Relations',
@@ -411,8 +413,8 @@ export const miladyBarberCourse = {
             'Effective consultation techniques',
             'Active listening skills',
             'Managing client expectations',
-            'Handling difficult situations'
-          ]
+            'Handling difficult situations',
+          ],
         },
         {
           id: 'lesson-8-2',
@@ -422,8 +424,8 @@ export const miladyBarberCourse = {
             'Booth rental vs. commission',
             'Pricing services',
             'Retail sales',
-            'Record keeping and taxes'
-          ]
+            'Record keeping and taxes',
+          ],
         },
         {
           id: 'lesson-8-3',
@@ -433,8 +435,8 @@ export const miladyBarberCourse = {
             'Building your brand',
             'Social media marketing',
             'Client retention strategies',
-            'Online booking systems'
-          ]
+            'Online booking systems',
+          ],
         },
         {
           id: 'lesson-8-4',
@@ -444,12 +446,12 @@ export const miladyBarberCourse = {
             'Business planning',
             'Location selection',
             'Licensing and permits',
-            'Equipment and supply purchasing'
-          ]
-        }
-      ]
+            'Equipment and supply purchasing',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-9',
       title: 'Module 9: Practical Application & Clinic',
@@ -464,8 +466,8 @@ export const miladyBarberCourse = {
             'Complete haircut services',
             'Beard and shaving services',
             'Chemical services',
-            'Client consultation and retail'
-          ]
+            'Client consultation and retail',
+          ],
         },
         {
           id: 'lesson-9-2',
@@ -475,8 +477,8 @@ export const miladyBarberCourse = {
             'Complex fades and designs',
             'Advanced color techniques',
             'Specialty services',
-            'Speed and efficiency building'
-          ]
+            'Speed and efficiency building',
+          ],
         },
         {
           id: 'lesson-9-3',
@@ -486,8 +488,8 @@ export const miladyBarberCourse = {
             'Photography and documentation',
             'Before and after presentations',
             'Social media content creation',
-            'Building your professional portfolio'
-          ]
+            'Building your professional portfolio',
+          ],
         },
         {
           id: 'lesson-9-4',
@@ -497,12 +499,12 @@ export const miladyBarberCourse = {
             'Written exam preparation',
             'Practical exam practice',
             'Test-taking strategies',
-            'Mock examinations'
-          ]
-        }
-      ]
+            'Mock examinations',
+          ],
+        },
+      ],
     },
-    
+
     {
       id: 'module-10',
       title: 'Module 10: On-the-Job Training',
@@ -517,8 +519,8 @@ export const miladyBarberCourse = {
             'Shop operations and procedures',
             'Client interaction and service',
             'Basic cuts under supervision',
-            'Tool maintenance and sanitation'
-          ]
+            'Tool maintenance and sanitation',
+          ],
         },
         {
           id: 'lesson-10-2',
@@ -528,64 +530,64 @@ export const miladyBarberCourse = {
             'Independent client services',
             'Advanced cutting techniques',
             'Chemical services application',
-            'Building clientele'
-          ]
-        }
-      ]
-    }
+            'Building clientele',
+          ],
+        },
+      ],
+    },
   ],
-  
+
   assessments: [
     {
       id: 'assessment-1',
       title: 'Module Completion Exams',
       description: 'Written and practical exams for each module',
-      passingScore: 75
+      passingScore: 75,
     },
     {
       id: 'assessment-2',
       title: 'Mid-Program Evaluation',
       description: 'Comprehensive assessment at 1,000 hours',
-      passingScore: 80
+      passingScore: 80,
     },
     {
       id: 'assessment-3',
       title: 'Final Practical Examination',
       description: 'Complete service demonstration',
-      passingScore: 85
+      passingScore: 85,
     },
     {
       id: 'assessment-4',
       title: 'Indiana State Board Exam',
       description: 'Written and practical state licensing exam',
-      passingScore: 75
-    }
+      passingScore: 75,
+    },
   ],
-  
+
   certifications: [
     {
       name: 'Milady Barber Apprenticeship Certificate',
       issuer: 'Milady / Elevate for Humanity',
-      requirements: 'Complete all 2,000 hours and pass all assessments'
+      requirements: 'Complete all 2,000 hours and pass all assessments',
     },
     {
       name: 'DOL Registered Apprenticeship Completion',
       issuer: 'U.S. Department of Labor',
-      requirements: 'Complete registered apprenticeship program'
+      requirements: 'Complete registered apprenticeship program',
     },
     {
       name: 'Indiana State Barber License',
       issuer: 'Indiana Professional Licensing Agency',
-      requirements: 'Pass Indiana State Board examination'
-    }
+      requirements: 'Pass Indiana State Board examination',
+    },
   ],
-  
+
   funding: {
     wioa: true,
     wrg: true,
     cost: 0,
-    description: 'Free with approved WIOA or WRG funding'
-  }
+    description: 'Free with approved WIOA or WRG funding',
+  },
 };
 
 export default miladyBarberCourse;

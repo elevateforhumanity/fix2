@@ -1,0 +1,95 @@
+{
+  "certification_type": "buy_indiana",
+  "portal_url": "https://in.gov/idoa/procurement",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.2exclusive.legal_name",
+      "selector": "input[name='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "dba": {
+      "source": "entities.2exclusive.dba",
+      "selector": "input[name='dba']",
+      "type": "text",
+      "required": false
+    },
+    "ein": {
+      "source": "entities.2exclusive.ein",
+      "selector": "input[name='ein']",
+      "type": "text",
+      "required": true,
+      "format": "XX-XXXXXXX"
+    },
+    "bidder_id": {
+      "source": "entities.2exclusive.indiana_bidder_id",
+      "selector": "input[name='bidder_id']",
+      "type": "text",
+      "required": true
+    },
+    "business_address_street": {
+      "source": "business.primary_address.street",
+      "selector": "input[name='address']",
+      "type": "text",
+      "required": true
+    },
+    "business_address_city": {
+      "source": "business.primary_address.city",
+      "selector": "input[name='city']",
+      "type": "text",
+      "required": true
+    },
+    "business_address_state": {
+      "source": "business.primary_address.state",
+      "selector": "select[name='state']",
+      "type": "select",
+      "required": true
+    },
+    "business_address_zip": {
+      "source": "business.primary_address.zip",
+      "selector": "input[name='zip']",
+      "type": "text",
+      "required": true
+    },
+    "phone": {
+      "source": "owner.contact.business_phone",
+      "selector": "input[name='phone']",
+      "type": "tel",
+      "required": true
+    },
+    "email": {
+      "source": "owner.contact.business_email",
+      "selector": "input[name='email']",
+      "type": "email",
+      "required": true
+    },
+    "indiana_registered": {
+      "source": "static:true",
+      "selector": "input[name='indiana_registered'][value='yes']",
+      "type": "radio",
+      "required": true
+    },
+    "indiana_taxes": {
+      "source": "static:true",
+      "selector": "input[name='indiana_taxes'][value='yes']",
+      "type": "radio",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "indiana_registration",
+      "selector": "input[name='registration_file']",
+      "required": true,
+      "description": "Indiana business registration"
+    },
+    {
+      "name": "tax_registration",
+      "selector": "input[name='tax_file']",
+      "required": true,
+      "description": "Indiana tax registration"
+    }
+  ],
+  "submit_button": "button[type='submit']"
+}

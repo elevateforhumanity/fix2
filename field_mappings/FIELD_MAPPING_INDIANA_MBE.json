@@ -1,0 +1,91 @@
+{
+  "certification_type": "indiana_mbe_wbe",
+  "portal_url": "https://in.gov/idoa/procurement/supplier-diversity",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.selfish_inc.legal_name",
+      "selector": "input[name='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "dba": {
+      "source": "entities.selfish_inc.dba",
+      "selector": "input[name='dba']",
+      "type": "text",
+      "required": false
+    },
+    "ein": {
+      "source": "entities.selfish_inc.ein",
+      "selector": "input[name='ein']",
+      "type": "text",
+      "required": true
+    },
+    "business_structure": {
+      "source": "static:Corporation",
+      "selector": "select[name='business_structure']",
+      "type": "select",
+      "required": true
+    },
+    "certification_type_mbe": {
+      "source": "static:true",
+      "selector": "input[name='cert_type'][value='mbe']",
+      "type": "checkbox",
+      "required": true
+    },
+    "certification_type_wbe": {
+      "source": "static:true",
+      "selector": "input[name='cert_type'][value='wbe']",
+      "type": "checkbox",
+      "required": true
+    },
+    "owner_name": {
+      "source": "owner.full_name",
+      "selector": "input[name='owner_name']",
+      "type": "text",
+      "required": true
+    },
+    "owner_race": {
+      "source": "owner.race_ethnicity",
+      "selector": "select[name='owner_race']",
+      "type": "select",
+      "required": true
+    },
+    "owner_gender": {
+      "source": "owner.gender",
+      "selector": "select[name='owner_gender']",
+      "type": "select",
+      "required": true
+    },
+    "ownership_percentage": {
+      "source": "static:100",
+      "selector": "input[name='ownership_pct']",
+      "type": "number",
+      "required": true
+    },
+    "annual_revenue": {
+      "source": "financial.annual_revenue.year_3",
+      "selector": "input[name='annual_revenue']",
+      "type": "number",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "articles_of_incorporation",
+      "selector": "input[name='articles']",
+      "required": true
+    },
+    {
+      "name": "tax_returns_3_years",
+      "selector": "input[name='tax_returns']",
+      "required": true
+    },
+    {
+      "name": "owner_id",
+      "selector": "input[name='owner_id']",
+      "required": true
+    }
+  ],
+  "submit_button": "button[type='submit']"
+}

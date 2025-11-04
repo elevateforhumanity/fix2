@@ -1,0 +1,91 @@
+{
+  "certification_type": "wosb_edwosb",
+  "portal_url": "https://certify.sba.gov",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.selfish_inc.legal_name",
+      "selector": "input[id='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "uei": {
+      "source": "entities.selfish_inc.uei",
+      "selector": "input[id='uei']",
+      "type": "text",
+      "required": true
+    },
+    "cage_code": {
+      "source": "entities.selfish_inc.cage_code",
+      "selector": "input[id='cage_code']",
+      "type": "text",
+      "required": true
+    },
+    "ein": {
+      "source": "entities.selfish_inc.ein",
+      "selector": "input[id='ein']",
+      "type": "text",
+      "required": true
+    },
+    "naics_primary": {
+      "source": "business.naics_codes.primary",
+      "selector": "input[id='naics_primary']",
+      "type": "text",
+      "required": true
+    },
+    "owner_name": {
+      "source": "owner.full_name",
+      "selector": "input[id='owner_name']",
+      "type": "text",
+      "required": true
+    },
+    "owner_gender": {
+      "source": "owner.gender",
+      "selector": "select[id='owner_gender']",
+      "type": "select",
+      "required": true
+    },
+    "owner_citizenship": {
+      "source": "owner.citizenship",
+      "selector": "select[id='citizenship']",
+      "type": "select",
+      "required": true
+    },
+    "ownership_percentage": {
+      "source": "static:100",
+      "selector": "input[id='ownership_pct']",
+      "type": "number",
+      "required": true
+    },
+    "apply_edwosb": {
+      "source": "static:true",
+      "selector": "input[id='apply_edwosb']",
+      "type": "checkbox",
+      "required": false
+    },
+    "personal_net_worth": {
+      "source": "financial.owner_personal_net_worth",
+      "selector": "input[id='net_worth']",
+      "type": "number",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "articles_of_incorporation",
+      "selector": "input[id='file_articles']",
+      "required": true
+    },
+    {
+      "name": "ownership_documents",
+      "selector": "input[id='file_ownership']",
+      "required": true
+    },
+    {
+      "name": "tax_returns",
+      "selector": "input[id='file_tax_returns']",
+      "required": true
+    }
+  ],
+  "submit_button": "button[id='submit_application']"
+}

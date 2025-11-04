@@ -1,0 +1,125 @@
+{
+  "certification_type": "8a_business_development",
+  "portal_url": "https://certify.sba.gov",
+  "submission_method": "web_form",
+  "fields": {
+    "business_name": {
+      "source": "entities.selfish_inc.legal_name",
+      "selector": "input[id='business_name']",
+      "type": "text",
+      "required": true
+    },
+    "uei": {
+      "source": "entities.selfish_inc.uei",
+      "selector": "input[id='uei']",
+      "type": "text",
+      "required": true
+    },
+    "cage_code": {
+      "source": "entities.selfish_inc.cage_code",
+      "selector": "input[id='cage_code']",
+      "type": "text",
+      "required": true
+    },
+    "tax_status": {
+      "source": "entities.selfish_inc.tax_status",
+      "selector": "input[id='tax_status']",
+      "type": "text",
+      "required": true
+    },
+    "owner_name": {
+      "source": "owner.full_name",
+      "selector": "input[id='owner_name']",
+      "type": "text",
+      "required": true
+    },
+    "owner_ssn": {
+      "source": "owner.ssn",
+      "selector": "input[id='owner_ssn']",
+      "type": "text",
+      "required": true,
+      "sensitive": true
+    },
+    "owner_dob": {
+      "source": "owner.dob",
+      "selector": "input[id='owner_dob']",
+      "type": "date",
+      "required": true,
+      "sensitive": true
+    },
+    "owner_race": {
+      "source": "owner.race_ethnicity",
+      "selector": "select[id='owner_race']",
+      "type": "select",
+      "required": true
+    },
+    "owner_gender": {
+      "source": "owner.gender",
+      "selector": "select[id='owner_gender']",
+      "type": "select",
+      "required": true
+    },
+    "social_disadvantage_narrative": {
+      "source": "disadvantaged_status.social_disadvantage",
+      "selector": "textarea[id='social_disadvantage']",
+      "type": "textarea",
+      "required": true
+    },
+    "economic_disadvantage_narrative": {
+      "source": "disadvantaged_status.economic_disadvantage",
+      "selector": "textarea[id='economic_disadvantage']",
+      "type": "textarea",
+      "required": true
+    },
+    "management_experience": {
+      "source": "management_experience",
+      "selector": "textarea[id='management_experience']",
+      "type": "textarea",
+      "required": true
+    },
+    "business_description": {
+      "source": "business_description",
+      "selector": "textarea[id='business_description']",
+      "type": "textarea",
+      "required": true
+    }
+  },
+  "attachments": [
+    {
+      "name": "articles_of_incorporation",
+      "selector": "input[id='file_articles']",
+      "required": true
+    },
+    {
+      "name": "tax_returns_3_years_business",
+      "selector": "input[id='file_business_tax']",
+      "required": true
+    },
+    {
+      "name": "tax_returns_3_years_personal",
+      "selector": "input[id='file_personal_tax']",
+      "required": true
+    },
+    {
+      "name": "financial_statements",
+      "selector": "input[id='file_financials']",
+      "required": true
+    },
+    {
+      "name": "personal_financial_statement",
+      "selector": "input[id='file_pfs']",
+      "required": true
+    },
+    {
+      "name": "citizenship_proof",
+      "selector": "input[id='file_citizenship']",
+      "required": true
+    },
+    {
+      "name": "resume",
+      "selector": "input[id='file_resume']",
+      "required": true
+    }
+  ],
+  "submit_button": "button[id='submit_8a']"
+}

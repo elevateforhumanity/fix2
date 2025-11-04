@@ -1,5 +1,16 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle, DollarSign, Users, Calculator, ExternalLink, Phone, Mail, TrendingUp } from 'lucide-react';
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  DollarSign,
+  Users,
+  Calculator,
+  ExternalLink,
+  Phone,
+  Mail,
+  TrendingUp,
+} from 'lucide-react';
 
 /**
  * Intuit Tax & Bookkeeping Expert Program
@@ -21,11 +32,11 @@ const IntuitTaxBookkeeping = () => {
         'Individual tax preparation',
         'Tax law knowledge',
         'Customer service',
-        'Virtual consultation'
+        'Virtual consultation',
       ],
       earnings: '$15 - $30/hour',
       season: 'Seasonal (Jan - Apr)',
-      color: 'blue'
+      color: 'blue',
     },
     {
       title: 'QuickBooks Live Expert',
@@ -35,35 +46,35 @@ const IntuitTaxBookkeeping = () => {
         'Bookkeeping fundamentals',
         'QuickBooks software',
         'Small business accounting',
-        'Financial reporting'
+        'Financial reporting',
       ],
       earnings: '$18 - $35/hour',
       season: 'Year-round',
-      color: 'green'
-    }
+      color: 'green',
+    },
   ];
 
   const benefits = [
     {
       title: 'Work from Home',
       description: 'Flexible remote work opportunities',
-      icon: Users
+      icon: Users,
     },
     {
       title: 'Set Your Schedule',
       description: 'Choose hours that work for you',
-      icon: TrendingUp
+      icon: TrendingUp,
     },
     {
       title: 'Paid Training',
       description: 'Comprehensive training provided by Intuit',
-      icon: BookOpen
+      icon: BookOpen,
     },
     {
       title: 'Career Growth',
       description: 'Advance your tax and bookkeeping career',
-      icon: Award
-    }
+      icon: Award,
+    },
   ];
 
   const requirements = {
@@ -73,7 +84,7 @@ const IntuitTaxBookkeeping = () => {
       'Strong knowledge of federal and state tax laws',
       'Excellent customer service skills',
       'Reliable internet connection and quiet workspace',
-      'Available during peak tax season hours'
+      'Available during peak tax season hours',
     ],
     quickBooks: [
       'Bookkeeping or accounting experience',
@@ -81,14 +92,14 @@ const IntuitTaxBookkeeping = () => {
       'Understanding of small business accounting',
       'Strong communication skills',
       'Reliable internet connection and quiet workspace',
-      'Flexible availability'
-    ]
+      'Flexible availability',
+    ],
   };
 
   const getColorClasses = (color) => {
     const colors = {
       blue: 'bg-blue-50 border-blue-300',
-      green: 'bg-green-50 border-green-300'
+      green: 'bg-green-50 border-green-300',
     };
     return colors[color] || colors.blue;
   };
@@ -105,12 +116,11 @@ const IntuitTaxBookkeeping = () => {
             <h1 className="text-5xl font-bold mb-4">
               Intuit Tax & Bookkeeping Expert Program
             </h1>
-            <p className="text-2xl mb-6">
-              TurboTax Live • QuickBooks Live
-            </p>
+            <p className="text-2xl mb-6">TurboTax Live • QuickBooks Live</p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Join Intuit's community of tax and bookkeeping experts. Work remotely, set your own 
-              schedule, and help millions of customers with TurboTax and QuickBooks.
+              Join Intuit's community of tax and bookkeeping experts. Work
+              remotely, set your own schedule, and help millions of customers
+              with TurboTax and QuickBooks.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -132,17 +142,18 @@ const IntuitTaxBookkeeping = () => {
           </div>
         </div>
       </div>
-
       {/* About Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">About Intuit Expert Programs</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            About Intuit Expert Programs
+          </h2>
           <p className="text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto">
-            Intuit brings TurboTax, QuickBooks, Credit Karma, and Mailchimp to market—trusted 
-            products used by over 100 million customers globally. As a Tax or Bookkeeping Expert, 
-            you'll help customers succeed while building your own career.
+            Intuit brings TurboTax, QuickBooks, Credit Karma, and Mailchimp to
+            market—trusted products used by over 100 million customers globally.
+            As a Tax or Bookkeeping Expert, you'll help customers succeed while
+            building your own career.
           </p>
-
           <div className="grid md:grid-cols-4 gap-6 mt-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -158,17 +169,24 @@ const IntuitTaxBookkeeping = () => {
             })}
           </div>
         </div>
-
         {/* Programs */}
         <div id="programs" className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Expert Programs</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Expert Programs
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className={`border-2 rounded-lg p-8 ${getColorClasses(program.color)}`}>
+              <div
+                key={index}
+                className={`border-2 rounded-lg p-8 ${getColorClasses(program.color)}`}
+              >
                 <div className="text-6xl mb-4 text-center">{program.icon}</div>
-                <h3 className="text-2xl font-bold mb-3 text-center">{program.title}</h3>
-                <p className="text-gray-700 mb-6 text-center">{program.description}</p>
-                
+                <h3 className="text-2xl font-bold mb-3 text-center">
+                  {program.title}
+                </h3>
+                <p className="text-gray-700 mb-6 text-center">
+                  {program.description}
+                </p>
                 <div className="space-y-4 mb-6">
                   <div>
                     <p className="font-semibold mb-2">Skills You'll Use:</p>
@@ -182,11 +200,12 @@ const IntuitTaxBookkeeping = () => {
                     </ul>
                   </div>
                 </div>
-
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg text-center">
                     <p className="text-sm text-gray-600 mb-1">Earnings</p>
-                    <p className="font-bold text-green-600">{program.earnings}</p>
+                    <p className="font-bold text-green-600">
+                      {program.earnings}
+                    </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg text-center">
                     <p className="text-sm text-gray-600 mb-1">Schedule</p>
@@ -197,13 +216,14 @@ const IntuitTaxBookkeeping = () => {
             ))}
           </div>
         </div>
-
         {/* Requirements */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold mb-8 text-center">Requirements</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-blue-600">TurboTax Live Expert</h3>
+              <h3 className="text-xl font-bold mb-4 text-blue-600">
+                TurboTax Live Expert
+              </h3>
               <ul className="space-y-3">
                 {requirements.turboTax.map((req, idx) => (
                   <li key={idx} className="flex items-start">
@@ -214,7 +234,9 @@ const IntuitTaxBookkeeping = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4 text-green-600">QuickBooks Live Expert</h3>
+              <h3 className="text-xl font-bold mb-4 text-green-600">
+                QuickBooks Live Expert
+              </h3>
               <ul className="space-y-3">
                 {requirements.quickBooks.map((req, idx) => (
                   <li key={idx} className="flex items-start">
@@ -226,16 +248,18 @@ const IntuitTaxBookkeeping = () => {
             </div>
           </div>
         </div>
-
         {/* Training & Support */}
         <div className="bg-blue-50 rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Training & Support</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Training & Support
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg">
               <BookOpen className="w-12 h-12 text-blue-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Comprehensive Training</h3>
               <p className="text-gray-700">
-                Paid training on Intuit products, tax law updates, and customer service best practices
+                Paid training on Intuit products, tax law updates, and customer
+                service best practices
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg">
@@ -249,15 +273,17 @@ const IntuitTaxBookkeeping = () => {
               <Award className="w-12 h-12 text-purple-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Career Development</h3>
               <p className="text-gray-700">
-                Access to webinars, newsletters, blogs, and professional development resources
+                Access to webinars, newsletters, blogs, and professional
+                development resources
               </p>
             </div>
           </div>
         </div>
-
         {/* Preparation Path */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Prepare for Intuit Expert Roles</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            Prepare for Intuit Expert Roles
+          </h2>
           <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
             Build the skills you need through our training programs
           </p>
@@ -306,15 +332,18 @@ const IntuitTaxBookkeeping = () => {
             </div>
           </div>
         </div>
-
         {/* Why Experts Return */}
         <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg p-8 mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-center">Why Experts Come Back Year After Year</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            Why Experts Come Back Year After Year
+          </h2>
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <div className="text-center">
               <DollarSign className="w-12 h-12 mx-auto mb-3" />
               <h3 className="font-bold mb-2">Competitive Pay</h3>
-              <p className="text-sm">Earn competitive hourly rates with flexible scheduling</p>
+              <p className="text-sm">
+                Earn competitive hourly rates with flexible scheduling
+              </p>
             </div>
             <div className="text-center">
               <Users className="w-12 h-12 mx-auto mb-3" />
@@ -324,11 +353,12 @@ const IntuitTaxBookkeeping = () => {
             <div className="text-center">
               <TrendingUp className="w-12 h-12 mx-auto mb-3" />
               <h3 className="font-bold mb-2">Career Growth</h3>
-              <p className="text-sm">Continuous learning and advancement opportunities</p>
+              <p className="text-sm">
+                Continuous learning and advancement opportunities
+              </p>
             </div>
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="bg-white rounded-lg shadow-lg p-12 text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Join Intuit?</h2>

@@ -1,12 +1,15 @@
 # White-Label Certification Implementation
 
 ## Overview
+
 Implemented a white-label version of the Milady RISE certification courses with EFH branding and 50% markup pricing, routing all payments through EFH's Stripe account.
 
 ## Files Created/Modified
 
 ### 1. Client Safety Certification Page
+
 **File:** `src/pages/lms/ClientSafetyCertification.jsx`
+
 - White-label certification landing page
 - Three pricing tiers:
   - **Individual Plan**: $44.95 (single user)
@@ -20,7 +23,9 @@ Implemented a white-label version of the Milady RISE certification courses with 
 - Integrated Stripe checkout buttons
 
 ### 2. Enrollment Success Page
+
 **File:** `src/pages/lms/EnrollmentSuccess.jsx`
+
 - Post-purchase confirmation page
 - Displays order ID from Stripe session
 - Provides next steps for course access
@@ -28,7 +33,9 @@ Implemented a white-label version of the Milady RISE certification courses with 
 - Support contact information
 
 ### 3. Stripe Checkout Function
+
 **File:** `netlify/functions/create-checkout-session.js`
+
 - Updated to handle certification purchases
 - Validates plan IDs and pricing
 - Creates Stripe checkout sessions with proper metadata
@@ -38,11 +45,13 @@ Implemented a white-label version of the Milady RISE certification courses with 
 ## Pricing Structure
 
 ### Original Milady RISE Pricing
+
 - Individual: $29.95
 - Team (5 seats): $133.30
 - Salon (20 seats): $466.55
 
 ### White-Label EFH Pricing (50% Markup)
+
 - Individual: $44.95 (50% markup)
 - Team (5 seats): $199.95 (50% markup)
 - Salon (20 seats): $699.95 (50% markup)
@@ -60,6 +69,7 @@ Implemented a white-label version of the Milady RISE certification courses with 
 ## Stripe Integration Details
 
 ### Request Payload
+
 ```javascript
 {
   productType: 'certification',
@@ -71,6 +81,7 @@ Implemented a white-label version of the Milady RISE certification courses with 
 ```
 
 ### Metadata Stored
+
 ```javascript
 {
   productType: 'certification',
@@ -82,16 +93,19 @@ Implemented a white-label version of the Milady RISE certification courses with 
 ## Course Content
 
 ### 1. Infection Control & Safety
+
 - Essential protocols for maintaining a safe, hygienic environment
 - Industry-standard safety procedures
 - Compliance requirements
 
 ### 2. Domestic Violence Awareness
+
 - Recognition of warning signs
 - Response protocols
 - Resource guidance for victims
 
 ### 3. Human Trafficking Awareness
+
 - Identification strategies
 - Intervention techniques
 - Legal reporting requirements
@@ -99,11 +113,13 @@ Implemented a white-label version of the Milady RISE certification courses with 
 ## Branding
 
 ### Removed
+
 - All Milady branding
 - Milady logos and references
 - Milady payment processing
 
 ### Added
+
 - Elevate for Humanity (EFH) branding
 - EFH color scheme (blue/purple/pink)
 - EFH support contact information
@@ -142,6 +158,7 @@ STRIPE_PUBLISHABLE_KEY=pk_live_... # Your Stripe publishable key
 ## Support
 
 For questions or issues:
+
 - Email: elevateforhumanity@gmail.com
 - Phone: (317) 314-3757
 - Contact page: /contact

@@ -1,54 +1,125 @@
-# Elevate for Humanity LMS
+# Elevate for Humanity - Complete System
 
-> **A full-stack workforce development platform built with React 19, Vite 6, Supabase, and Stripe Connect**  
-> Supports DOL/DWD Apprenticeships, ETPL funding, AI-driven course creation, and autonomous operations.
+> **Full-stack workforce development platform + Government certification automation suite**  
+> LMS built with React 19, Vite 6, Supabase | Autopilot Suite v2 with RBAC for DBE/MBE/WBE/8(a) certifications
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elevateforhumanity/fix2)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://elevateforhumanity.org)
 
+## 📁 Repository Organization
+
+```
+/workspaces/fix2/
+├── src/                          # LMS Frontend (React 19 + Vite)
+├── backend/                      # Autopilot Suite v2 (FastAPI + RBAC)
+├── frontend/                     # Autopilot Dashboard (Vite + React)
+├── field_mappings/               # Certification field mappings (JSON)
+├── playwright_scripts/           # Portal automation (Playwright)
+├── packet_templates/             # Certification packet templates
+├── scripts/                      # PDF tools + utilities
+├── docs/                         # Documentation
+│   ├── status/                   # Status reports and diagnostics
+│   ├── guides/                   # Setup and configuration guides
+│   └── archive/                  # Historical documentation
+├── CERTIFICATION_APPLICATIONS_BUNDLE/  # Complete cert applications
+└── README.md                     # This file
+```
+
 ## 🎯 Overview
 
-Elevate for Humanity is an **enterprise-grade Learning Management System (LMS)** designed for workforce development, apprenticeship programs, and government-aligned training. Built with modern web technologies and featuring autonomous operations, AI-powered content generation, and comprehensive compliance tracking.
+This repository contains **two integrated systems**:
 
-### Key Features
+### 1. LMS Platform (Production)
 
-- ✅ **106+ Industry Certifications** - Healthcare, IT, Construction, Business
-- ✅ **92% Job Placement Rate** - Proven outcomes tracking
-- ✅ **DOL/DOE/DWD Compliant** - Government program ready
-- ✅ **ETPL Provider** - WIOA funding eligible
-- ✅ **Autonomous Operations** - Self-healing autopilot system
-- ✅ **AI-Powered** - Content generation and tutoring
-- ✅ **Mobile Apps** - iOS and Android via Capacitor
-- ✅ **Revenue Sharing** - Stripe Connect for instructors
+Enterprise-grade Learning Management System for workforce development, apprenticeship programs, and government-aligned training.
+
+**Features:**
+
+- ✅ 106+ Industry Certifications (Healthcare, IT, Construction, Business)
+- ✅ 92% Job Placement Rate with outcomes tracking
+- ✅ DOL/DOE/DWD Compliant - Government program ready
+- ✅ ETPL Provider - WIOA funding eligible
+- ✅ AI-Powered content generation and tutoring
+- ✅ Mobile Apps (iOS/Android via Capacitor)
+- ✅ Revenue Sharing via Stripe Connect
+
+### 2. Autopilot Suite v2 (Development)
+
+Government certification automation system with role-based access control for team collaboration.
+
+**Features:**
+
+- ✅ Worker Dashboard + API with RBAC (Admin/Worker/Reviewer/Auditor)
+- ✅ FastAPI backend + Vite/React frontend
+- ✅ 6 Certification automations (DBE, ACDBE, MBE, WBE, 8(a), HUBZone)
+- ✅ PDF automation tools (list fields, fill, flatten)
+- ✅ Playwright portal automation with MFA support
+- ✅ JSONL audit logging for compliance
+- ✅ Field mapping templates for all certifications
+
+## 🚀 Quick Start
+
+### LMS Platform
+
+```bash
+# Install dependencies
+npm install
+
+# Set environment variables
+cp .env.example .env
+# Add your Supabase, Stripe, and API keys
+
+# Run development server
+npm run dev
+```
+
+### Autopilot Suite v2
+
+```bash
+# Backend
+cd backend
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+export ADMIN_KEY=admin-demo-key WORKER_KEY=worker-demo-key
+uvicorn app.main:app --reload --port 7070
+
+# Frontend Dashboard
+cd frontend
+npm install
+npm run dev -- --port 5173
+
+# PDF Tools
+cd scripts
+pip install pypdf2
+python list_pdf_fields.py <pdf_file>
+python fill_pdf.py --blank <pdf> --mapping <json> --profile ../backend/data/master_profile.json --out filled.pdf
+
+# Portal Automation
+cd scripts/playwright
+pip install playwright
+python -m playwright install chromium
+python sba_connect_portal.py
+```
 
 ## 🚀 Tech Stack
 
-### Frontend
+### LMS Platform
 
-- **React 19** - Latest React with concurrent features
-- **Vite 6** - Lightning-fast build tool
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **React Router** - Client-side routing
-- **Zustand** - State management
+- **Frontend:** React 19, Vite 6, TypeScript, Tailwind CSS
+- **Backend:** Supabase (PostgreSQL + Auth + Storage)
+- **Hosting:** Netlify (17 serverless functions)
+- **Payments:** Stripe Connect
+- **Mobile:** Capacitor (iOS/Android)
 
-### Backend & Services
+### Autopilot Suite v2
 
-- **Supabase** - PostgreSQL database + authentication + storage
-- **Netlify** - Hosting + 17 serverless functions
-- **Cloudflare Workers** - Edge computing for AI/automation
-- **Stripe Connect** - Payment processing + revenue sharing
-
-### Mobile
-
-- **Capacitor** - Native iOS/Android apps
-
-### DevOps
-
-- **GitHub Actions** - CI/CD automation
-- **Autopilot System** - 25+ automated task types
-- **Health Monitoring** - Real-time system checks
+- **Backend:** FastAPI, Python 3.11+
+- **Frontend:** Vite, React, TypeScript
+- **Automation:** Playwright (headful mode with MFA)
+- **PDF Tools:** PyPDF2
+- **Storage:** File-based (backend/data/)
+- **Audit:** JSONL logging
 
 ## 📊 Platform Statistics
 
@@ -76,10 +147,25 @@ Elevate for Humanity is an **enterprise-grade Learning Management System (LMS)**
 
 ## 📖 Documentation
 
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide for Netlify + Supabase
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guidelines for contributing
-- **[IP_PROTECTION_COMPLETE.md](IP_PROTECTION_COMPLETE.md)** - Intellectual property protection
-- **[COMPREHENSIVE_HEALTH_REPORT.md](COMPREHENSIVE_HEALTH_REPORT.md)** - System health status
+### LMS Platform
+
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Netlify + Supabase deployment
+- **[docs/API.md](docs/API.md)** - API documentation
+- **[docs/SETUP.md](docs/SETUP.md)** - Development setup guide
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
+
+### Autopilot Suite v2
+
+- **[backend/README.md](backend/README.md)** - Backend API documentation
+- **[docs/WORKER_GUIDE.md](docs/WORKER_GUIDE.md)** - Worker role guide
+- **[docs/PORTAL_SELECTORS.md](docs/PORTAL_SELECTORS.md)** - Portal automation guide
+- **[CERTIFICATION_APPLICATIONS_BUNDLE/](CERTIFICATION_APPLICATIONS_BUNDLE/)** - Complete certification applications
+
+### Historical Documentation
+
+- **[docs/status/](docs/status/)** - Status reports and diagnostics (400+ files)
+- **[docs/guides/](docs/guides/)** - Setup and configuration guides
+- **[docs/archive/](docs/archive/)** - Historical development notes
 
 ## 📁 What's Included
 

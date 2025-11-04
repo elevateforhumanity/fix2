@@ -1,4 +1,5 @@
 # Milady Barber Apprenticeship Program
+
 ## DOL Registered Apprenticeship & ETPL Compliance
 
 ### Program Overview
@@ -7,7 +8,7 @@
 **Provider:** Elevate for Humanity (EFH)  
 **Curriculum Partner:** Milady (Milady Standard Barbering)  
 **Duration:** 2,000 hours (12-18 months)  
-**Credential:** Indiana State Barber License  
+**Credential:** Indiana State Barber License
 
 ---
 
@@ -17,11 +18,12 @@
 
 **Registration Number:** [To be assigned by DOL]  
 **Occupation Code:** 39-5011.00 (Barbers)  
-**RAPIDS ID:** [To be assigned]  
+**RAPIDS ID:** [To be assigned]
 
 #### Program Structure
 
 **Total Hours:** 2,000 hours
+
 - **On-the-Job Learning (OJL):** 1,600 hours (80%)
 - **Related Technical Instruction (RTI):** 400 hours (20%)
 
@@ -32,15 +34,12 @@
 1. **Level 1 (0-500 hours)**
    - Wage: Starting at $12/hour
    - Focus: Basic techniques, sanitation, client interaction
-   
 2. **Level 2 (500-1,000 hours)**
    - Wage: $14/hour
    - Focus: Independent services, advanced techniques
-   
 3. **Level 3 (1,000-1,500 hours)**
    - Wage: $16/hour
    - Focus: Complex services, chemical applications
-   
 4. **Level 4 (1,500-2,000 hours)**
    - Wage: $18/hour
    - Focus: Master-level work, state board preparation
@@ -48,26 +47,31 @@
 #### DOL Requirements Met
 
 ✅ **Structured On-the-Job Learning**
+
 - Supervised work experience in licensed barbershop
 - Progressive skill development
 - Documented work hours
 
 ✅ **Related Technical Instruction**
+
 - 400 hours of classroom instruction
 - Milady Standard Barbering curriculum
 - Theory and practical application
 
 ✅ **Mentorship**
+
 - Assigned licensed master barber mentor
 - Regular progress evaluations
 - Skill assessments and feedback
 
 ✅ **Wage Progression**
+
 - Incremental wage increases based on competency
 - Documented pay scale
 - Performance-based advancement
 
 ✅ **Portable Credential**
+
 - Nationally recognized completion certificate
 - Indiana State Barber License
 - Transferable skills across states
@@ -80,18 +84,19 @@
 
 **ETPL Status:** Approved  
 **State:** Indiana  
-**Local Workforce Development Area:** Indianapolis/Marion County  
+**Local Workforce Development Area:** Indianapolis/Marion County
 
 #### Performance Outcomes
 
 **Completion Rate:** 85%+  
 **Placement Rate:** 90%+  
 **Median Earnings:** $38,000/year  
-**Credential Attainment:** 95%+  
+**Credential Attainment:** 95%+
 
 #### WIOA Eligibility
 
 **Eligible Participants:**
+
 - Dislocated workers
 - Low-income individuals
 - Youth (18+)
@@ -99,6 +104,7 @@
 - Individuals with barriers to employment
 
 **Funding Coverage:**
+
 - Tuition and fees: $0 (fully covered)
 - Books and materials: Provided
 - Tools and equipment: Provided
@@ -108,26 +114,30 @@
 
 **Program Code:** [Indiana DWD assigned]  
 **Funding Amount:** Full program cost covered  
-**Eligible Occupations:** High-demand occupation in Indiana  
+**Eligible Occupations:** High-demand occupation in Indiana
 
 #### WRG Requirements Met
 
 ✅ **High-Demand Occupation**
+
 - Barbering listed on Indiana's high-demand occupation list
 - Growing industry with job openings
 - Sustainable career pathway
 
 ✅ **Industry-Recognized Credential**
+
 - Indiana State Barber License
 - DOL Registered Apprenticeship Certificate
 - Milady certification
 
 ✅ **Employer Partnership**
+
 - Partnerships with local barbershops
 - Guaranteed apprenticeship placement
 - Job placement assistance
 
 ✅ **Performance Accountability**
+
 - Tracked completion rates
 - Employment outcomes monitored
 - Wage progression documented
@@ -140,21 +150,24 @@
 
 **Publisher:** Milady (Cengage Learning)  
 **Edition:** Current edition  
-**ISBN:** [Current edition ISBN]  
+**ISBN:** [Current edition ISBN]
 
 #### Curriculum Components
 
 **Textbook:** Milady Standard Barbering, 6th Edition
+
 - Comprehensive theory and practical instruction
 - Industry-standard content
 - State board exam preparation
 
 **Workbook:** Milady Standard Barbering Workbook
+
 - Chapter reviews and exercises
 - Practical application activities
 - Exam preparation questions
 
 **Online Resources:**
+
 - MindTap digital learning platform
 - Video demonstrations
 - Interactive quizzes and assessments
@@ -163,6 +176,7 @@
 #### Content Alignment
 
 **Indiana State Board Requirements:**
+
 - ✅ 2,000 hours minimum training
 - ✅ Infection control and safety
 - ✅ Haircutting and styling
@@ -171,6 +185,7 @@
 - ✅ Business and professional practices
 
 **DOL Competency Framework:**
+
 - ✅ Technical skills development
 - ✅ Safety and health standards
 - ✅ Professional conduct
@@ -229,6 +244,7 @@
 ### Participating Barbershops
 
 **Requirements for Partner Shops:**
+
 - Licensed and in good standing with Indiana State Board
 - Employs at least one licensed master barber (5+ years experience)
 - Commits to providing structured on-the-job training
@@ -236,6 +252,7 @@
 - Provides safe and professional work environment
 
 **Benefits for Employers:**
+
 - Access to trained, motivated apprentices
 - Tax credits for hiring apprentices
 - Support from EFH program coordinators
@@ -253,23 +270,27 @@
 ### Comprehensive Support
 
 **Academic Support:**
+
 - Tutoring and study groups
 - State board exam preparation
 - One-on-one instruction as needed
 
 **Career Services:**
+
 - Job placement assistance
 - Resume and portfolio development
 - Interview preparation
 - Networking opportunities
 
 **Wrap-Around Services:**
+
 - Transportation assistance
 - Childcare referrals
 - Financial literacy training
 - Mental health resources
 
 **Financial Support:**
+
 - WIOA/WRG funding coordination
 - Tool and equipment provision
 - Licensing exam fee coverage
@@ -282,12 +303,14 @@
 ### Data Collection
 
 **Student Progress:**
+
 - Hour tracking and attendance
 - Skills assessments and grades
 - Employer evaluations
 - Portfolio development
 
 **Program Outcomes:**
+
 - Completion rates
 - Credential attainment
 - Employment placement
@@ -297,12 +320,14 @@
 ### Reporting Requirements
 
 **WIOA Reporting:**
+
 - Quarterly performance reports
 - Annual program review
 - Outcome data submission
 - Continuous improvement plans
 
 **DOL Reporting:**
+
 - Apprentice registration
 - Progress reports
 - Completion certificates
@@ -315,6 +340,7 @@
 ### Program Evaluation
 
 **Annual Review:**
+
 - Curriculum effectiveness
 - Instructor performance
 - Student satisfaction surveys
@@ -322,6 +348,7 @@
 - Outcome analysis
 
 **Continuous Improvement:**
+
 - Industry advisory board input
 - State board alignment verification
 - Milady curriculum updates
@@ -330,6 +357,7 @@
 ### Accreditation & Compliance
 
 **Maintaining Standards:**
+
 - Indiana State Board approval
 - DOL registration maintenance
 - ETPL eligibility renewal
@@ -343,34 +371,37 @@
 **Program Coordinator:**  
 Elevate for Humanity  
 Email: elevateforhumanity@gmail.com  
-Phone: (317) 314-3757  
+Phone: (317) 314-3757
 
 **Enrollment Information:**  
 Website: [Program URL]  
-Application: Online application available  
+Application: Online application available
 
 **Funding Questions:**  
 WIOA/WRG Coordinator  
 Email: elevateforhumanity@gmail.com  
-Phone: (317) 314-3757  
+Phone: (317) 314-3757
 
 ---
 
 ## Implementation Timeline
 
 **Phase 1: Program Setup (Months 1-2)**
+
 - DOL registration submission
 - ETPL application
 - Employer partnerships
 - Curriculum finalization
 
 **Phase 2: Pilot Cohort (Months 3-4)**
+
 - First cohort recruitment (10-15 students)
 - Orientation and onboarding
 - Apprenticeship placements
 - Initial instruction
 
 **Phase 3: Full Implementation (Month 5+)**
+
 - Ongoing cohort enrollment
 - Continuous improvement
 - Expansion to additional locations

@@ -1,0 +1,109 @@
+===========================================
+CHATGPT DOCUMENT GENERATOR SCRIPT
+===========================================
+
+COPY THIS ENTIRE SCRIPT AND PASTE INTO CHATGPT TO GENERATE PRINTABLE DOCUMENTS
+
+---
+
+PROMPT FOR CHATGPT:
+
+I need you to format certification application information into clean, printable documents. I will provide you with application data in markdown format. Please:
+
+1. Convert the markdown to a clean, professional format
+2. Create a table of contents
+3. Format sections with clear headers
+4. Make it print-friendly (black and white, clear fonts)
+5. Add page breaks between major sections
+6. Create a cover page with:
+   - Application name
+   - Business name
+   - Date
+   - Prepared by: Elizabeth L. Greene
+
+7. For each section:
+   - Bold the question/field name
+   - Regular text for the answer
+   - Use checkboxes where applicable
+   - Highlight [PLACEHOLDER] items in a different format so I know to fill them in
+
+8. At the end, create a checklist of:
+   - Required documents
+   - Information still needed (all [PLACEHOLDER] items)
+   - Next steps
+
+9. Format for easy manual data entry:
+   - Clear field labels
+   - Adequate spacing
+   - Easy to read when printed
+
+10. Create separate documents for each certification:
+    - 8(a) Business Development
+    - DBE/ACDBE
+    - Indiana MBE/WBE
+    - Buy Indiana
+    - WOSB/EDWOSB
+    - HUBZone
+
+Please confirm you're ready, and I'll paste the first application data.
+
+---
+
+AFTER CHATGPT CONFIRMS, PASTE EACH APPLICATION FILE CONTENT ONE AT A TIME:
+
+1. First paste: 01_8A_BUSINESS_DEVELOPMENT.md content
+2. Wait for formatted output
+3. Then paste: 02_DBE_ACDBE_CERTIFICATION.md content
+4. Wait for formatted output
+5. Continue for all 6 applications
+
+---
+
+ALTERNATIVE PROMPT (If you want all at once):
+
+I have 6 certification applications in markdown format. Please create a comprehensive application package with:
+
+1. Master cover page listing all 6 certifications
+2. Table of contents with page numbers
+3. Each application formatted as a separate section
+4. Professional formatting for printing
+5. Highlight all [PLACEHOLDER] items
+6. Create a master checklist at the end showing:
+   - All required documents across all applications
+   - All information still needed
+   - Timeline for each certification
+   - Priority order recommendations
+
+Format everything for easy printing and manual data entry into online portals.
+
+Ready? I'll paste all 6 applications now.
+
+[Then paste all 6 application files]
+
+---
+
+TIPS FOR USING CHATGPT OUTPUT:
+
+1. Copy the formatted text into Microsoft Word or Google Docs
+2. Adjust formatting as needed
+3. Print or save as PDF
+4. Use as reference when filling out online applications
+5. Check off items as you complete them
+6. Keep updated as you gather missing information
+
+---
+
+WHAT CHATGPT WILL PRODUCE:
+
+✅ Clean, professional documents
+✅ Easy-to-read format
+✅ Print-ready layout
+✅ Clear identification of missing information
+✅ Checklists for tracking progress
+✅ Organized by certification type
+✅ Ready for manual data entry
+
+---
+
+END OF SCRIPT
+===========================================
