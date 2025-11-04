@@ -1,0 +1,443 @@
+{
+  "timestamp": "2025-11-04T11:26:15.058Z",
+  "components": [
+    {
+      "file": "src/components/classroom/admin/EmailEventsPanel.test.tsx",
+      "issues": ["No exports"]
+    },
+    {
+      "file": "src/main.tsx",
+      "issues": ["No exports"]
+    },
+    {
+      "file": "src/test/smoke.test.tsx",
+      "issues": ["No exports"]
+    }
+  ],
+  "internalLinks": {
+    "./assets/logo.png": [
+      "dist/durable-landing.html",
+      "dist/durable-landing.html"
+    ],
+    "/apple-touch-icon.png": ["dist/durable-landing.html"],
+    "/programs/barber": ["dist/durable-landing.html"],
+    "/programs/building-tech": ["dist/durable-landing.html"],
+    "/programs/cna": ["dist/durable-landing.html"],
+    "/programs/cpr-aed-first-aid": ["dist/durable-landing.html"],
+    "/programs/business-startup-marketing": ["dist/durable-landing.html"],
+    "/programs/tax-office-startup": ["dist/durable-landing.html"],
+    "/programs/esthetician-client-services": ["dist/durable-landing.html"],
+    "/programs/beauty-career-educator": ["dist/durable-landing.html"],
+    "/programs/public-safety-reentry": ["dist/durable-landing.html"],
+    "/privacy": ["dist/durable-landing.html"],
+    "/terms": ["dist/durable-landing.html"],
+    "/images/efh-logo.png": [
+      "dist/durable-landing.html",
+      "dist/durable-landing.html"
+    ],
+    "/pay?program=ai-fundamentals": [
+      "dist/flash-sale-store.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html"
+    ],
+    "/pay?program=data-science": [
+      "dist/flash-sale-store.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html"
+    ],
+    "/pay?program=cybersecurity": [
+      "dist/flash-sale-store.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html"
+    ],
+    "/humans.txt": ["dist/index.html"],
+    "/lms": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/index-authentic.html",
+      "dist/pages/index-ecosystem.html",
+      "dist/pages/index-professional.html",
+      "dist/pages/index-professional.html",
+      "dist/pages/sister-sites.html"
+    ],
+    "/compliance": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/hub.html",
+      "dist/pages/index-authentic.html",
+      "dist/pages/index-ecosystem.html",
+      "dist/pages/index-professional.html",
+      "dist/pages/index-professional.html"
+    ],
+    "/pay": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/index-authentic.html",
+      "dist/pages/index-ecosystem.html",
+      "dist/pages/index-ecosystem.html",
+      "dist/pages/index-professional.html",
+      "dist/pages/index-professional.html",
+      "dist/pages/programs.html"
+    ],
+    "/images/Success_Story_Portrait_Sarah_a0044c44.png": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/Success_Story_Portrait_Marcus_fd8aacf8.png": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/Success_Story_Portrait_Lisa_cb129d08.png": [
+      "dist/pages/READY_FOR_TRANSFER_index.html",
+      "dist/pages/student-acquisition.html"
+    ],
+    "tel:317-555-0123": [
+      "dist/pages/acc-style-landing.html",
+      "dist/pages/acc-style-landing.html"
+    ],
+    "lms.html": ["dist/pages/account.html", "dist/pages/hub.html"],
+    "shared/supabase.js": [
+      "dist/pages/blog.html",
+      "dist/pages/connect.html",
+      "dist/pages/digital-binder.html",
+      "dist/pages/programs.html"
+    ],
+    "/elevate-store.html": [
+      "dist/pages/check-deployment.html",
+      "dist/pages/license-dashboard.html",
+      "dist/pages/license-dashboard.html"
+    ],
+    "/license-dashboard.html": [
+      "dist/pages/check-deployment.html",
+      "dist/pages/elevate-store.html",
+      "dist/pages/flash-sale-success.html"
+    ],
+    "/elevate_license_dashboard.html": ["dist/pages/check-deployment.html"],
+    "/license-demo.html": ["dist/pages/check-deployment.html"],
+    "student-portal.html": [
+      "dist/pages/clean-professional.html",
+      "dist/pages/professional-site.html"
+    ],
+    "scripts/efh-universal.v2.2.js": [
+      "dist/pages/compliance.html",
+      "dist/pages/connect.html",
+      "dist/pages/cost-tracking.html",
+      "dist/pages/eligibility-verification.html",
+      "dist/pages/eligibility-verification.html",
+      "dist/pages/employer-dashboard.html",
+      "dist/pages/hub.html",
+      "dist/pages/iep-management.html",
+      "dist/pages/performance-tracking.html",
+      "dist/pages/performance-tracking.html",
+      "dist/pages/pirl-reporting.html",
+      "dist/pages/programs.html",
+      "dist/pages/skills-assessment.html"
+    ],
+    "branding/icons/workforce-icons.png": ["dist/pages/compliance.html"],
+    "/images/Workforce_development_icons_12ab3311.png": [
+      "dist/pages/connect.html",
+      "dist/pages/hub.html"
+    ],
+    "compliance.html": [
+      "dist/pages/cost-tracking.html",
+      "dist/pages/eligibility-verification.html",
+      "dist/pages/employer-dashboard.html",
+      "dist/pages/iep-management.html",
+      "dist/pages/performance-tracking.html",
+      "dist/pages/pirl-reporting.html",
+      "dist/pages/skills-assessment.html"
+    ],
+    "/icons/icon-192x192.png": [
+      "dist/pages/elevate-store.html",
+      "dist/pages/license-dashboard.html"
+    ],
+    "lms-ecosystem-complete.html": [
+      "dist/pages/elevate-store.html",
+      "dist/pages/elevate-store.html"
+    ],
+    "/install-pwa.js": ["dist/pages/elevate-store.html"],
+    "src/lms/course-builder-ui.html": ["dist/pages/elevate-store.html"],
+    "src/lms/advanced-video-player.html": ["dist/pages/elevate-store.html"],
+    "/contact/": [
+      "dist/pages/eligibility-check.html",
+      "dist/pages/eligibility-check.html",
+      "dist/pages/funding-options.html",
+      "dist/pages/funding-options.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/seo-audit.html",
+      "dist/pages/sister-sites-health-check.html",
+      "dist/pages/sitemap.html",
+      "dist/pages/student-outcomes.html",
+      "dist/pages/success.html"
+    ],
+    "/funding-options.html": [
+      "dist/pages/eligibility-check.html",
+      "dist/pages/funding-options.html",
+      "dist/pages/student-outcomes.html",
+      "dist/pages/thank-you.html"
+    ],
+    "ui/styles.css": [
+      "dist/pages/eligibility-verification.html",
+      "dist/pages/performance-tracking.html"
+    ],
+    "/video-interview": ["dist/pages/enroll-complete.html"],
+    "/student-outcomes.html": [
+      "dist/pages/funding-options.html",
+      "dist/pages/student-outcomes.html"
+    ],
+    "/employer-partners.html": [
+      "dist/pages/funding-options.html",
+      "dist/pages/student-outcomes.html"
+    ],
+    "/meet-our-instructors.html": [
+      "dist/pages/funding-options.html",
+      "dist/pages/student-outcomes.html"
+    ],
+    "/hub": ["dist/pages/google-search-console-submit.html"],
+    "professional-site.html": ["dist/pages/government-services.html"],
+    "tel:+15551234567": [
+      "dist/pages/government-services.html",
+      "dist/pages/live-professional.html",
+      "dist/pages/pay.html"
+    ],
+    "/sister-sites": [
+      "dist/pages/healthcare-services.html",
+      "dist/pages/operational-agreements.html"
+    ],
+    "/operational-agreements": [
+      "dist/pages/healthcare-services.html",
+      "dist/pages/sister-sites.html"
+    ],
+    "/eligibility-verification.html": [
+      "dist/pages/hub.html",
+      "dist/pages/programs.html"
+    ],
+    "/lms.html": [
+      "dist/pages/hub.html",
+      "dist/pages/student-acquisition.html",
+      "dist/pages/student-acquisition.html",
+      "dist/pages/student-dashboard.html"
+    ],
+    "/compliance.html": [
+      "dist/pages/hub.html",
+      "dist/pages/performance-tracking.html",
+      "dist/pages/student-acquisition.html"
+    ],
+    "/performance-tracking.html": [
+      "dist/pages/hub.html",
+      "dist/pages/programs.html"
+    ],
+    "/partners.html": [
+      "dist/pages/hub.html",
+      "dist/pages/student-acquisition.html"
+    ],
+    "/account.html": ["dist/pages/hub.html"],
+    "programs.html?focus=ai-fundamentals": ["dist/pages/hub.html"],
+    "programs.html?focus=data-science-bootcamp": ["dist/pages/hub.html"],
+    "account.html": ["dist/pages/hub.html"],
+    "protected-site.html": ["dist/pages/hub.html"],
+    "demo-site.html": ["dist/pages/hub.html"],
+    "admin-approvals-dashboard.html": ["dist/pages/hub.html"],
+    "efh-ai-chat-widget.html": ["dist/pages/hub.html"],
+    "working-demo.html": ["dist/pages/hub.html"],
+    "coupon-test.html": ["dist/pages/hub.html"],
+    "simple-coupon-test.html": ["dist/pages/hub.html"],
+    "./assets/css/main.css": ["dist/pages/humanized-program-template.html"],
+    "./assets/css/program-humanized.css": [
+      "dist/pages/humanized-program-template.html"
+    ],
+    "/funding-eligibility/": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/student-outcomes/": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/enroll/": ["dist/pages/humanized-program-template.html"],
+    "tel:+1-317-999-9999": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "sms:+1-317-999-9999": ["dist/pages/humanized-program-template.html"],
+    "/privacy-policy/": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/accessibility/": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/sitemap.html"
+    ],
+    "/complaints/": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/logo.svg": [
+      "dist/pages/humanized-program-template.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "{{HERO_IMAGE}}": ["dist/pages/humanized-program-template.html"],
+    "{{STUDENT_PHOTO}}": ["dist/pages/humanized-program-template.html"],
+    "{{photo}}": ["dist/pages/humanized-program-template.html"],
+    "./assets/images/hands-on-learning.jpg": [
+      "dist/pages/humanized-program-template.html"
+    ],
+    "./assets/images/small-classes.jpg": [
+      "dist/pages/humanized-program-template.html"
+    ],
+    "./assets/images/job-ready.jpg": [
+      "dist/pages/humanized-program-template.html"
+    ],
+    "{{INSTRUCTOR_PHOTO}}": ["dist/pages/humanized-program-template.html"],
+    "./assets/js/main.js": ["dist/pages/humanized-program-template.html"],
+    "./assets/js/program-interactions.js": [
+      "dist/pages/humanized-program-template.html"
+    ],
+    "public/apply.html": [
+      "dist/pages/index.react.html",
+      "dist/pay.html",
+      "dist/search.html"
+    ],
+    "/src/main.jsx": [
+      "dist/pages/index.react.html",
+      "dist/pages/index.react.html"
+    ],
+    "/admin/secret": ["dist/pages/onboarding.html"],
+    "/dashboard": ["dist/pages/onboarding.html"],
+    "/docs": ["dist/pages/onboarding.html"],
+    "/docs/mou-workforce-board.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/mou-employer.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/mou-training-provider.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/mou-certifying-body.pdf": ["dist/pages/partner-onboarding.html"],
+    "/lms/instructor": ["dist/pages/partner-onboarding.html"],
+    "/docs/program-holder-guide.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/reporting-templates.zip": ["dist/pages/partner-onboarding.html"],
+    "/docs/compliance-checklist.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/employer-guide.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/tax-incentives.pdf": ["dist/pages/partner-onboarding.html"],
+    "/docs/onboarding-toolkit.pdf": ["dist/pages/partner-onboarding.html"],
+    "tel:+13173143757": ["dist/pages/partner-onboarding.html"],
+    "/help": ["dist/pages/partners.html"],
+    "${p.website}": ["dist/pages/partners.html"],
+    "${logoUrl}": ["dist/pages/partners.html"],
+    "/admin-dashboard.html": [
+      "dist/pages/performance-tracking.html",
+      "dist/pages/student-dashboard.html"
+    ],
+    "/branding/partners/certiport-logo.png": ["dist/pages/programs.html"],
+    "/branding/partners/nccer-logo.png": ["dist/pages/programs.html"],
+    "/branding/partners/milady-logo.png": ["dist/pages/programs.html"],
+    "/branding/partners/careersafe-logo.png": ["dist/pages/programs.html"],
+    "/scripts/efh-universal.v2.2.js": ["dist/pages/programs.html"],
+    "./assets/css/homepage-redesign.css": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/apply/": [
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/programs/it-support/": [
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/programs/home-health-aide/": [
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/programs/barbering-youth/": [
+      "dist/pages/redesigned-homepage.html",
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "/employer-partners/": ["dist/pages/redesigned-homepage.html"],
+    "/meet-our-instructors/": ["dist/pages/redesigned-homepage.html"],
+    "/faq/": ["dist/pages/redesigned-homepage.html", "dist/pages/sitemap.html"],
+    "./assets/images/hero-students-learning.jpg": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/student-maria.jpg": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/student-james.jpg": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/student-sarah.jpg": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/student-marcus.jpg": [
+      "dist/pages/redesigned-homepage.html"
+    ],
+    "./assets/images/logo-white.svg": ["dist/pages/redesigned-homepage.html"],
+    "./assets/js/homepage.js": ["dist/pages/redesigned-homepage.html"],
+    "${listing.url}": ["dist/pages/revenue-tracking-dashboard.html"],
+    "/sitemaps/core.xml": ["dist/pages/seo-audit.html"],
+    "/sitemaps/programs.xml": ["dist/pages/seo-audit.html"],
+    "/sitemaps/policies.xml": ["dist/pages/seo-audit.html"],
+    "/sitemaps/services.xml": ["dist/pages/seo-audit.html"],
+    "/contracts/": ["dist/pages/seo-audit.html"],
+    "/students/": ["dist/pages/seo-audit.html", "dist/pages/success.html"],
+    "js/sister-sites-nav.js": [
+      "dist/pages/serene-comfort-care.html",
+      "dist/pages/urban-build-crew.html"
+    ],
+    "/partner-marketplace.html": ["dist/pages/sister-sites-health-check.html"],
+    "/student-portal.html": ["dist/pages/sister-sites-health-check.html"],
+    "/kingdom-konnect.html": ["dist/pages/sister-sites-health-check.html"],
+    "/serene-comfort-care.html": ["dist/pages/sister-sites-health-check.html"],
+    "/urban-build-crew.html": ["dist/pages/sister-sites-health-check.html"],
+    "/healthcare-services": ["dist/pages/sister-sites.html"],
+    "/government-services": ["dist/pages/sister-sites.html"],
+    "/about/": ["dist/pages/sitemap.html"],
+    "/employers/": ["dist/pages/sitemap.html"],
+    "/blog/": ["dist/pages/sitemap.html"],
+    "/programs/cybersecurity/": ["dist/pages/sitemap.html"],
+    "/programs/cloud-computing/": ["dist/pages/sitemap.html"],
+    "/programs/healthcare-cna/": ["dist/pages/sitemap.html"],
+    "/programs/electrical-trades/": ["dist/pages/sitemap.html"],
+    "/programs/construction/": ["dist/pages/sitemap.html"],
+    "/programs/beauty-wellness/": ["dist/pages/sitemap.html"],
+    "/resources/": ["dist/pages/sitemap.html"],
+    "/privacy/": ["dist/pages/sitemap.html"],
+    "/terms/": ["dist/pages/sitemap.html"],
+    "/sitemap_index.xml": ["dist/pages/sitemap.html"],
+    "/sitemaps/sitemap-1.xml": ["dist/pages/sitemap.html"],
+    "/pages/demo.html": ["dist/pages/store.html", "dist/pages/store.html"],
+    "/LICENSE": ["dist/pages/store.html"],
+    "tel:+1234567890": ["dist/pages/student-acquisition.html"],
+    "/shared/supabase.js": [
+      "dist/pages/student-acquisition.html",
+      "dist/pages/student-dashboard.html"
+    ],
+    "/shared/enrollment.js": ["dist/pages/student-acquisition.html"],
+    "/images/Google_Cloud_platform_logo_06544db8.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/Microsoft_certification_logo_33c096ba.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/CompTIA_tech_certification_logo_ed67b466.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/IBEW_electrical_union_logo_afc3f7cf.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/Indiana_Health_Association_logo_6c4cfeff.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/images/Indiana_Manufacturers_Association_logo_d1f477f6.png": [
+      "dist/pages/student-acquisition.html"
+    ],
+    "/student-acquisition.html": ["dist/pages/student-dashboard.html"],
+    "tel:+13175550123": ["dist/pages/success.html"],
+    "${h.url}": ["dist/search.html"]
+  },
+  "totalIssues": 294
+}

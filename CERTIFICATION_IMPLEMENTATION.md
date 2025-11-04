@@ -142,7 +142,7 @@ STRIPE_PUBLISHABLE_KEY=pk_live_... # Your Stripe publishable key
 ## Support
 
 For questions or issues:
-- Email: support@elevateforhumanity.org
+- Email: elevateforhumanity@gmail.com
 - Contact page: /contact
 
 ---

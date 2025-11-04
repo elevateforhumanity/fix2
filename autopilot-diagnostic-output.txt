@@ -1,0 +1,79 @@
+[0;34m=========================================[0m
+[0;34m  🤖 AUTOPILOT FULL DIAGNOSTIC[0m
+[0;34m=========================================[0m
+
+Project: cuxzzpsyufcewtmicszk
+Time: Tue Nov  4 11:02:51 UTC 2025
+
+[1;33mDIAGNOSTIC 1: Checking Prerequisites[0m
+--------------------------------------------
+  ✅ deployment-ready/00-prerequisites-fixed.sql
+  ✅ deployment-ready/01-all-migrations-fixed.sql
+  ✅ deployment-ready/02-email-dispatch.ts
+  ✅ deployment-ready/03-webhook-dispatch.ts
+  ✅ deployment-ready/04-ai-course-create.ts
+  ✅ deployment-ready/05-grade-ai.ts
+[0;32m✅ All deployment files present[0m
+
+[1;33mDIAGNOSTIC 2: Checking API Keys[0m
+--------------------------------------------
+  ✅ SUPABASE_URL
+  ✅ SUPABASE_ANON_KEY
+  ✅ SUPABASE_SERVICE_KEY
+  ✅ SUPABASE_DB_PASSWORD
+  ⚠️  SUPABASE_ACCESS_TOKEN (optional)
+  ✅ OPENAI_API_KEY
+  ⚠️  SENDGRID_API_KEY (optional)
+  ⚠️  RESEND_API_KEY (optional)
+  ⚠️  ANTHROPIC_API_KEY (optional)
+
+[1;33mDIAGNOSTIC 3: Testing Network Connectivity[0m
+--------------------------------------------
+Testing Supabase REST API...
+  ✅ REST API accessible (HTTP 200)
+Testing Supabase Auth API...
+  ❌ Auth API not accessible (HTTP 401)
+Testing Database Connection...
+  ❌ Database connection failed (network/firewall block)
+
+[1;33mDIAGNOSTIC 4: Testing Deployment Methods[0m
+--------------------------------------------
+Method 1: Direct Database Connection
+  ❌ Method not available (database not accessible)
+
+Method 2: Supabase CLI
+  ❌ No access token available
+
+[1;33mDIAGNOSTIC 6: Checking Edge Functions[0m
+--------------------------------------------
+  ❌ email-dispatch not deployed
+  ❌ webhook-dispatch not deployed
+  ❌ ai-course-create not deployed
+  ❌ grade-ai not deployed
+
+Edge Functions: 0/4 deployed
+
+[0;34m=========================================[0m
+[0;34m  DIAGNOSTIC SUMMARY[0m
+[0;34m=========================================[0m
+
+[0;31m❌ SQL DEPLOYMENT: FAILED[0m
+   All automated methods failed
+   Manual deployment required
+
+Edge Functions: 0/4 deployed
+[1;33m⚠️  Edge Functions need manual deployment[0m
+
+Diagnostic log saved to: autopilot-diagnostic-20251104-110251.log
+
+[1;33mNEXT STEPS:[0m
+1. Get Supabase access token:
+   https://supabase.com/dashboard/account/tokens
+
+2. Add to .env:
+   SUPABASE_ACCESS_TOKEN=sbp_your_token_here
+
+3. Re-run this script
+
+OR deploy manually (2 minutes):
+   https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new

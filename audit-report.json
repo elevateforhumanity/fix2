@@ -1,0 +1,121 @@
+{
+  "timestamp": "2025-11-04T11:34:00.125Z",
+  "summary": {
+    "filesScanned": 1800,
+    "routesFound": 191,
+    "linksChecked": 1027,
+    "brokenLinks": 6,
+    "apisFound": 20,
+    "apisWorking": 20,
+    "componentsFound": 280,
+    "componentsWorking": 277,
+    "buildSuccess": true,
+    "deploymentReady": false
+  },
+  "details": {
+    "files": {
+      "total": 1800,
+      "scanned": 1800,
+      "errors": []
+    },
+    "routes": {
+      "total": 191,
+      "working": 191,
+      "broken": []
+    },
+    "links": {
+      "total": 1027,
+      "valid": 1021,
+      "broken": [
+        {
+          "href": "/pay.html?program=ai-fundamentals",
+          "file": "dist/flash-sale-store.html",
+          "type": "href"
+        },
+        {
+          "href": "/pay.html?program=data-science",
+          "file": "dist/flash-sale-store.html",
+          "type": "href"
+        },
+        {
+          "href": "/pay.html?program=cybersecurity",
+          "file": "dist/flash-sale-store.html",
+          "type": "href"
+        },
+        {
+          "href": "/pay?program=ai-fundamentals",
+          "file": "dist/pages/READY_FOR_TRANSFER_index.html",
+          "type": "href"
+        },
+        {
+          "href": "/pay?program=data-science",
+          "file": "dist/pages/READY_FOR_TRANSFER_index.html",
+          "type": "href"
+        },
+        {
+          "href": "/pay?program=cybersecurity",
+          "file": "dist/pages/READY_FOR_TRANSFER_index.html",
+          "type": "href"
+        }
+      ]
+    },
+    "env": {
+      "required": [
+        "VITE_SUPABASE_URL",
+        "VITE_SUPABASE_ANON_KEY",
+        "VITE_STRIPE_PUBLISHABLE_KEY",
+        "SUPABASE_SERVICE_KEY",
+        "STRIPE_SECRET_KEY"
+      ],
+      "missing": [],
+      "present": [
+        "VITE_SUPABASE_URL",
+        "VITE_SUPABASE_ANON_KEY",
+        "VITE_STRIPE_PUBLISHABLE_KEY",
+        "SUPABASE_SERVICE_KEY",
+        "STRIPE_SECRET_KEY"
+      ]
+    },
+    "apis": {
+      "total": 20,
+      "working": 20,
+      "failed": []
+    },
+    "components": {
+      "total": 280,
+      "working": 277,
+      "errors": [
+        {
+          "file": "src/components/classroom/admin/EmailEventsPanel.test.tsx",
+          "issues": ["No exports"]
+        },
+        {
+          "file": "src/main.tsx",
+          "issues": ["No exports"]
+        },
+        {
+          "file": "src/test/smoke.test.tsx",
+          "issues": ["No exports"]
+        }
+      ]
+    },
+    "build": {
+      "success": true,
+      "errors": [],
+      "warnings": []
+    },
+    "deployment": {
+      "ready": false,
+      "issues": ["No broken links", "Components valid"]
+    },
+    "performance": {
+      "score": 0,
+      "issues": []
+    },
+    "security": {
+      "score": 0,
+      "issues": []
+    }
+  },
+  "overallScore": 95
+}
