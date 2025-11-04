@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Clock, DollarSign, CheckCircle, Users, BookOpen, ShoppingCart } from 'lucide-react';
+import { Award, Clock, DollarSign, CheckCircle, Users, BookOpen, ShoppingCart, Phone, Mail } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
 
 /**
@@ -449,10 +449,32 @@ const ClientSafetyCertification = () => {
         </div>
       </div>
 
-      {/* Trust Badges */}
-      <div className="bg-gray-100 py-8">
+      {/* Contact & Trust Section */}
+      <div className="bg-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
+          {/* Contact Info */}
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Questions? We're Here to Help</h3>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              <a
+                href="mailto:elevateforhumanity@gmail.com"
+                className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+              >
+                <Mail className="w-5 h-5" />
+                elevateforhumanity@gmail.com
+              </a>
+              <a
+                href="tel:+13173143757"
+                className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold"
+              >
+                <Phone className="w-5 h-5" />
+                (317) 314-3757
+              </a>
+            </div>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600 pt-8 border-t border-gray-300">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-600" />
               <span>Secure Payment</span>

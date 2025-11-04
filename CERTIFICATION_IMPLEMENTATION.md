@@ -143,6 +143,7 @@ STRIPE_PUBLISHABLE_KEY=pk_live_... # Your Stripe publishable key
 
 For questions or issues:
 - Email: elevateforhumanity@gmail.com
+- Phone: (317) 314-3757
 - Contact page: /contact
 
 ---

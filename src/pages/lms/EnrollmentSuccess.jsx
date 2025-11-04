@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Download, Mail, ArrowRight } from 'lucide-react';
+import { CheckCircle, Download, Mail, ArrowRight, Phone } from 'lucide-react';
 
 const EnrollmentSuccess = () => {
   const [sessionId, setSessionId] = useState('');
@@ -119,6 +119,14 @@ const EnrollmentSuccess = () => {
             >
               <Mail className="w-5 h-5 mr-2" />
               Email Support
+            </a>
+            
+            <a
+              href="tel:+13173143757"
+              className="flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              (317) 314-3757
             </a>
             
             <a
