@@ -10,11 +10,65 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { programId, programName, price, successUrl, cancelUrl } = JSON.parse(
-      event.body
-    );
+    const { 
+      programId, 
+      programName, 
+      price, 
+      successUrl, 
+      cancelUrl,
+      planId,
+      productType,
+      productName
+    } = JSON.parse(event.body);
 
-    // Validate required fields
+    // Handle certification purchases
+    if (productType === 'certification') {
+      const certificationPrices = {
+        'individual': 44.95,
+        'team-5': 199.95,
+        'salon': 699.95
+      };
+
+      const certPrice = certificationPrices[planId];
+      if (!certPrice) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Invalid plan selected' }),
+        };
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: `${productName} - ${planId.replace('-', ' ').toUpperCase()}`,
+                description: `Professional certification course bundle`,
+              },
+              unit_amount: Math.round(certPrice * 100),
+            },
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: successUrl || `${event.headers.origin}/lms/enrollment-success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: cancelUrl || `${event.headers.origin}/lms/client-safety-certification`,
+        metadata: {
+          productType: 'certification',
+          planId,
+          productName,
+        },
+      });
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ sessionId: session.id }),
+      };
+    }
+
+    // Validate required fields for regular programs
     if (!programId || !programName || price === undefined) {
       return {
         statusCode: 400,
