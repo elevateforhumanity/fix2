@@ -5,7 +5,7 @@ import process from 'node:process';
 import { pathToFileURL } from 'node:url';
 
 // Configuration
-const NEW_DOMAIN = 'www.elevateforhumanity.org';
+const NEW_DOMAIN = 'portal.elevateforhumanity.org';
 const DIST_DIR = path.resolve('dist');
 const NEW_DOMAIN_URL = `https://${NEW_DOMAIN}`;
 const LEGACY_DOMAINS = [

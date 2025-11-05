@@ -15,7 +15,7 @@ if (!existsSync(distDir)) {
 const siteUrl =
   process.env.VITE_SITE_URL ||
   process.env.SITE_URL ||
-  'https://www.elevateforhumanity.org';
+  'https://portal.elevateforhumanity.org';
 
 const routesForSitemap = ROUTES.filter((r) => r.sitemap !== false).map((r) => ({
   url: r.path,

@@ -7,7 +7,7 @@ import { readdir, readFile, writeFile } from 'fs/promises';
 import { join, relative } from 'path';
 import { existsSync } from 'fs';
 
-const SITE_URL = 'https://www.elevateforhumanity.org';
+const SITE_URL = 'https://portal.elevateforhumanity.org';
 const DIST_DIR = 'dist';
 
 // Pages to exclude from sitemap

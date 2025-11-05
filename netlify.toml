@@ -73,7 +73,7 @@
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
-    baseUrl = "https://elevateforhumanityfix2.netlify.app"
+    baseUrl = "https://portal.elevateforhumanity.org"
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 
@@ -81,7 +81,8 @@
 # Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
 # Search for "Supabase" and enable it there
 
-# No domain redirects - deploying to elevateforhumanityfix2.netlify.app
+# Custom domain: portal.elevateforhumanity.org
+# Main site (elevateforhumanity.org) hosted on Durable.co with "Get Started" button linking here
 
 # Static API files - serve directly (must come BEFORE function redirects)
 [[redirects]]
