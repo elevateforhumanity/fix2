@@ -7,6 +7,12 @@ import FooterLegal from '../components/FooterLegal';
 const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
 
 const navigation = [
+  { to: '/blog', label: 'Blog' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/services', label: 'Services' },
+  { to: '/faq', label: 'FAQ' },
+  { to: '/student-portal', label: 'Student Portal' },
   {
     label: 'Programs',
     items: [
@@ -22,39 +28,7 @@ const navigation = [
       { to: '/programs/public-safety-reentry', label: 'Public Safety Reentry' },
     ],
   },
-  {
-    label: 'Learning',
-    items: [
-      { to: '/lms', label: 'Student Dashboard' },
-      { to: '/lms/courses', label: 'Course Catalog' },
-      { to: '/certificates', label: 'My Certificates' },
-      { to: '/verify', label: 'Verify Certificate' },
-      { to: '/student-handbook', label: 'Student Handbook' },
-      { to: '/live-classroom', label: 'Live Classes' },
-      { to: '/ai-tutor', label: 'AI Tutor' },
-    ],
-  },
-  {
-    label: 'Community',
-    items: [
-      { to: '/community', label: 'Community Hub' },
-      { to: '/hub', label: 'Student Hub' },
-      { to: '/groups', label: 'Study Groups' },
-      { to: '/calendar', label: 'Events Calendar' },
-      { to: '/connect', label: 'Connect' },
-    ],
-  },
-  {
-    label: 'Resources',
-    items: [
-      { to: '/about', label: 'About Us' },
-      { to: '/partners', label: 'Partners' },
-      { to: '/support', label: 'Support Center' },
-      { to: '/funding-impact', label: 'Funding & Impact' },
-      { to: '/government', label: 'Government Programs' },
-      { to: '/philanthropy', label: 'Philanthropy' },
-    ],
-  },
+  { to: '/elevate', label: 'Elevate' },
 ];
 
 export default function FullSiteLayout({ children }: PropsWithChildren) {
@@ -76,37 +50,53 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
               role="navigation"
               className="hidden lg:flex items-center gap-6"
             >
-              {navigation.map((section) => (
-                <div
-                  key={section.label}
-                  className="relative group"
-                  onMouseEnter={() => setOpenDropdown(section.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <button className="flex items-center gap-1 text-sm font-medium text-brand-text hover:text-brand-600 transition-colors">
-                    {section.label}
-                    <ChevronDown className="h-4 w-4" />
-                  </button>
-                  {openDropdown === section.label && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-brand-border rounded-lg shadow-lg py-2">
-                      {section.items.map((item) => (
-                        <NavLink
-                          key={item.to}
-                          to={item.to}
-                          className={({ isActive }) =>
-                            `block px-4 py-2 text-sm hover:bg-brand-surface transition-colors ${
-                              isActive
-                                ? 'text-brand-700 font-medium'
-                                : 'text-brand-text'
-                            }`
-                          }
-                        >
-                          {item.label}
-                        </NavLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
+              {navigation.map((item) => (
+                'items' in item ? (
+                  <div
+                    key={item.label}
+                    className="relative group"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button className="flex items-center gap-1 text-sm font-medium text-brand-text hover:text-brand-600 transition-colors">
+                      {item.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                    {openDropdown === item.label && (
+                      <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-brand-border rounded-lg shadow-lg py-2">
+                        {item.items.map((subItem) => (
+                          <NavLink
+                            key={subItem.to}
+                            to={subItem.to}
+                            className={({ isActive }) =>
+                              `block px-4 py-2 text-sm hover:bg-brand-surface transition-colors ${
+                                isActive
+                                  ? 'text-brand-700 font-medium'
+                                  : 'text-brand-text'
+                              }`
+                            }
+                          >
+                            {subItem.label}
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'text-brand-700'
+                          : 'text-brand-text hover:text-brand-600'
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                )
               ))}
             </nav>
             {/* Desktop Actions */}
@@ -143,30 +133,47 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-brand-border bg-white">
             <div className="container py-4 space-y-4">
-              {navigation.map((section) => (
-                <div key={section.label}>
-                  <div className="font-semibold text-brand-text mb-2">
-                    {section.label}
+              {navigation.map((item) => (
+                'items' in item ? (
+                  <div key={item.label}>
+                    <div className="font-semibold text-brand-text mb-2">
+                      {item.label}
+                    </div>
+                    <div className="space-y-1 pl-4">
+                      {item.items.map((subItem) => (
+                        <NavLink
+                          key={subItem.to}
+                          to={subItem.to}
+                          className={({ isActive }) =>
+                            `block py-1 text-sm ${
+                              isActive
+                                ? 'text-brand-700 font-medium'
+                                : 'text-brand-text-muted'
+                            }`
+                          }
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subItem.label}
+                        </NavLink>
+                      ))}
+                    </div>
                   </div>
-                  <div className="space-y-1 pl-4">
-                    {section.items.map((item) => (
-                      <NavLink
-                        key={item.to}
-                        to={item.to}
-                        className={({ isActive }) =>
-                          `block py-1 text-sm ${
-                            isActive
-                              ? 'text-brand-700 font-medium'
-                              : 'text-brand-text-muted'
-                          }`
-                        }
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </NavLink>
-                    ))}
-                  </div>
-                </div>
+                ) : (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `block py-2 text-sm font-medium ${
+                        isActive
+                          ? 'text-brand-700'
+                          : 'text-brand-text'
+                      }`
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </NavLink>
+                )
               ))}
               <div className="pt-4 border-t space-y-2">
                 <Link
