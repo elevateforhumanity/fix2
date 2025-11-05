@@ -1,23 +1,25 @@
+# Next.js Site Configuration
 [build]
-  command = "rm -rf dist node_modules/.vite && pnpm install && pnpm run build"
-  publish = "dist"
-  functions = "netlify/functions"
+  base = "nextjs-site"
+  command = "npm install && npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20.11.1"
-  PNPM_VERSION = "9.7.0"
   NODE_OPTIONS = "--max_old_space_size=4096"
-  CI = "true"
-  GENERATE_SOURCEMAP = "false"
-  VITE_BUILD_ID = "$COMMIT_REF"
-  # VITE_SUPABASE_URL - Set in Netlify UI: Site settings > Environment variables
-  # VITE_SUPABASE_ANON_KEY - Set in Netlify UI: Site settings > Environment variables
-  # VITE_STRIPE_PUBLISHABLE_KEY - Set in Netlify UI: Site settings > Environment variables
+  # Environment variables set via Netlify UI or API
+  # NEXT_PUBLIC_API_URL
+  # NEXT_PUBLIC_SUPABASE_URL
+  # NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 # Production context: main branch deploys
 [context.production]
-  command = "pnpm install && NODE_ENV=production pnpm run build"
-  publish = "dist"
+  command = "npm install && npm run build"
+  publish = ".next"
+
+# Netlify Next.js Plugin
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Deploy Preview context: pull request deploys
 [context.deploy-preview]
