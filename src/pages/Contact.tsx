@@ -32,11 +32,11 @@ export default function Contact() {
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl opacity-90 max-w-2xl">
-            Reach out to Elevate for Humanity for program funding assistance in Marion County, IN
+            Reach out to Elevate for Humanity for program funding assistance in
+            Marion County, IN
           </p>
         </div>
       </section>
-
       {/* Contact Section */}
       <section className="py-16">
         <div className="container">
@@ -127,7 +127,6 @@ export default function Contact() {
                 apply.
               </p>
             </div>
-
             {/* Contact Information */}
             <div>
               <h2 className="text-2xl font-bold text-brand-text mb-6">
@@ -139,7 +138,9 @@ export default function Contact() {
                     <Phone className="h-6 w-6 text-brand-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-brand-text mb-1">Phone</h3>
+                    <h3 className="font-semibold text-brand-text mb-1">
+                      Phone
+                    </h3>
                     <a
                       href="tel:+13173143757"
                       className="text-brand-text-muted hover:text-brand-600"
@@ -148,13 +149,14 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="bg-brand-surface p-3 rounded-lg">
                     <Mail className="h-6 w-6 text-brand-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-brand-text mb-1">Email</h3>
+                    <h3 className="font-semibold text-brand-text mb-1">
+                      Email
+                    </h3>
                     <a
                       href="mailto:Elizabethpowell6262@gmail.com"
                       className="text-brand-text-muted hover:text-brand-600"
@@ -163,7 +165,6 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="bg-brand-surface p-3 rounded-lg">
                     <MapPin className="h-6 w-6 text-brand-600" />
@@ -180,7 +181,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
               {/* Office Hours */}
               <div className="mt-8 p-6 bg-brand-surface rounded-lg">
                 <h3 className="font-semibold text-brand-text mb-3">

@@ -45,11 +45,11 @@ export default function Services() {
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-xl opacity-90 max-w-2xl">
-            Comprehensive support for your career development journey in Marion County, IN
+            Comprehensive support for your career development journey in Marion
+            County, IN
           </p>
         </div>
       </section>
-
       {/* Services Grid */}
       <section className="py-16">
         <div className="container">
@@ -69,7 +69,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="bg-brand-surface py-16">
         <div className="container text-center">
@@ -77,12 +76,10 @@ export default function Services() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-brand-text-muted mb-8 max-w-2xl mx-auto">
-            Contact us today to learn more about our services and how we can help you achieve your career goals.
+            Contact us today to learn more about our services and how we can
+            help you achieve your career goals.
           </p>
-          <a
-            href="/connect"
-            className="btn inline-block"
-          >
+          <a href="/connect" className="btn inline-block">
             Contact Us
           </a>
         </div>

@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, Award, Calendar, Users, MessageSquare, FileText } from 'lucide-react';
+import {
+  BookOpen,
+  Award,
+  Calendar,
+  Users,
+  MessageSquare,
+  FileText,
+} from 'lucide-react';
 
 export default function StudentPortal() {
   const portalLinks = [
@@ -52,13 +59,15 @@ export default function StudentPortal() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-600 to-brand-700 text-white py-16">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Student Portal</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Student Portal
+          </h1>
           <p className="text-xl opacity-90 max-w-2xl">
-            Access all your learning resources, courses, and student services in one place
+            Access all your learning resources, courses, and student services in
+            one place
           </p>
         </div>
       </section>
-
       {/* Quick Links Grid */}
       <section className="py-16">
         <div className="container">
@@ -71,7 +80,9 @@ export default function StudentPortal() {
                   to={link.to}
                   className="group border border-brand-border rounded-lg p-6 hover:shadow-lg transition-all hover:border-brand-600"
                 >
-                  <div className={`${link.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <div
+                    className={`${link.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-brand-text mb-2 group-hover:text-brand-600 transition-colors">
@@ -84,7 +95,6 @@ export default function StudentPortal() {
           </div>
         </div>
       </section>
-
       {/* Resources Section */}
       <section className="bg-brand-surface py-16">
         <div className="container">
@@ -97,7 +107,8 @@ export default function StudentPortal() {
                 Student Handbook
               </h3>
               <p className="text-brand-text-muted mb-4">
-                Review policies, procedures, and important information for students
+                Review policies, procedures, and important information for
+                students
               </p>
               <Link
                 to="/student-handbook"
@@ -123,7 +134,6 @@ export default function StudentPortal() {
           </div>
         </div>
       </section>
-
       {/* Sign In CTA */}
       <section className="py-16">
         <div className="container text-center">
@@ -131,7 +141,8 @@ export default function StudentPortal() {
             New to Elevate for Humanity?
           </h2>
           <p className="text-lg text-brand-text-muted mb-8 max-w-2xl mx-auto">
-            Create an account to access your courses and start your learning journey
+            Create an account to access your courses and start your learning
+            journey
           </p>
           <div className="flex gap-4 justify-center">
             <Link to="/auth/login" className="btn-secondary">

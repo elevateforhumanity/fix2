@@ -26,6 +26,7 @@ portal.elevateforhumanity.org (Netlify)
 In your domain registrar (where you manage elevateforhumanity.org DNS):
 
 ### Option A: CNAME Record (Recommended)
+
 ```
 Type: CNAME
 Name: portal
@@ -34,7 +35,9 @@ TTL: 3600 (or Auto)
 ```
 
 ### Option B: A Record (Alternative)
+
 If CNAME doesn't work, Netlify will provide an IP address:
+
 ```
 Type: A
 Name: portal
@@ -89,16 +92,19 @@ See `DURABLE_LANDING_PAGE.html` for the HTML code to add to Durable.co
 ## Troubleshooting
 
 ### DNS not resolving
+
 - Wait longer (up to 48 hours)
 - Check DNS with: `nslookup portal.elevateforhumanity.org`
 - Verify CNAME record is correct
 
 ### SSL certificate pending
+
 - Wait 5-10 minutes after DNS resolves
 - Netlify auto-provisions Let's Encrypt certificate
 - Check Netlify dashboard for status
 
 ### Site shows 404
+
 - Verify deployment completed successfully
 - Check Netlify logs for errors
 - Ensure environment variables are set

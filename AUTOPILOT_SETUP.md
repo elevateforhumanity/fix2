@@ -7,6 +7,7 @@
 You need a Cloudflare API token with DNS edit permissions.
 
 **Get your token:**
+
 1. Go to https://dash.cloudflare.com/profile/api-tokens
 2. Click "Create Token"
 3. Use template: "Edit zone DNS"
@@ -24,6 +25,7 @@ export CLOUDFLARE_API_TOKEN="your-token-here"
 ```
 
 That's it! The script will:
+
 - ✅ Find your Cloudflare zone
 - ✅ Check for existing DNS records
 - ✅ Create CNAME: portal → elevateforhumanityfix2.netlify.app
@@ -78,15 +80,18 @@ If you prefer to add DNS manually, see `DNS_SETUP_INSTRUCTIONS.md`
 ### Troubleshooting
 
 **Error: CLOUDFLARE_API_TOKEN not set**
+
 ```bash
 export CLOUDFLARE_API_TOKEN="your-token-here"
 ```
 
 **Error: Could not find zone**
+
 - Verify domain is in your Cloudflare account
 - Check API token has correct permissions
 
 **DNS not propagating**
+
 - Wait 5-30 minutes
 - Check: https://dnschecker.org
 - Clear your DNS cache: `sudo systemd-resolve --flush-caches`

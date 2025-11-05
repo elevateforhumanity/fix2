@@ -106,8 +106,9 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    host: true, // Listen on 0.0.0.0 for Gitpod
+    host: '0.0.0.0', // Listen on all interfaces for Gitpod
     strictPort: true,
+    allowedHosts: 'all', // Allow all hosts for Gitpod preview URLs
     hmr: {
       clientPort: 443, // Gitpod previews are HTTPS
     },

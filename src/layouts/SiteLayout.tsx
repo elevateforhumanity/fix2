@@ -50,7 +50,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
               role="navigation"
               className="hidden lg:flex items-center gap-6"
             >
-              {navigation.map((item) => (
+              {navigation.map((item) =>
                 'items' in item ? (
                   <div
                     key={item.label}
@@ -97,7 +97,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                     {item.label}
                   </NavLink>
                 )
-              ))}
+              )}
             </nav>
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
@@ -133,7 +133,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-brand-border bg-white">
             <div className="container py-4 space-y-4">
-              {navigation.map((item) => (
+              {navigation.map((item) =>
                 'items' in item ? (
                   <div key={item.label}>
                     <div className="font-semibold text-brand-text mb-2">
@@ -164,9 +164,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                     to={item.to}
                     className={({ isActive }) =>
                       `block py-2 text-sm font-medium ${
-                        isActive
-                          ? 'text-brand-700'
-                          : 'text-brand-text'
+                        isActive ? 'text-brand-700' : 'text-brand-text'
                       }`
                     }
                     onClick={() => setMobileMenuOpen(false)}
@@ -174,7 +172,7 @@ export default function FullSiteLayout({ children }: PropsWithChildren) {
                     {item.label}
                   </NavLink>
                 )
-              ))}
+              )}
               <div className="pt-4 border-t space-y-2">
                 <Link
                   to="/auth/login"

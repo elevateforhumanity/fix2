@@ -23,7 +23,10 @@ const NavBar = () => {
             <Link to="/lms" className="text-gray-700 hover:text-brand-600">
               Learning
             </Link>
-            <Link to="/community" className="text-gray-700 hover:text-brand-600">
+            <Link
+              to="/community"
+              className="text-gray-700 hover:text-brand-600"
+            >
               Community
             </Link>
             <Link to="/about" className="text-gray-700 hover:text-brand-600">

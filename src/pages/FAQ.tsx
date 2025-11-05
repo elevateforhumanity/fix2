@@ -8,7 +8,7 @@ export default function FAQ() {
     {
       question: 'What is Elevate for Humanity?',
       answer:
-        'Elevate for Humanity is a 501(c)(3) nonprofit Career and Technical Institute dedicated to funding innovative apprenticeship and training programs in Marion County, IN. We bridge the gap between education and employment by empowering individuals with the skills they need to excel in today\'s dynamic workforce.',
+        "Elevate for Humanity is a 501(c)(3) nonprofit Career and Technical Institute dedicated to funding innovative apprenticeship and training programs in Marion County, IN. We bridge the gap between education and employment by empowering individuals with the skills they need to excel in today's dynamic workforce.",
     },
     {
       question: 'Who can apply for your programs?',
@@ -53,7 +53,7 @@ export default function FAQ() {
     {
       question: 'What support services do you provide?',
       answer:
-        'Beyond training, we offer comprehensive support including mentorship, career counseling, financial aid guidance, study groups, and access to our student community. We\'re committed to your success throughout your learning journey and beyond.',
+        "Beyond training, we offer comprehensive support including mentorship, career counseling, financial aid guidance, study groups, and access to our student community. We're committed to your success throughout your learning journey and beyond.",
     },
   ];
 
@@ -70,7 +70,6 @@ export default function FAQ() {
           </p>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-16">
         <div className="container max-w-3xl">
@@ -82,7 +81,9 @@ export default function FAQ() {
               >
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-brand-surface transition-colors"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
                 >
                   <span className="font-semibold text-brand-text pr-4">
                     {faq.question}
@@ -105,7 +106,6 @@ export default function FAQ() {
           </div>
         </div>
       </section>
-
       {/* Contact CTA */}
       <section className="bg-brand-surface py-16">
         <div className="container text-center">
@@ -113,7 +113,8 @@ export default function FAQ() {
             Still Have Questions?
           </h2>
           <p className="text-lg text-brand-text-muted mb-8 max-w-2xl mx-auto">
-            Our team is here to help. Reach out to us and we'll be happy to provide more information.
+            Our team is here to help. Reach out to us and we'll be happy to
+            provide more information.
           </p>
           <a href="/connect" className="btn inline-block">
             Contact Us
