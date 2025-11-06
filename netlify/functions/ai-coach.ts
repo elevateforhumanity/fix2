@@ -74,8 +74,7 @@ export const handler: Handler = async (event) => {
         messages: [
           {
             role: 'system',
-            content:
-              'Return only valid JSON with keys: tasks:[{title,detail}]',
+            content: 'Return only valid JSON with keys: tasks:[{title,detail}]',
           },
           { role: 'user', content: prompt },
         ],

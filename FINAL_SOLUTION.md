@@ -18,6 +18,7 @@ The `dist/` folder is ready and contains a fully functional Vite/React app. Depl
    - If local: Navigate to the `dist/` folder in your repository
 
 2. **Go to Netlify Dashboard**
+
    ```
    https://app.netlify.com/sites/elevateforhumanityfix/deploys
    ```
@@ -37,6 +38,7 @@ The `dist/` folder is ready and contains a fully functional Vite/React app. Depl
 ## 📦 What's in dist/
 
 The `dist/` folder contains:
+
 - ✅ Built Vite/React application
 - ✅ All assets and JavaScript bundles
 - ✅ `_redirects` file for SPA routing
@@ -48,23 +50,29 @@ The `dist/` folder contains:
 ## 🔍 Verification After Deploy
 
 ### Check 1: Vite Build (Not Next.js)
+
 ```bash
 curl -s https://elevateforhumanityfix.netlify.app/ | grep -o "/assets/[^\"]*" | head -3
 ```
+
 **Expected**: Should see `/assets/index-*.js` (Vite bundles)
 
 ### Check 2: Routes Work
+
 ```bash
 curl -I https://elevateforhumanityfix.netlify.app/support
 curl -I https://elevateforhumanityfix.netlify.app/programs
 curl -I https://elevateforhumanityfix.netlify.app/community
 ```
+
 **Expected**: All return `HTTP/2 200`
 
 ### Check 3: SPA Routing
+
 ```bash
 curl -I https://elevateforhumanityfix.netlify.app/programs/barber
 ```
+
 **Expected**: `HTTP/2 200` (deep link works)
 
 ## 📋 After Successful Deployment
@@ -74,6 +82,7 @@ curl -I https://elevateforhumanityfix.netlify.app/programs/barber
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add these variables:
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -86,12 +95,14 @@ VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
 ### 2. Setup Custom Domain
 
 **In Netlify**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
 2. Click "Add custom domain"
 3. Enter: `portal.elevateforhumanity.org`
 4. Click "Verify"
 
 **In Cloudflare DNS**:
+
 1. Go to: https://dash.cloudflare.com
 2. Select: `elevateforhumanity.org`
 3. Add DNS record:
@@ -120,6 +131,7 @@ This ensures the working deployment stays live.
 To enable automated builds in the future, fix these syntax errors:
 
 ### Files with Errors:
+
 - `src/pages/Account.jsx`
 - `src/pages/Instructor.jsx`
 - `src/pages/InstructorEdit.jsx`
@@ -128,6 +140,7 @@ To enable automated builds in the future, fix these syntax errors:
 - And others
 
 ### Common Patterns to Fix:
+
 ```javascript
 // WRONG:
 color: ''#4a3728''
@@ -139,6 +152,7 @@ border: '2px dashed #d4c9b8'
 ```
 
 ### How to Fix:
+
 ```bash
 # Find all instances
 grep -r "''#" src/pages/
@@ -151,11 +165,13 @@ sed -i "s/#''/'/g" src/pages/*.jsx
 ## ❓ Why Manual Deployment?
 
 **Automated builds fail because**:
+
 - Source files have syntax errors (quote escaping issues)
 - These errors prevent `npm run build` from completing
 - Netlify can't build from source
 
 **Manual deployment works because**:
+
 - The `dist/` folder was built before the errors were introduced
 - It's a complete, working build
 - No compilation needed - just upload and serve
@@ -165,9 +181,10 @@ sed -i "s/#''/'/g" src/pages/*.jsx
 **Current Status**: dist/ folder ready for manual deployment  
 **Action Required**: Upload dist/ folder to Netlify dashboard  
 **Time**: 2 minutes  
-**Result**: All routes working, Vite/React app live  
+**Result**: All routes working, Vite/React app live
 
 **After deployment**:
+
 - ✅ All routes return 200 OK
 - ✅ SPA routing works
 - ✅ Custom 404 page active

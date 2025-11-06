@@ -21,9 +21,11 @@ The autopilot has **automatically triggered a complete deployment** via GitHub A
 ## 📊 Deployment Progress
 
 ### Monitor Live:
+
 **GitHub Actions**: https://github.com/elevateforhumanity/fix2/actions
 
 ### What's Happening:
+
 ```
 ⏳ Step 1: Checkout code
 ⏳ Step 2: Setup Node 20
@@ -41,6 +43,7 @@ The autopilot has **automatically triggered a complete deployment** via GitHub A
 ### After Deployment Completes:
 
 **All routes will return 200 OK:**
+
 - ✅ `/` - Homepage
 - ✅ `/programs` - Programs
 - ✅ `/about` - About
@@ -52,6 +55,7 @@ The autopilot has **automatically triggered a complete deployment** via GitHub A
 - ✅ Deep links (e.g., `/programs/barber`)
 
 **Technical Changes:**
+
 - ✅ Old Next.js build → New Vite/React build
 - ✅ Publish directory: `.next` → `dist`
 - ✅ SPA routing active
@@ -73,12 +77,14 @@ curl -I https://elevateforhumanityfix.netlify.app/support
 ```
 
 **Expected output:**
+
 ```
 HTTP/2 200
 cache-control: public, max-age=0, must-revalidate
 ```
 
 **NOT:**
+
 ```
 HTTP/2 404
 cache-status: "Next.js"; hit
@@ -114,6 +120,7 @@ jobs:
 ## 🎉 After Deployment Succeeds
 
 ### 1. Verify Routes
+
 ```bash
 bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ```
@@ -123,6 +130,7 @@ bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add:
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -157,10 +165,11 @@ bash scripts/setup-portal.sh
    - Netlify API rate limits
 
 3. **Retry**:
+
    ```bash
    # Re-run the workflow
    gh workflow run force-deploy-now.yml
-   
+
    # Or trigger manually in GitHub UI
    ```
 
@@ -188,6 +197,7 @@ bash scripts/setup-portal.sh
 ## ✨ Summary
 
 **The autopilot has automatically:**
+
 1. ✅ Created deployment workflow
 2. ✅ Committed and pushed to GitHub
 3. ✅ Triggered GitHub Actions
@@ -196,6 +206,7 @@ bash scripts/setup-portal.sh
 **No manual action required!**
 
 Just wait 2-3 minutes and verify:
+
 ```bash
 bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ```

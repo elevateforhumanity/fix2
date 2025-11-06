@@ -9,6 +9,7 @@
 ## 📦 What's Been Completed
 
 ### ✅ Configuration Files
+
 - [x] `vite.config.js` - Fixed server config, removed conflicts
 - [x] `netlify.toml` - Changed from Next.js to Vite/React
 - [x] `public/_redirects` - SPA routing configured
@@ -17,6 +18,7 @@
 - [x] `.gitpod.yml` - Streamlined development environment
 
 ### ✅ Automation Scripts
+
 - [x] `scripts/setup-portal.sh` - Custom domain automation
 - [x] `scripts/set-netlify-env.sh` - Environment variable setter
 - [x] `scripts/trigger-deploy.sh` - Deploy trigger
@@ -25,6 +27,7 @@
 - [x] `scripts/force-netlify-rebuild.sh` - **Complete override of old build**
 
 ### ✅ Documentation
+
 - [x] `NETLIFY_DEPLOYMENT_CHECKLIST.md` - Step-by-step guide
 - [x] `DEPLOYMENT_STATUS.md` - Current status tracking
 - [x] `CRITICAL_ACTION_REQUIRED.md` - Next steps
@@ -32,6 +35,7 @@
 - [x] `create_gitpod_autopilot.sh` - Bootstrap script
 
 ### ✅ Git Commits
+
 1. `c01bbcfd` - Add Netlify 404 diagnostic and fix script
 2. `15b14e7a` - Fix Netlify deployment configuration and portal setup
 3. `b382434c` - Update Gitpod config for streamlined development
@@ -47,17 +51,20 @@
 ### To Overwrite and Deploy:
 
 **Option A - Automated** (if you have Netlify token):
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<your-token>
 bash scripts/force-netlify-rebuild.sh
 ```
 
 **Option B - Manual** (3 clicks, 3 minutes):
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Click **"Trigger deploy"** → **"Clear cache and deploy site"**
 3. Wait 2-3 minutes
 
 This will:
+
 - ✅ Clear all caches
 - ✅ Use the new `netlify.toml` (Vite/React)
 - ✅ Build from `dist/` instead of `.next/`
@@ -69,11 +76,13 @@ This will:
 ## 🎯 After Deploy Succeeds
 
 ### 1. Verify All Routes Work
+
 ```bash
 bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ```
 
 Expected output:
+
 ```
 ✓ / (200 OK)
 ✓ /programs (200 OK)
@@ -88,6 +97,7 @@ Expected output:
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add:
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -100,6 +110,7 @@ Then trigger another deploy to bake them in.
 ### 3. Setup Custom Domain
 
 **Automated**:
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<your-token>
 export CLOUDFLARE_API_TOKEN=<your-token>  # optional
@@ -107,6 +118,7 @@ bash scripts/setup-portal.sh
 ```
 
 **Manual**:
+
 - **Netlify**: Add domain `portal.elevateforhumanity.org`
 - **Cloudflare**: Add CNAME `portal` → `elevateforhumanityfix.netlify.app`
 
@@ -115,17 +127,20 @@ bash scripts/setup-portal.sh
 ## 📊 Current Status
 
 ### ✅ Ready
+
 - Configuration files
 - Automation scripts
 - Documentation
 - Git repository
 
 ### ⏳ Pending
+
 - Netlify deploy (to overwrite old build)
 - Environment variables
 - Custom domain setup
 
 ### 🎯 Expected Timeline
+
 - **Deploy**: 2-3 minutes
 - **Env vars + redeploy**: 2-3 minutes
 - **DNS propagation**: 5-10 minutes
@@ -136,20 +151,26 @@ bash scripts/setup-portal.sh
 ## 🔍 How to Verify Success
 
 ### Before Deploy (Current State)
+
 ```bash
 curl -sI https://elevateforhumanityfix.netlify.app/support | grep "HTTP\|cache-status"
 ```
+
 Output:
+
 ```
 HTTP/2 404
 cache-status: "Next.js"; hit
 ```
 
 ### After Deploy (Expected State)
+
 ```bash
 curl -sI https://elevateforhumanityfix.netlify.app/support | grep "HTTP\|cache-status"
 ```
+
 Output:
+
 ```
 HTTP/2 200
 cache-status: "Netlify Edge"; fwd=miss
@@ -190,6 +211,7 @@ fix2/
 The only remaining step is to trigger a fresh Netlify deploy to overwrite the old Next.js build with the new Vite/React configuration.
 
 Once deployed:
+
 - ✅ All routes will work (no more 404s)
 - ✅ SPA routing will function correctly
 - ✅ Security headers will be active

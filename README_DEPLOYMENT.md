@@ -7,12 +7,14 @@
 ## ⚡ FASTEST PATH TO LIVE SITE
 
 ### Option 1: Automated (2 minutes)
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<your-token>
 bash scripts/deploy-now-direct.sh
 ```
 
 ### Option 2: Manual (2 minutes)
+
 1. Run: `npm install && npm run build`
 2. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 3. Drag `dist/` folder to deploy area
@@ -32,6 +34,7 @@ bash scripts/deploy-now-direct.sh
 ## 🎯 What's Ready
 
 ### Configuration Files ✅
+
 - `vite.config.js` - Vite build configuration
 - `netlify.toml` - Netlify deployment (Vite/React, not Next.js)
 - `public/_redirects` - SPA routing (`/* /index.html 200`)
@@ -40,6 +43,7 @@ bash scripts/deploy-now-direct.sh
 - `.gitpod.yml` - Development environment
 
 ### Automation Scripts ✅
+
 - `scripts/deploy-now-direct.sh` - **Main deployment script**
 - `scripts/setup-portal.sh` - Custom domain automation
 - `scripts/set-netlify-env.sh` - Environment variables
@@ -47,7 +51,9 @@ bash scripts/deploy-now-direct.sh
 - `scripts/force-netlify-rebuild.sh` - Cache clear + rebuild
 
 ### Git Commits ✅
+
 All changes committed and pushed to main:
+
 1. Netlify 404 diagnostic script
 2. Core deployment configuration fixes
 3. Streamlined Gitpod setup
@@ -65,12 +71,14 @@ All changes committed and pushed to main:
 **The site is still showing the old Next.js build.**
 
 Evidence:
+
 ```bash
 curl -s https://elevateforhumanityfix.netlify.app/ | grep "_next"
 # Shows: /_next/static/chunks/...
 ```
 
 **Why?**
+
 - GitHub Actions workflow hasn't completed/failed
 - OR Netlify is caching the old build
 
@@ -82,11 +90,13 @@ Deploy directly using the script above to overwrite immediately.
 ## ✅ After Deployment
 
 ### All Routes Will Work
+
 - `/` `/programs` `/about` `/support` `/community` `/connect`
 - `/lms` `/certificates` `/auth/login`
 - Deep links: `/programs/barber`, `/programs/building-tech`, etc.
 
 ### Technical Changes
+
 - ✅ Vite/React build (not Next.js)
 - ✅ Publish directory: `dist` (not `.next`)
 - ✅ SPA routing active
@@ -95,6 +105,7 @@ Deploy directly using the script above to overwrite immediately.
 - ✅ Custom 404 page
 
 ### Verification
+
 ```bash
 # Should show /assets/ (Vite), not /_next/ (Next.js)
 curl -s https://elevateforhumanityfix.netlify.app/ | grep -E "assets|_next"
@@ -112,6 +123,7 @@ curl -I https://elevateforhumanityfix.netlify.app/support
 ### Setup (After Deployment)
 
 **Automated**:
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<token>
 export CLOUDFLARE_API_TOKEN=<token>  # optional
@@ -119,6 +131,7 @@ bash scripts/setup-portal.sh
 ```
 
 **Manual**:
+
 1. **Netlify**: Add domain `portal.elevateforhumanity.org`
 2. **Cloudflare**: Add CNAME `portal` → `elevateforhumanityfix.netlify.app`
 3. Wait 5-10 minutes for DNS propagation
@@ -157,14 +170,17 @@ Then trigger another deploy to bake them in.
 ## 🚨 Troubleshooting
 
 ### Still Seeing Next.js?
+
 - Clear Netlify cache: Trigger deploy → Clear cache
 - Hard refresh browser: `Cmd/Ctrl + Shift + R`
 
 ### Routes 404?
+
 - Check `_redirects` was copied (build logs)
 - Verify publish directory is `dist`
 
 ### Build Fails?
+
 - Test locally: `npm run build`
 - Check Node version: 20.11.1
 - Review build logs for errors

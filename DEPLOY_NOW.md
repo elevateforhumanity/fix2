@@ -20,6 +20,7 @@ bash scripts/deploy-now-direct.sh
 ```
 
 **What it does:**
+
 1. ✅ Installs Netlify CLI
 2. ✅ Installs dependencies (npm/pnpm)
 3. ✅ Builds Vite/React app → `dist/`
@@ -92,6 +93,7 @@ curl -I https://elevateforhumanityfix.netlify.app/programs/barber
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/deploys
 
 Verify:
+
 - ✅ **Build command**: `npm run build` (or `pnpm run build`)
 - ✅ **Publish directory**: `dist`
 - ✅ **Node version**: 20.11.1 (set in netlify.toml)
@@ -101,6 +103,7 @@ Verify:
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add these (if not already set):
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -113,6 +116,7 @@ VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
 ### SPA Redirect
 
 Verify `public/_redirects` exists:
+
 ```
 /*    /index.html   200
 ```
@@ -124,18 +128,21 @@ Verify `public/_redirects` exists:
 ## 🌐 Custom Domain Setup
 
 ### Current Status
+
 - **Netlify URL**: https://elevateforhumanityfix.netlify.app
 - **Custom Domain**: portal.elevateforhumanity.org (pending DNS)
 
 ### Setup Steps
 
 **In Netlify**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
 2. Click "Add custom domain"
 3. Enter: `portal.elevateforhumanity.org`
 4. Click "Verify"
 
 **In Cloudflare DNS**:
+
 1. Go to: https://dash.cloudflare.com
 2. Select: `elevateforhumanity.org`
 3. Add DNS record:
@@ -149,6 +156,7 @@ Verify `public/_redirects` exists:
 **Wait**: 5-10 minutes for DNS propagation
 
 **Verify**:
+
 ```bash
 dig portal.elevateforhumanity.org
 ```
@@ -162,6 +170,7 @@ dig portal.elevateforhumanity.org
 **Cause**: CDN cache or browser cache
 
 **Fix**:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Click "Trigger deploy" → "Clear cache and deploy site"
 3. Hard refresh browser: `Cmd/Ctrl + Shift + R`
@@ -171,7 +180,8 @@ dig portal.elevateforhumanity.org
 **Cause**: `_redirects` file not copied or wrong publish directory
 
 **Fix**:
-1. Check build logs for "Copied _redirects"
+
+1. Check build logs for "Copied \_redirects"
 2. Verify publish directory is `dist` (not `.next`)
 3. Redeploy
 
@@ -180,6 +190,7 @@ dig portal.elevateforhumanity.org
 **Cause**: Custom domain attached to old Next.js site
 
 **Fix**:
+
 1. Remove domain from old site
 2. Add domain to new Vite/React site
 3. Wait for DNS propagation
@@ -189,6 +200,7 @@ dig portal.elevateforhumanity.org
 **Cause**: Missing dependencies or build errors
 
 **Fix**:
+
 1. Test locally: `npm run build`
 2. Check `package.json` for all dependencies
 3. Verify Node version: 20.11.1
@@ -201,6 +213,7 @@ dig portal.elevateforhumanity.org
 ### After Successful Deploy
 
 **All routes return 200 OK:**
+
 - ✅ `/` - Homepage
 - ✅ `/programs` - Programs listing
 - ✅ `/about` - About page
@@ -212,6 +225,7 @@ dig portal.elevateforhumanity.org
 - ✅ `/programs/barber` - Deep link example
 
 **Technical Indicators:**
+
 - ✅ HTML contains `/assets/` (Vite bundles)
 - ✅ No `/_next/static` references
 - ✅ `cache-status: "Netlify Edge"` (not "Next.js")
@@ -223,22 +237,26 @@ dig portal.elevateforhumanity.org
 ## 🎯 Quick Deploy Commands
 
 ### Full Automated Deploy
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<token>
 bash scripts/deploy-now-direct.sh
 ```
 
 ### Build Only
+
 ```bash
 npm install && npm run build
 ```
 
 ### Deploy Only (after build)
+
 ```bash
 netlify deploy --prod --dir=dist --site=12f120ab-3f63-419b-bc49-430f043415c1
 ```
 
 ### Verify After Deploy
+
 ```bash
 bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ```
@@ -260,14 +278,16 @@ bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ## ✅ Deployment Checklist
 
 Before deploying:
+
 - [x] Configuration files updated (vite.config.js, netlify.toml)
-- [x] SPA redirect configured (public/_redirects)
+- [x] SPA redirect configured (public/\_redirects)
 - [x] Custom 404 page created
 - [x] Security headers consolidated
 - [x] Build command verified
 - [x] Publish directory set to `dist`
 
 After deploying:
+
 - [ ] Verify Vite build (not Next.js)
 - [ ] Test all routes return 200
 - [ ] Check security headers

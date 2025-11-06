@@ -3,6 +3,7 @@
 ## ✅ Build Ready
 
 The `dist/` folder is already built and ready to deploy at:
+
 ```
 /workspaces/fix2/dist/
 ```
@@ -37,6 +38,7 @@ curl -I https://elevateforhumanityfix.netlify.app/support
 ```
 
 **Expected Results:**
+
 - ✅ HTML contains `/assets/` (Vite bundles)
 - ✅ No `/_next/static` references
 - ✅ All routes return 200 OK
@@ -54,6 +56,7 @@ The repository currently has syntax errors in some page files that prevent `npm 
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add:
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -64,22 +67,26 @@ VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
 ### 2. Setup Custom Domain
 
 **In Netlify**:
+
 - Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
 - Add domain: `portal.elevateforhumanity.org`
 
 **In Cloudflare**:
+
 - Add CNAME: `portal` → `elevateforhumanityfix.netlify.app`
 - Proxy: OFF (gray cloud)
 
 ### 3. Fix Build Errors (Optional)
 
 To enable future builds, fix the syntax errors in:
+
 - `src/pages/Account.jsx`
 - `src/pages/Instructor.jsx`
 - `src/pages/InstructorEdit.jsx`
 - Other pages with quote escaping issues
 
 Search for patterns like:
+
 - `''#color''` → should be `'#color'`
 - `'2px dashed '#color''` → should be `'2px dashed #color'`
 

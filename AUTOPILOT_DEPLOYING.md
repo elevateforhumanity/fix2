@@ -76,6 +76,7 @@ curl -I https://elevateforhumanityfix.netlify.app/programs/barber
 ```
 
 **Expected Results**:
+
 - ✅ `/assets/` references (Vite build)
 - ✅ No `/_next/` references (Next.js gone)
 - ✅ All routes return 200 OK
@@ -86,6 +87,7 @@ curl -I https://elevateforhumanityfix.netlify.app/programs/barber
 ## 📋 What Gets Deployed
 
 The `dist/` folder contains:
+
 - ✅ Vite/React application (built)
 - ✅ All JavaScript bundles
 - ✅ All CSS and assets
@@ -100,6 +102,7 @@ The `dist/` folder contains:
 ## ✅ After Deployment Succeeds
 
 ### 1. Verify Routes
+
 ```bash
 bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 ```
@@ -109,6 +112,7 @@ bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
 Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add (only needed for future rebuilds):
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
@@ -119,12 +123,14 @@ VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
 ### 3. Setup Custom Domain
 
 **Automated**:
+
 ```bash
 export NETLIFY_AUTH_TOKEN=<token>
 bash scripts/setup-portal.sh
 ```
 
 **Manual**:
+
 - **Netlify**: Add `portal.elevateforhumanity.org`
 - **Cloudflare**: CNAME `portal` → `elevateforhumanityfix.netlify.app`
 
@@ -133,15 +139,19 @@ bash scripts/setup-portal.sh
 ## 🚨 If Workflow Fails
 
 ### Check GitHub Actions Logs
+
 https://github.com/elevateforhumanity/fix2/actions
 
 ### Common Issues:
+
 1. **Missing secrets**: NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID not set in GitHub
 2. **Permissions**: GitHub Actions needs write access
 3. **dist/ missing**: Folder not in repository
 
 ### Manual Fallback:
+
 If the workflow fails, you can still deploy manually:
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Drag `dist/` folder to deploy area
 3. Done!

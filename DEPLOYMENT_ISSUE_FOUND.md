@@ -5,11 +5,13 @@
 The site at https://elevateforhumanityfix.netlify.app is **still showing the Next.js build**, not the new Vite/React app.
 
 **Evidence:**
+
 ```html
 <script src="/_next/static/chunks/..."></script>
 ```
 
 This means:
+
 - ❌ GitHub Actions workflow hasn't completed yet
 - ❌ OR the workflow failed
 - ❌ OR Netlify is still caching the old build
@@ -49,6 +51,7 @@ netlify deploy --prod --dir=dist --site=12f120ab-3f63-419b-bc49-430f043415c1
 ### Option 2: Using Netlify Dashboard
 
 1. **Build locally**:
+
    ```bash
    npm install
    npm run build
@@ -64,6 +67,7 @@ netlify deploy --prod --dir=dist --site=12f120ab-3f63-419b-bc49-430f043415c1
 ## 📊 Why GitHub Actions Might Not Have Worked
 
 Possible reasons:
+
 1. **Workflow still running** - Check: https://github.com/elevateforhumanity/fix2/actions
 2. **Missing secrets** - NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID not set in GitHub
 3. **Workflow disabled** - Repository settings might have Actions disabled
@@ -74,6 +78,7 @@ Possible reasons:
 **Manual deploy via Netlify Dashboard** (2 minutes):
 
 1. Run locally:
+
    ```bash
    cd /workspaces/fix2
    npm install
@@ -99,6 +104,7 @@ curl -sI https://elevateforhumanityfix.netlify.app/support | grep "HTTP"
 ```
 
 **Expected:**
+
 - No `/_next/` references in HTML
 - All routes return 200 OK
 - `cache-status: "Netlify Edge"` (not "Next.js")
@@ -106,6 +112,7 @@ curl -sI https://elevateforhumanityfix.netlify.app/support | grep "HTTP"
 ## 📋 What's Ready
 
 All configuration files are correct:
+
 - ✅ `vite.config.js` - Vite build config
 - ✅ `netlify.toml` - Vite/React deployment
 - ✅ `public/_redirects` - SPA routing
