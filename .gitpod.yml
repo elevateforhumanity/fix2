@@ -1,20 +1,24 @@
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
-  - name: Install Dependencies
+  - name: Autopilot
     init: |
-      corepack enable || true
-      npm i -g pnpm@9 || true
-      pnpm install
-  - name: Dev Server
+      bash scripts/gp-autopilot.sh --prepare
     command: |
-      pnpm dev
+      bash scripts/gp-autopilot.sh --run
 
 ports:
   - port: 5173
-    onOpen: open-preview
-    visibility: public
-  - port: 3000
+    onOpen: ignore
     visibility: public
   - port: 8080
+    onOpen: open-preview
+    visibility: public
+  - port: 4173
+    onOpen: ignore
+    visibility: public
+  - port: 3000
     visibility: public
   - port: 54321
     onOpen: ignore
@@ -25,3 +29,4 @@ vscode:
     - esbenp.prettier-vscode
     - dbaeumer.vscode-eslint
     - bradlc.vscode-tailwindcss
+    - ms-playwright.playwright

@@ -1,7 +1,11 @@
-FROM gitpod/workspace-full
+# .gitpod.Dockerfile
+FROM gitpod/workspace-full:latest
 
-USER gitpod
-RUN sudo apt-get update && \
-    sudo apt-get install -y jq moreutils python3-pip && \
-    pip install git-filter-repo yq==3.2.2 && \
-    sudo rm -rf /var/lib/apt/lists/*
+# Node & pnpm
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - \
+ && sudo apt-get install -y nodejs jq \
+ && corepack enable \
+ && corepack prepare pnpm@9.12.2 --activate
+
+# Link checker + Lighthouse CLI
+RUN npm i -g linkinator@6 @lhci/cli@0.13.0 netlify-cli@17
