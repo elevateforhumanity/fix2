@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function DurablePricing() {
   const plans = [
@@ -52,13 +55,21 @@ export default function DurablePricing() {
   ];
 
   return (
-    <div className="min-h-screen bg-brand-surface py-16">
-      <div className="max-w-7xl mx-auto px-4">
+    <div>
+      <Helmet>
+        <title>Pricing | Elevate for Humanity</title>
+        <meta name="description" content="Simple, transparent pricing. Choose the plan that's right for you." />
+      </Helmet>
+      
+      <Navigation />
+      
+      <div className="section bg-beige-50">
+        <div className="container">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-brand-text mb-4">
+          <h1 className="text-5xl font-bold text-brown-900 mb-4">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-xl text-brand-text-muted max-w-2xl mx-auto">
+          <p className="text-xl text-brown-600 max-w-2xl mx-auto">
             Choose the plan that's right for you
           </p>
         </div>
@@ -66,17 +77,17 @@ export default function DurablePricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white p-8 rounded-xl shadow-lg ${plan.highlighted ? 'ring-4 ring-brand-focus transform scale-105' : ''}`}
+              className={`card p-8 ${plan.highlighted ? 'ring-4 ring-green-600 transform scale-105' : ''}`}
             >
               {plan.highlighted && (
-                <div className="bg-indigo-500 text-white text-sm font-semibold px-4 py-1 rounded-full inline-block mb-4">
+                <div className="bg-green-600 text-white text-sm font-semibold px-4 py-1 rounded-full inline-block mb-4">
                   Most Popular
                 </div>
               )}
               <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
               <div className="mb-6">
                 <span className="text-5xl font-bold">{plan.price}</span>
-                <span className="text-brand-text-muted ml-2">
+                <span className="text-brown-600 ml-2">
                   / {plan.period}
                 </span>
               </div>
@@ -84,17 +95,13 @@ export default function DurablePricing() {
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span className="text-brand-text-muted">{feature}</span>
+                    <span className="text-brown-600">{feature}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 to={plan.link}
-                className={`block text-center py-3 px-6 rounded-lg font-semibold transition ${
-                  plan.highlighted
-                    ? 'bg-brand-info text-white hover:bg-brand-info-hover'
-                    : 'bg-brand-surface-dark text-brand-text hover:bg-brand-border'
-                }`}
+                className={plan.highlighted ? 'btn-primary w-full text-center' : 'btn-outline w-full text-center'}
               >
                 {plan.cta}
               </Link>
@@ -102,6 +109,8 @@ export default function DurablePricing() {
           ))}
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }

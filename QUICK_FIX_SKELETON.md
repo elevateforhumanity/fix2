@@ -1,6 +1,7 @@
 # Quick Fix: Stop Skeleton/Blank Page Issues
 
 ## Problem
+
 React SPA shows blank/skeleton because API URLs are wrong.
 
 ## Solution (15 minutes)

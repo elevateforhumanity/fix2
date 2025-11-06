@@ -44,26 +44,26 @@ export default function ComingSoon({
         <meta name="description" content={description} />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-brand-100 py-12 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-beige-50 via-white to-beige-100 py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="text-6xl mb-6 animate-bounce">{icon}</div>
-            <h1 className="text-5xl font-bold text-brand-900 mb-4">{title}</h1>
-            <p className="text-xl text-brand-700 max-w-2xl mx-auto">
+            <h1 className="text-5xl font-bold text-brown-900 mb-4">{title}</h1>
+            <p className="text-xl text-brown-700 max-w-2xl mx-auto">
               {description}
             </p>
           </div>
           {/* Coming Soon Card */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-8">
             <div className="text-center mb-8">
-              <div className="inline-block bg-brand-100 text-brand-800 px-6 py-3 rounded-full font-semibold text-lg mb-4">
+              <div className="inline-block bg-green-100 text-green-800 px-6 py-3 rounded-full font-semibold text-lg mb-4">
                 Launching {launchDate}
               </div>
-              <h2 className="text-2xl font-bold text-brand-900 mb-4">
+              <h2 className="text-2xl font-bold text-brown-900 mb-4">
                 Be the First to Know
               </h2>
-              <p className="text-brand-600">
+              <p className="text-brown-600">
                 Sign up to get notified when this feature launches and receive
                 exclusive early access.
               </p>
@@ -78,17 +78,17 @@ export default function ComingSoon({
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="flex-1 px-4 py-3 border border-brand-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+                    className="flex-1 px-4 py-3 border border-brown-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? 'Submitting...' : 'Notify Me'}
                   </button>
                 </div>
-                <p className="text-sm text-brand-500 mt-3 text-center">
+                <p className="text-sm text-brown-500 mt-3 text-center">
                   We respect your privacy. Unsubscribe at any time.
                 </p>
               </form>
@@ -109,17 +109,17 @@ export default function ComingSoon({
           {/* Features Preview */}
           {features.length > 0 && (
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-              <h3 className="text-2xl font-bold text-brand-900 mb-6 text-center">
+              <h3 className="text-2xl font-bold text-brown-900 mb-6 text-center">
                 What to Expect
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-4 bg-brand-50 rounded-lg"
+                    className="flex items-start gap-3 p-4 bg-beige-50 rounded-lg"
                   >
                     <div className="text-2xl">✨</div>
-                    <p className="text-brand-700 font-medium">{feature}</p>
+                    <p className="text-brown-700 font-medium">{feature}</p>
                   </div>
                 ))}
               </div>
@@ -129,7 +129,7 @@ export default function ComingSoon({
           <div className="text-center mt-12">
             <a
               href="/"
-              className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors"
+              className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold transition-colors"
             >
               <span>←</span>
               <span>Back to Home</span>

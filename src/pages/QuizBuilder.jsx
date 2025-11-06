@@ -145,13 +145,13 @@ export default function QuizBuilder() {
         )}
         {success && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-            <p className="text-brand-success">{success}</p>
+            <p className="text-green-600">{success}</p>
           </div>
         )}
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading...</p>
+            <p className="mt-4 text-brown-600">Loading...</p>
           </div>
         ) : (
           <div className="space-y-8">
@@ -168,7 +168,7 @@ export default function QuizBuilder() {
                     onChange={(e) =>
                       setNewQuestion({ ...newQuestion, prompt: e.target.value })
                     }
-                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-focus"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
                     rows="3"
                     placeholder="Enter your question here..."
                   />
@@ -183,7 +183,7 @@ export default function QuizBuilder() {
                       type="text"
                       value={option}
                       onChange={(e) => handleOptionChange(idx, e.target.value)}
-                      className="w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-brand-focus"
+                      className="w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-green-500"
                       placeholder={`Option ${idx + 1}`}
                     />
                   ))}
@@ -197,7 +197,7 @@ export default function QuizBuilder() {
                     onChange={(e) =>
                       setNewQuestion({ ...newQuestion, answer: e.target.value })
                     }
-                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-focus"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
                   >
                     <option value="">Select correct answer...</option>
                     {newQuestion.options
@@ -212,7 +212,7 @@ export default function QuizBuilder() {
                 <button
                   onClick={handleAddQuestion}
                   disabled={saving}
-                  className="w-full py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover disabled:opacity-50 font-bold transition"
+                  className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 font-bold transition"
                 >
                   {saving ? 'Adding...' : 'Add Question'}
                 </button>
@@ -224,7 +224,7 @@ export default function QuizBuilder() {
                 Existing Questions ({questions.length})
               </h2>
               {questions.length === 0 ? (
-                <p className="text-brand-text-light text-center py-8">
+                <p className="text-brown-500 text-center py-8">
                   No questions yet. Add your first question above!
                 </p>
               ) : (
@@ -240,7 +240,7 @@ export default function QuizBuilder() {
                         </h3>
                         <button
                           onClick={() => handleDeleteQuestion(question.id)}
-                          className="px-3 py-1 bg-brand-danger text-white rounded hover:bg-brand-danger-hover text-sm"
+                          className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-600-hover text-sm"
                         >
                           Delete
                         </button>
@@ -254,7 +254,7 @@ export default function QuizBuilder() {
                               key={optIdx}
                               className={
                                 option === question.answer
-                                  ? 'text-brand-success font-bold'
+                                  ? 'text-green-600 font-bold'
                                   : ''
                               }
                             >

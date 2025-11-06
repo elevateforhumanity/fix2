@@ -30,7 +30,7 @@ export default function Accessibility() {
           style={{
             fontSize: '2.5rem',
             marginBottom: '1rem',
-            color: 'var(--brand-info)',
+            color: '#4a3728',
           }}
         >
           Accessibility Statement
@@ -38,7 +38,7 @@ export default function Accessibility() {
         <p
           style={{
             fontSize: '1.2rem',
-            color: 'var(--brand-text-muted)',
+            color: '#6b5d52',
             marginBottom: '2rem',
           }}
         >
@@ -49,7 +49,7 @@ export default function Accessibility() {
         <div
           style={{
             display: 'inline-block',
-            backgroundColor: 'var(--brand-success)',
+            backgroundColor: '#00a544',
             color: 'white',
             padding: '1rem 2rem',
             borderRadius: '12px',
@@ -73,7 +73,7 @@ export default function Accessibility() {
         <p
           style={{
             fontSize: '1rem',
-            color: 'var(--brand-text-muted)',
+            color: '#6b5d52',
             maxWidth: '800px',
             margin: '1rem auto 0',
             lineHeight: '1.6',
@@ -92,7 +92,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.8rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Our Commitment
@@ -101,7 +101,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.1rem',
             lineHeight: '1.6',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
             marginBottom: '1rem',
           }}
         >
@@ -114,7 +114,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.1rem',
             lineHeight: '1.6',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           We continuously work to improve the accessibility of our digital
@@ -127,32 +127,32 @@ export default function Accessibility() {
           style={{
             fontSize: '1.8rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Standards & Guidelines
         </h2>
         <div
           style={{
-            backgroundColor: 'var(--brand-surface)',
+            backgroundColor: '#f5f1e8',
             padding: '1.5rem',
             borderRadius: '8px',
             marginBottom: '1rem',
-            border: '2px solid var(--brand-success)',
+            border: '2px solid #00a544',
           }}
         >
           <h3
             style={{
               fontSize: '1.3rem',
               marginBottom: '0.5rem',
-              color: 'var(--brand-info)',
+              color: '#4a3728',
             }}
           >
             🌟 WCAG 2.1 AA Accessibility Commitment
           </h3>
           <p
             style={{
-              color: 'var(--brand-text)',
+              color: '#4a3728',
               marginBottom: '1rem',
               fontWeight: '500',
             }}
@@ -161,12 +161,12 @@ export default function Accessibility() {
             designed so everyone, including people with vision, hearing, or
             mobility challenges, can use it easily.
           </p>
-          <p style={{ color: 'var(--brand-text)', marginBottom: '1rem' }}>
+          <p style={{ color: '#4a3728', marginBottom: '1rem' }}>
             <strong>What this means:</strong>
           </p>
           <ul
             style={{
-              color: 'var(--brand-text)',
+              color: '#4a3728',
               paddingLeft: '1.5rem',
               marginBottom: '1rem',
             }}
@@ -219,7 +219,7 @@ export default function Accessibility() {
           >
             Section 508 Compliance
           </h3>
-          <p style={{ color: 'var(--brand-text)' }}>
+          <p style={{ color: '#4a3728' }}>
             We also adhere to Section 508 of the Rehabilitation Act, ensuring
             our digital content is accessible to federal employees and members
             of the public with disabilities.
@@ -231,7 +231,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.8rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Accessibility Features
@@ -246,7 +246,7 @@ export default function Accessibility() {
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -254,19 +254,19 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               🎯 Keyboard Navigation
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               Full keyboard navigation support for users who cannot use a mouse
             </p>
           </div>
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -274,12 +274,12 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               📖 Screen Reader Support
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               Compatible with popular screen readers like JAWS, NVDA, and
               VoiceOver
             </p>
@@ -287,7 +287,7 @@ export default function Accessibility() {
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -295,19 +295,19 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               🎨 High Contrast
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               High contrast color schemes for users with visual impairments
             </p>
           </div>
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -315,19 +315,19 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               📝 Alternative Text
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               Descriptive alt text for all images and visual content
             </p>
           </div>
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -335,19 +335,19 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               📺 Captions & Transcripts
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               Closed captions and transcripts for all video and audio content
             </p>
           </div>
           <div
             style={{
               padding: '1rem',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid #d4c9b8',
               borderRadius: '6px',
             }}
           >
@@ -355,12 +355,12 @@ export default function Accessibility() {
               style={{
                 fontSize: '1.1rem',
                 marginBottom: '0.5rem',
-                color: 'var(--brand-text)',
+                color: '#4a3728',
               }}
             >
               🔍 Scalable Text
             </h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--brand-text-muted)' }}>
+            <p style={{ fontSize: '0.9rem', color: '#6b5d52' }}>
               Text can be resized up to 200% without loss of functionality
             </p>
           </div>
@@ -371,7 +371,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.8rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Assistive Technology Support
@@ -380,7 +380,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.1rem',
             lineHeight: '1.6',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
             marginBottom: '1rem',
           }}
         >
@@ -390,7 +390,7 @@ export default function Accessibility() {
         <ul
           style={{
             fontSize: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
             paddingLeft: '2rem',
           }}
         >
@@ -410,7 +410,7 @@ export default function Accessibility() {
           style={{
             fontSize: '1.8rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Ongoing Efforts
@@ -454,29 +454,29 @@ export default function Accessibility() {
           style={{
             fontSize: '1.5rem',
             marginBottom: '1rem',
-            color: 'var(--brand-text)',
+            color: '#4a3728',
           }}
         >
           Need Help or Have Feedback?
         </h2>
-        <p style={{ color: 'var(--brand-text-muted)', marginBottom: '1.5rem' }}>
+        <p style={{ color: '#6b5d52', marginBottom: '1.5rem' }}>
           If you encounter any accessibility barriers or have suggestions for
           improvement, please don't hesitate to contact us.
         </p>
         <div style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: 'var(--brand-text)' }}>Contact:</strong>{' '}
-          <a href="/connect" style={{ color: 'var(--brand-info)' }}>
+          <strong style={{ color: '#4a3728' }}>Contact:</strong>{' '}
+          <a href="/connect" style={{ color: '#4a3728' }}>
             Use our contact form
           </a>
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: 'var(--brand-text)' }}>Phone:</strong>{' '}
-          <span style={{ color: 'var(--brand-text)' }}>(317) 314-3757</span>
+          <strong style={{ color: '#4a3728' }}>Phone:</strong>{' '}
+          <span style={{ color: '#4a3728' }}>(317) 314-3757</span>
         </div>
         <div
           style={{
             fontSize: '0.9rem',
-            color: 'var(--brand-text-muted)',
+            color: '#6b5d52',
             marginTop: '1.5rem',
           }}
         >
@@ -487,20 +487,20 @@ export default function Accessibility() {
         style={{
           marginTop: '3rem',
           textAlign: 'center',
-          color: 'var(--brand-text-muted)',
+          color: '#6b5d52',
           fontSize: '0.9rem',
         }}
       >
         <div
           style={{
-            borderTop: '1px solid var(--brand-border)',
+            borderTop: '1px solid '#d4c9b8'',
             paddingTop: '1rem',
           }}
         >
           <a
             href="/privacy-policy"
             style={{
-              color: 'var(--brand-info)',
+              color: '#4a3728',
               textDecoration: 'none',
               margin: '0 0.5rem',
             }}
@@ -511,7 +511,7 @@ export default function Accessibility() {
           <a
             href="/refund-policy"
             style={{
-              color: 'var(--brand-info)',
+              color: '#4a3728',
               textDecoration: 'none',
               margin: '0 0.5rem',
             }}
@@ -522,7 +522,7 @@ export default function Accessibility() {
           <a
             href="/terms-of-service"
             style={{
-              color: 'var(--brand-info)',
+              color: '#4a3728',
               textDecoration: 'none',
               margin: '0 0.5rem',
             }}
@@ -533,7 +533,7 @@ export default function Accessibility() {
           <a
             href="/compliance"
             style={{
-              color: 'var(--brand-info)',
+              color: '#4a3728',
               textDecoration: 'none',
               margin: '0 0.5rem',
             }}
@@ -544,7 +544,7 @@ export default function Accessibility() {
           <a
             href="/sitemap"
             style={{
-              color: 'var(--brand-info)',
+              color: '#4a3728',
               textDecoration: 'none',
               margin: '0 0.5rem',
             }}

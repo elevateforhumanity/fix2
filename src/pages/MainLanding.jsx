@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SEO } from '../lib/seo/SEO';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function MainLanding() {
   const [currentFeature, setCurrentFeature] = useState(0);
@@ -14,7 +16,7 @@ export default function MainLanding() {
       description:
         'Complete foundation management with grant tracking, donor engagement, and impact measurement',
       icon: '📊',
-      color: 'var(--brand-success)',
+      color: ''#00a544'',
       sector: 'Foundations',
       page: '/philanthropy',
     },
@@ -23,7 +25,7 @@ export default function MainLanding() {
       description:
         'DOL-approved Elevate Learn2Earn Workforce with WIA compliance, apprenticeships, and job placement tracking',
       icon: '🏛️',
-      color: 'var(--brand-info)',
+      color: ''#00a544'',
       sector: 'Government',
       page: '/government',
     },
@@ -32,7 +34,7 @@ export default function MainLanding() {
       description:
         'Enterprise-grade training delivery with certifications, assessments, and progress analytics',
       icon: '🎓',
-      color: 'var(--brand-secondary)',
+      color: ''#4a3728'',
       sector: 'Education',
       page: '/lms',
     },
@@ -41,7 +43,7 @@ export default function MainLanding() {
       description:
         'Comprehensive program management with apprenticeships, skills tracking, and career pathways',
       icon: '🚀',
-      color: 'var(--brand-danger)',
+      color: ''#dc2626'',
       sector: 'Workforce',
       page: '/programs',
     },
@@ -50,7 +52,7 @@ export default function MainLanding() {
       description:
         'Connect all stakeholders with unified dashboards, reporting, and community impact measurement',
       icon: '🌍',
-      color: 'var(--brand-warning)',
+      color: ''#ca8a04'',
       sector: 'Community',
       page: '/ecosystem',
     },
@@ -191,17 +193,19 @@ export default function MainLanding() {
   }, [features.length, demos.length]);
 
   return (
-    <>
-      <SEO
-        title="Durable - AI-Powered Website Builder | Create Websites in 30 Seconds"
-        description="Build professional websites instantly with Durable's AI. Choose from 150+ templates, get advanced features, and transparent pricing. No coding required."
-        canonical={`${import.meta.env.VITE_SITE_URL || ''}/main-landing`}
-      />
+    <div>
+      <Helmet>
+        <title>AI-Powered Platform | Elevate for Humanity</title>
+        <meta name="description" content="Build professional training programs instantly with our AI-powered platform. No coding required." />
+      </Helmet>
+
+      <Navigation />
+
       <main role="main" id="main-content" style={{ minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
           style={{
-            background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
+            background: 'linear-gradient(135deg, #2D5016 0%, #4A7C2C 100%)',
             color: 'white',
             padding: '4rem 2rem',
             textAlign: 'center',
@@ -646,7 +650,7 @@ export default function MainLanding() {
                   padding: '2rem 5rem',
                   fontSize: '1.6rem',
                   background:
-                    'linear-gradient(135deg, var(--brand-success) 0%, var(--brand-success) 100%)',
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)',
                   color: 'white',
                   border: '4px solid rgba(255,255,255,0.4)',
                   borderRadius: '60px',
@@ -663,14 +667,14 @@ export default function MainLanding() {
                   e.target.style.boxShadow =
                     '0 15px 50px rgba(16, 185, 129, 0.7)';
                   e.target.style.background =
-                    'linear-gradient(135deg, var(--brand-success) 0%, #047857 100%)';
+                    'linear-gradient(135deg, '#00a544' 0%, #047857 100%)';
                 }}
                 onMouseOut={(e) => {
                   e.target.style.transform = 'translateY(0) scale(1)';
                   e.target.style.boxShadow =
                     '0 10px 40px rgba(16, 185, 129, 0.5)';
                   e.target.style.background =
-                    'linear-gradient(135deg, var(--brand-success) 0%, var(--brand-success) 100%)';
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)';
                 }}
               >
                 🎓 ENROLL NOW - FREE TRAINING
@@ -696,7 +700,7 @@ export default function MainLanding() {
                   e.target.style.boxShadow =
                     '0 15px 50px rgba(255, 107, 107, 0.7)';
                   e.target.style.background =
-                    'linear-gradient(135deg, #ee5a24 0%, var(--brand-danger) 100%)';
+                    'linear-gradient(135deg, #ee5a24 0%, '#dc2626' 100%)';
                 }}
                 onMouseOut={(e) => {
                   e.target.style.transform = 'translateY(0) scale(1)';
@@ -716,7 +720,7 @@ export default function MainLanding() {
                   padding: '2rem 5rem',
                   fontSize: '1.6rem',
                   background:
-                    'linear-gradient(135deg, var(--brand-info) 0%, var(--brand-info) 100%)',
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)',
                   color: 'white',
                   border: '4px solid rgba(255,255,255,0.4)',
                   borderRadius: '60px',
@@ -731,14 +735,14 @@ export default function MainLanding() {
                   e.target.style.boxShadow =
                     '0 15px 50px rgba(59, 130, 246, 0.7)';
                   e.target.style.background =
-                    'linear-gradient(135deg, var(--brand-info) 0%, var(--brand-info-hover) 100%)';
+                    'linear-gradient(135deg, '#00a544' 0%, '#008a38' 100%)';
                 }}
                 onMouseOut={(e) => {
                   e.target.style.transform = 'translateY(0) scale(1)';
                   e.target.style.boxShadow =
                     '0 10px 40px rgba(59, 130, 246, 0.5)';
                   e.target.style.background =
-                    'linear-gradient(135deg, var(--brand-info) 0%, var(--brand-info) 100%)';
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)';
                 }}
               >
                 🏛️ GOVERNMENT DEMO
@@ -777,7 +781,7 @@ export default function MainLanding() {
         <section
           style={{
             padding: '5rem 2rem',
-            backgroundColor: 'var(--brand-surface)',
+            backgroundColor: ''#f5f1e8'',
           }}
         >
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -896,7 +900,7 @@ export default function MainLanding() {
                         style={{
                           padding: '1rem 2.5rem',
                           background:
-                            'linear-gradient(135deg, #ffd700 0%, var(--brand-warning) 100%)',
+                            'linear-gradient(135deg, #ffd700 0%, '#ca8a04' 100%)',
                           color: '#1a202c',
                           border: '2px solid rgba(255,255,255,0.3)',
                           borderRadius: '30px',
@@ -1042,7 +1046,7 @@ export default function MainLanding() {
                 fontSize: '1.4rem',
                 textAlign: 'center',
                 marginBottom: '4rem',
-                color: 'var(--brand-border)',
+                color: ''#d4c9b8'',
                 maxWidth: '900px',
                 margin: '0 auto 4rem',
               }}
@@ -1063,7 +1067,7 @@ export default function MainLanding() {
               <div
                 style={{
                   background:
-                    'linear-gradient(135deg, var(--brand-success) 0%, var(--brand-success) 100%)',
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(16, 185, 129, 0.3)',
@@ -1108,7 +1112,7 @@ export default function MainLanding() {
               <div
                 style={{
                   background:
-                    'linear-gradient(135deg, var(--brand-info) 0%, var(--brand-info) 100%)',
+                    'linear-gradient(135deg, '#00a544' 0%, '#00a544' 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(59, 130, 246, 0.3)',
@@ -1153,7 +1157,7 @@ export default function MainLanding() {
               <div
                 style={{
                   background:
-                    'linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-secondary) 100%)',
+                    'linear-gradient(135deg, '#4a3728' 0%, '#4a3728' 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(139, 92, 246, 0.3)',
@@ -1198,7 +1202,7 @@ export default function MainLanding() {
               <div
                 style={{
                   background:
-                    'linear-gradient(135deg, var(--brand-danger) 0%, var(--brand-danger) 100%)',
+                    'linear-gradient(135deg, '#dc2626' 0%, '#dc2626' 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(239, 68, 68, 0.3)',
@@ -1376,7 +1380,7 @@ export default function MainLanding() {
           style={{
             padding: '5rem 2rem',
             background:
-              'linear-gradient(135deg, var(--brand-surface) 0%, var(--brand-border) 100%)',
+              'linear-gradient(135deg, '#f5f1e8' 0%, '#d4c9b8' 100%)',
             position: 'relative',
           }}
         >
@@ -1419,7 +1423,7 @@ export default function MainLanding() {
                   padding: '3rem',
                   borderRadius: '20px',
                   boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  border: '2px solid var(--brand-info)',
+                  border: '2px solid '#00a544'',
                   position: 'relative',
                 }}
               >
@@ -1428,7 +1432,7 @@ export default function MainLanding() {
                     position: 'absolute',
                     top: '-15px',
                     left: '30px',
-                    backgroundColor: 'var(--brand-info)',
+                    backgroundColor: ''#00a544'',
                     color: 'white',
                     padding: '0.5rem 1.5rem',
                     borderRadius: '20px',
@@ -1458,7 +1462,7 @@ export default function MainLanding() {
                       width: '60px',
                       height: '60px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--brand-info)',
+                      backgroundColor: ''#00a544'',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -1478,7 +1482,7 @@ export default function MainLanding() {
                     </div>
                     <div
                       style={{
-                        color: 'var(--brand-info)',
+                        color: ''#00a544'',
                         fontSize: '0.9rem',
                         fontWeight: '600',
                       }}
@@ -1495,7 +1499,7 @@ export default function MainLanding() {
                   padding: '3rem',
                   borderRadius: '20px',
                   boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  border: '2px solid var(--brand-secondary)',
+                  border: '2px solid '#4a3728'',
                   position: 'relative',
                 }}
               >
@@ -1504,7 +1508,7 @@ export default function MainLanding() {
                     position: 'absolute',
                     top: '-15px',
                     left: '30px',
-                    backgroundColor: 'var(--brand-secondary)',
+                    backgroundColor: ''#4a3728'',
                     color: 'white',
                     padding: '0.5rem 1.5rem',
                     borderRadius: '20px',
@@ -1534,7 +1538,7 @@ export default function MainLanding() {
                       width: '60px',
                       height: '60px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--brand-secondary)',
+                      backgroundColor: ''#4a3728'',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -1554,7 +1558,7 @@ export default function MainLanding() {
                     </div>
                     <div
                       style={{
-                        color: 'var(--brand-secondary)',
+                        color: ''#4a3728'',
                         fontSize: '0.9rem',
                         fontWeight: '600',
                       }}
@@ -1571,7 +1575,7 @@ export default function MainLanding() {
                   padding: '3rem',
                   borderRadius: '20px',
                   boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  border: '2px solid var(--brand-success)',
+                  border: '2px solid '#00a544'',
                   position: 'relative',
                 }}
               >
@@ -1580,7 +1584,7 @@ export default function MainLanding() {
                     position: 'absolute',
                     top: '-15px',
                     left: '30px',
-                    backgroundColor: 'var(--brand-success)',
+                    backgroundColor: ''#00a544'',
                     color: 'white',
                     padding: '0.5rem 1.5rem',
                     borderRadius: '20px',
@@ -1610,7 +1614,7 @@ export default function MainLanding() {
                       width: '60px',
                       height: '60px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--brand-success)',
+                      backgroundColor: ''#00a544'',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -1630,7 +1634,7 @@ export default function MainLanding() {
                     </div>
                     <div
                       style={{
-                        color: 'var(--brand-success)',
+                        color: ''#00a544'',
                         fontSize: '0.9rem',
                         fontWeight: '600',
                       }}
@@ -1730,14 +1734,14 @@ export default function MainLanding() {
                 padding: '1rem',
                 backgroundColor: '#f0fff4',
                 borderRadius: '15px',
-                border: '2px solid var(--brand-success)',
+                border: '2px solid '#00a544'',
                 maxWidth: '600px',
                 margin: '0 auto 3rem',
               }}
             >
               <span
                 style={{
-                  color: 'var(--brand-success)',
+                  color: ''#00a544'',
                   fontWeight: 'bold',
                   fontSize: '1.1rem',
                 }}
@@ -1759,7 +1763,7 @@ export default function MainLanding() {
                   backgroundColor: '#f7fafc',
                   borderRadius: '50px',
                   padding: '0.5rem',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                 }}
               >
                 <button
@@ -1829,7 +1833,7 @@ export default function MainLanding() {
                     borderRadius: '20px',
                     border: plan.popular
                       ? '3px solid #667eea'
-                      : '1px solid var(--brand-border)',
+                      : '1px solid '#d4c9b8'',
                     position: 'relative',
                     transform: plan.popular ? 'scale(1.05)' : 'scale(1)',
                     boxShadow: plan.popular
@@ -1847,8 +1851,8 @@ export default function MainLanding() {
                       left: '50%',
                       transform: 'translateX(-50%)',
                       backgroundColor: plan.popular
-                        ? 'var(--brand-secondary)'
-                        : 'var(--brand-info)',
+                        ? ''#4a3728''
+                        : ''#00a544'',
                       color: 'white',
                       padding: '0.5rem 1.5rem',
                       borderRadius: '25px',
@@ -1891,7 +1895,7 @@ export default function MainLanding() {
                         fontSize: plan.monthly === 'Custom' ? '2.5rem' : '4rem',
                         fontWeight: 'bold',
                         color: plan.popular
-                          ? 'var(--brand-secondary)'
+                          ? ''#4a3728''
                           : '#2d3748',
                       }}
                     >
@@ -2122,6 +2126,9 @@ export default function MainLanding() {
           }
         }
       `}</style>
-    </>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

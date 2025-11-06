@@ -2,7 +2,7 @@ export default function Elevate() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-600 to-brand-700 text-white py-20">
+      <section className="bg-gradient-to-r from-brown-700 to-brown-800 text-white py-20">
         <div className="container">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Elevate Your Future
@@ -17,17 +17,17 @@ export default function Elevate() {
       <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-text mb-6 text-center">
+            <h2 className="text-3xl font-bold text-brown-900 mb-6 text-center">
               Our Mission
             </h2>
-            <p className="text-lg text-brand-text-muted leading-relaxed mb-8">
+            <p className="text-lg text-brown-600 leading-relaxed mb-8">
               At Elevate for Humanity Career and Technical Institute, we are
               dedicated to bridging the gap between education and employment by
               funding innovative apprenticeship and training programs. Located
               in Marion County, IN, our mission is to empower individuals with
               the skills they need to excel in today's dynamic workforce.
             </p>
-            <p className="text-lg text-brand-text-muted leading-relaxed">
+            <p className="text-lg text-brown-600 leading-relaxed">
               By investing in human potential, we aim to transform lives and
               build a more skilled, sustainable community. Join us as we pave
               the way for brighter futures through quality education and
@@ -37,26 +37,26 @@ export default function Elevate() {
         </div>
       </section>
       {/* Impact Stats */}
-      <section className="bg-brand-surface py-16">
+      <section className="bg-beige-50 py-16">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold text-brand-600 mb-2">
+              <div className="text-5xl font-bold text-green-600 mb-2">
                 5,000+
               </div>
-              <div className="text-brand-text-muted">Lives Impacted</div>
+              <div className="text-brown-600">Lives Impacted</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-brand-600 mb-2">92%</div>
-              <div className="text-brand-text-muted">Job Placement Rate</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">92%</div>
+              <div className="text-brown-600">Job Placement Rate</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-brand-600 mb-2">13+</div>
-              <div className="text-brand-text-muted">Training Programs</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">13+</div>
+              <div className="text-brown-600">Training Programs</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-brand-600 mb-2">$2M+</div>
-              <div className="text-brand-text-muted">Funding Distributed</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">$2M+</div>
+              <div className="text-brown-600">Funding Distributed</div>
             </div>
           </div>
         </div>
@@ -64,36 +64,36 @@ export default function Elevate() {
       {/* Values Section */}
       <section className="py-16">
         <div className="container">
-          <h2 className="text-3xl font-bold text-brand-text mb-12 text-center">
+          <h2 className="text-3xl font-bold text-brown-900 mb-12 text-center">
             Our Core Values
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-5xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold text-brand-text mb-3">
+              <h3 className="text-xl font-semibold text-brown-900 mb-3">
                 Excellence
               </h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 We strive for the highest quality in education and training,
                 ensuring our students receive industry-leading instruction.
               </p>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-xl font-semibold text-brand-text mb-3">
+              <h3 className="text-xl font-semibold text-brown-900 mb-3">
                 Community
               </h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 We build strong partnerships with employers, educators, and
                 community organizations to create opportunities for all.
               </p>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-4">💡</div>
-              <h3 className="text-xl font-semibold text-brand-text mb-3">
+              <h3 className="text-xl font-semibold text-brown-900 mb-3">
                 Innovation
               </h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 We embrace new technologies and teaching methods to provide
                 cutting-edge training that meets evolving industry needs.
               </p>
@@ -102,7 +102,7 @@ export default function Elevate() {
         </div>
       </section>
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-brand-600 to-brand-700 text-white py-16">
+      <section className="bg-gradient-to-r from-brown-700 to-brown-800 text-white py-16">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Elevate Your Career?
@@ -113,7 +113,7 @@ export default function Elevate() {
           </p>
           <a
             href="/programs"
-            className="inline-block bg-white text-brand-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
           >
             Explore Programs
           </a>

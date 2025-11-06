@@ -44,21 +44,21 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="container py-12">
-        <h1 className="text-4xl font-bold text-brand-text mb-8">Blog</h1>
+      <div className="container py-12 px-4">
+        <h1 className="text-4xl font-bold text-brown-900 mb-8">Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="border border-brand-border rounded-lg p-6 hover:shadow-lg transition-shadow"
+              className="card hover:shadow-lg transition-shadow"
             >
-              <h2 className="text-xl font-semibold text-brand-text mb-3">
+              <h2 className="text-xl font-semibold text-brown-900 mb-3">
                 {post.title}
               </h2>
-              <p className="text-brand-text-muted mb-4">{post.excerpt}</p>
+              <p className="text-brown-600 mb-4">{post.excerpt}</p>
               <a
                 href={`/blog/${post.slug}`}
-                className="text-brand-600 hover:text-brand-700 font-medium"
+                className="text-green-600 hover:text-green-700 font-medium"
               >
                 Read More →
               </a>

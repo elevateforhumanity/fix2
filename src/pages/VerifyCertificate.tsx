@@ -21,7 +21,7 @@ export default function VerifyCertificate() {
     <section className="section">
       <div className="container max-w-2xl">
         <h1 className="text-3xl font-bold text-center">Verify Certificate</h1>
-        <p className="mt-2 text-center text-brand-text-muted">
+        <p className="mt-2 text-center text-brown-600">
           Enter a certificate number to verify authenticity
         </p>
         <form onSubmit={handleVerify} className="mt-8 card p-6">
@@ -34,7 +34,7 @@ export default function VerifyCertificate() {
               aria-label="text input"
               value={certNumber}
               onChange={(e) => setCertNumber(e.target.value)}
-              className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300 font-mono"
+              className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300 font-mono"
               placeholder="EFH-1234567890-ABCDEF"
               required
             />
@@ -84,7 +84,7 @@ export default function VerifyCertificate() {
                     <h3 className="text-xl font-semibold text-red-700">
                       Invalid Certificate
                     </h3>
-                    <p className="mt-2 text-brand-text-muted">
+                    <p className="mt-2 text-brown-600">
                       This certificate number was not found in our system. It
                       may be invalid, expired, or revoked.
                     </p>

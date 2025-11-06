@@ -78,15 +78,15 @@ export default function Sitemap() {
 
   return (
     <section className="section">
-      <div className="container max-w-6xl">
-        <h1 className="text-4xl font-bold text-brand-text mb-4">Sitemap</h1>
-        <p className="text-brand-text-muted mb-12">
+      <div className="container max-w-6xl px-4">
+        <h1 className="text-4xl font-bold text-brown-900 mb-4">Sitemap</h1>
+        <p className="text-brown-600 mb-12">
           Complete overview of all pages on Elevate for Humanity
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sections.map((section) => (
             <div key={section.title}>
-              <h2 className="text-xl font-bold text-brand-text mb-4">
+              <h2 className="text-xl font-bold text-brown-900 mb-4">
                 {section.title}
               </h2>
               <ul className="space-y-2">
@@ -94,7 +94,7 @@ export default function Sitemap() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-brand-text-muted hover:text-brand-info transition-colors"
+                      className="text-brown-600 hover:text-green-600 transition-colors"
                     >
                       {link.label}
                     </Link>

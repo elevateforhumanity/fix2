@@ -5,6 +5,7 @@
 The autopilot system is configured and ready to execute the Next.js migration.
 
 ### Autopilot Status
+
 - ✅ **Mode:** Autonomous
 - ✅ **Version:** 7.0
 - ✅ **Auto-execute:** Enabled
@@ -13,6 +14,7 @@ The autopilot system is configured and ready to execute the Next.js migration.
 - ✅ **Self-healing:** Enabled
 
 ### Migration Task Created
+
 - ✅ **Task ID:** nextjs-migration-001
 - ✅ **Priority:** High
 - ✅ **Type:** Migration
@@ -23,9 +25,11 @@ The autopilot system is configured and ready to execute the Next.js migration.
 ## 📦 What's Ready
 
 ### 1. Autopilot Task Definition
+
 **File:** `.autopilot-tasks/nextjs-migration.json`
 
 Defines the complete migration workflow:
+
 - 10 migration steps
 - Content mapping from React to Next.js
 - Environment configuration
@@ -33,9 +37,11 @@ Defines the complete migration workflow:
 - Rollback plan
 
 ### 2. Autopilot Execution Script
+
 **File:** `scripts/autopilot-nextjs-migration.sh`
 
 Automated script that will:
+
 1. Extract Next.js starter (`efh-next-ssg-ssr.zip`)
 2. Install dependencies
 3. Configure environment variables
@@ -46,7 +52,9 @@ Automated script that will:
 8. Provide next steps
 
 ### 3. Migration Documentation
+
 **Files:**
+
 - `NEXTJS_MIGRATION_PLAN.md` - Complete migration plan
 - `DEPLOYMENT_INSTRUCTIONS.md` - Deployment guide
 - `TESTING_CHECKLIST.md` - Testing procedures
@@ -84,26 +92,31 @@ Once you provide the Next.js starter with migrated content:
 ## 📋 What the Autopilot Will Do
 
 ### Phase 1: Setup (5 min)
+
 1. ✅ Extract `efh-next-ssg-ssr.zip` to `nextjs-site/`
 2. ✅ Run `npm install`
 3. ✅ Create `.env.local` with production values
 
 ### Phase 2: Asset Migration (5 min)
+
 4. ✅ Copy images from `public/images/`
 5. ✅ Copy API files from `public/api/`
 6. ✅ Copy favicon and other assets
 
 ### Phase 3: Build & Test (5 min)
+
 7. ✅ Run `npm run build`
 8. ✅ Verify `.next` directory created
 9. ✅ Check for build errors
 
 ### Phase 4: Configuration (5 min)
+
 10. ✅ Create `netlify.toml` with Next.js config
 11. ✅ Create `README.md` with instructions
 12. ✅ Commit all changes to git
 
 ### Phase 5: Documentation (2 min)
+
 13. ✅ Generate migration summary
 14. ✅ Log all steps
 15. ✅ Provide next steps
@@ -119,6 +132,7 @@ Once you provide the Next.js starter with migrated content:
 Please provide the `efh-next-ssg-ssr.zip` file with:
 
 ✅ **Pre-rendered pages:**
+
 - `/` (Homepage) - with current content
 - `/programs` - with programs listing
 - `/partners` - with partners page
@@ -126,6 +140,7 @@ Please provide the `efh-next-ssg-ssr.zip` file with:
 - `/contact` - contact page
 
 ✅ **Content migrated:**
+
 - Hero sections
 - Program descriptions
 - Partner information
@@ -133,6 +148,7 @@ Please provide the `efh-next-ssg-ssr.zip` file with:
 - Navigation and footer
 
 ✅ **Configuration:**
+
 - API proxy setup
 - Security headers
 - SEO metadata
@@ -145,6 +161,7 @@ Please provide the `efh-next-ssg-ssr.zip` file with:
 After autopilot execution:
 
 ### File Structure
+
 ```
 nextjs-site/
 ├── app/
@@ -166,11 +183,13 @@ nextjs-site/
 ```
 
 ### Git Status
+
 - ✅ All files committed
 - ✅ Pushed to main branch
 - ✅ Ready for deployment
 
 ### Build Status
+
 - ✅ Build successful
 - ✅ No errors
 - ✅ `.next` directory created
@@ -194,6 +213,7 @@ After autopilot completes, verify:
 ## 🚀 Next Steps After Autopilot
 
 ### 1. Test Locally (5 min)
+
 ```bash
 cd nextjs-site
 npm run dev
@@ -202,6 +222,7 @@ npm run dev
 ```
 
 ### 2. Deploy to Netlify (10 min)
+
 ```bash
 # Option A: Via Netlify Dashboard
 # - Create new site
@@ -215,6 +236,7 @@ netlify deploy --prod
 ```
 
 ### 3. Test Production (5 min)
+
 - Visit deployed URL
 - Check all pages load
 - Verify no skeleton states
@@ -222,6 +244,7 @@ netlify deploy --prod
 - Check console for errors
 
 ### 4. Update DNS (Optional)
+
 - Point www.elevateforhumanity.org to Netlify
 - Or use app.elevateforhumanity.org subdomain
 
@@ -251,12 +274,14 @@ All documentation is ready:
 ## 🎉 Benefits of This Approach
 
 ### Immediate Benefits
+
 - ✅ **Automated migration** - No manual work required
 - ✅ **Fast execution** - ~20 minutes total
 - ✅ **Error handling** - Autopilot handles issues
 - ✅ **Rollback ready** - Can revert if needed
 
 ### Long-term Benefits
+
 - ✅ **No skeleton pages** - Content pre-rendered
 - ✅ **Better SEO** - Server-side rendering
 - ✅ **Faster performance** - Optimized builds

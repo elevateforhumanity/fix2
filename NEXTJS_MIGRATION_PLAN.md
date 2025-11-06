@@ -9,14 +9,16 @@ Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages per
 ## 📦 What We're Getting
 
 ### Next.js Starter Features
+
 - ✅ **App Router** with pre-rendered public pages
 - ✅ **SSG Pages:** `/`, `/programs`, `/partners`, `/vita`, `/contact`
-- ✅ **Security headers** baked in (netlify.toml + _headers)
+- ✅ **Security headers** baked in (netlify.toml + \_headers)
 - ✅ **API proxy** at `/api/proxy/*` to avoid CORS
 - ✅ **SEO-ready** metadata
 - ✅ **Works on** Netlify or Cloudflare Pages
 
 ### Why This Fixes Skeleton Issues
+
 1. **Pre-rendered pages** - Users see full content immediately (no waiting for JS)
 2. **SSG for static content** - Marketing pages load instantly
 3. **SSR for dynamic content** - App pages render on server
@@ -28,6 +30,7 @@ Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages per
 ## 📋 Migration Steps
 
 ### Phase 1: Setup (30 min)
+
 1. ✅ Download `efh-next-ssg-ssr.zip`
 2. ✅ Extract to `/workspaces/fix2/nextjs-site/`
 3. ✅ Review structure and configuration
@@ -35,6 +38,7 @@ Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages per
 5. ✅ Configure `.env.local` with production values
 
 ### Phase 2: Content Migration (1-2 hours)
+
 1. ✅ Migrate homepage content from current React app
 2. ✅ Migrate programs page and program listings
 3. ✅ Migrate partners page
@@ -44,6 +48,7 @@ Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages per
 7. ✅ Migrate SEO metadata
 
 ### Phase 3: Testing (30 min)
+
 1. ✅ Test locally: `npm run dev`
 2. ✅ Verify all pages load without skeleton
 3. ✅ Test API proxy functionality
@@ -52,6 +57,7 @@ Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages per
 6. ✅ Test security headers
 
 ### Phase 4: Deployment (30 min)
+
 1. ✅ Create new Netlify site or update existing
 2. ✅ Configure build settings
 3. ✅ Set environment variables
@@ -95,6 +101,7 @@ nextjs-site/
 ### Environment Variables
 
 Create `.env.local`:
+
 ```bash
 # API Configuration
 NEXT_PUBLIC_API_URL=https://api.elevateforhumanity.org
@@ -110,6 +117,7 @@ BACKEND_API_URL=https://api.elevateforhumanity.org
 ### Netlify Configuration
 
 Build settings:
+
 ```toml
 [build]
   command = "npm run build"
@@ -124,6 +132,7 @@ Build settings:
 ## 🚀 Deployment Options
 
 ### Option A: New Netlify Site (Recommended)
+
 1. Create new site: `nextjs-elevateforhumanity`
 2. Deploy Next.js app
 3. Test thoroughly
@@ -131,6 +140,7 @@ Build settings:
 5. Keep old site as backup
 
 ### Option B: Replace Existing Site
+
 1. Update existing Netlify site
 2. Change build command to `npm run build`
 3. Change publish directory to `.next`
@@ -138,6 +148,7 @@ Build settings:
 5. Test immediately
 
 ### Option C: Cloudflare Pages
+
 1. Create new Cloudflare Pages project
 2. Connect repository
 3. Set build command: `npm run build`
@@ -149,6 +160,7 @@ Build settings:
 ## 📊 Content Migration Checklist
 
 ### Homepage (/)
+
 - [ ] Hero section with title and CTA
 - [ ] Programs overview
 - [ ] Features section
@@ -157,6 +169,7 @@ Build settings:
 - [ ] Footer with links
 
 ### Programs Page (/programs)
+
 - [ ] Programs listing
 - [ ] Program cards with images
 - [ ] Program descriptions
@@ -164,18 +177,21 @@ Build settings:
 - [ ] Filters/categories (if applicable)
 
 ### Partners Page (/partners)
+
 - [ ] Partner logos
 - [ ] Partner descriptions
 - [ ] Partnership benefits
 - [ ] "Become a Partner" CTA
 
 ### Contact Page (/contact)
+
 - [ ] Contact form
 - [ ] Contact information
 - [ ] Map/location (if applicable)
 - [ ] Social media links
 
 ### Assets
+
 - [ ] Logo and branding
 - [ ] Program images
 - [ ] Partner logos
@@ -187,6 +203,7 @@ Build settings:
 ## 🔍 Testing Checklist
 
 ### Functionality
+
 - [ ] All pages load without skeleton
 - [ ] Navigation works
 - [ ] Forms submit correctly
@@ -195,12 +212,14 @@ Build settings:
 - [ ] Images load
 
 ### Performance
+
 - [ ] Lighthouse score > 90
 - [ ] First Contentful Paint < 1.5s
 - [ ] Time to Interactive < 2.5s
 - [ ] No layout shifts
 
 ### SEO
+
 - [ ] Meta tags present
 - [ ] Open Graph tags
 - [ ] Twitter Card tags
@@ -208,6 +227,7 @@ Build settings:
 - [ ] Robots.txt present
 
 ### Security
+
 - [ ] HTTPS enabled
 - [ ] Security headers present
 - [ ] CSP configured
@@ -218,6 +238,7 @@ Build settings:
 ## 📈 Expected Improvements
 
 ### Before (React SPA)
+
 - ❌ Skeleton pages on load
 - ❌ Client-side rendering only
 - ❌ CORS issues
@@ -225,6 +246,7 @@ Build settings:
 - ❌ Slow initial load
 
 ### After (Next.js SSG/SSR)
+
 - ✅ Full content on load
 - ✅ Server-side rendering
 - ✅ No CORS issues (proxy)

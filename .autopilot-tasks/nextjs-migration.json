@@ -6,7 +6,7 @@
   "created_at": "2025-11-05T12:17:00Z",
   "type": "migration",
   "description": "Migrate from React SPA (Vite) to Next.js SSG/SSR to eliminate skeleton pages",
-  
+
   "objectives": [
     "Download and extract Next.js starter (efh-next-ssg-ssr.zip)",
     "Migrate all content from current React app to Next.js pages",
@@ -15,7 +15,7 @@
     "Deploy to Netlify with proper configuration",
     "Verify deployment and update DNS if needed"
   ],
-  
+
   "source": {
     "type": "react-spa-vite",
     "location": "/workspaces/fix2/src",
@@ -39,7 +39,7 @@
     "assets": "/workspaces/fix2/public",
     "api_config": "/workspaces/fix2/public/api/efh-config.json"
   },
-  
+
   "target": {
     "type": "nextjs-app-router",
     "location": "/workspaces/fix2/nextjs-site",
@@ -47,7 +47,7 @@
     "rendering": "SSG + SSR",
     "deployment": "netlify"
   },
-  
+
   "migration_steps": [
     {
       "step": 1,
@@ -187,7 +187,7 @@
       "status": "pending"
     }
   ],
-  
+
   "content_mapping": {
     "homepage": {
       "source": "/workspaces/fix2/src/pages/Home.tsx",
@@ -216,7 +216,7 @@
       "target": "/workspaces/fix2/nextjs-site/app/contact/page.tsx"
     }
   },
-  
+
   "environment_config": {
     "production": {
       "NEXT_PUBLIC_API_URL": "https://api.elevateforhumanity.org",
@@ -225,7 +225,7 @@
       "BACKEND_API_URL": "https://api.elevateforhumanity.org"
     }
   },
-  
+
   "success_criteria": [
     "All pages load without skeleton states",
     "Content visible immediately (< 1 second)",
@@ -238,19 +238,19 @@
     "Build completes without errors",
     "Deployment successful"
   ],
-  
+
   "rollback_plan": {
     "enabled": true,
     "keep_old_site": true,
     "test_before_dns_switch": true,
     "can_revert": true
   },
-  
+
   "auto_execute": true,
   "auto_commit": true,
   "auto_deploy": true,
   "notify_on_completion": true,
-  
+
   "estimated_time": "2-3 hours",
   "risk_level": "low",
   "impact": "high"

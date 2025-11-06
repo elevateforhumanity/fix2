@@ -10,7 +10,7 @@ export default function ProfessionalSite() {
   const [activeTab, setActiveTab] = useState('enrollment');
 
   return (
-    <div className="min-h-screen bg-brand-surface">
+    <div className="min-h-screen bg-beige-50">
       {/* Portal Header */}
       <div className="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-8 text-center">
         <div className="max-w-7xl mx-auto px-8">
@@ -29,7 +29,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'enrollment'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               📝 Enrollment
@@ -39,7 +39,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'dashboard'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               📊 Dashboard
@@ -49,7 +49,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'courses'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               📚 My Courses
@@ -59,7 +59,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'certificates'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               🏆 Certificates
@@ -69,7 +69,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'profile'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               👤 Profile
@@ -79,7 +79,7 @@ export default function ProfessionalSite() {
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'support'
                   ? 'bg-blue-800 text-white'
-                  : 'bg-brand-surface-dark text-brand-text hover:bg-brand-info hover:text-white'
+                  : 'bg-beige-100 text-brown-900 hover:bg-green-600 hover:text-white'
               }`}
             >
               💬 Support
@@ -93,17 +93,17 @@ export default function ProfessionalSite() {
         {activeTab === 'enrollment' && (
           <div className="bg-white p-8 rounded-xl shadow-sm">
             <h2 className="text-3xl font-bold mb-4">📝 Course Enrollment</h2>
-            <p className="text-brand-text-muted mb-8">
+            <p className="text-brown-600 mb-8">
               Select and enroll in professional certification programs. All
               courses include hybrid learning with online modules and hands-on
               skills validation.
             </p>
             <form className="space-y-6">
               <div>
-                <label className="block mb-2 font-semibold text-brand-text">
+                <label className="block mb-2 font-semibold text-brown-900">
                   Select Training Program *
                 </label>
-                <select className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary">
+                <select className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600">
                   <option value="">Choose a program...</option>
                   <optgroup label="Healthcare & Public Safety">
                     <option value="hha">
@@ -142,53 +142,53 @@ export default function ProfessionalSite() {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block mb-2 font-semibold text-brand-text">
+                  <label className="block mb-2 font-semibold text-brown-900">
                     First Name *
                   </label>
                   <input
                     type="text"
                     aria-label="text input"
-                    className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
+                    className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 font-semibold text-brand-text">
+                  <label className="block mb-2 font-semibold text-brown-900">
                     Last Name *
                   </label>
                   <input
                     type="text"
                     aria-label="text input"
-                    className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
+                    className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600"
                   />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block mb-2 font-semibold text-brand-text">
+                  <label className="block mb-2 font-semibold text-brown-900">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     aria-label="email input"
-                    className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
+                    className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 font-semibold text-brand-text">
+                  <label className="block mb-2 font-semibold text-brown-900">
                     Phone Number *
                   </label>
                   <input
                     type="tel"
                     aria-label="tel input"
-                    className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary"
+                    className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600"
                   />
                 </div>
               </div>
               <div>
-                <label className="block mb-2 font-semibold text-brand-text">
+                <label className="block mb-2 font-semibold text-brown-900">
                   Funding Source
                 </label>
-                <select className="w-full p-3 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-brand-primary">
+                <select className="w-full p-3 border border-brown-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-600">
                   <option value="">Select funding source...</option>
                   <option value="self-pay">Self Pay</option>
                   <option value="wioa">WIOA (Workforce Innovation)</option>
@@ -209,39 +209,39 @@ export default function ProfessionalSite() {
         {/* Dashboard Tab */}
         {activeTab === 'dashboard' && (
           <div>
-            <div className="bg-green-50 border border-green-200 text-brand-success p-4 rounded-lg mb-8">
+            <div className="bg-green-50 border border-green-200 text-green-600 p-4 rounded-lg mb-8">
               <strong>Welcome back, Student!</strong> You have 2 active courses
               and 1 completed certification.
             </div>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-brand-info mb-4">
+              <div className="bg-beige-50 border border-brown-200 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-green-600 mb-4">
                   Overall Progress
                 </h3>
-                <div className="bg-brand-border rounded-full h-5 mb-3 overflow-hidden">
+                <div className="bg-brown-200 rounded-full h-5 mb-3 overflow-hidden">
                   <div
                     className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                     style={{ width: '68%' }}
                   />
                 </div>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   68% Complete - 2 of 3 courses finished
                 </p>
               </div>
-              <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-brand-info mb-4">
+              <div className="bg-beige-50 border border-brown-200 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-green-600 mb-4">
                   Quick Stats
                 </h3>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Enrolled Courses:</strong> 3
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Completed:</strong> 1
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Certificates Earned:</strong> 1
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Next Deadline:</strong> March 15, 2024
                 </p>
               </div>
@@ -249,17 +249,17 @@ export default function ProfessionalSite() {
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h3 className="text-2xl font-bold mb-4">Recent Activity</h3>
               <div className="space-y-3">
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>March 10:</strong> Completed CPR Skills Assessment
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>March 8:</strong> Submitted Module 3 Assignment -
                   Microsoft Excel
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>March 5:</strong> Started OSHA 10 Hour Training
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>March 1:</strong> Earned ServSafe Food Handler
                   Certificate
                 </p>
@@ -271,81 +271,81 @@ export default function ProfessionalSite() {
         {activeTab === 'courses' && (
           <div className="space-y-6">
             <h2 className="text-3xl font-bold mb-6">📚 My Courses</h2>
-            <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
+            <div className="bg-beige-50 border border-brown-200 rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-semibold text-brand-info">
+                <h3 className="text-xl font-semibold text-green-600">
                   CPR & OSHA Safety Technician
                 </h3>
-                <span className="bg-brand-surface text-brand-success px-3 py-1 rounded-full text-sm font-semibold">
+                <span className="bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">
                   Completed
                 </span>
               </div>
-              <div className="bg-brand-border rounded-full h-5 mb-3 overflow-hidden">
+              <div className="bg-brown-200 rounded-full h-5 mb-3 overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '100%' }}
                 />
               </div>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Completion Date:</strong> February 28, 2024
               </p>
-              <p className="text-brand-text mb-4">
+              <p className="text-brown-900 mb-4">
                 <strong>Grade:</strong> 94% (Pass)
               </p>
-              <button className="bg-brand-success hover:bg-brand-success-hover text-white px-6 py-2 rounded-lg font-semibold transition">
+              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition">
                 View Certificate
               </button>
             </div>
-            <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
+            <div className="bg-beige-50 border border-brown-200 rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-semibold text-brand-info">
+                <h3 className="text-xl font-semibold text-green-600">
                   Microsoft Office Specialist
                 </h3>
                 <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
                   In Progress
                 </span>
               </div>
-              <div className="bg-brand-border rounded-full h-5 mb-3 overflow-hidden">
+              <div className="bg-brown-200 rounded-full h-5 mb-3 overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '75%' }}
                 />
               </div>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Progress:</strong> 75% Complete
               </p>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Next Module:</strong> PowerPoint Advanced Features
               </p>
-              <p className="text-brand-text mb-4">
+              <p className="text-brown-900 mb-4">
                 <strong>Due Date:</strong> March 15, 2024
               </p>
               <button className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold transition">
                 Continue Course
               </button>
             </div>
-            <div className="bg-brand-surface border border-brand-border rounded-xl p-6">
+            <div className="bg-beige-50 border border-brown-200 rounded-xl p-6">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-semibold text-brand-info">
+                <h3 className="text-xl font-semibold text-green-600">
                   OSHA 10 Hour Certification
                 </h3>
                 <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
                   In Progress
                 </span>
               </div>
-              <div className="bg-brand-border rounded-full h-5 mb-3 overflow-hidden">
+              <div className="bg-brown-200 rounded-full h-5 mb-3 overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-green-600 to-green-500 h-full rounded-full"
                   style={{ width: '30%' }}
                 />
               </div>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Progress:</strong> 30% Complete
               </p>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Next Module:</strong> Hazard Recognition
               </p>
-              <p className="text-brand-text mb-4">
+              <p className="text-brown-900 mb-4">
                 <strong>Due Date:</strong> March 30, 2024
               </p>
               <button className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold transition">
@@ -362,20 +362,20 @@ export default function ProfessionalSite() {
               <h3 className="text-2xl font-bold text-green-700 mb-4">
                 🏥 CPR & OSHA Safety Technician
               </h3>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Issued:</strong> February 28, 2024
               </p>
-              <p className="text-brand-text mb-2">
+              <p className="text-brown-900 mb-2">
                 <strong>Expires:</strong> February 28, 2026
               </p>
-              <p className="text-brand-text mb-6">
+              <p className="text-brown-900 mb-6">
                 <strong>Certificate ID:</strong> EFH-CPR-2024-001247
               </p>
               <div className="flex gap-4 justify-center">
-                <button className="bg-brand-success hover:bg-brand-success-hover text-white px-6 py-3 rounded-lg font-semibold transition">
+                <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition">
                   Download PDF
                 </button>
-                <button className="bg-brand-info hover:bg-brand-info-hover text-white px-6 py-3 rounded-lg font-semibold transition">
+                <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition">
                   Share Certificate
                 </button>
               </div>
@@ -388,36 +388,36 @@ export default function ProfessionalSite() {
             <h2 className="text-3xl font-bold mb-6">👤 My Profile</h2>
             <div className="space-y-4">
               <div>
-                <label className="block mb-2 font-semibold text-brand-text">
+                <label className="block mb-2 font-semibold text-brown-900">
                   Full Name
                 </label>
                 <input
                   type="text"
                   aria-label="text input"
                   defaultValue="John Doe"
-                  className="w-full p-3 border border-brand-border-dark rounded-lg"
+                  className="w-full p-3 border border-brown-300 rounded-lg"
                 />
               </div>
               <div>
-                <label className="block mb-2 font-semibold text-brand-text">
+                <label className="block mb-2 font-semibold text-brown-900">
                   Email
                 </label>
                 <input
                   type="email"
                   aria-label="email input"
                   defaultValue="john.doe@example.com"
-                  className="w-full p-3 border border-brand-border-dark rounded-lg"
+                  className="w-full p-3 border border-brown-300 rounded-lg"
                 />
               </div>
               <div>
-                <label className="block mb-2 font-semibold text-brand-text">
+                <label className="block mb-2 font-semibold text-brown-900">
                   Phone
                 </label>
                 <input
                   type="tel"
                   aria-label="tel input"
                   defaultValue="(555) 123-4567"
-                  className="w-full p-3 border border-brand-border-dark rounded-lg"
+                  className="w-full p-3 border border-brown-300 rounded-lg"
                 />
               </div>
               <button className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold transition">
@@ -432,17 +432,17 @@ export default function ProfessionalSite() {
             <h2 className="text-3xl font-bold mb-6">💬 Support</h2>
             <div className="space-y-6">
               <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-brand-info mb-2">
+                <h3 className="text-xl font-semibold text-green-600 mb-2">
                   Need Help?
                 </h3>
-                <p className="text-brand-text mb-4">
+                <p className="text-brown-900 mb-4">
                   Our support team is here to assist you Monday-Friday, 9 AM - 5
                   PM EST
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Email:</strong> support@elevateforhumanity.org
                 </p>
-                <p className="text-brand-text">
+                <p className="text-brown-900">
                   <strong>Phone:</strong> (555) 123-4567
                 </p>
               </div>
@@ -452,22 +452,22 @@ export default function ProfessionalSite() {
                 </h3>
                 <form className="space-y-4">
                   <div>
-                    <label className="block mb-2 font-semibold text-brand-text">
+                    <label className="block mb-2 font-semibold text-brown-900">
                       Subject
                     </label>
                     <input
                       type="text"
                       aria-label="text input"
-                      className="w-full p-3 border border-brand-border-dark rounded-lg"
+                      className="w-full p-3 border border-brown-300 rounded-lg"
                     />
                   </div>
                   <div>
-                    <label className="block mb-2 font-semibold text-brand-text">
+                    <label className="block mb-2 font-semibold text-brown-900">
                       Message
                     </label>
                     <textarea
                       rows="5"
-                      className="w-full p-3 border border-brand-border-dark rounded-lg"
+                      className="w-full p-3 border border-brown-300 rounded-lg"
                     />
                   </div>
                   <button className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold transition">
@@ -486,97 +486,97 @@ export default function ProfessionalSite() {
             Government Contract Capabilities
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-brand-surface p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
+            <div className="bg-beige-50 p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Workforce Development Services
               </h3>
-              <p className="text-brand-text-muted mb-4">
+              <p className="text-brown-600 mb-4">
                 Comprehensive training programs for federal workforce
                 development initiatives, WIOA compliance, and skills-based
                 education.
               </p>
               <ul className="space-y-2">
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span>{' '}
                   DOL/DWD/DOE Contract Ready
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
-                  WIOA/FERPA Compliant
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> WIOA/FERPA
+                  Compliant
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span>{' '}
                   Performance-Based Outcomes
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
-                  Veteran Transition Programs
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> Veteran
+                  Transition Programs
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span> Skills
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> Skills
                   Assessment & Certification
                 </li>
               </ul>
             </div>
-            <div className="bg-brand-surface p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
+            <div className="bg-beige-50 p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Educational Services
               </h3>
-              <p className="text-brand-text-muted mb-4">
+              <p className="text-brown-600 mb-4">
                 Professional training and certification programs meeting federal
                 standards for workforce readiness and career advancement.
               </p>
               <ul className="space-y-2">
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span>{' '}
                   Industry-Recognized Certifications
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span> Hybrid
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> Hybrid
                   Learning Delivery
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span>{' '}
                   Accessibility Compliant (Section 508)
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span>{' '}
                   Performance Tracking & Reporting
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
-                  Employer Partnership Programs
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> Employer
+                  Partnership Programs
                 </li>
               </ul>
             </div>
-            <div className="bg-brand-surface p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
+            <div className="bg-beige-50 p-8 rounded-xl border-l-4 border-blue-500 shadow-sm">
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Compliance & Quality Assurance
               </h3>
-              <p className="text-brand-text-muted mb-4">
+              <p className="text-brown-600 mb-4">
                 Full compliance with federal regulations and quality standards
                 for government contracting and service delivery.
               </p>
               <ul className="space-y-2">
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
-                  FedRAMP & FISMA Ready
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> FedRAMP &
+                  FISMA Ready
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span> SOC 2
-                  Type II Certified
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> SOC 2 Type
+                  II Certified
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span> ISO
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> ISO
                   9001:2015 Quality Management
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span> WCAG
-                  2.1 AA Accessibility
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> WCAG 2.1
+                  AA Accessibility
                 </li>
-                <li className="text-brand-text">
-                  <span className="text-brand-success font-bold">✓</span>{' '}
-                  Continuous Compliance Monitoring
+                <li className="text-brown-900">
+                  <span className="text-green-600 font-bold">✓</span> Continuous
+                  Compliance Monitoring
                 </li>
               </ul>
             </div>
@@ -624,7 +624,7 @@ export default function ProfessionalSite() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="bg-brand-surface py-16 px-8">
+      <section id="contact" className="bg-beige-50 py-16 px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1a365d]">
             Contact Our Government Contracting Team
@@ -634,23 +634,23 @@ export default function ProfessionalSite() {
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Government Contracts
               </h3>
-              <div className="text-brand-text-muted space-y-2">
+              <div className="text-brown-600 space-y-2">
                 <p>
-                  <strong className="text-brand-text">Email:</strong>{' '}
+                  <strong className="text-brown-900">Email:</strong>{' '}
                   government@elevateforhumanity.org
                 </p>
                 <p>
-                  <strong className="text-brand-text">Phone:</strong> (555)
+                  <strong className="text-brown-900">Phone:</strong> (555)
                   123-4567
                 </p>
                 <p>
-                  <strong className="text-brand-text">CAGE Code:</strong> 9ABC1
+                  <strong className="text-brown-900">CAGE Code:</strong> 9ABC1
                 </p>
                 <p>
-                  <strong className="text-brand-text">DUNS:</strong> 123456789
+                  <strong className="text-brown-900">DUNS:</strong> 123456789
                 </p>
                 <p>
-                  <strong className="text-brand-text">NAICS:</strong> 611710,
+                  <strong className="text-brown-900">NAICS:</strong> 611710,
                   541611, 541990
                 </p>
               </div>
@@ -659,29 +659,29 @@ export default function ProfessionalSite() {
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Proposal Submissions
               </h3>
-              <div className="text-brand-text-muted space-y-2">
+              <div className="text-brown-600 space-y-2">
                 <p>
-                  <strong className="text-brand-text">RFP Response:</strong>{' '}
+                  <strong className="text-brown-900">RFP Response:</strong>{' '}
                   proposals@elevateforhumanity.org
                 </p>
                 <p>
-                  <strong className="text-brand-text">
+                  <strong className="text-brown-900">
                     Capability Statements:
                   </strong>{' '}
                   Available upon request
                 </p>
                 <p>
-                  <strong className="text-brand-text">Past Performance:</strong>{' '}
+                  <strong className="text-brown-900">Past Performance:</strong>{' '}
                   References available
                 </p>
                 <p>
-                  <strong className="text-brand-text">
+                  <strong className="text-brown-900">
                     Security Clearance:
                   </strong>{' '}
                   Available as needed
                 </p>
                 <p>
-                  <strong className="text-brand-text">Response Time:</strong>{' '}
+                  <strong className="text-brown-900">Response Time:</strong>{' '}
                   24-48 hours
                 </p>
               </div>
@@ -690,31 +690,27 @@ export default function ProfessionalSite() {
               <h3 className="text-xl font-semibold text-[#1a365d] mb-4">
                 Program Management
               </h3>
-              <div className="text-brand-text-muted space-y-2">
+              <div className="text-brown-600 space-y-2">
                 <p>
-                  <strong className="text-brand-text">Program Director:</strong>{' '}
+                  <strong className="text-brown-900">Program Director:</strong>{' '}
                   programs@elevateforhumanity.org
                 </p>
                 <p>
-                  <strong className="text-brand-text">
-                    Quality Assurance:
-                  </strong>{' '}
+                  <strong className="text-brown-900">Quality Assurance:</strong>{' '}
                   qa@elevateforhumanity.org
                 </p>
                 <p>
-                  <strong className="text-brand-text">
+                  <strong className="text-brown-900">
                     Compliance Officer:
                   </strong>{' '}
                   compliance@elevateforhumanity.org
                 </p>
                 <p>
-                  <strong className="text-brand-text">
-                    Emergency Contact:
-                  </strong>{' '}
+                  <strong className="text-brown-900">Emergency Contact:</strong>{' '}
                   (555) 123-4567
                 </p>
                 <p>
-                  <strong className="text-brand-text">Hours:</strong> 24/7
+                  <strong className="text-brown-900">Hours:</strong> 24/7
                   Support Available
                 </p>
               </div>

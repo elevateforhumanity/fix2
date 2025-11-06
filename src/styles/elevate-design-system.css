@@ -1,0 +1,349 @@
+/**
+ * Elevate for Humanity Design System
+ * Extracted from www.elevateforhumanity.org
+ * Matches Next.js + Tailwind CSS v4 implementation
+ */
+
+@layer theme {
+  :root {
+    /* Primary Brand Colors */
+    --color-brown: #4a3728;
+    --color-green: #00a544;
+    --color-beige: #f5f1e8;
+
+    /* Color Scale - Red */
+    --color-red-50: #fef2f2;
+    --color-red-100: #ffe2e2;
+    --color-red-200: #ffcaca;
+    --color-red-400: #ff6568;
+    --color-red-500: #fb2c36;
+    --color-red-600: #e40014;
+    --color-red-700: #bf000f;
+    --color-red-800: #9f0712;
+    --color-red-900: #82181a;
+
+    /* Color Scale - Orange */
+    --color-orange-50: #fff7ed;
+    --color-orange-100: #ffedd5;
+    --color-orange-200: #ffd7a8;
+    --color-orange-300: #ffb96d;
+    --color-orange-400: #ff8b1a;
+    --color-orange-500: #fe6e00;
+    --color-orange-600: #f05100;
+    --color-orange-700: #c53c00;
+    --color-orange-800: #9f2d00;
+    --color-orange-900: #7e2a0c;
+
+    /* Color Scale - Yellow */
+    --color-yellow-50: #fefce8;
+    --color-yellow-100: #fef9c2;
+    --color-yellow-200: #fff085;
+    --color-yellow-300: #ffe02a;
+    --color-yellow-400: #fac800;
+    --color-yellow-500: #edb200;
+    --color-yellow-600: #cd8900;
+    --color-yellow-700: #a36100;
+    --color-yellow-800: #874b00;
+
+    /* Color Scale - Green */
+    --color-green-50: #f0fdf4;
+    --color-green-100: #dcfce7;
+    --color-green-200: #b9f8cf;
+    --color-green-400: #05df72;
+    --color-green-500: #00c758;
+    --color-green-600: #00a544;
+    --color-green-700: #008138;
+    --color-green-800: #016630;
+    --color-green-900: #0d542b;
+
+    /* Color Scale - Blue */
+    --color-blue-50: #eff6ff;
+    --color-blue-100: #dbeafe;
+    --color-blue-200: #bedbff;
+    --color-blue-300: #90c5ff;
+    --color-blue-400: #54a2ff;
+    --color-blue-500: #3080ff;
+    --color-blue-600: #155dfc;
+    --color-blue-700: #1447e6;
+    --color-blue-800: #193cb8;
+    --color-blue-900: #1c398e;
+
+    /* Color Scale - Purple */
+    --color-purple-50: #faf5ff;
+    --color-purple-100: #f3e8ff;
+    --color-purple-200: #e9d5ff;
+    --color-purple-300: #d9b3ff;
+    --color-purple-400: #c07eff;
+    --color-purple-500: #ac4bff;
+    --color-purple-600: #9810fa;
+    --color-purple-700: #8200da;
+    --color-purple-800: #6e11b0;
+    --color-purple-900: #59168b;
+
+    /* Color Scale - Gray */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5dc;
+    --color-gray-400: #99a1af;
+    --color-gray-500: #6a7282;
+    --color-gray-600: #4a5565;
+    --color-gray-700: #364153;
+    --color-gray-800: #1e2939;
+    --color-gray-900: #101828;
+
+    /* Base Colors */
+    --color-black: #000;
+    --color-white: #fff;
+
+    /* Spacing System (0.25rem = 4px base) */
+    --spacing: 0.25rem;
+
+    /* Container Sizes */
+    --container-xs: 20rem;
+    --container-md: 28rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
+    --container-4xl: 56rem;
+    --container-6xl: 72rem;
+    --container-7xl: 80rem;
+
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-Index Scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+  }
+}
+
+@layer components {
+  /* Hero Section */
+  .hero {
+    @apply relative py-20 md:py-32 bg-gradient-to-br from-[var(--color-green-50)] to-white;
+  }
+
+  .hero-content {
+    @apply max-w-4xl mx-auto text-center px-4;
+  }
+
+  .hero-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-brown)] mb-6 leading-tight;
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto;
+  }
+
+  /* Section Styles */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-[var(--color-brown)] mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-8;
+  }
+
+  /* Container */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Program Cards */
+  .program-card {
+    @apply bg-white rounded-xl p-6 md:p-8 shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100;
+  }
+
+  .program-icon {
+    @apply text-5xl mb-4;
+  }
+
+  .program-title {
+    @apply text-2xl font-bold text-[var(--color-brown)] mb-3;
+  }
+
+  .program-funding {
+    @apply inline-block px-4 py-2 bg-[var(--color-beige)] text-[var(--color-brown)] rounded-lg text-sm font-medium;
+  }
+
+  /* Buttons */
+  .button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base
+           bg-[var(--color-green-600)] text-white hover:bg-[var(--color-green-700)] 
+           active:bg-[var(--color-green-800)] transition-all duration-200
+           shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-green-500)] focus:ring-offset-2;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base
+           bg-white text-[var(--color-green-700)] border-2 border-[var(--color-green-600)]
+           hover:bg-[var(--color-green-50)] active:bg-[var(--color-green-100)]
+           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-green-500)] focus:ring-offset-2;
+  }
+
+  .button-white {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base
+           bg-white text-[var(--color-brown)] hover:bg-gray-50 active:bg-gray-100
+           transition-all duration-200 shadow-sm hover:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  .button-outline-white {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base
+           bg-transparent text-white border-2 border-white hover:bg-white/10 active:bg-white/20
+           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  .button-large {
+    @apply px-8 py-4 text-lg;
+  }
+
+  /* Typography Utilities */
+  .body-large {
+    @apply text-lg leading-relaxed;
+  }
+
+  .body-small {
+    @apply text-sm leading-normal;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden;
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl transition-shadow duration-300;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply bg-[var(--color-green-100)] text-[var(--color-green-800)];
+  }
+
+  .badge-warning {
+    @apply bg-[var(--color-yellow-100)] text-[var(--color-yellow-800)];
+  }
+
+  .badge-info {
+    @apply bg-[var(--color-blue-100)] text-[var(--color-blue-800)];
+  }
+
+  /* Form Elements */
+  .input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 
+           focus:border-[var(--color-green-500)] focus:ring-2 focus:ring-[var(--color-green-200)]
+           transition-colors duration-200 outline-none;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  /* Loading States */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  .spinner {
+    @apply animate-spin rounded-full border-4 border-gray-200 border-t-[var(--color-green-600)];
+  }
+}
+
+@layer utilities {
+  /* Background Utilities */
+  .bg-brand-brown {
+    background-color: var(--color-brown);
+  }
+
+  .bg-brand-green {
+    background-color: var(--color-green);
+  }
+
+  .bg-brand-beige {
+    background-color: var(--color-beige);
+  }
+
+  /* Text Color Utilities */
+  .text-brand-brown {
+    color: var(--color-brown);
+  }
+
+  .text-brand-green {
+    color: var(--color-green);
+  }
+
+  /* Border Utilities */
+  .border-brand-brown {
+    border-color: var(--color-brown);
+  }
+
+  .border-brand-green {
+    border-color: var(--color-green);
+  }
+}

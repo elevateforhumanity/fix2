@@ -15,7 +15,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🪒',
-      shortDescription: 'Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure.'
+      shortDescription:
+        'Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure.',
     },
     {
       id: 'building-services',
@@ -27,7 +28,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🔧',
-      shortDescription: 'Learn essential building maintenance and repair skills for commercial and residential properties.'
+      shortDescription:
+        'Learn essential building maintenance and repair skills for commercial and residential properties.',
     },
     {
       id: 'hvac-welding',
@@ -39,7 +41,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🔥',
-      shortDescription: 'Master two in-demand trades with comprehensive training in heating, ventilation, air conditioning, and welding.'
+      shortDescription:
+        'Master two in-demand trades with comprehensive training in heating, ventilation, air conditioning, and welding.',
     },
     {
       id: 'healthcare',
@@ -51,7 +54,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🏥',
-      shortDescription: 'Start your healthcare career with certified nursing assistant and qualified medication aide training.'
+      shortDescription:
+        'Start your healthcare career with certified nursing assistant and qualified medication aide training.',
     },
     {
       id: 'drug-testing',
@@ -63,7 +67,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🧪',
-      shortDescription: 'Launch your own drug testing business with comprehensive training and certification.'
+      shortDescription:
+        'Launch your own drug testing business with comprehensive training and certification.',
     },
     {
       id: 'digital-skills',
@@ -75,7 +80,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '💻',
-      shortDescription: 'Build essential digital skills for today\'s technology-driven workplace.'
+      shortDescription:
+        "Build essential digital skills for today's technology-driven workplace.",
     },
     {
       id: 'leadership',
@@ -87,7 +93,8 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '👔',
-      shortDescription: 'Develop leadership skills and advance your career with professional development training.'
+      shortDescription:
+        'Develop leadership skills and advance your career with professional development training.',
     },
     {
       id: 'peer-recovery',
@@ -99,8 +106,9 @@ async function getPrograms() {
       status: 'active',
       enrollment: 'open',
       icon: '🤝',
-      shortDescription: 'Help others on their recovery journey with certified peer recovery specialist training.'
-    }
+      shortDescription:
+        'Help others on their recovery journey with certified peer recovery specialist training.',
+    },
   ];
 }
 
@@ -146,7 +154,6 @@ export default async function ProgramsPage() {
           </div>
         </div>
       </section>
-
       {/* Programs Grid */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -162,9 +169,7 @@ export default async function ProgramsPage() {
               <p className="text-sm text-gray-600 mb-4">
                 {program.duration} • {program.category}
               </p>
-              <p className="text-gray-700 mb-4">
-                {program.shortDescription}
-              </p>
+              <p className="text-gray-700 mb-4">{program.shortDescription}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {program.funding.map((fund) => (
                   <span
@@ -185,7 +190,6 @@ export default async function ProgramsPage() {
           ))}
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">

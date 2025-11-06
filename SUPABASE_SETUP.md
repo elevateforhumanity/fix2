@@ -11,6 +11,7 @@
 ## 2. Set Storage Policies
 
 ### Allow Public Read
+
 ```sql
 CREATE POLICY "Public read access"
 ON storage.objects FOR SELECT
@@ -18,6 +19,7 @@ USING (bucket_id = 'cms');
 ```
 
 ### Allow Authenticated Write
+
 ```sql
 CREATE POLICY "Authenticated write access"
 ON storage.objects FOR INSERT

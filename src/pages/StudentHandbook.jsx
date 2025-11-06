@@ -242,7 +242,7 @@ export default function StudentHandbook() {
           style={{
             width: 280,
             padding: 32,
-            borderRight: '1px solid var(--brand-border)',
+            borderRight: '1px solid '#d4c9b8'',
             position: 'sticky',
             top: 0,
             height: '100vh',
@@ -264,7 +264,7 @@ export default function StudentHandbook() {
                   backgroundColor:
                     activeSection === section.id ? '#f0f7ff' : 'transparent',
                   color:
-                    activeSection === section.id ? 'var(--brand-info)' : '#333',
+                    activeSection === section.id ? ''#00a544'' : '#333',
                   border: 'none',
                   borderRadius: 6,
                   fontSize: 14,
@@ -297,7 +297,7 @@ export default function StudentHandbook() {
             style={{
               marginTop: 32,
               paddingTop: 24,
-              borderTop: '1px solid var(--brand-border)',
+              borderTop: '1px solid '#d4c9b8'',
             }}
           >
             <h3
@@ -305,7 +305,7 @@ export default function StudentHandbook() {
                 fontSize: 14,
                 fontWeight: 600,
                 marginBottom: 16,
-                color: 'var(--brand-text-muted)',
+                color: ''#6b5d52'',
               }}
             >
               Quick Links
@@ -315,7 +315,7 @@ export default function StudentHandbook() {
                 to="/support"
                 style={{
                   fontSize: 14,
-                  color: 'var(--brand-info)',
+                  color: ''#00a544'',
                   textDecoration: 'none',
                 }}
               >
@@ -325,7 +325,7 @@ export default function StudentHandbook() {
                 to="/courses"
                 style={{
                   fontSize: 14,
-                  color: 'var(--brand-info)',
+                  color: ''#00a544'',
                   textDecoration: 'none',
                 }}
               >
@@ -335,7 +335,7 @@ export default function StudentHandbook() {
                 to="/certificates"
                 style={{
                   fontSize: 14,
-                  color: 'var(--brand-info)',
+                  color: ''#00a544'',
                   textDecoration: 'none',
                 }}
               >
@@ -374,7 +374,7 @@ export default function StudentHandbook() {
                     style={{
                       fontSize: 16,
                       lineHeight: 1.7,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                     }}
                   >
                     {section.content}
@@ -398,7 +398,7 @@ export default function StudentHandbook() {
               <p
                 style={{
                   fontSize: 14,
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   marginBottom: 16,
                 }}
               >
@@ -409,7 +409,7 @@ export default function StudentHandbook() {
                 style={{
                   display: 'inline-block',
                   padding: '10px 24px',
-                  backgroundColor: 'var(--brand-info)',
+                  backgroundColor: ''#00a544'',
                   color: '#fff',
                   borderRadius: 6,
                   fontSize: 14,
@@ -425,7 +425,7 @@ export default function StudentHandbook() {
               style={{
                 marginTop: 24,
                 padding: 20,
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 borderRadius: 8,
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -436,7 +436,7 @@ export default function StudentHandbook() {
                 <h4 style={{ fontSize: 16, fontWeight: 600, marginBottom: 4 }}>
                   Download PDF Version
                 </h4>
-                <p style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}>
+                <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
                   Take the handbook with you for offline reference
                 </p>
               </div>
@@ -446,8 +446,8 @@ export default function StudentHandbook() {
                 style={{
                   padding: '10px 20px',
                   backgroundColor: '#fff',
-                  color: 'var(--brand-info)',
-                  border: '1px solid var(--brand-info)',
+                  color: ''#00a544'',
+                  border: '1px solid '#00a544'',
                   borderRadius: 6,
                   fontSize: 14,
                   fontWeight: 600,

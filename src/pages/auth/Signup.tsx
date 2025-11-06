@@ -1,140 +1,93 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import Navigation from '../../components/Navigation';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
 
 export default function Signup() {
-  // const _navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-
-    if (password !== confirmPassword) {
-      setError("Passwords don't match");
-      return;
-    }
-
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      await signUp(email, password);
-      setSuccess(true);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  if (success) {
-    return (
-      <section className="section">
-        <div className="container max-w-md mx-auto">
-          <div className="card p-6 text-center">
-            <div className="text-4xl mb-4">✅</div>
-            <h2 className="text-2xl font-semibold">Check Your Email</h2>
-            <p className="mt-2 text-brand-text-muted">
-              We sent a confirmation link to <strong>{email}</strong>
-            </p>
-            <p className="mt-2 text-sm text-brand-text-light">
-              Click the link to verify your account and start learning.
-            </p>
-            <Link to="/auth/login" className="btn mt-4">
-              Go to Login
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
-  }
+    console.log('Signup:', formData);
+  };
 
   return (
-    <section className="section">
-      <div className="container max-w-md mx-auto">
-        <div className="card p-6">
-          <h1 className="text-2xl font-bold text-center">
-            Join Elevate for Humanity
-          </h1>
-          <p className="mt-2 text-center text-brand-text-muted">
-            Create your free account and start learning today
-          </p>
-          {error && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-              {error}
-            </div>
-          )}
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+    <div>
+      <Helmet>
+        <title>Sign Up | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+      <Section background="white">
+        <div className="mx-auto max-w-md">
+          <h1 className="section-title text-center">Create Account</h1>
+          <form onSubmit={handleSubmit} className="space-y-6 mt-8">
             <div>
-              <label className="block text-sm font-medium mb-1">
-                Email Address
+              <label htmlFor="name" className="label">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                required
+                className="input"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="label">
+                Email
               </label>
               <input
                 type="email"
-                aria-label="email input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
-                placeholder="you@example.com"
+                id="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
+                className="input"
               />
-              <p className="mt-1 text-xs text-brand-text-light">
-                We'll send you a confirmation email
-              </p>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Password</label>
-              <input
-                type="password"
-                aria-label="password input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
-                minLength={6}
-                required
-              />
-              <p className="mt-1 text-xs text-brand-text-light">
-                At least 6 characters
-              </p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">
-                Confirm Password
+              <label htmlFor="password" className="label">
+                Password
               </label>
               <input
                 type="password"
-                aria-label="password input"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+                id="password"
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 required
+                className="input"
               />
             </div>
-            <button type="submit" className="btn w-full" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create Account'}
+            <button type="submit" className="button w-full">
+              Create Account
             </button>
           </form>
-          <div className="mt-4 text-center text-sm text-brand-text-muted">
+          <p className="mt-6 text-center text-sm">
             Already have an account?{' '}
             <Link
               to="/auth/login"
-              className="text-brand-600 hover:text-brand-700"
+              className="text-[var(--color-green-600)] hover:underline"
             >
-              Sign in
+              Login
             </Link>
-          </div>
+          </p>
         </div>
-      </div>
-    </section>
+      </Section>
+      <Footer />
+    </div>
   );
 }

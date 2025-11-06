@@ -34,7 +34,7 @@ export default function ForgotPassword() {
         <p
           style={{
             fontSize: 14,
-            color: 'var(--brand-text-muted)',
+            color: ''#6b5d52'',
             marginBottom: 24,
           }}
         >
@@ -50,7 +50,7 @@ export default function ForgotPassword() {
           style={{
             width: '100%',
             padding: '12px 14px',
-            border: '1px solid var(--brand-border)',
+            border: '1px solid '#d4c9b8'',
             borderRadius: 6,
             fontSize: 14,
             marginBottom: 16,
@@ -60,7 +60,7 @@ export default function ForgotPassword() {
           style={{
             width: '100%',
             padding: '12px 24px',
-            backgroundColor: 'var(--brand-info)',
+            backgroundColor: ''#00a544'',
             color: '#fff',
             border: 'none',
             borderRadius: 6,
@@ -77,7 +77,7 @@ export default function ForgotPassword() {
           style={{
             display: 'block',
             textAlign: 'center',
-            color: 'var(--brand-info)',
+            color: ''#00a544'',
             textDecoration: 'none',
             fontSize: 14,
           }}

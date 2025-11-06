@@ -35,7 +35,7 @@ export default function VerifyEmail() {
         <p
           style={{
             fontSize: 16,
-            color: 'var(--brand-text-muted)',
+            color: ''#6b5d52'',
             marginBottom: 24,
           }}
         >
@@ -47,7 +47,7 @@ export default function VerifyEmail() {
           style={{
             display: 'inline-block',
             padding: '12px 24px',
-            backgroundColor: 'var(--brand-info)',
+            backgroundColor: ''#00a544'',
             color: '#fff',
             borderRadius: 6,
             fontSize: 14,

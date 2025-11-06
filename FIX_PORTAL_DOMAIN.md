@@ -3,12 +3,14 @@
 ## Current Issue
 
 The Netlify site is deployed to:
+
 - ✅ **Current:** https://elevateforhumanity.org
 - ❌ **Should be:** https://portal.elevateforhumanity.org
 
 ## Why This Matters
 
 According to the architecture:
+
 - **elevateforhumanity.org** → Durable.co landing page (simple marketing site)
 - **portal.elevateforhumanity.org** → Netlify React app (full application)
 
@@ -22,6 +24,7 @@ According to the architecture:
 ### Step 2: Remove Current Domain (Optional)
 
 If `elevateforhumanity.org` should NOT be on Netlify:
+
 1. Click the three dots next to `elevateforhumanity.org`
 2. Select "Remove domain"
 3. Confirm removal
@@ -38,6 +41,7 @@ If `elevateforhumanity.org` should NOT be on Netlify:
 In your DNS provider (where elevateforhumanity.org is registered):
 
 **Add CNAME Record:**
+
 ```
 Type: CNAME
 Name: portal
@@ -46,6 +50,7 @@ TTL: 3600
 ```
 
 **Or use the Netlify subdomain:**
+
 ```
 Type: CNAME
 Name: portal
@@ -68,6 +73,7 @@ TTL: 3600
 ### Step 7: Verify Deployment
 
 Test the site:
+
 ```bash
 curl -I https://portal.elevateforhumanity.org/
 ```
@@ -130,6 +136,7 @@ elevateforhumanity.org
 ## After Configuration
 
 Once portal.elevateforhumanity.org is live:
+
 1. Update canonical URLs in the app
 2. Update sitemap.xml
 3. Update Google Search Console

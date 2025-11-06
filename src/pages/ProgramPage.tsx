@@ -47,7 +47,7 @@ export default function ProgramPage() {
             <h2 className="text-2xl font-bold text-red-600">
               Program Not Found
             </h2>
-            <p className="mt-2 text-brand-text-muted">{error}</p>
+            <p className="mt-2 text-brown-600">{error}</p>
             <div className="mt-6 flex gap-3 justify-center">
               <Link to="/programs" className="btn">
                 Browse All Programs
@@ -70,9 +70,7 @@ export default function ProgramPage() {
               <div className="h-4 bg-slate-200 rounded w-1/2 mx-auto mb-2" />
               <div className="h-4 bg-slate-200 rounded w-2/3 mx-auto" />
             </div>
-            <p className="mt-4 text-brand-text-muted">
-              Loading program details...
-            </p>
+            <p className="mt-4 text-brown-600">Loading program details...</p>
           </div>
         </div>
       </div>
@@ -87,7 +85,7 @@ export default function ProgramPage() {
               {program.title}
             </h1>
             {program.blurb && (
-              <p className="mt-3 text-brand-text-muted">{program.blurb}</p>
+              <p className="mt-3 text-brown-600">{program.blurb}</p>
             )}
             <div className="mt-5 flex flex-wrap gap-3">
               <a
@@ -102,7 +100,7 @@ export default function ProgramPage() {
                 Have Questions?
               </a>
             </div>
-            <ul className="mt-6 text-sm text-brand-text-muted">
+            <ul className="mt-6 text-sm text-brown-600">
               {program.hours && <li>⏱️ Duration: {program.hours}</li>}
               <li>📚 Track: {program.track}</li>
             </ul>
@@ -116,11 +114,11 @@ export default function ProgramPage() {
           </div>
         </div>
       </section>
-      <section className="section bg-brand-surface">
+      <section className="section bg-beige-50">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="text-3xl font-bold">What You'll Learn</h2>
-            <p className="mt-2 text-brand-text-muted">
+            <p className="mt-2 text-brown-600">
               This program includes {courses.length} course
               {courses.length !== 1 ? 's' : ''} designed to get you job-ready
             </p>
@@ -132,16 +130,16 @@ export default function ProgramPage() {
                 to={`/lms/course/${c.id}`}
                 className="card p-6 hover:shadow-lg transition-all hover:-translate-y-1"
               >
-                <div className="text-xs font-semibold text-brand-600 uppercase tracking-wide">
+                <div className="text-xs font-semibold text-green-600 uppercase tracking-wide">
                   {c.code}
                 </div>
                 <div className="mt-2 text-xl font-bold">{c.title}</div>
                 {c.summary && (
-                  <p className="mt-3 text-sm text-brand-text-muted leading-relaxed">
+                  <p className="mt-3 text-sm text-brown-600 leading-relaxed">
                     {c.summary}
                   </p>
                 )}
-                <div className="mt-4 text-brand-600 text-sm font-medium">
+                <div className="mt-4 text-green-600 text-sm font-medium">
                   Start Learning →
                 </div>
               </Link>
@@ -149,10 +147,10 @@ export default function ProgramPage() {
             {courses.length === 0 && (
               <div className="col-span-full text-center py-12">
                 <div className="text-4xl mb-4">📚</div>
-                <p className="text-brand-text-muted">
+                <p className="text-brown-600">
                   Courses are being added to this program.
                 </p>
-                <p className="mt-2 text-sm text-brand-text-light">
+                <p className="mt-2 text-sm text-brown-500">
                   Check back soon or contact us for more information.
                 </p>
               </div>

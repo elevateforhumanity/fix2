@@ -41,13 +41,13 @@ export default function HomePage() {
         </div>
       </section>
       {/* Programs Preview */}
-      <section className="py-16 bg-brand-surface">
+      <section className="py-16 bg-beige-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-brand-text mb-4">
+            <h2 className="text-4xl font-bold text-brown-900 mb-4">
               Popular Programs
             </h2>
-            <p className="text-xl text-brand-text-muted">
+            <p className="text-xl text-brown-600">
               Choose from our WIOA approved programs
             </p>
           </div>
@@ -61,21 +61,19 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-brand-text-muted mb-4">
+                <p className="text-brown-600 mb-4">
                   Learn to protect digital assets and networks from cyber
                   threats.
                 </p>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-brand-text-light">
-                    12-16 weeks
-                  </span>
-                  <span className="bg-brand-surface text-brand-success px-3 py-1 rounded-full text-sm">
+                  <span className="text-sm text-brown-500">12-16 weeks</span>
+                  <span className="bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm">
                     $65K+ avg
                   </span>
                 </div>
                 <Link
                   to="/programs/cybersecurity"
-                  className="block w-full bg-brand-info text-white text-center py-3 rounded-lg hover:bg-brand-info-hover transition-colors"
+                  className="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -90,20 +88,18 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-brand-text-muted mb-4">
+                <p className="text-brown-600 mb-4">
                   Master AWS, Azure, and Google Cloud platforms.
                 </p>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-brand-text-light">
-                    10-14 weeks
-                  </span>
-                  <span className="bg-brand-surface text-brand-success px-3 py-1 rounded-full text-sm">
+                  <span className="text-sm text-brown-500">10-14 weeks</span>
+                  <span className="bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm">
                     $70K+ avg
                   </span>
                 </div>
                 <Link
                   to="/programs/cloud-computing"
-                  className="block w-full bg-brand-info text-white text-center py-3 rounded-lg hover:bg-brand-info-hover transition-colors"
+                  className="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -118,20 +114,18 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-brand-text-muted mb-4">
+                <p className="text-brown-600 mb-4">
                   CNA and Home Health Aide certification programs.
                 </p>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-brand-text-light">
-                    6-8 weeks
-                  </span>
-                  <span className="bg-brand-surface text-brand-success px-3 py-1 rounded-full text-sm">
+                  <span className="text-sm text-brown-500">6-8 weeks</span>
+                  <span className="bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm">
                     $35K+ avg
                   </span>
                 </div>
                 <Link
                   to="/programs/healthcare"
-                  className="block w-full bg-brand-info text-white text-center py-3 rounded-lg hover:bg-brand-info-hover transition-colors"
+                  className="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -141,7 +135,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               to="/programs"
-              className="inline-block bg-brand-info text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-brand-info-hover transition-colors"
+              className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors"
             >
               View All Programs
             </Link>
@@ -152,7 +146,7 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-brand-text mb-4">
+            <h2 className="text-4xl font-bold text-brown-900 mb-4">
               Why Choose Elevate?
             </h2>
           </div>
@@ -160,14 +154,14 @@ export default function HomePage() {
             <div className="text-center">
               <div className="text-5xl mb-4">✅</div>
               <h3 className="text-xl font-bold mb-2">WIOA Approved</h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 Federally approved programs with funding available
               </p>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-4">💼</div>
               <h3 className="text-xl font-bold mb-2">Job Placement</h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 Career support and job placement assistance
               </p>
             </div>
@@ -176,7 +170,7 @@ export default function HomePage() {
               <h3 className="text-xl font-bold mb-2">
                 Industry Certifications
               </h3>
-              <p className="text-brand-text-muted">
+              <p className="text-brown-600">
                 Earn recognized credentials from top providers
               </p>
             </div>

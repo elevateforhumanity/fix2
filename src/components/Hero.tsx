@@ -1,40 +1,72 @@
-export default function Hero() {
+/**
+ * Hero Component
+ * Matches elevateforhumanity.org hero section exactly
+ * Extracted from: https://www.elevateforhumanity.org
+ */
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  badges?: Array<{
+    icon: string;
+    text: string;
+  }>;
+  primaryButton?: {
+    text: string;
+    href: string;
+  };
+  secondaryButton?: {
+    text: string;
+    href: string;
+  };
+  className?: string;
+}
+
+export default function Hero({
+  title,
+  subtitle,
+  badges = [],
+  primaryButton,
+  secondaryButton,
+  className = '',
+}: HeroProps) {
   return (
-    <section className="relative bg-gradient-to-b from-slate-50 to-white py-20 md:py-28">
+    <section className={`hero ${className}`}>
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-semibold mb-6">
-              <span>🎓</span>
-              <span>100% FREE Training • Marion County</span>
+        <div className="hero-content">
+          <h1 className="hero-title">{title}</h1>
+          <p className="hero-subtitle">{subtitle}</p>
+
+          {badges.length > 0 && (
+            <div className="flex flex-wrap gap-6 justify-center mb-8">
+              {badges.map((badge, index) => (
+                <span
+                  key={index}
+                  className="px-4 py-2 rounded bg-[var(--color-beige)] text-[var(--color-brown)] font-medium"
+                >
+                  {badge.icon} {badge.text}
+                </span>
+              ))}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight mb-6">
-              Ignite Your Future:{' '}
-              <span className="text-brand-600">Fund Training Today</span>
-            </h1>
-            <p className="text-xl text-brand-text-muted leading-relaxed mb-8">
-              Empower Dreams: Support Skills Development and Transform Lives at
-              Elevate for Humanity. Invest in Growth, Today! Marion County.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="/programs" className="btn">
-                Explore Programs
-              </a>
-              <a href="/apply" className="btn-outline">
-                Apply Now
-              </a>
+          )}
+
+          {(primaryButton || secondaryButton) && (
+            <div className="flex flex-wrap gap-6 justify-center">
+              {primaryButton && (
+                <Link to={primaryButton.href} className="button">
+                  {primaryButton.text}
+                </Link>
+              )}
+              {secondaryButton && (
+                <Link to={secondaryButton.href} className="button-secondary">
+                  {secondaryButton.text}
+                </Link>
+              )}
             </div>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="card p-2">
-            <img
-              src="/hero/efh-hero.jpg"
-              alt="Students at Elevate for Humanity"
-              className="h-[320px] w-full rounded-2xl object-cover"
-              srcSet="/hero/efh-hero@1x.jpg 1x, /hero/efh-hero@2x.jpg 2x, /hero/efh-hero@3x.jpg 3x"
-            />
-          </div>
+          )}
         </div>
       </div>
     </section>

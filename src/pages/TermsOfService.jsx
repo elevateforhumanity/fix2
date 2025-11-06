@@ -17,7 +17,7 @@ export default function TermsOfService() {
         <p
           style={{
             fontSize: 14,
-            color: 'var(--brand-text-muted)',
+            color: ''#6b5d52'',
             marginBottom: 32,
           }}
         >
@@ -153,7 +153,7 @@ export default function TermsOfService() {
             </h2>
             <p>
               Please refer to our{' '}
-              <Link to="/refund-policy" style={{ color: 'var(--brand-info)' }}>
+              <Link to="/refund-policy" style={{ color: ''#00a544'' }}>
                 Refund Policy
               </Link>{' '}
               for information about refunds and cancellations.
@@ -245,7 +245,7 @@ export default function TermsOfService() {
           style={{
             marginTop: 48,
             paddingTop: 32,
-            borderTop: '1px solid var(--brand-border)',
+            borderTop: '1px solid '#d4c9b8'',
             display: 'flex',
             gap: 24,
             justifyContent: 'center',
@@ -254,7 +254,7 @@ export default function TermsOfService() {
           <Link
             to="/privacy-policy"
             style={{
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,
@@ -265,7 +265,7 @@ export default function TermsOfService() {
           <Link
             to="/refund-policy"
             style={{
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,
@@ -276,7 +276,7 @@ export default function TermsOfService() {
           <Link
             to="/support"
             style={{
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,

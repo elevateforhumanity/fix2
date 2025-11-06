@@ -54,12 +54,14 @@ Click **"New repository secret"** for each:
 ### Step 3: Trigger Deployment
 
 **Option A: Push a commit**
+
 ```bash
 git commit --allow-empty -m "trigger: Enable GitHub Actions deployment"
 git push origin main
 ```
 
 **Option B: Manual trigger**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/actions
 2. Click "Deploy to Netlify" workflow
 3. Click "Run workflow"
@@ -69,6 +71,7 @@ git push origin main
 ### Step 4: Monitor
 
 Watch the deployment:
+
 - **GitHub Actions:** https://github.com/elevateforhumanity/fix2/actions
 - **Netlify:** https://app.netlify.com/sites/elevateforhumanityfix/deploys
 
@@ -96,8 +99,9 @@ If you don't want to use GitHub Actions, use Netlify's built-in GitHub integrati
 
 4. **Environment Variables**
    https://app.netlify.com/sites/elevateforhumanityfix/settings/env
-   
+
    Add:
+
    ```
    VITE_API_URL=https://api.elevateforhumanity.org
    VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -116,6 +120,7 @@ If you don't want to use GitHub Actions, use Netlify's built-in GitHub integrati
 If deployment still doesn't work:
 
 ### Check GitHub Actions:
+
 - [ ] Actions enabled in repo settings
 - [ ] Workflow file exists (`.github/workflows/deploy-to-netlify.yml`)
 - [ ] All 4 required secrets added
@@ -123,12 +128,14 @@ If deployment still doesn't work:
 - [ ] No errors in workflow logs
 
 ### Check Netlify:
+
 - [ ] Site exists (elevateforhumanityfix)
 - [ ] Auth token is valid
 - [ ] Site ID is correct
 - [ ] Environment variables set (if using Netlify integration)
 
 ### Check Build:
+
 - [ ] `pnpm install` works locally
 - [ ] `pnpm build` works locally
 - [ ] `dist/` directory created
@@ -142,10 +149,12 @@ If deployment still doesn't work:
 **File:** `.github/workflows/deploy-to-netlify.yml`
 
 **Triggers:**
+
 - Push to `main` branch
 - Manual dispatch
 
 **Steps:**
+
 1. Checkout code
 2. Setup Node.js 20.11.1
 3. Setup pnpm 9.7.0
@@ -154,6 +163,7 @@ If deployment still doesn't work:
 6. Deploy to Netlify
 
 **Required Secrets:**
+
 - `NETLIFY_AUTH_TOKEN`
 - `NETLIFY_SITE_ID`
 - `VITE_SUPABASE_URL`
@@ -180,21 +190,25 @@ After enabling:
 ## Troubleshooting
 
 ### "Workflow not found"
+
 - Check if Actions are enabled
 - Refresh the Actions page
 - Push a new commit to trigger
 
 ### "Secret not found"
+
 - Verify secret names match exactly
 - Check for typos
 - Re-add the secret
 
 ### "Build failed"
+
 - Check workflow logs for errors
 - Verify dependencies install
 - Test build locally first
 
 ### "Deploy failed"
+
 - Verify Netlify token is valid
 - Check Site ID is correct
 - Ensure Netlify site exists
@@ -215,4 +229,4 @@ After enabling:
 
 **Choose one approach and your deploys will be active!** 🚀
 
-*Generated: $(date -Is)*
+_Generated: $(date -Is)_

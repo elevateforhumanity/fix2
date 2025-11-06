@@ -126,14 +126,14 @@ export default function QuizTake() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading quiz...</p>
+            <p className="mt-4 text-brown-600">Loading quiz...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
             <p className="text-red-800">{error}</p>
             <button
               onClick={() => window.history.back()}
-              className="mt-4 px-4 py-2 bg-brand-danger text-white rounded hover:bg-brand-danger-hover"
+              className="mt-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-600-hover"
             >
               Go Back
             </button>
@@ -148,9 +148,9 @@ export default function QuizTake() {
                 </span>
                 <span className="text-sm font-medium">{progress}%</span>
               </div>
-              <div className="w-full bg-brand-border rounded-full h-2">
+              <div className="w-full bg-brown-200 rounded-full h-2">
                 <div
-                  className="bg-brand-info h-2 rounded-full transition-all duration-300"
+                  className="bg-green-600 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -167,7 +167,7 @@ export default function QuizTake() {
                     className={`block p-4 border-2 rounded-lg cursor-pointer transition ${
                       answers[questions[currentQuestion].id] === option
                         ? 'border-blue-600 bg-blue-50'
-                        : 'border-brand-border-dark hover:border-blue-400'
+                        : 'border-brown-300 hover:border-blue-400'
                     }`}
                   >
                     <input
@@ -208,7 +208,7 @@ export default function QuizTake() {
                       Math.min(questions.length - 1, prev + 1)
                     )
                   }
-                  className="px-6 py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover transition"
+                  className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
                 >
                   Next
                 </button>
@@ -218,15 +218,15 @@ export default function QuizTake() {
                   disabled={
                     submitting || Object.keys(answers).length < questions.length
                   }
-                  className="px-8 py-3 bg-brand-success text-white rounded-lg hover:bg-brand-success-hover disabled:opacity-50 disabled:cursor-not-allowed transition font-bold"
+                  className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition font-bold"
                 >
                   {submitting ? 'Submitting...' : 'Submit Quiz'}
                 </button>
               )}
             </div>
             {/* Answer Status */}
-            <div className="bg-brand-surface rounded-lg p-4">
-              <p className="text-sm text-brand-text-muted">
+            <div className="bg-beige-50 rounded-lg p-4">
+              <p className="text-sm text-brown-600">
                 Answered: {Object.keys(answers).length} / {questions.length}
               </p>
               {Object.keys(answers).length < questions.length && (
@@ -238,9 +238,7 @@ export default function QuizTake() {
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-brand-text-muted">
-              No quiz available for this lesson
-            </p>
+            <p className="text-brown-600">No quiz available for this lesson</p>
           </div>
         )}
       </div>

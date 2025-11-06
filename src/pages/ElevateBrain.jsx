@@ -43,7 +43,7 @@ export function ElevateBrain() {
           alignItems: 'center',
           justifyContent: 'center',
           background:
-            'linear-gradient(135deg, var(--brand-text) 0%, var(--brand-text) 100%)',
+            'linear-gradient(135deg, '#4a3728' 0%, '#4a3728' 100%)',
         }}
       >
         <div
@@ -67,7 +67,7 @@ export function ElevateBrain() {
             >
               Elevate Brain
             </h1>
-            <p style={{ color: 'var(--brand-text-muted)' }}>
+            <p style={{ color: ''#6b5d52'' }}>
               Internal Operations Hub
             </p>
           </div>
@@ -91,7 +91,7 @@ export function ElevateBrain() {
                 style={{
                   width: '100%',
                   padding: '0.75rem',
-                  border: '1px solid var(--brand-border-dark)',
+                  border: '1px solid '#c4b5a0'',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -102,7 +102,7 @@ export function ElevateBrain() {
               style={{
                 width: '100%',
                 padding: '0.75rem',
-                backgroundColor: 'var(--brand-text)',
+                backgroundColor: ''#4a3728'',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.375rem',
@@ -118,7 +118,7 @@ export function ElevateBrain() {
             style={{
               marginTop: '1.5rem',
               fontSize: '0.875rem',
-              color: 'var(--brand-text-muted)',
+              color: ''#6b5d52'',
               textAlign: 'center',
             }}
           >
@@ -131,15 +131,15 @@ export function ElevateBrain() {
 
   return (
     <div
-      style={{ minHeight: '100vh', backgroundColor: 'var(--brand-surface)' }}
+      style={{ minHeight: '100vh', backgroundColor: ''#f5f1e8'' }}
     >
       {/* Header */}
       <div
         style={{
-          backgroundColor: 'var(--brand-text)',
+          backgroundColor: ''#4a3728'',
           color: '#fff',
           padding: '1rem 2rem',
-          borderBottom: '3px solid var(--brand-info)',
+          borderBottom: '3px solid '#00a544'',
         }}
       >
         <div
@@ -161,7 +161,7 @@ export function ElevateBrain() {
             onClick={() => setIsAuthenticated(false)}
             style={{
               padding: '0.5rem 1rem',
-              backgroundColor: 'var(--brand-danger)',
+              backgroundColor: ''#dc2626'',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -188,25 +188,25 @@ export function ElevateBrain() {
               title: 'Total Users',
               value: '1,247',
               icon: '👥',
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
             },
             {
               title: 'Active Programs',
               value: '15',
               icon: '📚',
-              color: 'var(--brand-success)',
+              color: ''#00a544'',
             },
             {
               title: 'Revenue (MTD)',
               value: '$45,230',
               icon: '💰',
-              color: 'var(--brand-warning)',
+              color: ''#ca8a04'',
             },
             {
               title: 'Completion Rate',
               value: '87%',
               icon: '📊',
-              color: 'var(--brand-secondary)',
+              color: ''#4a3728'',
             },
           ].map((stat, i) => (
             <div
@@ -228,7 +228,7 @@ export function ElevateBrain() {
                 <div>
                   <p
                     style={{
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       fontSize: '0.875rem',
                       marginBottom: '0.5rem',
                     }}
@@ -280,8 +280,8 @@ export function ElevateBrain() {
               to="/elevate-brain/admin-dashboard"
               style={{
                 padding: '1rem',
-                backgroundColor: 'var(--brand-surface)',
-                color: 'var(--brand-info)',
+                backgroundColor: ''#f5f1e8'',
+                color: ''#00a544'',
                 borderRadius: '0.375rem',
                 textDecoration: 'none',
                 fontWeight: '600',
@@ -295,7 +295,7 @@ export function ElevateBrain() {
               style={{
                 padding: '1rem',
                 backgroundColor: '#f0fdf4',
-                color: 'var(--brand-success)',
+                color: ''#00a544'',
                 borderRadius: '0.375rem',
                 textDecoration: 'none',
                 fontWeight: '600',
@@ -309,7 +309,7 @@ export function ElevateBrain() {
               style={{
                 padding: '1rem',
                 backgroundColor: '#fef3c7',
-                color: 'var(--brand-warning)',
+                color: ''#ca8a04'',
                 borderRadius: '0.375rem',
                 textDecoration: 'none',
                 fontWeight: '600',
@@ -323,7 +323,7 @@ export function ElevateBrain() {
               style={{
                 padding: '1rem',
                 backgroundColor: '#f3e8ff',
-                color: 'var(--brand-secondary)',
+                color: ''#4a3728'',
                 borderRadius: '0.375rem',
                 textDecoration: 'none',
                 fontWeight: '600',
@@ -380,7 +380,7 @@ export function ElevateBrain() {
                   key={i}
                   style={{
                     padding: '1rem',
-                    backgroundColor: 'var(--brand-surface)',
+                    backgroundColor: ''#f5f1e8'',
                     borderRadius: '0.375rem',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -400,7 +400,7 @@ export function ElevateBrain() {
                   <span
                     style={{
                       fontSize: '0.875rem',
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                     }}
                   >
                     {activity.time}
@@ -433,22 +433,22 @@ export function ElevateBrain() {
                 {
                   name: 'API Server',
                   status: 'Operational',
-                  color: 'var(--brand-success)',
+                  color: ''#00a544'',
                 },
                 {
                   name: 'Database',
                   status: 'Operational',
-                  color: 'var(--brand-success)',
+                  color: ''#00a544'',
                 },
                 {
                   name: 'File Storage',
                   status: 'Operational',
-                  color: 'var(--brand-success)',
+                  color: ''#00a544'',
                 },
                 {
                   name: 'Email Service',
                   status: 'Operational',
-                  color: 'var(--brand-success)',
+                  color: ''#00a544'',
                 },
               ].map((service, i) => (
                 <div
@@ -458,7 +458,7 @@ export function ElevateBrain() {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     padding: '0.75rem',
-                    backgroundColor: 'var(--brand-surface)',
+                    backgroundColor: ''#f5f1e8'',
                     borderRadius: '0.375rem',
                   }}
                 >
@@ -484,7 +484,7 @@ export function ElevateBrain() {
       {/* Footer */}
       <div
         style={{
-          backgroundColor: 'var(--brand-text)',
+          backgroundColor: ''#4a3728'',
           color: '#fff',
           padding: '2rem',
           textAlign: 'center',
@@ -494,7 +494,7 @@ export function ElevateBrain() {
         <p style={{ marginBottom: '0.5rem' }}>
           🔒 Elevate Brain - Internal Operations Hub
         </p>
-        <p style={{ fontSize: '0.875rem', color: 'var(--brand-text-light)' }}>
+        <p style={{ fontSize: '0.875rem', color: ''#8b7d6f'' }}>
           Authorized Personnel Only | © 2025 Elevate for Humanity
         </p>
       </div>

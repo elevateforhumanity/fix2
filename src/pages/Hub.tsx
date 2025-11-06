@@ -92,11 +92,11 @@ export default function Hub() {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-text mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-brown-900 mb-6">
               Elevate Learn2Earn Workforce
-              <span className="text-brand-info block">Ecosystem</span>
+              <span className="text-green-600 block">Ecosystem</span>
             </h1>
-            <p className="text-xl text-brand-text-muted mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brown-600 mb-8 max-w-3xl mx-auto">
               Complete federal compliance platform enabling access to
               multi-million dollar Elevate Learn2Earn Workforce contracts across
               all 50 states and territories.
@@ -104,13 +104,13 @@ export default function Hub() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/compliance"
-                className="bg-brand-info text-white px-8 py-3 rounded-lg hover:bg-brand-info-hover transition-colors"
+                className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors"
               >
                 Federal Compliance Portal
               </Link>
               <Link
                 to="/programs"
-                className="bg-white text-brand-info border-2 border-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
+                className="bg-white text-green-600 border-2 border-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
               >
                 Explore Programs
               </Link>
@@ -119,7 +119,7 @@ export default function Hub() {
         </div>
       </div>
       {/* Stats Section */}
-      <div className="bg-brand-info text-white py-12">
+      <div className="bg-green-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -144,10 +144,10 @@ export default function Hub() {
       {/* Sister Sites Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-brand-text mb-4">
+          <h2 className="text-3xl font-bold text-brown-900 mb-4">
             Multi-Site Ecosystem
           </h2>
-          <p className="text-xl text-brand-text-muted">
+          <p className="text-xl text-brown-600">
             Seamlessly integrated platforms working together for comprehensive
             Elevate Learn2Earn Workforce
           </p>
@@ -163,27 +163,25 @@ export default function Hub() {
                     <site.icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-brand-text">
+                    <h3 className="text-xl font-bold text-brown-900">
                       {site.name}
                     </h3>
-                    <p className="text-brand-text-muted text-sm">
-                      {site.stats}
-                    </p>
+                    <p className="text-brown-600 text-sm">{site.stats}</p>
                   </div>
                 </div>
-                <p className="text-brand-text-muted mb-4">{site.description}</p>
+                <p className="text-brown-600 mb-4">{site.description}</p>
                 <div className="space-y-2">
                   {site.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-center text-sm text-brand-text-light"
+                      className="flex items-center text-sm text-brown-500"
                     >
                       <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2" />
                       {feature}
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 flex items-center text-brand-info text-sm font-medium">
+                <div className="mt-4 flex items-center text-green-600 text-sm font-medium">
                   Explore {site.name} →
                 </div>
               </div>
@@ -196,10 +194,10 @@ export default function Hub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-brand-text mb-4">
+              <h3 className="text-2xl font-bold text-brown-900 mb-4">
                 🏛️ Federal DOL/DWD Compliance Ready
               </h3>
-              <p className="text-brand-text mb-6">
+              <p className="text-brown-900 mb-6">
                 Complete infrastructure for accessing multi-million dollar
                 federal workforce development contracts with 100% DOL/DWD
                 compliance including IEP management, PIRL reporting, eligibility
@@ -213,7 +211,7 @@ export default function Hub() {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h4 className="font-bold text-brand-text mb-4">
+              <h4 className="font-bold text-brown-900 mb-4">
                 Federal Requirements Met:
               </h4>
               <div className="space-y-2">
@@ -229,7 +227,7 @@ export default function Hub() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center">
                     <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
-                    <span className="text-sm text-brand-text">{item}</span>
+                    <span className="text-sm text-brown-900">{item}</span>
                   </div>
                 ))}
               </div>
@@ -250,13 +248,13 @@ export default function Hub() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/programs"
-              className="bg-brand-info text-white px-8 py-3 rounded-lg hover:bg-brand-info-hover transition-colors"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors"
             >
               Start with Programs
             </Link>
             <Link
               to="/compliance"
-              className="bg-white text-brand-text px-8 py-3 rounded-lg hover:bg-brand-surface-dark transition-colors"
+              className="bg-white text-brown-900 px-8 py-3 rounded-lg hover:bg-beige-100 transition-colors"
             >
               Federal Compliance
             </Link>

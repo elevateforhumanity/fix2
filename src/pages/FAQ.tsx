@@ -60,8 +60,8 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-600 to-brand-700 text-white py-16">
-        <div className="container">
+      <section className="bg-gradient-to-r from-brown-700 to-brown-800 text-white py-16">
+        <div className="container px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h1>
@@ -72,31 +72,31 @@ export default function FAQ() {
       </section>
       {/* FAQ Section */}
       <section className="py-16">
-        <div className="container max-w-3xl">
+        <div className="container max-w-3xl px-4">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border border-brand-border rounded-lg overflow-hidden"
+                className="border border-brown-200 rounded-lg overflow-hidden"
               >
                 <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-brand-surface transition-colors"
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-beige-50 transition-colors"
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
                 >
-                  <span className="font-semibold text-brand-text pr-4">
+                  <span className="font-semibold text-brown-900 pr-4">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 text-brand-600 flex-shrink-0 transition-transform ${
+                    className={`h-5 w-5 text-green-600 flex-shrink-0 transition-transform ${
                       openIndex === index ? 'transform rotate-180' : ''
                     }`}
                   />
                 </button>
                 {openIndex === index && (
-                  <div className="px-6 py-4 bg-brand-surface border-t border-brand-border">
-                    <p className="text-brand-text-muted leading-relaxed">
+                  <div className="px-6 py-4 bg-beige-50 border-t border-brown-200">
+                    <p className="text-brown-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -107,16 +107,19 @@ export default function FAQ() {
         </div>
       </section>
       {/* Contact CTA */}
-      <section className="bg-brand-surface py-16">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold text-brand-text mb-4">
+      <section className="bg-beige-50 py-16">
+        <div className="container text-center px-4">
+          <h2 className="text-3xl font-bold text-brown-900 mb-4">
             Still Have Questions?
           </h2>
-          <p className="text-lg text-brand-text-muted mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-brown-600 mb-8 max-w-2xl mx-auto">
             Our team is here to help. Reach out to us and we'll be happy to
             provide more information.
           </p>
-          <a href="/connect" className="btn inline-block">
+          <a
+            href="/connect"
+            className="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          >
             Contact Us
           </a>
         </div>

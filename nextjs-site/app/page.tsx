@@ -40,7 +40,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Stats Section */}
       <section className="section bg-white">
         <div className="container">
@@ -72,7 +71,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Mission Section */}
       <section className="section bg-[var(--color-green)]">
         <div className="container">
@@ -81,24 +79,24 @@ export default function Home() {
               Empowering Futures Through Skill Development
             </h2>
             <p className="body-large text-center">
-              At Elevate for Humanity Career and Technical Institute, we
-              bridge the gap between education and employment by providing
-              innovative apprenticeship and training programs. Located in
-              Marion County, IN, our mission is to empower individuals with
-              the skills they need to excel in today's dynamic workforce. By
-              investing in human potential, we transform lives and build a
-              more skilled, sustainable community.
+              At Elevate for Humanity Career and Technical Institute, we bridge
+              the gap between education and employment by providing innovative
+              apprenticeship and training programs. Located in Marion County,
+              IN, our mission is to empower individuals with the skills they
+              need to excel in today's dynamic workforce. By investing in human
+              potential, we transform lives and build a more skilled,
+              sustainable community.
             </p>
           </div>
         </div>
       </section>
-
       {/* Programs Preview */}
       <section className="section">
         <div className="container">
           <h2 className="section-title text-center">Our Career Programs</h2>
           <p className="section-subtitle text-center">
-            Choose from 8 high-demand career pathways with 100% funding available
+            Choose from 8 high-demand career pathways with 100% funding
+            available
           </p>
           <div className="flex flex-wrap gap-8 mt-12">
             {/* Barber Apprenticeship */}
@@ -119,7 +117,6 @@ export default function Home() {
                 Learn More →
               </Link>
             </div>
-
             {/* Building Services */}
             <div className="program-card flex-1 min-w-[280px]">
               <div className="program-icon">🔧</div>
@@ -131,14 +128,14 @@ export default function Home() {
                 Learn essential building maintenance and repair skills for
                 commercial and residential properties.
               </p>
-              <div className="program-funding">
-                💰 WRG • WIOA
-              </div>
-              <Link href="/programs/building-services" className="button mt-6 w-full">
+              <div className="program-funding">💰 WRG • WIOA</div>
+              <Link
+                href="/programs/building-services"
+                className="button mt-6 w-full"
+              >
                 Learn More →
               </Link>
             </div>
-
             {/* HVAC & Welding */}
             <div className="program-card flex-1 min-w-[280px]">
               <div className="program-icon">🔥</div>
@@ -150,15 +147,15 @@ export default function Home() {
                 Master two in-demand trades with comprehensive training in
                 heating, ventilation, air conditioning, and welding.
               </p>
-              <div className="program-funding">
-                💰 WRG • WIOA
-              </div>
-              <Link href="/programs/hvac-welding" className="button mt-6 w-full">
+              <div className="program-funding">💰 WRG • WIOA</div>
+              <Link
+                href="/programs/hvac-welding"
+                className="button mt-6 w-full"
+              >
                 Learn More →
               </Link>
             </div>
           </div>
-
           <div className="text-center mt-12">
             <Link href="/programs" className="button button-large">
               View All Programs →
@@ -166,7 +163,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="section bg-[var(--color-brown)] text-white">
         <div className="container">

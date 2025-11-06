@@ -1,92 +1,41 @@
-// =============================
-// File: src/pages/legal/DMCA.tsx
-// Description: DMCA Takedown Policy and Agent
-// Route: /legal/dmca
-// =============================
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../../components/Navigation';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
+
 export default function DMCA() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="mb-6 text-3xl font-semibold tracking-tight">
-        DMCA Takedown Policy
-      </h1>
-      <div className="prose prose-gray max-w-none">
-        <p>
-          If you believe content on EFH infringes your copyright, send a notice
-          containing the following to our designated agent:
-        </p>
-        <ol>
-          <li>Your physical or electronic signature</li>
-          <li>
-            Identification of the copyrighted work claimed to have been
-            infringed
-          </li>
-          <li>
-            Identification of the material that is claimed to be infringing and
-            information reasonably sufficient to permit us to locate the
-            material
-          </li>
-          <li>
-            Your contact information (name, address, telephone, and email)
-          </li>
-          <li>
-            A statement that you have a good-faith belief that use of the
-            material is not authorized by the copyright owner, its agent, or the
-            law
-          </li>
-          <li>
-            A statement, under penalty of perjury, that the information in the
-            notice is accurate and that you are the copyright owner or
-            authorized to act on the owner's behalf
-          </li>
-        </ol>
-        <h2>Designated Agent</h2>
-        <p>
-          <strong>Legal Team – Elevate for Humanity</strong>
-          <br />
-          9465 Counselors Row, Suite 200
-          <br />
-          Indianapolis, IN 46240
-          <br />
-          Email:{' '}
-          <a href="mailto:legal@elevateforhumanity.org">
-            legal@elevateforhumanity.org
-          </a>
-          <br />
-          Phone: <a href="tel:+13173143757">(317) 314-3757</a>
-        </p>
-        <h2>Counter-Notification</h2>
-        <p>
-          If you believe your content was removed in error, you may submit a
-          counter-notification containing:
-        </p>
-        <ol>
-          <li>Your physical or electronic signature</li>
-          <li>
-            Identification of the material that was removed and its location
-            before removal
-          </li>
-          <li>
-            A statement under penalty of perjury that you have a good-faith
-            belief the material was removed by mistake or misidentification
-          </li>
-          <li>
-            Your name, address, telephone number, and a statement that you
-            consent to the jurisdiction of the Federal District Court for the
-            judicial district in which your address is located
-          </li>
-        </ol>
-        <h2>Repeat Infringer Policy</h2>
-        <p>
-          EFH will terminate the accounts of users who are repeat infringers of
-          intellectual property rights.
-        </p>
-        <h2>False Claims</h2>
-        <p>
-          Under Section 512(f) of the DMCA, any person who knowingly materially
-          misrepresents that material is infringing may be subject to liability
-          for damages.
-        </p>
-      </div>
-    </main>
+    <div>
+      <Helmet>
+        <title>DMCA Policy | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+      <Section background="white">
+        <div className="mx-auto max-w-[800px]">
+          <h1 className="section-title">DMCA Policy</h1>
+          <div className="space-y-4 mt-6">
+            <p>
+              Elevate for Humanity respects the intellectual property rights of
+              others and expects users to do the same.
+            </p>
+            <h2 className="text-2xl font-bold mt-8">Filing a DMCA Notice</h2>
+            <p>
+              If you believe that content on our site infringes your copyright,
+              please send a notice to Elizabethpowell6262@gmail.com with the
+              following information:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Identification of the copyrighted work</li>
+              <li>Identification of the infringing material</li>
+              <li>Your contact information</li>
+              <li>A statement of good faith belief</li>
+              <li>Your physical or electronic signature</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+      <Footer />
+    </div>
   );
 }

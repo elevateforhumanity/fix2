@@ -65,7 +65,7 @@ export default function LiveClassRoom() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading session...</p>
+            <p className="mt-4 text-brown-600">Loading session...</p>
           </div>
         ) : error ? (
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
@@ -73,36 +73,34 @@ export default function LiveClassRoom() {
             <h2 className="text-2xl font-bold mb-4">
               Live Classroom Coming Soon
             </h2>
-            <p className="text-brand-text mb-6">
+            <p className="text-brown-900 mb-6">
               We're building an interactive live classroom experience with:
             </p>
             <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">✓ HD Video & Audio</div>
-                <p className="text-sm text-brand-text-muted">
+                <p className="text-sm text-brown-600">
                   Crystal clear communication
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">✓ Screen Sharing</div>
-                <p className="text-sm text-brand-text-muted">
+                <p className="text-sm text-brown-600">
                   Share presentations and demos
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">✓ Interactive Whiteboard</div>
-                <p className="text-sm text-brand-text-muted">
+                <p className="text-sm text-brown-600">
                   Collaborate in real-time
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <div className="font-bold mb-2">✓ Chat & Q&A</div>
-                <p className="text-sm text-brand-text-muted">
-                  Ask questions anytime
-                </p>
+                <p className="text-sm text-brown-600">Ask questions anytime</p>
               </div>
             </div>
-            <p className="mt-6 text-sm text-brand-text-muted">
+            <p className="mt-6 text-sm text-brown-600">
               This feature requires additional setup. Contact your administrator
               for more information.
             </p>
@@ -111,13 +109,11 @@ export default function LiveClassRoom() {
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-2xl font-bold mb-4">{session.title}</h2>
-              <p className="text-brand-text-muted mb-4">
-                {session.description}
-              </p>
+              <p className="text-brown-600 mb-4">{session.description}</p>
               {!joined ? (
                 <button
                   onClick={handleJoinSession}
-                  className="px-8 py-3 bg-brand-success text-white rounded-lg hover:bg-brand-success-hover font-bold text-lg"
+                  className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-bold text-lg"
                 >
                   Join Live Session
                 </button>
@@ -136,7 +132,7 @@ export default function LiveClassRoom() {
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-brand-text-light">No active session found</p>
+            <p className="text-brown-500">No active session found</p>
           </div>
         )}
       </div>

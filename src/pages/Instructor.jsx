@@ -21,7 +21,7 @@ export default function Instructor() {
             style={{
               fontSize: '2.5rem',
               marginBottom: '1rem',
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
             }}
           >
             Instructor Portal
@@ -29,7 +29,7 @@ export default function Instructor() {
           <p
             style={{
               fontSize: '1.25rem',
-              color: 'var(--brand-text-muted)',
+              color: ''#6b5d52'',
               maxWidth: '800px',
               margin: '0 auto',
             }}
@@ -45,7 +45,7 @@ export default function Instructor() {
             style={{
               fontSize: '1.75rem',
               marginBottom: '1.5rem',
-              color: 'var(--brand-text)',
+              color: ''#4a3728'',
             }}
           >
             Quick Actions
@@ -85,17 +85,17 @@ export default function Instructor() {
             style={{
               fontSize: '1.75rem',
               marginBottom: '1.5rem',
-              color: 'var(--brand-text)',
+              color: ''#4a3728'',
             }}
           >
             Teaching Resources
           </h2>
           <div
             style={{
-              background: 'var(--brand-surface)',
+              background: ''#f5f1e8'',
               padding: '2rem',
               borderRadius: '8px',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -122,7 +122,7 @@ export default function Instructor() {
         <section
           style={{
             textAlign: 'center',
-            background: 'var(--brand-surface)',
+            background: ''#f5f1e8'',
             padding: '2rem',
             borderRadius: '8px',
           }}
@@ -131,13 +131,13 @@ export default function Instructor() {
             style={{
               fontSize: '1.5rem',
               marginBottom: '1rem',
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
             }}
           >
             Need Help?
           </h2>
           <p
-            style={{ marginBottom: '1.5rem', color: 'var(--brand-text-muted)' }}
+            style={{ marginBottom: '1.5rem', color: ''#6b5d52'' }}
           >
             Our support team is here to assist you with any questions or
             technical issues.
@@ -147,7 +147,7 @@ export default function Instructor() {
             style={{
               display: 'inline-block',
               padding: '0.75rem 2rem',
-              backgroundColor: 'var(--brand-info)',
+              backgroundColor: ''#00a544'',
               color: 'white',
               textDecoration: 'none',
               borderRadius: '6px',
@@ -170,18 +170,18 @@ function ActionCard({ title, description, link }) {
         display: 'block',
         padding: '1.5rem',
         background: 'white',
-        border: '1px solid var(--brand-border)',
+        border: '1px solid '#d4c9b8'',
         borderRadius: '8px',
         textDecoration: 'none',
         transition: 'all 0.2s',
         cursor: 'pointer',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'var(--brand-info)';
+        e.currentTarget.style.borderColor = ''#00a544'';
         e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'var(--brand-border)';
+        e.currentTarget.style.borderColor = ''#d4c9b8'';
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
@@ -189,12 +189,12 @@ function ActionCard({ title, description, link }) {
         style={{
           fontSize: '1.25rem',
           marginBottom: '0.5rem',
-          color: 'var(--brand-text)',
+          color: ''#4a3728'',
         }}
       >
         {title}
       </h3>
-      <p style={{ color: 'var(--brand-text-muted)', margin: 0 }}>
+      <p style={{ color: ''#6b5d52'', margin: 0 }}>
         {description}
       </p>
     </Link>
@@ -206,7 +206,7 @@ function ResourceItem({ title, description }) {
     <li
       style={{
         padding: '1rem 0',
-        borderBottom: '1px solid var(--brand-border)',
+        borderBottom: '1px solid '#d4c9b8'',
         ':last-child': { borderBottom: 'none' },
       }}
     >
@@ -214,14 +214,14 @@ function ResourceItem({ title, description }) {
         style={{
           fontSize: '1.125rem',
           marginBottom: '0.25rem',
-          color: 'var(--brand-text)',
+          color: ''#4a3728'',
         }}
       >
         {title}
       </h4>
       <p
         style={{
-          color: 'var(--brand-text-muted)',
+          color: ''#6b5d52'',
           margin: 0,
           fontSize: '0.875rem',
         }}

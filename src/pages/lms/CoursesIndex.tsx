@@ -1,35 +1,21 @@
-import { useEffect, useState } from 'react';
-import { listCourses, type Course } from '../../services/courses';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../../components/Navigation';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
 
 export default function CoursesIndex() {
-  const [items, setItems] = useState<Course[]>([]);
-
-  useEffect(() => {
-    listCourses().then(setItems);
-  }, []);
-
   return (
-    <section className="section">
-      <div className="container">
-        <h1 className="text-3xl font-bold">All Courses</h1>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((c) => (
-            <a
-              key={c.id}
-              href={`/lms/course/${c.id}`}
-              className="card p-5 hover:shadow-lg transition"
-            >
-              <div className="text-xs text-brand-text-light">{c.code}</div>
-              <div className="mt-1 text-lg font-semibold">{c.title}</div>
-              {c.summary && (
-                <p className="mt-2 text-sm text-brand-text-muted">
-                  {c.summary}
-                </p>
-              )}
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div>
+      <Helmet>
+        <title>Courses | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+      <Section>
+        <h1 className="section-title">Available Courses</h1>
+        <p>Course catalog coming soon.</p>
+      </Section>
+      <Footer />
+    </div>
   );
 }

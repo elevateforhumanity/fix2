@@ -91,7 +91,7 @@ export default function QuizResults() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading results...</p>
+            <p className="mt-4 text-brown-600">Loading results...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
@@ -142,7 +142,7 @@ export default function QuizResults() {
                         <span
                           className={`px-3 py-1 rounded-full text-sm font-bold ${
                             isCorrect
-                              ? 'bg-green-200 text-brand-success'
+                              ? 'bg-green-200 text-green-600'
                               : 'bg-red-200 text-red-800'
                           }`}
                         >
@@ -171,7 +171,7 @@ export default function QuizResults() {
             <div className="flex gap-4 justify-center">
               <button
                 onClick={() => window.history.back()}
-                className="px-6 py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover transition"
+                className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
               >
                 Back to Course
               </button>
@@ -187,7 +187,7 @@ export default function QuizResults() {
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-brand-text-muted">No quiz results found</p>
+            <p className="text-brown-600">No quiz results found</p>
           </div>
         )}
       </div>

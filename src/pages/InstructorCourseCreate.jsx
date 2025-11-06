@@ -54,7 +54,7 @@ export default function InstructorCourseCreate() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-surface">
+    <div className="min-h-screen bg-beige-50">
       <SEO
         title="Create Course | Instructor Portal"
         description="Create and manage your courses"
@@ -62,10 +62,10 @@ export default function InstructorCourseCreate() {
       <Header />
       <main role="main" className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-brand-text mb-2">
+          <h1 className="text-4xl font-bold text-brown-900 mb-2">
             Create New Course
           </h1>
-          <p className="text-lg text-brand-text-muted">
+          <p className="text-lg text-brown-600">
             Build your course content and publish to students
           </p>
         </div>
@@ -116,12 +116,10 @@ export default function InstructorCourseCreate() {
                   </label>
                   <div className="border-2 border-dashed rounded-lg p-8 text-center">
                     <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                    <p className="text-sm text-brand-text-muted mb-2">
+                    <p className="text-sm text-brown-600 mb-2">
                       Click to upload or drag and drop
                     </p>
-                    <p className="text-xs text-brand-text-light">
-                      PNG, JPG up to 5MB
-                    </p>
+                    <p className="text-xs text-brown-500">PNG, JPG up to 5MB</p>
                     <input
                       type="file"
                       aria-label="file input"
@@ -152,7 +150,7 @@ export default function InstructorCourseCreate() {
                         Edit
                       </Button>
                     </div>
-                    <p className="text-sm text-brand-text-muted">
+                    <p className="text-sm text-brown-600">
                       {module.lessons.length} lessons
                     </p>
                   </div>
@@ -213,7 +211,7 @@ export default function InstructorCourseCreate() {
                       {currentModule.lessons.map((lesson, idx) => (
                         <div
                           key={lesson.id}
-                          className="flex items-center gap-2 p-2 bg-brand-surface rounded"
+                          className="flex items-center gap-2 p-2 bg-beige-50 rounded"
                         >
                           {lesson.type === 'video' && (
                             <Video className="w-4 h-4" />
@@ -256,17 +254,17 @@ export default function InstructorCourseCreate() {
                 <CardTitle>Course Preview</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-brand-border rounded-lg mb-4 flex items-center justify-center">
-                  <p className="text-brand-text-light">Thumbnail Preview</p>
+                <div className="aspect-video bg-brown-200 rounded-lg mb-4 flex items-center justify-center">
+                  <p className="text-brown-500">Thumbnail Preview</p>
                 </div>
                 <h3 className="font-semibold mb-2">
                   {course.title || 'Course Title'}
                 </h3>
-                <p className="text-sm text-brand-text-muted mb-4">
+                <p className="text-sm text-brown-600 mb-4">
                   {course.description ||
                     'Course description will appear here...'}
                 </p>
-                <div className="text-sm text-brand-text-light">
+                <div className="text-sm text-brown-500">
                   <p>{course.modules.length} modules</p>
                   <p>
                     {course.modules.reduce(
@@ -309,14 +307,14 @@ export default function InstructorCourseCreate() {
                 <CardTitle>Need Help?</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
-                <p className="text-brand-text-muted">
+                <p className="text-brown-600">
                   <strong>Videos:</strong> Upload to Google Drive automatically
                 </p>
-                <p className="text-brand-text-muted">
+                <p className="text-brown-600">
                   <strong>Assignments:</strong> Students submit through the
                   platform
                 </p>
-                <p className="text-brand-text-muted">
+                <p className="text-brown-600">
                   <strong>Quizzes:</strong> Auto-graded with instant feedback
                 </p>
                 <Button variant="link" size="sm" className="p-0">

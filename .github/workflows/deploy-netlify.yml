@@ -2,7 +2,7 @@ name: Deploy to Netlify
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 jobs:
@@ -10,25 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      
+
       - uses: pnpm/action-setup@v3
         with:
           version: 9
-      
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Build project
         run: pnpm build
         env:
           VITE_API_URL: https://api.elevateforhumanity.org
           VITE_SUPABASE_URL: https://cuxzzpsyufcewtmicszk.supabase.co
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      
+
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --dir=dist --prod --message "Deploy from GitHub Actions"
         env:

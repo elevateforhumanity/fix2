@@ -29,6 +29,7 @@ The site has been **fully tested and verified** as production-ready. The deploym
 ## Deployment Configuration
 
 ### Netlify Settings
+
 - **Site Name:** elevateforhumanityfix2
 - **URL:** https://elevateforhumanityfix2.netlify.app
 - **Custom Domain:** portal.elevateforhumanity.org (DNS not configured yet)
@@ -36,11 +37,13 @@ The site has been **fully tested and verified** as production-ready. The deploym
 - **Publish Directory:** `dist`
 
 ### GitHub Actions Workflow
+
 The deployment is configured to run automatically on push to main branch via `.github/workflows/deploy-to-netlify.yml`
 
 ## Why 404 Error?
 
 The Netlify site shows "Site not found" because:
+
 1. **GitHub Actions workflow is queued** - Multiple workflows triggered simultaneously
 2. **Deployment hasn't completed** - The build and deploy process hasn't run yet
 3. **Site may need initial setup** - First deployment to Netlify may require manual configuration
@@ -48,13 +51,16 @@ The Netlify site shows "Site not found" because:
 ## Resolution Options
 
 ### Option 1: Wait for GitHub Actions (Recommended)
+
 The workflow will automatically complete once a GitHub Actions runner becomes available. This typically takes 3-10 minutes.
 
 **Monitor progress:**
+
 - GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 - Check workflow status every few minutes
 
 ### Option 2: Manual Netlify Deployment
+
 If GitHub Actions continues to be queued, deploy manually:
 
 ```bash
@@ -69,13 +75,16 @@ npx netlify deploy --prod --dir=dist
 ```
 
 ### Option 3: Direct Netlify Dashboard
+
 1. Go to https://app.netlify.com
 2. Find site: elevateforhumanityfix2
 3. Click "Deploys" tab
 4. Click "Trigger deploy" → "Deploy site"
 
 ### Option 4: Alternative Hosting
+
 Deploy the `dist` folder to:
+
 - **Vercel:** `npx vercel --prod`
 - **Cloudflare Pages:** `npx wrangler pages deploy dist`
 - **GitHub Pages:** Already configured in repository
@@ -85,7 +94,9 @@ Deploy the `dist` folder to:
 Once the site is live, complete these steps:
 
 ### 1. Environment Variables (Critical)
+
 Set in Netlify Dashboard → Site settings → Environment variables:
+
 ```
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key
@@ -93,7 +104,9 @@ VITE_STRIPE_PUBLISHABLE_KEY=pk_live_your-key
 ```
 
 ### 2. Custom Domain Setup
+
 Configure DNS for portal.elevateforhumanity.org:
+
 ```
 Type: CNAME
 Name: portal
@@ -101,11 +114,14 @@ Value: elevateforhumanityfix2.netlify.app
 ```
 
 ### 3. Update Verification Codes
+
 Replace placeholders in `index.html`:
+
 - Google Search Console verification
 - Bing Webmaster Tools verification
 
 ### 4. Test Deployment
+
 - [ ] Homepage loads correctly
 - [ ] All navigation links work
 - [ ] Forms submit properly
@@ -116,6 +132,7 @@ Replace placeholders in `index.html`:
 ## Current Build Status
 
 The production build in `dist/` folder is **ready to deploy**:
+
 - ✅ 187 React pages compiled
 - ✅ Assets optimized and minified
 - ✅ Sitemap generated
@@ -127,12 +144,14 @@ The production build in `dist/` folder is **ready to deploy**:
 ## Next Steps
 
 **Immediate:**
+
 1. Monitor GitHub Actions workflow completion
 2. Once deployed, verify site at https://elevateforhumanityfix2.netlify.app
 3. Set environment variables in Netlify dashboard
 4. Test all functionality
 
 **Within 24 hours:**
+
 1. Configure custom domain DNS
 2. Update verification codes
 3. Enable SSL certificate

@@ -32,7 +32,7 @@ export default function MyCertificates() {
     <section className="section">
       <div className="container max-w-4xl">
         <h1 className="text-3xl font-bold">My Certificates</h1>
-        <p className="mt-2 text-brand-text-muted">
+        <p className="mt-2 text-brown-600">
           Your earned certificates and credentials
         </p>
         <div className="mt-8 space-y-4">
@@ -40,13 +40,13 @@ export default function MyCertificates() {
             <div key={cert.id} className="card p-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <div className="text-xs text-brand-text-light">
+                  <div className="text-xs text-brown-500">
                     {cert.courses?.code}
                   </div>
                   <h3 className="mt-1 text-xl font-semibold">
                     {cert.courses?.title}
                   </h3>
-                  <div className="mt-2 text-sm text-brand-text-muted">
+                  <div className="mt-2 text-sm text-brown-600">
                     Issued:{' '}
                     {new Date(cert.issued_at).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -54,7 +54,7 @@ export default function MyCertificates() {
                       day: 'numeric',
                     })}
                   </div>
-                  <div className="mt-1 text-xs text-brand-text-light font-mono">
+                  <div className="mt-1 text-xs text-brown-500 font-mono">
                     {cert.certificate_number}
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export default function MyCertificates() {
             <div className="card p-8 text-center">
               <div className="text-4xl mb-4">🎓</div>
               <h3 className="text-xl font-semibold">No Certificates Yet</h3>
-              <p className="mt-2 text-brand-text-muted">
+              <p className="mt-2 text-brown-600">
                 Complete courses to earn certificates
               </p>
               <Link to="/lms/courses" className="btn mt-4">

@@ -4,6 +4,9 @@
   See LICENSE file for details.
 */
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import AppLayout from '../layouts/AppLayout';
 import AIPageBuilder from '../components/AIPageBuilder';
 import AdvancedLMSFeatures from '../lms/advanced-lms-features';
@@ -67,7 +70,15 @@ export default function WebsiteBuilder() {
   }
 
   return (
-    <AppLayout>
+    <div>
+      <Helmet>
+        <title>Website Builder | Elevate for Humanity</title>
+        <meta name="description" content="AI-powered website builder for creating professional sites" />
+      </Helmet>
+
+      <Navigation />
+
+      <AppLayout>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: 32 }}>
         <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16 }}>
           AI Website Builder
@@ -75,7 +86,7 @@ export default function WebsiteBuilder() {
         <p
           style={{
             fontSize: 16,
-            color: 'var(--brand-text-muted)',
+            color: ''#6b5d52'',
             marginBottom: 32,
           }}
         >
@@ -88,7 +99,7 @@ export default function WebsiteBuilder() {
             display: 'flex',
             gap: 16,
             marginBottom: 32,
-            borderBottom: '2px solid var(--brand-border)',
+            borderBottom: '2px solid '#d4c9b8'',
           }}
         >
           <button
@@ -97,9 +108,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'ai-builder'
-                  ? 'var(--brand-primary)'
+                  ? ''#00a544''
                   : 'transparent',
-              color: activeTab === 'ai-builder' ? '#fff' : 'var(--brand-text)',
+              color: activeTab === 'ai-builder' ? '#fff' : ''#4a3728'',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -115,9 +126,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'my-websites'
-                  ? 'var(--brand-primary)'
+                  ? ''#00a544''
                   : 'transparent',
-              color: activeTab === 'my-websites' ? '#fff' : 'var(--brand-text)',
+              color: activeTab === 'my-websites' ? '#fff' : ''#4a3728'',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -133,9 +144,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'enterprise'
-                  ? 'var(--brand-primary)'
+                  ? ''#00a544''
                   : 'transparent',
-              color: activeTab === 'enterprise' ? '#fff' : 'var(--brand-text)',
+              color: activeTab === 'enterprise' ? '#fff' : ''#4a3728'',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -162,7 +173,7 @@ export default function WebsiteBuilder() {
                   backgroundColor: '#fff',
                   padding: 48,
                   borderRadius: 8,
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   textAlign: 'center',
                 }}
               >
@@ -170,7 +181,7 @@ export default function WebsiteBuilder() {
                   No websites yet
                 </h3>
                 <p
-                  style={{ color: 'var(--brand-text-muted)', marginBottom: 24 }}
+                  style={{ color: ''#6b5d52'', marginBottom: 24 }}
                 >
                   Create your first AI-powered website using the AI Page Builder
                   tab.
@@ -179,7 +190,7 @@ export default function WebsiteBuilder() {
                   onClick={() => setActiveTab('ai-builder')}
                   style={{
                     padding: '12px 24px',
-                    background: 'var(--brand-primary)',
+                    background: ''#00a544'',
                     color: '#fff',
                     border: 'none',
                     borderRadius: 8,
@@ -206,7 +217,7 @@ export default function WebsiteBuilder() {
                       backgroundColor: '#fff',
                       padding: 24,
                       borderRadius: 8,
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                     }}
                   >
                     <h3
@@ -217,7 +228,7 @@ export default function WebsiteBuilder() {
                     <p
                       style={{
                         fontSize: 14,
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                         marginBottom: 16,
                       }}
                     >
@@ -228,7 +239,7 @@ export default function WebsiteBuilder() {
                         style={{
                           flex: 1,
                           padding: '8px 16px',
-                          background: 'var(--brand-primary)',
+                          background: ''#00a544'',
                           color: '#fff',
                           border: 'none',
                           borderRadius: 6,
@@ -243,8 +254,8 @@ export default function WebsiteBuilder() {
                           flex: 1,
                           padding: '8px 16px',
                           background: 'transparent',
-                          color: 'var(--brand-primary)',
-                          border: '1px solid var(--brand-primary)',
+                          color: ''#00a544'',
+                          border: '1px solid '#00a544'',
                           borderRadius: 6,
                           cursor: 'pointer',
                           fontSize: 14,
@@ -265,7 +276,7 @@ export default function WebsiteBuilder() {
               backgroundColor: '#fff',
               padding: 48,
               borderRadius: 8,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>
@@ -274,7 +285,7 @@ export default function WebsiteBuilder() {
             <p
               style={{
                 fontSize: 16,
-                color: 'var(--brand-text-muted)',
+                color: ''#6b5d52'',
                 marginBottom: 32,
               }}
             >
@@ -294,7 +305,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -310,7 +321,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -336,7 +347,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -354,7 +365,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -372,7 +383,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -382,7 +393,7 @@ export default function WebsiteBuilder() {
                 disabled={loading}
                 style={{
                   padding: '16px 32px',
-                  background: loading ? '#ccc' : 'var(--brand-primary)',
+                  background: loading ? '#ccc' : ''#00a544'',
                   color: '#fff',
                   border: 'none',
                   borderRadius: 8,
@@ -398,5 +409,8 @@ export default function WebsiteBuilder() {
         )}
       </div>
     </AppLayout>
+
+    <Footer />
+    </div>
   );
 }

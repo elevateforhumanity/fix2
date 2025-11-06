@@ -3,12 +3,14 @@
 ## Current Setup
 
 ### Primary Domain (Marketing)
+
 - **Domain:** elevateforhumanity.org
 - **Hosting:** Durable.co (Cloudflare/Next.js)
 - **Purpose:** Static marketing site with "Get Started" button
 - **Status:** ✅ Active
 
 ### Application Domain (React SPA)
+
 - **Current URL:** elevateforhumanityfix.netlify.app
 - **Hosting:** Netlify
 - **Purpose:** Full React application with LMS, programs, certificates
@@ -32,12 +34,14 @@
    - Update "Get Started" link on Durable site
 
 **Pros:**
+
 - ✅ No DNS changes required
 - ✅ Fastest to implement (15 minutes)
 - ✅ No downtime
 - ✅ Clear separation of concerns
 
 **Cons:**
+
 - ❌ Less professional URL for app
 - ❌ Users see different domains
 
@@ -57,12 +61,14 @@
 **Steps:**
 
 #### A. Add Custom Domain in Netlify
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
 2. Click **Add custom domain**
 3. Enter: `app.elevateforhumanity.org`
 4. Netlify will provide DNS instructions
 
 #### B. Configure DNS
+
 1. Go to your DNS provider (where elevateforhumanity.org is registered)
 2. Add CNAME record:
    ```
@@ -74,17 +80,20 @@
 3. Wait for DNS propagation (5-60 minutes)
 
 #### C. Enable HTTPS
+
 1. Netlify will auto-provision SSL certificate
 2. Wait for certificate to be issued (usually < 5 minutes)
 3. Verify HTTPS works: https://app.elevateforhumanity.org
 
 **Pros:**
+
 - ✅ Professional subdomain
 - ✅ Consistent branding
 - ✅ Better user experience
 - ✅ Easier to remember
 
 **Cons:**
+
 - ❌ Requires DNS access
 - ❌ DNS propagation delay
 - ❌ More complex setup
@@ -101,12 +110,14 @@
 See [IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md) for full implementation.
 
 **Pros:**
+
 - ✅ Single hosting platform
 - ✅ Unified deployment pipeline
 - ✅ Better performance (SSG for marketing)
 - ✅ Professional architecture
 
 **Cons:**
+
 - ❌ Requires building new Astro site
 - ❌ 3+ hours of work
 - ❌ Migration complexity
@@ -120,10 +131,8 @@ See [IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md) for ful
 
 1. **Add environment variables to Netlify** (5 min)
    - See: NETLIFY_ENV_VARS_REQUIRED.md
-   
 2. **Trigger new deployment** (2 min)
    - Clear cache and deploy
-   
 3. **Test the app** (5 min)
    - Visit: https://elevateforhumanityfix.netlify.app
    - Verify no skeleton pages
@@ -192,6 +201,7 @@ See: [IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md)
 ## Support
 
 If you need help with:
+
 - **DNS configuration:** Contact your domain registrar
 - **Netlify setup:** Check Netlify docs or support
 - **Durable.co updates:** Access Durable.co dashboard

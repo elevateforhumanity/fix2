@@ -63,10 +63,8 @@ export default function PaymentSuccess() {
       <section className="section">
         <div className="container max-w-2xl mx-auto">
           <div className="card p-8 text-center">
-            <div className="animate-spin w-12 h-12 border-4 border-brand-600 border-t-transparent rounded-full mx-auto" />
-            <p className="mt-4 text-brand-text-muted">
-              Confirming your enrollment...
-            </p>
+            <div className="animate-spin w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full mx-auto" />
+            <p className="mt-4 text-brown-600">Confirming your enrollment...</p>
           </div>
         </div>
       </section>
@@ -77,19 +75,19 @@ export default function PaymentSuccess() {
     <section className="section">
       <div className="container max-w-2xl mx-auto">
         <div className="card p-8 text-center">
-          <div className="w-20 h-20 bg-brand-surface rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-12 h-12 text-brand-success" />
+          <div className="w-20 h-20 bg-beige-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
-          <h1 className="text-3xl font-bold text-brand-text">
+          <h1 className="text-3xl font-bold text-brown-900">
             Welcome to Elevate for Humanity!
           </h1>
-          <p className="mt-3 text-lg text-brand-text-muted">
+          <p className="mt-3 text-lg text-brown-600">
             Your enrollment is confirmed. Let's get started on your new career
             path!
           </p>
           {enrollmentData && (
-            <div className="mt-6 p-4 bg-brand-surface rounded-lg text-left">
-              <div className="text-sm text-brand-text-light">Enrollment ID</div>
+            <div className="mt-6 p-4 bg-beige-50 rounded-lg text-left">
+              <div className="text-sm text-brown-500">Enrollment ID</div>
               <div className="font-mono font-semibold">
                 {enrollmentData.enrollmentId}
               </div>
@@ -109,30 +107,30 @@ export default function PaymentSuccess() {
           </div>
           <div className="mt-6 p-4 bg-blue-50 rounded-lg text-sm text-left">
             <div className="font-semibold text-blue-900 mb-2">What's Next?</div>
-            <ul className="space-y-2 text-brand-info">
+            <ul className="space-y-2 text-green-600">
               <li className="flex items-start gap-2">
-                <span className="text-brand-info">✓</span>
+                <span className="text-green-600">✓</span>
                 <span>Check your email for enrollment confirmation</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-brand-info">✓</span>
+                <span className="text-green-600">✓</span>
                 <span>Access your courses in the LMS dashboard</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-brand-info">✓</span>
+                <span className="text-green-600">✓</span>
                 <span>Connect with your instructor and classmates</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-brand-info">✓</span>
+                <span className="text-green-600">✓</span>
                 <span>Start learning and earning your certification</span>
               </li>
             </ul>
           </div>
-          <p className="mt-6 text-sm text-brand-text-light">
+          <p className="mt-6 text-sm text-brown-500">
             Need help? Contact us at{' '}
             <a
               href="mailto:elevateforhumanity@gmail.com"
-              className="text-brand-600 hover:underline"
+              className="text-green-600 hover:underline"
             >
               elevateforhumanity@gmail.com
             </a>

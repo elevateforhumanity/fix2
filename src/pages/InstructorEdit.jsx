@@ -119,7 +119,7 @@ export default function InstructorEdit() {
             to="/instructor/courses"
             style={{
               fontSize: 14,
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
               textDecoration: 'none',
               marginBottom: 12,
               display: 'block',
@@ -138,7 +138,7 @@ export default function InstructorEdit() {
               <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
                 Edit Course
               </h1>
-              <p style={{ color: 'var(--brand-text-muted)', fontSize: 16 }}>
+              <p style={{ color: ''#6b5d52'', fontSize: 16 }}>
                 Update your course content and settings
               </p>
             </div>
@@ -147,8 +147,8 @@ export default function InstructorEdit() {
                 style={{
                   padding: '10px 20px',
                   backgroundColor: '#fff',
-                  color: 'var(--brand-text-muted)',
-                  border: '1px solid var(--brand-border)',
+                  color: ''#6b5d52'',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                   fontWeight: 500,
@@ -161,7 +161,7 @@ export default function InstructorEdit() {
                 onClick={handleSave}
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: 'var(--brand-info)',
+                  backgroundColor: ''#00a544'',
                   color: '#fff',
                   border: 'none',
                   borderRadius: 6,
@@ -194,7 +194,7 @@ export default function InstructorEdit() {
           style={{
             display: 'flex',
             gap: 24,
-            borderBottom: '2px solid var(--brand-border)',
+            borderBottom: '2px solid '#d4c9b8'',
             marginBottom: 32,
           }}
         >
@@ -207,12 +207,12 @@ export default function InstructorEdit() {
                 backgroundColor: 'transparent',
                 color:
                   activeTab === tab
-                    ? 'var(--brand-info)'
-                    : 'var(--brand-text-muted)',
+                    ? ''#00a544''
+                    : ''#6b5d52'',
                 border: 'none',
                 borderBottom:
                   activeTab === tab
-                    ? '2px solid var(--brand-info)'
+                    ? '2px solid '#00a544''
                     : '2px solid transparent',
                 fontSize: 14,
                 fontWeight: 600,
@@ -233,7 +233,7 @@ export default function InstructorEdit() {
                 backgroundColor: '#fff',
                 padding: 24,
                 borderRadius: 8,
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 marginBottom: 24,
               }}
             >
@@ -263,7 +263,7 @@ export default function InstructorEdit() {
                     style={{
                       width: '100%',
                       padding: '10px 12px',
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -289,7 +289,7 @@ export default function InstructorEdit() {
                     style={{
                       width: '100%',
                       padding: '10px 12px',
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -314,7 +314,7 @@ export default function InstructorEdit() {
                     style={{
                       width: '100%',
                       padding: '10px 12px',
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                       fontFamily: 'inherit',
@@ -347,7 +347,7 @@ export default function InstructorEdit() {
                       style={{
                         width: '100%',
                         padding: '10px 12px',
-                        border: '1px solid var(--brand-border)',
+                        border: '1px solid '#d4c9b8'',
                         borderRadius: 6,
                         fontSize: 14,
                       }}
@@ -379,7 +379,7 @@ export default function InstructorEdit() {
                       style={{
                         width: '100%',
                         padding: '10px 12px',
-                        border: '1px solid var(--brand-border)',
+                        border: '1px solid '#d4c9b8'',
                         borderRadius: 6,
                         fontSize: 14,
                       }}
@@ -407,7 +407,7 @@ export default function InstructorEdit() {
                       style={{
                         width: '100%',
                         padding: '10px 12px',
-                        border: '1px solid var(--brand-border)',
+                        border: '1px solid '#d4c9b8'',
                         borderRadius: 6,
                         fontSize: 14,
                       }}
@@ -432,7 +432,7 @@ export default function InstructorEdit() {
                   </label>
                   <div
                     style={{
-                      border: '2px dashed var(--brand-border)',
+                      border: '2px dashed '#d4c9b8'',
                       borderRadius: 6,
                       padding: 40,
                       textAlign: 'center',
@@ -443,7 +443,7 @@ export default function InstructorEdit() {
                     <div
                       style={{
                         fontSize: 14,
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                         marginBottom: 8,
                       }}
                     >
@@ -465,7 +465,7 @@ export default function InstructorEdit() {
                 backgroundColor: '#fff',
                 padding: 24,
                 borderRadius: 8,
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 marginBottom: 24,
               }}
             >
@@ -484,7 +484,7 @@ export default function InstructorEdit() {
                   onClick={addModule}
                   style={{
                     padding: '8px 16px',
-                    backgroundColor: 'var(--brand-info)',
+                    backgroundColor: ''#00a544'',
                     color: '#fff',
                     border: 'none',
                     borderRadius: 6,
@@ -503,7 +503,7 @@ export default function InstructorEdit() {
                   <div
                     key={module.id}
                     style={{
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       padding: 16,
                     }}
@@ -528,7 +528,7 @@ export default function InstructorEdit() {
                         style={{
                           flex: 1,
                           padding: '8px 12px',
-                          border: '1px solid var(--brand-border)',
+                          border: '1px solid '#d4c9b8'',
                           borderRadius: 6,
                           fontSize: 16,
                           fontWeight: 600,
@@ -539,7 +539,7 @@ export default function InstructorEdit() {
                           onClick={() => addLesson(module.id)}
                           style={{
                             padding: '6px 12px',
-                            backgroundColor: 'var(--brand-success)',
+                            backgroundColor: ''#00a544'',
                             color: '#fff',
                             border: 'none',
                             borderRadius: 4,
@@ -553,7 +553,7 @@ export default function InstructorEdit() {
                           onClick={() => deleteModule(module.id)}
                           style={{
                             padding: '6px 12px',
-                            backgroundColor: 'var(--brand-danger)',
+                            backgroundColor: ''#dc2626'',
                             color: '#fff',
                             border: 'none',
                             borderRadius: 4,
@@ -606,7 +606,7 @@ export default function InstructorEdit() {
                             style={{
                               flex: 1,
                               padding: '6px 10px',
-                              border: '1px solid var(--brand-border)',
+                              border: '1px solid '#d4c9b8'',
                               borderRadius: 4,
                               fontSize: 14,
                             }}
@@ -622,7 +622,7 @@ export default function InstructorEdit() {
                             }}
                             style={{
                               padding: '6px 10px',
-                              border: '1px solid var(--brand-border)',
+                              border: '1px solid '#d4c9b8'',
                               borderRadius: 4,
                               fontSize: 12,
                             }}
@@ -636,7 +636,7 @@ export default function InstructorEdit() {
                             onClick={() => deleteLesson(module.id, lesson.id)}
                             style={{
                               padding: '6px 12px',
-                              backgroundColor: 'var(--brand-danger)',
+                              backgroundColor: ''#dc2626'',
                               color: '#fff',
                               border: 'none',
                               borderRadius: 4,
@@ -662,7 +662,7 @@ export default function InstructorEdit() {
                 backgroundColor: '#fff',
                 padding: 24,
                 borderRadius: 8,
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
               }}
             >
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
@@ -693,7 +693,7 @@ export default function InstructorEdit() {
                       width: '100%',
                       maxWidth: 200,
                       padding: '10px 12px',
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -701,7 +701,7 @@ export default function InstructorEdit() {
                   <p
                     style={{
                       fontSize: 12,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       marginTop: 8,
                     }}
                   >
@@ -723,7 +723,7 @@ export default function InstructorEdit() {
                   <p
                     style={{
                       fontSize: 14,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       marginBottom: 12,
                     }}
                   >
@@ -755,7 +755,7 @@ export default function InstructorEdit() {
                 backgroundColor: '#fff',
                 padding: 24,
                 borderRadius: 8,
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
               }}
             >
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
@@ -778,7 +778,7 @@ export default function InstructorEdit() {
                       Published
                     </div>
                     <div
-                      style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}
+                      style={{ fontSize: 14, color: ''#6b5d52'' }}
                     >
                       Make this course visible to students
                     </div>
@@ -812,7 +812,7 @@ export default function InstructorEdit() {
                         right: 0,
                         bottom: 0,
                         backgroundColor: courseData.published
-                          ? 'var(--brand-info)'
+                          ? ''#00a544''
                           : '#ccc',
                         borderRadius: 24,
                         transition: '0.3s',
@@ -838,7 +838,7 @@ export default function InstructorEdit() {
                   style={{
                     padding: 16,
                     backgroundColor: '#fff3cd',
-                    border: '1px solid var(--brand-warning)',
+                    border: '1px solid '#ca8a04'',
                     borderRadius: 6,
                   }}
                 >
@@ -861,7 +861,7 @@ export default function InstructorEdit() {
                   <button
                     style={{
                       padding: '8px 16px',
-                      backgroundColor: 'var(--brand-danger)',
+                      backgroundColor: ''#dc2626'',
                       color: '#fff',
                       border: 'none',
                       borderRadius: 6,

@@ -63,12 +63,12 @@ export default function Analytics() {
             style={{
               fontSize: '2rem',
               marginBottom: '0.5rem',
-              color: 'var(--brand-text)',
+              color: ''#4a3728'',
             }}
           >
             Analytics Dashboard
           </h1>
-          <p style={{ color: 'var(--brand-text-muted)' }}>
+          <p style={{ color: ''#6b5d52'' }}>
             Track performance metrics and student engagement across all programs
           </p>
         </header>
@@ -101,7 +101,7 @@ export default function Analytics() {
               style={{
                 fontSize: '1.5rem',
                 marginBottom: '1rem',
-                color: 'var(--brand-text)',
+                color: ''#4a3728'',
               }}
             >
               Top Performing Courses
@@ -109,7 +109,7 @@ export default function Analytics() {
             <div
               style={{
                 background: 'white',
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 borderRadius: '8px',
                 overflow: 'hidden',
               }}
@@ -118,8 +118,8 @@ export default function Analytics() {
                 <thead>
                   <tr
                     style={{
-                      background: 'var(--brand-surface)',
-                      borderBottom: '1px solid var(--brand-border)',
+                      background: ''#f5f1e8'',
+                      borderBottom: '1px solid '#d4c9b8'',
                     }}
                   >
                     <th
@@ -128,7 +128,7 @@ export default function Analytics() {
                         textAlign: 'left',
                         fontSize: '0.875rem',
                         fontWeight: '600',
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                       }}
                     >
                       Course
@@ -139,7 +139,7 @@ export default function Analytics() {
                         textAlign: 'right',
                         fontSize: '0.875rem',
                         fontWeight: '600',
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                       }}
                     >
                       Enrollments
@@ -150,7 +150,7 @@ export default function Analytics() {
                         textAlign: 'right',
                         fontSize: '0.875rem',
                         fontWeight: '600',
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                       }}
                     >
                       Completion
@@ -161,10 +161,10 @@ export default function Analytics() {
                   {topCourses.map((course, idx) => (
                     <tr
                       key={idx}
-                      style={{ borderBottom: '1px solid var(--brand-border)' }}
+                      style={{ borderBottom: '1px solid '#d4c9b8'' }}
                     >
                       <td
-                        style={{ padding: '1rem', color: 'var(--brand-text)' }}
+                        style={{ padding: '1rem', color: ''#4a3728'' }}
                       >
                         {course.name}
                       </td>
@@ -172,7 +172,7 @@ export default function Analytics() {
                         style={{
                           padding: '1rem',
                           textAlign: 'right',
-                          color: 'var(--brand-text)',
+                          color: ''#4a3728'',
                         }}
                       >
                         {course.enrollments}
@@ -205,7 +205,7 @@ export default function Analytics() {
               style={{
                 fontSize: '1.5rem',
                 marginBottom: '1rem',
-                color: 'var(--brand-text)',
+                color: ''#4a3728'',
               }}
             >
               Recent Activity
@@ -213,7 +213,7 @@ export default function Analytics() {
             <div
               style={{
                 background: 'white',
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 borderRadius: '8px',
                 padding: '1rem',
               }}
@@ -226,14 +226,14 @@ export default function Analytics() {
                       padding: '1rem 0',
                       borderBottom:
                         idx < recentActivity.length - 1
-                          ? '1px solid var(--brand-border)'
+                          ? '1px solid '#d4c9b8''
                           : 'none',
                     }}
                   >
                     <div
                       style={{
                         fontSize: '0.875rem',
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                         marginBottom: '0.25rem',
                       }}
                     >
@@ -241,7 +241,7 @@ export default function Analytics() {
                     </div>
                     <div
                       style={{
-                        color: 'var(--brand-text)',
+                        color: ''#4a3728'',
                         marginBottom: '0.25rem',
                       }}
                     >
@@ -250,7 +250,7 @@ export default function Analytics() {
                     <div
                       style={{
                         fontSize: '0.875rem',
-                        color: 'var(--brand-text-muted)',
+                        color: ''#6b5d52'',
                       }}
                     >
                       User: {activity.user}
@@ -267,7 +267,7 @@ export default function Analytics() {
             style={{
               fontSize: '1.5rem',
               marginBottom: '1rem',
-              color: 'var(--brand-text)',
+              color: ''#4a3728'',
             }}
           >
             Engagement Overview
@@ -275,7 +275,7 @@ export default function Analytics() {
           <div
             style={{
               background: 'white',
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
               borderRadius: '8px',
               padding: '2rem',
             }}
@@ -304,7 +304,7 @@ function StatCard({ label, value, change, trend }) {
     <div
       style={{
         background: 'white',
-        border: '1px solid var(--brand-border)',
+        border: '1px solid '#d4c9b8'',
         borderRadius: '8px',
         padding: '1.5rem',
       }}
@@ -312,7 +312,7 @@ function StatCard({ label, value, change, trend }) {
       <div
         style={{
           fontSize: '0.875rem',
-          color: 'var(--brand-text-muted)',
+          color: ''#6b5d52'',
           marginBottom: '0.5rem',
           textTransform: 'uppercase',
           letterSpacing: '0.05em',
@@ -324,7 +324,7 @@ function StatCard({ label, value, change, trend }) {
         style={{
           fontSize: '2rem',
           fontWeight: '700',
-          color: 'var(--brand-text)',
+          color: ''#4a3728'',
           marginBottom: '0.5rem',
         }}
       >
@@ -334,7 +334,7 @@ function StatCard({ label, value, change, trend }) {
         style={{
           fontSize: '0.875rem',
           color:
-            trend === 'up' ? 'var(--brand-success)' : 'var(--brand-danger)',
+            trend === 'up' ? ''#00a544'' : ''#dc2626'',
           fontWeight: '600',
         }}
       >
@@ -351,13 +351,13 @@ function MetricItem({ label, value }) {
         style={{
           fontSize: '2rem',
           fontWeight: '700',
-          color: 'var(--brand-info)',
+          color: ''#00a544'',
           marginBottom: '0.5rem',
         }}
       >
         {value}
       </div>
-      <div style={{ fontSize: '0.875rem', color: 'var(--brand-text-muted)' }}>
+      <div style={{ fontSize: '0.875rem', color: ''#6b5d52'' }}>
         {label}
       </div>
     </div>

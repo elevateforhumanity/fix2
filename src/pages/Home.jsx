@@ -1,434 +1,161 @@
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
+/**
+ * Home Page
+ * Matches elevateforhumanity.org design exactly
+ * Copyright (c) 2025 Elevate for Humanity
+ * Commercial License. No resale, sublicensing, or redistribution allowed.
+ */
 
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
+import Hero from '../components/Hero';
+import Section from '../components/Section';
+import ProgramCard from '../components/ProgramCard';
+import Footer from '../components/Footer';
 
 export default function Home() {
-  // Load chat widget (Tidio public key is present)
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//code.tidio.co/3x4y5z6a7b8c9d0e1f2g3h4i5j6k7l8m.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  // Blog posts - static for now (Durable API removed due to 404)
-  const blogs = [];
-
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 900, margin: '0 auto' }}>
+    <div className="home-durable">
+      {/* Matches elevateforhumanity.org class */}
       <Helmet>
         <title>
-          Elevate for Humanity | 501(c)(3) Nonprofit | ByBlack Certified |
-          Government Contractor
+          Elevate for Humanity | Workforce Training & Career Development
         </title>
         <meta
           name="description"
-          content="501(c)(3) nonprofit, ByBlack Certified Business, SAM.gov registered government contractor. DOL-compliant workforce training, IRS VITA partner. Serving communities through federal and state contracts."
+          content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
         />
-        <meta
-          name="keywords"
-          content="501c3 nonprofit, ByBlack certified, government contractor, SAM.gov, DOL compliant, VITA partner, workforce training, Indiana state bidder, minority owned business, Learn2Earn, online courses, federal contracts"
-        />
-        <meta
-          property="og:title"
-          content="Elevate for Humanity | 501(c)(3) Nonprofit | ByBlack Certified | Government Contractor"
-        />
-        <meta
-          property="og:description"
-          content="501(c)(3) nonprofit, ByBlack Certified Business, SAM.gov registered government contractor serving communities through workforce training and education."
-        />
-        <meta property="og:url" content="https://elevateforhumanity.org/" />
       </Helmet>
-      <header>
-        <div
-          style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            padding: 16,
-            borderRadius: 12,
-            margin: '16px 0',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            color: 'white',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-          }}
-        >
-          <div style={{ fontSize: 18, marginBottom: 8 }}>
-            <span role="img" aria-label="nonprofit">
-              🏛️
-            </span>{' '}
-            501(c)(3) Nonprofit Organization{' '}
-            <span role="img" aria-label="certified">
-              ✅
-            </span>{' '}
-            ByBlack Certified Business
+
+      {/* Navigation */}
+      <Navigation />
+      {/* Hero Section - Matches elevateforhumanity.org exactly */}
+      <Hero
+        title="Ignite Your Future: Transform Your Career Today"
+        subtitle="Empower your dreams with federally-funded workforce training programs. Build in-demand skills, earn industry certifications, and launch a rewarding career—at $0 cost with approved funding."
+        badges={[
+          { icon: '💰', text: '100% Funded' },
+          { icon: '📜', text: '8 Career Pathways' },
+          { icon: '🎯', text: '92% Job Placement' },
+          { icon: '📍', text: 'Marion County, IN' },
+        ]}
+        primaryButton={{ text: 'Start Your Application', href: '/apply' }}
+        secondaryButton={{ text: 'Explore Programs', href: '/programs' }}
+      />
+      {/* Stats Section - Matches elevateforhumanity.org */}
+      <Section background="white">
+        <div className="flex flex-wrap gap-8 justify-center">
+          <div className="text-center flex-1 min-w-[200px]">
+            <div className="text-5xl font-bold text-[var(--color-brown)]">
+              5,000+
+            </div>
+            <div className="text-lg opacity-80">Graduates</div>
           </div>
-          <div style={{ fontSize: 14, opacity: 0.95 }}>
-            SAM.gov Registered (3 Entities) | Indiana State Bidder | IRS VITA
-            Partner (SIDN: S28011182)
+          <div className="text-center flex-1 min-w-[200px]">
+            <div className="text-5xl font-bold text-[var(--color-brown)]">
+              92%
+            </div>
+            <div className="text-lg opacity-80">Job Placement Rate</div>
           </div>
-          <div style={{ fontSize: 14, opacity: 0.95, marginTop: 4 }}>
-            DOL/DOE/DWD Compliant | Official U.S. Government Contractor
+          <div className="text-center flex-1 min-w-[200px]">
+            <div className="text-5xl font-bold text-[var(--color-brown)]">
+              8
+            </div>
+            <div className="text-lg opacity-80">Career Programs</div>
+          </div>
+          <div className="text-center flex-1 min-w-[200px]">
+            <div className="text-5xl font-bold text-[var(--color-brown)]">
+              $0
+            </div>
+            <div className="text-lg opacity-80">Cost with Funding</div>
           </div>
         </div>
-        <nav
-          role="navigation"
-          style={{ marginBottom: 32, textAlign: 'center' }}
-        >
-          <Link to="/" style={{ margin: '0 12px', fontWeight: 'bold' }}>
-            Home
-          </Link>
-          <Link to="/ecosystem" style={{ margin: '0 12px' }}>
-            Ecosystem
-          </Link>
-          <Link to="/student" style={{ margin: '0 12px' }}>
-            Student
-          </Link>
-          <Link to="/instructor" style={{ margin: '0 12px' }}>
-            Instructor
-          </Link>
-          <Link to="/analytics" style={{ margin: '0 12px' }}>
-            Analytics
-          </Link>
-          <Link to="/courses" style={{ margin: '0 12px' }}>
-            Course Library
-          </Link>
-        </nav>
-      </header>
-      <section
-        style={{
-          background: '#fffde7',
-          padding: 24,
-          borderRadius: 12,
-          marginBottom: 32,
-          textAlign: 'center',
-        }}
-      >
-        <h1 style={{ fontSize: 36, marginBottom: 12 }}>Elevate for Humanity</h1>
-        <h2 style={{ fontSize: 24, marginBottom: 8, color: '#1976d2' }}>
-          Selfish Inc. / Rise Forward Foundation
-        </h2>
-        <h3
-          style={{
-            fontSize: 18,
-            marginBottom: 12,
-            color: '#7c3aed',
-            fontWeight: 'bold',
-          }}
-        >
-          501(c)(3) Nonprofit | ByBlack Certified | Government Contractor
-        </h3>
-        <p style={{ fontSize: 18, color: '#444' }}>
-          Our 501(c)(3) nonprofit delivers accessible, DOL-compliant online
-          learning and Elevate Learn2Earn Workforce solutions. As a ByBlack
-          Certified Business with 3 active SAM.gov registrations, we're
-          positioned to serve communities through federal and state contracts.
-          Powered by a Google Ad Grant, we reach more learners nationwide.
+      </Section>
+
+      {/* Mission Section - Matches elevateforhumanity.org */}
+      <Section background="green">
+        <div className="mx-auto max-w-[800px]">
+          <h2 className="section-title text-center">
+            Empowering Futures Through Skill Development
+          </h2>
+          <p className="body-large text-center">
+            At Elevate for Humanity Career and Technical Institute, we bridge
+            the gap between education and employment by providing innovative
+            apprenticeship and training programs. Located in Marion County, IN,
+            our mission is to empower individuals with the skills they need to
+            excel in today's dynamic workforce. By investing in human potential,
+            we transform lives and build a more skilled, sustainable community.
+          </p>
+        </div>
+      </Section>
+      {/* Programs Section - Matches elevateforhumanity.org */}
+      <Section>
+        <h2 className="section-title text-center">Our Career Programs</h2>
+        <p className="section-subtitle text-center">
+          Choose from 8 high-demand career pathways with 100% funding available
         </p>
-        <div style={{ marginTop: 16 }}>
-          <a
-            href="https://selfishinc.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: '#1976d2',
-              color: '#fff',
-              padding: '12px 24px',
-              borderRadius: 8,
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: 18,
-              marginRight: 12,
-            }}
-          >
-            Learn More About Selfish Inc. dba
-          </a>
-          <Link
-            to="/courses"
-            style={{
-              background: '#388e3c',
-              color: '#fff',
-              padding: '12px 24px',
-              borderRadius: 8,
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: 18,
-            }}
-          >
-            Explore Courses
-          </Link>
+        <div className="flex flex-wrap gap-8 mt-12">
+          <ProgramCard
+            icon="🪒"
+            title="Barber Apprenticeship"
+            duration="2,000 hours • State Licensure"
+            description="Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure."
+            funding="💰 WRG • WIOA • Apprenticeship"
+            href="/programs/barber"
+          />
+          <ProgramCard
+            icon="🔧"
+            title="Building Services Technician"
+            duration="Flexible • Industry Certification"
+            description="Learn essential building maintenance and repair skills for commercial and residential properties."
+            funding="💰 WRG • WIOA"
+            href="/programs/building-services"
+          />
+          <ProgramCard
+            icon="🔥"
+            title="HVAC & Welding"
+            duration="Dual Certification • High Demand"
+            description="Master two in-demand trades with comprehensive training in heating, ventilation, air conditioning, and welding."
+            funding="💰 WRG • WIOA"
+            href="/programs/hvac-welding"
+          />
         </div>
-      </section>
-      {/* ENROLLMENT PROGRAMS SECTION */}
-      <section
-        style={{
-          marginTop: 48,
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          padding: 48,
-          borderRadius: 16,
-          color: '#fff',
-          textAlign: 'center',
-        }}
-      >
-        <h2 style={{ fontSize: 32, marginBottom: 16, color: '#fff' }}>
-          🎓 Enroll in Our Programs Today
-        </h2>
-        <p
-          style={{
-            fontSize: 18,
-            marginBottom: 32,
-            maxWidth: 700,
-            margin: '0 auto 32px',
-          }}
-        >
-          Transform your career with our DOL-compliant workforce training
-          programs. Federal funding available for eligible participants.
-        </p>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 24,
-            marginBottom: 32,
-          }}
-        >
-          <div
-            style={{
-              background: 'rgba(255,255,255,0.15)',
-              padding: 24,
-              borderRadius: 12,
-              backdropFilter: 'blur(10px)',
-            }}
-          >
-            <div style={{ fontSize: 40, marginBottom: 12 }}>💻</div>
-            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
-              AI & Machine Learning
-            </h3>
-            <p style={{ fontSize: 14, marginBottom: 16 }}>
-              12-week intensive program with industry certifications
-            </p>
-            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
-              $1,997
-            </div>
-            <div style={{ fontSize: 12, marginBottom: 16 }}>
-              89% job placement rate
-            </div>
-            <Link
-              to="/programs"
-              style={{
-                background: '#fff',
-                color: '#667eea',
-                padding: '10px 20px',
-                borderRadius: 8,
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                display: 'inline-block',
-              }}
-            >
-              Enroll Now
-            </Link>
-          </div>
-          <div
-            style={{
-              background: 'rgba(255,255,255,0.15)',
-              padding: 24,
-              borderRadius: 12,
-              backdropFilter: 'blur(10px)',
-            }}
-          >
-            <div style={{ fontSize: 40, marginBottom: 12 }}>📊</div>
-            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
-              Data Science Bootcamp
-            </h3>
-            <p style={{ fontSize: 14, marginBottom: 16 }}>
-              16-week comprehensive analytics training
-            </p>
-            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
-              $4,950
-            </div>
-            <div style={{ fontSize: 12, marginBottom: 16 }}>
-              92% job placement rate
-            </div>
-            <Link
-              to="/programs"
-              style={{
-                background: '#fff',
-                color: '#667eea',
-                padding: '10px 20px',
-                borderRadius: 8,
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                display: 'inline-block',
-              }}
-            >
-              Enroll Now
-            </Link>
-          </div>
-          <div
-            style={{
-              background: 'rgba(255,255,255,0.15)',
-              padding: 24,
-              borderRadius: 12,
-              backdropFilter: 'blur(10px)',
-            }}
-          >
-            <div style={{ fontSize: 40, marginBottom: 12 }}>🔒</div>
-            <h3 style={{ fontSize: 20, marginBottom: 8 }}>
-              Cybersecurity Specialist
-            </h3>
-            <p style={{ fontSize: 14, marginBottom: 16 }}>
-              20-week certification program
-            </p>
-            <div style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 8 }}>
-              $3,495
-            </div>
-            <div style={{ fontSize: 12, marginBottom: 16 }}>
-              95% job placement rate
-            </div>
-            <Link
-              to="/programs"
-              style={{
-                background: '#fff',
-                color: '#667eea',
-                padding: '10px 20px',
-                borderRadius: 8,
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                display: 'inline-block',
-              }}
-            >
-              Enroll Now
-            </Link>
-          </div>
-        </div>
-        <div style={{ marginTop: 32 }}>
-          <Link
-            to="/programs"
-            style={{
-              background: '#fff',
-              color: '#667eea',
-              padding: '16px 32px',
-              borderRadius: 8,
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: 18,
-              display: 'inline-block',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-            }}
-          >
-            View All 50+ Programs →
-          </Link>
-        </div>
-        <div
-          style={{
-            marginTop: 32,
-            padding: 16,
-            background: 'rgba(255,255,255,0.1)',
-            borderRadius: 8,
-            fontSize: 14,
-          }}
-        >
-          ✅ Federal Funding Available | ✅ DOL Compliant | ✅ Industry
-          Certifications
-        </div>
-      </section>
-      <section style={{ marginTop: 32, textAlign: 'center' }}>
-        <h2>Contact Us</h2>
-        <p>
-          Chat with us using the chat assistant (bottom right) or text us at{' '}
-          <strong>(555) 123-4567</strong> (powered by Twilio).
-        </p>
-      </section>
-      <section style={{ marginTop: 48 }}>
-        <h2>Latest News & Updates</h2>
-        <ul>
-          <li>
-            <a href="/about" rel="noopener noreferrer">
-              How Elevate for Humanity Empowers Communities
-            </a>
-          </li>
-          <li>
-            <a href="/partners" rel="noopener noreferrer">
-              Selfish Inc. dba Partnership: Expanding Our Impact
-            </a>
-          </li>
-          <li>
-            <a href="/compliance" rel="noopener noreferrer">
-              DOL Compliance: What It Means for Our Learners
-            </a>
-          </li>
-        </ul>
-      </section>
-      <footer style={{ marginTop: 48, textAlign: 'center', color: '#888' }}>
-        <div>
-          <a
-            href="https://linkedin.com/company/elevateforhumanity"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>{' '}
-          |{' '}
-          <a
-            href="https://facebook.com/elevateforhumanity"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Facebook
-          </a>{' '}
-          |{' '}
-          <a
-            href="https://www.youtube.com/@elevateforhumanity"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            YouTube
+        <div className="text-center mt-12">
+          <a href="/programs" className="button button-large">
+            View All Programs →
           </a>
         </div>
-        <div style={{ marginTop: 8 }}>
-          &copy; {new Date().getFullYear()} Elevate for Humanity &amp; Selfish
-          Inc. dba. All rights reserved.
+      </Section>
+
+      {/* CTA Section - Matches elevateforhumanity.org */}
+      <Section background="brown">
+        <div className="mx-auto max-w-[800px] text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Transform Your Career?
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join thousands of graduates who have launched successful careers
+            through our federally-funded training programs.
+          </p>
+          <div className="flex flex-wrap gap-6 justify-center">
+            <a href="/apply" className="button-white">
+              Apply Now
+            </a>
+            <a href="/contact" className="button-outline-white">
+              Contact Us
+            </a>
+          </div>
         </div>
-      </footer>
-      <div
-        style={{
-          background: '#fff3cd',
-          padding: 16,
-          borderRadius: 8,
-          marginTop: 32,
-          textAlign: 'center',
-          color: '#856404',
+      </Section>
+
+      {/* Footer */}
+      <Footer
+        socialLinks={{
+          linkedin: 'https://linkedin.com/company/elevateforhumanity',
+          facebook: 'https://facebook.com/elevateforhumanity',
+          instagram: 'https://instagram.com/elevateforhumanity',
         }}
-      >
-        <strong>License Notice:</strong> By purchasing, you agree not to resell,
-        sublicense, or redistribute this codebase. All rights reserved.
-        Violators will be prosecuted. See the LICENSE file for full terms.
-      </div>
-    </main>
+      />
+    </div>
   );
 }

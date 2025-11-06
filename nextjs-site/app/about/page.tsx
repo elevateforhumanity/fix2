@@ -8,11 +8,11 @@ export default function AboutPage() {
             About Elevate for Humanity
           </h1>
           <p className="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl">
-            Empowering communities through workforce development and career training.
+            Empowering communities through workforce development and career
+            training.
           </p>
         </div>
       </section>
-
       {/* Mission Section */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -21,13 +21,18 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-lg text-gray-600 mb-4">
-              At Elevate for Humanity Career and Technical Institute, we bridge the gap between education and employment by providing innovative apprenticeship and training programs.
+              At Elevate for Humanity Career and Technical Institute, we bridge
+              the gap between education and employment by providing innovative
+              apprenticeship and training programs.
             </p>
             <p className="text-lg text-gray-600 mb-4">
-              Located in Marion County, IN, our mission is to empower individuals with the skills they need to excel in today's dynamic workforce.
+              Located in Marion County, IN, our mission is to empower
+              individuals with the skills they need to excel in today's dynamic
+              workforce.
             </p>
             <p className="text-lg text-gray-600">
-              By investing in human potential, we transform lives and build a more skilled, sustainable community.
+              By investing in human potential, we transform lives and build a
+              more skilled, sustainable community.
             </p>
           </div>
           <div className="bg-orange-50 p-8 rounded-2xl">
@@ -55,7 +60,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Values Section */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-6xl px-4">
@@ -69,33 +73,33 @@ export default function AboutPage() {
                 Excellence
               </h3>
               <p className="text-gray-600">
-                We strive for excellence in everything we do, from our curriculum to our student support services.
+                We strive for excellence in everything we do, from our
+                curriculum to our student support services.
               </p>
             </div>
-
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Community
               </h3>
               <p className="text-gray-600">
-                We believe in building strong communities through education, employment, and empowerment.
+                We believe in building strong communities through education,
+                employment, and empowerment.
               </p>
             </div>
-
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <div className="text-4xl mb-4">💡</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Innovation
               </h3>
               <p className="text-gray-600">
-                We embrace innovative approaches to workforce development and career training.
+                We embrace innovative approaches to workforce development and
+                career training.
               </p>
             </div>
           </div>
         </div>
       </section>
-
       {/* Programs Overview */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -107,39 +111,41 @@ export default function AboutPage() {
               Paid Apprenticeships
             </h3>
             <p className="text-gray-600">
-              Earn while you learn with our paid apprenticeship programs. Get hands-on experience with real employers while building your skills.
+              Earn while you learn with our paid apprenticeship programs. Get
+              hands-on experience with real employers while building your
+              skills.
             </p>
           </div>
-
           <div className="border border-gray-200 rounded-xl p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               Industry Certifications
             </h3>
             <p className="text-gray-600">
-              Earn recognized industry certifications that employers value. Our programs prepare you for state licensure and professional credentials.
+              Earn recognized industry certifications that employers value. Our
+              programs prepare you for state licensure and professional
+              credentials.
             </p>
           </div>
-
           <div className="border border-gray-200 rounded-xl p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               Job Placement Assistance
             </h3>
             <p className="text-gray-600">
-              We don't just train you—we help you find employment. Our 92% job placement rate speaks to our commitment to your success.
+              We don't just train you—we help you find employment. Our 92% job
+              placement rate speaks to our commitment to your success.
             </p>
           </div>
-
           <div className="border border-gray-200 rounded-xl p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               100% Funded Programs
             </h3>
             <p className="text-gray-600">
-              All our programs are fully funded through WIOA and WRG. No tuition, no debt—just opportunity.
+              All our programs are fully funded through WIOA and WRG. No
+              tuition, no debt—just opportunity.
             </p>
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="bg-orange-600 text-white py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">
@@ -147,7 +153,8 @@ export default function AboutPage() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join thousands of graduates who have launched successful careers through our programs.
+            Join thousands of graduates who have launched successful careers
+            through our programs.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

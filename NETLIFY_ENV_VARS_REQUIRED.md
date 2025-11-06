@@ -16,6 +16,7 @@ To fix the skeleton/blank page issues, you MUST add these environment variables 
 ## Required Variables
 
 ### 1. API URL
+
 ```
 Key: VITE_API_URL
 Value: https://api.elevateforhumanity.org
@@ -23,6 +24,7 @@ Scopes: Production, Deploy previews, Branch deploys
 ```
 
 ### 2. Supabase URL
+
 ```
 Key: VITE_SUPABASE_URL
 Value: https://cuxzzpsyufcewtmicszk.supabase.co
@@ -30,6 +32,7 @@ Scopes: Production, Deploy previews, Branch deploys
 ```
 
 ### 3. Supabase Anon Key
+
 ```
 Key: VITE_SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ
@@ -49,6 +52,7 @@ Scopes: Production, Deploy previews, Branch deploys
 ## Verification
 
 After deployment, check:
+
 1. Visit https://elevateforhumanity.org
 2. Open browser DevTools → Console
 3. Look for API calls - they should go to `https://api.elevateforhumanity.org`
@@ -78,17 +82,20 @@ netlify deploy --prod
 ## Troubleshooting
 
 ### Still seeing skeleton pages?
+
 1. Hard refresh: `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
 2. Clear browser cache
 3. Check DevTools Console for errors
 4. Verify environment variables are set correctly in Netlify
 
 ### API calls failing?
+
 1. Check that `VITE_API_URL` is set to `https://api.elevateforhumanity.org`
 2. Verify CORS is configured on the API server
 3. Check Supabase project is active and accessible
 
 ### Build failing?
+
 1. Check build logs in Netlify Dashboard
 2. Verify all required dependencies are in package.json
 3. Ensure Node version matches (20.11.1)

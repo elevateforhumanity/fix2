@@ -3,11 +3,13 @@
 ## Executive Summary
 
 **Problem:** React SPA shows skeleton/blank pages because:
+
 - API URLs point to localhost or wrong endpoints
-- CORS blocks cross-origin requests  
+- CORS blocks cross-origin requests
 - Content loads client-side (bad for SEO and UX)
 
 **Solution:** Split into two sites:
+
 1. **www** → Static marketing (Astro) - instant load, perfect SEO
 2. **app** → React SPA (current) - for authenticated features
 
@@ -20,6 +22,7 @@
 ### Fix API URLs in Current Site
 
 1. **Update environment variables:**
+
 ```bash
 cd /workspaces/fix2
 
@@ -33,12 +36,14 @@ EOF
 ```
 
 2. **Update Netlify environment variables:**
+
 ```bash
 # Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/deploys#environment
 # Add these variables (same as above)
 ```
 
 3. **Rebuild and deploy:**
+
 ```bash
 pnpm build
 git add .env.production
@@ -87,6 +92,7 @@ cp -r ../public/assets ./public/
 Create these files in `marketing-site/src/pages/`:
 
 **`index.astro`** - Homepage
+
 ```astro
 ---
 import Layout from '../layouts/Layout.astro';
@@ -120,6 +126,7 @@ import Programs from '../components/Programs.astro';
 ### Step 5: Configure Build (5 minutes)
 
 **`astro.config.mjs`:**
+
 ```javascript
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
@@ -135,6 +142,7 @@ export default defineConfig({
 ```
 
 **`netlify.toml`:**
+
 ```toml
 [build]
   command = "npm run build"
@@ -171,23 +179,25 @@ netlify deploy --prod
 ### Step 7: Configure DNS (5 minutes)
 
 **In Cloudflare/DNS Provider:**
+
 ```
 Type: CNAME
 Name: www
 Target: [your-netlify-site].netlify.app
 TTL: Auto
 
-Type: CNAME  
+Type: CNAME
 Name: app
 Target: main--elevateforhumanityfix.netlify.app
 TTL: Auto
 ```
 
-### Step 8: Update React App for app.* (15 minutes)
+### Step 8: Update React App for app.\* (15 minutes)
 
 **In main React project:**
 
 1. **Update base URL in `vite.config.js`:**
+
 ```javascript
 export default defineConfig({
   base: '/',
@@ -196,6 +206,7 @@ export default defineConfig({
 ```
 
 2. **Update canonical URLs:**
+
 ```javascript
 // src/config.ts
 export const SITE_URL = 'https://app.elevateforhumanity.org';
@@ -203,6 +214,7 @@ export const MARKETING_URL = 'https://www.elevateforhumanity.org';
 ```
 
 3. **Add redirect from root to app:**
+
 ```javascript
 // src/App.tsx
 if (window.location.pathname === '/' && !isAuthenticated) {
@@ -219,10 +231,11 @@ If you don't want to create a separate site yet:
 ### Enable Netlify Prerendering
 
 **`netlify.toml`:**
+
 ```toml
 [[plugins]]
   package = "@netlify/plugin-prerender"
-  
+
   [plugins.inputs]
     # Prerender these routes to static HTML
     routes = [
@@ -245,11 +258,13 @@ If you don't want to create a separate site yet:
 ```
 
 **Install plugin:**
+
 ```bash
 npm install --save-dev @netlify/plugin-prerender
 ```
 
 **Rebuild:**
+
 ```bash
 pnpm build
 git add netlify.toml package.json
@@ -264,6 +279,7 @@ git push origin main
 ## Testing Checklist
 
 ### Marketing Site (www)
+
 - [ ] Homepage loads in <1s
 - [ ] No JavaScript required for content
 - [ ] All images load
@@ -274,6 +290,7 @@ git push origin main
 - [ ] Lighthouse score >95
 
 ### App Site (app)
+
 - [ ] Login works
 - [ ] Dashboard loads
 - [ ] Supabase connection works
@@ -289,17 +306,20 @@ git push origin main
 If something breaks:
 
 1. **Revert DNS:**
+
 ```bash
 # Point www back to current site
 # Remove app subdomain
 ```
 
 2. **Revert Netlify:**
+
 ```bash
 netlify rollback
 ```
 
 3. **Check logs:**
+
 ```bash
 netlify logs
 ```
@@ -309,11 +329,13 @@ netlify logs
 ## Performance Expectations
 
 ### Before (Current SPA)
+
 - First Contentful Paint: 3-5s
 - Time to Interactive: 6-10s
 - Lighthouse: 60-70
 
 ### After (Split Architecture)
+
 - First Contentful Paint: 0.5-1s
 - Time to Interactive: 1-2s
 - Lighthouse: 95-100

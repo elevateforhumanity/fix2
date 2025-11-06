@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../../components/Navigation';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
+import Button from '../../components/Button';
 
 export default function MentorSignup() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,70 +24,120 @@ export default function MentorSignup() {
   }
 
   return (
-    <main role="main" style={{ padding: 32, maxWidth: 600, margin: '0 auto' }}>
-      <h1>Mentor Signup</h1>
-      {!submitted ? (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              style={{ width: '100%', marginBottom: 12, padding: 8 }}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              name="email"
-              type="email"
-              aria-label="email input"
-              value={form.email}
-              onChange={handleChange}
-              required
-              style={{ width: '100%', marginBottom: 12, padding: 8 }}
-            />
-          </label>
-          <label>
-            Area of Expertise:
-            <input
-              name="expertise"
-              value={form.expertise}
-              onChange={handleChange}
-              required
-              style={{ width: '100%', marginBottom: 12, padding: 8 }}
-            />
-          </label>
-          <label>
-            Short Bio:
-            <textarea
-              name="bio"
-              value={form.bio}
-              onChange={handleChange}
-              rows={4}
-              style={{ width: '100%', marginBottom: 12, padding: 8 }}
-            />
-          </label>
-          <button
-            type="submit"
-            style={{
-              padding: '10px 24px',
-              background: '#1976d2',
-              color: '#fff',
-              border: 'none',
-              borderRadius: 6,
-            }}
-          >
-            Submit
-          </button>
-        </form>
-      ) : (
-        <div style={{ marginTop: 24, color: '#388e3c', fontWeight: 'bold' }}>
-          Thank you for signing up as a mentor! We will contact you soon.
+    <div>
+      <Helmet>
+        <title>Become a Mentor | Elevate for Humanity</title>
+        <meta
+          name="description"
+          content="Share your expertise and help students succeed by becoming a mentor."
+        />
+      </Helmet>
+
+      <Navigation />
+
+      <Section background="white">
+        <div className="mx-auto max-w-[600px]">
+          <h1 className="section-title text-center">Become a Mentor</h1>
+          <p className="section-subtitle text-center mt-4 mb-12">
+            Share your expertise and help students succeed by becoming a mentor.
+          </p>
+
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-brown-900 mb-2"
+                >
+                  Name *
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-brown-900 mb-2"
+                >
+                  Email *
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="expertise"
+                  className="block text-sm font-semibold text-brown-900 mb-2"
+                >
+                  Area of Expertise *
+                </label>
+                <input
+                  id="expertise"
+                  name="expertise"
+                  type="text"
+                  value={form.expertise}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="bio"
+                  className="block text-sm font-semibold text-brown-900 mb-2"
+                >
+                  Short Bio
+                </label>
+                <textarea
+                  id="bio"
+                  name="bio"
+                  value={form.bio}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                variant="primary"
+                size="large"
+                className="w-full"
+              >
+                Submit Application
+              </Button>
+            </form>
+          ) : (
+            <div className="text-center p-8 bg-green-50 rounded-lg">
+              <p className="text-xl font-semibold text-green-900 mb-2">
+                Thank you for signing up!
+              </p>
+              <p className="text-green-800">
+                We will contact you soon with next steps.
+              </p>
+            </div>
+          )}
         </div>
-      )}
-    </main>
+      </Section>
+
+      <Footer />
+    </div>
   );
 }

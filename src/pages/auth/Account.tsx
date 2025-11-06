@@ -58,11 +58,11 @@ export default function Account() {
         <h1 className="text-3xl font-bold">My Account</h1>
         <div className="card p-6 mt-6 space-y-4">
           <div>
-            <div className="text-sm text-brand-text-light">Email</div>
+            <div className="text-sm text-brown-500">Email</div>
             <div className="font-medium">{user.email}</div>
           </div>
           <div>
-            <div className="text-sm text-brand-text-light">Role</div>
+            <div className="text-sm text-brown-500">Role</div>
             <div className="font-medium capitalize">{user.role}</div>
           </div>
           <div>
@@ -70,13 +70,13 @@ export default function Account() {
             <input
               type="text"
               aria-label="text input"
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           {message && (
-            <div className="p-3 bg-brand-50 border border-brand-200 rounded-lg text-sm">
+            <div className="p-3 bg-beige-50 border border-brown-200 rounded-lg text-sm">
               {message}
             </div>
           )}
@@ -92,7 +92,7 @@ export default function Account() {
         {user.role === 'instructor' && (
           <div className="mt-6 card p-6">
             <h2 className="text-xl font-semibold">Instructor Tools</h2>
-            <p className="mt-2 text-brand-text-muted">
+            <p className="mt-2 text-brown-600">
               Manage your courses and lessons
             </p>
             <a href="/instructor/dashboard" className="btn mt-4 inline-block">

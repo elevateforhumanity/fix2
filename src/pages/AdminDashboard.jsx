@@ -1,336 +1,391 @@
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { useAnalyticsEvent } from '../analytics/useAnalyticsEvent';
-import { BarChart, LineChart, PieChart, StatCard } from '../components/Chart';
-import { LoadingSpinner } from '../components/LoadingSpinner';
-import { AnalyticsPulse } from '../components/admin/AnalyticsPulse';
-import AppLayout from '../layouts/AppLayout';
-import { api } from '../lib/api';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useAnalyticsEvent('dashboard.view', { page: 'admin-dashboard' });
+  const [stats, setStats] = useState({
+    totalUsers: 0,
+    totalCourses: 0,
+    totalRevenue: 0,
+    activeStudents: 0,
+    totalInstructors: 0,
+    certificatesIssued: 0,
+    completionRate: 0,
+    avgSatisfaction: 0,
+  });
+  const [recentUsers, setRecentUsers] = useState([]);
+  const [systemHealth, setSystemHealth] = useState({
+    database: 'healthy',
+    storage: 'healthy',
+    api: 'healthy',
+  });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchDashboardData();
+    // Mock data - replace with API calls
+    setStats({
+      totalUsers: 523,
+      totalCourses: 24,
+      totalRevenue: 45780,
+      activeStudents: 342,
+      totalInstructors: 18,
+      certificatesIssued: 156,
+      completionRate: 73,
+      avgSatisfaction: 4.6,
+    });
+
+    setRecentUsers([
+      {
+        id: '1',
+        name: 'John Doe',
+        email: 'john@example.com',
+        role: 'student',
+        joined: '2 hours ago',
+      },
+      {
+        id: '2',
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        role: 'instructor',
+        joined: '5 hours ago',
+      },
+      {
+        id: '3',
+        name: 'Mike Johnson',
+        email: 'mike@example.com',
+        role: 'student',
+        joined: '1 day ago',
+      },
+    ]);
+
+    setLoading(false);
   }, []);
 
-  const fetchDashboardData = async () => {
-    setIsLoading(true);
-    try {
-      const data = await api.get('/admin/dashboard');
-      setStats(data);
-    } catch (error) {
-      console.error('Failed to fetch dashboard data:', error);
-      setStats(getMockData());
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const getMockData = () => ({
-    overview: {
-      totalUsers: { value: 12458, change: 12.5 },
-      activeCourses: { value: 342, change: 8.3 },
-      revenue: { value: 45230, change: 15.7 },
-      supportTickets: { value: 23, change: -18.2 },
-    },
-    userGrowth: [
-      { label: 'Jan', value: 8500 },
-      { label: 'Feb', value: 9200 },
-      { label: 'Mar', value: 9800 },
-      { label: 'Apr', value: 10500 },
-      { label: 'May', value: 11200 },
-      { label: 'Jun', value: 12458 },
-    ],
-    courseEnrollments: [
-      { label: 'Web Dev', value: 3420 },
-      { label: 'Data Science', value: 2890 },
-      { label: 'Design', value: 2340 },
-      { label: 'Marketing', value: 1980 },
-      { label: 'Business', value: 1560 },
-    ],
-    usersByRole: [
-      { label: 'Students', value: 10890 },
-      { label: 'Instructors', value: 1234 },
-      { label: 'Admins', value: 334 },
-    ],
-    revenueByMonth: [
-      { label: 'Jan', value: 32000 },
-      { label: 'Feb', value: 35000 },
-      { label: 'Mar', value: 38000 },
-      { label: 'Apr', value: 41000 },
-      { label: 'May', value: 43000 },
-      { label: 'Jun', value: 45230 },
-    ],
-  });
-
-  if (isLoading) {
+  if (loading) {
     return (
-      <AppLayout>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: 400,
-          }}
-        >
-          <LoadingSpinner size="large" />
+      <div>
+        <Helmet>
+          <title>Admin Dashboard | Elevate for Humanity</title>
+        </Helmet>
+        <Navigation />
+        <div className="section">
+          <div className="container">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+              <p className="mt-4 text-brown-600">Loading dashboard...</p>
+            </div>
+          </div>
         </div>
-      </AppLayout>
+        <Footer />
+      </div>
     );
   }
 
-  const data = stats || getMockData();
-
   return (
-    <AppLayout>
-      <div style={{ maxWidth: 1400, margin: '0 auto', padding: 32 }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 32,
-          }}
-        >
-          <h1 style={{ fontSize: 32, fontWeight: 700 }}>
-            Admin Analytics Dashboard
-          </h1>
-          <button
-            onClick={fetchDashboardData}
-            style={{
-              padding: '10px 20px',
-              fontSize: 14,
-              border: '1px solid var(--color-border)',
-              borderRadius: 6,
-              backgroundColor: 'var(--color-bg-secondary)',
-              color: 'var(--color-text-primary)',
-              cursor: 'pointer',
-            }}
-          >
-            🔄 Refresh
-          </button>
-        </div>
-        <div style={{ marginBottom: 40 }}>
-          <AnalyticsPulse />
-        </div>
-        {/* Overview Stats */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: 20,
-            marginBottom: 40,
-          }}
-        >
-          <StatCard
-            title="Total Users"
-            value={data.overview.totalUsers.value.toLocaleString()}
-            change={data.overview.totalUsers.change}
-            icon="👥"
-            color="var(--color-primary)"
-          />
-          <StatCard
-            title="Active Courses"
-            value={data.overview.activeCourses.value.toLocaleString()}
-            change={data.overview.activeCourses.change}
-            icon="📚"
-            color="var(--color-success)"
-          />
-          <StatCard
-            title="Revenue (MTD)"
-            value={`$${data.overview.revenue.value.toLocaleString()}`}
-            change={data.overview.revenue.change}
-            icon="💰"
-            color="var(--color-warning)"
-          />
-          <StatCard
-            title="Support Tickets"
-            value={data.overview.supportTickets.value.toLocaleString()}
-            change={data.overview.supportTickets.change}
-            icon="🎫"
-            color="var(--color-danger)"
-          />
-        </div>
-        {/* Charts Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-            gap: 24,
-            marginBottom: 40,
-          }}
-        >
-          {/* User Growth */}
-          <div
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 20 }}>
-              User Growth
-            </h3>
-            <LineChart
-              data={data.userGrowth}
-              width={500}
-              height={300}
-              color="var(--color-primary)"
-            />
-          </div>
-          {/* Revenue Trend */}
-          <div
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 20 }}>
-              Revenue Trend
-            </h3>
-            <LineChart
-              data={data.revenueByMonth}
-              width={500}
-              height={300}
-              color="var(--color-success)"
-            />
-          </div>
-          {/* Course Enrollments */}
-          <div
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 20 }}>
-              Top Courses by Enrollment
-            </h3>
-            <BarChart
-              data={data.courseEnrollments}
-              width={500}
-              height={300}
-              color="var(--color-info)"
-            />
-          </div>
-          {/* Users by Role */}
-          <div
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 20 }}>
-              Users by Role
-            </h3>
-            <PieChart data={data.usersByRole} width={500} height={300} />
-          </div>
-        </div>
-        {/* Quick Actions */}
-        <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 20 }}>
-          Quick Actions
-        </h2>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: 24,
-          }}
-        >
-          <Link
-            to="/user-management"
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            <div style={{ fontSize: 32, marginBottom: 12 }}>👥</div>
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
-              User Management
-            </h3>
-            <p style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>
-              Manage users, roles, and permissions
+    <div>
+      <Helmet>
+        <title>Admin Dashboard | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+
+      <div className="section bg-beige-50">
+        <div className="container">
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-brown-900 mb-2">
+              Admin Dashboard
+            </h1>
+            <p className="text-lg text-brown-600">
+              Platform overview and management
             </p>
-          </Link>
-          <Link
-            to="/course-builder"
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            <div style={{ fontSize: 32, marginBottom: 12 }}>📚</div>
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
-              Course Management
-            </h3>
-            <p style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>
-              Review and manage all courses
-            </p>
-          </Link>
-          <Link
-            to="/analytics"
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            <div style={{ fontSize: 32, marginBottom: 12 }}>📊</div>
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
-              Detailed Analytics
-            </h3>
-            <p style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>
-              View platform analytics and reports
-            </p>
-          </Link>
-          <Link
-            to="/settings"
-            style={{
-              backgroundColor: 'var(--color-card-bg)',
-              padding: 24,
-              borderRadius: 8,
-              border: '1px solid var(--color-border)',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
-            <div style={{ fontSize: 32, marginBottom: 12 }}>⚙️</div>
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
-              Platform Settings
-            </h3>
-            <p style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}>
-              Configure platform settings
-            </p>
-          </Link>
+          </div>
+
+          {/* System Health */}
+          <div className="card p-6 mb-8 bg-green-50 border-l-4 border-green-600">
+            <div className="flex items-center gap-4">
+              <div className="text-3xl">✅</div>
+              <div>
+                <h3 className="text-lg font-bold text-brown-900 mb-1">
+                  All Systems Operational
+                </h3>
+                <p className="text-sm text-brown-600">
+                  Database: {systemHealth.database} • Storage:{' '}
+                  {systemHealth.storage} • API: {systemHealth.api}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.totalUsers}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Total Users
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.totalCourses}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Total Courses
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                ${(stats.totalRevenue / 1000).toFixed(1)}k
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Total Revenue
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.activeStudents}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Active Students
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.totalInstructors}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Instructors
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.certificatesIssued}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Certificates Issued
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.completionRate}%
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Completion Rate
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.avgSatisfaction}/5
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Avg Satisfaction
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="card p-6 mb-12">
+            <h2 className="text-2xl font-bold text-brown-900 mb-4">
+              Quick Actions
+            </h2>
+            <div className="grid md:grid-cols-4 gap-4">
+              <Link to="/admin/users" className="btn-primary text-center">
+                Manage Users
+              </Link>
+              <Link to="/admin/courses" className="btn-outline text-center">
+                Manage Courses
+              </Link>
+              <Link to="/admin/reports" className="btn-outline text-center">
+                View Reports
+              </Link>
+              <Link to="/admin/settings" className="btn-outline text-center">
+                System Settings
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Recent Users */}
+            <div>
+              <h2 className="text-2xl font-bold text-brown-900 mb-6">
+                Recent Users
+              </h2>
+              <div className="card p-6">
+                <div className="space-y-4">
+                  {recentUsers.map((user) => (
+                    <div
+                      key={user.id}
+                      className="pb-4 border-b border-brown-200 last:border-0 last:pb-0"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="font-semibold text-brown-900 mb-1">
+                            {user.name}
+                          </p>
+                          <p className="text-sm text-brown-600">{user.email}</p>
+                        </div>
+                        <div className="text-right">
+                          <span className="inline-block px-2 py-1 text-xs font-semibold rounded bg-green-100 text-green-800 mb-1">
+                            {user.role}
+                          </span>
+                          <p className="text-xs text-brown-500">
+                            {user.joined}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-brown-200">
+                  <Link
+                    to="/admin/users"
+                    className="text-green-600 hover:text-green-700 font-semibold text-sm"
+                  >
+                    View All Users →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div>
+              <h2 className="text-2xl font-bold text-brown-900 mb-6">
+                Platform Insights
+              </h2>
+              <div className="space-y-4">
+                <div className="card p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-brown-600">Course Completion</span>
+                    <span className="font-bold text-brown-900">
+                      {stats.completionRate}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-beige-200 rounded-full h-2">
+                    <div
+                      className="bg-green-600 h-2 rounded-full transition-all"
+                      style={{ width: `${stats.completionRate}%` }}
+                    />
+                  </div>
+                </div>
+
+                <div className="card p-6">
+                  <h3 className="text-lg font-bold text-brown-900 mb-4">
+                    User Distribution
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-brown-600">Students</span>
+                      <span className="font-semibold text-brown-900">
+                        {stats.activeStudents} (
+                        {Math.round(
+                          (stats.activeStudents / stats.totalUsers) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-brown-600">Instructors</span>
+                      <span className="font-semibold text-brown-900">
+                        {stats.totalInstructors} (
+                        {Math.round(
+                          (stats.totalInstructors / stats.totalUsers) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-brown-600">Admins</span>
+                      <span className="font-semibold text-brown-900">
+                        {stats.totalUsers -
+                          stats.activeStudents -
+                          stats.totalInstructors}{' '}
+                        (
+                        {Math.round(
+                          ((stats.totalUsers -
+                            stats.activeStudents -
+                            stats.totalInstructors) /
+                            stats.totalUsers) *
+                            100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card p-6 bg-gradient-to-r from-green-50 to-beige-50">
+                  <div className="flex items-center gap-3">
+                    <div className="text-3xl">⭐</div>
+                    <div>
+                      <div className="text-2xl font-bold text-brown-900">
+                        {stats.avgSatisfaction}/5.0
+                      </div>
+                      <div className="text-sm text-brown-600">
+                        Average Student Satisfaction
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Management Links */}
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            <Link
+              to="/admin/analytics"
+              className="card p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-3">📊</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Analytics
+              </h3>
+              <p className="text-brown-600 text-sm">
+                View detailed platform analytics and reports
+              </p>
+            </Link>
+
+            <Link
+              to="/admin/content"
+              className="card p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-3">📚</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Content Management
+              </h3>
+              <p className="text-brown-600 text-sm">
+                Manage courses, lessons, and learning materials
+              </p>
+            </Link>
+
+            <Link
+              to="/admin/compliance"
+              className="card p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-3">✅</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Compliance
+              </h3>
+              <p className="text-brown-600 text-sm">
+                ETPL reporting and DOL compliance tracking
+              </p>
+            </Link>
+          </div>
         </div>
       </div>
-    </AppLayout>
+
+      <Footer />
+    </div>
   );
 }

@@ -81,7 +81,9 @@ export async function getUserCertificates(
 ): Promise<Certificate[]> {
   const { data, error } = await supa
     .from('certificates')
-    .select('*, courses(title, code)')
+    .select(
+      '*, courses(title, code, total_hours, program_type, instructor_name), profiles(full_name, email)'
+    )
     .eq('user_id', userId)
     .order('issued_at', { ascending: false });
 
@@ -92,11 +94,28 @@ export async function getUserCertificates(
 export async function getCertificate(certificateId: string): Promise<any> {
   const { data, error } = await supa
     .from('certificates')
-    .select('*, courses(title, code), profiles(email)')
+    .select(
+      '*, courses(title, code, total_hours, program_type, instructor_name), profiles(full_name, email)'
+    )
     .eq('id', certificateId)
     .single();
 
   if (error) throw error;
+  return data;
+}
+
+export async function getCertificateByNumber(
+  certificateNumber: string
+): Promise<any> {
+  const { data, error } = await supa
+    .from('certificates')
+    .select(
+      '*, courses(title, code, total_hours, program_type, instructor_name), profiles(full_name, email)'
+    )
+    .eq('certificate_number', certificateNumber)
+    .single();
+
+  if (error) return null;
   return data;
 }
 

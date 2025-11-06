@@ -44,10 +44,10 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-brand-surface py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-beige-50 py-12 px-4">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-text">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-brown-900">
             Create your account
           </h2>
         </div>
@@ -62,7 +62,7 @@ export default function Signup() {
               type="text"
               aria-label="text input"
               required
-              className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"
+              className="appearance-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
@@ -71,7 +71,7 @@ export default function Signup() {
               type="email"
               aria-label="email input"
               required
-              className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"
+              className="appearance-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -81,7 +81,7 @@ export default function Signup() {
               aria-label="password input"
               required
               minLength={6}
-              className="appearance-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 sm:text-sm"
+              className="appearance-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Password (min 6 characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -90,12 +90,12 @@ export default function Signup() {
           <button
             type="submit"
             disabled={loading}
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-brand-info hover:bg-brand-info-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-focus disabled:opacity-50"
+            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
           >
             {loading ? 'Creating account...' : 'Sign up'}
           </button>
           <div className="text-center">
-            <Link to="/login" className="text-brand-info hover:text-indigo-500">
+            <Link to="/login" className="text-green-600 hover:text-indigo-500">
               Already have an account? Sign in
             </Link>
           </div>

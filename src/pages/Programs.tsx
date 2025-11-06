@@ -189,21 +189,21 @@ export default function Programs() {
         );
 
   return (
-    <div className="min-h-screen bg-brand-surface">
+    <div className="min-h-screen bg-beige-50">
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-brand-text">
+              <h1 className="text-3xl font-bold text-brown-900">
                 Elevate Learn2Earn Workforce Programs
               </h1>
-              <p className="text-brand-text-muted mt-2">
+              <p className="text-brown-600 mt-2">
                 Federal DOL/DWD compliant training programs with guaranteed job
                 placement support
               </p>
             </div>
-            <div className="bg-brand-surface text-brand-success px-4 py-2 rounded-full text-sm font-medium">
+            <div className="bg-beige-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium">
               💰 Federal Funding Available
             </div>
           </div>
@@ -219,8 +219,8 @@ export default function Programs() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category.id
-                    ? 'bg-brand-info text-white'
-                    : 'bg-brand-surface-dark text-brand-text hover:bg-brand-border'
+                    ? 'bg-green-600 text-white'
+                    : 'bg-beige-100 text-brown-900 hover:bg-brown-300'
                 }`}
               >
                 {category.name} ({category.count})
@@ -246,7 +246,7 @@ export default function Programs() {
                   </div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                   <div className="absolute top-3 left-3">
-                    <span className="bg-white/90 backdrop-blur-sm text-brand-info text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-white/90 backdrop-blur-sm text-green-600 text-xs font-semibold px-3 py-1 rounded-full">
                       {program.category.toUpperCase()}
                     </span>
                   </div>
@@ -261,29 +261,29 @@ export default function Programs() {
               </div>
               {/* Course Info */}
               <div className="p-4 bg-white">
-                <h3 className="font-semibold text-brand-text mb-1 line-clamp-2 group-hover:text-brand-info transition-colors">
+                <h3 className="font-semibold text-brown-900 mb-1 line-clamp-2 group-hover:text-green-600 transition-colors">
                   {program.title}
                 </h3>
-                <p className="text-sm text-brand-text-muted mb-3 line-clamp-2">
+                <p className="text-sm text-brown-600 mb-3 line-clamp-2">
                   {program.description}
                 </p>
                 <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center text-brand-text-muted">
+                  <div className="flex items-center text-brown-600">
                     <Clock className="h-4 w-4 mr-1" />
                     {program.duration}
                   </div>
-                  <div className="flex items-center text-brand-text-muted">
+                  <div className="flex items-center text-brown-600">
                     <Users className="h-4 w-4 mr-1" />
                     {program.participants}
                   </div>
                 </div>
-                <div className="mt-3 pt-3 border-t border-brand-border">
+                <div className="mt-3 pt-3 border-t border-brown-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-brand-text-muted">
+                    <span className="text-xs text-brown-600">
                       <Award className="h-3 w-3 inline mr-1" />
                       {program.jobPlacementRate}% placement
                     </span>
-                    <span className="text-brand-info font-semibold text-sm group-hover:underline">
+                    <span className="text-green-600 font-semibold text-sm group-hover:underline">
                       Learn More →
                     </span>
                   </div>

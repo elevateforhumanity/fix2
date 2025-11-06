@@ -46,20 +46,16 @@ export default function ProgramsIndex() {
               </div>
               <div className="p-4 md:p-5">
                 <div className="flex items-center gap-2">
-                  <span className="rounded-full bg-brand-50 text-brand-700 px-2.5 py-1 text-xs font-semibold">
+                  <span className="rounded-full bg-beige-50 text-green-700 px-2.5 py-1 text-xs font-semibold">
                     {p.track}
                   </span>
                   {p.hours && (
-                    <span className="text-xs text-brand-text-light">
-                      {p.hours}
-                    </span>
+                    <span className="text-xs text-brown-500">{p.hours}</span>
                   )}
                 </div>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 {p.blurb && (
-                  <p className="mt-1 text-sm text-brand-text-muted">
-                    {p.blurb}
-                  </p>
+                  <p className="mt-1 text-sm text-brown-600">{p.blurb}</p>
                 )}
               </div>
             </a>

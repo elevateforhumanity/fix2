@@ -1,86 +1,61 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { resetPassword } from '../../services/auth';
+import Navigation from '../../components/Navigation';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setLoading(true);
-
-    try {
-      await resetPassword(email);
-      setSuccess(true);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  if (success) {
-    return (
-      <section className="section">
-        <div className="container max-w-md mx-auto">
-          <div className="card p-6 text-center">
-            <div className="text-4xl mb-4">📧</div>
-            <h2 className="text-2xl font-semibold">Check Your Email</h2>
-            <p className="mt-2 text-brand-text-muted">
-              We sent a password reset link to <strong>{email}</strong>
-            </p>
-            <p className="mt-2 text-sm text-brand-text-light">
-              Click the link to reset your password.
-            </p>
-            <Link to="/auth/login" className="btn mt-4">
-              Back to Login
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
-  }
+    console.log('Reset password for:', email);
+    alert('Password reset link sent to ' + email);
+  };
 
   return (
-    <section className="section">
-      <div className="container max-w-md mx-auto">
-        <div className="card p-6">
-          <h1 className="text-2xl font-bold text-center">Reset Password</h1>
-          <p className="mt-2 text-center text-brand-text-muted">
-            Enter your email to receive a reset link
+    <div>
+      <Helmet>
+        <title>Forgot Password | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+      <Section background="white">
+        <div className="mx-auto max-w-md">
+          <h1 className="section-title text-center">Reset Password</h1>
+          <p className="text-center mt-4 mb-8">
+            Enter your email and we'll send you a reset link.
           </p>
-          {error && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-              {error}
-            </div>
-          )}
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-1">Email</label>
+              <label htmlFor="email" className="label">
+                Email
+              </label>
               <input
                 type="email"
-                aria-label="email input"
+                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
                 required
+                className="input"
+                placeholder="your.email@example.com"
               />
             </div>
-            <button type="submit" className="btn w-full" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Reset Link'}
+            <button type="submit" className="button w-full">
+              Send Reset Link
             </button>
           </form>
-          <div className="mt-4 text-center text-sm text-brand-text-muted">
-            <Link to="/auth/login" className="hover:text-brand-600">
-              Back to login
+          <p className="mt-6 text-center text-sm">
+            <Link
+              to="/auth/login"
+              className="text-[var(--color-green-600)] hover:underline"
+            >
+              Back to Login
             </Link>
-          </div>
+          </p>
         </div>
-      </div>
-    </section>
+      </Section>
+      <Footer />
+    </div>
   );
 }

@@ -26,7 +26,7 @@ export default function FundingImpact() {
           <div
             style={{
               padding: 16,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
               borderRadius: 8,
             }}
           >
@@ -38,7 +38,7 @@ export default function FundingImpact() {
           <div
             style={{
               padding: 16,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
               borderRadius: 8,
             }}
           >
@@ -47,7 +47,7 @@ export default function FundingImpact() {
               style={{
                 fontSize: 32,
                 fontWeight: 'bold',
-                color: 'var(--brand-success)',
+                color: ''#00a544'',
               }}
             >
               89
@@ -56,7 +56,7 @@ export default function FundingImpact() {
           <div
             style={{
               padding: 16,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
               borderRadius: 8,
             }}
           >
@@ -65,7 +65,7 @@ export default function FundingImpact() {
               style={{
                 fontSize: 32,
                 fontWeight: 'bold',
-                color: 'var(--brand-warning)',
+                color: ''#ca8a04'',
               }}
             >
               34

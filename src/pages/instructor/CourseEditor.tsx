@@ -102,7 +102,7 @@ export default function CourseEditor() {
               aria-label="text input"
               value={form.code}
               onChange={(e) => setForm({ ...form, code: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300"
               placeholder="e.g., HLTH-101"
               required
             />
@@ -114,7 +114,7 @@ export default function CourseEditor() {
               aria-label="text input"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300"
               placeholder="e.g., Patient Care Basics"
               required
             />
@@ -124,7 +124,7 @@ export default function CourseEditor() {
             <textarea
               value={form.summary}
               onChange={(e) => setForm({ ...form, summary: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300"
               rows={3}
               placeholder="Brief description of the course"
             />
@@ -134,7 +134,7 @@ export default function CourseEditor() {
             <select
               value={form.program_id}
               onChange={(e) => setForm({ ...form, program_id: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-300"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300"
             >
               <option value="">No program (standalone)</option>
               {programs.map((p) => (

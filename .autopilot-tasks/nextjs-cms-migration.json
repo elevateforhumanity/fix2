@@ -6,10 +6,10 @@
   "created_at": "2025-11-05T17:30:00Z",
   "type": "autonomous_deployment",
   "mode": "zero_manual",
-  
+
   "download_token": "RcSFpHnIk12Uu_6NlbIZjzgT19Sltw2sChG33PiW",
   "package_name": "efh-next-ssg-ssr-auth-plus-cms.zip",
-  
+
   "objectives": [
     "Download Next.js starter with CMS and auth",
     "Extract and configure environment",
@@ -19,7 +19,7 @@
     "Configure custom domain",
     "Verify zero skeleton pages"
   ],
-  
+
   "autonomous_steps": [
     {
       "step": 1,
@@ -90,10 +90,7 @@
       "step": 6,
       "name": "Build Next.js Site",
       "action": "build",
-      "commands": [
-        "cd /workspaces/fix2/nextjs-cms-site",
-        "npm run build"
-      ],
+      "commands": ["cd /workspaces/fix2/nextjs-cms-site", "npm run build"],
       "verify_output": ".next",
       "fail_on_error": true
     },
@@ -153,7 +150,7 @@
       "push": true
     }
   ],
-  
+
   "autonomous_config": {
     "zero_manual_intervention": true,
     "auto_retry_on_failure": true,
@@ -163,7 +160,7 @@
     "notify_on_completion": true,
     "continuous_monitoring": true
   },
-  
+
   "success_criteria": [
     "Package downloaded and extracted",
     "Dependencies installed",
@@ -179,14 +176,14 @@
     "Auth working",
     "Changes committed to git"
   ],
-  
+
   "rollback_plan": {
     "enabled": true,
     "keep_old_deployment": true,
     "can_revert_dns": true,
     "backup_created": true
   },
-  
+
   "estimated_time": "30-45 minutes",
   "risk_level": "low",
   "impact": "high"

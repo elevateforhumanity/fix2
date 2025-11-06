@@ -88,10 +88,10 @@ export default function ResetPassword() {
 
   if (validatingToken) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-brand-surface">
+      <div className="min-h-screen flex items-center justify-center bg-beige-50">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
-          <p className="text-brand-text-muted">Validating reset link...</p>
+          <p className="text-brown-600">Validating reset link...</p>
         </div>
       </div>
     );
@@ -99,13 +99,13 @@ export default function ResetPassword() {
 
   if (!tokenValid) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-brand-surface">
+      <div className="min-h-screen flex items-center justify-center bg-beige-50">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
           <div className="text-red-500 text-4xl mb-4">⚠️</div>
-          <h2 className="text-2xl font-bold text-brand-text mb-2">
+          <h2 className="text-2xl font-bold text-brown-900 mb-2">
             Invalid Reset Link
           </h2>
-          <p className="text-brand-text-muted mb-6">
+          <p className="text-brown-600 mb-6">
             This password reset link is invalid or has expired.
           </p>
           <button
@@ -121,31 +121,29 @@ export default function ResetPassword() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-brand-surface">
+      <div className="min-h-screen flex items-center justify-center bg-beige-50">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
           <div className="text-green-500 text-4xl mb-4">✓</div>
-          <h2 className="text-2xl font-bold text-brand-text mb-2">
+          <h2 className="text-2xl font-bold text-brown-900 mb-2">
             Password Reset Successful
           </h2>
-          <p className="text-brand-text-muted">Redirecting to login...</p>
+          <p className="text-brown-600">Redirecting to login...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-brand-surface">
+    <div className="min-h-screen flex items-center justify-center bg-beige-50">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-info/10 rounded-full mb-4">
-            <Lock className="h-8 w-8 text-brand-info" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600/10 rounded-full mb-4">
+            <Lock className="h-8 w-8 text-green-600" />
           </div>
-          <h2 className="text-2xl font-bold text-brand-text">
+          <h2 className="text-2xl font-bold text-brown-900">
             Reset Your Password
           </h2>
-          <p className="text-brand-text-muted mt-2">
-            Enter your new password below
-          </p>
+          <p className="text-brown-600 mt-2">Enter your new password below</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
@@ -154,7 +152,7 @@ export default function ResetPassword() {
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-brand-text mb-2">
+            <label className="block text-sm font-medium text-brown-900 mb-2">
               New Password
             </label>
             <input
@@ -162,14 +160,14 @@ export default function ResetPassword() {
               aria-label="password input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"
+              className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Enter new password"
               required
               minLength={8}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-brand-text mb-2">
+            <label className="block text-sm font-medium text-brown-900 mb-2">
               Confirm Password
             </label>
             <input
@@ -177,7 +175,7 @@ export default function ResetPassword() {
               aria-label="password input"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-brand-border rounded-lg focus:ring-2 focus:ring-brand-info focus:border-transparent"
+              className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Confirm new password"
               required
               minLength={8}

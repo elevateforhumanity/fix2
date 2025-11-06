@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import Section from '../components/Section';
 
 export default function DurableTemplates() {
   const templates = [
@@ -12,37 +16,47 @@ export default function DurableTemplates() {
   ];
 
   return (
-    <div className="min-h-screen bg-brand-surface py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-brand-text mb-4">
-            Program Templates
-          </h1>
-          <p className="text-xl text-brand-text-muted max-w-2xl mx-auto">
+    <div>
+      <Helmet>
+        <title>Program Templates | Elevate for Humanity</title>
+        <meta
+          name="description"
+          content="Pre-built learning paths designed by industry experts"
+        />
+      </Helmet>
+
+      <Navigation />
+
+      <Section background="beige">
+        <div className="text-center mb-12">
+          <h1 className="section-title">Program Templates</h1>
+          <p className="section-subtitle max-w-2xl mx-auto">
             Pre-built learning paths designed by industry experts
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {templates.map((template, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition"
-            >
+            <div key={index} className="card p-8 hover:shadow-lg transition">
               <div className="text-6xl mb-4">{template.icon}</div>
-              <h3 className="text-2xl font-bold mb-2">{template.name}</h3>
-              <p className="text-brand-text-muted mb-4">
+              <h3 className="text-2xl font-bold text-brown-900 mb-2">
+                {template.name}
+              </h3>
+              <p className="text-brown-600 mb-4">
                 {template.courses} courses included
               </p>
               <Link
-                to="/courses"
-                className="text-brand-info font-semibold hover:text-brand-info"
+                to="/programs"
+                className="text-green-600 font-semibold hover:text-green-700"
               >
                 View Template →
               </Link>
             </div>
           ))}
         </div>
-      </div>
+      </Section>
+
+      <Footer />
     </div>
   );
 }

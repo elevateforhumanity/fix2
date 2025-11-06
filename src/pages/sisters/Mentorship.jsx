@@ -1,144 +1,103 @@
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import NavBar from '../../components/NavBar';
 import { Link } from 'react-router-dom';
+import Navigation from '../../components/Navigation';
+import Hero from '../../components/Hero';
+import Section from '../../components/Section';
+import Footer from '../../components/Footer';
+import Button from '../../components/Button';
 
 export default function Mentorship() {
-  const [markedUpPrice, setMarkedUpPrice] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Replace with your actual product and partner account IDs
-  const productId = 'prod_XXXXXXXXXXXX';
-  const partnerStripeAccountId = 'acct_XXXXXXXXXXXX';
-
-  useEffect(() => {
-    fetch(`/api/checkout/product/${productId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMarkedUpPrice(data.markedUpPrice);
-        setLoading(false);
-      });
-  }, []);
-
-  const handleBuyNow = async () => {
-    const res = await fetch('/api/checkout/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        priceId: 'price_XXXXXXXXXXXX', // Replace with actual priceId from backend
-        partnerStripeAccountId,
-      }),
-    });
-    const data = await res.json();
-    window.location.href = data.url;
-  };
-
   return (
-    <>
+    <div>
       <Helmet>
-        <title>Elevate for Humanity | Empowering Students Worldwide</title>
+        <title>Mentorship Hub | Elevate for Humanity</title>
         <meta
           name="description"
-          content="Accessible, high-quality education and mentorship for all. Join Elevate for Humanity and our sister sites to grow, connect, and make a difference."
+          content="Connect with experienced mentors for career guidance, skill development, and personal growth."
         />
       </Helmet>
-      <header>
-        <NavBar />
-      </header>
-      <main role="main" id="main-content" tabIndex={-1}
-style={{ padding: 32 }}>
-        <h1>Mentorship Hub</h1>
-        <p>
-          Connect with experienced mentors for career guidance, skill
-          development, and personal growth. Explore our directory or sign up to
-          become a mentor.
-        </p>
-        <img
-          src="/images/student.jpg"
-          alt="A diverse group of students collaborating on a project"
-          style={{ width: '100%', height: 'auto', borderRadius: 8 }}
-        />
-        <div style={{ margin: '24px 0' }}>
-          {loading ? (
-            <span>Loading price...</span>
-          ) : (
-            <button
-              onClick={handleBuyNow}
-              style={{
-                background: '#1976d2',
-                color: '#fff',
-                padding: '16px 32px',
-                borderRadius: 8,
-                fontWeight: 'bold',
-                fontSize: 20,
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              Buy Now for ${markedUpPrice.toFixed(2)}
-            </button>
-          )}
+
+      <Navigation />
+
+      <Hero
+        title="Mentorship Hub"
+        subtitle="Connect with experienced mentors for career guidance, skill development, and personal growth. Explore our directory or sign up to become a mentor."
+        primaryCTA="Find a Mentor"
+        secondaryCTA="Become a Mentor"
+        primaryLink="/sisters/mentor-directory"
+        secondaryLink="/sisters/mentor-signup"
+      />
+
+      <Section background="white">
+        <div className="mx-auto max-w-[1200px]">
+          <h2 className="section-title text-center">Why Mentorship Matters</h2>
+          <p className="section-subtitle text-center mt-4 mb-12">
+            Mentorship provides guidance, support, and real-world insights to
+            help you succeed in your career journey.
+          </p>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="card text-center">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Career Guidance
+              </h3>
+              <p className="text-brown-700">
+                Get expert advice on career paths, job search strategies, and
+                professional development.
+              </p>
+            </div>
+
+            <div className="card text-center">
+              <div className="text-4xl mb-4">🤝</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Skill Development
+              </h3>
+              <p className="text-brown-700">
+                Learn industry-specific skills and best practices from
+                experienced professionals.
+              </p>
+            </div>
+
+            <div className="card text-center">
+              <div className="text-4xl mb-4">🌟</div>
+              <h3 className="text-xl font-bold text-brown-900 mb-2">
+                Personal Growth
+              </h3>
+              <p className="text-brown-700">
+                Build confidence, expand your network, and achieve your
+                professional goals.
+              </p>
+            </div>
+          </div>
         </div>
-        <a
-          href="https://buy.stripe.com/test_donation_link"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            background: '#388e3c',
-            color: '#fff',
-            padding: '16px 32px',
-            borderRadius: 8,
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            fontSize: 20,
-            marginTop: 24,
-          }}
-        >
-          Donate Now & Support Scholarships
-        </a>
-        <div style={{ marginTop: 32 }}>
-          <Link
-            to="/courses"
-            style={{
-              display: 'inline-block',
-              background: '#1976d2',
-              color: '#fff',
-              padding: '16px 32px',
-              borderRadius: 8,
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: 20,
-            }}
-          >
-            Course Library
-          </Link>
+      </Section>
+
+      <Section background="beige">
+        <div className="mx-auto max-w-[800px] text-center">
+          <h2 className="section-title">Ready to Get Started?</h2>
+          <p className="section-subtitle mt-4 mb-8">
+            Whether you're looking for guidance or want to share your expertise,
+            our mentorship program connects you with the right people.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/sisters/mentor-directory">
+              <Button variant="primary" size="large">
+                Browse Mentors
+              </Button>
+            </Link>
+            <Link to="/sisters/mentor-signup">
+              <Button variant="secondary" size="large">
+                Become a Mentor
+              </Button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer>
-        <p>
-          &copy; {new Date().getFullYear()} Elevate for Humanity. All rights
-          reserved.
-        </p>
-      </footer>
-    </>
+      </Section>
+
+      <Footer />
+    </div>
   );
 }

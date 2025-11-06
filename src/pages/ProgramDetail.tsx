@@ -18,7 +18,7 @@ export default function ProgramDetail() {
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
         <h1 className="text-2xl font-bold">Program not found</h1>
-        <p className="mt-2 text-brand-text-muted">
+        <p className="mt-2 text-brown-600">
           Please return to the programs page.
         </p>
         <Link
@@ -79,22 +79,22 @@ export default function ProgramDetail() {
         </script>
       </Helmet>
       {/* HERO */}
-      <section className="relative border-b border-brand-border">
+      <section className="relative border-b border-brown-200">
         <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
             <span className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-200">
               Elevate for Humanity
             </span>
-            <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-brand-text">
+            <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-brown-900">
               {p.name}
             </h1>
-            <p className="mt-2 text-brand-text-muted">{p.tagline}</p>
-            <p className="mt-4 text-brand-text">{p.summary}</p>
+            <p className="mt-2 text-brown-600">{p.tagline}</p>
+            <p className="mt-4 text-brown-900">{p.summary}</p>
             <div className="mt-5 flex flex-wrap gap-2 text-xs">
               {p.funding.map((f) => (
                 <span
                   key={f}
-                  className="rounded-full bg-brand-surface-dark px-2 py-1 text-brand-text"
+                  className="rounded-full bg-beige-100 px-2 py-1 text-brown-900"
                 >
                   {f}
                 </span>
@@ -111,7 +111,7 @@ export default function ProgramDetail() {
               </a>
               <Link
                 to="/contact"
-                className="rounded-xl border border-brand-border-dark px-5 py-3 font-semibold hover:border-slate-400"
+                className="rounded-xl border border-brown-300 px-5 py-3 font-semibold hover:border-slate-400"
               >
                 Talk to an Advisor
               </Link>
@@ -127,8 +127,8 @@ export default function ProgramDetail() {
                 e.currentTarget.parentElement!.innerHTML = `
                   <div class="h-full w-full bg-gradient-to-br from-orange-50 to-white flex items-center justify-center text-center p-6">
                     <div>
-                      <p class="text-sm uppercase tracking-widest text-brand-text-light">${p.name}</p>
-                      <p class="mt-2 text-brand-text-muted">${p.tagline}</p>
+                      <p class="text-sm uppercase tracking-widest text-brown-500">${p.name}</p>
+                      <p class="mt-2 text-brown-600">${p.tagline}</p>
                       <p class="mt-4 text-xs text-slate-400">Add ${p.slug}-hero.jpg to public/images/</p>
                     </div>
                   </div>
@@ -141,31 +141,31 @@ export default function ProgramDetail() {
       {/* DETAILS */}
       <section className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-xl font-bold text-brand-text">
+          <h2 className="text-xl font-bold text-brown-900">
             What You'll Learn
           </h2>
-          <ul className="mt-3 list-disc pl-5 text-brand-text space-y-1">
+          <ul className="mt-3 list-disc pl-5 text-brown-900 space-y-1">
             {p.bullets.map((b, i) => (
               <li key={i}>{b}</li>
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-brand-border p-5">
-          <h3 className="text-lg font-bold text-brand-text">
+        <div className="rounded-2xl border border-brown-200 p-5">
+          <h3 className="text-lg font-bold text-brown-900">
             Eligibility & Funding
           </h3>
-          <p className="mt-2 text-brand-text">
+          <p className="mt-2 text-brown-900">
             We help you determine eligibility for programs like{' '}
             {p.funding.join(', ')} and connect you with employer partners for
             paid on-the-job training.
           </p>
-          <p className="mt-3 text-brand-text">
+          <p className="mt-3 text-brown-900">
             Start your application and an advisor will reach out with next
             steps.
           </p>
           <Link
             to="/contact"
-            className="mt-4 inline-block rounded-lg bg-brand-secondary-hover px-4 py-2 text-white"
+            className="mt-4 inline-block rounded-lg bg-brown-600-hover px-4 py-2 text-white"
           >
             Request Info
           </Link>

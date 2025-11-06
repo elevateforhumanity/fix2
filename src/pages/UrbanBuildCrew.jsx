@@ -1,14 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export function UrbanBuildCrew() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
+    <div>
+      <Helmet>
+        <title>Urban Build Crew | Elevate for Humanity</title>
+        <meta name="description" content="Construction and building trades training programs" />
+      </Helmet>
+
+      <Navigation />
+
+      <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
       {/* Hero Section */}
       <div
         style={{
           background:
-            'linear-gradient(135deg, var(--brand-warning) 0%, var(--brand-warning-hover) 100%)',
+            'linear-gradient(135deg, #2D5016 0%, #4A7C2C 100%)',
           color: '#fff',
           padding: '4rem 2rem',
           textAlign: 'center',
@@ -51,7 +62,7 @@ export function UrbanBuildCrew() {
               style={{
                 padding: '1rem 2rem',
                 backgroundColor: '#fff',
-                color: 'var(--brand-warning)',
+                color: ''#ca8a04'',
                 borderRadius: '0.5rem',
                 fontWeight: '600',
                 textDecoration: 'none',
@@ -82,7 +93,7 @@ export function UrbanBuildCrew() {
       <div
         style={{
           padding: '4rem 2rem',
-          backgroundColor: 'var(--brand-surface)',
+          backgroundColor: ''#f5f1e8'',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -122,7 +133,7 @@ export function UrbanBuildCrew() {
                 Hands-On Training
               </h3>
               <p
-                style={{ color: 'var(--brand-text-muted)', lineHeight: '1.6' }}
+                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
               >
                 Learn construction and trade skills through real-world projects
                 and experienced instructors
@@ -147,7 +158,7 @@ export function UrbanBuildCrew() {
                 Industry Certifications
               </h3>
               <p
-                style={{ color: 'var(--brand-text-muted)', lineHeight: '1.6' }}
+                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
               >
                 Earn recognized certifications in OSHA, welding, electrical,
                 plumbing, and more
@@ -172,7 +183,7 @@ export function UrbanBuildCrew() {
                 Job Placement
               </h3>
               <p
-                style={{ color: 'var(--brand-text-muted)', lineHeight: '1.6' }}
+                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
               >
                 Connect with local contractors and construction companies for
                 immediate employment opportunities
@@ -236,7 +247,7 @@ export function UrbanBuildCrew() {
               <div
                 key={i}
                 style={{
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: '0.5rem',
                   padding: '2rem',
                 }}
@@ -255,7 +266,7 @@ export function UrbanBuildCrew() {
                 </h3>
                 <p
                   style={{
-                    color: 'var(--brand-text-muted)',
+                    color: ''#6b5d52'',
                     marginBottom: '1.5rem',
                     lineHeight: '1.6',
                   }}
@@ -265,7 +276,7 @@ export function UrbanBuildCrew() {
                 <Link
                   to="/urban-build-crew/courses"
                   style={{
-                    color: 'var(--brand-warning)',
+                    color: ''#ca8a04'',
                     fontWeight: '600',
                     textDecoration: 'none',
                   }}
@@ -280,7 +291,7 @@ export function UrbanBuildCrew() {
       {/* Stats Section */}
       <div
         style={{
-          backgroundColor: 'var(--brand-surface)',
+          backgroundColor: ''#f5f1e8'',
           padding: '4rem 2rem',
         }}
       >
@@ -298,7 +309,7 @@ export function UrbanBuildCrew() {
                 style={{
                   fontSize: '3rem',
                   fontWeight: '700',
-                  color: 'var(--brand-warning)',
+                  color: ''#ca8a04'',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -306,7 +317,7 @@ export function UrbanBuildCrew() {
               </div>
               <div
                 style={{
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   fontSize: '1.125rem',
                 }}
               >
@@ -318,7 +329,7 @@ export function UrbanBuildCrew() {
                 style={{
                   fontSize: '3rem',
                   fontWeight: '700',
-                  color: 'var(--brand-warning)',
+                  color: ''#ca8a04'',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -326,7 +337,7 @@ export function UrbanBuildCrew() {
               </div>
               <div
                 style={{
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   fontSize: '1.125rem',
                 }}
               >
@@ -338,7 +349,7 @@ export function UrbanBuildCrew() {
                 style={{
                   fontSize: '3rem',
                   fontWeight: '700',
-                  color: 'var(--brand-warning)',
+                  color: ''#ca8a04'',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -346,7 +357,7 @@ export function UrbanBuildCrew() {
               </div>
               <div
                 style={{
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   fontSize: '1.125rem',
                 }}
               >
@@ -358,7 +369,7 @@ export function UrbanBuildCrew() {
                 style={{
                   fontSize: '3rem',
                   fontWeight: '700',
-                  color: 'var(--brand-warning)',
+                  color: ''#ca8a04'',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -366,7 +377,7 @@ export function UrbanBuildCrew() {
               </div>
               <div
                 style={{
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   fontSize: '1.125rem',
                 }}
               >
@@ -380,7 +391,7 @@ export function UrbanBuildCrew() {
       <div
         style={{
           background:
-            'linear-gradient(135deg, var(--brand-warning) 0%, var(--brand-warning-hover) 100%)',
+            'linear-gradient(135deg, #2D5016 0%, #4A7C2C 100%)',
           color: '#fff',
           padding: '4rem 2rem',
           textAlign: 'center',
@@ -415,7 +426,7 @@ export function UrbanBuildCrew() {
               style={{
                 padding: '1rem 2rem',
                 backgroundColor: '#fff',
-                color: 'var(--brand-warning)',
+                color: ''#ca8a04'',
                 borderRadius: '0.5rem',
                 fontWeight: '600',
                 textDecoration: 'none',
@@ -445,7 +456,7 @@ export function UrbanBuildCrew() {
       {/* Footer */}
       <div
         style={{
-          backgroundColor: 'var(--brand-text)',
+          backgroundColor: ''#4a3728'',
           color: '#fff',
           padding: '2rem',
           textAlign: 'center',
@@ -454,10 +465,13 @@ export function UrbanBuildCrew() {
         <p style={{ marginBottom: '0.5rem' }}>
           © 2025 Urban Build Crew. All rights reserved.
         </p>
-        <p style={{ fontSize: '0.875rem', color: 'var(--brand-text-light)' }}>
+        <p style={{ fontSize: '0.875rem', color: ''#8b7d6f'' }}>
           Part of the Elevate for Humanity Network
         </p>
       </div>
+      </div>
+
+      <Footer />
     </div>
   );
 }

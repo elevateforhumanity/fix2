@@ -6,13 +6,13 @@ export default function PaymentCancelled() {
     <section className="section">
       <div className="container max-w-2xl mx-auto">
         <div className="card p-8 text-center">
-          <div className="w-20 h-20 bg-brand-surface rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 bg-beige-50 rounded-full flex items-center justify-center mx-auto mb-6">
             <XCircle className="w-12 h-12 text-orange-600" />
           </div>
-          <h1 className="text-3xl font-bold text-brand-text">
+          <h1 className="text-3xl font-bold text-brown-900">
             Enrollment Cancelled
           </h1>
-          <p className="mt-3 text-lg text-brand-text-muted">
+          <p className="mt-3 text-lg text-brown-600">
             No worries! Your payment was not processed and you haven't been
             charged.
           </p>
@@ -28,12 +28,12 @@ export default function PaymentCancelled() {
               Go Home
             </Link>
           </div>
-          <div className="mt-8 p-6 bg-brand-surface rounded-lg text-left">
-            <div className="flex items-center gap-2 font-semibold text-brand-text mb-3">
-              <HelpCircle className="w-5 h-5 text-brand-600" />
+          <div className="mt-8 p-6 bg-beige-50 rounded-lg text-left">
+            <div className="flex items-center gap-2 font-semibold text-brown-900 mb-3">
+              <HelpCircle className="w-5 h-5 text-green-600" />
               <span>Need Help?</span>
             </div>
-            <p className="text-sm text-brand-text-muted mb-4">
+            <p className="text-sm text-brown-600 mb-4">
               If you had questions or concerns about enrolling, we're here to
               help!
             </p>
@@ -42,7 +42,7 @@ export default function PaymentCancelled() {
                 <span className="font-medium">📞 Call us:</span>{' '}
                 <a
                   href="tel:+13175550100"
-                  className="text-brand-600 hover:underline"
+                  className="text-green-600 hover:underline"
                 >
                   (317) 555-0100
                 </a>
@@ -51,14 +51,14 @@ export default function PaymentCancelled() {
                 <span className="font-medium">✉️ Email:</span>{' '}
                 <a
                   href="mailto:elevateforhumanity@gmail.com"
-                  className="text-brand-600 hover:underline"
+                  className="text-green-600 hover:underline"
                 >
                   elevateforhumanity@gmail.com
                 </a>
               </div>
               <div>
                 <span className="font-medium">💬 Live Chat:</span>{' '}
-                <span className="text-brand-text-muted">
+                <span className="text-brown-600">
                   Click the chat button in the bottom right
                 </span>
               </div>
@@ -68,7 +68,7 @@ export default function PaymentCancelled() {
             <div className="font-semibold text-green-900 mb-2">
               💡 Remember: Most Programs are 100% FREE!
             </div>
-            <p className="text-sm text-brand-success">
+            <p className="text-sm text-green-600">
               Many of our programs are fully funded through WIOA and other
               scholarships. Check if you qualify for free training!
             </p>

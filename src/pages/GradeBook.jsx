@@ -154,11 +154,11 @@ export default function GradeBook() {
   };
 
   const getGradeColor = (percentage) => {
-    if (percentage >= 90) return 'bg-brand-surface text-brand-success';
-    if (percentage >= 80) return 'bg-brand-surface text-brand-info';
+    if (percentage >= 90) return 'bg-beige-50 text-green-600';
+    if (percentage >= 80) return 'bg-beige-50 text-green-600';
     if (percentage >= 70) return 'bg-yellow-100 text-yellow-800';
-    if (percentage >= 60) return 'bg-brand-surface text-brand-warning';
-    return 'bg-brand-surface text-red-800';
+    if (percentage >= 60) return 'bg-beige-50 text-yellow-600';
+    return 'bg-beige-50 text-red-800';
   };
 
   const averageGrade =
@@ -185,7 +185,7 @@ export default function GradeBook() {
           <select
             value={selectedCourse || ''}
             onChange={(e) => setSelectedCourse(e.target.value)}
-            className="w-full md:w-1/2 p-3 border rounded-lg focus:ring-2 focus:ring-brand-focus"
+            className="w-full md:w-1/2 p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
           >
             {courses.map((course) => (
               <option key={course.id} value={course.id}>
@@ -197,7 +197,7 @@ export default function GradeBook() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading grades...</p>
+            <p className="mt-4 text-brown-600">Loading grades...</p>
           </div>
         ) : (
           <div className="space-y-6">
@@ -227,50 +227,47 @@ export default function GradeBook() {
                 <h2 className="text-2xl font-bold">Student Grades</h2>
               </div>
               {students.length === 0 ? (
-                <div className="p-6 text-center text-brand-text-light">
+                <div className="p-6 text-center text-brown-500">
                   <p>No students enrolled in this course yet.</p>
                 </div>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-brand-surface">
+                    <thead className="bg-beige-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Student ID
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Quizzes Completed
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Correct Answers
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Percentage
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Letter Grade
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider">
                           Status
                         </th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
                       {students.map((student) => (
-                        <tr
-                          key={student.userId}
-                          className="hover:bg-brand-surface"
-                        >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-brand-text">
+                        <tr key={student.userId} className="hover:bg-beige-50">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-brown-900">
                             {student.userId.substring(0, 8)}...
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-light">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-brown-500">
                             {student.total}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-light">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-brown-500">
                             {student.correct}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-brand-text">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-brown-900">
                             {student.percentage}%
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
@@ -282,11 +279,11 @@ export default function GradeBook() {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             {student.percentage >= 70 ? (
-                              <span className="px-3 py-1 bg-brand-surface text-brand-success rounded-full text-xs font-semibold">
+                              <span className="px-3 py-1 bg-beige-50 text-green-600 rounded-full text-xs font-semibold">
                                 Passing
                               </span>
                             ) : (
-                              <span className="px-3 py-1 bg-brand-surface text-red-800 rounded-full text-xs font-semibold">
+                              <span className="px-3 py-1 bg-beige-50 text-red-800 rounded-full text-xs font-semibold">
                                 At Risk
                               </span>
                             )}
@@ -312,10 +309,10 @@ export default function GradeBook() {
                     );
                     return (
                       <div key={grade} className="text-center">
-                        <div className="text-3xl font-bold text-brand-text">
+                        <div className="text-3xl font-bold text-brown-900">
                           {count}
                         </div>
-                        <div className="text-sm text-brand-text-muted">
+                        <div className="text-sm text-brown-600">
                           {grade} ({percentage}%)
                         </div>
                       </div>

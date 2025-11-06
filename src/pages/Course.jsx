@@ -109,7 +109,7 @@ export default function Course() {
         <div
           style={{
             width: 320,
-            borderRight: '1px solid var(--brand-border)',
+            borderRight: '1px solid '#d4c9b8'',
             overflowY: 'auto',
             backgroundColor: '#f8f8f8',
           }}
@@ -118,7 +118,7 @@ export default function Course() {
           <div
             style={{
               padding: 20,
-              borderBottom: '1px solid var(--brand-border)',
+              borderBottom: '1px solid '#d4c9b8'',
               backgroundColor: '#fff',
             }}
           >
@@ -126,7 +126,7 @@ export default function Course() {
               to="/courses"
               style={{
                 fontSize: 14,
-                color: 'var(--brand-info)',
+                color: ''#00a544'',
                 textDecoration: 'none',
                 marginBottom: 12,
                 display: 'block',
@@ -140,7 +140,7 @@ export default function Course() {
             <p
               style={{
                 fontSize: 13,
-                color: 'var(--brand-text-muted)',
+                color: ''#6b5d52'',
                 marginBottom: 12,
               }}
             >
@@ -155,7 +155,7 @@ export default function Course() {
                 }}
               >
                 <span
-                  style={{ fontSize: 12, color: 'var(--brand-text-muted)' }}
+                  style={{ fontSize: 12, color: ''#6b5d52'' }}
                 >
                   Course Progress
                 </span>
@@ -167,7 +167,7 @@ export default function Course() {
                 style={{
                   width: '100%',
                   height: 6,
-                  backgroundColor: 'var(--brand-border)',
+                  backgroundColor: ''#d4c9b8'',
                   borderRadius: 3,
                   overflow: 'hidden',
                 }}
@@ -176,7 +176,7 @@ export default function Course() {
                   style={{
                     width: `${course.progress}%`,
                     height: '100%',
-                    backgroundColor: 'var(--brand-success)',
+                    backgroundColor: ''#00a544'',
                   }}
                 />
               </div>
@@ -190,7 +190,7 @@ export default function Course() {
                   style={{
                     padding: '12px 20px',
                     backgroundColor: '#fff',
-                    borderBottom: '1px solid var(--brand-border)',
+                    borderBottom: '1px solid '#d4c9b8'',
                     fontWeight: 600,
                     fontSize: 14,
                   }}
@@ -302,7 +302,7 @@ export default function Course() {
               <p
                 style={{
                   fontSize: 14,
-                  color: 'var(--brand-text-muted)',
+                  color: ''#6b5d52'',
                   marginBottom: 24,
                 }}
               >
@@ -313,7 +313,7 @@ export default function Course() {
                 style={{
                   display: 'flex',
                   gap: 24,
-                  borderBottom: '2px solid var(--brand-border)',
+                  borderBottom: '2px solid '#d4c9b8'',
                   marginBottom: 24,
                 }}
               >
@@ -323,11 +323,11 @@ export default function Course() {
                     padding: '12px 0',
                     backgroundColor: 'transparent',
                     color: !showNotes
-                      ? 'var(--brand-info)'
-                      : 'var(--brand-text-muted)',
+                      ? ''#00a544''
+                      : ''#6b5d52'',
                     border: 'none',
                     borderBottom: !showNotes
-                      ? '2px solid var(--brand-info)'
+                      ? '2px solid '#00a544''
                       : '2px solid transparent',
                     fontSize: 14,
                     fontWeight: 600,
@@ -343,11 +343,11 @@ export default function Course() {
                     padding: '12px 0',
                     backgroundColor: 'transparent',
                     color: showNotes
-                      ? 'var(--brand-info)'
-                      : 'var(--brand-text-muted)',
+                      ? ''#00a544''
+                      : ''#6b5d52'',
                     border: 'none',
                     borderBottom: showNotes
-                      ? '2px solid var(--brand-info)'
+                      ? '2px solid '#00a544''
                       : '2px solid transparent',
                     fontSize: 14,
                     fontWeight: 600,
@@ -369,7 +369,7 @@ export default function Course() {
                   <p
                     style={{
                       fontSize: 14,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       lineHeight: 1.7,
                       marginBottom: 20,
                     }}
@@ -387,7 +387,7 @@ export default function Course() {
                   <ul
                     style={{
                       fontSize: 14,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       lineHeight: 1.7,
                       marginBottom: 20,
                     }}
@@ -478,7 +478,7 @@ export default function Course() {
                   <p
                     style={{
                       fontSize: 14,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       marginBottom: 16,
                     }}
                   >
@@ -493,7 +493,7 @@ export default function Course() {
                       width: '100%',
                       minHeight: 300,
                       padding: 12,
-                      border: '1px solid var(--brand-border)',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                       fontFamily: 'inherit',
@@ -504,7 +504,7 @@ export default function Course() {
                     style={{
                       marginTop: 12,
                       padding: '8px 20px',
-                      backgroundColor: 'var(--brand-info)',
+                      backgroundColor: ''#00a544'',
                       color: '#fff',
                       border: 'none',
                       borderRadius: 6,
@@ -523,7 +523,7 @@ export default function Course() {
           <div
             style={{
               padding: 20,
-              borderTop: '1px solid var(--brand-border)',
+              borderTop: '1px solid '#d4c9b8'',
               backgroundColor: '#fff',
               display: 'flex',
               justifyContent: 'space-between',
@@ -535,8 +535,8 @@ export default function Course() {
               style={{
                 padding: '10px 24px',
                 backgroundColor: activeLesson === 1 ? '#f0f0f0' : '#fff',
-                color: activeLesson === 1 ? '#999' : 'var(--brand-info)',
-                border: '1px solid var(--brand-border)',
+                color: activeLesson === 1 ? '#999' : ''#00a544'',
+                border: '1px solid '#d4c9b8'',
                 borderRadius: 6,
                 fontSize: 14,
                 fontWeight: 500,
@@ -552,8 +552,8 @@ export default function Course() {
               style={{
                 padding: '10px 24px',
                 backgroundColor: completedLessons.includes(activeLesson)
-                  ? 'var(--brand-success)'
-                  : 'var(--brand-info)',
+                  ? ''#00a544''
+                  : ''#00a544'',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,
@@ -570,7 +570,7 @@ export default function Course() {
             <button
               style={{
                 padding: '10px 24px',
-                backgroundColor: 'var(--brand-info)',
+                backgroundColor: ''#00a544'',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,

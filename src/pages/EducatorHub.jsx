@@ -13,26 +13,23 @@ export default function EducatorHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-brand-text">
+              <h1 className="text-2xl font-bold text-brown-900">
                 Elevate for Humanity
               </h1>
             </div>
             <nav role="navigation" className="hidden md:flex space-x-8">
               <a
                 href="/programs"
-                className="text-brand-text-light hover:text-brand-text"
+                className="text-brown-500 hover:text-brown-900"
               >
                 Programs
               </a>
-              <a
-                href="/lms"
-                className="text-brand-text-light hover:text-brand-text"
-              >
+              <a href="/lms" className="text-brown-500 hover:text-brown-900">
                 LMS
               </a>
               <a
                 href="/connect"
-                className="text-brand-text-light hover:text-brand-text"
+                className="text-brown-500 hover:text-brown-900"
               >
                 Contact
               </a>
@@ -46,10 +43,10 @@ export default function EducatorHub() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-brand-text sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-bold text-brown-900 sm:text-5xl md:text-6xl">
             Educator Hub
           </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-brand-text-light sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+          <p className="mt-3 max-w-md mx-auto text-base text-brown-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             Empower your teaching with our comprehensive learning management
             system and curriculum resources.
           </p>
@@ -65,7 +62,7 @@ export default function EducatorHub() {
             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
               <a
                 href="/programs"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-600 bg-white hover:bg-brand-surface md:py-4 md:text-lg md:px-10"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-600 bg-white hover:bg-beige-50 md:py-4 md:text-lg md:px-10"
               >
                 View Curriculum
               </a>
@@ -95,10 +92,10 @@ export default function EducatorHub() {
                       </svg>
                     </span>
                   </div>
-                  <h3 className="mt-8 text-lg font-medium text-brand-text tracking-tight">
+                  <h3 className="mt-8 text-lg font-medium text-brown-900 tracking-tight">
                     Course Management
                   </h3>
-                  <p className="mt-5 text-base text-brand-text-light">
+                  <p className="mt-5 text-base text-brown-500">
                     Create, organize, and manage courses with our intuitive
                     learning management system.
                   </p>
@@ -125,10 +122,10 @@ export default function EducatorHub() {
                       </svg>
                     </span>
                   </div>
-                  <h3 className="mt-8 text-lg font-medium text-brand-text tracking-tight">
+                  <h3 className="mt-8 text-lg font-medium text-brown-900 tracking-tight">
                     Student Analytics
                   </h3>
-                  <p className="mt-5 text-base text-brand-text-light">
+                  <p className="mt-5 text-base text-brown-500">
                     Track student progress and performance with detailed
                     analytics and reporting tools.
                   </p>
@@ -155,10 +152,10 @@ export default function EducatorHub() {
                       </svg>
                     </span>
                   </div>
-                  <h3 className="mt-8 text-lg font-medium text-brand-text tracking-tight">
+                  <h3 className="mt-8 text-lg font-medium text-brown-900 tracking-tight">
                     Curriculum Library
                   </h3>
-                  <p className="mt-5 text-base text-brand-text-light">
+                  <p className="mt-5 text-base text-brown-500">
                     Access a comprehensive library of industry-aligned
                     curriculum and teaching resources.
                   </p>
@@ -174,20 +171,14 @@ export default function EducatorHub() {
           <div className="flex justify-center space-x-6 md:order-2">
             <a
               href="/privacy-policy"
-              className="text-gray-400 hover:text-brand-text-light"
+              className="text-gray-400 hover:text-brown-500"
             >
               Privacy
             </a>
-            <a
-              href="/terms"
-              className="text-gray-400 hover:text-brand-text-light"
-            >
+            <a href="/terms" className="text-gray-400 hover:text-brown-500">
               Terms
             </a>
-            <a
-              href="/connect"
-              className="text-gray-400 hover:text-brand-text-light"
-            >
+            <a href="/connect" className="text-gray-400 hover:text-brown-500">
               Contact
             </a>
           </div>

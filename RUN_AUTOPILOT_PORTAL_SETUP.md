@@ -70,10 +70,11 @@ The script automatically:
 After running the script:
 
 1. **Check DNS propagation:**
+
    ```bash
    # Wait 5-10 minutes, then check:
    nslookup portal.elevateforhumanity.org
-   
+
    # Or use online tool:
    # https://dnschecker.org/#CNAME/portal.elevateforhumanity.org
    ```
@@ -104,19 +105,23 @@ TTL: 3600 (or Auto)
 ## Troubleshooting
 
 ### "NETLIFY_AUTH_TOKEN not set"
+
 - Get token from: https://app.netlify.com/user/applications#personal-access-tokens
 - Export it: `export NETLIFY_AUTH_TOKEN="your_token"`
 
 ### "Domain already exists"
+
 - This is OK! The script will continue
 - Domain is already configured on Netlify
 
 ### "DNS not resolving"
+
 - Wait 15-30 minutes for propagation
 - Check with: `nslookup portal.elevateforhumanity.org`
 - Verify DNS record in Cloudflare dashboard
 
 ### "SSL certificate pending"
+
 - Wait 5-10 minutes after DNS resolves
 - Netlify auto-provisions Let's Encrypt certificate
 - Check status in Netlify dashboard

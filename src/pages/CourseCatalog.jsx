@@ -127,7 +127,7 @@ export default function CourseCatalog() {
   const featuredCourses = demoCourses.filter((c) => c.featured);
 
   return (
-    <div className="min-h-screen bg-brand-surface">
+    <div className="min-h-screen bg-beige-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
@@ -156,8 +156,8 @@ export default function CourseCatalog() {
         {searchTerm === '' && selectedCategory === 'all' && (
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
-              <TrendingUp className="h-6 w-6 text-brand-info" />
-              <h2 className="text-3xl font-bold text-brand-text">
+              <TrendingUp className="h-6 w-6 text-green-600" />
+              <h2 className="text-3xl font-bold text-brown-900">
                 Featured Courses
               </h2>
             </div>
@@ -183,7 +183,7 @@ export default function CourseCatalog() {
                         <span className="font-semibold">{course.rating}</span>
                       </div>
                     </div>
-                    <CardTitle className="text-xl group-hover:text-brand-info transition-colors">
+                    <CardTitle className="text-xl group-hover:text-green-600 transition-colors">
                       {course.title}
                     </CardTitle>
                     <CardDescription className="text-base line-clamp-2">
@@ -191,7 +191,7 @@ export default function CourseCatalog() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-center justify-between text-sm text-brand-text-muted">
+                    <div className="flex items-center justify-between text-sm text-brown-600">
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
                         <span>{course.duration}</span>
@@ -201,7 +201,7 @@ export default function CourseCatalog() {
                         <span>{course.students} students</span>
                       </div>
                     </div>
-                    <div className="mt-3 text-sm text-brand-text-muted">
+                    <div className="mt-3 text-sm text-brown-600">
                       Instructor:{' '}
                       <span className="font-semibold">{course.instructor}</span>
                     </div>
@@ -222,7 +222,7 @@ export default function CourseCatalog() {
         )}
         {/* All Courses with Tabs */}
         <section>
-          <h2 className="text-3xl font-bold text-brand-text mb-6">
+          <h2 className="text-3xl font-bold text-brown-900 mb-6">
             {searchTerm
               ? `Search Results (${filteredCourses.length})`
               : 'All Courses'}
@@ -265,7 +265,7 @@ export default function CourseCatalog() {
                           <span className="font-semibold">{course.rating}</span>
                         </div>
                       </div>
-                      <CardTitle className="text-lg group-hover:text-brand-info transition-colors">
+                      <CardTitle className="text-lg group-hover:text-green-600 transition-colors">
                         {course.title}
                       </CardTitle>
                       <CardDescription className="line-clamp-2">
@@ -273,7 +273,7 @@ export default function CourseCatalog() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-2 text-sm text-brand-text-muted">
+                      <div className="space-y-2 text-sm text-brown-600">
                         <div className="flex items-center gap-2">
                           <Clock className="h-4 w-4" />
                           <span>{course.duration}</span>
@@ -299,10 +299,10 @@ export default function CourseCatalog() {
               {filteredCourses.length === 0 && (
                 <div className="text-center py-16">
                   <BookOpen className="h-16 w-16 text-slate-300 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-brand-text-muted mb-2">
+                  <h3 className="text-xl font-semibold text-brown-600 mb-2">
                     No courses found
                   </h3>
-                  <p className="text-brand-text-light">
+                  <p className="text-brown-500">
                     Try adjusting your search or filters
                   </p>
                 </div>

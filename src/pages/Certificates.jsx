@@ -76,7 +76,7 @@ export default function Certificates() {
           <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
             My Certificates
           </h1>
-          <p style={{ color: 'var(--brand-text-muted)', fontSize: 16 }}>
+          <p style={{ color: ''#6b5d52'', fontSize: 16 }}>
             View, download, and share your earned certificates
           </p>
         </div>
@@ -94,20 +94,20 @@ export default function Certificates() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <div
               style={{
                 fontSize: 32,
                 fontWeight: 700,
-                color: 'var(--brand-info)',
+                color: ''#00a544'',
                 marginBottom: 8,
               }}
             >
               {issuedCount}
             </div>
-            <div style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}>
+            <div style={{ fontSize: 14, color: ''#6b5d52'' }}>
               Certificates Earned
             </div>
           </div>
@@ -116,20 +116,20 @@ export default function Certificates() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <div
               style={{
                 fontSize: 32,
                 fontWeight: 700,
-                color: 'var(--brand-success)',
+                color: ''#00a544'',
                 marginBottom: 8,
               }}
             >
               {inProgressCount}
             </div>
-            <div style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}>
+            <div style={{ fontSize: 14, color: ''#6b5d52'' }}>
               In Progress
             </div>
           </div>
@@ -138,14 +138,14 @@ export default function Certificates() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <div
               style={{
                 fontSize: 32,
                 fontWeight: 700,
-                color: 'var(--brand-warning)',
+                color: ''#ca8a04'',
                 marginBottom: 8,
               }}
             >
@@ -154,7 +154,7 @@ export default function Certificates() {
                 0
               )}
             </div>
-            <div style={{ fontSize: 14, color: 'var(--brand-text-muted)' }}>
+            <div style={{ fontSize: 14, color: ''#6b5d52'' }}>
               Skills Acquired
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function Certificates() {
             display: 'flex',
             gap: 12,
             marginBottom: 24,
-            borderBottom: '2px solid var(--brand-border)',
+            borderBottom: '2px solid '#d4c9b8'',
           }}
         >
           <button
@@ -175,12 +175,12 @@ export default function Certificates() {
               backgroundColor: 'transparent',
               color:
                 filter === 'all'
-                  ? 'var(--brand-info)'
-                  : 'var(--brand-text-muted)',
+                  ? ''#00a544''
+                  : ''#6b5d52'',
               border: 'none',
               borderBottom:
                 filter === 'all'
-                  ? '2px solid var(--brand-info)'
+                  ? '2px solid '#00a544''
                   : '2px solid transparent',
               fontSize: 14,
               fontWeight: 600,
@@ -197,12 +197,12 @@ export default function Certificates() {
               backgroundColor: 'transparent',
               color:
                 filter === 'issued'
-                  ? 'var(--brand-info)'
-                  : 'var(--brand-text-muted)',
+                  ? ''#00a544''
+                  : ''#6b5d52'',
               border: 'none',
               borderBottom:
                 filter === 'issued'
-                  ? '2px solid var(--brand-info)'
+                  ? '2px solid '#00a544''
                   : '2px solid transparent',
               fontSize: 14,
               fontWeight: 600,
@@ -219,12 +219,12 @@ export default function Certificates() {
               backgroundColor: 'transparent',
               color:
                 filter === 'in-progress'
-                  ? 'var(--brand-info)'
-                  : 'var(--brand-text-muted)',
+                  ? ''#00a544''
+                  : ''#6b5d52'',
               border: 'none',
               borderBottom:
                 filter === 'in-progress'
-                  ? '2px solid var(--brand-info)'
+                  ? '2px solid '#00a544''
                   : '2px solid transparent',
               fontSize: 14,
               fontWeight: 600,
@@ -242,7 +242,7 @@ export default function Certificates() {
               key={cert.id}
               style={{
                 backgroundColor: '#fff',
-                border: '1px solid var(--brand-border)',
+                border: '1px solid '#d4c9b8'',
                 borderRadius: 8,
                 padding: 24,
                 transition: 'box-shadow 0.2s',
@@ -293,7 +293,7 @@ export default function Certificates() {
                   <p
                     style={{
                       fontSize: 14,
-                      color: 'var(--brand-text-muted)',
+                      color: ''#6b5d52'',
                       marginBottom: 12,
                     }}
                   >
@@ -372,7 +372,7 @@ export default function Certificates() {
                           <span
                             style={{
                               fontSize: 12,
-                              color: 'var(--brand-text-muted)',
+                              color: ''#6b5d52'',
                             }}
                           >
                             Progress
@@ -385,7 +385,7 @@ export default function Certificates() {
                           style={{
                             width: '100%',
                             height: 8,
-                            backgroundColor: 'var(--brand-border)',
+                            backgroundColor: ''#d4c9b8'',
                             borderRadius: 4,
                             overflow: 'hidden',
                           }}
@@ -394,7 +394,7 @@ export default function Certificates() {
                             style={{
                               width: `${cert.progress}%`,
                               height: '100%',
-                              backgroundColor: 'var(--brand-info)',
+                              backgroundColor: ''#00a544'',
                               transition: 'width 0.3s',
                             }}
                           />
@@ -438,13 +438,13 @@ export default function Certificates() {
                     backgroundColor:
                       cert.status === 'issued'
                         ? '#f8f8f8'
-                        : 'var(--brand-border)',
+                        : ''#d4c9b8'',
                     borderRadius: 4,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginLeft: 24,
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                   }}
                 >
                   <span style={{ fontSize: 32 }}>
@@ -466,7 +466,7 @@ export default function Certificates() {
                   <button
                     style={{
                       padding: '8px 20px',
-                      backgroundColor: 'var(--brand-info)',
+                      backgroundColor: ''#00a544'',
                       color: '#fff',
                       border: 'none',
                       borderRadius: 6,
@@ -481,8 +481,8 @@ export default function Certificates() {
                     style={{
                       padding: '8px 20px',
                       backgroundColor: '#fff',
-                      color: 'var(--brand-info)',
-                      border: '1px solid var(--brand-info)',
+                      color: ''#00a544'',
+                      border: '1px solid '#00a544'',
                       borderRadius: 6,
                       fontSize: 14,
                       fontWeight: 500,
@@ -495,8 +495,8 @@ export default function Certificates() {
                     style={{
                       padding: '8px 20px',
                       backgroundColor: '#fff',
-                      color: 'var(--brand-text-muted)',
-                      border: '1px solid var(--brand-border)',
+                      color: ''#6b5d52'',
+                      border: '1px solid '#d4c9b8'',
                       borderRadius: 6,
                       fontSize: 14,
                       fontWeight: 500,
@@ -520,7 +520,7 @@ export default function Certificates() {
                     style={{
                       display: 'inline-block',
                       padding: '8px 20px',
-                      backgroundColor: 'var(--brand-success)',
+                      backgroundColor: ''#00a544'',
                       color: '#fff',
                       border: 'none',
                       borderRadius: 6,
@@ -552,7 +552,7 @@ export default function Certificates() {
             <p
               style={{
                 fontSize: 14,
-                color: 'var(--brand-text-muted)',
+                color: ''#6b5d52'',
                 marginBottom: 24,
               }}
             >
@@ -563,7 +563,7 @@ export default function Certificates() {
               style={{
                 display: 'inline-block',
                 padding: '12px 24px',
-                backgroundColor: 'var(--brand-info)',
+                backgroundColor: ''#00a544'',
                 color: '#fff',
                 borderRadius: 6,
                 fontSize: 14,
@@ -590,7 +590,7 @@ export default function Certificates() {
           <p
             style={{
               fontSize: 14,
-              color: 'var(--brand-text-muted)',
+              color: ''#6b5d52'',
               marginBottom: 16,
               lineHeight: 1.6,
             }}
@@ -602,7 +602,7 @@ export default function Certificates() {
           <Link
             to="/verify-certificate"
             style={{
-              color: 'var(--brand-info)',
+              color: ''#00a544'',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,

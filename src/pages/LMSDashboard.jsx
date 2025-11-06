@@ -4,8 +4,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SEO } from '../lib/seo/SEO';
-import Header from '../components/Header';
+import { Helmet } from 'react-helmet-async';
+import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import {
   Card,
@@ -53,7 +53,7 @@ export default function LMSDashboard() {
       icon: BookOpen,
       label: 'My Courses',
       href: '/lms/courses',
-      color: 'text-brand-info',
+      color: 'text-green-600',
     },
     {
       icon: Video,
@@ -65,7 +65,7 @@ export default function LMSDashboard() {
       icon: FileText,
       label: 'Assignments',
       href: '/lms/assignments',
-      color: 'text-brand-success',
+      color: 'text-green-600',
     },
     {
       icon: Award,
@@ -83,7 +83,7 @@ export default function LMSDashboard() {
       icon: Users,
       label: 'Study Groups',
       href: '/community',
-      color: 'text-brand-info',
+      color: 'text-green-600',
     },
     {
       icon: BarChart,
@@ -95,7 +95,7 @@ export default function LMSDashboard() {
       icon: Settings,
       label: 'Settings',
       href: '/settings',
-      color: 'text-brand-text-muted',
+      color: 'text-brown-600',
     },
   ];
 
@@ -114,20 +114,22 @@ export default function LMSDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-brand-surface">
-      <SEO
-        title="LMS Dashboard | Elevate for Humanity"
-        description="Access your courses, assignments, and learning materials"
-        canonical={`${import.meta.env.VITE_SITE_URL || ''}/lms`}
-      />
-      <Header />
+    <div className="min-h-screen bg-beige-50">
+      <Helmet>
+        <title>LMS Dashboard | Elevate for Humanity</title>
+        <meta
+          name="description"
+          content="Access your courses, assignments, and learning materials"
+        />
+      </Helmet>
+      <Navigation />
       <main role="main" className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-brand-text mb-2">
+          <h1 className="text-4xl font-bold text-brown-900 mb-2">
             Welcome back, Student!
           </h1>
-          <p className="text-lg text-brand-text-muted">
+          <p className="text-lg text-brown-600">
             Continue your learning journey
           </p>
         </div>
@@ -158,15 +160,15 @@ export default function LMSDashboard() {
                 {courses.map((course, idx) => (
                   <div
                     key={idx}
-                    className="border rounded-lg p-4 hover:bg-brand-surface transition-colors"
+                    className="border rounded-lg p-4 hover:bg-beige-50 transition-colors"
                   >
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-semibold text-lg">{course.title}</h3>
-                      <span className="text-sm text-brand-text-light">
+                      <span className="text-sm text-brown-500">
                         {course.progress}%
                       </span>
                     </div>
-                    <div className="w-full bg-brand-border rounded-full h-2 mb-3">
+                    <div className="w-full bg-brown-200 rounded-full h-2 mb-3">
                       <div
                         className="bg-primary h-2 rounded-full transition-all"
                         style={{ width: `${course.progress}%` }}
@@ -174,10 +176,10 @@ export default function LMSDashboard() {
                     </div>
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="text-sm text-brand-text-muted">
+                        <p className="text-sm text-brown-600">
                           Next: {course.nextLesson}
                         </p>
-                        <p className="text-xs text-brand-text-light">
+                        <p className="text-xs text-brown-500">
                           Due: {course.dueDate}
                         </p>
                       </div>
@@ -204,9 +206,7 @@ export default function LMSDashboard() {
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
                       <p className="font-medium">OSHA 10 Quiz</p>
-                      <p className="text-sm text-brand-text-light">
-                        Due Oct 17, 2025
-                      </p>
+                      <p className="text-sm text-brown-500">Due Oct 17, 2025</p>
                     </div>
                     <Button size="sm" variant="outline">
                       Start
@@ -215,9 +215,7 @@ export default function LMSDashboard() {
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
                       <p className="font-medium">Phlebotomy Lab Report</p>
-                      <p className="text-sm text-brand-text-light">
-                        Due Oct 19, 2025
-                      </p>
+                      <p className="text-sm text-brown-500">Due Oct 19, 2025</p>
                     </div>
                     <Button size="sm" variant="outline">
                       Start
@@ -226,9 +224,7 @@ export default function LMSDashboard() {
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
                       <p className="font-medium">CPR Practice Video</p>
-                      <p className="text-sm text-brand-text-light">
-                        Due Oct 20, 2025
-                      </p>
+                      <p className="text-sm text-brown-500">Due Oct 20, 2025</p>
                     </div>
                     <Button size="sm" variant="outline">
                       Start
@@ -252,9 +248,7 @@ export default function LMSDashboard() {
                     className="border-l-4 border-primary pl-3 py-2"
                   >
                     <p className="font-medium text-sm">{event.title}</p>
-                    <p className="text-xs text-brand-text-light">
-                      {event.date}
-                    </p>
+                    <p className="text-xs text-brown-500">{event.date}</p>
                     <span className="inline-block mt-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded">
                       {event.type}
                     </span>
@@ -278,20 +272,18 @@ export default function LMSDashboard() {
                   </div>
                   <div>
                     <p className="font-medium text-sm">Perfect Attendance</p>
-                    <p className="text-xs text-brand-text-light">
+                    <p className="text-xs text-brown-500">
                       Earned Oct 10, 2025
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-brand-surface rounded-full flex items-center justify-center">
-                    <Award className="w-6 h-6 text-brand-info" />
+                  <div className="w-12 h-12 bg-beige-50 rounded-full flex items-center justify-center">
+                    <Award className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
                     <p className="font-medium text-sm">Quick Learner</p>
-                    <p className="text-xs text-brand-text-light">
-                      Earned Oct 8, 2025
-                    </p>
+                    <p className="text-xs text-brown-500">Earned Oct 8, 2025</p>
                   </div>
                 </div>
                 <Button variant="outline" size="sm" className="w-full mt-2">

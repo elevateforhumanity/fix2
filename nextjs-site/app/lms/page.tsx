@@ -14,7 +14,6 @@ export default function LMSPage() {
           </p>
         </div>
       </section>
-
       {/* Quick Actions */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -23,27 +22,21 @@ export default function LMSPage() {
             className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow"
           >
             <div className="text-4xl mb-4">📚</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              My Courses
-            </h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">My Courses</h3>
             <p className="text-gray-600">
               View and access your enrolled courses
             </p>
           </Link>
-
           <Link
             href="/lms/dashboard"
             className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow"
           >
             <div className="text-4xl mb-4">📊</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Dashboard
-            </h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Dashboard</h3>
             <p className="text-gray-600">
               Track your progress and achievements
             </p>
           </Link>
-
           <Link
             href="/certificates"
             className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow"
@@ -52,13 +45,10 @@ export default function LMSPage() {
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               Certificates
             </h3>
-            <p className="text-gray-600">
-              View and download your certificates
-            </p>
+            <p className="text-gray-600">View and download your certificates</p>
           </Link>
         </div>
       </section>
-
       {/* Features */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-6xl px-4">
@@ -74,7 +64,6 @@ export default function LMSPage() {
                 High-quality video content from industry experts
               </p>
             </div>
-
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 ✅ Quizzes & Assessments
@@ -83,7 +72,6 @@ export default function LMSPage() {
                 Test your knowledge and track your progress
               </p>
             </div>
-
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 📱 Mobile Access
@@ -92,7 +80,6 @@ export default function LMSPage() {
                 Learn anywhere, anytime on any device
               </p>
             </div>
-
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 🎓 Certifications
@@ -104,7 +91,6 @@ export default function LMSPage() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="mx-auto max-w-4xl px-4 py-16 text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">

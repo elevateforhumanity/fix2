@@ -85,12 +85,12 @@ export default function LessonManager() {
           <div>
             <Link
               to="/instructor"
-              className="text-sm text-brand-600 hover:text-brand-700"
+              className="text-sm text-green-600 hover:text-green-700"
             >
               ← Back to Dashboard
             </Link>
             <h1 className="mt-2 text-3xl font-bold">{course.title}</h1>
-            <p className="mt-1 text-brand-text-muted">Manage lessons</p>
+            <p className="mt-1 text-brown-600">Manage lessons</p>
           </div>
           <button onClick={() => setShowForm(!showForm)} className="btn">
             {showForm ? 'Cancel' : '+ Add Lesson'}
@@ -150,14 +150,12 @@ export default function LessonManager() {
               className="card p-5 flex items-center justify-between"
             >
               <div>
-                <div className="text-xs text-brand-text-light">
+                <div className="text-xs text-brown-500">
                   Lesson {lesson.idx}
                 </div>
                 <div className="font-semibold">{lesson.title}</div>
                 {lesson.video_url && (
-                  <div className="mt-1 text-xs text-brand-text-light">
-                    📹 Video
-                  </div>
+                  <div className="mt-1 text-xs text-brown-500">📹 Video</div>
                 )}
               </div>
               <div className="flex gap-2">
@@ -178,7 +176,7 @@ export default function LessonManager() {
             </div>
           ))}
           {lessons.length === 0 && (
-            <div className="card p-6 text-center text-brand-text-muted">
+            <div className="card p-6 text-center text-brown-600">
               No lessons yet. Add your first lesson to get started!
             </div>
           )}

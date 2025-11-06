@@ -44,10 +44,10 @@ export default function ProgramsDurable() {
     <div className="min-h-screen bg-white py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-brand-text mb-4">
+          <h1 className="text-5xl font-bold text-brown-900 mb-4">
             Durable Skills Programs
           </h1>
-          <p className="text-xl text-brand-text-muted max-w-2xl mx-auto">
+          <p className="text-xl text-brown-600 max-w-2xl mx-auto">
             Comprehensive programs designed to build lasting career skills
           </p>
         </div>
@@ -55,21 +55,19 @@ export default function ProgramsDurable() {
           {programs.map((program, index) => (
             <div
               key={index}
-              className="bg-brand-surface p-8 rounded-xl hover:shadow-lg transition"
+              className="bg-beige-50 p-8 rounded-xl hover:shadow-lg transition"
             >
               <div className="text-6xl mb-4">{program.image}</div>
               <h3 className="text-2xl font-bold mb-3">{program.title}</h3>
-              <p className="text-brand-text-muted mb-6">
-                {program.description}
-              </p>
-              <div className="flex gap-4 mb-6 text-sm text-brand-text-light">
+              <p className="text-brown-600 mb-6">{program.description}</p>
+              <div className="flex gap-4 mb-6 text-sm text-brown-500">
                 <span>⏱️ {program.duration}</span>
                 <span>📊 {program.level}</span>
                 <span>👥 {program.students}</span>
               </div>
               <Link
                 to="/courses"
-                className="inline-block bg-brand-info text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-info-hover transition"
+                className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition"
               >
                 View Program
               </Link>

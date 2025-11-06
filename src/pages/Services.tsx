@@ -41,7 +41,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-600 to-brand-700 text-white py-16">
+      <section className="bg-gradient-to-r from-brown-700 to-brown-800 text-white py-16">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-xl opacity-90 max-w-2xl">
@@ -57,25 +57,25 @@ export default function Services() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="border border-brand-border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                className="border border-brown-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-brand-text mb-3">
+                <h3 className="text-xl font-semibold text-brown-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-brand-text-muted">{service.description}</p>
+                <p className="text-brown-600">{service.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
       {/* CTA Section */}
-      <section className="bg-brand-surface py-16">
+      <section className="bg-beige-50 py-16">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold text-brand-text mb-4">
+          <h2 className="text-3xl font-bold text-brown-900 mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-brand-text-muted mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-brown-600 mb-8 max-w-2xl mx-auto">
             Contact us today to learn more about our services and how we can
             help you achieve your career goals.
           </p>

@@ -6,17 +6,17 @@ const APPLICATION_URL = import.meta.env.VITE_APPLICATION_FORM_URL || '/apply';
 
 export default function EFHLanding() {
   return (
-    <div className="min-h-screen bg-white text-brand-text">
+    <div className="min-h-screen bg-white text-brown-900">
       {/* Top bar */}
       <header className="w-full border-b border-orange-200">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-orange-500" aria-hidden />
             <div>
-              <p className="text-xs uppercase tracking-widest text-brand-text-light">
+              <p className="text-xs uppercase tracking-widest text-brown-500">
                 Elevate for Humanity
               </p>
-              <h1 className="text-lg font-bold text-brand-text">
+              <h1 className="text-lg font-bold text-brown-900">
                 Career & Technical Institute
               </h1>
             </div>
@@ -48,10 +48,10 @@ export default function EFHLanding() {
               <span className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-200">
                 Indiana • Workforce Development
               </span>
-              <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-text">
+              <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-brown-900">
                 Learn • Grow • Achieve
               </h2>
-              <p className="mt-4 text-brand-text-muted leading-relaxed">
+              <p className="mt-4 text-brown-600 leading-relaxed">
                 Elevate for Humanity powers paid apprenticeships and stackable
                 credentials across Indiana. We connect learners with
                 state-approved training, employer partners, and funding — so you
@@ -68,12 +68,12 @@ export default function EFHLanding() {
                   href={APPLICATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl border border-brand-border-dark px-5 py-3 font-semibold text-slate-800 hover:border-slate-400"
+                  className="inline-flex items-center justify-center rounded-xl border border-brown-300 px-5 py-3 font-semibold text-slate-800 hover:border-slate-400"
                 >
                   Apply Now
                 </a>
               </div>
-              <p className="mt-3 text-xs text-brand-text-light">
+              <p className="mt-3 text-xs text-brown-500">
                 Start with Indiana Career Connect • Funding: WIOA • WRG • WEX •
                 OJT • Apprenticeship
               </p>
@@ -91,8 +91,8 @@ export default function EFHLanding() {
                   }}
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 hidden md:block rounded-2xl border border-brand-border bg-white p-4 shadow-lg">
-                <p className="text-xs font-semibold text-brand-text-light">
+              <div className="absolute -bottom-6 -right-6 hidden md:block rounded-2xl border border-brown-200 bg-white p-4 shadow-lg">
+                <p className="text-xs font-semibold text-brown-500">
                   State-Approved Provider • DOL Apprenticeship Sponsor
                 </p>
               </div>
@@ -101,21 +101,21 @@ export default function EFHLanding() {
         </div>
       </section>
       {/* Programs grid */}
-      <section className="bg-brand-surface border-y border-brand-border">
+      <section className="bg-beige-50 border-y border-brown-200">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h3 className="text-2xl font-bold text-brand-text">
+              <h3 className="text-2xl font-bold text-brown-900">
                 Featured Programs
               </h3>
-              <p className="mt-1 text-brand-text-muted">
+              <p className="mt-1 text-brown-600">
                 State-funded pathways with real employer partners and paid
                 on‑the‑job training.
               </p>
             </div>
             <a
               href="/programs"
-              className="hidden md:inline-flex rounded-lg border border-brand-border-dark px-4 py-2 text-sm font-semibold hover:border-slate-400"
+              className="hidden md:inline-flex rounded-lg border border-brown-300 px-4 py-2 text-sm font-semibold hover:border-slate-400"
             >
               View all
             </a>
@@ -131,33 +131,33 @@ export default function EFHLanding() {
       {/* How it works */}
       <section>
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h3 className="text-2xl font-bold text-brand-text">
+          <h3 className="text-2xl font-bold text-brown-900">
             How Enrollment Works
           </h3>
           <ol className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <li className="rounded-2xl border border-brand-border p-5">
-              <p className="text-sm font-semibold text-brand-text">
+            <li className="rounded-2xl border border-brown-200 p-5">
+              <p className="text-sm font-semibold text-brown-900">
                 1) Start Your Application
               </p>
-              <p className="mt-1 text-brand-text-muted">
+              <p className="mt-1 text-brown-600">
                 Complete the Elevate interest form and apply through Indiana
                 Connect.
               </p>
             </li>
-            <li className="rounded-2xl border border-brand-border p-5">
-              <p className="text-sm font-semibold text-brand-text">
+            <li className="rounded-2xl border border-brown-200 p-5">
+              <p className="text-sm font-semibold text-brown-900">
                 2) Funding & Placement
               </p>
-              <p className="mt-1 text-brand-text-muted">
+              <p className="mt-1 text-brown-600">
                 We match you to WIOA/WRG funding and an employer partner for
                 paid OJT.
               </p>
             </li>
-            <li className="rounded-2xl border border-brand-border p-5">
-              <p className="text-sm font-semibold text-brand-text">
+            <li className="rounded-2xl border border-brown-200 p-5">
+              <p className="text-sm font-semibold text-brown-900">
                 3) Train & Earn
               </p>
-              <p className="mt-1 text-brand-text-muted">
+              <p className="mt-1 text-brown-600">
                 Complete related instruction while logging on‑the‑job hours
                 toward your credential.
               </p>
@@ -166,8 +166,8 @@ export default function EFHLanding() {
         </div>
       </section>
       {/* Footer */}
-      <footer className="border-t border-brand-border">
-        <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-brand-text-muted">
+      <footer className="border-t border-brown-200">
+        <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-brown-600">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <p>
               © {new Date().getFullYear()} Elevate for Humanity — Learn • Grow

@@ -45,7 +45,7 @@ export default function Profile() {
           <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
             Edit Profile
           </h1>
-          <p style={{ color: 'var(--brand-text-muted)', fontSize: 16 }}>
+          <p style={{ color: ''#6b5d52'', fontSize: 16 }}>
             Update your personal information and public profile
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function Profile() {
               padding: 24,
               borderRadius: 8,
               marginBottom: 24,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
@@ -106,7 +106,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -133,7 +133,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -161,7 +161,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -195,7 +195,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -219,7 +219,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -239,7 +239,7 @@ export default function Profile() {
               padding: 24,
               borderRadius: 8,
               marginBottom: 24,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
@@ -266,7 +266,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -292,7 +292,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                   fontFamily: 'inherit',
@@ -321,7 +321,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -355,7 +355,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -382,7 +382,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -397,7 +397,7 @@ export default function Profile() {
               padding: 24,
               borderRadius: 8,
               marginBottom: 24,
-              border: '1px solid var(--brand-border)',
+              border: '1px solid '#d4c9b8'',
             }}
           >
             <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>
@@ -424,7 +424,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -459,7 +459,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -486,7 +486,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -513,7 +513,7 @@ export default function Profile() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid var(--brand-border)',
+                    border: '1px solid '#d4c9b8'',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -538,7 +538,7 @@ export default function Profile() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid var(--brand-border)',
+                  border: '1px solid '#d4c9b8'',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -581,7 +581,7 @@ export default function Profile() {
               type="submit"
               style={{
                 padding: '12px 24px',
-                backgroundColor: 'var(--brand-info)',
+                backgroundColor: ''#00a544'',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,

@@ -37,10 +37,10 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-brand-surface py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-beige-50 py-12 px-4">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-text">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-brown-900">
             Sign in to your account
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function Login() {
                 type="email"
                 aria-label="email input"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-t-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +67,7 @@ export default function Login() {
                 type="password"
                 aria-label="password input"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brand-border-dark placeholder-gray-500 text-brand-text rounded-b-md focus:outline-none focus:ring-brand-focus focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -78,16 +78,13 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-brand-info hover:bg-brand-info-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-focus disabled:opacity-50"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
           <div className="text-center">
-            <Link
-              to="/signup"
-              className="text-brand-info hover:text-indigo-500"
-            >
+            <Link to="/signup" className="text-green-600 hover:text-indigo-500">
               Don't have an account? Sign up
             </Link>
           </div>

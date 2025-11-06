@@ -7,6 +7,7 @@ The autopilot workflows weren't running because:
 ### 1. Missing GitHub Secrets ❌
 
 The workflow required:
+
 ```yaml
 secrets.NETLIFY_AUTH_TOKEN
 secrets.NETLIFY_SITE_ID
@@ -18,6 +19,7 @@ These secrets need to be added in:
 ### 2. Workflow Trigger Conditions ❌
 
 The original workflow only triggered on:
+
 ```yaml
 paths:
   - '.github/workflows/autopilot-fix-skeleton.yml'
@@ -37,9 +39,11 @@ Check if GitHub Actions are enabled:
 I've created a new simpler workflow that:
 
 ### 1. No Secrets Required
+
 Uses Netlify's GitHub integration instead of API tokens
 
 ### 2. Triggers on Every Push
+
 ```yaml
 on:
   push:
@@ -48,6 +52,7 @@ on:
 ```
 
 ### 3. Just Builds the Project
+
 Netlify handles the actual deployment via its GitHub integration
 
 ---
@@ -68,8 +73,9 @@ Netlify handles the actual deployment via its GitHub integration
 
 3. **Set Environment Variables**
    https://app.netlify.com/sites/elevateforhumanityfix/settings/env
-   
+
    Add:
+
    ```
    VITE_API_URL=https://api.elevateforhumanity.org
    VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -84,10 +90,11 @@ Netlify handles the actual deployment via its GitHub integration
 
 1. **Get Netlify Auth Token**
    https://app.netlify.com/user/applications#personal-access-tokens
-   
+
    Click "New access token" → Copy token
 
 2. **Get Netlify Site ID**
+
    ```bash
    # From netlify.toml or
    # Site settings → General → Site details → API ID
@@ -95,7 +102,7 @@ Netlify handles the actual deployment via its GitHub integration
 
 3. **Add to GitHub Secrets**
    https://github.com/elevateforhumanity/fix2/settings/secrets/actions
-   
+
    Add:
    - `NETLIFY_AUTH_TOKEN` = your token
    - `NETLIFY_SITE_ID` = your site ID
@@ -137,7 +144,7 @@ Netlify handles the actual deployment via its GitHub integration
 
 3. **Add Environment Variables**
    https://app.netlify.com/sites/elevateforhumanityfix/settings/env
-   
+
    Copy from: `NETLIFY_SETUP_REQUIRED.txt`
 
 4. **Trigger Deploy**
@@ -179,6 +186,7 @@ Then Netlify (if integrated) will:
 After setting up Netlify integration:
 
 1. **Make a small change and push**
+
    ```bash
    echo "test" > test.txt
    git add test.txt
@@ -188,17 +196,17 @@ After setting up Netlify integration:
 
 2. **Watch GitHub Actions**
    https://github.com/elevateforhumanity/fix2/actions
-   
+
    Should see: ✅ Autopilot Simple Deploy
 
 3. **Watch Netlify**
    https://app.netlify.com/sites/elevateforhumanityfix/deploys
-   
+
    Should see: 🟢 Building → Published
 
 4. **Check Site**
    https://elevateforhumanityfix.netlify.app
-   
+
    Should see: No skeleton pages (after env vars set)
 
 ---
@@ -214,4 +222,4 @@ After setting up Netlify integration:
 
 **The autopilot is ready - it just needs Netlify to be connected!** 🚀
 
-*Generated: $(date -Is)*
+_Generated: $(date -Is)_

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCertificate } from '../services/certificates';
-import CertificateDownload from '../components/CertificateDownload';
+import CertificateGenerator from '../components/CertificateGenerator';
 
 export default function CertificatePage() {
   const { certificateId } = useParams();
@@ -15,14 +15,15 @@ export default function CertificatePage() {
       .finally(() => setLoading(false));
   }, [certificateId]);
 
-  function handlePrint() {
-    window.print();
-  }
-
   if (loading) {
     return (
       <div className="section">
-        <div className="container">Loading...</div>
+        <div className="container">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+            <p className="mt-4 text-brown-600">Loading certificate...</p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -30,12 +31,13 @@ export default function CertificatePage() {
   if (!cert) {
     return (
       <div className="section">
-        <div className="container">
-          <div className="card p-6 text-center">
-            <h2 className="text-xl font-semibold text-red-600">
+        <div className="container max-w-2xl">
+          <div className="card p-8 text-center">
+            <div className="text-6xl mb-4">❌</div>
+            <h2 className="text-2xl font-semibold text-brown-900 mb-2">
               Certificate Not Found
             </h2>
-            <p className="mt-2 text-brand-text-muted">
+            <p className="text-brown-600">
               This certificate does not exist or has been revoked.
             </p>
           </div>
@@ -44,85 +46,63 @@ export default function CertificatePage() {
     );
   }
 
-  const issueDate = new Date(cert.issued_at).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const certificateData = {
+    studentName: cert.profiles?.full_name || cert.profiles?.email || 'Student',
+    courseName: cert.courses?.title || 'Course',
+    completionDate: new Date(cert.issued_at),
+    instructorName: cert.courses?.instructor_name || 'Elevate for Humanity',
+    certificateId: cert.certificate_number,
+    programType: cert.courses?.program_type || 'Professional Development',
+    hours: cert.courses?.total_hours || 0,
+    grade: cert.grade || 'Pass',
+  };
+
+  const handleDownload = () => {
+    window.print();
+  };
+
+  const handleShare = () => {
+    const url = `${window.location.origin}/verify/${cert.certificate_number}`;
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `Certificate: ${certificateData.courseName}`,
+          text: `I completed ${certificateData.courseName} at Elevate for Humanity!`,
+          url: url,
+        })
+        .catch(() => {
+          // Fallback to clipboard
+          navigator.clipboard.writeText(url);
+          alert('Certificate link copied to clipboard!');
+        });
+    } else {
+      navigator.clipboard.writeText(url);
+      alert('Certificate link copied to clipboard!');
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-brand-surface py-12">
+    <div className="min-h-screen bg-beige-50 py-12">
       <div className="container max-w-4xl">
-        <div className="mb-6 flex gap-3 justify-end print:hidden">
-          <button onClick={handlePrint} className="btn-outline">
-            🖨️ Print Certificate
-          </button>
-        </div>
-        {/* SVG Download Option */}
-        <div className="mb-6 print:hidden">
-          <CertificateDownload
-            student={
-              cert.profiles?.full_name || cert.profiles?.email || 'Student'
-            }
-            program={cert.courses?.title || 'Course'}
-            date={issueDate}
-          />
-        </div>
-        {/* Certificate */}
-        <div className="bg-white border-8 border-brand-600 p-12 shadow-2xl">
-          <div className="text-center">
-            {/* Header */}
-            <div className="text-brand-600 text-6xl font-bold mb-4">
-              Elevate for Humanity
-            </div>
-            <div className="text-2xl text-brand-text-muted mb-8">
-              Certificate of Completion
-            </div>
-            {/* Divider */}
-            <div className="w-32 h-1 bg-brand-600 mx-auto mb-8" />
-            {/* Body */}
-            <div className="text-lg text-brand-text mb-6">
-              This certifies that
-            </div>
-            <div className="text-4xl font-bold text-brand-text mb-6">
-              {cert.profiles?.email || 'Student'}
-            </div>
-            <div className="text-lg text-brand-text mb-6">
-              has successfully completed
-            </div>
-            <div className="text-3xl font-semibold text-brand-700 mb-8">
-              {cert.courses?.title}
-            </div>
-            {/* Footer */}
-            <div className="mt-12 grid grid-cols-2 gap-8 text-sm text-brand-text-muted">
-              <div>
-                <div className="font-semibold">Issue Date</div>
-                <div>{issueDate}</div>
-              </div>
-              <div>
-                <div className="font-semibold">Certificate Number</div>
-                <div className="font-mono">{cert.certificate_number}</div>
-              </div>
-            </div>
-            {/* Signature Line */}
-            <div className="mt-12 pt-8 border-t-2 border-brand-border-dark">
-              <div className="text-sm text-brand-text-muted">
-                Authorized by Elevate for Humanity
-              </div>
-              <div className="mt-2 text-xs text-brand-text-light">
-                Indianapolis, IN • ETPL Provider • DOL Apprenticeship Sponsor
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Verification */}
-        <div className="mt-6 text-center text-sm text-brand-text-muted print:hidden">
-          <p>
-            Verify this certificate at:{' '}
-            <span className="font-mono">
+        <CertificateGenerator
+          data={certificateData}
+          onDownload={handleDownload}
+          onShare={handleShare}
+        />
+
+        {/* Verification Info */}
+        <div className="mt-8 text-center print:hidden">
+          <div className="card p-6">
+            <h3 className="text-lg font-semibold text-brown-900 mb-2">
+              Certificate Verification
+            </h3>
+            <p className="text-sm text-brown-600 mb-3">
+              Anyone can verify this certificate at:
+            </p>
+            <code className="block bg-beige-100 px-4 py-2 rounded text-sm text-brown-900">
               {window.location.origin}/verify/{cert.certificate_number}
-            </span>
-          </p>
+            </code>
+          </div>
         </div>
       </div>
     </div>

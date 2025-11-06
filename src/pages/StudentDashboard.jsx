@@ -1,277 +1,261 @@
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import AppLayout from '../layouts/AppLayout';
-import { useAnalytics } from '../hooks/useAnalytics';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Progress } from '../components/ui/progress';
-import { Badge } from '../components/ui/badge';
-import { Avatar, AvatarFallback } from '../components/ui/avatar';
-import {
-  BookOpen,
-  Calendar,
-  Award,
-  TrendingUp,
-  Clock,
-  Video,
-  FileText,
-  Users,
-} from 'lucide-react';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function StudentDashboard() {
-  useAnalytics('Dashboard');
-  const [courses] = useState([
-    {
-      id: 1,
-      title: 'Workforce Readiness 101',
-      progress: 65,
-      updatedAt: '2025-09-01',
-      nextLesson: 'Resume Writing Workshop',
-      dueDate: 'Oct 20, 2025',
-      instructor: 'Sarah Johnson',
-    },
-    {
-      id: 2,
-      title: 'Financial Literacy Basics',
-      progress: 20,
-      updatedAt: '2025-09-05',
-      nextLesson: 'Budgeting Fundamentals',
-      dueDate: 'Oct 18, 2025',
-      instructor: 'Michael Chen',
-    },
-  ]);
+  const { user } = useAuth();
+  const [stats, setStats] = useState({
+    coursesEnrolled: 0,
+    coursesCompleted: 0,
+    certificatesEarned: 0,
+    hoursCompleted: 0,
+  });
+  const [recentCourses, setRecentCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const avgProgress = useMemo(
-    () =>
-      courses.length
-        ? Math.round(
-            courses.reduce((s, c) => s + c.progress, 0) / courses.length
-          )
-        : 0,
-    [courses]
-  );
+  useEffect(() => {
+    // Mock data - replace with API calls
+    setStats({
+      coursesEnrolled: 3,
+      coursesCompleted: 1,
+      certificatesEarned: 1,
+      hoursCompleted: 45,
+    });
 
-  const quickActions = [
-    {
-      icon: BookOpen,
-      label: 'My Courses',
-      href: '/course-catalog',
-      color: 'text-brand-info',
-    },
-    {
-      icon: Video,
-      label: 'Live Classes',
-      href: '/meet',
-      color: 'text-purple-600',
-    },
-    {
-      icon: FileText,
-      label: 'Assignments',
-      href: '/assignment',
-      color: 'text-brand-success',
-    },
-    {
-      icon: Award,
-      label: 'Certificates',
-      href: '/certificates',
-      color: 'text-yellow-600',
-    },
-  ];
+    setRecentCourses([
+      {
+        id: '1',
+        title: 'Barber Apprenticeship Program',
+        progress: 75,
+        nextLesson: 'Advanced Cutting Techniques',
+        thumbnail: '/images/barber-course.jpg',
+      },
+      {
+        id: '2',
+        title: 'Customer Service Excellence',
+        progress: 100,
+        completed: true,
+        thumbnail: '/images/customer-service.jpg',
+      },
+      {
+        id: '3',
+        title: 'Business Management Basics',
+        progress: 30,
+        nextLesson: 'Financial Planning',
+        thumbnail: '/images/business-mgmt.jpg',
+      },
+    ]);
 
-  const upcomingEvents = [
-    { title: 'Resume Workshop', date: 'Oct 15, 2:00 PM', type: 'Live Class' },
-    {
-      title: 'Financial Planning Quiz',
-      date: 'Oct 16, 10:00 AM',
-      type: 'Assessment',
-    },
-  ];
+    setLoading(false);
+  }, [user]);
 
-  return (
-    <AppLayout title="Dashboard">
-      <div className="min-h-screen bg-brand-surface">
-        <div className="max-w-7xl mx-auto p-6 space-y-6">
-          {/* Welcome Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold mb-2">
-                  Welcome back, Student!
-                </h1>
-                <p className="text-blue-100">Continue your learning journey</p>
-              </div>
-              <Avatar className="h-16 w-16 border-4 border-white/30">
-                <AvatarFallback className="bg-white/20 text-white text-xl font-bold">
-                  ST
-                </AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-          {/* Stats Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Enrolled Courses
-                    </p>
-                    <p className="text-3xl font-bold">{courses.length}</p>
-                  </div>
-                  <BookOpen className="h-8 w-8 text-brand-info" />
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Average Progress
-                    </p>
-                    <p className="text-3xl font-bold">{avgProgress}%</p>
-                  </div>
-                  <TrendingUp className="h-8 w-8 text-brand-success" />
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Certificates
-                    </p>
-                    <p className="text-3xl font-bold">0</p>
-                  </div>
-                  <Award className="h-8 w-8 text-yellow-600" />
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Study Hours</p>
-                    <p className="text-3xl font-bold">24</p>
-                  </div>
-                  <Clock className="h-8 w-8 text-purple-600" />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {quickActions.map((action, idx) => (
-                  <Link key={idx} to={action.href}>
-                    <Button
-                      variant="outline"
-                      className="w-full h-24 flex flex-col items-center justify-center gap-2 hover:bg-brand-surface"
-                    >
-                      <action.icon className={`h-6 w-6 ${action.color}`} />
-                      <span className="text-sm font-medium">
-                        {action.label}
-                      </span>
-                    </Button>
-                  </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* My Courses */}
-            <div className="lg:col-span-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>My Courses</CardTitle>
-                  <CardDescription>Continue where you left off</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {courses.map((course) => (
-                    <div
-                      key={course.id}
-                      className="border rounded-lg p-4 hover:bg-brand-surface transition-colors"
-                    >
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <h3 className="font-semibold text-lg mb-1">
-                            {course.title}
-                          </h3>
-                          <p className="text-sm text-muted-foreground">
-                            Instructor: {course.instructor}
-                          </p>
-                        </div>
-                        <Badge variant="secondary">{course.progress}%</Badge>
-                      </div>
-                      <Progress value={course.progress} className="mb-3" />
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-muted-foreground">
-                          Next: {course.nextLesson}
-                        </span>
-                        <span className="text-muted-foreground flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          Due {course.dueDate}
-                        </span>
-                      </div>
-                      <Button className="w-full mt-3" size="sm">
-                        Continue Learning
-                      </Button>
-                    </div>
-                  ))}
-                  <Link to="/course-catalog">
-                    <Button variant="outline" className="w-full">
-                      Browse More Courses
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            </div>
-            {/* Upcoming Events */}
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Upcoming Events</CardTitle>
-                  <CardDescription>Don't miss these</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {upcomingEvents.map((event, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3 p-3 border rounded-lg"
-                    >
-                      <Calendar className="h-5 w-5 text-brand-info mt-0.5" />
-                      <div className="flex-1">
-                        <p className="font-medium text-sm">{event.title}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {event.date}
-                        </p>
-                        <Badge variant="outline" className="mt-2 text-xs">
-                          {event.type}
-                        </Badge>
-                      </div>
-                    </div>
-                  ))}
-                  <Button variant="outline" className="w-full" size="sm">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    View Full Calendar
-                  </Button>
-                </CardContent>
-              </Card>
+  if (loading) {
+    return (
+      <div>
+        <Helmet>
+          <title>Student Dashboard | Elevate for Humanity</title>
+        </Helmet>
+        <Navigation />
+        <div className="section">
+          <div className="container">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+              <p className="mt-4 text-brown-600">Loading dashboard...</p>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-    </AppLayout>
+    );
+  }
+
+  return (
+    <div>
+      <Helmet>
+        <title>Student Dashboard | Elevate for Humanity</title>
+      </Helmet>
+      <Navigation />
+
+      <div className="section bg-beige-50">
+        <div className="container">
+          {/* Welcome Header */}
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-brown-900 mb-2">
+              Welcome back, {user?.email?.split('@')[0] || 'Student'}!
+            </h1>
+            <p className="text-lg text-brown-600">
+              Continue your learning journey
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.coursesEnrolled}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Courses Enrolled
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.coursesCompleted}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Courses Completed
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.certificatesEarned}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Certificates Earned
+              </div>
+            </div>
+
+            <div className="card p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                {stats.hoursCompleted}
+              </div>
+              <div className="text-sm text-brown-600 uppercase tracking-wide">
+                Hours Completed
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="card p-6 mb-12">
+            <h2 className="text-2xl font-bold text-brown-900 mb-4">
+              Quick Actions
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <Link to="/lms/courses" className="btn-primary text-center">
+                Browse Courses
+              </Link>
+              <Link
+                to="/lms/my-certificates"
+                className="btn-outline text-center"
+              >
+                View Certificates
+              </Link>
+              <Link to="/account" className="btn-outline text-center">
+                Account Settings
+              </Link>
+            </div>
+          </div>
+
+          {/* Recent Courses */}
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-brown-900">My Courses</h2>
+              <Link
+                to="/lms/courses"
+                className="text-green-600 hover:text-green-700 font-semibold"
+              >
+                View All →
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {recentCourses.map((course) => (
+                <div
+                  key={course.id}
+                  className="card hover:shadow-lg transition-shadow"
+                >
+                  {/* Course Thumbnail */}
+                  <div className="h-48 bg-gradient-to-br from-green-100 to-beige-100 flex items-center justify-center">
+                    <div className="text-6xl">📚</div>
+                  </div>
+
+                  {/* Course Info */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-brown-900 mb-3">
+                      {course.title}
+                    </h3>
+
+                    {/* Progress Bar */}
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between text-sm text-brown-600 mb-2">
+                        <span>Progress</span>
+                        <span className="font-semibold">
+                          {course.progress}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-beige-200 rounded-full h-2">
+                        <div
+                          className="bg-green-600 h-2 rounded-full transition-all"
+                          style={{ width: `${course.progress}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Next Lesson or Completed */}
+                    {course.completed ? (
+                      <div className="flex items-center gap-2 text-green-600 font-semibold mb-4">
+                        <span>✓</span>
+                        <span>Completed</span>
+                      </div>
+                    ) : (
+                      <div className="text-sm text-brown-600 mb-4">
+                        <strong>Next:</strong> {course.nextLesson}
+                      </div>
+                    )}
+
+                    {/* Action Button */}
+                    <Link
+                      to={`/lms/courses/${course.id}`}
+                      className={
+                        course.completed
+                          ? 'btn-outline w-full text-center'
+                          : 'btn-primary w-full text-center'
+                      }
+                    >
+                      {course.completed ? 'Review Course' : 'Continue Learning'}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Achievements Section */}
+          {stats.certificatesEarned > 0 && (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-brown-900 mb-6">
+                Recent Achievements
+              </h2>
+              <div className="card p-6 bg-gradient-to-r from-green-50 to-beige-50">
+                <div className="flex items-center gap-4">
+                  <div className="text-6xl">🏆</div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-brown-900 mb-1">
+                      Certificate Earned!
+                    </h3>
+                    <p className="text-brown-600 mb-3">
+                      You completed Customer Service Excellence
+                    </p>
+                    <Link
+                      to="/lms/my-certificates"
+                      className="text-green-600 hover:text-green-700 font-semibold"
+                    >
+                      View Certificate →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <Footer />
+    </div>
   );
 }

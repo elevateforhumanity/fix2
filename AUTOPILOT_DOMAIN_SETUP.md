@@ -11,6 +11,7 @@ Your repository has autopilot scripts ready to configure custom domains automati
 **Script:** `scripts/autopilot-setup-portal-domain.sh`
 
 ### What It Does
+
 1. ✅ Adds `portal.elevateforhumanity.org` to Netlify
 2. ✅ Configures DNS CNAME record on Cloudflare
 3. ✅ Provisions SSL certificate
@@ -18,6 +19,7 @@ Your repository has autopilot scripts ready to configure custom domains automati
 5. ✅ Verifies configuration
 
 ### Prerequisites
+
 ```bash
 # Required: Netlify Auth Token
 export NETLIFY_AUTH_TOKEN="your_netlify_token"
@@ -29,11 +31,13 @@ export CLOUDFLARE_API_TOKEN="your_cloudflare_token"
 ```
 
 ### Execute
+
 ```bash
 ./scripts/autopilot-setup-portal-domain.sh
 ```
 
 ### Timeline
+
 - DNS Propagation: 5-30 minutes
 - SSL Certificate: 5-10 minutes after DNS
 - Total: ~15-40 minutes
@@ -45,17 +49,20 @@ export CLOUDFLARE_API_TOKEN="your_cloudflare_token"
 **Script:** `scripts/autopilot-add-dns.sh`
 
 ### What It Does
+
 1. ✅ Gets Cloudflare Zone ID
 2. ✅ Checks for existing DNS record
 3. ✅ Creates or updates CNAME record
 4. ✅ Verifies DNS configuration
 
 ### Prerequisites
+
 ```bash
 export CLOUDFLARE_API_TOKEN="your_cloudflare_token"
 ```
 
 ### Execute
+
 ```bash
 ./scripts/autopilot-add-dns.sh
 ```
@@ -65,12 +72,14 @@ export CLOUDFLARE_API_TOKEN="your_cloudflare_token"
 ## Current Configuration
 
 ### Netlify Site
+
 - **Site ID:** `12f120ab-3f63-419b-bc49-430f043415c1`
 - **Site Name:** `elevateforhumanityfix`
 - **Current URL:** `elevateforhumanityfix.netlify.app`
 - **Target:** `main--elevateforhumanityfix.netlify.app`
 
 ### Domain Setup
+
 - **Primary Domain:** `elevateforhumanity.org` (Durable.co)
 - **Portal Domain:** `portal.elevateforhumanity.org` (Netlify)
 - **Cloudflare Zone:** `elevateforhumanity.org`
@@ -112,6 +121,7 @@ curl -I https://portal.elevateforhumanity.org
 ## Manual DNS Configuration (If Autopilot Fails)
 
 ### Cloudflare Dashboard
+
 1. Go to: https://dash.cloudflare.com
 2. Select domain: `elevateforhumanity.org`
 3. Go to **DNS** → **Records**
@@ -127,6 +137,7 @@ curl -I https://portal.elevateforhumanity.org
 6. Click **Save**
 
 ### Netlify Dashboard
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
 2. Click **Add custom domain**
 3. Enter: `portal.elevateforhumanity.org`
@@ -138,6 +149,7 @@ curl -I https://portal.elevateforhumanity.org
 ## Verification Steps
 
 ### 1. Check DNS Propagation
+
 ```bash
 # Check CNAME record
 dig portal.elevateforhumanity.org CNAME
@@ -147,6 +159,7 @@ dig portal.elevateforhumanity.org CNAME
 ```
 
 ### 2. Check SSL Certificate
+
 ```bash
 # Check HTTPS
 curl -I https://portal.elevateforhumanity.org
@@ -155,6 +168,7 @@ curl -I https://portal.elevateforhumanity.org
 ```
 
 ### 3. Check Site Loading
+
 ```bash
 # Visit in browser
 open https://portal.elevateforhumanity.org
@@ -170,27 +184,31 @@ open https://portal.elevateforhumanity.org
 ## Troubleshooting
 
 ### DNS Not Propagating
+
 - **Wait:** DNS can take up to 48 hours (usually 5-30 min)
 - **Check:** Use https://dnschecker.org
 - **Flush:** Clear local DNS cache
+
   ```bash
   # macOS
   sudo dscacheutil -flushcache
-  
+
   # Windows
   ipconfig /flushdns
-  
+
   # Linux
   sudo systemd-resolve --flush-caches
   ```
 
 ### SSL Certificate Not Provisioning
+
 - **Wait:** Netlify needs DNS to propagate first
 - **Check:** Netlify dashboard → Domain settings
 - **Retry:** Click "Renew certificate" in Netlify
 - **Verify:** DNS is pointing correctly
 
 ### Autopilot Script Fails
+
 - **Check tokens:** Ensure both tokens are set and valid
 - **Check permissions:** Tokens need appropriate scopes
 - **Check logs:** Script outputs detailed error messages

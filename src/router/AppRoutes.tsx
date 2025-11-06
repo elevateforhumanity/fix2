@@ -207,6 +207,8 @@ const Page_181 = lazy(() => import('../pages/sisters/VolunteerOpportunities.jsx'
 const Page_182 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
 const Page_183 = lazy(() => import('../pages/sisters/Wellness.jsx'));
 const Page_184 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
+const Page_185 = lazy(() => import('../pages/VerifyCertificatePage.tsx'));
+const Page_186 = lazy(() => import('../pages/lms/MyCertificatesPage.tsx'));
 
 export default function AppRoutes(){
   return (
@@ -234,8 +236,10 @@ export default function AppRoutes(){
             <Route path="/cprfirst-aid-training" element={<Page_17 />} />
             <Route path="/crmdashboard-page" element={<Page_18 />} />
             <Route path="/calendar" element={<Page_19 />} />
-            <Route path="/certificate-page" element={<Page_20 />} />
+            <Route path="/certificate/:certificateId" element={<Page_20 />} />
             <Route path="/certificates" element={<Page_21 />} />
+            <Route path="/verify/:certificateNumber" element={<Page_185 />} />
+            <Route path="/lms/my-certificates" element={<Page_186 />} />
             <Route path="/certiport-testing-center" element={<Page_22 />} />
             <Route path="/clone-landing" element={<Page_23 />} />
             <Route path="/community" element={<Page_24 />} />

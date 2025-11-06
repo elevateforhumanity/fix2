@@ -1,0 +1,420 @@
+/* Elevate for Humanity Design System - Scraped from www.elevateforhumanity.org */
+
+:root {
+  /* Colors */
+  --color-primary: #4d4b37;
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-text-inverse: #ffffff;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-overlay-light: rgba(0, 0, 0, 0.05);
+  --color-progress-bg: rgba(255, 255, 255, 0.2);
+  --color-progress-fill: rgba(255, 255, 255, 0.7);
+
+  /* Typography */
+  --body-fontFamily: system-ui, -apple-system, sans-serif;
+  --body-fontWeight: 500;
+  --header-logo-fontFamily: system-ui, -apple-system, sans-serif;
+  --header-logo-fontWeight: 700;
+}
+
+/* Typography Classes */
+.heading-xlarge {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.heading-medium {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.heading-small {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.body-large {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-normal {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.body-small {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive Typography */
+@media (min-width: 1024px) {
+  .heading-xlarge {
+    font-size: 4rem;
+  }
+
+  .heading-large {
+    font-size: 3rem;
+  }
+
+  .heading-medium {
+    font-size: 2.5rem;
+  }
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Header */
+#website-header {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  transition: all 0.3s;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-family: var(--body-fontFamily);
+  font-weight: var(--body-fontWeight);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Rich Text Block */
+.rich-text-block {
+  color: var(--color-text);
+}
+
+.rich-text-block h1,
+.rich-text-block h2,
+.rich-text-block h3 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.rich-text-block h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.rich-text-block h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.rich-text-block h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.rich-text-block p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Testimonials */
+.testimonials-carousel {
+  position: relative;
+}
+
+.testimonials-flex-basis {
+  flex-basis: 100%;
+  border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+  .testimonials-flex-basis {
+    flex-basis: calc(50% - 0.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-flex-basis {
+    flex-basis: calc(33.333% - 0.67rem);
+  }
+}
+
+/* Animations */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+/* Aspect Ratios */
+.aspect-w-1 {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.aspect-w-4 {
+  position: relative;
+  padding-bottom: 125%;
+}
+
+.aspect-w-5 {
+  position: relative;
+  padding-bottom: 80%;
+}
+
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.aspect-w-1 > *,
+.aspect-w-4 > *,
+.aspect-w-5 > *,
+.aspect-w-16 > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smooth Scroll */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Utilities */
+.break-word {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+/* Rounded */
+.rounded-5xl {
+  border-radius: 2.5rem;
+}
+
+/* Background Opacity */
+.bg-opacity-5 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bg-opacity-40 {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 0.125rem;
+  background-color: var(--color-progress-bg);
+  border-radius: 0;
+  position: relative;
+  width: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-progress-fill);
+  border-radius: 0;
+  transition: width 0.3s ease;
+}
+
+/* Navigation */
+nav li {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav li:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+/* Mobile Menu */
+@media (max-width: 1023px) {
+  .mobile-menu {
+    display: block;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .desktop-menu {
+    display: flex;
+  }
+}
+
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Card Hover */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus States */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide In Animation */
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

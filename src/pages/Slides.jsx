@@ -51,7 +51,7 @@ export function Slides() {
               height: 60,
               fontSize: 24,
               textAlign: 'center',
-              color: 'var(--brand-text-muted)666',
+              color: ''#6b5d52'666',
             },
           ],
         },
@@ -121,7 +121,7 @@ export function Slides() {
       fontWeight: element.fontWeight || 'normal',
       textAlign: element.textAlign || 'left',
       color: element.color || '#000000',
-      border: isSelected ? '2px solid var(--brand-info)' : 'none',
+      border: isSelected ? '2px solid '#00a544'' : 'none',
       cursor: 'pointer',
       padding: '0.5rem',
       outline: 'none',
@@ -236,7 +236,7 @@ export function Slides() {
             onClick={() => setIsPresentMode(false)}
             style={{
               padding: '0.5rem 1rem',
-              backgroundColor: 'var(--brand-danger)',
+              backgroundColor: ''#dc2626'',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -255,7 +255,7 @@ export function Slides() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: 'var(--brand-surface)',
+        backgroundColor: ''#f5f1e8'',
       }}
     >
       {/* Sidebar - Slide thumbnails */}
@@ -263,7 +263,7 @@ export function Slides() {
         style={{
           width: '200px',
           backgroundColor: '#fff',
-          borderRight: '1px solid var(--brand-border)',
+          borderRight: '1px solid '#d4c9b8'',
           overflowY: 'auto',
           padding: '1rem',
         }}
@@ -285,13 +285,13 @@ export function Slides() {
               marginBottom: '0.75rem',
               border:
                 currentSlide === index
-                  ? '2px solid var(--brand-info)'
-                  : '1px solid var(--brand-border)',
+                  ? '2px solid '#00a544''
+                  : '1px solid '#d4c9b8'',
               borderRadius: '0.375rem',
               padding: '0.5rem',
               cursor: 'pointer',
               backgroundColor:
-                currentSlide === index ? 'var(--brand-surface)' : '#fff',
+                currentSlide === index ? ''#f5f1e8'' : '#fff',
               position: 'relative',
             }}
           >
@@ -305,7 +305,7 @@ export function Slides() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '0.75rem',
-                color: 'var(--brand-text-muted)',
+                color: ''#6b5d52'',
               }}
             >
               Slide {index + 1}
@@ -320,7 +320,7 @@ export function Slides() {
                 top: '0.25rem',
                 right: '0.25rem',
                 padding: '0.25rem',
-                backgroundColor: 'var(--brand-danger)',
+                backgroundColor: ''#dc2626'',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.25rem',
@@ -337,7 +337,7 @@ export function Slides() {
           style={{
             width: '100%',
             padding: '0.75rem',
-            backgroundColor: 'var(--brand-info)',
+            backgroundColor: ''#00a544'',
             color: '#fff',
             border: 'none',
             borderRadius: '0.375rem',
@@ -355,7 +355,7 @@ export function Slides() {
         <div
           style={{
             backgroundColor: '#fff',
-            borderBottom: '1px solid var(--brand-border)',
+            borderBottom: '1px solid '#d4c9b8'',
             padding: '0.75rem 1rem',
             display: 'flex',
             gap: '1rem',
@@ -379,7 +379,7 @@ export function Slides() {
             style={{
               padding: '0.5rem 1rem',
               backgroundColor: '#fff',
-              border: '1px solid var(--brand-border-dark)',
+              border: '1px solid '#c4b5a0'',
               borderRadius: '0.375rem',
               cursor: 'pointer',
             }}
@@ -390,7 +390,7 @@ export function Slides() {
             onClick={() => setIsPresentMode(true)}
             style={{
               padding: '0.5rem 1rem',
-              backgroundColor: 'var(--brand-info)',
+              backgroundColor: ''#00a544'',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',

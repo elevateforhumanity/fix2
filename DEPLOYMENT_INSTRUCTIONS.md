@@ -3,15 +3,18 @@
 ## ✅ Completed Steps
 
 ### 1. Environment Variables Configured
+
 - Created `.env.production` with correct API URLs (not committed - in .gitignore)
 - Documented required Netlify environment variables in `NETLIFY_ENV_VARS_REQUIRED.md`
 
 ### 2. CORS and CSP Updated
+
 - Updated `public/_headers` with proper CORS headers
 - Updated `netlify.toml` CSP to allow `api.elevateforhumanity.org`
 - Added `Access-Control-Max-Age` for preflight caching
 
 ### 3. Code Pushed to Main Branch
+
 - All changes committed and pushed to `main` branch
 - Netlify should auto-deploy on push
 
@@ -39,10 +42,12 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 After adding environment variables:
 
 **Option A: Via Netlify Dashboard**
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Click **Trigger deploy** → **Clear cache and deploy site**
 
 **Option B: Via Git**
+
 ```bash
 git commit --allow-empty -m "chore: trigger deploy with env vars"
 git push origin main
@@ -60,6 +65,7 @@ git push origin main
 ### Step 4: Test Key Pages
 
 Visit and verify these pages load correctly:
+
 - https://elevateforhumanity.org/ (Homepage)
 - https://elevateforhumanity.org/programs (Programs listing)
 - https://elevateforhumanity.org/lms (Learning Management System)
@@ -100,7 +106,7 @@ After successful deployment:
 ✅ **API calls work** - Requests go to correct backend  
 ✅ **No CORS errors** - Headers configured properly  
 ✅ **Fast page loads** - Optimized build with code splitting  
-✅ **SEO friendly** - Proper meta tags and sitemap  
+✅ **SEO friendly** - Proper meta tags and sitemap
 
 ---
 

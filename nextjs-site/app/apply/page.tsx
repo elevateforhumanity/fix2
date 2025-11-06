@@ -14,7 +14,6 @@ export default function ApplyPage() {
           </p>
         </div>
       </section>
-
       {/* Application Steps */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -26,25 +25,30 @@ export default function ApplyPage() {
               <span className="text-2xl font-bold text-blue-600">1</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Choose Program</h3>
-            <p className="text-sm text-gray-600">Select the career path that interests you</p>
+            <p className="text-sm text-gray-600">
+              Select the career path that interests you
+            </p>
           </div>
-
           <div className="text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-blue-600">2</span>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Submit Application</h3>
-            <p className="text-sm text-gray-600">Complete the online application form</p>
+            <h3 className="font-semibold text-gray-900 mb-2">
+              Submit Application
+            </h3>
+            <p className="text-sm text-gray-600">
+              Complete the online application form
+            </p>
           </div>
-
           <div className="text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-blue-600">3</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Interview</h3>
-            <p className="text-sm text-gray-600">Meet with our admissions team</p>
+            <p className="text-sm text-gray-600">
+              Meet with our admissions team
+            </p>
           </div>
-
           <div className="text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-blue-600">4</span>
@@ -53,13 +57,11 @@ export default function ApplyPage() {
             <p className="text-sm text-gray-600">Begin your training program</p>
           </div>
         </div>
-
         {/* Application Form */}
         <div className="max-w-3xl mx-auto bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Application Form
           </h2>
-
           <form className="space-y-6">
             {/* Personal Information */}
             <div>
@@ -89,7 +91,6 @@ export default function ApplyPage() {
                 </div>
               </div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -112,7 +113,6 @@ export default function ApplyPage() {
                 />
               </div>
             </div>
-
             {/* Program Selection */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -128,17 +128,20 @@ export default function ApplyPage() {
                 >
                   <option value="">Choose a program</option>
                   <option value="barber">Barber Apprenticeship</option>
-                  <option value="building-services">Building Services Technician</option>
+                  <option value="building-services">
+                    Building Services Technician
+                  </option>
                   <option value="hvac-welding">HVAC & Welding</option>
                   <option value="healthcare">Healthcare (CNA/QMA)</option>
                   <option value="drug-testing">Drug Testing Business</option>
                   <option value="digital-skills">Digital Skills</option>
                   <option value="leadership">Leadership Development</option>
-                  <option value="peer-recovery">Certified Peer Recovery Specialist</option>
+                  <option value="peer-recovery">
+                    Certified Peer Recovery Specialist
+                  </option>
                 </select>
               </div>
             </div>
-
             {/* Background */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -161,7 +164,6 @@ export default function ApplyPage() {
                     <option value="graduate">Graduate Degree</option>
                   </select>
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Employment Status *
@@ -177,7 +179,6 @@ export default function ApplyPage() {
                     <option value="other">Other</option>
                   </select>
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Why are you interested in this program? *
@@ -186,18 +187,19 @@ export default function ApplyPage() {
                     required
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  ></textarea>
+                  />
                 </div>
               </div>
             </div>
-
             {/* Funding */}
             <div className="bg-blue-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 💰 Funding Information
               </h3>
               <p className="text-gray-600 mb-4">
-                All our programs are 100% funded through WIOA and WRG. Our team will help you determine eligibility and complete the funding application.
+                All our programs are 100% funded through WIOA and WRG. Our team
+                will help you determine eligibility and complete the funding
+                application.
               </p>
               <label className="flex items-start">
                 <input
@@ -206,11 +208,12 @@ export default function ApplyPage() {
                   className="mt-1 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
                 />
                 <span className="ml-2 text-sm text-gray-700">
-                  I understand that I will need to complete a funding application with WorkOne Indiana to determine eligibility for WIOA/WRG funding.
+                  I understand that I will need to complete a funding
+                  application with WorkOne Indiana to determine eligibility for
+                  WIOA/WRG funding.
                 </span>
               </label>
             </div>
-
             {/* Submit */}
             <div className="pt-6">
               <button
@@ -221,11 +224,17 @@ export default function ApplyPage() {
               </button>
               <p className="mt-4 text-sm text-gray-600 text-center">
                 By submitting this form, you agree to our{' '}
-                <Link href="/legal/terms" className="text-orange-600 hover:text-orange-700">
+                <Link
+                  href="/legal/terms"
+                  className="text-orange-600 hover:text-orange-700"
+                >
                   Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link href="/legal/privacy" className="text-orange-600 hover:text-orange-700">
+                <Link
+                  href="/legal/privacy"
+                  className="text-orange-600 hover:text-orange-700"
+                >
                   Privacy Policy
                 </Link>
               </p>
@@ -233,15 +242,13 @@ export default function ApplyPage() {
           </form>
         </div>
       </section>
-
       {/* Help Section */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Need Help?
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Need Help?</h2>
           <p className="text-lg text-gray-600 mb-8">
-            Our admissions team is here to answer your questions and guide you through the application process.
+            Our admissions team is here to answer your questions and guide you
+            through the application process.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

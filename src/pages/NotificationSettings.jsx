@@ -172,13 +172,13 @@ export default function NotificationSettings() {
         )}
         {success && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-            <p className="text-brand-success">{success}</p>
+            <p className="text-green-600">{success}</p>
           </div>
         )}
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-brand-text-muted">Loading settings...</p>
+            <p className="mt-4 text-brown-600">Loading settings...</p>
           </div>
         ) : (
           <div className="space-y-6">
@@ -194,19 +194,19 @@ export default function NotificationSettings() {
                       className="p-6 flex items-start justify-between"
                     >
                       <div className="flex-1">
-                        <h3 className="font-semibold text-brand-text mb-1">
+                        <h3 className="font-semibold text-brown-900 mb-1">
                           {setting.label}
                         </h3>
-                        <p className="text-sm text-brand-text-muted">
+                        <p className="text-sm text-brown-600">
                           {setting.description}
                         </p>
                       </div>
                       <button
                         onClick={() => handleToggle(setting.key)}
-                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-focus focus:ring-offset-2 ml-4 ${
+                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ml-4 ${
                           preferences[setting.key]
-                            ? 'bg-brand-info'
-                            : 'bg-brand-border'
+                            ? 'bg-green-600'
+                            : 'bg-brown-200'
                         }`}
                       >
                         <span
@@ -227,14 +227,14 @@ export default function NotificationSettings() {
               <button
                 onClick={fetchPreferences}
                 disabled={saving}
-                className="px-6 py-3 bg-brand-border text-brand-text rounded-lg hover:bg-gray-300 disabled:opacity-50 transition"
+                className="px-6 py-3 bg-brown-200 text-brown-900 rounded-lg hover:bg-gray-300 disabled:opacity-50 transition"
               >
                 Reset
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="px-8 py-3 bg-brand-info text-white rounded-lg hover:bg-brand-info-hover disabled:opacity-50 transition font-bold"
+                className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition font-bold"
               >
                 {saving ? 'Saving...' : 'Save Settings'}
               </button>
@@ -244,7 +244,7 @@ export default function NotificationSettings() {
               <h3 className="font-bold text-blue-900 mb-2">
                 About Notifications
               </h3>
-              <ul className="text-sm text-brand-info space-y-1">
+              <ul className="text-sm text-green-600 space-y-1">
                 <li>• You can change these settings at any time</li>
                 <li>
                   • Critical account and security notifications cannot be
