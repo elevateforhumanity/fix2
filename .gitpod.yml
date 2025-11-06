@@ -1,26 +1,24 @@
-image:
-  file: .gitpod.Dockerfile
+image: node:20-bullseye
 
 tasks:
-  - name: Autopilot
+  - name: Setup and Run Elevate Portal
     init: |
-      bash scripts/gp-autopilot.sh --prepare
+      echo "🚀 Installing dependencies..."
+      npm install -g pnpm netlify-cli
+      pnpm install
+      echo "✅ Dependencies installed"
     command: |
-      bash scripts/gp-autopilot.sh --run
+      echo "🔧 Starting development server..."
+      pnpm run dev --host
 
 ports:
   - port: 5173
-    onOpen: ignore
-    visibility: public
-  - port: 8080
     onOpen: open-preview
     visibility: public
-  - port: 4173
+  - port: 8080
     onOpen: ignore
     visibility: public
-  - port: 3000
-    visibility: public
-  - port: 54321
+  - port: 4173
     onOpen: ignore
     visibility: public
 
@@ -29,4 +27,9 @@ vscode:
     - esbenp.prettier-vscode
     - dbaeumer.vscode-eslint
     - bradlc.vscode-tailwindcss
-    - ms-playwright.playwright
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
