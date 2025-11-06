@@ -20,11 +20,15 @@ interface NavigationProps {
 }
 
 const defaultLinks: NavLink[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Programs', href: '/programs' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Apply', href: '/apply' },
+  { label: 'Services', href: '/services' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Student Portal', href: '/student-portal' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Elevate', href: '/elevate' },
+  { label: 'Barber Apprenticeship', href: '/barber-apprenticeship' },
 ];
 
 export default function Navigation({

@@ -83,14 +83,14 @@ export function AITutor() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       <div
         style={{
           width: '250px',
           backgroundColor: '#fff',
-          borderRight: '1px solid '#d4c9b8'',
+          borderRight: '1px solid #d4c9b8',
           padding: '1rem',
         }}
       >
@@ -102,9 +102,9 @@ export function AITutor() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor: mode === 'chat' ? ''#00a544'' : '#fff',
+              backgroundColor: mode === 'chat' ? '#00a544' : '#fff',
               color: mode === 'chat' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -118,9 +118,9 @@ export function AITutor() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor: mode === 'essay' ? ''#00a544'' : '#fff',
+              backgroundColor: mode === 'essay' ? '#00a544' : '#fff',
               color: mode === 'essay' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -133,10 +133,9 @@ export function AITutor() {
             style={{
               width: '100%',
               padding: '0.75rem',
-              backgroundColor:
-                mode === 'study-guide' ? ''#00a544'' : '#fff',
+              backgroundColor: mode === 'study-guide' ? '#00a544' : '#fff',
               color: mode === 'study-guide' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -153,7 +152,7 @@ export function AITutor() {
           style={{
             width: '100%',
             padding: '0.75rem',
-            backgroundColor: ''#dc2626'',
+            backgroundColor: '#dc2626',
             color: '#fff',
             border: 'none',
             borderRadius: '0.375rem',
@@ -167,7 +166,7 @@ export function AITutor() {
         <div
           style={{
             backgroundColor: '#fff',
-            borderBottom: '1px solid '#d4c9b8'',
+            borderBottom: '1px solid #d4c9b8',
             padding: '1rem 2rem',
           }}
         >
@@ -178,7 +177,7 @@ export function AITutor() {
                 ? '📝 Essay Grading'
                 : '📚 Study Guide Generator'}
           </h1>
-          <p style={{ color: ''#6b5d52'', fontSize: '0.875rem' }}>
+          <p style={{ color: '#6b5d52', fontSize: '0.875rem' }}>
             {mode === 'chat'
               ? 'Ask me anything about your coursework'
               : mode === 'essay'
@@ -192,7 +191,7 @@ export function AITutor() {
               style={{
                 textAlign: 'center',
                 padding: '4rem 2rem',
-                color: ''#6b5d52'',
+                color: '#6b5d52',
               }}
             >
               <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🤖</div>
@@ -215,8 +214,7 @@ export function AITutor() {
                 style={{
                   maxWidth: '70%',
                   padding: '1rem',
-                  backgroundColor:
-                    msg.role === 'user' ? ''#00a544'' : '#fff',
+                  backgroundColor: msg.role === 'user' ? '#00a544' : '#fff',
                   color: msg.role === 'user' ? '#fff' : '#000',
                   borderRadius: '0.75rem',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
@@ -256,7 +254,7 @@ export function AITutor() {
                     style={{
                       width: '8px',
                       height: '8px',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       borderRadius: '50%',
                       animation: 'bounce 1s infinite',
                     }}
@@ -265,7 +263,7 @@ export function AITutor() {
                     style={{
                       width: '8px',
                       height: '8px',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       borderRadius: '50%',
                       animation: 'bounce 1s infinite 0.2s',
                     }}
@@ -274,7 +272,7 @@ export function AITutor() {
                     style={{
                       width: '8px',
                       height: '8px',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       borderRadius: '50%',
                       animation: 'bounce 1s infinite 0.4s',
                     }}
@@ -288,7 +286,7 @@ export function AITutor() {
         <div
           style={{
             backgroundColor: '#fff',
-            borderTop: '1px solid '#d4c9b8'',
+            borderTop: '1px solid #d4c9b8',
             padding: '1rem 2rem',
           }}
         >
@@ -303,7 +301,7 @@ export function AITutor() {
               style={{
                 flex: 1,
                 padding: '0.75rem',
-                border: '1px solid '#c4b5a0'',
+                border: '1px solid #c4b5a0',
                 borderRadius: '0.5rem',
                 fontSize: '1rem',
               }}
@@ -314,7 +312,7 @@ export function AITutor() {
               disabled={loading || !input.trim()}
               style={{
                 padding: '0.75rem 2rem',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.5rem',
