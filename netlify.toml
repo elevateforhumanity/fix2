@@ -75,11 +75,6 @@
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 
-[[plugins]]
-  package = "@netlify/plugin-prerender"
-  [plugins.inputs]
-    routes = ["/", "/programs", "/about", "/support", "/community", "/connect"]
-
 # Note: Supabase integration should be enabled via Netlify Dashboard
 # Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
 # Search for "Supabase" and enable it there
