@@ -1,25 +1,21 @@
-# Next.js Site Configuration
+# Vite/React Site Configuration
 [build]
-  base = "nextjs-site"
   command = "npm install && npm run build"
-  publish = ".next"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20.11.1"
   NODE_OPTIONS = "--max_old_space_size=4096"
   # Environment variables set via Netlify UI or API
-  # NEXT_PUBLIC_API_URL
-  # NEXT_PUBLIC_SUPABASE_URL
-  # NEXT_PUBLIC_SUPABASE_ANON_KEY
+  # VITE_API_URL
+  # VITE_SUPABASE_URL
+  # VITE_SUPABASE_ANON_KEY
+  # VITE_STRIPE_PUBLISHABLE_KEY
 
 # Production context: main branch deploys
 [context.production]
   command = "npm install && npm run build"
-  publish = ".next"
-
-# Netlify Next.js Plugin
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+  publish = "dist"
 
 # Deploy Preview context: pull request deploys
 [context.deploy-preview]
@@ -78,6 +74,11 @@
     baseUrl = "https://portal.elevateforhumanity.org"
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
+
+[[plugins]]
+  package = "@netlify/plugin-prerender"
+  [plugins.inputs]
+    routes = ["/", "/programs", "/about", "/support", "/community", "/connect"]
 
 # Note: Supabase integration should be enabled via Netlify Dashboard
 # Go to: https://app.netlify.com/sites/elevateforhumanityfix2/integrations
@@ -228,13 +229,8 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    # Optimized Content-Security-Policy (removed unsafe-inline, unsafe-eval where possible)
-    # Note: Google Analytics requires 'unsafe-inline' for gtag inline script
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cuxzzpsyufcewtmicszk.supabase.co https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.googletagmanager.com https://cuxzzpsyufcewtmicszk.supabase.co https://cdn.durable.co blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://cuxzzpsyufcewtmicszk.supabase.co wss://cuxzzpsyufcewtmicszk.supabase.co https://api.elevateforhumanity.org https://api.stripe.com; frame-src https://js.stripe.com https://hooks.stripe.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.elevateforhumanity.org https://api.stripe.com https://www.google-analytics.com; frame-src https://js.stripe.com https://hooks.stripe.com; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    X-Robots-Tag = "noai, noimageai"

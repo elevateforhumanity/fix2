@@ -105,16 +105,14 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
   server: {
-    // Gitpod needs a public interface + permissive host rules
-    host: '0.0.0.0',
+    host: true, // listen on 0.0.0.0
     port: 5173,
     strictPort: true,
-    allowedHosts: 'all',
     hmr: { clientPort: 443 },
   },
   preview: {
-    host: '0.0.0.0',
-    port: 4173,
+    host: true,
+    port: 8080,
     strictPort: true,
   },
 });
