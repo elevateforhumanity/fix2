@@ -23,7 +23,7 @@ class RouteErrorBoundary extends React.Component<{children: React.ReactNode}, {e
 const Fallback = () => <div className="min-h-screen grid place-items-center">Loading…</div>;
 
 const Page_0 = lazy(() => import('../pages/AITutor.jsx'));
-const Page_1 = lazy(() => import('../pages/About.jsx'));
+const Page_1 = lazy(() => import('../pages/About.tsx'));
 const Page_2 = lazy(() => import('../pages/Accessibility.jsx'));
 const Page_3 = lazy(() => import('../pages/AccessibilitySettings.jsx'));
 const Page_4 = lazy(() => import('../pages/Account.jsx'));
@@ -162,53 +162,55 @@ const Page_136 = lazy(() => import('../pages/UserManagement.jsx'));
 const Page_137 = lazy(() => import('../pages/VITAProgram.jsx'));
 const Page_138 = lazy(() => import('../pages/VITATaxCertification.jsx'));
 const Page_139 = lazy(() => import('../pages/VerifyCertificate.tsx'));
-const Page_140 = lazy(() => import('../pages/VerifyEmail.jsx'));
-const Page_141 = lazy(() => import('../pages/VideoMeeting.jsx'));
-const Page_142 = lazy(() => import('../pages/Vids.jsx'));
-const Page_143 = lazy(() => import('../pages/WebsiteBuilder.jsx'));
-const Page_144 = lazy(() => import('../pages/admin/AutopilotTasks.tsx'));
-const Page_145 = lazy(() => import('../pages/auth/Account.tsx'));
-const Page_146 = lazy(() => import('../pages/auth/ForgotPassword.tsx'));
-const Page_147 = lazy(() => import('../pages/auth/Login.tsx'));
-const Page_148 = lazy(() => import('../pages/auth/Signup.tsx'));
-const Page_149 = lazy(() => import('../pages/instructor/CourseEditor.tsx'));
-const Page_150 = lazy(() => import('../pages/instructor/InstructorDashboard.tsx'));
-const Page_151 = lazy(() => import('../pages/instructor/LessonManager.tsx'));
-const Page_152 = lazy(() => import('../pages/legal/DMCA.tsx'));
-const Page_153 = lazy(() => import('../pages/legal/LegalIPNotice.tsx'));
-const Page_154 = lazy(() => import('../pages/legal/Privacy.tsx'));
-const Page_155 = lazy(() => import('../pages/legal/TermsOfUse.tsx'));
-const Page_156 = lazy(() => import('../pages/lms/ClientSafetyCertification.jsx'));
-const Page_157 = lazy(() => import('../pages/lms/CoursePage.tsx'));
-const Page_158 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
-const Page_159 = lazy(() => import('../pages/lms/Dashboard.tsx'));
-const Page_160 = lazy(() => import('../pages/lms/EnrollmentSuccess.jsx'));
-const Page_161 = lazy(() => import('../pages/lms/LessonPage.tsx'));
-const Page_162 = lazy(() => import('../pages/lms/MiladyBarberApprenticeship.jsx'));
-const Page_163 = lazy(() => import('../pages/lms/MiladyBarberCourse.jsx'));
-const Page_164 = lazy(() => import('../pages/lms/MiladyRISEEnrollment.jsx'));
-const Page_165 = lazy(() => import('../pages/lms/MiladyRISEIntegration.jsx'));
-const Page_166 = lazy(() => import('../pages/lms/QuizBlock.tsx'));
-const Page_167 = lazy(() => import('../pages/programs/BarberPage.tsx'));
-const Page_168 = lazy(() => import('../pages/programs/BuildingTechPage.tsx'));
-const Page_169 = lazy(() => import('../pages/programs/CPRSPage.tsx'));
-const Page_170 = lazy(() => import('../pages/programs/DigitalSkillsPage.tsx'));
-const Page_171 = lazy(() => import('../pages/programs/DrugTestingPage.tsx'));
-const Page_172 = lazy(() => import('../pages/programs/HVACPage.tsx'));
-const Page_173 = lazy(() => import('../pages/programs/HealthcarePage.tsx'));
-const Page_174 = lazy(() => import('../pages/programs/LeadershipPage.tsx'));
-const Page_175 = lazy(() => import('../pages/programs/ProgramTemplate.tsx'));
-const Page_176 = lazy(() => import('../pages/sisters/MentorDirectory.jsx'));
-const Page_177 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
-const Page_178 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
-const Page_179 = lazy(() => import('../pages/sisters/PeerSupport.jsx'));
-const Page_180 = lazy(() => import('../pages/sisters/Volunteer.jsx'));
-const Page_181 = lazy(() => import('../pages/sisters/VolunteerOpportunities.jsx'));
-const Page_182 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
-const Page_183 = lazy(() => import('../pages/sisters/Wellness.jsx'));
-const Page_184 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
-const Page_185 = lazy(() => import('../pages/VerifyCertificatePage.tsx'));
-const Page_186 = lazy(() => import('../pages/lms/MyCertificatesPage.tsx'));
+const Page_140 = lazy(() => import('../pages/VerifyCertificatePage.tsx'));
+const Page_141 = lazy(() => import('../pages/VerifyEmail.jsx'));
+const Page_142 = lazy(() => import('../pages/VideoMeeting.jsx'));
+const Page_143 = lazy(() => import('../pages/Vids.jsx'));
+const Page_144 = lazy(() => import('../pages/WebsiteBuilder.jsx'));
+const Page_145 = lazy(() => import('../pages/admin/AutopilotTasks.tsx'));
+const Page_146 = lazy(() => import('../pages/auth/Account.tsx'));
+const Page_147 = lazy(() => import('../pages/auth/ForgotPassword.tsx'));
+const Page_148 = lazy(() => import('../pages/auth/Login.tsx'));
+const Page_149 = lazy(() => import('../pages/auth/Signup.tsx'));
+const Page_150 = lazy(() => import('../pages/instructor/CourseEditor.tsx'));
+const Page_151 = lazy(() => import('../pages/instructor/InstructorDashboard.tsx'));
+const Page_152 = lazy(() => import('../pages/instructor/LessonManager.tsx'));
+const Page_153 = lazy(() => import('../pages/legal/DMCA.tsx'));
+const Page_154 = lazy(() => import('../pages/legal/LegalIPNotice.tsx'));
+const Page_155 = lazy(() => import('../pages/legal/Privacy.tsx'));
+const Page_156 = lazy(() => import('../pages/legal/TermsOfUse.tsx'));
+const Page_157 = lazy(() => import('../pages/lms/ClientSafetyCertification.jsx'));
+const Page_158 = lazy(() => import('../pages/lms/CoursePage.tsx'));
+const Page_159 = lazy(() => import('../pages/lms/CoursesIndex.tsx'));
+const Page_160 = lazy(() => import('../pages/lms/Dashboard.tsx'));
+const Page_161 = lazy(() => import('../pages/lms/DiscussionsPage.tsx'));
+const Page_162 = lazy(() => import('../pages/lms/EnrollmentSuccess.jsx'));
+const Page_163 = lazy(() => import('../pages/lms/LessonPage.tsx'));
+const Page_164 = lazy(() => import('../pages/lms/MiladyBarberApprenticeship.jsx'));
+const Page_165 = lazy(() => import('../pages/lms/MiladyBarberCourse.jsx'));
+const Page_166 = lazy(() => import('../pages/lms/MiladyRISEEnrollment.jsx'));
+const Page_167 = lazy(() => import('../pages/lms/MiladyRISEIntegration.jsx'));
+const Page_168 = lazy(() => import('../pages/lms/MyCertificatesPage.tsx'));
+const Page_169 = lazy(() => import('../pages/lms/QuizBlock.tsx'));
+const Page_170 = lazy(() => import('../pages/programs/BarberPage.tsx'));
+const Page_171 = lazy(() => import('../pages/programs/BuildingTechPage.tsx'));
+const Page_172 = lazy(() => import('../pages/programs/CPRSPage.tsx'));
+const Page_173 = lazy(() => import('../pages/programs/DigitalSkillsPage.tsx'));
+const Page_174 = lazy(() => import('../pages/programs/DrugTestingPage.tsx'));
+const Page_175 = lazy(() => import('../pages/programs/HVACPage.tsx'));
+const Page_176 = lazy(() => import('../pages/programs/HealthcarePage.tsx'));
+const Page_177 = lazy(() => import('../pages/programs/LeadershipPage.tsx'));
+const Page_178 = lazy(() => import('../pages/programs/ProgramTemplate.tsx'));
+const Page_179 = lazy(() => import('../pages/sisters/MentorDirectory.jsx'));
+const Page_180 = lazy(() => import('../pages/sisters/MentorSignup.jsx'));
+const Page_181 = lazy(() => import('../pages/sisters/Mentorship-old.jsx'));
+const Page_182 = lazy(() => import('../pages/sisters/Mentorship.jsx'));
+const Page_183 = lazy(() => import('../pages/sisters/PeerSupport.jsx'));
+const Page_184 = lazy(() => import('../pages/sisters/Volunteer.jsx'));
+const Page_185 = lazy(() => import('../pages/sisters/VolunteerOpportunities.jsx'));
+const Page_186 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
+const Page_187 = lazy(() => import('../pages/sisters/Wellness.jsx'));
+const Page_188 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
 
 export default function AppRoutes(){
   return (
@@ -236,10 +238,8 @@ export default function AppRoutes(){
             <Route path="/cprfirst-aid-training" element={<Page_17 />} />
             <Route path="/crmdashboard-page" element={<Page_18 />} />
             <Route path="/calendar" element={<Page_19 />} />
-            <Route path="/certificate/:certificateId" element={<Page_20 />} />
+            <Route path="/certificate-page" element={<Page_20 />} />
             <Route path="/certificates" element={<Page_21 />} />
-            <Route path="/verify/:certificateNumber" element={<Page_185 />} />
-            <Route path="/lms/my-certificates" element={<Page_186 />} />
             <Route path="/certiport-testing-center" element={<Page_22 />} />
             <Route path="/clone-landing" element={<Page_23 />} />
             <Route path="/community" element={<Page_24 />} />
@@ -357,51 +357,55 @@ export default function AppRoutes(){
             <Route path="/vitaprogram" element={<Page_137 />} />
             <Route path="/vitatax-certification" element={<Page_138 />} />
             <Route path="/verify" element={<Page_139 />} />
-            <Route path="/verify-email" element={<Page_140 />} />
-            <Route path="/video-meeting" element={<Page_141 />} />
-            <Route path="/vids" element={<Page_142 />} />
-            <Route path="/website-builder" element={<Page_143 />} />
-            <Route path="/admin/autopilot-tasks" element={<Page_144 />} />
-            <Route path="/auth/account" element={<Page_145 />} />
-            <Route path="/auth/forgot-password" element={<Page_146 />} />
-            <Route path="/auth/login" element={<Page_147 />} />
-            <Route path="/auth/signup" element={<Page_148 />} />
-            <Route path="/instructor/course-editor" element={<Page_149 />} />
-            <Route path="/instructor/instructor-dashboard" element={<Page_150 />} />
-            <Route path="/instructor/lesson-manager" element={<Page_151 />} />
-            <Route path="/legal/dmca" element={<Page_152 />} />
-            <Route path="/legal/legal-ipnotice" element={<Page_153 />} />
-            <Route path="/legal/privacy" element={<Page_154 />} />
-            <Route path="/legal/terms-of-use" element={<Page_155 />} />
-            <Route path="/lms/client-safety-certification" element={<Page_156 />} />
-            <Route path="/lms/course/:courseId" element={<Page_157 />} />
-            <Route path="/lms/courses-index" element={<Page_158 />} />
-            <Route path="/lms/dashboard" element={<Page_159 />} />
-            <Route path="/lms/enrollment-success" element={<Page_160 />} />
-            <Route path="/lms/lesson/:lessonId" element={<Page_161 />} />
-            <Route path="/lms/milady-barber-apprenticeship" element={<Page_162 />} />
-            <Route path="/lms/milady-barber-course" element={<Page_163 />} />
-            <Route path="/lms/milady-riseenrollment" element={<Page_164 />} />
-            <Route path="/lms/milady-riseintegration" element={<Page_165 />} />
-            <Route path="/lms/quiz-block" element={<Page_166 />} />
-            <Route path="/programs/barber-page" element={<Page_167 />} />
-            <Route path="/programs/building-tech-page" element={<Page_168 />} />
-            <Route path="/programs/cprspage" element={<Page_169 />} />
-            <Route path="/programs/digital-skills-page" element={<Page_170 />} />
-            <Route path="/programs/drug-testing-page" element={<Page_171 />} />
-            <Route path="/programs/hvacpage" element={<Page_172 />} />
-            <Route path="/programs/healthcare-page" element={<Page_173 />} />
-            <Route path="/programs/leadership-page" element={<Page_174 />} />
-            <Route path="/programs/program-template" element={<Page_175 />} />
-            <Route path="/sisters/mentor-directory" element={<Page_176 />} />
-            <Route path="/sisters/mentor-signup" element={<Page_177 />} />
-            <Route path="/sisters/mentorship" element={<Page_178 />} />
-            <Route path="/sisters/peer-support" element={<Page_179 />} />
-            <Route path="/sisters/volunteer" element={<Page_180 />} />
-            <Route path="/sisters/volunteer-opportunities" element={<Page_181 />} />
-            <Route path="/sisters/volunteer-stories" element={<Page_182 />} />
-            <Route path="/sisters/wellness" element={<Page_183 />} />
-            <Route path="/sisters/wellness-resources" element={<Page_184 />} />
+            <Route path="/verify-certificate-page" element={<Page_140 />} />
+            <Route path="/verify-email" element={<Page_141 />} />
+            <Route path="/video-meeting" element={<Page_142 />} />
+            <Route path="/vids" element={<Page_143 />} />
+            <Route path="/website-builder" element={<Page_144 />} />
+            <Route path="/admin/autopilot-tasks" element={<Page_145 />} />
+            <Route path="/auth/account" element={<Page_146 />} />
+            <Route path="/auth/forgot-password" element={<Page_147 />} />
+            <Route path="/auth/login" element={<Page_148 />} />
+            <Route path="/auth/signup" element={<Page_149 />} />
+            <Route path="/instructor/course-editor" element={<Page_150 />} />
+            <Route path="/instructor/instructor-dashboard" element={<Page_151 />} />
+            <Route path="/instructor/lesson-manager" element={<Page_152 />} />
+            <Route path="/legal/dmca" element={<Page_153 />} />
+            <Route path="/legal/legal-ipnotice" element={<Page_154 />} />
+            <Route path="/legal/privacy" element={<Page_155 />} />
+            <Route path="/legal/terms-of-use" element={<Page_156 />} />
+            <Route path="/lms/client-safety-certification" element={<Page_157 />} />
+            <Route path="/lms/course/:courseId" element={<Page_158 />} />
+            <Route path="/lms/courses-index" element={<Page_159 />} />
+            <Route path="/lms/dashboard" element={<Page_160 />} />
+            <Route path="/lms/discussions-page" element={<Page_161 />} />
+            <Route path="/lms/enrollment-success" element={<Page_162 />} />
+            <Route path="/lms/lesson/:lessonId" element={<Page_163 />} />
+            <Route path="/lms/milady-barber-apprenticeship" element={<Page_164 />} />
+            <Route path="/lms/milady-barber-course" element={<Page_165 />} />
+            <Route path="/lms/milady-riseenrollment" element={<Page_166 />} />
+            <Route path="/lms/milady-riseintegration" element={<Page_167 />} />
+            <Route path="/lms/my-certificates-page" element={<Page_168 />} />
+            <Route path="/lms/quiz-block" element={<Page_169 />} />
+            <Route path="/programs/barber-page" element={<Page_170 />} />
+            <Route path="/programs/building-tech-page" element={<Page_171 />} />
+            <Route path="/programs/cprspage" element={<Page_172 />} />
+            <Route path="/programs/digital-skills-page" element={<Page_173 />} />
+            <Route path="/programs/drug-testing-page" element={<Page_174 />} />
+            <Route path="/programs/hvacpage" element={<Page_175 />} />
+            <Route path="/programs/healthcare-page" element={<Page_176 />} />
+            <Route path="/programs/leadership-page" element={<Page_177 />} />
+            <Route path="/programs/program-template" element={<Page_178 />} />
+            <Route path="/sisters/mentor-directory" element={<Page_179 />} />
+            <Route path="/sisters/mentor-signup" element={<Page_180 />} />
+            <Route path="/sisters/mentorship-old" element={<Page_181 />} />
+            <Route path="/sisters/mentorship" element={<Page_182 />} />
+            <Route path="/sisters/peer-support" element={<Page_183 />} />
+            <Route path="/sisters/volunteer" element={<Page_184 />} />
+            <Route path="/sisters/volunteer-opportunities" element={<Page_185 />} />
+            <Route path="/sisters/volunteer-stories" element={<Page_186 />} />
+            <Route path="/sisters/wellness" element={<Page_187 />} />
+            <Route path="/sisters/wellness-resources" element={<Page_188 />} />
             <Route path="*" element={<Page_88 />} />
           </Routes>
         </SiteLayout>

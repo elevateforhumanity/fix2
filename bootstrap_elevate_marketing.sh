@@ -2,32 +2,30 @@
 set -euo pipefail
 
 APP_NAME="elevate-www"
-DOMAIN_DEFAULT="www.elevateforhumanity.org"
+SITE_URL_DEFAULT="https://www.elevateforhumanity.org"
 
-echo ">>> Creating $APP_NAME (Astro + Tailwind, Durable-style)..."
+echo ">>> Creating Durable-style Astro site with Academy hub + secret/worker shims"
 
 # 0) Pre-req checks
-command -v node >/dev/null || (echo "Install Node 18+ first" && exit 1)
-command -v npm  >/dev/null || (echo "Install npm first" && exit 1)
+command -v node >/dev/null || { echo "Install Node 18+ first"; exit 1; }
+command -v npm  >/dev/null || { echo "Install npm first"; exit 1; }
 
-# 1) New Astro project
+# 1) Fresh Astro project
 rm -rf "$APP_NAME"
-npm create astro@latest "$APP_NAME" -- --template minimal --skip-install --typescript strict >/dev/null
-
+npm create astro@latest "$APP_NAME" -- --template minimal --typescript strict --skip-install >/dev/null
 cd "$APP_NAME"
 npm i
 
-# 2) Tailwind + React (for optional interactive widgets)
+# 2) Add Tailwind + React islands
 npx astro add tailwind --yes >/dev/null
 npx astro add react --yes >/dev/null
 
-# 3) Project config (astro.config + tailwind theme polish)
+# 3) Core config
 cat > astro.config.mjs <<'EOF'
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-
 export default defineConfig({
-  site: 'https://www.elevateforhumanity.org',
+  site: process.env.PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org',
   integrations: [tailwind()],
   output: 'static',
   prefetch: true,
@@ -35,74 +33,61 @@ export default defineConfig({
 EOF
 
 cat > tailwind.config.cjs <<'EOF'
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        brand: {
-          50:  '#f6fbf7',
-          100: '#e9f6ec',
-          200: '#cfead6',
-          300: '#afd7bb',
-          400: '#83be97',
-          500: '#5aa47a',   /* primary */
-          600: '#438765',
-          700: '#386d53',
-          800: '#2f5745',
-          900: '#28483a'
-        },
-        sand:  { 50:'#fbfaf8',100:'#f7f4ee',200:'#efe7da',300:'#e2d3bb',400:'#cdb38f',500:'#ae9168',600:'#8d7250',700:'#715b41',800:'#5b4a37',900:'#4b3e2f' }
+        brand: {50:'#f6fbf7',100:'#e9f6ec',200:'#cfead6',300:'#afd7bb',400:'#83be97',500:'#5aa47a',600:'#438765',700:'#386d53',800:'#2f5745',900:'#28483a'},
+        sand:  {50:'#fbfaf8',100:'#f7f4ee',200:'#efe7da',300:'#e2d3bb',400:'#cdb38f',500:'#ae9168',600:'#8d7250',700:'#715b41',800:'#5b4a37',900:'#4b3e2f'}
       },
-      borderRadius: { xl: '1rem', '2xl':'1.25rem' },
-      boxShadow:   { soft: '0 10px 30px rgba(20,20,20,.08)' }
+      borderRadius: { '2xl': '1.25rem' },
+      boxShadow: { soft: '0 10px 30px rgba(20,20,20,.08)' }
     }
   },
   plugins: [],
 }
 EOF
 
-mkdir -p src/{layouts,components,pages,styles}
-cat > src/styles/global.css <<'EOF'
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+mkdir -p src/{layouts,components,pages,styles} public netlify/edge-functions scripts
 
-:root { color-scheme: light; }
-html, body { @apply bg-sand-50 text-slate-900; }
-.container { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
-.card { @apply bg-white rounded-2xl shadow-soft border border-sand-200; }
-.btn  { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition;
-        @apply bg-brand-600 text-white hover:bg-brand-700; }
-.link { @apply text-brand-700 hover:text-brand-800 underline; }
-.hero-title { @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight; }
-.hero-sub   { @apply text-lg text-slate-600; }
+cat > src/styles/global.css <<'EOF'
+@tailwind base; @tailwind components; @tailwind utilities;
+html,body{ @apply bg-sand-50 text-slate-900 font-sans; }
+.container{ @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.card{ @apply bg-white rounded-2xl shadow-soft border border-sand-200; }
+.btn{ @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition; }
+.btn-primary{ @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+.btn-ghost{ @apply btn bg-white text-brand-700 border border-sand-300 hover:bg-sand-100; }
+.hero-title{ @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight; }
+.hero-sub{ @apply text-lg text-slate-600; }
 EOF
 
-# 4) ENV template (LearnWorlds + Classroom + WorkKeys)
+# 4) ENV template (secrets + public)
 cat > .env.example <<'EOF'
-# Public = exposed at build time (Astro)
+# PUBLIC
 PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
-# LearnWorlds
+# LearnWorlds embed
 PUBLIC_LEARNWORLDS_DOMAIN=your-school.learnworlds.com
-PUBLIC_LEARNWORLDS_PATH=/course-catalog    # or /signup or /courses/<slug>
+PUBLIC_LEARNWORLDS_PATH=/course-catalog
 
-# WorkKeys (external)
+# ACT WorkKeys links
 PUBLIC_WORKKEYS_INFO_URL=https://www.act.org/workkeys
 PUBLIC_WORKKEYS_SCHEDULE_URL=https://my.act.org/account/signin?returnurl=%2F
 
-# Google Classroom
+# Google Classroom share
 PUBLIC_GC_SHARE_URL_BASE=https://classroom.google.com/share?url=
 PUBLIC_GC_DEFAULT_SHARE_URL=https://www.elevateforhumanity.org/programs
 
-# (Optional OAuth placeholders if you later add Google APIs)
-PUBLIC_GC_CLIENT_ID=
-PUBLIC_GC_SCOPES=https://www.googleapis.com/auth/classroom.courses https://www.googleapis.com/auth/classroom.coursework.me
+# PRIVATE/BUILD (set as Netlify environment variables ideally)
+# If not present, Edge Functions will proxy where possible.
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+LEARNWORLDS_SSO_TOKEN=    # if you have one; optional
 EOF
 
-# 5) Netlify config (headers, caching, security, prerender)
+# 5) Netlify config: security, caching, prerender, edge routes
 cat > netlify.toml <<'EOF'
 [build]
   command = "npm run build"
@@ -112,21 +97,27 @@ cat > netlify.toml <<'EOF'
   for = "/*"
   [headers.values]
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    X-Content-Type-Options    = "nosniff"
-    Referrer-Policy           = "strict-origin-when-cross-origin"
-    Permissions-Policy        = "geolocation=(), camera=(), microphone=()"
-    Content-Security-Policy   = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com; connect-src 'self'; frame-src 'self' https://*.learnworlds.com https://accounts.google.com; base-uri 'self'; form-action 'self'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+    # Allow LW in iframe; allow Google auth frames; keep scripts tight
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com; connect-src 'self' https://api.elevateforhumanity.org https://*.supabase.co; frame-src 'self' https://*.learnworlds.com https://accounts.google.com; base-uri 'self'; form-action 'self'"
 
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Optional: pre-render key pages so they're instant
+# Pre-render key public routes (instant, no skeletons)
 [[plugins]]
   package = "@netlify/plugin-prerender"
   [plugins.inputs]
     routes = ["/","/programs","/partners","/contact","/academy"]
+
+# Edge Functions: API shim/proxy when secrets missing
+[[edge_functions]]
+  path = "/api/*"
+  function = "proxy"
 EOF
 
 npm i -D @netlify/plugin-prerender >/dev/null
@@ -364,31 +355,116 @@ cat > public/favicon.svg <<'EOF'
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#5aa47a"/><path d="M18 36c6-8 10-12 14-12s8 4 14 12" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
 EOF
 
-# 10) Scripts
-jq '.scripts += {
-  "dev":"astro dev",
-  "build":"astro build",
-  "preview":"astro preview",
-  "lint":"echo \"(add eslint if desired)\" && exit 0"
-}' package.json > package.json.tmp && mv package.json.tmp package.json
+# 9) Minimal favicon
+cat > public/favicon.svg <<'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#5aa47a"/><path d="M18 36c6-8 10-12 14-12s8 4 14 12" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+EOF
 
-# 11) Fin
+# 10) Package scripts
+node -e "let p=require('./package.json'); p.scripts={...p.scripts,dev:'astro dev',build:'astro build',preview:'astro preview'}; require('fs').writeFileSync('package.json', JSON.stringify(p,null,2));"
+
+# 11) Edge Function: /api/* proxy (works without secrets, upgrades when present)
+cat > netlify/edge-functions/proxy.ts <<'EOF'
+/**
+ * Universal proxy for LearnWorlds (embed), and simple JSON helpers.
+ * If private tokens (e.g., LEARNWORLDS_SSO_TOKEN) exist in env, they are added server-side.
+ */
+export default async (request: Request, context: any) => {
+  const url = new URL(request.url);
+  const path = url.pathname.replace(/^\/api\//, '');
+  const params = url.searchParams;
+
+  // Health
+  if (path === 'health') return new Response(JSON.stringify({ ok: true }), { headers: { 'content-type': 'application/json' } });
+
+  // LearnWorlds embed passthrough (avoid CORS/frame issues, inject SSO token if present)
+  if (path === 'learnworlds') {
+    const domain = params.get('domain');
+    const lwPath = params.get('path') || '/course-catalog';
+    if (!domain) return new Response('Missing domain', { status: 400 });
+
+    const upstream = `https://${domain}${lwPath}`;
+    const headers: Record<string,string> = { 'user-agent': 'ElevateEdge/1.0' };
+
+    // Optional private enhancement: forward SSO token if you have it
+    const sso = context.env?.LEARNWORLDS_SSO_TOKEN;
+    if (sso) headers['x-lw-sso'] = sso;
+
+    const r = await fetch(upstream, { headers });
+    const csp = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-src 'self' https://*.learnworlds.com; connect-src 'self'";
+    return new Response(r.body, {
+      status: r.status,
+      headers: {
+        'content-type': r.headers.get('content-type') || 'text/html',
+        'x-elevate-proxy': 'learnworlds',
+        'content-security-policy': csp
+      }
+    });
+  }
+
+  // Fallback
+  return new Response(JSON.stringify({ error: 'Not found' }), { status: 404, headers: { 'content-type': 'application/json' } });
+}
+EOF
+
+# 12) Secret seeding script — uses Netlify if tokens present, else writes .env and relies on edge proxy
+cat > scripts/ensure-secrets.sh <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+have(){ command -v "$1" >/dev/null 2>&1; }
+
+SITE_ID="${NETLIFY_SITE_ID:-}"
+AUTH="${NETLIFY_AUTH_TOKEN:-}"
+
+declare -A need=(
+  [SUPABASE_URL]="${SUPABASE_URL:-}"
+  [SUPABASE_ANON_KEY]="${SUPABASE_ANON_KEY:-}"
+  [LEARNWORLDS_SSO_TOKEN]="${LEARNWORLDS_SSO_TOKEN:-}"
+)
+
+seed_netlify(){
+  echo ">> Seeding secrets to Netlify env"
+  netlify link --id "$SITE_ID" >/dev/null
+  for k in "${!need[@]}"; do
+    val="${need[$k]}"
+    if [ -n "$val" ]; then
+      netlify env:set "$k" "$val" -s "$SITE_ID" >/dev/null && echo "  • set $k"
+    else
+      echo "  • $k missing — skipping (edge proxy will handle public flows)"
+    fi
+  done
+}
+
+write_env(){
+  echo ">> Writing local .env (for dev only)"
+  [ -f .env ] || touch .env
+  for k in "${!need[@]}"; do
+    val="${need[$k]}"
+    if ! grep -q "^$k=" .env 2>/dev/null; then
+      echo "$k=${val}" >> .env
+      echo "  • wrote $k (empty allowed)"
+    fi
+  done
+  echo "PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-$SITE_URL_DEFAULT}" >> .env || true
+}
+
+main(){
+  if have netlify && [ -n "$SITE_ID" ] && [ -n "$AUTH" ]; then
+    seed_netlify
+    echo ">> Secrets seeded (if provided). If some were missing, the Edge proxy keeps pages functional."
+  else
+    echo ">> Netlify CLI or credentials not present — skipping remote seed."
+  fi
+  write_env
+}
+main "$@"
+EOF
+chmod +x scripts/ensure-secrets.sh
+
 echo ">>> Done.
 
 Next steps:
-1) cd $APP_NAME
-2) cp .env.example .env
-   - Set:
-     PUBLIC_SITE_URL=https://${DOMAIN_DEFAULT}
-     PUBLIC_LEARNWORLDS_DOMAIN=your-school.learnworlds.com
-     PUBLIC_LEARNWORLDS_PATH=/course-catalog
-     PUBLIC_WORKKEYS_INFO_URL=https://www.act.org/workkeys
-     PUBLIC_WORKKEYS_SCHEDULE_URL=https://my.act.org/account/signin?returnurl=%2F
-     PUBLIC_GC_DEFAULT_SHARE_URL=https://${DOMAIN_DEFAULT}/programs
-3) npm run dev  (open http://localhost:4321)
-4) Deploy: connect the repo to Netlify; build command 'npm run build', publish 'dist'
-
-Notes:
-- LearnWorlds: this uses an iframe to your school (works on all plans). If you have SSO on your plan, we can replace this with SSO later.
-- WorkKeys: ACT is external; we deep-link to info/scheduling (no API required).
-- Google Classroom: the 'Share to Classroom' URL works now. For full roster/assignments, we can add OAuth and the Google Classroom API later on."
+1) cp .env.example .env  # fill PUBLIC_* values; private vars optional
+2) bash scripts/ensure-secrets.sh  # will set Netlify envs if NETLIFY_* present, else keep .env + Edge proxy
+3) npm run dev   # local
+4) Deploy on Netlify (build: npm run build, publish: dist). Edge proxy at /api/* works even without secrets."
