@@ -7,11 +7,11 @@
    DESIGN TOKENS
    ============================================ */
 :root {
-  /* Brand Colors - Exact from Durable */
-  --color-green: #e9f2e9;
-  --color-beige: #f2f0d9;
-  --color-cream: #fefaf5;
-  --color-brown: #4d4b37;
+  /* Brand Colors - Brown and Black Theme */
+  --color-green: #2a2420;
+  --color-beige: #3d3530;
+  --color-cream: #4a3f38;
+  --color-brown: #6b4423;
   --color-black: #000000;
   --color-white: #ffffff;
 

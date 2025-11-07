@@ -55,7 +55,7 @@ export function Email() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       {/* Sidebar */}
@@ -63,7 +63,7 @@ export function Email() {
         style={{
           width: '250px',
           backgroundColor: '#fff',
-          borderRight: '1px solid '#d4c9b8'',
+          borderRight: '1px solid #d4c9b8',
           padding: '1rem',
         }}
       >
@@ -72,7 +72,7 @@ export function Email() {
           style={{
             width: '100%',
             padding: '0.75rem',
-            backgroundColor: ''#00a544'',
+            backgroundColor: '#00a544',
             color: '#fff',
             border: 'none',
             borderRadius: '0.5rem',
@@ -92,8 +92,8 @@ export function Email() {
               padding: '0.75rem',
               textAlign: 'left',
               backgroundColor:
-                folder === 'inbox' ? ''#f5f1e8'' : 'transparent',
-              color: folder === 'inbox' ? ''#00a544'' : '#000',
+                folder === 'inbox' ? '#f5f1e8' : 'transparent',
+              color: folder === 'inbox' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
               cursor: 'pointer',
@@ -107,8 +107,8 @@ export function Email() {
               padding: '0.75rem',
               textAlign: 'left',
               backgroundColor:
-                folder === 'starred' ? ''#f5f1e8'' : 'transparent',
-              color: folder === 'starred' ? ''#00a544'' : '#000',
+                folder === 'starred' ? '#f5f1e8' : 'transparent',
+              color: folder === 'starred' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
               cursor: 'pointer',
@@ -122,8 +122,8 @@ export function Email() {
               padding: '0.75rem',
               textAlign: 'left',
               backgroundColor:
-                folder === 'sent' ? ''#f5f1e8'' : 'transparent',
-              color: folder === 'sent' ? ''#00a544'' : '#000',
+                folder === 'sent' ? '#f5f1e8' : 'transparent',
+              color: folder === 'sent' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
               cursor: 'pointer',
@@ -137,8 +137,8 @@ export function Email() {
               padding: '0.75rem',
               textAlign: 'left',
               backgroundColor:
-                folder === 'drafts' ? ''#f5f1e8'' : 'transparent',
-              color: folder === 'drafts' ? ''#00a544'' : '#000',
+                folder === 'drafts' ? '#f5f1e8' : 'transparent',
+              color: folder === 'drafts' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
               cursor: 'pointer',
@@ -152,8 +152,8 @@ export function Email() {
               padding: '0.75rem',
               textAlign: 'left',
               backgroundColor:
-                folder === 'trash' ? ''#f5f1e8'' : 'transparent',
-              color: folder === 'trash' ? ''#00a544'' : '#000',
+                folder === 'trash' ? '#f5f1e8' : 'transparent',
+              color: folder === 'trash' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
               cursor: 'pointer',
@@ -169,14 +169,14 @@ export function Email() {
           style={{
             width: '400px',
             backgroundColor: '#fff',
-            borderRight: '1px solid '#d4c9b8'',
+            borderRight: '1px solid #d4c9b8',
             overflowY: 'auto',
           }}
         >
           <div
             style={{
               padding: '1rem',
-              borderBottom: '1px solid '#d4c9b8'',
+              borderBottom: '1px solid #d4c9b8',
             }}
           >
             <h2
@@ -195,7 +195,7 @@ export function Email() {
               onClick={() => setSelectedEmail(email)}
               style={{
                 padding: '1rem',
-                borderBottom: '1px solid '#d4c9b8'',
+                borderBottom: '1px solid #d4c9b8',
                 cursor: 'pointer',
                 backgroundColor: email.read ? '#fff' : '#f0f9ff',
               }}
@@ -213,7 +213,7 @@ export function Email() {
                 <span
                   style={{
                     fontSize: '0.875rem',
-                    color: ''#6b5d52'',
+                    color: '#6b5d52',
                   }}
                 >
                   {email.date}
@@ -230,7 +230,7 @@ export function Email() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -269,7 +269,7 @@ export function Email() {
                 onClick={() => setComposing(false)}
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor: ''#dc2626'',
+                  backgroundColor: '#dc2626',
                   color: '#fff',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -292,7 +292,7 @@ export function Email() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -307,7 +307,7 @@ export function Email() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -321,7 +321,7 @@ export function Email() {
                 rows={15}
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                   resize: 'vertical',
@@ -331,7 +331,7 @@ export function Email() {
                 onClick={sendEmail}
                 style={{
                   padding: '0.75rem',
-                  backgroundColor: ''#00a544'',
+                  backgroundColor: '#00a544',
                   color: '#fff',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -385,7 +385,7 @@ export function Email() {
                   display: 'flex',
                   justifyContent: 'space-between',
                   paddingBottom: '1rem',
-                  borderBottom: '1px solid '#d4c9b8'',
+                  borderBottom: '1px solid #d4c9b8',
                   marginBottom: '1.5rem',
                 }}
               >
@@ -394,7 +394,7 @@ export function Email() {
                   <div
                     style={{
                       fontSize: '0.875rem',
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                     }}
                   >
                     to: me
@@ -403,7 +403,7 @@ export function Email() {
                 <div
                   style={{
                     fontSize: '0.875rem',
-                    color: ''#6b5d52'',
+                    color: '#6b5d52',
                   }}
                 >
                   {selectedEmail.date}
@@ -414,7 +414,7 @@ export function Email() {
                 <button
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundColor: ''#00a544'',
+                    backgroundColor: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.375rem',
@@ -437,7 +437,7 @@ export function Email() {
                 <button
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundColor: ''#dc2626'',
+                    backgroundColor: '#dc2626',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.375rem',
@@ -459,7 +459,7 @@ export function Email() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: ''#6b5d52'',
+            color: '#6b5d52',
           }}
         >
           <div style={{ textAlign: 'center' }}>

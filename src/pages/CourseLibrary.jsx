@@ -40,7 +40,7 @@ export default function CourseLibrary() {
       role="main"
       style={{
         padding: 32,
-        background: ''#f5f1e8'',
+        background: '#f5f1e8',
         minHeight: '100vh',
       }}
     >

@@ -62,7 +62,7 @@ export function SereneComfortCare() {
               style={{
                 padding: '1rem 2rem',
                 backgroundColor: '#fff',
-                color: ''#00a544'',
+                color: '#00a544',
                 borderRadius: '0.5rem',
                 fontWeight: '600',
                 textDecoration: 'none',
@@ -93,7 +93,7 @@ export function SereneComfortCare() {
       <div
         style={{
           padding: '4rem 2rem',
-          backgroundColor: ''#f5f1e8'',
+          backgroundColor: '#f5f1e8',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -133,7 +133,7 @@ export function SereneComfortCare() {
                 Home Health Care
               </h3>
               <p
-                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
+                style={{ color: '#6b5d52', lineHeight: '1.6' }}
               >
                 Professional in-home care services including nursing, personal
                 care, and companionship
@@ -158,7 +158,7 @@ export function SereneComfortCare() {
                 Senior Care
               </h3>
               <p
-                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
+                style={{ color: '#6b5d52', lineHeight: '1.6' }}
               >
                 Specialized care for elderly patients with dignity, respect, and
                 compassion
@@ -183,7 +183,7 @@ export function SereneComfortCare() {
                 Medical Support
               </h3>
               <p
-                style={{ color: ''#6b5d52'', lineHeight: '1.6' }}
+                style={{ color: '#6b5d52', lineHeight: '1.6' }}
               >
                 Skilled nursing, medication management, and post-operative care
                 services
@@ -247,7 +247,7 @@ export function SereneComfortCare() {
               <div
                 key={i}
                 style={{
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: '0.5rem',
                   padding: '2rem',
                 }}
@@ -266,7 +266,7 @@ export function SereneComfortCare() {
                 </h3>
                 <p
                   style={{
-                    color: ''#6b5d52'',
+                    color: '#6b5d52',
                     marginBottom: '1.5rem',
                     lineHeight: '1.6',
                   }}
@@ -276,7 +276,7 @@ export function SereneComfortCare() {
                 <Link
                   to="/serene-comfort-care/apply"
                   style={{
-                    color: ''#00a544'',
+                    color: '#00a544',
                     fontWeight: '600',
                     textDecoration: 'none',
                   }}
@@ -291,7 +291,7 @@ export function SereneComfortCare() {
       {/* Why Choose Us Section */}
       <div
         style={{
-          backgroundColor: ''#f5f1e8'',
+          backgroundColor: '#f5f1e8',
           padding: '4rem 2rem',
         }}
       >
@@ -324,7 +324,7 @@ export function SereneComfortCare() {
               >
                 Compassionate Care
               </h3>
-              <p style={{ color: ''#6b5d52'' }}>
+              <p style={{ color: '#6b5d52' }}>
                 Every patient receives personalized, dignified care
               </p>
             </div>
@@ -339,7 +339,7 @@ export function SereneComfortCare() {
               >
                 Expert Training
               </h3>
-              <p style={{ color: ''#6b5d52'' }}>
+              <p style={{ color: '#6b5d52' }}>
                 Learn from experienced healthcare professionals
               </p>
             </div>
@@ -354,7 +354,7 @@ export function SereneComfortCare() {
               >
                 State Certified
               </h3>
-              <p style={{ color: ''#6b5d52'' }}>
+              <p style={{ color: '#6b5d52' }}>
                 All programs meet state certification requirements
               </p>
             </div>
@@ -369,7 +369,7 @@ export function SereneComfortCare() {
               >
                 Job Placement
               </h3>
-              <p style={{ color: ''#6b5d52'' }}>
+              <p style={{ color: '#6b5d52' }}>
                 Connect with healthcare employers upon graduation
               </p>
             </div>
@@ -415,7 +415,7 @@ export function SereneComfortCare() {
               style={{
                 padding: '1rem 2rem',
                 backgroundColor: '#fff',
-                color: ''#00a544'',
+                color: '#00a544',
                 borderRadius: '0.5rem',
                 fontWeight: '600',
                 textDecoration: 'none',
@@ -445,7 +445,7 @@ export function SereneComfortCare() {
       {/* Footer */}
       <div
         style={{
-          backgroundColor: ''#4a3728'',
+          backgroundColor: '#4a3728',
           color: '#fff',
           padding: '2rem',
           textAlign: 'center',
@@ -454,7 +454,7 @@ export function SereneComfortCare() {
         <p style={{ marginBottom: '0.5rem' }}>
           © 2025 Serene Comfort Care. All rights reserved.
         </p>
-        <p style={{ fontSize: '0.875rem', color: ''#8b7d6f'' }}>
+        <p style={{ fontSize: '0.875rem', color: '#8b7d6f' }}>
           Part of the Elevate for Humanity Network
         </p>
       </div>

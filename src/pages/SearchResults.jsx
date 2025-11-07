@@ -84,7 +84,7 @@ export default function SearchResults() {
       />
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: 32, marginBottom: 8 }}>Search Results</h1>
-        <p style={{ fontSize: 16, color: ''#4a3728'' }}>
+        <p style={{ fontSize: 16, color: '#4a3728' }}>
           {isLoading ? (
             'Searching...'
           ) : (
@@ -122,7 +122,7 @@ export default function SearchResults() {
                   width: '100%',
                   padding: '8px 12px',
                   fontSize: 14,
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                 }}
               >
@@ -154,7 +154,7 @@ export default function SearchResults() {
                   width: '100%',
                   padding: '8px 12px',
                   fontSize: 14,
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                 }}
               >
@@ -188,7 +188,7 @@ export default function SearchResults() {
                   width: '100%',
                   padding: '8px 12px',
                   fontSize: 14,
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                 }}
               >
@@ -210,7 +210,7 @@ export default function SearchResults() {
                 width: '100%',
                 padding: '8px 12px',
                 fontSize: 14,
-                border: '1px solid '#d4c9b8'',
+                border: '1px solid #d4c9b8',
                 borderRadius: 6,
                 backgroundColor: 'white',
                 cursor: 'pointer',
@@ -233,7 +233,7 @@ export default function SearchResults() {
               style={{
                 textAlign: 'center',
                 padding: 60,
-                color: ''#4a3728'',
+                color: '#4a3728',
               }}
             >
               <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
@@ -252,19 +252,19 @@ export default function SearchResults() {
                     display: 'block',
                     padding: 20,
                     backgroundColor: 'white',
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 8,
                     textDecoration: 'none',
                     color: 'inherit',
                     transition: 'all 0.2s',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = ''#00a544'';
+                    e.currentTarget.style.borderColor = '#00a544';
                     e.currentTarget.style.boxShadow =
                       '0 2px 8px rgba(0, 123, 255, 0.1)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = ''#d4c9b8'';
+                    e.currentTarget.style.borderColor = '#d4c9b8';
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
@@ -277,7 +277,7 @@ export default function SearchResults() {
                         style={{
                           fontSize: 18,
                           marginBottom: 8,
-                          color: ''#00a544'',
+                          color: '#00a544',
                         }}
                       >
                         {result.title}
@@ -286,7 +286,7 @@ export default function SearchResults() {
                         <p
                           style={{
                             fontSize: 14,
-                            color: ''#4a3728'',
+                            color: '#4a3728',
                             marginBottom: 8,
                             lineHeight: 1.5,
                           }}

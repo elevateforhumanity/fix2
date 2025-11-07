@@ -493,7 +493,7 @@ export default function Accessibility() {
       >
         <div
           style={{
-            borderTop: '1px solid '#d4c9b8'',
+            borderTop: '1px solid #d4c9b8',
             paddingTop: '1rem',
           }}
         >

@@ -72,7 +72,7 @@ export function AdminConsole() {
         <div>
           <p
             style={{
-              color: ''#6b5d52'',
+              color: '#6b5d52',
               fontSize: '0.875rem',
               marginBottom: '0.5rem',
             }}
@@ -91,13 +91,13 @@ export function AdminConsole() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       <div
         style={{
           width: '250px',
-          backgroundColor: ''#4a3728'',
+          backgroundColor: '#4a3728',
           color: '#fff',
           padding: '1rem',
         }}
@@ -119,7 +119,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'dashboard' ? ''#00a544'' : 'transparent',
+                view === 'dashboard' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -137,7 +137,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'users' ? ''#00a544'' : 'transparent',
+                view === 'users' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -155,7 +155,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'schools' ? ''#00a544'' : 'transparent',
+                view === 'schools' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -173,7 +173,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'billing' ? ''#00a544'' : 'transparent',
+                view === 'billing' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -191,7 +191,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'storage' ? ''#00a544'' : 'transparent',
+                view === 'storage' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -209,7 +209,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'security' ? ''#00a544'' : 'transparent',
+                view === 'security' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -227,7 +227,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'compliance' ? ''#00a544'' : 'transparent',
+                view === 'compliance' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -245,7 +245,7 @@ export function AdminConsole() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'logs' ? ''#00a544'' : 'transparent',
+                view === 'logs' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -262,7 +262,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               backgroundColor:
-                view === 'settings' ? ''#00a544'' : 'transparent',
+                view === 'settings' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -299,25 +299,25 @@ export function AdminConsole() {
                 title="Total Users"
                 value={stats.totalUsers.toLocaleString()}
                 icon="👥"
-                color="'#00a544'"
+                color="#00a544"
               />
               <StatCard
                 title="Active Users"
                 value={stats.activeUsers.toLocaleString()}
                 icon="✅"
-                color="'#00a544'"
+                color="#00a544"
               />
               <StatCard
                 title="Storage (TB)"
                 value={stats.storage}
                 icon="💾"
-                color="'#ca8a04'"
+                color="#ca8a04"
               />
               <StatCard
                 title="Revenue ($)"
                 value={`$${stats.revenue.toLocaleString()}`}
                 icon="💰"
-                color="'#4a3728'"
+                color="#4a3728"
               />
             </div>
             <div
@@ -372,7 +372,7 @@ export function AdminConsole() {
                       key={i}
                       style={{
                         padding: '1rem',
-                        backgroundColor: ''#f5f1e8'',
+                        backgroundColor: '#f5f1e8',
                         borderRadius: '0.375rem',
                       }}
                     >
@@ -382,7 +382,7 @@ export function AdminConsole() {
                       <p
                         style={{
                           fontSize: '0.875rem',
-                          color: ''#6b5d52'',
+                          color: '#6b5d52',
                         }}
                       >
                         {activity.action} • {activity.time}
@@ -418,7 +418,7 @@ export function AdminConsole() {
                   <button
                     style={{
                       padding: '0.75rem',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '0.375rem',
@@ -431,7 +431,7 @@ export function AdminConsole() {
                   <button
                     style={{
                       padding: '0.75rem',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '0.375rem',
@@ -444,7 +444,7 @@ export function AdminConsole() {
                   <button
                     style={{
                       padding: '0.75rem',
-                      backgroundColor: ''#ca8a04'',
+                      backgroundColor: '#ca8a04',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '0.375rem',
@@ -475,7 +475,7 @@ export function AdminConsole() {
               <button
                 style={{
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: ''#00a544'',
+                  backgroundColor: '#00a544',
                   color: '#fff',
                   border: 'none',
                   borderRadius: '0.5rem',
@@ -495,14 +495,14 @@ export function AdminConsole() {
               }}
             >
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead style={{ backgroundColor: ''#f5f1e8'' }}>
+                <thead style={{ backgroundColor: '#f5f1e8' }}>
                   <tr>
                     <th
                       style={{
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Name
@@ -512,7 +512,7 @@ export function AdminConsole() {
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Email
@@ -522,7 +522,7 @@ export function AdminConsole() {
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Role
@@ -532,7 +532,7 @@ export function AdminConsole() {
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Status
@@ -542,7 +542,7 @@ export function AdminConsole() {
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Joined
@@ -552,7 +552,7 @@ export function AdminConsole() {
                         padding: '1rem',
                         textAlign: 'left',
                         fontWeight: '600',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Actions
@@ -563,13 +563,13 @@ export function AdminConsole() {
                   {users.map((user) => (
                     <tr
                       key={user.id}
-                      style={{ borderTop: '1px solid '#d4c9b8'' }}
+                      style={{ borderTop: '1px solid #d4c9b8' }}
                     >
                       <td style={{ padding: '1rem' }}>{user.name}</td>
                       <td
                         style={{
                           padding: '1rem',
-                          color: ''#6b5d52'',
+                          color: '#6b5d52',
                         }}
                       >
                         {user.email}
@@ -588,7 +588,7 @@ export function AdminConsole() {
                               user.role === 'admin'
                                 ? '#92400e'
                                 : user.role === 'teacher'
-                                  ? ''#00a544''
+                                  ? '#00a544'
                                   : '#6b21a8',
                             borderRadius: '9999px',
                             fontSize: '0.875rem',
@@ -615,7 +615,7 @@ export function AdminConsole() {
                       <td
                         style={{
                           padding: '1rem',
-                          color: ''#6b5d52'',
+                          color: '#6b5d52',
                         }}
                       >
                         {user.joined}
@@ -624,7 +624,7 @@ export function AdminConsole() {
                         <button
                           style={{
                             padding: '0.5rem 1rem',
-                            backgroundColor: ''#00a544'',
+                            backgroundColor: '#00a544',
                             color: '#fff',
                             border: 'none',
                             borderRadius: '0.375rem',
@@ -638,7 +638,7 @@ export function AdminConsole() {
                         <button
                           style={{
                             padding: '0.5rem 1rem',
-                            backgroundColor: ''#dc2626'',
+                            backgroundColor: '#dc2626',
                             color: '#fff',
                             border: 'none',
                             borderRadius: '0.375rem',
@@ -718,7 +718,7 @@ export function AdminConsole() {
                     </h3>
                     <p
                       style={{
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                         fontSize: '0.875rem',
                       }}
                     >
@@ -751,7 +751,7 @@ export function AdminConsole() {
             style={{
               textAlign: 'center',
               padding: '4rem',
-              color: ''#6b5d52'',
+              color: '#6b5d52',
             }}
           >
             <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>⚙️</div>

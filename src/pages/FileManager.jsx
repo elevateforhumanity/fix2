@@ -149,13 +149,13 @@ export function FileManager() {
 
   return (
     <div
-      style={{ minHeight: '100vh', backgroundColor: ''#f5f1e8'' }}
+      style={{ minHeight: '100vh', backgroundColor: '#f5f1e8' }}
     >
       {/* Header */}
       <div
         style={{
           backgroundColor: '#fff',
-          borderBottom: '1px solid '#d4c9b8'',
+          borderBottom: '1px solid #d4c9b8',
           padding: '1rem 2rem',
         }}
       >
@@ -176,7 +176,7 @@ export function FileManager() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                 }}
               >
                 {formatBytes(storageQuota.used)} of{' '}
@@ -190,7 +190,7 @@ export function FileManager() {
               onClick={() => setShowUpload(!showUpload)}
               style={{
                 padding: '0.5rem 1rem',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.375rem',
@@ -205,8 +205,8 @@ export function FileManager() {
               style={{
                 padding: '0.5rem 1rem',
                 backgroundColor: '#fff',
-                color: ''#4a3728'',
-                border: '1px solid '#c4b5a0'',
+                color: '#4a3728',
+                border: '1px solid #c4b5a0',
                 borderRadius: '0.375rem',
                 cursor: 'pointer',
               }}
@@ -236,8 +236,8 @@ export function FileManager() {
                   border: 'none',
                   color:
                     index === breadcrumbs.length - 1
-                      ? ''#4a3728''
-                      : ''#00a544'',
+                      ? '#4a3728'
+                      : '#00a544',
                   cursor: 'pointer',
                   fontWeight: index === breadcrumbs.length - 1 ? '600' : '400',
                 }}
@@ -245,7 +245,7 @@ export function FileManager() {
                 {crumb.name}
               </button>
               {index < breadcrumbs.length - 1 && (
-                <span style={{ color: ''#8b7d6f'' }}>/</span>
+                <span style={{ color: '#8b7d6f' }}>/</span>
               )}
             </React.Fragment>
           ))}
@@ -267,7 +267,7 @@ export function FileManager() {
               padding: '1rem',
               backgroundColor: '#fff',
               borderRadius: '0.5rem',
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
             }}
           >
             <div
@@ -285,7 +285,7 @@ export function FileManager() {
               style={{
                 width: '100%',
                 height: '8px',
-                backgroundColor: ''#d4c9b8'',
+                backgroundColor: '#d4c9b8',
                 borderRadius: '4px',
                 overflow: 'hidden',
               }}
@@ -296,8 +296,8 @@ export function FileManager() {
                   height: '100%',
                   backgroundColor:
                     storageQuota.percentage > 90
-                      ? ''#dc2626''
-                      : ''#00a544'',
+                      ? '#dc2626'
+                      : '#00a544',
                   transition: 'width 0.3s',
                 }}
               />
@@ -310,7 +310,7 @@ export function FileManager() {
             style={{
               textAlign: 'center',
               padding: '4rem 2rem',
-              color: ''#6b5d52'',
+              color: '#6b5d52',
             }}
           >
             <p style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>
@@ -333,7 +333,7 @@ export function FileManager() {
                 key={file.id}
                 style={{
                   backgroundColor: '#fff',
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: '0.5rem',
                   padding: '1rem',
                   cursor: 'pointer',
@@ -373,7 +373,7 @@ export function FileManager() {
                   <div
                     style={{
                       fontSize: '0.75rem',
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                     }}
                   >
                     {!file.isFolder && formatBytes(file.size)}
@@ -385,7 +385,7 @@ export function FileManager() {
                     gap: '0.5rem',
                     marginTop: '0.75rem',
                     paddingTop: '0.75rem',
-                    borderTop: '1px solid '#d4c9b8'',
+                    borderTop: '1px solid #d4c9b8',
                   }}
                 >
                   <button
@@ -398,7 +398,7 @@ export function FileManager() {
                       padding: '0.25rem',
                       fontSize: '0.75rem',
                       backgroundColor: 'transparent',
-                      border: '1px solid '#c4b5a0'',
+                      border: '1px solid #c4b5a0',
                       borderRadius: '0.25rem',
                       cursor: 'pointer',
                     }}
@@ -415,8 +415,8 @@ export function FileManager() {
                       padding: '0.25rem',
                       fontSize: '0.75rem',
                       backgroundColor: 'transparent',
-                      color: ''#dc2626'',
-                      border: '1px solid '#dc2626'',
+                      color: '#dc2626',
+                      border: '1px solid #dc2626',
                       borderRadius: '0.25rem',
                       cursor: 'pointer',
                     }}

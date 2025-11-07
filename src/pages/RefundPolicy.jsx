@@ -17,7 +17,7 @@ export default function RefundPolicy() {
         <p
           style={{
             fontSize: 14,
-            color: ''#6b5d52'',
+            color: '#6b5d52',
             marginBottom: 32,
           }}
         >
@@ -75,7 +75,7 @@ export default function RefundPolicy() {
               Alternatively, you can contact our support team at{' '}
               <a
                 href="mailto:elevateforhumanity@gmail.com"
-                style={{ color: ''#00a544'' }}
+                style={{ color: '#00a544' }}
               >
                 elevateforhumanity@gmail.com
               </a>
@@ -167,7 +167,7 @@ export default function RefundPolicy() {
               </p>
               <p style={{ marginBottom: 8 }}>
                 <strong>Support:</strong>{' '}
-                <Link to="/support" style={{ color: ''#00a544'' }}>
+                <Link to="/support" style={{ color: '#00a544' }}>
                   Visit Support Center
                 </Link>
               </p>
@@ -181,7 +181,7 @@ export default function RefundPolicy() {
           style={{
             marginTop: 48,
             paddingTop: 32,
-            borderTop: '1px solid '#d4c9b8'',
+            borderTop: '1px solid #d4c9b8',
             display: 'flex',
             gap: 24,
             justifyContent: 'center',
@@ -190,7 +190,7 @@ export default function RefundPolicy() {
           <Link
             to="/privacy-policy"
             style={{
-              color: ''#00a544'',
+              color: '#00a544',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,
@@ -201,7 +201,7 @@ export default function RefundPolicy() {
           <Link
             to="/terms-of-service"
             style={{
-              color: ''#00a544'',
+              color: '#00a544',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,
@@ -212,7 +212,7 @@ export default function RefundPolicy() {
           <Link
             to="/support"
             style={{
-              color: ''#00a544'',
+              color: '#00a544',
               textDecoration: 'none',
               fontSize: 14,
               fontWeight: 500,

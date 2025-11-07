@@ -9,21 +9,21 @@ export function Calendar() {
       title: 'Team Meeting',
       date: new Date(2024, 0, 15, 10, 0),
       duration: 60,
-      color: ''#00a544'',
+      color: '#00a544',
     },
     {
       id: 2,
       title: 'Project Deadline',
       date: new Date(2024, 0, 20, 17, 0),
       duration: 30,
-      color: ''#dc2626'',
+      color: '#dc2626',
     },
     {
       id: 3,
       title: 'Lunch with Client',
       date: new Date(2024, 0, 18, 12, 0),
       duration: 90,
-      color: ''#00a544'',
+      color: '#00a544',
     },
   ]);
   const [showEventModal, setShowEventModal] = useState(false);
@@ -84,7 +84,7 @@ export function Calendar() {
       title: newEvent.title,
       date: new Date(`${newEvent.date}T${newEvent.time}`),
       duration: parseInt(newEvent.duration),
-      color: ''#00a544'',
+      color: '#00a544',
     };
     setEvents([...events, event]);
     setShowEventModal(false);
@@ -99,14 +99,14 @@ export function Calendar() {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       {/* Header */}
       <div
         style={{
           backgroundColor: '#fff',
-          borderBottom: '1px solid '#d4c9b8'',
+          borderBottom: '1px solid #d4c9b8',
           padding: '1rem 2rem',
         }}
       >
@@ -158,7 +158,7 @@ export function Calendar() {
                 style={{
                   padding: '0.5rem 1rem',
                   backgroundColor:
-                    view === 'month' ? ''#00a544'' : '#f3f4f6',
+                    view === 'month' ? '#00a544' : '#f3f4f6',
                   color: view === 'month' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -172,7 +172,7 @@ export function Calendar() {
                 style={{
                   padding: '0.5rem 1rem',
                   backgroundColor:
-                    view === 'week' ? ''#00a544'' : '#f3f4f6',
+                    view === 'week' ? '#00a544' : '#f3f4f6',
                   color: view === 'week' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -186,7 +186,7 @@ export function Calendar() {
                 style={{
                   padding: '0.5rem 1rem',
                   backgroundColor:
-                    view === 'day' ? ''#00a544'' : '#f3f4f6',
+                    view === 'day' ? '#00a544' : '#f3f4f6',
                   color: view === 'day' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -200,7 +200,7 @@ export function Calendar() {
               onClick={() => setShowEventModal(true)}
               style={{
                 padding: '0.5rem 1.5rem',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.375rem',
@@ -228,8 +228,8 @@ export function Calendar() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(7, 1fr)',
-              backgroundColor: ''#f5f1e8'',
-              borderBottom: '1px solid '#d4c9b8'',
+              backgroundColor: '#f5f1e8',
+              borderBottom: '1px solid #d4c9b8',
             }}
           >
             {dayNames.map((day) => (
@@ -239,7 +239,7 @@ export function Calendar() {
                   padding: '1rem',
                   textAlign: 'center',
                   fontWeight: '600',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                 }}
               >
                 {day}
@@ -256,8 +256,8 @@ export function Calendar() {
                 style={{
                   minHeight: '120px',
                   padding: '0.5rem',
-                  border: '1px solid '#d4c9b8'',
-                  backgroundColor: day ? '#fff' : ''#f5f1e8'',
+                  border: '1px solid #d4c9b8',
+                  backgroundColor: day ? '#fff' : '#f5f1e8',
                 }}
               >
                 {day && (
@@ -343,7 +343,7 @@ export function Calendar() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -357,7 +357,7 @@ export function Calendar() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -371,7 +371,7 @@ export function Calendar() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -383,7 +383,7 @@ export function Calendar() {
                 }
                 style={{
                   padding: '0.75rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   fontSize: '1rem',
                 }}
@@ -399,7 +399,7 @@ export function Calendar() {
                   style={{
                     flex: 1,
                     padding: '0.75rem',
-                    backgroundColor: ''#00a544'',
+                    backgroundColor: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.375rem',

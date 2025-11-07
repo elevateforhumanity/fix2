@@ -35,7 +35,7 @@ export default function Donate() {
             marginBottom: '3rem',
             padding: '3rem 2rem',
             background:
-              'linear-gradient(135deg, '#4a3728' 0%, '#4a3728' 100%)',
+              'linear-gradient( 0%, #4a3728 0%, #4a3728 100%)',
             borderRadius: '12px',
             color: 'white',
           }}
@@ -75,14 +75,14 @@ export default function Donate() {
                 background: 'white',
                 padding: '2rem',
                 borderRadius: '8px',
-                border: '1px solid '#d4c9b8'',
+                border: '1px solid #d4c9b8',
               }}
             >
               <h2
                 style={{
                   fontSize: '1.75rem',
                   marginBottom: '1.5rem',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 Make a Donation
@@ -93,7 +93,7 @@ export default function Donate() {
                     display: 'block',
                     marginBottom: '0.75rem',
                     fontWeight: '600',
-                    color: ''#4a3728'',
+                    color: '#4a3728',
                   }}
                 >
                   Donation Frequency
@@ -107,11 +107,11 @@ export default function Donate() {
                       padding: '0.75rem',
                       backgroundColor:
                         frequency === 'once'
-                          ? ''#4a3728''
+                          ? '#4a3728'
                           : 'white',
                       color:
-                        frequency === 'once' ? 'white' : ''#4a3728'',
-                      border: '2px solid '#4a3728'',
+                        frequency === 'once' ? 'white' : '#4a3728',
+                      border: '2px solid #4a3728',
                       borderRadius: '6px',
                       fontWeight: '600',
                       cursor: 'pointer',
@@ -127,11 +127,11 @@ export default function Donate() {
                       padding: '0.75rem',
                       backgroundColor:
                         frequency === 'monthly'
-                          ? ''#4a3728''
+                          ? '#4a3728'
                           : 'white',
                       color:
-                        frequency === 'monthly' ? 'white' : ''#4a3728'',
-                      border: '2px solid '#4a3728'',
+                        frequency === 'monthly' ? 'white' : '#4a3728',
+                      border: '2px solid #4a3728',
                       borderRadius: '6px',
                       fontWeight: '600',
                       cursor: 'pointer',
@@ -147,7 +147,7 @@ export default function Donate() {
                     display: 'block',
                     marginBottom: '0.75rem',
                     fontWeight: '600',
-                    color: ''#4a3728'',
+                    color: '#4a3728',
                   }}
                 >
                   Donation Amount
@@ -168,9 +168,9 @@ export default function Donate() {
                       style={{
                         padding: '1rem',
                         backgroundColor:
-                          amount === amt ? ''#4a3728'' : 'white',
-                        color: amount === amt ? 'white' : ''#4a3728'',
-                        border: '2px solid '#d4c9b8'',
+                          amount === amt ? '#4a3728' : 'white',
+                        color: amount === amt ? 'white' : '#4a3728',
+                        border: '2px solid #d4c9b8',
                         borderRadius: '6px',
                         fontWeight: '600',
                         fontSize: '1.125rem',
@@ -188,9 +188,9 @@ export default function Donate() {
                     width: '100%',
                     padding: '1rem',
                     backgroundColor:
-                      amount === 'custom' ? ''#4a3728'' : 'white',
-                    color: amount === 'custom' ? 'white' : ''#4a3728'',
-                    border: '2px solid '#d4c9b8'',
+                      amount === 'custom' ? '#4a3728' : 'white',
+                    color: amount === 'custom' ? 'white' : '#4a3728',
+                    border: '2px solid #d4c9b8',
                     borderRadius: '6px',
                     fontWeight: '600',
                     cursor: 'pointer',
@@ -211,7 +211,7 @@ export default function Donate() {
                     style={{
                       width: '100%',
                       padding: '0.75rem',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: '6px',
                       fontSize: '1rem',
                     }}
@@ -223,7 +223,7 @@ export default function Donate() {
                 style={{
                   width: '100%',
                   padding: '1rem',
-                  backgroundColor: ''#4a3728'',
+                  backgroundColor: '#4a3728',
                   color: 'white',
                   border: 'none',
                   borderRadius: '6px',
@@ -316,7 +316,7 @@ export default function Donate() {
             </div>
             <div
               style={{
-                background: ''#f5f1e8'',
+                background: '#f5f1e8',
                 padding: '2rem',
                 borderRadius: '8px',
               }}
@@ -325,12 +325,12 @@ export default function Donate() {
                 style={{
                   fontSize: '1.25rem',
                   marginBottom: '1rem',
-                  color: ''#00a544'',
+                  color: '#00a544',
                 }}
               >
                 Other Ways to Give
               </h3>
-              <p style={{ color: ''#4a3728'', marginBottom: '1rem' }}>
+              <p style={{ color: '#4a3728', marginBottom: '1rem' }}>
                 Interested in corporate partnerships or planned giving?
               </p>
               <Link
@@ -338,7 +338,7 @@ export default function Donate() {
                 style={{
                   display: 'inline-block',
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: ''#00a544'',
+                  backgroundColor: '#00a544',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '6px',

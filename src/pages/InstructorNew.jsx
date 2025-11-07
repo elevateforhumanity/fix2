@@ -59,7 +59,7 @@ export default function InstructorNew() {
             to="/instructor/courses"
             style={{
               fontSize: 14,
-              color: ''#00a544'',
+              color: '#00a544',
               textDecoration: 'none',
               marginBottom: 12,
               display: 'block',
@@ -70,7 +70,7 @@ export default function InstructorNew() {
           <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
             Create New Course
           </h1>
-          <p style={{ color: ''#6b5d52'', fontSize: 16 }}>
+          <p style={{ color: '#6b5d52', fontSize: 16 }}>
             Follow the steps to create your course
           </p>
         </div>
@@ -91,14 +91,14 @@ export default function InstructorNew() {
               left: '12.5%',
               right: '12.5%',
               height: 2,
-              backgroundColor: ''#d4c9b8'',
+              backgroundColor: '#d4c9b8',
               zIndex: 0,
             }}
           >
             <div
               style={{
                 height: '100%',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 width: `${((step - 1) / 3) * 100}%`,
                 transition: 'width 0.3s',
               }}
@@ -125,7 +125,7 @@ export default function InstructorNew() {
                   height: 40,
                   borderRadius: '50%',
                   backgroundColor:
-                    step >= s.num ? ''#00a544'' : ''#d4c9b8'',
+                    step >= s.num ? '#00a544' : '#d4c9b8',
                   color: step >= s.num ? '#fff' : '#999',
                   display: 'flex',
                   alignItems: 'center',
@@ -140,7 +140,7 @@ export default function InstructorNew() {
               <div
                 style={{
                   fontSize: 12,
-                  color: step >= s.num ? ''#00a544'' : '#999',
+                  color: step >= s.num ? '#00a544' : '#999',
                   fontWeight: step === s.num ? 600 : 400,
                 }}
               >
@@ -155,7 +155,7 @@ export default function InstructorNew() {
             backgroundColor: '#fff',
             padding: 32,
             borderRadius: 8,
-            border: '1px solid '#d4c9b8'',
+            border: '1px solid #d4c9b8',
             marginBottom: 24,
           }}
         >
@@ -167,7 +167,7 @@ export default function InstructorNew() {
               <p
                 style={{
                   fontSize: 14,
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: 24,
                 }}
               >
@@ -197,7 +197,7 @@ export default function InstructorNew() {
                     style={{
                       width: '100%',
                       padding: '12px 14px',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -205,7 +205,7 @@ export default function InstructorNew() {
                   <p
                     style={{
                       fontSize: 12,
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                       marginTop: 6,
                     }}
                   >
@@ -234,7 +234,7 @@ export default function InstructorNew() {
                     style={{
                       width: '100%',
                       padding: '12px 14px',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -265,7 +265,7 @@ export default function InstructorNew() {
                       style={{
                         width: '100%',
                         padding: '12px 14px',
-                        border: '1px solid '#d4c9b8'',
+                        border: '1px solid #d4c9b8',
                         borderRadius: 6,
                         fontSize: 14,
                       }}
@@ -300,7 +300,7 @@ export default function InstructorNew() {
                       style={{
                         width: '100%',
                         padding: '12px 14px',
-                        border: '1px solid '#d4c9b8'',
+                        border: '1px solid #d4c9b8',
                         borderRadius: 6,
                         fontSize: 14,
                       }}
@@ -323,7 +323,7 @@ export default function InstructorNew() {
               <p
                 style={{
                   fontSize: 14,
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: 24,
                 }}
               >
@@ -353,7 +353,7 @@ export default function InstructorNew() {
                     style={{
                       width: '100%',
                       padding: '12px 14px',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: 6,
                       fontSize: 14,
                       fontFamily: 'inherit',
@@ -363,7 +363,7 @@ export default function InstructorNew() {
                   <p
                     style={{
                       fontSize: 12,
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                       marginTop: 6,
                     }}
                   >
@@ -413,7 +413,7 @@ export default function InstructorNew() {
               <p
                 style={{
                   fontSize: 14,
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: 24,
                 }}
               >
@@ -441,7 +441,7 @@ export default function InstructorNew() {
                       width: '100%',
                       maxWidth: 300,
                       padding: '12px 14px',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -477,7 +477,7 @@ export default function InstructorNew() {
                       width: '100%',
                       maxWidth: 200,
                       padding: '12px 14px',
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                       borderRadius: 6,
                       fontSize: 14,
                     }}
@@ -485,7 +485,7 @@ export default function InstructorNew() {
                   <p
                     style={{
                       fontSize: 12,
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                       marginTop: 6,
                     }}
                   >
@@ -531,7 +531,7 @@ export default function InstructorNew() {
               <p
                 style={{
                   fontSize: 14,
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: 24,
                 }}
               >
@@ -539,7 +539,7 @@ export default function InstructorNew() {
               </p>
               <div
                 style={{
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                   padding: 20,
                   marginBottom: 20,
@@ -665,7 +665,7 @@ export default function InstructorNew() {
               padding: '12px 24px',
               backgroundColor: step === 1 ? '#f0f0f0' : '#fff',
               color: step === 1 ? '#999' : '#333',
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
               borderRadius: 6,
               fontSize: 14,
               fontWeight: 500,
@@ -680,7 +680,7 @@ export default function InstructorNew() {
               disabled={!isStepValid()}
               style={{
                 padding: '12px 24px',
-                backgroundColor: isStepValid() ? ''#00a544'' : '#ccc',
+                backgroundColor: isStepValid() ? '#00a544' : '#ccc',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,
@@ -696,7 +696,7 @@ export default function InstructorNew() {
               onClick={handleCreate}
               style={{
                 padding: '12px 32px',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,

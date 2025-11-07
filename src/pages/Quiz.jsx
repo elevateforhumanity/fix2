@@ -92,7 +92,7 @@ export default function Quiz() {
                   onClick={() => setSubmitted(true)}
                   disabled={questions.some((q) => selected[q.id] === undefined)}
                   style={{
-                    background: ''#00a544'',
+                    background: '#00a544',
                     color: '#fff',
                     border: 'none',
                     padding: '8px 14px',
@@ -123,8 +123,8 @@ export default function Quiz() {
                         style={{
                           color:
                             chosen === correct
-                              ? ''#008a38''
-                              : ''#b91c1c'',
+                              ? '#008a38'
+                              : '#b91c1c',
                         }}
                       >
                         {q.choices[chosen] ?? '—'}
@@ -149,8 +149,8 @@ function choiceStyle(chosen) {
     textAlign: 'left',
     padding: '10px 14px',
     borderRadius: 6,
-    border: chosen ? '2px solid '#00a544'' : '1px solid #cbd5e1',
-    background: chosen ? ''#f5f1e8'' : '#fff',
+    border: chosen ? '2px solid #00a544' : '1px solid #cbd5e1',
+    background: chosen ? '#f5f1e8' : '#fff',
     cursor: 'pointer',
   };
 }

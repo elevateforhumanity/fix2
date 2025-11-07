@@ -58,7 +58,8 @@ export default function About() {
               A community where everyone has access to quality workforce training and the opportunity to build a rewarding career.
             </p>
           </div>
-          <div className="text-5xl mb-4">❤️</div>
+          <div className="text-center">
+            <div className="text-5xl mb-4">❤️</div>
             <h3 className="text-2xl font-bold mb-3">Our Values</h3>
             <p>
               Excellence, accessibility, integrity, innovation, and community impact guide everything we do.

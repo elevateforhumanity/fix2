@@ -78,7 +78,7 @@ export default function Student() {
               Sister Site 1
             </a>
             <br />
-            <span style={{ color: ''#6b5d52'' }}>
+            <span style={{ color: '#6b5d52' }}>
               Sister Site 1 is dedicated to providing mentorship programs and
               career guidance for students seeking professional development.
             </span>
@@ -92,7 +92,7 @@ export default function Student() {
               Sister Site 2
             </a>
             <br />
-            <span style={{ color: ''#6b5d52'' }}>
+            <span style={{ color: '#6b5d52' }}>
               Sister Site 2 offers a global network for volunteering
               opportunities and community service projects.
             </span>
@@ -106,7 +106,7 @@ export default function Student() {
               Sister Site 3
             </a>
             <br />
-            <span style={{ color: ''#6b5d52'' }}>
+            <span style={{ color: '#6b5d52' }}>
               Sister Site 3 focuses on mental health resources and peer support
               for students and young adults.
             </span>

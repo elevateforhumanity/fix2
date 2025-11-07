@@ -28,7 +28,7 @@ export default function Account() {
           style={{
             fontSize: '2.5rem',
             marginBottom: '2rem',
-            color: ''#4a3728'',
+            color: '#4a3728',
           }}
         >
           My Account
@@ -46,14 +46,14 @@ export default function Account() {
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
             }}
           >
             <div
               style={{
                 width: '100px',
                 height: '100px',
-                background: ''#00a544'',
+                background: '#00a544',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -70,7 +70,7 @@ export default function Account() {
                 fontSize: '1.5rem',
                 textAlign: 'center',
                 marginBottom: '0.5rem',
-                color: ''#4a3728'',
+                color: '#4a3728',
               }}
             >
               {user.name}
@@ -78,7 +78,7 @@ export default function Account() {
             <p
               style={{
                 textAlign: 'center',
-                color: ''#6b5d52'',
+                color: '#6b5d52',
                 marginBottom: '1rem',
               }}
             >
@@ -88,8 +88,8 @@ export default function Account() {
               style={{
                 textAlign: 'center',
                 padding: '0.5rem 1rem',
-                background: ''#f5f1e8'',
-                color: ''#00a544'',
+                background: '#f5f1e8',
+                color: '#00a544',
                 borderRadius: '20px',
                 display: 'inline-block',
                 width: '100%',
@@ -105,14 +105,14 @@ export default function Account() {
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
             }}
           >
             <h3
               style={{
                 fontSize: '1.25rem',
                 marginBottom: '1.5rem',
-                color: ''#4a3728'',
+                color: '#4a3728',
               }}
             >
               Account Statistics
@@ -121,7 +121,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -131,7 +131,7 @@ export default function Account() {
                 style={{
                   fontSize: '1.25rem',
                   fontWeight: '600',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 {user.enrolledSince}
@@ -141,7 +141,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -151,7 +151,7 @@ export default function Account() {
                 style={{
                   fontSize: '1.25rem',
                   fontWeight: '600',
-                  color: ''#00a544'',
+                  color: '#00a544',
                 }}
               >
                 {user.coursesCompleted}
@@ -161,7 +161,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '0.5rem',
                 }}
               >
@@ -171,7 +171,7 @@ export default function Account() {
                 style={{
                   fontSize: '1.25rem',
                   fontWeight: '600',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 {user.certificatesEarned}
@@ -184,14 +184,14 @@ export default function Account() {
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
             }}
           >
             <h3
               style={{
                 fontSize: '1.25rem',
                 marginBottom: '1.5rem',
-                color: ''#4a3728'',
+                color: '#4a3728',
               }}
             >
               Quick Actions
@@ -203,10 +203,10 @@ export default function Account() {
                 to="/profile"
                 style={{
                   padding: '1rem',
-                  background: ''#f5f1e8'',
+                  background: '#f5f1e8',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                   fontWeight: '600',
                   display: 'flex',
                   alignItems: 'center',
@@ -219,10 +219,10 @@ export default function Account() {
                 to="/settings"
                 style={{
                   padding: '1rem',
-                  background: ''#f5f1e8'',
+                  background: '#f5f1e8',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                   fontWeight: '600',
                   display: 'flex',
                   alignItems: 'center',
@@ -235,10 +235,10 @@ export default function Account() {
                 to="/certificates"
                 style={{
                   padding: '1rem',
-                  background: ''#f5f1e8'',
+                  background: '#f5f1e8',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                   fontWeight: '600',
                   display: 'flex',
                   alignItems: 'center',
@@ -251,10 +251,10 @@ export default function Account() {
                 to="/student-dashboard"
                 style={{
                   padding: '1rem',
-                  background: ''#f5f1e8'',
+                  background: '#f5f1e8',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                   fontWeight: '600',
                   display: 'flex',
                   alignItems: 'center',
@@ -273,14 +273,14 @@ export default function Account() {
             background: 'white',
             padding: '2rem',
             borderRadius: '12px',
-            border: '1px solid '#d4c9b8'',
+            border: '1px solid #d4c9b8',
           }}
         >
           <h3
             style={{
               fontSize: '1.5rem',
               marginBottom: '1.5rem',
-              color: ''#4a3728'',
+              color: '#4a3728',
             }}
           >
             Security & Privacy
@@ -297,7 +297,7 @@ export default function Account() {
                 style={{
                   fontWeight: '600',
                   marginBottom: '0.5rem',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 Password
@@ -305,7 +305,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '1rem',
                 }}
               >
@@ -314,7 +314,7 @@ export default function Account() {
               <button
                 style={{
                   padding: '0.5rem 1rem',
-                  background: ''#00a544'',
+                  background: '#00a544',
                   color: 'white',
                   border: 'none',
                   borderRadius: '6px',
@@ -330,7 +330,7 @@ export default function Account() {
                 style={{
                   fontWeight: '600',
                   marginBottom: '0.5rem',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 Two-Factor Authentication
@@ -338,7 +338,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '1rem',
                 }}
               >
@@ -347,7 +347,7 @@ export default function Account() {
               <button
                 style={{
                   padding: '0.5rem 1rem',
-                  background: ''#00a544'',
+                  background: '#00a544',
                   color: 'white',
                   border: 'none',
                   borderRadius: '6px',
@@ -363,7 +363,7 @@ export default function Account() {
                 style={{
                   fontWeight: '600',
                   marginBottom: '0.5rem',
-                  color: ''#4a3728'',
+                  color: '#4a3728',
                 }}
               >
                 Privacy Settings
@@ -371,7 +371,7 @@ export default function Account() {
               <div
                 style={{
                   fontSize: '0.875rem',
-                  color: ''#6b5d52'',
+                  color: '#6b5d52',
                   marginBottom: '1rem',
                 }}
               >
@@ -382,7 +382,7 @@ export default function Account() {
                 style={{
                   display: 'inline-block',
                   padding: '0.5rem 1rem',
-                  background: ''#6b5d52'',
+                  background: '#6b5d52',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '6px',

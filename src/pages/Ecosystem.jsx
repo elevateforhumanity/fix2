@@ -57,7 +57,7 @@ export default function Ecosystem() {
           style={{
             flex: '1 1 250px',
             minWidth: 250,
-            background: ''#f5f1e8'',
+            background: '#f5f1e8',
             borderRadius: 12,
             padding: 24,
             boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
@@ -85,7 +85,7 @@ export default function Ecosystem() {
           style={{
             flex: '1 1 250px',
             minWidth: 250,
-            background: ''#f5f1e8'',
+            background: '#f5f1e8',
             borderRadius: 12,
             padding: 24,
             boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
@@ -112,7 +112,7 @@ export default function Ecosystem() {
           style={{
             flex: '1 1 250px',
             minWidth: 250,
-            background: ''#f5f1e8'',
+            background: '#f5f1e8',
             borderRadius: 12,
             padding: 24,
             boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
@@ -139,7 +139,7 @@ export default function Ecosystem() {
           style={{
             flex: '1 1 250px',
             minWidth: 250,
-            background: ''#f5f1e8'',
+            background: '#f5f1e8',
             borderRadius: 12,
             padding: 24,
             boxShadow: '0 2px 8px rgba(0,0,0,0.04)',

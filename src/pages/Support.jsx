@@ -134,7 +134,7 @@ export default function Support() {
           <p
             style={{
               fontSize: 18,
-              color: ''#6b5d52'',
+              color: '#6b5d52',
               marginBottom: 32,
             }}
           >
@@ -152,15 +152,15 @@ export default function Support() {
                 width: '100%',
                 padding: '16px 20px',
                 fontSize: 16,
-                border: '2px solid '#d4c9b8'',
+                border: '2px solid #d4c9b8',
                 borderRadius: 8,
                 outline: 'none',
               }}
               onFocus={(e) =>
-                (e.target.style.borderColor = ''#00a544'')
+                (e.target.style.borderColor = '#00a544')
               }
               onBlur={(e) =>
-                (e.target.style.borderColor = ''#d4c9b8'')
+                (e.target.style.borderColor = '#d4c9b8')
               }
             />
           </div>
@@ -180,7 +180,7 @@ export default function Support() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
               textDecoration: 'none',
               color: 'inherit',
               transition: 'transform 0.2s, box-shadow 0.2s',
@@ -198,7 +198,7 @@ export default function Support() {
             <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
               Student Handbook
             </h3>
-            <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
+            <p style={{ fontSize: 14, color: '#6b5d52' }}>
               Complete guide to using the platform
             </p>
           </Link>
@@ -208,7 +208,7 @@ export default function Support() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
               textDecoration: 'none',
               color: 'inherit',
               transition: 'transform 0.2s, box-shadow 0.2s',
@@ -226,7 +226,7 @@ export default function Support() {
             <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
               Course Catalog
             </h3>
-            <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
+            <p style={{ fontSize: 14, color: '#6b5d52' }}>
               Browse all available courses
             </p>
           </Link>
@@ -235,7 +235,7 @@ export default function Support() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
               cursor: 'pointer',
               transition: 'transform 0.2s, box-shadow 0.2s',
             }}
@@ -252,7 +252,7 @@ export default function Support() {
             <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
               Live Chat
             </h3>
-            <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
+            <p style={{ fontSize: 14, color: '#6b5d52' }}>
               Chat with our support team
             </p>
           </div>
@@ -262,7 +262,7 @@ export default function Support() {
               backgroundColor: '#fff',
               padding: 24,
               borderRadius: 8,
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
               textDecoration: 'none',
               color: 'inherit',
               transition: 'transform 0.2s, box-shadow 0.2s',
@@ -280,7 +280,7 @@ export default function Support() {
             <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
               Email Support
             </h3>
-            <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
+            <p style={{ fontSize: 14, color: '#6b5d52' }}>
               support@elevateforhumanity.org
             </p>
           </a>
@@ -307,10 +307,10 @@ export default function Support() {
                   padding: '8px 16px',
                   backgroundColor:
                     selectedCategory === category
-                      ? ''#00a544''
+                      ? '#00a544'
                       : '#fff',
                   color: selectedCategory === category ? '#fff' : '#333',
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 20,
                   fontSize: 14,
                   fontWeight: 500,
@@ -329,7 +329,7 @@ export default function Support() {
                 key={faq.id}
                 style={{
                   backgroundColor: '#fff',
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 8,
                   padding: 20,
                 }}
@@ -346,7 +346,7 @@ export default function Support() {
                   }}
                 >
                   {faq.question}
-                  <span style={{ fontSize: 20, color: ''#00a544'' }}>
+                  <span style={{ fontSize: 20, color: '#00a544' }}>
                     +
                   </span>
                 </summary>
@@ -356,7 +356,7 @@ export default function Support() {
                     paddingTop: 16,
                     borderTop: '1px solid #f0f0f0',
                     fontSize: 14,
-                    color: ''#6b5d52'',
+                    color: '#6b5d52',
                     lineHeight: 1.6,
                   }}
                 >
@@ -374,7 +374,7 @@ export default function Support() {
                 borderRadius: 8,
               }}
             >
-              <p style={{ fontSize: 16, color: ''#6b5d52'' }}>
+              <p style={{ fontSize: 16, color: '#6b5d52' }}>
                 No results found. Try a different search term or category.
               </p>
             </div>
@@ -384,7 +384,7 @@ export default function Support() {
         <div
           style={{
             backgroundColor: '#fff',
-            border: '1px solid '#d4c9b8'',
+            border: '1px solid #d4c9b8',
             borderRadius: 8,
             padding: 32,
           }}
@@ -395,7 +395,7 @@ export default function Support() {
           <p
             style={{
               fontSize: 14,
-              color: ''#6b5d52'',
+              color: '#6b5d52',
               marginBottom: 24,
             }}
           >
@@ -445,7 +445,7 @@ export default function Support() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -472,7 +472,7 @@ export default function Support() {
                   style={{
                     width: '100%',
                     padding: '10px 12px',
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 14,
                   }}
@@ -500,7 +500,7 @@ export default function Support() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                   fontSize: 14,
                 }}
@@ -526,7 +526,7 @@ export default function Support() {
                 style={{
                   width: '100%',
                   padding: '10px 12px',
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   borderRadius: 6,
                   fontSize: 14,
                   fontFamily: 'inherit',
@@ -538,7 +538,7 @@ export default function Support() {
               type="submit"
               style={{
                 padding: '12px 32px',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,
@@ -567,13 +567,13 @@ export default function Support() {
           <p
             style={{
               fontSize: 14,
-              color: ''#6b5d52'',
+              color: '#6b5d52',
               marginBottom: 8,
             }}
           >
             Monday - Friday: 9:00 AM - 6:00 PM EST
           </p>
-          <p style={{ fontSize: 14, color: ''#6b5d52'' }}>
+          <p style={{ fontSize: 14, color: '#6b5d52' }}>
             Saturday - Sunday: 10:00 AM - 4:00 PM EST
           </p>
         </div>

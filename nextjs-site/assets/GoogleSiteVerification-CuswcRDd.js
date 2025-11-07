@@ -1,1 +1,0 @@
-import{j as e}from"./vendor-react-mXmGo1rS.js";import"./vendor-BU8AdXDg.js";function i(){return e.jsxs("div",{className:"p-4",children:[e.jsx("h1",{children:"Google Site Verification"}),e.jsx("p",{children:"Google site verification details."})]})}export{i as default};

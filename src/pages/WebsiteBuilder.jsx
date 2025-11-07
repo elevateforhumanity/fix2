@@ -86,7 +86,7 @@ export default function WebsiteBuilder() {
         <p
           style={{
             fontSize: 16,
-            color: ''#6b5d52'',
+            color: '#6b5d52',
             marginBottom: 32,
           }}
         >
@@ -99,7 +99,7 @@ export default function WebsiteBuilder() {
             display: 'flex',
             gap: 16,
             marginBottom: 32,
-            borderBottom: '2px solid '#d4c9b8'',
+            borderBottom: '2px solid #d4c9b8',
           }}
         >
           <button
@@ -108,9 +108,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'ai-builder'
-                  ? ''#00a544''
+                  ? '#00a544'
                   : 'transparent',
-              color: activeTab === 'ai-builder' ? '#fff' : ''#4a3728'',
+              color: activeTab === 'ai-builder' ? '#fff' : '#4a3728',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -126,9 +126,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'my-websites'
-                  ? ''#00a544''
+                  ? '#00a544'
                   : 'transparent',
-              color: activeTab === 'my-websites' ? '#fff' : ''#4a3728'',
+              color: activeTab === 'my-websites' ? '#fff' : '#4a3728',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -144,9 +144,9 @@ export default function WebsiteBuilder() {
               padding: '12px 24px',
               background:
                 activeTab === 'enterprise'
-                  ? ''#00a544''
+                  ? '#00a544'
                   : 'transparent',
-              color: activeTab === 'enterprise' ? '#fff' : ''#4a3728'',
+              color: activeTab === 'enterprise' ? '#fff' : '#4a3728',
               border: 'none',
               borderRadius: '8px 8px 0 0',
               cursor: 'pointer',
@@ -173,7 +173,7 @@ export default function WebsiteBuilder() {
                   backgroundColor: '#fff',
                   padding: 48,
                   borderRadius: 8,
-                  border: '1px solid '#d4c9b8'',
+                  border: '1px solid #d4c9b8',
                   textAlign: 'center',
                 }}
               >
@@ -181,7 +181,7 @@ export default function WebsiteBuilder() {
                   No websites yet
                 </h3>
                 <p
-                  style={{ color: ''#6b5d52'', marginBottom: 24 }}
+                  style={{ color: '#6b5d52', marginBottom: 24 }}
                 >
                   Create your first AI-powered website using the AI Page Builder
                   tab.
@@ -190,7 +190,7 @@ export default function WebsiteBuilder() {
                   onClick={() => setActiveTab('ai-builder')}
                   style={{
                     padding: '12px 24px',
-                    background: ''#00a544'',
+                    background: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: 8,
@@ -217,7 +217,7 @@ export default function WebsiteBuilder() {
                       backgroundColor: '#fff',
                       padding: 24,
                       borderRadius: 8,
-                      border: '1px solid '#d4c9b8'',
+                      border: '1px solid #d4c9b8',
                     }}
                   >
                     <h3
@@ -228,7 +228,7 @@ export default function WebsiteBuilder() {
                     <p
                       style={{
                         fontSize: 14,
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                         marginBottom: 16,
                       }}
                     >
@@ -239,7 +239,7 @@ export default function WebsiteBuilder() {
                         style={{
                           flex: 1,
                           padding: '8px 16px',
-                          background: ''#00a544'',
+                          background: '#00a544',
                           color: '#fff',
                           border: 'none',
                           borderRadius: 6,
@@ -254,8 +254,8 @@ export default function WebsiteBuilder() {
                           flex: 1,
                           padding: '8px 16px',
                           background: 'transparent',
-                          color: ''#00a544'',
-                          border: '1px solid '#00a544'',
+                          color: '#00a544',
+                          border: '1px solid #00a544',
                           borderRadius: 6,
                           cursor: 'pointer',
                           fontSize: 14,
@@ -276,7 +276,7 @@ export default function WebsiteBuilder() {
               backgroundColor: '#fff',
               padding: 48,
               borderRadius: 8,
-              border: '1px solid '#d4c9b8'',
+              border: '1px solid #d4c9b8',
             }}
           >
             <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>
@@ -285,7 +285,7 @@ export default function WebsiteBuilder() {
             <p
               style={{
                 fontSize: 16,
-                color: ''#6b5d52'',
+                color: '#6b5d52',
                 marginBottom: 32,
               }}
             >
@@ -305,7 +305,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -321,7 +321,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -347,7 +347,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -365,7 +365,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -383,7 +383,7 @@ export default function WebsiteBuilder() {
                   style={{
                     width: '100%',
                     padding: 12,
-                    border: '1px solid '#d4c9b8'',
+                    border: '1px solid #d4c9b8',
                     borderRadius: 6,
                     fontSize: 16,
                   }}
@@ -393,7 +393,7 @@ export default function WebsiteBuilder() {
                 disabled={loading}
                 style={{
                   padding: '16px 32px',
-                  background: loading ? '#ccc' : ''#00a544'',
+                  background: loading ? '#ccc' : '#00a544',
                   color: '#fff',
                   border: 'none',
                   borderRadius: 8,

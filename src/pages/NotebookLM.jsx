@@ -73,14 +73,14 @@ export function NotebookLM() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       <div
         style={{
           width: '250px',
           backgroundColor: '#fff',
-          borderRight: '1px solid '#d4c9b8'',
+          borderRight: '1px solid #d4c9b8',
           padding: '1rem',
         }}
       >
@@ -96,7 +96,7 @@ export function NotebookLM() {
             style={{
               width: '100%',
               padding: '0.5rem',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               marginBottom: '0.5rem',
             }}
@@ -119,7 +119,7 @@ export function NotebookLM() {
             style={{
               width: '100%',
               padding: '0.5rem',
-              backgroundColor: ''#00a544'',
+              backgroundColor: '#00a544',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -138,9 +138,9 @@ export function NotebookLM() {
               padding: '0.75rem',
               marginBottom: '0.5rem',
               backgroundColor:
-                view === 'sources' ? ''#00a544'' : '#fff',
+                view === 'sources' ? '#00a544' : '#fff',
               color: view === 'sources' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -154,9 +154,9 @@ export function NotebookLM() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor: view === 'chat' ? ''#00a544'' : '#fff',
+              backgroundColor: view === 'chat' ? '#00a544' : '#fff',
               color: view === 'chat' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -170,9 +170,9 @@ export function NotebookLM() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor: view === 'notes' ? ''#00a544'' : '#fff',
+              backgroundColor: view === 'notes' ? '#00a544' : '#fff',
               color: view === 'notes' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -185,9 +185,9 @@ export function NotebookLM() {
             style={{
               width: '100%',
               padding: '0.75rem',
-              backgroundColor: view === 'graph' ? ''#00a544'' : '#fff',
+              backgroundColor: view === 'graph' ? '#00a544' : '#fff',
               color: view === 'graph' ? '#fff' : '#000',
-              border: '1px solid '#c4b5a0'',
+              border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',
               cursor: 'pointer',
               textAlign: 'left',
@@ -201,14 +201,14 @@ export function NotebookLM() {
         <div
           style={{
             backgroundColor: '#fff',
-            borderBottom: '1px solid '#d4c9b8'',
+            borderBottom: '1px solid #d4c9b8',
             padding: '1rem 2rem',
           }}
         >
           <h1 style={{ fontSize: '1.5rem', fontWeight: '600' }}>
             {currentNotebook?.title || 'NotebookLM'}
           </h1>
-          <p style={{ color: ''#6b5d52'', fontSize: '0.875rem' }}>
+          <p style={{ color: '#6b5d52', fontSize: '0.875rem' }}>
             {currentNotebook?.description || 'AI-powered research assistant'}
           </p>
         </div>
@@ -222,7 +222,7 @@ export function NotebookLM() {
                   onClick={() => addSource('pdf')}
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundColor: ''#00a544'',
+                    backgroundColor: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.5rem',
@@ -235,7 +235,7 @@ export function NotebookLM() {
                   onClick={() => addSource('url')}
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundColor: ''#00a544'',
+                    backgroundColor: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.5rem',
@@ -248,7 +248,7 @@ export function NotebookLM() {
                   onClick={() => addSource('text')}
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundColor: ''#00a544'',
+                    backgroundColor: '#00a544',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '0.5rem',
@@ -263,7 +263,7 @@ export function NotebookLM() {
                   style={{
                     textAlign: 'center',
                     padding: '4rem',
-                    color: ''#6b5d52'',
+                    color: '#6b5d52',
                   }}
                 >
                   <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>
@@ -311,7 +311,7 @@ export function NotebookLM() {
                       </h3>
                       <p
                         style={{
-                          color: ''#6b5d52'',
+                          color: '#6b5d52',
                           fontSize: '0.875rem',
                           marginBottom: '1rem',
                         }}
@@ -321,7 +321,7 @@ export function NotebookLM() {
                       <button
                         style={{
                           padding: '0.5rem 1rem',
-                          backgroundColor: ''#dc2626'',
+                          backgroundColor: '#dc2626',
                           color: '#fff',
                           border: 'none',
                           borderRadius: '0.375rem',
@@ -368,7 +368,7 @@ export function NotebookLM() {
                     style={{
                       flex: 1,
                       padding: '0.75rem',
-                      border: '1px solid '#c4b5a0'',
+                      border: '1px solid #c4b5a0',
                       borderRadius: '0.5rem',
                       fontSize: '1rem',
                     }}
@@ -378,7 +378,7 @@ export function NotebookLM() {
                     disabled={loading}
                     style={{
                       padding: '0.75rem 2rem',
-                      backgroundColor: ''#00a544'',
+                      backgroundColor: '#00a544',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '0.5rem',
@@ -404,7 +404,7 @@ export function NotebookLM() {
                       fontSize: '1.125rem',
                       fontWeight: '600',
                       marginBottom: '1rem',
-                      color: ''#00a544'',
+                      color: '#00a544',
                     }}
                   >
                     Q: {answer.question}
@@ -420,7 +420,7 @@ export function NotebookLM() {
                   </div>
                   <div
                     style={{
-                      borderTop: '1px solid '#d4c9b8'',
+                      borderTop: '1px solid #d4c9b8',
                       paddingTop: '1rem',
                     }}
                   >
@@ -429,7 +429,7 @@ export function NotebookLM() {
                         fontSize: '0.875rem',
                         fontWeight: '600',
                         marginBottom: '0.5rem',
-                        color: ''#6b5d52'',
+                        color: '#6b5d52',
                       }}
                     >
                       Sources:
@@ -439,7 +439,7 @@ export function NotebookLM() {
                         key={i}
                         style={{
                           fontSize: '0.875rem',
-                          color: ''#6b5d52'',
+                          color: '#6b5d52',
                           marginBottom: '0.25rem',
                         }}
                       >
@@ -456,7 +456,7 @@ export function NotebookLM() {
               style={{
                 textAlign: 'center',
                 padding: '4rem',
-                color: ''#6b5d52'',
+                color: '#6b5d52',
               }}
             >
               <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📝</div>
@@ -471,7 +471,7 @@ export function NotebookLM() {
               style={{
                 textAlign: 'center',
                 padding: '4rem',
-                color: ''#6b5d52'',
+                color: '#6b5d52',
               }}
             >
               <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🕸️</div>

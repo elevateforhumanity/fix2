@@ -54,14 +54,14 @@ export function Docs() {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: ''#f5f1e8'',
+        backgroundColor: '#f5f1e8',
       }}
     >
       {/* Header */}
       <div
         style={{
           backgroundColor: '#fff',
-          borderBottom: '1px solid '#d4c9b8'',
+          borderBottom: '1px solid #d4c9b8',
           padding: '1rem 2rem',
         }}
       >
@@ -85,7 +85,7 @@ export function Docs() {
                 style={{
                   fontSize: '1.25rem',
                   padding: '0.5rem',
-                  border: '1px solid '#c4b5a0'',
+                  border: '1px solid #c4b5a0',
                   borderRadius: '0.375rem',
                   width: '300px',
                 }}
@@ -124,7 +124,7 @@ export function Docs() {
               onClick={createNewDoc}
               style={{
                 padding: '0.5rem 1.5rem',
-                backgroundColor: ''#00a544'',
+                backgroundColor: '#00a544',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '0.375rem',
@@ -188,7 +188,7 @@ export function Docs() {
                   <div
                     style={{
                       fontSize: '0.875rem',
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                       marginBottom: '0.25rem',
                     }}
                   >
@@ -197,7 +197,7 @@ export function Docs() {
                   <div
                     style={{
                       fontSize: '0.875rem',
-                      color: ''#6b5d52'',
+                      color: '#6b5d52',
                     }}
                   >
                     Owner: {doc.owner}
@@ -206,7 +206,7 @@ export function Docs() {
                     <div
                       style={{
                         fontSize: '0.875rem',
-                        color: ''#00a544'',
+                        color: '#00a544',
                         marginTop: '0.5rem',
                       }}
                     >
@@ -226,7 +226,7 @@ export function Docs() {
           <div
             style={{
               backgroundColor: '#fff',
-              borderBottom: '1px solid '#d4c9b8'',
+              borderBottom: '1px solid #d4c9b8',
               padding: '0.5rem 2rem',
               display: 'flex',
               gap: '0.5rem',
@@ -271,14 +271,14 @@ export function Docs() {
             <div
               style={{
                 width: '1px',
-                backgroundColor: ''#d4c9b8'',
+                backgroundColor: '#d4c9b8',
                 margin: '0 0.5rem',
               }}
             />
             <select
               style={{
                 padding: '0.5rem',
-                border: '1px solid '#c4b5a0'',
+                border: '1px solid #c4b5a0',
                 borderRadius: '0.375rem',
                 cursor: 'pointer',
               }}
@@ -291,7 +291,7 @@ export function Docs() {
             <select
               style={{
                 padding: '0.5rem',
-                border: '1px solid '#c4b5a0'',
+                border: '1px solid #c4b5a0',
                 borderRadius: '0.375rem',
                 cursor: 'pointer',
               }}
@@ -303,7 +303,7 @@ export function Docs() {
             <select
               style={{
                 padding: '0.5rem',
-                border: '1px solid '#c4b5a0'',
+                border: '1px solid #c4b5a0',
                 borderRadius: '0.375rem',
                 cursor: 'pointer',
               }}
@@ -320,7 +320,7 @@ export function Docs() {
               flex: 1,
               padding: '2rem',
               overflowY: 'auto',
-              backgroundColor: ''#f5f1e8'',
+              backgroundColor: '#f5f1e8',
             }}
           >
             <div

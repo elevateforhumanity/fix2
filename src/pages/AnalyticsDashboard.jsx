@@ -35,7 +35,7 @@ export default function AnalyticsDashboard() {
               <td style={{ padding: 8 }}>
                 <div
                   style={{
-                    background: ''#d4c9b8'',
+                    background: '#d4c9b8',
                     borderRadius: 6,
                     width: 120,
                   }}
