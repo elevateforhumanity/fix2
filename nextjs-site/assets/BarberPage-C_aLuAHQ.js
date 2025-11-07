@@ -1,0 +1,1 @@
+import{j as r}from"./vendor-react-mXmGo1rS.js";import o from"./ProgramTemplate-BYRjsuI8.js";import{p as t}from"./programsData-DuXtQfqb.js";import"./vendor-BU8AdXDg.js";import"./vendor-router-umqT_8ks.js";import"./DurableLayout-C68gUIlO.js";import"./index-Ckv_R0Wt.js";import"./vendor-supabase-BOQaJsF3.js";function a(){return r.jsx(o,{program:t.barber})}export{a as default};

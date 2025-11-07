@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Elevate for Humanity - Vite/React Build
 
-## Getting Started
+This directory now contains the **Vite/React production build** (previously contained Next.js site).
 
-First, run the development server:
+## What Happened
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Old:** Next.js site with app router
+- **New:** Vite/React SPA build from `dist/` folder
+- **Backup:** Old Next.js files saved in `nextjs-site-backup-20251107-015627.tar.gz`
+
+## Contents
+
+This is the production-ready Vite build with:
+
+- ✅ React 19.1.1 SPA
+- ✅ React Router for navigation
+- ✅ Durable.co design system
+- ✅ All LMS features
+- ✅ Optimized assets
+- ✅ Static HTML pages
+
+## Deployment
+
+This build is ready to deploy to:
+- Netlify
+- Vercel
+- Any static hosting
+
+### Netlify Configuration
+
+```toml
+[build]
+  publish = "nextjs-site"
+  command = "echo 'Already built'"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or simply point Netlify to this directory as the publish folder.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Original Next.js Site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you need the original Next.js files, they are backed up in:
+```
+nextjs-site-backup-20251107-015627.tar.gz
+```
 
-## Learn More
+To restore:
+```bash
+tar -xzf nextjs-site-backup-20251107-015627.tar.gz
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Build Source
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This build was generated from:
+- Source: `/src` directory (Vite/React)
+- Build command: `pnpm build`
+- Output: Originally in `/dist`, now copied here
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Replaced:** 2025-11-07 01:57 UTC  
+**Reason:** Consolidate to single Vite/React build  
+**Backup:** nextjs-site-backup-20251107-015627.tar.gz (167MB)

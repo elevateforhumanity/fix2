@@ -1,0 +1,1 @@
+import{j as i}from"./vendor-react-mXmGo1rS.js";import"./vendor-BU8AdXDg.js";function e(){return i.jsxs("div",{className:"p-4",children:[i.jsx("h1",{children:"Bing Site Verification"}),i.jsx("p",{children:"Bing site verification details."})]})}export{e as default};

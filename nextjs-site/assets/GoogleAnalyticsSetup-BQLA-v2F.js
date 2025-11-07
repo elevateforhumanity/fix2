@@ -1,0 +1,1 @@
+import{j as e}from"./vendor-react-mXmGo1rS.js";import"./vendor-BU8AdXDg.js";function r(){return e.jsxs("div",{className:"p-4",children:[e.jsx("h1",{children:"Google Analytics Setup"}),e.jsx("p",{children:"Analytics configuration page."})]})}export{r as default};
