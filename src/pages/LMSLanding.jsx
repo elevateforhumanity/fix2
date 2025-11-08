@@ -101,9 +101,7 @@ export default function LMSLanding() {
           content="Access courses, assignments, grades, and learning resources. Professional LMS platform for students and instructors."
         />
       </Helmet>
-
       <Navigation />
-
       <div className="min-h-screen bg-beige-50">
         {/* Header */}
         <header className="bg-gradient-to-r from-green-700 to-green-600 text-white shadow-lg sticky top-0 z-50">
@@ -386,7 +384,6 @@ export default function LMSLanding() {
           </section>
         </main>
       </div>
-
       <Footer />
     </div>
   );

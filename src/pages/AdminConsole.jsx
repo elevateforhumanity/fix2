@@ -118,8 +118,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'dashboard' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'dashboard' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -136,8 +135,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'users' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'users' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -154,8 +152,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'schools' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'schools' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -172,8 +169,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'billing' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'billing' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -190,8 +186,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'storage' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'storage' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -208,8 +203,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'security' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'security' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -244,8 +238,7 @@ export function AdminConsole() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'logs' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'logs' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',
@@ -261,8 +254,7 @@ export function AdminConsole() {
             style={{
               width: '100%',
               padding: '0.75rem',
-              backgroundColor:
-                view === 'settings' ? '#00a544' : 'transparent',
+              backgroundColor: view === 'settings' ? '#00a544' : 'transparent',
               color: '#fff',
               border: 'none',
               borderRadius: '0.375rem',

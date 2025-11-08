@@ -1,1 +1,36 @@
-import{j as t,H as s}from"./vendor-react-C-ZQNdj3.js";import{N as e}from"./Navigation-Bbm4Xzc1.js";import{S as r}from"./Section-DjKsK8lK.js";import{F as o}from"./Footer-Dh9yHrAI.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function i(){return t.jsxs("div",{children:[t.jsx(s,{children:t.jsx("title",{children:"Google Analytics Setup | Elevate for Humanity"})}),t.jsx(e,{}),t.jsx(r,{background:"white",children:t.jsxs("div",{className:"mx-auto max-w-[800px]",children:[t.jsx("h1",{className:"section-title",children:"Google Analytics Setup"}),t.jsx("p",{className:"text-brown-700 mt-4",children:"Analytics configuration and tracking setup."})]})}),t.jsx(o,{})]})}export{i as default};
+import { j as t, H as s } from './vendor-react-C-ZQNdj3.js';
+import { N as e } from './Navigation-Bbm4Xzc1.js';
+import { S as r } from './Section-DjKsK8lK.js';
+import { F as o } from './Footer-Dh9yHrAI.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function i() {
+  return t.jsxs('div', {
+    children: [
+      t.jsx(s, {
+        children: t.jsx('title', {
+          children: 'Google Analytics Setup | Elevate for Humanity',
+        }),
+      }),
+      t.jsx(e, {}),
+      t.jsx(r, {
+        background: 'white',
+        children: t.jsxs('div', {
+          className: 'mx-auto max-w-[800px]',
+          children: [
+            t.jsx('h1', {
+              className: 'section-title',
+              children: 'Google Analytics Setup',
+            }),
+            t.jsx('p', {
+              className: 'text-brown-700 mt-4',
+              children: 'Analytics configuration and tracking setup.',
+            }),
+          ],
+        }),
+      }),
+      t.jsx(o, {}),
+    ],
+  });
+}
+export { i as default };

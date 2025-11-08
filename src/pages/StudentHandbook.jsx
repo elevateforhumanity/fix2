@@ -263,8 +263,7 @@ export default function StudentHandbook() {
                   marginBottom: 8,
                   backgroundColor:
                     activeSection === section.id ? '#f0f7ff' : 'transparent',
-                  color:
-                    activeSection === section.id ? '#00a544' : '#333',
+                  color: activeSection === section.id ? '#00a544' : '#333',
                   border: 'none',
                   borderRadius: 6,
                   fontSize: 14,

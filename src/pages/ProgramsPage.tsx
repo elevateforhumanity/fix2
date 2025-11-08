@@ -22,9 +22,7 @@ export default function ProgramsPage() {
           content="Choose from 8 high-demand career pathways with 100% funding available. Barber, HVAC, Healthcare, and more."
         />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title="Our Career Programs"
         subtitle="Choose from 8 high-demand career pathways with 100% funding available"
@@ -37,7 +35,6 @@ export default function ProgramsPage() {
         primaryButton={{ text: 'Apply Now', href: '/apply' }}
         secondaryButton={{ text: 'Contact Us', href: '/contact' }}
       />
-
       <Section>
         <div className="flex flex-wrap gap-8">
           <ProgramCard
@@ -106,7 +103,6 @@ export default function ProgramsPage() {
           />
         </div>
       </Section>
-
       <Section background="green">
         <div className="mx-auto max-w-[800px] text-center">
           <h2 className="section-title">Why Choose Our Programs?</h2>
@@ -131,7 +127,6 @@ export default function ProgramsPage() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

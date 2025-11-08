@@ -34,7 +34,7 @@ export default function VerifyCertificatePage() {
       <div className="section">
         <div className="container max-w-2xl">
           <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
             <p className="mt-4 text-brown-600">Verifying certificate...</p>
           </div>
         </div>
@@ -84,7 +84,6 @@ export default function VerifyCertificatePage() {
               This is a valid certificate issued by Elevate for Humanity
             </p>
           </div>
-
           {/* Certificate Details */}
           <div className="border-t border-brown-200 pt-6 mt-6">
             <div className="grid md:grid-cols-2 gap-6">
@@ -98,7 +97,6 @@ export default function VerifyCertificatePage() {
                     'Student'}
                 </p>
               </div>
-
               <div>
                 <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
                   Course Name
@@ -107,14 +105,12 @@ export default function VerifyCertificatePage() {
                   {cert.courses?.title || 'Course'}
                 </p>
               </div>
-
               <div>
                 <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
                   Issue Date
                 </h3>
                 <p className="text-lg text-brown-900">{issueDate}</p>
               </div>
-
               <div>
                 <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
                   Certificate Number
@@ -123,7 +119,6 @@ export default function VerifyCertificatePage() {
                   {cert.certificate_number}
                 </p>
               </div>
-
               {cert.courses?.program_type && (
                 <div>
                   <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
@@ -134,7 +129,6 @@ export default function VerifyCertificatePage() {
                   </p>
                 </div>
               )}
-
               {cert.courses?.total_hours && (
                 <div>
                   <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
@@ -145,7 +139,6 @@ export default function VerifyCertificatePage() {
                   </p>
                 </div>
               )}
-
               {cert.grade && (
                 <div>
                   <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
@@ -154,7 +147,6 @@ export default function VerifyCertificatePage() {
                   <p className="text-lg text-brown-900">{cert.grade}</p>
                 </div>
               )}
-
               <div>
                 <h3 className="text-sm font-semibold text-brown-500 uppercase mb-1">
                   Status
@@ -163,7 +155,6 @@ export default function VerifyCertificatePage() {
               </div>
             </div>
           </div>
-
           {/* Actions */}
           <div className="border-t border-brown-200 pt-6 mt-6 flex gap-4 justify-center">
             <Link to={`/certificate/${cert.id}`} className="btn-primary">
@@ -171,7 +162,6 @@ export default function VerifyCertificatePage() {
             </Link>
           </div>
         </div>
-
         {/* Additional Info */}
         <div className="card p-6 bg-beige-50">
           <h3 className="text-lg font-semibold text-brown-900 mb-3">

@@ -42,8 +42,7 @@ export function ElevateBrain() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background:
-            'linear-gradient(135deg, #4a3728 0%, #4a3728 100%)',
+          background: 'linear-gradient(135deg, #4a3728 0%, #4a3728 100%)',
         }}
       >
         <div
@@ -67,9 +66,7 @@ export function ElevateBrain() {
             >
               Elevate Brain
             </h1>
-            <p style={{ color: '#6b5d52' }}>
-              Internal Operations Hub
-            </p>
+            <p style={{ color: '#6b5d52' }}>Internal Operations Hub</p>
           </div>
           <form onSubmit={handleLogin}>
             <div style={{ marginBottom: '1.5rem' }}>
@@ -130,9 +127,7 @@ export function ElevateBrain() {
   }
 
   return (
-    <div
-      style={{ minHeight: '100vh', backgroundColor: '#f5f1e8' }}
-    >
+    <div style={{ minHeight: '100vh', backgroundColor: '#f5f1e8' }}>
       {/* Header */}
       <div
         style={{

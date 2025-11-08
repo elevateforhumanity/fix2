@@ -24,9 +24,7 @@ export default function DurableTemplates() {
           content="Pre-built learning paths designed by industry experts"
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="beige">
         <div className="text-center mb-12">
           <h1 className="section-title">Program Templates</h1>
@@ -34,7 +32,6 @@ export default function DurableTemplates() {
             Pre-built learning paths designed by industry experts
           </p>
         </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {templates.map((template, index) => (
             <div key={index} className="card p-8 hover:shadow-lg transition">
@@ -55,7 +52,6 @@ export default function DurableTemplates() {
           ))}
         </div>
       </Section>
-
       <Footer />
     </div>
   );

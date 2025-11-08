@@ -1,1 +1,103 @@
-import{j as i}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";function r(){return i.jsxs("main",{role:"main",style:{padding:32,maxWidth:900,margin:"0 auto"},children:[i.jsx("h1",{children:"Funding Impact"}),i.jsx("p",{children:"Track the impact of workforce funding programs including WIOA, WRG, and VR."}),i.jsxs("div",{style:{marginTop:32},children:[i.jsx("h2",{children:"Program Metrics"}),i.jsxs("div",{style:{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))",gap:16,marginTop:16},children:[i.jsxs("div",{style:{padding:16,border:"1px solid #d4c9b8",borderRadius:8},children:[i.jsx("h3",{children:"WIOA Participants"}),i.jsx("p",{style:{fontSize:32,fontWeight:"bold",color:"#4f46e5"},children:"247"})]}),i.jsxs("div",{style:{padding:16,border:"1px solid #d4c9b8",borderRadius:8},children:[i.jsx("h3",{children:"WRG Enrollments"}),i.jsx("p",{style:{fontSize:32,fontWeight:"bold",color:"#00a544"},children:"89"})]}),i.jsxs("div",{style:{padding:16,border:"1px solid #d4c9b8",borderRadius:8},children:[i.jsx("h3",{children:"VR Placements"}),i.jsx("p",{style:{fontSize:32,fontWeight:"bold",color:"#ca8a04"},children:"34"})]})]})]}),i.jsxs("div",{style:{marginTop:32},children:[i.jsx("h2",{children:"Success Stories"}),i.jsxs("ul",{children:[i.jsx("li",{children:"95% job placement rate for WIOA participants"}),i.jsx("li",{children:"$2.3M in workforce funding secured"}),i.jsx("li",{children:"450+ individuals trained and certified"})]})]})]})}export{r as default};
+import { j as i } from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+function r() {
+  return i.jsxs('main', {
+    role: 'main',
+    style: { padding: 32, maxWidth: 900, margin: '0 auto' },
+    children: [
+      i.jsx('h1', { children: 'Funding Impact' }),
+      i.jsx('p', {
+        children:
+          'Track the impact of workforce funding programs including WIOA, WRG, and VR.',
+      }),
+      i.jsxs('div', {
+        style: { marginTop: 32 },
+        children: [
+          i.jsx('h2', { children: 'Program Metrics' }),
+          i.jsxs('div', {
+            style: {
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: 16,
+              marginTop: 16,
+            },
+            children: [
+              i.jsxs('div', {
+                style: {
+                  padding: 16,
+                  border: '1px solid #d4c9b8',
+                  borderRadius: 8,
+                },
+                children: [
+                  i.jsx('h3', { children: 'WIOA Participants' }),
+                  i.jsx('p', {
+                    style: {
+                      fontSize: 32,
+                      fontWeight: 'bold',
+                      color: '#4f46e5',
+                    },
+                    children: '247',
+                  }),
+                ],
+              }),
+              i.jsxs('div', {
+                style: {
+                  padding: 16,
+                  border: '1px solid #d4c9b8',
+                  borderRadius: 8,
+                },
+                children: [
+                  i.jsx('h3', { children: 'WRG Enrollments' }),
+                  i.jsx('p', {
+                    style: {
+                      fontSize: 32,
+                      fontWeight: 'bold',
+                      color: '#00a544',
+                    },
+                    children: '89',
+                  }),
+                ],
+              }),
+              i.jsxs('div', {
+                style: {
+                  padding: 16,
+                  border: '1px solid #d4c9b8',
+                  borderRadius: 8,
+                },
+                children: [
+                  i.jsx('h3', { children: 'VR Placements' }),
+                  i.jsx('p', {
+                    style: {
+                      fontSize: 32,
+                      fontWeight: 'bold',
+                      color: '#ca8a04',
+                    },
+                    children: '34',
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      i.jsxs('div', {
+        style: { marginTop: 32 },
+        children: [
+          i.jsx('h2', { children: 'Success Stories' }),
+          i.jsxs('ul', {
+            children: [
+              i.jsx('li', {
+                children: '95% job placement rate for WIOA participants',
+              }),
+              i.jsx('li', { children: '$2.3M in workforce funding secured' }),
+              i.jsx('li', {
+                children: '450+ individuals trained and certified',
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { r as default };

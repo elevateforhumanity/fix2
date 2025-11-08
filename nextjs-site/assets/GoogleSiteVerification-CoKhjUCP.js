@@ -1,1 +1,37 @@
-import{j as e,H as i}from"./vendor-react-C-ZQNdj3.js";import{N as o}from"./Navigation-Bbm4Xzc1.js";import{S as r}from"./Section-DjKsK8lK.js";import{F as s}from"./Footer-Dh9yHrAI.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function t(){return e.jsxs("div",{children:[e.jsx(i,{children:e.jsx("title",{children:"Google Site Verification | Elevate for Humanity"})}),e.jsx(o,{}),e.jsx(r,{background:"white",children:e.jsxs("div",{className:"mx-auto max-w-[800px]",children:[e.jsx("h1",{className:"section-title",children:"Google Site Verification"}),e.jsx("p",{className:"text-brown-700 mt-4",children:"This page is used for Google Search Console verification."})]})}),e.jsx(s,{})]})}export{t as default};
+import { j as e, H as i } from './vendor-react-C-ZQNdj3.js';
+import { N as o } from './Navigation-Bbm4Xzc1.js';
+import { S as r } from './Section-DjKsK8lK.js';
+import { F as s } from './Footer-Dh9yHrAI.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function t() {
+  return e.jsxs('div', {
+    children: [
+      e.jsx(i, {
+        children: e.jsx('title', {
+          children: 'Google Site Verification | Elevate for Humanity',
+        }),
+      }),
+      e.jsx(o, {}),
+      e.jsx(r, {
+        background: 'white',
+        children: e.jsxs('div', {
+          className: 'mx-auto max-w-[800px]',
+          children: [
+            e.jsx('h1', {
+              className: 'section-title',
+              children: 'Google Site Verification',
+            }),
+            e.jsx('p', {
+              className: 'text-brown-700 mt-4',
+              children:
+                'This page is used for Google Search Console verification.',
+            }),
+          ],
+        }),
+      }),
+      e.jsx(s, {}),
+    ],
+  });
+}
+export { t as default };

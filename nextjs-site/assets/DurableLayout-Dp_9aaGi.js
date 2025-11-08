@@ -1,1 +1,242 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import{L as r}from"./vendor-router-CQjfSXV_.js";import"./index-B6RgxnAC.js";const t=()=>e.jsx("nav",{role:"navigation",className:"durable-nav",children:e.jsxs("div",{className:"nav-container",children:[e.jsx(r,{to:"/",className:"nav-logo",children:"Elevate for Humanity"}),e.jsxs("div",{className:"nav-links",children:[e.jsx(r,{to:"/durable-ai",children:"Durable AI"}),e.jsx(r,{to:"/blog",children:"Blog"}),e.jsx(r,{to:"/about",children:"About"}),e.jsx(r,{to:"/contact",children:"Contact"})]})]})});function i(){return e.jsx("footer",{className:"footer",children:e.jsxs("div",{className:"container",children:[e.jsxs("div",{className:"flex flex-wrap gap-8",style:{marginBottom:"3rem"},children:[e.jsxs("div",{style:{flex:"1 1 250px"},children:[e.jsx("h3",{style:{fontSize:"1.25rem",marginBottom:"1rem",color:"white"},children:"Elevate for Humanity"}),e.jsx("p",{style:{fontSize:"0.875rem",marginBottom:"0.5rem"},children:"Career & Technical Institute"}),e.jsx("p",{style:{fontSize:"0.875rem",opacity:.8},children:"Empowering futures through workforce training and apprenticeship programs in Marion County, Indiana."})]}),e.jsxs("div",{style:{flex:"1 1 200px"},children:[e.jsx("h4",{style:{fontSize:"1rem",marginBottom:"1rem",color:"white"},children:"Programs"}),e.jsxs("ul",{style:{listStyle:"none",padding:0},children:[e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/programs/barber",children:"Barber Apprenticeship"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/programs/building-tech",children:"Building Services"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/programs/hvac",children:"HVAC & Welding"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/programs/healthcare",children:"Healthcare CNA/QMA"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/programs",children:"View All Programs"})})]})]}),e.jsxs("div",{style:{flex:"1 1 200px"},children:[e.jsx("h4",{style:{fontSize:"1rem",marginBottom:"1rem",color:"white"},children:"Quick Links"}),e.jsxs("ul",{style:{listStyle:"none",padding:0},children:[e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/about",children:"About Us"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/partners",children:"Partners & Employers"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/lms",children:"Student Portal"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/apply",children:"Apply Now"})}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:e.jsx(r,{to:"/contact",children:"Contact"})})]})]}),e.jsxs("div",{style:{flex:"1 1 200px"},children:[e.jsx("h4",{style:{fontSize:"1rem",marginBottom:"1rem",color:"white"},children:"Contact"}),e.jsxs("ul",{style:{listStyle:"none",padding:0},children:[e.jsx("li",{style:{marginBottom:"0.5rem"},children:"📍 Marion County, IN"}),e.jsx("li",{style:{marginBottom:"0.5rem"},children:"📧 elevateforhumanity@gmail.com"}),e.jsxs("li",{style:{marginBottom:"0.5rem"},children:["🌐"," ",e.jsx("a",{href:"https://www.indianacareerconnect.com",target:"_blank",rel:"noopener noreferrer",children:"Indiana Career Connect"})]})]})]})]}),e.jsxs("div",{style:{borderTop:"1px solid rgba(255,255,255,0.2)",paddingTop:"2rem",display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:"1rem"},children:[e.jsx("p",{style:{fontSize:"0.875rem",opacity:.8},children:"© 2025 Elevate for Humanity Career and Technical Institute. All rights reserved."}),e.jsxs("div",{style:{display:"flex",gap:"1.5rem",fontSize:"0.875rem"},children:[e.jsx(r,{to:"/legal/privacy",children:"Privacy Policy"}),e.jsx(r,{to:"/legal/terms",children:"Terms of Service"})]})]})]})})}function l({children:r}){return e.jsxs("div",{className:"durable-layout",children:[e.jsx(t,{}),e.jsx("main",{children:r}),e.jsx(i,{})]})}export{l as D};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import { L as r } from './vendor-router-CQjfSXV_.js';
+import './index-B6RgxnAC.js';
+const t = () =>
+  e.jsx('nav', {
+    role: 'navigation',
+    className: 'durable-nav',
+    children: e.jsxs('div', {
+      className: 'nav-container',
+      children: [
+        e.jsx(r, {
+          to: '/',
+          className: 'nav-logo',
+          children: 'Elevate for Humanity',
+        }),
+        e.jsxs('div', {
+          className: 'nav-links',
+          children: [
+            e.jsx(r, { to: '/durable-ai', children: 'Durable AI' }),
+            e.jsx(r, { to: '/blog', children: 'Blog' }),
+            e.jsx(r, { to: '/about', children: 'About' }),
+            e.jsx(r, { to: '/contact', children: 'Contact' }),
+          ],
+        }),
+      ],
+    }),
+  });
+function i() {
+  return e.jsx('footer', {
+    className: 'footer',
+    children: e.jsxs('div', {
+      className: 'container',
+      children: [
+        e.jsxs('div', {
+          className: 'flex flex-wrap gap-8',
+          style: { marginBottom: '3rem' },
+          children: [
+            e.jsxs('div', {
+              style: { flex: '1 1 250px' },
+              children: [
+                e.jsx('h3', {
+                  style: {
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  },
+                  children: 'Elevate for Humanity',
+                }),
+                e.jsx('p', {
+                  style: { fontSize: '0.875rem', marginBottom: '0.5rem' },
+                  children: 'Career & Technical Institute',
+                }),
+                e.jsx('p', {
+                  style: { fontSize: '0.875rem', opacity: 0.8 },
+                  children:
+                    'Empowering futures through workforce training and apprenticeship programs in Marion County, Indiana.',
+                }),
+              ],
+            }),
+            e.jsxs('div', {
+              style: { flex: '1 1 200px' },
+              children: [
+                e.jsx('h4', {
+                  style: {
+                    fontSize: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  },
+                  children: 'Programs',
+                }),
+                e.jsxs('ul', {
+                  style: { listStyle: 'none', padding: 0 },
+                  children: [
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/programs/barber',
+                        children: 'Barber Apprenticeship',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/programs/building-tech',
+                        children: 'Building Services',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/programs/hvac',
+                        children: 'HVAC & Welding',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/programs/healthcare',
+                        children: 'Healthcare CNA/QMA',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/programs',
+                        children: 'View All Programs',
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('div', {
+              style: { flex: '1 1 200px' },
+              children: [
+                e.jsx('h4', {
+                  style: {
+                    fontSize: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  },
+                  children: 'Quick Links',
+                }),
+                e.jsxs('ul', {
+                  style: { listStyle: 'none', padding: 0 },
+                  children: [
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/about',
+                        children: 'About Us',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/partners',
+                        children: 'Partners & Employers',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/lms',
+                        children: 'Student Portal',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/apply',
+                        children: 'Apply Now',
+                      }),
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: e.jsx(r, {
+                        to: '/contact',
+                        children: 'Contact',
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('div', {
+              style: { flex: '1 1 200px' },
+              children: [
+                e.jsx('h4', {
+                  style: {
+                    fontSize: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  },
+                  children: 'Contact',
+                }),
+                e.jsxs('ul', {
+                  style: { listStyle: 'none', padding: 0 },
+                  children: [
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: '📍 Marion County, IN',
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: '📧 elevateforhumanity@gmail.com',
+                    }),
+                    e.jsxs('li', {
+                      style: { marginBottom: '0.5rem' },
+                      children: [
+                        '🌐',
+                        ' ',
+                        e.jsx('a', {
+                          href: 'https://www.indianacareerconnect.com',
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                          children: 'Indiana Career Connect',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+        e.jsxs('div', {
+          style: {
+            borderTop: '1px solid rgba(255,255,255,0.2)',
+            paddingTop: '2rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '1rem',
+          },
+          children: [
+            e.jsx('p', {
+              style: { fontSize: '0.875rem', opacity: 0.8 },
+              children:
+                '© 2025 Elevate for Humanity Career and Technical Institute. All rights reserved.',
+            }),
+            e.jsxs('div', {
+              style: { display: 'flex', gap: '1.5rem', fontSize: '0.875rem' },
+              children: [
+                e.jsx(r, { to: '/legal/privacy', children: 'Privacy Policy' }),
+                e.jsx(r, { to: '/legal/terms', children: 'Terms of Service' }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+function l({ children: r }) {
+  return e.jsxs('div', {
+    className: 'durable-layout',
+    children: [e.jsx(t, {}), e.jsx('main', { children: r }), e.jsx(i, {})],
+  });
+}
+export { l as D };

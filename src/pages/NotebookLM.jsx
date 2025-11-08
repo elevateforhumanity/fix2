@@ -137,8 +137,7 @@ export function NotebookLM() {
               width: '100%',
               padding: '0.75rem',
               marginBottom: '0.5rem',
-              backgroundColor:
-                view === 'sources' ? '#00a544' : '#fff',
+              backgroundColor: view === 'sources' ? '#00a544' : '#fff',
               color: view === 'sources' ? '#fff' : '#000',
               border: '1px solid #c4b5a0',
               borderRadius: '0.375rem',

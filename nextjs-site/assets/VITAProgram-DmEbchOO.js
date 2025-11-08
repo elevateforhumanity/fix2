@@ -1,1 +1,381 @@
-import{j as e,A as s,a4 as a,W as i,I as t,G as l,ad as r,U as n,q as c}from"./vendor-react-C-ZQNdj3.js";import{L as x}from"./vendor-router-CQjfSXV_.js";import{A as d}from"./AppLayout-DjgAzEIN.js";import{u as o}from"./useAnalytics-D9HJkF-x.js";import{B as m,C as h,a as g,b as p,d as j,e as u}from"./button-B_Plb33j.js";import{B as b}from"./badge-Cyxi6-_y.js";import"./vendor-Da1LjC7-.js";function v(){o("VITA Program");const v=[{icon:a,title:"Free Tax Preparation",description:"IRS-certified volunteers provide free tax preparation services for individuals and families earning $64,000 or less per year."},{icon:i,title:"Financial Education",description:"Comprehensive financial literacy programs covering budgeting, saving, credit management, and long-term financial planning."},{icon:t,title:"Asset Building",description:"Programs designed to help individuals and families build wealth through savings, homeownership, and investment education."},{icon:l,title:"Volunteer Training",description:"IRS-certified training for volunteers who want to help their community with tax preparation and financial education."}];return e.jsx(d,{title:"VITA Program - Free Tax Help & Financial Education",children:e.jsxs("div",{className:"min-h-screen bg-background",children:[e.jsxs("section",{className:"relative bg-gradient-to-br from-green-700 via-emerald-600 to-teal-700 text-white py-24 px-4 overflow-hidden",children:[e.jsx("div",{className:"absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]"}),e.jsx("div",{className:"absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"}),e.jsxs("div",{className:"relative max-w-6xl mx-auto text-center",children:[e.jsxs(b,{className:"mb-6 text-base px-6 py-2 bg-white/20 backdrop-blur-sm border-white/30",children:[e.jsx(s,{className:"h-4 w-4 mr-2"}),"IRS Recognized Partner"]}),e.jsxs("h1",{className:"text-5xl md:text-7xl font-extrabold mb-6 leading-tight",children:["VITA Program",e.jsx("br",{}),e.jsx("span",{className:"text-yellow-300",children:"Free Tax Help & Financial Education"})]}),e.jsx("p",{className:"text-xl md:text-2xl text-green-100 mb-12 max-w-3xl mx-auto",children:"Recognized IRS Financial Education and Asset Building Partner"}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 justify-center",children:[e.jsx(m,{size:"lg",className:"bg-white text-green-700 hover:bg-green-50 text-lg px-8 py-6",asChild:!0,children:e.jsx(x,{to:"/apply",children:"Get Free Tax Help"})}),e.jsx(m,{size:"lg",variant:"outline",className:"border-white text-white hover:bg-white/10 text-lg px-8 py-6",asChild:!0,children:e.jsx(x,{to:"/programs",children:"View All Programs"})})]})]})]}),e.jsx("section",{className:"py-16 px-4 bg-green-50",children:e.jsx("div",{className:"max-w-6xl mx-auto text-center",children:e.jsxs("div",{className:"inline-flex items-center gap-4 bg-white rounded-2xl px-8 py-6 shadow-lg",children:[e.jsx(s,{className:"h-12 w-12 text-green-600"}),e.jsxs("div",{className:"text-left",children:[e.jsx("div",{className:"text-2xl font-bold text-gray-900",children:"IRS Recognized Partner"}),e.jsx("div",{className:"text-gray-600",children:"Financial Education & Asset Building"})]})]})})}),e.jsx("section",{className:"py-20 px-4 bg-white",children:e.jsxs("div",{className:"max-w-7xl mx-auto",children:[e.jsxs("div",{className:"text-center mb-16",children:[e.jsx(b,{className:"mb-4 text-base px-6 py-2",children:"Our Services"}),e.jsx("h2",{className:"text-4xl md:text-5xl font-bold text-gray-900 mb-6",children:"How We Help You"}),e.jsx("p",{className:"text-xl text-gray-600 max-w-3xl mx-auto",children:"Comprehensive financial services to help you succeed"})]}),e.jsx("div",{className:"grid md:grid-cols-2 lg:grid-cols-4 gap-8",children:v.map((s,a)=>e.jsx(h,{className:"group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2",children:e.jsxs(g,{children:[e.jsx("div",{className:"w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform",children:e.jsx(s.icon,{className:"h-8 w-8 text-green-600"})}),e.jsx(p,{className:"text-xl",children:s.title}),e.jsx(j,{className:"text-base",children:s.description})]})},a))})]})}),e.jsx("section",{className:"py-20 px-4 bg-gray-50",children:e.jsx("div",{className:"max-w-7xl mx-auto",children:e.jsxs("div",{className:"grid md:grid-cols-2 gap-12",children:[e.jsxs(h,{className:"border-2 shadow-xl",children:[e.jsxs(g,{children:[e.jsx("div",{className:"w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4",children:e.jsx(r,{className:"h-8 w-8 text-green-600"})}),e.jsx(p,{className:"text-3xl",children:"What You Get"}),e.jsx(j,{className:"text-base",children:"Free services available to eligible individuals"})]}),e.jsx(u,{children:e.jsx("ul",{className:"space-y-3",children:["Free federal and state tax return preparation","Electronic filing for faster refunds","Direct deposit options","Financial literacy workshops","Asset building counseling","Credit counseling and repair guidance","Savings and investment education","Homeownership preparation"].map((s,a)=>e.jsxs("li",{className:"flex items-start gap-3",children:[e.jsx(r,{className:"h-5 w-5 text-green-600 mt-0.5 flex-shrink-0"}),e.jsx("span",{className:"text-gray-700",children:s})]},a))})})]}),e.jsxs(h,{className:"border-2 shadow-xl",children:[e.jsxs(g,{children:[e.jsx("div",{className:"w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4",children:e.jsx(n,{className:"h-8 w-8 text-blue-600"})}),e.jsx(p,{className:"text-3xl",children:"Who Qualifies"}),e.jsx(j,{className:"text-base",children:"VITA services are available to:"})]}),e.jsx(u,{children:e.jsx("ul",{className:"space-y-3",children:["Individuals earning $64,000 or less annually","Families with children","Seniors and retirees","People with disabilities","Limited English speakers","Military personnel and veterans"].map((s,a)=>e.jsxs("li",{className:"flex items-start gap-3",children:[e.jsx(r,{className:"h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0"}),e.jsx("span",{className:"text-gray-700",children:s})]},a))})})]})]})})}),e.jsx("section",{className:"py-20 px-4 bg-gradient-to-br from-green-700 to-emerald-600 text-white",children:e.jsxs("div",{className:"max-w-4xl mx-auto text-center",children:[e.jsx(c,{className:"h-16 w-16 mx-auto mb-6 text-yellow-300"}),e.jsx("h2",{className:"text-4xl md:text-5xl font-bold mb-6",children:"Get Started Today"}),e.jsx("p",{className:"text-xl text-green-100 mb-8 max-w-2xl mx-auto",children:"Join thousands of individuals and families who have benefited from our free tax preparation and financial education services."}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 justify-center",children:[e.jsx(m,{size:"lg",className:"bg-white text-green-700 hover:bg-green-50 text-lg px-8 py-6",asChild:!0,children:e.jsx(x,{to:"/apply",children:"Apply Now"})}),e.jsx(m,{size:"lg",variant:"outline",className:"border-white text-white hover:bg-white/10 text-lg px-8 py-6",asChild:!0,children:e.jsx(x,{to:"/contact",children:"Contact Us"})})]})]})})]})})}export{v as default};
+import {
+  j as e,
+  A as s,
+  a4 as a,
+  W as i,
+  I as t,
+  G as l,
+  ad as r,
+  U as n,
+  q as c,
+} from './vendor-react-C-ZQNdj3.js';
+import { L as x } from './vendor-router-CQjfSXV_.js';
+import { A as d } from './AppLayout-DjgAzEIN.js';
+import { u as o } from './useAnalytics-D9HJkF-x.js';
+import {
+  B as m,
+  C as h,
+  a as g,
+  b as p,
+  d as j,
+  e as u,
+} from './button-B_Plb33j.js';
+import { B as b } from './badge-Cyxi6-_y.js';
+import './vendor-Da1LjC7-.js';
+function v() {
+  o('VITA Program');
+  const v = [
+    {
+      icon: a,
+      title: 'Free Tax Preparation',
+      description:
+        'IRS-certified volunteers provide free tax preparation services for individuals and families earning $64,000 or less per year.',
+    },
+    {
+      icon: i,
+      title: 'Financial Education',
+      description:
+        'Comprehensive financial literacy programs covering budgeting, saving, credit management, and long-term financial planning.',
+    },
+    {
+      icon: t,
+      title: 'Asset Building',
+      description:
+        'Programs designed to help individuals and families build wealth through savings, homeownership, and investment education.',
+    },
+    {
+      icon: l,
+      title: 'Volunteer Training',
+      description:
+        'IRS-certified training for volunteers who want to help their community with tax preparation and financial education.',
+    },
+  ];
+  return e.jsx(d, {
+    title: 'VITA Program - Free Tax Help & Financial Education',
+    children: e.jsxs('div', {
+      className: 'min-h-screen bg-background',
+      children: [
+        e.jsxs('section', {
+          className:
+            'relative bg-gradient-to-br from-green-700 via-emerald-600 to-teal-700 text-white py-24 px-4 overflow-hidden',
+          children: [
+            e.jsx('div', {
+              className:
+                'absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]',
+            }),
+            e.jsx('div', {
+              className:
+                'absolute inset-0 bg-gradient-to-t from-black/20 to-transparent',
+            }),
+            e.jsxs('div', {
+              className: 'relative max-w-6xl mx-auto text-center',
+              children: [
+                e.jsxs(b, {
+                  className:
+                    'mb-6 text-base px-6 py-2 bg-white/20 backdrop-blur-sm border-white/30',
+                  children: [
+                    e.jsx(s, { className: 'h-4 w-4 mr-2' }),
+                    'IRS Recognized Partner',
+                  ],
+                }),
+                e.jsxs('h1', {
+                  className:
+                    'text-5xl md:text-7xl font-extrabold mb-6 leading-tight',
+                  children: [
+                    'VITA Program',
+                    e.jsx('br', {}),
+                    e.jsx('span', {
+                      className: 'text-yellow-300',
+                      children: 'Free Tax Help & Financial Education',
+                    }),
+                  ],
+                }),
+                e.jsx('p', {
+                  className:
+                    'text-xl md:text-2xl text-green-100 mb-12 max-w-3xl mx-auto',
+                  children:
+                    'Recognized IRS Financial Education and Asset Building Partner',
+                }),
+                e.jsxs('div', {
+                  className: 'flex flex-col sm:flex-row gap-4 justify-center',
+                  children: [
+                    e.jsx(m, {
+                      size: 'lg',
+                      className:
+                        'bg-white text-green-700 hover:bg-green-50 text-lg px-8 py-6',
+                      asChild: !0,
+                      children: e.jsx(x, {
+                        to: '/apply',
+                        children: 'Get Free Tax Help',
+                      }),
+                    }),
+                    e.jsx(m, {
+                      size: 'lg',
+                      variant: 'outline',
+                      className:
+                        'border-white text-white hover:bg-white/10 text-lg px-8 py-6',
+                      asChild: !0,
+                      children: e.jsx(x, {
+                        to: '/programs',
+                        children: 'View All Programs',
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+        e.jsx('section', {
+          className: 'py-16 px-4 bg-green-50',
+          children: e.jsx('div', {
+            className: 'max-w-6xl mx-auto text-center',
+            children: e.jsxs('div', {
+              className:
+                'inline-flex items-center gap-4 bg-white rounded-2xl px-8 py-6 shadow-lg',
+              children: [
+                e.jsx(s, { className: 'h-12 w-12 text-green-600' }),
+                e.jsxs('div', {
+                  className: 'text-left',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-2xl font-bold text-gray-900',
+                      children: 'IRS Recognized Partner',
+                    }),
+                    e.jsx('div', {
+                      className: 'text-gray-600',
+                      children: 'Financial Education & Asset Building',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        }),
+        e.jsx('section', {
+          className: 'py-20 px-4 bg-white',
+          children: e.jsxs('div', {
+            className: 'max-w-7xl mx-auto',
+            children: [
+              e.jsxs('div', {
+                className: 'text-center mb-16',
+                children: [
+                  e.jsx(b, {
+                    className: 'mb-4 text-base px-6 py-2',
+                    children: 'Our Services',
+                  }),
+                  e.jsx('h2', {
+                    className:
+                      'text-4xl md:text-5xl font-bold text-gray-900 mb-6',
+                    children: 'How We Help You',
+                  }),
+                  e.jsx('p', {
+                    className: 'text-xl text-gray-600 max-w-3xl mx-auto',
+                    children:
+                      'Comprehensive financial services to help you succeed',
+                  }),
+                ],
+              }),
+              e.jsx('div', {
+                className: 'grid md:grid-cols-2 lg:grid-cols-4 gap-8',
+                children: v.map((s, a) =>
+                  e.jsx(
+                    h,
+                    {
+                      className:
+                        'group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2',
+                      children: e.jsxs(g, {
+                        children: [
+                          e.jsx('div', {
+                            className:
+                              'w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform',
+                            children: e.jsx(s.icon, {
+                              className: 'h-8 w-8 text-green-600',
+                            }),
+                          }),
+                          e.jsx(p, { className: 'text-xl', children: s.title }),
+                          e.jsx(j, {
+                            className: 'text-base',
+                            children: s.description,
+                          }),
+                        ],
+                      }),
+                    },
+                    a
+                  )
+                ),
+              }),
+            ],
+          }),
+        }),
+        e.jsx('section', {
+          className: 'py-20 px-4 bg-gray-50',
+          children: e.jsx('div', {
+            className: 'max-w-7xl mx-auto',
+            children: e.jsxs('div', {
+              className: 'grid md:grid-cols-2 gap-12',
+              children: [
+                e.jsxs(h, {
+                  className: 'border-2 shadow-xl',
+                  children: [
+                    e.jsxs(g, {
+                      children: [
+                        e.jsx('div', {
+                          className:
+                            'w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4',
+                          children: e.jsx(r, {
+                            className: 'h-8 w-8 text-green-600',
+                          }),
+                        }),
+                        e.jsx(p, {
+                          className: 'text-3xl',
+                          children: 'What You Get',
+                        }),
+                        e.jsx(j, {
+                          className: 'text-base',
+                          children:
+                            'Free services available to eligible individuals',
+                        }),
+                      ],
+                    }),
+                    e.jsx(u, {
+                      children: e.jsx('ul', {
+                        className: 'space-y-3',
+                        children: [
+                          'Free federal and state tax return preparation',
+                          'Electronic filing for faster refunds',
+                          'Direct deposit options',
+                          'Financial literacy workshops',
+                          'Asset building counseling',
+                          'Credit counseling and repair guidance',
+                          'Savings and investment education',
+                          'Homeownership preparation',
+                        ].map((s, a) =>
+                          e.jsxs(
+                            'li',
+                            {
+                              className: 'flex items-start gap-3',
+                              children: [
+                                e.jsx(r, {
+                                  className:
+                                    'h-5 w-5 text-green-600 mt-0.5 flex-shrink-0',
+                                }),
+                                e.jsx('span', {
+                                  className: 'text-gray-700',
+                                  children: s,
+                                }),
+                              ],
+                            },
+                            a
+                          )
+                        ),
+                      }),
+                    }),
+                  ],
+                }),
+                e.jsxs(h, {
+                  className: 'border-2 shadow-xl',
+                  children: [
+                    e.jsxs(g, {
+                      children: [
+                        e.jsx('div', {
+                          className:
+                            'w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4',
+                          children: e.jsx(n, {
+                            className: 'h-8 w-8 text-blue-600',
+                          }),
+                        }),
+                        e.jsx(p, {
+                          className: 'text-3xl',
+                          children: 'Who Qualifies',
+                        }),
+                        e.jsx(j, {
+                          className: 'text-base',
+                          children: 'VITA services are available to:',
+                        }),
+                      ],
+                    }),
+                    e.jsx(u, {
+                      children: e.jsx('ul', {
+                        className: 'space-y-3',
+                        children: [
+                          'Individuals earning $64,000 or less annually',
+                          'Families with children',
+                          'Seniors and retirees',
+                          'People with disabilities',
+                          'Limited English speakers',
+                          'Military personnel and veterans',
+                        ].map((s, a) =>
+                          e.jsxs(
+                            'li',
+                            {
+                              className: 'flex items-start gap-3',
+                              children: [
+                                e.jsx(r, {
+                                  className:
+                                    'h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0',
+                                }),
+                                e.jsx('span', {
+                                  className: 'text-gray-700',
+                                  children: s,
+                                }),
+                              ],
+                            },
+                            a
+                          )
+                        ),
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        }),
+        e.jsx('section', {
+          className:
+            'py-20 px-4 bg-gradient-to-br from-green-700 to-emerald-600 text-white',
+          children: e.jsxs('div', {
+            className: 'max-w-4xl mx-auto text-center',
+            children: [
+              e.jsx(c, { className: 'h-16 w-16 mx-auto mb-6 text-yellow-300' }),
+              e.jsx('h2', {
+                className: 'text-4xl md:text-5xl font-bold mb-6',
+                children: 'Get Started Today',
+              }),
+              e.jsx('p', {
+                className: 'text-xl text-green-100 mb-8 max-w-2xl mx-auto',
+                children:
+                  'Join thousands of individuals and families who have benefited from our free tax preparation and financial education services.',
+              }),
+              e.jsxs('div', {
+                className: 'flex flex-col sm:flex-row gap-4 justify-center',
+                children: [
+                  e.jsx(m, {
+                    size: 'lg',
+                    className:
+                      'bg-white text-green-700 hover:bg-green-50 text-lg px-8 py-6',
+                    asChild: !0,
+                    children: e.jsx(x, { to: '/apply', children: 'Apply Now' }),
+                  }),
+                  e.jsx(m, {
+                    size: 'lg',
+                    variant: 'outline',
+                    className:
+                      'border-white text-white hover:bg-white/10 text-lg px-8 py-6',
+                    asChild: !0,
+                    children: e.jsx(x, {
+                      to: '/contact',
+                      children: 'Contact Us',
+                    }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      ],
+    }),
+  });
+}
+export { v as default };

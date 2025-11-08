@@ -119,13 +119,11 @@ export default function Hero({
           </div>
         </div>
       )}
-
       {!showCarousel && (
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">{title}</h1>
             <p className="hero-subtitle">{subtitle}</p>
-
             {badges.length > 0 && (
               <div className="flex flex-wrap gap-6 justify-center mb-8">
                 {badges.map((badge, index) => (
@@ -138,7 +136,6 @@ export default function Hero({
                 ))}
               </div>
             )}
-
             {(primaryButton || secondaryButton) && (
               <div className="flex flex-wrap gap-6 justify-center">
                 {primaryButton && (

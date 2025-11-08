@@ -156,12 +156,8 @@ export default function Support() {
                 borderRadius: 8,
                 outline: 'none',
               }}
-              onFocus={(e) =>
-                (e.target.style.borderColor = '#00a544')
-              }
-              onBlur={(e) =>
-                (e.target.style.borderColor = '#d4c9b8')
-              }
+              onFocus={(e) => (e.target.style.borderColor = '#00a544')}
+              onBlur={(e) => (e.target.style.borderColor = '#d4c9b8')}
             />
           </div>
         </div>
@@ -306,9 +302,7 @@ export default function Support() {
                 style={{
                   padding: '8px 16px',
                   backgroundColor:
-                    selectedCategory === category
-                      ? '#00a544'
-                      : '#fff',
+                    selectedCategory === category ? '#00a544' : '#fff',
                   color: selectedCategory === category ? '#fff' : '#333',
                   border: '1px solid #d4c9b8',
                   borderRadius: 20,
@@ -346,9 +340,7 @@ export default function Support() {
                   }}
                 >
                   {faq.question}
-                  <span style={{ fontSize: 20, color: '#00a544' }}>
-                    +
-                  </span>
+                  <span style={{ fontSize: 20, color: '#00a544' }}>+</span>
                 </summary>
                 <div
                   style={{

@@ -136,9 +136,7 @@ export default function Instructor() {
           >
             Need Help?
           </h2>
-          <p
-            style={{ marginBottom: '1.5rem', color: '#6b5d52' }}
-          >
+          <p style={{ marginBottom: '1.5rem', color: '#6b5d52' }}>
             Our support team is here to assist you with any questions or
             technical issues.
           </p>
@@ -194,9 +192,7 @@ function ActionCard({ title, description, link }) {
       >
         {title}
       </h3>
-      <p style={{ color: '#6b5d52', margin: 0 }}>
-        {description}
-      </p>
+      <p style={{ color: '#6b5d52', margin: 0 }}>{description}</p>
     </Link>
   );
 }

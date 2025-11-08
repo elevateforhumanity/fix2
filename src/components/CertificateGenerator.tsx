@@ -67,21 +67,18 @@ export default function CertificateGenerator({
           <h1 className="text-4xl font-bold text-brown-900 mb-2">
             Certificate of Completion
           </h1>
-          <div className="w-32 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-32 h-1 bg-green-600 mx-auto" />
         </div>
-
         {/* Organization */}
         <div className="text-center mb-8">
           <p className="text-lg text-brown-700">This certifies that</p>
         </div>
-
         {/* Student Name */}
         <div className="text-center mb-8">
           <h2 className="text-5xl font-serif font-bold text-brown-900 border-b-2 border-brown-300 pb-2 inline-block px-8">
             {data.studentName}
           </h2>
         </div>
-
         {/* Course Details */}
         <div className="text-center mb-8">
           <p className="text-lg text-brown-700 mb-2">
@@ -96,7 +93,6 @@ export default function CertificateGenerator({
             {data.grade && ` • Grade: ${data.grade}`}
           </p>
         </div>
-
         {/* Date */}
         <div className="text-center mb-8">
           <p className="text-brown-700">
@@ -106,7 +102,6 @@ export default function CertificateGenerator({
             </span>
           </p>
         </div>
-
         {/* Signatures */}
         <div className="grid grid-cols-2 gap-8 mt-12">
           <div className="text-center">
@@ -128,7 +123,6 @@ export default function CertificateGenerator({
             </div>
           </div>
         </div>
-
         {/* Certificate ID */}
         <div className="text-center mt-8">
           <p className="text-xs text-brown-500">
@@ -138,7 +132,6 @@ export default function CertificateGenerator({
             Verify at: elevateforhumanity.org/verify/{data.certificateId}
           </p>
         </div>
-
         {/* Seal */}
         <div className="absolute bottom-12 right-12 print:block hidden">
           <div className="w-24 h-24 rounded-full border-4 border-green-600 flex items-center justify-center bg-green-50">
@@ -149,7 +142,6 @@ export default function CertificateGenerator({
           </div>
         </div>
       </div>
-
       {/* Actions */}
       <div className="flex flex-wrap gap-4 justify-center print:hidden">
         <button
@@ -167,7 +159,6 @@ export default function CertificateGenerator({
           Share Certificate
         </button>
       </div>
-
       {/* Print Styles */}
       <style>{`
         @media print {

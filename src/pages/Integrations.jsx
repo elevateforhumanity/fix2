@@ -8,7 +8,6 @@ export default function Integrations() {
       <Helmet>
         <title>Integrations | Elevate for Humanity</title>
       </Helmet>
-
       <div className="max-w-[1200px] mx-auto px-8 py-8">
         <h1 className="text-3xl font-bold text-brown-900 mb-8">Integrations</h1>
         <div className="card">

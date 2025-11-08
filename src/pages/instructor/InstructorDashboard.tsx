@@ -90,7 +90,7 @@ export default function InstructorDashboard() {
         <div className="section">
           <div className="container">
             <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
               <p className="mt-4 text-brown-600">Loading dashboard...</p>
             </div>
           </div>
@@ -106,7 +106,6 @@ export default function InstructorDashboard() {
         <title>Instructor Dashboard | Elevate for Humanity</title>
       </Helmet>
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container">
           {/* Welcome Header */}
@@ -118,7 +117,6 @@ export default function InstructorDashboard() {
               Manage your courses and students
             </p>
           </div>
-
           {/* Stats Grid */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="card p-6 text-center">
@@ -129,7 +127,6 @@ export default function InstructorDashboard() {
                 Total Students
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.activeCourses}
@@ -138,7 +135,6 @@ export default function InstructorDashboard() {
                 Active Courses
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-orange-600 mb-2">
                 {stats.pendingGrading}
@@ -147,7 +143,6 @@ export default function InstructorDashboard() {
                 Pending Grading
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.certificatesIssued}
@@ -157,7 +152,6 @@ export default function InstructorDashboard() {
               </div>
             </div>
           </div>
-
           {/* Quick Actions */}
           <div className="card p-6 mb-12">
             <h2 className="text-2xl font-bold text-brown-900 mb-4">
@@ -178,7 +172,6 @@ export default function InstructorDashboard() {
               </Link>
             </div>
           </div>
-
           <div className="grid lg:grid-cols-2 gap-8">
             {/* My Courses */}
             <div>
@@ -207,7 +200,6 @@ export default function InstructorDashboard() {
                         Manage →
                       </Link>
                     </div>
-
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
                         <div className="text-brown-500 mb-1">
@@ -224,7 +216,6 @@ export default function InstructorDashboard() {
                         </div>
                       </div>
                     </div>
-
                     {/* Progress Bar */}
                     <div className="mt-4">
                       <div className="w-full bg-beige-200 rounded-full h-2">
@@ -238,7 +229,6 @@ export default function InstructorDashboard() {
                 ))}
               </div>
             </div>
-
             {/* Recent Activity */}
             <div>
               <h2 className="text-2xl font-bold text-brown-900 mb-6">
@@ -270,7 +260,6 @@ export default function InstructorDashboard() {
                     </div>
                   ))}
                 </div>
-
                 <div className="mt-6 pt-4 border-t border-brown-200">
                   <Link
                     to="/lms/activity"
@@ -282,7 +271,6 @@ export default function InstructorDashboard() {
               </div>
             </div>
           </div>
-
           {/* Pending Tasks */}
           {stats.pendingGrading > 0 && (
             <div className="mt-12">
@@ -309,7 +297,6 @@ export default function InstructorDashboard() {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );

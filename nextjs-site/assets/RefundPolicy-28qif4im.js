@@ -1,1 +1,322 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import{L as t}from"./vendor-router-CQjfSXV_.js";import{A as o}from"./AppLayout-DjgAzEIN.js";import"./vendor-Da1LjC7-.js";function i(){return e.jsx(o,{children:e.jsxs("div",{style:{maxWidth:900,margin:"0 auto",padding:32},children:[e.jsx("h1",{style:{fontSize:36,fontWeight:700,marginBottom:8},children:"Refund Policy"}),e.jsx("p",{style:{fontSize:14,color:"#6b5d52",marginBottom:32},children:"Last updated: January 1, 2025"}),e.jsxs("div",{style:{fontSize:16,lineHeight:1.8,color:"#333"},children:[e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"30-Day Money-Back Guarantee"}),e.jsx("p",{children:"We stand behind the quality of our courses. If you're not satisfied with your purchase, we offer a 30-day money-back guarantee for all paid courses. No questions asked."})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Eligibility"}),e.jsx("p",{style:{marginBottom:16},children:"To be eligible for a refund, you must meet the following criteria:"}),e.jsxs("ul",{style:{marginBottom:16,paddingLeft:24},children:[e.jsx("li",{children:"Request must be made within 30 days of purchase"}),e.jsx("li",{children:"You have completed less than 30% of the course content"}),e.jsx("li",{children:"You have not previously received a refund for the same course"}),e.jsx("li",{children:"The course was not purchased as part of a bundle or subscription"})]})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"How to Request a Refund"}),e.jsx("p",{style:{marginBottom:16},children:"To request a refund, please follow these steps:"}),e.jsxs("ol",{style:{marginBottom:16,paddingLeft:24},children:[e.jsx("li",{style:{marginBottom:8},children:"Log in to your account"}),e.jsx("li",{style:{marginBottom:8},children:'Navigate to "My Courses"'}),e.jsx("li",{style:{marginBottom:8},children:"Find the course you wish to refund"}),e.jsx("li",{style:{marginBottom:8},children:'Click "Request Refund"'}),e.jsx("li",{style:{marginBottom:8},children:"Provide a brief reason (optional)"}),e.jsx("li",{children:"Submit your request"})]}),e.jsxs("p",{children:["Alternatively, you can contact our support team at"," ",e.jsx("a",{href:"mailto:elevateforhumanity@gmail.com",style:{color:"#00a544"},children:"elevateforhumanity@gmail.com"})]})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Processing Time"}),e.jsx("p",{children:"Refund requests are typically processed within 5-7 business days. Once approved, the refund will be credited to your original payment method within 10-14 business days, depending on your financial institution."})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Exceptions"}),e.jsx("p",{style:{marginBottom:16},children:"The following purchases are not eligible for refunds:"}),e.jsxs("ul",{style:{marginBottom:16,paddingLeft:24},children:[e.jsx("li",{children:"Free courses"}),e.jsx("li",{children:"Courses completed more than 30%"}),e.jsx("li",{children:"Courses purchased more than 30 days ago"}),e.jsx("li",{children:"Subscription renewals (must be cancelled before renewal date)"}),e.jsx("li",{children:"Certificates of completion"}),e.jsx("li",{children:"Promotional or discounted courses (unless otherwise stated)"})]})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Subscription Cancellations"}),e.jsx("p",{style:{marginBottom:16},children:"For subscription-based services:"}),e.jsxs("ul",{style:{marginBottom:16,paddingLeft:24},children:[e.jsx("li",{children:"You may cancel your subscription at any time"}),e.jsx("li",{children:"Cancellation takes effect at the end of the current billing period"}),e.jsx("li",{children:"No refunds are provided for partial subscription periods"}),e.jsx("li",{children:"You will retain access until the end of your paid period"})]})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Course Access After Refund"}),e.jsx("p",{children:"Once a refund is processed, you will immediately lose access to the course content, including any downloaded materials, certificates, and progress data. This action cannot be undone."})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Abuse Policy"}),e.jsx("p",{children:"We reserve the right to deny refund requests if we detect patterns of abuse, including but not limited to: repeatedly purchasing and refunding courses, downloading all course materials before requesting a refund, or violating our Terms of Service."})]}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,fontWeight:600,marginBottom:16},children:"Contact Us"}),e.jsx("p",{style:{marginBottom:16},children:"If you have questions about our refund policy, please contact us:"}),e.jsxs("div",{style:{padding:20,backgroundColor:"#f8f8f8",borderRadius:6},children:[e.jsxs("p",{style:{marginBottom:8},children:[e.jsx("strong",{children:"Email:"})," refunds@elevateforhumanity.org"]}),e.jsxs("p",{style:{marginBottom:8},children:[e.jsx("strong",{children:"Support:"})," ",e.jsx(t,{to:"/support",style:{color:"#00a544"},children:"Visit Support Center"})]}),e.jsxs("p",{children:[e.jsx("strong",{children:"Phone:"})," +1 (555) 123-4567"]})]})]})]}),e.jsxs("div",{style:{marginTop:48,paddingTop:32,borderTop:"1px solid #d4c9b8",display:"flex",gap:24,justifyContent:"center"},children:[e.jsx(t,{to:"/privacy-policy",style:{color:"#00a544",textDecoration:"none",fontSize:14,fontWeight:500},children:"Privacy Policy"}),e.jsx(t,{to:"/terms-of-service",style:{color:"#00a544",textDecoration:"none",fontSize:14,fontWeight:500},children:"Terms of Service"}),e.jsx(t,{to:"/support",style:{color:"#00a544",textDecoration:"none",fontSize:14,fontWeight:500},children:"Contact Support"})]})]})})}export{i as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import { L as t } from './vendor-router-CQjfSXV_.js';
+import { A as o } from './AppLayout-DjgAzEIN.js';
+import './vendor-Da1LjC7-.js';
+function i() {
+  return e.jsx(o, {
+    children: e.jsxs('div', {
+      style: { maxWidth: 900, margin: '0 auto', padding: 32 },
+      children: [
+        e.jsx('h1', {
+          style: { fontSize: 36, fontWeight: 700, marginBottom: 8 },
+          children: 'Refund Policy',
+        }),
+        e.jsx('p', {
+          style: { fontSize: 14, color: '#6b5d52', marginBottom: 32 },
+          children: 'Last updated: January 1, 2025',
+        }),
+        e.jsxs('div', {
+          style: { fontSize: 16, lineHeight: 1.8, color: '#333' },
+          children: [
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: '30-Day Money-Back Guarantee',
+                }),
+                e.jsx('p', {
+                  children:
+                    "We stand behind the quality of our courses. If you're not satisfied with your purchase, we offer a 30-day money-back guarantee for all paid courses. No questions asked.",
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Eligibility',
+                }),
+                e.jsx('p', {
+                  style: { marginBottom: 16 },
+                  children:
+                    'To be eligible for a refund, you must meet the following criteria:',
+                }),
+                e.jsxs('ul', {
+                  style: { marginBottom: 16, paddingLeft: 24 },
+                  children: [
+                    e.jsx('li', {
+                      children:
+                        'Request must be made within 30 days of purchase',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'You have completed less than 30% of the course content',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'You have not previously received a refund for the same course',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'The course was not purchased as part of a bundle or subscription',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'How to Request a Refund',
+                }),
+                e.jsx('p', {
+                  style: { marginBottom: 16 },
+                  children: 'To request a refund, please follow these steps:',
+                }),
+                e.jsxs('ol', {
+                  style: { marginBottom: 16, paddingLeft: 24 },
+                  children: [
+                    e.jsx('li', {
+                      style: { marginBottom: 8 },
+                      children: 'Log in to your account',
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: 8 },
+                      children: 'Navigate to "My Courses"',
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: 8 },
+                      children: 'Find the course you wish to refund',
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: 8 },
+                      children: 'Click "Request Refund"',
+                    }),
+                    e.jsx('li', {
+                      style: { marginBottom: 8 },
+                      children: 'Provide a brief reason (optional)',
+                    }),
+                    e.jsx('li', { children: 'Submit your request' }),
+                  ],
+                }),
+                e.jsxs('p', {
+                  children: [
+                    'Alternatively, you can contact our support team at',
+                    ' ',
+                    e.jsx('a', {
+                      href: 'mailto:elevateforhumanity@gmail.com',
+                      style: { color: '#00a544' },
+                      children: 'elevateforhumanity@gmail.com',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Processing Time',
+                }),
+                e.jsx('p', {
+                  children:
+                    'Refund requests are typically processed within 5-7 business days. Once approved, the refund will be credited to your original payment method within 10-14 business days, depending on your financial institution.',
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Exceptions',
+                }),
+                e.jsx('p', {
+                  style: { marginBottom: 16 },
+                  children:
+                    'The following purchases are not eligible for refunds:',
+                }),
+                e.jsxs('ul', {
+                  style: { marginBottom: 16, paddingLeft: 24 },
+                  children: [
+                    e.jsx('li', { children: 'Free courses' }),
+                    e.jsx('li', {
+                      children: 'Courses completed more than 30%',
+                    }),
+                    e.jsx('li', {
+                      children: 'Courses purchased more than 30 days ago',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'Subscription renewals (must be cancelled before renewal date)',
+                    }),
+                    e.jsx('li', { children: 'Certificates of completion' }),
+                    e.jsx('li', {
+                      children:
+                        'Promotional or discounted courses (unless otherwise stated)',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Subscription Cancellations',
+                }),
+                e.jsx('p', {
+                  style: { marginBottom: 16 },
+                  children: 'For subscription-based services:',
+                }),
+                e.jsxs('ul', {
+                  style: { marginBottom: 16, paddingLeft: 24 },
+                  children: [
+                    e.jsx('li', {
+                      children: 'You may cancel your subscription at any time',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'Cancellation takes effect at the end of the current billing period',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'No refunds are provided for partial subscription periods',
+                    }),
+                    e.jsx('li', {
+                      children:
+                        'You will retain access until the end of your paid period',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Course Access After Refund',
+                }),
+                e.jsx('p', {
+                  children:
+                    'Once a refund is processed, you will immediately lose access to the course content, including any downloaded materials, certificates, and progress data. This action cannot be undone.',
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Abuse Policy',
+                }),
+                e.jsx('p', {
+                  children:
+                    'We reserve the right to deny refund requests if we detect patterns of abuse, including but not limited to: repeatedly purchasing and refunding courses, downloading all course materials before requesting a refund, or violating our Terms of Service.',
+                }),
+              ],
+            }),
+            e.jsxs('section', {
+              style: { marginBottom: 32 },
+              children: [
+                e.jsx('h2', {
+                  style: { fontSize: 24, fontWeight: 600, marginBottom: 16 },
+                  children: 'Contact Us',
+                }),
+                e.jsx('p', {
+                  style: { marginBottom: 16 },
+                  children:
+                    'If you have questions about our refund policy, please contact us:',
+                }),
+                e.jsxs('div', {
+                  style: {
+                    padding: 20,
+                    backgroundColor: '#f8f8f8',
+                    borderRadius: 6,
+                  },
+                  children: [
+                    e.jsxs('p', {
+                      style: { marginBottom: 8 },
+                      children: [
+                        e.jsx('strong', { children: 'Email:' }),
+                        ' refunds@elevateforhumanity.org',
+                      ],
+                    }),
+                    e.jsxs('p', {
+                      style: { marginBottom: 8 },
+                      children: [
+                        e.jsx('strong', { children: 'Support:' }),
+                        ' ',
+                        e.jsx(t, {
+                          to: '/support',
+                          style: { color: '#00a544' },
+                          children: 'Visit Support Center',
+                        }),
+                      ],
+                    }),
+                    e.jsxs('p', {
+                      children: [
+                        e.jsx('strong', { children: 'Phone:' }),
+                        ' +1 (555) 123-4567',
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+        e.jsxs('div', {
+          style: {
+            marginTop: 48,
+            paddingTop: 32,
+            borderTop: '1px solid #d4c9b8',
+            display: 'flex',
+            gap: 24,
+            justifyContent: 'center',
+          },
+          children: [
+            e.jsx(t, {
+              to: '/privacy-policy',
+              style: {
+                color: '#00a544',
+                textDecoration: 'none',
+                fontSize: 14,
+                fontWeight: 500,
+              },
+              children: 'Privacy Policy',
+            }),
+            e.jsx(t, {
+              to: '/terms-of-service',
+              style: {
+                color: '#00a544',
+                textDecoration: 'none',
+                fontSize: 14,
+                fontWeight: 500,
+              },
+              children: 'Terms of Service',
+            }),
+            e.jsx(t, {
+              to: '/support',
+              style: {
+                color: '#00a544',
+                textDecoration: 'none',
+                fontSize: 14,
+                fontWeight: 500,
+              },
+              children: 'Contact Support',
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+export { i as default };

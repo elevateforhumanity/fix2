@@ -21,9 +21,7 @@ export default function StudentPortalLMS() {
           content="Student portal for Elevate for Humanity Career & Training Institute"
         />
       </Helmet>
-
       <Navigation />
-
       <div className="min-h-screen bg-beige-50">
         {/* Portal Header */}
         <div className="bg-gradient-to-r from-green-600 to-brown-600 text-white py-8 text-center">
@@ -494,7 +492,6 @@ export default function StudentPortalLMS() {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );

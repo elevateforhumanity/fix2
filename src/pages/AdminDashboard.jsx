@@ -73,7 +73,7 @@ export default function AdminDashboard() {
         <div className="section">
           <div className="container">
             <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
               <p className="mt-4 text-brown-600">Loading dashboard...</p>
             </div>
           </div>
@@ -89,7 +89,6 @@ export default function AdminDashboard() {
         <title>Admin Dashboard | Elevate for Humanity</title>
       </Helmet>
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container">
           {/* Header */}
@@ -101,7 +100,6 @@ export default function AdminDashboard() {
               Platform overview and management
             </p>
           </div>
-
           {/* System Health */}
           <div className="card p-6 mb-8 bg-green-50 border-l-4 border-green-600">
             <div className="flex items-center gap-4">
@@ -117,7 +115,6 @@ export default function AdminDashboard() {
               </div>
             </div>
           </div>
-
           {/* Stats Grid */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="card p-6 text-center">
@@ -128,7 +125,6 @@ export default function AdminDashboard() {
                 Total Users
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.totalCourses}
@@ -137,7 +133,6 @@ export default function AdminDashboard() {
                 Total Courses
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 ${(stats.totalRevenue / 1000).toFixed(1)}k
@@ -146,7 +141,6 @@ export default function AdminDashboard() {
                 Total Revenue
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.activeStudents}
@@ -155,7 +149,6 @@ export default function AdminDashboard() {
                 Active Students
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.totalInstructors}
@@ -164,7 +157,6 @@ export default function AdminDashboard() {
                 Instructors
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.certificatesIssued}
@@ -173,7 +165,6 @@ export default function AdminDashboard() {
                 Certificates Issued
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.completionRate}%
@@ -182,7 +173,6 @@ export default function AdminDashboard() {
                 Completion Rate
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.avgSatisfaction}/5
@@ -192,7 +182,6 @@ export default function AdminDashboard() {
               </div>
             </div>
           </div>
-
           {/* Quick Actions */}
           <div className="card p-6 mb-12">
             <h2 className="text-2xl font-bold text-brown-900 mb-4">
@@ -213,7 +202,6 @@ export default function AdminDashboard() {
               </Link>
             </div>
           </div>
-
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Recent Users */}
             <div>
@@ -246,7 +234,6 @@ export default function AdminDashboard() {
                     </div>
                   ))}
                 </div>
-
                 <div className="mt-6 pt-4 border-t border-brown-200">
                   <Link
                     to="/admin/users"
@@ -257,7 +244,6 @@ export default function AdminDashboard() {
                 </div>
               </div>
             </div>
-
             {/* Quick Stats */}
             <div>
               <h2 className="text-2xl font-bold text-brown-900 mb-6">
@@ -278,7 +264,6 @@ export default function AdminDashboard() {
                     />
                   </div>
                 </div>
-
                 <div className="card p-6">
                   <h3 className="text-lg font-bold text-brown-900 mb-4">
                     User Distribution
@@ -323,7 +308,6 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                 </div>
-
                 <div className="card p-6 bg-gradient-to-r from-green-50 to-beige-50">
                   <div className="flex items-center gap-3">
                     <div className="text-3xl">⭐</div>
@@ -340,7 +324,6 @@ export default function AdminDashboard() {
               </div>
             </div>
           </div>
-
           {/* Management Links */}
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             <Link
@@ -355,7 +338,6 @@ export default function AdminDashboard() {
                 View detailed platform analytics and reports
               </p>
             </Link>
-
             <Link
               to="/admin/content"
               className="card p-6 hover:shadow-lg transition-shadow"
@@ -368,7 +350,6 @@ export default function AdminDashboard() {
                 Manage courses, lessons, and learning materials
               </p>
             </Link>
-
             <Link
               to="/admin/compliance"
               className="card p-6 hover:shadow-lg transition-shadow"
@@ -384,7 +365,6 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

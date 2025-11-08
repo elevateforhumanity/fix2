@@ -1,1 +1,261 @@
-import{r as e,j as s}from"./vendor-react-C-ZQNdj3.js";import{u as t,L as r}from"./vendor-router-CQjfSXV_.js";import{b as i}from"./certificates-Y_9npsL2.js";import"./vendor-Da1LjC7-.js";import"./supa-DdKhhKHf.js";import"./vendor-supabase-C00Cu5KO.js";function a(){var a,l,c,n,d;const{certificateNumber:o}=t(),[m,x]=e.useState(null),[b,h]=e.useState(!0),[p,u]=e.useState(null);if(e.useEffect(()=>{if(!o)return u("No certificate number provided"),void h(!1);i(o).then(e=>{e?x(e):u("Certificate not found")}).catch(()=>{u("Failed to verify certificate")}).finally(()=>h(!1))},[o]),b)return s.jsx("div",{className:"section",children:s.jsx("div",{className:"container max-w-2xl",children:s.jsxs("div",{className:"text-center",children:[s.jsx("div",{className:"inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"}),s.jsx("p",{className:"mt-4 text-brown-600",children:"Verifying certificate..."})]})})});if(p||!m)return s.jsx("div",{className:"section",children:s.jsx("div",{className:"container max-w-2xl",children:s.jsxs("div",{className:"card p-8 text-center",children:[s.jsx("div",{className:"text-6xl mb-4",children:"❌"}),s.jsx("h2",{className:"text-2xl font-semibold text-brown-900 mb-2",children:"Certificate Not Valid"}),s.jsx("p",{className:"text-brown-600 mb-6",children:p||"This certificate could not be verified."}),s.jsxs("p",{className:"text-sm text-brown-500",children:["Certificate Number:"," ",s.jsx("code",{className:"font-mono",children:o})]})]})})});const j=new Date(m.issued_at).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});return s.jsx("div",{className:"section",children:s.jsxs("div",{className:"container max-w-3xl",children:[s.jsxs("div",{className:"card p-8 mb-6",children:[s.jsxs("div",{className:"text-center mb-6",children:[s.jsx("div",{className:"text-6xl mb-4",children:"✅"}),s.jsx("h1",{className:"text-3xl font-bold text-green-600 mb-2",children:"Certificate Verified"}),s.jsx("p",{className:"text-brown-600",children:"This is a valid certificate issued by Elevate for Humanity"})]}),s.jsx("div",{className:"border-t border-brown-200 pt-6 mt-6",children:s.jsxs("div",{className:"grid md:grid-cols-2 gap-6",children:[s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Student Name"}),s.jsx("p",{className:"text-lg text-brown-900",children:(null==(a=m.profiles)?void 0:a.full_name)||(null==(l=m.profiles)?void 0:l.email)||"Student"})]}),s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Course Name"}),s.jsx("p",{className:"text-lg text-brown-900",children:(null==(c=m.courses)?void 0:c.title)||"Course"})]}),s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Issue Date"}),s.jsx("p",{className:"text-lg text-brown-900",children:j})]}),s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Certificate Number"}),s.jsx("p",{className:"text-lg text-brown-900 font-mono",children:m.certificate_number})]}),(null==(n=m.courses)?void 0:n.program_type)&&s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Program Type"}),s.jsx("p",{className:"text-lg text-brown-900",children:m.courses.program_type})]}),(null==(d=m.courses)?void 0:d.total_hours)&&s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Total Hours"}),s.jsxs("p",{className:"text-lg text-brown-900",children:[m.courses.total_hours," hours"]})]}),m.grade&&s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Grade"}),s.jsx("p",{className:"text-lg text-brown-900",children:m.grade})]}),s.jsxs("div",{children:[s.jsx("h3",{className:"text-sm font-semibold text-brown-500 uppercase mb-1",children:"Status"}),s.jsx("p",{className:"text-lg text-green-600 font-semibold",children:"Valid"})]})]})}),s.jsx("div",{className:"border-t border-brown-200 pt-6 mt-6 flex gap-4 justify-center",children:s.jsx(r,{to:`/certificate/${m.id}`,className:"btn-primary",children:"View Full Certificate"})})]}),s.jsxs("div",{className:"card p-6 bg-beige-50",children:[s.jsx("h3",{className:"text-lg font-semibold text-brown-900 mb-3",children:"About This Certificate"}),s.jsx("p",{className:"text-sm text-brown-600 mb-4",children:"This certificate was issued by Elevate for Humanity, an ETPL-approved provider and DOL Registered Apprenticeship Sponsor. All certificates are digitally verified and permanently stored."}),s.jsxs("div",{className:"flex items-center gap-2 text-sm text-brown-500",children:[s.jsx("span",{children:"🔒"}),s.jsxs("span",{children:["Verified on ",(new Date).toLocaleDateString()]})]})]})]})})}export{a as default};
+import { r as e, j as s } from './vendor-react-C-ZQNdj3.js';
+import { u as t, L as r } from './vendor-router-CQjfSXV_.js';
+import { b as i } from './certificates-Y_9npsL2.js';
+import './vendor-Da1LjC7-.js';
+import './supa-DdKhhKHf.js';
+import './vendor-supabase-C00Cu5KO.js';
+function a() {
+  var a, l, c, n, d;
+  const { certificateNumber: o } = t(),
+    [m, x] = e.useState(null),
+    [b, h] = e.useState(!0),
+    [p, u] = e.useState(null);
+  if (
+    (e.useEffect(() => {
+      if (!o) return (u('No certificate number provided'), void h(!1));
+      i(o)
+        .then((e) => {
+          e ? x(e) : u('Certificate not found');
+        })
+        .catch(() => {
+          u('Failed to verify certificate');
+        })
+        .finally(() => h(!1));
+    }, [o]),
+    b)
+  )
+    return s.jsx('div', {
+      className: 'section',
+      children: s.jsx('div', {
+        className: 'container max-w-2xl',
+        children: s.jsxs('div', {
+          className: 'text-center',
+          children: [
+            s.jsx('div', {
+              className:
+                'inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600',
+            }),
+            s.jsx('p', {
+              className: 'mt-4 text-brown-600',
+              children: 'Verifying certificate...',
+            }),
+          ],
+        }),
+      }),
+    });
+  if (p || !m)
+    return s.jsx('div', {
+      className: 'section',
+      children: s.jsx('div', {
+        className: 'container max-w-2xl',
+        children: s.jsxs('div', {
+          className: 'card p-8 text-center',
+          children: [
+            s.jsx('div', { className: 'text-6xl mb-4', children: '❌' }),
+            s.jsx('h2', {
+              className: 'text-2xl font-semibold text-brown-900 mb-2',
+              children: 'Certificate Not Valid',
+            }),
+            s.jsx('p', {
+              className: 'text-brown-600 mb-6',
+              children: p || 'This certificate could not be verified.',
+            }),
+            s.jsxs('p', {
+              className: 'text-sm text-brown-500',
+              children: [
+                'Certificate Number:',
+                ' ',
+                s.jsx('code', { className: 'font-mono', children: o }),
+              ],
+            }),
+          ],
+        }),
+      }),
+    });
+  const j = new Date(m.issued_at).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  return s.jsx('div', {
+    className: 'section',
+    children: s.jsxs('div', {
+      className: 'container max-w-3xl',
+      children: [
+        s.jsxs('div', {
+          className: 'card p-8 mb-6',
+          children: [
+            s.jsxs('div', {
+              className: 'text-center mb-6',
+              children: [
+                s.jsx('div', { className: 'text-6xl mb-4', children: '✅' }),
+                s.jsx('h1', {
+                  className: 'text-3xl font-bold text-green-600 mb-2',
+                  children: 'Certificate Verified',
+                }),
+                s.jsx('p', {
+                  className: 'text-brown-600',
+                  children:
+                    'This is a valid certificate issued by Elevate for Humanity',
+                }),
+              ],
+            }),
+            s.jsx('div', {
+              className: 'border-t border-brown-200 pt-6 mt-6',
+              children: s.jsxs('div', {
+                className: 'grid md:grid-cols-2 gap-6',
+                children: [
+                  s.jsxs('div', {
+                    children: [
+                      s.jsx('h3', {
+                        className:
+                          'text-sm font-semibold text-brown-500 uppercase mb-1',
+                        children: 'Student Name',
+                      }),
+                      s.jsx('p', {
+                        className: 'text-lg text-brown-900',
+                        children:
+                          (null == (a = m.profiles) ? void 0 : a.full_name) ||
+                          (null == (l = m.profiles) ? void 0 : l.email) ||
+                          'Student',
+                      }),
+                    ],
+                  }),
+                  s.jsxs('div', {
+                    children: [
+                      s.jsx('h3', {
+                        className:
+                          'text-sm font-semibold text-brown-500 uppercase mb-1',
+                        children: 'Course Name',
+                      }),
+                      s.jsx('p', {
+                        className: 'text-lg text-brown-900',
+                        children:
+                          (null == (c = m.courses) ? void 0 : c.title) ||
+                          'Course',
+                      }),
+                    ],
+                  }),
+                  s.jsxs('div', {
+                    children: [
+                      s.jsx('h3', {
+                        className:
+                          'text-sm font-semibold text-brown-500 uppercase mb-1',
+                        children: 'Issue Date',
+                      }),
+                      s.jsx('p', {
+                        className: 'text-lg text-brown-900',
+                        children: j,
+                      }),
+                    ],
+                  }),
+                  s.jsxs('div', {
+                    children: [
+                      s.jsx('h3', {
+                        className:
+                          'text-sm font-semibold text-brown-500 uppercase mb-1',
+                        children: 'Certificate Number',
+                      }),
+                      s.jsx('p', {
+                        className: 'text-lg text-brown-900 font-mono',
+                        children: m.certificate_number,
+                      }),
+                    ],
+                  }),
+                  (null == (n = m.courses) ? void 0 : n.program_type) &&
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('h3', {
+                          className:
+                            'text-sm font-semibold text-brown-500 uppercase mb-1',
+                          children: 'Program Type',
+                        }),
+                        s.jsx('p', {
+                          className: 'text-lg text-brown-900',
+                          children: m.courses.program_type,
+                        }),
+                      ],
+                    }),
+                  (null == (d = m.courses) ? void 0 : d.total_hours) &&
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('h3', {
+                          className:
+                            'text-sm font-semibold text-brown-500 uppercase mb-1',
+                          children: 'Total Hours',
+                        }),
+                        s.jsxs('p', {
+                          className: 'text-lg text-brown-900',
+                          children: [m.courses.total_hours, ' hours'],
+                        }),
+                      ],
+                    }),
+                  m.grade &&
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('h3', {
+                          className:
+                            'text-sm font-semibold text-brown-500 uppercase mb-1',
+                          children: 'Grade',
+                        }),
+                        s.jsx('p', {
+                          className: 'text-lg text-brown-900',
+                          children: m.grade,
+                        }),
+                      ],
+                    }),
+                  s.jsxs('div', {
+                    children: [
+                      s.jsx('h3', {
+                        className:
+                          'text-sm font-semibold text-brown-500 uppercase mb-1',
+                        children: 'Status',
+                      }),
+                      s.jsx('p', {
+                        className: 'text-lg text-green-600 font-semibold',
+                        children: 'Valid',
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+            s.jsx('div', {
+              className:
+                'border-t border-brown-200 pt-6 mt-6 flex gap-4 justify-center',
+              children: s.jsx(r, {
+                to: `/certificate/${m.id}`,
+                className: 'btn-primary',
+                children: 'View Full Certificate',
+              }),
+            }),
+          ],
+        }),
+        s.jsxs('div', {
+          className: 'card p-6 bg-beige-50',
+          children: [
+            s.jsx('h3', {
+              className: 'text-lg font-semibold text-brown-900 mb-3',
+              children: 'About This Certificate',
+            }),
+            s.jsx('p', {
+              className: 'text-sm text-brown-600 mb-4',
+              children:
+                'This certificate was issued by Elevate for Humanity, an ETPL-approved provider and DOL Registered Apprenticeship Sponsor. All certificates are digitally verified and permanently stored.',
+            }),
+            s.jsxs('div', {
+              className: 'flex items-center gap-2 text-sm text-brown-500',
+              children: [
+                s.jsx('span', { children: '🔒' }),
+                s.jsxs('span', {
+                  children: ['Verified on ', new Date().toLocaleDateString()],
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+export { a as default };

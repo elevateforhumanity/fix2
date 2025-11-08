@@ -159,13 +159,8 @@ export default function Analytics() {
                 </thead>
                 <tbody>
                   {topCourses.map((course, idx) => (
-                    <tr
-                      key={idx}
-                      style={{ borderBottom: '1px solid #d4c9b8' }}
-                    >
-                      <td
-                        style={{ padding: '1rem', color: '#4a3728' }}
-                      >
+                    <tr key={idx} style={{ borderBottom: '1px solid #d4c9b8' }}>
+                      <td style={{ padding: '1rem', color: '#4a3728' }}>
                         {course.name}
                       </td>
                       <td
@@ -333,8 +328,7 @@ function StatCard({ label, value, change, trend }) {
       <div
         style={{
           fontSize: '0.875rem',
-          color:
-            trend === 'up' ? '#00a544' : '#dc2626',
+          color: trend === 'up' ? '#00a544' : '#dc2626',
           fontWeight: '600',
         }}
       >
@@ -357,9 +351,7 @@ function MetricItem({ label, value }) {
       >
         {value}
       </div>
-      <div style={{ fontSize: '0.875rem', color: '#6b5d52' }}>
-        {label}
-      </div>
+      <div style={{ fontSize: '0.875rem', color: '#6b5d52' }}>{label}</div>
     </div>
   );
 }

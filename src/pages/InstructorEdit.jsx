@@ -205,10 +205,7 @@ export default function InstructorEdit() {
               style={{
                 padding: '12px 0',
                 backgroundColor: 'transparent',
-                color:
-                  activeTab === tab
-                    ? '#00a544'
-                    : '#6b5d52',
+                color: activeTab === tab ? '#00a544' : '#6b5d52',
                 border: 'none',
                 borderBottom:
                   activeTab === tab
@@ -777,9 +774,7 @@ export default function InstructorEdit() {
                     <div style={{ fontWeight: 500, marginBottom: 4 }}>
                       Published
                     </div>
-                    <div
-                      style={{ fontSize: 14, color: '#6b5d52' }}
-                    >
+                    <div style={{ fontSize: 14, color: '#6b5d52' }}>
                       Make this course visible to students
                     </div>
                   </div>

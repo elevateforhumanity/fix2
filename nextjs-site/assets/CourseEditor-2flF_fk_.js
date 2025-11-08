@@ -1,1 +1,185 @@
-import{r as e,j as r}from"./vendor-react-C-ZQNdj3.js";import{s}from"./supa-DdKhhKHf.js";import{u as t,c as a}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";import"./vendor-supabase-C00Cu5KO.js";function o(){const{courseId:o}=t(),l=a(),[i,n]=e.useState(!1),[c,d]=e.useState(""),[u,m]=e.useState({code:"",title:"",summary:"",program_id:""}),[p,x]=e.useState([]);return e.useEffect(()=>{!async function(){const{data:e}=await s.from("programs").select("id, title").order("title");x(e||[])}(),o&&"new"!==o&&async function(){const{data:e,error:r}=await s.from("courses").select("*").eq("id",o).single();if(r)return void d(r.message);m({code:e.code,title:e.title,summary:e.summary||"",program_id:e.program_id||""})}()},[o]),r.jsx("section",{className:"section",children:r.jsxs("div",{className:"container max-w-2xl",children:[r.jsx("h1",{className:"text-3xl font-bold",children:"new"===o?"Create Course":"Edit Course"}),c&&r.jsx("div",{className:"mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm",children:c}),r.jsxs("form",{onSubmit:async function(e){e.preventDefault(),d(""),n(!0);try{if("new"===o){const{data:e,error:r}=await s.from("courses").insert([u]).select().single();if(r)throw r;l(`/instructor/course/${e.id}/lessons`)}else{const{error:e}=await s.from("courses").update(u).eq("id",o);if(e)throw e;l("/instructor")}}catch(r){d(r.message)}finally{n(!1)}},className:"mt-6 space-y-6",children:[r.jsxs("div",{children:[r.jsx("label",{className:"block text-sm font-medium mb-1",children:"Course Code *"}),r.jsx("input",{type:"text","aria-label":"text input",value:u.code,onChange:e=>m({...u,code:e.target.value}),className:"w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300",placeholder:"e.g., HLTH-101",required:!0})]}),r.jsxs("div",{children:[r.jsx("label",{className:"block text-sm font-medium mb-1",children:"Title *"}),r.jsx("input",{type:"text","aria-label":"text input",value:u.title,onChange:e=>m({...u,title:e.target.value}),className:"w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300",placeholder:"e.g., Patient Care Basics",required:!0})]}),r.jsxs("div",{children:[r.jsx("label",{className:"block text-sm font-medium mb-1",children:"Summary"}),r.jsx("textarea",{value:u.summary,onChange:e=>m({...u,summary:e.target.value}),className:"w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300",rows:3,placeholder:"Brief description of the course"})]}),r.jsxs("div",{children:[r.jsx("label",{className:"block text-sm font-medium mb-1",children:"Program"}),r.jsxs("select",{value:u.program_id,onChange:e=>m({...u,program_id:e.target.value}),className:"w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300",children:[r.jsx("option",{value:"",children:"No program (standalone)"}),p.map(e=>r.jsx("option",{value:e.id,children:e.title},e.id))]})]}),r.jsxs("div",{className:"flex gap-3",children:[r.jsx("button",{type:"submit",className:"btn",disabled:i,children:i?"Saving...":"Save Course"}),r.jsx("button",{type:"button",onClick:()=>l("/instructor"),className:"btn-outline",children:"Cancel"})]})]})]})})}export{o as default};
+import { r as e, j as r } from './vendor-react-C-ZQNdj3.js';
+import { s } from './supa-DdKhhKHf.js';
+import { u as t, c as a } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-supabase-C00Cu5KO.js';
+function o() {
+  const { courseId: o } = t(),
+    l = a(),
+    [i, n] = e.useState(!1),
+    [c, d] = e.useState(''),
+    [u, m] = e.useState({ code: '', title: '', summary: '', program_id: '' }),
+    [p, x] = e.useState([]);
+  return (
+    e.useEffect(() => {
+      (!(async function () {
+        const { data: e } = await s
+          .from('programs')
+          .select('id, title')
+          .order('title');
+        x(e || []);
+      })(),
+        o &&
+          'new' !== o &&
+          (async function () {
+            const { data: e, error: r } = await s
+              .from('courses')
+              .select('*')
+              .eq('id', o)
+              .single();
+            if (r) return void d(r.message);
+            m({
+              code: e.code,
+              title: e.title,
+              summary: e.summary || '',
+              program_id: e.program_id || '',
+            });
+          })());
+    }, [o]),
+    r.jsx('section', {
+      className: 'section',
+      children: r.jsxs('div', {
+        className: 'container max-w-2xl',
+        children: [
+          r.jsx('h1', {
+            className: 'text-3xl font-bold',
+            children: 'new' === o ? 'Create Course' : 'Edit Course',
+          }),
+          c &&
+            r.jsx('div', {
+              className:
+                'mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm',
+              children: c,
+            }),
+          r.jsxs('form', {
+            onSubmit: async function (e) {
+              (e.preventDefault(), d(''), n(!0));
+              try {
+                if ('new' === o) {
+                  const { data: e, error: r } = await s
+                    .from('courses')
+                    .insert([u])
+                    .select()
+                    .single();
+                  if (r) throw r;
+                  l(`/instructor/course/${e.id}/lessons`);
+                } else {
+                  const { error: e } = await s
+                    .from('courses')
+                    .update(u)
+                    .eq('id', o);
+                  if (e) throw e;
+                  l('/instructor');
+                }
+              } catch (r) {
+                d(r.message);
+              } finally {
+                n(!1);
+              }
+            },
+            className: 'mt-6 space-y-6',
+            children: [
+              r.jsxs('div', {
+                children: [
+                  r.jsx('label', {
+                    className: 'block text-sm font-medium mb-1',
+                    children: 'Course Code *',
+                  }),
+                  r.jsx('input', {
+                    type: 'text',
+                    'aria-label': 'text input',
+                    value: u.code,
+                    onChange: (e) => m({ ...u, code: e.target.value }),
+                    className:
+                      'w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300',
+                    placeholder: 'e.g., HLTH-101',
+                    required: !0,
+                  }),
+                ],
+              }),
+              r.jsxs('div', {
+                children: [
+                  r.jsx('label', {
+                    className: 'block text-sm font-medium mb-1',
+                    children: 'Title *',
+                  }),
+                  r.jsx('input', {
+                    type: 'text',
+                    'aria-label': 'text input',
+                    value: u.title,
+                    onChange: (e) => m({ ...u, title: e.target.value }),
+                    className:
+                      'w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300',
+                    placeholder: 'e.g., Patient Care Basics',
+                    required: !0,
+                  }),
+                ],
+              }),
+              r.jsxs('div', {
+                children: [
+                  r.jsx('label', {
+                    className: 'block text-sm font-medium mb-1',
+                    children: 'Summary',
+                  }),
+                  r.jsx('textarea', {
+                    value: u.summary,
+                    onChange: (e) => m({ ...u, summary: e.target.value }),
+                    className:
+                      'w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300',
+                    rows: 3,
+                    placeholder: 'Brief description of the course',
+                  }),
+                ],
+              }),
+              r.jsxs('div', {
+                children: [
+                  r.jsx('label', {
+                    className: 'block text-sm font-medium mb-1',
+                    children: 'Program',
+                  }),
+                  r.jsxs('select', {
+                    value: u.program_id,
+                    onChange: (e) => m({ ...u, program_id: e.target.value }),
+                    className:
+                      'w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-300',
+                    children: [
+                      r.jsx('option', {
+                        value: '',
+                        children: 'No program (standalone)',
+                      }),
+                      p.map((e) =>
+                        r.jsx(
+                          'option',
+                          { value: e.id, children: e.title },
+                          e.id
+                        )
+                      ),
+                    ],
+                  }),
+                ],
+              }),
+              r.jsxs('div', {
+                className: 'flex gap-3',
+                children: [
+                  r.jsx('button', {
+                    type: 'submit',
+                    className: 'btn',
+                    disabled: i,
+                    children: i ? 'Saving...' : 'Save Course',
+                  }),
+                  r.jsx('button', {
+                    type: 'button',
+                    onClick: () => l('/instructor'),
+                    className: 'btn-outline',
+                    children: 'Cancel',
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    })
+  );
+}
+export { o as default };

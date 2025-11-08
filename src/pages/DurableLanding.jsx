@@ -15,15 +15,12 @@ export default function DurableLanding() {
           content="Build the foundational skills that employers value most"
         />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title="Durable Skills for Lasting Success"
         subtitle="Build the foundational skills that employers value most"
         backgroundImage="/images/durable-skills-hero.jpg"
       />
-
       <Section>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="card p-8">
@@ -51,7 +48,6 @@ export default function DurableLanding() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

@@ -1,1 +1,318 @@
-import{r as e,j as s}from"./vendor-react-C-ZQNdj3.js";import{supabase as r}from"./supabaseClient-DCQoDyvc.js";import{A as t}from"./AppLayout-DjgAzEIN.js";import{u as o}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";import"./vendor-supabase-C00Cu5KO.js";function n(){const{lessonId:n}=o(),[i,l]=e.useState(!0),[a,d]=e.useState([]),[c,u]=e.useState({prompt:"",options:["","","",""],answer:""}),[m,p]=e.useState(!1),[x,h]=e.useState(null),[b,f]=e.useState(null);e.useEffect(()=>{g()},[n]);const g=async()=>{if(!r)return h("Database service is not available"),void l(!1);try{l(!0),h(null);const{data:e,error:s}=await r.from("quiz_questions").select("*").eq("lesson_id",n).order("id");if(s)throw s;d(e||[])}catch(e){console.error("Error fetching questions:",e),h(e.message)}finally{l(!1)}};return s.jsx(t,{children:s.jsxs("div",{className:"container mx-auto px-4 py-8 max-w-4xl",children:[s.jsx("h1",{className:"text-3xl font-bold mb-6",children:"Quiz Builder"}),x&&s.jsx("div",{className:"bg-red-50 border border-red-200 rounded-lg p-4 mb-4",children:s.jsx("p",{className:"text-red-800",children:x})}),b&&s.jsx("div",{className:"bg-green-50 border border-green-200 rounded-lg p-4 mb-4",children:s.jsx("p",{className:"text-green-600",children:b})}),i?s.jsxs("div",{className:"text-center py-12",children:[s.jsx("div",{className:"animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"}),s.jsx("p",{className:"mt-4 text-brown-600",children:"Loading..."})]}):s.jsxs("div",{className:"space-y-8",children:[s.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-6",children:[s.jsx("h2",{className:"text-2xl font-bold mb-4",children:"Add New Question"}),s.jsxs("div",{className:"space-y-4",children:[s.jsxs("div",{children:[s.jsx("label",{className:"block text-sm font-medium mb-2",children:"Question Prompt *"}),s.jsx("textarea",{value:c.prompt,onChange:e=>u({...c,prompt:e.target.value}),className:"w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500",rows:"3",placeholder:"Enter your question here..."})]}),s.jsxs("div",{children:[s.jsx("label",{className:"block text-sm font-medium mb-2",children:"Answer Options * (at least 2 required)"}),c.options.map((e,r)=>s.jsx("input",{type:"text",value:e,onChange:e=>((e,s)=>{const r=[...c.options];r[e]=s,u({...c,options:r})})(r,e.target.value),className:"w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-green-500",placeholder:`Option ${r+1}`},r))]}),s.jsxs("div",{children:[s.jsx("label",{className:"block text-sm font-medium mb-2",children:"Correct Answer *"}),s.jsxs("select",{value:c.answer,onChange:e=>u({...c,answer:e.target.value}),className:"w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500",children:[s.jsx("option",{value:"",children:"Select correct answer..."}),c.options.filter(e=>e.trim()).map((e,r)=>s.jsx("option",{value:e,children:e},r))]})]}),s.jsx("button",{onClick:async()=>{if(r)try{if(p(!0),h(null),f(null),!c.prompt.trim())return void h("Question prompt is required");const e=c.options.filter(e=>e.trim());if(e.length<2)return void h("At least 2 options are required");if(!c.answer.trim())return void h("Correct answer is required");const{data:s,error:t}=await r.from("quiz_questions").insert([{lesson_id:n,prompt:c.prompt,options:e,answer:c.answer}]).select();if(t)throw t;d([...a,...s]),u({prompt:"",options:["","","",""],answer:""}),f("Question added successfully!")}catch(e){console.error("Error adding question:",e),h(e.message)}finally{p(!1)}else h("Database service is not available")},disabled:m,className:"w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 font-bold transition",children:m?"Adding...":"Add Question"})]})]}),s.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-6",children:[s.jsxs("h2",{className:"text-2xl font-bold mb-4",children:["Existing Questions (",a.length,")"]}),0===a.length?s.jsx("p",{className:"text-brown-500 text-center py-8",children:"No questions yet. Add your first question above!"}):s.jsx("div",{className:"space-y-4",children:a.map((e,t)=>{var o;return s.jsxs("div",{className:"border-2 rounded-lg p-4 hover:border-blue-300 transition",children:[s.jsxs("div",{className:"flex justify-between items-start mb-3",children:[s.jsxs("h3",{className:"font-bold text-lg",children:["Question ",t+1]}),s.jsx("button",{onClick:()=>(async e=>{if(confirm("Are you sure you want to delete this question?"))try{const{error:s}=await r.from("quiz_questions").delete().eq("id",e);if(s)throw s;d(a.filter(s=>s.id!==e)),f("Question deleted successfully!")}catch(s){console.error("Error deleting question:",s),h(s.message)}})(e.id),className:"px-3 py-1 bg-red-600 text-white rounded hover:bg-red-600-hover text-sm",children:"Delete"})]}),s.jsx("p",{className:"mb-3",children:e.prompt}),s.jsxs("div",{className:"space-y-1 text-sm",children:[s.jsx("p",{className:"font-semibold",children:"Options:"}),s.jsx("ul",{className:"list-disc list-inside pl-4",children:null==(o=e.options)?void 0:o.map((r,t)=>s.jsxs("li",{className:r===e.answer?"text-green-600 font-bold":"",children:[r," ",r===e.answer&&"✓ (Correct)"]},t))})]})]},e.id)})})]})]})]})})}export{n as default};
+import { r as e, j as s } from './vendor-react-C-ZQNdj3.js';
+import { supabase as r } from './supabaseClient-DCQoDyvc.js';
+import { A as t } from './AppLayout-DjgAzEIN.js';
+import { u as o } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-supabase-C00Cu5KO.js';
+function n() {
+  const { lessonId: n } = o(),
+    [i, l] = e.useState(!0),
+    [a, d] = e.useState([]),
+    [c, u] = e.useState({ prompt: '', options: ['', '', '', ''], answer: '' }),
+    [m, p] = e.useState(!1),
+    [x, h] = e.useState(null),
+    [b, f] = e.useState(null);
+  e.useEffect(() => {
+    g();
+  }, [n]);
+  const g = async () => {
+    if (!r) return (h('Database service is not available'), void l(!1));
+    try {
+      (l(!0), h(null));
+      const { data: e, error: s } = await r
+        .from('quiz_questions')
+        .select('*')
+        .eq('lesson_id', n)
+        .order('id');
+      if (s) throw s;
+      d(e || []);
+    } catch (e) {
+      (console.error('Error fetching questions:', e), h(e.message));
+    } finally {
+      l(!1);
+    }
+  };
+  return s.jsx(t, {
+    children: s.jsxs('div', {
+      className: 'container mx-auto px-4 py-8 max-w-4xl',
+      children: [
+        s.jsx('h1', {
+          className: 'text-3xl font-bold mb-6',
+          children: 'Quiz Builder',
+        }),
+        x &&
+          s.jsx('div', {
+            className: 'bg-red-50 border border-red-200 rounded-lg p-4 mb-4',
+            children: s.jsx('p', { className: 'text-red-800', children: x }),
+          }),
+        b &&
+          s.jsx('div', {
+            className:
+              'bg-green-50 border border-green-200 rounded-lg p-4 mb-4',
+            children: s.jsx('p', { className: 'text-green-600', children: b }),
+          }),
+        i
+          ? s.jsxs('div', {
+              className: 'text-center py-12',
+              children: [
+                s.jsx('div', {
+                  className:
+                    'animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto',
+                }),
+                s.jsx('p', {
+                  className: 'mt-4 text-brown-600',
+                  children: 'Loading...',
+                }),
+              ],
+            })
+          : s.jsxs('div', {
+              className: 'space-y-8',
+              children: [
+                s.jsxs('div', {
+                  className: 'bg-white rounded-lg shadow-lg p-6',
+                  children: [
+                    s.jsx('h2', {
+                      className: 'text-2xl font-bold mb-4',
+                      children: 'Add New Question',
+                    }),
+                    s.jsxs('div', {
+                      className: 'space-y-4',
+                      children: [
+                        s.jsxs('div', {
+                          children: [
+                            s.jsx('label', {
+                              className: 'block text-sm font-medium mb-2',
+                              children: 'Question Prompt *',
+                            }),
+                            s.jsx('textarea', {
+                              value: c.prompt,
+                              onChange: (e) =>
+                                u({ ...c, prompt: e.target.value }),
+                              className:
+                                'w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500',
+                              rows: '3',
+                              placeholder: 'Enter your question here...',
+                            }),
+                          ],
+                        }),
+                        s.jsxs('div', {
+                          children: [
+                            s.jsx('label', {
+                              className: 'block text-sm font-medium mb-2',
+                              children:
+                                'Answer Options * (at least 2 required)',
+                            }),
+                            c.options.map((e, r) =>
+                              s.jsx(
+                                'input',
+                                {
+                                  type: 'text',
+                                  value: e,
+                                  onChange: (e) =>
+                                    ((e, s) => {
+                                      const r = [...c.options];
+                                      ((r[e] = s), u({ ...c, options: r }));
+                                    })(r, e.target.value),
+                                  className:
+                                    'w-full p-3 border rounded-lg mb-2 focus:ring-2 focus:ring-green-500',
+                                  placeholder: `Option ${r + 1}`,
+                                },
+                                r
+                              )
+                            ),
+                          ],
+                        }),
+                        s.jsxs('div', {
+                          children: [
+                            s.jsx('label', {
+                              className: 'block text-sm font-medium mb-2',
+                              children: 'Correct Answer *',
+                            }),
+                            s.jsxs('select', {
+                              value: c.answer,
+                              onChange: (e) =>
+                                u({ ...c, answer: e.target.value }),
+                              className:
+                                'w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500',
+                              children: [
+                                s.jsx('option', {
+                                  value: '',
+                                  children: 'Select correct answer...',
+                                }),
+                                c.options
+                                  .filter((e) => e.trim())
+                                  .map((e, r) =>
+                                    s.jsx(
+                                      'option',
+                                      { value: e, children: e },
+                                      r
+                                    )
+                                  ),
+                              ],
+                            }),
+                          ],
+                        }),
+                        s.jsx('button', {
+                          onClick: async () => {
+                            if (r)
+                              try {
+                                if ((p(!0), h(null), f(null), !c.prompt.trim()))
+                                  return void h('Question prompt is required');
+                                const e = c.options.filter((e) => e.trim());
+                                if (e.length < 2)
+                                  return void h(
+                                    'At least 2 options are required'
+                                  );
+                                if (!c.answer.trim())
+                                  return void h('Correct answer is required');
+                                const { data: s, error: t } = await r
+                                  .from('quiz_questions')
+                                  .insert([
+                                    {
+                                      lesson_id: n,
+                                      prompt: c.prompt,
+                                      options: e,
+                                      answer: c.answer,
+                                    },
+                                  ])
+                                  .select();
+                                if (t) throw t;
+                                (d([...a, ...s]),
+                                  u({
+                                    prompt: '',
+                                    options: ['', '', '', ''],
+                                    answer: '',
+                                  }),
+                                  f('Question added successfully!'));
+                              } catch (e) {
+                                (console.error('Error adding question:', e),
+                                  h(e.message));
+                              } finally {
+                                p(!1);
+                              }
+                            else h('Database service is not available');
+                          },
+                          disabled: m,
+                          className:
+                            'w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 font-bold transition',
+                          children: m ? 'Adding...' : 'Add Question',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                s.jsxs('div', {
+                  className: 'bg-white rounded-lg shadow-lg p-6',
+                  children: [
+                    s.jsxs('h2', {
+                      className: 'text-2xl font-bold mb-4',
+                      children: ['Existing Questions (', a.length, ')'],
+                    }),
+                    0 === a.length
+                      ? s.jsx('p', {
+                          className: 'text-brown-500 text-center py-8',
+                          children:
+                            'No questions yet. Add your first question above!',
+                        })
+                      : s.jsx('div', {
+                          className: 'space-y-4',
+                          children: a.map((e, t) => {
+                            var o;
+                            return s.jsxs(
+                              'div',
+                              {
+                                className:
+                                  'border-2 rounded-lg p-4 hover:border-blue-300 transition',
+                                children: [
+                                  s.jsxs('div', {
+                                    className:
+                                      'flex justify-between items-start mb-3',
+                                    children: [
+                                      s.jsxs('h3', {
+                                        className: 'font-bold text-lg',
+                                        children: ['Question ', t + 1],
+                                      }),
+                                      s.jsx('button', {
+                                        onClick: () =>
+                                          (async (e) => {
+                                            if (
+                                              confirm(
+                                                'Are you sure you want to delete this question?'
+                                              )
+                                            )
+                                              try {
+                                                const { error: s } = await r
+                                                  .from('quiz_questions')
+                                                  .delete()
+                                                  .eq('id', e);
+                                                if (s) throw s;
+                                                (d(a.filter((s) => s.id !== e)),
+                                                  f(
+                                                    'Question deleted successfully!'
+                                                  ));
+                                              } catch (s) {
+                                                (console.error(
+                                                  'Error deleting question:',
+                                                  s
+                                                ),
+                                                  h(s.message));
+                                              }
+                                          })(e.id),
+                                        className:
+                                          'px-3 py-1 bg-red-600 text-white rounded hover:bg-red-600-hover text-sm',
+                                        children: 'Delete',
+                                      }),
+                                    ],
+                                  }),
+                                  s.jsx('p', {
+                                    className: 'mb-3',
+                                    children: e.prompt,
+                                  }),
+                                  s.jsxs('div', {
+                                    className: 'space-y-1 text-sm',
+                                    children: [
+                                      s.jsx('p', {
+                                        className: 'font-semibold',
+                                        children: 'Options:',
+                                      }),
+                                      s.jsx('ul', {
+                                        className: 'list-disc list-inside pl-4',
+                                        children:
+                                          null == (o = e.options)
+                                            ? void 0
+                                            : o.map((r, t) =>
+                                                s.jsxs(
+                                                  'li',
+                                                  {
+                                                    className:
+                                                      r === e.answer
+                                                        ? 'text-green-600 font-bold'
+                                                        : '',
+                                                    children: [
+                                                      r,
+                                                      ' ',
+                                                      r === e.answer &&
+                                                        '✓ (Correct)',
+                                                    ],
+                                                  },
+                                                  t
+                                                )
+                                              ),
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              },
+                              e.id
+                            );
+                          }),
+                        }),
+                  ],
+                }),
+              ],
+            }),
+      ],
+    }),
+  });
+}
+export { n as default };

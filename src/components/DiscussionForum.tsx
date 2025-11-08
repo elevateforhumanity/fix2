@@ -179,7 +179,6 @@ export default function DiscussionForum({
           </div>
         </form>
       </div>
-
       {/* Posts List */}
       <div className="space-y-4">
         {posts.map((post) => (
@@ -207,10 +206,8 @@ export default function DiscussionForum({
                 </div>
               </div>
             </div>
-
             {/* Post Content */}
             <p className="text-brown-700 mb-4">{post.content}</p>
-
             {/* Post Actions */}
             <div className="flex items-center gap-4 pt-4 border-t border-brown-200">
               <button
@@ -242,7 +239,6 @@ export default function DiscussionForum({
                 </span>
               )}
             </div>
-
             {/* Replies */}
             {post.replies.length > 0 && (
               <div className="mt-4 pl-6 border-l-2 border-brown-200 space-y-4">
@@ -273,7 +269,6 @@ export default function DiscussionForum({
                 ))}
               </div>
             )}
-
             {/* Reply Form */}
             {replyingTo === post.id && (
               <div className="mt-4 pl-6 border-l-2 border-green-600">
@@ -308,7 +303,6 @@ export default function DiscussionForum({
           </div>
         ))}
       </div>
-
       {/* Empty State */}
       {posts.length === 0 && (
         <div className="card p-12 text-center">

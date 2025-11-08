@@ -14,15 +14,12 @@ export default function DurableAI() {
           content="Experience the future of education with our AI-powered learning platform. Get personalized recommendations, adaptive learning paths, and intelligent tutoring."
         />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title="AI-Powered Learning"
         subtitle="Experience the future of education with intelligent, adaptive learning"
         backgroundImage="/images/ai-learning-hero.jpg"
       />
-
       <div className="section">
         <div className="container max-w-4xl">
           {/* Coming Soon Notice */}
@@ -36,7 +33,6 @@ export default function DurableAI() {
               training
             </p>
           </div>
-
           {/* Features */}
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-brown-900 mb-8 text-center">
@@ -53,7 +49,6 @@ export default function DurableAI() {
                   goals
                 </p>
               </div>
-
               <div className="card p-6">
                 <div className="text-4xl mb-4">💡</div>
                 <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -64,7 +59,6 @@ export default function DurableAI() {
                   progress
                 </p>
               </div>
-
               <div className="card p-6">
                 <div className="text-4xl mb-4">📊</div>
                 <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -74,7 +68,6 @@ export default function DurableAI() {
                   Track your progress with intelligent insights and predictions
                 </p>
               </div>
-
               <div className="card p-6">
                 <div className="text-4xl mb-4">🎓</div>
                 <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -84,7 +77,6 @@ export default function DurableAI() {
                   Get instant feedback and personalized help when you need it
                 </p>
               </div>
-
               <div className="card p-6">
                 <div className="text-4xl mb-4">🔍</div>
                 <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -94,7 +86,6 @@ export default function DurableAI() {
                   Automated identification of areas for improvement
                 </p>
               </div>
-
               <div className="card p-6">
                 <div className="text-4xl mb-4">✨</div>
                 <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -106,7 +97,6 @@ export default function DurableAI() {
               </div>
             </div>
           </div>
-
           {/* CTA */}
           <div className="card p-8 text-center bg-green-50">
             <h3 className="text-2xl font-bold text-brown-900 mb-4">
@@ -121,7 +111,6 @@ export default function DurableAI() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

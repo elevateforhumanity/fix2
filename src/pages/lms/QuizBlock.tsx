@@ -154,9 +154,7 @@ export default function QuizBlock() {
         <Helmet>
           <title>{quizData.title} | Elevate for Humanity</title>
         </Helmet>
-
         <Navigation />
-
         <div className="min-h-screen bg-beige-50 py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
@@ -165,7 +163,6 @@ export default function QuizBlock() {
                   {quizData.title}
                 </h1>
                 <p className="text-brown-700 mb-6">{quizData.description}</p>
-
                 <div className="bg-beige-50 rounded-lg p-6 mb-6">
                   <h2 className="text-lg font-bold text-brown-900 mb-4">
                     Quiz Information
@@ -195,7 +192,6 @@ export default function QuizBlock() {
                     </li>
                   </ul>
                 </div>
-
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
                   <p className="text-sm text-yellow-800">
                     <strong>Important:</strong> Once you start the quiz, the
@@ -203,7 +199,6 @@ export default function QuizBlock() {
                     connection and enough time to complete it.
                   </p>
                 </div>
-
                 <div className="flex gap-4">
                   <button
                     onClick={() => setQuizStarted(true)}
@@ -222,7 +217,6 @@ export default function QuizBlock() {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     );
@@ -233,9 +227,7 @@ export default function QuizBlock() {
       <Helmet>
         <title>{quizData.title} | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       <div className="min-h-screen bg-beige-50 py-12">
         <div className="container mx-auto px-4">
           <QuizEngine
@@ -248,7 +240,6 @@ export default function QuizBlock() {
           />
         </div>
       </div>
-
       <Footer />
     </div>
   );

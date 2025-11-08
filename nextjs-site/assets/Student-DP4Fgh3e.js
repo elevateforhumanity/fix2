@@ -1,1 +1,134 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";function t(){return e.jsxs("main",{role:"main",style:{maxWidth:700,margin:"40px auto",padding:32,background:"#fff",borderRadius:16,boxShadow:"0 4px 24px rgba(0,0,0,0.08)"},children:[e.jsx("img",{src:"/images/student.jpg",alt:"A diverse group of students collaborating on a project",style:{width:"100%",borderRadius:12,marginBottom:24,objectFit:"cover",boxShadow:"0 2px 8px rgba(0,0,0,0.06)"}}),e.jsx("h1",{style:{fontSize:32,marginBottom:12},children:"Student Portal"}),e.jsx("p",{style:{fontSize:18,color:"#444",marginBottom:24},children:"Welcome to the Elevate for Humanity Student Portal. Here, you can access a wide range of interactive courses designed to empower you with knowledge and practical skills. Track your learning progress, participate in discussions, and connect with instructors and fellow students from around the world. Our mission is to provide accessible, high-quality education that fosters personal growth and community impact."}),e.jsxs("section",{style:{marginBottom:32},children:[e.jsx("h2",{style:{fontSize:24,marginBottom:10},children:"How to Get Started"}),e.jsxs("ol",{style:{fontSize:16,color:"#333",marginLeft:20},children:[e.jsxs("li",{children:["Browse our ",e.jsx("strong",{children:"Course Catalog"})," to find topics that interest you."]}),e.jsx("li",{children:"Enroll in a course and begin learning at your own pace."}),e.jsx("li",{children:"Join our student forums to ask questions and share insights."}),e.jsx("li",{children:"Track your achievements and download certificates upon completion."})]})]}),e.jsxs("section",{children:[e.jsx("h2",{style:{fontSize:20,marginBottom:8},children:"Our Sister Sites"}),e.jsxs("ul",{style:{listStyle:"none",padding:0,fontSize:16},children:[e.jsxs("li",{style:{marginBottom:8},children:[e.jsx("a",{href:"https://www.sistersite1.org",target:"_blank",rel:"noopener noreferrer",children:"Sister Site 1"}),e.jsx("br",{}),e.jsx("span",{style:{color:"#6b5d52"},children:"Sister Site 1 is dedicated to providing mentorship programs and career guidance for students seeking professional development."})]}),e.jsxs("li",{style:{marginBottom:8},children:[e.jsx("a",{href:"https://www.sistersite2.org",target:"_blank",rel:"noopener noreferrer",children:"Sister Site 2"}),e.jsx("br",{}),e.jsx("span",{style:{color:"#6b5d52"},children:"Sister Site 2 offers a global network for volunteering opportunities and community service projects."})]}),e.jsxs("li",{children:[e.jsx("a",{href:"https://www.sistersite3.org",target:"_blank",rel:"noopener noreferrer",children:"Sister Site 3"}),e.jsx("br",{}),e.jsx("span",{style:{color:"#6b5d52"},children:"Sister Site 3 focuses on mental health resources and peer support for students and young adults."})]})]})]})]})}export{t as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+function t() {
+  return e.jsxs('main', {
+    role: 'main',
+    style: {
+      maxWidth: 700,
+      margin: '40px auto',
+      padding: 32,
+      background: '#fff',
+      borderRadius: 16,
+      boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+    },
+    children: [
+      e.jsx('img', {
+        src: '/images/student.jpg',
+        alt: 'A diverse group of students collaborating on a project',
+        style: {
+          width: '100%',
+          borderRadius: 12,
+          marginBottom: 24,
+          objectFit: 'cover',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+        },
+      }),
+      e.jsx('h1', {
+        style: { fontSize: 32, marginBottom: 12 },
+        children: 'Student Portal',
+      }),
+      e.jsx('p', {
+        style: { fontSize: 18, color: '#444', marginBottom: 24 },
+        children:
+          'Welcome to the Elevate for Humanity Student Portal. Here, you can access a wide range of interactive courses designed to empower you with knowledge and practical skills. Track your learning progress, participate in discussions, and connect with instructors and fellow students from around the world. Our mission is to provide accessible, high-quality education that fosters personal growth and community impact.',
+      }),
+      e.jsxs('section', {
+        style: { marginBottom: 32 },
+        children: [
+          e.jsx('h2', {
+            style: { fontSize: 24, marginBottom: 10 },
+            children: 'How to Get Started',
+          }),
+          e.jsxs('ol', {
+            style: { fontSize: 16, color: '#333', marginLeft: 20 },
+            children: [
+              e.jsxs('li', {
+                children: [
+                  'Browse our ',
+                  e.jsx('strong', { children: 'Course Catalog' }),
+                  ' to find topics that interest you.',
+                ],
+              }),
+              e.jsx('li', {
+                children:
+                  'Enroll in a course and begin learning at your own pace.',
+              }),
+              e.jsx('li', {
+                children:
+                  'Join our student forums to ask questions and share insights.',
+              }),
+              e.jsx('li', {
+                children:
+                  'Track your achievements and download certificates upon completion.',
+              }),
+            ],
+          }),
+        ],
+      }),
+      e.jsxs('section', {
+        children: [
+          e.jsx('h2', {
+            style: { fontSize: 20, marginBottom: 8 },
+            children: 'Our Sister Sites',
+          }),
+          e.jsxs('ul', {
+            style: { listStyle: 'none', padding: 0, fontSize: 16 },
+            children: [
+              e.jsxs('li', {
+                style: { marginBottom: 8 },
+                children: [
+                  e.jsx('a', {
+                    href: 'https://www.sistersite1.org',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    children: 'Sister Site 1',
+                  }),
+                  e.jsx('br', {}),
+                  e.jsx('span', {
+                    style: { color: '#6b5d52' },
+                    children:
+                      'Sister Site 1 is dedicated to providing mentorship programs and career guidance for students seeking professional development.',
+                  }),
+                ],
+              }),
+              e.jsxs('li', {
+                style: { marginBottom: 8 },
+                children: [
+                  e.jsx('a', {
+                    href: 'https://www.sistersite2.org',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    children: 'Sister Site 2',
+                  }),
+                  e.jsx('br', {}),
+                  e.jsx('span', {
+                    style: { color: '#6b5d52' },
+                    children:
+                      'Sister Site 2 offers a global network for volunteering opportunities and community service projects.',
+                  }),
+                ],
+              }),
+              e.jsxs('li', {
+                children: [
+                  e.jsx('a', {
+                    href: 'https://www.sistersite3.org',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    children: 'Sister Site 3',
+                  }),
+                  e.jsx('br', {}),
+                  e.jsx('span', {
+                    style: { color: '#6b5d52' },
+                    children:
+                      'Sister Site 3 focuses on mental health resources and peer support for students and young adults.',
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { t as default };

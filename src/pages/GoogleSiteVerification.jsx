@@ -10,9 +10,7 @@ export default function GoogleSiteVerification() {
       <Helmet>
         <title>Google Site Verification | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h1 className="section-title">Google Site Verification</h1>
@@ -21,7 +19,6 @@ export default function GoogleSiteVerification() {
           </p>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

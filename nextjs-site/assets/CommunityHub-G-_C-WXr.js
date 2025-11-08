@@ -1,1 +1,256 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";function s(){return e.jsxs("div",{className:"min-h-screen bg-gradient-to-br from-purple-50 to-pink-100",children:[e.jsx("header",{className:"bg-white shadow-sm",children:e.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",children:e.jsxs("div",{className:"flex justify-between items-center py-6",children:[e.jsx("div",{className:"flex items-center",children:e.jsx("h1",{className:"text-2xl font-bold text-brown-900",children:"Elevate for Humanity"})}),e.jsxs("nav",{role:"navigation",className:"hidden md:flex space-x-8",children:[e.jsx("a",{href:"/programs",className:"text-brown-500 hover:text-brown-900",children:"Programs"}),e.jsx("a",{href:"/community",className:"text-brown-500 hover:text-brown-900",children:"Forum"}),e.jsx("a",{href:"/connect",className:"text-brown-500 hover:text-brown-900",children:"Contact"})]})]})})}),e.jsxs("main",{role:"main",className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12",children:[e.jsxs("div",{className:"text-center",children:[e.jsx("h1",{className:"text-4xl font-bold text-brown-900 sm:text-5xl md:text-6xl",children:"Community Hub"}),e.jsx("p",{className:"mt-3 max-w-md mx-auto text-base text-brown-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl",children:"Connect with learners, share experiences, and build lasting relationships in our supportive community."}),e.jsxs("div",{className:"mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8",children:[e.jsx("div",{className:"rounded-md shadow",children:e.jsx("a",{href:"/community",className:"w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brown-600 hover:bg-brown-600-hover md:py-4 md:text-lg md:px-10",children:"Join Forum"})}),e.jsx("div",{className:"mt-3 rounded-md shadow sm:mt-0 sm:ml-3",children:e.jsx("a",{href:"/programs",className:"w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-beige-50 md:py-4 md:text-lg md:px-10",children:"Explore Programs"})})]})]}),e.jsx("div",{className:"mt-20",children:e.jsxs("div",{className:"grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3",children:[e.jsx("div",{className:"pt-6",children:e.jsx("div",{className:"flow-root bg-white rounded-lg px-6 pb-8",children:e.jsxs("div",{className:"-mt-6",children:[e.jsx("div",{children:e.jsx("span",{className:"inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg",children:e.jsx("svg",{className:"h-6 w-6 text-white",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a3 3 0 01-3-3V6a3 3 0 013-3h6a3 3 0 013 3v2z"})})})}),e.jsx("h3",{className:"mt-8 text-lg font-medium text-brown-900 tracking-tight",children:"Discussion Forums"}),e.jsx("p",{className:"mt-5 text-base text-brown-500",children:"Engage in meaningful discussions about courses, career paths, and industry insights."})]})})}),e.jsx("div",{className:"pt-6",children:e.jsx("div",{className:"flow-root bg-white rounded-lg px-6 pb-8",children:e.jsxs("div",{className:"-mt-6",children:[e.jsx("div",{children:e.jsx("span",{className:"inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg",children:e.jsx("svg",{className:"h-6 w-6 text-white",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"})})})}),e.jsx("h3",{className:"mt-8 text-lg font-medium text-brown-900 tracking-tight",children:"Peer Support"}),e.jsx("p",{className:"mt-5 text-base text-brown-500",children:"Connect with fellow learners for study groups, project collaboration, and mutual support."})]})})}),e.jsx("div",{className:"pt-6",children:e.jsx("div",{className:"flow-root bg-white rounded-lg px-6 pb-8",children:e.jsxs("div",{className:"-mt-6",children:[e.jsx("div",{children:e.jsx("span",{className:"inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg",children:e.jsx("svg",{className:"h-6 w-6 text-white",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"})})})}),e.jsx("h3",{className:"mt-8 text-lg font-medium text-brown-900 tracking-tight",children:"Success Stories"}),e.jsx("p",{className:"mt-5 text-base text-brown-500",children:"Share your achievements and get inspired by the success stories of community members."})]})})})]})})]}),e.jsx("footer",{className:"bg-white",children:e.jsxs("div",{className:"max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8",children:[e.jsxs("div",{className:"flex justify-center space-x-6 md:order-2",children:[e.jsx("a",{href:"/privacy-policy",className:"text-gray-400 hover:text-brown-500",children:"Privacy"}),e.jsx("a",{href:"/terms",className:"text-gray-400 hover:text-brown-500",children:"Terms"}),e.jsx("a",{href:"/connect",className:"text-gray-400 hover:text-brown-500",children:"Contact"})]}),e.jsx("div",{className:"mt-8 md:mt-0 md:order-1",children:e.jsx("p",{className:"text-center text-base text-gray-400",children:"© 2025 Elevate for Humanity. All rights reserved."})})]})})]})}export{s as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+function s() {
+  return e.jsxs('div', {
+    className: 'min-h-screen bg-gradient-to-br from-purple-50 to-pink-100',
+    children: [
+      e.jsx('header', {
+        className: 'bg-white shadow-sm',
+        children: e.jsx('div', {
+          className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+          children: e.jsxs('div', {
+            className: 'flex justify-between items-center py-6',
+            children: [
+              e.jsx('div', {
+                className: 'flex items-center',
+                children: e.jsx('h1', {
+                  className: 'text-2xl font-bold text-brown-900',
+                  children: 'Elevate for Humanity',
+                }),
+              }),
+              e.jsxs('nav', {
+                role: 'navigation',
+                className: 'hidden md:flex space-x-8',
+                children: [
+                  e.jsx('a', {
+                    href: '/programs',
+                    className: 'text-brown-500 hover:text-brown-900',
+                    children: 'Programs',
+                  }),
+                  e.jsx('a', {
+                    href: '/community',
+                    className: 'text-brown-500 hover:text-brown-900',
+                    children: 'Forum',
+                  }),
+                  e.jsx('a', {
+                    href: '/connect',
+                    className: 'text-brown-500 hover:text-brown-900',
+                    children: 'Contact',
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      }),
+      e.jsxs('main', {
+        role: 'main',
+        className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12',
+        children: [
+          e.jsxs('div', {
+            className: 'text-center',
+            children: [
+              e.jsx('h1', {
+                className:
+                  'text-4xl font-bold text-brown-900 sm:text-5xl md:text-6xl',
+                children: 'Community Hub',
+              }),
+              e.jsx('p', {
+                className:
+                  'mt-3 max-w-md mx-auto text-base text-brown-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl',
+                children:
+                  'Connect with learners, share experiences, and build lasting relationships in our supportive community.',
+              }),
+              e.jsxs('div', {
+                className:
+                  'mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8',
+                children: [
+                  e.jsx('div', {
+                    className: 'rounded-md shadow',
+                    children: e.jsx('a', {
+                      href: '/community',
+                      className:
+                        'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brown-600 hover:bg-brown-600-hover md:py-4 md:text-lg md:px-10',
+                      children: 'Join Forum',
+                    }),
+                  }),
+                  e.jsx('div', {
+                    className: 'mt-3 rounded-md shadow sm:mt-0 sm:ml-3',
+                    children: e.jsx('a', {
+                      href: '/programs',
+                      className:
+                        'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-beige-50 md:py-4 md:text-lg md:px-10',
+                      children: 'Explore Programs',
+                    }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsx('div', {
+            className: 'mt-20',
+            children: e.jsxs('div', {
+              className: 'grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3',
+              children: [
+                e.jsx('div', {
+                  className: 'pt-6',
+                  children: e.jsx('div', {
+                    className: 'flow-root bg-white rounded-lg px-6 pb-8',
+                    children: e.jsxs('div', {
+                      className: '-mt-6',
+                      children: [
+                        e.jsx('div', {
+                          children: e.jsx('span', {
+                            className:
+                              'inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg',
+                            children: e.jsx('svg', {
+                              className: 'h-6 w-6 text-white',
+                              fill: 'none',
+                              viewBox: '0 0 24 24',
+                              stroke: 'currentColor',
+                              children: e.jsx('path', {
+                                strokeLinecap: 'round',
+                                strokeLinejoin: 'round',
+                                strokeWidth: 2,
+                                d: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a3 3 0 01-3-3V6a3 3 0 013-3h6a3 3 0 013 3v2z',
+                              }),
+                            }),
+                          }),
+                        }),
+                        e.jsx('h3', {
+                          className:
+                            'mt-8 text-lg font-medium text-brown-900 tracking-tight',
+                          children: 'Discussion Forums',
+                        }),
+                        e.jsx('p', {
+                          className: 'mt-5 text-base text-brown-500',
+                          children:
+                            'Engage in meaningful discussions about courses, career paths, and industry insights.',
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+                e.jsx('div', {
+                  className: 'pt-6',
+                  children: e.jsx('div', {
+                    className: 'flow-root bg-white rounded-lg px-6 pb-8',
+                    children: e.jsxs('div', {
+                      className: '-mt-6',
+                      children: [
+                        e.jsx('div', {
+                          children: e.jsx('span', {
+                            className:
+                              'inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg',
+                            children: e.jsx('svg', {
+                              className: 'h-6 w-6 text-white',
+                              fill: 'none',
+                              viewBox: '0 0 24 24',
+                              stroke: 'currentColor',
+                              children: e.jsx('path', {
+                                strokeLinecap: 'round',
+                                strokeLinejoin: 'round',
+                                strokeWidth: 2,
+                                d: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z',
+                              }),
+                            }),
+                          }),
+                        }),
+                        e.jsx('h3', {
+                          className:
+                            'mt-8 text-lg font-medium text-brown-900 tracking-tight',
+                          children: 'Peer Support',
+                        }),
+                        e.jsx('p', {
+                          className: 'mt-5 text-base text-brown-500',
+                          children:
+                            'Connect with fellow learners for study groups, project collaboration, and mutual support.',
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+                e.jsx('div', {
+                  className: 'pt-6',
+                  children: e.jsx('div', {
+                    className: 'flow-root bg-white rounded-lg px-6 pb-8',
+                    children: e.jsxs('div', {
+                      className: '-mt-6',
+                      children: [
+                        e.jsx('div', {
+                          children: e.jsx('span', {
+                            className:
+                              'inline-flex items-center justify-center p-3 bg-purple-500 rounded-md shadow-lg',
+                            children: e.jsx('svg', {
+                              className: 'h-6 w-6 text-white',
+                              fill: 'none',
+                              viewBox: '0 0 24 24',
+                              stroke: 'currentColor',
+                              children: e.jsx('path', {
+                                strokeLinecap: 'round',
+                                strokeLinejoin: 'round',
+                                strokeWidth: 2,
+                                d: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z',
+                              }),
+                            }),
+                          }),
+                        }),
+                        e.jsx('h3', {
+                          className:
+                            'mt-8 text-lg font-medium text-brown-900 tracking-tight',
+                          children: 'Success Stories',
+                        }),
+                        e.jsx('p', {
+                          className: 'mt-5 text-base text-brown-500',
+                          children:
+                            'Share your achievements and get inspired by the success stories of community members.',
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+      e.jsx('footer', {
+        className: 'bg-white',
+        children: e.jsxs('div', {
+          className:
+            'max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8',
+          children: [
+            e.jsxs('div', {
+              className: 'flex justify-center space-x-6 md:order-2',
+              children: [
+                e.jsx('a', {
+                  href: '/privacy-policy',
+                  className: 'text-gray-400 hover:text-brown-500',
+                  children: 'Privacy',
+                }),
+                e.jsx('a', {
+                  href: '/terms',
+                  className: 'text-gray-400 hover:text-brown-500',
+                  children: 'Terms',
+                }),
+                e.jsx('a', {
+                  href: '/connect',
+                  className: 'text-gray-400 hover:text-brown-500',
+                  children: 'Contact',
+                }),
+              ],
+            }),
+            e.jsx('div', {
+              className: 'mt-8 md:mt-0 md:order-1',
+              children: e.jsx('p', {
+                className: 'text-center text-base text-gray-400',
+                children: '© 2025 Elevate for Humanity. All rights reserved.',
+              }),
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { s as default };

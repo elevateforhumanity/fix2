@@ -22,17 +22,15 @@ export default function CoachPanel({ courseId }: CoachPanelProps) {
           {loading ? 'Generating...' : 'Refresh Plan'}
         </button>
       </div>
-
       {loading && (
         <div className="flex items-center justify-center py-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" />
           <p className="ml-3 text-gray-600">
             Analyzing your performance and generating your personalized study
             plan...
           </p>
         </div>
       )}
-
       {!loading && plan && (
         <div className="space-y-4">
           <p className="text-sm text-gray-600">
@@ -57,7 +55,6 @@ export default function CoachPanel({ courseId }: CoachPanelProps) {
           </ul>
         </div>
       )}
-
       {!loading && !plan && (
         <p className="text-gray-500 text-center py-8">
           Click "Refresh Plan" to generate your personalized study plan.

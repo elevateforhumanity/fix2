@@ -290,8 +290,7 @@ export function Slides() {
               borderRadius: '0.375rem',
               padding: '0.5rem',
               cursor: 'pointer',
-              backgroundColor:
-                currentSlide === index ? '#f5f1e8' : '#fff',
+              backgroundColor: currentSlide === index ? '#f5f1e8' : '#fff',
               position: 'relative',
             }}
           >

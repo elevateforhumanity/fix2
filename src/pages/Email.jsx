@@ -91,8 +91,7 @@ export function Email() {
             style={{
               padding: '0.75rem',
               textAlign: 'left',
-              backgroundColor:
-                folder === 'inbox' ? '#f5f1e8' : 'transparent',
+              backgroundColor: folder === 'inbox' ? '#f5f1e8' : 'transparent',
               color: folder === 'inbox' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
@@ -106,8 +105,7 @@ export function Email() {
             style={{
               padding: '0.75rem',
               textAlign: 'left',
-              backgroundColor:
-                folder === 'starred' ? '#f5f1e8' : 'transparent',
+              backgroundColor: folder === 'starred' ? '#f5f1e8' : 'transparent',
               color: folder === 'starred' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
@@ -121,8 +119,7 @@ export function Email() {
             style={{
               padding: '0.75rem',
               textAlign: 'left',
-              backgroundColor:
-                folder === 'sent' ? '#f5f1e8' : 'transparent',
+              backgroundColor: folder === 'sent' ? '#f5f1e8' : 'transparent',
               color: folder === 'sent' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
@@ -136,8 +133,7 @@ export function Email() {
             style={{
               padding: '0.75rem',
               textAlign: 'left',
-              backgroundColor:
-                folder === 'drafts' ? '#f5f1e8' : 'transparent',
+              backgroundColor: folder === 'drafts' ? '#f5f1e8' : 'transparent',
               color: folder === 'drafts' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',
@@ -151,8 +147,7 @@ export function Email() {
             style={{
               padding: '0.75rem',
               textAlign: 'left',
-              backgroundColor:
-                folder === 'trash' ? '#f5f1e8' : 'transparent',
+              backgroundColor: folder === 'trash' ? '#f5f1e8' : 'transparent',
               color: folder === 'trash' ? '#00a544' : '#000',
               border: 'none',
               borderRadius: '0.375rem',

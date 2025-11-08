@@ -14,9 +14,7 @@ export default function VolunteerStories() {
           content="Read inspiring stories from our volunteers about their experiences and impact."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[1200px] text-center">
           <div className="mb-8">
@@ -28,7 +26,6 @@ export default function VolunteerStories() {
             and the impact they've made in students' lives. Be inspired to make
             a difference.
           </p>
-
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-left">
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -75,7 +72,6 @@ export default function VolunteerStories() {
               <p className="text-brown-700">Connect with featured volunteers</p>
             </div>
           </div>
-
           <div className="mt-12 p-6 bg-green-50 rounded-lg">
             <p className="text-lg font-semibold text-green-900">
               Coming Q1 2025
@@ -83,7 +79,6 @@ export default function VolunteerStories() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

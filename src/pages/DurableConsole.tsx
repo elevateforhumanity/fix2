@@ -84,9 +84,7 @@ export default function DurableConsole() {
           content="Automated enrollment program injection for Durable.co integration"
         />
       </Helmet>
-
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container max-w-4xl">
           <div className="card p-8">
@@ -265,7 +263,6 @@ export default function DurableConsole() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

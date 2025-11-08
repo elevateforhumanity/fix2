@@ -14,9 +14,7 @@ export default function WellnessResources() {
           content="Find helpful resources for your physical, mental, and emotional wellness."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h1 className="section-title">Wellness Resources</h1>
@@ -24,7 +22,6 @@ export default function WellnessResources() {
             Find helpful resources for your physical, mental, and emotional
             wellness.
           </p>
-
           <div className="space-y-6">
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -42,7 +39,6 @@ export default function WellnessResources() {
                 U.S. government.
               </p>
             </div>
-
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
                 <a
@@ -59,7 +55,6 @@ export default function WellnessResources() {
                 mental health.
               </p>
             </div>
-
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
                 <a
@@ -76,7 +71,6 @@ export default function WellnessResources() {
                 when needed.
               </p>
             </div>
-
             <div className="mt-8 p-6 bg-beige-100 rounded-lg">
               <h3 className="text-lg font-bold text-brown-900 mb-2">
                 Crisis Support
@@ -101,7 +95,6 @@ export default function WellnessResources() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

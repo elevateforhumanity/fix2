@@ -63,9 +63,7 @@ export default function DurablePricing() {
           content="Simple, transparent pricing. Choose the plan that's right for you."
         />
       </Helmet>
-
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container">
           <div className="text-center mb-16">
@@ -115,7 +113,6 @@ export default function DurablePricing() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

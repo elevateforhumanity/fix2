@@ -1,1 +1,29 @@
-import{j as r,H as t}from"./vendor-react-C-ZQNdj3.js";import{N as i}from"./Navigation-Bbm4Xzc1.js";import{S as o}from"./Section-DjKsK8lK.js";import{F as e}from"./Footer-Dh9yHrAI.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function s(){return r.jsxs("div",{children:[r.jsx(t,{children:r.jsx("title",{children:"Milady RISE Integration | Elevate for Humanity"})}),r.jsx(i,{}),r.jsxs(o,{children:[r.jsx("h1",{className:"section-title",children:"Milady RISE Integration"}),r.jsx("p",{children:"RISE platform integration."})]}),r.jsx(e,{})]})}export{s as default};
+import { j as r, H as t } from './vendor-react-C-ZQNdj3.js';
+import { N as i } from './Navigation-Bbm4Xzc1.js';
+import { S as o } from './Section-DjKsK8lK.js';
+import { F as e } from './Footer-Dh9yHrAI.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function s() {
+  return r.jsxs('div', {
+    children: [
+      r.jsx(t, {
+        children: r.jsx('title', {
+          children: 'Milady RISE Integration | Elevate for Humanity',
+        }),
+      }),
+      r.jsx(i, {}),
+      r.jsxs(o, {
+        children: [
+          r.jsx('h1', {
+            className: 'section-title',
+            children: 'Milady RISE Integration',
+          }),
+          r.jsx('p', { children: 'RISE platform integration.' }),
+        ],
+      }),
+      r.jsx(e, {}),
+    ],
+  });
+}
+export { s as default };

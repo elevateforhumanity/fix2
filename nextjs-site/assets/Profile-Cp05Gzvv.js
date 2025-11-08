@@ -1,1 +1,647 @@
-import{r as e,j as t}from"./vendor-react-C-ZQNdj3.js";import{L as i}from"./vendor-router-CQjfSXV_.js";import{A as o}from"./AppLayout-DjgAzEIN.js";import"./vendor-Da1LjC7-.js";function n(){const[n,d]=e.useState({firstName:"Jane",lastName:"Doe",email:"jane@example.com",phone:"",organization:"",role:"Student",address:"",city:"",state:"",zip:"",country:"United States",bio:"",website:"",linkedin:"",youtube:""}),[l,r]=e.useState(!1),a=e=>{d({...n,[e.target.name]:e.target.value})};return t.jsx(o,{children:t.jsxs("div",{style:{maxWidth:800,margin:"0 auto",padding:32},children:[t.jsxs("div",{style:{marginBottom:32},children:[t.jsx("h1",{style:{fontSize:32,fontWeight:700,marginBottom:8},children:"Edit Profile"}),t.jsx("p",{style:{color:"#6b5d52",fontSize:16},children:"Update your personal information and public profile"})]}),l&&t.jsx("div",{style:{padding:16,backgroundColor:"#d4edda",color:"#155724",borderRadius:8,marginBottom:24,border:"1px solid #c3e6cb"},children:"✅ Profile updated successfully"}),t.jsxs("form",{onSubmit:e=>{e.preventDefault(),r(!0),setTimeout(()=>r(!1),3e3)},children:[t.jsxs("div",{style:{backgroundColor:"#fff",padding:24,borderRadius:8,marginBottom:24,border:"1px solid #d4c9b8"},children:[t.jsx("h2",{style:{fontSize:20,fontWeight:600,marginBottom:20},children:"Personal Information"}),t.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16},children:[t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"First Name *"}),t.jsx("input",{type:"text","aria-label":"text input",name:"firstName",value:n.firstName,onChange:a,required:!0,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Last Name *"}),t.jsx("input",{type:"text","aria-label":"text input",name:"lastName",value:n.lastName,onChange:a,required:!0,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]})]}),t.jsxs("div",{style:{marginBottom:16},children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Email Address *"}),t.jsx("input",{type:"email","aria-label":"email input",name:"email",value:n.email,onChange:a,required:!0,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16},children:[t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Phone Number"}),t.jsx("input",{type:"tel","aria-label":"tel input",name:"phone",value:n.phone,onChange:a,placeholder:"(555) 123-4567",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Role"}),t.jsxs("select",{name:"role",value:n.role,onChange:a,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14},children:[t.jsx("option",{value:"Student",children:"Student"}),t.jsx("option",{value:"Instructor",children:"Instructor"}),t.jsx("option",{value:"Administrator",children:"Administrator"}),t.jsx("option",{value:"Partner",children:"Partner"})]})]})]})]}),t.jsxs("div",{style:{backgroundColor:"#fff",padding:24,borderRadius:8,marginBottom:24,border:"1px solid #d4c9b8"},children:[t.jsx("h2",{style:{fontSize:20,fontWeight:600,marginBottom:20},children:"Professional Information"}),t.jsxs("div",{style:{marginBottom:16},children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Organization"}),t.jsx("input",{type:"text","aria-label":"text input",name:"organization",value:n.organization,onChange:a,placeholder:"Your company or school",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{style:{marginBottom:16},children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Bio"}),t.jsx("textarea",{name:"bio",value:n.bio,onChange:a,placeholder:"Tell us about yourself...",rows:4,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14,fontFamily:"inherit",resize:"vertical"}})]}),t.jsxs("div",{style:{marginBottom:16},children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Website"}),t.jsx("input",{type:"url","aria-label":"url input",name:"website",value:n.website,onChange:a,placeholder:"https://yourwebsite.com",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16},children:[t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"LinkedIn"}),t.jsx("input",{type:"text","aria-label":"text input",name:"linkedin",value:n.linkedin,onChange:a,placeholder:"linkedin.com/in/username",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"YouTube"}),t.jsx("input",{type:"text","aria-label":"text input",name:"youtube",value:n.youtube,onChange:a,placeholder:"@channelname",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]})]})]}),t.jsxs("div",{style:{backgroundColor:"#fff",padding:24,borderRadius:8,marginBottom:24,border:"1px solid #d4c9b8"},children:[t.jsx("h2",{style:{fontSize:20,fontWeight:600,marginBottom:20},children:"Address"}),t.jsxs("div",{style:{marginBottom:16},children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Street Address"}),t.jsx("input",{type:"text","aria-label":"text input",name:"address",value:n.address,onChange:a,placeholder:"123 Main St",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{style:{display:"grid",gridTemplateColumns:"2fr 1fr 1fr",gap:16,marginBottom:16},children:[t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"City"}),t.jsx("input",{type:"text","aria-label":"text input",name:"city",value:n.city,onChange:a,placeholder:"City",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"State"}),t.jsx("input",{type:"text","aria-label":"text input",name:"state",value:n.state,onChange:a,placeholder:"ST",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"ZIP"}),t.jsx("input",{type:"text","aria-label":"text input",name:"zip",value:n.zip,onChange:a,placeholder:"12345",style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14}})]})]}),t.jsxs("div",{children:[t.jsx("label",{style:{display:"block",marginBottom:8,fontWeight:500,fontSize:14},children:"Country"}),t.jsxs("select",{name:"country",value:n.country,onChange:a,style:{width:"100%",padding:"10px 12px",border:"1px solid #d4c9b8",borderRadius:6,fontSize:14},children:[t.jsx("option",{value:"United States",children:"United States"}),t.jsx("option",{value:"Canada",children:"Canada"}),t.jsx("option",{value:"United Kingdom",children:"United Kingdom"}),t.jsx("option",{value:"Australia",children:"Australia"}),t.jsx("option",{value:"Other",children:"Other"})]})]})]}),t.jsxs("div",{style:{display:"flex",gap:12,justifyContent:"flex-end",paddingTop:8},children:[t.jsx(i,{to:"/account",style:{padding:"12px 24px",backgroundColor:"#f5f5f5",color:"#333",border:"none",borderRadius:6,fontSize:14,fontWeight:500,cursor:"pointer",textDecoration:"none",display:"inline-block"},children:"Cancel"}),t.jsx("button",{type:"submit",style:{padding:"12px 24px",backgroundColor:"#00a544",color:"#fff",border:"none",borderRadius:6,fontSize:14,fontWeight:500,cursor:"pointer"},children:"Save Changes"})]})]})]})})}export{n as default};
+import { r as e, j as t } from './vendor-react-C-ZQNdj3.js';
+import { L as i } from './vendor-router-CQjfSXV_.js';
+import { A as o } from './AppLayout-DjgAzEIN.js';
+import './vendor-Da1LjC7-.js';
+function n() {
+  const [n, d] = e.useState({
+      firstName: 'Jane',
+      lastName: 'Doe',
+      email: 'jane@example.com',
+      phone: '',
+      organization: '',
+      role: 'Student',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      country: 'United States',
+      bio: '',
+      website: '',
+      linkedin: '',
+      youtube: '',
+    }),
+    [l, r] = e.useState(!1),
+    a = (e) => {
+      d({ ...n, [e.target.name]: e.target.value });
+    };
+  return t.jsx(o, {
+    children: t.jsxs('div', {
+      style: { maxWidth: 800, margin: '0 auto', padding: 32 },
+      children: [
+        t.jsxs('div', {
+          style: { marginBottom: 32 },
+          children: [
+            t.jsx('h1', {
+              style: { fontSize: 32, fontWeight: 700, marginBottom: 8 },
+              children: 'Edit Profile',
+            }),
+            t.jsx('p', {
+              style: { color: '#6b5d52', fontSize: 16 },
+              children: 'Update your personal information and public profile',
+            }),
+          ],
+        }),
+        l &&
+          t.jsx('div', {
+            style: {
+              padding: 16,
+              backgroundColor: '#d4edda',
+              color: '#155724',
+              borderRadius: 8,
+              marginBottom: 24,
+              border: '1px solid #c3e6cb',
+            },
+            children: '✅ Profile updated successfully',
+          }),
+        t.jsxs('form', {
+          onSubmit: (e) => {
+            (e.preventDefault(), r(!0), setTimeout(() => r(!1), 3e3));
+          },
+          children: [
+            t.jsxs('div', {
+              style: {
+                backgroundColor: '#fff',
+                padding: 24,
+                borderRadius: 8,
+                marginBottom: 24,
+                border: '1px solid #d4c9b8',
+              },
+              children: [
+                t.jsx('h2', {
+                  style: { fontSize: 20, fontWeight: 600, marginBottom: 20 },
+                  children: 'Personal Information',
+                }),
+                t.jsxs('div', {
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: 16,
+                    marginBottom: 16,
+                  },
+                  children: [
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'First Name *',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'firstName',
+                          value: n.firstName,
+                          onChange: a,
+                          required: !0,
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'Last Name *',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'lastName',
+                          value: n.lastName,
+                          onChange: a,
+                          required: !0,
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: { marginBottom: 16 },
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Email Address *',
+                    }),
+                    t.jsx('input', {
+                      type: 'email',
+                      'aria-label': 'email input',
+                      name: 'email',
+                      value: n.email,
+                      onChange: a,
+                      required: !0,
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                      },
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: 16,
+                  },
+                  children: [
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'Phone Number',
+                        }),
+                        t.jsx('input', {
+                          type: 'tel',
+                          'aria-label': 'tel input',
+                          name: 'phone',
+                          value: n.phone,
+                          onChange: a,
+                          placeholder: '(555) 123-4567',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'Role',
+                        }),
+                        t.jsxs('select', {
+                          name: 'role',
+                          value: n.role,
+                          onChange: a,
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                          children: [
+                            t.jsx('option', {
+                              value: 'Student',
+                              children: 'Student',
+                            }),
+                            t.jsx('option', {
+                              value: 'Instructor',
+                              children: 'Instructor',
+                            }),
+                            t.jsx('option', {
+                              value: 'Administrator',
+                              children: 'Administrator',
+                            }),
+                            t.jsx('option', {
+                              value: 'Partner',
+                              children: 'Partner',
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            t.jsxs('div', {
+              style: {
+                backgroundColor: '#fff',
+                padding: 24,
+                borderRadius: 8,
+                marginBottom: 24,
+                border: '1px solid #d4c9b8',
+              },
+              children: [
+                t.jsx('h2', {
+                  style: { fontSize: 20, fontWeight: 600, marginBottom: 20 },
+                  children: 'Professional Information',
+                }),
+                t.jsxs('div', {
+                  style: { marginBottom: 16 },
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Organization',
+                    }),
+                    t.jsx('input', {
+                      type: 'text',
+                      'aria-label': 'text input',
+                      name: 'organization',
+                      value: n.organization,
+                      onChange: a,
+                      placeholder: 'Your company or school',
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                      },
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: { marginBottom: 16 },
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Bio',
+                    }),
+                    t.jsx('textarea', {
+                      name: 'bio',
+                      value: n.bio,
+                      onChange: a,
+                      placeholder: 'Tell us about yourself...',
+                      rows: 4,
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                        fontFamily: 'inherit',
+                        resize: 'vertical',
+                      },
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: { marginBottom: 16 },
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Website',
+                    }),
+                    t.jsx('input', {
+                      type: 'url',
+                      'aria-label': 'url input',
+                      name: 'website',
+                      value: n.website,
+                      onChange: a,
+                      placeholder: 'https://yourwebsite.com',
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                      },
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: 16,
+                  },
+                  children: [
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'LinkedIn',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'linkedin',
+                          value: n.linkedin,
+                          onChange: a,
+                          placeholder: 'linkedin.com/in/username',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'YouTube',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'youtube',
+                          value: n.youtube,
+                          onChange: a,
+                          placeholder: '@channelname',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            t.jsxs('div', {
+              style: {
+                backgroundColor: '#fff',
+                padding: 24,
+                borderRadius: 8,
+                marginBottom: 24,
+                border: '1px solid #d4c9b8',
+              },
+              children: [
+                t.jsx('h2', {
+                  style: { fontSize: 20, fontWeight: 600, marginBottom: 20 },
+                  children: 'Address',
+                }),
+                t.jsxs('div', {
+                  style: { marginBottom: 16 },
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Street Address',
+                    }),
+                    t.jsx('input', {
+                      type: 'text',
+                      'aria-label': 'text input',
+                      name: 'address',
+                      value: n.address,
+                      onChange: a,
+                      placeholder: '123 Main St',
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                      },
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: '2fr 1fr 1fr',
+                    gap: 16,
+                    marginBottom: 16,
+                  },
+                  children: [
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'City',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'city',
+                          value: n.city,
+                          onChange: a,
+                          placeholder: 'City',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'State',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'state',
+                          value: n.state,
+                          onChange: a,
+                          placeholder: 'ST',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                    t.jsxs('div', {
+                      children: [
+                        t.jsx('label', {
+                          style: {
+                            display: 'block',
+                            marginBottom: 8,
+                            fontWeight: 500,
+                            fontSize: 14,
+                          },
+                          children: 'ZIP',
+                        }),
+                        t.jsx('input', {
+                          type: 'text',
+                          'aria-label': 'text input',
+                          name: 'zip',
+                          value: n.zip,
+                          onChange: a,
+                          placeholder: '12345',
+                          style: {
+                            width: '100%',
+                            padding: '10px 12px',
+                            border: '1px solid #d4c9b8',
+                            borderRadius: 6,
+                            fontSize: 14,
+                          },
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  children: [
+                    t.jsx('label', {
+                      style: {
+                        display: 'block',
+                        marginBottom: 8,
+                        fontWeight: 500,
+                        fontSize: 14,
+                      },
+                      children: 'Country',
+                    }),
+                    t.jsxs('select', {
+                      name: 'country',
+                      value: n.country,
+                      onChange: a,
+                      style: {
+                        width: '100%',
+                        padding: '10px 12px',
+                        border: '1px solid #d4c9b8',
+                        borderRadius: 6,
+                        fontSize: 14,
+                      },
+                      children: [
+                        t.jsx('option', {
+                          value: 'United States',
+                          children: 'United States',
+                        }),
+                        t.jsx('option', {
+                          value: 'Canada',
+                          children: 'Canada',
+                        }),
+                        t.jsx('option', {
+                          value: 'United Kingdom',
+                          children: 'United Kingdom',
+                        }),
+                        t.jsx('option', {
+                          value: 'Australia',
+                          children: 'Australia',
+                        }),
+                        t.jsx('option', { value: 'Other', children: 'Other' }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            t.jsxs('div', {
+              style: {
+                display: 'flex',
+                gap: 12,
+                justifyContent: 'flex-end',
+                paddingTop: 8,
+              },
+              children: [
+                t.jsx(i, {
+                  to: '/account',
+                  style: {
+                    padding: '12px 24px',
+                    backgroundColor: '#f5f5f5',
+                    color: '#333',
+                    border: 'none',
+                    borderRadius: 6,
+                    fontSize: 14,
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    display: 'inline-block',
+                  },
+                  children: 'Cancel',
+                }),
+                t.jsx('button', {
+                  type: 'submit',
+                  style: {
+                    padding: '12px 24px',
+                    backgroundColor: '#00a544',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: 6,
+                    fontSize: 14,
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                  },
+                  children: 'Save Changes',
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+export { n as default };

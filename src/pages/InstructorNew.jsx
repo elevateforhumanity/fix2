@@ -124,8 +124,7 @@ export default function InstructorNew() {
                   width: 40,
                   height: 40,
                   borderRadius: '50%',
-                  backgroundColor:
-                    step >= s.num ? '#00a544' : '#d4c9b8',
+                  backgroundColor: step >= s.num ? '#00a544' : '#d4c9b8',
                   color: step >= s.num ? '#fff' : '#999',
                   display: 'flex',
                   alignItems: 'center',

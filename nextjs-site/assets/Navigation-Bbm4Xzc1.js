@@ -1,1 +1,117 @@
-import{r as e,j as r}from"./vendor-react-C-ZQNdj3.js";import{b as a,L as t}from"./vendor-router-CQjfSXV_.js";const n=[{label:"Blog",href:"/blog"},{label:"About",href:"/about"},{label:"Contact",href:"/contact"},{label:"Services",href:"/services"},{label:"FAQ",href:"/faq"},{label:"Student Portal",href:"/student-portal"},{label:"Programs",href:"/programs"},{label:"Elevate",href:"/elevate"},{label:"Barber Apprenticeship",href:"/barber-apprenticeship"}];function o({logo:o="/logo.svg",logoAlt:s="Elevate for Humanity",links:l=n,className:i=""}){const[c,d]=e.useState(!1),h=a(),m=e=>"/"===e?"/"===h.pathname:h.pathname.startsWith(e);return r.jsxs("nav",{className:`bg-white border-b border-gray-200 ${i}`,children:[r.jsx("div",{className:"container",children:r.jsxs("div",{className:"flex items-center justify-between h-16",children:[r.jsx(t,{to:"/",className:"flex items-center",children:r.jsx("img",{src:o,alt:s,className:"h-8 w-auto",onError:e=>{e.currentTarget.style.display="none",e.currentTarget.parentElement.innerHTML=`\n                  <span class="text-xl font-bold text-[var(--color-brown)]">${s}</span>\n                `}})}),r.jsx("div",{className:"hidden md:flex items-center gap-8",children:l.map(e=>r.jsx(t,{to:e.href,className:"text-base font-medium transition-colors "+(m(e.href)?"text-[var(--color-green-600)]":"text-gray-700 hover:text-[var(--color-green-600)]"),children:e.label},e.href))}),r.jsx("button",{type:"button",className:"md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[var(--color-green-600)] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-green-500)]",onClick:()=>d(!c),"aria-expanded":c,"aria-label":"Toggle navigation menu",children:r.jsx("svg",{className:"h-6 w-6",fill:"none",viewBox:"0 0 24 24",strokeWidth:"1.5",stroke:"currentColor",children:c?r.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M6 18L18 6M6 6l12 12"}):r.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"})})})]})}),c&&r.jsx("div",{className:"md:hidden border-t border-gray-200",children:r.jsx("div",{className:"container py-4 space-y-2",children:l.map(e=>r.jsx(t,{to:e.href,className:"block px-4 py-2 rounded-lg text-base font-medium transition-colors "+(m(e.href)?"bg-[var(--color-green-50)] text-[var(--color-green-700)]":"text-gray-700 hover:bg-gray-50"),onClick:()=>d(!1),children:e.label},e.href))})})]})}export{o as N};
+import { r as e, j as r } from './vendor-react-C-ZQNdj3.js';
+import { b as a, L as t } from './vendor-router-CQjfSXV_.js';
+const n = [
+  { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Services', href: '/services' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Student Portal', href: '/student-portal' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Elevate', href: '/elevate' },
+  { label: 'Barber Apprenticeship', href: '/barber-apprenticeship' },
+];
+function o({
+  logo: o = '/logo.svg',
+  logoAlt: s = 'Elevate for Humanity',
+  links: l = n,
+  className: i = '',
+}) {
+  const [c, d] = e.useState(!1),
+    h = a(),
+    m = (e) => ('/' === e ? '/' === h.pathname : h.pathname.startsWith(e));
+  return r.jsxs('nav', {
+    className: `bg-white border-b border-gray-200 ${i}`,
+    children: [
+      r.jsx('div', {
+        className: 'container',
+        children: r.jsxs('div', {
+          className: 'flex items-center justify-between h-16',
+          children: [
+            r.jsx(t, {
+              to: '/',
+              className: 'flex items-center',
+              children: r.jsx('img', {
+                src: o,
+                alt: s,
+                className: 'h-8 w-auto',
+                onError: (e) => {
+                  ((e.currentTarget.style.display = 'none'),
+                    (e.currentTarget.parentElement.innerHTML = `\n                  <span class="text-xl font-bold text-[var(--color-brown)]">${s}</span>\n                `));
+                },
+              }),
+            }),
+            r.jsx('div', {
+              className: 'hidden md:flex items-center gap-8',
+              children: l.map((e) =>
+                r.jsx(
+                  t,
+                  {
+                    to: e.href,
+                    className:
+                      'text-base font-medium transition-colors ' +
+                      (m(e.href)
+                        ? 'text-[var(--color-green-600)]'
+                        : 'text-gray-700 hover:text-[var(--color-green-600)]'),
+                    children: e.label,
+                  },
+                  e.href
+                )
+              ),
+            }),
+            r.jsx('button', {
+              type: 'button',
+              className:
+                'md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[var(--color-green-600)] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-green-500)]',
+              onClick: () => d(!c),
+              'aria-expanded': c,
+              'aria-label': 'Toggle navigation menu',
+              children: r.jsx('svg', {
+                className: 'h-6 w-6',
+                fill: 'none',
+                viewBox: '0 0 24 24',
+                strokeWidth: '1.5',
+                stroke: 'currentColor',
+                children: c
+                  ? r.jsx('path', {
+                      strokeLinecap: 'round',
+                      strokeLinejoin: 'round',
+                      d: 'M6 18L18 6M6 6l12 12',
+                    })
+                  : r.jsx('path', {
+                      strokeLinecap: 'round',
+                      strokeLinejoin: 'round',
+                      d: 'M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5',
+                    }),
+              }),
+            }),
+          ],
+        }),
+      }),
+      c &&
+        r.jsx('div', {
+          className: 'md:hidden border-t border-gray-200',
+          children: r.jsx('div', {
+            className: 'container py-4 space-y-2',
+            children: l.map((e) =>
+              r.jsx(
+                t,
+                {
+                  to: e.href,
+                  className:
+                    'block px-4 py-2 rounded-lg text-base font-medium transition-colors ' +
+                    (m(e.href)
+                      ? 'bg-[var(--color-green-50)] text-[var(--color-green-700)]'
+                      : 'text-gray-700 hover:bg-gray-50'),
+                  onClick: () => d(!1),
+                  children: e.label,
+                },
+                e.href
+              )
+            ),
+          }),
+        }),
+    ],
+  });
+}
+export { o as N };

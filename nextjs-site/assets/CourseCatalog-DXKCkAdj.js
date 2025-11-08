@@ -1,1 +1,545 @@
-import{r as e,j as s,V as t,I as a,t as r,Q as i,u as l,U as n}from"./vendor-react-C-ZQNdj3.js";import{c as o,C as c,a as d,b as m,d as u,e as x,f as h,B as g}from"./button-B_Plb33j.js";import{B as f}from"./badge-Cyxi6-_y.js";import{c as p}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";const j=e.forwardRef(({className:e,type:t,...a},r)=>s.jsx("input",{type:t,className:o("flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",e),ref:r,...a}));j.displayName="Input";const b=e.createContext({}),v=e.forwardRef(({className:t,defaultValue:a,value:r,onValueChange:i,children:l,...n},c)=>{const[d,m]=e.useState(a),u=void 0!==r?r:d;return s.jsx(b.Provider,{value:{value:u,onValueChange:e=>{void 0===r&&m(e),null==i||i(e)}},children:s.jsx("div",{ref:c,className:o("w-full",t),...n,children:l})})});v.displayName="Tabs";const N=e.forwardRef(({className:e,...t},a)=>s.jsx("div",{ref:a,className:o("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",e),...t}));N.displayName="TabsList";const w=e.forwardRef(({className:t,value:a,...r},i)=>{const l=e.useContext(b),n=l.value===a;return s.jsx("button",{ref:i,type:"button",role:"tab","aria-selected":n,className:o("inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",n?"bg-background text-foreground shadow-sm":"hover:bg-background/50",t),onClick:()=>l.onValueChange(a),...r})});w.displayName="TabsTrigger";const y=e.forwardRef(({className:t,value:a,...r},i)=>e.useContext(b).value===a?s.jsx("div",{ref:i,role:"tabpanel",className:o("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",t),...r}):null);y.displayName="TabsContent";const C=[{id:"construction-pre-apprentice",title:"Construction Pre-Apprenticeship",category:"Construction",coverUrl:"/images/construction.jpg",description:"Get certified in construction fundamentals with OSHA 10, NCCER Core, and Forklift certification.",duration:"12-16 weeks",students:247,rating:4.8,level:"Beginner",instructor:"Mike Rodriguez",featured:!0},{id:"phlebotomy-tech",title:"Phlebotomy Technician",category:"Healthcare",coverUrl:"/images/phlebotomy.jpg",description:"Become a certified phlebotomy technician with hands-on training and national certification prep.",duration:"8-10 weeks",students:189,rating:4.9,level:"Beginner",instructor:"Dr. Sarah Chen",featured:!0},{id:"cdl-truck-driving",title:"CDL Truck Driving",category:"Transportation",coverUrl:"/images/cdl.jpg",description:"Earn your CDL Class A license with comprehensive training and job placement assistance.",duration:"4-8 weeks",students:312,rating:4.7,level:"Beginner",instructor:"James Wilson",featured:!0},{id:"workforce-readiness",title:"Workforce Readiness 101",category:"Professional Development",coverUrl:"/images/workforce.jpg",description:"Prepare for the modern workforce with essential skills including resume writing and interview prep.",duration:"6 weeks",students:456,rating:4.6,level:"Beginner",instructor:"Lisa Martinez"},{id:"financial-literacy",title:"Financial Literacy Basics",category:"Professional Development",coverUrl:"/images/finance.jpg",description:"Master personal finance, budgeting, credit management, and investment fundamentals.",duration:"6-8 weeks",students:298,rating:4.8,level:"Beginner",instructor:"David Thompson"},{id:"cpr-instructor",title:"CPR Instructor Certification",category:"Healthcare",coverUrl:"/images/cpr.jpg",description:"Become an AHA-certified CPR instructor and teach life-saving skills to others.",duration:"4-6 weeks",students:134,rating:4.9,level:"Intermediate",instructor:"Emily Johnson"}];function k(){const o=p(),[b,k]=e.useState(""),[R,B]=e.useState("all"),L=["all",...new Set(C.map(e=>e.category))],T=C.filter(e=>{const s=e.title.toLowerCase().includes(b.toLowerCase())||e.description.toLowerCase().includes(b.toLowerCase()),t="all"===R||e.category===R;return s&&t}),D=C.filter(e=>e.featured);return s.jsxs("div",{className:"min-h-screen bg-beige-50",children:[s.jsx("div",{className:"bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16 px-4",children:s.jsxs("div",{className:"max-w-7xl mx-auto",children:[s.jsx("h1",{className:"text-4xl md:text-5xl font-bold mb-4",children:"Course Catalog"}),s.jsx("p",{className:"text-xl text-blue-100 mb-8 max-w-2xl",children:"Explore our comprehensive training programs designed to launch your career"}),s.jsxs("div",{className:"relative max-w-2xl",children:[s.jsx(t,{className:"absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"}),s.jsx(j,{type:"text",placeholder:"Search courses...",value:b,onChange:e=>k(e.target.value),className:"pl-12 h-14 text-lg bg-white"})]})]})}),s.jsxs("div",{className:"max-w-7xl mx-auto px-4 py-12",children:[""===b&&"all"===R&&s.jsxs("section",{className:"mb-16",children:[s.jsxs("div",{className:"flex items-center gap-3 mb-6",children:[s.jsx(a,{className:"h-6 w-6 text-green-600"}),s.jsx("h2",{className:"text-3xl font-bold text-brown-900",children:"Featured Courses"})]}),s.jsx("div",{className:"grid md:grid-cols-3 gap-6",children:D.map(e=>s.jsxs(c,{className:"group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-300",children:[s.jsxs("div",{className:"relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-lg overflow-hidden",children:[s.jsx("div",{className:"absolute inset-0 flex items-center justify-center",children:s.jsx(r,{className:"h-20 w-20 text-white/30"})}),s.jsx(f,{className:"absolute top-4 right-4 bg-yellow-500 text-white border-0",children:"Featured"})]}),s.jsxs(d,{children:[s.jsxs("div",{className:"flex items-center justify-between mb-2",children:[s.jsx(f,{variant:"secondary",children:e.category}),s.jsxs("div",{className:"flex items-center gap-1 text-sm",children:[s.jsx(i,{className:"h-4 w-4 fill-yellow-400 text-yellow-400"}),s.jsx("span",{className:"font-semibold",children:e.rating})]})]}),s.jsx(m,{className:"text-xl group-hover:text-green-600 transition-colors",children:e.title}),s.jsx(u,{className:"text-base line-clamp-2",children:e.description})]}),s.jsxs(x,{children:[s.jsxs("div",{className:"flex items-center justify-between text-sm text-brown-600",children:[s.jsxs("div",{className:"flex items-center gap-1",children:[s.jsx(l,{className:"h-4 w-4"}),s.jsx("span",{children:e.duration})]}),s.jsxs("div",{className:"flex items-center gap-1",children:[s.jsx(n,{className:"h-4 w-4"}),s.jsxs("span",{children:[e.students," students"]})]})]}),s.jsxs("div",{className:"mt-3 text-sm text-brown-600",children:["Instructor:"," ",s.jsx("span",{className:"font-semibold",children:e.instructor})]})]}),s.jsx(h,{children:s.jsx(g,{className:"w-full",size:"lg",onClick:()=>o(`/course/${e.id}`),children:"View Course Details"})})]},e.id))})]}),s.jsxs("section",{children:[s.jsx("h2",{className:"text-3xl font-bold text-brown-900 mb-6",children:b?`Search Results (${T.length})`:"All Courses"}),s.jsxs(v,{defaultValue:"all",className:"w-full",onValueChange:B,children:[s.jsx(N,{className:"mb-6",children:L.map(e=>s.jsx(w,{value:e,className:"capitalize",children:"all"===e?"All Courses":e},e))}),s.jsxs(y,{value:R,className:"mt-0",children:[s.jsx("div",{className:"grid md:grid-cols-2 lg:grid-cols-3 gap-6",children:T.map(e=>s.jsxs(c,{className:"group hover:shadow-xl transition-all duration-300 hover:-translate-y-1",children:[s.jsxs("div",{className:"relative h-40 bg-gradient-to-br from-slate-200 to-slate-300 rounded-t-lg overflow-hidden",children:[s.jsx("div",{className:"absolute inset-0 flex items-center justify-center",children:s.jsx(r,{className:"h-16 w-16 text-slate-400"})}),s.jsx(f,{className:"absolute top-3 left-3",variant:"secondary",children:e.level})]}),s.jsxs(d,{children:[s.jsxs("div",{className:"flex items-center justify-between mb-2",children:[s.jsx(f,{variant:"outline",children:e.category}),s.jsxs("div",{className:"flex items-center gap-1 text-sm",children:[s.jsx(i,{className:"h-4 w-4 fill-yellow-400 text-yellow-400"}),s.jsx("span",{className:"font-semibold",children:e.rating})]})]}),s.jsx(m,{className:"text-lg group-hover:text-green-600 transition-colors",children:e.title}),s.jsx(u,{className:"line-clamp-2",children:e.description})]}),s.jsx(x,{children:s.jsxs("div",{className:"space-y-2 text-sm text-brown-600",children:[s.jsxs("div",{className:"flex items-center gap-2",children:[s.jsx(l,{className:"h-4 w-4"}),s.jsx("span",{children:e.duration})]}),s.jsxs("div",{className:"flex items-center gap-2",children:[s.jsx(n,{className:"h-4 w-4"}),s.jsxs("span",{children:[e.students," students enrolled"]})]})]})}),s.jsx(h,{children:s.jsx(g,{className:"w-full",variant:"outline",onClick:()=>o(`/course/${e.id}`),children:"Learn More"})})]},e.id))}),0===T.length&&s.jsxs("div",{className:"text-center py-16",children:[s.jsx(r,{className:"h-16 w-16 text-slate-300 mx-auto mb-4"}),s.jsx("h3",{className:"text-xl font-semibold text-brown-600 mb-2",children:"No courses found"}),s.jsx("p",{className:"text-brown-500",children:"Try adjusting your search or filters"})]})]})]})]})]})]})}export{k as default};
+import {
+  r as e,
+  j as s,
+  V as t,
+  I as a,
+  t as r,
+  Q as i,
+  u as l,
+  U as n,
+} from './vendor-react-C-ZQNdj3.js';
+import {
+  c as o,
+  C as c,
+  a as d,
+  b as m,
+  d as u,
+  e as x,
+  f as h,
+  B as g,
+} from './button-B_Plb33j.js';
+import { B as f } from './badge-Cyxi6-_y.js';
+import { c as p } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+const j = e.forwardRef(({ className: e, type: t, ...a }, r) =>
+  s.jsx('input', {
+    type: t,
+    className: o(
+      'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+      e
+    ),
+    ref: r,
+    ...a,
+  })
+);
+j.displayName = 'Input';
+const b = e.createContext({}),
+  v = e.forwardRef(
+    (
+      {
+        className: t,
+        defaultValue: a,
+        value: r,
+        onValueChange: i,
+        children: l,
+        ...n
+      },
+      c
+    ) => {
+      const [d, m] = e.useState(a),
+        u = void 0 !== r ? r : d;
+      return s.jsx(b.Provider, {
+        value: {
+          value: u,
+          onValueChange: (e) => {
+            (void 0 === r && m(e), null == i || i(e));
+          },
+        },
+        children: s.jsx('div', {
+          ref: c,
+          className: o('w-full', t),
+          ...n,
+          children: l,
+        }),
+      });
+    }
+  );
+v.displayName = 'Tabs';
+const N = e.forwardRef(({ className: e, ...t }, a) =>
+  s.jsx('div', {
+    ref: a,
+    className: o(
+      'inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground',
+      e
+    ),
+    ...t,
+  })
+);
+N.displayName = 'TabsList';
+const w = e.forwardRef(({ className: t, value: a, ...r }, i) => {
+  const l = e.useContext(b),
+    n = l.value === a;
+  return s.jsx('button', {
+    ref: i,
+    type: 'button',
+    role: 'tab',
+    'aria-selected': n,
+    className: o(
+      'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+      n ? 'bg-background text-foreground shadow-sm' : 'hover:bg-background/50',
+      t
+    ),
+    onClick: () => l.onValueChange(a),
+    ...r,
+  });
+});
+w.displayName = 'TabsTrigger';
+const y = e.forwardRef(({ className: t, value: a, ...r }, i) =>
+  e.useContext(b).value === a
+    ? s.jsx('div', {
+        ref: i,
+        role: 'tabpanel',
+        className: o(
+          'mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+          t
+        ),
+        ...r,
+      })
+    : null
+);
+y.displayName = 'TabsContent';
+const C = [
+  {
+    id: 'construction-pre-apprentice',
+    title: 'Construction Pre-Apprenticeship',
+    category: 'Construction',
+    coverUrl: '/images/construction.jpg',
+    description:
+      'Get certified in construction fundamentals with OSHA 10, NCCER Core, and Forklift certification.',
+    duration: '12-16 weeks',
+    students: 247,
+    rating: 4.8,
+    level: 'Beginner',
+    instructor: 'Mike Rodriguez',
+    featured: !0,
+  },
+  {
+    id: 'phlebotomy-tech',
+    title: 'Phlebotomy Technician',
+    category: 'Healthcare',
+    coverUrl: '/images/phlebotomy.jpg',
+    description:
+      'Become a certified phlebotomy technician with hands-on training and national certification prep.',
+    duration: '8-10 weeks',
+    students: 189,
+    rating: 4.9,
+    level: 'Beginner',
+    instructor: 'Dr. Sarah Chen',
+    featured: !0,
+  },
+  {
+    id: 'cdl-truck-driving',
+    title: 'CDL Truck Driving',
+    category: 'Transportation',
+    coverUrl: '/images/cdl.jpg',
+    description:
+      'Earn your CDL Class A license with comprehensive training and job placement assistance.',
+    duration: '4-8 weeks',
+    students: 312,
+    rating: 4.7,
+    level: 'Beginner',
+    instructor: 'James Wilson',
+    featured: !0,
+  },
+  {
+    id: 'workforce-readiness',
+    title: 'Workforce Readiness 101',
+    category: 'Professional Development',
+    coverUrl: '/images/workforce.jpg',
+    description:
+      'Prepare for the modern workforce with essential skills including resume writing and interview prep.',
+    duration: '6 weeks',
+    students: 456,
+    rating: 4.6,
+    level: 'Beginner',
+    instructor: 'Lisa Martinez',
+  },
+  {
+    id: 'financial-literacy',
+    title: 'Financial Literacy Basics',
+    category: 'Professional Development',
+    coverUrl: '/images/finance.jpg',
+    description:
+      'Master personal finance, budgeting, credit management, and investment fundamentals.',
+    duration: '6-8 weeks',
+    students: 298,
+    rating: 4.8,
+    level: 'Beginner',
+    instructor: 'David Thompson',
+  },
+  {
+    id: 'cpr-instructor',
+    title: 'CPR Instructor Certification',
+    category: 'Healthcare',
+    coverUrl: '/images/cpr.jpg',
+    description:
+      'Become an AHA-certified CPR instructor and teach life-saving skills to others.',
+    duration: '4-6 weeks',
+    students: 134,
+    rating: 4.9,
+    level: 'Intermediate',
+    instructor: 'Emily Johnson',
+  },
+];
+function k() {
+  const o = p(),
+    [b, k] = e.useState(''),
+    [R, B] = e.useState('all'),
+    L = ['all', ...new Set(C.map((e) => e.category))],
+    T = C.filter((e) => {
+      const s =
+          e.title.toLowerCase().includes(b.toLowerCase()) ||
+          e.description.toLowerCase().includes(b.toLowerCase()),
+        t = 'all' === R || e.category === R;
+      return s && t;
+    }),
+    D = C.filter((e) => e.featured);
+  return s.jsxs('div', {
+    className: 'min-h-screen bg-beige-50',
+    children: [
+      s.jsx('div', {
+        className:
+          'bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16 px-4',
+        children: s.jsxs('div', {
+          className: 'max-w-7xl mx-auto',
+          children: [
+            s.jsx('h1', {
+              className: 'text-4xl md:text-5xl font-bold mb-4',
+              children: 'Course Catalog',
+            }),
+            s.jsx('p', {
+              className: 'text-xl text-blue-100 mb-8 max-w-2xl',
+              children:
+                'Explore our comprehensive training programs designed to launch your career',
+            }),
+            s.jsxs('div', {
+              className: 'relative max-w-2xl',
+              children: [
+                s.jsx(t, {
+                  className:
+                    'absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400',
+                }),
+                s.jsx(j, {
+                  type: 'text',
+                  placeholder: 'Search courses...',
+                  value: b,
+                  onChange: (e) => k(e.target.value),
+                  className: 'pl-12 h-14 text-lg bg-white',
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      s.jsxs('div', {
+        className: 'max-w-7xl mx-auto px-4 py-12',
+        children: [
+          '' === b &&
+            'all' === R &&
+            s.jsxs('section', {
+              className: 'mb-16',
+              children: [
+                s.jsxs('div', {
+                  className: 'flex items-center gap-3 mb-6',
+                  children: [
+                    s.jsx(a, { className: 'h-6 w-6 text-green-600' }),
+                    s.jsx('h2', {
+                      className: 'text-3xl font-bold text-brown-900',
+                      children: 'Featured Courses',
+                    }),
+                  ],
+                }),
+                s.jsx('div', {
+                  className: 'grid md:grid-cols-3 gap-6',
+                  children: D.map((e) =>
+                    s.jsxs(
+                      c,
+                      {
+                        className:
+                          'group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-300',
+                        children: [
+                          s.jsxs('div', {
+                            className:
+                              'relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-lg overflow-hidden',
+                            children: [
+                              s.jsx('div', {
+                                className:
+                                  'absolute inset-0 flex items-center justify-center',
+                                children: s.jsx(r, {
+                                  className: 'h-20 w-20 text-white/30',
+                                }),
+                              }),
+                              s.jsx(f, {
+                                className:
+                                  'absolute top-4 right-4 bg-yellow-500 text-white border-0',
+                                children: 'Featured',
+                              }),
+                            ],
+                          }),
+                          s.jsxs(d, {
+                            children: [
+                              s.jsxs('div', {
+                                className:
+                                  'flex items-center justify-between mb-2',
+                                children: [
+                                  s.jsx(f, {
+                                    variant: 'secondary',
+                                    children: e.category,
+                                  }),
+                                  s.jsxs('div', {
+                                    className:
+                                      'flex items-center gap-1 text-sm',
+                                    children: [
+                                      s.jsx(i, {
+                                        className:
+                                          'h-4 w-4 fill-yellow-400 text-yellow-400',
+                                      }),
+                                      s.jsx('span', {
+                                        className: 'font-semibold',
+                                        children: e.rating,
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              s.jsx(m, {
+                                className:
+                                  'text-xl group-hover:text-green-600 transition-colors',
+                                children: e.title,
+                              }),
+                              s.jsx(u, {
+                                className: 'text-base line-clamp-2',
+                                children: e.description,
+                              }),
+                            ],
+                          }),
+                          s.jsxs(x, {
+                            children: [
+                              s.jsxs('div', {
+                                className:
+                                  'flex items-center justify-between text-sm text-brown-600',
+                                children: [
+                                  s.jsxs('div', {
+                                    className: 'flex items-center gap-1',
+                                    children: [
+                                      s.jsx(l, { className: 'h-4 w-4' }),
+                                      s.jsx('span', { children: e.duration }),
+                                    ],
+                                  }),
+                                  s.jsxs('div', {
+                                    className: 'flex items-center gap-1',
+                                    children: [
+                                      s.jsx(n, { className: 'h-4 w-4' }),
+                                      s.jsxs('span', {
+                                        children: [e.students, ' students'],
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              s.jsxs('div', {
+                                className: 'mt-3 text-sm text-brown-600',
+                                children: [
+                                  'Instructor:',
+                                  ' ',
+                                  s.jsx('span', {
+                                    className: 'font-semibold',
+                                    children: e.instructor,
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          s.jsx(h, {
+                            children: s.jsx(g, {
+                              className: 'w-full',
+                              size: 'lg',
+                              onClick: () => o(`/course/${e.id}`),
+                              children: 'View Course Details',
+                            }),
+                          }),
+                        ],
+                      },
+                      e.id
+                    )
+                  ),
+                }),
+              ],
+            }),
+          s.jsxs('section', {
+            children: [
+              s.jsx('h2', {
+                className: 'text-3xl font-bold text-brown-900 mb-6',
+                children: b ? `Search Results (${T.length})` : 'All Courses',
+              }),
+              s.jsxs(v, {
+                defaultValue: 'all',
+                className: 'w-full',
+                onValueChange: B,
+                children: [
+                  s.jsx(N, {
+                    className: 'mb-6',
+                    children: L.map((e) =>
+                      s.jsx(
+                        w,
+                        {
+                          value: e,
+                          className: 'capitalize',
+                          children: 'all' === e ? 'All Courses' : e,
+                        },
+                        e
+                      )
+                    ),
+                  }),
+                  s.jsxs(y, {
+                    value: R,
+                    className: 'mt-0',
+                    children: [
+                      s.jsx('div', {
+                        className: 'grid md:grid-cols-2 lg:grid-cols-3 gap-6',
+                        children: T.map((e) =>
+                          s.jsxs(
+                            c,
+                            {
+                              className:
+                                'group hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
+                              children: [
+                                s.jsxs('div', {
+                                  className:
+                                    'relative h-40 bg-gradient-to-br from-slate-200 to-slate-300 rounded-t-lg overflow-hidden',
+                                  children: [
+                                    s.jsx('div', {
+                                      className:
+                                        'absolute inset-0 flex items-center justify-center',
+                                      children: s.jsx(r, {
+                                        className: 'h-16 w-16 text-slate-400',
+                                      }),
+                                    }),
+                                    s.jsx(f, {
+                                      className: 'absolute top-3 left-3',
+                                      variant: 'secondary',
+                                      children: e.level,
+                                    }),
+                                  ],
+                                }),
+                                s.jsxs(d, {
+                                  children: [
+                                    s.jsxs('div', {
+                                      className:
+                                        'flex items-center justify-between mb-2',
+                                      children: [
+                                        s.jsx(f, {
+                                          variant: 'outline',
+                                          children: e.category,
+                                        }),
+                                        s.jsxs('div', {
+                                          className:
+                                            'flex items-center gap-1 text-sm',
+                                          children: [
+                                            s.jsx(i, {
+                                              className:
+                                                'h-4 w-4 fill-yellow-400 text-yellow-400',
+                                            }),
+                                            s.jsx('span', {
+                                              className: 'font-semibold',
+                                              children: e.rating,
+                                            }),
+                                          ],
+                                        }),
+                                      ],
+                                    }),
+                                    s.jsx(m, {
+                                      className:
+                                        'text-lg group-hover:text-green-600 transition-colors',
+                                      children: e.title,
+                                    }),
+                                    s.jsx(u, {
+                                      className: 'line-clamp-2',
+                                      children: e.description,
+                                    }),
+                                  ],
+                                }),
+                                s.jsx(x, {
+                                  children: s.jsxs('div', {
+                                    className:
+                                      'space-y-2 text-sm text-brown-600',
+                                    children: [
+                                      s.jsxs('div', {
+                                        className: 'flex items-center gap-2',
+                                        children: [
+                                          s.jsx(l, { className: 'h-4 w-4' }),
+                                          s.jsx('span', {
+                                            children: e.duration,
+                                          }),
+                                        ],
+                                      }),
+                                      s.jsxs('div', {
+                                        className: 'flex items-center gap-2',
+                                        children: [
+                                          s.jsx(n, { className: 'h-4 w-4' }),
+                                          s.jsxs('span', {
+                                            children: [
+                                              e.students,
+                                              ' students enrolled',
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                                s.jsx(h, {
+                                  children: s.jsx(g, {
+                                    className: 'w-full',
+                                    variant: 'outline',
+                                    onClick: () => o(`/course/${e.id}`),
+                                    children: 'Learn More',
+                                  }),
+                                }),
+                              ],
+                            },
+                            e.id
+                          )
+                        ),
+                      }),
+                      0 === T.length &&
+                        s.jsxs('div', {
+                          className: 'text-center py-16',
+                          children: [
+                            s.jsx(r, {
+                              className:
+                                'h-16 w-16 text-slate-300 mx-auto mb-4',
+                            }),
+                            s.jsx('h3', {
+                              className:
+                                'text-xl font-semibold text-brown-600 mb-2',
+                              children: 'No courses found',
+                            }),
+                            s.jsx('p', {
+                              className: 'text-brown-500',
+                              children: 'Try adjusting your search or filters',
+                            }),
+                          ],
+                        }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { k as default };

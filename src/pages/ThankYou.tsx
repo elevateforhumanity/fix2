@@ -8,7 +8,6 @@ export default function ThankYou() {
       <Helmet>
         <title>Thank You | Elevate for Humanity</title>
       </Helmet>
-
       <div className="container max-w-2xl">
         <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-50 rounded-full mb-6">

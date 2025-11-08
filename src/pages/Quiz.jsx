@@ -121,10 +121,7 @@ export default function Quiz() {
                       Your answer:{' '}
                       <span
                         style={{
-                          color:
-                            chosen === correct
-                              ? '#008a38'
-                              : '#b91c1c',
+                          color: chosen === correct ? '#008a38' : '#b91c1c',
                         }}
                       >
                         {q.choices[chosen] ?? '—'}

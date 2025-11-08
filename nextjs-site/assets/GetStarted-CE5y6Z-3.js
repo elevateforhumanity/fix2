@@ -1,1 +1,241 @@
-import{j as e,_ as s,g as t}from"./vendor-react-C-ZQNdj3.js";import{L as r}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";function n(){return e.jsx("div",{className:"min-h-screen bg-gradient-to-b from-white to-beige-50",children:e.jsx("section",{className:"section pt-16",children:e.jsxs("div",{className:"container max-w-4xl",children:[e.jsxs("div",{className:"text-center mb-12",children:[e.jsx("h1",{className:"text-4xl md:text-5xl font-bold text-brown-900 mb-4",children:"Get Started with Elevate for Humanity"}),e.jsx("p",{className:"text-xl text-brown-600",children:"Your journey to a new career starts here. Follow these simple steps."})]}),e.jsxs("div",{className:"space-y-8",children:[e.jsx("div",{className:"bg-white rounded-xl p-8 shadow-sm border border-brown-200",children:e.jsxs("div",{className:"flex items-start gap-4",children:[e.jsx("div",{className:"flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl",children:"1"}),e.jsxs("div",{className:"flex-1",children:[e.jsx("h2",{className:"text-2xl font-bold text-brown-900 mb-2",children:"Browse Programs"}),e.jsx("p",{className:"text-brown-600 mb-4",children:"Explore our 9 career training programs and find the one that matches your goals."}),e.jsxs(r,{to:"/programs",className:"inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover",children:["View All Programs ",e.jsx(s,{className:"h-4 w-4"})]})]})]})}),e.jsx("div",{className:"bg-white rounded-xl p-8 shadow-sm border border-brown-200",children:e.jsxs("div",{className:"flex items-start gap-4",children:[e.jsx("div",{className:"flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl",children:"2"}),e.jsxs("div",{className:"flex-1",children:[e.jsx("h2",{className:"text-2xl font-bold text-brown-900 mb-2",children:"Check Funding Options"}),e.jsx("p",{className:"text-brown-600 mb-4",children:"Most programs are funded through WIOA, WRG, or other state/federal programs."}),e.jsxs("div",{className:"flex flex-wrap gap-2 mb-4",children:[e.jsx("span",{className:"px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium",children:"WIOA"}),e.jsx("span",{className:"px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium",children:"WRG"}),e.jsx("span",{className:"px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium",children:"Apprenticeship"})]}),e.jsxs(r,{to:"/funding-impact",className:"inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover",children:["Learn About Funding ",e.jsx(s,{className:"h-4 w-4"})]})]})]})}),e.jsx("div",{className:"bg-white rounded-xl p-8 shadow-sm border border-brown-200",children:e.jsxs("div",{className:"flex items-start gap-4",children:[e.jsx("div",{className:"flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl",children:"3"}),e.jsxs("div",{className:"flex-1",children:[e.jsx("h2",{className:"text-2xl font-bold text-brown-900 mb-2",children:"Apply Online"}),e.jsx("p",{className:"text-brown-600 mb-4",children:"Complete your application through Indiana Career Connect or our online form."}),e.jsxs("div",{className:"flex flex-wrap gap-3",children:[e.jsx("a",{href:"https://www.indianacareerconnect.com",target:"_blank",rel:"noopener noreferrer",className:"btn",children:"Apply via Indiana Career Connect"}),e.jsx(r,{to:"/apply",className:"btn-outline",children:"Alternative Application"})]})]})]})}),e.jsx("div",{className:"bg-white rounded-xl p-8 shadow-sm border border-brown-200",children:e.jsxs("div",{className:"flex items-start gap-4",children:[e.jsx("div",{className:"flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center",children:e.jsx(t,{className:"h-6 w-6"})}),e.jsxs("div",{className:"flex-1",children:[e.jsx("h2",{className:"text-2xl font-bold text-brown-900 mb-2",children:"Start Learning"}),e.jsx("p",{className:"text-brown-600 mb-4",children:"Once approved, you'll receive access to your student portal and can begin your training."}),e.jsxs(r,{to:"/lms",className:"inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover",children:["Preview Student Portal ",e.jsx(s,{className:"h-4 w-4"})]})]})]})})]}),e.jsxs("div",{className:"mt-12 text-center bg-gradient-to-r from-orange-50 to-blue-50 rounded-xl p-8",children:[e.jsx("h3",{className:"text-2xl font-bold text-brown-900 mb-2",children:"Have Questions?"}),e.jsx("p",{className:"text-brown-600 mb-6",children:"Our team is here to help you every step of the way."}),e.jsxs("div",{className:"flex flex-wrap gap-3 justify-center",children:[e.jsx(r,{to:"/contact",className:"btn",children:"Contact Us"}),e.jsx(r,{to:"/support",className:"btn-outline",children:"Visit Support Center"})]})]})]})})})}export{n as default};
+import { j as e, _ as s, g as t } from './vendor-react-C-ZQNdj3.js';
+import { L as r } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+function n() {
+  return e.jsx('div', {
+    className: 'min-h-screen bg-gradient-to-b from-white to-beige-50',
+    children: e.jsx('section', {
+      className: 'section pt-16',
+      children: e.jsxs('div', {
+        className: 'container max-w-4xl',
+        children: [
+          e.jsxs('div', {
+            className: 'text-center mb-12',
+            children: [
+              e.jsx('h1', {
+                className: 'text-4xl md:text-5xl font-bold text-brown-900 mb-4',
+                children: 'Get Started with Elevate for Humanity',
+              }),
+              e.jsx('p', {
+                className: 'text-xl text-brown-600',
+                children:
+                  'Your journey to a new career starts here. Follow these simple steps.',
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className: 'space-y-8',
+            children: [
+              e.jsx('div', {
+                className:
+                  'bg-white rounded-xl p-8 shadow-sm border border-brown-200',
+                children: e.jsxs('div', {
+                  className: 'flex items-start gap-4',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl',
+                      children: '1',
+                    }),
+                    e.jsxs('div', {
+                      className: 'flex-1',
+                      children: [
+                        e.jsx('h2', {
+                          className: 'text-2xl font-bold text-brown-900 mb-2',
+                          children: 'Browse Programs',
+                        }),
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'Explore our 9 career training programs and find the one that matches your goals.',
+                        }),
+                        e.jsxs(r, {
+                          to: '/programs',
+                          className:
+                            'inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover',
+                          children: [
+                            'View All Programs ',
+                            e.jsx(s, { className: 'h-4 w-4' }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+              e.jsx('div', {
+                className:
+                  'bg-white rounded-xl p-8 shadow-sm border border-brown-200',
+                children: e.jsxs('div', {
+                  className: 'flex items-start gap-4',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl',
+                      children: '2',
+                    }),
+                    e.jsxs('div', {
+                      className: 'flex-1',
+                      children: [
+                        e.jsx('h2', {
+                          className: 'text-2xl font-bold text-brown-900 mb-2',
+                          children: 'Check Funding Options',
+                        }),
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'Most programs are funded through WIOA, WRG, or other state/federal programs.',
+                        }),
+                        e.jsxs('div', {
+                          className: 'flex flex-wrap gap-2 mb-4',
+                          children: [
+                            e.jsx('span', {
+                              className:
+                                'px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium',
+                              children: 'WIOA',
+                            }),
+                            e.jsx('span', {
+                              className:
+                                'px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium',
+                              children: 'WRG',
+                            }),
+                            e.jsx('span', {
+                              className:
+                                'px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium',
+                              children: 'Apprenticeship',
+                            }),
+                          ],
+                        }),
+                        e.jsxs(r, {
+                          to: '/funding-impact',
+                          className:
+                            'inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover',
+                          children: [
+                            'Learn About Funding ',
+                            e.jsx(s, { className: 'h-4 w-4' }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+              e.jsx('div', {
+                className:
+                  'bg-white rounded-xl p-8 shadow-sm border border-brown-200',
+                children: e.jsxs('div', {
+                  className: 'flex items-start gap-4',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl',
+                      children: '3',
+                    }),
+                    e.jsxs('div', {
+                      className: 'flex-1',
+                      children: [
+                        e.jsx('h2', {
+                          className: 'text-2xl font-bold text-brown-900 mb-2',
+                          children: 'Apply Online',
+                        }),
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'Complete your application through Indiana Career Connect or our online form.',
+                        }),
+                        e.jsxs('div', {
+                          className: 'flex flex-wrap gap-3',
+                          children: [
+                            e.jsx('a', {
+                              href: 'https://www.indianacareerconnect.com',
+                              target: '_blank',
+                              rel: 'noopener noreferrer',
+                              className: 'btn',
+                              children: 'Apply via Indiana Career Connect',
+                            }),
+                            e.jsx(r, {
+                              to: '/apply',
+                              className: 'btn-outline',
+                              children: 'Alternative Application',
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+              e.jsx('div', {
+                className:
+                  'bg-white rounded-xl p-8 shadow-sm border border-brown-200',
+                children: e.jsxs('div', {
+                  className: 'flex items-start gap-4',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center',
+                      children: e.jsx(t, { className: 'h-6 w-6' }),
+                    }),
+                    e.jsxs('div', {
+                      className: 'flex-1',
+                      children: [
+                        e.jsx('h2', {
+                          className: 'text-2xl font-bold text-brown-900 mb-2',
+                          children: 'Start Learning',
+                        }),
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            "Once approved, you'll receive access to your student portal and can begin your training.",
+                        }),
+                        e.jsxs(r, {
+                          to: '/lms',
+                          className:
+                            'inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-600-hover',
+                          children: [
+                            'Preview Student Portal ',
+                            e.jsx(s, { className: 'h-4 w-4' }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className:
+              'mt-12 text-center bg-gradient-to-r from-orange-50 to-blue-50 rounded-xl p-8',
+            children: [
+              e.jsx('h3', {
+                className: 'text-2xl font-bold text-brown-900 mb-2',
+                children: 'Have Questions?',
+              }),
+              e.jsx('p', {
+                className: 'text-brown-600 mb-6',
+                children: 'Our team is here to help you every step of the way.',
+              }),
+              e.jsxs('div', {
+                className: 'flex flex-wrap gap-3 justify-center',
+                children: [
+                  e.jsx(r, {
+                    to: '/contact',
+                    className: 'btn',
+                    children: 'Contact Us',
+                  }),
+                  e.jsx(r, {
+                    to: '/support',
+                    className: 'btn-outline',
+                    children: 'Visit Support Center',
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    }),
+  });
+}
+export { n as default };

@@ -20,7 +20,7 @@ export default function CertificatePage() {
       <div className="section">
         <div className="container">
           <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
             <p className="mt-4 text-brown-600">Loading certificate...</p>
           </div>
         </div>
@@ -89,7 +89,6 @@ export default function CertificatePage() {
           onDownload={handleDownload}
           onShare={handleShare}
         />
-
         {/* Verification Info */}
         <div className="mt-8 text-center print:hidden">
           <div className="card p-6">

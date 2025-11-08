@@ -26,7 +26,6 @@ export default function Home() {
           content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
         />
       </Helmet>
-
       {/* Navigation */}
       <Navigation />
       {/* Hero Section - Matches elevateforhumanity.org exactly */}
@@ -34,9 +33,8 @@ export default function Home() {
         title="Ignite Your Future: Fund Training Today"
         subtitle="Empower Dreams: Support Skills Development and Transform Lives at Elevate for Humanity. Invest in Growth, Today! Marion County."
         primaryButton={{ text: 'Sign up now', href: '/apply' }}
-        showCarousel={true}
+        showCarousel
       />
-
       {/* Mission Section - Matches elevateforhumanity.org */}
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
@@ -55,7 +53,6 @@ export default function Home() {
           </p>
         </div>
       </Section>
-
       {/* Image + Text Section - Matches elevateforhumanity.org */}
       <Section background="beige">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -88,7 +85,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* Testimonials Section - Matches elevateforhumanity.org */}
       <Section background="white">
         <h2 className="section-title text-center mb-4">
@@ -164,7 +160,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* CTA Section - Matches elevateforhumanity.org */}
       <Section background="green">
         <div className="mx-auto max-w-[800px] text-center">
@@ -186,7 +181,6 @@ export default function Home() {
           </a>
         </div>
       </Section>
-
       {/* Contact Form Section - Matches elevateforhumanity.org */}
       <Section background="white">
         <div className="mx-auto max-w-[600px]">
@@ -241,7 +235,7 @@ export default function Home() {
                 rows="5"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-green)]"
                 required
-              ></textarea>
+               />
             </div>
             <button
               type="submit"
@@ -266,7 +260,6 @@ export default function Home() {
           </form>
         </div>
       </Section>
-
       {/* Footer */}
       <Footer
         socialLinks={{

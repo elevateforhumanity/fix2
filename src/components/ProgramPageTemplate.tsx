@@ -44,9 +44,7 @@ export default function ProgramPageTemplate({
         <title>{title} | Elevate for Humanity</title>
         <meta name="description" content={metaDescription} />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title={`${icon} ${title}`}
         subtitle={description}
@@ -58,14 +56,12 @@ export default function ProgramPageTemplate({
         primaryButton={{ text: 'Apply Now', href: '/apply' }}
         secondaryButton={{ text: 'Contact Us', href: '/contact' }}
       />
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h2 className="section-title">Program Overview</h2>
           <p className="body-large">{overview}</p>
         </div>
       </Section>
-
       <Section background="green">
         <div className="mx-auto max-w-[800px]">
           <h2 className="section-title text-center">Program Benefits</h2>
@@ -79,7 +75,6 @@ export default function ProgramPageTemplate({
           </div>
         </div>
       </Section>
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h2 className="section-title">What You'll Learn</h2>
@@ -95,7 +90,6 @@ export default function ProgramPageTemplate({
           </div>
         </div>
       </Section>
-
       <Section background="beige">
         <div className="mx-auto max-w-[800px]">
           <h2 className="section-title">Requirements</h2>
@@ -109,7 +103,6 @@ export default function ProgramPageTemplate({
           </div>
         </div>
       </Section>
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h2 className="section-title">Career Outcomes</h2>
@@ -123,7 +116,6 @@ export default function ProgramPageTemplate({
           </div>
         </div>
       </Section>
-
       <Section background="brown">
         <div className="mx-auto max-w-[800px] text-center">
           <h2 className="text-4xl font-bold mb-6">
@@ -143,7 +135,6 @@ export default function ProgramPageTemplate({
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

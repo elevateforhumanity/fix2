@@ -196,11 +196,12 @@ export default function MainLanding() {
     <div>
       <Helmet>
         <title>AI-Powered Platform | Elevate for Humanity</title>
-        <meta name="description" content="Build professional training programs instantly with our AI-powered platform. No coding required." />
+        <meta
+          name="description"
+          content="Build professional training programs instantly with our AI-powered platform. No coding required."
+        />
       </Helmet>
-
       <Navigation />
-
       <main role="main" id="main-content" style={{ minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
@@ -649,8 +650,7 @@ export default function MainLanding() {
                 style={{
                   padding: '2rem 5rem',
                   fontSize: '1.6rem',
-                  background:
-                    'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
+                  background: 'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
                   color: 'white',
                   border: '4px solid rgba(255,255,255,0.4)',
                   borderRadius: '60px',
@@ -719,8 +719,7 @@ export default function MainLanding() {
                   display: 'inline-block',
                   padding: '2rem 5rem',
                   fontSize: '1.6rem',
-                  background:
-                    'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
+                  background: 'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
                   color: 'white',
                   border: '4px solid rgba(255,255,255,0.4)',
                   borderRadius: '60px',
@@ -1066,8 +1065,7 @@ export default function MainLanding() {
               {/* Philanthropy Portal */}
               <div
                 style={{
-                  background:
-                    'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
+                  background: 'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(16, 185, 129, 0.3)',
@@ -1111,8 +1109,7 @@ export default function MainLanding() {
               {/* Government Training */}
               <div
                 style={{
-                  background:
-                    'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
+                  background: 'linear-gradient( 0%, #00a544 0%, #00a544 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(59, 130, 246, 0.3)',
@@ -1156,8 +1153,7 @@ export default function MainLanding() {
               {/* LMS Platform */}
               <div
                 style={{
-                  background:
-                    'linear-gradient( 0%, #4a3728 0%, #4a3728 100%)',
+                  background: 'linear-gradient( 0%, #4a3728 0%, #4a3728 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(139, 92, 246, 0.3)',
@@ -1201,8 +1197,7 @@ export default function MainLanding() {
               {/* Programs Hub */}
               <div
                 style={{
-                  background:
-                    'linear-gradient( 0%, #dc2626 0%, #dc2626 100%)',
+                  background: 'linear-gradient( 0%, #dc2626 0%, #dc2626 100%)',
                   padding: '2.5rem',
                   borderRadius: '20px',
                   boxShadow: '0 15px 40px rgba(239, 68, 68, 0.3)',
@@ -1379,8 +1374,7 @@ export default function MainLanding() {
         <section
           style={{
             padding: '5rem 2rem',
-            background:
-              'linear-gradient( 0%, #f5f1e8 0%, #d4c9b8 100%)',
+            background: 'linear-gradient( 0%, #f5f1e8 0%, #d4c9b8 100%)',
             position: 'relative',
           }}
         >
@@ -1850,9 +1844,7 @@ export default function MainLanding() {
                       top: '-15px',
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      backgroundColor: plan.popular
-                        ? '#4a3728'
-                        : '#00a544',
+                      backgroundColor: plan.popular ? '#4a3728' : '#00a544',
                       color: 'white',
                       padding: '0.5rem 1.5rem',
                       borderRadius: '25px',
@@ -1894,9 +1886,7 @@ export default function MainLanding() {
                       style={{
                         fontSize: plan.monthly === 'Custom' ? '2.5rem' : '4rem',
                         fontWeight: 'bold',
-                        color: plan.popular
-                          ? '#4a3728'
-                          : '#2d3748',
+                        color: plan.popular ? '#4a3728' : '#2d3748',
                       }}
                     >
                       {plan.monthly === 'Custom'
@@ -2126,7 +2116,6 @@ export default function MainLanding() {
           }
         }
       `}</style>
-
       <Footer />
     </div>
   );

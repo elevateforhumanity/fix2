@@ -1,1 +1,1219 @@
-import{j as e,q as s,s as t,A as l,t as r,u as i,g as a,U as n,v as c,w as d}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";const m=()=>{const m=[{title:"Training Supplies Shipped Home",description:"Practice manikins and materials delivered to your door",icon:"📦"},{title:"Nationally Recognized",description:"Certifications accepted by employers nationwide",icon:l},{title:"Online + Live Training",description:"Self-paced online modules plus live skills session",icon:r},{title:"2-Year Certification",description:"Valid for 2 years from date of completion",icon:i}],x=e=>{const s={red:"bg-red-50 border-red-300",blue:"bg-blue-50 border-blue-300",green:"bg-green-50 border-green-300",purple:"bg-purple-50 border-purple-300"};return s[e]||s.red};return e.jsxs("div",{className:"min-h-screen bg-gray-50",children:[e.jsx("div",{className:"bg-gradient-to-r from-red-600 to-pink-600 text-white py-20",children:e.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",children:e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"flex justify-center mb-6",children:e.jsx(s,{className:"w-20 h-20"})}),e.jsx("h1",{className:"text-5xl font-bold mb-4",children:"CPR & First Aid Certification"}),e.jsx("p",{className:"text-2xl mb-6",children:"Training Supplies Shipped to Your Home"}),e.jsx("p",{className:"text-xl mb-8 max-w-3xl mx-auto",children:"Get certified in CPR and First Aid with our convenient home training program. Complete online training, receive practice manikins at home, and attend live skills session."}),e.jsxs("div",{className:"flex flex-wrap justify-center gap-4",children:[e.jsx("a",{href:"#courses",className:"bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition",children:"View Courses"}),e.jsxs("a",{href:"https://www.hsi.com",target:"_blank",rel:"noopener noreferrer",className:"bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-600 transition flex items-center",children:["Visit HSI",e.jsx(t,{className:"w-5 h-5 ml-2"})]})]})]})})}),e.jsxs("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16",children:[e.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-8 mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-6 text-center",children:"Convenient Home Training Program"}),e.jsx("p",{className:"text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto",children:"Get nationally recognized CPR and First Aid certifications with training supplies delivered right to your home. Our program combines online learning with live skills practice to ensure you're prepared for real emergencies."}),e.jsx("div",{className:"grid md:grid-cols-4 gap-6 mt-8",children:m.map((s,t)=>{const l="string"==typeof s.icon?null:s.icon;return e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl",children:l?e.jsx(l,{className:"w-8 h-8 text-red-600"}):s.icon}),e.jsx("h3",{className:"font-bold mb-2",children:s.title}),e.jsx("p",{className:"text-sm text-gray-600",children:s.description})]},t)})})]}),e.jsxs("div",{id:"courses",className:"mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-8 text-center",children:"Available Courses"}),e.jsx("div",{className:"grid md:grid-cols-2 gap-8",children:[{id:"cpr-aed-all-ages",title:"CPR/AED (All Ages)",description:"Learn CPR and AED use for adults, children, and infants",duration:"4-6 hours",format:"Online + Live Skills Session",certification:"CPR/AED Certification (2-year validity)",price:90,topics:["Adult CPR and AED","Child CPR and AED","Infant CPR","Choking relief for all ages","Emergency response procedures"],enrollmentUrl:"https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3",color:"red",icon:"❤️"},{id:"cpr-aed-adult",title:"CPR/AED (Adult Only)",description:"CPR and AED training focused on adult victims",duration:"3-4 hours",format:"Online + Live Skills Session",certification:"CPR/AED Certification (2-year validity)",price:75,topics:["Adult CPR techniques","AED operation","Adult choking relief","Emergency scene assessment","Calling for help"],enrollmentUrl:"https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35",color:"blue",icon:"💙"},{id:"first-aid-cpr-all-ages",title:"Adult First Aid, CPR/AED (All Ages)",description:"Comprehensive first aid and CPR training for all ages",duration:"6-8 hours",format:"Online + Live Skills Session",certification:"First Aid, CPR/AED Certification (2-year validity)",price:120,topics:["First aid for injuries and illnesses","CPR for all ages","AED use","Bleeding control","Shock management","Burns, fractures, and sprains"],enrollmentUrl:"https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8",color:"green",icon:"💚"},{id:"first-aid-cpr-adult",title:"Adult First Aid, CPR/AED (Adult Only)",description:"First aid and adult CPR training",duration:"5-7 hours",format:"Online + Live Skills Session",certification:"First Aid, CPR/AED Certification (2-year validity)",price:105,topics:["Adult first aid","Adult CPR and AED","Wound care","Medical emergencies","Environmental emergencies","Injury assessment"],enrollmentUrl:"https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47",color:"purple",icon:"💜"}].map((s,t)=>e.jsxs("div",{className:`border-2 rounded-lg p-6 ${x(s.color)}`,children:[e.jsx("div",{className:"text-5xl mb-4 text-center",children:s.icon}),e.jsx("h3",{className:"text-2xl font-bold mb-3 text-center",children:s.title}),e.jsx("p",{className:"text-gray-700 mb-4 text-center",children:s.description}),e.jsxs("div",{className:"grid grid-cols-3 gap-3 mb-6",children:[e.jsxs("div",{className:"bg-white p-3 rounded-lg",children:[e.jsx("p",{className:"text-xs text-gray-600 mb-1",children:"Duration"}),e.jsx("p",{className:"font-semibold text-sm",children:s.duration})]}),e.jsxs("div",{className:"bg-white p-3 rounded-lg",children:[e.jsx("p",{className:"text-xs text-gray-600 mb-1",children:"Format"}),e.jsx("p",{className:"font-semibold text-sm",children:s.format})]}),e.jsxs("div",{className:"bg-green-100 p-3 rounded-lg",children:[e.jsx("p",{className:"text-xs text-gray-600 mb-1",children:"Price"}),e.jsxs("p",{className:"font-bold text-lg text-green-700",children:["$",s.price]})]})]}),e.jsxs("div",{className:"mb-6",children:[e.jsx("p",{className:"font-semibold mb-2 text-sm",children:"What You'll Learn:"}),e.jsx("ul",{className:"space-y-1",children:s.topics.map((s,t)=>e.jsxs("li",{className:"flex items-start text-sm",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),s]},t))})]}),e.jsxs("div",{className:"bg-white p-4 rounded-lg mb-4",children:[e.jsx("p",{className:"text-sm font-semibold mb-1",children:"Certification:"}),e.jsx("p",{className:"text-sm text-gray-700",children:s.certification})]}),e.jsx("a",{href:"#enroll",className:"block w-full bg-white border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-800 hover:text-white transition text-center",children:"Enroll in This Course"})]},t))})]}),e.jsxs("div",{className:"bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-6 text-center",children:"How Home Training Works"}),e.jsxs("div",{className:"grid md:grid-cols-5 gap-4",children:[e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold",children:"1"}),e.jsx("h3",{className:"font-bold mb-2",children:"Enroll & Pay"}),e.jsx("p",{className:"text-sm",children:"Register and pay for your course"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold",children:"2"}),e.jsx("h3",{className:"font-bold mb-2",children:"📦 Supplies Shipped"}),e.jsx("p",{className:"text-sm",children:"Training manikins delivered to your home"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold",children:"3"}),e.jsx("h3",{className:"font-bold mb-2",children:"Online Training"}),e.jsx("p",{className:"text-sm",children:"Complete self-paced online modules"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold",children:"4"}),e.jsx("h3",{className:"font-bold mb-2",children:"Live Skills Session"}),e.jsx("p",{className:"text-sm",children:"Attend hands-on practice session"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold",children:"5"}),e.jsx("h3",{className:"font-bold mb-2",children:"Get Certified"}),e.jsx("p",{className:"text-sm",children:"Receive your certification card"})]})]})]}),e.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-8 mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-6 text-center",children:"Who Needs CPR/First Aid Certification?"}),e.jsxs("div",{className:"grid md:grid-cols-3 gap-6",children:[e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx(n,{className:"w-12 h-12 text-blue-600 mb-4"}),e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Healthcare Workers"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Nurses and medical assistants"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Home health aides"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Dental professionals"})]})]})]}),e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx(n,{className:"w-12 h-12 text-green-600 mb-4"}),e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Childcare & Education"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Teachers and school staff"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Daycare providers"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Camp counselors"})]})]})]}),e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx(n,{className:"w-12 h-12 text-purple-600 mb-4"}),e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Other Professionals"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Fitness trainers"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Security personnel"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Anyone wanting to help"})]})]})]})]})]}),e.jsxs("div",{className:"bg-gradient-to-r from-green-50 to-blue-50 border-4 border-green-400 rounded-lg p-8 mb-12",children:[e.jsxs("div",{className:"text-center mb-6",children:[e.jsx("div",{className:"text-6xl mb-4",children:"📦"}),e.jsx("h2",{className:"text-3xl font-bold mb-4 text-green-800",children:"Training Supplies Delivered to Your Home!"}),e.jsx("p",{className:"text-xl text-gray-700 mb-6",children:"We ship practice manikins and all training materials directly to your door"})]}),e.jsxs("div",{className:"grid md:grid-cols-2 gap-6",children:[e.jsxs("div",{className:"bg-white p-6 rounded-lg shadow-md",children:[e.jsx("h3",{className:"text-xl font-bold mb-4",children:"What's Included:"}),e.jsxs("ul",{className:"space-y-3",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"CPR practice manikins (adult, child, infant as needed)"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Training AED device"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"First aid supplies and bandages"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Training manual and materials"})]})]})]}),e.jsxs("div",{className:"bg-white p-6 rounded-lg shadow-md",children:[e.jsx("h3",{className:"text-xl font-bold mb-4",children:"After Enrollment:"}),e.jsxs("ul",{className:"space-y-3",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Receive email with training access link"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Provide your shipping address"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Training supplies shipped within 2-3 business days"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"}),e.jsx("span",{children:"Schedule your live skills session"})]})]})]})]})]}),e.jsxs("div",{id:"enroll",className:"bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg p-12 mb-12",children:[e.jsx("h2",{className:"text-4xl font-bold mb-4 text-center",children:"Ready to Get Certified?"}),e.jsx("p",{className:"text-xl mb-8 text-center",children:"Contact us to enroll in CPR and First Aid training"}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 justify-center",children:[e.jsxs("a",{href:"mailto:elevateforhumanity@gmail.com?subject=CPR/First Aid Training Enrollment",className:"bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition text-center flex items-center justify-center",children:[e.jsx(c,{className:"w-5 h-5 mr-2"}),"Email to Enroll"]}),e.jsxs("a",{href:"tel:+13173143757",className:"bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-600 transition text-center flex items-center justify-center",children:[e.jsx(d,{className:"w-5 h-5 mr-2"}),"Call (317) 314-3757"]})]})]}),e.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-8 mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-6 text-center",children:"Online Safety Training Courses"}),e.jsx("p",{className:"text-center text-gray-700 mb-8 max-w-2xl mx-auto",children:"Expand your safety knowledge with our comprehensive online safety training courses"}),e.jsxs("div",{className:"grid md:grid-cols-3 gap-6 mb-8",children:[e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Workplace Safety"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"OSHA compliance training"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Hazard communication"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Emergency action plans"})]})]})]}),e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Bloodborne Pathogens"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Exposure control"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Personal protective equipment"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Infection prevention"})]})]})]}),e.jsxs("div",{className:"border-2 border-gray-200 rounded-lg p-6",children:[e.jsx("h3",{className:"text-xl font-bold mb-3",children:"Specialized Training"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Fire safety"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Ergonomics"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Workplace violence prevention"})]})]})]})]}),e.jsx("div",{className:"text-center",children:e.jsxs("a",{href:"http://store.osmanager4.com/emss/groups/523",target:"_blank",rel:"noopener noreferrer",className:"inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition",children:["Browse All Safety Courses",e.jsx(t,{className:"w-5 h-5 ml-2"})]})})]}),e.jsxs("div",{className:"bg-purple-50 border-2 border-purple-300 rounded-lg p-8 mb-12",children:[e.jsx("h2",{className:"text-3xl font-bold mb-4 text-center",children:"Remote Skills Verification (RSV)"}),e.jsx("p",{className:"text-center text-gray-700 mb-6 max-w-2xl mx-auto",children:"Can't attend an in-person skills session? Complete your certification with Remote Skills Verification"}),e.jsxs("div",{className:"grid md:grid-cols-2 gap-6 mb-6",children:[e.jsxs("div",{className:"bg-white p-6 rounded-lg",children:[e.jsx("h3",{className:"font-bold mb-3",children:"How RSV Works:"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Complete online training modules"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Receive training manikins at home"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Record yourself performing skills"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Submit video for instructor review"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Get certified remotely"})]})]})]}),e.jsxs("div",{className:"bg-white p-6 rounded-lg",children:[e.jsx("h3",{className:"font-bold mb-3",children:"RSV Benefits:"}),e.jsxs("ul",{className:"space-y-2 text-sm",children:[e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Complete certification 100% remotely"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"No need to travel to training center"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Practice at your own pace"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Same nationally recognized certification"})]}),e.jsxs("li",{className:"flex items-start",children:[e.jsx(a,{className:"w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0"}),e.jsx("span",{children:"Perfect for busy schedules"})]})]})]})]}),e.jsx("div",{className:"text-center",children:e.jsxs("a",{href:"https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification",target:"_blank",rel:"noopener noreferrer",className:"inline-flex items-center bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-purple-700 transition",children:["Learn More About RSV",e.jsx(t,{className:"w-5 h-5 ml-2"})]})})]}),e.jsxs("div",{className:"bg-white rounded-lg shadow-lg p-8 text-center",children:[e.jsx("h2",{className:"text-2xl font-bold mb-4",children:"Questions About CPR/First Aid Training?"}),e.jsx("p",{className:"text-lg text-gray-700 mb-6",children:"Contact us for more information about certification courses"}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 justify-center",children:[e.jsxs("a",{href:"mailto:elevateforhumanity@gmail.com",className:"bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition flex items-center justify-center",children:[e.jsx(c,{className:"w-5 h-5 mr-2"}),"elevateforhumanity@gmail.com"]}),e.jsxs("a",{href:"tel:+13173143757",className:"bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition flex items-center justify-center",children:[e.jsx(d,{className:"w-5 h-5 mr-2"}),"(317) 314-3757"]})]})]})]})]})};export{m as default};
+import {
+  j as e,
+  q as s,
+  s as t,
+  A as l,
+  t as r,
+  u as i,
+  g as a,
+  U as n,
+  v as c,
+  w as d,
+} from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+const m = () => {
+  const m = [
+      {
+        title: 'Training Supplies Shipped Home',
+        description: 'Practice manikins and materials delivered to your door',
+        icon: '📦',
+      },
+      {
+        title: 'Nationally Recognized',
+        description: 'Certifications accepted by employers nationwide',
+        icon: l,
+      },
+      {
+        title: 'Online + Live Training',
+        description: 'Self-paced online modules plus live skills session',
+        icon: r,
+      },
+      {
+        title: '2-Year Certification',
+        description: 'Valid for 2 years from date of completion',
+        icon: i,
+      },
+    ],
+    x = (e) => {
+      const s = {
+        red: 'bg-red-50 border-red-300',
+        blue: 'bg-blue-50 border-blue-300',
+        green: 'bg-green-50 border-green-300',
+        purple: 'bg-purple-50 border-purple-300',
+      };
+      return s[e] || s.red;
+    };
+  return e.jsxs('div', {
+    className: 'min-h-screen bg-gray-50',
+    children: [
+      e.jsx('div', {
+        className: 'bg-gradient-to-r from-red-600 to-pink-600 text-white py-20',
+        children: e.jsx('div', {
+          className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+          children: e.jsxs('div', {
+            className: 'text-center',
+            children: [
+              e.jsx('div', {
+                className: 'flex justify-center mb-6',
+                children: e.jsx(s, { className: 'w-20 h-20' }),
+              }),
+              e.jsx('h1', {
+                className: 'text-5xl font-bold mb-4',
+                children: 'CPR & First Aid Certification',
+              }),
+              e.jsx('p', {
+                className: 'text-2xl mb-6',
+                children: 'Training Supplies Shipped to Your Home',
+              }),
+              e.jsx('p', {
+                className: 'text-xl mb-8 max-w-3xl mx-auto',
+                children:
+                  'Get certified in CPR and First Aid with our convenient home training program. Complete online training, receive practice manikins at home, and attend live skills session.',
+              }),
+              e.jsxs('div', {
+                className: 'flex flex-wrap justify-center gap-4',
+                children: [
+                  e.jsx('a', {
+                    href: '#courses',
+                    className:
+                      'bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition',
+                    children: 'View Courses',
+                  }),
+                  e.jsxs('a', {
+                    href: 'https://www.hsi.com',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className:
+                      'bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-600 transition flex items-center',
+                    children: [
+                      'Visit HSI',
+                      e.jsx(t, { className: 'w-5 h-5 ml-2' }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      }),
+      e.jsxs('div', {
+        className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16',
+        children: [
+          e.jsxs('div', {
+            className: 'bg-white rounded-lg shadow-lg p-8 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-6 text-center',
+                children: 'Convenient Home Training Program',
+              }),
+              e.jsx('p', {
+                className:
+                  'text-lg text-gray-700 mb-6 text-center max-w-3xl mx-auto',
+                children:
+                  "Get nationally recognized CPR and First Aid certifications with training supplies delivered right to your home. Our program combines online learning with live skills practice to ensure you're prepared for real emergencies.",
+              }),
+              e.jsx('div', {
+                className: 'grid md:grid-cols-4 gap-6 mt-8',
+                children: m.map((s, t) => {
+                  const l = 'string' == typeof s.icon ? null : s.icon;
+                  return e.jsxs(
+                    'div',
+                    {
+                      className: 'text-center',
+                      children: [
+                        e.jsx('div', {
+                          className:
+                            'bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-3xl',
+                          children: l
+                            ? e.jsx(l, { className: 'w-8 h-8 text-red-600' })
+                            : s.icon,
+                        }),
+                        e.jsx('h3', {
+                          className: 'font-bold mb-2',
+                          children: s.title,
+                        }),
+                        e.jsx('p', {
+                          className: 'text-sm text-gray-600',
+                          children: s.description,
+                        }),
+                      ],
+                    },
+                    t
+                  );
+                }),
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            id: 'courses',
+            className: 'mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-8 text-center',
+                children: 'Available Courses',
+              }),
+              e.jsx('div', {
+                className: 'grid md:grid-cols-2 gap-8',
+                children: [
+                  {
+                    id: 'cpr-aed-all-ages',
+                    title: 'CPR/AED (All Ages)',
+                    description:
+                      'Learn CPR and AED use for adults, children, and infants',
+                    duration: '4-6 hours',
+                    format: 'Online + Live Skills Session',
+                    certification: 'CPR/AED Certification (2-year validity)',
+                    price: 90,
+                    topics: [
+                      'Adult CPR and AED',
+                      'Child CPR and AED',
+                      'Infant CPR',
+                      'Choking relief for all ages',
+                      'Emergency response procedures',
+                    ],
+                    enrollmentUrl:
+                      'https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3',
+                    color: 'red',
+                    icon: '❤️',
+                  },
+                  {
+                    id: 'cpr-aed-adult',
+                    title: 'CPR/AED (Adult Only)',
+                    description:
+                      'CPR and AED training focused on adult victims',
+                    duration: '3-4 hours',
+                    format: 'Online + Live Skills Session',
+                    certification: 'CPR/AED Certification (2-year validity)',
+                    price: 75,
+                    topics: [
+                      'Adult CPR techniques',
+                      'AED operation',
+                      'Adult choking relief',
+                      'Emergency scene assessment',
+                      'Calling for help',
+                    ],
+                    enrollmentUrl:
+                      'https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35',
+                    color: 'blue',
+                    icon: '💙',
+                  },
+                  {
+                    id: 'first-aid-cpr-all-ages',
+                    title: 'Adult First Aid, CPR/AED (All Ages)',
+                    description:
+                      'Comprehensive first aid and CPR training for all ages',
+                    duration: '6-8 hours',
+                    format: 'Online + Live Skills Session',
+                    certification:
+                      'First Aid, CPR/AED Certification (2-year validity)',
+                    price: 120,
+                    topics: [
+                      'First aid for injuries and illnesses',
+                      'CPR for all ages',
+                      'AED use',
+                      'Bleeding control',
+                      'Shock management',
+                      'Burns, fractures, and sprains',
+                    ],
+                    enrollmentUrl:
+                      'https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8',
+                    color: 'green',
+                    icon: '💚',
+                  },
+                  {
+                    id: 'first-aid-cpr-adult',
+                    title: 'Adult First Aid, CPR/AED (Adult Only)',
+                    description: 'First aid and adult CPR training',
+                    duration: '5-7 hours',
+                    format: 'Online + Live Skills Session',
+                    certification:
+                      'First Aid, CPR/AED Certification (2-year validity)',
+                    price: 105,
+                    topics: [
+                      'Adult first aid',
+                      'Adult CPR and AED',
+                      'Wound care',
+                      'Medical emergencies',
+                      'Environmental emergencies',
+                      'Injury assessment',
+                    ],
+                    enrollmentUrl:
+                      'https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47',
+                    color: 'purple',
+                    icon: '💜',
+                  },
+                ].map((s, t) =>
+                  e.jsxs(
+                    'div',
+                    {
+                      className: `border-2 rounded-lg p-6 ${x(s.color)}`,
+                      children: [
+                        e.jsx('div', {
+                          className: 'text-5xl mb-4 text-center',
+                          children: s.icon,
+                        }),
+                        e.jsx('h3', {
+                          className: 'text-2xl font-bold mb-3 text-center',
+                          children: s.title,
+                        }),
+                        e.jsx('p', {
+                          className: 'text-gray-700 mb-4 text-center',
+                          children: s.description,
+                        }),
+                        e.jsxs('div', {
+                          className: 'grid grid-cols-3 gap-3 mb-6',
+                          children: [
+                            e.jsxs('div', {
+                              className: 'bg-white p-3 rounded-lg',
+                              children: [
+                                e.jsx('p', {
+                                  className: 'text-xs text-gray-600 mb-1',
+                                  children: 'Duration',
+                                }),
+                                e.jsx('p', {
+                                  className: 'font-semibold text-sm',
+                                  children: s.duration,
+                                }),
+                              ],
+                            }),
+                            e.jsxs('div', {
+                              className: 'bg-white p-3 rounded-lg',
+                              children: [
+                                e.jsx('p', {
+                                  className: 'text-xs text-gray-600 mb-1',
+                                  children: 'Format',
+                                }),
+                                e.jsx('p', {
+                                  className: 'font-semibold text-sm',
+                                  children: s.format,
+                                }),
+                              ],
+                            }),
+                            e.jsxs('div', {
+                              className: 'bg-green-100 p-3 rounded-lg',
+                              children: [
+                                e.jsx('p', {
+                                  className: 'text-xs text-gray-600 mb-1',
+                                  children: 'Price',
+                                }),
+                                e.jsxs('p', {
+                                  className: 'font-bold text-lg text-green-700',
+                                  children: ['$', s.price],
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        e.jsxs('div', {
+                          className: 'mb-6',
+                          children: [
+                            e.jsx('p', {
+                              className: 'font-semibold mb-2 text-sm',
+                              children: "What You'll Learn:",
+                            }),
+                            e.jsx('ul', {
+                              className: 'space-y-1',
+                              children: s.topics.map((s, t) =>
+                                e.jsxs(
+                                  'li',
+                                  {
+                                    className: 'flex items-start text-sm',
+                                    children: [
+                                      e.jsx(a, {
+                                        className:
+                                          'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                                      }),
+                                      s,
+                                    ],
+                                  },
+                                  t
+                                )
+                              ),
+                            }),
+                          ],
+                        }),
+                        e.jsxs('div', {
+                          className: 'bg-white p-4 rounded-lg mb-4',
+                          children: [
+                            e.jsx('p', {
+                              className: 'text-sm font-semibold mb-1',
+                              children: 'Certification:',
+                            }),
+                            e.jsx('p', {
+                              className: 'text-sm text-gray-700',
+                              children: s.certification,
+                            }),
+                          ],
+                        }),
+                        e.jsx('a', {
+                          href: '#enroll',
+                          className:
+                            'block w-full bg-white border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-800 hover:text-white transition text-center',
+                          children: 'Enroll in This Course',
+                        }),
+                      ],
+                    },
+                    t
+                  )
+                ),
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className:
+              'bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-6 text-center',
+                children: 'How Home Training Works',
+              }),
+              e.jsxs('div', {
+                className: 'grid md:grid-cols-5 gap-4',
+                children: [
+                  e.jsxs('div', {
+                    className: 'text-center',
+                    children: [
+                      e.jsx('div', {
+                        className:
+                          'bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold',
+                        children: '1',
+                      }),
+                      e.jsx('h3', {
+                        className: 'font-bold mb-2',
+                        children: 'Enroll & Pay',
+                      }),
+                      e.jsx('p', {
+                        className: 'text-sm',
+                        children: 'Register and pay for your course',
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'text-center',
+                    children: [
+                      e.jsx('div', {
+                        className:
+                          'bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold',
+                        children: '2',
+                      }),
+                      e.jsx('h3', {
+                        className: 'font-bold mb-2',
+                        children: '📦 Supplies Shipped',
+                      }),
+                      e.jsx('p', {
+                        className: 'text-sm',
+                        children: 'Training manikins delivered to your home',
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'text-center',
+                    children: [
+                      e.jsx('div', {
+                        className:
+                          'bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold',
+                        children: '3',
+                      }),
+                      e.jsx('h3', {
+                        className: 'font-bold mb-2',
+                        children: 'Online Training',
+                      }),
+                      e.jsx('p', {
+                        className: 'text-sm',
+                        children: 'Complete self-paced online modules',
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'text-center',
+                    children: [
+                      e.jsx('div', {
+                        className:
+                          'bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold',
+                        children: '4',
+                      }),
+                      e.jsx('h3', {
+                        className: 'font-bold mb-2',
+                        children: 'Live Skills Session',
+                      }),
+                      e.jsx('p', {
+                        className: 'text-sm',
+                        children: 'Attend hands-on practice session',
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'text-center',
+                    children: [
+                      e.jsx('div', {
+                        className:
+                          'bg-white text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold',
+                        children: '5',
+                      }),
+                      e.jsx('h3', {
+                        className: 'font-bold mb-2',
+                        children: 'Get Certified',
+                      }),
+                      e.jsx('p', {
+                        className: 'text-sm',
+                        children: 'Receive your certification card',
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className: 'bg-white rounded-lg shadow-lg p-8 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-6 text-center',
+                children: 'Who Needs CPR/First Aid Certification?',
+              }),
+              e.jsxs('div', {
+                className: 'grid md:grid-cols-3 gap-6',
+                children: [
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx(n, { className: 'w-12 h-12 text-blue-600 mb-4' }),
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Healthcare Workers',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Nurses and medical assistants',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Home health aides' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Dental professionals',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx(n, { className: 'w-12 h-12 text-green-600 mb-4' }),
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Childcare & Education',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Teachers and school staff',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Daycare providers' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Camp counselors' }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx(n, { className: 'w-12 h-12 text-purple-600 mb-4' }),
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Other Professionals',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Fitness trainers' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Security personnel' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Anyone wanting to help',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className:
+              'bg-gradient-to-r from-green-50 to-blue-50 border-4 border-green-400 rounded-lg p-8 mb-12',
+            children: [
+              e.jsxs('div', {
+                className: 'text-center mb-6',
+                children: [
+                  e.jsx('div', { className: 'text-6xl mb-4', children: '📦' }),
+                  e.jsx('h2', {
+                    className: 'text-3xl font-bold mb-4 text-green-800',
+                    children: 'Training Supplies Delivered to Your Home!',
+                  }),
+                  e.jsx('p', {
+                    className: 'text-xl text-gray-700 mb-6',
+                    children:
+                      'We ship practice manikins and all training materials directly to your door',
+                  }),
+                ],
+              }),
+              e.jsxs('div', {
+                className: 'grid md:grid-cols-2 gap-6',
+                children: [
+                  e.jsxs('div', {
+                    className: 'bg-white p-6 rounded-lg shadow-md',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-4',
+                        children: "What's Included:",
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-3',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'CPR practice manikins (adult, child, infant as needed)',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Training AED device',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'First aid supplies and bandages',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Training manual and materials',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'bg-white p-6 rounded-lg shadow-md',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-4',
+                        children: 'After Enrollment:',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-3',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'Receive email with training access link',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Provide your shipping address',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'Training supplies shipped within 2-3 business days',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Schedule your live skills session',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            id: 'enroll',
+            className:
+              'bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg p-12 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-4xl font-bold mb-4 text-center',
+                children: 'Ready to Get Certified?',
+              }),
+              e.jsx('p', {
+                className: 'text-xl mb-8 text-center',
+                children: 'Contact us to enroll in CPR and First Aid training',
+              }),
+              e.jsxs('div', {
+                className: 'flex flex-col sm:flex-row gap-4 justify-center',
+                children: [
+                  e.jsxs('a', {
+                    href: 'mailto:elevateforhumanity@gmail.com?subject=CPR/First Aid Training Enrollment',
+                    className:
+                      'bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition text-center flex items-center justify-center',
+                    children: [
+                      e.jsx(c, { className: 'w-5 h-5 mr-2' }),
+                      'Email to Enroll',
+                    ],
+                  }),
+                  e.jsxs('a', {
+                    href: 'tel:+13173143757',
+                    className:
+                      'bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-600 transition text-center flex items-center justify-center',
+                    children: [
+                      e.jsx(d, { className: 'w-5 h-5 mr-2' }),
+                      'Call (317) 314-3757',
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className: 'bg-white rounded-lg shadow-lg p-8 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-6 text-center',
+                children: 'Online Safety Training Courses',
+              }),
+              e.jsx('p', {
+                className: 'text-center text-gray-700 mb-8 max-w-2xl mx-auto',
+                children:
+                  'Expand your safety knowledge with our comprehensive online safety training courses',
+              }),
+              e.jsxs('div', {
+                className: 'grid md:grid-cols-3 gap-6 mb-8',
+                children: [
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Workplace Safety',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'OSHA compliance training',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Hazard communication',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Emergency action plans',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Bloodborne Pathogens',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Exposure control' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Personal protective equipment',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Infection prevention',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'border-2 border-gray-200 rounded-lg p-6',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'text-xl font-bold mb-3',
+                        children: 'Specialized Training',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Fire safety' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', { children: 'Ergonomics' }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Workplace violence prevention',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsx('div', {
+                className: 'text-center',
+                children: e.jsxs('a', {
+                  href: 'http://store.osmanager4.com/emss/groups/523',
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  className:
+                    'inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition',
+                  children: [
+                    'Browse All Safety Courses',
+                    e.jsx(t, { className: 'w-5 h-5 ml-2' }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className:
+              'bg-purple-50 border-2 border-purple-300 rounded-lg p-8 mb-12',
+            children: [
+              e.jsx('h2', {
+                className: 'text-3xl font-bold mb-4 text-center',
+                children: 'Remote Skills Verification (RSV)',
+              }),
+              e.jsx('p', {
+                className: 'text-center text-gray-700 mb-6 max-w-2xl mx-auto',
+                children:
+                  "Can't attend an in-person skills session? Complete your certification with Remote Skills Verification",
+              }),
+              e.jsxs('div', {
+                className: 'grid md:grid-cols-2 gap-6 mb-6',
+                children: [
+                  e.jsxs('div', {
+                    className: 'bg-white p-6 rounded-lg',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'font-bold mb-3',
+                        children: 'How RSV Works:',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Complete online training modules',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Receive training manikins at home',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Record yourself performing skills',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Submit video for instructor review',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Get certified remotely',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs('div', {
+                    className: 'bg-white p-6 rounded-lg',
+                    children: [
+                      e.jsx('h3', {
+                        className: 'font-bold mb-3',
+                        children: 'RSV Benefits:',
+                      }),
+                      e.jsxs('ul', {
+                        className: 'space-y-2 text-sm',
+                        children: [
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'Complete certification 100% remotely',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'No need to travel to training center',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Practice at your own pace',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children:
+                                  'Same nationally recognized certification',
+                              }),
+                            ],
+                          }),
+                          e.jsxs('li', {
+                            className: 'flex items-start',
+                            children: [
+                              e.jsx(a, {
+                                className:
+                                  'w-4 h-4 text-green-600 mr-2 mt-0.5 flex-shrink-0',
+                              }),
+                              e.jsx('span', {
+                                children: 'Perfect for busy schedules',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsx('div', {
+                className: 'text-center',
+                children: e.jsxs('a', {
+                  href: 'https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification',
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  className:
+                    'inline-flex items-center bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-purple-700 transition',
+                  children: [
+                    'Learn More About RSV',
+                    e.jsx(t, { className: 'w-5 h-5 ml-2' }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+          e.jsxs('div', {
+            className: 'bg-white rounded-lg shadow-lg p-8 text-center',
+            children: [
+              e.jsx('h2', {
+                className: 'text-2xl font-bold mb-4',
+                children: 'Questions About CPR/First Aid Training?',
+              }),
+              e.jsx('p', {
+                className: 'text-lg text-gray-700 mb-6',
+                children:
+                  'Contact us for more information about certification courses',
+              }),
+              e.jsxs('div', {
+                className: 'flex flex-col sm:flex-row gap-4 justify-center',
+                children: [
+                  e.jsxs('a', {
+                    href: 'mailto:elevateforhumanity@gmail.com',
+                    className:
+                      'bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition flex items-center justify-center',
+                    children: [
+                      e.jsx(c, { className: 'w-5 h-5 mr-2' }),
+                      'elevateforhumanity@gmail.com',
+                    ],
+                  }),
+                  e.jsxs('a', {
+                    href: 'tel:+13173143757',
+                    className:
+                      'bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition flex items-center justify-center',
+                    children: [
+                      e.jsx(d, { className: 'w-5 h-5 mr-2' }),
+                      '(317) 314-3757',
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+};
+export { m as default };

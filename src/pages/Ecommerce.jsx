@@ -8,7 +8,6 @@ export default function Ecommerce() {
       <Helmet>
         <title>E-commerce | Elevate for Humanity</title>
       </Helmet>
-
       <div className="max-w-[1200px] mx-auto px-8 py-8">
         <h1 className="text-3xl font-bold text-brown-900 mb-8">E-commerce</h1>
         <div className="card">

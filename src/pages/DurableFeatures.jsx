@@ -47,9 +47,7 @@ export default function DurableFeatures() {
           content="Everything you need to succeed in your learning journey. Interactive learning, expert instructors, flexible schedules, and more."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="beige">
         <div className="text-center mb-12">
           <h1 className="section-title">Platform Features</h1>
@@ -57,7 +55,6 @@ export default function DurableFeatures() {
             Everything you need to succeed in your learning journey
           </p>
         </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="card p-8 hover:shadow-lg transition">
@@ -70,7 +67,6 @@ export default function DurableFeatures() {
           ))}
         </div>
       </Section>
-
       <Footer />
     </div>
   );

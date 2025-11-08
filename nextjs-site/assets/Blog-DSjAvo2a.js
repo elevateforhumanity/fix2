@@ -1,1 +1,88 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";function t(){return e.jsx("div",{className:"min-h-screen bg-white",children:e.jsxs("div",{className:"container py-12 px-4",children:[e.jsx("h1",{className:"text-4xl font-bold text-brown-900 mb-8",children:"Blog"}),e.jsx("div",{className:"grid gap-8 md:grid-cols-2 lg:grid-cols-3",children:[{title:"Funding and Programs at Elevate for Humanity: A Comprehensive Guide",slug:"funding-and-programs-at-elevate-for-humanity--a-comprehensive-guide",excerpt:"Learn about our funding opportunities and comprehensive training programs designed to elevate your career."},{title:"How to Navigate Your Path to a Career in Healthcare with Apprenticeships",slug:"how-to-navigate-your-path-to-a-career-in-healthcare-with-apprenticeships",excerpt:"Discover how apprenticeships can fast-track your healthcare career with hands-on training and industry connections."},{title:"Why Hybrid Apprenticeships Are the Future of Career Development",slug:"why-hybrid-apprenticeships-are-the-future-of-career-development",excerpt:"Explore the benefits of hybrid learning models that combine online education with practical experience."},{title:"Skincare and Beauty Training: A Comprehensive Guide to Becoming an Esthetician",slug:"skincare-and-beauty-training--a-comprehensive-guide-to-becoming-an-esthetician",excerpt:"Start your journey in the beauty industry with our comprehensive esthetician training program."},{title:"Becoming a Premier Childcare Provider in Indiana: A Step-by-Step Guide",slug:"becoming-a-premier-childcare-provider-in-indiana--a-step-by-step-guide",excerpt:"Learn the requirements and steps to become a licensed childcare provider in Indiana."},{title:"Podcast Network Creation: A Path to Digital Entrepreneurship",slug:"podcast-network-creation--a-path-to-digital-entrepreneurship",excerpt:"Discover how to build and monetize your own podcast network in the digital age."}].map(t=>e.jsxs("article",{className:"card hover:shadow-lg transition-shadow",children:[e.jsx("h2",{className:"text-xl font-semibold text-brown-900 mb-3",children:t.title}),e.jsx("p",{className:"text-brown-600 mb-4",children:t.excerpt}),e.jsx("a",{href:`/blog/${t.slug}`,className:"text-green-600 hover:text-green-700 font-medium",children:"Read More →"})]},t.slug))})]})})}export{t as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+function t() {
+  return e.jsx('div', {
+    className: 'min-h-screen bg-white',
+    children: e.jsxs('div', {
+      className: 'container py-12 px-4',
+      children: [
+        e.jsx('h1', {
+          className: 'text-4xl font-bold text-brown-900 mb-8',
+          children: 'Blog',
+        }),
+        e.jsx('div', {
+          className: 'grid gap-8 md:grid-cols-2 lg:grid-cols-3',
+          children: [
+            {
+              title:
+                'Funding and Programs at Elevate for Humanity: A Comprehensive Guide',
+              slug: 'funding-and-programs-at-elevate-for-humanity--a-comprehensive-guide',
+              excerpt:
+                'Learn about our funding opportunities and comprehensive training programs designed to elevate your career.',
+            },
+            {
+              title:
+                'How to Navigate Your Path to a Career in Healthcare with Apprenticeships',
+              slug: 'how-to-navigate-your-path-to-a-career-in-healthcare-with-apprenticeships',
+              excerpt:
+                'Discover how apprenticeships can fast-track your healthcare career with hands-on training and industry connections.',
+            },
+            {
+              title:
+                'Why Hybrid Apprenticeships Are the Future of Career Development',
+              slug: 'why-hybrid-apprenticeships-are-the-future-of-career-development',
+              excerpt:
+                'Explore the benefits of hybrid learning models that combine online education with practical experience.',
+            },
+            {
+              title:
+                'Skincare and Beauty Training: A Comprehensive Guide to Becoming an Esthetician',
+              slug: 'skincare-and-beauty-training--a-comprehensive-guide-to-becoming-an-esthetician',
+              excerpt:
+                'Start your journey in the beauty industry with our comprehensive esthetician training program.',
+            },
+            {
+              title:
+                'Becoming a Premier Childcare Provider in Indiana: A Step-by-Step Guide',
+              slug: 'becoming-a-premier-childcare-provider-in-indiana--a-step-by-step-guide',
+              excerpt:
+                'Learn the requirements and steps to become a licensed childcare provider in Indiana.',
+            },
+            {
+              title:
+                'Podcast Network Creation: A Path to Digital Entrepreneurship',
+              slug: 'podcast-network-creation--a-path-to-digital-entrepreneurship',
+              excerpt:
+                'Discover how to build and monetize your own podcast network in the digital age.',
+            },
+          ].map((t) =>
+            e.jsxs(
+              'article',
+              {
+                className: 'card hover:shadow-lg transition-shadow',
+                children: [
+                  e.jsx('h2', {
+                    className: 'text-xl font-semibold text-brown-900 mb-3',
+                    children: t.title,
+                  }),
+                  e.jsx('p', {
+                    className: 'text-brown-600 mb-4',
+                    children: t.excerpt,
+                  }),
+                  e.jsx('a', {
+                    href: `/blog/${t.slug}`,
+                    className:
+                      'text-green-600 hover:text-green-700 font-medium',
+                    children: 'Read More →',
+                  }),
+                ],
+              },
+              t.slug
+            )
+          ),
+        }),
+      ],
+    }),
+  });
+}
+export { t as default };

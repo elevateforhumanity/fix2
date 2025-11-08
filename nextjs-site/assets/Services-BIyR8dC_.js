@@ -1,1 +1,120 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import"./vendor-Da1LjC7-.js";function n(){return e.jsxs("div",{className:"min-h-screen bg-white",children:[e.jsx("section",{className:"bg-gradient-to-r from-brown-700 to-brown-800 text-white py-16",children:e.jsxs("div",{className:"container",children:[e.jsx("h1",{className:"text-4xl md:text-5xl font-bold mb-4",children:"Our Services"}),e.jsx("p",{className:"text-xl opacity-90 max-w-2xl",children:"Comprehensive support for your career development journey in Marion County, IN"})]})}),e.jsx("section",{className:"py-16",children:e.jsx("div",{className:"container",children:e.jsx("div",{className:"grid gap-8 md:grid-cols-2 lg:grid-cols-3",children:[{title:"Apprenticeship Funding",description:"We provide funding for innovative apprenticeship programs that bridge the gap between education and employment.",icon:"💰"},{title:"Career Training Programs",description:"Access comprehensive training programs in healthcare, trades, technology, and business sectors.",icon:"📚"},{title:"Job Placement Assistance",description:"Connect with employers and receive support in securing employment after program completion.",icon:"🤝"},{title:"Certification Support",description:"Earn industry-recognized certifications that validate your skills and enhance career prospects.",icon:"🏆"},{title:"Mentorship Programs",description:"Benefit from experienced mentors who guide you through your career development journey.",icon:"👥"},{title:"Financial Aid Guidance",description:"Navigate funding options including WIOA, grants, and scholarships to make training accessible.",icon:"📋"}].map(n=>e.jsxs("div",{className:"border border-brown-200 rounded-lg p-6 hover:shadow-lg transition-shadow",children:[e.jsx("div",{className:"text-4xl mb-4",children:n.icon}),e.jsx("h3",{className:"text-xl font-semibold text-brown-900 mb-3",children:n.title}),e.jsx("p",{className:"text-brown-600",children:n.description})]},n.title))})})}),e.jsx("section",{className:"bg-beige-50 py-16",children:e.jsxs("div",{className:"container text-center",children:[e.jsx("h2",{className:"text-3xl font-bold text-brown-900 mb-4",children:"Ready to Get Started?"}),e.jsx("p",{className:"text-lg text-brown-600 mb-8 max-w-2xl mx-auto",children:"Contact us today to learn more about our services and how we can help you achieve your career goals."}),e.jsx("a",{href:"/connect",className:"btn inline-block",children:"Contact Us"})]})})]})}export{n as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import './vendor-Da1LjC7-.js';
+function n() {
+  return e.jsxs('div', {
+    className: 'min-h-screen bg-white',
+    children: [
+      e.jsx('section', {
+        className:
+          'bg-gradient-to-r from-brown-700 to-brown-800 text-white py-16',
+        children: e.jsxs('div', {
+          className: 'container',
+          children: [
+            e.jsx('h1', {
+              className: 'text-4xl md:text-5xl font-bold mb-4',
+              children: 'Our Services',
+            }),
+            e.jsx('p', {
+              className: 'text-xl opacity-90 max-w-2xl',
+              children:
+                'Comprehensive support for your career development journey in Marion County, IN',
+            }),
+          ],
+        }),
+      }),
+      e.jsx('section', {
+        className: 'py-16',
+        children: e.jsx('div', {
+          className: 'container',
+          children: e.jsx('div', {
+            className: 'grid gap-8 md:grid-cols-2 lg:grid-cols-3',
+            children: [
+              {
+                title: 'Apprenticeship Funding',
+                description:
+                  'We provide funding for innovative apprenticeship programs that bridge the gap between education and employment.',
+                icon: '💰',
+              },
+              {
+                title: 'Career Training Programs',
+                description:
+                  'Access comprehensive training programs in healthcare, trades, technology, and business sectors.',
+                icon: '📚',
+              },
+              {
+                title: 'Job Placement Assistance',
+                description:
+                  'Connect with employers and receive support in securing employment after program completion.',
+                icon: '🤝',
+              },
+              {
+                title: 'Certification Support',
+                description:
+                  'Earn industry-recognized certifications that validate your skills and enhance career prospects.',
+                icon: '🏆',
+              },
+              {
+                title: 'Mentorship Programs',
+                description:
+                  'Benefit from experienced mentors who guide you through your career development journey.',
+                icon: '👥',
+              },
+              {
+                title: 'Financial Aid Guidance',
+                description:
+                  'Navigate funding options including WIOA, grants, and scholarships to make training accessible.',
+                icon: '📋',
+              },
+            ].map((n) =>
+              e.jsxs(
+                'div',
+                {
+                  className:
+                    'border border-brown-200 rounded-lg p-6 hover:shadow-lg transition-shadow',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-4xl mb-4',
+                      children: n.icon,
+                    }),
+                    e.jsx('h3', {
+                      className: 'text-xl font-semibold text-brown-900 mb-3',
+                      children: n.title,
+                    }),
+                    e.jsx('p', {
+                      className: 'text-brown-600',
+                      children: n.description,
+                    }),
+                  ],
+                },
+                n.title
+              )
+            ),
+          }),
+        }),
+      }),
+      e.jsx('section', {
+        className: 'bg-beige-50 py-16',
+        children: e.jsxs('div', {
+          className: 'container text-center',
+          children: [
+            e.jsx('h2', {
+              className: 'text-3xl font-bold text-brown-900 mb-4',
+              children: 'Ready to Get Started?',
+            }),
+            e.jsx('p', {
+              className: 'text-lg text-brown-600 mb-8 max-w-2xl mx-auto',
+              children:
+                'Contact us today to learn more about our services and how we can help you achieve your career goals.',
+            }),
+            e.jsx('a', {
+              href: '/connect',
+              className: 'btn inline-block',
+              children: 'Contact Us',
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { n as default };

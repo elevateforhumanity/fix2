@@ -14,9 +14,7 @@ export default function PeerSupport() {
           content="Connect with fellow students for encouragement, advice, and shared experiences."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[1200px] text-center">
           <div className="mb-8">
@@ -27,7 +25,6 @@ export default function PeerSupport() {
             Connect with fellow students for encouragement, advice, and shared
             experiences. Build a supportive community that helps you succeed.
           </p>
-
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-left">
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -78,7 +75,6 @@ export default function PeerSupport() {
               </p>
             </div>
           </div>
-
           <div className="mt-12 p-6 bg-green-50 rounded-lg">
             <p className="text-lg font-semibold text-green-900">
               Coming Q1 2025
@@ -86,7 +82,6 @@ export default function PeerSupport() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

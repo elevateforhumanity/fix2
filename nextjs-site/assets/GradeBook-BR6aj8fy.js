@@ -1,1 +1,373 @@
-import{r as e,j as s}from"./vendor-react-C-ZQNdj3.js";import{supabase as t}from"./supabaseClient-DCQoDyvc.js";import{A as r}from"./AppLayout-DjgAzEIN.js";import"./vendor-Da1LjC7-.js";import"./vendor-supabase-C00Cu5KO.js";import"./vendor-router-CQjfSXV_.js";function a(){const[a,l]=e.useState(!0),[n,d]=e.useState([]),[i,c]=e.useState(null),[o,x]=e.useState([]),[m,h]=e.useState(null);e.useEffect(()=>{u()},[]),e.useEffect(()=>{i&&p(i)},[i]);const u=async()=>{if(!t)return h("Database service is not available"),void l(!1);try{l(!0),h(null);const{data:e,error:s}=await t.from("courses").select("*").order("title");if(s)throw s;d(e||[]),e&&e.length>0&&c(e[0].id)}catch(e){console.error("Error fetching courses:",e),h(e.message)}finally{l(!1)}},p=async e=>{if(!t)return h("Database service is not available"),void l(!1);try{l(!0),h(null);const{data:s,error:r}=await t.from("enrollments").select("user_id").eq("course_id",e);if(r)throw r;if(!s||0===s.length)return void x([]);const a=s.map(e=>e.user_id),{data:n,error:d}=await t.from("quiz_responses").select("\n          *,\n          quiz_questions (\n            id,\n            answer,\n            lesson_id,\n            lessons (\n              course_id\n            )\n          )\n        ").in("user_id",a);if(d)throw d;const i={};null==n||n.forEach(s=>{var t,r,a;const l=s.user_id;if((null==(r=null==(t=s.quiz_questions)?void 0:t.lessons)?void 0:r.course_id)!==e)return;i[l]||(i[l]={userId:l,correct:0,total:0});const n=s.answer===(null==(a=s.quiz_questions)?void 0:a.answer);i[l].total++,n&&i[l].correct++});const c=Object.values(i).map(e=>({...e,percentage:e.total>0?Math.round(e.correct/e.total*100):0,letterGrade:g(e.total>0?Math.round(e.correct/e.total*100):0)}));x(c)}catch(s){console.error("Error fetching student grades:",s),h(s.message)}finally{l(!1)}},g=e=>e>=90?"A":e>=80?"B":e>=70?"C":e>=60?"D":"F",b=o.length>0?Math.round(o.reduce((e,s)=>e+s.percentage,0)/o.length):0;return s.jsx(r,{children:s.jsxs("div",{className:"container mx-auto px-4 py-8",children:[s.jsx("h1",{className:"text-3xl font-bold mb-6",children:"Instructor Grade Book"}),m&&s.jsx("div",{className:"bg-red-50 border border-red-200 rounded-lg p-4 mb-6",children:s.jsx("p",{className:"text-red-800",children:m})}),s.jsxs("div",{className:"bg-white rounded-lg shadow p-6 mb-6",children:[s.jsx("label",{className:"block text-sm font-medium mb-2",children:"Select Course"}),s.jsx("select",{value:i||"",onChange:e=>c(e.target.value),className:"w-full md:w-1/2 p-3 border rounded-lg focus:ring-2 focus:ring-green-500",children:n.map(e=>s.jsxs("option",{value:e.id,children:[e.code," - ",e.title]},e.id))})]}),a?s.jsxs("div",{className:"text-center py-12",children:[s.jsx("div",{className:"animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"}),s.jsx("p",{className:"mt-4 text-brown-600",children:"Loading grades..."})]}):s.jsxs("div",{className:"space-y-6",children:[s.jsxs("div",{className:"bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg shadow-lg p-6 text-white",children:[s.jsx("h2",{className:"text-2xl font-bold mb-4",children:"Class Statistics"}),s.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-3 gap-4",children:[s.jsxs("div",{className:"bg-white/10 rounded-lg p-4",children:[s.jsx("div",{className:"text-3xl font-bold",children:o.length}),s.jsx("div",{className:"text-sm",children:"Total Students"})]}),s.jsxs("div",{className:"bg-white/10 rounded-lg p-4",children:[s.jsxs("div",{className:"text-3xl font-bold",children:[b,"%"]}),s.jsx("div",{className:"text-sm",children:"Class Average"})]}),s.jsxs("div",{className:"bg-white/10 rounded-lg p-4",children:[s.jsx("div",{className:"text-3xl font-bold",children:o.filter(e=>e.percentage>=70).length}),s.jsx("div",{className:"text-sm",children:"Passing Students"})]})]})]}),s.jsxs("div",{className:"bg-white rounded-lg shadow overflow-hidden",children:[s.jsx("div",{className:"p-6 border-b",children:s.jsx("h2",{className:"text-2xl font-bold",children:"Student Grades"})}),0===o.length?s.jsx("div",{className:"p-6 text-center text-brown-500",children:s.jsx("p",{children:"No students enrolled in this course yet."})}):s.jsx("div",{className:"overflow-x-auto",children:s.jsxs("table",{className:"w-full",children:[s.jsx("thead",{className:"bg-beige-50",children:s.jsxs("tr",{children:[s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Student ID"}),s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Quizzes Completed"}),s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Correct Answers"}),s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Percentage"}),s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Letter Grade"}),s.jsx("th",{className:"px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider",children:"Status"})]})}),s.jsx("tbody",{className:"bg-white divide-y divide-gray-200",children:o.map(e=>{return s.jsxs("tr",{className:"hover:bg-beige-50",children:[s.jsxs("td",{className:"px-6 py-4 whitespace-nowrap text-sm font-medium text-brown-900",children:[e.userId.substring(0,8),"..."]}),s.jsx("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-brown-500",children:e.total}),s.jsx("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-brown-500",children:e.correct}),s.jsxs("td",{className:"px-6 py-4 whitespace-nowrap text-sm font-semibold text-brown-900",children:[e.percentage,"%"]}),s.jsx("td",{className:"px-6 py-4 whitespace-nowrap",children:s.jsx("span",{className:"px-3 py-1 rounded-full text-sm font-bold "+(t=e.percentage,t>=90||t>=80?"bg-beige-50 text-green-600":t>=70?"bg-yellow-100 text-yellow-800":t>=60?"bg-beige-50 text-yellow-600":"bg-beige-50 text-red-800"),children:e.letterGrade})}),s.jsx("td",{className:"px-6 py-4 whitespace-nowrap",children:e.percentage>=70?s.jsx("span",{className:"px-3 py-1 bg-beige-50 text-green-600 rounded-full text-xs font-semibold",children:"Passing"}):s.jsx("span",{className:"px-3 py-1 bg-beige-50 text-red-800 rounded-full text-xs font-semibold",children:"At Risk"})})]},e.userId);var t})})]})})]}),o.length>0&&s.jsxs("div",{className:"bg-white rounded-lg shadow p-6",children:[s.jsx("h3",{className:"text-xl font-bold mb-4",children:"Grade Distribution"}),s.jsx("div",{className:"grid grid-cols-5 gap-4",children:["A","B","C","D","F"].map(e=>{const t=o.filter(s=>s.letterGrade===e).length,r=Math.round(t/o.length*100);return s.jsxs("div",{className:"text-center",children:[s.jsx("div",{className:"text-3xl font-bold text-brown-900",children:t}),s.jsxs("div",{className:"text-sm text-brown-600",children:[e," (",r,"%)"]})]},e)})})]})]})]})})}export{a as default};
+import { r as e, j as s } from './vendor-react-C-ZQNdj3.js';
+import { supabase as t } from './supabaseClient-DCQoDyvc.js';
+import { A as r } from './AppLayout-DjgAzEIN.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-supabase-C00Cu5KO.js';
+import './vendor-router-CQjfSXV_.js';
+function a() {
+  const [a, l] = e.useState(!0),
+    [n, d] = e.useState([]),
+    [i, c] = e.useState(null),
+    [o, x] = e.useState([]),
+    [m, h] = e.useState(null);
+  (e.useEffect(() => {
+    u();
+  }, []),
+    e.useEffect(() => {
+      i && p(i);
+    }, [i]));
+  const u = async () => {
+      if (!t) return (h('Database service is not available'), void l(!1));
+      try {
+        (l(!0), h(null));
+        const { data: e, error: s } = await t
+          .from('courses')
+          .select('*')
+          .order('title');
+        if (s) throw s;
+        (d(e || []), e && e.length > 0 && c(e[0].id));
+      } catch (e) {
+        (console.error('Error fetching courses:', e), h(e.message));
+      } finally {
+        l(!1);
+      }
+    },
+    p = async (e) => {
+      if (!t) return (h('Database service is not available'), void l(!1));
+      try {
+        (l(!0), h(null));
+        const { data: s, error: r } = await t
+          .from('enrollments')
+          .select('user_id')
+          .eq('course_id', e);
+        if (r) throw r;
+        if (!s || 0 === s.length) return void x([]);
+        const a = s.map((e) => e.user_id),
+          { data: n, error: d } = await t
+            .from('quiz_responses')
+            .select(
+              '\n          *,\n          quiz_questions (\n            id,\n            answer,\n            lesson_id,\n            lessons (\n              course_id\n            )\n          )\n        '
+            )
+            .in('user_id', a);
+        if (d) throw d;
+        const i = {};
+        null == n ||
+          n.forEach((s) => {
+            var t, r, a;
+            const l = s.user_id;
+            if (
+              (null == (r = null == (t = s.quiz_questions) ? void 0 : t.lessons)
+                ? void 0
+                : r.course_id) !== e
+            )
+              return;
+            i[l] || (i[l] = { userId: l, correct: 0, total: 0 });
+            const n =
+              s.answer === (null == (a = s.quiz_questions) ? void 0 : a.answer);
+            (i[l].total++, n && i[l].correct++);
+          });
+        const c = Object.values(i).map((e) => ({
+          ...e,
+          percentage: e.total > 0 ? Math.round((e.correct / e.total) * 100) : 0,
+          letterGrade: g(
+            e.total > 0 ? Math.round((e.correct / e.total) * 100) : 0
+          ),
+        }));
+        x(c);
+      } catch (s) {
+        (console.error('Error fetching student grades:', s), h(s.message));
+      } finally {
+        l(!1);
+      }
+    },
+    g = (e) =>
+      e >= 90 ? 'A' : e >= 80 ? 'B' : e >= 70 ? 'C' : e >= 60 ? 'D' : 'F',
+    b =
+      o.length > 0
+        ? Math.round(o.reduce((e, s) => e + s.percentage, 0) / o.length)
+        : 0;
+  return s.jsx(r, {
+    children: s.jsxs('div', {
+      className: 'container mx-auto px-4 py-8',
+      children: [
+        s.jsx('h1', {
+          className: 'text-3xl font-bold mb-6',
+          children: 'Instructor Grade Book',
+        }),
+        m &&
+          s.jsx('div', {
+            className: 'bg-red-50 border border-red-200 rounded-lg p-4 mb-6',
+            children: s.jsx('p', { className: 'text-red-800', children: m }),
+          }),
+        s.jsxs('div', {
+          className: 'bg-white rounded-lg shadow p-6 mb-6',
+          children: [
+            s.jsx('label', {
+              className: 'block text-sm font-medium mb-2',
+              children: 'Select Course',
+            }),
+            s.jsx('select', {
+              value: i || '',
+              onChange: (e) => c(e.target.value),
+              className:
+                'w-full md:w-1/2 p-3 border rounded-lg focus:ring-2 focus:ring-green-500',
+              children: n.map((e) =>
+                s.jsxs(
+                  'option',
+                  { value: e.id, children: [e.code, ' - ', e.title] },
+                  e.id
+                )
+              ),
+            }),
+          ],
+        }),
+        a
+          ? s.jsxs('div', {
+              className: 'text-center py-12',
+              children: [
+                s.jsx('div', {
+                  className:
+                    'animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto',
+                }),
+                s.jsx('p', {
+                  className: 'mt-4 text-brown-600',
+                  children: 'Loading grades...',
+                }),
+              ],
+            })
+          : s.jsxs('div', {
+              className: 'space-y-6',
+              children: [
+                s.jsxs('div', {
+                  className:
+                    'bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg shadow-lg p-6 text-white',
+                  children: [
+                    s.jsx('h2', {
+                      className: 'text-2xl font-bold mb-4',
+                      children: 'Class Statistics',
+                    }),
+                    s.jsxs('div', {
+                      className: 'grid grid-cols-1 md:grid-cols-3 gap-4',
+                      children: [
+                        s.jsxs('div', {
+                          className: 'bg-white/10 rounded-lg p-4',
+                          children: [
+                            s.jsx('div', {
+                              className: 'text-3xl font-bold',
+                              children: o.length,
+                            }),
+                            s.jsx('div', {
+                              className: 'text-sm',
+                              children: 'Total Students',
+                            }),
+                          ],
+                        }),
+                        s.jsxs('div', {
+                          className: 'bg-white/10 rounded-lg p-4',
+                          children: [
+                            s.jsxs('div', {
+                              className: 'text-3xl font-bold',
+                              children: [b, '%'],
+                            }),
+                            s.jsx('div', {
+                              className: 'text-sm',
+                              children: 'Class Average',
+                            }),
+                          ],
+                        }),
+                        s.jsxs('div', {
+                          className: 'bg-white/10 rounded-lg p-4',
+                          children: [
+                            s.jsx('div', {
+                              className: 'text-3xl font-bold',
+                              children: o.filter((e) => e.percentage >= 70)
+                                .length,
+                            }),
+                            s.jsx('div', {
+                              className: 'text-sm',
+                              children: 'Passing Students',
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                s.jsxs('div', {
+                  className: 'bg-white rounded-lg shadow overflow-hidden',
+                  children: [
+                    s.jsx('div', {
+                      className: 'p-6 border-b',
+                      children: s.jsx('h2', {
+                        className: 'text-2xl font-bold',
+                        children: 'Student Grades',
+                      }),
+                    }),
+                    0 === o.length
+                      ? s.jsx('div', {
+                          className: 'p-6 text-center text-brown-500',
+                          children: s.jsx('p', {
+                            children:
+                              'No students enrolled in this course yet.',
+                          }),
+                        })
+                      : s.jsx('div', {
+                          className: 'overflow-x-auto',
+                          children: s.jsxs('table', {
+                            className: 'w-full',
+                            children: [
+                              s.jsx('thead', {
+                                className: 'bg-beige-50',
+                                children: s.jsxs('tr', {
+                                  children: [
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Student ID',
+                                    }),
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Quizzes Completed',
+                                    }),
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Correct Answers',
+                                    }),
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Percentage',
+                                    }),
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Letter Grade',
+                                    }),
+                                    s.jsx('th', {
+                                      className:
+                                        'px-6 py-3 text-left text-xs font-medium text-brown-500 uppercase tracking-wider',
+                                      children: 'Status',
+                                    }),
+                                  ],
+                                }),
+                              }),
+                              s.jsx('tbody', {
+                                className: 'bg-white divide-y divide-gray-200',
+                                children: o.map((e) => {
+                                  return s.jsxs(
+                                    'tr',
+                                    {
+                                      className: 'hover:bg-beige-50',
+                                      children: [
+                                        s.jsxs('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm font-medium text-brown-900',
+                                          children: [
+                                            e.userId.substring(0, 8),
+                                            '...',
+                                          ],
+                                        }),
+                                        s.jsx('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm text-brown-500',
+                                          children: e.total,
+                                        }),
+                                        s.jsx('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm text-brown-500',
+                                          children: e.correct,
+                                        }),
+                                        s.jsxs('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm font-semibold text-brown-900',
+                                          children: [e.percentage, '%'],
+                                        }),
+                                        s.jsx('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap',
+                                          children: s.jsx('span', {
+                                            className:
+                                              'px-3 py-1 rounded-full text-sm font-bold ' +
+                                              ((t = e.percentage),
+                                              t >= 90 || t >= 80
+                                                ? 'bg-beige-50 text-green-600'
+                                                : t >= 70
+                                                  ? 'bg-yellow-100 text-yellow-800'
+                                                  : t >= 60
+                                                    ? 'bg-beige-50 text-yellow-600'
+                                                    : 'bg-beige-50 text-red-800'),
+                                            children: e.letterGrade,
+                                          }),
+                                        }),
+                                        s.jsx('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap',
+                                          children:
+                                            e.percentage >= 70
+                                              ? s.jsx('span', {
+                                                  className:
+                                                    'px-3 py-1 bg-beige-50 text-green-600 rounded-full text-xs font-semibold',
+                                                  children: 'Passing',
+                                                })
+                                              : s.jsx('span', {
+                                                  className:
+                                                    'px-3 py-1 bg-beige-50 text-red-800 rounded-full text-xs font-semibold',
+                                                  children: 'At Risk',
+                                                }),
+                                        }),
+                                      ],
+                                    },
+                                    e.userId
+                                  );
+                                  var t;
+                                }),
+                              }),
+                            ],
+                          }),
+                        }),
+                  ],
+                }),
+                o.length > 0 &&
+                  s.jsxs('div', {
+                    className: 'bg-white rounded-lg shadow p-6',
+                    children: [
+                      s.jsx('h3', {
+                        className: 'text-xl font-bold mb-4',
+                        children: 'Grade Distribution',
+                      }),
+                      s.jsx('div', {
+                        className: 'grid grid-cols-5 gap-4',
+                        children: ['A', 'B', 'C', 'D', 'F'].map((e) => {
+                          const t = o.filter((s) => s.letterGrade === e).length,
+                            r = Math.round((t / o.length) * 100);
+                          return s.jsxs(
+                            'div',
+                            {
+                              className: 'text-center',
+                              children: [
+                                s.jsx('div', {
+                                  className:
+                                    'text-3xl font-bold text-brown-900',
+                                  children: t,
+                                }),
+                                s.jsxs('div', {
+                                  className: 'text-sm text-brown-600',
+                                  children: [e, ' (', r, '%)'],
+                                }),
+                              ],
+                            },
+                            e
+                          );
+                        }),
+                      }),
+                    ],
+                  }),
+              ],
+            }),
+      ],
+    }),
+  });
+}
+export { a as default };

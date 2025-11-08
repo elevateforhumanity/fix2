@@ -1,2 +1,2629 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/AITutor-BuPYIbHj.js","assets/vendor-react-C-ZQNdj3.js","assets/vendor-Da1LjC7-.js","assets/About-78p6JPZg.js","assets/Navigation-Bbm4Xzc1.js","assets/vendor-router-CQjfSXV_.js","assets/Hero-OZm9SWPG.js","assets/Section-DjKsK8lK.js","assets/Footer-Dh9yHrAI.js","assets/Accessibility-Zl11sVQm.js","assets/AccessibilitySettings-iHv241bO.js","assets/AppLayout-DjgAzEIN.js","assets/Account-CSKRXG0X.js","assets/useAnalytics-D9HJkF-x.js","assets/AdminConsole-B1_TW0qi.js","assets/AdminDashboard-Br9Ci-X5.js","assets/Analytics-C99OF5bN.js","assets/AnalyticsDashboard-DtTdW-Jd.js","assets/AnalyticsDashboardRUM-BkiQdOi4.js","assets/ApplyScholarship-De9gWW8S.js","assets/Assignment-DEWzKAUa.js","assets/AutopilotAdmin-BWPQSCf-.js","assets/BingSiteVerification-CfUcxt4s.js","assets/Blog-DSjAvo2a.js","assets/Branding-BXc4pWoL.js","assets/BusinessHub-Ban04r0X.js","assets/CPRFirstAidTraining-rBguNWWB.js","assets/CRMDashboardPage-Bwr3pcHt.js","assets/Calendar-CMFCLHOJ.js","assets/CertificatePage-CqzDMnDI.js","assets/certificates-Y_9npsL2.js","assets/supa-DdKhhKHf.js","assets/vendor-supabase-C00Cu5KO.js","assets/Certificates-CHK3hIG9.js","assets/CertiportTestingCenter-BeWuwFD8.js","assets/CloneLanding-sEsV62Sy.js","assets/Community-C6x1qcVw.js","assets/ComingSoon-BrOo7mbB.js","assets/CommunityHub-G-_C-WXr.js","assets/Compliance-CMKOAsfU.js","assets/Connect-DouxzOI1.js","assets/Contact-BkzwOI_l.js","assets/Course-D-Pvhx1U.js","assets/CourseBuilder-Cqk3fpyO.js","assets/CourseCatalog-DXKCkAdj.js","assets/button-B_Plb33j.js","assets/badge-Cyxi6-_y.js","assets/CourseDetail-979Bv6KN.js","assets/CourseLibrary-Cp589btU.js","assets/auth-tBRKQLtx.js","assets/CurriculumUpload-C53XoTpt.js","assets/Docs-C5H5SXTv.js","assets/Donate-fUgpz9T4.js","assets/DonateSuccess-B30WCFW3.js","assets/DurableAI-DLmBnXqG.js","assets/DurableConsole-nrXcXdmS.js","assets/DurableFeatures-DU0q8Sgz.js","assets/DurableLanding-BvF_p23E.js","assets/DurablePricing-C6L2hLOe.js","assets/DurableTemplates-DIWqOjQJ.js","assets/EFHLanding-Cw7HXROO.js","assets/ProgramCard-Cgx3ANiy.js","assets/programs-CGx4ILW0.js","assets/Ecommerce-DPmw47_d.js","assets/Ecosystem-otuL5-46.js","assets/EducatorHub-BMq8WjjR.js","assets/Elevate-DtoWqhrA.js","assets/ElevateBrain-DzPyNzFU.js","assets/Email-DtFpeD1b.js","assets/FAQ-Pd4E27Tn.js","assets/FileManager-_oJ5Q3Wo.js","assets/ForgotPassword-CS0_g-C8.js","assets/Forms-Crl1gGee.js","assets/FullSailLanding-D3aSmO-U.js","assets/FundingImpact-DtjMxSXC.js","assets/GetStarted-CE5y6Z-3.js","assets/GoogleAnalyticsSetup-B1QP7qJh.js","assets/GoogleSiteVerification-CoKhjUCP.js","assets/Government-CXcg7Aqo.js","assets/GradeBook-BR6aj8fy.js","assets/supabaseClient-DCQoDyvc.js","assets/Groups-Cbf7bhLg.js","assets/Home-Durable-DLF7aqEF.js","assets/Home-z0giJPKd.js","assets/Home-BT10xIpl.js","assets/DurableLayout-Dp_9aaGi.js","assets/HomePage-Bmqm89PJ.js","assets/Hub-FzDrazuc.js","assets/Instructor-DOIMjn3J.js","assets/InstructorCourseCreate-CdrutYgQ.js","assets/InstructorEdit-fAuP2lDz.js","assets/InstructorNew-DsxV4Bfd.js","assets/Integrations-CoD4HO_B.js","assets/IntuitTaxBookkeeping-DzCrkjmb.js","assets/InvoiceCreatorPage-za9GQimE.js","assets/InvoiceListPage-BW5xtWuK.js","assets/JobReadyIndy-KHfUGcbv.js","assets/LMS-DHUhc4Aw.js","assets/LMSCourses-BKJGFseE.js","assets/LMSDashboard-BvC5ca4A.js","assets/LMSLanding-DLKYRM0k.js","assets/LiveClassRoom-D0I-sDFY.js","assets/LiveClassSchedule-k6v4InG8.js","assets/Login-CIVE3WEz.js","assets/MainLanding-DM24mmq2.js","assets/MobileApp-BoI2zMiz.js","assets/MyCertificates-CA0ZpxkZ.js","assets/NCCERCareerStarter-RlxmRhAi.js","assets/NotFound-Da6tw7lK.js","assets/NotebookLM-3gT-5dUv.js","assets/NotificationCenter-a1ZHZ1dr.js","assets/NotificationSettings-C4SKrkfF.js","assets/Notifications-CYs2QmmY.js","assets/OurPartners-CeK8FnRS.js","assets/Partners-DUH9SS_3.js","assets/Pay-DwL5oR0c.js","assets/PaymentCancelled-C26RTAx2.js","assets/PaymentSuccess-W73x_itT.js","assets/Philanthropy-SvRjRG6a.js","assets/PrivacyPolicy-rqLlLXUr.js","assets/ProfessionalHome-Bc9EQ6mU.js","assets/ProfessionalSite-DUO7C4sH.js","assets/Profile-Cp05Gzvv.js","assets/ProgramDetail-BfW20AW4.js","assets/ProgramPage-C9TBhZ8C.js","assets/programs-D_WNJ_Mg.js","assets/Programs-CA32cEhz.js","assets/ProgramsDurable-ClFo_FOY.js","assets/ProgramsIndex-6SehAGeU.js","assets/ProgramsPage-DTZhUPUH.js","assets/Quiz-DN0kVJJ2.js","assets/QuizBuilder-D0M1mwhb.js","assets/QuizResults-6cnghCcL.js","assets/QuizTake-DMUCenhp.js","assets/RefundPolicy-28qif4im.js","assets/ResetPassword-BhqH3z2W.js","assets/SearchResults-BbL4DHGy.js","assets/SereneComfortCare-CkCmvbxq.js","assets/Services-BIyR8dC_.js","assets/Settings-OgzUzVVV.js","assets/Sheets-Dn4-2_lB.js","assets/Signup-CLhHOPyc.js","assets/Sitemap-DISf3kpO.js","assets/Sites-Bs3XIaeO.js","assets/Slides-TczZVLVD.js","assets/SocialMediaManager-D5Yqo08L.js","assets/Student-DP4Fgh3e.js","assets/StudentDashboard-DXpY2Y7t.js","assets/AuthContext-D_Hfa_pA.js","assets/StudentGrades-DYOLzcWY.js","assets/StudentHandbook-WeOqIlZl.js","assets/StudentHub-BAXZyLP6.js","assets/StudentPortal-CCt_ISdr.js","assets/StudentPortalLMS-ByLSHgIQ.js","assets/Support-Bailx-Qt.js","assets/TermsOfService-dALJjYT3.js","assets/ThankYou-bmZWvrnC.js","assets/UrbanBuildCrew-DJWqDovR.js","assets/UserManagement-BwDujh7h.js","assets/VITAProgram-DmEbchOO.js","assets/VITATaxCertification-CjZoS0HK.js","assets/VerifyCertificate-Bo_xmXtC.js","assets/VerifyCertificatePage-BWPbkFXB.js","assets/VerifyEmail-CXa6avY_.js","assets/VideoMeeting-Bd05VZkm.js","assets/Vids-BinC2cRV.js","assets/WebsiteBuilder-BvtruVPl.js","assets/AutopilotTasks-CkeAkNII.js","assets/Account-n_Begp-g.js","assets/ForgotPassword-DFRGmFHU.js","assets/Login-q3272Prd.js","assets/Signup-B9pJrr1_.js","assets/CourseEditor-2flF_fk_.js","assets/InstructorDashboard-DYX1119W.js","assets/LessonManager-CnQd-ZS5.js","assets/DMCA-BBfFtchM.js","assets/LegalIPNotice-DbNdDhS8.js","assets/Privacy-DIKQylVj.js","assets/TermsOfUse-DASBmnT-.js","assets/ClientSafetyCertification-DpgsozwL.js","assets/CoursePage-th1vPjPM.js","assets/Button-kBKDsv7Y.js","assets/CoursesIndex-CZSrbUCF.js","assets/Dashboard-CSncys8c.js","assets/DiscussionsPage-M8F4D-Dm.js","assets/DiscussionForum-y7lz-a_z.js","assets/EnrollmentSuccess-BUiieTop.js","assets/LessonPage-Cnt0TIfH.js","assets/MiladyBarberApprenticeship-3uXvVRzx.js","assets/MiladyBarberCourse-CpY8a9U4.js","assets/MiladyRISEEnrollment-CkdhlFWg.js","assets/MiladyRISEIntegration-C8S52uWt.js","assets/MyCertificatesPage-Ca-QD4OT.js","assets/QuizBlock-BTZE1wUB.js","assets/BarberPage-DKfzcmQX.js","assets/ProgramPageTemplate-DF_avGqN.js","assets/BuildingTechPage-CC-sT-vC.js","assets/CPRSPage-xgIoSaR_.js","assets/DigitalSkillsPage-CRbrDuDF.js","assets/DrugTestingPage-B6S9Docc.js","assets/HVACPage-B02efFjd.js","assets/HealthcarePage-DuPXeja5.js","assets/LeadershipPage-69kOn2k7.js","assets/ProgramTemplate-DN0WzrFM.js","assets/MentorDirectory-Y3bpakVs.js","assets/MentorSignup-dMpANN-D.js","assets/Mentorship-old-B14NyAyK.js","assets/Mentorship-B6T2BXn8.js","assets/PeerSupport-JtAtm4ns.js","assets/Volunteer-BMryEhyN.js","assets/VolunteerOpportunities-DpwRJdJt.js","assets/VolunteerStories-CBH1cm91.js","assets/Wellness-C3ngZzK-.js","assets/WellnessResources-BEv9uwgx.js"])))=>i.map(i=>d[i]);
-import{r as e,j as t,M as s,a,b as r,X as l,S as n,C as i,c as o,d as _,H as m,e as p,f as x}from"./vendor-react-C-ZQNdj3.js";import{L as j,N as c,R as d,a as h,B as u}from"./vendor-router-CQjfSXV_.js";import{_ as y}from"./vendor-supabase-C00Cu5KO.js";import"./vendor-Da1LjC7-.js";function E({pageContext:i="general",userRole:o="guest"}){const[_,m]=e.useState(!1),[p,x]=e.useState(!1),[j,c]=e.useState([]),[d,h]=e.useState(""),[u,y]=e.useState(!1),[E,g]=e.useState(null),b=e.useRef(null);e.useEffect(()=>{var e;null==(e=b.current)||e.scrollIntoView({behavior:"smooth"})},[j]),e.useEffect(()=>{if(_&&0===j.length){const e={id:"welcome",role:"assistant",content:P(),timestamp:new Date};c([e])}},[_]);const P=()=>{const e={courses:"👋 Hi! I'm here to help you with courses. Ask me about enrolling, course content, or finding the right program for you!",dashboard:"👋 Welcome! I can help you navigate your dashboard, track your progress, or answer questions about your learning journey.",profile:"👋 Hi! Need help updating your profile, managing settings, or understanding your achievements? I'm here to assist!",admin:"👋 Hello! I can help with administrative tasks, reporting, user management, and system configuration.",general:"👋 Hi! I'm your AI assistant. I can help you navigate the platform, answer questions, and guide you to the right resources. How can I help you today?"};return e[i]||e.general},f=async e=>{const t=e||d;if(!t.trim()||u)return;const s={id:Date.now().toString(),role:"user",content:t,timestamp:new Date};c(e=>[...e,s]),h(""),y(!0);try{const e=await fetch("/api/ai-tutor/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:t,conversationId:E,context:{page:i,userRole:o,timestamp:(new Date).toISOString()}})});if(!e.ok)throw new Error("Failed to get response");const s=await e.json();g(s.conversationId);const a={id:(Date.now()+1).toString(),role:"assistant",content:s.response,timestamp:new Date};c(e=>[...e,a])}catch(a){const e={id:(Date.now()+1).toString(),role:"assistant",content:"I'm having trouble connecting right now. Please try again in a moment, or contact support if the issue persists.",timestamp:new Date};c(t=>[...t,e])}finally{y(!1)}};return _?t.jsxs("div",{className:"chat-assistant-container",style:{position:"fixed",bottom:"24px",right:"24px",width:p?"320px":"400px",height:p?"60px":"600px",backgroundColor:"white",borderRadius:"16px",boxShadow:"0 8px 32px rgba(0, 0, 0, 0.12)",display:"flex",flexDirection:"column",zIndex:1e3,transition:"all 0.3s ease",overflow:"hidden"},children:[t.jsxs("div",{style:{backgroundColor:"var(--brand-info)",color:"white",padding:"16px",display:"flex",alignItems:"center",justifyContent:"space-between",borderTopLeftRadius:"16px",borderTopRightRadius:"16px"},children:[t.jsxs("div",{style:{display:"flex",alignItems:"center",gap:"12px"},children:[t.jsx(s,{size:24}),t.jsxs("div",{children:[t.jsx("h3",{style:{margin:0,fontSize:"16px",fontWeight:"600"},children:"AI Assistant"}),t.jsx("p",{style:{margin:0,fontSize:"12px",opacity:.9},children:"Always here to help"})]})]}),t.jsxs("div",{style:{display:"flex",gap:"8px"},children:[t.jsx("button",{onClick:()=>x(!p),style:{background:"transparent",border:"none",color:"white",cursor:"pointer",padding:"4px",display:"flex",alignItems:"center"},"aria-label":p?"Maximize":"Minimize",children:p?t.jsx(a,{size:20}):t.jsx(r,{size:20})}),t.jsx("button",{onClick:()=>m(!1),style:{background:"transparent",border:"none",color:"white",cursor:"pointer",padding:"4px",display:"flex",alignItems:"center"},"aria-label":"Close chat",children:t.jsx(l,{size:20})})]})]}),!p&&t.jsxs(t.Fragment,{children:[t.jsxs("div",{style:{flex:1,overflowY:"auto",padding:"16px",backgroundColor:"var(--brand-surface)"},children:[j.map(e=>t.jsx("div",{style:{marginBottom:"16px",display:"flex",justifyContent:"user"===e.role?"flex-end":"flex-start"},children:t.jsx("div",{style:{maxWidth:"80%",padding:"12px 16px",borderRadius:"12px",backgroundColor:"user"===e.role?"var(--brand-info)":"white",color:"user"===e.role?"white":"var(--brand-text)",boxShadow:"0 2px 4px rgba(0, 0, 0, 0.1)",fontSize:"14px",lineHeight:"1.5"},children:e.content})},e.id)),u&&t.jsx("div",{style:{display:"flex",justifyContent:"flex-start",marginBottom:"16px"},children:t.jsx("div",{style:{padding:"12px 16px",borderRadius:"12px",backgroundColor:"white",boxShadow:"0 2px 4px rgba(0, 0, 0, 0.1)"},children:t.jsxs("div",{style:{display:"flex",gap:"4px"},children:[t.jsx("div",{className:"typing-dot",style:{width:"8px",height:"8px",borderRadius:"50%",backgroundColor:"var(--brand-text-light)",animation:"typing 1.4s infinite"}}),t.jsx("div",{className:"typing-dot",style:{width:"8px",height:"8px",borderRadius:"50%",backgroundColor:"var(--brand-text-light)",animation:"typing 1.4s infinite 0.2s"}}),t.jsx("div",{className:"typing-dot",style:{width:"8px",height:"8px",borderRadius:"50%",backgroundColor:"var(--brand-text-light)",animation:"typing 1.4s infinite 0.4s"}})]})})}),t.jsx("div",{ref:b})]}),1===j.length&&t.jsxs("div",{style:{padding:"12px 16px",backgroundColor:"white",borderTop:"1px solid var(--brand-border)"},children:[t.jsx("p",{style:{margin:"0 0 8px 0",fontSize:"12px",color:"var(--brand-text-muted)",fontWeight:"500"},children:"Quick actions:"}),t.jsx("div",{style:{display:"flex",flexWrap:"wrap",gap:"8px"},children:(()=>{const e={courses:["Show me available courses","How do I enroll?","What certifications can I earn?","Tell me about financial aid"],dashboard:["What's my progress?","Show upcoming deadlines","How do I access my courses?","View my certificates"],profile:["How do I update my info?","Change my password","View my achievements","Download my transcript"],admin:["Generate a report","View user analytics","Manage enrollments","System settings"],general:["How do I get started?","What programs do you offer?","How much does it cost?","Contact support"]};return e[i]||e.general})().map((e,s)=>t.jsx("button",{onClick:()=>f(e),style:{padding:"6px 12px",fontSize:"12px",backgroundColor:"#f3f4f6",border:"1px solid var(--brand-border)",borderRadius:"16px",cursor:"pointer",transition:"all 0.2s",color:"var(--brand-text)"},onMouseEnter:e=>{e.currentTarget.style.backgroundColor="var(--brand-border)"},onMouseLeave:e=>{e.currentTarget.style.backgroundColor="#f3f4f6"},children:e},s))})]}),t.jsx("div",{style:{padding:"16px",backgroundColor:"white",borderTop:"1px solid var(--brand-border)"},children:t.jsxs("div",{style:{display:"flex",gap:"8px"},children:[t.jsx("input",{type:"text","aria-label":"text input",value:d,onChange:e=>h(e.target.value),onKeyPress:e=>{"Enter"!==e.key||e.shiftKey||(e.preventDefault(),f())},placeholder:"Type your message...",disabled:u,style:{flex:1,padding:"12px",border:"1px solid var(--brand-border)",borderRadius:"8px",fontSize:"14px",outline:"none",transition:"border-color 0.2s"},onFocus:e=>{e.currentTarget.style.borderColor="var(--brand-info)"},onBlur:e=>{e.currentTarget.style.borderColor="var(--brand-border)"}}),t.jsx("button",{onClick:()=>f(),disabled:!d.trim()||u,style:{padding:"12px 16px",backgroundColor:d.trim()&&!u?"var(--brand-info)":"var(--brand-border)",color:d.trim()&&!u?"white":"var(--brand-text-light)",border:"none",borderRadius:"8px",cursor:d.trim()&&!u?"pointer":"not-allowed",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.2s"},"aria-label":"Send message",children:t.jsx(n,{size:20})})]})})]}),t.jsx("style",{children:"\n        @keyframes typing {\n          0%, 60%, 100% {\n            transform: translateY(0);\n            opacity: 0.7;\n          }\n          30% {\n            transform: translateY(-10px);\n            opacity: 1;\n          }\n        }\n      "})]}):t.jsx("button",{onClick:()=>m(!0),className:"chat-assistant-button",style:{position:"fixed",bottom:"24px",right:"24px",width:"60px",height:"60px",borderRadius:"50%",backgroundColor:"var(--brand-info)",color:"white",border:"none",boxShadow:"0 4px 12px rgba(59, 130, 246, 0.4)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s ease",zIndex:1e3},onMouseEnter:e=>{e.currentTarget.style.transform="scale(1.1)",e.currentTarget.style.boxShadow="0 6px 16px rgba(59, 130, 246, 0.5)"},onMouseLeave:e=>{e.currentTarget.style.transform="scale(1)",e.currentTarget.style.boxShadow="0 4px 12px rgba(59, 130, 246, 0.4)"},"aria-label":"Open chat assistant",children:t.jsx(s,{size:28})})}function g(){const e=(new Date).getFullYear();return t.jsx("footer",{className:"w-full border-t bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40",children:t.jsx("div",{className:"mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8",children:t.jsxs("div",{className:"flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm text-brand-text-muted",children:[t.jsxs("p",{className:"leading-tight",children:["© ",e," Elevate for Humanity. All rights reserved. Unauthorized copying, distribution, or reverse engineering is prohibited."]}),t.jsxs("nav",{className:"flex flex-wrap items-center gap-x-4 gap-y-2",children:[t.jsx(j,{to:"/legal/terms",className:"hover:text-brand-text",children:"Terms of Use"}),t.jsx(j,{to:"/legal/privacy",className:"hover:text-brand-text",children:"Privacy"}),t.jsx(j,{to:"/legal/ip-notice",className:"hover:text-brand-text",children:"IP Notice"}),t.jsx(j,{to:"/legal/dmca",className:"hover:text-brand-text",children:"DMCA"})]})]})})})}!function(){const e=document.createElement("link").relList;if(!(e&&e.supports&&e.supports("modulepreload"))){for(const e of document.querySelectorAll('link[rel="modulepreload"]'))t(e);new MutationObserver(e=>{for(const s of e)if("childList"===s.type)for(const e of s.addedNodes)"LINK"===e.tagName&&"modulepreload"===e.rel&&t(e)}).observe(document,{childList:!0,subtree:!0})}function t(e){if(e.ep)return;e.ep=!0;const t=function(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),"use-credentials"===e.crossOrigin?t.credentials="include":"anonymous"===e.crossOrigin?t.credentials="omit":t.credentials="same-origin",t}(e);fetch(e.href,t)}}();const b="/apply",P=[{to:"/blog",label:"Blog"},{to:"/about",label:"About"},{to:"/contact",label:"Contact"},{to:"/services",label:"Services"},{to:"/faq",label:"FAQ"},{to:"/student-portal",label:"Student Portal"},{label:"Programs",items:[{to:"/programs",label:"All Programs"},{to:"/programs/barber",label:"Barber Apprenticeship"},{to:"/programs/building-tech",label:"Building Services"},{to:"/programs/cna",label:"CNA"},{to:"/programs/cpr-aed-first-aid",label:"CPR/AED/First Aid"},{to:"/programs/business-startup-marketing",label:"Business Startup"},{to:"/programs/tax-office-startup",label:"Tax Office"},{to:"/programs/esthetician-client-services",label:"Esthetician"},{to:"/programs/beauty-career-educator",label:"Beauty Educator"},{to:"/programs/public-safety-reentry",label:"Public Safety Reentry"}]},{to:"/elevate",label:"Elevate"}];function f({children:s}){const[a,r]=e.useState(!1),[n,_]=e.useState(null);return t.jsxs("div",{className:"min-h-screen flex flex-col bg-white",children:[t.jsxs("header",{className:"sticky top-0 z-50 w-full border-b border-brand-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80",children:[t.jsx("div",{className:"container",children:t.jsxs("div",{className:"flex h-16 items-center justify-between",children:[t.jsx(j,{to:"/",className:"flex items-center space-x-2",children:t.jsx("span",{className:"text-xl font-bold text-brand-700",children:"Elevate for Humanity"})}),t.jsx("nav",{role:"navigation",className:"hidden lg:flex items-center gap-6",children:P.map(e=>"items"in e?t.jsxs("div",{className:"relative group",onMouseEnter:()=>_(e.label),onMouseLeave:()=>_(null),children:[t.jsxs("button",{className:"flex items-center gap-1 text-sm font-medium text-brand-text hover:text-brand-600 transition-colors",children:[e.label,t.jsx(i,{className:"h-4 w-4"})]}),n===e.label&&t.jsx("div",{className:"absolute top-full left-0 mt-2 w-56 bg-white border border-brand-border rounded-lg shadow-lg py-2",children:e.items.map(e=>t.jsx(c,{to:e.to,className:({isActive:e})=>"block px-4 py-2 text-sm hover:bg-brand-surface transition-colors "+(e?"text-brand-700 font-medium":"text-brand-text"),children:e.label},e.to))})]},e.label):t.jsx(c,{to:e.to,className:({isActive:e})=>"text-sm font-medium transition-colors "+(e?"text-brand-700":"text-brand-text hover:text-brand-600"),children:e.label},e.to))}),t.jsxs("div",{className:"hidden lg:flex items-center gap-4",children:[t.jsx(j,{to:"/auth/login",className:"text-sm font-medium text-brand-text hover:text-brand-600",children:"Sign In"}),t.jsx("a",{href:b,target:"_blank",rel:"noopener noreferrer",className:"btn",children:"Apply Now"})]}),t.jsx("button",{className:"lg:hidden",onClick:()=>r(!a),children:a?t.jsx(l,{className:"h-6 w-6"}):t.jsx(o,{className:"h-6 w-6"})})]})}),a&&t.jsx("div",{className:"lg:hidden border-t border-brand-border bg-white",children:t.jsxs("div",{className:"container py-4 space-y-4",children:[P.map(e=>"items"in e?t.jsxs("div",{children:[t.jsx("div",{className:"font-semibold text-brand-text mb-2",children:e.label}),t.jsx("div",{className:"space-y-1 pl-4",children:e.items.map(e=>t.jsx(c,{to:e.to,className:({isActive:e})=>"block py-1 text-sm "+(e?"text-brand-700 font-medium":"text-brand-text-muted"),onClick:()=>r(!1),children:e.label},e.to))})]},e.label):t.jsx(c,{to:e.to,className:({isActive:e})=>"block py-2 text-sm font-medium "+(e?"text-brand-700":"text-brand-text"),onClick:()=>r(!1),children:e.label},e.to)),t.jsxs("div",{className:"pt-4 border-t space-y-2",children:[t.jsx(j,{to:"/auth/login",className:"block text-sm font-medium text-brand-text",onClick:()=>r(!1),children:"Sign In"}),t.jsx("a",{href:b,target:"_blank",rel:"noopener noreferrer",className:"btn block text-center",children:"Apply Now"})]})]})})]}),t.jsx("main",{role:"main",className:"flex-1",children:s}),t.jsx(E,{}),t.jsx("footer",{className:"mt-16 border-t bg-brand-surface-dark",children:t.jsxs("div",{className:"container py-12",children:[t.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-4 gap-8",children:[t.jsxs("div",{children:[t.jsx("h3",{className:"font-bold text-brand-text mb-4",children:"Elevate for Humanity"}),t.jsx("p",{className:"text-sm text-brand-text-muted",children:"Career & Technical training that elevates communities."})]}),t.jsxs("div",{children:[t.jsx("h4",{className:"font-semibold text-brand-text mb-3",children:"Programs"}),t.jsxs("ul",{className:"space-y-2 text-sm text-brand-text-muted",children:[t.jsx("li",{children:t.jsx(j,{to:"/programs",className:"hover:text-brand-600",children:"All Programs"})}),t.jsx("li",{children:t.jsx(j,{to:"/programs/barber",className:"hover:text-brand-600",children:"Barber Apprenticeship"})}),t.jsx("li",{children:t.jsx(j,{to:"/programs/cna",className:"hover:text-brand-600",children:"CNA Training"})}),t.jsx("li",{children:t.jsx(j,{to:"/programs/building-tech",className:"hover:text-brand-600",children:"Building Services"})})]})]}),t.jsxs("div",{children:[t.jsx("h4",{className:"font-semibold text-brand-text mb-3",children:"Resources"}),t.jsxs("ul",{className:"space-y-2 text-sm text-brand-text-muted",children:[t.jsx("li",{children:t.jsx(j,{to:"/about",className:"hover:text-brand-600",children:"About Us"})}),t.jsx("li",{children:t.jsx(j,{to:"/partners",className:"hover:text-brand-600",children:"Partners"})}),t.jsx("li",{children:t.jsx(j,{to:"/support",className:"hover:text-brand-600",children:"Support"})}),t.jsx("li",{children:t.jsx(j,{to:"/verify",className:"hover:text-brand-600",children:"Verify Certificate"})})]})]}),t.jsxs("div",{children:[t.jsx("h4",{className:"font-semibold text-brand-text mb-3",children:"Contact"}),t.jsxs("ul",{className:"space-y-2 text-sm text-brand-text-muted",children:[t.jsx("li",{children:t.jsx("a",{href:"tel:+13173143757",className:"hover:text-brand-600",children:"📞 (317) 314-3757"})}),t.jsx("li",{children:t.jsx(j,{to:"/connect",className:"hover:text-brand-600",children:"✉️ Contact Form"})}),t.jsx("li",{children:t.jsx("span",{children:"📍 Indianapolis, IN"})}),t.jsx("li",{children:t.jsx("span",{className:"text-xs",children:"elevateforhumanity.org"})}),t.jsx("li",{className:"pt-2",children:t.jsx(j,{to:"/privacy-policy",className:"hover:text-brand-600",children:"Privacy Policy"})}),t.jsx("li",{children:t.jsx(j,{to:"/terms-of-service",className:"hover:text-brand-600",children:"Terms"})})]})]})]}),t.jsxs("div",{className:"mt-8 pt-8 border-t border-brand-border",children:[t.jsxs("div",{className:"flex justify-center gap-6 mb-4",children:[t.jsx("a",{href:"https://www.facebook.com/elevate.founder",target:"_blank",rel:"noopener noreferrer",className:"text-brand-text-muted hover:text-brand-600 transition-colors","aria-label":"Facebook Personal Profile",children:t.jsx("svg",{className:"w-6 h-6",fill:"currentColor",viewBox:"0 0 24 24",children:t.jsx("path",{d:"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"})})}),t.jsx("a",{href:"https://www.facebook.com/elevateforhumanity",target:"_blank",rel:"noopener noreferrer",className:"text-brand-text-muted hover:text-brand-600 transition-colors","aria-label":"Facebook Page",children:t.jsx("svg",{className:"w-6 h-6",fill:"currentColor",viewBox:"0 0 24 24",children:t.jsx("path",{d:"M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"})})}),t.jsx("a",{href:"https://www.youtube.com/@elevateforhumanity",target:"_blank",rel:"noopener noreferrer",className:"text-brand-text-muted hover:text-brand-600 transition-colors","aria-label":"YouTube Channel",children:t.jsx("svg",{className:"w-6 h-6",fill:"currentColor",viewBox:"0 0 24 24",children:t.jsx("path",{d:"M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"})})}),t.jsx("a",{href:"https://www.instagram.com/elevateforhumanity",target:"_blank",rel:"noopener noreferrer",className:"text-brand-text-muted hover:text-brand-600 transition-colors","aria-label":"Instagram",children:t.jsx("svg",{className:"w-6 h-6",fill:"currentColor",viewBox:"0 0 24 24",children:t.jsx("path",{d:"M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"})})}),t.jsx("a",{href:"https://www.linkedin.com/company/elevateforhumanity",target:"_blank",rel:"noopener noreferrer",className:"text-brand-text-muted hover:text-brand-600 transition-colors","aria-label":"LinkedIn",children:t.jsx("svg",{className:"w-6 h-6",fill:"currentColor",viewBox:"0 0 24 24",children:t.jsx("path",{d:"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"})})})]}),t.jsxs("div",{className:"text-center text-sm text-brand-text-muted",children:["© ",(new Date).getFullYear()," Elevate for Humanity. All rights reserved."]})]})]})}),t.jsx(g,{})]})}class I extends _.Component{constructor(e){super(e),this.state={e:null}}static getDerivedStateFromError(e){return{e:e}}componentDidCatch(e,t){console.error("Route error:",e,t)}render(){var e;return this.state.e?_.createElement("pre",null,String((null==(e=this.state.e)?void 0:e.message)||this.state.e)):this.props.children}}const A=()=>t.jsx("div",{className:"min-h-screen grid place-items-center",children:"Loading…"}),D=e.lazy(()=>y(()=>import("./AITutor-BuPYIbHj.js"),__vite__mapDeps([0,1,2]))),z=e.lazy(()=>y(()=>import("./About-78p6JPZg.js"),__vite__mapDeps([3,1,2,4,5,6,7,8]))),T=e.lazy(()=>y(()=>import("./Accessibility-Zl11sVQm.js"),__vite__mapDeps([9,1,2]))),R=e.lazy(()=>y(()=>import("./AccessibilitySettings-iHv241bO.js"),__vite__mapDeps([10,1,2,11,5]))),L=e.lazy(()=>y(()=>import("./Account-CSKRXG0X.js"),__vite__mapDeps([12,1,2,5,11,13]))),V=e.lazy(()=>y(()=>import("./AdminConsole-B1_TW0qi.js"),__vite__mapDeps([14,1,2]))),v=e.lazy(()=>y(()=>import("./AdminDashboard-Br9Ci-X5.js"),__vite__mapDeps([15,1,2,5,4,8]))),O=e.lazy(()=>y(()=>import("./Analytics-C99OF5bN.js"),__vite__mapDeps([16,1,2,11,5,13]))),w=e.lazy(()=>y(()=>import("./AnalyticsDashboard-DtTdW-Jd.js"),__vite__mapDeps([17,1,2]))),C=e.lazy(()=>y(()=>import("./AnalyticsDashboardRUM-BkiQdOi4.js"),__vite__mapDeps([18,1,2,11,5]))),N=e.lazy(()=>y(()=>import("./ApplyScholarship-De9gWW8S.js"),__vite__mapDeps([19,1,2]))),S=e.lazy(()=>y(()=>import("./Assignment-DEWzKAUa.js"),__vite__mapDeps([20,1,2]))),k=e.lazy(()=>y(()=>import("./AutopilotAdmin-BWPQSCf-.js"),__vite__mapDeps([21,1,2,11,5]))),M=e.lazy(()=>y(()=>import("./BingSiteVerification-CfUcxt4s.js"),__vite__mapDeps([22,1,2,4,5,7,8]))),H=e.lazy(()=>y(()=>import("./Blog-DSjAvo2a.js"),__vite__mapDeps([23,1,2]))),B=e.lazy(()=>y(()=>import("./Branding-BXc4pWoL.js"),__vite__mapDeps([24,1,2]))),F=e.lazy(()=>y(()=>import("./BusinessHub-Ban04r0X.js"),__vite__mapDeps([25,1,2]))),W=e.lazy(()=>y(()=>import("./CPRFirstAidTraining-rBguNWWB.js"),__vite__mapDeps([26,1,2]))),q=e.lazy(()=>y(()=>import("./CRMDashboardPage-Bwr3pcHt.js"),__vite__mapDeps([27,1,2]))),G=e.lazy(()=>y(()=>import("./Calendar-CMFCLHOJ.js"),__vite__mapDeps([28,1,2]))),Q=e.lazy(()=>y(()=>import("./CertificatePage-CqzDMnDI.js"),__vite__mapDeps([29,1,2,30,31,32,5]))),U=e.lazy(()=>y(()=>import("./Certificates-CHK3hIG9.js"),__vite__mapDeps([33,1,2,5,11]))),Y=e.lazy(()=>y(()=>import("./CertiportTestingCenter-BeWuwFD8.js"),__vite__mapDeps([34,1,2]))),K=e.lazy(()=>y(()=>import("./CloneLanding-sEsV62Sy.js"),__vite__mapDeps([35,1,2,4,5,8,6]))),J=e.lazy(()=>y(()=>import("./Community-C6x1qcVw.js"),__vite__mapDeps([36,1,2,37]))),X=e.lazy(()=>y(()=>import("./CommunityHub-G-_C-WXr.js"),__vite__mapDeps([38,1,2]))),Z=e.lazy(()=>y(()=>import("./Compliance-CMKOAsfU.js"),__vite__mapDeps([39,1,2,5]))),$=e.lazy(()=>y(()=>import("./Connect-DouxzOI1.js"),__vite__mapDeps([40,1,2,5]))),ee=e.lazy(()=>y(()=>import("./Contact-BkzwOI_l.js"),__vite__mapDeps([41,1,2,4,5,7,8]))),te=e.lazy(()=>y(()=>import("./Course-D-Pvhx1U.js"),__vite__mapDeps([42,1,2,5,11]))),se=e.lazy(()=>y(()=>import("./CourseBuilder-Cqk3fpyO.js"),__vite__mapDeps([43,1,2]))),ae=e.lazy(()=>y(()=>import("./CourseCatalog-DXKCkAdj.js"),__vite__mapDeps([44,1,2,45,46,5]))),re=e.lazy(()=>y(()=>import("./CourseDetail-979Bv6KN.js"),__vite__mapDeps([47,1,2,5]))),le=e.lazy(()=>y(()=>import("./CourseLibrary-Cp589btU.js"),__vite__mapDeps([48,1,2,49,31,32]))),ne=e.lazy(()=>y(()=>import("./CurriculumUpload-C53XoTpt.js"),__vite__mapDeps([50,1,2]))),ie=e.lazy(()=>y(()=>import("./Docs-C5H5SXTv.js"),__vite__mapDeps([51,1,2]))),oe=e.lazy(()=>y(()=>import("./Donate-fUgpz9T4.js"),__vite__mapDeps([52,1,2]))),_e=e.lazy(()=>y(()=>import("./DonateSuccess-B30WCFW3.js"),__vite__mapDeps([53,1,2,5]))),me=e.lazy(()=>y(()=>import("./DurableAI-DLmBnXqG.js"),__vite__mapDeps([54,1,2,4,5,8,6]))),pe=e.lazy(()=>y(()=>import("./DurableConsole-nrXcXdmS.js"),__vite__mapDeps([55,1,2,4,5,8]))),xe=e.lazy(()=>y(()=>import("./DurableFeatures-DU0q8Sgz.js"),__vite__mapDeps([56,1,2,4,5,8,7]))),je=e.lazy(()=>y(()=>import("./DurableLanding-BvF_p23E.js"),__vite__mapDeps([57,1,2,4,5,8,6,7]))),ce=e.lazy(()=>y(()=>import("./DurablePricing-C6L2hLOe.js"),__vite__mapDeps([58,1,2,5,4,8]))),de=e.lazy(()=>y(()=>import("./DurableTemplates-DIWqOjQJ.js"),__vite__mapDeps([59,1,2,5,4,8,7]))),he=e.lazy(()=>y(()=>import("./EFHLanding-Cw7HXROO.js"),__vite__mapDeps([60,1,2,61,5,62]))),ue=e.lazy(()=>y(()=>import("./Ecommerce-DPmw47_d.js"),__vite__mapDeps([63,1,2,11,5]))),ye=e.lazy(()=>y(()=>import("./Ecosystem-otuL5-46.js"),__vite__mapDeps([64,1,2]))),Ee=e.lazy(()=>y(()=>import("./EducatorHub-BMq8WjjR.js"),__vite__mapDeps([65,1,2]))),ge=e.lazy(()=>y(()=>import("./Elevate-DtoWqhrA.js"),__vite__mapDeps([66,1,2]))),be=e.lazy(()=>y(()=>import("./ElevateBrain-DzPyNzFU.js"),__vite__mapDeps([67,32,2,1,5]))),Pe=e.lazy(()=>y(()=>import("./Email-DtFpeD1b.js"),__vite__mapDeps([68,1,2]))),fe=e.lazy(()=>y(()=>import("./FAQ-Pd4E27Tn.js"),__vite__mapDeps([69,1,2]))),Ie=e.lazy(()=>y(()=>import("./FileManager-_oJ5Q3Wo.js"),__vite__mapDeps([70,1,2]))),Ae=e.lazy(()=>y(()=>import("./ForgotPassword-CS0_g-C8.js"),__vite__mapDeps([71,1,2,5]))),De=e.lazy(()=>y(()=>import("./Forms-Crl1gGee.js"),__vite__mapDeps([72,1,2,11,5]))),ze=e.lazy(()=>y(()=>import("./FullSailLanding-D3aSmO-U.js"),__vite__mapDeps([73,1,2,4,5,8]))),Te=e.lazy(()=>y(()=>import("./FundingImpact-DtjMxSXC.js"),__vite__mapDeps([74,1,2]))),Re=e.lazy(()=>y(()=>import("./GetStarted-CE5y6Z-3.js"),__vite__mapDeps([75,1,2,5]))),Le=e.lazy(()=>y(()=>import("./GoogleAnalyticsSetup-B1QP7qJh.js"),__vite__mapDeps([76,1,2,4,5,7,8]))),Ve=e.lazy(()=>y(()=>import("./GoogleSiteVerification-CoKhjUCP.js"),__vite__mapDeps([77,1,2,4,5,7,8]))),ve=e.lazy(()=>y(()=>import("./Government-CXcg7Aqo.js"),__vite__mapDeps([78,1,2]))),Oe=e.lazy(()=>y(()=>import("./GradeBook-BR6aj8fy.js"),__vite__mapDeps([79,1,2,80,32,11,5]))),we=e.lazy(()=>y(()=>import("./Groups-Cbf7bhLg.js"),__vite__mapDeps([81,1,2,11,5]))),Ce=e.lazy(()=>y(()=>import("./Home-Durable-DLF7aqEF.js"),__vite__mapDeps([82,1,2,5,32]))),Ne=e.lazy(()=>y(()=>import("./Home-z0giJPKd.js"),__vite__mapDeps([83,1,2,4,5,6,7,8]))),Se=e.lazy(()=>y(()=>import("./Home-BT10xIpl.js"),__vite__mapDeps([84,1,2,5,85,32]))),ke=e.lazy(()=>y(()=>import("./HomePage-Bmqm89PJ.js"),__vite__mapDeps([86,1,2,5]))),Me=e.lazy(()=>y(()=>import("./Hub-FzDrazuc.js"),__vite__mapDeps([87,1,2,5]))),He=e.lazy(()=>y(()=>import("./Instructor-DOIMjn3J.js"),__vite__mapDeps([88,1,2,5,11,13]))),Be=e.lazy(()=>y(()=>import("./InstructorCourseCreate-CdrutYgQ.js"),__vite__mapDeps([89,1,2,5,8,45]))),Fe=e.lazy(()=>y(()=>import("./InstructorEdit-fAuP2lDz.js"),__vite__mapDeps([90,1,2,5,11]))),We=e.lazy(()=>y(()=>import("./InstructorNew-DsxV4Bfd.js"),__vite__mapDeps([91,1,2,5,11]))),qe=e.lazy(()=>y(()=>import("./Integrations-CoD4HO_B.js"),__vite__mapDeps([92,1,2,11,5]))),Ge=e.lazy(()=>y(()=>import("./IntuitTaxBookkeeping-DzCrkjmb.js"),__vite__mapDeps([93,1,2]))),Qe=e.lazy(()=>y(()=>import("./InvoiceCreatorPage-za9GQimE.js"),__vite__mapDeps([94,1,2,5]))),Ue=e.lazy(()=>y(()=>import("./InvoiceListPage-BW5xtWuK.js"),__vite__mapDeps([95,1,2,5]))),Ye=e.lazy(()=>y(()=>import("./JobReadyIndy-KHfUGcbv.js"),__vite__mapDeps([96,1,2,4,5,8]))),Ke=e.lazy(()=>y(()=>import("./LMS-DHUhc4Aw.js"),__vite__mapDeps([97,1,2,5]))),Je=e.lazy(()=>y(()=>import("./LMSCourses-BKJGFseE.js"),__vite__mapDeps([98,1,2,5]))),Xe=e.lazy(()=>y(()=>import("./LMSDashboard-BvC5ca4A.js"),__vite__mapDeps([99,1,2,5,4,8,45]))),Ze=e.lazy(()=>y(()=>import("./LMSLanding-DLKYRM0k.js"),__vite__mapDeps([100,1,2,5,4,8,45,46]))),$e=e.lazy(()=>y(()=>import("./LiveClassRoom-D0I-sDFY.js"),__vite__mapDeps([101,1,2,80,32,11,5]))),et=e.lazy(()=>y(()=>import("./LiveClassSchedule-k6v4InG8.js"),__vite__mapDeps([102,1,2,5,80,32,11]))),tt=e.lazy(()=>y(()=>import("./Login-CIVE3WEz.js"),__vite__mapDeps([103,1,2,5,80,32]))),st=e.lazy(()=>y(()=>import("./MainLanding-DM24mmq2.js"),__vite__mapDeps([104,1,2,5,4,8]))),at=e.lazy(()=>y(()=>import("./MobileApp-BoI2zMiz.js"),__vite__mapDeps([105,1,2,11,5]))),rt=e.lazy(()=>y(()=>import("./MyCertificates-CA0ZpxkZ.js"),__vite__mapDeps([106,1,2,5,49,31,32,30]))),lt=e.lazy(()=>y(()=>import("./NCCERCareerStarter-RlxmRhAi.js"),__vite__mapDeps([107,1,2]))),nt=e.lazy(()=>y(()=>import("./NotFound-Da6tw7lK.js"),__vite__mapDeps([108,1,2,5]))),it=e.lazy(()=>y(()=>import("./NotebookLM-3gT-5dUv.js"),__vite__mapDeps([109,1,2]))),ot=e.lazy(()=>y(()=>import("./NotificationCenter-a1ZHZ1dr.js"),__vite__mapDeps([110,1,2,5,80,32,11]))),_t=e.lazy(()=>y(()=>import("./NotificationSettings-C4SKrkfF.js"),__vite__mapDeps([111,1,2,80,32,11,5]))),mt=e.lazy(()=>y(()=>import("./Notifications-CYs2QmmY.js"),__vite__mapDeps([112,1,2,11,5]))),pt=e.lazy(()=>y(()=>import("./OurPartners-CeK8FnRS.js"),__vite__mapDeps([113,1,2]))),xt=e.lazy(()=>y(()=>import("./Partners-DUH9SS_3.js"),__vite__mapDeps([114,1,2,5,11]))),jt=e.lazy(()=>y(()=>import("./Pay-DwL5oR0c.js"),__vite__mapDeps([115,1,2,5]))),ct=e.lazy(()=>y(()=>import("./PaymentCancelled-C26RTAx2.js"),__vite__mapDeps([116,1,2,5]))),dt=e.lazy(()=>y(()=>import("./PaymentSuccess-W73x_itT.js"),__vite__mapDeps([117,1,2,5]))),ht=e.lazy(()=>y(()=>import("./Philanthropy-SvRjRG6a.js"),__vite__mapDeps([118,1,2]))),ut=e.lazy(()=>y(()=>import("./PrivacyPolicy-rqLlLXUr.js"),__vite__mapDeps([119,1,2,5,11]))),yt=e.lazy(()=>y(()=>import("./ProfessionalHome-Bc9EQ6mU.js"),__vite__mapDeps([120,1,2,37]))),Et=e.lazy(()=>y(()=>import("./ProfessionalSite-DUO7C4sH.js"),__vite__mapDeps([121,1,2]))),gt=e.lazy(()=>y(()=>import("./Profile-Cp05Gzvv.js"),__vite__mapDeps([122,1,2,5,11]))),bt=e.lazy(()=>y(()=>import("./ProgramDetail-BfW20AW4.js"),__vite__mapDeps([123,1,2,5,62]))),Pt=e.lazy(()=>y(()=>import("./ProgramPage-C9TBhZ8C.js"),__vite__mapDeps([124,1,2,5,125,31,32]))),ft=e.lazy(()=>y(()=>import("./Programs-CA32cEhz.js"),__vite__mapDeps([126,1,2,5]))),It=e.lazy(()=>y(()=>import("./ProgramsDurable-ClFo_FOY.js"),__vite__mapDeps([127,1,2,5]))),At=e.lazy(()=>y(()=>import("./ProgramsIndex-6SehAGeU.js"),__vite__mapDeps([128,1,2,125,31,32]))),Dt=e.lazy(()=>y(()=>import("./ProgramsPage-DTZhUPUH.js"),__vite__mapDeps([129,1,2,4,5,6,7,61,8]))),zt=e.lazy(()=>y(()=>import("./Quiz-DN0kVJJ2.js"),__vite__mapDeps([130,1,2,11,5,13]))),Tt=e.lazy(()=>y(()=>import("./QuizBuilder-D0M1mwhb.js"),__vite__mapDeps([131,1,2,80,32,11,5]))),Rt=e.lazy(()=>y(()=>import("./QuizResults-6cnghCcL.js"),__vite__mapDeps([132,1,2,80,32,11,5]))),Lt=e.lazy(()=>y(()=>import("./QuizTake-DMUCenhp.js"),__vite__mapDeps([133,1,2,80,32,11,5]))),Vt=e.lazy(()=>y(()=>import("./RefundPolicy-28qif4im.js"),__vite__mapDeps([134,1,2,5,11]))),vt=e.lazy(()=>y(()=>import("./ResetPassword-BhqH3z2W.js"),__vite__mapDeps([135,1,2,5,80,32]))),Ot=e.lazy(()=>y(()=>import("./SearchResults-BbL4DHGy.js"),__vite__mapDeps([136,1,2,5]))),wt=e.lazy(()=>y(()=>import("./SereneComfortCare-CkCmvbxq.js"),__vite__mapDeps([137,1,2,5,4,8]))),Ct=e.lazy(()=>y(()=>import("./Services-BIyR8dC_.js"),__vite__mapDeps([138,1,2]))),Nt=e.lazy(()=>y(()=>import("./Settings-OgzUzVVV.js"),__vite__mapDeps([139,1,2,5,11]))),St=e.lazy(()=>y(()=>import("./Sheets-Dn4-2_lB.js"),__vite__mapDeps([140,1,2]))),kt=e.lazy(()=>y(()=>import("./Signup-CLhHOPyc.js"),__vite__mapDeps([141,1,2,5,80,32]))),Mt=e.lazy(()=>y(()=>import("./Sitemap-DISf3kpO.js"),__vite__mapDeps([142,1,2,5]))),Ht=e.lazy(()=>y(()=>import("./Sites-Bs3XIaeO.js"),__vite__mapDeps([143,1,2,11,5]))),Bt=e.lazy(()=>y(()=>import("./Slides-TczZVLVD.js"),__vite__mapDeps([144,1,2]))),Ft=e.lazy(()=>y(()=>import("./SocialMediaManager-D5Yqo08L.js"),__vite__mapDeps([145,1,2,11,5]))),Wt=e.lazy(()=>y(()=>import("./Student-DP4Fgh3e.js"),__vite__mapDeps([146,1,2]))),qt=e.lazy(()=>y(()=>import("./StudentDashboard-DXpY2Y7t.js"),__vite__mapDeps([147,1,2,5,4,8,148,80,32]))),Gt=e.lazy(()=>y(()=>import("./StudentGrades-DYOLzcWY.js"),__vite__mapDeps([149,1,2,80,32,11,5]))),Qt=e.lazy(()=>y(()=>import("./StudentHandbook-WeOqIlZl.js"),__vite__mapDeps([150,1,2,5,11]))),Ut=e.lazy(()=>y(()=>import("./StudentHub-BAXZyLP6.js"),__vite__mapDeps([151,1,2]))),Yt=e.lazy(()=>y(()=>import("./StudentPortal-CCt_ISdr.js"),__vite__mapDeps([152,1,2,5]))),Kt=e.lazy(()=>y(()=>import("./StudentPortalLMS-ByLSHgIQ.js"),__vite__mapDeps([153,1,2,4,5,8]))),Jt=e.lazy(()=>y(()=>import("./Support-Bailx-Qt.js"),__vite__mapDeps([154,1,2,5,11]))),Xt=e.lazy(()=>y(()=>import("./TermsOfService-dALJjYT3.js"),__vite__mapDeps([155,1,2,5,11]))),Zt=e.lazy(()=>y(()=>import("./ThankYou-bmZWvrnC.js"),__vite__mapDeps([156,1,2,5]))),$t=e.lazy(()=>y(()=>import("./UrbanBuildCrew-DJWqDovR.js"),__vite__mapDeps([157,1,2,5,4,8]))),es=e.lazy(()=>y(()=>import("./UserManagement-BwDujh7h.js"),__vite__mapDeps([158,1,2,11,5]))),ts=e.lazy(()=>y(()=>import("./VITAProgram-DmEbchOO.js"),__vite__mapDeps([159,1,2,5,11,13,45,46]))),ss=e.lazy(()=>y(()=>import("./VITATaxCertification-CjZoS0HK.js"),__vite__mapDeps([160,1,2]))),as=e.lazy(()=>y(()=>import("./VerifyCertificate-Bo_xmXtC.js"),__vite__mapDeps([161,1,2,30,31,32]))),rs=e.lazy(()=>y(()=>import("./VerifyCertificatePage-BWPbkFXB.js"),__vite__mapDeps([162,1,2,5,30,31,32]))),ls=e.lazy(()=>y(()=>import("./VerifyEmail-CXa6avY_.js"),__vite__mapDeps([163,1,2,5]))),ns=e.lazy(()=>y(()=>import("./VideoMeeting-Bd05VZkm.js"),__vite__mapDeps([164,1,2,5]))),is=e.lazy(()=>y(()=>import("./Vids-BinC2cRV.js"),__vite__mapDeps([165,1,2,11,5]))),os=e.lazy(()=>y(()=>import("./WebsiteBuilder-BvtruVPl.js"),__vite__mapDeps([166,1,2,4,5,8,11,80,32]))),_s=e.lazy(()=>y(()=>import("./AutopilotTasks-CkeAkNII.js"),__vite__mapDeps([167,1,2,80,32,11,5]))),ms=e.lazy(()=>y(()=>import("./Account-n_Begp-g.js"),__vite__mapDeps([168,1,2,49,31,32,5]))),ps=e.lazy(()=>y(()=>import("./ForgotPassword-DFRGmFHU.js"),__vite__mapDeps([169,1,2,5,4,7,8]))),xs=e.lazy(()=>y(()=>import("./Login-q3272Prd.js"),__vite__mapDeps([170,1,2,5,4,7,8]))),js=e.lazy(()=>y(()=>import("./Signup-B9pJrr1_.js"),__vite__mapDeps([171,1,2,5,4,7,8]))),cs=e.lazy(()=>y(()=>import("./CourseEditor-2flF_fk_.js"),__vite__mapDeps([172,1,2,31,32,5]))),ds=e.lazy(()=>y(()=>import("./InstructorDashboard-DYX1119W.js"),__vite__mapDeps([173,1,2,5,4,8,148,80,32]))),hs=e.lazy(()=>y(()=>import("./LessonManager-CnQd-ZS5.js"),__vite__mapDeps([174,1,2,5,31,32]))),us=e.lazy(()=>y(()=>import("./DMCA-BBfFtchM.js"),__vite__mapDeps([175,1,2,4,5,7,8]))),ys=e.lazy(()=>y(()=>import("./LegalIPNotice-DbNdDhS8.js"),__vite__mapDeps([176,1,2,4,5,7,8]))),Es=e.lazy(()=>y(()=>import("./Privacy-DIKQylVj.js"),__vite__mapDeps([177,1,2,4,5,7,8]))),gs=e.lazy(()=>y(()=>import("./TermsOfUse-DASBmnT-.js"),__vite__mapDeps([178,1,2,4,5,7,8]))),bs=e.lazy(()=>y(()=>import("./ClientSafetyCertification-DpgsozwL.js"),__vite__mapDeps([179,1,2,4,5,7,8]))),Ps=e.lazy(()=>y(()=>import("./CoursePage-th1vPjPM.js"),__vite__mapDeps([180,1,2,4,5,8,181]))),fs=e.lazy(()=>y(()=>import("./CoursesIndex-CZSrbUCF.js"),__vite__mapDeps([182,1,2,4,5,7,8]))),Is=e.lazy(()=>y(()=>import("./Dashboard-CSncys8c.js"),__vite__mapDeps([183,1,2,4,5,7,8]))),As=e.lazy(()=>y(()=>import("./DiscussionsPage-M8F4D-Dm.js"),__vite__mapDeps([184,1,2,4,5,8,185]))),Ds=e.lazy(()=>y(()=>import("./EnrollmentSuccess-BUiieTop.js"),__vite__mapDeps([186,1,2,4,5,7,8]))),zs=e.lazy(()=>y(()=>import("./LessonPage-Cnt0TIfH.js"),__vite__mapDeps([187,1,2,4,5,8,185]))),Ts=e.lazy(()=>y(()=>import("./MiladyBarberApprenticeship-3uXvVRzx.js"),__vite__mapDeps([188,1,2,4,5,7,8]))),Rs=e.lazy(()=>y(()=>import("./MiladyBarberCourse-CpY8a9U4.js"),__vite__mapDeps([189,1,2,4,5,7,8]))),Ls=e.lazy(()=>y(()=>import("./MiladyRISEEnrollment-CkdhlFWg.js"),__vite__mapDeps([190,1,2,4,5,7,8]))),Vs=e.lazy(()=>y(()=>import("./MiladyRISEIntegration-C8S52uWt.js"),__vite__mapDeps([191,1,2,4,5,7,8]))),vs=e.lazy(()=>y(()=>import("./MyCertificatesPage-Ca-QD4OT.js"),__vite__mapDeps([192,1,2,5,30,31,32,148,80]))),Os=e.lazy(()=>y(()=>import("./QuizBlock-BTZE1wUB.js"),__vite__mapDeps([193,1,2,4,5,8,148,80,32,30,31]))),ws=e.lazy(()=>y(()=>import("./BarberPage-DKfzcmQX.js"),__vite__mapDeps([194,1,2,195,4,5,6,7,8]))),Cs=e.lazy(()=>y(()=>import("./BuildingTechPage-CC-sT-vC.js"),__vite__mapDeps([196,1,2,195,4,5,6,7,8]))),Ns=e.lazy(()=>y(()=>import("./CPRSPage-xgIoSaR_.js"),__vite__mapDeps([197,1,2,195,4,5,6,7,8]))),Ss=e.lazy(()=>y(()=>import("./DigitalSkillsPage-CRbrDuDF.js"),__vite__mapDeps([198,1,2,195,4,5,6,7,8]))),ks=e.lazy(()=>y(()=>import("./DrugTestingPage-B6S9Docc.js"),__vite__mapDeps([199,1,2,195,4,5,6,7,8]))),Ms=e.lazy(()=>y(()=>import("./HVACPage-B02efFjd.js"),__vite__mapDeps([200,1,2,195,4,5,6,7,8]))),Hs=e.lazy(()=>y(()=>import("./HealthcarePage-DuPXeja5.js"),__vite__mapDeps([201,1,2,195,4,5,6,7,8]))),Bs=e.lazy(()=>y(()=>import("./LeadershipPage-69kOn2k7.js"),__vite__mapDeps([202,1,2,195,4,5,6,7,8]))),Fs=e.lazy(()=>y(()=>import("./ProgramTemplate-DN0WzrFM.js"),__vite__mapDeps([203,1,2,5,85,32]))),Ws=e.lazy(()=>y(()=>import("./MentorDirectory-Y3bpakVs.js"),__vite__mapDeps([204,1,2,4,5,7,8]))),qs=e.lazy(()=>y(()=>import("./MentorSignup-dMpANN-D.js"),__vite__mapDeps([205,1,2,4,5,7,8,181]))),Gs=e.lazy(()=>y(()=>import("./Mentorship-old-B14NyAyK.js"),__vite__mapDeps([206,1,2,5]))),Qs=e.lazy(()=>y(()=>import("./Mentorship-B6T2BXn8.js"),__vite__mapDeps([207,1,2,5,4,6,7,8,181]))),Us=e.lazy(()=>y(()=>import("./PeerSupport-JtAtm4ns.js"),__vite__mapDeps([208,1,2,4,5,7,8]))),Ys=e.lazy(()=>y(()=>import("./Volunteer-BMryEhyN.js"),__vite__mapDeps([209,1,2,4,5,7,8]))),Ks=e.lazy(()=>y(()=>import("./VolunteerOpportunities-DpwRJdJt.js"),__vite__mapDeps([210,1,2,4,5,7,8]))),Js=e.lazy(()=>y(()=>import("./VolunteerStories-CBH1cm91.js"),__vite__mapDeps([211,1,2,4,5,7,8]))),Xs=e.lazy(()=>y(()=>import("./Wellness-C3ngZzK-.js"),__vite__mapDeps([212,1,2,4,5,7,8]))),Zs=e.lazy(()=>y(()=>import("./WellnessResources-BEv9uwgx.js"),__vite__mapDeps([213,1,2,4,5,7,8])));function $s(){return t.jsx(I,{children:t.jsx(e.Suspense,{fallback:t.jsx(A,{}),children:t.jsx(f,{children:t.jsxs(d,{children:[t.jsx(h,{path:"/aitutor",element:t.jsx(D,{})}),t.jsx(h,{path:"/about",element:t.jsx(z,{})}),t.jsx(h,{path:"/accessibility",element:t.jsx(T,{})}),t.jsx(h,{path:"/accessibility-settings",element:t.jsx(R,{})}),t.jsx(h,{path:"/account",element:t.jsx(L,{})}),t.jsx(h,{path:"/admin-console",element:t.jsx(V,{})}),t.jsx(h,{path:"/admin-dashboard",element:t.jsx(v,{})}),t.jsx(h,{path:"/analytics",element:t.jsx(O,{})}),t.jsx(h,{path:"/analytics-dashboard",element:t.jsx(w,{})}),t.jsx(h,{path:"/analytics-dashboard-rum",element:t.jsx(C,{})}),t.jsx(h,{path:"/apply-scholarship",element:t.jsx(N,{})}),t.jsx(h,{path:"/assignment",element:t.jsx(S,{})}),t.jsx(h,{path:"/autopilot-admin",element:t.jsx(k,{})}),t.jsx(h,{path:"/bing-site-verification",element:t.jsx(M,{})}),t.jsx(h,{path:"/blog",element:t.jsx(H,{})}),t.jsx(h,{path:"/branding",element:t.jsx(B,{})}),t.jsx(h,{path:"/business-hub",element:t.jsx(F,{})}),t.jsx(h,{path:"/cprfirst-aid-training",element:t.jsx(W,{})}),t.jsx(h,{path:"/crmdashboard-page",element:t.jsx(q,{})}),t.jsx(h,{path:"/calendar",element:t.jsx(G,{})}),t.jsx(h,{path:"/certificate-page",element:t.jsx(Q,{})}),t.jsx(h,{path:"/certificates",element:t.jsx(U,{})}),t.jsx(h,{path:"/certiport-testing-center",element:t.jsx(Y,{})}),t.jsx(h,{path:"/clone-landing",element:t.jsx(K,{})}),t.jsx(h,{path:"/community",element:t.jsx(J,{})}),t.jsx(h,{path:"/community-hub",element:t.jsx(X,{})}),t.jsx(h,{path:"/compliance",element:t.jsx(Z,{})}),t.jsx(h,{path:"/connect",element:t.jsx($,{})}),t.jsx(h,{path:"/contact",element:t.jsx(ee,{})}),t.jsx(h,{path:"/course",element:t.jsx(te,{})}),t.jsx(h,{path:"/course-builder",element:t.jsx(se,{})}),t.jsx(h,{path:"/course-catalog",element:t.jsx(ae,{})}),t.jsx(h,{path:"/course-detail",element:t.jsx(re,{})}),t.jsx(h,{path:"/course-library",element:t.jsx(le,{})}),t.jsx(h,{path:"/curriculum-upload",element:t.jsx(ne,{})}),t.jsx(h,{path:"/docs",element:t.jsx(ie,{})}),t.jsx(h,{path:"/donate",element:t.jsx(oe,{})}),t.jsx(h,{path:"/donate/success",element:t.jsx(_e,{})}),t.jsx(h,{path:"/durable-ai",element:t.jsx(me,{})}),t.jsx(h,{path:"/durable-console",element:t.jsx(pe,{})}),t.jsx(h,{path:"/durable-features",element:t.jsx(xe,{})}),t.jsx(h,{path:"/durable-landing",element:t.jsx(je,{})}),t.jsx(h,{path:"/durable-pricing",element:t.jsx(ce,{})}),t.jsx(h,{path:"/durable-templates",element:t.jsx(de,{})}),t.jsx(h,{path:"/efh-landing",element:t.jsx(he,{})}),t.jsx(h,{path:"/ecommerce",element:t.jsx(ue,{})}),t.jsx(h,{path:"/ecosystem",element:t.jsx(ye,{})}),t.jsx(h,{path:"/educator-hub",element:t.jsx(Ee,{})}),t.jsx(h,{path:"/elevate",element:t.jsx(ge,{})}),t.jsx(h,{path:"/elevate-brain",element:t.jsx(be,{})}),t.jsx(h,{path:"/email",element:t.jsx(Pe,{})}),t.jsx(h,{path:"/faq",element:t.jsx(fe,{})}),t.jsx(h,{path:"/file-manager",element:t.jsx(Ie,{})}),t.jsx(h,{path:"/forgot-password",element:t.jsx(Ae,{})}),t.jsx(h,{path:"/forms",element:t.jsx(De,{})}),t.jsx(h,{path:"/full-sail-landing",element:t.jsx(ze,{})}),t.jsx(h,{path:"/funding-impact",element:t.jsx(Te,{})}),t.jsx(h,{path:"/get-started",element:t.jsx(Re,{})}),t.jsx(h,{path:"/google-analytics-setup",element:t.jsx(Le,{})}),t.jsx(h,{path:"/google-site-verification",element:t.jsx(Ve,{})}),t.jsx(h,{path:"/government",element:t.jsx(ve,{})}),t.jsx(h,{path:"/grade-book",element:t.jsx(Oe,{})}),t.jsx(h,{path:"/groups",element:t.jsx(we,{})}),t.jsx(h,{path:"/home-durable",element:t.jsx(Ce,{})}),t.jsx(h,{path:"/",element:t.jsx(Ne,{})}),t.jsx(h,{path:"/home",element:t.jsx(Se,{})}),t.jsx(h,{path:"/home-page",element:t.jsx(ke,{})}),t.jsx(h,{path:"/hub",element:t.jsx(Me,{})}),t.jsx(h,{path:"/instructor",element:t.jsx(He,{})}),t.jsx(h,{path:"/instructor-course-create",element:t.jsx(Be,{})}),t.jsx(h,{path:"/instructor-edit",element:t.jsx(Fe,{})}),t.jsx(h,{path:"/instructor-new",element:t.jsx(We,{})}),t.jsx(h,{path:"/integrations",element:t.jsx(qe,{})}),t.jsx(h,{path:"/intuit-tax-bookkeeping",element:t.jsx(Ge,{})}),t.jsx(h,{path:"/invoice-creator-page",element:t.jsx(Qe,{})}),t.jsx(h,{path:"/invoice-list-page",element:t.jsx(Ue,{})}),t.jsx(h,{path:"/job-ready-indy",element:t.jsx(Ye,{})}),t.jsx(h,{path:"/lms",element:t.jsx(Ke,{})}),t.jsx(h,{path:"/lms/courses",element:t.jsx(Je,{})}),t.jsx(h,{path:"/lmsdashboard",element:t.jsx(Xe,{})}),t.jsx(h,{path:"/lmslanding",element:t.jsx(Ze,{})}),t.jsx(h,{path:"/live-class-room",element:t.jsx($e,{})}),t.jsx(h,{path:"/live-class-schedule",element:t.jsx(et,{})}),t.jsx(h,{path:"/login",element:t.jsx(tt,{})}),t.jsx(h,{path:"/main-landing",element:t.jsx(st,{})}),t.jsx(h,{path:"/mobile-app",element:t.jsx(at,{})}),t.jsx(h,{path:"/my-certificates",element:t.jsx(rt,{})}),t.jsx(h,{path:"/nccercareer-starter",element:t.jsx(lt,{})}),t.jsx(h,{path:"/notebook-lm",element:t.jsx(it,{})}),t.jsx(h,{path:"/notification-center",element:t.jsx(ot,{})}),t.jsx(h,{path:"/notification-settings",element:t.jsx(_t,{})}),t.jsx(h,{path:"/notifications",element:t.jsx(mt,{})}),t.jsx(h,{path:"/our-partners",element:t.jsx(pt,{})}),t.jsx(h,{path:"/partners",element:t.jsx(xt,{})}),t.jsx(h,{path:"/pay",element:t.jsx(jt,{})}),t.jsx(h,{path:"/payment-cancelled",element:t.jsx(ct,{})}),t.jsx(h,{path:"/payment-success",element:t.jsx(dt,{})}),t.jsx(h,{path:"/philanthropy",element:t.jsx(ht,{})}),t.jsx(h,{path:"/privacy-policy",element:t.jsx(ut,{})}),t.jsx(h,{path:"/professional-home",element:t.jsx(yt,{})}),t.jsx(h,{path:"/professional-site",element:t.jsx(Et,{})}),t.jsx(h,{path:"/profile",element:t.jsx(gt,{})}),t.jsx(h,{path:"/programs/:slug",element:t.jsx(bt,{})}),t.jsx(h,{path:"/program-page",element:t.jsx(Pt,{})}),t.jsx(h,{path:"/programs",element:t.jsx(ft,{})}),t.jsx(h,{path:"/programs-durable",element:t.jsx(It,{})}),t.jsx(h,{path:"/programs-index",element:t.jsx(At,{})}),t.jsx(h,{path:"/programs-page",element:t.jsx(Dt,{})}),t.jsx(h,{path:"/quiz",element:t.jsx(zt,{})}),t.jsx(h,{path:"/quiz-builder",element:t.jsx(Tt,{})}),t.jsx(h,{path:"/quiz-results",element:t.jsx(Rt,{})}),t.jsx(h,{path:"/quiz-take",element:t.jsx(Lt,{})}),t.jsx(h,{path:"/refund-policy",element:t.jsx(Vt,{})}),t.jsx(h,{path:"/reset-password",element:t.jsx(vt,{})}),t.jsx(h,{path:"/search-results",element:t.jsx(Ot,{})}),t.jsx(h,{path:"/serene-comfort-care",element:t.jsx(wt,{})}),t.jsx(h,{path:"/services",element:t.jsx(Ct,{})}),t.jsx(h,{path:"/settings",element:t.jsx(Nt,{})}),t.jsx(h,{path:"/sheets",element:t.jsx(St,{})}),t.jsx(h,{path:"/signup",element:t.jsx(kt,{})}),t.jsx(h,{path:"/sitemap",element:t.jsx(Mt,{})}),t.jsx(h,{path:"/sites",element:t.jsx(Ht,{})}),t.jsx(h,{path:"/slides",element:t.jsx(Bt,{})}),t.jsx(h,{path:"/social-media-manager",element:t.jsx(Ft,{})}),t.jsx(h,{path:"/student",element:t.jsx(Wt,{})}),t.jsx(h,{path:"/student-dashboard",element:t.jsx(qt,{})}),t.jsx(h,{path:"/student-grades",element:t.jsx(Gt,{})}),t.jsx(h,{path:"/student-handbook",element:t.jsx(Qt,{})}),t.jsx(h,{path:"/student-hub",element:t.jsx(Ut,{})}),t.jsx(h,{path:"/student-portal",element:t.jsx(Yt,{})}),t.jsx(h,{path:"/student-portal-lms",element:t.jsx(Kt,{})}),t.jsx(h,{path:"/support",element:t.jsx(Jt,{})}),t.jsx(h,{path:"/terms-of-service",element:t.jsx(Xt,{})}),t.jsx(h,{path:"/thank-you",element:t.jsx(Zt,{})}),t.jsx(h,{path:"/urban-build-crew",element:t.jsx($t,{})}),t.jsx(h,{path:"/user-management",element:t.jsx(es,{})}),t.jsx(h,{path:"/vitaprogram",element:t.jsx(ts,{})}),t.jsx(h,{path:"/vitatax-certification",element:t.jsx(ss,{})}),t.jsx(h,{path:"/verify",element:t.jsx(as,{})}),t.jsx(h,{path:"/verify-certificate-page",element:t.jsx(rs,{})}),t.jsx(h,{path:"/verify-email",element:t.jsx(ls,{})}),t.jsx(h,{path:"/video-meeting",element:t.jsx(ns,{})}),t.jsx(h,{path:"/vids",element:t.jsx(is,{})}),t.jsx(h,{path:"/website-builder",element:t.jsx(os,{})}),t.jsx(h,{path:"/admin/autopilot-tasks",element:t.jsx(_s,{})}),t.jsx(h,{path:"/auth/account",element:t.jsx(ms,{})}),t.jsx(h,{path:"/auth/forgot-password",element:t.jsx(ps,{})}),t.jsx(h,{path:"/auth/login",element:t.jsx(xs,{})}),t.jsx(h,{path:"/auth/signup",element:t.jsx(js,{})}),t.jsx(h,{path:"/instructor/course-editor",element:t.jsx(cs,{})}),t.jsx(h,{path:"/instructor/instructor-dashboard",element:t.jsx(ds,{})}),t.jsx(h,{path:"/instructor/lesson-manager",element:t.jsx(hs,{})}),t.jsx(h,{path:"/legal/dmca",element:t.jsx(us,{})}),t.jsx(h,{path:"/legal/legal-ipnotice",element:t.jsx(ys,{})}),t.jsx(h,{path:"/legal/privacy",element:t.jsx(Es,{})}),t.jsx(h,{path:"/legal/terms-of-use",element:t.jsx(gs,{})}),t.jsx(h,{path:"/lms/client-safety-certification",element:t.jsx(bs,{})}),t.jsx(h,{path:"/lms/course/:courseId",element:t.jsx(Ps,{})}),t.jsx(h,{path:"/lms/courses-index",element:t.jsx(fs,{})}),t.jsx(h,{path:"/lms/dashboard",element:t.jsx(Is,{})}),t.jsx(h,{path:"/lms/discussions-page",element:t.jsx(As,{})}),t.jsx(h,{path:"/lms/enrollment-success",element:t.jsx(Ds,{})}),t.jsx(h,{path:"/lms/lesson/:lessonId",element:t.jsx(zs,{})}),t.jsx(h,{path:"/lms/milady-barber-apprenticeship",element:t.jsx(Ts,{})}),t.jsx(h,{path:"/lms/milady-barber-course",element:t.jsx(Rs,{})}),t.jsx(h,{path:"/lms/milady-riseenrollment",element:t.jsx(Ls,{})}),t.jsx(h,{path:"/lms/milady-riseintegration",element:t.jsx(Vs,{})}),t.jsx(h,{path:"/lms/my-certificates-page",element:t.jsx(vs,{})}),t.jsx(h,{path:"/lms/quiz-block",element:t.jsx(Os,{})}),t.jsx(h,{path:"/programs/barber-page",element:t.jsx(ws,{})}),t.jsx(h,{path:"/programs/building-tech-page",element:t.jsx(Cs,{})}),t.jsx(h,{path:"/programs/cprspage",element:t.jsx(Ns,{})}),t.jsx(h,{path:"/programs/digital-skills-page",element:t.jsx(Ss,{})}),t.jsx(h,{path:"/programs/drug-testing-page",element:t.jsx(ks,{})}),t.jsx(h,{path:"/programs/hvacpage",element:t.jsx(Ms,{})}),t.jsx(h,{path:"/programs/healthcare-page",element:t.jsx(Hs,{})}),t.jsx(h,{path:"/programs/leadership-page",element:t.jsx(Bs,{})}),t.jsx(h,{path:"/programs/program-template",element:t.jsx(Fs,{})}),t.jsx(h,{path:"/sisters/mentor-directory",element:t.jsx(Ws,{})}),t.jsx(h,{path:"/sisters/mentor-signup",element:t.jsx(qs,{})}),t.jsx(h,{path:"/sisters/mentorship-old",element:t.jsx(Gs,{})}),t.jsx(h,{path:"/sisters/mentorship",element:t.jsx(Qs,{})}),t.jsx(h,{path:"/sisters/peer-support",element:t.jsx(Us,{})}),t.jsx(h,{path:"/sisters/volunteer",element:t.jsx(Ys,{})}),t.jsx(h,{path:"/sisters/volunteer-opportunities",element:t.jsx(Ks,{})}),t.jsx(h,{path:"/sisters/volunteer-stories",element:t.jsx(Js,{})}),t.jsx(h,{path:"/sisters/wellness",element:t.jsx(Xs,{})}),t.jsx(h,{path:"/sisters/wellness-resources",element:t.jsx(Zs,{})}),t.jsx(h,{path:"*",element:t.jsx(nt,{})})]})})})})}function ea(){return t.jsxs(t.Fragment,{children:[t.jsxs(m,{children:[t.jsx("title",{children:"Elevate for Humanity | Workforce Training & Career Development"}),t.jsx("meta",{name:"description",content:"Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."})]}),t.jsx($s,{})]})}p.createRoot(document.getElementById("root")).render(t.jsx(_.StrictMode,{children:t.jsx(x,{children:t.jsx(u,{children:t.jsx(ea,{})})})}));
+const __vite__mapDeps = (
+  i,
+  m = __vite__mapDeps,
+  d = m.f ||
+    (m.f = [
+      'assets/AITutor-BuPYIbHj.js',
+      'assets/vendor-react-C-ZQNdj3.js',
+      'assets/vendor-Da1LjC7-.js',
+      'assets/About-78p6JPZg.js',
+      'assets/Navigation-Bbm4Xzc1.js',
+      'assets/vendor-router-CQjfSXV_.js',
+      'assets/Hero-OZm9SWPG.js',
+      'assets/Section-DjKsK8lK.js',
+      'assets/Footer-Dh9yHrAI.js',
+      'assets/Accessibility-Zl11sVQm.js',
+      'assets/AccessibilitySettings-iHv241bO.js',
+      'assets/AppLayout-DjgAzEIN.js',
+      'assets/Account-CSKRXG0X.js',
+      'assets/useAnalytics-D9HJkF-x.js',
+      'assets/AdminConsole-B1_TW0qi.js',
+      'assets/AdminDashboard-Br9Ci-X5.js',
+      'assets/Analytics-C99OF5bN.js',
+      'assets/AnalyticsDashboard-DtTdW-Jd.js',
+      'assets/AnalyticsDashboardRUM-BkiQdOi4.js',
+      'assets/ApplyScholarship-De9gWW8S.js',
+      'assets/Assignment-DEWzKAUa.js',
+      'assets/AutopilotAdmin-BWPQSCf-.js',
+      'assets/BingSiteVerification-CfUcxt4s.js',
+      'assets/Blog-DSjAvo2a.js',
+      'assets/Branding-BXc4pWoL.js',
+      'assets/BusinessHub-Ban04r0X.js',
+      'assets/CPRFirstAidTraining-rBguNWWB.js',
+      'assets/CRMDashboardPage-Bwr3pcHt.js',
+      'assets/Calendar-CMFCLHOJ.js',
+      'assets/CertificatePage-CqzDMnDI.js',
+      'assets/certificates-Y_9npsL2.js',
+      'assets/supa-DdKhhKHf.js',
+      'assets/vendor-supabase-C00Cu5KO.js',
+      'assets/Certificates-CHK3hIG9.js',
+      'assets/CertiportTestingCenter-BeWuwFD8.js',
+      'assets/CloneLanding-sEsV62Sy.js',
+      'assets/Community-C6x1qcVw.js',
+      'assets/ComingSoon-BrOo7mbB.js',
+      'assets/CommunityHub-G-_C-WXr.js',
+      'assets/Compliance-CMKOAsfU.js',
+      'assets/Connect-DouxzOI1.js',
+      'assets/Contact-BkzwOI_l.js',
+      'assets/Course-D-Pvhx1U.js',
+      'assets/CourseBuilder-Cqk3fpyO.js',
+      'assets/CourseCatalog-DXKCkAdj.js',
+      'assets/button-B_Plb33j.js',
+      'assets/badge-Cyxi6-_y.js',
+      'assets/CourseDetail-979Bv6KN.js',
+      'assets/CourseLibrary-Cp589btU.js',
+      'assets/auth-tBRKQLtx.js',
+      'assets/CurriculumUpload-C53XoTpt.js',
+      'assets/Docs-C5H5SXTv.js',
+      'assets/Donate-fUgpz9T4.js',
+      'assets/DonateSuccess-B30WCFW3.js',
+      'assets/DurableAI-DLmBnXqG.js',
+      'assets/DurableConsole-nrXcXdmS.js',
+      'assets/DurableFeatures-DU0q8Sgz.js',
+      'assets/DurableLanding-BvF_p23E.js',
+      'assets/DurablePricing-C6L2hLOe.js',
+      'assets/DurableTemplates-DIWqOjQJ.js',
+      'assets/EFHLanding-Cw7HXROO.js',
+      'assets/ProgramCard-Cgx3ANiy.js',
+      'assets/programs-CGx4ILW0.js',
+      'assets/Ecommerce-DPmw47_d.js',
+      'assets/Ecosystem-otuL5-46.js',
+      'assets/EducatorHub-BMq8WjjR.js',
+      'assets/Elevate-DtoWqhrA.js',
+      'assets/ElevateBrain-DzPyNzFU.js',
+      'assets/Email-DtFpeD1b.js',
+      'assets/FAQ-Pd4E27Tn.js',
+      'assets/FileManager-_oJ5Q3Wo.js',
+      'assets/ForgotPassword-CS0_g-C8.js',
+      'assets/Forms-Crl1gGee.js',
+      'assets/FullSailLanding-D3aSmO-U.js',
+      'assets/FundingImpact-DtjMxSXC.js',
+      'assets/GetStarted-CE5y6Z-3.js',
+      'assets/GoogleAnalyticsSetup-B1QP7qJh.js',
+      'assets/GoogleSiteVerification-CoKhjUCP.js',
+      'assets/Government-CXcg7Aqo.js',
+      'assets/GradeBook-BR6aj8fy.js',
+      'assets/supabaseClient-DCQoDyvc.js',
+      'assets/Groups-Cbf7bhLg.js',
+      'assets/Home-Durable-DLF7aqEF.js',
+      'assets/Home-z0giJPKd.js',
+      'assets/Home-BT10xIpl.js',
+      'assets/DurableLayout-Dp_9aaGi.js',
+      'assets/HomePage-Bmqm89PJ.js',
+      'assets/Hub-FzDrazuc.js',
+      'assets/Instructor-DOIMjn3J.js',
+      'assets/InstructorCourseCreate-CdrutYgQ.js',
+      'assets/InstructorEdit-fAuP2lDz.js',
+      'assets/InstructorNew-DsxV4Bfd.js',
+      'assets/Integrations-CoD4HO_B.js',
+      'assets/IntuitTaxBookkeeping-DzCrkjmb.js',
+      'assets/InvoiceCreatorPage-za9GQimE.js',
+      'assets/InvoiceListPage-BW5xtWuK.js',
+      'assets/JobReadyIndy-KHfUGcbv.js',
+      'assets/LMS-DHUhc4Aw.js',
+      'assets/LMSCourses-BKJGFseE.js',
+      'assets/LMSDashboard-BvC5ca4A.js',
+      'assets/LMSLanding-DLKYRM0k.js',
+      'assets/LiveClassRoom-D0I-sDFY.js',
+      'assets/LiveClassSchedule-k6v4InG8.js',
+      'assets/Login-CIVE3WEz.js',
+      'assets/MainLanding-DM24mmq2.js',
+      'assets/MobileApp-BoI2zMiz.js',
+      'assets/MyCertificates-CA0ZpxkZ.js',
+      'assets/NCCERCareerStarter-RlxmRhAi.js',
+      'assets/NotFound-Da6tw7lK.js',
+      'assets/NotebookLM-3gT-5dUv.js',
+      'assets/NotificationCenter-a1ZHZ1dr.js',
+      'assets/NotificationSettings-C4SKrkfF.js',
+      'assets/Notifications-CYs2QmmY.js',
+      'assets/OurPartners-CeK8FnRS.js',
+      'assets/Partners-DUH9SS_3.js',
+      'assets/Pay-DwL5oR0c.js',
+      'assets/PaymentCancelled-C26RTAx2.js',
+      'assets/PaymentSuccess-W73x_itT.js',
+      'assets/Philanthropy-SvRjRG6a.js',
+      'assets/PrivacyPolicy-rqLlLXUr.js',
+      'assets/ProfessionalHome-Bc9EQ6mU.js',
+      'assets/ProfessionalSite-DUO7C4sH.js',
+      'assets/Profile-Cp05Gzvv.js',
+      'assets/ProgramDetail-BfW20AW4.js',
+      'assets/ProgramPage-C9TBhZ8C.js',
+      'assets/programs-D_WNJ_Mg.js',
+      'assets/Programs-CA32cEhz.js',
+      'assets/ProgramsDurable-ClFo_FOY.js',
+      'assets/ProgramsIndex-6SehAGeU.js',
+      'assets/ProgramsPage-DTZhUPUH.js',
+      'assets/Quiz-DN0kVJJ2.js',
+      'assets/QuizBuilder-D0M1mwhb.js',
+      'assets/QuizResults-6cnghCcL.js',
+      'assets/QuizTake-DMUCenhp.js',
+      'assets/RefundPolicy-28qif4im.js',
+      'assets/ResetPassword-BhqH3z2W.js',
+      'assets/SearchResults-BbL4DHGy.js',
+      'assets/SereneComfortCare-CkCmvbxq.js',
+      'assets/Services-BIyR8dC_.js',
+      'assets/Settings-OgzUzVVV.js',
+      'assets/Sheets-Dn4-2_lB.js',
+      'assets/Signup-CLhHOPyc.js',
+      'assets/Sitemap-DISf3kpO.js',
+      'assets/Sites-Bs3XIaeO.js',
+      'assets/Slides-TczZVLVD.js',
+      'assets/SocialMediaManager-D5Yqo08L.js',
+      'assets/Student-DP4Fgh3e.js',
+      'assets/StudentDashboard-DXpY2Y7t.js',
+      'assets/AuthContext-D_Hfa_pA.js',
+      'assets/StudentGrades-DYOLzcWY.js',
+      'assets/StudentHandbook-WeOqIlZl.js',
+      'assets/StudentHub-BAXZyLP6.js',
+      'assets/StudentPortal-CCt_ISdr.js',
+      'assets/StudentPortalLMS-ByLSHgIQ.js',
+      'assets/Support-Bailx-Qt.js',
+      'assets/TermsOfService-dALJjYT3.js',
+      'assets/ThankYou-bmZWvrnC.js',
+      'assets/UrbanBuildCrew-DJWqDovR.js',
+      'assets/UserManagement-BwDujh7h.js',
+      'assets/VITAProgram-DmEbchOO.js',
+      'assets/VITATaxCertification-CjZoS0HK.js',
+      'assets/VerifyCertificate-Bo_xmXtC.js',
+      'assets/VerifyCertificatePage-BWPbkFXB.js',
+      'assets/VerifyEmail-CXa6avY_.js',
+      'assets/VideoMeeting-Bd05VZkm.js',
+      'assets/Vids-BinC2cRV.js',
+      'assets/WebsiteBuilder-BvtruVPl.js',
+      'assets/AutopilotTasks-CkeAkNII.js',
+      'assets/Account-n_Begp-g.js',
+      'assets/ForgotPassword-DFRGmFHU.js',
+      'assets/Login-q3272Prd.js',
+      'assets/Signup-B9pJrr1_.js',
+      'assets/CourseEditor-2flF_fk_.js',
+      'assets/InstructorDashboard-DYX1119W.js',
+      'assets/LessonManager-CnQd-ZS5.js',
+      'assets/DMCA-BBfFtchM.js',
+      'assets/LegalIPNotice-DbNdDhS8.js',
+      'assets/Privacy-DIKQylVj.js',
+      'assets/TermsOfUse-DASBmnT-.js',
+      'assets/ClientSafetyCertification-DpgsozwL.js',
+      'assets/CoursePage-th1vPjPM.js',
+      'assets/Button-kBKDsv7Y.js',
+      'assets/CoursesIndex-CZSrbUCF.js',
+      'assets/Dashboard-CSncys8c.js',
+      'assets/DiscussionsPage-M8F4D-Dm.js',
+      'assets/DiscussionForum-y7lz-a_z.js',
+      'assets/EnrollmentSuccess-BUiieTop.js',
+      'assets/LessonPage-Cnt0TIfH.js',
+      'assets/MiladyBarberApprenticeship-3uXvVRzx.js',
+      'assets/MiladyBarberCourse-CpY8a9U4.js',
+      'assets/MiladyRISEEnrollment-CkdhlFWg.js',
+      'assets/MiladyRISEIntegration-C8S52uWt.js',
+      'assets/MyCertificatesPage-Ca-QD4OT.js',
+      'assets/QuizBlock-BTZE1wUB.js',
+      'assets/BarberPage-DKfzcmQX.js',
+      'assets/ProgramPageTemplate-DF_avGqN.js',
+      'assets/BuildingTechPage-CC-sT-vC.js',
+      'assets/CPRSPage-xgIoSaR_.js',
+      'assets/DigitalSkillsPage-CRbrDuDF.js',
+      'assets/DrugTestingPage-B6S9Docc.js',
+      'assets/HVACPage-B02efFjd.js',
+      'assets/HealthcarePage-DuPXeja5.js',
+      'assets/LeadershipPage-69kOn2k7.js',
+      'assets/ProgramTemplate-DN0WzrFM.js',
+      'assets/MentorDirectory-Y3bpakVs.js',
+      'assets/MentorSignup-dMpANN-D.js',
+      'assets/Mentorship-old-B14NyAyK.js',
+      'assets/Mentorship-B6T2BXn8.js',
+      'assets/PeerSupport-JtAtm4ns.js',
+      'assets/Volunteer-BMryEhyN.js',
+      'assets/VolunteerOpportunities-DpwRJdJt.js',
+      'assets/VolunteerStories-CBH1cm91.js',
+      'assets/Wellness-C3ngZzK-.js',
+      'assets/WellnessResources-BEv9uwgx.js',
+    ])
+) => i.map((i) => d[i]);
+import {
+  r as e,
+  j as t,
+  M as s,
+  a,
+  b as r,
+  X as l,
+  S as n,
+  C as i,
+  c as o,
+  d as _,
+  H as m,
+  e as p,
+  f as x,
+} from './vendor-react-C-ZQNdj3.js';
+import {
+  L as j,
+  N as c,
+  R as d,
+  a as h,
+  B as u,
+} from './vendor-router-CQjfSXV_.js';
+import { _ as y } from './vendor-supabase-C00Cu5KO.js';
+import './vendor-Da1LjC7-.js';
+function E({ pageContext: i = 'general', userRole: o = 'guest' }) {
+  const [_, m] = e.useState(!1),
+    [p, x] = e.useState(!1),
+    [j, c] = e.useState([]),
+    [d, h] = e.useState(''),
+    [u, y] = e.useState(!1),
+    [E, g] = e.useState(null),
+    b = e.useRef(null);
+  (e.useEffect(() => {
+    var e;
+    null == (e = b.current) || e.scrollIntoView({ behavior: 'smooth' });
+  }, [j]),
+    e.useEffect(() => {
+      if (_ && 0 === j.length) {
+        const e = {
+          id: 'welcome',
+          role: 'assistant',
+          content: P(),
+          timestamp: new Date(),
+        };
+        c([e]);
+      }
+    }, [_]));
+  const P = () => {
+      const e = {
+        courses:
+          "👋 Hi! I'm here to help you with courses. Ask me about enrolling, course content, or finding the right program for you!",
+        dashboard:
+          '👋 Welcome! I can help you navigate your dashboard, track your progress, or answer questions about your learning journey.',
+        profile:
+          "👋 Hi! Need help updating your profile, managing settings, or understanding your achievements? I'm here to assist!",
+        admin:
+          '👋 Hello! I can help with administrative tasks, reporting, user management, and system configuration.',
+        general:
+          "👋 Hi! I'm your AI assistant. I can help you navigate the platform, answer questions, and guide you to the right resources. How can I help you today?",
+      };
+      return e[i] || e.general;
+    },
+    f = async (e) => {
+      const t = e || d;
+      if (!t.trim() || u) return;
+      const s = {
+        id: Date.now().toString(),
+        role: 'user',
+        content: t,
+        timestamp: new Date(),
+      };
+      (c((e) => [...e, s]), h(''), y(!0));
+      try {
+        const e = await fetch('/api/ai-tutor/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: t,
+            conversationId: E,
+            context: {
+              page: i,
+              userRole: o,
+              timestamp: new Date().toISOString(),
+            },
+          }),
+        });
+        if (!e.ok) throw new Error('Failed to get response');
+        const s = await e.json();
+        g(s.conversationId);
+        const a = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: s.response,
+          timestamp: new Date(),
+        };
+        c((e) => [...e, a]);
+      } catch (a) {
+        const e = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content:
+            "I'm having trouble connecting right now. Please try again in a moment, or contact support if the issue persists.",
+          timestamp: new Date(),
+        };
+        c((t) => [...t, e]);
+      } finally {
+        y(!1);
+      }
+    };
+  return _
+    ? t.jsxs('div', {
+        className: 'chat-assistant-container',
+        style: {
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          width: p ? '320px' : '400px',
+          height: p ? '60px' : '600px',
+          backgroundColor: 'white',
+          borderRadius: '16px',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+          display: 'flex',
+          flexDirection: 'column',
+          zIndex: 1e3,
+          transition: 'all 0.3s ease',
+          overflow: 'hidden',
+        },
+        children: [
+          t.jsxs('div', {
+            style: {
+              backgroundColor: 'var(--brand-info)',
+              color: 'white',
+              padding: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderTopLeftRadius: '16px',
+              borderTopRightRadius: '16px',
+            },
+            children: [
+              t.jsxs('div', {
+                style: { display: 'flex', alignItems: 'center', gap: '12px' },
+                children: [
+                  t.jsx(s, { size: 24 }),
+                  t.jsxs('div', {
+                    children: [
+                      t.jsx('h3', {
+                        style: {
+                          margin: 0,
+                          fontSize: '16px',
+                          fontWeight: '600',
+                        },
+                        children: 'AI Assistant',
+                      }),
+                      t.jsx('p', {
+                        style: { margin: 0, fontSize: '12px', opacity: 0.9 },
+                        children: 'Always here to help',
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              t.jsxs('div', {
+                style: { display: 'flex', gap: '8px' },
+                children: [
+                  t.jsx('button', {
+                    onClick: () => x(!p),
+                    style: {
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'white',
+                      cursor: 'pointer',
+                      padding: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    },
+                    'aria-label': p ? 'Maximize' : 'Minimize',
+                    children: p
+                      ? t.jsx(a, { size: 20 })
+                      : t.jsx(r, { size: 20 }),
+                  }),
+                  t.jsx('button', {
+                    onClick: () => m(!1),
+                    style: {
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'white',
+                      cursor: 'pointer',
+                      padding: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    },
+                    'aria-label': 'Close chat',
+                    children: t.jsx(l, { size: 20 }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+          !p &&
+            t.jsxs(t.Fragment, {
+              children: [
+                t.jsxs('div', {
+                  style: {
+                    flex: 1,
+                    overflowY: 'auto',
+                    padding: '16px',
+                    backgroundColor: 'var(--brand-surface)',
+                  },
+                  children: [
+                    j.map((e) =>
+                      t.jsx(
+                        'div',
+                        {
+                          style: {
+                            marginBottom: '16px',
+                            display: 'flex',
+                            justifyContent:
+                              'user' === e.role ? 'flex-end' : 'flex-start',
+                          },
+                          children: t.jsx('div', {
+                            style: {
+                              maxWidth: '80%',
+                              padding: '12px 16px',
+                              borderRadius: '12px',
+                              backgroundColor:
+                                'user' === e.role
+                                  ? 'var(--brand-info)'
+                                  : 'white',
+                              color:
+                                'user' === e.role
+                                  ? 'white'
+                                  : 'var(--brand-text)',
+                              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                              fontSize: '14px',
+                              lineHeight: '1.5',
+                            },
+                            children: e.content,
+                          }),
+                        },
+                        e.id
+                      )
+                    ),
+                    u &&
+                      t.jsx('div', {
+                        style: {
+                          display: 'flex',
+                          justifyContent: 'flex-start',
+                          marginBottom: '16px',
+                        },
+                        children: t.jsx('div', {
+                          style: {
+                            padding: '12px 16px',
+                            borderRadius: '12px',
+                            backgroundColor: 'white',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                          },
+                          children: t.jsxs('div', {
+                            style: { display: 'flex', gap: '4px' },
+                            children: [
+                              t.jsx('div', {
+                                className: 'typing-dot',
+                                style: {
+                                  width: '8px',
+                                  height: '8px',
+                                  borderRadius: '50%',
+                                  backgroundColor: 'var(--brand-text-light)',
+                                  animation: 'typing 1.4s infinite',
+                                },
+                              }),
+                              t.jsx('div', {
+                                className: 'typing-dot',
+                                style: {
+                                  width: '8px',
+                                  height: '8px',
+                                  borderRadius: '50%',
+                                  backgroundColor: 'var(--brand-text-light)',
+                                  animation: 'typing 1.4s infinite 0.2s',
+                                },
+                              }),
+                              t.jsx('div', {
+                                className: 'typing-dot',
+                                style: {
+                                  width: '8px',
+                                  height: '8px',
+                                  borderRadius: '50%',
+                                  backgroundColor: 'var(--brand-text-light)',
+                                  animation: 'typing 1.4s infinite 0.4s',
+                                },
+                              }),
+                            ],
+                          }),
+                        }),
+                      }),
+                    t.jsx('div', { ref: b }),
+                  ],
+                }),
+                1 === j.length &&
+                  t.jsxs('div', {
+                    style: {
+                      padding: '12px 16px',
+                      backgroundColor: 'white',
+                      borderTop: '1px solid var(--brand-border)',
+                    },
+                    children: [
+                      t.jsx('p', {
+                        style: {
+                          margin: '0 0 8px 0',
+                          fontSize: '12px',
+                          color: 'var(--brand-text-muted)',
+                          fontWeight: '500',
+                        },
+                        children: 'Quick actions:',
+                      }),
+                      t.jsx('div', {
+                        style: {
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                          gap: '8px',
+                        },
+                        children: (() => {
+                          const e = {
+                            courses: [
+                              'Show me available courses',
+                              'How do I enroll?',
+                              'What certifications can I earn?',
+                              'Tell me about financial aid',
+                            ],
+                            dashboard: [
+                              "What's my progress?",
+                              'Show upcoming deadlines',
+                              'How do I access my courses?',
+                              'View my certificates',
+                            ],
+                            profile: [
+                              'How do I update my info?',
+                              'Change my password',
+                              'View my achievements',
+                              'Download my transcript',
+                            ],
+                            admin: [
+                              'Generate a report',
+                              'View user analytics',
+                              'Manage enrollments',
+                              'System settings',
+                            ],
+                            general: [
+                              'How do I get started?',
+                              'What programs do you offer?',
+                              'How much does it cost?',
+                              'Contact support',
+                            ],
+                          };
+                          return e[i] || e.general;
+                        })().map((e, s) =>
+                          t.jsx(
+                            'button',
+                            {
+                              onClick: () => f(e),
+                              style: {
+                                padding: '6px 12px',
+                                fontSize: '12px',
+                                backgroundColor: '#f3f4f6',
+                                border: '1px solid var(--brand-border)',
+                                borderRadius: '16px',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s',
+                                color: 'var(--brand-text)',
+                              },
+                              onMouseEnter: (e) => {
+                                e.currentTarget.style.backgroundColor =
+                                  'var(--brand-border)';
+                              },
+                              onMouseLeave: (e) => {
+                                e.currentTarget.style.backgroundColor =
+                                  '#f3f4f6';
+                              },
+                              children: e,
+                            },
+                            s
+                          )
+                        ),
+                      }),
+                    ],
+                  }),
+                t.jsx('div', {
+                  style: {
+                    padding: '16px',
+                    backgroundColor: 'white',
+                    borderTop: '1px solid var(--brand-border)',
+                  },
+                  children: t.jsxs('div', {
+                    style: { display: 'flex', gap: '8px' },
+                    children: [
+                      t.jsx('input', {
+                        type: 'text',
+                        'aria-label': 'text input',
+                        value: d,
+                        onChange: (e) => h(e.target.value),
+                        onKeyPress: (e) => {
+                          'Enter' !== e.key ||
+                            e.shiftKey ||
+                            (e.preventDefault(), f());
+                        },
+                        placeholder: 'Type your message...',
+                        disabled: u,
+                        style: {
+                          flex: 1,
+                          padding: '12px',
+                          border: '1px solid var(--brand-border)',
+                          borderRadius: '8px',
+                          fontSize: '14px',
+                          outline: 'none',
+                          transition: 'border-color 0.2s',
+                        },
+                        onFocus: (e) => {
+                          e.currentTarget.style.borderColor =
+                            'var(--brand-info)';
+                        },
+                        onBlur: (e) => {
+                          e.currentTarget.style.borderColor =
+                            'var(--brand-border)';
+                        },
+                      }),
+                      t.jsx('button', {
+                        onClick: () => f(),
+                        disabled: !d.trim() || u,
+                        style: {
+                          padding: '12px 16px',
+                          backgroundColor:
+                            d.trim() && !u
+                              ? 'var(--brand-info)'
+                              : 'var(--brand-border)',
+                          color:
+                            d.trim() && !u
+                              ? 'white'
+                              : 'var(--brand-text-light)',
+                          border: 'none',
+                          borderRadius: '8px',
+                          cursor: d.trim() && !u ? 'pointer' : 'not-allowed',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: 'all 0.2s',
+                        },
+                        'aria-label': 'Send message',
+                        children: t.jsx(n, { size: 20 }),
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            }),
+          t.jsx('style', {
+            children:
+              '\n        @keyframes typing {\n          0%, 60%, 100% {\n            transform: translateY(0);\n            opacity: 0.7;\n          }\n          30% {\n            transform: translateY(-10px);\n            opacity: 1;\n          }\n        }\n      ',
+          }),
+        ],
+      })
+    : t.jsx('button', {
+        onClick: () => m(!0),
+        className: 'chat-assistant-button',
+        style: {
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          width: '60px',
+          height: '60px',
+          borderRadius: '50%',
+          backgroundColor: 'var(--brand-info)',
+          color: 'white',
+          border: 'none',
+          boxShadow: '0 4px 12px rgba(59, 130, 246, 0.4)',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'all 0.3s ease',
+          zIndex: 1e3,
+        },
+        onMouseEnter: (e) => {
+          ((e.currentTarget.style.transform = 'scale(1.1)'),
+            (e.currentTarget.style.boxShadow =
+              '0 6px 16px rgba(59, 130, 246, 0.5)'));
+        },
+        onMouseLeave: (e) => {
+          ((e.currentTarget.style.transform = 'scale(1)'),
+            (e.currentTarget.style.boxShadow =
+              '0 4px 12px rgba(59, 130, 246, 0.4)'));
+        },
+        'aria-label': 'Open chat assistant',
+        children: t.jsx(s, { size: 28 }),
+      });
+}
+function g() {
+  const e = new Date().getFullYear();
+  return t.jsx('footer', {
+    className:
+      'w-full border-t bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40',
+    children: t.jsx('div', {
+      className: 'mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8',
+      children: t.jsxs('div', {
+        className:
+          'flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm text-brand-text-muted',
+        children: [
+          t.jsxs('p', {
+            className: 'leading-tight',
+            children: [
+              '© ',
+              e,
+              ' Elevate for Humanity. All rights reserved. Unauthorized copying, distribution, or reverse engineering is prohibited.',
+            ],
+          }),
+          t.jsxs('nav', {
+            className: 'flex flex-wrap items-center gap-x-4 gap-y-2',
+            children: [
+              t.jsx(j, {
+                to: '/legal/terms',
+                className: 'hover:text-brand-text',
+                children: 'Terms of Use',
+              }),
+              t.jsx(j, {
+                to: '/legal/privacy',
+                className: 'hover:text-brand-text',
+                children: 'Privacy',
+              }),
+              t.jsx(j, {
+                to: '/legal/ip-notice',
+                className: 'hover:text-brand-text',
+                children: 'IP Notice',
+              }),
+              t.jsx(j, {
+                to: '/legal/dmca',
+                className: 'hover:text-brand-text',
+                children: 'DMCA',
+              }),
+            ],
+          }),
+        ],
+      }),
+    }),
+  });
+}
+!(function () {
+  const e = document.createElement('link').relList;
+  if (!(e && e.supports && e.supports('modulepreload'))) {
+    for (const e of document.querySelectorAll('link[rel="modulepreload"]'))
+      t(e);
+    new MutationObserver((e) => {
+      for (const s of e)
+        if ('childList' === s.type)
+          for (const e of s.addedNodes)
+            'LINK' === e.tagName && 'modulepreload' === e.rel && t(e);
+    }).observe(document, { childList: !0, subtree: !0 });
+  }
+  function t(e) {
+    if (e.ep) return;
+    e.ep = !0;
+    const t = (function (e) {
+      const t = {};
+      return (
+        e.integrity && (t.integrity = e.integrity),
+        e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy),
+        'use-credentials' === e.crossOrigin
+          ? (t.credentials = 'include')
+          : 'anonymous' === e.crossOrigin
+            ? (t.credentials = 'omit')
+            : (t.credentials = 'same-origin'),
+        t
+      );
+    })(e);
+    fetch(e.href, t);
+  }
+})();
+const b = '/apply',
+  P = [
+    { to: '/blog', label: 'Blog' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Contact' },
+    { to: '/services', label: 'Services' },
+    { to: '/faq', label: 'FAQ' },
+    { to: '/student-portal', label: 'Student Portal' },
+    {
+      label: 'Programs',
+      items: [
+        { to: '/programs', label: 'All Programs' },
+        { to: '/programs/barber', label: 'Barber Apprenticeship' },
+        { to: '/programs/building-tech', label: 'Building Services' },
+        { to: '/programs/cna', label: 'CNA' },
+        { to: '/programs/cpr-aed-first-aid', label: 'CPR/AED/First Aid' },
+        {
+          to: '/programs/business-startup-marketing',
+          label: 'Business Startup',
+        },
+        { to: '/programs/tax-office-startup', label: 'Tax Office' },
+        { to: '/programs/esthetician-client-services', label: 'Esthetician' },
+        { to: '/programs/beauty-career-educator', label: 'Beauty Educator' },
+        {
+          to: '/programs/public-safety-reentry',
+          label: 'Public Safety Reentry',
+        },
+      ],
+    },
+    { to: '/elevate', label: 'Elevate' },
+  ];
+function f({ children: s }) {
+  const [a, r] = e.useState(!1),
+    [n, _] = e.useState(null);
+  return t.jsxs('div', {
+    className: 'min-h-screen flex flex-col bg-white',
+    children: [
+      t.jsxs('header', {
+        className:
+          'sticky top-0 z-50 w-full border-b border-brand-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80',
+        children: [
+          t.jsx('div', {
+            className: 'container',
+            children: t.jsxs('div', {
+              className: 'flex h-16 items-center justify-between',
+              children: [
+                t.jsx(j, {
+                  to: '/',
+                  className: 'flex items-center space-x-2',
+                  children: t.jsx('span', {
+                    className: 'text-xl font-bold text-brand-700',
+                    children: 'Elevate for Humanity',
+                  }),
+                }),
+                t.jsx('nav', {
+                  role: 'navigation',
+                  className: 'hidden lg:flex items-center gap-6',
+                  children: P.map((e) =>
+                    'items' in e
+                      ? t.jsxs(
+                          'div',
+                          {
+                            className: 'relative group',
+                            onMouseEnter: () => _(e.label),
+                            onMouseLeave: () => _(null),
+                            children: [
+                              t.jsxs('button', {
+                                className:
+                                  'flex items-center gap-1 text-sm font-medium text-brand-text hover:text-brand-600 transition-colors',
+                                children: [
+                                  e.label,
+                                  t.jsx(i, { className: 'h-4 w-4' }),
+                                ],
+                              }),
+                              n === e.label &&
+                                t.jsx('div', {
+                                  className:
+                                    'absolute top-full left-0 mt-2 w-56 bg-white border border-brand-border rounded-lg shadow-lg py-2',
+                                  children: e.items.map((e) =>
+                                    t.jsx(
+                                      c,
+                                      {
+                                        to: e.to,
+                                        className: ({ isActive: e }) =>
+                                          'block px-4 py-2 text-sm hover:bg-brand-surface transition-colors ' +
+                                          (e
+                                            ? 'text-brand-700 font-medium'
+                                            : 'text-brand-text'),
+                                        children: e.label,
+                                      },
+                                      e.to
+                                    )
+                                  ),
+                                }),
+                            ],
+                          },
+                          e.label
+                        )
+                      : t.jsx(
+                          c,
+                          {
+                            to: e.to,
+                            className: ({ isActive: e }) =>
+                              'text-sm font-medium transition-colors ' +
+                              (e
+                                ? 'text-brand-700'
+                                : 'text-brand-text hover:text-brand-600'),
+                            children: e.label,
+                          },
+                          e.to
+                        )
+                  ),
+                }),
+                t.jsxs('div', {
+                  className: 'hidden lg:flex items-center gap-4',
+                  children: [
+                    t.jsx(j, {
+                      to: '/auth/login',
+                      className:
+                        'text-sm font-medium text-brand-text hover:text-brand-600',
+                      children: 'Sign In',
+                    }),
+                    t.jsx('a', {
+                      href: b,
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className: 'btn',
+                      children: 'Apply Now',
+                    }),
+                  ],
+                }),
+                t.jsx('button', {
+                  className: 'lg:hidden',
+                  onClick: () => r(!a),
+                  children: a
+                    ? t.jsx(l, { className: 'h-6 w-6' })
+                    : t.jsx(o, { className: 'h-6 w-6' }),
+                }),
+              ],
+            }),
+          }),
+          a &&
+            t.jsx('div', {
+              className: 'lg:hidden border-t border-brand-border bg-white',
+              children: t.jsxs('div', {
+                className: 'container py-4 space-y-4',
+                children: [
+                  P.map((e) =>
+                    'items' in e
+                      ? t.jsxs(
+                          'div',
+                          {
+                            children: [
+                              t.jsx('div', {
+                                className: 'font-semibold text-brand-text mb-2',
+                                children: e.label,
+                              }),
+                              t.jsx('div', {
+                                className: 'space-y-1 pl-4',
+                                children: e.items.map((e) =>
+                                  t.jsx(
+                                    c,
+                                    {
+                                      to: e.to,
+                                      className: ({ isActive: e }) =>
+                                        'block py-1 text-sm ' +
+                                        (e
+                                          ? 'text-brand-700 font-medium'
+                                          : 'text-brand-text-muted'),
+                                      onClick: () => r(!1),
+                                      children: e.label,
+                                    },
+                                    e.to
+                                  )
+                                ),
+                              }),
+                            ],
+                          },
+                          e.label
+                        )
+                      : t.jsx(
+                          c,
+                          {
+                            to: e.to,
+                            className: ({ isActive: e }) =>
+                              'block py-2 text-sm font-medium ' +
+                              (e ? 'text-brand-700' : 'text-brand-text'),
+                            onClick: () => r(!1),
+                            children: e.label,
+                          },
+                          e.to
+                        )
+                  ),
+                  t.jsxs('div', {
+                    className: 'pt-4 border-t space-y-2',
+                    children: [
+                      t.jsx(j, {
+                        to: '/auth/login',
+                        className: 'block text-sm font-medium text-brand-text',
+                        onClick: () => r(!1),
+                        children: 'Sign In',
+                      }),
+                      t.jsx('a', {
+                        href: b,
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        className: 'btn block text-center',
+                        children: 'Apply Now',
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+        ],
+      }),
+      t.jsx('main', { role: 'main', className: 'flex-1', children: s }),
+      t.jsx(E, {}),
+      t.jsx('footer', {
+        className: 'mt-16 border-t bg-brand-surface-dark',
+        children: t.jsxs('div', {
+          className: 'container py-12',
+          children: [
+            t.jsxs('div', {
+              className: 'grid grid-cols-1 md:grid-cols-4 gap-8',
+              children: [
+                t.jsxs('div', {
+                  children: [
+                    t.jsx('h3', {
+                      className: 'font-bold text-brand-text mb-4',
+                      children: 'Elevate for Humanity',
+                    }),
+                    t.jsx('p', {
+                      className: 'text-sm text-brand-text-muted',
+                      children:
+                        'Career & Technical training that elevates communities.',
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  children: [
+                    t.jsx('h4', {
+                      className: 'font-semibold text-brand-text mb-3',
+                      children: 'Programs',
+                    }),
+                    t.jsxs('ul', {
+                      className: 'space-y-2 text-sm text-brand-text-muted',
+                      children: [
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/programs',
+                            className: 'hover:text-brand-600',
+                            children: 'All Programs',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/programs/barber',
+                            className: 'hover:text-brand-600',
+                            children: 'Barber Apprenticeship',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/programs/cna',
+                            className: 'hover:text-brand-600',
+                            children: 'CNA Training',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/programs/building-tech',
+                            className: 'hover:text-brand-600',
+                            children: 'Building Services',
+                          }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  children: [
+                    t.jsx('h4', {
+                      className: 'font-semibold text-brand-text mb-3',
+                      children: 'Resources',
+                    }),
+                    t.jsxs('ul', {
+                      className: 'space-y-2 text-sm text-brand-text-muted',
+                      children: [
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/about',
+                            className: 'hover:text-brand-600',
+                            children: 'About Us',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/partners',
+                            className: 'hover:text-brand-600',
+                            children: 'Partners',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/support',
+                            className: 'hover:text-brand-600',
+                            children: 'Support',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/verify',
+                            className: 'hover:text-brand-600',
+                            children: 'Verify Certificate',
+                          }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  children: [
+                    t.jsx('h4', {
+                      className: 'font-semibold text-brand-text mb-3',
+                      children: 'Contact',
+                    }),
+                    t.jsxs('ul', {
+                      className: 'space-y-2 text-sm text-brand-text-muted',
+                      children: [
+                        t.jsx('li', {
+                          children: t.jsx('a', {
+                            href: 'tel:+13173143757',
+                            className: 'hover:text-brand-600',
+                            children: '📞 (317) 314-3757',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/connect',
+                            className: 'hover:text-brand-600',
+                            children: '✉️ Contact Form',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx('span', {
+                            children: '📍 Indianapolis, IN',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx('span', {
+                            className: 'text-xs',
+                            children: 'elevateforhumanity.org',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          className: 'pt-2',
+                          children: t.jsx(j, {
+                            to: '/privacy-policy',
+                            className: 'hover:text-brand-600',
+                            children: 'Privacy Policy',
+                          }),
+                        }),
+                        t.jsx('li', {
+                          children: t.jsx(j, {
+                            to: '/terms-of-service',
+                            className: 'hover:text-brand-600',
+                            children: 'Terms',
+                          }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            t.jsxs('div', {
+              className: 'mt-8 pt-8 border-t border-brand-border',
+              children: [
+                t.jsxs('div', {
+                  className: 'flex justify-center gap-6 mb-4',
+                  children: [
+                    t.jsx('a', {
+                      href: 'https://www.facebook.com/elevate.founder',
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className:
+                        'text-brand-text-muted hover:text-brand-600 transition-colors',
+                      'aria-label': 'Facebook Personal Profile',
+                      children: t.jsx('svg', {
+                        className: 'w-6 h-6',
+                        fill: 'currentColor',
+                        viewBox: '0 0 24 24',
+                        children: t.jsx('path', {
+                          d: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
+                        }),
+                      }),
+                    }),
+                    t.jsx('a', {
+                      href: 'https://www.facebook.com/elevateforhumanity',
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className:
+                        'text-brand-text-muted hover:text-brand-600 transition-colors',
+                      'aria-label': 'Facebook Page',
+                      children: t.jsx('svg', {
+                        className: 'w-6 h-6',
+                        fill: 'currentColor',
+                        viewBox: '0 0 24 24',
+                        children: t.jsx('path', {
+                          d: 'M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z',
+                        }),
+                      }),
+                    }),
+                    t.jsx('a', {
+                      href: 'https://www.youtube.com/@elevateforhumanity',
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className:
+                        'text-brand-text-muted hover:text-brand-600 transition-colors',
+                      'aria-label': 'YouTube Channel',
+                      children: t.jsx('svg', {
+                        className: 'w-6 h-6',
+                        fill: 'currentColor',
+                        viewBox: '0 0 24 24',
+                        children: t.jsx('path', {
+                          d: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
+                        }),
+                      }),
+                    }),
+                    t.jsx('a', {
+                      href: 'https://www.instagram.com/elevateforhumanity',
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className:
+                        'text-brand-text-muted hover:text-brand-600 transition-colors',
+                      'aria-label': 'Instagram',
+                      children: t.jsx('svg', {
+                        className: 'w-6 h-6',
+                        fill: 'currentColor',
+                        viewBox: '0 0 24 24',
+                        children: t.jsx('path', {
+                          d: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z',
+                        }),
+                      }),
+                    }),
+                    t.jsx('a', {
+                      href: 'https://www.linkedin.com/company/elevateforhumanity',
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      className:
+                        'text-brand-text-muted hover:text-brand-600 transition-colors',
+                      'aria-label': 'LinkedIn',
+                      children: t.jsx('svg', {
+                        className: 'w-6 h-6',
+                        fill: 'currentColor',
+                        viewBox: '0 0 24 24',
+                        children: t.jsx('path', {
+                          d: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
+                        }),
+                      }),
+                    }),
+                  ],
+                }),
+                t.jsxs('div', {
+                  className: 'text-center text-sm text-brand-text-muted',
+                  children: [
+                    '© ',
+                    new Date().getFullYear(),
+                    ' Elevate for Humanity. All rights reserved.',
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      t.jsx(g, {}),
+    ],
+  });
+}
+class I extends _.Component {
+  constructor(e) {
+    (super(e), (this.state = { e: null }));
+  }
+  static getDerivedStateFromError(e) {
+    return { e: e };
+  }
+  componentDidCatch(e, t) {
+    console.error('Route error:', e, t);
+  }
+  render() {
+    var e;
+    return this.state.e
+      ? _.createElement(
+          'pre',
+          null,
+          String(
+            (null == (e = this.state.e) ? void 0 : e.message) || this.state.e
+          )
+        )
+      : this.props.children;
+  }
+}
+const A = () =>
+    t.jsx('div', {
+      className: 'min-h-screen grid place-items-center',
+      children: 'Loading…',
+    }),
+  D = e.lazy(() =>
+    y(() => import('./AITutor-BuPYIbHj.js'), __vite__mapDeps([0, 1, 2]))
+  ),
+  z = e.lazy(() =>
+    y(
+      () => import('./About-78p6JPZg.js'),
+      __vite__mapDeps([3, 1, 2, 4, 5, 6, 7, 8])
+    )
+  ),
+  T = e.lazy(() =>
+    y(() => import('./Accessibility-Zl11sVQm.js'), __vite__mapDeps([9, 1, 2]))
+  ),
+  R = e.lazy(() =>
+    y(
+      () => import('./AccessibilitySettings-iHv241bO.js'),
+      __vite__mapDeps([10, 1, 2, 11, 5])
+    )
+  ),
+  L = e.lazy(() =>
+    y(
+      () => import('./Account-CSKRXG0X.js'),
+      __vite__mapDeps([12, 1, 2, 5, 11, 13])
+    )
+  ),
+  V = e.lazy(() =>
+    y(() => import('./AdminConsole-B1_TW0qi.js'), __vite__mapDeps([14, 1, 2]))
+  ),
+  v = e.lazy(() =>
+    y(
+      () => import('./AdminDashboard-Br9Ci-X5.js'),
+      __vite__mapDeps([15, 1, 2, 5, 4, 8])
+    )
+  ),
+  O = e.lazy(() =>
+    y(
+      () => import('./Analytics-C99OF5bN.js'),
+      __vite__mapDeps([16, 1, 2, 11, 5, 13])
+    )
+  ),
+  w = e.lazy(() =>
+    y(
+      () => import('./AnalyticsDashboard-DtTdW-Jd.js'),
+      __vite__mapDeps([17, 1, 2])
+    )
+  ),
+  C = e.lazy(() =>
+    y(
+      () => import('./AnalyticsDashboardRUM-BkiQdOi4.js'),
+      __vite__mapDeps([18, 1, 2, 11, 5])
+    )
+  ),
+  N = e.lazy(() =>
+    y(
+      () => import('./ApplyScholarship-De9gWW8S.js'),
+      __vite__mapDeps([19, 1, 2])
+    )
+  ),
+  S = e.lazy(() =>
+    y(() => import('./Assignment-DEWzKAUa.js'), __vite__mapDeps([20, 1, 2]))
+  ),
+  k = e.lazy(() =>
+    y(
+      () => import('./AutopilotAdmin-BWPQSCf-.js'),
+      __vite__mapDeps([21, 1, 2, 11, 5])
+    )
+  ),
+  M = e.lazy(() =>
+    y(
+      () => import('./BingSiteVerification-CfUcxt4s.js'),
+      __vite__mapDeps([22, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  H = e.lazy(() =>
+    y(() => import('./Blog-DSjAvo2a.js'), __vite__mapDeps([23, 1, 2]))
+  ),
+  B = e.lazy(() =>
+    y(() => import('./Branding-BXc4pWoL.js'), __vite__mapDeps([24, 1, 2]))
+  ),
+  F = e.lazy(() =>
+    y(() => import('./BusinessHub-Ban04r0X.js'), __vite__mapDeps([25, 1, 2]))
+  ),
+  W = e.lazy(() =>
+    y(
+      () => import('./CPRFirstAidTraining-rBguNWWB.js'),
+      __vite__mapDeps([26, 1, 2])
+    )
+  ),
+  q = e.lazy(() =>
+    y(
+      () => import('./CRMDashboardPage-Bwr3pcHt.js'),
+      __vite__mapDeps([27, 1, 2])
+    )
+  ),
+  G = e.lazy(() =>
+    y(() => import('./Calendar-CMFCLHOJ.js'), __vite__mapDeps([28, 1, 2]))
+  ),
+  Q = e.lazy(() =>
+    y(
+      () => import('./CertificatePage-CqzDMnDI.js'),
+      __vite__mapDeps([29, 1, 2, 30, 31, 32, 5])
+    )
+  ),
+  U = e.lazy(() =>
+    y(
+      () => import('./Certificates-CHK3hIG9.js'),
+      __vite__mapDeps([33, 1, 2, 5, 11])
+    )
+  ),
+  Y = e.lazy(() =>
+    y(
+      () => import('./CertiportTestingCenter-BeWuwFD8.js'),
+      __vite__mapDeps([34, 1, 2])
+    )
+  ),
+  K = e.lazy(() =>
+    y(
+      () => import('./CloneLanding-sEsV62Sy.js'),
+      __vite__mapDeps([35, 1, 2, 4, 5, 8, 6])
+    )
+  ),
+  J = e.lazy(() =>
+    y(() => import('./Community-C6x1qcVw.js'), __vite__mapDeps([36, 1, 2, 37]))
+  ),
+  X = e.lazy(() =>
+    y(() => import('./CommunityHub-G-_C-WXr.js'), __vite__mapDeps([38, 1, 2]))
+  ),
+  Z = e.lazy(() =>
+    y(() => import('./Compliance-CMKOAsfU.js'), __vite__mapDeps([39, 1, 2, 5]))
+  ),
+  $ = e.lazy(() =>
+    y(() => import('./Connect-DouxzOI1.js'), __vite__mapDeps([40, 1, 2, 5]))
+  ),
+  ee = e.lazy(() =>
+    y(
+      () => import('./Contact-BkzwOI_l.js'),
+      __vite__mapDeps([41, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  te = e.lazy(() =>
+    y(() => import('./Course-D-Pvhx1U.js'), __vite__mapDeps([42, 1, 2, 5, 11]))
+  ),
+  se = e.lazy(() =>
+    y(() => import('./CourseBuilder-Cqk3fpyO.js'), __vite__mapDeps([43, 1, 2]))
+  ),
+  ae = e.lazy(() =>
+    y(
+      () => import('./CourseCatalog-DXKCkAdj.js'),
+      __vite__mapDeps([44, 1, 2, 45, 46, 5])
+    )
+  ),
+  re = e.lazy(() =>
+    y(
+      () => import('./CourseDetail-979Bv6KN.js'),
+      __vite__mapDeps([47, 1, 2, 5])
+    )
+  ),
+  le = e.lazy(() =>
+    y(
+      () => import('./CourseLibrary-Cp589btU.js'),
+      __vite__mapDeps([48, 1, 2, 49, 31, 32])
+    )
+  ),
+  ne = e.lazy(() =>
+    y(
+      () => import('./CurriculumUpload-C53XoTpt.js'),
+      __vite__mapDeps([50, 1, 2])
+    )
+  ),
+  ie = e.lazy(() =>
+    y(() => import('./Docs-C5H5SXTv.js'), __vite__mapDeps([51, 1, 2]))
+  ),
+  oe = e.lazy(() =>
+    y(() => import('./Donate-fUgpz9T4.js'), __vite__mapDeps([52, 1, 2]))
+  ),
+  _e = e.lazy(() =>
+    y(
+      () => import('./DonateSuccess-B30WCFW3.js'),
+      __vite__mapDeps([53, 1, 2, 5])
+    )
+  ),
+  me = e.lazy(() =>
+    y(
+      () => import('./DurableAI-DLmBnXqG.js'),
+      __vite__mapDeps([54, 1, 2, 4, 5, 8, 6])
+    )
+  ),
+  pe = e.lazy(() =>
+    y(
+      () => import('./DurableConsole-nrXcXdmS.js'),
+      __vite__mapDeps([55, 1, 2, 4, 5, 8])
+    )
+  ),
+  xe = e.lazy(() =>
+    y(
+      () => import('./DurableFeatures-DU0q8Sgz.js'),
+      __vite__mapDeps([56, 1, 2, 4, 5, 8, 7])
+    )
+  ),
+  je = e.lazy(() =>
+    y(
+      () => import('./DurableLanding-BvF_p23E.js'),
+      __vite__mapDeps([57, 1, 2, 4, 5, 8, 6, 7])
+    )
+  ),
+  ce = e.lazy(() =>
+    y(
+      () => import('./DurablePricing-C6L2hLOe.js'),
+      __vite__mapDeps([58, 1, 2, 5, 4, 8])
+    )
+  ),
+  de = e.lazy(() =>
+    y(
+      () => import('./DurableTemplates-DIWqOjQJ.js'),
+      __vite__mapDeps([59, 1, 2, 5, 4, 8, 7])
+    )
+  ),
+  he = e.lazy(() =>
+    y(
+      () => import('./EFHLanding-Cw7HXROO.js'),
+      __vite__mapDeps([60, 1, 2, 61, 5, 62])
+    )
+  ),
+  ue = e.lazy(() =>
+    y(
+      () => import('./Ecommerce-DPmw47_d.js'),
+      __vite__mapDeps([63, 1, 2, 11, 5])
+    )
+  ),
+  ye = e.lazy(() =>
+    y(() => import('./Ecosystem-otuL5-46.js'), __vite__mapDeps([64, 1, 2]))
+  ),
+  Ee = e.lazy(() =>
+    y(() => import('./EducatorHub-BMq8WjjR.js'), __vite__mapDeps([65, 1, 2]))
+  ),
+  ge = e.lazy(() =>
+    y(() => import('./Elevate-DtoWqhrA.js'), __vite__mapDeps([66, 1, 2]))
+  ),
+  be = e.lazy(() =>
+    y(
+      () => import('./ElevateBrain-DzPyNzFU.js'),
+      __vite__mapDeps([67, 32, 2, 1, 5])
+    )
+  ),
+  Pe = e.lazy(() =>
+    y(() => import('./Email-DtFpeD1b.js'), __vite__mapDeps([68, 1, 2]))
+  ),
+  fe = e.lazy(() =>
+    y(() => import('./FAQ-Pd4E27Tn.js'), __vite__mapDeps([69, 1, 2]))
+  ),
+  Ie = e.lazy(() =>
+    y(() => import('./FileManager-_oJ5Q3Wo.js'), __vite__mapDeps([70, 1, 2]))
+  ),
+  Ae = e.lazy(() =>
+    y(
+      () => import('./ForgotPassword-CS0_g-C8.js'),
+      __vite__mapDeps([71, 1, 2, 5])
+    )
+  ),
+  De = e.lazy(() =>
+    y(() => import('./Forms-Crl1gGee.js'), __vite__mapDeps([72, 1, 2, 11, 5]))
+  ),
+  ze = e.lazy(() =>
+    y(
+      () => import('./FullSailLanding-D3aSmO-U.js'),
+      __vite__mapDeps([73, 1, 2, 4, 5, 8])
+    )
+  ),
+  Te = e.lazy(() =>
+    y(() => import('./FundingImpact-DtjMxSXC.js'), __vite__mapDeps([74, 1, 2]))
+  ),
+  Re = e.lazy(() =>
+    y(() => import('./GetStarted-CE5y6Z-3.js'), __vite__mapDeps([75, 1, 2, 5]))
+  ),
+  Le = e.lazy(() =>
+    y(
+      () => import('./GoogleAnalyticsSetup-B1QP7qJh.js'),
+      __vite__mapDeps([76, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Ve = e.lazy(() =>
+    y(
+      () => import('./GoogleSiteVerification-CoKhjUCP.js'),
+      __vite__mapDeps([77, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  ve = e.lazy(() =>
+    y(() => import('./Government-CXcg7Aqo.js'), __vite__mapDeps([78, 1, 2]))
+  ),
+  Oe = e.lazy(() =>
+    y(
+      () => import('./GradeBook-BR6aj8fy.js'),
+      __vite__mapDeps([79, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  we = e.lazy(() =>
+    y(() => import('./Groups-Cbf7bhLg.js'), __vite__mapDeps([81, 1, 2, 11, 5]))
+  ),
+  Ce = e.lazy(() =>
+    y(
+      () => import('./Home-Durable-DLF7aqEF.js'),
+      __vite__mapDeps([82, 1, 2, 5, 32])
+    )
+  ),
+  Ne = e.lazy(() =>
+    y(
+      () => import('./Home-z0giJPKd.js'),
+      __vite__mapDeps([83, 1, 2, 4, 5, 6, 7, 8])
+    )
+  ),
+  Se = e.lazy(() =>
+    y(
+      () => import('./Home-BT10xIpl.js'),
+      __vite__mapDeps([84, 1, 2, 5, 85, 32])
+    )
+  ),
+  ke = e.lazy(() =>
+    y(() => import('./HomePage-Bmqm89PJ.js'), __vite__mapDeps([86, 1, 2, 5]))
+  ),
+  Me = e.lazy(() =>
+    y(() => import('./Hub-FzDrazuc.js'), __vite__mapDeps([87, 1, 2, 5]))
+  ),
+  He = e.lazy(() =>
+    y(
+      () => import('./Instructor-DOIMjn3J.js'),
+      __vite__mapDeps([88, 1, 2, 5, 11, 13])
+    )
+  ),
+  Be = e.lazy(() =>
+    y(
+      () => import('./InstructorCourseCreate-CdrutYgQ.js'),
+      __vite__mapDeps([89, 1, 2, 5, 8, 45])
+    )
+  ),
+  Fe = e.lazy(() =>
+    y(
+      () => import('./InstructorEdit-fAuP2lDz.js'),
+      __vite__mapDeps([90, 1, 2, 5, 11])
+    )
+  ),
+  We = e.lazy(() =>
+    y(
+      () => import('./InstructorNew-DsxV4Bfd.js'),
+      __vite__mapDeps([91, 1, 2, 5, 11])
+    )
+  ),
+  qe = e.lazy(() =>
+    y(
+      () => import('./Integrations-CoD4HO_B.js'),
+      __vite__mapDeps([92, 1, 2, 11, 5])
+    )
+  ),
+  Ge = e.lazy(() =>
+    y(
+      () => import('./IntuitTaxBookkeeping-DzCrkjmb.js'),
+      __vite__mapDeps([93, 1, 2])
+    )
+  ),
+  Qe = e.lazy(() =>
+    y(
+      () => import('./InvoiceCreatorPage-za9GQimE.js'),
+      __vite__mapDeps([94, 1, 2, 5])
+    )
+  ),
+  Ue = e.lazy(() =>
+    y(
+      () => import('./InvoiceListPage-BW5xtWuK.js'),
+      __vite__mapDeps([95, 1, 2, 5])
+    )
+  ),
+  Ye = e.lazy(() =>
+    y(
+      () => import('./JobReadyIndy-KHfUGcbv.js'),
+      __vite__mapDeps([96, 1, 2, 4, 5, 8])
+    )
+  ),
+  Ke = e.lazy(() =>
+    y(() => import('./LMS-DHUhc4Aw.js'), __vite__mapDeps([97, 1, 2, 5]))
+  ),
+  Je = e.lazy(() =>
+    y(() => import('./LMSCourses-BKJGFseE.js'), __vite__mapDeps([98, 1, 2, 5]))
+  ),
+  Xe = e.lazy(() =>
+    y(
+      () => import('./LMSDashboard-BvC5ca4A.js'),
+      __vite__mapDeps([99, 1, 2, 5, 4, 8, 45])
+    )
+  ),
+  Ze = e.lazy(() =>
+    y(
+      () => import('./LMSLanding-DLKYRM0k.js'),
+      __vite__mapDeps([100, 1, 2, 5, 4, 8, 45, 46])
+    )
+  ),
+  $e = e.lazy(() =>
+    y(
+      () => import('./LiveClassRoom-D0I-sDFY.js'),
+      __vite__mapDeps([101, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  et = e.lazy(() =>
+    y(
+      () => import('./LiveClassSchedule-k6v4InG8.js'),
+      __vite__mapDeps([102, 1, 2, 5, 80, 32, 11])
+    )
+  ),
+  tt = e.lazy(() =>
+    y(
+      () => import('./Login-CIVE3WEz.js'),
+      __vite__mapDeps([103, 1, 2, 5, 80, 32])
+    )
+  ),
+  st = e.lazy(() =>
+    y(
+      () => import('./MainLanding-DM24mmq2.js'),
+      __vite__mapDeps([104, 1, 2, 5, 4, 8])
+    )
+  ),
+  at = e.lazy(() =>
+    y(
+      () => import('./MobileApp-BoI2zMiz.js'),
+      __vite__mapDeps([105, 1, 2, 11, 5])
+    )
+  ),
+  rt = e.lazy(() =>
+    y(
+      () => import('./MyCertificates-CA0ZpxkZ.js'),
+      __vite__mapDeps([106, 1, 2, 5, 49, 31, 32, 30])
+    )
+  ),
+  lt = e.lazy(() =>
+    y(
+      () => import('./NCCERCareerStarter-RlxmRhAi.js'),
+      __vite__mapDeps([107, 1, 2])
+    )
+  ),
+  nt = e.lazy(() =>
+    y(() => import('./NotFound-Da6tw7lK.js'), __vite__mapDeps([108, 1, 2, 5]))
+  ),
+  it = e.lazy(() =>
+    y(() => import('./NotebookLM-3gT-5dUv.js'), __vite__mapDeps([109, 1, 2]))
+  ),
+  ot = e.lazy(() =>
+    y(
+      () => import('./NotificationCenter-a1ZHZ1dr.js'),
+      __vite__mapDeps([110, 1, 2, 5, 80, 32, 11])
+    )
+  ),
+  _t = e.lazy(() =>
+    y(
+      () => import('./NotificationSettings-C4SKrkfF.js'),
+      __vite__mapDeps([111, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  mt = e.lazy(() =>
+    y(
+      () => import('./Notifications-CYs2QmmY.js'),
+      __vite__mapDeps([112, 1, 2, 11, 5])
+    )
+  ),
+  pt = e.lazy(() =>
+    y(() => import('./OurPartners-CeK8FnRS.js'), __vite__mapDeps([113, 1, 2]))
+  ),
+  xt = e.lazy(() =>
+    y(
+      () => import('./Partners-DUH9SS_3.js'),
+      __vite__mapDeps([114, 1, 2, 5, 11])
+    )
+  ),
+  jt = e.lazy(() =>
+    y(() => import('./Pay-DwL5oR0c.js'), __vite__mapDeps([115, 1, 2, 5]))
+  ),
+  ct = e.lazy(() =>
+    y(
+      () => import('./PaymentCancelled-C26RTAx2.js'),
+      __vite__mapDeps([116, 1, 2, 5])
+    )
+  ),
+  dt = e.lazy(() =>
+    y(
+      () => import('./PaymentSuccess-W73x_itT.js'),
+      __vite__mapDeps([117, 1, 2, 5])
+    )
+  ),
+  ht = e.lazy(() =>
+    y(() => import('./Philanthropy-SvRjRG6a.js'), __vite__mapDeps([118, 1, 2]))
+  ),
+  ut = e.lazy(() =>
+    y(
+      () => import('./PrivacyPolicy-rqLlLXUr.js'),
+      __vite__mapDeps([119, 1, 2, 5, 11])
+    )
+  ),
+  yt = e.lazy(() =>
+    y(
+      () => import('./ProfessionalHome-Bc9EQ6mU.js'),
+      __vite__mapDeps([120, 1, 2, 37])
+    )
+  ),
+  Et = e.lazy(() =>
+    y(
+      () => import('./ProfessionalSite-DUO7C4sH.js'),
+      __vite__mapDeps([121, 1, 2])
+    )
+  ),
+  gt = e.lazy(() =>
+    y(
+      () => import('./Profile-Cp05Gzvv.js'),
+      __vite__mapDeps([122, 1, 2, 5, 11])
+    )
+  ),
+  bt = e.lazy(() =>
+    y(
+      () => import('./ProgramDetail-BfW20AW4.js'),
+      __vite__mapDeps([123, 1, 2, 5, 62])
+    )
+  ),
+  Pt = e.lazy(() =>
+    y(
+      () => import('./ProgramPage-C9TBhZ8C.js'),
+      __vite__mapDeps([124, 1, 2, 5, 125, 31, 32])
+    )
+  ),
+  ft = e.lazy(() =>
+    y(() => import('./Programs-CA32cEhz.js'), __vite__mapDeps([126, 1, 2, 5]))
+  ),
+  It = e.lazy(() =>
+    y(
+      () => import('./ProgramsDurable-ClFo_FOY.js'),
+      __vite__mapDeps([127, 1, 2, 5])
+    )
+  ),
+  At = e.lazy(() =>
+    y(
+      () => import('./ProgramsIndex-6SehAGeU.js'),
+      __vite__mapDeps([128, 1, 2, 125, 31, 32])
+    )
+  ),
+  Dt = e.lazy(() =>
+    y(
+      () => import('./ProgramsPage-DTZhUPUH.js'),
+      __vite__mapDeps([129, 1, 2, 4, 5, 6, 7, 61, 8])
+    )
+  ),
+  zt = e.lazy(() =>
+    y(
+      () => import('./Quiz-DN0kVJJ2.js'),
+      __vite__mapDeps([130, 1, 2, 11, 5, 13])
+    )
+  ),
+  Tt = e.lazy(() =>
+    y(
+      () => import('./QuizBuilder-D0M1mwhb.js'),
+      __vite__mapDeps([131, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  Rt = e.lazy(() =>
+    y(
+      () => import('./QuizResults-6cnghCcL.js'),
+      __vite__mapDeps([132, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  Lt = e.lazy(() =>
+    y(
+      () => import('./QuizTake-DMUCenhp.js'),
+      __vite__mapDeps([133, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  Vt = e.lazy(() =>
+    y(
+      () => import('./RefundPolicy-28qif4im.js'),
+      __vite__mapDeps([134, 1, 2, 5, 11])
+    )
+  ),
+  vt = e.lazy(() =>
+    y(
+      () => import('./ResetPassword-BhqH3z2W.js'),
+      __vite__mapDeps([135, 1, 2, 5, 80, 32])
+    )
+  ),
+  Ot = e.lazy(() =>
+    y(
+      () => import('./SearchResults-BbL4DHGy.js'),
+      __vite__mapDeps([136, 1, 2, 5])
+    )
+  ),
+  wt = e.lazy(() =>
+    y(
+      () => import('./SereneComfortCare-CkCmvbxq.js'),
+      __vite__mapDeps([137, 1, 2, 5, 4, 8])
+    )
+  ),
+  Ct = e.lazy(() =>
+    y(() => import('./Services-BIyR8dC_.js'), __vite__mapDeps([138, 1, 2]))
+  ),
+  Nt = e.lazy(() =>
+    y(
+      () => import('./Settings-OgzUzVVV.js'),
+      __vite__mapDeps([139, 1, 2, 5, 11])
+    )
+  ),
+  St = e.lazy(() =>
+    y(() => import('./Sheets-Dn4-2_lB.js'), __vite__mapDeps([140, 1, 2]))
+  ),
+  kt = e.lazy(() =>
+    y(
+      () => import('./Signup-CLhHOPyc.js'),
+      __vite__mapDeps([141, 1, 2, 5, 80, 32])
+    )
+  ),
+  Mt = e.lazy(() =>
+    y(() => import('./Sitemap-DISf3kpO.js'), __vite__mapDeps([142, 1, 2, 5]))
+  ),
+  Ht = e.lazy(() =>
+    y(() => import('./Sites-Bs3XIaeO.js'), __vite__mapDeps([143, 1, 2, 11, 5]))
+  ),
+  Bt = e.lazy(() =>
+    y(() => import('./Slides-TczZVLVD.js'), __vite__mapDeps([144, 1, 2]))
+  ),
+  Ft = e.lazy(() =>
+    y(
+      () => import('./SocialMediaManager-D5Yqo08L.js'),
+      __vite__mapDeps([145, 1, 2, 11, 5])
+    )
+  ),
+  Wt = e.lazy(() =>
+    y(() => import('./Student-DP4Fgh3e.js'), __vite__mapDeps([146, 1, 2]))
+  ),
+  qt = e.lazy(() =>
+    y(
+      () => import('./StudentDashboard-DXpY2Y7t.js'),
+      __vite__mapDeps([147, 1, 2, 5, 4, 8, 148, 80, 32])
+    )
+  ),
+  Gt = e.lazy(() =>
+    y(
+      () => import('./StudentGrades-DYOLzcWY.js'),
+      __vite__mapDeps([149, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  Qt = e.lazy(() =>
+    y(
+      () => import('./StudentHandbook-WeOqIlZl.js'),
+      __vite__mapDeps([150, 1, 2, 5, 11])
+    )
+  ),
+  Ut = e.lazy(() =>
+    y(() => import('./StudentHub-BAXZyLP6.js'), __vite__mapDeps([151, 1, 2]))
+  ),
+  Yt = e.lazy(() =>
+    y(
+      () => import('./StudentPortal-CCt_ISdr.js'),
+      __vite__mapDeps([152, 1, 2, 5])
+    )
+  ),
+  Kt = e.lazy(() =>
+    y(
+      () => import('./StudentPortalLMS-ByLSHgIQ.js'),
+      __vite__mapDeps([153, 1, 2, 4, 5, 8])
+    )
+  ),
+  Jt = e.lazy(() =>
+    y(
+      () => import('./Support-Bailx-Qt.js'),
+      __vite__mapDeps([154, 1, 2, 5, 11])
+    )
+  ),
+  Xt = e.lazy(() =>
+    y(
+      () => import('./TermsOfService-dALJjYT3.js'),
+      __vite__mapDeps([155, 1, 2, 5, 11])
+    )
+  ),
+  Zt = e.lazy(() =>
+    y(() => import('./ThankYou-bmZWvrnC.js'), __vite__mapDeps([156, 1, 2, 5]))
+  ),
+  $t = e.lazy(() =>
+    y(
+      () => import('./UrbanBuildCrew-DJWqDovR.js'),
+      __vite__mapDeps([157, 1, 2, 5, 4, 8])
+    )
+  ),
+  es = e.lazy(() =>
+    y(
+      () => import('./UserManagement-BwDujh7h.js'),
+      __vite__mapDeps([158, 1, 2, 11, 5])
+    )
+  ),
+  ts = e.lazy(() =>
+    y(
+      () => import('./VITAProgram-DmEbchOO.js'),
+      __vite__mapDeps([159, 1, 2, 5, 11, 13, 45, 46])
+    )
+  ),
+  ss = e.lazy(() =>
+    y(
+      () => import('./VITATaxCertification-CjZoS0HK.js'),
+      __vite__mapDeps([160, 1, 2])
+    )
+  ),
+  as = e.lazy(() =>
+    y(
+      () => import('./VerifyCertificate-Bo_xmXtC.js'),
+      __vite__mapDeps([161, 1, 2, 30, 31, 32])
+    )
+  ),
+  rs = e.lazy(() =>
+    y(
+      () => import('./VerifyCertificatePage-BWPbkFXB.js'),
+      __vite__mapDeps([162, 1, 2, 5, 30, 31, 32])
+    )
+  ),
+  ls = e.lazy(() =>
+    y(
+      () => import('./VerifyEmail-CXa6avY_.js'),
+      __vite__mapDeps([163, 1, 2, 5])
+    )
+  ),
+  ns = e.lazy(() =>
+    y(
+      () => import('./VideoMeeting-Bd05VZkm.js'),
+      __vite__mapDeps([164, 1, 2, 5])
+    )
+  ),
+  is = e.lazy(() =>
+    y(() => import('./Vids-BinC2cRV.js'), __vite__mapDeps([165, 1, 2, 11, 5]))
+  ),
+  os = e.lazy(() =>
+    y(
+      () => import('./WebsiteBuilder-BvtruVPl.js'),
+      __vite__mapDeps([166, 1, 2, 4, 5, 8, 11, 80, 32])
+    )
+  ),
+  _s = e.lazy(() =>
+    y(
+      () => import('./AutopilotTasks-CkeAkNII.js'),
+      __vite__mapDeps([167, 1, 2, 80, 32, 11, 5])
+    )
+  ),
+  ms = e.lazy(() =>
+    y(
+      () => import('./Account-n_Begp-g.js'),
+      __vite__mapDeps([168, 1, 2, 49, 31, 32, 5])
+    )
+  ),
+  ps = e.lazy(() =>
+    y(
+      () => import('./ForgotPassword-DFRGmFHU.js'),
+      __vite__mapDeps([169, 1, 2, 5, 4, 7, 8])
+    )
+  ),
+  xs = e.lazy(() =>
+    y(
+      () => import('./Login-q3272Prd.js'),
+      __vite__mapDeps([170, 1, 2, 5, 4, 7, 8])
+    )
+  ),
+  js = e.lazy(() =>
+    y(
+      () => import('./Signup-B9pJrr1_.js'),
+      __vite__mapDeps([171, 1, 2, 5, 4, 7, 8])
+    )
+  ),
+  cs = e.lazy(() =>
+    y(
+      () => import('./CourseEditor-2flF_fk_.js'),
+      __vite__mapDeps([172, 1, 2, 31, 32, 5])
+    )
+  ),
+  ds = e.lazy(() =>
+    y(
+      () => import('./InstructorDashboard-DYX1119W.js'),
+      __vite__mapDeps([173, 1, 2, 5, 4, 8, 148, 80, 32])
+    )
+  ),
+  hs = e.lazy(() =>
+    y(
+      () => import('./LessonManager-CnQd-ZS5.js'),
+      __vite__mapDeps([174, 1, 2, 5, 31, 32])
+    )
+  ),
+  us = e.lazy(() =>
+    y(
+      () => import('./DMCA-BBfFtchM.js'),
+      __vite__mapDeps([175, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  ys = e.lazy(() =>
+    y(
+      () => import('./LegalIPNotice-DbNdDhS8.js'),
+      __vite__mapDeps([176, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Es = e.lazy(() =>
+    y(
+      () => import('./Privacy-DIKQylVj.js'),
+      __vite__mapDeps([177, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  gs = e.lazy(() =>
+    y(
+      () => import('./TermsOfUse-DASBmnT-.js'),
+      __vite__mapDeps([178, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  bs = e.lazy(() =>
+    y(
+      () => import('./ClientSafetyCertification-DpgsozwL.js'),
+      __vite__mapDeps([179, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Ps = e.lazy(() =>
+    y(
+      () => import('./CoursePage-th1vPjPM.js'),
+      __vite__mapDeps([180, 1, 2, 4, 5, 8, 181])
+    )
+  ),
+  fs = e.lazy(() =>
+    y(
+      () => import('./CoursesIndex-CZSrbUCF.js'),
+      __vite__mapDeps([182, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Is = e.lazy(() =>
+    y(
+      () => import('./Dashboard-CSncys8c.js'),
+      __vite__mapDeps([183, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  As = e.lazy(() =>
+    y(
+      () => import('./DiscussionsPage-M8F4D-Dm.js'),
+      __vite__mapDeps([184, 1, 2, 4, 5, 8, 185])
+    )
+  ),
+  Ds = e.lazy(() =>
+    y(
+      () => import('./EnrollmentSuccess-BUiieTop.js'),
+      __vite__mapDeps([186, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  zs = e.lazy(() =>
+    y(
+      () => import('./LessonPage-Cnt0TIfH.js'),
+      __vite__mapDeps([187, 1, 2, 4, 5, 8, 185])
+    )
+  ),
+  Ts = e.lazy(() =>
+    y(
+      () => import('./MiladyBarberApprenticeship-3uXvVRzx.js'),
+      __vite__mapDeps([188, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Rs = e.lazy(() =>
+    y(
+      () => import('./MiladyBarberCourse-CpY8a9U4.js'),
+      __vite__mapDeps([189, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Ls = e.lazy(() =>
+    y(
+      () => import('./MiladyRISEEnrollment-CkdhlFWg.js'),
+      __vite__mapDeps([190, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Vs = e.lazy(() =>
+    y(
+      () => import('./MiladyRISEIntegration-C8S52uWt.js'),
+      __vite__mapDeps([191, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  vs = e.lazy(() =>
+    y(
+      () => import('./MyCertificatesPage-Ca-QD4OT.js'),
+      __vite__mapDeps([192, 1, 2, 5, 30, 31, 32, 148, 80])
+    )
+  ),
+  Os = e.lazy(() =>
+    y(
+      () => import('./QuizBlock-BTZE1wUB.js'),
+      __vite__mapDeps([193, 1, 2, 4, 5, 8, 148, 80, 32, 30, 31])
+    )
+  ),
+  ws = e.lazy(() =>
+    y(
+      () => import('./BarberPage-DKfzcmQX.js'),
+      __vite__mapDeps([194, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Cs = e.lazy(() =>
+    y(
+      () => import('./BuildingTechPage-CC-sT-vC.js'),
+      __vite__mapDeps([196, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Ns = e.lazy(() =>
+    y(
+      () => import('./CPRSPage-xgIoSaR_.js'),
+      __vite__mapDeps([197, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Ss = e.lazy(() =>
+    y(
+      () => import('./DigitalSkillsPage-CRbrDuDF.js'),
+      __vite__mapDeps([198, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  ks = e.lazy(() =>
+    y(
+      () => import('./DrugTestingPage-B6S9Docc.js'),
+      __vite__mapDeps([199, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Ms = e.lazy(() =>
+    y(
+      () => import('./HVACPage-B02efFjd.js'),
+      __vite__mapDeps([200, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Hs = e.lazy(() =>
+    y(
+      () => import('./HealthcarePage-DuPXeja5.js'),
+      __vite__mapDeps([201, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Bs = e.lazy(() =>
+    y(
+      () => import('./LeadershipPage-69kOn2k7.js'),
+      __vite__mapDeps([202, 1, 2, 195, 4, 5, 6, 7, 8])
+    )
+  ),
+  Fs = e.lazy(() =>
+    y(
+      () => import('./ProgramTemplate-DN0WzrFM.js'),
+      __vite__mapDeps([203, 1, 2, 5, 85, 32])
+    )
+  ),
+  Ws = e.lazy(() =>
+    y(
+      () => import('./MentorDirectory-Y3bpakVs.js'),
+      __vite__mapDeps([204, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  qs = e.lazy(() =>
+    y(
+      () => import('./MentorSignup-dMpANN-D.js'),
+      __vite__mapDeps([205, 1, 2, 4, 5, 7, 8, 181])
+    )
+  ),
+  Gs = e.lazy(() =>
+    y(
+      () => import('./Mentorship-old-B14NyAyK.js'),
+      __vite__mapDeps([206, 1, 2, 5])
+    )
+  ),
+  Qs = e.lazy(() =>
+    y(
+      () => import('./Mentorship-B6T2BXn8.js'),
+      __vite__mapDeps([207, 1, 2, 5, 4, 6, 7, 8, 181])
+    )
+  ),
+  Us = e.lazy(() =>
+    y(
+      () => import('./PeerSupport-JtAtm4ns.js'),
+      __vite__mapDeps([208, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Ys = e.lazy(() =>
+    y(
+      () => import('./Volunteer-BMryEhyN.js'),
+      __vite__mapDeps([209, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Ks = e.lazy(() =>
+    y(
+      () => import('./VolunteerOpportunities-DpwRJdJt.js'),
+      __vite__mapDeps([210, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Js = e.lazy(() =>
+    y(
+      () => import('./VolunteerStories-CBH1cm91.js'),
+      __vite__mapDeps([211, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Xs = e.lazy(() =>
+    y(
+      () => import('./Wellness-C3ngZzK-.js'),
+      __vite__mapDeps([212, 1, 2, 4, 5, 7, 8])
+    )
+  ),
+  Zs = e.lazy(() =>
+    y(
+      () => import('./WellnessResources-BEv9uwgx.js'),
+      __vite__mapDeps([213, 1, 2, 4, 5, 7, 8])
+    )
+  );
+function $s() {
+  return t.jsx(I, {
+    children: t.jsx(e.Suspense, {
+      fallback: t.jsx(A, {}),
+      children: t.jsx(f, {
+        children: t.jsxs(d, {
+          children: [
+            t.jsx(h, { path: '/aitutor', element: t.jsx(D, {}) }),
+            t.jsx(h, { path: '/about', element: t.jsx(z, {}) }),
+            t.jsx(h, { path: '/accessibility', element: t.jsx(T, {}) }),
+            t.jsx(h, {
+              path: '/accessibility-settings',
+              element: t.jsx(R, {}),
+            }),
+            t.jsx(h, { path: '/account', element: t.jsx(L, {}) }),
+            t.jsx(h, { path: '/admin-console', element: t.jsx(V, {}) }),
+            t.jsx(h, { path: '/admin-dashboard', element: t.jsx(v, {}) }),
+            t.jsx(h, { path: '/analytics', element: t.jsx(O, {}) }),
+            t.jsx(h, { path: '/analytics-dashboard', element: t.jsx(w, {}) }),
+            t.jsx(h, {
+              path: '/analytics-dashboard-rum',
+              element: t.jsx(C, {}),
+            }),
+            t.jsx(h, { path: '/apply-scholarship', element: t.jsx(N, {}) }),
+            t.jsx(h, { path: '/assignment', element: t.jsx(S, {}) }),
+            t.jsx(h, { path: '/autopilot-admin', element: t.jsx(k, {}) }),
+            t.jsx(h, {
+              path: '/bing-site-verification',
+              element: t.jsx(M, {}),
+            }),
+            t.jsx(h, { path: '/blog', element: t.jsx(H, {}) }),
+            t.jsx(h, { path: '/branding', element: t.jsx(B, {}) }),
+            t.jsx(h, { path: '/business-hub', element: t.jsx(F, {}) }),
+            t.jsx(h, { path: '/cprfirst-aid-training', element: t.jsx(W, {}) }),
+            t.jsx(h, { path: '/crmdashboard-page', element: t.jsx(q, {}) }),
+            t.jsx(h, { path: '/calendar', element: t.jsx(G, {}) }),
+            t.jsx(h, { path: '/certificate-page', element: t.jsx(Q, {}) }),
+            t.jsx(h, { path: '/certificates', element: t.jsx(U, {}) }),
+            t.jsx(h, {
+              path: '/certiport-testing-center',
+              element: t.jsx(Y, {}),
+            }),
+            t.jsx(h, { path: '/clone-landing', element: t.jsx(K, {}) }),
+            t.jsx(h, { path: '/community', element: t.jsx(J, {}) }),
+            t.jsx(h, { path: '/community-hub', element: t.jsx(X, {}) }),
+            t.jsx(h, { path: '/compliance', element: t.jsx(Z, {}) }),
+            t.jsx(h, { path: '/connect', element: t.jsx($, {}) }),
+            t.jsx(h, { path: '/contact', element: t.jsx(ee, {}) }),
+            t.jsx(h, { path: '/course', element: t.jsx(te, {}) }),
+            t.jsx(h, { path: '/course-builder', element: t.jsx(se, {}) }),
+            t.jsx(h, { path: '/course-catalog', element: t.jsx(ae, {}) }),
+            t.jsx(h, { path: '/course-detail', element: t.jsx(re, {}) }),
+            t.jsx(h, { path: '/course-library', element: t.jsx(le, {}) }),
+            t.jsx(h, { path: '/curriculum-upload', element: t.jsx(ne, {}) }),
+            t.jsx(h, { path: '/docs', element: t.jsx(ie, {}) }),
+            t.jsx(h, { path: '/donate', element: t.jsx(oe, {}) }),
+            t.jsx(h, { path: '/donate/success', element: t.jsx(_e, {}) }),
+            t.jsx(h, { path: '/durable-ai', element: t.jsx(me, {}) }),
+            t.jsx(h, { path: '/durable-console', element: t.jsx(pe, {}) }),
+            t.jsx(h, { path: '/durable-features', element: t.jsx(xe, {}) }),
+            t.jsx(h, { path: '/durable-landing', element: t.jsx(je, {}) }),
+            t.jsx(h, { path: '/durable-pricing', element: t.jsx(ce, {}) }),
+            t.jsx(h, { path: '/durable-templates', element: t.jsx(de, {}) }),
+            t.jsx(h, { path: '/efh-landing', element: t.jsx(he, {}) }),
+            t.jsx(h, { path: '/ecommerce', element: t.jsx(ue, {}) }),
+            t.jsx(h, { path: '/ecosystem', element: t.jsx(ye, {}) }),
+            t.jsx(h, { path: '/educator-hub', element: t.jsx(Ee, {}) }),
+            t.jsx(h, { path: '/elevate', element: t.jsx(ge, {}) }),
+            t.jsx(h, { path: '/elevate-brain', element: t.jsx(be, {}) }),
+            t.jsx(h, { path: '/email', element: t.jsx(Pe, {}) }),
+            t.jsx(h, { path: '/faq', element: t.jsx(fe, {}) }),
+            t.jsx(h, { path: '/file-manager', element: t.jsx(Ie, {}) }),
+            t.jsx(h, { path: '/forgot-password', element: t.jsx(Ae, {}) }),
+            t.jsx(h, { path: '/forms', element: t.jsx(De, {}) }),
+            t.jsx(h, { path: '/full-sail-landing', element: t.jsx(ze, {}) }),
+            t.jsx(h, { path: '/funding-impact', element: t.jsx(Te, {}) }),
+            t.jsx(h, { path: '/get-started', element: t.jsx(Re, {}) }),
+            t.jsx(h, {
+              path: '/google-analytics-setup',
+              element: t.jsx(Le, {}),
+            }),
+            t.jsx(h, {
+              path: '/google-site-verification',
+              element: t.jsx(Ve, {}),
+            }),
+            t.jsx(h, { path: '/government', element: t.jsx(ve, {}) }),
+            t.jsx(h, { path: '/grade-book', element: t.jsx(Oe, {}) }),
+            t.jsx(h, { path: '/groups', element: t.jsx(we, {}) }),
+            t.jsx(h, { path: '/home-durable', element: t.jsx(Ce, {}) }),
+            t.jsx(h, { path: '/', element: t.jsx(Ne, {}) }),
+            t.jsx(h, { path: '/home', element: t.jsx(Se, {}) }),
+            t.jsx(h, { path: '/home-page', element: t.jsx(ke, {}) }),
+            t.jsx(h, { path: '/hub', element: t.jsx(Me, {}) }),
+            t.jsx(h, { path: '/instructor', element: t.jsx(He, {}) }),
+            t.jsx(h, {
+              path: '/instructor-course-create',
+              element: t.jsx(Be, {}),
+            }),
+            t.jsx(h, { path: '/instructor-edit', element: t.jsx(Fe, {}) }),
+            t.jsx(h, { path: '/instructor-new', element: t.jsx(We, {}) }),
+            t.jsx(h, { path: '/integrations', element: t.jsx(qe, {}) }),
+            t.jsx(h, {
+              path: '/intuit-tax-bookkeeping',
+              element: t.jsx(Ge, {}),
+            }),
+            t.jsx(h, { path: '/invoice-creator-page', element: t.jsx(Qe, {}) }),
+            t.jsx(h, { path: '/invoice-list-page', element: t.jsx(Ue, {}) }),
+            t.jsx(h, { path: '/job-ready-indy', element: t.jsx(Ye, {}) }),
+            t.jsx(h, { path: '/lms', element: t.jsx(Ke, {}) }),
+            t.jsx(h, { path: '/lms/courses', element: t.jsx(Je, {}) }),
+            t.jsx(h, { path: '/lmsdashboard', element: t.jsx(Xe, {}) }),
+            t.jsx(h, { path: '/lmslanding', element: t.jsx(Ze, {}) }),
+            t.jsx(h, { path: '/live-class-room', element: t.jsx($e, {}) }),
+            t.jsx(h, { path: '/live-class-schedule', element: t.jsx(et, {}) }),
+            t.jsx(h, { path: '/login', element: t.jsx(tt, {}) }),
+            t.jsx(h, { path: '/main-landing', element: t.jsx(st, {}) }),
+            t.jsx(h, { path: '/mobile-app', element: t.jsx(at, {}) }),
+            t.jsx(h, { path: '/my-certificates', element: t.jsx(rt, {}) }),
+            t.jsx(h, { path: '/nccercareer-starter', element: t.jsx(lt, {}) }),
+            t.jsx(h, { path: '/notebook-lm', element: t.jsx(it, {}) }),
+            t.jsx(h, { path: '/notification-center', element: t.jsx(ot, {}) }),
+            t.jsx(h, {
+              path: '/notification-settings',
+              element: t.jsx(_t, {}),
+            }),
+            t.jsx(h, { path: '/notifications', element: t.jsx(mt, {}) }),
+            t.jsx(h, { path: '/our-partners', element: t.jsx(pt, {}) }),
+            t.jsx(h, { path: '/partners', element: t.jsx(xt, {}) }),
+            t.jsx(h, { path: '/pay', element: t.jsx(jt, {}) }),
+            t.jsx(h, { path: '/payment-cancelled', element: t.jsx(ct, {}) }),
+            t.jsx(h, { path: '/payment-success', element: t.jsx(dt, {}) }),
+            t.jsx(h, { path: '/philanthropy', element: t.jsx(ht, {}) }),
+            t.jsx(h, { path: '/privacy-policy', element: t.jsx(ut, {}) }),
+            t.jsx(h, { path: '/professional-home', element: t.jsx(yt, {}) }),
+            t.jsx(h, { path: '/professional-site', element: t.jsx(Et, {}) }),
+            t.jsx(h, { path: '/profile', element: t.jsx(gt, {}) }),
+            t.jsx(h, { path: '/programs/:slug', element: t.jsx(bt, {}) }),
+            t.jsx(h, { path: '/program-page', element: t.jsx(Pt, {}) }),
+            t.jsx(h, { path: '/programs', element: t.jsx(ft, {}) }),
+            t.jsx(h, { path: '/programs-durable', element: t.jsx(It, {}) }),
+            t.jsx(h, { path: '/programs-index', element: t.jsx(At, {}) }),
+            t.jsx(h, { path: '/programs-page', element: t.jsx(Dt, {}) }),
+            t.jsx(h, { path: '/quiz', element: t.jsx(zt, {}) }),
+            t.jsx(h, { path: '/quiz-builder', element: t.jsx(Tt, {}) }),
+            t.jsx(h, { path: '/quiz-results', element: t.jsx(Rt, {}) }),
+            t.jsx(h, { path: '/quiz-take', element: t.jsx(Lt, {}) }),
+            t.jsx(h, { path: '/refund-policy', element: t.jsx(Vt, {}) }),
+            t.jsx(h, { path: '/reset-password', element: t.jsx(vt, {}) }),
+            t.jsx(h, { path: '/search-results', element: t.jsx(Ot, {}) }),
+            t.jsx(h, { path: '/serene-comfort-care', element: t.jsx(wt, {}) }),
+            t.jsx(h, { path: '/services', element: t.jsx(Ct, {}) }),
+            t.jsx(h, { path: '/settings', element: t.jsx(Nt, {}) }),
+            t.jsx(h, { path: '/sheets', element: t.jsx(St, {}) }),
+            t.jsx(h, { path: '/signup', element: t.jsx(kt, {}) }),
+            t.jsx(h, { path: '/sitemap', element: t.jsx(Mt, {}) }),
+            t.jsx(h, { path: '/sites', element: t.jsx(Ht, {}) }),
+            t.jsx(h, { path: '/slides', element: t.jsx(Bt, {}) }),
+            t.jsx(h, { path: '/social-media-manager', element: t.jsx(Ft, {}) }),
+            t.jsx(h, { path: '/student', element: t.jsx(Wt, {}) }),
+            t.jsx(h, { path: '/student-dashboard', element: t.jsx(qt, {}) }),
+            t.jsx(h, { path: '/student-grades', element: t.jsx(Gt, {}) }),
+            t.jsx(h, { path: '/student-handbook', element: t.jsx(Qt, {}) }),
+            t.jsx(h, { path: '/student-hub', element: t.jsx(Ut, {}) }),
+            t.jsx(h, { path: '/student-portal', element: t.jsx(Yt, {}) }),
+            t.jsx(h, { path: '/student-portal-lms', element: t.jsx(Kt, {}) }),
+            t.jsx(h, { path: '/support', element: t.jsx(Jt, {}) }),
+            t.jsx(h, { path: '/terms-of-service', element: t.jsx(Xt, {}) }),
+            t.jsx(h, { path: '/thank-you', element: t.jsx(Zt, {}) }),
+            t.jsx(h, { path: '/urban-build-crew', element: t.jsx($t, {}) }),
+            t.jsx(h, { path: '/user-management', element: t.jsx(es, {}) }),
+            t.jsx(h, { path: '/vitaprogram', element: t.jsx(ts, {}) }),
+            t.jsx(h, {
+              path: '/vitatax-certification',
+              element: t.jsx(ss, {}),
+            }),
+            t.jsx(h, { path: '/verify', element: t.jsx(as, {}) }),
+            t.jsx(h, {
+              path: '/verify-certificate-page',
+              element: t.jsx(rs, {}),
+            }),
+            t.jsx(h, { path: '/verify-email', element: t.jsx(ls, {}) }),
+            t.jsx(h, { path: '/video-meeting', element: t.jsx(ns, {}) }),
+            t.jsx(h, { path: '/vids', element: t.jsx(is, {}) }),
+            t.jsx(h, { path: '/website-builder', element: t.jsx(os, {}) }),
+            t.jsx(h, {
+              path: '/admin/autopilot-tasks',
+              element: t.jsx(_s, {}),
+            }),
+            t.jsx(h, { path: '/auth/account', element: t.jsx(ms, {}) }),
+            t.jsx(h, { path: '/auth/forgot-password', element: t.jsx(ps, {}) }),
+            t.jsx(h, { path: '/auth/login', element: t.jsx(xs, {}) }),
+            t.jsx(h, { path: '/auth/signup', element: t.jsx(js, {}) }),
+            t.jsx(h, {
+              path: '/instructor/course-editor',
+              element: t.jsx(cs, {}),
+            }),
+            t.jsx(h, {
+              path: '/instructor/instructor-dashboard',
+              element: t.jsx(ds, {}),
+            }),
+            t.jsx(h, {
+              path: '/instructor/lesson-manager',
+              element: t.jsx(hs, {}),
+            }),
+            t.jsx(h, { path: '/legal/dmca', element: t.jsx(us, {}) }),
+            t.jsx(h, { path: '/legal/legal-ipnotice', element: t.jsx(ys, {}) }),
+            t.jsx(h, { path: '/legal/privacy', element: t.jsx(Es, {}) }),
+            t.jsx(h, { path: '/legal/terms-of-use', element: t.jsx(gs, {}) }),
+            t.jsx(h, {
+              path: '/lms/client-safety-certification',
+              element: t.jsx(bs, {}),
+            }),
+            t.jsx(h, { path: '/lms/course/:courseId', element: t.jsx(Ps, {}) }),
+            t.jsx(h, { path: '/lms/courses-index', element: t.jsx(fs, {}) }),
+            t.jsx(h, { path: '/lms/dashboard', element: t.jsx(Is, {}) }),
+            t.jsx(h, { path: '/lms/discussions-page', element: t.jsx(As, {}) }),
+            t.jsx(h, {
+              path: '/lms/enrollment-success',
+              element: t.jsx(Ds, {}),
+            }),
+            t.jsx(h, { path: '/lms/lesson/:lessonId', element: t.jsx(zs, {}) }),
+            t.jsx(h, {
+              path: '/lms/milady-barber-apprenticeship',
+              element: t.jsx(Ts, {}),
+            }),
+            t.jsx(h, {
+              path: '/lms/milady-barber-course',
+              element: t.jsx(Rs, {}),
+            }),
+            t.jsx(h, {
+              path: '/lms/milady-riseenrollment',
+              element: t.jsx(Ls, {}),
+            }),
+            t.jsx(h, {
+              path: '/lms/milady-riseintegration',
+              element: t.jsx(Vs, {}),
+            }),
+            t.jsx(h, {
+              path: '/lms/my-certificates-page',
+              element: t.jsx(vs, {}),
+            }),
+            t.jsx(h, { path: '/lms/quiz-block', element: t.jsx(Os, {}) }),
+            t.jsx(h, { path: '/programs/barber-page', element: t.jsx(ws, {}) }),
+            t.jsx(h, {
+              path: '/programs/building-tech-page',
+              element: t.jsx(Cs, {}),
+            }),
+            t.jsx(h, { path: '/programs/cprspage', element: t.jsx(Ns, {}) }),
+            t.jsx(h, {
+              path: '/programs/digital-skills-page',
+              element: t.jsx(Ss, {}),
+            }),
+            t.jsx(h, {
+              path: '/programs/drug-testing-page',
+              element: t.jsx(ks, {}),
+            }),
+            t.jsx(h, { path: '/programs/hvacpage', element: t.jsx(Ms, {}) }),
+            t.jsx(h, {
+              path: '/programs/healthcare-page',
+              element: t.jsx(Hs, {}),
+            }),
+            t.jsx(h, {
+              path: '/programs/leadership-page',
+              element: t.jsx(Bs, {}),
+            }),
+            t.jsx(h, {
+              path: '/programs/program-template',
+              element: t.jsx(Fs, {}),
+            }),
+            t.jsx(h, {
+              path: '/sisters/mentor-directory',
+              element: t.jsx(Ws, {}),
+            }),
+            t.jsx(h, {
+              path: '/sisters/mentor-signup',
+              element: t.jsx(qs, {}),
+            }),
+            t.jsx(h, {
+              path: '/sisters/mentorship-old',
+              element: t.jsx(Gs, {}),
+            }),
+            t.jsx(h, { path: '/sisters/mentorship', element: t.jsx(Qs, {}) }),
+            t.jsx(h, { path: '/sisters/peer-support', element: t.jsx(Us, {}) }),
+            t.jsx(h, { path: '/sisters/volunteer', element: t.jsx(Ys, {}) }),
+            t.jsx(h, {
+              path: '/sisters/volunteer-opportunities',
+              element: t.jsx(Ks, {}),
+            }),
+            t.jsx(h, {
+              path: '/sisters/volunteer-stories',
+              element: t.jsx(Js, {}),
+            }),
+            t.jsx(h, { path: '/sisters/wellness', element: t.jsx(Xs, {}) }),
+            t.jsx(h, {
+              path: '/sisters/wellness-resources',
+              element: t.jsx(Zs, {}),
+            }),
+            t.jsx(h, { path: '*', element: t.jsx(nt, {}) }),
+          ],
+        }),
+      }),
+    }),
+  });
+}
+function ea() {
+  return t.jsxs(t.Fragment, {
+    children: [
+      t.jsxs(m, {
+        children: [
+          t.jsx('title', {
+            children:
+              'Elevate for Humanity | Workforce Training & Career Development',
+          }),
+          t.jsx('meta', {
+            name: 'description',
+            content:
+              'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
+          }),
+        ],
+      }),
+      t.jsx($s, {}),
+    ],
+  });
+}
+p.createRoot(document.getElementById('root')).render(
+  t.jsx(_.StrictMode, {
+    children: t.jsx(x, { children: t.jsx(u, { children: t.jsx(ea, {}) }) }),
+  })
+);

@@ -10,9 +10,7 @@ export default function GoogleAnalyticsSetup() {
       <Helmet>
         <title>Google Analytics Setup | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h1 className="section-title">Google Analytics Setup</h1>
@@ -21,7 +19,6 @@ export default function GoogleAnalyticsSetup() {
           </p>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

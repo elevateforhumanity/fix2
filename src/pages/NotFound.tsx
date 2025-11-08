@@ -8,7 +8,6 @@ export default function NotFound() {
       <Helmet>
         <title>404 - Page Not Found | Elevate for Humanity</title>
       </Helmet>
-
       <div className="max-w-md w-full text-center">
         <div className="mb-8">
           <h1 className="text-9xl font-bold text-beige-200">404</h1>

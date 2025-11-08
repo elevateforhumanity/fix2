@@ -46,7 +46,7 @@ export default function CourseProgress({
         <ProgressBar
           progress={overallProgress}
           size="lg"
-          showLabel={true}
+          showLabel
           label="Overall Completion"
         />
         <div className="mt-4 flex items-center justify-between text-sm text-brown-600">
@@ -56,7 +56,6 @@ export default function CourseProgress({
           <span className="font-semibold">{Math.round(overallProgress)}%</span>
         </div>
       </div>
-
       {/* Module Progress */}
       <div className="space-y-4">
         {modules.map((module, moduleIndex) => {
@@ -91,7 +90,6 @@ export default function CourseProgress({
                   <div className="text-xs text-brown-500">Lessons</div>
                 </div>
               </div>
-
               {/* Module Progress Bar */}
               <ProgressBar
                 progress={moduleProgress}
@@ -99,7 +97,6 @@ export default function CourseProgress({
                 showLabel={false}
                 className="mb-4"
               />
-
               {/* Lessons List */}
               <div className="space-y-2">
                 {module.lessons.map((lesson, lessonIndex) => (
@@ -127,14 +124,12 @@ export default function CourseProgress({
                         <Circle className="w-5 h-5 text-brown-400" />
                       )}
                     </div>
-
                     {/* Lesson Info */}
                     <div className="flex-1 text-left">
                       <div className="text-sm font-semibold text-brown-900">
                         Lesson {lessonIndex + 1}: {lesson.title}
                       </div>
                     </div>
-
                     {/* Status Badge */}
                     {lesson.completed && (
                       <div className="flex-shrink-0">
@@ -157,7 +152,6 @@ export default function CourseProgress({
           );
         })}
       </div>
-
       {/* Completion Message */}
       {overallProgress === 100 && (
         <div className="card p-6 bg-gradient-to-r from-green-50 to-beige-50 border-l-4 border-green-600">

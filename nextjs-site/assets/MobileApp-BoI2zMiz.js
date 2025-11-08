@@ -1,1 +1,32 @@
-import{j as r,H as e}from"./vendor-react-C-ZQNdj3.js";import{A as o}from"./AppLayout-DjgAzEIN.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function s(){return r.jsxs(o,{children:[r.jsx(e,{children:r.jsx("title",{children:"Mobile App | Elevate for Humanity"})}),r.jsxs("div",{className:"max-w-[1200px] mx-auto px-8 py-8",children:[r.jsx("h1",{className:"text-3xl font-bold text-brown-900 mb-8",children:"Mobile App"}),r.jsx("div",{className:"card",children:r.jsx("p",{className:"text-brown-600",children:"Download our mobile app for iOS and Android."})})]})]})}export{s as default};
+import { j as r, H as e } from './vendor-react-C-ZQNdj3.js';
+import { A as o } from './AppLayout-DjgAzEIN.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function s() {
+  return r.jsxs(o, {
+    children: [
+      r.jsx(e, {
+        children: r.jsx('title', {
+          children: 'Mobile App | Elevate for Humanity',
+        }),
+      }),
+      r.jsxs('div', {
+        className: 'max-w-[1200px] mx-auto px-8 py-8',
+        children: [
+          r.jsx('h1', {
+            className: 'text-3xl font-bold text-brown-900 mb-8',
+            children: 'Mobile App',
+          }),
+          r.jsx('div', {
+            className: 'card',
+            children: r.jsx('p', {
+              className: 'text-brown-600',
+              children: 'Download our mobile app for iOS and Android.',
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { s as default };

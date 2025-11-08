@@ -32,16 +32,13 @@ export default function MentorSignup() {
           content="Share your expertise and help students succeed by becoming a mentor."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[600px]">
           <h1 className="section-title text-center">Become a Mentor</h1>
           <p className="section-subtitle text-center mt-4 mb-12">
             Share your expertise and help students succeed by becoming a mentor.
           </p>
-
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -61,7 +58,6 @@ export default function MentorSignup() {
                   className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="email"
@@ -79,7 +75,6 @@ export default function MentorSignup() {
                   className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="expertise"
@@ -97,7 +92,6 @@ export default function MentorSignup() {
                   className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="bio"
@@ -114,7 +108,6 @@ export default function MentorSignup() {
                   className="w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
-
               <Button
                 type="submit"
                 variant="primary"
@@ -136,7 +129,6 @@ export default function MentorSignup() {
           )}
         </div>
       </Section>
-
       <Footer />
     </div>
   );

@@ -18,7 +18,7 @@ jobs:
     permissions:
       actions: write
       contents: read
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,20 +29,20 @@ jobs:
         run: |
           echo "🔍 Finding stuck workflows..."
           echo ""
-          
+
           # Get current time in seconds
           NOW=$(date +%s)
           MAX_AGE_SECONDS=$((${MAX_AGE_HOURS:-1} * 3600))
-          
+
           # Get all in-progress workflows
           gh api repos/${{ github.repository }}/actions/runs \
             --jq '.workflow_runs[] | select(.status == "in_progress") | {id: .id, name: .name, created_at: .created_at, html_url: .html_url}' \
             > /tmp/running_workflows.json
-          
+
           CANCELLED=0
           SKIPPED=0
           FAILED=0
-          
+
           # Process each workflow
           while IFS= read -r workflow; do
             ID=$(echo "$workflow" | jq -r '.id')
@@ -82,14 +82,14 @@ jobs:
             fi
             echo ""
           done < <(cat /tmp/running_workflows.json | jq -c '.')
-          
+
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo "Summary:"
           echo "  ✅ Cancelled: $CANCELLED"
           echo "  ⏭️  Skipped: $SKIPPED"
           echo "  ❌ Failed: $FAILED"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
+
           # Create summary
           echo "## 🤖 Autopilot Workflow Cancellation" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -101,7 +101,7 @@ jobs:
           echo "- ✅ Cancelled: $CANCELLED" >> $GITHUB_STEP_SUMMARY
           echo "- ⏭️ Skipped: $SKIPPED" >> $GITHUB_STEP_SUMMARY
           echo "- ❌ Failed: $FAILED" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ $CANCELLED -gt 0 ]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### ✅ Success" >> $GITHUB_STEP_SUMMARY
@@ -115,12 +115,12 @@ jobs:
         run: |
           echo "🔍 Checking remaining in-progress workflows..."
           echo ""
-          
+
           REMAINING=$(gh api repos/${{ github.repository }}/actions/runs \
             --jq '[.workflow_runs[] | select(.status == "in_progress")] | length')
-          
+
           echo "Remaining in-progress workflows: $REMAINING"
-          
+
           if [ "$REMAINING" -eq 0 ]; then
             echo "✅ All workflows cleared!"
           else
@@ -138,12 +138,12 @@ jobs:
           echo ""
           echo "🔍 Checking queued workflows..."
           echo ""
-          
+
           QUEUED=$(gh api repos/${{ github.repository }}/actions/runs \
             --jq '[.workflow_runs[] | select(.status == "queued")] | length')
-          
+
           echo "Queued workflows: $QUEUED"
-          
+
           if [ "$QUEUED" -gt 0 ]; then
             echo ""
             echo "These workflows should start soon:"

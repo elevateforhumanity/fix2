@@ -10,9 +10,7 @@ export default function BingSiteVerification() {
       <Helmet>
         <title>Bing Site Verification | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[800px]">
           <h1 className="section-title">Bing Site Verification</h1>
@@ -21,7 +19,6 @@ export default function BingSiteVerification() {
           </p>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

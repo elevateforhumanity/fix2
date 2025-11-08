@@ -14,9 +14,7 @@ export default function Wellness() {
           content="Explore resources and tips for maintaining your physical, mental, and emotional wellness."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[1200px] text-center">
           <div className="mb-8">
@@ -28,7 +26,6 @@ export default function Wellness() {
             and emotional wellness. Your well-being is essential to your
             success.
           </p>
-
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-left">
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -77,7 +74,6 @@ export default function Wellness() {
               <p className="text-brown-700">Fitness and nutrition guidance</p>
             </div>
           </div>
-
           <div className="mt-12 p-6 bg-green-50 rounded-lg">
             <p className="text-lg font-semibold text-green-900">
               Coming Q1 2025
@@ -85,7 +81,6 @@ export default function Wellness() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

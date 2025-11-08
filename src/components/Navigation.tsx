@@ -65,7 +65,6 @@ export default function Navigation({
               }}
             />
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
@@ -82,7 +81,6 @@ export default function Navigation({
               </Link>
             ))}
           </div>
-
           {/* Mobile Menu Button */}
           <button
             type="button"
@@ -115,7 +113,6 @@ export default function Navigation({
           </button>
         </div>
       </div>
-
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-gray-200">

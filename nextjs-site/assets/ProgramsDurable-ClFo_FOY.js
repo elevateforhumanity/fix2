@@ -1,1 +1,105 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import{L as s}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";function t(){return e.jsx("div",{className:"min-h-screen bg-white py-16",children:e.jsxs("div",{className:"max-w-7xl mx-auto px-4",children:[e.jsxs("div",{className:"text-center mb-16",children:[e.jsx("h1",{className:"text-5xl font-bold text-brown-900 mb-4",children:"Durable Skills Programs"}),e.jsx("p",{className:"text-xl text-brown-600 max-w-2xl mx-auto",children:"Comprehensive programs designed to build lasting career skills"})]}),e.jsx("div",{className:"grid md:grid-cols-2 gap-8",children:[{title:"Workforce Development",description:"Comprehensive training for career advancement and job readiness",duration:"12 weeks",level:"All Levels",students:"2,500+",image:"💼"},{title:"Digital Skills Bootcamp",description:"Master essential digital tools and technologies for the modern workplace",duration:"8 weeks",level:"Beginner",students:"1,800+",image:"💻"},{title:"Leadership Academy",description:"Develop leadership skills and advance into management roles",duration:"10 weeks",level:"Intermediate",students:"1,200+",image:"👔"},{title:"Entrepreneurship Program",description:"Learn to start and grow your own business",duration:"16 weeks",level:"All Levels",students:"900+",image:"🚀"}].map((t,r)=>e.jsxs("div",{className:"bg-beige-50 p-8 rounded-xl hover:shadow-lg transition",children:[e.jsx("div",{className:"text-6xl mb-4",children:t.image}),e.jsx("h3",{className:"text-2xl font-bold mb-3",children:t.title}),e.jsx("p",{className:"text-brown-600 mb-6",children:t.description}),e.jsxs("div",{className:"flex gap-4 mb-6 text-sm text-brown-500",children:[e.jsxs("span",{children:["⏱️ ",t.duration]}),e.jsxs("span",{children:["📊 ",t.level]}),e.jsxs("span",{children:["👥 ",t.students]})]}),e.jsx(s,{to:"/courses",className:"inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition",children:"View Program"})]},r))})]})})}export{t as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import { L as s } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+function t() {
+  return e.jsx('div', {
+    className: 'min-h-screen bg-white py-16',
+    children: e.jsxs('div', {
+      className: 'max-w-7xl mx-auto px-4',
+      children: [
+        e.jsxs('div', {
+          className: 'text-center mb-16',
+          children: [
+            e.jsx('h1', {
+              className: 'text-5xl font-bold text-brown-900 mb-4',
+              children: 'Durable Skills Programs',
+            }),
+            e.jsx('p', {
+              className: 'text-xl text-brown-600 max-w-2xl mx-auto',
+              children:
+                'Comprehensive programs designed to build lasting career skills',
+            }),
+          ],
+        }),
+        e.jsx('div', {
+          className: 'grid md:grid-cols-2 gap-8',
+          children: [
+            {
+              title: 'Workforce Development',
+              description:
+                'Comprehensive training for career advancement and job readiness',
+              duration: '12 weeks',
+              level: 'All Levels',
+              students: '2,500+',
+              image: '💼',
+            },
+            {
+              title: 'Digital Skills Bootcamp',
+              description:
+                'Master essential digital tools and technologies for the modern workplace',
+              duration: '8 weeks',
+              level: 'Beginner',
+              students: '1,800+',
+              image: '💻',
+            },
+            {
+              title: 'Leadership Academy',
+              description:
+                'Develop leadership skills and advance into management roles',
+              duration: '10 weeks',
+              level: 'Intermediate',
+              students: '1,200+',
+              image: '👔',
+            },
+            {
+              title: 'Entrepreneurship Program',
+              description: 'Learn to start and grow your own business',
+              duration: '16 weeks',
+              level: 'All Levels',
+              students: '900+',
+              image: '🚀',
+            },
+          ].map((t, r) =>
+            e.jsxs(
+              'div',
+              {
+                className:
+                  'bg-beige-50 p-8 rounded-xl hover:shadow-lg transition',
+                children: [
+                  e.jsx('div', {
+                    className: 'text-6xl mb-4',
+                    children: t.image,
+                  }),
+                  e.jsx('h3', {
+                    className: 'text-2xl font-bold mb-3',
+                    children: t.title,
+                  }),
+                  e.jsx('p', {
+                    className: 'text-brown-600 mb-6',
+                    children: t.description,
+                  }),
+                  e.jsxs('div', {
+                    className: 'flex gap-4 mb-6 text-sm text-brown-500',
+                    children: [
+                      e.jsxs('span', { children: ['⏱️ ', t.duration] }),
+                      e.jsxs('span', { children: ['📊 ', t.level] }),
+                      e.jsxs('span', { children: ['👥 ', t.students] }),
+                    ],
+                  }),
+                  e.jsx(s, {
+                    to: '/courses',
+                    className:
+                      'inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition',
+                    children: 'View Program',
+                  }),
+                ],
+              },
+              r
+            )
+          ),
+        }),
+      ],
+    }),
+  });
+}
+export { t as default };

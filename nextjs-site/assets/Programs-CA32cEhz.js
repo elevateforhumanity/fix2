@@ -1,1 +1,414 @@
-import{r as e,j as a,a0 as t,u as i,U as r,A as n}from"./vendor-react-C-ZQNdj3.js";import{L as s}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";function o(){const[o,c]=e.useState("all");e.useEffect(()=>{!function(e){const a=document.querySelector('script[data-schema="breadcrumb"]');a&&a.remove();const t={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:e.map((e,a)=>({"@type":"ListItem",position:a+1,name:e.name,item:e.url}))},i=document.createElement("script");i.type="application/ld+json",i.setAttribute("data-schema","breadcrumb"),i.textContent=JSON.stringify(t,null,2),document.head.appendChild(i)}([{name:"Home",url:"https://elevateforhumanity.org/"},{name:"Programs",url:"https://elevateforhumanity.org/programs"}])},[]);const l=[{id:"ai-fundamentals",title:"AI Fundamentals & Machine Learning",category:"wio",duration:"12 weeks",cost:"$1,997",participants:24,description:"Master artificial intelligence and machine learning foundations with hands-on projects and industry certifications.",features:["Python Programming","TensorFlow & PyTorch","Data Science","Neural Networks","Real-world Projects"],certifications:["CompTIA AI+","Google Cloud ML","Microsoft Azure AI"],jobPlacementRate:89,averageSalary:"$75,000",federalFunding:!0,image:"/api/placeholder/400/200"},{id:"data-science-bootcamp",title:"Data Science & Analytics Bootcamp",category:"wex",duration:"16 weeks",cost:"$4,950",participants:18,description:"Comprehensive data science training covering statistics, machine learning, and big data technologies.",features:["Statistical Analysis","Python & R","SQL & Databases","Machine Learning","Data Visualization"],certifications:["IBM Data Science","Microsoft Azure Data Scientist","Tableau Certified"],jobPlacementRate:92,averageSalary:"$85,000",federalFunding:!0,image:"/api/placeholder/400/200"},{id:"cybersecurity-specialist",title:"Cybersecurity Specialist Certification",category:"wrg",duration:"20 weeks",cost:"$3,495",participants:20,description:"Intensive cybersecurity training covering network security, ethical hacking, and compliance frameworks.",features:["Network Security","Ethical Hacking","Risk Assessment","Incident Response","Compliance"],certifications:["CompTIA Security+","Certified Ethical Hacker","CISSP"],jobPlacementRate:95,averageSalary:"$95,000",federalFunding:!0,image:"/api/placeholder/400/200"},{id:"advanced-manufacturing",title:"Advanced Manufacturing & Automation",category:"ojt",duration:"14 weeks",cost:"$2,750",participants:16,description:"Learn cutting-edge manufacturing technologies including robotics, CNC programming, and quality control.",features:["CNC Programming","Robotics","Quality Control","Lean Manufacturing","Safety Protocols"],certifications:["NIMS Machining","FANUC Robotics","Six Sigma Green Belt"],jobPlacementRate:88,averageSalary:"$65,000",federalFunding:!0,image:"/api/placeholder/400/200"},{id:"healthcare-administration",title:"Healthcare Administration & Management",category:"etpl",duration:"18 weeks",cost:"$3,200",participants:22,description:"Comprehensive healthcare administration training covering medical billing, coding, and practice management.",features:["Medical Billing","ICD-10 Coding","HIPAA Compliance","Practice Management","Electronic Health Records"],certifications:["CPC (Certified Professional Coder)","CMA (Certified Medical Assistant)","RHIA"],jobPlacementRate:90,averageSalary:"$55,000",federalFunding:!0,image:"/api/placeholder/400/200"},{id:"digital-marketing",title:"Digital Marketing & E-commerce",category:"wio",duration:"10 weeks",cost:"$1,495",participants:28,description:"Master digital marketing strategies including SEO, social media, PPC advertising, and analytics.",features:["SEO & SEM","Social Media Marketing","Google Ads","Analytics","E-commerce Platforms"],certifications:["Google Ads Certified","Facebook Blueprint","HubSpot Content Marketing"],jobPlacementRate:85,averageSalary:"$50,000",federalFunding:!0,image:"/api/placeholder/400/200"}],d="all"===o?l:l.filter(e=>e.category===o);return a.jsxs("div",{className:"min-h-screen bg-beige-50",children:[a.jsx("div",{className:"bg-white border-b",children:a.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8",children:a.jsxs("div",{className:"flex items-center justify-between",children:[a.jsxs("div",{children:[a.jsx("h1",{className:"text-3xl font-bold text-brown-900",children:"Elevate Learn2Earn Workforce Programs"}),a.jsx("p",{className:"text-brown-600 mt-2",children:"Federal DOL/DWD compliant training programs with guaranteed job placement support"})]}),a.jsx("div",{className:"bg-beige-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium",children:"💰 Federal Funding Available"})]})})}),a.jsx("div",{className:"bg-white border-b",children:a.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4",children:a.jsx("div",{className:"flex space-x-1 overflow-x-auto",children:[{id:"all",name:"All Programs",count:50},{id:"wio",name:"WIO (Workforce Innovation)",count:12},{id:"wex",name:"WEX (Work Experience)",count:8},{id:"wrg",name:"WRG (Workforce Readiness)",count:15},{id:"ojt",name:"OJT (On-the-Job Training)",count:10},{id:"etpl",name:"ETPL (Eligible Training Provider)",count:5}].map(e=>a.jsxs("button",{onClick:()=>c(e.id),className:"whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors "+(o===e.id?"bg-green-600 text-white":"bg-beige-100 text-brown-900 hover:bg-brown-300"),children:[e.name," (",e.count,")"]},e.id))})})}),a.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8",children:a.jsx("div",{className:"grid md:grid-cols-2 lg:grid-cols-4 gap-6",children:d.map(e=>a.jsxs(s,{to:`/programs/${e.id}`,className:"group cursor-pointer",children:[a.jsx("div",{className:"relative overflow-hidden rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300",children:a.jsxs("div",{className:"aspect-[16/10] bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden",children:[a.jsx("div",{className:"absolute inset-0 flex items-center justify-center text-white",children:a.jsx(t,{className:"h-16 w-16 opacity-20"})}),a.jsx("div",{className:"absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"}),a.jsx("div",{className:"absolute top-3 left-3",children:a.jsx("span",{className:"bg-white/90 backdrop-blur-sm text-green-600 text-xs font-semibold px-3 py-1 rounded-full",children:e.category.toUpperCase()})}),e.federalFunding&&a.jsx("div",{className:"absolute top-3 right-3",children:a.jsx("span",{className:"bg-green-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full",children:"FREE"})})]})}),a.jsxs("div",{className:"p-4 bg-white",children:[a.jsx("h3",{className:"font-semibold text-brown-900 mb-1 line-clamp-2 group-hover:text-green-600 transition-colors",children:e.title}),a.jsx("p",{className:"text-sm text-brown-600 mb-3 line-clamp-2",children:e.description}),a.jsxs("div",{className:"flex items-center justify-between text-sm",children:[a.jsxs("div",{className:"flex items-center text-brown-600",children:[a.jsx(i,{className:"h-4 w-4 mr-1"}),e.duration]}),a.jsxs("div",{className:"flex items-center text-brown-600",children:[a.jsx(r,{className:"h-4 w-4 mr-1"}),e.participants]})]}),a.jsx("div",{className:"mt-3 pt-3 border-t border-brown-200",children:a.jsxs("div",{className:"flex items-center justify-between",children:[a.jsxs("span",{className:"text-xs text-brown-600",children:[a.jsx(n,{className:"h-3 w-3 inline mr-1"}),e.jobPlacementRate,"% placement"]}),a.jsx("span",{className:"text-green-600 font-semibold text-sm group-hover:underline",children:"Learn More →"})]})})]})]},e.id))})}),a.jsx("div",{className:"bg-orange-50 border-t-4 border-orange-400 py-8",children:a.jsx("div",{className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",children:a.jsxs("div",{className:"flex items-center",children:[a.jsx("div",{className:"flex-shrink-0",children:a.jsx(n,{className:"h-8 w-8 text-orange-500"})}),a.jsxs("div",{className:"ml-4",children:[a.jsx("h3",{className:"text-lg font-medium text-orange-900",children:"100% Federal DOL/DWD Compliance"}),a.jsx("p",{className:"text-orange-700",children:"All programs meet federal Elevate Learn2Earn Workforce standards with complete eligibility verification, Individual Employment Plans (IEP), PIRL reporting, and performance tracking systems."})]}),a.jsx("div",{className:"ml-auto",children:a.jsx(s,{to:"/compliance",className:"bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors",children:"View Compliance Portal"})})]})})})]})}export{o as default};
+import {
+  r as e,
+  j as a,
+  a0 as t,
+  u as i,
+  U as r,
+  A as n,
+} from './vendor-react-C-ZQNdj3.js';
+import { L as s } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+function o() {
+  const [o, c] = e.useState('all');
+  e.useEffect(() => {
+    !(function (e) {
+      const a = document.querySelector('script[data-schema="breadcrumb"]');
+      a && a.remove();
+      const t = {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: e.map((e, a) => ({
+            '@type': 'ListItem',
+            position: a + 1,
+            name: e.name,
+            item: e.url,
+          })),
+        },
+        i = document.createElement('script');
+      ((i.type = 'application/ld+json'),
+        i.setAttribute('data-schema', 'breadcrumb'),
+        (i.textContent = JSON.stringify(t, null, 2)),
+        document.head.appendChild(i));
+    })([
+      { name: 'Home', url: 'https://elevateforhumanity.org/' },
+      { name: 'Programs', url: 'https://elevateforhumanity.org/programs' },
+    ]);
+  }, []);
+  const l = [
+      {
+        id: 'ai-fundamentals',
+        title: 'AI Fundamentals & Machine Learning',
+        category: 'wio',
+        duration: '12 weeks',
+        cost: '$1,997',
+        participants: 24,
+        description:
+          'Master artificial intelligence and machine learning foundations with hands-on projects and industry certifications.',
+        features: [
+          'Python Programming',
+          'TensorFlow & PyTorch',
+          'Data Science',
+          'Neural Networks',
+          'Real-world Projects',
+        ],
+        certifications: [
+          'CompTIA AI+',
+          'Google Cloud ML',
+          'Microsoft Azure AI',
+        ],
+        jobPlacementRate: 89,
+        averageSalary: '$75,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+      {
+        id: 'data-science-bootcamp',
+        title: 'Data Science & Analytics Bootcamp',
+        category: 'wex',
+        duration: '16 weeks',
+        cost: '$4,950',
+        participants: 18,
+        description:
+          'Comprehensive data science training covering statistics, machine learning, and big data technologies.',
+        features: [
+          'Statistical Analysis',
+          'Python & R',
+          'SQL & Databases',
+          'Machine Learning',
+          'Data Visualization',
+        ],
+        certifications: [
+          'IBM Data Science',
+          'Microsoft Azure Data Scientist',
+          'Tableau Certified',
+        ],
+        jobPlacementRate: 92,
+        averageSalary: '$85,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+      {
+        id: 'cybersecurity-specialist',
+        title: 'Cybersecurity Specialist Certification',
+        category: 'wrg',
+        duration: '20 weeks',
+        cost: '$3,495',
+        participants: 20,
+        description:
+          'Intensive cybersecurity training covering network security, ethical hacking, and compliance frameworks.',
+        features: [
+          'Network Security',
+          'Ethical Hacking',
+          'Risk Assessment',
+          'Incident Response',
+          'Compliance',
+        ],
+        certifications: [
+          'CompTIA Security+',
+          'Certified Ethical Hacker',
+          'CISSP',
+        ],
+        jobPlacementRate: 95,
+        averageSalary: '$95,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+      {
+        id: 'advanced-manufacturing',
+        title: 'Advanced Manufacturing & Automation',
+        category: 'ojt',
+        duration: '14 weeks',
+        cost: '$2,750',
+        participants: 16,
+        description:
+          'Learn cutting-edge manufacturing technologies including robotics, CNC programming, and quality control.',
+        features: [
+          'CNC Programming',
+          'Robotics',
+          'Quality Control',
+          'Lean Manufacturing',
+          'Safety Protocols',
+        ],
+        certifications: [
+          'NIMS Machining',
+          'FANUC Robotics',
+          'Six Sigma Green Belt',
+        ],
+        jobPlacementRate: 88,
+        averageSalary: '$65,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+      {
+        id: 'healthcare-administration',
+        title: 'Healthcare Administration & Management',
+        category: 'etpl',
+        duration: '18 weeks',
+        cost: '$3,200',
+        participants: 22,
+        description:
+          'Comprehensive healthcare administration training covering medical billing, coding, and practice management.',
+        features: [
+          'Medical Billing',
+          'ICD-10 Coding',
+          'HIPAA Compliance',
+          'Practice Management',
+          'Electronic Health Records',
+        ],
+        certifications: [
+          'CPC (Certified Professional Coder)',
+          'CMA (Certified Medical Assistant)',
+          'RHIA',
+        ],
+        jobPlacementRate: 90,
+        averageSalary: '$55,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+      {
+        id: 'digital-marketing',
+        title: 'Digital Marketing & E-commerce',
+        category: 'wio',
+        duration: '10 weeks',
+        cost: '$1,495',
+        participants: 28,
+        description:
+          'Master digital marketing strategies including SEO, social media, PPC advertising, and analytics.',
+        features: [
+          'SEO & SEM',
+          'Social Media Marketing',
+          'Google Ads',
+          'Analytics',
+          'E-commerce Platforms',
+        ],
+        certifications: [
+          'Google Ads Certified',
+          'Facebook Blueprint',
+          'HubSpot Content Marketing',
+        ],
+        jobPlacementRate: 85,
+        averageSalary: '$50,000',
+        federalFunding: !0,
+        image: '/api/placeholder/400/200',
+      },
+    ],
+    d = 'all' === o ? l : l.filter((e) => e.category === o);
+  return a.jsxs('div', {
+    className: 'min-h-screen bg-beige-50',
+    children: [
+      a.jsx('div', {
+        className: 'bg-white border-b',
+        children: a.jsx('div', {
+          className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8',
+          children: a.jsxs('div', {
+            className: 'flex items-center justify-between',
+            children: [
+              a.jsxs('div', {
+                children: [
+                  a.jsx('h1', {
+                    className: 'text-3xl font-bold text-brown-900',
+                    children: 'Elevate Learn2Earn Workforce Programs',
+                  }),
+                  a.jsx('p', {
+                    className: 'text-brown-600 mt-2',
+                    children:
+                      'Federal DOL/DWD compliant training programs with guaranteed job placement support',
+                  }),
+                ],
+              }),
+              a.jsx('div', {
+                className:
+                  'bg-beige-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium',
+                children: '💰 Federal Funding Available',
+              }),
+            ],
+          }),
+        }),
+      }),
+      a.jsx('div', {
+        className: 'bg-white border-b',
+        children: a.jsx('div', {
+          className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4',
+          children: a.jsx('div', {
+            className: 'flex space-x-1 overflow-x-auto',
+            children: [
+              { id: 'all', name: 'All Programs', count: 50 },
+              { id: 'wio', name: 'WIO (Workforce Innovation)', count: 12 },
+              { id: 'wex', name: 'WEX (Work Experience)', count: 8 },
+              { id: 'wrg', name: 'WRG (Workforce Readiness)', count: 15 },
+              { id: 'ojt', name: 'OJT (On-the-Job Training)', count: 10 },
+              {
+                id: 'etpl',
+                name: 'ETPL (Eligible Training Provider)',
+                count: 5,
+              },
+            ].map((e) =>
+              a.jsxs(
+                'button',
+                {
+                  onClick: () => c(e.id),
+                  className:
+                    'whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors ' +
+                    (o === e.id
+                      ? 'bg-green-600 text-white'
+                      : 'bg-beige-100 text-brown-900 hover:bg-brown-300'),
+                  children: [e.name, ' (', e.count, ')'],
+                },
+                e.id
+              )
+            ),
+          }),
+        }),
+      }),
+      a.jsx('div', {
+        className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8',
+        children: a.jsx('div', {
+          className: 'grid md:grid-cols-2 lg:grid-cols-4 gap-6',
+          children: d.map((e) =>
+            a.jsxs(
+              s,
+              {
+                to: `/programs/${e.id}`,
+                className: 'group cursor-pointer',
+                children: [
+                  a.jsx('div', {
+                    className:
+                      'relative overflow-hidden rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300',
+                    children: a.jsxs('div', {
+                      className:
+                        'aspect-[16/10] bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden',
+                      children: [
+                        a.jsx('div', {
+                          className:
+                            'absolute inset-0 flex items-center justify-center text-white',
+                          children: a.jsx(t, {
+                            className: 'h-16 w-16 opacity-20',
+                          }),
+                        }),
+                        a.jsx('div', {
+                          className:
+                            'absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors',
+                        }),
+                        a.jsx('div', {
+                          className: 'absolute top-3 left-3',
+                          children: a.jsx('span', {
+                            className:
+                              'bg-white/90 backdrop-blur-sm text-green-600 text-xs font-semibold px-3 py-1 rounded-full',
+                            children: e.category.toUpperCase(),
+                          }),
+                        }),
+                        e.federalFunding &&
+                          a.jsx('div', {
+                            className: 'absolute top-3 right-3',
+                            children: a.jsx('span', {
+                              className:
+                                'bg-green-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full',
+                              children: 'FREE',
+                            }),
+                          }),
+                      ],
+                    }),
+                  }),
+                  a.jsxs('div', {
+                    className: 'p-4 bg-white',
+                    children: [
+                      a.jsx('h3', {
+                        className:
+                          'font-semibold text-brown-900 mb-1 line-clamp-2 group-hover:text-green-600 transition-colors',
+                        children: e.title,
+                      }),
+                      a.jsx('p', {
+                        className: 'text-sm text-brown-600 mb-3 line-clamp-2',
+                        children: e.description,
+                      }),
+                      a.jsxs('div', {
+                        className: 'flex items-center justify-between text-sm',
+                        children: [
+                          a.jsxs('div', {
+                            className: 'flex items-center text-brown-600',
+                            children: [
+                              a.jsx(i, { className: 'h-4 w-4 mr-1' }),
+                              e.duration,
+                            ],
+                          }),
+                          a.jsxs('div', {
+                            className: 'flex items-center text-brown-600',
+                            children: [
+                              a.jsx(r, { className: 'h-4 w-4 mr-1' }),
+                              e.participants,
+                            ],
+                          }),
+                        ],
+                      }),
+                      a.jsx('div', {
+                        className: 'mt-3 pt-3 border-t border-brown-200',
+                        children: a.jsxs('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            a.jsxs('span', {
+                              className: 'text-xs text-brown-600',
+                              children: [
+                                a.jsx(n, { className: 'h-3 w-3 inline mr-1' }),
+                                e.jobPlacementRate,
+                                '% placement',
+                              ],
+                            }),
+                            a.jsx('span', {
+                              className:
+                                'text-green-600 font-semibold text-sm group-hover:underline',
+                              children: 'Learn More →',
+                            }),
+                          ],
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              },
+              e.id
+            )
+          ),
+        }),
+      }),
+      a.jsx('div', {
+        className: 'bg-orange-50 border-t-4 border-orange-400 py-8',
+        children: a.jsx('div', {
+          className: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+          children: a.jsxs('div', {
+            className: 'flex items-center',
+            children: [
+              a.jsx('div', {
+                className: 'flex-shrink-0',
+                children: a.jsx(n, { className: 'h-8 w-8 text-orange-500' }),
+              }),
+              a.jsxs('div', {
+                className: 'ml-4',
+                children: [
+                  a.jsx('h3', {
+                    className: 'text-lg font-medium text-orange-900',
+                    children: '100% Federal DOL/DWD Compliance',
+                  }),
+                  a.jsx('p', {
+                    className: 'text-orange-700',
+                    children:
+                      'All programs meet federal Elevate Learn2Earn Workforce standards with complete eligibility verification, Individual Employment Plans (IEP), PIRL reporting, and performance tracking systems.',
+                  }),
+                ],
+              }),
+              a.jsx('div', {
+                className: 'ml-auto',
+                children: a.jsx(s, {
+                  to: '/compliance',
+                  className:
+                    'bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors',
+                  children: 'View Compliance Portal',
+                }),
+              }),
+            ],
+          }),
+        }),
+      }),
+    ],
+  });
+}
+export { o as default };

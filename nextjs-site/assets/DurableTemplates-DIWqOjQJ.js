@@ -1,1 +1,84 @@
-import{j as e,H as s}from"./vendor-react-C-ZQNdj3.js";import{L as r}from"./vendor-router-CQjfSXV_.js";import{N as n}from"./Navigation-Bbm4Xzc1.js";import{F as i}from"./Footer-Dh9yHrAI.js";import{S as t}from"./Section-DjKsK8lK.js";import"./vendor-Da1LjC7-.js";function a(){return e.jsxs("div",{children:[e.jsxs(s,{children:[e.jsx("title",{children:"Program Templates | Elevate for Humanity"}),e.jsx("meta",{name:"description",content:"Pre-built learning paths designed by industry experts"})]}),e.jsx(n,{}),e.jsxs(t,{background:"beige",children:[e.jsxs("div",{className:"text-center mb-12",children:[e.jsx("h1",{className:"section-title",children:"Program Templates"}),e.jsx("p",{className:"section-subtitle max-w-2xl mx-auto",children:"Pre-built learning paths designed by industry experts"})]}),e.jsx("div",{className:"grid md:grid-cols-2 lg:grid-cols-3 gap-8",children:[{name:"Career Development",icon:"💼",courses:12},{name:"Technical Skills",icon:"💻",courses:18},{name:"Leadership",icon:"👔",courses:8},{name:"Communication",icon:"💬",courses:10},{name:"Project Management",icon:"📊",courses:15},{name:"Entrepreneurship",icon:"🚀",courses:9}].map((s,n)=>e.jsxs("div",{className:"card p-8 hover:shadow-lg transition",children:[e.jsx("div",{className:"text-6xl mb-4",children:s.icon}),e.jsx("h3",{className:"text-2xl font-bold text-brown-900 mb-2",children:s.name}),e.jsxs("p",{className:"text-brown-600 mb-4",children:[s.courses," courses included"]}),e.jsx(r,{to:"/programs",className:"text-green-600 font-semibold hover:text-green-700",children:"View Template →"})]},n))})]}),e.jsx(i,{})]})}export{a as default};
+import { j as e, H as s } from './vendor-react-C-ZQNdj3.js';
+import { L as r } from './vendor-router-CQjfSXV_.js';
+import { N as n } from './Navigation-Bbm4Xzc1.js';
+import { F as i } from './Footer-Dh9yHrAI.js';
+import { S as t } from './Section-DjKsK8lK.js';
+import './vendor-Da1LjC7-.js';
+function a() {
+  return e.jsxs('div', {
+    children: [
+      e.jsxs(s, {
+        children: [
+          e.jsx('title', {
+            children: 'Program Templates | Elevate for Humanity',
+          }),
+          e.jsx('meta', {
+            name: 'description',
+            content: 'Pre-built learning paths designed by industry experts',
+          }),
+        ],
+      }),
+      e.jsx(n, {}),
+      e.jsxs(t, {
+        background: 'beige',
+        children: [
+          e.jsxs('div', {
+            className: 'text-center mb-12',
+            children: [
+              e.jsx('h1', {
+                className: 'section-title',
+                children: 'Program Templates',
+              }),
+              e.jsx('p', {
+                className: 'section-subtitle max-w-2xl mx-auto',
+                children:
+                  'Pre-built learning paths designed by industry experts',
+              }),
+            ],
+          }),
+          e.jsx('div', {
+            className: 'grid md:grid-cols-2 lg:grid-cols-3 gap-8',
+            children: [
+              { name: 'Career Development', icon: '💼', courses: 12 },
+              { name: 'Technical Skills', icon: '💻', courses: 18 },
+              { name: 'Leadership', icon: '👔', courses: 8 },
+              { name: 'Communication', icon: '💬', courses: 10 },
+              { name: 'Project Management', icon: '📊', courses: 15 },
+              { name: 'Entrepreneurship', icon: '🚀', courses: 9 },
+            ].map((s, n) =>
+              e.jsxs(
+                'div',
+                {
+                  className: 'card p-8 hover:shadow-lg transition',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-6xl mb-4',
+                      children: s.icon,
+                    }),
+                    e.jsx('h3', {
+                      className: 'text-2xl font-bold text-brown-900 mb-2',
+                      children: s.name,
+                    }),
+                    e.jsxs('p', {
+                      className: 'text-brown-600 mb-4',
+                      children: [s.courses, ' courses included'],
+                    }),
+                    e.jsx(r, {
+                      to: '/programs',
+                      className:
+                        'text-green-600 font-semibold hover:text-green-700',
+                      children: 'View Template →',
+                    }),
+                  ],
+                },
+                n
+              )
+            ),
+          }),
+        ],
+      }),
+      e.jsx(i, {}),
+    ],
+  });
+}
+export { a as default };

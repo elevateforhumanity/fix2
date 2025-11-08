@@ -1,1 +1,352 @@
-import{j as e,H as s}from"./vendor-react-C-ZQNdj3.js";import{L as t}from"./vendor-router-CQjfSXV_.js";import"./vendor-Da1LjC7-.js";function r(){return e.jsxs(e.Fragment,{children:[e.jsxs(s,{children:[e.jsx("title",{children:"Career Training Programs | Elevate for Humanity"}),e.jsx("meta",{name:"description",content:"WIOA approved career training programs in technology, healthcare, and skilled trades. Free training available with job placement assistance."})]}),e.jsxs("section",{className:"relative bg-gradient-to-r from-blue-900 via-purple-900 to-blue-800 text-white overflow-hidden",children:[e.jsx("div",{className:"absolute inset-0 bg-black opacity-50"}),e.jsx("div",{className:"relative container mx-auto px-4 py-20",children:e.jsxs("div",{className:"max-w-4xl mx-auto text-center",children:[e.jsx("h1",{className:"text-5xl md:text-6xl font-bold mb-6",children:"Transform Your Career with Free Training"}),e.jsx("p",{className:"text-xl md:text-2xl mb-8",children:"WIOA-approved programs in technology, healthcare, and skilled trades"}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 justify-center",children:[e.jsx(t,{to:"/programs",className:"bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors",children:"View Programs"}),e.jsx(t,{to:"/student",className:"border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition-colors",children:"Get Started"})]})]})})]}),e.jsx("section",{className:"py-16 bg-beige-50",children:e.jsxs("div",{className:"container mx-auto px-4",children:[e.jsxs("div",{className:"text-center mb-12",children:[e.jsx("h2",{className:"text-4xl font-bold text-brown-900 mb-4",children:"Popular Programs"}),e.jsx("p",{className:"text-xl text-brown-600",children:"Choose from our WIOA approved programs"})]}),e.jsxs("div",{className:"grid md:grid-cols-2 lg:grid-cols-3 gap-8",children:[e.jsxs("div",{className:"bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow",children:[e.jsx("div",{className:"h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center",children:e.jsxs("div",{className:"text-white text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"🔒"}),e.jsx("h3",{className:"text-2xl font-bold",children:"Cybersecurity"})]})}),e.jsxs("div",{className:"p-6",children:[e.jsx("p",{className:"text-brown-600 mb-4",children:"Learn to protect digital assets and networks from cyber threats."}),e.jsxs("div",{className:"flex justify-between items-center mb-4",children:[e.jsx("span",{className:"text-sm text-brown-500",children:"12-16 weeks"}),e.jsx("span",{className:"bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm",children:"$65K+ avg"})]}),e.jsx(t,{to:"/programs/cybersecurity",className:"block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors",children:"Learn More"})]})]}),e.jsxs("div",{className:"bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow",children:[e.jsx("div",{className:"h-48 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center",children:e.jsxs("div",{className:"text-white text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"☁️"}),e.jsx("h3",{className:"text-2xl font-bold",children:"Cloud Computing"})]})}),e.jsxs("div",{className:"p-6",children:[e.jsx("p",{className:"text-brown-600 mb-4",children:"Master AWS, Azure, and Google Cloud platforms."}),e.jsxs("div",{className:"flex justify-between items-center mb-4",children:[e.jsx("span",{className:"text-sm text-brown-500",children:"10-14 weeks"}),e.jsx("span",{className:"bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm",children:"$70K+ avg"})]}),e.jsx(t,{to:"/programs/cloud-computing",className:"block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors",children:"Learn More"})]})]}),e.jsxs("div",{className:"bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow",children:[e.jsx("div",{className:"h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center",children:e.jsxs("div",{className:"text-white text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"🏥"}),e.jsx("h3",{className:"text-2xl font-bold",children:"Healthcare"})]})}),e.jsxs("div",{className:"p-6",children:[e.jsx("p",{className:"text-brown-600 mb-4",children:"CNA and Home Health Aide certification programs."}),e.jsxs("div",{className:"flex justify-between items-center mb-4",children:[e.jsx("span",{className:"text-sm text-brown-500",children:"6-8 weeks"}),e.jsx("span",{className:"bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm",children:"$35K+ avg"})]}),e.jsx(t,{to:"/programs/healthcare",className:"block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors",children:"Learn More"})]})]})]}),e.jsx("div",{className:"text-center mt-12",children:e.jsx(t,{to:"/programs",className:"inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors",children:"View All Programs"})})]})}),e.jsx("section",{className:"py-16 bg-white",children:e.jsxs("div",{className:"container mx-auto px-4",children:[e.jsx("div",{className:"text-center mb-12",children:e.jsx("h2",{className:"text-4xl font-bold text-brown-900 mb-4",children:"Why Choose Elevate?"})}),e.jsxs("div",{className:"grid md:grid-cols-3 gap-8",children:[e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-5xl mb-4",children:"✅"}),e.jsx("h3",{className:"text-xl font-bold mb-2",children:"WIOA Approved"}),e.jsx("p",{className:"text-brown-600",children:"Federally approved programs with funding available"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-5xl mb-4",children:"💼"}),e.jsx("h3",{className:"text-xl font-bold mb-2",children:"Job Placement"}),e.jsx("p",{className:"text-brown-600",children:"Career support and job placement assistance"})]}),e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-5xl mb-4",children:"🎓"}),e.jsx("h3",{className:"text-xl font-bold mb-2",children:"Industry Certifications"}),e.jsx("p",{className:"text-brown-600",children:"Earn recognized credentials from top providers"})]})]})]})}),e.jsx("section",{className:"py-16 bg-blue-900 text-white",children:e.jsxs("div",{className:"container mx-auto px-4 text-center",children:[e.jsx("h2",{className:"text-4xl font-bold mb-4",children:"Ready to Start Your Journey?"}),e.jsx("p",{className:"text-xl mb-8",children:"Check your eligibility for free training today"}),e.jsx(t,{to:"/student",className:"inline-block bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors",children:"Check Eligibility"})]})})]})}export{r as default};
+import { j as e, H as s } from './vendor-react-C-ZQNdj3.js';
+import { L as t } from './vendor-router-CQjfSXV_.js';
+import './vendor-Da1LjC7-.js';
+function r() {
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsxs(s, {
+        children: [
+          e.jsx('title', {
+            children: 'Career Training Programs | Elevate for Humanity',
+          }),
+          e.jsx('meta', {
+            name: 'description',
+            content:
+              'WIOA approved career training programs in technology, healthcare, and skilled trades. Free training available with job placement assistance.',
+          }),
+        ],
+      }),
+      e.jsxs('section', {
+        className:
+          'relative bg-gradient-to-r from-blue-900 via-purple-900 to-blue-800 text-white overflow-hidden',
+        children: [
+          e.jsx('div', { className: 'absolute inset-0 bg-black opacity-50' }),
+          e.jsx('div', {
+            className: 'relative container mx-auto px-4 py-20',
+            children: e.jsxs('div', {
+              className: 'max-w-4xl mx-auto text-center',
+              children: [
+                e.jsx('h1', {
+                  className: 'text-5xl md:text-6xl font-bold mb-6',
+                  children: 'Transform Your Career with Free Training',
+                }),
+                e.jsx('p', {
+                  className: 'text-xl md:text-2xl mb-8',
+                  children:
+                    'WIOA-approved programs in technology, healthcare, and skilled trades',
+                }),
+                e.jsxs('div', {
+                  className: 'flex flex-col sm:flex-row gap-4 justify-center',
+                  children: [
+                    e.jsx(t, {
+                      to: '/programs',
+                      className:
+                        'bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors',
+                      children: 'View Programs',
+                    }),
+                    e.jsx(t, {
+                      to: '/student',
+                      className:
+                        'border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition-colors',
+                      children: 'Get Started',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+      e.jsx('section', {
+        className: 'py-16 bg-beige-50',
+        children: e.jsxs('div', {
+          className: 'container mx-auto px-4',
+          children: [
+            e.jsxs('div', {
+              className: 'text-center mb-12',
+              children: [
+                e.jsx('h2', {
+                  className: 'text-4xl font-bold text-brown-900 mb-4',
+                  children: 'Popular Programs',
+                }),
+                e.jsx('p', {
+                  className: 'text-xl text-brown-600',
+                  children: 'Choose from our WIOA approved programs',
+                }),
+              ],
+            }),
+            e.jsxs('div', {
+              className: 'grid md:grid-cols-2 lg:grid-cols-3 gap-8',
+              children: [
+                e.jsxs('div', {
+                  className:
+                    'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center',
+                      children: e.jsxs('div', {
+                        className: 'text-white text-center',
+                        children: [
+                          e.jsx('div', {
+                            className: 'text-6xl mb-4',
+                            children: '🔒',
+                          }),
+                          e.jsx('h3', {
+                            className: 'text-2xl font-bold',
+                            children: 'Cybersecurity',
+                          }),
+                        ],
+                      }),
+                    }),
+                    e.jsxs('div', {
+                      className: 'p-6',
+                      children: [
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'Learn to protect digital assets and networks from cyber threats.',
+                        }),
+                        e.jsxs('div', {
+                          className: 'flex justify-between items-center mb-4',
+                          children: [
+                            e.jsx('span', {
+                              className: 'text-sm text-brown-500',
+                              children: '12-16 weeks',
+                            }),
+                            e.jsx('span', {
+                              className:
+                                'bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm',
+                              children: '$65K+ avg',
+                            }),
+                          ],
+                        }),
+                        e.jsx(t, {
+                          to: '/programs/cybersecurity',
+                          className:
+                            'block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors',
+                          children: 'Learn More',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                e.jsxs('div', {
+                  className:
+                    'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'h-48 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center',
+                      children: e.jsxs('div', {
+                        className: 'text-white text-center',
+                        children: [
+                          e.jsx('div', {
+                            className: 'text-6xl mb-4',
+                            children: '☁️',
+                          }),
+                          e.jsx('h3', {
+                            className: 'text-2xl font-bold',
+                            children: 'Cloud Computing',
+                          }),
+                        ],
+                      }),
+                    }),
+                    e.jsxs('div', {
+                      className: 'p-6',
+                      children: [
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'Master AWS, Azure, and Google Cloud platforms.',
+                        }),
+                        e.jsxs('div', {
+                          className: 'flex justify-between items-center mb-4',
+                          children: [
+                            e.jsx('span', {
+                              className: 'text-sm text-brown-500',
+                              children: '10-14 weeks',
+                            }),
+                            e.jsx('span', {
+                              className:
+                                'bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm',
+                              children: '$70K+ avg',
+                            }),
+                          ],
+                        }),
+                        e.jsx(t, {
+                          to: '/programs/cloud-computing',
+                          className:
+                            'block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors',
+                          children: 'Learn More',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                e.jsxs('div', {
+                  className:
+                    'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow',
+                  children: [
+                    e.jsx('div', {
+                      className:
+                        'h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center',
+                      children: e.jsxs('div', {
+                        className: 'text-white text-center',
+                        children: [
+                          e.jsx('div', {
+                            className: 'text-6xl mb-4',
+                            children: '🏥',
+                          }),
+                          e.jsx('h3', {
+                            className: 'text-2xl font-bold',
+                            children: 'Healthcare',
+                          }),
+                        ],
+                      }),
+                    }),
+                    e.jsxs('div', {
+                      className: 'p-6',
+                      children: [
+                        e.jsx('p', {
+                          className: 'text-brown-600 mb-4',
+                          children:
+                            'CNA and Home Health Aide certification programs.',
+                        }),
+                        e.jsxs('div', {
+                          className: 'flex justify-between items-center mb-4',
+                          children: [
+                            e.jsx('span', {
+                              className: 'text-sm text-brown-500',
+                              children: '6-8 weeks',
+                            }),
+                            e.jsx('span', {
+                              className:
+                                'bg-beige-50 text-green-600 px-3 py-1 rounded-full text-sm',
+                              children: '$35K+ avg',
+                            }),
+                          ],
+                        }),
+                        e.jsx(t, {
+                          to: '/programs/healthcare',
+                          className:
+                            'block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors',
+                          children: 'Learn More',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e.jsx('div', {
+              className: 'text-center mt-12',
+              children: e.jsx(t, {
+                to: '/programs',
+                className:
+                  'inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors',
+                children: 'View All Programs',
+              }),
+            }),
+          ],
+        }),
+      }),
+      e.jsx('section', {
+        className: 'py-16 bg-white',
+        children: e.jsxs('div', {
+          className: 'container mx-auto px-4',
+          children: [
+            e.jsx('div', {
+              className: 'text-center mb-12',
+              children: e.jsx('h2', {
+                className: 'text-4xl font-bold text-brown-900 mb-4',
+                children: 'Why Choose Elevate?',
+              }),
+            }),
+            e.jsxs('div', {
+              className: 'grid md:grid-cols-3 gap-8',
+              children: [
+                e.jsxs('div', {
+                  className: 'text-center',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-5xl mb-4',
+                      children: '✅',
+                    }),
+                    e.jsx('h3', {
+                      className: 'text-xl font-bold mb-2',
+                      children: 'WIOA Approved',
+                    }),
+                    e.jsx('p', {
+                      className: 'text-brown-600',
+                      children:
+                        'Federally approved programs with funding available',
+                    }),
+                  ],
+                }),
+                e.jsxs('div', {
+                  className: 'text-center',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-5xl mb-4',
+                      children: '💼',
+                    }),
+                    e.jsx('h3', {
+                      className: 'text-xl font-bold mb-2',
+                      children: 'Job Placement',
+                    }),
+                    e.jsx('p', {
+                      className: 'text-brown-600',
+                      children: 'Career support and job placement assistance',
+                    }),
+                  ],
+                }),
+                e.jsxs('div', {
+                  className: 'text-center',
+                  children: [
+                    e.jsx('div', {
+                      className: 'text-5xl mb-4',
+                      children: '🎓',
+                    }),
+                    e.jsx('h3', {
+                      className: 'text-xl font-bold mb-2',
+                      children: 'Industry Certifications',
+                    }),
+                    e.jsx('p', {
+                      className: 'text-brown-600',
+                      children:
+                        'Earn recognized credentials from top providers',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      e.jsx('section', {
+        className: 'py-16 bg-blue-900 text-white',
+        children: e.jsxs('div', {
+          className: 'container mx-auto px-4 text-center',
+          children: [
+            e.jsx('h2', {
+              className: 'text-4xl font-bold mb-4',
+              children: 'Ready to Start Your Journey?',
+            }),
+            e.jsx('p', {
+              className: 'text-xl mb-8',
+              children: 'Check your eligibility for free training today',
+            }),
+            e.jsx(t, {
+              to: '/student',
+              className:
+                'inline-block bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors',
+              children: 'Check Eligibility',
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { r as default };

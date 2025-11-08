@@ -47,9 +47,7 @@ const JobReadyIndy = () => {
           content="Job Ready Indy training programs through Elevate for Humanity Career and Training Institute"
         />
       </Helmet>
-
       <Navigation />
-
       <div className="min-h-screen bg-beige-50">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-green-600 to-green-700 text-white py-20">
@@ -319,7 +317,6 @@ const JobReadyIndy = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

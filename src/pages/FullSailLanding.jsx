@@ -123,9 +123,7 @@ const FullSailLanding = () => {
           content="FREE training available for qualified Indiana residents. WIOA approved programs."
         />
       </Helmet>
-
       <Navigation />
-
       <div className="min-h-screen bg-beige-50">
         {/* Header Banner */}
         <div className="bg-brown-900 text-white text-center py-3 text-sm">
@@ -366,7 +364,6 @@ const FullSailLanding = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

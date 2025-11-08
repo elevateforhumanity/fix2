@@ -14,9 +14,7 @@ export default function MentorDirectory() {
           content="Connect with experienced mentors who can guide you through your career journey."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="white">
         <div className="mx-auto max-w-[1200px] text-center">
           <div className="mb-8">
@@ -28,7 +26,6 @@ export default function MentorDirectory() {
             career journey. Browse profiles, read reviews, and find the perfect
             mentor for your goals.
           </p>
-
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-left">
             <div className="card">
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -77,7 +74,6 @@ export default function MentorDirectory() {
               </p>
             </div>
           </div>
-
           <div className="mt-12 p-6 bg-green-50 rounded-lg">
             <p className="text-lg font-semibold text-green-900">
               Coming Q1 2025
@@ -85,7 +81,6 @@ export default function MentorDirectory() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

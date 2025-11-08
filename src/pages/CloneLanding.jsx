@@ -19,15 +19,12 @@ export default function CloneLanding() {
           content="Launch your own branded workforce development platform with our white label solution."
         />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title="White Label Platform"
         subtitle="Launch your own branded workforce development platform"
         backgroundImage="/images/white-label-hero.jpg"
       />
-
       <div className="section">
         <div className="container max-w-4xl">
           <div className="card p-8 text-center mb-12 bg-gradient-to-r from-green-50 to-beige-50 border-l-4 border-green-600">
@@ -39,7 +36,6 @@ export default function CloneLanding() {
               Perfect for organizations, schools, and training providers
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-6">
             <div className="card p-6">
               <div className="text-4xl mb-4">🎨</div>
@@ -50,7 +46,6 @@ export default function CloneLanding() {
                 Your logo, colors, and domain name
               </p>
             </div>
-
             <div className="card p-6">
               <div className="text-4xl mb-4">📚</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -60,7 +55,6 @@ export default function CloneLanding() {
                 Full course management and delivery
               </p>
             </div>
-
             <div className="card p-6">
               <div className="text-4xl mb-4">👥</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -68,7 +62,6 @@ export default function CloneLanding() {
               </h3>
               <p className="text-brown-600">Enrollment and progress tracking</p>
             </div>
-
             <div className="card p-6">
               <div className="text-4xl mb-4">💳</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -76,7 +69,6 @@ export default function CloneLanding() {
               </h3>
               <p className="text-brown-600">Built-in payment and reporting</p>
             </div>
-
             <div className="card p-6">
               <div className="text-4xl mb-4">🎓</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -84,7 +76,6 @@ export default function CloneLanding() {
               </h3>
               <p className="text-brown-600">Automated certificate generation</p>
             </div>
-
             <div className="card p-6">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -93,7 +84,6 @@ export default function CloneLanding() {
               <p className="text-brown-600">Training and ongoing assistance</p>
             </div>
           </div>
-
           <div className="card p-8 text-center mt-12 bg-green-50">
             <h3 className="text-2xl font-bold text-brown-900 mb-4">
               Interested in White Label?
@@ -107,7 +97,6 @@ export default function CloneLanding() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

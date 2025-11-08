@@ -188,7 +188,6 @@ export default function QuizEngine({
                 : `You need ${passingScore}% to pass. Try again!`}
             </p>
           </div>
-
           {/* Score Display */}
           <div className="grid grid-cols-3 gap-4 mb-8">
             <div className="text-center p-4 bg-beige-50 rounded-lg">
@@ -210,7 +209,6 @@ export default function QuizEngine({
               <div className="text-sm text-brown-600">Time</div>
             </div>
           </div>
-
           {/* Question Review */}
           <div className="mb-8">
             <h3 className="text-xl font-bold text-brown-900 mb-4">Review</h3>
@@ -246,7 +244,6 @@ export default function QuizEngine({
               })}
             </div>
           </div>
-
           {/* Actions */}
           <div className="flex gap-4 justify-center">
             {!results.passed && (
@@ -287,7 +284,6 @@ export default function QuizEngine({
             </div>
           )}
         </div>
-
         {/* Progress Bar */}
         <div className="flex items-center gap-4">
           <div className="flex-1 h-2 bg-beige-100 rounded-full overflow-hidden">
@@ -296,14 +292,13 @@ export default function QuizEngine({
               style={{
                 width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
               }}
-            ></div>
+             />
           </div>
           <span className="text-sm text-brown-600 whitespace-nowrap">
             {currentQuestionIndex + 1} / {questions.length}
           </span>
         </div>
       </div>
-
       {/* Question Card */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
         <div className="mb-6">
@@ -321,7 +316,6 @@ export default function QuizEngine({
             <p className="text-sm text-brown-500 mt-2">Select all that apply</p>
           )}
         </div>
-
         {/* Options */}
         <div className="space-y-3">
           {currentQuestion.options.map((option, idx) => {
@@ -355,7 +349,6 @@ export default function QuizEngine({
             );
           })}
         </div>
-
         {/* Explanation (if shown) */}
         {showExplanation && currentQuestion.explanation && (
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
@@ -368,7 +361,6 @@ export default function QuizEngine({
           </div>
         )}
       </div>
-
       {/* Navigation */}
       <div className="flex items-center justify-between">
         <button
@@ -378,7 +370,6 @@ export default function QuizEngine({
         >
           Previous
         </button>
-
         <div className="flex gap-3">
           {currentQuestion.explanation && (
             <button
@@ -388,7 +379,6 @@ export default function QuizEngine({
               {showExplanation ? 'Hide' : 'Show'} Explanation
             </button>
           )}
-
           <button
             onClick={handleNext}
             disabled={currentAnswers.length === 0}

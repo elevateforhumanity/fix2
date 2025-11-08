@@ -1,1 +1,29 @@
-import{j as r,H as s}from"./vendor-react-C-ZQNdj3.js";import{N as e}from"./Navigation-Bbm4Xzc1.js";import{S as i}from"./Section-DjKsK8lK.js";import{F as o}from"./Footer-Dh9yHrAI.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function t(){return r.jsxs("div",{children:[r.jsx(s,{children:r.jsx("title",{children:"Milady Barber Course | Elevate for Humanity"})}),r.jsx(e,{}),r.jsxs(i,{children:[r.jsx("h1",{className:"section-title",children:"Milady Barber Course"}),r.jsx("p",{children:"Professional barber training curriculum."})]}),r.jsx(o,{})]})}export{t as default};
+import { j as r, H as s } from './vendor-react-C-ZQNdj3.js';
+import { N as e } from './Navigation-Bbm4Xzc1.js';
+import { S as i } from './Section-DjKsK8lK.js';
+import { F as o } from './Footer-Dh9yHrAI.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function t() {
+  return r.jsxs('div', {
+    children: [
+      r.jsx(s, {
+        children: r.jsx('title', {
+          children: 'Milady Barber Course | Elevate for Humanity',
+        }),
+      }),
+      r.jsx(e, {}),
+      r.jsxs(i, {
+        children: [
+          r.jsx('h1', {
+            className: 'section-title',
+            children: 'Milady Barber Course',
+          }),
+          r.jsx('p', { children: 'Professional barber training curriculum.' }),
+        ],
+      }),
+      r.jsx(o, {}),
+    ],
+  });
+}
+export { t as default };

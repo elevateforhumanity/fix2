@@ -96,7 +96,6 @@ export default function Footer({
               development. 100% funded programs for Marion County, IN.
             </p>
           </div>
-
           {/* Footer Sections */}
           {sections.map((section) => (
             <div key={section.title}>
@@ -118,18 +117,15 @@ export default function Footer({
             </div>
           ))}
         </div>
-
         {/* Platform Statement */}
         <div className="border-t border-gray-800 pt-8 mb-8">
           <PlatformStatement variant="footer" className="max-w-3xl" />
         </div>
-
         {/* Bottom Section */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
             © {currentYear} Elevate for Humanity. All rights reserved.
           </p>
-
           {/* Social Links */}
           {Object.keys(socialLinks).length > 0 && (
             <div className="flex gap-4">

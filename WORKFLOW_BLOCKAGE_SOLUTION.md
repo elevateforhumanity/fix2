@@ -11,6 +11,7 @@
 ## ✅ Fix Already Applied
 
 Commit `6d91a9b9` disabled the problematic workflow:
+
 - Removed automatic triggers (push, schedule)
 - Added 30-minute job timeout
 - Workflow now only runs on manual dispatch
@@ -122,7 +123,7 @@ For any workflow that might loop, add:
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Add this line
+    timeout-minutes: 30 # Add this line
 ```
 
 ### Monitor Workflow Runs

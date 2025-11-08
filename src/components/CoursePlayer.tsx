@@ -124,7 +124,6 @@ export default function CoursePlayer({
         className="w-full aspect-video"
         onClick={togglePlay}
       />
-
       {/* Progress Bar */}
       <div className="absolute bottom-16 left-0 right-0 px-4">
         <input
@@ -136,7 +135,6 @@ export default function CoursePlayer({
           className="w-full h-1 bg-white/30 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-green-600"
         />
       </div>
-
       {/* Controls */}
       <div
         className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 transition-opacity duration-300 ${
@@ -157,7 +155,6 @@ export default function CoursePlayer({
                 <Play className="w-6 h-6" />
               )}
             </button>
-
             {/* Volume */}
             <button
               onClick={toggleMute}
@@ -170,13 +167,11 @@ export default function CoursePlayer({
                 <Volume2 className="w-6 h-6" />
               )}
             </button>
-
             {/* Time */}
             <div className="text-sm">
               {formatTime(currentTime)} / {formatTime(duration)}
             </div>
           </div>
-
           <div className="flex items-center gap-4">
             {/* Settings */}
             <button
@@ -185,7 +180,6 @@ export default function CoursePlayer({
             >
               <Settings className="w-5 h-5" />
             </button>
-
             {/* Fullscreen */}
             <button
               onClick={toggleFullscreen}
@@ -197,7 +191,6 @@ export default function CoursePlayer({
           </div>
         </div>
       </div>
-
       {/* Play Overlay */}
       {!isPlaying && (
         <div

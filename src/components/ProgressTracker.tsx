@@ -50,13 +50,12 @@ export default function ProgressTracker({
           <div
             className="h-full bg-green-600 transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
-          ></div>
+           />
         </div>
         <p className="text-sm text-brown-600 mt-2">
           {completedLessons} of {totalLessons} lessons completed
         </p>
       </div>
-
       {/* Module List */}
       <div className="space-y-4">
         {modules.map((module, moduleIndex) => {
@@ -86,10 +85,9 @@ export default function ProgressTracker({
                   <div
                     className="h-full bg-green-600 transition-all duration-300"
                     style={{ width: `${moduleProgress}%` }}
-                  ></div>
+                   />
                 </div>
               </div>
-
               {/* Lesson List */}
               <div className="space-y-2 ml-4">
                 {module.lessons.map((lesson, lessonIndex) => {
@@ -119,7 +117,6 @@ export default function ProgressTracker({
                           <Circle className="w-5 h-5 text-brown-300" />
                         )}
                       </div>
-
                       {/* Lesson Info */}
                       <div className="flex-1 min-w-0">
                         <p
@@ -130,11 +127,10 @@ export default function ProgressTracker({
                           {lessonIndex + 1}. {lesson.title}
                         </p>
                       </div>
-
                       {/* Active Indicator */}
                       {isActive && (
                         <div className="flex-shrink-0">
-                          <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-600 rounded-full" />
                         </div>
                       )}
                     </button>
@@ -145,7 +141,6 @@ export default function ProgressTracker({
           );
         })}
       </div>
-
       {/* Completion Badge */}
       {progressPercent === 100 && (
         <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg text-center">

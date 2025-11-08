@@ -129,9 +129,7 @@ export default function Certificates() {
             >
               {inProgressCount}
             </div>
-            <div style={{ fontSize: 14, color: '#6b5d52' }}>
-              In Progress
-            </div>
+            <div style={{ fontSize: 14, color: '#6b5d52' }}>In Progress</div>
           </div>
           <div
             style={{
@@ -173,10 +171,7 @@ export default function Certificates() {
             style={{
               padding: '12px 24px',
               backgroundColor: 'transparent',
-              color:
-                filter === 'all'
-                  ? '#00a544'
-                  : '#6b5d52',
+              color: filter === 'all' ? '#00a544' : '#6b5d52',
               border: 'none',
               borderBottom:
                 filter === 'all'
@@ -195,10 +190,7 @@ export default function Certificates() {
             style={{
               padding: '12px 24px',
               backgroundColor: 'transparent',
-              color:
-                filter === 'issued'
-                  ? '#00a544'
-                  : '#6b5d52',
+              color: filter === 'issued' ? '#00a544' : '#6b5d52',
               border: 'none',
               borderBottom:
                 filter === 'issued'
@@ -217,10 +209,7 @@ export default function Certificates() {
             style={{
               padding: '12px 24px',
               backgroundColor: 'transparent',
-              color:
-                filter === 'in-progress'
-                  ? '#00a544'
-                  : '#6b5d52',
+              color: filter === 'in-progress' ? '#00a544' : '#6b5d52',
               border: 'none',
               borderBottom:
                 filter === 'in-progress'
@@ -436,9 +425,7 @@ export default function Certificates() {
                     width: 120,
                     height: 90,
                     backgroundColor:
-                      cert.status === 'issued'
-                        ? '#f8f8f8'
-                        : '#d4c9b8',
+                      cert.status === 'issued' ? '#f8f8f8' : '#d4c9b8',
                     borderRadius: 4,
                     display: 'flex',
                     alignItems: 'center',

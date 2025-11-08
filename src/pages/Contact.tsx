@@ -42,9 +42,7 @@ export default function Contact() {
           content="Get in touch with Elevate for Humanity. We're here to help with program information, applications, and funding questions."
         />
       </Helmet>
-
       <Navigation />
-
       <Section background="green">
         <div className="mx-auto max-w-[800px] text-center">
           <h1 className="section-title">Contact Us</h1>
@@ -112,7 +110,6 @@ export default function Contact() {
               </button>
             </form>
           </div>
-
           {/* Contact Information */}
           <div>
             <h2 className="text-2xl font-bold text-[var(--color-brown)] mb-6">
@@ -167,7 +164,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
             {/* Office Hours */}
             <div className="mt-8 p-6 bg-[var(--color-beige)] rounded-lg">
               <h3 className="font-semibold text-[var(--color-brown)] mb-3">
@@ -191,7 +187,6 @@ export default function Contact() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

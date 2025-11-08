@@ -96,11 +96,9 @@ export default function EmailPreferences({ userId }: EmailPreferencesProps) {
           Email Notifications
         </h3>
       </div>
-
       <p className="text-brown-600 mb-6">
         Choose which email notifications you'd like to receive
       </p>
-
       <div className="space-y-4">
         {preferenceItems.map((item) => (
           <div
@@ -133,7 +131,6 @@ export default function EmailPreferences({ userId }: EmailPreferencesProps) {
           </div>
         ))}
       </div>
-
       <div className="mt-6 flex items-center justify-between">
         <p className="text-sm text-brown-500">
           Changes are saved automatically

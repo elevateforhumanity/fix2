@@ -17,9 +17,7 @@ export default function Mentorship() {
           content="Connect with experienced mentors for career guidance, skill development, and personal growth."
         />
       </Helmet>
-
       <Navigation />
-
       <Hero
         title="Mentorship Hub"
         subtitle="Connect with experienced mentors for career guidance, skill development, and personal growth. Explore our directory or sign up to become a mentor."
@@ -28,7 +26,6 @@ export default function Mentorship() {
         primaryLink="/sisters/mentor-directory"
         secondaryLink="/sisters/mentor-signup"
       />
-
       <Section background="white">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="section-title text-center">Why Mentorship Matters</h2>
@@ -36,7 +33,6 @@ export default function Mentorship() {
             Mentorship provides guidance, support, and real-world insights to
             help you succeed in your career journey.
           </p>
-
           <div className="grid gap-8 md:grid-cols-3">
             <div className="card text-center">
               <div className="text-4xl mb-4">🎯</div>
@@ -48,7 +44,6 @@ export default function Mentorship() {
                 professional development.
               </p>
             </div>
-
             <div className="card text-center">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -59,7 +54,6 @@ export default function Mentorship() {
                 experienced professionals.
               </p>
             </div>
-
             <div className="card text-center">
               <div className="text-4xl mb-4">🌟</div>
               <h3 className="text-xl font-bold text-brown-900 mb-2">
@@ -73,7 +67,6 @@ export default function Mentorship() {
           </div>
         </div>
       </Section>
-
       <Section background="beige">
         <div className="mx-auto max-w-[800px] text-center">
           <h2 className="section-title">Ready to Get Started?</h2>
@@ -81,7 +74,6 @@ export default function Mentorship() {
             Whether you're looking for guidance or want to share your expertise,
             our mentorship program connects you with the right people.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/sisters/mentor-directory">
               <Button variant="primary" size="large">
@@ -96,7 +88,6 @@ export default function Mentorship() {
           </div>
         </div>
       </Section>
-
       <Footer />
     </div>
   );

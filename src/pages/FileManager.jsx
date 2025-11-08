@@ -148,9 +148,7 @@ export function FileManager() {
   };
 
   return (
-    <div
-      style={{ minHeight: '100vh', backgroundColor: '#f5f1e8' }}
-    >
+    <div style={{ minHeight: '100vh', backgroundColor: '#f5f1e8' }}>
       {/* Header */}
       <div
         style={{
@@ -235,9 +233,7 @@ export function FileManager() {
                   background: 'none',
                   border: 'none',
                   color:
-                    index === breadcrumbs.length - 1
-                      ? '#4a3728'
-                      : '#00a544',
+                    index === breadcrumbs.length - 1 ? '#4a3728' : '#00a544',
                   cursor: 'pointer',
                   fontWeight: index === breadcrumbs.length - 1 ? '600' : '400',
                 }}
@@ -295,9 +291,7 @@ export function FileManager() {
                   width: `${Math.min(storageQuota.percentage, 100)}%`,
                   height: '100%',
                   backgroundColor:
-                    storageQuota.percentage > 90
-                      ? '#dc2626'
-                      : '#00a544',
+                    storageQuota.percentage > 90 ? '#dc2626' : '#00a544',
                   transition: 'width 0.3s',
                 }}
               />

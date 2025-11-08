@@ -154,9 +154,7 @@ export default function Course() {
                   marginBottom: 6,
                 }}
               >
-                <span
-                  style={{ fontSize: 12, color: '#6b5d52' }}
-                >
+                <span style={{ fontSize: 12, color: '#6b5d52' }}>
                   Course Progress
                 </span>
                 <span style={{ fontSize: 12, fontWeight: 600 }}>
@@ -322,9 +320,7 @@ export default function Course() {
                   style={{
                     padding: '12px 0',
                     backgroundColor: 'transparent',
-                    color: !showNotes
-                      ? '#00a544'
-                      : '#6b5d52',
+                    color: !showNotes ? '#00a544' : '#6b5d52',
                     border: 'none',
                     borderBottom: !showNotes
                       ? '2px solid #00a544'
@@ -342,9 +338,7 @@ export default function Course() {
                   style={{
                     padding: '12px 0',
                     backgroundColor: 'transparent',
-                    color: showNotes
-                      ? '#00a544'
-                      : '#6b5d52',
+                    color: showNotes ? '#00a544' : '#6b5d52',
                     border: 'none',
                     borderBottom: showNotes
                       ? '2px solid #00a544'

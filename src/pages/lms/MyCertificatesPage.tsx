@@ -21,7 +21,7 @@ export default function MyCertificatesPage() {
       <div className="section">
         <div className="container">
           <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
             <p className="mt-4 text-brown-600">Loading certificates...</p>
           </div>
         </div>
@@ -41,7 +41,6 @@ export default function MyCertificatesPage() {
             View and download all your earned certificates
           </p>
         </div>
-
         {/* Certificates Grid */}
         {certificates.length === 0 ? (
           <div className="card p-12 text-center">
@@ -85,7 +84,6 @@ export default function MyCertificatesPage() {
                       </p>
                     </div>
                   </div>
-
                   {/* Certificate Details */}
                   <div className="p-6">
                     <div className="space-y-3 mb-6">
@@ -97,7 +95,6 @@ export default function MyCertificatesPage() {
                           {issueDate}
                         </div>
                       </div>
-
                       <div>
                         <div className="text-xs font-semibold text-brown-500 uppercase mb-1">
                           Certificate ID
@@ -106,7 +103,6 @@ export default function MyCertificatesPage() {
                           {cert.certificate_number}
                         </div>
                       </div>
-
                       {cert.grade && (
                         <div>
                           <div className="text-xs font-semibold text-brown-500 uppercase mb-1">
@@ -117,7 +113,6 @@ export default function MyCertificatesPage() {
                           </div>
                         </div>
                       )}
-
                       {cert.courses?.total_hours && (
                         <div>
                           <div className="text-xs font-semibold text-brown-500 uppercase mb-1">
@@ -129,7 +124,6 @@ export default function MyCertificatesPage() {
                         </div>
                       )}
                     </div>
-
                     {/* Actions */}
                     <div className="flex gap-2">
                       <Link
@@ -156,7 +150,6 @@ export default function MyCertificatesPage() {
             })}
           </div>
         )}
-
         {/* Info Section */}
         {certificates.length > 0 && (
           <div className="card p-6 mt-8 bg-beige-50">

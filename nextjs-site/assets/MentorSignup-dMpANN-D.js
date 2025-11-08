@@ -1,1 +1,158 @@
-import{r as e,j as s,H as r}from"./vendor-react-C-ZQNdj3.js";import{N as t}from"./Navigation-Bbm4Xzc1.js";import{S as n}from"./Section-DjKsK8lK.js";import{F as o}from"./Footer-Dh9yHrAI.js";import{B as i}from"./Button-kBKDsv7Y.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function a(){const[a,l]=e.useState(!1),[m,c]=e.useState({name:"",email:"",expertise:"",bio:""});function d(e){c({...m,[e.target.name]:e.target.value})}return s.jsxs("div",{children:[s.jsxs(r,{children:[s.jsx("title",{children:"Become a Mentor | Elevate for Humanity"}),s.jsx("meta",{name:"description",content:"Share your expertise and help students succeed by becoming a mentor."})]}),s.jsx(t,{}),s.jsx(n,{background:"white",children:s.jsxs("div",{className:"mx-auto max-w-[600px]",children:[s.jsx("h1",{className:"section-title text-center",children:"Become a Mentor"}),s.jsx("p",{className:"section-subtitle text-center mt-4 mb-12",children:"Share your expertise and help students succeed by becoming a mentor."}),a?s.jsxs("div",{className:"text-center p-8 bg-green-50 rounded-lg",children:[s.jsx("p",{className:"text-xl font-semibold text-green-900 mb-2",children:"Thank you for signing up!"}),s.jsx("p",{className:"text-green-800",children:"We will contact you soon with next steps."})]}):s.jsxs("form",{onSubmit:function(e){e.preventDefault(),l(!0)},className:"space-y-6",children:[s.jsxs("div",{children:[s.jsx("label",{htmlFor:"name",className:"block text-sm font-semibold text-brown-900 mb-2",children:"Name *"}),s.jsx("input",{id:"name",name:"name",type:"text",value:m.name,onChange:d,required:!0,className:"w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"})]}),s.jsxs("div",{children:[s.jsx("label",{htmlFor:"email",className:"block text-sm font-semibold text-brown-900 mb-2",children:"Email *"}),s.jsx("input",{id:"email",name:"email",type:"email",value:m.email,onChange:d,required:!0,className:"w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"})]}),s.jsxs("div",{children:[s.jsx("label",{htmlFor:"expertise",className:"block text-sm font-semibold text-brown-900 mb-2",children:"Area of Expertise *"}),s.jsx("input",{id:"expertise",name:"expertise",type:"text",value:m.expertise,onChange:d,required:!0,className:"w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"})]}),s.jsxs("div",{children:[s.jsx("label",{htmlFor:"bio",className:"block text-sm font-semibold text-brown-900 mb-2",children:"Short Bio"}),s.jsx("textarea",{id:"bio",name:"bio",value:m.bio,onChange:d,rows:4,className:"w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"})]}),s.jsx(i,{type:"submit",variant:"primary",size:"large",className:"w-full",children:"Submit Application"})]})]})}),s.jsx(o,{})]})}export{a as default};
+import { r as e, j as s, H as r } from './vendor-react-C-ZQNdj3.js';
+import { N as t } from './Navigation-Bbm4Xzc1.js';
+import { S as n } from './Section-DjKsK8lK.js';
+import { F as o } from './Footer-Dh9yHrAI.js';
+import { B as i } from './Button-kBKDsv7Y.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function a() {
+  const [a, l] = e.useState(!1),
+    [m, c] = e.useState({ name: '', email: '', expertise: '', bio: '' });
+  function d(e) {
+    c({ ...m, [e.target.name]: e.target.value });
+  }
+  return s.jsxs('div', {
+    children: [
+      s.jsxs(r, {
+        children: [
+          s.jsx('title', {
+            children: 'Become a Mentor | Elevate for Humanity',
+          }),
+          s.jsx('meta', {
+            name: 'description',
+            content:
+              'Share your expertise and help students succeed by becoming a mentor.',
+          }),
+        ],
+      }),
+      s.jsx(t, {}),
+      s.jsx(n, {
+        background: 'white',
+        children: s.jsxs('div', {
+          className: 'mx-auto max-w-[600px]',
+          children: [
+            s.jsx('h1', {
+              className: 'section-title text-center',
+              children: 'Become a Mentor',
+            }),
+            s.jsx('p', {
+              className: 'section-subtitle text-center mt-4 mb-12',
+              children:
+                'Share your expertise and help students succeed by becoming a mentor.',
+            }),
+            a
+              ? s.jsxs('div', {
+                  className: 'text-center p-8 bg-green-50 rounded-lg',
+                  children: [
+                    s.jsx('p', {
+                      className: 'text-xl font-semibold text-green-900 mb-2',
+                      children: 'Thank you for signing up!',
+                    }),
+                    s.jsx('p', {
+                      className: 'text-green-800',
+                      children: 'We will contact you soon with next steps.',
+                    }),
+                  ],
+                })
+              : s.jsxs('form', {
+                  onSubmit: function (e) {
+                    (e.preventDefault(), l(!0));
+                  },
+                  className: 'space-y-6',
+                  children: [
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('label', {
+                          htmlFor: 'name',
+                          className:
+                            'block text-sm font-semibold text-brown-900 mb-2',
+                          children: 'Name *',
+                        }),
+                        s.jsx('input', {
+                          id: 'name',
+                          name: 'name',
+                          type: 'text',
+                          value: m.name,
+                          onChange: d,
+                          required: !0,
+                          className:
+                            'w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500',
+                        }),
+                      ],
+                    }),
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('label', {
+                          htmlFor: 'email',
+                          className:
+                            'block text-sm font-semibold text-brown-900 mb-2',
+                          children: 'Email *',
+                        }),
+                        s.jsx('input', {
+                          id: 'email',
+                          name: 'email',
+                          type: 'email',
+                          value: m.email,
+                          onChange: d,
+                          required: !0,
+                          className:
+                            'w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500',
+                        }),
+                      ],
+                    }),
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('label', {
+                          htmlFor: 'expertise',
+                          className:
+                            'block text-sm font-semibold text-brown-900 mb-2',
+                          children: 'Area of Expertise *',
+                        }),
+                        s.jsx('input', {
+                          id: 'expertise',
+                          name: 'expertise',
+                          type: 'text',
+                          value: m.expertise,
+                          onChange: d,
+                          required: !0,
+                          className:
+                            'w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500',
+                        }),
+                      ],
+                    }),
+                    s.jsxs('div', {
+                      children: [
+                        s.jsx('label', {
+                          htmlFor: 'bio',
+                          className:
+                            'block text-sm font-semibold text-brown-900 mb-2',
+                          children: 'Short Bio',
+                        }),
+                        s.jsx('textarea', {
+                          id: 'bio',
+                          name: 'bio',
+                          value: m.bio,
+                          onChange: d,
+                          rows: 4,
+                          className:
+                            'w-full px-4 py-3 border border-brown-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500',
+                        }),
+                      ],
+                    }),
+                    s.jsx(i, {
+                      type: 'submit',
+                      variant: 'primary',
+                      size: 'large',
+                      className: 'w-full',
+                      children: 'Submit Application',
+                    }),
+                  ],
+                }),
+          ],
+        }),
+      }),
+      s.jsx(o, {}),
+    ],
+  });
+}
+export { a as default };

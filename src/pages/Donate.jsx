@@ -34,8 +34,7 @@ export default function Donate() {
             textAlign: 'center',
             marginBottom: '3rem',
             padding: '3rem 2rem',
-            background:
-              'linear-gradient( 0%, #4a3728 0%, #4a3728 100%)',
+            background: 'linear-gradient( 0%, #4a3728 0%, #4a3728 100%)',
             borderRadius: '12px',
             color: 'white',
           }}
@@ -106,11 +105,8 @@ export default function Donate() {
                       flex: 1,
                       padding: '0.75rem',
                       backgroundColor:
-                        frequency === 'once'
-                          ? '#4a3728'
-                          : 'white',
-                      color:
-                        frequency === 'once' ? 'white' : '#4a3728',
+                        frequency === 'once' ? '#4a3728' : 'white',
+                      color: frequency === 'once' ? 'white' : '#4a3728',
                       border: '2px solid #4a3728',
                       borderRadius: '6px',
                       fontWeight: '600',
@@ -126,11 +122,8 @@ export default function Donate() {
                       flex: 1,
                       padding: '0.75rem',
                       backgroundColor:
-                        frequency === 'monthly'
-                          ? '#4a3728'
-                          : 'white',
-                      color:
-                        frequency === 'monthly' ? 'white' : '#4a3728',
+                        frequency === 'monthly' ? '#4a3728' : 'white',
+                      color: frequency === 'monthly' ? 'white' : '#4a3728',
                       border: '2px solid #4a3728',
                       borderRadius: '6px',
                       fontWeight: '600',
@@ -167,8 +160,7 @@ export default function Donate() {
                       onClick={() => setAmount(amt)}
                       style={{
                         padding: '1rem',
-                        backgroundColor:
-                          amount === amt ? '#4a3728' : 'white',
+                        backgroundColor: amount === amt ? '#4a3728' : 'white',
                         color: amount === amt ? 'white' : '#4a3728',
                         border: '2px solid #d4c9b8',
                         borderRadius: '6px',
@@ -187,8 +179,7 @@ export default function Donate() {
                   style={{
                     width: '100%',
                     padding: '1rem',
-                    backgroundColor:
-                      amount === 'custom' ? '#4a3728' : 'white',
+                    backgroundColor: amount === 'custom' ? '#4a3728' : 'white',
                     color: amount === 'custom' ? 'white' : '#4a3728',
                     border: '2px solid #d4c9b8',
                     borderRadius: '6px',

@@ -157,8 +157,7 @@ export function Calendar() {
                 onClick={() => setView('month')}
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor:
-                    view === 'month' ? '#00a544' : '#f3f4f6',
+                  backgroundColor: view === 'month' ? '#00a544' : '#f3f4f6',
                   color: view === 'month' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -171,8 +170,7 @@ export function Calendar() {
                 onClick={() => setView('week')}
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor:
-                    view === 'week' ? '#00a544' : '#f3f4f6',
+                  backgroundColor: view === 'week' ? '#00a544' : '#f3f4f6',
                   color: view === 'week' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',
@@ -185,8 +183,7 @@ export function Calendar() {
                 onClick={() => setView('day')}
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor:
-                    view === 'day' ? '#00a544' : '#f3f4f6',
+                  backgroundColor: view === 'day' ? '#00a544' : '#f3f4f6',
                   color: view === 'day' ? '#fff' : '#000',
                   border: 'none',
                   borderRadius: '0.375rem',

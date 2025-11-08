@@ -192,9 +192,7 @@ export default function Partners() {
             >
               2M+
             </div>
-            <div style={{ fontSize: 14, color: '#6b5d52' }}>
-              Lives Impacted
-            </div>
+            <div style={{ fontSize: 14, color: '#6b5d52' }}>Lives Impacted</div>
           </div>
           <div
             style={{

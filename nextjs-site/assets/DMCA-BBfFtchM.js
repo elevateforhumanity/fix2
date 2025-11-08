@@ -1,1 +1,67 @@
-import{j as e,H as i}from"./vendor-react-C-ZQNdj3.js";import{N as t}from"./Navigation-Bbm4Xzc1.js";import{S as o}from"./Section-DjKsK8lK.js";import{F as s}from"./Footer-Dh9yHrAI.js";import"./vendor-Da1LjC7-.js";import"./vendor-router-CQjfSXV_.js";function r(){return e.jsxs("div",{children:[e.jsx(i,{children:e.jsx("title",{children:"DMCA Policy | Elevate for Humanity"})}),e.jsx(t,{}),e.jsx(o,{background:"white",children:e.jsxs("div",{className:"mx-auto max-w-[800px]",children:[e.jsx("h1",{className:"section-title",children:"DMCA Policy"}),e.jsxs("div",{className:"space-y-4 mt-6",children:[e.jsx("p",{children:"Elevate for Humanity respects the intellectual property rights of others and expects users to do the same."}),e.jsx("h2",{className:"text-2xl font-bold mt-8",children:"Filing a DMCA Notice"}),e.jsx("p",{children:"If you believe that content on our site infringes your copyright, please send a notice to Elizabethpowell6262@gmail.com with the following information:"}),e.jsxs("ul",{className:"list-disc pl-6 space-y-2",children:[e.jsx("li",{children:"Identification of the copyrighted work"}),e.jsx("li",{children:"Identification of the infringing material"}),e.jsx("li",{children:"Your contact information"}),e.jsx("li",{children:"A statement of good faith belief"}),e.jsx("li",{children:"Your physical or electronic signature"})]})]})]})}),e.jsx(s,{})]})}export{r as default};
+import { j as e, H as i } from './vendor-react-C-ZQNdj3.js';
+import { N as t } from './Navigation-Bbm4Xzc1.js';
+import { S as o } from './Section-DjKsK8lK.js';
+import { F as s } from './Footer-Dh9yHrAI.js';
+import './vendor-Da1LjC7-.js';
+import './vendor-router-CQjfSXV_.js';
+function r() {
+  return e.jsxs('div', {
+    children: [
+      e.jsx(i, {
+        children: e.jsx('title', {
+          children: 'DMCA Policy | Elevate for Humanity',
+        }),
+      }),
+      e.jsx(t, {}),
+      e.jsx(o, {
+        background: 'white',
+        children: e.jsxs('div', {
+          className: 'mx-auto max-w-[800px]',
+          children: [
+            e.jsx('h1', {
+              className: 'section-title',
+              children: 'DMCA Policy',
+            }),
+            e.jsxs('div', {
+              className: 'space-y-4 mt-6',
+              children: [
+                e.jsx('p', {
+                  children:
+                    'Elevate for Humanity respects the intellectual property rights of others and expects users to do the same.',
+                }),
+                e.jsx('h2', {
+                  className: 'text-2xl font-bold mt-8',
+                  children: 'Filing a DMCA Notice',
+                }),
+                e.jsx('p', {
+                  children:
+                    'If you believe that content on our site infringes your copyright, please send a notice to Elizabethpowell6262@gmail.com with the following information:',
+                }),
+                e.jsxs('ul', {
+                  className: 'list-disc pl-6 space-y-2',
+                  children: [
+                    e.jsx('li', {
+                      children: 'Identification of the copyrighted work',
+                    }),
+                    e.jsx('li', {
+                      children: 'Identification of the infringing material',
+                    }),
+                    e.jsx('li', { children: 'Your contact information' }),
+                    e.jsx('li', {
+                      children: 'A statement of good faith belief',
+                    }),
+                    e.jsx('li', {
+                      children: 'Your physical or electronic signature',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      e.jsx(s, {}),
+    ],
+  });
+}
+export { r as default };

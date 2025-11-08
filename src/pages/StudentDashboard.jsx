@@ -62,7 +62,7 @@ export default function StudentDashboard() {
         <div className="section">
           <div className="container">
             <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600" />
               <p className="mt-4 text-brown-600">Loading dashboard...</p>
             </div>
           </div>
@@ -78,7 +78,6 @@ export default function StudentDashboard() {
         <title>Student Dashboard | Elevate for Humanity</title>
       </Helmet>
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container">
           {/* Welcome Header */}
@@ -90,7 +89,6 @@ export default function StudentDashboard() {
               Continue your learning journey
             </p>
           </div>
-
           {/* Stats Grid */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <div className="card p-6 text-center">
@@ -101,7 +99,6 @@ export default function StudentDashboard() {
                 Courses Enrolled
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.coursesCompleted}
@@ -110,7 +107,6 @@ export default function StudentDashboard() {
                 Courses Completed
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.certificatesEarned}
@@ -119,7 +115,6 @@ export default function StudentDashboard() {
                 Certificates Earned
               </div>
             </div>
-
             <div className="card p-6 text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
                 {stats.hoursCompleted}
@@ -129,7 +124,6 @@ export default function StudentDashboard() {
               </div>
             </div>
           </div>
-
           {/* Quick Actions */}
           <div className="card p-6 mb-12">
             <h2 className="text-2xl font-bold text-brown-900 mb-4">
@@ -150,7 +144,6 @@ export default function StudentDashboard() {
               </Link>
             </div>
           </div>
-
           {/* Recent Courses */}
           <div>
             <div className="flex items-center justify-between mb-6">
@@ -162,7 +155,6 @@ export default function StudentDashboard() {
                 View All →
               </Link>
             </div>
-
             <div className="grid md:grid-cols-3 gap-6">
               {recentCourses.map((course) => (
                 <div
@@ -173,13 +165,11 @@ export default function StudentDashboard() {
                   <div className="h-48 bg-gradient-to-br from-green-100 to-beige-100 flex items-center justify-center">
                     <div className="text-6xl">📚</div>
                   </div>
-
                   {/* Course Info */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-brown-900 mb-3">
                       {course.title}
                     </h3>
-
                     {/* Progress Bar */}
                     <div className="mb-4">
                       <div className="flex items-center justify-between text-sm text-brown-600 mb-2">
@@ -195,7 +185,6 @@ export default function StudentDashboard() {
                         />
                       </div>
                     </div>
-
                     {/* Next Lesson or Completed */}
                     {course.completed ? (
                       <div className="flex items-center gap-2 text-green-600 font-semibold mb-4">
@@ -207,7 +196,6 @@ export default function StudentDashboard() {
                         <strong>Next:</strong> {course.nextLesson}
                       </div>
                     )}
-
                     {/* Action Button */}
                     <Link
                       to={`/lms/courses/${course.id}`}
@@ -224,7 +212,6 @@ export default function StudentDashboard() {
               ))}
             </div>
           </div>
-
           {/* Achievements Section */}
           {stats.certificatesEarned > 0 && (
             <div className="mt-12">
@@ -254,7 +241,6 @@ export default function StudentDashboard() {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );

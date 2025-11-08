@@ -90,7 +90,7 @@ export default function LessonPage() {
         <Navigation />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4" />
             <p className="text-brown-600">Loading lesson...</p>
           </div>
         </div>
@@ -129,9 +129,7 @@ export default function LessonPage() {
       <Helmet>
         <title>{lesson.title} | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       {/* Progress Bar */}
       <div className="bg-white border-b border-brown-200">
         <div className="container mx-auto px-4">
@@ -139,11 +137,10 @@ export default function LessonPage() {
             <div
               className="h-full bg-green-600 transition-all duration-300"
               style={{ width: `${progress}%` }}
-            ></div>
+             />
           </div>
         </div>
       </div>
-
       {/* Lesson Header */}
       <div className="bg-beige-50 border-b border-brown-200">
         <div className="container mx-auto px-4 py-6">
@@ -171,7 +168,6 @@ export default function LessonPage() {
           </div>
         </div>
       </div>
-
       {/* Lesson Content */}
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
@@ -186,7 +182,6 @@ export default function LessonPage() {
               />
             </div>
           )}
-
           {/* Reading Content */}
           {lesson.type === 'reading' && (
             <div className="prose prose-brown max-w-none mb-8">
@@ -197,7 +192,6 @@ export default function LessonPage() {
               </div>
             </div>
           )}
-
           {/* Lesson Description */}
           <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
             <h2 className="text-xl font-bold text-brown-900 mb-4">
@@ -205,7 +199,6 @@ export default function LessonPage() {
             </h2>
             <p className="text-brown-700">{lesson.content}</p>
           </div>
-
           {/* Action Buttons */}
           <div className="flex items-center justify-between gap-4 mb-12">
             <button
@@ -216,7 +209,6 @@ export default function LessonPage() {
               <ChevronLeft className="w-5 h-5" />
               Previous
             </button>
-
             <div className="flex gap-4">
               {!isCompleted && (
                 <button
@@ -227,7 +219,6 @@ export default function LessonPage() {
                   Mark as Complete
                 </button>
               )}
-
               <button
                 onClick={handleNext}
                 className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
@@ -237,7 +228,6 @@ export default function LessonPage() {
               </button>
             </div>
           </div>
-
           {/* Discussion Forum */}
           <div>
             <h2 className="text-2xl font-bold text-brown-900 mb-6">
@@ -247,7 +237,6 @@ export default function LessonPage() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

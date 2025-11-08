@@ -13,9 +13,7 @@ export default function DiscussionsPage() {
       <Helmet>
         <title>Course Discussions | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       <div className="section bg-beige-50">
         <div className="container max-w-4xl">
           {/* Header */}
@@ -27,10 +25,8 @@ export default function DiscussionsPage() {
               Ask questions, share insights, and connect with your classmates
             </p>
           </div>
-
           {/* Discussion Forum */}
           <DiscussionForum courseId={courseId || ''} />
-
           {/* Community Guidelines */}
           <div className="card p-6 mt-8 bg-blue-50 border-l-4 border-blue-600">
             <h3 className="text-lg font-bold text-brown-900 mb-3">
@@ -63,7 +59,6 @@ export default function DiscussionsPage() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -154,7 +154,7 @@ export default function CoursePage() {
         <Navigation />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4" />
             <p className="text-brown-600">Loading course...</p>
           </div>
         </div>
@@ -190,16 +190,13 @@ export default function CoursePage() {
       <Helmet>
         <title>{course.title} | Elevate for Humanity</title>
       </Helmet>
-
       <Navigation />
-
       {/* Course Header */}
       <div className="bg-gradient-to-r from-brown-700 to-brown-800 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold mb-4">{course.title}</h1>
             <p className="text-xl text-white/90 mb-6">{course.description}</p>
-
             <div className="flex flex-wrap gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />
@@ -221,7 +218,6 @@ export default function CoursePage() {
           </div>
         </div>
       </div>
-
       {/* Course Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
@@ -232,7 +228,6 @@ export default function CoursePage() {
                 About This Course
               </h2>
               <p className="text-brown-700 mb-6">{course.description}</p>
-
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={`https://ui-avatars.com/api/?name=${encodeURIComponent(course.instructor)}&background=00a544&color=fff`}
@@ -246,7 +241,6 @@ export default function CoursePage() {
                   </p>
                 </div>
               </div>
-
               <Button
                 onClick={handleStartCourse}
                 variant="primary"
@@ -257,7 +251,6 @@ export default function CoursePage() {
                 Continue Learning
               </Button>
             </div>
-
             {/* What You'll Learn */}
             <div className="bg-white rounded-lg shadow-sm border border-brown-200 p-6">
               <h2 className="text-2xl font-bold text-brown-900 mb-4">
@@ -299,7 +292,6 @@ export default function CoursePage() {
               </ul>
             </div>
           </div>
-
           {/* Sidebar - Progress Tracker */}
           <div className="lg:col-span-1">
             <ProgressTracker
@@ -309,7 +301,6 @@ export default function CoursePage() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

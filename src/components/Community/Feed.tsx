@@ -84,7 +84,6 @@ export default function Feed({ courseId }: FeedProps) {
           </button>
         </div>
       </div>
-
       <div className="space-y-3">
         {posts.map((p) => (
           <div
@@ -115,7 +114,6 @@ export default function Feed({ courseId }: FeedProps) {
             <p className="text-gray-800 whitespace-pre-wrap">{p.content}</p>
           </div>
         ))}
-
         {posts.length === 0 && (
           <div className="text-center py-12 text-gray-500">
             <p className="text-lg">No posts yet. Be the first to share!</p>

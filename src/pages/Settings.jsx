@@ -94,9 +94,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Email Notifications
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Receive email notifications for important updates
                   </div>
                 </div>
@@ -159,9 +157,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Course Updates
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Get notified when courses you're enrolled in are updated
                   </div>
                 </div>
@@ -224,9 +220,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Weekly Digest
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Receive a weekly summary of your learning progress
                   </div>
                 </div>
@@ -287,9 +281,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Marketing Emails
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Receive promotional content and special offers
                   </div>
                 </div>
@@ -474,9 +466,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Autoplay Next Video
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Automatically play the next video in a course
                   </div>
                 </div>
@@ -503,9 +493,7 @@ export default function Settings() {
                       left: 0,
                       right: 0,
                       bottom: 0,
-                      backgroundColor: settings.autoplay
-                        ? '#00a544'
-                        : '#ccc',
+                      backgroundColor: settings.autoplay ? '#00a544' : '#ccc',
                       borderRadius: 24,
                       transition: '0.3s',
                     }}
@@ -539,9 +527,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Subtitles
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Show subtitles by default when available
                   </div>
                 </div>
@@ -568,9 +554,7 @@ export default function Settings() {
                       left: 0,
                       right: 0,
                       bottom: 0,
-                      backgroundColor: settings.subtitles
-                        ? '#00a544'
-                        : '#ccc',
+                      backgroundColor: settings.subtitles ? '#00a544' : '#ccc',
                       borderRadius: 24,
                       transition: '0.3s',
                     }}
@@ -651,9 +635,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Two-Factor Authentication
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Add an extra layer of security to your account
                   </div>
                 </div>
@@ -716,9 +698,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Public Profile
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Make your profile visible to other users
                   </div>
                 </div>
@@ -781,9 +761,7 @@ export default function Settings() {
                   <div style={{ fontWeight: 500, marginBottom: 4 }}>
                     Show Learning Progress
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: '#6b5d52' }}
-                  >
+                  <div style={{ fontSize: 14, color: '#6b5d52' }}>
                     Display your course progress on your profile
                   </div>
                 </div>

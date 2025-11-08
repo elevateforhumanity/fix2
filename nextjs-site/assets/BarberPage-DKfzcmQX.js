@@ -1,1 +1,56 @@
-import{j as e}from"./vendor-react-C-ZQNdj3.js";import{P as r}from"./ProgramPageTemplate-DF_avGqN.js";import"./vendor-Da1LjC7-.js";import"./Navigation-Bbm4Xzc1.js";import"./vendor-router-CQjfSXV_.js";import"./Hero-OZm9SWPG.js";import"./Section-DjKsK8lK.js";import"./Footer-Dh9yHrAI.js";function n(){return e.jsx(r,{title:"Barber Apprenticeship",icon:"🪒",duration:"2,000 hours • State Licensure",description:"Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure.",funding:"WRG • WIOA • Apprenticeship",metaDescription:"Become a licensed barber through our 2,000-hour apprenticeship program. Earn while you learn with 100% funded training in Marion County, IN.",overview:"Our Barber Apprenticeship program combines hands-on training with paid work experience. You'll master cutting techniques, styling, shaving, and customer service while earning income. Upon completion, you'll be eligible for Indiana State Barber Licensure and ready to start your career in a high-demand field.",benefits:["Earn while you learn through paid apprenticeship","Qualify for Indiana State Barber Licensure","2,000 hours of hands-on training","100% funded through WIOA and WRG","Work with experienced master barbers","Job placement assistance upon completion"],curriculum:["Hair cutting and styling techniques","Straight razor shaving and beard trimming","Hair coloring and chemical treatments","Sanitation and safety procedures","Customer service and communication","Business management and marketing","State board exam preparation"],requirements:["Must be 18 years or older","High school diploma or GED","Marion County, IN resident","Eligible for WIOA or WRG funding","Pass background check","Commitment to complete 2,000 hours"],outcomes:["Licensed Professional Barber","Employment in barbershops","Self-employment opportunities","Average salary: $35,000-$50,000/year","Career advancement to shop owner","Continuing education opportunities"]})}export{n as default};
+import { j as e } from './vendor-react-C-ZQNdj3.js';
+import { P as r } from './ProgramPageTemplate-DF_avGqN.js';
+import './vendor-Da1LjC7-.js';
+import './Navigation-Bbm4Xzc1.js';
+import './vendor-router-CQjfSXV_.js';
+import './Hero-OZm9SWPG.js';
+import './Section-DjKsK8lK.js';
+import './Footer-Dh9yHrAI.js';
+function n() {
+  return e.jsx(r, {
+    title: 'Barber Apprenticeship',
+    icon: '🪒',
+    duration: '2,000 hours • State Licensure',
+    description:
+      'Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure.',
+    funding: 'WRG • WIOA • Apprenticeship',
+    metaDescription:
+      'Become a licensed barber through our 2,000-hour apprenticeship program. Earn while you learn with 100% funded training in Marion County, IN.',
+    overview:
+      "Our Barber Apprenticeship program combines hands-on training with paid work experience. You'll master cutting techniques, styling, shaving, and customer service while earning income. Upon completion, you'll be eligible for Indiana State Barber Licensure and ready to start your career in a high-demand field.",
+    benefits: [
+      'Earn while you learn through paid apprenticeship',
+      'Qualify for Indiana State Barber Licensure',
+      '2,000 hours of hands-on training',
+      '100% funded through WIOA and WRG',
+      'Work with experienced master barbers',
+      'Job placement assistance upon completion',
+    ],
+    curriculum: [
+      'Hair cutting and styling techniques',
+      'Straight razor shaving and beard trimming',
+      'Hair coloring and chemical treatments',
+      'Sanitation and safety procedures',
+      'Customer service and communication',
+      'Business management and marketing',
+      'State board exam preparation',
+    ],
+    requirements: [
+      'Must be 18 years or older',
+      'High school diploma or GED',
+      'Marion County, IN resident',
+      'Eligible for WIOA or WRG funding',
+      'Pass background check',
+      'Commitment to complete 2,000 hours',
+    ],
+    outcomes: [
+      'Licensed Professional Barber',
+      'Employment in barbershops',
+      'Self-employment opportunities',
+      'Average salary: $35,000-$50,000/year',
+      'Career advancement to shop owner',
+      'Continuing education opportunities',
+    ],
+  });
+}
+export { n as default };
