@@ -111,6 +111,20 @@ echo "   1. Visit the URL above to verify deployment"
 echo "   2. Check Vercel dashboard: https://vercel.com/dashboard"
 echo "   3. Monitor usage: https://vercel.com/dashboard (Usage tab)"
 echo ""
-echo "💡 To enable automatic deployments:"
-echo "   Run: bash scripts/autopilot-github-secrets.sh"
+echo "🤖 Setting up GitHub Secrets for autopilot..."
+echo ""
+
+# Automatically set up GitHub secrets
+if command -v gh &> /dev/null && gh auth status &> /dev/null 2>&1; then
+    echo "Running autopilot GitHub secrets setup..."
+    bash scripts/autopilot-github-secrets.sh || {
+        echo "⚠️ GitHub secrets setup failed"
+        echo "💡 Run manually: bash scripts/autopilot-github-secrets.sh"
+    }
+else
+    echo "💡 To enable automatic deployments and self-healing:"
+    echo "   1. Install GitHub CLI: https://cli.github.com/"
+    echo "   2. Login: gh auth login"
+    echo "   3. Run: bash scripts/autopilot-github-secrets.sh"
+fi
 echo ""

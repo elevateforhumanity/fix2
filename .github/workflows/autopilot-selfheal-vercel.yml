@@ -10,12 +10,6 @@ on:
         required: false
         default: 'false'
 
-env:
-  SITE_URL: ${{ secrets.VITE_SITE_URL || 'https://fix2.vercel.app' }}
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
 jobs:
   selfheal:
     runs-on: ubuntu-latest
@@ -27,10 +21,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Load autopilot configuration
+        id: autopilot_config
+        run: |
+          echo "🤖 Loading autopilot configuration..."
+          
+          # Load from .env.production
+          if [ -f .env.production ]; then
+            set -a
+            source .env.production
+            set +a
+            echo "✅ Loaded configuration from .env.production"
+          else
+            echo "⚠️ .env.production not found"
+          fi
+          
+          # Set site URL (from env or default)
+          SITE_URL="${VITE_SITE_URL:-https://fix2.vercel.app}"
+          echo "site_url=$SITE_URL" >> $GITHUB_OUTPUT
+          echo "Site URL: $SITE_URL"
+          
+          # Check if Vercel is configured
+          if [ -f .vercel/project.json ]; then
+            VERCEL_ORG_ID=$(cat .vercel/project.json | grep -o '"orgId":"[^"]*"' | cut -d'"' -f4)
+            VERCEL_PROJECT_ID=$(cat .vercel/project.json | grep -o '"projectId":"[^"]*"' | cut -d'"' -f4)
+            echo "vercel_configured=true" >> $GITHUB_OUTPUT
+            echo "✅ Vercel project linked"
+          else
+            echo "vercel_configured=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Vercel not linked yet"
+          fi
+
       - name: Check site health
         id: health_check
         run: |
           echo "🏥 Checking site health..."
+          
+          SITE_URL="${{ steps.autopilot_config.outputs.site_url }}"
           
           # Check if site is accessible
           HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$SITE_URL" || echo "000")
@@ -49,7 +76,7 @@ jobs:
         if: steps.health_check.outputs.healthy == 'true'
         run: |
           echo "✅ System healthy - no action needed"
-          echo "Site: $SITE_URL"
+          echo "Site: ${{ steps.autopilot_config.outputs.site_url }}"
           echo "Status: HTTP ${{ steps.health_check.outputs.http_code }}"
 
       - name: Self-Heal - Trigger Vercel Redeploy
@@ -59,18 +86,26 @@ jobs:
           echo "🔧 Triggering self-heal..."
           
           # Check if Vercel is configured
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "⚠️ VERCEL_TOKEN not configured - cannot self-heal"
-            echo "status=skipped" >> $GITHUB_OUTPUT
+          if [[ "${{ steps.autopilot_config.outputs.vercel_configured }}" != "true" ]]; then
+            echo "⚠️ Vercel not configured - run: bash scripts/autopilot-vercel-setup.sh"
+            echo "status=not_configured" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Check for Vercel token (from GitHub secrets or autopilot)
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "⚠️ VERCEL_TOKEN not in GitHub secrets"
+            echo "💡 Run: bash scripts/autopilot-github-secrets.sh"
+            echo "status=no_token" >> $GITHUB_OUTPUT
             exit 0
           fi
           
           # Install Vercel CLI
           npm i -g vercel
           
-          # Trigger redeploy
+          # Trigger redeploy using token from secrets
           echo "🚀 Triggering Vercel redeploy..."
-          vercel --prod --yes --token="$VERCEL_TOKEN" || {
+          vercel --prod --yes --token="${{ secrets.VERCEL_TOKEN }}" || {
             echo "status=failed" >> $GITHUB_OUTPUT
             exit 1
           }
