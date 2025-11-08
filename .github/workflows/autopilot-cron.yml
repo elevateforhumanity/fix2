@@ -1,0 +1,39 @@
+name: Autopilot Self-Healing Cron
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  self-heal:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.1'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.7.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Self-Healing Autopilot
+        run: node workers/self-healing-autopilot.js
+
+      - name: Push changes
+        run: |
+          git config --local user.email "autopilot@elevateforhumanity.org"
+          git config --local user.name "Self-Healing Autopilot"
+          git push origin main || echo "Nothing to push"

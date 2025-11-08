@@ -1,106 +1,91 @@
 {
-  "version": "7.0",
-  "mode": "autonomous",
-  "deployed_at": "2025-10-29T04:00:00Z",
-  "autopilot_secret": "ff870a439ce0a300223e...",
-  "phases": {
-    "phase1": "Automated Migrations",
-    "phase2": "Automated Deployments",
-    "phase3": "Automated Testing",
-    "phase4": "Automated Monitoring",
-    "phase5": "Advanced Analytics",
-    "phase6": "AI-Powered Operations",
-    "phase7": "Autonomous Operation"
+  "version": "2.0.0",
+  "enabled": true,
+  "self_healing": true,
+  "auto_deploy": true,
+  "auto_fix": true,
+  "auto_commit": true,
+  "auto_push": true,
+  "features": {
+    "typescript_fixer": {
+      "enabled": true,
+      "auto_run": true,
+      "max_iterations": 20
+    },
+    "eslint_fixer": {
+      "enabled": true,
+      "auto_run": true,
+      "auto_fix": true
+    },
+    "code_formatter": {
+      "enabled": true,
+      "auto_run": true,
+      "format_on_save": true
+    },
+    "secrets_manager": {
+      "enabled": true,
+      "auto_fetch": true,
+      "use_cli": true,
+      "use_api": true,
+      "use_browser": false
+    },
+    "deployment": {
+      "vercel": {
+        "enabled": true,
+        "auto_deploy": true,
+        "environment": "production"
+      },
+      "netlify": {
+        "enabled": true,
+        "auto_deploy": true,
+        "environment": "production"
+      },
+      "cloudflare": {
+        "enabled": false,
+        "auto_deploy": false
+      }
+    },
+    "monitoring": {
+      "enabled": true,
+      "health_checks": true,
+      "error_tracking": true,
+      "performance_monitoring": true
+    },
+    "issue_management": {
+      "enabled": true,
+      "auto_close": true,
+      "auto_label": true,
+      "auto_assign": false
+    }
   },
-  "status": "autonomous",
-  "monitoring": {
-    "typescript_check": "enabled",
-    "eslint_check": "enabled",
-    "build_verification": "enabled",
-    "test_suite": "enabled",
-    "security_scan": "enabled",
-    "netlify_builds": "enabled",
-    "supabase_health": "enabled",
-    "cloudflare_health": "enabled",
-    "frequency": "every_30_minutes"
+  "workflows": {
+    "production_ready_loop": {
+      "enabled": true,
+      "trigger": "on_push",
+      "max_iterations": 20,
+      "timeout": 3600
+    },
+    "secrets_validator": {
+      "enabled": true,
+      "trigger": "weekly",
+      "create_issues": true
+    },
+    "vercel_deploy": {
+      "enabled": true,
+      "trigger": "on_push",
+      "branch": "main"
+    }
   },
-  "auto_fix": {
-    "typescript_errors": true,
-    "eslint_errors": true,
-    "build_errors": true,
-    "netlify_failures": true,
-    "test_failures": true,
-    "dependency_updates": true
-  },
-  "auto_deploy": {
-    "enabled": true,
-    "on_success": true,
-    "on_fix": true,
-    "auto_push": true,
-    "auto_commit": true,
-    "frequency": "every_30_minutes"
+  "self_config": {
+    "auto_update": true,
+    "auto_repair": true,
+    "auto_optimize": true,
+    "learn_from_errors": true
   },
   "notifications": {
-    "github_issues": true,
-    "workflow_summary": true,
-    "auto_close_resolved": true
+    "enabled": false,
+    "channels": []
   },
-  "autonomous_features": {
-    "self_healing": true,
-    "continuous_optimization": true,
-    "predictive_maintenance": true,
-    "auto_scaling": true,
-    "zero_manual_intervention": true
-  },
-  "loop_until_perfect": {
-    "enabled": true,
-    "max_iterations": "unlimited",
-    "max_retries": "unlimited",
-    "stop_condition": "success_only",
-    "check_interval": "30_minutes",
-    "retry_on_failure": "always",
-    "give_up": "never"
-  },
-  "cheatsheet_autopilot": {
-    "enabled": true,
-    "auto_push_enabled": true,
-    "auto_deploy_enabled": true,
-    "auto_fix_enabled": true,
-    "health_monitoring": true,
-    "bridge_monitoring": true,
-    "self_healing": true,
-    "zero_manual_intervention": true
-  },
-  "puppet_autopilot": {
-    "enabled": true,
-    "netlify_deploy": true,
-    "bridge_deploy": true,
-    "durable_integration": true,
-    "auto_verify": true,
-    "cloudflare_deploy": true,
-    "orders": {
-      "deploy_bridge_to_netlify": "every_hour",
-      "verify_bridge_endpoints": "every_30_minutes",
-      "generate_durable_code": "every_2_hours",
-      "monitor_integration": "continuous",
-      "self_heal_on_failure": "immediate",
-      "check_autopilot_tasks": "every_10_minutes",
-      "deploy_cloudflare_worker": "pending_token",
-      "update_api_tokens": "as_needed"
-    }
-  },
-  "deployment_targets": {
-    "netlify": {
-      "site_id": "elevateforhumanityfix2",
-      "url": "https://elevateforhumanityfix2.netlify.app",
-      "auto_deploy": true,
-      "include_bridge": true
-    },
-    "durable": {
-      "site_url": "https://www.elevateforhumanity.org",
-      "integration_method": "bridge_injection",
-      "auto_update": true,
-      "manual_setup_required": "one_time_only"
-    }
-  }
+  "last_updated": "2025-11-08T19:15:00Z",
+  "status": "active"
 }
