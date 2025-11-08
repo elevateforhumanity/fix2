@@ -423,7 +423,8 @@ export function ExcelChartGenerator() {
                 );
               })}
               {chart.type === 'doughnut' && (
-                <circle cx="100" cy="100" r="40" fill="white" />
+                <circle cx="100" cy="100" r="40"
+fill="white" />
               )}
             </svg>
           </div>
