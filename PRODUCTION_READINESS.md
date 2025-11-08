@@ -93,26 +93,32 @@
 ### Immediate Actions (Required for Production)
 
 1. **Fix All TypeScript Errors** 🔴 CRITICAL
+
    ```bash
    ./make-production-ready.sh
    ```
+
    - Current: 131 errors
    - Target: 0 errors
    - ETA: 2-3 iterations
 
 2. **Configure Real Secrets** 🔴 CRITICAL
+
    ```bash
    node workers/secrets-autopilot.js
    # Then update .env.production with real values
    ```
+
    - Required secrets: 8 total
    - Placeholders: 3 (Vercel)
    - Real values needed: Supabase, Stripe, Vercel
 
 3. **Verify Build** 🟡 HIGH PRIORITY
+
    ```bash
    pnpm build
    ```
+
    - Current: Build succeeds
    - Verify: All assets generated correctly
 
@@ -133,6 +139,7 @@ Run this to automatically fix all issues:
 ```
 
 This script will:
+
 - ✅ Fix TypeScript errors
 - ✅ Fix ESLint issues
 - ✅ Format code
@@ -157,4 +164,4 @@ git push origin main               # Deploy
 
 ---
 
-*This document is automatically updated by production readiness scripts.*
+_This document is automatically updated by production readiness scripts._

@@ -8,15 +8,15 @@
 
 ## Features
 
-| Feature | Status | Auto-Fix |
-|---------|--------|----------|
+| Feature            | Status    | Auto-Fix   |
+| ------------------ | --------- | ---------- |
 | TypeScript Checker | ✅ Active | ✅ Enabled |
-| ESLint Checker | ✅ Active | ✅ Enabled |
-| Code Formatter | ✅ Active | ✅ Enabled |
-| Secrets Manager | ✅ Active | ✅ Enabled |
-| Build Monitor | ✅ Active | ✅ Enabled |
+| ESLint Checker     | ✅ Active | ✅ Enabled |
+| Code Formatter     | ✅ Active | ✅ Enabled |
+| Secrets Manager    | ✅ Active | ✅ Enabled |
+| Build Monitor      | ✅ Active | ✅ Enabled |
 | Dependency Monitor | ✅ Active | ✅ Enabled |
-| Workflow Monitor | ✅ Active | ⚠️  Manual |
+| Workflow Monitor   | ✅ Active | ⚠️ Manual  |
 
 ## Automation
 
@@ -56,4 +56,4 @@ cat .autopilot-status.json
 
 ---
 
-*This dashboard is automatically maintained by the self-healing autopilot.*
+_This dashboard is automatically maintained by the self-healing autopilot._

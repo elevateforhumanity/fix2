@@ -1,4 +1,3 @@
-
 interface ProgressIndicatorProps {
   size?: 'sm' | 'md' | 'lg';
   color?: 'green' | 'brown' | 'white';

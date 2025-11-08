@@ -1,4 +1,3 @@
-
 interface ProgressBarProps {
   progress: number; // 0-100
   size?: 'sm' | 'md' | 'lg';

@@ -8,8 +8,9 @@
 ## Issue
 
 All Vercel URLs return 404:
+
 - `https://fix2-git-main-elevateforhumanitys-projects.vercel.app/` → 404
-- `https://fix2.vercel.app/` → 404  
+- `https://fix2.vercel.app/` → 404
 - Error: `DEPLOYMENT_NOT_FOUND`
 
 ---
@@ -17,16 +18,19 @@ All Vercel URLs return 404:
 ## Possible Causes
 
 ### 1. No Deployment Triggered
+
 - GitHub push may not have triggered Vercel
 - Vercel integration not connected
 - Workflow not running
 
 ### 2. Missing Vercel Configuration
+
 - No `vercel.json` or incorrect config
 - Project not linked to GitHub repo
 - Missing environment variables blocking deployment
 
 ### 3. Build Failing on Vercel
+
 - Build errors preventing deployment
 - Missing secrets causing build failure
 - Check Vercel dashboard for build logs
@@ -36,12 +40,14 @@ All Vercel URLs return 404:
 ## Diagnostic Steps
 
 ### Check GitHub Actions
+
 1. Go to: [GitHub Actions](https://github.com/elevateforhumanity/fix2/actions)
 2. Look for "Vercel Production Deployment" workflow
 3. Check if it ran after latest push
 4. Review logs for errors
 
 ### Check Vercel Dashboard
+
 1. Go to: [Vercel Dashboard](https://vercel.com/dashboard)
 2. Find "fix2" project
 3. Check "Deployments" tab
@@ -49,6 +55,7 @@ All Vercel URLs return 404:
 5. Review build logs if deployment failed
 
 ### Check Vercel Integration
+
 1. Go to: [GitHub Integrations](https://github.com/elevateforhumanity/fix2/settings/installations)
 2. Verify Vercel app is installed
 3. Check repository access permissions
@@ -93,11 +100,13 @@ vercel --prod
 ### Solution 4: Check Required Secrets
 
 Verify these secrets exist in GitHub:
+
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 
 If missing, add them:
+
 1. Get Vercel token: [Vercel Tokens](https://vercel.com/account/tokens)
 2. Get Org ID and Project ID from Vercel project settings
 3. Add to: [GitHub Secrets](https://github.com/elevateforhumanity/fix2/settings/secrets/actions)
@@ -127,6 +136,7 @@ If missing, add them:
 ## Expected Behavior
 
 After successful deployment:
+
 - Site accessible at Vercel URL
 - HTTP 200 response
 - React app loads

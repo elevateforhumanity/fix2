@@ -7,23 +7,23 @@ tasks:
       echo "🚀 Elevate for Humanity - Production Ready Setup"
       echo "================================================"
       echo ""
-      
+
       # Install global tools
       echo "📦 Installing global tools..."
       npm install -g pnpm@9.7.0 vercel@latest netlify-cli wrangler
-      
+
       # Install dependencies
       echo "📦 Installing project dependencies..."
       pnpm install --frozen-lockfile
-      
+
       # Run secrets autopilot
       echo "🔐 Configuring secrets..."
       node workers/secrets-autopilot.js || true
-      
+
       # Run production ready checks
       echo "🔍 Running production ready checks..."
       chmod +x make-production-ready.sh
-      
+
       echo ""
       echo "✅ Setup complete!"
       echo ""
@@ -32,7 +32,7 @@ tasks:
       echo "   2. Run: ./make-production-ready.sh (to fix all issues)"
       echo "   3. Review: SECRETS_SETUP_INSTRUCTIONS.md"
       echo ""
-      
+
     command: |
       echo "🎯 Elevate for Humanity - Development Environment Ready"
       echo "========================================================"
@@ -61,7 +61,7 @@ tasks:
       echo ""
       # Keep terminal open for autopilot tasks
       gp sync-await setup-complete
-      
+
   - name: Production Checklist
     command: |
       gp sync-done setup-complete

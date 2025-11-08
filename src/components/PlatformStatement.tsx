@@ -3,7 +3,6 @@
  * Proprietary platform description for Elevate for Humanity
  */
 
-
 interface PlatformStatementProps {
   variant?: 'full' | 'short' | 'footer';
   className?: string;
