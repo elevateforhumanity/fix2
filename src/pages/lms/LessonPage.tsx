@@ -137,7 +137,7 @@ export default function LessonPage() {
             <div
               className="h-full bg-green-600 transition-all duration-300"
               style={{ width: `${progress}%` }}
-             />
+            />
           </div>
         </div>
       </div>

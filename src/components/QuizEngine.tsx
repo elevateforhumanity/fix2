@@ -292,7 +292,7 @@ export default function QuizEngine({
               style={{
                 width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
               }}
-             />
+            />
           </div>
           <span className="text-sm text-brown-600 whitespace-nowrap">
             {currentQuestionIndex + 1} / {questions.length}

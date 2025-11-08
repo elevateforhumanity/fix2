@@ -352,35 +352,33 @@ function o() {
                         }),
                         s.jsx('div', {
                           className: 'space-y-4',
-                          children: h
-                            .slice(0, 3)
-                            .map((e) =>
-                              s.jsxs(
-                                'div',
-                                {
-                                  className: 'border-l-4 border-blue-500 pl-4',
-                                  children: [
-                                    s.jsx('h4', {
-                                      className: 'font-medium text-brown-900',
-                                      children: e.title,
-                                    }),
-                                    s.jsxs('p', {
-                                      className: 'text-sm text-brown-600',
-                                      children: [
-                                        new Date(e.date).toLocaleDateString(),
-                                        ' • ',
-                                        e.time,
-                                      ],
-                                    }),
-                                    s.jsxs('p', {
-                                      className: 'text-sm text-brown-500',
-                                      children: [e.attendees, ' attending'],
-                                    }),
-                                  ],
-                                },
-                                e.id
-                              )
-                            ),
+                          children: h.slice(0, 3).map((e) =>
+                            s.jsxs(
+                              'div',
+                              {
+                                className: 'border-l-4 border-blue-500 pl-4',
+                                children: [
+                                  s.jsx('h4', {
+                                    className: 'font-medium text-brown-900',
+                                    children: e.title,
+                                  }),
+                                  s.jsxs('p', {
+                                    className: 'text-sm text-brown-600',
+                                    children: [
+                                      new Date(e.date).toLocaleDateString(),
+                                      ' • ',
+                                      e.time,
+                                    ],
+                                  }),
+                                  s.jsxs('p', {
+                                    className: 'text-sm text-brown-500',
+                                    children: [e.attendees, ' attending'],
+                                  }),
+                                ],
+                              },
+                              e.id
+                            )
+                          ),
                         }),
                         s.jsx('button', {
                           onClick: () => x('events'),

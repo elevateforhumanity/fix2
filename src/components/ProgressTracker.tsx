@@ -50,7 +50,7 @@ export default function ProgressTracker({
           <div
             className="h-full bg-green-600 transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
-           />
+          />
         </div>
         <p className="text-sm text-brown-600 mt-2">
           {completedLessons} of {totalLessons} lessons completed
@@ -85,7 +85,7 @@ export default function ProgressTracker({
                   <div
                     className="h-full bg-green-600 transition-all duration-300"
                     style={{ width: `${moduleProgress}%` }}
-                   />
+                  />
                 </div>
               </div>
               {/* Lesson List */}

@@ -15230,22 +15230,18 @@ var Ai = (e, t) =>
               offset: y,
             }))
           : o.ticks && null != s
-            ? o
-                .ticks(s)
-                .map((e, t) => ({
-                  coordinate: o(e) + y,
-                  value: e,
-                  offset: y,
-                  index: t,
-                }))
-            : o
-                .domain()
-                .map((e, t) => ({
-                  coordinate: o(e) + y,
-                  value: r ? r[e] : e,
-                  index: t,
-                  offset: y,
-                }))
+            ? o.ticks(s).map((e, t) => ({
+                coordinate: o(e) + y,
+                value: e,
+                offset: y,
+                index: t,
+              }))
+            : o.domain().map((e, t) => ({
+                coordinate: o(e) + y,
+                value: r ? r[e] : e,
+                index: t,
+                offset: y,
+              }))
     );
   },
   Mi = 1e-4,
@@ -19150,14 +19146,12 @@ var id = (e, t) => t,
             ? r
                 .ticks(f)
                 .map((e) => ({ coordinate: r(e) + h, value: e, offset: h }))
-            : r
-                .domain()
-                .map((e, t) => ({
-                  coordinate: r(e) + h,
-                  value: o ? o[e] : e,
-                  index: t,
-                  offset: h,
-                }));
+            : r.domain().map((e, t) => ({
+                coordinate: r(e) + h,
+                value: o ? o[e] : e,
+                index: t,
+                offset: h,
+              }));
     }
   }),
   Od = b([Ao, Kc, rd, td, gd, wd, bc], (e, t, n, r, a, i, o) => {
@@ -19181,14 +19175,12 @@ var id = (e, t) => t,
             ? n
                 .ticks(u)
                 .map((e) => ({ coordinate: n(e) + c, value: e, offset: c }))
-            : n
-                .domain()
-                .map((e, t) => ({
-                  coordinate: n(e) + c,
-                  value: a ? a[e] : e,
-                  index: t,
-                  offset: c,
-                }))
+            : n.domain().map((e, t) => ({
+                coordinate: n(e) + c,
+                value: a ? a[e] : e,
+                index: t,
+                offset: c,
+              }))
       );
     }
   }),
@@ -19641,14 +19633,12 @@ var af = (e, t, n, r, a, i, o) => {
                 index: t,
                 offset: d,
               }))
-            : r
-                .domain()
-                .map((e, t) => ({
-                  coordinate: r(e) + d,
-                  value: i ? i[e] : e,
-                  index: t,
-                  offset: d,
-                }))
+            : r.domain().map((e, t) => ({
+                coordinate: r(e) + d,
+                value: i ? i[e] : e,
+                index: t,
+                offset: d,
+              }))
         );
       }
     }
