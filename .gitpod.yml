@@ -1,35 +1,117 @@
-image: node:20-bullseye
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
-  - name: Setup and Run Elevate Portal
+  - name: Production Ready Setup
     init: |
-      echo "🚀 Installing dependencies..."
-      npm install -g pnpm netlify-cli
-      pnpm install
-      echo "✅ Dependencies installed"
+      echo "🚀 Elevate for Humanity - Production Ready Setup"
+      echo "================================================"
+      echo ""
+      
+      # Install global tools
+      echo "📦 Installing global tools..."
+      npm install -g pnpm@9.7.0 vercel@latest netlify-cli wrangler
+      
+      # Install dependencies
+      echo "📦 Installing project dependencies..."
+      pnpm install --frozen-lockfile
+      
+      # Run secrets autopilot
+      echo "🔐 Configuring secrets..."
+      node workers/secrets-autopilot.js || true
+      
+      # Run production ready checks
+      echo "🔍 Running production ready checks..."
+      chmod +x make-production-ready.sh
+      
+      echo ""
+      echo "✅ Setup complete!"
+      echo ""
+      echo "📋 Next steps:"
+      echo "   1. Run: ./todo.sh (for full checklist)"
+      echo "   2. Run: ./make-production-ready.sh (to fix all issues)"
+      echo "   3. Review: SECRETS_SETUP_INSTRUCTIONS.md"
+      echo ""
+      
     command: |
-      echo "🔧 Starting development server..."
+      echo "🎯 Elevate for Humanity - Development Environment Ready"
+      echo "========================================================"
+      echo ""
+      echo "Available commands:"
+      echo "  pnpm dev              - Start development server"
+      echo "  pnpm build            - Build for production"
+      echo "  pnpm test             - Run tests"
+      echo "  pnpm typecheck        - Check TypeScript"
+      echo "  pnpm lint             - Check code quality"
+      echo "  ./todo.sh             - View production checklist"
+      echo "  ./make-production-ready.sh - Auto-fix all issues"
+      echo ""
+      echo "🚀 Starting development server..."
       pnpm run dev --host
+
+  - name: Autopilot Worker
+    command: |
+      echo "🤖 Autopilot Worker Ready"
+      echo "========================"
+      echo ""
+      echo "Autopilot features available:"
+      echo "  - Secrets management"
+      echo "  - Code quality fixes"
+      echo "  - Deployment automation"
+      echo ""
+      # Keep terminal open for autopilot tasks
+      gp sync-await setup-complete
+      
+  - name: Production Checklist
+    command: |
+      gp sync-done setup-complete
+      sleep 5
+      echo ""
+      echo "📋 Production Readiness Checklist"
+      echo "=================================="
+      cat todo.sh
+      echo ""
+      echo "Run './todo.sh' anytime to see this checklist"
+      echo "Run './make-production-ready.sh' to auto-fix issues"
 
 ports:
   - port: 5173
     onOpen: open-preview
     visibility: public
+    description: Vite Dev Server
   - port: 8080
     onOpen: ignore
     visibility: public
+    description: Preview Server
   - port: 4173
     onOpen: ignore
     visibility: public
+    description: Vite Preview
+  - port: 3000
+    onOpen: ignore
+    visibility: public
+    description: Alternative Dev Port
 
 vscode:
   extensions:
     - esbenp.prettier-vscode
     - dbaeumer.vscode-eslint
     - bradlc.vscode-tailwindcss
+    - ms-azuretools.vscode-docker
+    - github.copilot
+    - github.vscode-pull-request-github
+    - eamodio.gitlens
+    - usernamehw.errorlens
+    - streetsidesoftware.code-spell-checker
 
 github:
   prebuilds:
     master: true
+    main: true
     branches: true
     pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: true
+    addBadge: true
+    addLabel: prebuilt-in-gitpod

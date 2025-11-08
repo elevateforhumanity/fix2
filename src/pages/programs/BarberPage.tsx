@@ -3,7 +3,6 @@
  * Copyright (c) 2025 Elevate for Humanity
  */
 
-import React from 'react';
 import ProgramPageTemplate from '../../components/ProgramPageTemplate';
 
 export default function BarberPage() {

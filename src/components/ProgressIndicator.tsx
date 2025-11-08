@@ -1,4 +1,3 @@
-import React from 'react';
 
 interface ProgressIndicatorProps {
   size?: 'sm' | 'md' | 'lg';

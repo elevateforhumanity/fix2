@@ -1,4 +1,3 @@
-import React from 'react';
 import ProgramPageTemplate from '../../components/ProgramPageTemplate';
 
 export default function CPRSPage() {

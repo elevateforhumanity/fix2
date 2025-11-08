@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Dashboard
  * Overview of key metrics and recent activity

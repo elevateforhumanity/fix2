@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Audit Log Page
  * View all system actions and changes

@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Assessments Page
  * Manage quizzes, assignments, and grading
@@ -145,6 +144,7 @@ export default function Assessments() {
     try {
       setCreating(true);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('assessments').insert({
         org_id: currentOrg.id,
         title: assessmentTitle,

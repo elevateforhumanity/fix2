@@ -4,7 +4,6 @@
  * Matches elevateforhumanity.org program pages exactly
  */
 
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navigation from './Navigation';
 import Hero from './Hero';

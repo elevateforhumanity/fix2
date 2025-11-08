@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle, Circle, Lock } from 'lucide-react';
 import ProgressBar from './ProgressBar';
 

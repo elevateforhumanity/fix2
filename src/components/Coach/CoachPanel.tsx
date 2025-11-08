@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCoach } from '../../hooks/useCoach';
 
 interface CoachPanelProps {

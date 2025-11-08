@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * All Routes
  * Comprehensive routing including admin and public routes

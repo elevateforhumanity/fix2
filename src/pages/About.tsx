@@ -4,7 +4,6 @@
  * Copyright (c) 2025 Elevate for Humanity
  */
 
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';

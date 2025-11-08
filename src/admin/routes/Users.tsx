@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Users Page
  * Manage organization members and roles (RBAC)
@@ -211,6 +210,7 @@ export default function Users() {
     if (!currentOrg || !user) return;
 
     try {
+      if (!supabase) throw new Error('Supabase not initialized');
       await supabase.from('audit_logs').insert({
         org_id: currentOrg.id,
         actor_id: user.id,

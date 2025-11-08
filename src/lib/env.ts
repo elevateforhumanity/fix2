@@ -133,6 +133,7 @@ function showEnvErrorBanner(errors: string[]) {
         <summary style="cursor: pointer;">How to fix</summary>
         <pre style="margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 4px; overflow-x: auto;">
 In Gitpod terminal:
+if (!supabase) throw new Error('Supabase not initialized');
 gp env VITE_SUPABASE_URL="https://your-project.supabase.co"
 gp env VITE_SUPABASE_ANON_KEY="your-anon-key"
 

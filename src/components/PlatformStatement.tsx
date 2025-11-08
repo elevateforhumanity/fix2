@@ -3,7 +3,6 @@
  * Proprietary platform description for Elevate for Humanity
  */
 
-import React from 'react';
 
 interface PlatformStatementProps {
   variant?: 'full' | 'short' | 'footer';

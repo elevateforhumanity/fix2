@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Community Page
  * Manage forums, badges, and leaderboards
@@ -100,6 +99,7 @@ export default function Community() {
     try {
       setCreatingThread(true);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('forum_threads').insert({
         org_id: currentOrg.id,
         title: threadTitle,
@@ -125,6 +125,7 @@ export default function Community() {
     try {
       setCreatingBadge(true);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('badges').insert({
         org_id: currentOrg.id,
         key: badgeKey,
@@ -152,6 +153,7 @@ export default function Community() {
     if (!currentOrg) return;
 
     try {
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('user_badges').insert({
         org_id: currentOrg.id,
         user_id: userId,

@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Analytics Page
  * Track user behavior, course performance, and business metrics

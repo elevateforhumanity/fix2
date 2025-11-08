@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Routes
  * Routing configuration for admin section

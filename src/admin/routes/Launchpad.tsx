@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Launchpad Page
  * Quick access dashboard for common admin tasks and system overview

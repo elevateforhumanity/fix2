@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Courses Page
  * Manage courses with versioning and publishing
@@ -7,7 +6,6 @@ import React from 'react';
  */
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../hooks/useAuth';
 import { useOrg } from '../../hooks/useOrg';
@@ -262,6 +260,7 @@ export default function Courses() {
     if (!currentOrg || !user) return;
 
     try {
+      if (!supabase) throw new Error('Supabase not initialized');
       await supabase.from('audit_logs').insert({
         org_id: currentOrg.id,
         actor_id: user.id,

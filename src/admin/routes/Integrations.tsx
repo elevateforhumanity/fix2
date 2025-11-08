@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Integrations Page
  * Manage third-party integrations, webhooks, and API connections
@@ -168,6 +167,7 @@ export default function Integrations() {
       // Generate a random secret
       const secret = 'whsec_' + Math.random().toString(36).substring(2, 15);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('webhooks').insert({
         org_id: currentOrg.id,
         url: webhookUrl,
@@ -220,6 +220,7 @@ export default function Integrations() {
       const fullKey =
         keyPrefix + '_' + Math.random().toString(36).substring(2, 30);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('api_keys').insert({
         org_id: currentOrg.id,
         name,

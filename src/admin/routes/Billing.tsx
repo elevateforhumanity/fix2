@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Billing Page
  * View subscription, plan, and entitlements

@@ -44,6 +44,7 @@ export default function Feed({ courseId }: FeedProps) {
     if (loading) return;
     setLoading(true);
 
+    if (!supabase) throw new Error('Supabase not initialized');
     const {
       data: { user },
     } = await supabase.auth.getUser();

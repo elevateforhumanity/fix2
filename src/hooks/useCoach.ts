@@ -7,6 +7,7 @@ export function useCoach(courseId?: string) {
 
   async function refreshPlan() {
     setLoading(true);
+    if (!supabase) throw new Error('Supabase not initialized');
     const {
       data: { user },
     } = await supabase.auth.getUser();

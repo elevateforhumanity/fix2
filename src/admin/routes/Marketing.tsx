@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Marketing Page
  * Manage campaigns, A/B tests, and funnels
@@ -100,6 +99,7 @@ export default function Marketing() {
     try {
       setCreating(true);
 
+      if (!supabase) throw new Error('Supabase not initialized');
       const { error } = await supabase.from('campaigns').insert({
         org_id: currentOrg.id,
         name: campaignName,

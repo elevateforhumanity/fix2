@@ -1,4 +1,3 @@
-import React from 'react';
 /**
  * Admin Layout
  * Main layout for admin section with navigation

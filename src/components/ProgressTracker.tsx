@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle, Circle, Lock } from 'lucide-react';
 
 interface Lesson {
