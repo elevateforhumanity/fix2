@@ -17,19 +17,23 @@ The Vercel deployment workflow is ready but **cannot run** because required GitH
 ## What's Ready
 
 ✅ **Vercel Configuration**
+
 - `vercel.json` created and configured
 - Optimized for Vite/React
 - SPA routing configured
 
 ✅ **GitHub Actions Workflows**
+
 - `vercel-deploy.yml` - Automatic deployment
 - `vercel-fix-env-emergency.yml` - Emergency fixer
 
 ✅ **Documentation**
+
 - `VERCEL_SETUP_GUIDE.md` - Complete setup instructions
 - `VERCEL_PRICING_ANALYSIS.md` - Pricing breakdown (FREE tier is perfect)
 
 ✅ **Code**
+
 - All source code ready
 - Build tested
 - Dependencies installed
@@ -43,11 +47,13 @@ The Vercel deployment workflow is ready but **cannot run** because required GitH
 The workflow needs these 8 secrets:
 
 **Vercel Configuration:**
+
 - `VERCEL_TOKEN` - API token from Vercel
 - `VERCEL_ORG_ID` - Your organization ID
 - `VERCEL_PROJECT_ID` - Your project ID
 
 **Application Configuration:**
+
 - `VITE_SUPABASE_URL` - https://cuxzzpsyufcewtmicszk.supabase.co
 - `VITE_SUPABASE_ANON_KEY` - From Supabase dashboard
 - `VITE_STRIPE_PUBLISHABLE_KEY` - From Stripe dashboard
@@ -59,10 +65,12 @@ The workflow needs these 8 secrets:
 ## How to Deploy (Quick Guide)
 
 ### 1. Create Vercel Account (5 min)
+
 - Go to [vercel.com](https://vercel.com)
 - Sign up with GitHub (FREE - no credit card needed)
 
 ### 2. Install & Link (5 min)
+
 ```bash
 npm i -g vercel
 vercel login
@@ -71,6 +79,7 @@ vercel link
 ```
 
 ### 3. Get Credentials (1 min)
+
 ```bash
 # Get org and project IDs
 cat .vercel/project.json
@@ -80,11 +89,13 @@ cat .vercel/project.json
 ```
 
 ### 4. Add GitHub Secrets (5 min)
+
 - Go to GitHub repo → Settings → Secrets and variables → Actions
 - Click "New repository secret"
 - Add all 8 secrets listed above
 
 ### 5. Deploy (1 min)
+
 ```bash
 # Option A: Push to trigger automatic deployment
 git push origin main
@@ -114,16 +125,19 @@ This gives you a live URL instantly. Add GitHub Secrets later for automatic depl
 After deployment:
 
 ✅ **Live Site**
+
 - URL: `https://fix2-xxxxx.vercel.app`
 - Automatic HTTPS
 - Global CDN
 
 ✅ **Automatic Deployments**
+
 - Every push to main deploys automatically
 - Environment variables configured
 - Build reports generated
 
 ✅ **FREE Forever**
+
 - No credit card required
 - 1M edge requests/month
 - 100 GB bandwidth/month
@@ -134,6 +148,7 @@ After deployment:
 ## Why Vercel?
 
 We switched from Netlify because:
+
 - ✅ Better reliability (Netlify was failing)
 - ✅ Better Vite/React support
 - ✅ Faster builds (1-2 min vs 2-3 min)
@@ -160,6 +175,6 @@ We switched from Netlify because:
 
 ---
 
-*Status: Awaiting Vercel configuration*  
-*Estimated time to deploy: 20 minutes*  
-*Cost: $0 (FREE forever)*
+_Status: Awaiting Vercel configuration_  
+_Estimated time to deploy: 20 minutes_  
+_Cost: $0 (FREE forever)_

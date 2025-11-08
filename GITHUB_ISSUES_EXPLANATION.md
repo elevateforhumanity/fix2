@@ -44,17 +44,20 @@ gh issue list
 ## What is `issues-to-fix.json`?
 
 This file was created by an automated audit tool that:
+
 - Scans your codebase
 - Checks internal links
 - Validates component exports
 - Creates a report
 
 **It's NOT:**
+
 - ❌ GitHub Issues
 - ❌ Bugs that need fixing
 - ❌ Critical problems
 
 **It IS:**
+
 - ✅ An internal audit report
 - ✅ Link validation data
 - ✅ Code quality notes
@@ -74,6 +77,7 @@ git push
 ```
 
 This file is:
+
 - Not used by your application
 - Not referenced in any code
 - Just a one-time audit report
@@ -105,6 +109,7 @@ This file is:
 ```
 
 **What this means:**
+
 - Test files don't export anything
 - This is **normal** for test files
 - Not a problem
@@ -122,6 +127,7 @@ This file is:
 ```
 
 **What this means:**
+
 - List of all internal links in your site
 - Used for navigation validation
 - Helps ensure no broken links
@@ -202,20 +208,23 @@ git push origin main
 **You DON'T have 900+ issues.**
 
 You have:
+
 - ✅ A JSON file with 294 audit entries
 - ✅ Mostly internal link references (173)
 - ✅ A few minor code notes (3)
 - ✅ Nothing critical
 
 **Action:**
+
 - Delete `issues-to-fix.json`
 - It's safe and recommended
 - Reduces confusion
 
 **Real GitHub Issues:**
+
 - Check at: github.com/elevateforhumanity/fix2/issues
 - Most likely: 0 issues
 
 ---
 
-*This file can be safely deleted after reading.*
+_This file can be safely deleted after reading._

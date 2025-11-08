@@ -8,12 +8,14 @@
 ## What Changed
 
 ### Before: External Workflows Only
+
 - ❌ Autopilot only ran in GitHub Actions
 - ❌ Required GitHub Secrets to be set manually
 - ❌ Couldn't run locally
 - ❌ Created 934 issues when it failed
 
 ### After: Internal Worker
+
 - ✅ Autopilot runs INSIDE your application
 - ✅ Reads `.env.production` automatically
 - ✅ Syncs secrets to GitHub/Vercel automatically
@@ -46,18 +48,21 @@ Self-Heals When Issues Detected
 The worker starts automatically when your app runs:
 
 **In Browser:**
+
 ```typescript
 // src/main.tsx
 import('../workers/autopilot-worker.js');
 ```
 
 **In Server:**
+
 ```bash
 # Runs alongside your app
 pnpm dev:with-autopilot
 ```
 
 **Standalone:**
+
 ```bash
 # Run as separate process
 pnpm autopilot
@@ -127,10 +132,10 @@ async startHealthMonitoring() {
 async selfHeal() {
   // Trigger Vercel redeploy
   await execAsync(`vercel --prod --yes --token="${this.config.VERCEL_TOKEN}"`);
-  
+
   // Wait 60 seconds
   await sleep(60000);
-  
+
   // Verify recovery
   const health = await this.checkHealth();
   return health.healthy;
@@ -145,14 +150,14 @@ async selfHeal() {
 async createEscalationIssue() {
   // Check for recent issues
   const issues = await gh.listIssues({ label: 'self-heal-failed' });
-  
+
   if (issues.length > 0) {
     const hoursSince = (Date.now() - lastIssue) / (1000 * 60 * 60);
     if (hoursSince < 24) {
       return; // Skip - recent issue exists
     }
   }
-  
+
   // Create issue only if no recent one
   await gh.createIssue({ title: 'Self-Heal Failed' });
 }
@@ -214,6 +219,7 @@ curl http://localhost:5173/api/autopilot/status
 ```
 
 Response:
+
 ```json
 {
   "status": "ok",
@@ -427,6 +433,7 @@ pnpm dev:with-autopilot
 **Solution:** ✅ DONE
 
 **What it does:**
+
 1. ✅ Runs inside your application
 2. ✅ Reads `.env.production` automatically
 3. ✅ Syncs secrets to GitHub/Vercel
@@ -435,6 +442,7 @@ pnpm dev:with-autopilot
 6. ✅ Rate limited (max 1 issue per 24h)
 
 **How to use:**
+
 ```bash
 # Just run your app - worker starts automatically
 pnpm dev
@@ -444,4 +452,4 @@ pnpm dev
 
 ---
 
-*The autopilot worker now runs inside your application and handles everything automatically.*
+_The autopilot worker now runs inside your application and handles everything automatically._

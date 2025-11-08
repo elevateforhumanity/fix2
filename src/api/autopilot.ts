@@ -1,6 +1,6 @@
 /**
  * Autopilot API Endpoint
- * 
+ *
  * Provides API access to the autopilot worker
  * Can be called from anywhere in the application
  */
@@ -30,10 +30,10 @@ async function getAutopilotWorker() {
 export async function getStatus(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
@@ -44,13 +44,13 @@ export async function getStatus(req: Request, res: Response) {
         hasVercelToken: !!worker.config.VERCEL_TOKEN,
         hasSupabaseUrl: !!worker.config.VITE_SUPABASE_URL,
         hasStripeKey: !!worker.config.VITE_STRIPE_PUBLISHABLE_KEY,
-        siteUrl: worker.config.VITE_SITE_URL || 'not set'
-      }
+        siteUrl: worker.config.VITE_SITE_URL || 'not set',
+      },
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Failed to get autopilot status',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -62,23 +62,23 @@ export async function getStatus(req: Request, res: Response) {
 export async function triggerHealthCheck(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
     const health = await worker.checkHealth();
-    
+
     res.json({
       status: 'ok',
-      health
+      health,
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Health check failed',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -90,24 +90,24 @@ export async function triggerHealthCheck(req: Request, res: Response) {
 export async function triggerSelfHeal(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
     const success = await worker.selfHeal();
-    
+
     res.json({
       status: 'ok',
       healed: success,
-      message: success ? 'Self-heal successful' : 'Self-heal failed'
+      message: success ? 'Self-heal successful' : 'Self-heal failed',
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Self-heal failed',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -119,27 +119,27 @@ export async function triggerSelfHeal(req: Request, res: Response) {
 export async function syncSecrets(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
     const results = {
       github: await worker.syncToGitHub(),
-      vercel: await worker.syncToVercel()
+      vercel: await worker.syncToVercel(),
     };
-    
+
     res.json({
       status: 'ok',
       synced: results,
-      message: 'Secrets synced successfully'
+      message: 'Secrets synced successfully',
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Secret sync failed',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -151,30 +151,30 @@ export async function syncSecrets(req: Request, res: Response) {
 export async function startWorker(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
     if (worker.isRunning) {
       return res.json({
         status: 'ok',
-        message: 'Autopilot already running'
+        message: 'Autopilot already running',
       });
     }
 
     await worker.start();
-    
+
     res.json({
       status: 'ok',
-      message: 'Autopilot started successfully'
+      message: 'Autopilot started successfully',
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Failed to start autopilot',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -186,23 +186,23 @@ export async function startWorker(req: Request, res: Response) {
 export async function stopWorker(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
-    
+
     if (!worker) {
       return res.status(503).json({
-        error: 'Autopilot worker not available'
+        error: 'Autopilot worker not available',
       });
     }
 
     worker.stop();
-    
+
     res.json({
       status: 'ok',
-      message: 'Autopilot stopped successfully'
+      message: 'Autopilot stopped successfully',
     });
   } catch (error: any) {
     res.status(500).json({
       error: 'Failed to stop autopilot',
-      message: error.message
+      message: error.message,
     });
   }
 }
@@ -214,5 +214,5 @@ export default {
   triggerSelfHeal,
   syncSecrets,
   startWorker,
-  stopWorker
+  stopWorker,
 };

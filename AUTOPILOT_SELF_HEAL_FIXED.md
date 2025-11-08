@@ -8,6 +8,7 @@
 ## What Was Wrong
 
 The old autopilot workflows were:
+
 - ✅ Monitoring site health (good)
 - ✅ Trying to self-heal (good)
 - ❌ **Failing to heal** because they used Netlify (you're on Vercel now)
@@ -23,6 +24,7 @@ The old autopilot workflows were:
 Created: `.github/workflows/autopilot-selfheal-vercel.yml`
 
 **Features:**
+
 - ✅ Monitors site health every 30 minutes
 - ✅ **Self-heals automatically** by triggering Vercel redeploy
 - ✅ Verifies recovery after healing
@@ -57,12 +59,12 @@ Created: `.github/workflows/autopilot-selfheal-vercel.yml`
 ```yaml
 # Only create issue if no recent issue exists
 if (issues.data.length > 0) {
-  const hoursSinceLastIssue = (Date.now() - new Date(lastIssue.created_at)) / (1000 * 60 * 60);
-  
-  if (hoursSinceLastIssue < 24) {
-    console.log('Recent issue exists, skipping');
-    return; // NO ISSUE CREATED
-  }
+const hoursSinceLastIssue = (Date.now() - new Date(lastIssue.created_at)) / (1000 * 60 * 60);
+
+if (hoursSinceLastIssue < 24) {
+console.log('Recent issue exists, skipping');
+return; // NO ISSUE CREATED
+}
 }
 ```
 
@@ -124,6 +126,7 @@ git push origin main
 ### Step 3: Add required secrets (if not already added)
 
 The workflow needs these secrets to self-heal:
+
 - `VERCEL_TOKEN` - To trigger redeployments
 - `VERCEL_ORG_ID` - Your Vercel org
 - `VERCEL_PROJECT_ID` - Your Vercel project
@@ -178,6 +181,7 @@ bash scripts/close-autopilot-issues.sh
 ```
 
 This will:
+
 - Close all 934 autopilot-created issues
 - Add comment explaining they're from old system
 - Won't happen again with new workflow
@@ -191,6 +195,7 @@ The workflow creates a summary after each run:
 **View at:** GitHub Actions → Autopilot Self-Heal → Latest run
 
 **Shows:**
+
 - ✅ System healthy (no action)
 - ✅ Self-heal successful (fixed automatically)
 - ⚠️ Self-heal failed (issue created)
@@ -199,14 +204,14 @@ The workflow creates a summary after each run:
 
 ## Comparison: Old vs New
 
-| Feature | Old Workflows | New Workflow |
-|---------|--------------|--------------|
-| **Monitoring** | ✅ Every 5-30 min | ✅ Every 30 min |
-| **Self-Healing** | ❌ Tried Netlify (wrong) | ✅ Uses Vercel (correct) |
-| **Issue Creation** | ❌ Every failure | ✅ Only if heal fails |
-| **Rate Limiting** | ❌ None (spam) | ✅ Max 1 per 24h |
-| **Verification** | ❌ No | ✅ Yes |
-| **Result** | 934 issues | Max 1 issue/day |
+| Feature            | Old Workflows            | New Workflow             |
+| ------------------ | ------------------------ | ------------------------ |
+| **Monitoring**     | ✅ Every 5-30 min        | ✅ Every 30 min          |
+| **Self-Healing**   | ❌ Tried Netlify (wrong) | ✅ Uses Vercel (correct) |
+| **Issue Creation** | ❌ Every failure         | ✅ Only if heal fails    |
+| **Rate Limiting**  | ❌ None (spam)           | ✅ Max 1 per 24h         |
+| **Verification**   | ❌ No                    | ✅ Yes                   |
+| **Result**         | 934 issues               | Max 1 issue/day          |
 
 ---
 
@@ -232,11 +237,13 @@ bash scripts/close-autopilot-issues.sh
 ## Summary
 
 **What you wanted:**
+
 - ✅ Keep monitoring
 - ✅ Keep self-healing
 - ✅ Stop creating 934 issues
 
 **What I did:**
+
 - ✅ Created new workflow that actually self-heals
 - ✅ Added rate limiting (max 1 issue per 24h)
 - ✅ Fixed to work with Vercel (not Netlify)
@@ -244,6 +251,7 @@ bash scripts/close-autopilot-issues.sh
 - ✅ Old workflows moved to archive (not deleted)
 
 **Next steps:**
+
 1. Commit and push the new workflow
 2. Close the 934 old issues
 3. Add Vercel secrets
@@ -253,4 +261,4 @@ bash scripts/close-autopilot-issues.sh
 
 ---
 
-*The autopilot will now actually fix problems instead of just complaining about them.*
+_The autopilot will now actually fix problems instead of just complaining about them._

@@ -7,6 +7,7 @@
 ## ✅ DONE - Self-Healing Fixed
 
 The new autopilot is now active:
+
 - ✅ Monitors site health every 30 minutes
 - ✅ Self-heals automatically with Vercel redeploy
 - ✅ Rate limited: max 1 issue per 24 hours (no spam!)
@@ -23,6 +24,7 @@ bash scripts/close-autopilot-issues.sh
 ```
 
 This will:
+
 1. Login to GitHub CLI (if needed)
 2. Find all 934 autopilot issues
 3. Close them with explanation
@@ -54,6 +56,7 @@ cat .vercel/project.json
 ```
 
 You'll see:
+
 ```json
 {
   "orgId": "team_xxxxx",
@@ -75,11 +78,11 @@ You'll see:
 2. Click "New repository secret"
 3. Add these 3 secrets:
 
-| Secret Name | Value |
-|------------|-------|
-| `VERCEL_TOKEN` | Your token from above |
-| `VERCEL_ORG_ID` | `team_xxxxx` from project.json |
-| `VERCEL_PROJECT_ID` | `prj_xxxxx` from project.json |
+| Secret Name         | Value                          |
+| ------------------- | ------------------------------ |
+| `VERCEL_TOKEN`      | Your token from above          |
+| `VERCEL_ORG_ID`     | `team_xxxxx` from project.json |
+| `VERCEL_PROJECT_ID` | `prj_xxxxx` from project.json  |
 
 **Time:** 10 minutes
 
@@ -97,12 +100,14 @@ You'll see:
 ### What You'll See:
 
 **If site is healthy:**
+
 ```
 ✅ System Healthy
 No action needed
 ```
 
 **If site was unhealthy but self-healed:**
+
 ```
 ✅ Self-Heal Successful
 - Detected issue: HTTP 500
@@ -111,6 +116,7 @@ No action needed
 ```
 
 **If self-heal failed:**
+
 ```
 ❌ Self-Heal Failed
 Manual intervention may be required
@@ -122,12 +128,14 @@ Manual intervention may be required
 ## Summary
 
 ### What's Fixed:
+
 - ✅ New self-healing workflow active
 - ✅ Works with Vercel (not Netlify)
 - ✅ Rate limited (no spam)
 - ✅ Actually heals problems
 
 ### What You Need to Do:
+
 1. **Close old issues:** `bash scripts/close-autopilot-issues.sh` (5 min)
 2. **Add Vercel secrets:** See above (10 min)
 3. **Verify:** Check GitHub Actions (1 min)

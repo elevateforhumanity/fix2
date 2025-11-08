@@ -9,6 +9,7 @@
 ## What Happened
 
 Your autopilot workflows have been:
+
 1. Running every 30 minutes (cron schedule)
 2. Failing repeatedly (likely due to missing secrets or permissions)
 3. Creating a GitHub Issue on EVERY failure
@@ -17,6 +18,7 @@ Your autopilot workflows have been:
 ### The Problematic Workflows
 
 These workflows create issues:
+
 - `autopilot-auto-push.yml` - Runs every 30 min
 - `autopilot-phase3-selfheal.yml` - Runs every 5 min
 - `autopilot-workers-cron.yml` - Runs every 30 min
@@ -26,6 +28,7 @@ These workflows create issues:
 ## Immediate Fix (Already Done)
 
 ✅ **Step 1: Disabled the workflows**
+
 ```bash
 # Moved to archive (disabled)
 mv .github/workflows/autopilot-auto-push.yml .github/workflows/archive/
@@ -50,6 +53,7 @@ bash scripts/close-autopilot-issues.sh
 ```
 
 This will:
+
 - Close all issues created by `github-actions`
 - Add a comment explaining why
 - Show remaining issues
@@ -86,6 +90,7 @@ gh issue list \
 ### The Autopilot Design Flaw
 
 The workflows were designed to:
+
 1. ✅ Run automatically on a schedule
 2. ✅ Check system health
 3. ✅ Auto-fix problems
@@ -94,6 +99,7 @@ The workflows were designed to:
 ### Why They Failed
 
 The workflows failed because:
+
 - Missing environment variables
 - Missing GitHub secrets
 - Missing Netlify/Vercel credentials
@@ -129,6 +135,7 @@ If you want to re-enable autopilot, remove the issue creation code:
 ### 2. Use Notifications Instead
 
 Replace with:
+
 - Email notifications
 - Slack/Discord webhooks
 - GitHub Actions summary (no issue)
@@ -137,6 +144,7 @@ Replace with:
 ### 3. Add Rate Limiting
 
 If you must create issues:
+
 ```yaml
 # Only create issue if no recent issue exists
 - name: Check for recent issues
@@ -167,7 +175,7 @@ git commit -m "fix: disable autopilot workflows creating issue spam
 
 Moved problematic workflows to archive:
 - autopilot-auto-push.yml
-- autopilot-phase3-selfheal.yml  
+- autopilot-phase3-selfheal.yml
 - autopilot-workers-cron.yml
 
 These workflows were:
@@ -189,12 +197,14 @@ git push origin main
 ### What They Were Trying to Do
 
 **autopilot-auto-push.yml:**
+
 - Run health checks (TypeScript, ESLint, build)
 - Auto-fix issues (format, lint)
 - Commit and push changes
 - **Create issue if failed** ← Problem
 
 **autopilot-phase3-selfheal.yml:**
+
 - Check site health
 - Check database health
 - Auto-heal issues
@@ -202,6 +212,7 @@ git push origin main
 - **Create issue if failed** ← Problem
 
 **autopilot-workers-cron.yml:**
+
 - Run scheduled tasks
 - Update content
 - Sync data
@@ -247,7 +258,7 @@ If you want autopilot in the future:
   uses: actions/slack@v1
   with:
     webhook: ${{ secrets.SLACK_WEBHOOK }}
-    message: "Autopilot failed"
+    message: 'Autopilot failed'
 ```
 
 ### 3. Rate Limit Issues
@@ -268,22 +279,26 @@ If you want autopilot in the future:
 ## Summary
 
 ### What Happened
+
 - 3 autopilot workflows ran every 5-30 minutes
 - Each created a GitHub Issue on failure
 - They failed repeatedly for days
 - Result: 934 open issues
 
 ### What We Did
+
 - ✅ Disabled the 3 problematic workflows
 - ✅ Created script to close all issues
 - ✅ Documented the problem
 
 ### What You Need to Do
+
 1. Run: `bash scripts/close-autopilot-issues.sh`
 2. Commit and push the workflow changes
 3. Verify issues are closed
 
 ### Time to Fix
+
 - Close issues: 5-10 minutes
 - Commit changes: 1 minute
 - **Total: ~10 minutes**
@@ -307,6 +322,6 @@ gh issue list --state open --limit 5
 
 ---
 
-*Problem: 934 autopilot-created issues*  
-*Solution: Workflows disabled, script ready to close issues*  
-*Time to fix: ~10 minutes*
+_Problem: 934 autopilot-created issues_  
+_Solution: Workflows disabled, script ready to close issues_  
+_Time to fix: ~10 minutes_

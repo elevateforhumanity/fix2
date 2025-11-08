@@ -19,6 +19,7 @@ set +a
 ```
 
 This happens in:
+
 - ✅ `scripts/autopilot-vercel-setup.sh`
 - ✅ `scripts/autopilot-github-secrets.sh`
 - ✅ `scripts/autopilot-complete-setup.sh`
@@ -33,6 +34,7 @@ bash scripts/autopilot-github-secrets.sh
 ```
 
 This reads `.env.production` and sets:
+
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
@@ -79,6 +81,7 @@ bash scripts/autopilot-complete-setup.sh
 ```
 
 This automatically:
+
 1. ✅ Reads `.env.production`
 2. ✅ Sets up Vercel
 3. ✅ Configures environment variables in Vercel
@@ -89,6 +92,7 @@ This automatically:
 ### Step 3: Autopilot Runs Automatically
 
 Every 30 minutes:
+
 1. ✅ Loads config from `.env.production`
 2. ✅ Checks site health
 3. ✅ Self-heals if needed
@@ -121,6 +125,7 @@ VERCEL_TOKEN=your_vercel_token_here
 ### 1. autopilot-vercel-setup.sh
 
 **What it does:**
+
 - ✅ Reads `.env.production`
 - ✅ Installs Vercel CLI
 - ✅ Links project
@@ -129,6 +134,7 @@ VERCEL_TOKEN=your_vercel_token_here
 - ✅ Calls `autopilot-github-secrets.sh` automatically
 
 **Run:**
+
 ```bash
 bash scripts/autopilot-vercel-setup.sh
 ```
@@ -136,12 +142,14 @@ bash scripts/autopilot-vercel-setup.sh
 ### 2. autopilot-github-secrets.sh
 
 **What it does:**
+
 - ✅ Reads `.env.production`
 - ✅ Reads `.vercel/project.json`
 - ✅ Sets all secrets in GitHub
 - ✅ Enables self-healing workflow
 
 **Run:**
+
 ```bash
 bash scripts/autopilot-github-secrets.sh
 ```
@@ -149,12 +157,14 @@ bash scripts/autopilot-github-secrets.sh
 ### 3. autopilot-complete-setup.sh
 
 **What it does:**
+
 - ✅ Runs `autopilot-vercel-setup.sh`
 - ✅ Runs `autopilot-github-secrets.sh`
 - ✅ Runs `close-autopilot-issues.sh`
 - ✅ Complete zero-touch setup
 
 **Run:**
+
 ```bash
 bash scripts/autopilot-complete-setup.sh
 ```
@@ -172,12 +182,13 @@ bash scripts/autopilot-complete-setup.sh
   run: |
     # Load from .env.production
     source .env.production
-    
+
     # Use values from .env.production
     SITE_URL="${VITE_SITE_URL:-https://fix2.vercel.app}"
 ```
 
 **What it does:**
+
 1. ✅ Loads config from `.env.production`
 2. ✅ Checks site health
 3. ✅ Triggers Vercel redeploy (using GitHub secrets)
@@ -205,6 +216,7 @@ Self-Healing Workflow (USES GITHUB SECRETS)
 ### No Manual Steps
 
 You never need to:
+
 - ❌ Manually add GitHub Secrets
 - ❌ Manually configure Vercel
 - ❌ Manually set environment variables
@@ -232,6 +244,7 @@ bash scripts/autopilot-complete-setup.sh
 ### 3. Done!
 
 The autopilot will:
+
 - ✅ Deploy to Vercel
 - ✅ Configure everything
 - ✅ Enable self-healing
@@ -280,12 +293,14 @@ gh run list --workflow="autopilot-selfheal-vercel.yml"
 **Solution:** ✅ DONE
 
 **How:**
+
 1. ✅ All autopilot scripts read `.env.production`
 2. ✅ Autopilot copies secrets to GitHub automatically
 3. ✅ Self-healing workflow loads config from `.env.production`
 4. ✅ Single source of truth: `.env.production`
 
 **Run:**
+
 ```bash
 bash scripts/autopilot-complete-setup.sh
 ```
@@ -294,4 +309,4 @@ bash scripts/autopilot-complete-setup.sh
 
 ---
 
-*The autopilot always uses .env.production - you never need to manually configure secrets!*
+_The autopilot always uses .env.production - you never need to manually configure secrets!_

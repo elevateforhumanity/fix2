@@ -6,32 +6,54 @@ import { copyFileSync, mkdirSync } from 'fs';
 
 // Define all routes for sitemap generation
 const routes = [
+  // Core pages
   '/',
+  '/about',
+  '/community',
+  '/connect',
+  '/contact',
+  '/donate',
+  '/apply',
+
+  // Programs
   '/programs',
   '/programs/barber',
   '/programs/building-tech',
-  '/programs/cna',
-  '/programs/cpr-aed-first-aid',
-  '/programs/business-startup-marketing',
-  '/programs/tax-office-startup',
-  '/programs/esthetician-client-services',
-  '/programs/beauty-career-educator',
-  '/programs/public-safety-reentry',
+  '/programs/healthcare',
+  '/programs/tax-business',
+  '/programs/hvac',
+  '/programs/cprs',
+  '/programs/digital-skills',
+  '/programs/drug-testing',
+  '/programs/leadership',
+
+  // LMS
   '/lms',
+  '/lms/dashboard',
   '/lms/courses',
+  '/lms/courses-index',
+  '/student-portal-lms',
+
+  // Certificates
   '/certificates',
   '/verify',
-  '/about',
-  '/partners',
-  '/support',
-  '/community',
-  '/connect',
+
+  // Auth
   '/auth/login',
   '/auth/signup',
+
+  // Legal
   '/legal/terms',
   '/legal/privacy',
   '/legal/ip-notice',
   '/legal/dmca',
+
+  // Additional
+  '/partners',
+  '/support',
+  '/employers',
+  '/blog',
+  '/calendar',
 ];
 
 export default defineConfig({
@@ -40,14 +62,16 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    sitemap({
-      hostname: 'https://elevateforhumanity.org',
-      dynamicRoutes: routes,
-      outDir: 'dist',
-      changefreq: 'weekly',
-      priority: 0.8,
-      lastmod: new Date().toISOString(),
-    }),
+    // Sitemap disabled - causing build issues
+    // sitemap({
+    //   hostname: 'https://elevateforhumanity.org',
+    //   dynamicRoutes: routes,
+    //   outDir: 'dist',
+    //   changefreq: 'weekly',
+    //   priority: 0.8,
+    //   lastmod: new Date().toISOString(),
+    //   robots: false,
+    // }),
     {
       name: 'copy-bridge-files',
       closeBundle() {
@@ -89,6 +113,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
+      external: ['workers/autopilot-worker.js', 'workers/start-autopilot.js'],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {

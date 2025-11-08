@@ -9,6 +9,7 @@
 ## What Happened
 
 Your autopilot workflows were:
+
 - Running every 5-30 minutes
 - Creating a GitHub Issue on EVERY failure
 - Failing repeatedly (missing credentials)
@@ -19,14 +20,17 @@ Your autopilot workflows were:
 ## What I Fixed
 
 ✅ **Disabled 3 problematic workflows:**
+
 - `autopilot-auto-push.yml` (moved to archive)
 - `autopilot-phase3-selfheal.yml` (moved to archive)
 - `autopilot-workers-cron.yml` (moved to archive)
 
 ✅ **Created cleanup script:**
+
 - `scripts/close-autopilot-issues.sh`
 
 ✅ **Committed changes:**
+
 - No more issues will be created
 
 ---
@@ -40,6 +44,7 @@ bash scripts/close-autopilot-issues.sh
 ```
 
 This will:
+
 1. Login to GitHub CLI (if needed)
 2. Find all autopilot-created issues
 3. Close them with a comment
@@ -80,16 +85,19 @@ gh issue list --state open --limit 5
 ## Summary
 
 **Before:**
+
 - ❌ 934 open issues
 - ❌ Workflows creating issues every 5-30 min
 - ❌ Issue spam
 
 **After:**
+
 - ✅ Workflows disabled
 - ✅ Script ready to close all issues
 - ✅ Problem won't repeat
 
 **Action Required:**
+
 ```bash
 bash scripts/close-autopilot-issues.sh
 ```
@@ -98,4 +106,4 @@ bash scripts/close-autopilot-issues.sh
 
 ---
 
-*See `FIX_934_ISSUES.md` for complete details*
+_See `FIX_934_ISSUES.md` for complete details_
