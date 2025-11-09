@@ -1,0 +1,21 @@
+{
+  "id": "498ad67544af2488",
+  "type": "deploy",
+  "status": "completed",
+  "priority": "critical",
+  "createdAt": "2025-11-09T01:39:51.504Z",
+  "retryCount": 0,
+  "maxRetries": 3,
+  "cooldownMinutes": 60,
+  "payload": {
+    "env": "production"
+  },
+  "metadata": {},
+  "startedAt": "2025-11-09T01:39:59.977Z",
+  "lastAttemptAt": "2025-11-09T01:39:59.977Z",
+  "completedAt": "2025-11-09T01:39:59.978Z",
+  "result": {
+    "deployed": false,
+    "reason": "Not implemented"
+  }
+}
