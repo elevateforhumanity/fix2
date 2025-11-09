@@ -10,18 +10,21 @@
 These are the **actual values** from your `.env.local` file:
 
 ### Supabase Configuration
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ
 ```
 
 ### API Configuration
+
 ```bash
 VITE_API_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SITE_URL=https://portal.elevateforhumanity.org
 ```
 
 ### Environment
+
 ```bash
 NODE_ENV=production
 ```
@@ -95,10 +98,12 @@ netlify env:set VITE_GA_MEASUREMENT_ID "G-EFHWORKFORCE01" --context production
 ### Check Variables Are Set
 
 **Dashboard:**
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 2. Verify all variables are listed
 
 **CLI:**
+
 ```bash
 netlify env:list
 ```
@@ -106,6 +111,7 @@ netlify env:list
 ### After Setting Variables
 
 **Trigger a new deploy:**
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Click: **Trigger deploy → Clear cache and deploy site**
 3. Wait 2-3 minutes
@@ -115,15 +121,15 @@ netlify env:list
 
 ## 🔍 Why These Variables Are Needed
 
-| Variable | Purpose | Impact if Missing |
-|----------|---------|-------------------|
-| `VITE_SUPABASE_URL` | Database connection | ❌ Site won't load data |
-| `VITE_SUPABASE_ANON_KEY` | Database authentication | ❌ Auth fails |
-| `VITE_API_URL` | Backend API endpoint | ⚠️ API calls fail |
-| `VITE_SITE_URL` | Site URL for redirects | ⚠️ OAuth redirects fail |
-| `NODE_ENV` | Build optimization | ⚠️ Dev mode in production |
-| `VITE_STRIPE_PUBLISHABLE_KEY` | Payment processing | ⚠️ Payments disabled |
-| `VITE_GA_MEASUREMENT_ID` | Analytics tracking | ℹ️ No analytics |
+| Variable                      | Purpose                 | Impact if Missing         |
+| ----------------------------- | ----------------------- | ------------------------- |
+| `VITE_SUPABASE_URL`           | Database connection     | ❌ Site won't load data   |
+| `VITE_SUPABASE_ANON_KEY`      | Database authentication | ❌ Auth fails             |
+| `VITE_API_URL`                | Backend API endpoint    | ⚠️ API calls fail         |
+| `VITE_SITE_URL`               | Site URL for redirects  | ⚠️ OAuth redirects fail   |
+| `NODE_ENV`                    | Build optimization      | ⚠️ Dev mode in production |
+| `VITE_STRIPE_PUBLISHABLE_KEY` | Payment processing      | ⚠️ Payments disabled      |
+| `VITE_GA_MEASUREMENT_ID`      | Analytics tracking      | ℹ️ No analytics           |
 
 ---
 
@@ -134,6 +140,7 @@ netlify env:list
 **Cause**: Missing `VITE_SUPABASE_URL` or `VITE_SUPABASE_ANON_KEY`
 
 **Fix**:
+
 1. Add the variables in Netlify dashboard
 2. Trigger new deploy
 3. Clear browser cache
@@ -143,6 +150,7 @@ netlify env:list
 **Cause**: Wrong `VITE_API_URL` or missing Supabase variables
 
 **Fix**:
+
 1. Verify `VITE_API_URL` matches Supabase URL
 2. Check `VITE_SUPABASE_URL` is correct
 3. Redeploy
@@ -152,6 +160,7 @@ netlify env:list
 **Cause**: Missing or wrong `VITE_SUPABASE_ANON_KEY`
 
 **Fix**:
+
 1. Copy exact key from `.env.local`
 2. Set in Netlify dashboard
 3. Redeploy

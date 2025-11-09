@@ -22,6 +22,7 @@ Base directory: (leave empty)
 Go to: **Site settings → Environment variables**
 
 **Required:**
+
 ```bash
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ
@@ -31,6 +32,7 @@ NODE_ENV=production
 ```
 
 **Optional:**
+
 ```bash
 VITE_ENABLE_AUTOPILOT=true
 VITE_GA_MEASUREMENT_ID=G-EFHWORKFORCE01
@@ -58,6 +60,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: Missing SPA redirects or wrong publish directory
 
 **Fix**:
+
 1. Verify `netlify.toml` has the redirect rule (✅ already added)
 2. Check publish directory is `dist` (not `build` or `.next`)
 3. Clear cache and redeploy
@@ -67,6 +70,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: SPA redirect not working
 
 **Fix**:
+
 1. Ensure `netlify.toml` exists in repo root (✅ done)
 2. Verify redirect rule: `/* → /index.html` (✅ configured)
 3. Redeploy
@@ -76,6 +80,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: Assets not found (wrong base or publish dir)
 
 **Fix**:
+
 1. Check `vite.config.js` has `base: '/'` (✅ correct)
 2. Verify publish directory is `dist` (✅ set)
 3. Clear cache: **Deploys → Trigger deploy → Clear cache and deploy site**
@@ -85,6 +90,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: Node/pnpm version not set
 
 **Fix**:
+
 1. Check `netlify.toml` has `PNPM_VERSION` (✅ set to 9.7.0)
 2. Check `NODE_VERSION` is set (✅ set to 20)
 3. Redeploy
@@ -94,6 +100,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: Missing Vite environment variables
 
 **Fix**:
+
 1. Go to **Site settings → Environment variables**
 2. Add all `VITE_*` variables listed above
 3. Set scope to "Production"
@@ -104,6 +111,7 @@ Or it's set in `netlify.toml` (already configured)
 **Cause**: CDN cache
 
 **Fix**:
+
 1. **Deploys → Trigger deploy → Clear cache and deploy site**
 2. Wait 60 seconds
 3. Hard refresh browser: `Ctrl+Shift+R` or `Cmd+Shift+R`
@@ -127,6 +135,7 @@ Or it's set in `netlify.toml` (already configured)
 ```
 
 Or manually:
+
 ```bash
 netlify login
 pnpm build
@@ -148,6 +157,7 @@ git push origin main
 When checking **Deploys → Latest deploy → Deploy log**, look for:
 
 ### ✅ Good Signs
+
 ```
 ✓ Installing pnpm
 ✓ Installing dependencies
@@ -157,6 +167,7 @@ When checking **Deploys → Latest deploy → Deploy log**, look for:
 ```
 
 ### ❌ Red Flags
+
 ```
 ✗ Command 'pnpm' not found → Fix: Set PNPM_VERSION in netlify.toml
 ✗ VITE_SUPABASE_URL is not defined → Fix: Add environment variables
@@ -169,6 +180,7 @@ When checking **Deploys → Latest deploy → Deploy log**, look for:
 ## 🔧 Current Configuration
 
 ### netlify.toml (✅ Configured)
+
 ```toml
 [build]
   command = "pnpm install --frozen-lockfile && pnpm build"
@@ -186,11 +198,13 @@ When checking **Deploys → Latest deploy → Deploy log**, look for:
 ```
 
 ### vite.config.js (✅ Correct)
+
 ```javascript
-base: '/'  // ✅ Default, no subpath
+base: '/'; // ✅ Default, no subpath
 ```
 
 ### package.json (✅ Correct)
+
 ```json
 "scripts": {
   "build": "node scripts/check-env.js && vite build"
@@ -227,6 +241,7 @@ If site is not showing correctly:
 ## 📊 Expected Build Output
 
 ### Successful Build Log Should Show:
+
 ```
 1. Installing pnpm 9.7.0
 2. Running: pnpm install --frozen-lockfile
@@ -240,10 +255,12 @@ If site is not showing correctly:
 ```
 
 ### Build Time
+
 - **Expected**: 2-3 minutes
 - **If longer**: Check for dependency issues
 
 ### Output Size
+
 - **dist/ folder**: ~10-15 MB
 - **Compressed**: ~3-5 MB served via CDN
 
@@ -252,6 +269,7 @@ If site is not showing correctly:
 ## 🌐 Verification After Deploy
 
 ### Check These URLs (All Should Return 200)
+
 ```bash
 # Homepage
 curl -I https://elevateforhumanityfix.netlify.app/
@@ -267,6 +285,7 @@ curl -I https://elevateforhumanityfix.netlify.app/embed/lms-widget.js
 ```
 
 ### Check Build Type
+
 ```bash
 curl -s https://elevateforhumanityfix.netlify.app | grep -E "assets/|_next/"
 ```
@@ -286,13 +305,13 @@ curl -s https://elevateforhumanityfix.netlify.app | grep -E "assets/|_next/"
 
 ### Common Error Messages & Fixes
 
-| Error | Fix |
-|-------|-----|
-| `Command 'pnpm' not found` | Add `PNPM_VERSION` to netlify.toml |
-| `VITE_SUPABASE_URL is not defined` | Add environment variables |
-| `No publish directory found` | Set publish to `dist` |
-| `Build command failed` | Check build runs locally: `pnpm build` |
-| `Module not found` | Run `pnpm install` locally first |
+| Error                              | Fix                                    |
+| ---------------------------------- | -------------------------------------- |
+| `Command 'pnpm' not found`         | Add `PNPM_VERSION` to netlify.toml     |
+| `VITE_SUPABASE_URL is not defined` | Add environment variables              |
+| `No publish directory found`       | Set publish to `dist`                  |
+| `Build command failed`             | Check build runs locally: `pnpm build` |
+| `Module not found`                 | Run `pnpm install` locally first       |
 
 ---
 

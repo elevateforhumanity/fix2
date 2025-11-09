@@ -58,6 +58,19 @@ Government certification automation system with role-based access control for te
 - ✅ JSONL audit logging for compliance
 - ✅ Field mapping templates for all certifications
 
+## Development & Deployment
+
+This repository uses the Next.js pages router. To run the site locally:
+
+1. Install dependencies: `pnpm install` (or `npm install`)
+2. Start dev server: `pnpm run dev`
+3. Build for production: `pnpm build`
+4. Export/static build (if applicable): `pnpm export` or see the deployment docs
+
+Build artifacts (`nextjs-site/`, `.next/`, `out/`, `dist/`) are intentionally not tracked and are added to `.gitignore`. To reproduce builds locally, run `pnpm build`.
+
+If you deploy from the repository directly, update the deploy branch or CI pipeline to build from source rather than committing generated output.
+
 ## 🚀 Quick Start
 
 ### LMS Platform

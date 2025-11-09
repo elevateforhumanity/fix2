@@ -18,9 +18,7 @@ This document contains all package.json files from the repository for easy shari
   },
   "packageManager": "pnpm@9.7.0",
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,css,md}": [
-      "prettier --write"
-    ]
+    "*.{ts,tsx,js,jsx,css,md}": ["prettier --write"]
   },
   "dependencies": {
     "@capacitor/app": "^7.0.2",
@@ -236,6 +234,7 @@ This document contains all package.json files from the repository for easy shari
 ## Key Information
 
 ### Root Project (Main Application)
+
 - **Name**: efh-autopilot
 - **Version**: 2.0.0
 - **Type**: ESM (module)
@@ -248,6 +247,7 @@ This document contains all package.json files from the repository for easy shari
 - **Mobile**: Capacitor 7.4.4
 
 ### Frontend Dashboard
+
 - **Name**: autopilot-dashboard
 - **Version**: 1.0.0
 - **Framework**: React 18.2.0 + Vite 5.0.11
@@ -255,6 +255,7 @@ This document contains all package.json files from the repository for easy shari
 - **Data Fetching**: TanStack Query 5.17.0
 
 ### Marketing Site
+
 - **Name**: marketing-site
 - **Version**: 0.0.1
 - **Framework**: Astro 5.15.3
@@ -264,16 +265,19 @@ This document contains all package.json files from the repository for easy shari
 ## Notable Scripts
 
 ### Development
+
 - `pnpm dev` - Start development server
 - `pnpm dev:with-autopilot` - Start dev with autopilot worker
 - `pnpm preview` - Preview production build
 
 ### Build & Deploy
+
 - `pnpm build` - Production build
 - `pnpm ci:build` - CI build
 - `pnpm ci:check` - Run all checks
 
 ### Quality & Linting
+
 - `pnpm typecheck` - TypeScript type checking
 - `pnpm lint` - ESLint
 - `pnpm lint:fix` - Auto-fix ESLint issues
@@ -281,12 +285,14 @@ This document contains all package.json files from the repository for easy shari
 - `pnpm doctor` - Run all fixes
 
 ### Autopilot
+
 - `pnpm autopilot` - Start autopilot worker
 - `pnpm autopilot:fix` - Auto-fix all issues
 - `pnpm autopilot:check` - Run all checks
 - `pnpm autopilot:setup` - Setup autopilot
 
 ### Mobile
+
 - `pnpm mobile:android` - Open Android project
 - `pnpm mobile:ios` - Open iOS project
 - `pnpm mobile:sync` - Sync mobile platforms
@@ -296,35 +302,42 @@ This document contains all package.json files from the repository for easy shari
 ## Dependencies Summary
 
 ### Core Framework
+
 - React 19.1.1 (root) / 18.2.0 (frontend)
 - Vite 7.1.12 (root) / 5.0.11 (frontend)
 - TypeScript 5.9.3
 
 ### Backend & Auth
+
 - Supabase 2.57.4
 - Stripe 19.1.0
 - Express 5.1.0
 
 ### UI & Styling
+
 - Tailwind CSS 3.4.18
 - Lucide React 0.545.0
 - Recharts 3.3.0
 
 ### State Management
+
 - Zustand 5.0.8 (root) / 4.4.7 (frontend)
 - React Hook Form 7.64.0
 - Zod 4.1.11
 
 ### Mobile
+
 - Capacitor 7.4.4
 - iOS & Android support
 
 ### Testing
+
 - Vitest 3.2.4
 - Testing Library 16.3.0
 - Playwright (configured)
 
 ### Build Tools
+
 - pnpm 9.7.0
 - ESLint 9.37.0
 - Prettier 3.6.2
