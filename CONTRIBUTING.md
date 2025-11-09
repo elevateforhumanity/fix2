@@ -72,4 +72,12 @@ We welcome improvements in:
 - Help others learn and grow
 - Keep discussions focused on improvements
 
+## 🔍 PR Checklist
+
+Before requesting merge, ensure you:
+
+- Run lint and format: pnpm run lint && pnpm run format
+- Run tests: pnpm test
+- Ensure CI passes before requesting merge
+
 Thank you for helping make this template better for everyone!
