@@ -5,9 +5,17 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Only run on non-fork PRs or direct pushes
+    if: ${{ !github.event.pull_request.head.repo.fork }}
+    
     steps:
       - uses: actions/checkout@v4
       
@@ -15,20 +23,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: pnpm
           
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9.7.0
+        run: corepack enable
           
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile || pnpm install
         
       - name: Build
         run: pnpm build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL || 'https://cuxzzpsyufcewtmicszk.supabase.co' }}
+          VITE_SITE_URL: ${{ secrets.VITE_SITE_URL || 'https://elevateforhumanityfix.netlify.app' }}
+          NODE_ENV: production
           
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.1
