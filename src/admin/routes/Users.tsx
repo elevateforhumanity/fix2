@@ -55,7 +55,7 @@ export default function Users() {
     try {
       setLoading(true);
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('org_members')
         .select(
           `
@@ -106,7 +106,7 @@ export default function Users() {
       setInviting(true);
 
       // Call Edge Function to invite user
-      const { data, error } = await supabase.functions.invoke('invite-user', {
+      const { error } = await supabase.functions.invoke('invite-user', {
         body: {
           org_id: currentOrg.id,
           email: inviteEmail,

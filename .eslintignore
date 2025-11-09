@@ -1,0 +1,12 @@
+dist
+node_modules
+*.config.js
+*.config.ts
+build
+coverage
+.netlify
+.github
+durable-extension
+frontend/dist
+workers
+*.min.js
