@@ -89,6 +89,12 @@ cloudflare-token.txt
 # Keep important logs in logs/ directory
 !logs/**/*.log
 
-# Keep build artifacts that are needed
-!dist/**
 nextjs-site-backup-*.tar.gz
+
+# Next.js build outputs
+nextjs-site/
+.next/
+out/
+
+# Node modules (comprehensive)
+/node_modules/
