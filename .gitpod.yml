@@ -1,10 +1,91 @@
-tasks:
-  - name: Frontend
-    command: pnpm install && pnpm dev
-  - name: Backend
-    command: cd backend && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && uvicorn main:app --reload --host 0.0.0.0 --port 7070
+# Elevate for Humanity - Gitpod Configuration
+# Professional LMS development environment
+
+image:
+  file: .gitpod.Dockerfile
+
 ports:
   - port: 5173
+    onOpen: open-preview
     visibility: public
+    name: Vite Dev Server
+    description: EFH LMS Development Server
   - port: 7070
+    onOpen: ignore
     visibility: public
+    name: Backend API
+    description: Python FastAPI Backend
+  - port: 3000
+    onOpen: ignore
+    visibility: private
+
+tasks:
+  - name: Setup & Frontend
+    init: |
+      echo "🎓 Welcome to Elevate for Humanity LMS Development"
+      echo ""
+      bash scripts/setup.sh
+    command: |
+      echo ""
+      echo "✅ Workspace ready!"
+      echo ""
+      echo "📚 Quick Start:"
+      echo "   pnpm dev          - Start dev server"
+      echo "   pnpm build        - Build for production"
+      echo "   pnpm typecheck    - Check TypeScript"
+      echo "   pnpm lint         - Run ESLint"
+      echo ""
+      echo "🔧 Utility Scripts:"
+      echo "   bash scripts/verify-env.sh      - Check environment variables"
+      echo "   bash scripts/test.sh            - Run all checks"
+      echo "   bash scripts/netlify-preview.sh - Deploy preview"
+      echo ""
+      echo "🚀 Starting dev server..."
+      bash scripts/dev.sh
+  
+  - name: Backend (Optional)
+    command: |
+      if [ -d backend ] && [ -f backend/requirements.txt ]; then
+        echo "🐍 Starting Python backend..."
+        cd backend
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip install -r requirements.txt
+        uvicorn main:app --reload --host 0.0.0.0 --port 7070
+      else
+        echo "ℹ️  No backend directory found - frontend only mode"
+        echo "   Backend API not required for basic LMS functionality"
+      fi
+
+vscode:
+  extensions:
+    # Essential
+    - esbenp.prettier-vscode
+    - dbaeumer.vscode-eslint
+    - bradlc.vscode-tailwindcss
+    
+    # TypeScript & React
+    - ms-vscode.vscode-typescript-next
+    - dsznajder.es7-react-js-snippets
+    
+    # Utilities
+    - christian-kohler.path-intellisense
+    - formulahendry.auto-rename-tag
+    - naumovs.color-highlight
+    
+    # Git
+    - eamodio.gitlens
+    
+    # Optional but helpful
+    - usernamehw.errorlens
+    - streetsidesoftware.code-spell-checker
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: false
