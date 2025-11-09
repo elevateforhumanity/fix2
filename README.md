@@ -392,6 +392,10 @@ Indianapolis, IN 46240
 - [YouTube](https://www.youtube.com/@elevateforhumanity)
 - [Instagram](https://www.instagram.com/elevateforhumanity)
 
+## Build artifacts
+
+Build artifacts (nextjs-site/ and similar) are not checked in. To produce them locally: `pnpm build && pnpm export` (or use the documented build command).
+
 ## 📝 License
 
 **Proprietary License** - Copyright © 2024-2025 Elevate for Humanity. All rights reserved.
