@@ -11,20 +11,26 @@
     "siteVerified": "pending"
   },
   "errors": [],
-  "healthScore": 0,
-  "healthStatus": "unknown",
+  "healthScore": 33.33333333333333,
+  "healthStatus": "unhealthy",
   "systemChecks": {
     "statusFileExists": true,
     "lockFileExists": false,
-    "autopilotActive": false
+    "autopilotActive": true
   },
   "githubActions": {
     "buildTest": "unknown",
     "check": "unknown",
-    "autopilotActive": false
+    "autopilotActive": true,
+    "runId": "19201337492",
+    "workflow": "Copilot coding agent",
+    "ref": "refs/heads/copilot/fix-repo-security-and-automation"
   },
   "notes": [
     "This file is automatically updated by autopilot scripts and health checks",
     "Do not edit manually unless necessary"
-  ]
+  ],
+  "lastHealthCheck": "2025-11-09T01:43:07.259Z",
+  "locked": false,
+  "lockPid": null
 }
