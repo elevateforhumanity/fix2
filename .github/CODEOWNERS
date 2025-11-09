@@ -1,0 +1,29 @@
+# CODEOWNERS file for elevateforhumanity/fix2
+# These owners will be requested for review when someone opens a pull request
+
+# Root level files
+* @elevateforhumanity
+
+# Frontend code
+/frontend/ @elevateforhumanity
+/src/ @elevateforhumanity
+/public/ @elevateforhumanity
+
+# Backend code
+/backend/ @elevateforhumanity
+/server.js @elevateforhumanity
+/supabase/ @elevateforhumanity
+
+# Workers
+/workers/ @elevateforhumanity
+/durable-*.js @elevateforhumanity
+
+# Configuration files
+/.github/ @elevateforhumanity
+/scripts/ @elevateforhumanity
+/.env.example @elevateforhumanity
+/ACTIVATE_ALL_AUTOPILOT.sh @elevateforhumanity
+
+# Documentation
+/docs/ @elevateforhumanity
+/*.md @elevateforhumanity

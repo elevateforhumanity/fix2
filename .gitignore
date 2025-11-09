@@ -92,3 +92,14 @@ cloudflare-token.txt
 # Keep build artifacts that are needed
 !dist/**
 nextjs-site-backup-*.tar.gz
+
+# Archives and bundles (generate locally if needed)
+*.zip
+*.tar.gz
+support-bundle*
+deployment-bundle-*
+COMPLETE_*_BUNDLE*
+CERTIFICATION_*
+
+# Autopilot lock files
+.autopilot-lock
