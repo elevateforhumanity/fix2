@@ -5,9 +5,16 @@
  * Creates Supabase storage buckets automatically
  */
 
-const SUPABASE_URL = 'https://cuxzzpsyufcewtmicszk.supabase.co';
-const SUPABASE_SERVICE_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE';
+// Load from environment variables
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
+
+if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+  console.error('❌ Missing required environment variables:');
+  console.error('   VITE_SUPABASE_URL or SUPABASE_URL');
+  console.error('   SUPABASE_SERVICE_KEY');
+  process.exit(1);
+}
 
 const buckets = [
   {

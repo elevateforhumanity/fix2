@@ -4,9 +4,9 @@ import { afterEach, beforeAll } from 'vitest';
 
 // Set up test environment variables
 beforeAll(() => {
-  process.env.VITE_SUPABASE_URL = 'https://cuxzzpsyufcewtmicszk.supabase.co';
-  process.env.VITE_SUPABASE_ANON_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA';
+  // Use environment variables or fallback to test values
+  process.env.VITE_SUPABASE_URL = process.env.VITE_SUPABASE_URL || 'https://test.supabase.co';
+  process.env.VITE_SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY || 'test-anon-key';
   process.env.JWT_SECRET = 'test_jwt_secret_minimum_16_characters';
   process.env.NODE_ENV = 'test';
 });
