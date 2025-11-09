@@ -1,313 +1,260 @@
-# 🚀 DEPLOY NOW - Replace Next.js with Vite/React
+# 🚀 Deploy Certificate System - Quick Guide
 
-**Site**: elevateforhumanityfix.netlify.app  
-**Custom Domain**: portal.elevateforhumanity.org  
-**Current Issue**: Still serving old Next.js build  
-**Solution**: Deploy the Vite/React app immediately
+## Step 1: Apply Database Migrations (5 minutes)
 
----
+### Open Supabase SQL Editor
 
-## ⚡ Option A: One-Command Deploy (Recommended)
+**Direct Link:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new)
 
-**Requirements**: NETLIFY_AUTH_TOKEN
+### Copy and Run This SQL
 
-```bash
-# Set your token
-export NETLIFY_AUTH_TOKEN=<your-token>
+1. Click the link above to open SQL Editor
+2. Copy the entire contents of `supabase/migrations/APPLY_ALL_MIGRATIONS.sql`
+3. Paste into the SQL Editor
+4. Click **Run** (or press Ctrl+Enter)
+5. Wait for success message
 
-# Deploy immediately
-bash scripts/deploy-now-direct.sh
+**Expected Output:**
+```
+✅ All migrations applied successfully!
+
+Next steps:
+1. Create storage bucket: certificates (public)
+2. Assign roles to users in user_roles table
+3. Test the certificate system
 ```
 
-**What it does:**
+---
 
-1. ✅ Installs Netlify CLI
-2. ✅ Installs dependencies (npm/pnpm)
-3. ✅ Builds Vite/React app → `dist/`
-4. ✅ Deploys to production
-5. ✅ Verifies deployment
-6. ✅ Tests routes
+## Step 2: Create Storage Bucket (2 minutes)
 
-**Time**: 2-3 minutes
+### Open Supabase Storage
+
+**Direct Link:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets)
+
+### Create Bucket
+
+1. Click **New bucket**
+2. Name: `certificates`
+3. ✅ Check **Public bucket**
+4. Click **Create bucket**
+5. Verify it appears in the list
 
 ---
 
-## 🖱️ Option B: Manual Deploy (No Token Needed)
+## Step 3: Assign Your Admin Role (2 minutes)
 
-### Step 1: Build Locally
+### Get Your User ID
+
+**Direct Link:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users)
+
+1. Find your user in the list
+2. Click on your user
+3. Copy the **ID** (UUID format)
+
+### Assign Admin Role
+
+**Direct Link:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new)
+
+Run this SQL (replace `YOUR_USER_ID`):
+
+```sql
+-- Make yourself an admin
+INSERT INTO public.user_roles (user_id, role)
+VALUES ('YOUR_USER_ID', 'admin')
+ON CONFLICT (user_id) DO UPDATE SET role = 'admin';
+
+-- Verify it worked
+SELECT u.email, ur.role 
+FROM auth.users u
+JOIN public.user_roles ur ON u.id = ur.user_id
+WHERE u.id = 'YOUR_USER_ID';
+```
+
+**Expected Output:**
+```
+email                | role
+---------------------|-------
+your@email.com       | admin
+```
+
+---
+
+## Step 4: Build and Deploy (3 minutes)
+
+### Build Locally First
 
 ```bash
 cd /workspaces/fix2
+npm run build
+```
+
+**Expected:** Build completes without errors
+
+### Deploy to Production
+
+```bash
+# Commit changes
+git add .
+git commit -m "feat: add role-based access and certificate system
+
+- Magic link authentication
+- Role-based access control (student/staff/admin)
+- Certificate issuance and verification
+- Public certificate verification
+- Integration with existing LMS and autopilot
+
+Co-authored-by: Ona <no-reply@ona.com>"
+
+# Push to GitHub (triggers auto-deploy)
+git push origin main
+```
+
+### Monitor Deployment
+
+**Netlify Deploy:** [https://app.netlify.com/sites/elevateforhumanityfix/deploys](https://app.netlify.com/sites/elevateforhumanityfix/deploys)
+
+Wait for deployment to complete (usually 2-3 minutes)
+
+---
+
+## Step 5: Test Production (5 minutes)
+
+### Test Authentication
+
+1. Visit: [https://elevateforhumanityfix.netlify.app/login](https://elevateforhumanityfix.netlify.app/login)
+2. Enter your email
+3. Click "Send Magic Link"
+4. Check your email
+5. Click the magic link
+6. Verify you're redirected and authenticated
+
+### Test Staff Panel
+
+1. Visit: [https://elevateforhumanityfix.netlify.app/staff](https://elevateforhumanityfix.netlify.app/staff)
+2. Verify you can access (you're admin)
+3. Fill in the form:
+   - **Learner Email:** Your email
+   - **Program ID:** `test-program-101`
+   - **Program Name:** `Test Program 101`
+   - **PDF:** (optional)
+4. Click "Issue Certificate"
+5. Copy the verification code
+
+### Test Certificate Viewing
+
+1. Visit: [https://elevateforhumanityfix.netlify.app/my-certificates](https://elevateforhumanityfix.netlify.app/my-certificates)
+2. Verify you see the test certificate
+
+### Test Public Verification
+
+1. Visit: `https://elevateforhumanityfix.netlify.app/verify/YOUR_CODE`
+2. Verify certificate details are displayed
+
+---
+
+## ✅ Success Checklist
+
+- [ ] Database migrations applied
+- [ ] Storage bucket created
+- [ ] Admin role assigned
+- [ ] Build completed successfully
+- [ ] Deployed to production
+- [ ] Magic link authentication works
+- [ ] Can access staff panel
+- [ ] Can issue certificates
+- [ ] Can view certificates
+- [ ] Public verification works
+
+---
+
+## 🔗 Important Links
+
+### Production URLs
+- **Main Site:** [https://elevateforhumanityfix.netlify.app](https://elevateforhumanityfix.netlify.app)
+- **Login:** [https://elevateforhumanityfix.netlify.app/login](https://elevateforhumanityfix.netlify.app/login)
+- **My Certificates:** [https://elevateforhumanityfix.netlify.app/my-certificates](https://elevateforhumanityfix.netlify.app/my-certificates)
+- **Staff Panel:** [https://elevateforhumanityfix.netlify.app/staff](https://elevateforhumanityfix.netlify.app/staff)
+- **LMS:** [https://elevateforhumanityfix.netlify.app/lms](https://elevateforhumanityfix.netlify.app/lms)
+
+### Admin Dashboards
+- **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
+- **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
+- **GitHub:** [https://github.com/elevateforhumanity/fix2](https://github.com/elevateforhumanity/fix2)
+
+### Quick Access
+- **SQL Editor:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new)
+- **Storage:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets)
+- **Users:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users)
+- **Logs:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/logs/explorer](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/logs/explorer)
+
+---
+
+## 🆘 Troubleshooting
+
+### Build Fails
+```bash
+# Clear and rebuild
+rm -rf node_modules dist
 npm install
 npm run build
 ```
 
-**Verify**: Check that `dist/index.html` exists
+### Magic Link Not Working
+- Check spam folder
+- Verify email in Supabase Auth → Users
+- Check Supabase logs
 
-### Step 2: Deploy via Netlify Dashboard
+### Cannot Access /staff
+```sql
+-- Verify role
+SELECT u.email, ur.role 
+FROM auth.users u
+LEFT JOIN public.user_roles ur ON u.id = ur.user_id
+WHERE u.email = 'your@email.com';
+```
 
-1. **Go to**: https://app.netlify.com/sites/elevateforhumanityfix/deploys
-
-2. **Drag and drop** the `dist/` folder onto the deploy area
-
-3. **Wait 30 seconds** for "Published" status
-
-4. **Done!** Site is live
-
-**Time**: 2 minutes
+### Certificate Upload Fails
+- Verify `certificates` bucket exists
+- Check bucket is public
+- Verify file is PDF
 
 ---
 
-## 🔍 Verify Deployment Worked
+## 📚 Documentation
 
-### Check 1: No More Next.js
-
-```bash
-curl -s https://elevateforhumanityfix.netlify.app/ | grep -E "_next/static|/assets"
-```
-
-**Expected**: Should see `/assets/` (Vite), NOT `/_next/static` (Next.js)
-
-### Check 2: Routes Work
-
-```bash
-curl -I https://elevateforhumanityfix.netlify.app/support
-```
-
-**Expected**: `HTTP/2 200` (not 404)
-
-### Check 3: SPA Routing Active
-
-```bash
-curl -I https://elevateforhumanityfix.netlify.app/programs/barber
-```
-
-**Expected**: `HTTP/2 200` (deep links work)
+- **Quick Reference:** `QUICK_REFERENCE.md`
+- **Full Setup Guide:** `docs/AUTHENTICATION_SETUP.md`
+- **Quick Start:** `docs/CERTIFICATES_QUICKSTART.md`
+- **Integration Guide:** `docs/AUTOPILOT_LMS_INTEGRATION.md`
+- **Visual Guide:** `docs/VISUAL_GUIDE.md`
 
 ---
 
-## ⚙️ Netlify Configuration Checklist
+## 🎉 What You Get
 
-### Build Settings
+### Features
+✅ Magic link authentication (passwordless)  
+✅ Role-based access (student/staff/admin)  
+✅ Certificate issuance system  
+✅ Public certificate verification  
+✅ PDF upload and storage  
+✅ Mobile-responsive design  
+✅ Integration with existing LMS  
+✅ Integration with autopilot system  
 
-Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/deploys
+### Security
+✅ Row-level security (RLS)  
+✅ Role-based route protection  
+✅ Secure authentication  
+✅ Audit trails  
 
-Verify:
-
-- ✅ **Build command**: `npm run build` (or `pnpm run build`)
-- ✅ **Publish directory**: `dist`
-- ✅ **Node version**: 20.11.1 (set in netlify.toml)
-
-### Environment Variables
-
-Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
-
-Add these (if not already set):
-
-```bash
-VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
-VITE_SUPABASE_ANON_KEY=<your-anon-key>
-VITE_API_URL=https://api.elevateforhumanity.org
-VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-```
-
-**After adding**: Trigger another deploy to bake them in
-
-### SPA Redirect
-
-Verify `public/_redirects` exists:
-
-```
-/*    /index.html   200
-```
-
-✅ Already in place
+### Automation
+✅ Auto-generate verification codes  
+✅ Auto-upload PDFs to storage  
+✅ Auto-send magic links  
+✅ Integration with autopilot for course creation  
 
 ---
 
-## 🌐 Custom Domain Setup
-
-### Current Status
-
-- **Netlify URL**: https://elevateforhumanityfix.netlify.app
-- **Custom Domain**: portal.elevateforhumanity.org (pending DNS)
-
-### Setup Steps
-
-**In Netlify**:
-
-1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
-2. Click "Add custom domain"
-3. Enter: `portal.elevateforhumanity.org`
-4. Click "Verify"
-
-**In Cloudflare DNS**:
-
-1. Go to: https://dash.cloudflare.com
-2. Select: `elevateforhumanity.org`
-3. Add DNS record:
-   - **Type**: CNAME
-   - **Name**: portal
-   - **Target**: elevateforhumanityfix.netlify.app
-   - **TTL**: 3600
-   - **Proxy**: OFF (gray cloud)
-4. Save
-
-**Wait**: 5-10 minutes for DNS propagation
-
-**Verify**:
-
-```bash
-dig portal.elevateforhumanity.org
-```
-
----
-
-## 🚨 Troubleshooting
-
-### Still Seeing Next.js After Deploy?
-
-**Cause**: CDN cache or browser cache
-
-**Fix**:
-
-1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
-2. Click "Trigger deploy" → "Clear cache and deploy site"
-3. Hard refresh browser: `Cmd/Ctrl + Shift + R`
-
-### Routes Still 404?
-
-**Cause**: `_redirects` file not copied or wrong publish directory
-
-**Fix**:
-
-1. Check build logs for "Copied \_redirects"
-2. Verify publish directory is `dist` (not `.next`)
-3. Redeploy
-
-### Wrong Site on Custom Domain?
-
-**Cause**: Custom domain attached to old Next.js site
-
-**Fix**:
-
-1. Remove domain from old site
-2. Add domain to new Vite/React site
-3. Wait for DNS propagation
-
-### Build Fails?
-
-**Cause**: Missing dependencies or build errors
-
-**Fix**:
-
-1. Test locally: `npm run build`
-2. Check `package.json` for all dependencies
-3. Verify Node version: 20.11.1
-4. Check build logs for specific errors
-
----
-
-## 📊 Expected Results
-
-### After Successful Deploy
-
-**All routes return 200 OK:**
-
-- ✅ `/` - Homepage
-- ✅ `/programs` - Programs listing
-- ✅ `/about` - About page
-- ✅ `/support` - Support page
-- ✅ `/community` - Community page
-- ✅ `/connect` - Connect page
-- ✅ `/lms` - Learning Management System
-- ✅ `/certificates` - Certificates
-- ✅ `/programs/barber` - Deep link example
-
-**Technical Indicators:**
-
-- ✅ HTML contains `/assets/` (Vite bundles)
-- ✅ No `/_next/static` references
-- ✅ `cache-status: "Netlify Edge"` (not "Next.js")
-- ✅ Custom 404 page for invalid routes
-- ✅ Security headers present
-
----
-
-## 🎯 Quick Deploy Commands
-
-### Full Automated Deploy
-
-```bash
-export NETLIFY_AUTH_TOKEN=<token>
-bash scripts/deploy-now-direct.sh
-```
-
-### Build Only
-
-```bash
-npm install && npm run build
-```
-
-### Deploy Only (after build)
-
-```bash
-netlify deploy --prod --dir=dist --site=12f120ab-3f63-419b-bc49-430f043415c1
-```
-
-### Verify After Deploy
-
-```bash
-bash scripts/verify-deployment.sh https://elevateforhumanityfix.netlify.app
-```
-
----
-
-## 📝 Site Details
-
-**Netlify Site ID**: `12f120ab-3f63-419b-bc49-430f043415c1`  
-**Netlify Site Name**: `elevateforhumanityfix`  
-**Primary URL**: https://elevateforhumanityfix.netlify.app  
-**Custom Domain**: https://portal.elevateforhumanity.org  
-**Framework**: Vite + React  
-**Build Output**: `dist/`  
-**Node Version**: 20.11.1
-
----
-
-## ✅ Deployment Checklist
-
-Before deploying:
-
-- [x] Configuration files updated (vite.config.js, netlify.toml)
-- [x] SPA redirect configured (public/\_redirects)
-- [x] Custom 404 page created
-- [x] Security headers consolidated
-- [x] Build command verified
-- [x] Publish directory set to `dist`
-
-After deploying:
-
-- [ ] Verify Vite build (not Next.js)
-- [ ] Test all routes return 200
-- [ ] Check security headers
-- [ ] Set environment variables
-- [ ] Configure custom domain
-- [ ] Test on multiple devices
-
----
-
-**Ready to deploy? Run:**
-
-```bash
-export NETLIFY_AUTH_TOKEN=<your-token>
-bash scripts/deploy-now-direct.sh
-```
-
-**Or manually drag `dist/` folder to Netlify dashboard.**
-
----
-
-**Status**: ⏳ Ready to deploy  
-**Action Required**: Run deployment script or manual deploy  
-**ETA**: 2-3 minutes to live site
+**Ready to deploy?** Follow the steps above! 🚀

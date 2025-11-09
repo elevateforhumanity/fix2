@@ -1,6 +1,6 @@
 /**
  * Navigation Component
- * Professional LMS-style navigation with student portal access
+ * Professional LMS-style navigation with student portal access and role-based links
  * Copyright (c) 2025 Elevate for Humanity
  */
 
@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { mainNavigation, authButtons, branding, type NavLink } from '../config/navigation';
+import { useAuth } from '../contexts/AuthContext';
 
 interface NavigationProps {
   logo?: string;
@@ -25,6 +26,7 @@ export default function Navigation({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { user, role, logout } = useAuth();
 
   const isActive = (to: string) => {
     if (to === '/') {
@@ -110,20 +112,52 @@ export default function Navigation({
             ))}
           </div>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons / User Menu */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to={authButtons.signIn.to}
-              className="text-base font-medium text-text-primary hover:text-brand transition-colors"
-            >
-              {authButtons.signIn.label}
-            </Link>
-            <Link
-              to={authButtons.signUp.to}
-              className="btn btn-primary"
-            >
-              {authButtons.signUp.label}
-            </Link>
+            {user ? (
+              <>
+                {role && (
+                  <span className="px-3 py-1 bg-brand-light text-brand rounded-full text-sm font-medium">
+                    {role}
+                  </span>
+                )}
+                <Link
+                  to="/my-certificates"
+                  className="text-base font-medium text-text-primary hover:text-brand transition-colors"
+                >
+                  My Certificates
+                </Link>
+                {(role === 'staff' || role === 'admin') && (
+                  <Link
+                    to="/staff"
+                    className="text-base font-medium text-text-primary hover:text-brand transition-colors"
+                  >
+                    Staff Panel
+                  </Link>
+                )}
+                <button
+                  onClick={() => logout()}
+                  className="text-base font-medium text-text-primary hover:text-brand transition-colors"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to={authButtons.signIn.to}
+                  className="text-base font-medium text-text-primary hover:text-brand transition-colors"
+                >
+                  {authButtons.signIn.label}
+                </Link>
+                <Link
+                  to={authButtons.signUp.to}
+                  className="btn btn-primary"
+                >
+                  {authButtons.signUp.label}
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -192,20 +226,59 @@ export default function Navigation({
               </div>
             ))}
             <div className="pt-4 border-t border-gray-200 space-y-2">
-              <Link
-                to={authButtons.signIn.to}
-                className="block px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {authButtons.signIn.label}
-              </Link>
-              <Link
-                to={authButtons.signUp.to}
-                className="block px-4 py-3 text-center rounded-lg text-base font-semibold bg-brand text-white hover:bg-brand-primary-hover transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {authButtons.signUp.label}
-              </Link>
+              {user ? (
+                <>
+                  {role && (
+                    <div className="px-4 py-2 text-center">
+                      <span className="inline-block px-3 py-1 bg-brand-light text-brand rounded-full text-sm font-medium">
+                        {role}
+                      </span>
+                    </div>
+                  )}
+                  <Link
+                    to="/my-certificates"
+                    className="block px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    My Certificates
+                  </Link>
+                  {(role === 'staff' || role === 'admin') && (
+                    <Link
+                      to="/staff"
+                      className="block px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Staff Panel
+                    </Link>
+                  )}
+                  <button
+                    onClick={() => {
+                      logout();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to={authButtons.signIn.to}
+                    className="block px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {authButtons.signIn.label}
+                  </Link>
+                  <Link
+                    to={authButtons.signUp.to}
+                    className="block px-4 py-3 text-center rounded-lg text-base font-semibold bg-brand text-white hover:bg-brand-primary-hover transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {authButtons.signUp.label}
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

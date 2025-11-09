@@ -1,34 +1,35 @@
+/**
+ * Login Page
+ * Handles user authentication with redirect to intended destination
+ */
+
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
+import { useLocation, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { useAuth } from '../contexts/AuthContext';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function Login() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
+  const location = useLocation();
+  const { loginWithMagicLink } = useAuth();
+  
+  // Get the page they were trying to access, default to student portal
+  const from = location.state?.from?.pathname || '/student-portal';
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    if (!supabase) {
-      setError('Authentication service is not available');
-      return;
-    }
-
     setLoading(true);
     setError('');
+    setSuccess(false);
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
-      navigate('/dashboard');
+      await loginWithMagicLink(email, from);
+      setSuccess(true);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -37,59 +38,86 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-beige-50 py-12 px-4">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-brown-900">
-            Sign in to your account
-          </h2>
+    <div className="min-h-screen bg-surface-base">
+      <Helmet>
+        <title>Sign In | Elevate for Humanity</title>
+        <meta name="description" content="Sign in to access your student portal, courses, and certificates." />
+      </Helmet>
+
+      <Navigation />
+
+      <main id="main-content" className="flex items-center justify-center py-16 px-4">
+        <div className="max-w-md w-full">
+          <div className="text-center mb-8">
+            <h1 className="heading-1 mb-2">Welcome Back</h1>
+            <p className="body-large text-text-secondary">
+              Sign in to access your student portal
+            </p>
+          </div>
+
+          <div className="card card-spacious">
+            {success ? (
+              <div className="text-center py-8">
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-4">
+                  Check your email! We've sent you a magic link to sign in.
+                </div>
+                <p className="text-sm text-text-secondary">
+                  Click the link in your email to complete sign in. You can close this page.
+                </p>
+              </div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleLogin}>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                    {error}
+                  </div>
+                )}
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <p className="text-xs text-text-secondary mt-2">
+                    We'll send you a magic link to sign in - no password needed!
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn btn-primary w-full text-lg"
+                >
+                  {loading ? 'Sending magic link...' : 'Send Magic Link'}
+                </button>
+
+                <div className="text-center pt-4 border-t border-gray-200">
+                  <p className="text-sm text-text-secondary">
+                    Don't have an account?{' '}
+                    <Link to="/apply" className="text-brand hover:text-brand-primary-hover font-medium">
+                      Create Account
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            )}
+          </div>
+
+          <p className="text-center text-sm text-text-secondary mt-6">
+            Need help? <Link to="/contact" className="text-brand hover:text-brand-primary-hover">Contact Support</Link>
+          </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-              {error}
-            </div>
-          )}
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <input
-                type="email"
-                aria-label="email input"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                aria-label="password input"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-brown-300 placeholder-gray-500 text-brown-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </div>
-          <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
-            >
-              {loading ? 'Signing in...' : 'Sign in'}
-            </button>
-          </div>
-          <div className="text-center">
-            <Link to="/signup" className="text-green-600 hover:text-indigo-500">
-              Don't have an account? Sign up
-            </Link>
-          </div>
-        </form>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

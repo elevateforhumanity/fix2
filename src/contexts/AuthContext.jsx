@@ -1,45 +1,88 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { supabase } from '../supabaseClient';
 
-const AuthContext = createContext({});
+const AuthContext = createContext(null);
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error('useAuth must be used within AuthProvider');
+  return context;
+};
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (!supabase) {
-      setLoading(false);
-      return;
+    async function boot() {
+      if (!supabase) {
+        setReady(true);
+        return;
+      }
+
+      const { data } = await supabase.auth.getSession();
+      const u = data.session?.user ?? null;
+      setUser(u);
+
+      // Prefer DB role if table exists; fallback to metadata
+      if (u) {
+        const { data: r } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', u.id)
+          .maybeSingle();
+        setRole(r?.role || u.user_metadata?.role || 'student');
+      } else {
+        setRole(null);
+      }
+      setReady(true);
     }
+    boot();
 
-    // Check active sessions
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
+    if (!supabase) return;
+
+    const { data: sub } = supabase.auth.onAuthStateChange(async (_e, session) => {
+      const u = session?.user ?? null;
+      setUser(u);
+      if (!u) {
+        setRole(null);
+      } else {
+        const { data: r } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', u.id)
+          .maybeSingle();
+        setRole(r?.role || u.user_metadata?.role || 'student');
+      }
     });
 
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
+    return () => sub.subscription.unsubscribe();
   }, []);
 
-  const value = {
-    user,
-    loading,
-    signOut: () => supabase?.auth.signOut(),
+  const loginWithMagicLink = async (email, returnTo = '/student-portal') => {
+    if (!supabase) throw new Error('Supabase not initialized');
+    const emailRedirectTo = `${window.location.origin}/auth/callback?returnTo=${encodeURIComponent(returnTo)}`;
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo }
+    });
+    if (error) throw error;
   };
+
+  const logout = async () => {
+    if (!supabase) return;
+    await supabase.auth.signOut();
+  };
+
+  const value = useMemo(
+    () => ({ user, role, ready, loginWithMagicLink, logout }),
+    [user, role, ready]
+  );
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }
