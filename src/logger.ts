@@ -1,6 +1,9 @@
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 
-let current: LogLevel = 'info';
+// Set log level based on environment
+const isProduction = import.meta.env.MODE === 'production';
+let current: LogLevel = isProduction ? 'warn' : 'info';
+
 const order: LogLevel[] = ['debug', 'info', 'warn', 'error'];
 
 export function setLogLevel(level: LogLevel) {
@@ -11,6 +14,8 @@ function enabled(level: LogLevel) {
   return order.indexOf(level) >= order.indexOf(current);
 }
 
+// In production, only log warnings and errors
+// In development, log everything
 export const log = {
   debug: (...a: unknown[]) =>
     enabled('debug') && console.debug('[debug]', ...a),
@@ -19,3 +24,6 @@ export const log = {
   error: (...a: unknown[]) =>
     enabled('error') && console.error('[error]', ...a),
 };
+
+// Export default for convenience
+export default log;

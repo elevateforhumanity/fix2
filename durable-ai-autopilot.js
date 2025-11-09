@@ -121,6 +121,7 @@ async function runDurableAIAutopilot() {
 
   let browser;
   let success = false;
+  let messageSent = false;
 
   try {
     // Step 1: Launch browser
@@ -303,7 +304,7 @@ async function runDurableAIAutopilot() {
       log.step(6, 'Sending prompt to AI Assistant...');
 
       // Try to find chat input and send message
-      const messageSent = await page.evaluate((prompt) => {
+      messageSent = await page.evaluate((prompt) => {
         // Find chat input
         const inputs = Array.from(document.querySelectorAll('input, textarea'));
         const chatInput = inputs.find(

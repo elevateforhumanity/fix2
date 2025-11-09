@@ -13,10 +13,12 @@ let autopilotWorker: any = null;
 async function getAutopilotWorker() {
   if (!autopilotWorker) {
     try {
-      const module = await import('../../workers/autopilot-worker.js');
-      autopilotWorker = module.default;
+      // Try to load the autopilot worker if it exists
+      // This is optional and may not be present in all deployments
+      const module = await import('../../workers/self-healing-autopilot.js');
+      autopilotWorker = module.default || module;
     } catch (error) {
-      console.error('Failed to load autopilot worker:', error);
+      console.warn('Autopilot worker not available:', error);
       return null;
     }
   }

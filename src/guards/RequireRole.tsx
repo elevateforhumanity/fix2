@@ -8,10 +8,11 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import type { Role } from '../lib/rbac';
+import type { ReactElement } from 'react';
 
 interface RequireRoleProps {
   allow: Role[];
-  children: JSX.Element;
+  children: ReactElement;
   redirectTo?: string;
 }
 

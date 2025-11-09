@@ -1,3 +1,5 @@
+import React from 'react';
+
 const env = (k: string) => (import.meta as any).env?.[k] ?? 'NOT SET';
 
 export default function ReactWorking() {

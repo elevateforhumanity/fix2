@@ -1,4 +1,5 @@
 import React from 'react';
+import { log } from '../logger';
 
 type Props = { children: React.ReactNode };
 type State = { hasError: boolean; error?: any };
@@ -12,7 +13,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true, error };
   }
   componentDidCatch(error: any, info: any) {
-    console.error('[EFH] ErrorBoundary caught:', error, info);
+    log.error('ErrorBoundary caught:', error, info);
   }
   render() {
     if (this.state.hasError) {

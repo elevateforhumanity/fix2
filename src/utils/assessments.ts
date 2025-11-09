@@ -194,8 +194,7 @@ export function validateSubmission(
     if (question.type === 'short_answer' || question.type === 'essay') {
       if (typeof answer.answer !== 'string') {
         errors.push(`Question ${question.id}: Answer must be a string`);
-      }
-      if (answer.answer.trim().length === 0) {
+      } else if (answer.answer.trim().length === 0) {
         errors.push(`Question ${question.id}: Answer cannot be empty`);
       }
     }

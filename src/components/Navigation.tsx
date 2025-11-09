@@ -6,11 +6,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-interface NavLink {
-  label: string;
-  href: string;
-}
+import { mainNavigation, branding, type NavLink } from '../config/navigation';
 
 interface NavigationProps {
   logo?: string;
@@ -19,32 +15,20 @@ interface NavigationProps {
   className?: string;
 }
 
-const defaultLinks: NavLink[] = [
-  { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Services', href: '/services' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Student Portal', href: '/student-portal' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Elevate', href: '/elevate' },
-  { label: 'Barber Apprenticeship', href: '/barber-apprenticeship' },
-];
-
 export default function Navigation({
   logo = '/logo.svg',
-  logoAlt = 'Elevate for Humanity',
-  links = defaultLinks,
+  logoAlt = branding.name,
+  links = mainNavigation,
   className = '',
 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (href: string) => {
-    if (href === '/') {
+  const isActive = (to: string) => {
+    if (to === '/') {
       return location.pathname === '/';
     }
-    return location.pathname.startsWith(href);
+    return location.pathname.startsWith(to);
   };
 
   return (
@@ -69,10 +53,10 @@ export default function Navigation({
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
-                key={link.href}
-                to={link.href}
+                key={link.to}
+                to={link.to}
                 className={`text-base font-medium transition-colors ${
-                  isActive(link.href)
+                  isActive(link.to)
                     ? 'text-[var(--color-green-600)]'
                     : 'text-gray-700 hover:text-[var(--color-green-600)]'
                 }`}
@@ -119,10 +103,10 @@ export default function Navigation({
           <div className="container py-4 space-y-2">
             {links.map((link) => (
               <Link
-                key={link.href}
-                to={link.href}
+                key={link.to}
+                to={link.to}
                 className={`block px-4 py-2 rounded-lg text-base font-medium transition-colors ${
-                  isActive(link.href)
+                  isActive(link.to)
                     ? 'bg-[var(--color-green-50)] text-[var(--color-green-700)]'
                     : 'text-gray-700 hover:bg-gray-50'
                 }`}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { mainNavigation, ctaButton, branding } from '../config/navigation';
 import '../styles/durable-design.css';
 
 export default function DurableNav() {
@@ -10,12 +11,12 @@ export default function DurableNav() {
       <div className="container">
         <div className="nav-content">
           <Link to="/" className="logo">
-            <div className="logo-text">Elevate for Humanity</div>
+            <div className="logo-text">{branding.name}</div>
             <div
               className="logo-subtitle"
               style={{ fontSize: '0.875rem', opacity: 0.8 }}
             >
-              Career & Technical Institute
+              {branding.subtitle}
             </div>
           </Link>
           <button
@@ -55,28 +56,18 @@ export default function DurableNav() {
             />
           </button>
           <ul className="nav-menu">
-            <li>
-              <Link to="/programs">Programs</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/lms">LMS</Link>
-            </li>
-            <li>
-              <Link to="/partners">Partners</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+            {mainNavigation.filter(link => !link.items).map((link) => (
+              <li key={link.to}>
+                <Link to={link.to}>{link.label}</Link>
+              </li>
+            ))}
             <li>
               <Link
-                to="/apply"
+                to={ctaButton.to}
                 className="button"
                 style={{ padding: '0.75rem 1.5rem' }}
               >
-                Apply Now
+                {ctaButton.label}
               </Link>
             </li>
           </ul>

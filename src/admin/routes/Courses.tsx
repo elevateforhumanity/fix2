@@ -247,7 +247,7 @@ export default function Courses() {
 
       if (error) throw error;
 
-      setVersions(data || []);
+      setVersions((data || []) as unknown as CourseVersion[]);
       setSelectedCourse(course);
       setShowVersionsModal(true);
     } catch (error) {

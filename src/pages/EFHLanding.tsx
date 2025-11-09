@@ -123,7 +123,15 @@ export default function EFHLanding() {
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Show first 2 programs from data */}
             {programs.slice(0, 2).map((p) => (
-              <ProgramCard key={p.slug} p={p} />
+              <ProgramCard 
+                key={p.slug} 
+                icon="📚"
+                title={p.name}
+                duration="12-24 weeks"
+                description={p.summary}
+                funding={p.funding.join(', ')}
+                href={`/programs/${p.slug}`}
+              />
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { log } from '../logger';
 
 export const safeLazy = (
   importFn: () => Promise<any>,
@@ -6,7 +7,7 @@ export const safeLazy = (
 ) => {
   return lazy(() =>
     importFn().catch((err) => {
-      console.error(`[EFH] Failed to load ${componentName}:`, err);
+      log.error(`Failed to load ${componentName}:`, err);
       return {
         default: () => (
           <div

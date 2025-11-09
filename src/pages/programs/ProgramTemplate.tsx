@@ -24,10 +24,32 @@ interface ProgramData {
 }
 
 interface ProgramTemplateProps {
-  program: ProgramData;
+  program?: ProgramData;
 }
 
-export default function ProgramTemplate({ program }: ProgramTemplateProps) {
+// Default program data for when no program is provided
+const defaultProgram: ProgramData = {
+  slug: 'sample-program',
+  title: 'Sample Program',
+  subtitle: 'Professional Training Program',
+  duration: '12 weeks',
+  format: 'Hybrid',
+  certification: 'Certificate of Completion',
+  cost: 'Free',
+  badges: ['DOL Approved', 'WIOA Eligible'],
+  overview: 'This is a sample program template.',
+  skills: ['Skill 1', 'Skill 2', 'Skill 3'],
+  eligibility: ['18+ years old', 'High school diploma or equivalent'],
+  careers: [
+    {
+      title: 'Sample Career',
+      description: 'Career description',
+      salary: '$40,000 - $60,000',
+    },
+  ],
+};
+
+export default function ProgramTemplate({ program = defaultProgram }: ProgramTemplateProps) {
   return (
     <DurableLayout>
       <div className="program-page">

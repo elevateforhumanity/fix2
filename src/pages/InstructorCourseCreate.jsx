@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { SEO } from '../lib/seo/SEO';
-import Header from '../components/Header';
+import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import {
   Card,
@@ -59,7 +59,7 @@ export default function InstructorCourseCreate() {
         title="Create Course | Instructor Portal"
         description="Create and manage your courses"
       />
-      <Header />
+      <Navigation />
       <main role="main" className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-brown-900 mb-2">

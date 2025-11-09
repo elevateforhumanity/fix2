@@ -1,3 +1,5 @@
+import { log } from '../logger';
+
 declare global {
   interface Window {
     __EFH_MONITOR__?: { errors: any[] };
@@ -18,7 +20,7 @@ window.addEventListener(
       isChunk,
     };
     window.__EFH_MONITOR__!.errors.push(payload);
-    console.error('[EFH][monitor] error:', payload);
+    log.error('[monitor] error:', payload);
   },
   true
 );
@@ -29,7 +31,7 @@ window.addEventListener('unhandledrejection', (e: any) => {
     reason: String(e?.reason || 'unknown'),
   };
   window.__EFH_MONITOR__!.errors.push(payload);
-  console.error('[EFH][monitor] unhandledrejection:', payload);
+  log.error('[monitor] unhandledrejection:', payload);
 });
 
 export {};

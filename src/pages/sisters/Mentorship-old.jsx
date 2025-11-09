@@ -18,7 +18,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import NavBar from '../../components/NavBar';
+import Navigation from '../../components/Navigation';
 import { Link } from 'react-router-dom';
 
 export default function Mentorship() {
@@ -61,7 +61,7 @@ export default function Mentorship() {
         />
       </Helmet>
       <header>
-        <NavBar />
+        <Navigation />
       </header>
       <main role="main" id="main-content" tabIndex={-1}
 style={{ padding: 32 }}>

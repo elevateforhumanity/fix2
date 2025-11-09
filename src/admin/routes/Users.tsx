@@ -55,7 +55,7 @@ export default function Users() {
     try {
       setLoading(true);
 
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('org_members')
         .select(
           `
