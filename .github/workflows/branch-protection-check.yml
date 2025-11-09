@@ -1,0 +1,80 @@
+name: Branch Protection Check
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check-protection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check branch protection settings
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔒 Checking branch protection for main branch..."
+          echo ""
+          
+          # Get branch protection settings
+          RESPONSE=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/branches/main/protection")
+          
+          # Check if protection exists
+          if echo "$RESPONSE" | grep -q '"message": "Branch not protected"'; then
+            echo "❌ ERROR: Main branch is not protected!"
+            echo ""
+            echo "Please enable branch protection with the following settings:"
+            echo "  - Require a pull request before merging"
+            echo "  - Require status checks to pass (build-test, check)"
+            echo "  - Require conversation resolution before merging"
+            echo "  - Do not allow bypassing the above settings (enforce for admins)"
+            exit 1
+          fi
+          
+          echo "✅ Main branch has protection enabled"
+          
+          # Check for required status checks
+          REQUIRED_CHECKS=$(echo "$RESPONSE" | grep -o '"contexts":\[[^]]*\]' || echo "")
+          
+          if echo "$REQUIRED_CHECKS" | grep -q "build-test"; then
+            echo "✅ Required check 'build-test' is configured"
+          else
+            echo "⚠️  WARNING: Required check 'build-test' is missing"
+            EXIT_CODE=1
+          fi
+          
+          # Check for conversation resolution
+          if echo "$RESPONSE" | grep -q '"required_conversation_resolution":{"enabled":true}'; then
+            echo "✅ Conversation resolution is required"
+          else
+            echo "⚠️  WARNING: Conversation resolution is not required"
+            EXIT_CODE=1
+          fi
+          
+          # Check if admins are enforced
+          if echo "$RESPONSE" | grep -q '"enforce_admins":{"enabled":true}'; then
+            echo "✅ Branch protection is enforced for admins"
+          else
+            echo "⚠️  WARNING: Branch protection is not enforced for admins"
+            EXIT_CODE=1
+          fi
+          
+          echo ""
+          if [ "${EXIT_CODE:-0}" -eq 1 ]; then
+            echo "❌ Branch protection drift detected!"
+            echo ""
+            echo "Please update branch protection settings at:"
+            echo "https://github.com/$GITHUB_REPOSITORY/settings/branches"
+            exit 1
+          fi
+          
+          echo "✅ All branch protection checks passed"
