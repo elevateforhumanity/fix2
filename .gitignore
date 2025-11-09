@@ -61,6 +61,8 @@ id_rsa*
 id_dsa*
 *.asc
 *.gpg
+# Exception: ESLint security rules
+!tools/eslint-rules/*secret*.js
 
 # Database
 *.db
