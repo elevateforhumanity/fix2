@@ -16,6 +16,7 @@ vercel login
 ```
 
 This will:
+
 1. Open browser for authentication
 2. Ask you to confirm in terminal
 3. Save credentials locally
@@ -48,6 +49,7 @@ vercel --prod
 ```
 
 That's it! Vercel will:
+
 1. Detect Vite configuration
 2. Install dependencies
 3. Build the project
@@ -135,6 +137,7 @@ curl -I https://your-project.vercel.app
 ### Test Routes
 
 Visit these URLs:
+
 - `https://your-project.vercel.app/` - Homepage
 - `https://your-project.vercel.app/lms` - LMS
 - `https://your-project.vercel.app/programs` - Programs
@@ -149,7 +152,9 @@ Add to any HTML page:
 ```html
 <div id="lms"></div>
 <script src="https://your-project.vercel.app/embed/lms-widget.js"></script>
-<script>ElevateLMS.embed('lms');</script>
+<script>
+  ElevateLMS.embed('lms');
+</script>
 ```
 
 ---
@@ -159,12 +164,14 @@ Add to any HTML page:
 ### Build Fails
 
 **Check locally first:**
+
 ```bash
 pnpm install
 pnpm build
 ```
 
 If it works locally but fails on Vercel:
+
 1. Check Node version (should be 20.x)
 2. Verify environment variables are set
 3. Check build logs in Vercel dashboard
@@ -185,6 +192,7 @@ If it works locally but fails on Vercel:
 ### 404 Errors
 
 Vercel should automatically handle SPA routing. If not:
+
 1. Check `vercel.json` has rewrites configured
 2. Verify build output is in `dist/`
 3. Check Vercel logs for errors
@@ -198,6 +206,7 @@ Click to deploy instantly:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/elevateforhumanity/fix2)
 
 This will:
+
 1. Fork the repository (optional)
 2. Import to Vercel
 3. Configure automatically
@@ -208,6 +217,7 @@ This will:
 ## Continuous Deployment
 
 After initial setup, Vercel automatically deploys:
+
 - **Production**: Every push to `main` branch
 - **Preview**: Every pull request
 
@@ -259,16 +269,16 @@ vercel rm
 
 ## Environment Variables Explained
 
-| Variable | Purpose | Required |
-|----------|---------|----------|
-| `NODE_ENV` | Set to production | Yes |
-| `VITE_SUPABASE_URL` | Supabase project URL | Yes |
-| `VITE_SUPABASE_ANON_KEY` | Supabase public key | Yes |
-| `VITE_API_URL` | Backend API URL | Yes |
-| `VITE_SITE_URL` | Frontend URL | Yes |
-| `VITE_ENABLE_AUTOPILOT` | Enable autopilot features | Optional |
-| `VITE_GA_MEASUREMENT_ID` | Google Analytics | Optional |
-| `VITE_STRIPE_PUBLISHABLE_KEY` | Stripe payments | Optional |
+| Variable                      | Purpose                   | Required |
+| ----------------------------- | ------------------------- | -------- |
+| `NODE_ENV`                    | Set to production         | Yes      |
+| `VITE_SUPABASE_URL`           | Supabase project URL      | Yes      |
+| `VITE_SUPABASE_ANON_KEY`      | Supabase public key       | Yes      |
+| `VITE_API_URL`                | Backend API URL           | Yes      |
+| `VITE_SITE_URL`               | Frontend URL              | Yes      |
+| `VITE_ENABLE_AUTOPILOT`       | Enable autopilot features | Optional |
+| `VITE_GA_MEASUREMENT_ID`      | Google Analytics          | Optional |
+| `VITE_STRIPE_PUBLISHABLE_KEY` | Stripe payments           | Optional |
 
 ---
 
@@ -325,7 +335,7 @@ vercel rm
 ✅ **Code**: Committed and pushed  
 ✅ **Build**: Successful locally  
 ✅ **Config**: Optimized for Vercel  
-⏳ **Deploy**: Waiting for authentication  
+⏳ **Deploy**: Waiting for authentication
 
 **Next Action**: Choose one of the deployment methods above
 

@@ -3,7 +3,9 @@
 ```html
 <div id="lms"></div>
 <script src="https://app.elevateforhumanity.org/embed/lms-widget.js"></script>
-<script>ElevateLMS.embed('lms');</script>
+<script>
+  ElevateLMS.embed('lms');
+</script>
 ```
 
 OR

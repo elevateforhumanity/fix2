@@ -2,7 +2,7 @@ name: Autopilot Self-Healing Cron
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
+    - cron: '0 */6 * * *' # Every 6 hours
   workflow_dispatch:
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
       issues: write
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4

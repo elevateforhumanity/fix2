@@ -1,6 +1,7 @@
 # GitHub CLI Setup Instructions
 
 ## Current Status
+
 ✅ Git configured and changes pushed to main branch
 ❌ GitHub CLI requires authentication
 
@@ -9,12 +10,15 @@
 To enable GitHub CLI for closing issues, you need to authenticate:
 
 ### Option 1: Interactive Login (Recommended)
+
 ```bash
 gh auth login
 ```
+
 Follow the prompts to authenticate via browser or token.
 
 ### Option 2: Token Authentication
+
 ```bash
 # Set your GitHub Personal Access Token
 export GITHUB_TOKEN="your_token_here"
@@ -24,6 +28,7 @@ echo "your_token_here" | gh auth login --with-token
 ```
 
 ### Option 3: Use Existing Git Credentials
+
 ```bash
 gh auth login --git-protocol https --web
 ```
@@ -31,6 +36,7 @@ gh auth login --git-protocol https --web
 ## Required Token Permissions
 
 If creating a new token, ensure it has these scopes:
+
 - `repo` (full control of private repositories)
 - `workflow` (update GitHub Action workflows)
 - `admin:org` (if closing org-level issues)
@@ -38,6 +44,7 @@ If creating a new token, ensure it has these scopes:
 ## After Authentication
 
 Once authenticated, run:
+
 ```bash
 # Verify authentication
 gh auth status
@@ -53,6 +60,7 @@ gh issue list --label autopilot --state open --json number --jq '.[].number' | \
 ## Alternative: Manual Issue Closure
 
 If GitHub CLI authentication is not available, you can:
+
 1. Visit: https://github.com/elevateforhumanity/fix2/issues
 2. Filter by label: `autopilot`
 3. Bulk close issues with comment: "✅ All autopilot systems operational"
@@ -61,7 +69,7 @@ If GitHub CLI authentication is not available, you can:
 
 - **Branch**: main
 - **Commits**: All changes pushed successfully
-- **Files Modified**: 
+- **Files Modified**:
   - `.github/workflows/autopilot-cron.yml`
   - `AUTOPILOT_STATUS.md`
   - `workers/self-healing-autopilot.js`

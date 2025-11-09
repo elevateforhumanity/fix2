@@ -56,6 +56,14 @@ Before submitting:
 3. Verify extensions install correctly
 4. Check that documentation is accurate
 
+### PR Checklist
+
+Before requesting merge, ensure you:
+
+- Run lint and format: `pnpm run lint && pnpm run format`
+- Run tests: `pnpm test`
+- Ensure CI passes before requesting merge (CI logs can be found in `.github/workflows/ci.yml`)
+
 ## 🎯 Areas for Contribution
 
 We welcome improvements in:
