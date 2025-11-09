@@ -78,6 +78,6 @@ Thank you for helping make this template better for everyone!
 
 Before requesting a merge, please ensure:
 
-- Run lint and format: pnpm run lint && pnpm run format
-- Run tests: pnpm test
+- Run lint and format: `pnpm run lint && pnpm run format`
+- Run tests: `pnpm test`
 - Ensure CI passes before requesting merge
