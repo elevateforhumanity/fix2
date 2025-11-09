@@ -22,14 +22,14 @@ export default function NotFound() {
         <div className="space-y-4">
           <Link
             to="/"
-            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center"
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
           >
             <Home className="h-4 w-4 mr-2" />
             Return to Hub
           </Link>
           <button
             onClick={() => window.history.back()}
-            className="w-full bg-white text-brown-900 border border-brown-300 py-3 px-6 rounded-lg hover:bg-beige-50 transition-colors flex items-center justify-center"
+            className="w-full bg-white text-brown-900 border border-brown-300 py-3 px-6 rounded-lg hover:bg-beige-50 transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Go Back
