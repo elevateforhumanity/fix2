@@ -1,9 +1,9 @@
+/* Import Elevate for Humanity Design System */
+@import './styles/elevate-design-system.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import Elevate for Humanity Design System */
-@import './styles/elevate-design-system.css';
 
 @layer base {
   * {
