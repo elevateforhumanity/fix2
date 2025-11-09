@@ -1,12 +1,13 @@
 /**
  * Navigation Component
- * Matches elevateforhumanity.org navigation exactly
- * Extracted from: https://www.elevateforhumanity.org
+ * Professional LMS-style navigation with student portal access
+ * Copyright (c) 2025 Elevate for Humanity
  */
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { mainNavigation, branding, type NavLink } from '../config/navigation';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { mainNavigation, authButtons, branding, type NavLink } from '../config/navigation';
 
 interface NavigationProps {
   logo?: string;
@@ -22,6 +23,7 @@ export default function Navigation({
   className = '',
 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   const isActive = (to: string) => {
@@ -31,90 +33,180 @@ export default function Navigation({
     return location.pathname.startsWith(to);
   };
 
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+
   return (
-    <nav className={`bg-white border-b border-gray-200 ${className}`}>
-      <div className="container">
-        <div className="flex items-center justify-between h-16">
+    <nav className={`bg-white shadow-sm sticky top-0 z-50 ${className}`}>
+      <div className="container-efh">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src={logo}
               alt={logoAlt}
-              className="h-8 w-auto"
+              className="h-10 w-auto"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement!.innerHTML = `
-                  <span class="text-xl font-bold text-[var(--color-brown)]">${logoAlt}</span>
-                `;
+                const parent = e.currentTarget.parentElement;
+                if (parent) {
+                  parent.innerHTML = `
+                    <div class="flex flex-col">
+                      <span class="text-xl font-bold text-brand">${branding.name}</span>
+                      <span class="text-xs text-text-secondary">${branding.subtitle}</span>
+                    </div>
+                  `;
+                }
               }}
             />
           </Link>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`text-base font-medium transition-colors ${
-                  isActive(link.to)
-                    ? 'text-[var(--color-green-600)]'
-                    : 'text-gray-700 hover:text-[var(--color-green-600)]'
-                }`}
-              >
-                {link.label}
-              </Link>
+              <div key={link.to} className="relative">
+                {link.items ? (
+                  <div className="relative">
+                    <button
+                      onClick={() => toggleDropdown(link.label)}
+                      className={`flex items-center gap-1 text-base font-medium transition-colors ${
+                        isActive(link.to)
+                          ? 'text-brand'
+                          : 'text-text-primary hover:text-brand'
+                      }`}
+                    >
+                      {link.label}
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                    {openDropdown === link.label && (
+                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-card py-2">
+                        {link.items.map((item) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className="block px-4 py-2 text-sm text-text-primary hover:bg-surface-elevated hover:text-brand transition-colors"
+                            onClick={() => setOpenDropdown(null)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={link.to}
+                    className={`text-base font-medium transition-colors ${
+                      isActive(link.to)
+                        ? 'text-brand'
+                        : 'text-text-primary hover:text-brand'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
+
+          {/* Auth Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              to={authButtons.signIn.to}
+              className="text-base font-medium text-text-primary hover:text-brand transition-colors"
+            >
+              {authButtons.signIn.label}
+            </Link>
+            <Link
+              to={authButtons.signUp.to}
+              className="btn btn-primary"
+            >
+              {authButtons.signUp.label}
+            </Link>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[var(--color-green-600)] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-green-500)]"
+            className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-text-primary hover:bg-surface-elevated focus-ring"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              )}
-            </svg>
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
+
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200">
-          <div className="container py-4 space-y-2">
+        <div className="lg:hidden border-t border-gray-200 bg-white">
+          <div className="container-efh py-4 space-y-1">
             {links.map((link) => (
+              <div key={link.to}>
+                {link.items ? (
+                  <div>
+                    <button
+                      onClick={() => toggleDropdown(link.label)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-text-primary hover:bg-surface-elevated rounded-lg transition-colors"
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openDropdown === link.label && (
+                      <div className="pl-4 space-y-1 mt-1">
+                        {link.items.map((item) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className="block px-4 py-2 text-sm text-text-secondary hover:bg-surface-elevated hover:text-brand rounded-lg transition-colors"
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setOpenDropdown(null);
+                            }}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={link.to}
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      isActive(link.to)
+                        ? 'bg-red-50 text-brand'
+                        : 'text-text-primary hover:bg-surface-elevated'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+            <div className="pt-4 border-t border-gray-200 space-y-2">
               <Link
-                key={link.to}
-                to={link.to}
-                className={`block px-4 py-2 rounded-lg text-base font-medium transition-colors ${
-                  isActive(link.to)
-                    ? 'bg-[var(--color-green-50)] text-[var(--color-green-700)]'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
+                to={authButtons.signIn.to}
+                className="block px-4 py-3 text-center rounded-lg text-base font-medium text-text-primary hover:bg-surface-elevated transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.label}
+                {authButtons.signIn.label}
               </Link>
-            ))}
+              <Link
+                to={authButtons.signUp.to}
+                className="block px-4 py-3 text-center rounded-lg text-base font-semibold bg-brand text-white hover:bg-brand-primary-hover transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {authButtons.signUp.label}
+              </Link>
+            </div>
           </div>
         </div>
       )}

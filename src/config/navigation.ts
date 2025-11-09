@@ -10,7 +10,6 @@ export interface NavLink {
 }
 
 export const mainNavigation: NavLink[] = [
-  { label: 'Home', to: '/' },
   {
     label: 'Programs',
     to: '/programs',
@@ -25,12 +24,22 @@ export const mainNavigation: NavLink[] = [
       { label: 'Digital Skills', to: '/programs/digital-skills' },
     ],
   },
-  { label: 'Student Portal', to: '/lms' },
-  { label: 'About', to: '/about' },
+  { label: 'Pricing', to: '/#pricing' },
   { label: 'Partners', to: '/partners' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
+
+export const authButtons = {
+  signIn: {
+    label: 'Sign In',
+    to: '/login',
+  },
+  signUp: {
+    label: 'Create Account',
+    to: '/apply',
+  },
+};
 
 export const ctaButton = {
   label: 'Apply Now',

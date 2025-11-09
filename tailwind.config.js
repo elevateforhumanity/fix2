@@ -1,70 +1,90 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * Elevate for Humanity - Official Design System
+ * Tailwind Configuration
+ * @type {import('tailwindcss').Config}
+ */
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     container: {
       center: true,
-      padding: '1rem',
-      screens: { lg: '1120px', '2xl': '1280px' },
+      padding: '1.5rem',
+      screens: { 
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1280px' // Max container width
+      },
     },
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'Inter', 'sans-serif'],
       },
       colors: {
-        brand: {
-          50: '#f4f8ff',
-          100: '#e8f0ff',
-          200: '#cfe0ff',
-          300: '#a9c6ff',
-          400: '#7ea6ff',
-          500: '#4f82ff',
-          600: '#2f64f0',
-          700: '#224dd1',
-          800: '#1d3da6',
-          900: '#1a3588',
+        // EFH Official Brand Colors
+        efh: {
+          red: '#E41E26',        // Primary brand color
+          orange: '#F97316',     // Secondary/gradient
+          blue: '#2563EB',       // Accent for tech/education
+          charcoal: '#1F2937',   // Main text
+          slate: '#6B7280',      // Secondary text
+          lightgray: '#F9FAFB',  // Backgrounds
+          emerald: '#10B981',    // Success states
+          amber: '#F59E0B',      // Warnings
         },
-        accent: { 500: '#19c39c' },
-        'brand-border': 'var(--brand-border)',
-        'brand-border-dark': 'var(--brand-border-dark)',
-        'brand-border-light': 'var(--brand-border-light)',
-        'brand-text': 'var(--brand-text)',
-        'brand-text-muted': 'var(--brand-text-muted)',
-        'brand-text-light': 'var(--brand-text-light)',
-        'brand-surface': 'var(--brand-surface)',
-        'brand-surface-dark': 'var(--brand-surface-dark)',
-        'brand-primary': 'var(--brand-primary)',
-        'brand-primary-hover': 'var(--brand-primary-hover)',
-        'brand-primary-active': 'var(--brand-primary-active)',
-        'brand-secondary': 'var(--brand-secondary)',
-        'brand-secondary-hover': 'var(--brand-secondary-hover)',
-        'brand-accent': 'var(--brand-accent)',
-        'brand-muted': 'var(--brand-muted)',
-        'brand-success': 'var(--brand-success)',
-        'brand-success-hover': 'var(--brand-success-hover)',
-        'brand-info': 'var(--brand-info)',
-        'brand-info-hover': 'var(--brand-info-hover)',
-        'brand-warning': 'var(--brand-warning)',
-        'brand-warning-hover': 'var(--brand-warning-hover)',
-        'brand-danger': 'var(--brand-danger)',
-        'brand-danger-hover': 'var(--brand-danger-hover)',
-        'brand-focus': 'var(--brand-focus)',
+        // Semantic color system
+        brand: {
+          primary: '#E41E26',
+          'primary-hover': '#C41820',
+          'primary-active': '#A01418',
+          secondary: '#F97316',
+          'secondary-hover': '#EA580C',
+          accent: '#2563EB',
+          'accent-hover': '#1D4ED8',
+        },
+        text: {
+          primary: '#1F2937',
+          secondary: '#6B7280',
+          muted: '#9CA3AF',
+          light: '#D1D5DB',
+        },
+        surface: {
+          base: '#FFFFFF',
+          elevated: '#F9FAFB',
+          overlay: '#F3F4F6',
+        },
+        status: {
+          success: '#10B981',
+          'success-hover': '#059669',
+          warning: '#F59E0B',
+          'warning-hover': '#D97706',
+          error: '#EF4444',
+          'error-hover': '#DC2626',
+          info: '#3B82F6',
+          'info-hover': '#2563EB',
+        },
       },
-      boxShadow: { soft: '0 6px 30px -10px rgba(0,0,0,0.12)' },
-      borderRadius: { xl2: '1rem' },
+      boxShadow: {
+        card: '0 4px 14px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        soft: '0 6px 30px -10px rgba(0, 0, 0, 0.12)',
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
-};
-
-// injected by setup-autofix
-const tokens = require('./branding/tokens.json');
-module.exports.theme = module.exports.theme || {};
-module.exports.theme.extend = module.exports.theme.extend || {};
-const existingColors = module.exports.theme.extend.colors || {};
-module.exports.theme.extend.colors = {
-  ...existingColors,
-  brand: { ...(existingColors.brand || {}), ...tokens.brand },
-  surface: { ...(existingColors.surface || {}), ...tokens.surface },
-  text: { ...(existingColors.text || {}), ...tokens.text },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 };

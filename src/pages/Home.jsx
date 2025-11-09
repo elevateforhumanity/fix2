@@ -1,273 +1,246 @@
 /**
- * Home Page
- * Matches elevateforhumanity.org design exactly
+ * Home Page - Professional LMS Landing
  * Copyright (c) 2025 Elevate for Humanity
  * Commercial License. No resale, sublicensing, or redistribution allowed.
  */
 
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { Award, Briefcase, DollarSign, CheckCircle, Users, TrendingUp } from 'lucide-react';
 import Navigation from '../components/Navigation';
-import Hero from '../components/Hero';
-import Section from '../components/Section';
-import ProgramCard from '../components/ProgramCard';
 import Footer from '../components/Footer';
+
+const trustMetrics = [
+  {
+    icon: Award,
+    title: 'WIOA / WRG Eligible',
+    description: 'Pathways to tuition assistance for qualifying learners.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Earn While You Learn',
+    description: 'Work-based learning, stipends, and apprenticeships.',
+  },
+  {
+    icon: Users,
+    title: 'Employer Placement',
+    description: 'Regional partners ready to hire program completers.',
+  },
+];
+
+const featuredPrograms = [
+  {
+    id: 'barber-apprenticeship',
+    title: 'Barber Apprenticeship',
+    duration: '1500 hours',
+    modality: 'In-Person • Paid',
+    badge: 'DOL Registered',
+    funding: true,
+    image: '/images/barber.jpg',
+    description: 'Indiana DOL-registered apprenticeship; earn while you learn with licensure prep.',
+  },
+  {
+    id: 'building-tech',
+    title: 'Building Maintenance Technician',
+    duration: '6 months',
+    modality: 'Hybrid',
+    badge: 'WIOA Eligible',
+    funding: true,
+    image: '/images/building.jpg',
+    description: 'Hands-on HVAC, electrical, and basic construction skills for entry roles.',
+  },
+  {
+    id: 'healthcare-cna',
+    title: 'Healthcare CNA/QMA',
+    duration: '8 weeks',
+    modality: 'In-Person',
+    badge: 'State Certified',
+    funding: true,
+    image: '/images/healthcare.jpg',
+    description: 'Fast-track to healthcare careers with state certification and clinical hours.',
+  },
+];
+
+const outcomes = [
+  { label: '92% Job Placement Rate', value: '92%' },
+  { label: 'Average Time to Employment', value: '45 days' },
+  { label: 'Students Served Annually', value: '500+' },
+  { label: 'Employer Partners', value: '75+' },
+];
 
 export default function Home() {
   return (
-    <div className="home-durable">
-      {/* Matches elevateforhumanity.org class */}
+    <div className="min-h-screen bg-surface-base">
       <Helmet>
-        <title>
-          Elevate for Humanity | Workforce Training & Career Development
-        </title>
+        <title>Elevate for Humanity | Workforce Training & Career Development</title>
         <meta
           name="description"
-          content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
+          content="Career-ready training powered by apprenticeships, WIOA/WRG funding, and employer partnerships in Indiana. Enroll, learn, and get placed into real jobs."
         />
       </Helmet>
-      {/* Navigation */}
+
       <Navigation />
-      {/* Hero Section - Matches elevateforhumanity.org exactly */}
-      <Hero
-        title="Ignite Your Future: Fund Training Today"
-        subtitle="Empower Dreams: Support Skills Development and Transform Lives at Elevate for Humanity. Invest in Growth, Today! Marion County."
-        primaryButton={{ text: 'Sign up now', href: '/apply' }}
-        showCarousel
-      />
-      {/* Mission Section - Matches elevateforhumanity.org */}
-      <Section background="white">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="section-title text-center">
-            Empowering Futures Through Skill Development
-          </h2>
-          <p className="body-large text-center">
-            At Elevate for Humanity Career and Technical Institute, we are
-            dedicated to bridging the gap between education and employment by
-            funding innovative apprenticeship and training programs. Located in
-            Marion County, IN, our mission is to empower individuals with the
-            skills they need to excel in today's dynamic workforce. By investing
-            in human potential, we aim to transform lives and build a more
-            skilled, sustainable community. Join us as we pave the way for
-            brighter futures through quality education and hands-on experience.
-          </p>
-        </div>
-      </Section>
-      {/* Image + Text Section - Matches elevateforhumanity.org */}
-      <Section background="beige">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src="/images/training-skills.jpg"
-              alt="Training and skill development concept"
-              className="w-full rounded-lg shadow-lg"
-              onError={(e) => {
-                e.target.src =
-                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%23f5f1e8" width="600" height="400"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" fill="%234a3728" font-size="24"%3ETraining %26 Skills%3C/text%3E%3C/svg%3E';
-              }}
-            />
-          </div>
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-[var(--color-brown)]">
-              Empower Growth Through Apprenticeships
-            </h2>
-            <p className="text-xl mb-6 opacity-80">
-              Unlock your potential with transformative apprenticeship and
-              training programs at Elevate for Humanity Career and Technical
-              Institute. Located in Marion County, we empower individuals with
-              the skills needed for a thriving future. Join us in advancing
-              careers and communities through education and opportunity.
-              Together, let's build a brighter tomorrow.
+
+      <main id="main-content">
+        {/* Hero Section */}
+        <section className="bg-gradient-brand text-white py-20 md:py-28">
+          <div className="container-efh text-center">
+            <h1 className="heading-display text-white mb-6">
+              Workforce Training That Leads to Real Jobs
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">
+              Learn with state-aligned programs, access WIOA/WRG/JRI funding, and step into paid apprenticeships and employment.
             </p>
-            <div className="inline-block px-6 py-3 bg-[var(--color-green)] text-white rounded-lg font-semibold">
-              Future Secured
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/programs" className="btn btn-light text-lg px-8 py-4">
+                Explore Programs
+              </Link>
+              <Link to="/apply" className="btn btn-secondary text-lg px-8 py-4">
+                Start Application
+              </Link>
             </div>
           </div>
-        </div>
-      </Section>
-      {/* Testimonials Section - Matches elevateforhumanity.org */}
-      <Section background="white">
-        <h2 className="section-title text-center mb-4">
-          Partnering For Futures: Testimonials That Inspire
-        </h2>
-        <p className="section-subtitle text-center mb-12">
-          Transforming futures through hands-on learning and career pathways,
-          Elevate for Humanity empowers every individual to thrive
-          professionally.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <img
-              src="/images/testimonial-jordan.jpg"
-              alt="Jordan Lee"
-              className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-              onError={(e) => {
-                e.target.src =
-                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="96" height="96"%3E%3Ccircle fill="%23f5f1e8" cx="48" cy="48" r="48"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%234a3728" font-size="36"%3EJL%3C/text%3E%3C/svg%3E';
-              }}
-            />
-            <p className="text-lg mb-4 italic">
-              "The support from Elevate for Humanity has been transformative.
-              Their funding allowed me to enroll in a high-quality
-              apprenticeship program, setting me on a path to a fulfilling
-              career. Their dedication to student success is unmatched."
-            </p>
-            <p className="font-semibold text-[var(--color-brown)]">
-              - Jordan Lee
-            </p>
-          </div>
-          <div className="text-center">
-            <img
-              src="/images/testimonial-alex.jpg"
-              alt="Alex Morgan"
-              className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-              onError={(e) => {
-                e.target.src =
-                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="96" height="96"%3E%3Ccircle fill="%23f5f1e8" cx="48" cy="48" r="48"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%234a3728" font-size="36"%3EAM%3C/text%3E%3C/svg%3E';
-              }}
-            />
-            <p className="text-lg mb-4 italic">
-              "Elevate for Humanity provided essential funding that opened doors
-              to my dream apprenticeship. Their commitment to empowering
-              individuals with career opportunities is truly inspiring, and
-              their support has been pivotal in advancing my professional
-              journey."
-            </p>
-            <p className="font-semibold text-[var(--color-brown)]">
-              - Alex Morgan
-            </p>
-          </div>
-          <div className="text-center">
-            <img
-              src="/images/testimonial-taylor.jpg"
-              alt="Taylor Rivers"
-              className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-              onError={(e) => {
-                e.target.src =
-                  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="96" height="96"%3E%3Ccircle fill="%23f5f1e8" cx="48" cy="48" r="48"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%234a3728" font-size="36"%3ETR%3C/text%3E%3C/svg%3E';
-              }}
-            />
-            <p className="text-lg mb-4 italic">
-              "Elevate for Humanity's funding was a game-changer for me. It
-              enabled my participation in an incredible training program that
-              propelled my career forward. Their unwavering support and
-              commitment to individual growth are exceptional. I am deeply
-              grateful for their contribution to my success."
-            </p>
-            <p className="font-semibold text-[var(--color-brown)]">
-              - Taylor Rivers
-            </p>
-          </div>
-        </div>
-      </Section>
-      {/* CTA Section - Matches elevateforhumanity.org */}
-      <Section background="green">
-        <div className="mx-auto max-w-[800px] text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">
-            Empower Your Future Today
-          </h2>
-          <p className="text-xl mb-8 text-white opacity-90">
-            Join our transformative programs and unlock career opportunities
-            that align with industry demands. Flexible, grant-funded options
-            mean more possibilities for growth. Elevate your skills with us!
-          </p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSehiTq4RyfKthz85x55GCkhWWNDSZp0pNri7AxjAeF2taQ-Lw/viewform?usp=header"
-            className="button-white"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Explore Programs
-          </a>
-        </div>
-      </Section>
-      {/* Contact Form Section - Matches elevateforhumanity.org */}
-      <Section background="white">
-        <div className="mx-auto max-w-[600px]">
-          <h3 className="text-3xl font-bold mb-4 text-center text-[var(--color-brown)]">
-            Connect With Us Today
-          </h3>
-          <p className="text-center mb-8 opacity-80">
-            Reach out to Elevate for Humanity for program funding assistance in
-            Marion County, IN.
-          </p>
-          <form className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-semibold mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-green)]"
-                required
-              />
+        </section>
+
+        {/* Trust Metrics */}
+        <section className="section-spacing bg-surface-elevated">
+          <div className="container-efh">
+            <div className="grid md:grid-cols-3 gap-8">
+              {trustMetrics.map((metric, index) => (
+                <div key={index} className="card text-center">
+                  <metric.icon className="w-12 h-12 mx-auto mb-4 text-brand" />
+                  <h3 className="heading-3 mb-3">{metric.title}</h3>
+                  <p className="body-base">{metric.description}</p>
+                </div>
+              ))}
             </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-green)]"
-                required
-              />
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="section-spacing">
+          <div className="container-efh">
+            <h2 className="heading-2 text-center mb-12">How It Works</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  1
+                </div>
+                <h3 className="heading-3 mb-3">Enroll</h3>
+                <p className="body-base">
+                  Apply online and work with our team to determine funding eligibility (WIOA/WRG/JRI).
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  2
+                </div>
+                <h3 className="heading-3 mb-3">Train</h3>
+                <p className="body-base">
+                  Complete hands-on training with industry experts, earn credentials, and build your portfolio.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  3
+                </div>
+                <h3 className="heading-3 mb-3">Get Placed</h3>
+                <p className="body-base">
+                  Step into apprenticeships or direct employment with our network of regional employer partners.
+                </p>
+              </div>
             </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-semibold mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-green)]"
-                required
-              />
+          </div>
+        </section>
+
+        {/* Featured Programs */}
+        <section className="section-spacing bg-surface-elevated">
+          <div className="container-efh">
+            <div className="text-center mb-12">
+              <h2 className="heading-2 mb-4">Featured Programs</h2>
+              <p className="body-large max-w-2xl mx-auto">
+                Career-ready training programs designed with employer input and state alignment.
+              </p>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-[var(--color-green)] text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-            >
-              Submit Inquiry
-            </button>
-            <p className="text-xs text-center opacity-60">
-              This site is protected by reCAPTCHA and the Google{' '}
-              <a
-                href="https://policies.google.com/privacy"
-                className="underline"
-              >
-                Privacy Policy
-              </a>{' '}
-              and{' '}
-              <a href="https://policies.google.com/terms" className="underline">
-                Terms of Service
-              </a>{' '}
-              apply.
-            </p>
-          </form>
-        </div>
-      </Section>
-      {/* Footer */}
-      <Footer
-        socialLinks={{
-          linkedin: 'https://linkedin.com/company/elevateforhumanity',
-          facebook: 'https://facebook.com/elevateforhumanity',
-          instagram: 'https://instagram.com/elevateforhumanity',
-        }}
-      />
+            <div className="grid md:grid-cols-3 gap-8">
+              {featuredPrograms.map((program) => (
+                <div key={program.id} className="card group">
+                  <div className="relative mb-4 overflow-hidden rounded-xl">
+                    <img
+                      src={program.image}
+                      alt={program.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.src = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23F9FAFB" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" fill="%236B7280" font-size="18"%3E${program.title}%3C/text%3E%3C/svg%3E`;
+                      }}
+                    />
+                    <div className="absolute top-3 left-3 flex gap-2">
+                      <span className="badge badge-primary">{program.badge}</span>
+                      {program.funding && (
+                        <span className="badge badge-success">Funding Eligible</span>
+                      )}
+                    </div>
+                  </div>
+                  <h3 className="heading-3 mb-2">{program.title}</h3>
+                  <p className="body-small mb-3 text-text-secondary">
+                    {program.duration} • {program.modality}
+                  </p>
+                  <p className="body-base mb-4">{program.description}</p>
+                  <Link
+                    to={`/programs/${program.id}`}
+                    className="btn btn-outline w-full"
+                  >
+                    Learn More
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <Link to="/programs" className="btn btn-primary text-lg">
+                View All Programs
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Outcomes */}
+        <section className="section-spacing bg-brand text-white">
+          <div className="container-efh">
+            <h2 className="heading-2 text-center text-white mb-12">Our Impact</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {outcomes.map((outcome, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold mb-2">{outcome.value}</div>
+                  <div className="text-lg opacity-90">{outcome.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="section-spacing">
+          <div className="container-efh">
+            <div className="card card-spacious text-center max-w-3xl mx-auto bg-surface-elevated">
+              <h2 className="heading-2 mb-4">Ready to Start Your Journey?</h2>
+              <p className="body-large mb-8">
+                Join hundreds of students who have transformed their careers through our programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/apply" className="btn btn-primary text-lg">
+                  Apply Now
+                </Link>
+                <Link to="/contact" className="btn btn-outline text-lg">
+                  Talk to an Advisor
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }

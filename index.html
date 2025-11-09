@@ -3,42 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< Updated upstream
-    <title>
-      Elevate for Humanity | Workforce Training & Career Development
-    </title>
-    <meta
-      name="description"
-      content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
-    />
-
+    
+    <!-- Basic SEO -->
+    <title>Elevate for Humanity | Workforce Training & Career Development</title>
+    <meta name="description" content="Career-ready training powered by apprenticeships, WIOA/WRG funding, and employer partnerships in Indiana. Enroll, learn, and get placed into real jobs." />
+    <link rel="canonical" href="https://www.elevateforhumanity.org/" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Elevate for Humanity | Workforce Training & Career Development" />
+    <meta property="og:description" content="State-aligned training programs with funding pathways. Learn → Earn → Place." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.elevateforhumanity.org/" />
+    <meta property="og:image" content="https://www.elevateforhumanity.org/og-cover.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elevate for Humanity" />
+    <meta name="twitter:description" content="Career-ready training with funding and job placement." />
+    <meta name="twitter:image" content="https://www.elevateforhumanity.org/og-cover.jpg" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#E41E26" />
+    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+    
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-EFHWORKFORCE01"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EFHWORKFORCE01"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-EFHWORKFORCE01');
     </script>
-
-    <!-- Bing Webmaster Tools -->
-    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
-
-    <!-- Google Search Console -->
-    <meta
-      name="google-site-verification"
-      content="YOUR_GOOGLE_VERIFICATION_CODE"
-    />
-=======
-    <title>Certification Autopilot</title>
->>>>>>> Stashed changes
+    
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Elevate for Humanity",
+      "url": "https://www.elevateforhumanity.org/",
+      "logo": "https://www.elevateforhumanity.org/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/school/elevate-for-humanity"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Keystone at the Crossing",
+        "addressLocality": "Indianapolis",
+        "addressRegion": "IN",
+        "postalCode": "46240",
+        "addressCountry": "US"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+1-317-314-3757",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": ["English"]
+      }]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
