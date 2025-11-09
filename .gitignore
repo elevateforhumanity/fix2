@@ -6,6 +6,9 @@ vendor/
 # Build outputs
 dist/
 build/
+nextjs-site/
+.next/
+out/
 *.egg-info/
 __pycache__/
 *.pyc
