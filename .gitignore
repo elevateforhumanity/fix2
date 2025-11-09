@@ -4,6 +4,9 @@ bower_components/
 vendor/
 
 # Build outputs
+nextjs-site/
+.next/
+out/
 dist/
 build/
 *.egg-info/
