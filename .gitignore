@@ -61,6 +61,8 @@ id_rsa*
 id_dsa*
 *.asc
 *.gpg
+# Exception: ESLint security rules
+!tools/eslint-rules/*secret*.js
 
 # Database
 *.db
@@ -79,6 +81,7 @@ database.json
 netlify/functions/node_modules/
 netlify/functions/package-lock.json
 core.*
+
 # Temporary logs and outputs (cleanup)
 *.log
 *-summary.txt
@@ -92,3 +95,25 @@ cloudflare-token.txt
 # Keep build artifacts that are needed
 !dist/**
 nextjs-site-backup-*.tar.gz
+
+# Large generated bundles and archives (use GitHub Releases instead)
+*.tar.gz
+*.zip
+!.github/**/*.zip
+!.github/**/*.tar.gz
+# Exception: Keep specific small bundles if needed
+# !specific-needed-bundle.zip
+
+# Deployment artifacts
+deploy.zip
+*-bundle*.tar.gz
+*-bundle*.zip
+support-bundle*.tar.gz
+deployment-bundle*.tar.gz
+CERTIFICATION_APPLICATIONS_BUNDLE.*
+COMPLETE_AUTOPILOT_BUNDLE.*
+COMPLETE_AUTOPILOT_WITH_EXTENSIONS.*
+
+# Autopilot lock files (temporary runtime files)
+.autopilot-lock
+

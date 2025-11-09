@@ -1,0 +1,66 @@
+name: Autopilot Health Check
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Allow manual trigger
+  push:
+    branches: [main]
+    paths:
+      - '.autopilot-active'
+      - 'AUTOPILOT_SYSTEM/**'
+      - 'scripts/autopilot-health.js'
+
+permissions:
+  contents: read
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run autopilot health check
+        run: |
+          echo "🏥 Running Autopilot Health Check"
+          echo "=================================="
+          echo ""
+          
+          # Run the health script
+          node scripts/autopilot-health.js
+          
+          echo ""
+          echo "✅ Health check complete"
+
+      - name: Display status
+        if: always()
+        run: |
+          if [ -f "AUTOPILOT_SYSTEM/status.json" ]; then
+            echo "📊 Current Status:"
+            cat AUTOPILOT_SYSTEM/status.json | head -30
+          else
+            echo "⚠️  No status file found"
+          fi
+
+      - name: Create markers on success
+        if: success()
+        run: |
+          mkdir -p .github/markers
+          echo "Health check passed: $(date -Iseconds)" > .github/markers/health-check-passed
+          echo "Autopilot system healthy" > .github/markers/autopilot-healthy
+
+      - name: Upload status as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autopilot-status-${{ github.run_id }}
+          path: AUTOPILOT_SYSTEM/status.json
+          if-no-files-found: warn
+          retention-days: 7

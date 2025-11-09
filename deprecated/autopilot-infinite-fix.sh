@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# ⚠️  DEPRECATED - DO NOT USE ⚠️
+# This script has been deprecated due to infinite loop design causing resource exhaustion
+# and excessive issue creation.
+# 
+# Use instead: ./ACTIVATE_ALL_AUTOPILOT.sh
+# See: deprecated/README.md for migration guide
+#
+# This file is kept for historical reference only.
+
+echo "❌ ERROR: This script is DEPRECATED and should not be used"
+echo ""
+echo "This script has been replaced with a more robust alternative."
+echo "Please use: ./ACTIVATE_ALL_AUTOPILOT.sh"
+echo ""
+echo "See deprecated/README.md for more information."
+exit 1
+
+# Original script below (non-functional)
+# =====================================
+
 echo "🤖 AUTOPILOT: INFINITE FIX MODE - NO LIMITS"
 echo "============================================"
 echo "Will keep fixing and testing until 100% success"

@@ -4,6 +4,7 @@ import react from 'eslint-plugin-react';
 import hooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import ts from 'typescript-eslint';
+import noSecretLiterals from './tools/eslint-rules/no-secret-literals.js';
 
 export default [
   {
@@ -18,12 +19,20 @@ export default [
       'netlify/functions/**',
       'generate-full-app.js',
       'tools/**',
+      'deprecated/**',
     ],
   },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   js.configs.recommended,
   ...ts.configs.recommended,
   {
+    plugins: {
+      'custom-rules': {
+        rules: {
+          'no-secret-literals': noSecretLiterals,
+        },
+      },
+    },
     rules: {
       // Many generated/experimental modules rely on loose typing and placeholder args.
       // We disable unused/any checks globally so they do not spam CI with warnings.
@@ -31,6 +40,8 @@ export default [
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-require-imports': 'error',
+      // Custom security rule to detect hard-coded secrets
+      'custom-rules/no-secret-literals': 'error',
     },
   },
   {

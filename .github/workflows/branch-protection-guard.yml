@@ -1,0 +1,135 @@
+name: Branch Protection Guard
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: read
+  issues: write # Only if we want to create issues on failure
+
+jobs:
+  check-branch-protection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check branch protection settings
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          
+          echo "🛡️  Checking branch protection for 'main'..."
+          echo "=============================================="
+          echo ""
+          
+          # Get repository info
+          REPO="${{ github.repository }}"
+          BRANCH="main"
+          
+          # Fetch branch protection settings
+          RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$REPO/branches/$BRANCH/protection" \
+            -w "\n%{http_code}")
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n-1)
+          
+          if [[ "$HTTP_CODE" == "404" ]]; then
+            echo "❌ Branch protection is NOT configured for '$BRANCH'"
+            echo ""
+            echo "Please configure branch protection with:"
+            echo "  - Require pull request reviews"
+            echo "  - Require status checks: build-test, check"
+            echo "  - Require conversation resolution"
+            echo "  - Require branches to be up to date"
+            echo "  - Do not allow bypassing (enforce admins)"
+            exit 1
+          elif [[ "$HTTP_CODE" != "200" ]]; then
+            echo "⚠️  Failed to fetch branch protection (HTTP $HTTP_CODE)"
+            exit 1
+          fi
+          
+          echo "✅ Branch protection is enabled"
+          echo ""
+          
+          # Check specific settings
+          ERRORS=0
+          
+          # Check if PR reviews are required
+          REQUIRED_REVIEWS=$(echo "$BODY" | jq -r '.required_pull_request_reviews != null')
+          if [[ "$REQUIRED_REVIEWS" == "true" ]]; then
+            echo "✅ Pull request reviews: Required"
+          else
+            echo "❌ Pull request reviews: Not required"
+            ((ERRORS++))
+          fi
+          
+          # Check status checks
+          REQUIRED_CHECKS=$(echo "$BODY" | jq -r '.required_status_checks.contexts // []')
+          echo "📋 Required status checks: $REQUIRED_CHECKS"
+          
+          # Verify specific checks exist
+          HAS_BUILD_TEST=$(echo "$REQUIRED_CHECKS" | jq 'contains(["build-test"])')
+          HAS_CHECK=$(echo "$REQUIRED_CHECKS" | jq 'contains(["check"])')
+          
+          if [[ "$HAS_BUILD_TEST" == "true" ]]; then
+            echo "✅ Status check 'build-test': Present"
+          else
+            echo "⚠️  Status check 'build-test': Missing (recommended)"
+          fi
+          
+          if [[ "$HAS_CHECK" == "true" ]]; then
+            echo "✅ Status check 'check': Present"
+          else
+            echo "⚠️  Status check 'check': Missing (recommended)"
+          fi
+          
+          # Check conversation resolution
+          REQUIRE_CONVERSATION=$(echo "$BODY" | jq -r '.required_conversation_resolution.enabled // false')
+          if [[ "$REQUIRE_CONVERSATION" == "true" ]]; then
+            echo "✅ Conversation resolution: Required"
+          else
+            echo "⚠️  Conversation resolution: Not required (recommended)"
+          fi
+          
+          # Check strict status checks (up-to-date branch)
+          STRICT_CHECKS=$(echo "$BODY" | jq -r '.required_status_checks.strict // false')
+          if [[ "$STRICT_CHECKS" == "true" ]]; then
+            echo "✅ Strict status checks (up-to-date): Enabled"
+          else
+            echo "⚠️  Strict status checks: Disabled (recommended to enable)"
+          fi
+          
+          # Check if protection applies to admins
+          ENFORCE_ADMINS=$(echo "$BODY" | jq -r '.enforce_admins.enabled // false')
+          if [[ "$ENFORCE_ADMINS" == "true" ]]; then
+            echo "✅ Enforce admins: Enabled"
+          else
+            echo "⚠️  Enforce admins: Disabled (recommended to enable)"
+          fi
+          
+          echo ""
+          echo "=============================================="
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo "❌ Branch protection check failed with $ERRORS critical errors"
+            exit 1
+          else
+            echo "✅ Branch protection check passed"
+            echo "   (Some optional settings may need attention)"
+            exit 0
+          fi
+
+      - name: Create marker file on success
+        if: success()
+        run: |
+          mkdir -p .github/markers
+          echo "Branch protection verified: $(date -Iseconds)" > .github/markers/branch-protection-verified

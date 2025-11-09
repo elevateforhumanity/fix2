@@ -74,6 +74,58 @@ cp .env.example .env
 npm run dev
 ```
 
+### Autopilot Operations
+
+The repository includes a secure autopilot system for automated deployments and monitoring.
+
+#### Prerequisites
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Required environment variables (never commit these!)
+export ENABLE_AUTOPILOT=true
+export NETLIFY_AUTH_TOKEN=your-token
+export NETLIFY_SITE_ID=your-site-id
+export SUPABASE_URL=your-url
+export SUPABASE_ANON_KEY=your-key
+```
+
+#### Running Autopilot
+
+```bash
+# Activate all systems (secure, idempotent)
+./ACTIVATE_ALL_AUTOPILOT.sh
+```
+
+The script will:
+- ✅ Validate environment variables
+- ✅ Acquire lock file (prevents concurrent runs)
+- ✅ Trigger Netlify deployment
+- ✅ Configure environment variables
+- ✅ Activate GitHub workflows
+- ✅ Update status tracking
+
+#### Health Monitoring
+
+```bash
+# Check system health
+node scripts/autopilot-health.js
+
+# View status
+cat AUTOPILOT_SYSTEM/status.json
+```
+
+**Automated Workflows:**
+- 🏥 Health checks run every 30 minutes
+- 🛡️ Branch protection verification runs daily
+- 📊 Status tracked in `AUTOPILOT_SYSTEM/status.json`
+
+**Documentation:**
+- See `AUTOPILOT_SYSTEM/README.md` for detailed guide
+- See `SECURITY_CLEANUP_CHECKLIST.md` for security practices
+
 ### Autopilot Suite v2
 
 ```bash
