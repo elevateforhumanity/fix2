@@ -11,7 +11,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build --if-present
-      - run: pnpm test --if-present
+      - name: Lint
+        run: pnpm run lint
+      - name: Type Check
+        run: |
+          if [ -f "tsconfig.json" ]; then
+            pnpm exec tsc --noEmit
+          else
+            echo "⚠️  TypeScript not configured, skipping type check"
+          fi
+      - name: Test
+        run: pnpm test
+      - name: Build
+        run: pnpm run build
