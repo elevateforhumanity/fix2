@@ -1,0 +1,30 @@
+{
+  "lastRun": null,
+  "status": "initialized",
+  "version": "2.0.0",
+  "steps": {
+    "envValidation": "pending",
+    "netlifyDeploy": "pending",
+    "envVarsSet": "pending",
+    "workflowsActivated": "pending",
+    "workersDeployed": "pending",
+    "siteVerified": "pending"
+  },
+  "errors": [],
+  "healthScore": 0,
+  "healthStatus": "unknown",
+  "systemChecks": {
+    "statusFileExists": true,
+    "lockFileExists": false,
+    "autopilotActive": false
+  },
+  "githubActions": {
+    "buildTest": "unknown",
+    "check": "unknown",
+    "autopilotActive": false
+  },
+  "notes": [
+    "This file is automatically updated by autopilot scripts and health checks",
+    "Do not edit manually unless necessary"
+  ]
+}

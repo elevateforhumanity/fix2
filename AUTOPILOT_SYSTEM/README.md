@@ -1,375 +1,250 @@
-# Certification Autopilot System
+# Autopilot System
 
-## Human-in-the-Loop Application Management
+The Autopilot System provides automated deployment, monitoring, and health checking capabilities for the Elevate for Humanity platform.
 
-**Built for:** Elevate for Humanity  
-**Purpose:** Automate certification applications with human review and control
+## Overview
 
----
+The autopilot system consists of:
+- **Activation Script**: `ACTIVATE_ALL_AUTOPILOT.sh` - Securely activates all autopilot features
+- **Health Monitor**: `scripts/autopilot-health.js` - Aggregates system health metrics
+- **Status File**: `AUTOPILOT_SYSTEM/status.json` - Central status tracking
+- **GitHub Workflows**: Automated health checks and branch protection verification
 
-## 🎯 What This System Does
+## Status File Structure
 
-**Autopilot Pre-fills → Human Reviews/Edits → System Submits**
+The `status.json` file contains real-time information about the autopilot system:
 
-1. **Master Profile** - Canonical business data stored in Supabase
-2. **Autopilot** - Pre-fills PDFs and web forms automatically
-3. **Worker Dashboard** - Humans review, edit, inject missing data
-4. **Portal Automation** - Playwright submits to government portals
-5. **Audit Trail** - Complete logging of who changed what, when
-
----
-
-## 📦 System Components
-
-```
-AUTOPILOT_SYSTEM/
-├── README.md (this file)
-├── backend/
-│   ├── api/
-│   │   ├── profiles.py (profile management)
-│   │   ├── packets.py (packet CRUD)
-│   │   ├── inject.py (data injection)
-│   │   └── audit.py (audit logging)
-│   ├── automation/
-│   │   ├── pdf_filler.py (fill PDFs)
-│   │   ├── portal_bot.py (Playwright automation)
-│   │   └── packet_generator.py (create packets)
-│   ├── database/
-│   │   ├── schema.sql (Supabase tables)
-│   │   └── seed.sql (initial data)
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── PacketList.tsx
-│   │   │   ├── PacketEditor.tsx
-│   │   │   ├── FieldEditor.tsx
-│   │   │   └── AuditLog.tsx
-│   │   ├── pages/
-│   │   │   ├── Dashboard.tsx
-│   │   │   ├── PacketDetail.tsx
-│   │   │   └── AuditTrail.tsx
-│   │   └── App.tsx
-│   ├── package.json
-│   └── tailwind.config.js
-├── scripts/
-│   ├── list_pdf_fields.py
-│   ├── fill_pdf.py
-│   └── deploy.sh
-├── data/
-│   ├── master_profile.json
-│   ├── packets/ (generated packets)
-│   └── templates/ (blank PDFs)
-└── docs/
-    ├── SETUP.md
-    ├── API.md
-    ├── WORKER_GUIDE.md
-    └── DEPLOYMENT.md
+```json
+{
+  "lastRun": "2024-11-09T01:00:00.000Z",          // Last activation timestamp
+  "status": "completed",                           // Current status: initialized|running|completed|failed
+  "version": "2.0.0",                             // Autopilot version
+  "steps": {                                       // Individual step statuses
+    "envValidation": "success",
+    "netlifyDeploy": "success",
+    "envVarsSet": "success",
+    "workflowsActivated": "success",
+    "workersDeployed": "skipped",
+    "siteVerified": "success"
+  },
+  "errors": [],                                    // Array of error messages
+  "healthScore": 85.5,                            // Overall health percentage (0-100)
+  "healthStatus": "healthy",                      // healthy|degraded|unhealthy
+  "systemChecks": {                               // System-level checks
+    "statusFileExists": true,
+    "lockFileExists": false,
+    "autopilotActive": true
+  },
+  "githubActions": {                              // GitHub Actions status
+    "buildTest": "passed",
+    "check": "passed",
+    "autopilotActive": true
+  },
+  "lastHealthCheck": "2024-11-09T01:30:00.000Z", // Last health check timestamp
+  "locked": false,                                // Whether autopilot is currently running
+  "lockPid": null                                 // Process ID if locked
+}
 ```
 
----
+## Status Values
 
-## 🚀 Quick Start
+### Main Status
+- `initialized` - System is ready but not yet run
+- `running` - Autopilot is currently executing
+- `completed` - Last run completed successfully
+- `failed` - Last run encountered errors
 
-### **Step 1: Setup Database**
+### Step Status
+- `pending` - Step has not started
+- `in_progress` - Step is currently running
+- `success` - Step completed successfully
+- `failed` - Step encountered an error
+- `skipped` - Step was skipped (e.g., optional dependencies not available)
+- `warning` - Step completed with warnings
+
+### Health Status
+- `healthy` - Score >= 75%: System is functioning normally
+- `degraded` - Score >= 50%: Some issues detected but system is operational
+- `unhealthy` - Score < 50%: Significant issues require attention
+
+## Health Monitoring Workflow
+
+The autopilot health check workflow (`.github/workflows/autopilot-health.yml`) runs automatically:
+- **Schedule**: Every 30 minutes
+- **Trigger**: On push to main (when autopilot files change)
+- **Manual**: Via workflow_dispatch
+
+### What the Health Check Does
+
+1. Reads current status from `status.json`
+2. Checks for lock files (concurrent runs)
+3. Examines GitHub Actions markers
+4. Calculates health score based on:
+   - Build/test status
+   - Code quality checks
+   - System availability
+   - Error frequency
+5. Updates `status.json` with latest metrics
+6. Uploads status as workflow artifact
+
+## Using the Autopilot System
+
+### Prerequisites
+
+Before running autopilot, ensure you have:
 
 ```bash
-cd backend/database
-psql -h your-supabase-url -f schema.sql
-psql -h your-supabase-url -f seed.sql
+# Required environment variables
+export ENABLE_AUTOPILOT=true
+export NETLIFY_AUTH_TOKEN=your-token
+export NETLIFY_SITE_ID=your-site-id
+export SUPABASE_URL=your-url
+export SUPABASE_ANON_KEY=your-key
 ```
 
-### **Step 2: Start Backend**
+See `.env.example` for all available variables.
+
+### Running the Autopilot
 
 ```bash
-cd backend
-pip install -r requirements.txt
-python -m uvicorn api.main:app --reload
+# Activate all systems
+./ACTIVATE_ALL_AUTOPILOT.sh
 ```
 
-### **Step 3: Start Frontend**
+The script will:
+1. Validate environment variables
+2. Acquire a lock file (prevents concurrent runs)
+3. Trigger Netlify deployment
+4. Set environment variables
+5. Activate GitHub workflows
+6. Deploy Cloudflare workers (if configured)
+7. Verify site availability
+8. Update status.json
+9. Release the lock
+
+### Manual Health Check
 
 ```bash
-cd frontend
-npm install
-npm run dev
+# Run health check manually
+node scripts/autopilot-health.js
 ```
 
-### **Step 4: Access Dashboard**
+View the results in `AUTOPILOT_SYSTEM/status.json`.
 
-```
-http://localhost:3000
-```
+### Lock File Mechanism
 
----
+The autopilot uses `.autopilot-lock` to prevent concurrent runs:
+- Created when autopilot starts (contains process ID)
+- Checked before each run
+- Automatically removed on completion or error
+- Stale locks (dead process) are automatically cleaned up
 
-## 🔐 Security & RBAC
+## Troubleshooting
 
-**Roles:**
+### Autopilot Won't Start
 
-- **Admin** - Full access, change RBAC, view all logs
-- **Cert Worker** - Edit fields, upload docs, mark ready
-- **Reviewer** - Final approval, submit to portals
-- **Auditor** - Read-only logs and snapshots
+Check:
+1. Is `ENABLE_AUTOPILOT=true`?
+2. Are all required env vars set?
+3. Is there a stale lock file? Remove `.autopilot-lock` if process is dead
+4. Check `status.json` for recent errors
 
-**Security Features:**
+### Health Score is Low
 
-- MFA for all workers
-- Immutable audit logs
-- Encrypted file storage
-- PII masking (SSN, financials)
-- Versioned snapshots
-- No plain-text credentials
+Common causes:
+- Build or test failures in CI
+- Netlify deployment issues
+- Missing environment variables
+- Network connectivity problems
 
----
+Check the `errors` array in `status.json` for specific issues.
 
-## 📋 Worker Flows
+### Lock File Stuck
 
-### **Flow A: Edit Pre-filled PDF**
-
-1. Autopilot creates `packet-123-draft.pdf`
-2. Worker opens dashboard → sees packet-123
-3. Worker edits phone, uploads IRS letter
-4. Worker clicks **Approve**
-5. System flattens PDF, stores final, logs audit
-6. Optional: Playwright uploads to portal
-
-### **Flow B: Inject Data via API**
-
-1. Worker edits fields in UI
-2. Clicks **Inject**
-3. UI POSTs to `/api/packets/123/inject`
-4. Server merges data, creates snapshot
-5. Returns audit ID and updated profile
-
----
-
-## 🔌 API Endpoints
-
-### **Profiles**
-
-```
-GET    /api/profiles/{orgId}           - Get master profile
-PATCH  /api/profiles/{orgId}           - Update profile fields
-GET    /api/profiles/{orgId}/history   - Get version history
-```
-
-### **Packets**
-
-```
-GET    /api/packets                    - List all packets
-GET    /api/packets/{id}               - Get packet details
-POST   /api/packets                    - Create new packet
-PATCH  /api/packets/{id}/inject        - Inject data
-POST   /api/packets/{id}/approve       - Approve packet
-POST   /api/packets/{id}/submit        - Submit to portal
-```
-
-### **Audit**
-
-```
-GET    /api/audit                      - List audit logs
-GET    /api/audit/{id}                 - Get audit details
-GET    /api/audit/packet/{packetId}   - Get packet audit trail
-```
-
----
-
-## 📊 Database Schema
-
-**Tables:**
-
-- `profiles` - Master business profiles
-- `packets` - Application packets
-- `packet_fields` - Field values per packet
-- `attachments` - Uploaded documents
-- `audit_logs` - Immutable audit trail
-- `users` - Worker accounts
-- `roles` - RBAC definitions
-
----
-
-## 🤖 Automation Features
-
-**PDF Automation:**
-
-- List all fields in blank PDF
-- Pre-fill with master profile data
-- Flatten to prevent editing
-- Generate final submission PDF
-
-**Portal Automation:**
-
-- Playwright browser automation
-- Handle MFA (human login)
-- Fill web forms
-- Upload documents
-- Submit applications
-- Capture confirmation
-
----
-
-## 📝 Audit Trail
-
-**Every action logged:**
-
-- Who made the change
-- What changed (before/after diff)
-- When it happened
-- Which packet/profile
-- IP address and session
-- Approval chain
-
-**Immutable logs:**
-
-- Cannot be deleted or modified
-- Versioned snapshots
-- Compliance-ready
-- Exportable for audits
-
----
-
-## 🎨 Worker Dashboard Features
-
-**Packet List:**
-
-- Filter by status (draft, ready, submitted)
-- Search by certification type
-- Sort by priority/deadline
-- Bulk actions
-
-**Packet Editor:**
-
-- Preview pre-filled PDF
-- Edit fields inline
-- Upload attachments
-- Add notes/comments
-- Mark ready for review
-
-**Field Editor:**
-
-- Smart validation
-- Required field indicators
-- Placeholder hints
-- Auto-save drafts
-- Undo/redo
-
-**Audit Viewer:**
-
-- Timeline of changes
-- Before/after diffs
-- User attribution
-- Export to PDF
-
----
-
-## 🔄 Workflow States
-
-```
-DRAFT → READY_FOR_REVIEW → APPROVED → SUBMITTED → COMPLETED
-  ↓           ↓                ↓           ↓
-NEEDS_INFO  REJECTED      NEEDS_REVISION  FAILED
-```
-
-**State Transitions:**
-
-- Worker creates → DRAFT
-- Worker completes → READY_FOR_REVIEW
-- Reviewer approves → APPROVED
-- System submits → SUBMITTED
-- Portal confirms → COMPLETED
-
----
-
-## 📦 Deployment
-
-**Requirements:**
-
-- Node.js 18+
-- Python 3.10+
-- PostgreSQL (Supabase)
-- Redis (optional, for queues)
-- S3/R2 (file storage)
-
-**Environment Variables:**
+If autopilot won't run due to a lock:
 
 ```bash
-SUPABASE_URL=your-url
-SUPABASE_KEY=your-key
-JWT_SECRET=your-secret
-S3_BUCKET=your-bucket
-SMTP_HOST=your-smtp
-SLACK_WEBHOOK=your-webhook
+# Check if process is running
+cat .autopilot-lock  # Shows PID
+ps -p <PID>          # Check if process exists
+
+# If process is dead, remove lock
+rm .autopilot-lock
 ```
 
-**Deploy:**
+## Advanced Configuration
+
+### Cooldown Period
+
+Control how often autopilot can run:
 
 ```bash
-./scripts/deploy.sh production
+export AUTOPILOT_COOLDOWN_SECONDS=3600  # 1 hour between runs
 ```
 
----
+### Feature Flags
 
-## 📚 Documentation
+```bash
+export ENABLE_AUTOPILOT=false           # Disable completely
+export AUTOPILOT_MODE=development       # Set mode
+```
 
-- **SETUP.md** - Installation and configuration
-- **API.md** - Complete API reference
-- **WORKER_GUIDE.md** - How to use the dashboard
-- **DEPLOYMENT.md** - Production deployment guide
+### Custom Health Checks
 
----
+Extend `scripts/autopilot-health.js` to add custom checks:
 
-## 🎯 Next Steps
+```javascript
+function customCheck() {
+  // Your custom logic
+  return { status: 'passed', message: 'Custom check OK' };
+}
+```
 
-1. **Review** - Read through all files
-2. **Setup** - Follow SETUP.md
-3. **Test** - Run with sample data
-4. **Train** - Onboard workers
-5. **Deploy** - Go to production
+## Monitoring & Alerts
 
----
+### GitHub Actions Artifacts
 
-## 💡 Pro Tips
+Each health check uploads `status.json` as an artifact:
+- Retention: 7 days
+- Name: `autopilot-status-<run-id>`
+- Access via: Actions > Workflow Run > Artifacts
 
-**For Workers:**
+### Integrations
 
-- Save drafts frequently
-- Use comments for questions
-- Upload docs early
-- Review audit trail before submitting
+Status file can be consumed by:
+- Monitoring dashboards
+- Slack/Discord bots
+- PagerDuty/Opsgenie
+- Custom alerting scripts
 
-**For Admins:**
+Example:
+```bash
+# Alert if health score drops below 50%
+SCORE=$(jq -r '.healthScore' AUTOPILOT_SYSTEM/status.json)
+if (( $(echo "$SCORE < 50" | bc -l) )); then
+  echo "ALERT: Health score is $SCORE%"
+fi
+```
 
-- Monitor audit logs daily
-- Review failed submissions
-- Update master profile regularly
-- Backup database weekly
+## Security Considerations
 
-**For Developers:**
+- **Never commit secrets** to `status.json`
+- Lock file contains only PID (safe to commit)
+- Status file may contain error messages - review before sharing
+- Health workflow has read-only permissions by default
 
-- Run tests before deploying
-- Monitor API performance
-- Check error logs
-- Update dependencies monthly
+## Migration from Old System
 
----
+If migrating from the old autopilot:
 
-## 🆘 Support
+1. **Stop old scripts**: Kill any running `autopilot-infinite-fix.sh` or `autopilot-loop.sh`
+2. **Set environment variables**: Follow `.env.example`
+3. **Remove old status files**: Clean up legacy `.autopilot-status.json` if different
+4. **Run new system**: `./ACTIVATE_ALL_AUTOPILOT.sh`
 
-**Technical Issues:**
+## Further Reading
 
-- Check logs: `docker logs autopilot-api`
-- Review audit trail
-- Contact dev team
-
-**Application Questions:**
-
-- Review WORKER_GUIDE.md
-- Check certification requirements
-- Contact certification agencies
-
----
-
-**Built with:** FastAPI, React, Supabase, Playwright, pypdf  
-**License:** Commercial - Elevate for Humanity  
-**Version:** 1.0.0
+- `../SECURITY_CLEANUP_CHECKLIST.md` - Security best practices
+- `../deprecated/README.md` - Information about deprecated scripts
+- `.github/workflows/` - Workflow definitions
+- `.env.example` - Environment variable reference

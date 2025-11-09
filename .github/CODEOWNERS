@@ -1,0 +1,47 @@
+# Code Owners for Elevate for Humanity
+# 
+# This file defines individuals or teams responsible for code in the repository.
+# When a pull request modifies code in a defined area, the designated owners 
+# are automatically requested for review.
+#
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything in the repo
+# Unless a later match takes precedence, these users will be requested for review
+*                                   @elevateforhumanity
+
+# Root configuration files
+/.env.example                       @elevateforhumanity
+/.gitignore                         @elevateforhumanity
+/package.json                       @elevateforhumanity
+/tsconfig*.json                     @elevateforhumanity
+
+# Security-sensitive files
+/ACTIVATE_ALL_AUTOPILOT.sh          @elevateforhumanity
+/.github/workflows/                 @elevateforhumanity
+/scripts/                           @elevateforhumanity
+
+# Autopilot system
+/AUTOPILOT_SYSTEM/                  @elevateforhumanity
+/deprecated/                        @elevateforhumanity
+
+# ESLint and security tooling
+/tools/eslint-rules/                @elevateforhumanity
+/eslint.config.js                   @elevateforhumanity
+
+# Documentation
+/README.md                          @elevateforhumanity
+/README_START_HERE.md               @elevateforhumanity
+/SECURITY_CLEANUP_CHECKLIST.md      @elevateforhumanity
+/RELEASE_ARTIFACTS.md               @elevateforhumanity
+
+# Infrastructure configuration
+/netlify.toml                       @elevateforhumanity
+/vercel.json                        @elevateforhumanity
+/wrangler*.toml                     @elevateforhumanity
+
+# Source code (can be more specific as team grows)
+/src/                               @elevateforhumanity
+/frontend/                          @elevateforhumanity
+/backend/                           @elevateforhumanity
+/workers/                           @elevateforhumanity
