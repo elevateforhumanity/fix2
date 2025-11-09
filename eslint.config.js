@@ -80,6 +80,8 @@ export default [
       'netlify/functions/**',
       'generate-full-app.js',
       'tools/**',
+      'nextjs-site/**', // Built files may contain mock data
+      '**/*.sw.js', // Service workers
     ],
   },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
@@ -110,6 +112,7 @@ export default [
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      'no-secrets/no-hardcoded-secrets': 'off', // Allow mock secrets in tests
     },
   },
   {
