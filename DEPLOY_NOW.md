@@ -122,7 +122,7 @@ Wait for deployment to complete (usually 2-3 minutes)
 
 ### Test Authentication
 
-1. Visit: [https://elevateforhumanity.org/login](https://elevateforhumanity.org/login)
+1. Visit: [https://portal.elevateforhumanity.org/login](https://portal.elevateforhumanity.org/login)
 2. Enter your email
 3. Click "Send Magic Link"
 4. Check your email
@@ -131,7 +131,7 @@ Wait for deployment to complete (usually 2-3 minutes)
 
 ### Test Staff Panel
 
-1. Visit: [https://elevateforhumanity.org/staff](https://elevateforhumanity.org/staff)
+1. Visit: [https://portal.elevateforhumanity.org/staff](https://portal.elevateforhumanity.org/staff)
 2. Verify you can access (you're admin)
 3. Fill in the form:
    - **Learner Email:** Your email
@@ -143,12 +143,12 @@ Wait for deployment to complete (usually 2-3 minutes)
 
 ### Test Certificate Viewing
 
-1. Visit: [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
+1. Visit: [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
 2. Verify you see the test certificate
 
 ### Test Public Verification
 
-1. Visit: `https://elevateforhumanity.org/verify/YOUR_CODE`
+1. Visit: `https://portal.elevateforhumanity.org/verify/YOUR_CODE`
 2. Verify certificate details are displayed
 
 ---
@@ -171,11 +171,11 @@ Wait for deployment to complete (usually 2-3 minutes)
 ## 🔗 Important Links
 
 ### Production URLs
-- **Main Site:** [https://elevateforhumanity.org](https://elevateforhumanity.org)
-- **Login:** [https://elevateforhumanity.org/login](https://elevateforhumanity.org/login)
-- **My Certificates:** [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
-- **Staff Panel:** [https://elevateforhumanity.org/staff](https://elevateforhumanity.org/staff)
-- **LMS:** [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
+- **Main Site:** [https://portal.elevateforhumanity.org](https://portal.elevateforhumanity.org)
+- **Login:** [https://portal.elevateforhumanity.org/login](https://portal.elevateforhumanity.org/login)
+- **My Certificates:** [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
+- **Staff Panel:** [https://portal.elevateforhumanity.org/staff](https://portal.elevateforhumanity.org/staff)
+- **LMS:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 
 ### Admin Dashboards
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)

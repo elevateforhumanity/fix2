@@ -13,7 +13,7 @@
 ## 🚀 Your LMS is Ready!
 
 ### Live Enrollment Page
-**URL:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+**URL:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 **Features:**
 - ✅ Complete course information
@@ -47,7 +47,7 @@ Eligible for $500 scholarship
 **Why:** Leaders who complete it see higher student participation
 
 **How:**
-1. Go to [your enrollment page](https://elevateforhumanity.org/lms/milady-riseenrollment)
+1. Go to [your enrollment page](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 2. Click "Enroll Now"
 3. Complete all 3 courses
 4. Get your certificate
@@ -126,7 +126,7 @@ Time: 4 hours
 Cost: FREE
 Bonus: Eligible for $500 scholarship!
 
-Get started: https://elevateforhumanity.org/lms/milady-riseenrollment
+Get started: https://portal.elevateforhumanity.org/lms/milady-riseenrollment
 
 Questions? Let me know!
 
@@ -140,7 +140,7 @@ Elizabeth
 ### For Students
 - Technical issues → Use support link from partner email
 - Enrollment help → Your staff
-- LMS access → [Your enrollment page](https://elevateforhumanity.org/lms/milady-riseenrollment)
+- LMS access → [Your enrollment page](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 ### For You
 - **Partner Contact:** Use links from your partner email
@@ -172,4 +172,4 @@ With 1,000 redemptions available, you have plenty of room to grow beyond your cu
 
 **Everything is ready. Start by completing the certification yourself, then share with your students!** 🚀
 
-**Your enrollment page:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+**Your enrollment page:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)

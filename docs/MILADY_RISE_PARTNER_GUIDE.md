@@ -32,7 +32,7 @@ You're now an official **Milady RISE Partner** with:
 ### Student Experience
 
 **1. Student visits your enrollment page:**
-[https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+[https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 **2. They see:**
 - Complete course information
@@ -161,8 +161,8 @@ ORDER BY e.enrolled_at DESC;
 - Professional course presentation
 
 **Share these links:**
-- Direct enrollment: [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
-- Your LMS home: [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
+- Direct enrollment: [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
+- Your LMS home: [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 
 ---
 
@@ -220,7 +220,7 @@ Cost: FREE with our code
 Bonus: Eligible for $500 scholarship!
 
 Get started now:
-https://elevateforhumanity.org/lms/milady-riseenrollment
+https://portal.elevateforhumanity.org/lms/milady-riseenrollment
 
 Questions? Let me know!
 
@@ -440,7 +440,7 @@ WHERE c.code = 'MILADY-RISE';
 - Contact information available in your Milady RISE partner email
 
 ### Your LMS
-- **Enrollment Page:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+- **Enrollment Page:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 - **Admin Dashboard:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 
 ---

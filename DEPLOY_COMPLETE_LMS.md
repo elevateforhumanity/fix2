@@ -139,13 +139,13 @@ git push origin main
 ## 🎯 What Students Will Experience
 
 ### 1. Browse Courses
-**URL:** [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
+**URL:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 - See all available courses
 - View course details
 - Check enrollment status
 
 ### 2. Enroll in Barber Course
-**URL:** [https://elevateforhumanity.org/lms/milady-barber-course](https://elevateforhumanity.org/lms/milady-barber-course)
+**URL:** [https://portal.elevateforhumanity.org/lms/milady-barber-course](https://portal.elevateforhumanity.org/lms/milady-barber-course)
 - View full curriculum (10 modules)
 - Click "Enroll in Course"
 - Course appears in their dashboard
@@ -165,7 +165,7 @@ git push origin main
 - ✅ Certificate issued when 100% complete
 
 ### 5. View Certificates
-**URL:** [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
+**URL:** [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
 - See all earned certificates
 - Download PDFs
 - Share verification links
@@ -371,14 +371,14 @@ Create a script to import lessons from a spreadsheet or JSON file.
 ## 🔗 All Your Links
 
 ### Student Experience
-- **LMS Home:** [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
-- **Barber Course:** [https://elevateforhumanity.org/lms/milady-barber-course](https://elevateforhumanity.org/lms/milady-barber-course)
-- **RISE Enrollment:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
-- **My Certificates:** [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
-- **Login:** [https://elevateforhumanity.org/login](https://elevateforhumanity.org/login)
+- **LMS Home:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
+- **Barber Course:** [https://portal.elevateforhumanity.org/lms/milady-barber-course](https://portal.elevateforhumanity.org/lms/milady-barber-course)
+- **RISE Enrollment:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
+- **My Certificates:** [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
+- **Login:** [https://portal.elevateforhumanity.org/login](https://portal.elevateforhumanity.org/login)
 
 ### Admin Tools
-- **Staff Panel:** [https://elevateforhumanity.org/staff](https://elevateforhumanity.org/staff)
+- **Staff Panel:** [https://portal.elevateforhumanity.org/staff](https://portal.elevateforhumanity.org/staff)
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 - **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
 
