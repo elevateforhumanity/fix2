@@ -22,6 +22,11 @@ export const mainNavigation: NavLink[] = [
 
 export const ctaButton = { label: "Apply Now", to: "/apply" };
 
+export const authButtons = {
+  signIn: { label: "Sign In", to: "/login" },
+  signUp: { label: "Get Started", to: "/apply" },
+};
+
 export const footerSections = [
   {
     title: "Programs",

@@ -20,6 +20,25 @@
 
 ## 🚀 Complete Execution Plan
 
+### Phase 0: Generate Brand Images (2 minutes) ⭐ NEW
+
+```bash
+cd /workspaces/fix2
+bash scripts/zinc_generate_images.sh
+```
+
+**What it generates:**
+- ✅ Logo (light + dark mode) - `/public/logo.svg`, `/public/logo-dark.svg`
+- ✅ Hero image - `/public/images/hero-training.jpg` (1200x900)
+- ✅ OG social preview - `/public/images/og-cover.jpg` (1200x630)
+- ✅ Favicon - `/public/favicon.ico` + `/public/images/favicon.png`
+- ✅ Partner logos - `/public/images/partners/*.webp` (5 logos)
+- ✅ Section tiles - `/public/images/tile-{programs,apply,contact}.jpg`
+
+**Total time**: 10-15 seconds  
+**Total size**: ~500KB (optimized)  
+**No downloads required**: All generated via ImageMagick
+
 ### Phase 1: Run Zinc Scripts (30 minutes)
 
 #### Step 1: Zinc Finish Script

@@ -1,10 +1,10 @@
 export default function Partners() {
   const logos = [
-    { src: '/images/partners/workone.svg', alt: 'WorkOne Indiana', fallback: '/images/partners/workone.png' },
-    { src: '/images/partners/dwd.svg', alt: 'Indiana DWD', fallback: '/images/partners/dwd.png' },
-    { src: '/images/partners/nextleveljobs.svg', alt: 'Next Level Jobs', fallback: '/images/partners/nextleveljobs.png' },
-    { src: '/images/partners/usdol.svg', alt: 'U.S. Department of Labor', fallback: '/images/partners/usdol.png' },
-    { src: '/images/partners/osha.svg', alt: 'OSHA', fallback: '/images/partners/osha.png' },
+    { src: '/images/partners/workone.webp', alt: 'WorkOne Indiana' },
+    { src: '/images/partners/dwd.webp', alt: 'Indiana DWD' },
+    { src: '/images/partners/nextleveljobs.webp', alt: 'Next Level Jobs' },
+    { src: '/images/partners/usdol.webp', alt: 'U.S. Department of Labor' },
+    { src: '/images/partners/osha.webp', alt: 'OSHA' },
   ];
 
   return (
@@ -22,13 +22,6 @@ export default function Partners() {
                 className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
                 loading="lazy"
                 decoding="async"
-                onError={(e) => {
-                  // Fallback to PNG if SVG fails
-                  const target = e.target as HTMLImageElement;
-                  if (target.src !== logo.fallback) {
-                    target.src = logo.fallback;
-                  }
-                }}
               />
             </div>
           ))}

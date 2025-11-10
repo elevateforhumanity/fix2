@@ -5,7 +5,7 @@ export default function SEO({
   title = 'Elevate for Humanity - 106+ Workforce Certifications',
   description = 'Indianapolis-based ETPL provider offering 106+ industry-recognized certification programs with 92% job placement rate. 100% FREE through WIOA funding.',
   keywords = 'workforce development, online learning, career training, professional development, LMS, certifications, Indianapolis, WIOA, free training',
-  image = 'https://portal.elevateforhumanity.org/og-image.svg',
+  image = 'https://portal.elevateforhumanity.org/images/og-cover.jpg',
   url = 'https://portal.elevateforhumanity.org',
   type = 'website',
 }) {
