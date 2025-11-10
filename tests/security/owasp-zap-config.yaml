@@ -1,0 +1,66 @@
+# OWASP ZAP Security Scan Configuration
+# Run with: zap-cli quick-scan --self-contained --start-options '-config api.disablekey=true' http://localhost:5173
+
+env:
+  contexts:
+    - name: "EFH LMS"
+      urls:
+        - "http://localhost:5173"
+      includePaths:
+        - "http://localhost:5173/.*"
+      excludePaths:
+        - "http://localhost:5173/logout"
+        - "http://localhost:5173/api/delete.*"
+      authentication:
+        method: "form"
+        parameters:
+          loginUrl: "http://localhost:5173/login"
+          loginRequestData: "email={%username%}&password={%password%}"
+        verification:
+          method: "response"
+          loggedInRegex: "\\Qdashboard\\E"
+          loggedOutRegex: "\\Qlogin\\E"
+
+  users:
+    - name: "test-user"
+      credentials:
+        username: "test@example.com"
+        password: "TestPassword123!"
+
+jobs:
+  - type: "spider"
+    parameters:
+      context: "EFH LMS"
+      user: "test-user"
+      maxDuration: 10
+      maxDepth: 5
+
+  - type: "passiveScan-wait"
+    parameters:
+      maxDuration: 5
+
+  - type: "activeScan"
+    parameters:
+      context: "EFH LMS"
+      user: "test-user"
+      policy: "Default Policy"
+      maxRuleDurationInMins: 5
+      maxScanDurationInMins: 30
+
+  - type: "report"
+    parameters:
+      template: "traditional-html"
+      reportDir: "test-results"
+      reportFile: "zap-security-report"
+      reportTitle: "EFH LMS Security Scan"
+      reportDescription: "OWASP ZAP security scan results"
+
+# Risk levels to fail on
+riskLevel: "MEDIUM"
+
+# Alert filters
+alertFilters:
+  - ruleId: 10021  # X-Content-Type-Options header missing
+    newRisk: "INFO"
+  - ruleId: 10020  # X-Frame-Options header missing
+    newRisk: "LOW"

@@ -56,11 +56,13 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
     "@capacitor/android": "^7.4.4",
     "@capacitor/cli": "^7.4.4",
     "@capacitor/ios": "^7.4.4",
     "@eslint/js": "^9.38.0",
     "@netlify/functions": "^5.0.1",
+    "@playwright/test": "1.56.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/jest-dom": "^6.9.1",
