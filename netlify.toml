@@ -2,19 +2,20 @@
   command = "npm run build"
   publish = "dist"
 
-# Force www → apex (works even if DNS still points to Netlify)
+# Redirect www to apex domain
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
-# SPA fallback
+# SPA fallback for client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
