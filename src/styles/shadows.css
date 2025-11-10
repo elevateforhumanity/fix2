@@ -1,0 +1,385 @@
+/**
+ * Shadow and Elevation System
+ * Thinkific-inspired depth hierarchy
+ * Copyright (c) 2025 Elevate for Humanity
+ */
+
+:root {
+  /* Shadow Scale */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px 0 rgba(0, 0, 0, 0.12);
+  --shadow-2xl: 0 30px 60px 0 rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-none: none;
+  
+  /* Colored Shadows */
+  --shadow-brand: 0 4px 12px 0 rgba(228, 30, 38, 0.3);
+  --shadow-success: 0 4px 12px 0 rgba(16, 185, 129, 0.3);
+  --shadow-warning: 0 4px 12px 0 rgba(245, 158, 11, 0.3);
+  --shadow-error: 0 4px 12px 0 rgba(239, 68, 68, 0.3);
+  --shadow-info: 0 4px 12px 0 rgba(59, 130, 246, 0.3);
+  
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+}
+
+/* Shadow Utilities */
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.shadow-2xl {
+  box-shadow: var(--shadow-2xl);
+}
+
+.shadow-inner {
+  box-shadow: var(--shadow-inner);
+}
+
+.shadow-none {
+  box-shadow: var(--shadow-none);
+}
+
+/* Colored Shadows */
+.shadow-brand {
+  box-shadow: var(--shadow-brand);
+}
+
+.shadow-success {
+  box-shadow: var(--shadow-success);
+}
+
+.shadow-warning {
+  box-shadow: var(--shadow-warning);
+}
+
+.shadow-error {
+  box-shadow: var(--shadow-error);
+}
+
+.shadow-info {
+  box-shadow: var(--shadow-info);
+}
+
+/* Elevation System */
+.elevation-0 {
+  box-shadow: var(--shadow-none);
+}
+
+.elevation-1 {
+  box-shadow: var(--shadow-sm);
+}
+
+.elevation-2 {
+  box-shadow: var(--shadow-md);
+}
+
+.elevation-3 {
+  box-shadow: var(--shadow-lg);
+}
+
+.elevation-4 {
+  box-shadow: var(--shadow-xl);
+}
+
+.elevation-5 {
+  box-shadow: var(--shadow-2xl);
+}
+
+/* Hover Elevation */
+.hover-elevation-1:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.hover-elevation-2:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+.hover-elevation-3:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+.hover-elevation-4:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-3px);
+  transition: all 0.2s ease;
+}
+
+/* Border Radius Utilities */
+.rounded-none {
+  border-radius: var(--radius-none);
+}
+
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-md,
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-2xl {
+  border-radius: var(--radius-2xl);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Rounded Corners */
+.rounded-t-none {
+  border-top-left-radius: var(--radius-none);
+  border-top-right-radius: var(--radius-none);
+}
+
+.rounded-t-sm {
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+}
+
+.rounded-t-md {
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.rounded-t-lg {
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.rounded-b-none {
+  border-bottom-left-radius: var(--radius-none);
+  border-bottom-right-radius: var(--radius-none);
+}
+
+.rounded-b-sm {
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.rounded-b-md {
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.rounded-b-lg {
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+/* Border Utilities */
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.border-0 {
+  border-width: 0;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-4 {
+  border-width: 4px;
+}
+
+.border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.border-r {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.border-l {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+/* Border Styles */
+.border-solid {
+  border-style: solid;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-dotted {
+  border-style: dotted;
+}
+
+.border-none {
+  border-style: none;
+}
+
+/* Outline */
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+.outline-dashed {
+  outline-style: dashed;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+/* Ring (Focus Ring) */
+.ring {
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.ring-brand {
+  box-shadow: 0 0 0 3px rgba(228, 30, 38, 0.3);
+}
+
+.ring-success {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.ring-error {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* Divide (for lists) */
+.divide-y > * + * {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--border-primary);
+}
+
+.divide-x > * + * {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--border-primary);
+}
+
+/* Card Component */
+.card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-flat {
+  box-shadow: none;
+  border: 1px solid var(--border-primary);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-lg);
+  border: none;
+}
+
+/* Dark Mode Shadows */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 40px 0 rgba(0, 0, 0, 0.7);
+    --shadow-2xl: 0 30px 60px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hover-elevation-1:hover,
+  .hover-elevation-2:hover,
+  .hover-elevation-3:hover,
+  .hover-elevation-4:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* Print */
+@media print {
+  .shadow-xs,
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl,
+  .elevation-1,
+  .elevation-2,
+  .elevation-3,
+  .elevation-4,
+  .elevation-5 {
+    box-shadow: none;
+  }
+}

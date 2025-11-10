@@ -1,243 +1,91 @@
-/* Professional CSS for Elevate for Humanity */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/**
+ * Global Styles - Elevate for Humanity
+ * Imports the comprehensive Thinkific-inspired design system v2.0
+ * Copyright (c) 2025 Elevate for Humanity
+ */
+
+/* Import Complete Design System v2.0 */
+@import './design-system-v2.css';
+
+/* Legacy brand variables for backward compatibility */
+:root {
+  --brand-text: var(--text-primary);
+  --brand-surface: var(--bg-primary);
+  --brand-info: var(--brand-primary);
+  --brand-info-hover: var(--brand-primary-hover);
+  --brand-success: var(--success-500);
+  --brand-danger: var(--error-500);
+  --brand-text-muted: var(--text-secondary);
 }
 
-html {
-  font-family: Inter, system-ui, sans-serif;
-}
-
-body {
-  font-family: Inter, system-ui, sans-serif;
-  line-height: 1.6;
-  color: var(--brand-text);
-  background-color: var(--brand-surface);
-}
-
-/* Utility Classes */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
+/* Legacy class aliases for backward compatibility */
 .btn-primary {
-  background: var(--brand-info);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s;
-}
-
-.btn-primary:hover {
-  background: var(--brand-info-hover);
+  /* Use new design system: .btn .btn-primary .btn-md */
+  @extend .btn, .btn-primary, .btn-md;
 }
 
 .btn-secondary {
-  border: 2px solid var(--brand-info);
-  color: var(--brand-info);
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
+  /* Use new design system: .btn .btn-secondary .btn-md */
+  @extend .btn, .btn-secondary, .btn-md;
 }
 
-.btn-secondary:hover {
-  background: var(--brand-info);
-  color: white;
+/* Container override for legacy max-width */
+.container-efh {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
 }
 
-/* Grid System */
-.grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.grid-cols-1 {
-  grid-template-columns: 1fr;
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-@media (width <= 768px) {
-  .grid-cols-2,
-  .grid-cols-3 {
-    grid-template-columns: 1fr;
+@media (min-width: 640px) {
+  .container-efh {
+    padding: 0 var(--space-6);
   }
 }
 
-/* Typography */
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-
-@media (width <= 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
+@media (min-width: 1024px) {
+  .container-efh {
+    padding: 0 var(--space-8);
   }
 }
 
-/* Colors */
-.text-primary {
-  color: var(--brand-info);
-}
-
-.text-secondary {
-  color: var(--brand-success);
-}
-
-.text-accent {
-  color: var(--brand-danger);
-}
-
-.text-gray {
-  color: var(--brand-text-muted);
-}
-
-.text-white {
-  color: white;
-}
-
-.bg-primary {
-  background: var(--brand-info);
-}
-
-.bg-secondary {
-  background: var(--brand-success);
-}
-
-.bg-white {
-  background: white;
-}
-
-.bg-brand-surface {
-  background: var(--brand-surface);
-}
-
+/* Legacy color utilities (use new design system classes instead) */
 .bg-brand-surface-dark {
-  background: #f3f4f6;
+  background: var(--gray-100);
 }
 
-/* Spacing */
-.py-20 {
-  padding: 5rem 0;
+/* Application-specific utilities */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
 }
 
-.py-16 {
-  padding: 4rem 0;
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.py-12 {
-  padding: 3rem 0;
+/* Smooth scroll for anchor links */
+html {
+  scroll-padding-top: 80px; /* Account for fixed header */
 }
 
-.py-8 {
-  padding: 2rem 0;
+/* Focus visible for better keyboard navigation */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
-.py-4 {
-  padding: 1rem 0;
+/* Loading state */
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
-/* Shadows */
-.shadow-lg {
-  box-shadow:
-    0 10px 15px -3px rgb(0 0 0 / 10%),
-    0 4px 6px -2px rgb(0 0 0 / 5%);
-}
-
-.shadow-2xl {
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
-}
-
-/* Border Radius */
-.rounded-lg {
-  border-radius: 8px;
-}
-
-.rounded-xl {
-  border-radius: 12px;
-}
-
-.rounded-2xl {
-  border-radius: 16px;
-}
-
-.rounded-full {
-  border-radius: 9999px;
+/* Disabled state */
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
