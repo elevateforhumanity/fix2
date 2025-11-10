@@ -9,7 +9,7 @@ const LEGACY_DOMAINS = [
   'https://elevateforhumanity.pages.dev',
   'https://www.elevateforhumanity.pages.dev',
 ];
-const NEW_DOMAIN = 'https://www.elevateforhumanity.org';
+const NEW_DOMAIN = 'https://elevateforhumanity.org';
 const DIST_DIR = path.resolve('dist');
 const EXTENSIONS = new Set(['.html', '.js', '.css']);
 

@@ -13,7 +13,7 @@ const BASE =
   argv.base ||
   SEED ||
   process.env.DOMAIN ||
-  'https://www.elevateforhumanity.org';
+  'https://elevateforhumanity.org';
 const MAX = parseInt(argv.max || '120000', 10),
   CONC = Math.max(1, parseInt(argv.concurrency || '8', 10));
 const INCLUDE_HASH = !!argv.includeHash,

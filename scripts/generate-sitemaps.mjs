@@ -8,7 +8,7 @@ import { writeFileSync } from 'fs';
 import { join } from 'path';
 import { createClient } from '@supabase/supabase-js';
 
-const SITE_URL = 'https://www.elevateforhumanity.org';
+const SITE_URL = 'https://elevateforhumanity.org';
 const DIST_DIR = './dist';
 
 // Initialize Supabase client

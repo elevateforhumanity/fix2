@@ -26,7 +26,7 @@ export default function UniversalSEO({
   const pageDescription = description;
   const pageKeywords = keywords;
   const pageImage = image;
-  const canonicalUrl = `https://www.elevateforhumanity.org${location.pathname}`;
+  const canonicalUrl = `https://elevateforhumanity.org${location.pathname}`;
 
   return (
     <Helmet>
