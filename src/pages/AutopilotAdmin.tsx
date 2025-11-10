@@ -17,6 +17,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts';
+import DOMPurify from 'dompurify';
 
 interface Autopilot {
   name: string;
@@ -568,9 +569,12 @@ export default function AutopilotAdmin() {
               <div
                 className="prose max-w-none"
                 dangerouslySetInnerHTML={{
-                  __html: (summary.summary_markdown || '').replace(
-                    /\n/g,
-                    '<br/>'
+                  __html: DOMPurify.sanitize(
+                    (summary.summary_markdown || '').replace(/\n/g, '<br/>'),
+                    {
+                      ALLOWED_TAGS: ['br', 'p', 'strong', 'em', 'code'],
+                      ALLOWED_ATTR: []
+                    }
                   ),
                 }}
               />

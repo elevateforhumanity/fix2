@@ -53,12 +53,20 @@ export default function Navigation({
                 e.currentTarget.style.display = 'none';
                 const parent = e.currentTarget.parentElement;
                 if (parent) {
-                  parent.innerHTML = `
-                    <div class="flex flex-col">
-                      <span class="text-xl font-bold text-brand">${branding.name}</span>
-                      <span class="text-xs text-text-secondary">${branding.subtitle}</span>
-                    </div>
-                  `;
+                  const container = document.createElement('div');
+                  container.className = 'flex flex-col';
+                  
+                  const nameSpan = document.createElement('span');
+                  nameSpan.className = 'text-xl font-bold text-brand';
+                  nameSpan.textContent = branding.name;
+                  
+                  const subtitleSpan = document.createElement('span');
+                  subtitleSpan.className = 'text-xs text-text-secondary';
+                  subtitleSpan.textContent = branding.subtitle;
+                  
+                  container.appendChild(nameSpan);
+                  container.appendChild(subtitleSpan);
+                  parent.appendChild(container);
                 }
               }}
             />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import DOMPurify from 'dompurify';
 
 interface Page {
   id: string;
@@ -354,7 +355,12 @@ export default function PageManager() {
                   <div
                     className="p-6 overflow-auto"
                     style={{ maxHeight: '600px' }}
-                    dangerouslySetInnerHTML={{ __html: selectedPage.html }}
+                    dangerouslySetInnerHTML={{ 
+                      __html: DOMPurify.sanitize(selectedPage.html, {
+                        ALLOWED_TAGS: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'section', 'article', 'header', 'footer', 'nav', 'button'],
+                        ALLOWED_ATTR: ['class', 'id', 'href', 'src', 'alt', 'title', 'style', 'target', 'rel']
+                      })
+                    }}
                   />
                 </div>
               )}

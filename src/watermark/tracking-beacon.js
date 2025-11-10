@@ -59,7 +59,9 @@ class TrackingBeacon {
     hiddenDiv.setAttribute('data-license', this.licenseId);
     hiddenDiv.setAttribute('data-domain', this.domain);
     hiddenDiv.setAttribute('data-timestamp', Date.now());
-    hiddenDiv.innerHTML = `<!-- Elevate for Humanity Platform | Licensed Use Only -->`;
+    // License watermark comment (safe - no user input)
+    const comment = document.createComment(' Elevate for Humanity Platform | Licensed Use Only ');
+    hiddenDiv.appendChild(comment);
     document.body.appendChild(hiddenDiv);
 
     // CSS watermark

@@ -122,25 +122,44 @@ function showEnvErrorBanner(errors: string[]) {
     font-size: 14px;
   `;
 
-  banner.innerHTML = `
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <strong>⚠️ Missing Environment Variables</strong>
-      <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-        ${errors.map((e) => `<li>${e}</li>`).join('')}
-      </ul>
-      <details style="margin-top: 0.5rem;">
-        <summary style="cursor: pointer;">How to fix</summary>
-        <pre style="margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 4px; overflow-x: auto;">
+  const container = document.createElement('div');
+  container.style.cssText = 'max-width: 1200px; margin: 0 auto;';
+
+  const title = document.createElement('strong');
+  title.textContent = '⚠️ Missing Environment Variables';
+
+  const list = document.createElement('ul');
+  list.style.cssText = 'margin: 0.5rem 0; padding-left: 1.5rem;';
+  errors.forEach((error) => {
+    const li = document.createElement('li');
+    li.textContent = error;
+    list.appendChild(li);
+  });
+
+  const details = document.createElement('details');
+  details.style.cssText = 'margin-top: 0.5rem;';
+
+  const summary = document.createElement('summary');
+  summary.style.cssText = 'cursor: pointer;';
+  summary.textContent = 'How to fix';
+
+  const pre = document.createElement('pre');
+  pre.style.cssText = 'margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 4px; overflow-x: auto;';
+  pre.textContent = `
 In Gitpod terminal:
-if (!supabase) throw new Error('Supabase not initialized');
 gp env VITE_SUPABASE_URL="https://your-project.supabase.co"
 gp env VITE_SUPABASE_ANON_KEY="your-anon-key"
 
 Then restart: pnpm dev
-        </pre>
-      </details>
-    </div>
   `;
+
+  details.appendChild(summary);
+  details.appendChild(pre);
+
+  container.appendChild(title);
+  container.appendChild(list);
+  container.appendChild(details);
+  banner.appendChild(container);
 
   document.body.insertBefore(banner, document.body.firstChild);
 }

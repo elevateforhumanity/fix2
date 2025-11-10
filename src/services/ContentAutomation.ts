@@ -226,7 +226,10 @@ export class ContentAutomation {
       const content = rule.transform(data);
 
       elements.forEach((element) => {
-        element.innerHTML = content;
+        // Use textContent for safety, or sanitize if HTML is needed
+        if (element instanceof HTMLElement) {
+          element.textContent = content;
+        }
       });
     }
   }

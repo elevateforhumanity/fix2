@@ -323,22 +323,36 @@ export class ComplianceAutomation {
    * Add cookie consent banner
    */
   private addCookieConsentBanner(): void {
+    if (localStorage.getItem('cookie-consent')) {
+      return;
+    }
+
     const banner = document.createElement('div');
     banner.className = 'cookie-consent';
-    banner.innerHTML = `
-      <div style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-          <p>We use cookies to improve your experience and comply with FERPA, GDPR, and CCPA regulations.</p>
-          <button onclick="this.parentElement.parentElement.remove(); localStorage.setItem('cookie-consent', 'true');" style="background: var(--brand-info); color: white; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; cursor: pointer;">
-            Accept
-          </button>
-        </div>
-      </div>
-    `;
+    banner.style.cssText = 'position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;';
 
-    if (!localStorage.getItem('cookie-consent')) {
-      document.body.appendChild(banner);
-    }
+    const container = document.createElement('div');
+    container.style.cssText = 'max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem;';
+
+    const text = document.createElement('p');
+    text.textContent = 'We use cookies to improve your experience and comply with FERPA, GDPR, and CCPA regulations.';
+
+    const button = document.createElement('button');
+    button.textContent = 'Accept';
+    button.style.cssText = 'background: var(--brand-info); color: white; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; cursor: pointer;';
+    button.onclick = () => {
+      banner.remove();
+      try {
+        localStorage.setItem('cookie-consent', 'true');
+      } catch (e) {
+        // localStorage not available
+      }
+    };
+
+    container.appendChild(text);
+    container.appendChild(button);
+    banner.appendChild(container);
+    document.body.appendChild(banner);
   }
 
   /**

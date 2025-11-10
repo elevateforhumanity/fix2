@@ -10,6 +10,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabaseClient';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import DOMPurify from 'dompurify';
 
 export default function LessonPage() {
   const { courseId, lessonId } = useParams();
@@ -264,7 +265,12 @@ export default function LessonPage() {
             {lesson.html && (
               <div
                 className="prose max-w-none"
-                dangerouslySetInnerHTML={{ __html: lesson.html }}
+                dangerouslySetInnerHTML={{ 
+                  __html: DOMPurify.sanitize(lesson.html, {
+                    ALLOWED_TAGS: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'code', 'pre', 'blockquote', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+                    ALLOWED_ATTR: ['class', 'id', 'href', 'src', 'alt', 'title', 'style', 'target', 'rel']
+                  })
+                }}
               />
             )}
           </div>

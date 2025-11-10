@@ -46,9 +46,13 @@ export default function Footer({
                 className="h-8 w-auto brightness-0 invert"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement!.innerHTML = `
-                    <span class="text-xl font-bold">${logoAlt}</span>
-                  `;
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    const span = document.createElement('span');
+                    span.className = 'text-xl font-bold';
+                    span.textContent = logoAlt;
+                    parent.appendChild(span);
+                  }
                 }}
               />
             </Link>
