@@ -134,7 +134,6 @@ export default function Integrations() {
       setWebhooks(webhooksRes.data || []);
       setAPIKeys(apiKeysRes.data || []);
     } catch (error) {
-      console.error('Failed to load integration data:', error);
       alert('Failed to load integration data');
     } finally {
       setLoading(false);
@@ -153,7 +152,6 @@ export default function Integrations() {
       await loadIntegrationData();
       alert(`Integration ${enabled ? 'enabled' : 'disabled'}`);
     } catch (error: any) {
-      console.error('Failed to toggle integration:', error);
       alert('Failed to toggle integration: ' + error.message);
     }
   }
@@ -184,7 +182,6 @@ export default function Integrations() {
       await loadIntegrationData();
       alert('Webhook created successfully!');
     } catch (error: any) {
-      console.error('Failed to create webhook:', error);
       alert('Failed to create webhook: ' + error.message);
     } finally {
       setCreating(false);
@@ -203,7 +200,6 @@ export default function Integrations() {
       await loadIntegrationData();
       alert(`Webhook ${enabled ? 'enabled' : 'disabled'}`);
     } catch (error: any) {
-      console.error('Failed to toggle webhook:', error);
       alert('Failed to toggle webhook: ' + error.message);
     }
   }
@@ -236,7 +232,6 @@ export default function Integrations() {
         `API Key created!\n\nKey: ${fullKey}\n\nSave this key securely - you won't see it again!`
       );
     } catch (error: any) {
-      console.error('Failed to create API key:', error);
       alert('Failed to create API key: ' + error.message);
     }
   }

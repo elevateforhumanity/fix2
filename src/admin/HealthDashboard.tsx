@@ -131,7 +131,6 @@ export default function HealthDashboard() {
       setIncidents(incidentData as RecentIncident[]);
       setError(null);
     } catch (e) {
-      console.error('Failed to load dashboard data:', e);
       setError(String(e));
     } finally {
       setLoading(false);

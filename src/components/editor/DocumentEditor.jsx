@@ -55,7 +55,6 @@ export function DocumentEditor({
     quill.on('text-change', (delta, oldDelta, source) => {
       if (source === 'user') {
         // Broadcast changes to other users (in production, use WebSocket)
-        console.log('Content changed:', delta);
       }
     });
 
@@ -63,7 +62,6 @@ export function DocumentEditor({
     quill.on('selection-change', (range, oldRange, source) => {
       if (range && source === 'user') {
         // Broadcast cursor position
-        console.log('Cursor at:', range);
       }
     });
 
@@ -87,7 +85,6 @@ export function DocumentEditor({
       setCollaborators(doc.collaborators || []);
       setComments(doc.comments || []);
     } catch (error) {
-      console.error('Failed to load document:', error);
     }
   };
 
@@ -107,7 +104,6 @@ export function DocumentEditor({
 
       setLastSaved(new Date());
     } catch (error) {
-      console.error('Failed to save document:', error);
     } finally {
       setIsSaving(false);
     }
@@ -148,7 +144,6 @@ export function DocumentEditor({
       a.download = `document.${format}`;
       a.click();
     } catch (error) {
-      console.error('Failed to export:', error);
     }
   };
 

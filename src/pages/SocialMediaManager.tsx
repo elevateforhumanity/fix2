@@ -70,7 +70,6 @@ export default function SocialMediaManager() {
         setScheduledTime('');
       }
     } catch (error) {
-      console.error('Failed to post:', error);
       alert('Failed to post to social media');
     } finally {
       setPosting(false);
@@ -135,7 +134,6 @@ export default function SocialMediaManager() {
 
       setResult(response);
     } catch (error) {
-      console.error('Failed to post template:', error);
       alert('Failed to post template');
     } finally {
       setPosting(false);

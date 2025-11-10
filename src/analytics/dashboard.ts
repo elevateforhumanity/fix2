@@ -40,7 +40,6 @@ export async function fetchDashboardMetrics(): Promise<DashboardMetrics> {
     } satisfies DashboardMetrics;
   } catch (error) {
     if (import.meta.env.DEV) {
-      console.warn('[analytics] dashboard metrics fallback', error);
     }
     return EMPTY_METRICS;
   }

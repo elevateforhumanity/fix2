@@ -18,7 +18,6 @@ async function getAutopilotWorker() {
       const module = await import('../../workers/self-healing-autopilot.js');
       autopilotWorker = module.default || module;
     } catch (error) {
-      console.warn('Autopilot worker not available:', error);
       return null;
     }
   }

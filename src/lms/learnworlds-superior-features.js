@@ -801,7 +801,6 @@ class LearnWorldsSuperiorFeatures {
    */
   async initializeCompleteLMS(schoolConfig) {
     try {
-      console.log('🚀 Initializing Complete LMS Superior to LearnWorlds...');
 
       // Create all core components
       const website = await this.createAIWebsiteBuilder(schoolConfig);
@@ -862,10 +861,8 @@ class LearnWorldsSuperiorFeatures {
         .select()
         .single();
 
-      console.log('✅ Complete LMS initialized successfully!');
       return completeLMS;
     } catch (error) {
-      console.error('❌ LMS initialization failed:', error);
       throw error;
     }
   }

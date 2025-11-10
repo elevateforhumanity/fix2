@@ -74,7 +74,6 @@ export function Sheets() {
     setIsEditing(false);
 
     // In production, save to backend
-    console.log('Cell updated:', newCell);
   };
 
   const columnToLetter = (col) => {

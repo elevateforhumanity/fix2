@@ -103,7 +103,6 @@ export default function AssetGenerator() {
         alert('Failed to generate asset: ' + data.error);
       }
     } catch (error) {
-      console.error('Generation error:', error);
       alert('Failed to generate asset');
     } finally {
       setLoading(false);
@@ -147,7 +146,6 @@ export default function AssetGenerator() {
       setAssetName('');
       setContent('');
     } catch (error: any) {
-      console.error('Save error:', error);
       alert('Failed to save asset: ' + error.message);
     } finally {
       setSaving(false);

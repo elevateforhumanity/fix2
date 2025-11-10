@@ -18,11 +18,7 @@ function enabled(level: LogLevel) {
 // In development, log everything
 export const log = {
   debug: (...a: unknown[]) =>
-    enabled('debug') && console.debug('[debug]', ...a),
-  info: (...a: unknown[]) => enabled('info') && console.log('[info]', ...a),
-  warn: (...a: unknown[]) => enabled('warn') && console.warn('[warn]', ...a),
   error: (...a: unknown[]) =>
-    enabled('error') && console.error('[error]', ...a),
 };
 
 // Export default for convenience

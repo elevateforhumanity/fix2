@@ -43,13 +43,11 @@ export async function hasFeature(
       .maybeSingle();
 
     if (error || !data) {
-      console.error('Failed to fetch entitlements:', error);
       return false;
     }
 
     return data.features?.[featureKey] === true;
   } catch (error) {
-    console.error('Error checking feature flag:', error);
     return false;
   }
 }
@@ -68,13 +66,11 @@ export async function getEntitlements(
       .maybeSingle();
 
     if (error) {
-      console.error('Failed to fetch entitlements:', error);
       return null;
     }
 
     return data;
   } catch (error) {
-    console.error('Error fetching entitlements:', error);
     return null;
   }
 }
@@ -104,13 +100,11 @@ export async function hasReachedLimit(
       .eq('org_id', orgId);
 
     if (error) {
-      console.error(`Failed to count ${limitType}:`, error);
       return true;
     }
 
     return (count || 0) >= maxLimit;
   } catch (error) {
-    console.error('Error checking limit:', error);
     return true;
   }
 }
@@ -154,7 +148,6 @@ export async function getUsageStats(orgId: string) {
       },
     };
   } catch (error) {
-    console.error('Error fetching usage stats:', error);
     return null;
   }
 }

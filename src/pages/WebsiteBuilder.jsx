@@ -28,7 +28,6 @@ export default function WebsiteBuilder() {
       const features = new AdvancedLMSFeatures();
       setLmsFeatures(features);
     } catch (error) {
-      console.error('Failed to initialize LMS features:', error);
     }
   }
 
@@ -43,7 +42,6 @@ export default function WebsiteBuilder() {
         setWebsites(data);
       }
     } catch (error) {
-      console.error('Failed to load websites:', error);
     } finally {
       setLoading(false);
     }
@@ -62,7 +60,6 @@ export default function WebsiteBuilder() {
       alert('Website created successfully!');
       return website;
     } catch (error) {
-      console.error('Failed to create website:', error);
       alert('Failed to create website: ' + error.message);
     } finally {
       setLoading(false);

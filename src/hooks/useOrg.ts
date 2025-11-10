@@ -105,7 +105,6 @@ export function useOrg(userId: string | null) {
         loading: false,
       });
     } catch (error) {
-      console.error('Failed to load organizations:', error);
       setState({
         currentOrg: null,
         currentRole: null,

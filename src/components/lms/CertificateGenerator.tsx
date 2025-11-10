@@ -15,7 +15,6 @@ export default function CertificateGenerator({
 }: CertificateProps) {
   const handleDownload = () => {
     // TODO: Generate PDF certificate
-    console.log('Generating certificate PDF...')
   }
 
   return (

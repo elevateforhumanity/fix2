@@ -28,7 +28,6 @@ export function FileManager() {
       const data = await response.json();
       setFiles(data);
     } catch (error) {
-      console.error('Failed to load files:', error);
     }
   };
 
@@ -38,7 +37,6 @@ export function FileManager() {
       const data = await response.json();
       setStorageQuota(data);
     } catch (error) {
-      console.error('Failed to load storage quota:', error);
     }
   };
 
@@ -73,7 +71,6 @@ export function FileManager() {
         loadFiles();
       }
     } catch (error) {
-      console.error('Failed to create folder:', error);
     }
   };
 
@@ -96,7 +93,6 @@ export function FileManager() {
         loadStorageQuota();
       }
     } catch (error) {
-      console.error('Failed to delete file:', error);
     }
   };
 
@@ -115,7 +111,6 @@ export function FileManager() {
         alert('File shared successfully');
       }
     } catch (error) {
-      console.error('Failed to share file:', error);
     }
   };
 

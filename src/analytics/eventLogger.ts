@@ -36,7 +36,6 @@ export async function recordAnalyticsEvent(
     }
   } catch (error) {
     if (import.meta.env.DEV) {
-      console.warn('[analytics] failed to record event', event, error);
     }
   }
 }

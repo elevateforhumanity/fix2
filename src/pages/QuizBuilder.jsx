@@ -46,7 +46,6 @@ export default function QuizBuilder() {
 
       setQuestions(data || []);
     } catch (error) {
-      console.error('Error fetching questions:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -102,7 +101,6 @@ export default function QuizBuilder() {
       });
       setSuccess('Question added successfully!');
     } catch (error) {
-      console.error('Error adding question:', error);
       setError(error.message);
     } finally {
       setSaving(false);
@@ -123,7 +121,6 @@ export default function QuizBuilder() {
       setQuestions(questions.filter((q) => q.id !== questionId));
       setSuccess('Question deleted successfully!');
     } catch (error) {
-      console.error('Error deleting question:', error);
       setError(error.message);
     }
   };

@@ -47,7 +47,6 @@ export default function NotificationCenter() {
 
       setNotifications(data || []);
     } catch (error) {
-      console.error('Error fetching notifications:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -71,7 +70,6 @@ export default function NotificationCenter() {
         )
       );
     } catch (error) {
-      console.error('Error marking notification as read:', error);
     }
   };
 
@@ -94,7 +92,6 @@ export default function NotificationCenter() {
 
       setNotifications(notifications.map((n) => ({ ...n, read: true })));
     } catch (error) {
-      console.error('Error marking all as read:', error);
     }
   };
 
@@ -109,7 +106,6 @@ export default function NotificationCenter() {
 
       setNotifications(notifications.filter((n) => n.id !== notificationId));
     } catch (error) {
-      console.error('Error deleting notification:', error);
     }
   };
 

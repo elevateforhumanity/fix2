@@ -91,7 +91,6 @@ export default function LessonPage() {
       setQuizQuestions(questions || []);
 
     } catch (error) {
-      console.error('Error loading lesson:', error);
     } finally {
       setLoading(false);
     }
@@ -125,7 +124,6 @@ export default function LessonPage() {
         }
       }
     } catch (error) {
-      console.error('Error marking complete:', error);
     }
   };
 
@@ -155,7 +153,6 @@ export default function LessonPage() {
         navigate(`/lms/courses/${courseId}`);
       }
     } catch (error) {
-      console.error('Error submitting quiz:', error);
     }
   };
 

@@ -33,7 +33,6 @@ export function useSafeAsync<T>(
     } catch (err) {
       if (!cancelled) {
         const error = err instanceof Error ? err : new Error(String(err));
-        console.error('useSafeAsync error:', error);
         setState({ data: defaultValue, loading: false, error });
       }
     }

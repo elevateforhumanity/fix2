@@ -82,7 +82,6 @@ export const InvoiceList: React.FC = () => {
 
   const handleViewInvoice = (id: string) => {
     // TODO: Navigate to invoice detail
-    console.log('View invoice:', id);
   };
 
   const handleDownloadPDF = (invoice: Invoice) => {

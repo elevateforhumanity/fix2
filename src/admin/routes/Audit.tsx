@@ -77,7 +77,6 @@ export default function Audit() {
 
       setLogs((data as any) || []);
     } catch (error) {
-      console.error('Failed to load audit logs:', error);
       alert('Failed to load audit logs');
     } finally {
       setLoading(false);

@@ -28,7 +28,6 @@ export default function AuthCallback() {
           navigate('/login', { replace: true });
         }
       } catch (error) {
-        console.error('Auth callback error:', error);
         navigate('/login', { replace: true });
       }
     }

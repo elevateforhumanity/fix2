@@ -22,7 +22,6 @@ class AdvancedLMSCopilot {
    */
   async getAllKeys() {
     if (!this.supabase) {
-      console.warn('Supabase not configured, using default keys');
       return this.getDefaultKeys();
     }
 
@@ -33,14 +32,12 @@ class AdvancedLMSCopilot {
         .single();
 
       if (error) {
-        console.error('Failed to fetch keys from Supabase:', error);
         return this.getDefaultKeys();
       }
 
       this.configCache = data;
       return data;
     } catch (error) {
-      console.error('Error fetching keys:', error);
       return this.getDefaultKeys();
     }
   }
@@ -83,7 +80,6 @@ class AdvancedLMSCopilot {
       this.configCache = keys;
       return { success: true, message: 'Keys stored successfully' };
     } catch (error) {
-      console.error('Failed to store keys:', error);
       return { success: false, error: error.message };
     }
   }
@@ -274,7 +270,6 @@ class AdvancedLMSCopilot {
         content_generated: contentGaps.length,
       });
     } catch (error) {
-      console.error('Auto content generation failed:', error);
     }
   }
 
@@ -378,7 +373,6 @@ class AdvancedLMSCopilot {
         messages_sent: engagement.strugglingStudents,
       });
     } catch (error) {
-      console.error('Auto student engagement failed:', error);
     }
   }
 
@@ -471,7 +465,6 @@ class AdvancedLMSCopilot {
         optimizations_applied: optimizations.length,
       });
     } catch (error) {
-      console.error('Auto performance optimization failed:', error);
     }
   }
 

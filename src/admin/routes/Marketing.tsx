@@ -86,7 +86,6 @@ export default function Marketing() {
       setABTests(abTestsRes.data || []);
       setFunnels(funnelsRes.data || []);
     } catch (error) {
-      console.error('Failed to load marketing data:', error);
       alert('Failed to load marketing data');
     } finally {
       setLoading(false);
@@ -115,7 +114,6 @@ export default function Marketing() {
       await loadMarketingData();
       alert('Campaign created successfully!');
     } catch (error: any) {
-      console.error('Failed to create campaign:', error);
       alert('Failed to create campaign: ' + error.message);
     } finally {
       setCreating(false);
@@ -134,7 +132,6 @@ export default function Marketing() {
       await loadMarketingData();
       alert(`Campaign ${newStatus}`);
     } catch (error: any) {
-      console.error('Failed to update campaign:', error);
       alert('Failed to update campaign: ' + error.message);
     }
   }

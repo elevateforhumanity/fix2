@@ -77,7 +77,6 @@ export default function QuizResults() {
         passed: score >= 70,
       });
     } catch (error) {
-      console.error('Error fetching quiz results:', error);
       setError(error.message);
     } finally {
       setLoading(false);

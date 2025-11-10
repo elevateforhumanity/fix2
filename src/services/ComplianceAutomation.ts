@@ -185,7 +185,6 @@ export class ComplianceAutomation {
 
         results.push(rule);
       } catch (error) {
-        console.error(`Error checking rule ${rule.id}:`, error);
         rule.status = 'warning';
         results.push(rule);
       }
@@ -219,7 +218,6 @@ export class ComplianceAutomation {
    * Automatically fix compliance issues
    */
   private async autoFixRule(rule: ComplianceRule): Promise<void> {
-    console.log(`Auto-fixing rule: ${rule.name}`);
 
     switch (rule.id) {
       case 'wcag-aa':
@@ -309,7 +307,6 @@ export class ComplianceAutomation {
   private async updatePrivacyPolicies(): Promise<void> {
     // Fetch latest privacy policy templates
     // Update privacy policy page
-    console.log('Updating privacy policies...');
   }
 
   /**
@@ -370,7 +367,6 @@ export class ComplianceAutomation {
       try {
         await this.fetchFromSource(source);
       } catch (error) {
-        console.error(`Error fetching from ${source.name}:`, error);
       }
     }
   }
@@ -379,7 +375,6 @@ export class ComplianceAutomation {
    * Fetch from individual data source
    */
   private async fetchFromSource(source: ComplianceDataSource): Promise<void> {
-    console.log(`Fetching updates from ${source.name}...`);
 
     // In production, implement actual API calls
     // For now, simulate

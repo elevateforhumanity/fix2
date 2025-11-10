@@ -37,7 +37,6 @@ export default function Verify() {
           setCertificate(data);
         }
       } catch (err) {
-        console.error('Verification error:', err);
         setNotFound(true);
       } finally {
         setLoading(false);

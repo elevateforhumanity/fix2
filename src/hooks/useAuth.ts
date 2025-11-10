@@ -113,7 +113,6 @@ async function loadUserRole(
       orgId: data.org_id,
     };
   } catch (error) {
-    console.error('Failed to load user role:', error);
     return { role: null, orgId: null };
   }
 }

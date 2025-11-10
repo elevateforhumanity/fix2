@@ -1,0 +1,5 @@
+name = "efh-www-redirect"
+main = "src/index.ts"
+compatibility_date = "2024-06-01"
+# Set your real zone in Cloudflare before deploy
+routes = [{ pattern = "www.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }]

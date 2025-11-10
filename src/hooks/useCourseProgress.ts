@@ -48,7 +48,6 @@ export function useCourseProgress(courseId: string) {
         });
       }
     } catch (error) {
-      console.error('Error loading progress:', error);
     } finally {
       setLoading(false);
     }

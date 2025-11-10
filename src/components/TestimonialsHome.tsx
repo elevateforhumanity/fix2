@@ -47,7 +47,6 @@ export default function TestimonialsHome() {
           setItems(FALLBACK_TESTIMONIALS);
         }
       } catch (e) {
-        console.error(e);
         setApiFailed(true);
         setItems(FALLBACK_TESTIMONIALS);
       } finally {

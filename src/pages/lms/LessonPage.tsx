@@ -62,7 +62,6 @@ export default function LessonPage() {
     setIsCompleted(true);
     setProgress(100);
     // Save progress to backend
-    console.log('Lesson completed:', lessonId);
   };
 
   const handleNext = () => {

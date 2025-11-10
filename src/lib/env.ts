@@ -66,7 +66,6 @@ To fix this:
 Note: All client-side env vars MUST be prefixed with VITE_
     `;
 
-    console.error(errorMessage);
 
     // Show user-friendly banner in the app
     if (typeof document !== 'undefined') {

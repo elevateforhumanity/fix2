@@ -83,7 +83,6 @@ export default function Billing() {
       const usageData = await getUsageStats();
       setUsage(usageData);
     } catch (error) {
-      console.error('Failed to load billing data:', error);
       alert('Failed to load billing data');
     } finally {
       setLoading(false);

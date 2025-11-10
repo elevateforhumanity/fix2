@@ -41,7 +41,6 @@ export async function createCheckoutSession(data: CheckoutSessionData) {
     const { sessionId } = await response.json();
     return sessionId;
   } catch (error) {
-    console.error('Stripe checkout error:', error);
     throw error;
   }
 }
@@ -84,7 +83,6 @@ export async function enrollFree(programId: string, userId: string) {
 
     return await response.json();
   } catch (error) {
-    console.error('Free enrollment error:', error);
     throw error;
   }
 }

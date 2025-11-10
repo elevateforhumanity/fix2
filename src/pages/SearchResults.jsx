@@ -45,7 +45,6 @@ export default function SearchResults() {
         pages: data.stats?.pages || 0,
       });
     } catch (error) {
-      console.error('Search failed:', error);
       setResults([]);
     } finally {
       setIsLoading(false);

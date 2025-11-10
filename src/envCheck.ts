@@ -9,9 +9,7 @@ export function assertEnv() {
   if (missing.length) {
     const msg = `Missing required env vars: ${missing.join(', ')}`;
     if (isProd()) {
-      console.error(msg);
     } else {
-      console.warn(msg);
     }
   }
 }

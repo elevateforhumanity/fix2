@@ -23,7 +23,6 @@ class AICourseCreator {
    */
   async createCourseFromDocument(documentFile, courseSettings = {}) {
     try {
-      console.log('🚀 Starting AI course creation...');
 
       // Step 1: Extract and analyze document content
       const documentContent = await this.extractDocumentContent(documentFile);
@@ -68,10 +67,8 @@ class AICourseCreator {
         dripSchedule,
       });
 
-      console.log('✅ Course created successfully!');
       return course;
     } catch (error) {
-      console.error('❌ Course creation failed:', error);
       throw error;
     }
   }
@@ -326,7 +323,6 @@ class AICourseCreator {
           script: scriptData.script,
         });
       } catch (error) {
-        console.error(
           `Failed to generate video for lesson ${scriptData.lessonId}:`,
           error
         );
@@ -650,7 +646,6 @@ class AICourseCreator {
 
       return course;
     } catch (error) {
-      console.error('Error saving course to database:', error);
       throw error;
     }
   }

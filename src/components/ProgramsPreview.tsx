@@ -53,7 +53,6 @@ export default function ProgramsPreview() {
           setItems(FALLBACK_PROGRAMS);
         }
       } catch (e) {
-        console.error(e);
         setApiFailed(true);
         setItems(FALLBACK_PROGRAMS);
       } finally {

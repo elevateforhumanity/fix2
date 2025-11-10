@@ -131,7 +131,6 @@ export default function ApplyScholarship() {
         alert('Failed to submit application. Please try again.');
       }
     } catch (error) {
-      console.error('Submission error:', error);
       alert('Failed to submit application. Please try again.');
     }
   };

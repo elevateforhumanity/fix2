@@ -62,7 +62,6 @@ export default function MiladyBarberCourse() {
         setEnrolled(!!enrollment);
       }
     } catch (error) {
-      console.error('Error loading course:', error);
     } finally {
       setLoading(false);
     }

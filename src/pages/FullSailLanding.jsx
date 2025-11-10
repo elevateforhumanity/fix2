@@ -15,7 +15,6 @@ const FullSailLanding = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
     // Add your form submission logic here
     alert('Thank you! We will contact you soon.');
   };

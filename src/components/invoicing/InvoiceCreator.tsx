@@ -90,7 +90,6 @@ export const InvoiceCreator: React.FC = () => {
     };
 
     // TODO: Save to database
-    console.log('Saving invoice:', invoiceData);
 
     if (status === 'sent') {
       // TODO: Generate PDF and send email

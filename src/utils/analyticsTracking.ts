@@ -342,12 +342,10 @@ class AnalyticsTracker {
       );
 
       if (error) {
-        console.error('Failed to flush analytics events:', error);
         // Re-queue events on failure
         this.eventQueue.unshift(...events);
       }
     } catch (error) {
-      console.error('Analytics flush error:', error);
       // Re-queue events on failure
       this.eventQueue.unshift(...events);
     }

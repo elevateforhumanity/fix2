@@ -12,7 +12,6 @@ let deferredPrompt: BeforeInstallPromptEvent | null = null;
  */
 export async function registerServiceWorker(): Promise<ServiceWorkerRegistration | null> {
   if (!('serviceWorker' in navigator)) {
-    console.log('Service workers are not supported');
     return null;
   }
 
@@ -21,7 +20,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
       scope: '/',
     });
 
-    console.log('Service worker registered:', registration.scope);
 
     // Check for updates periodically
     setInterval(
@@ -49,7 +47,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
 
     return registration;
   } catch (error) {
-    console.error('Service worker registration failed:', error);
     return null;
   }
 }
@@ -69,7 +66,6 @@ export async function unregisterServiceWorker(): Promise<boolean> {
     }
     return false;
   } catch (error) {
-    console.error('Service worker unregistration failed:', error);
     return false;
   }
 }
@@ -119,7 +115,6 @@ export function setupInstallPrompt(): void {
 
   window.addEventListener('appinstalled', () => {
     deferredPrompt = null;
-    console.log('PWA installed successfully');
 
     // Dispatch custom event
     window.dispatchEvent(new CustomEvent('pwa-installed'));
@@ -133,7 +128,6 @@ export async function showInstallPrompt(): Promise<
   'accepted' | 'dismissed' | null
 > {
   if (!deferredPrompt) {
-    console.log('Install prompt not available');
     return null;
   }
 
@@ -144,7 +138,6 @@ export async function showInstallPrompt(): Promise<
     deferredPrompt = null;
     return outcome;
   } catch (error) {
-    console.error('Install prompt failed:', error);
     return null;
   }
 }
@@ -154,7 +147,6 @@ export async function showInstallPrompt(): Promise<
  */
 export async function requestNotificationPermission(): Promise<NotificationPermission> {
   if (!('Notification' in window)) {
-    console.log('Notifications not supported');
     return 'denied';
   }
 
@@ -180,7 +172,6 @@ export async function subscribeToPushNotifications(
   try {
     const permission = await requestNotificationPermission();
     if (permission !== 'granted') {
-      console.log('Notification permission denied');
       return null;
     }
 
@@ -191,10 +182,8 @@ export async function subscribeToPushNotifications(
       ) as BufferSource,
     });
 
-    console.log('Push subscription created:', subscription);
     return subscription;
   } catch (error) {
-    console.error('Push subscription failed:', error);
     return null;
   }
 }
@@ -212,7 +201,6 @@ export async function unsubscribeFromPushNotifications(
     }
     return false;
   } catch (error) {
-    console.error('Push unsubscription failed:', error);
     return false;
   }
 }
@@ -249,12 +237,10 @@ export function setupNetworkListeners(
   onOffline?: () => void
 ): () => void {
   const handleOnline = () => {
-    console.log('App is online');
     onOnline?.();
   };
 
   const handleOffline = () => {
-    console.log('App is offline');
     onOffline?.();
   };
 
@@ -298,7 +284,6 @@ export async function clearAllCaches(): Promise<void> {
   const cacheNames = await caches.keys();
   await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
 
-  console.log('All caches cleared');
 }
 
 /**

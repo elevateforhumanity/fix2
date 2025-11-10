@@ -72,7 +72,6 @@ class TrackingBeacon {
 
     // Console watermark (if not in stealth mode)
     if (!this.stealth) {
-      console.log(`
 🛡️  ELEVATE FOR HUMANITY PLATFORM
 Licensed to: ${this.domain}
 License ID: ${this.licenseId}
@@ -294,13 +293,11 @@ Contact: legal@elevateforhumanity.org
         const response = await fetch(this.trackingUrl, options);
 
         if (!response.ok) {
-          console.warn('Tracking ping failed:', response.status);
         }
       }
     } catch (error) {
       // Silently fail - don't break the application
       if (!this.stealth) {
-        console.warn('Tracking error:', error);
       }
     }
   }

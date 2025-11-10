@@ -43,7 +43,6 @@ export default function PaymentSuccess() {
           amount: data.amount,
         });
       } catch (error) {
-        console.error('Error verifying payment:', error);
         // Fallback to basic enrollment data
         setEnrollmentData({
           programName: 'Your Program',

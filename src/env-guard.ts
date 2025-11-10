@@ -7,7 +7,6 @@ const required = ['VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY'];
 const missing = required.filter((k) => !import.meta.env[k]);
 if (missing.length) {
   // Surface a visible error in dev/preview; fail gracefully in prod
-  console.error('❌ Missing env vars:', missing);
   const msg = `Configuration error. Missing: ${missing.join(', ')}`;
   if (typeof document !== 'undefined') {
     const el = document.createElement('pre');

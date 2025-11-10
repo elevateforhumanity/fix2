@@ -44,7 +44,6 @@ export default function LiveClassSchedule() {
 
       setSessions(data || []);
     } catch (error) {
-      console.error('Error fetching schedule:', error);
       setError('Live class scheduling is being set up');
     } finally {
       setLoading(false);

@@ -75,7 +75,6 @@ export default function Users() {
 
       setMembers((data as any) || []);
     } catch (error) {
-      console.error('Failed to load members:', error);
       alert('Failed to load members');
     } finally {
       setLoading(false);
@@ -87,7 +86,6 @@ export default function Users() {
       const usageData = await getUsageStats();
       setUsage(usageData);
     } catch (error) {
-      console.error('Failed to load usage:', error);
     }
   }
 
@@ -122,7 +120,6 @@ export default function Users() {
       await loadMembers();
       await loadUsage();
     } catch (error: any) {
-      console.error('Failed to invite user:', error);
       alert(`Failed to invite user: ${error.message}`);
     } finally {
       setInviting(false);
@@ -152,7 +149,6 @@ export default function Users() {
       await loadMembers();
       alert('Role updated successfully');
     } catch (error: any) {
-      console.error('Failed to update role:', error);
       alert(`Failed to update role: ${error.message}`);
     }
   }
@@ -178,7 +174,6 @@ export default function Users() {
       await loadMembers();
       alert(`Member ${newStatus === 'active' ? 'activated' : 'suspended'}`);
     } catch (error: any) {
-      console.error('Failed to update status:', error);
       alert(`Failed to update status: ${error.message}`);
     }
   }
@@ -201,7 +196,6 @@ export default function Users() {
       await loadUsage();
       alert('Member removed successfully');
     } catch (error: any) {
-      console.error('Failed to remove member:', error);
       alert(`Failed to remove member: ${error.message}`);
     }
   }
@@ -219,7 +213,6 @@ export default function Users() {
         diff,
       });
     } catch (error) {
-      console.error('Failed to log audit:', error);
     }
   }
 

@@ -54,7 +54,6 @@ export class ZapierSocialAutomation {
     const webhookUrl = this.webhookUrls.get(platform);
 
     if (!webhookUrl) {
-      console.error(`[Zapier] No webhook URL configured for ${platform}`);
       return {
         success: false,
         error: `No webhook URL configured for ${platform}`,
@@ -70,7 +69,6 @@ export class ZapierSocialAutomation {
     };
 
     try {
-      console.log(`[Zapier] Posting to ${platform}...`);
 
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -87,7 +85,6 @@ export class ZapierSocialAutomation {
 
       const data = await response.json();
 
-      console.log(`[Zapier] Successfully posted to ${platform}`);
 
       return {
         success: true,
@@ -95,7 +92,6 @@ export class ZapierSocialAutomation {
         message: `Posted to ${platform} successfully`,
       };
     } catch (error) {
-      console.error(`[Zapier] Failed to post to ${platform}:`, error);
 
       return {
         success: false,
@@ -125,7 +121,6 @@ export class ZapierSocialAutomation {
     const allPlatformsWebhook = this.webhookUrls.get('all');
 
     if (allPlatformsWebhook) {
-      console.log('[Zapier] Using single webhook for all platforms');
 
       const payload = {
         platforms: platforms,
@@ -164,7 +159,6 @@ export class ZapierSocialAutomation {
           {}
         );
       } catch (error) {
-        console.error('[Zapier] Failed to post to all platforms:', error);
 
         // Return error for all platforms
         return platforms.reduce(
@@ -181,7 +175,6 @@ export class ZapierSocialAutomation {
     }
 
     // Post to each platform individually
-    console.log('[Zapier] Posting to each platform individually');
 
     const results = await Promise.all(
       platforms.map((platform) =>
@@ -377,7 +370,6 @@ Together, we're making a difference! 💙
     const webhookUrl = this.webhookUrls.get(platform);
 
     if (!webhookUrl) {
-      console.error(`[Zapier] No webhook URL configured for ${platform}`);
       return false;
     }
 
@@ -400,7 +392,6 @@ Together, we're making a difference! 💙
 
       return response.ok;
     } catch (error) {
-      console.error(`[Zapier] Connection test failed for ${platform}:`, error);
       return false;
     }
   }

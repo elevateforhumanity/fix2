@@ -42,7 +42,6 @@ async function resolveActor(): Promise<AnalyticsActor | undefined> {
     };
   } catch (error) {
     if (import.meta.env.DEV) {
-      console.warn('[analytics] unable to resolve actor', error);
     }
     return undefined;
   }

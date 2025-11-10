@@ -12,7 +12,6 @@ class RouteErrorBoundary extends React.Component<{children: React.ReactNode}, {e
     return {e: error};
   }
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('Route error:', error, errorInfo);
   }
   render() {
     return this.state.e

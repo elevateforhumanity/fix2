@@ -39,7 +39,6 @@ export default function ResetPassword() {
 
         setTokenValid(true);
       } catch (err: any) {
-        console.error('Token validation error:', err);
         setTokenValid(false);
       }
     } else {

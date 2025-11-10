@@ -70,7 +70,6 @@ export default function GradingInterface() {
       .order('name');
 
     if (error) {
-      console.error('Error loading courses:', error);
       return;
     }
 
@@ -88,7 +87,6 @@ export default function GradingInterface() {
       .order('creation_time', { ascending: false });
 
     if (error) {
-      console.error('Error loading courseworks:', error);
       return;
     }
 
@@ -114,7 +112,6 @@ export default function GradingInterface() {
       .order('submission_time', { ascending: true });
 
     if (error) {
-      console.error('Error loading submissions:', error);
       setLoading(false);
       return;
     }

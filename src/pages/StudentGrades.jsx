@@ -110,7 +110,6 @@ export default function StudentGrades() {
 
       setGrades(gradesArray);
     } catch (error) {
-      console.error('Error fetching student grades:', error);
       setError(error.message);
     } finally {
       setLoading(false);

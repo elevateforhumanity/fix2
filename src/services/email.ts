@@ -250,12 +250,10 @@ export async function sendEmail(
     ]);
 
     if (error) {
-      console.error('Error storing email notification:', error);
       return false;
     }
 
     // Log for development
-    console.log('Email notification queued:', {
       to: notification.to,
       subject: notification.subject,
       type: notification.type,
@@ -263,7 +261,6 @@ export async function sendEmail(
 
     return true;
   } catch (error) {
-    console.error('Error sending email:', error);
     return false;
   }
 }

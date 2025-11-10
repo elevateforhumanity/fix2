@@ -273,7 +273,6 @@ export class URLHealthMonitor {
         const check = await this.checkEndpoint(id);
         checks.set(id, check);
       } catch (error) {
-        console.error(`Error checking endpoint ${id}:`, error);
       }
     }
 
@@ -313,7 +312,6 @@ export class URLHealthMonitor {
       return primaryURL;
     }
 
-    console.warn(
       `Primary endpoint ${primaryId} is down, using fallback ${fallbackId}`
     );
     return await this.getSafeURL(fallbackId);
@@ -326,10 +324,6 @@ export class URLHealthMonitor {
     endpoint: ServiceEndpoint,
     check: URLCheck
   ): void {
-    console.error(`🚨 CRITICAL SERVICE DOWN: ${endpoint.name}`);
-    console.error(`URL: ${endpoint.url}`);
-    console.error(`Status: ${check.statusCode || 'No response'}`);
-    console.error(`Error: ${check.errorMessage || 'Unknown error'}`);
 
     // In production, send alerts via email, Slack, PagerDuty, etc.
     this.sendAlert({
@@ -347,14 +341,12 @@ export class URLHealthMonitor {
   private async sendAlert(alert: any): Promise<void> {
     // Implement alerting logic here
     // Examples: Email, Slack, PagerDuty, Discord, etc.
-    console.log('ALERT:', alert);
   }
 
   /**
    * Start monitoring all endpoints
    */
   startMonitoring(): void {
-    console.log('🔍 Starting URL health monitoring...');
 
     for (const [id, endpoint] of this.endpoints) {
       // Initial check

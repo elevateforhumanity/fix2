@@ -46,7 +46,6 @@ export default function LiveClassRoom() {
 
       setSession(data);
     } catch (error) {
-      console.error('Error fetching session:', error);
       setError('Live classroom feature is currently being set up');
     } finally {
       setLoading(false);

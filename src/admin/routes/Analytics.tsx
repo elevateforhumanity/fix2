@@ -196,7 +196,6 @@ export default function Analytics() {
         },
       });
     } catch (error) {
-      console.error('Failed to load analytics:', error);
       alert('Failed to load analytics data');
     } finally {
       setLoading(false);

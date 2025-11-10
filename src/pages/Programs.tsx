@@ -47,7 +47,7 @@ export default function Programs() {
       jobPlacementRate: 89,
       averageSalary: '$75,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
     {
       id: 'data-science-bootcamp',
@@ -73,7 +73,7 @@ export default function Programs() {
       jobPlacementRate: 92,
       averageSalary: '$85,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
     {
       id: 'cybersecurity-specialist',
@@ -99,7 +99,7 @@ export default function Programs() {
       jobPlacementRate: 95,
       averageSalary: '$95,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
     {
       id: 'advanced-manufacturing',
@@ -125,7 +125,7 @@ export default function Programs() {
       jobPlacementRate: 88,
       averageSalary: '$65,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
     {
       id: 'healthcare-administration',
@@ -151,7 +151,7 @@ export default function Programs() {
       jobPlacementRate: 90,
       averageSalary: '$55,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
     {
       id: 'digital-marketing',
@@ -177,7 +177,7 @@ export default function Programs() {
       jobPlacementRate: 85,
       averageSalary: '$50,000',
       federalFunding: true,
-      image: '/api/placeholder/400/200',
+      image: '/assets/hero-wide.svg',
     },
   ];
 

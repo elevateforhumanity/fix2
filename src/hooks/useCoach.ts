@@ -26,7 +26,6 @@ export function useCoach(courseId?: string) {
       const json = await resp.json();
       setPlan(json.plan);
     } catch (error) {
-      console.error('Failed to fetch coach plan:', error);
     } finally {
       setLoading(false);
     }

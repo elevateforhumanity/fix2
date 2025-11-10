@@ -139,7 +139,6 @@ export default function Launchpad() {
         activeUsers: usersCount.count || 0,
       });
     } catch (error) {
-      console.error('Failed to load launchpad data:', error);
       setSystemHealth((prev) => ({ ...prev, status: 'error' }));
     } finally {
       setLoading(false);

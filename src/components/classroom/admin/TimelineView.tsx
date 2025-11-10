@@ -287,7 +287,6 @@ export default function TimelineView({
 
       setEvents(allEvents);
     } catch (error) {
-      console.error('Error loading timeline:', error);
     } finally {
       setLoading(false);
     }

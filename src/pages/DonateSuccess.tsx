@@ -41,7 +41,6 @@ export default function DonateSuccess() {
           receiptUrl: data.receipt_url,
         });
       } catch (error) {
-        console.error('Error fetching donation details:', error);
         // Fallback to default values
         setDonation({
           amount: 100,

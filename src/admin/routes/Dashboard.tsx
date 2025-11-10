@@ -111,7 +111,6 @@ export default function Dashboard() {
         );
       }
     } catch (error) {
-      console.error('Failed to load dashboard data:', error);
     } finally {
       setLoading(false);
     }

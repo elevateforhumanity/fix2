@@ -131,7 +131,6 @@ export default function Assessments() {
         completionRate: 0, // Would need enrollment data
       });
     } catch (error) {
-      console.error('Failed to load assessment data:', error);
       alert('Failed to load assessment data');
     } finally {
       setLoading(false);
@@ -161,7 +160,6 @@ export default function Assessments() {
       await loadAssessmentData();
       alert('Assessment created successfully!');
     } catch (error: any) {
-      console.error('Failed to create assessment:', error);
       alert('Failed to create assessment: ' + error.message);
     } finally {
       setCreating(false);
@@ -180,7 +178,6 @@ export default function Assessments() {
       await loadAssessmentData();
       alert('Submission graded successfully!');
     } catch (error: any) {
-      console.error('Failed to grade submission:', error);
       alert('Failed to grade submission: ' + error.message);
     }
   }

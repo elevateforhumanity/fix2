@@ -53,7 +53,6 @@ export default function PageManager() {
       if (error) throw error;
       setPages(data || []);
     } catch (error) {
-      console.error('Failed to load pages:', error);
     } finally {
       setLoading(false);
     }
@@ -71,7 +70,6 @@ export default function PageManager() {
       if (error) throw error;
       setVersions(data || []);
     } catch (error) {
-      console.error('Failed to load versions:', error);
     }
   }
 
@@ -93,7 +91,6 @@ export default function PageManager() {
       alert(`Page ${status} successfully!`);
       loadPages();
     } catch (error: any) {
-      console.error('Failed to update status:', error);
       alert('Failed to update page status: ' + error.message);
     }
   }
@@ -114,7 +111,6 @@ export default function PageManager() {
       setSelectedPage(null);
       loadPages();
     } catch (error: any) {
-      console.error('Failed to delete page:', error);
       alert('Failed to delete page: ' + error.message);
     }
   }
@@ -142,7 +138,6 @@ export default function PageManager() {
         .single();
       if (data) setSelectedPage(data);
     } catch (error: any) {
-      console.error('Failed to save edits:', error);
       alert('Failed to save changes: ' + error.message);
     }
   }
@@ -169,7 +164,6 @@ export default function PageManager() {
         .single();
       if (data) setSelectedPage(data);
     } catch (error: any) {
-      console.error('Failed to rollback:', error);
       alert('Failed to rollback: ' + error.message);
     }
   }

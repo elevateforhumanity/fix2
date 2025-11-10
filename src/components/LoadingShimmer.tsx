@@ -101,7 +101,6 @@ export default function LoadingShimmer({
  * useEffect(() => {
  *   fetchData()
  *     .then(setData)
- *     .catch(console.error)
  *     .finally(() => setLoading(false));
  * }, []);
  * 

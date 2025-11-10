@@ -36,14 +36,12 @@ export function addSentryBreadcrumb(
 }
 
 export function captureError(error: Error, context?: Record<string, any>) {
-  console.error('Error:', error, context);
 }
 
 export function captureMessage(
   message: string,
   level: 'info' | 'warning' | 'error' = 'info'
 ) {
-  console.log(`[${level}]`, message);
 }
 
 export function startTransaction(_name: string, _op: string) {
@@ -70,8 +68,6 @@ export function measurePerformance(
 
 // Export stub Sentry object for compatibility
 export const Sentry = {
-  captureException: (error: Error) => console.error('Error:', error),
-  captureMessage: (message: string) => console.log('Message:', message),
   setUser: () => {},
   setContext: () => {},
   addBreadcrumb: () => {},

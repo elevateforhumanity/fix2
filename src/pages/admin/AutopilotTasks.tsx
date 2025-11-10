@@ -55,7 +55,6 @@ export default function AutopilotTasks() {
       if (error) throw error;
       setTasks(data || []);
     } catch (error) {
-      console.error('Error loading tasks:', error);
     } finally {
       setLoading(false);
     }
@@ -71,7 +70,6 @@ export default function AutopilotTasks() {
       if (error) throw error;
       setStats(data);
     } catch (error) {
-      console.error('Error loading stats:', error);
     }
   };
 
@@ -96,7 +94,6 @@ export default function AutopilotTasks() {
       if (!response.ok) throw new Error('Failed to approve task');
       await loadTasks();
     } catch (error) {
-      console.error('Error approving task:', error);
       alert('Failed to approve task');
     }
   };
@@ -115,7 +112,6 @@ export default function AutopilotTasks() {
       if (!response.ok) throw new Error('Failed to retry task');
       await loadTasks();
     } catch (error) {
-      console.error('Error retrying task:', error);
       alert('Failed to retry task');
     }
   };
@@ -136,7 +132,6 @@ export default function AutopilotTasks() {
       if (!response.ok) throw new Error('Failed to cancel task');
       await loadTasks();
     } catch (error) {
-      console.error('Error cancelling task:', error);
       alert('Failed to cancel task');
     }
   };

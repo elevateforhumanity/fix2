@@ -47,7 +47,6 @@ export default function GradeBook() {
         setSelectedCourse(data[0].id);
       }
     } catch (error) {
-      console.error('Error fetching courses:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -138,7 +137,6 @@ export default function GradeBook() {
 
       setStudents(studentsArray);
     } catch (error) {
-      console.error('Error fetching student grades:', error);
       setError(error.message);
     } finally {
       setLoading(false);

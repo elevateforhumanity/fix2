@@ -91,7 +91,6 @@ export default function Courses() {
         }))
       );
     } catch (error) {
-      console.error('Failed to load courses:', error);
       alert('Failed to load courses');
     } finally {
       setLoading(false);
@@ -103,7 +102,6 @@ export default function Courses() {
       const usageData = await getUsageStats();
       setUsage(usageData);
     } catch (error) {
-      console.error('Failed to load usage:', error);
     }
   }
 
@@ -160,7 +158,6 @@ export default function Courses() {
       await loadUsage();
       alert('Course created successfully!');
     } catch (error: any) {
-      console.error('Failed to create course:', error);
       alert(`Failed to create course: ${error.message}`);
     }
   }
@@ -199,7 +196,6 @@ export default function Courses() {
       await loadCourses();
       alert(`Course ${newStatus}`);
     } catch (error: any) {
-      console.error('Failed to update course status:', error);
       alert(`Failed to update course: ${error.message}`);
     }
   }
@@ -227,7 +223,6 @@ export default function Courses() {
       await loadUsage();
       alert('Course deleted successfully');
     } catch (error: any) {
-      console.error('Failed to delete course:', error);
       alert(`Failed to delete course: ${error.message}`);
     }
   }
@@ -251,7 +246,6 @@ export default function Courses() {
       setSelectedCourse(course);
       setShowVersionsModal(true);
     } catch (error) {
-      console.error('Failed to load versions:', error);
       alert('Failed to load versions');
     }
   }
@@ -269,7 +263,6 @@ export default function Courses() {
         diff,
       });
     } catch (error) {
-      console.error('Failed to log audit:', error);
     }
   }
 

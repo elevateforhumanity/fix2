@@ -86,7 +86,6 @@ export default function Community() {
       setBadges((badgesRes.data as any) || []);
       setLeaderboard((leaderboardRes.data as any) || []);
     } catch (error) {
-      console.error('Failed to load community data:', error);
       alert('Failed to load community data');
     } finally {
       setLoading(false);
@@ -112,7 +111,6 @@ export default function Community() {
       await loadCommunityData();
       alert('Thread created successfully!');
     } catch (error: any) {
-      console.error('Failed to create thread:', error);
       alert('Failed to create thread: ' + error.message);
     } finally {
       setCreatingThread(false);
@@ -142,7 +140,6 @@ export default function Community() {
       await loadCommunityData();
       alert('Badge created successfully!');
     } catch (error: any) {
-      console.error('Failed to create badge:', error);
       alert('Failed to create badge: ' + error.message);
     } finally {
       setCreatingBadge(false);
@@ -163,7 +160,6 @@ export default function Community() {
       if (error) throw error;
       alert('Badge awarded!');
     } catch (error: any) {
-      console.error('Failed to award badge:', error);
       alert('Failed to award badge: ' + error.message);
     }
   }

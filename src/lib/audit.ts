@@ -49,7 +49,6 @@ export async function logAudit({
       user_agent: userAgent,
     });
   } catch (error) {
-    console.error('Failed to log audit event:', error);
     // Don't throw - audit logging should never break the app
   }
 }
@@ -191,7 +190,6 @@ export async function logBatch(logs: AuditLogParams[]): Promise<void> {
 
     await supabase.from('audit_logs').insert(records);
   } catch (error) {
-    console.error('Failed to log batch audit events:', error);
   }
 }
 

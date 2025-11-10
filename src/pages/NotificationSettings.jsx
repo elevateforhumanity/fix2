@@ -59,7 +59,6 @@ export default function NotificationSettings() {
         setPreferences(data);
       }
     } catch (error) {
-      console.error('Error fetching preferences:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -105,7 +104,6 @@ export default function NotificationSettings() {
       setSuccess('Settings saved successfully!');
       setTimeout(() => setSuccess(null), 3000);
     } catch (error) {
-      console.error('Error saving preferences:', error);
       setError(error.message);
     } finally {
       setSaving(false);

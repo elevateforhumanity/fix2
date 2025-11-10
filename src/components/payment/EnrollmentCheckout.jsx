@@ -44,7 +44,6 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
         throw stripeError;
       }
     } catch (err) {
-      console.error('Enrollment error:', err);
       setError(err.message || 'Failed to process enrollment');
       setLoading(false);
     }

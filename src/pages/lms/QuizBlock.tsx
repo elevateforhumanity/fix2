@@ -106,7 +106,6 @@ export default function QuizBlock() {
   };
 
   const handleQuizComplete = async (results: any) => {
-    console.log('Quiz completed:', results);
 
     // Save results to backend
     // await saveQuizResults(courseId, quizId, results);
@@ -133,7 +132,6 @@ export default function QuizBlock() {
           }, 3000);
         }
       } catch (error) {
-        console.error('Error checking completion:', error);
         // Navigate back to course anyway
         setTimeout(() => {
           navigate(`/lms/courses/${courseId}`);

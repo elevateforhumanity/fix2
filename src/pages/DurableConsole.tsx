@@ -57,7 +57,6 @@ export default function DurableConsole() {
         if (data.screenshot) {
           addLog('');
           addLog('📸 Screenshot saved - check console');
-          console.log('Durable editor screenshot:', data.screenshot);
         }
       }
     } catch (error) {

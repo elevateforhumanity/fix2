@@ -111,7 +111,6 @@ export default function IdentityMappingPanel() {
 
         const parts = line.split(',').map((p) => p.trim());
         if (parts.length < 3) {
-          console.error(`Skipping invalid line ${i + 1}: ${line}`);
           continue;
         }
 

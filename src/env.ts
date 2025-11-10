@@ -27,7 +27,6 @@ export function loadEnv(): AppEnv {
       .map((i) => `${i.path.join('.')}: ${i.message}`)
       .join('\n');
 
-    console.error('\nEnvironment validation failed:\n' + issues + '\n');
     process.exit(1);
   }
   cached = parsed.data;
@@ -42,5 +41,4 @@ if (
 ) {
   loadEnv();
 
-  console.log('✅ Environment variables validated');
 }

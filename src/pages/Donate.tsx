@@ -60,7 +60,6 @@ export default function Donate() {
         throw new Error('Failed to create checkout session');
       }
     } catch (error) {
-      console.error('Donation error:', error);
       alert('Failed to process donation. Please try again.');
     }
   };

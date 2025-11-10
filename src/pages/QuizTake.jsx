@@ -56,7 +56,6 @@ export default function QuizTake() {
 
       setQuestions(data);
     } catch (error) {
-      console.error('Error fetching quiz questions:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -107,7 +106,6 @@ export default function QuizTake() {
       // Navigate to results
       navigate(`/quiz-results/${lessonId}`);
     } catch (error) {
-      console.error('Error submitting quiz:', error);
       setError(error.message);
     } finally {
       setSubmitting(false);

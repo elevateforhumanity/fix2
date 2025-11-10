@@ -57,7 +57,6 @@ class DataSynchronizationManager {
         filter: filter ? this.buildFilter(filter) : undefined,
       },
       (payload) => {
-        console.log(`[DataSync] UPDATE on ${table}:`, payload);
         this.handleUpdate(table, payload, onUpdate);
       }
     );
@@ -72,7 +71,6 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
-          console.log(`[DataSync] INSERT on ${table}:`, payload);
           this.handleInsert(table, payload, onInsert);
         }
       );
@@ -88,14 +86,12 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
-          console.log(`[DataSync] DELETE on ${table}:`, payload);
           this.handleDelete(table, payload, onDelete);
         }
       );
     }
 
     channel.subscribe((status) => {
-      console.log(`[DataSync] Subscription status for ${table}:`, status);
       if (status === 'SUBSCRIBED') {
         this.updateSyncState(table, { lastSync: new Date() });
       }
@@ -117,7 +113,6 @@ class DataSynchronizationManager {
     if (channel) {
       await channel.unsubscribe();
       this.subscriptions.delete(channelName);
-      console.log(`[DataSync] Unsubscribed from ${channelName}`);
     }
   }
 
@@ -133,7 +128,6 @@ class DataSynchronizationManager {
       // Check for conflicts
       const state = this.syncState.get(table);
       if (state?.syncInProgress) {
-        console.warn(
           `[DataSync] Sync in progress for ${table}, queuing update`
         );
         state.pendingChanges.push({ type: 'UPDATE', payload });
@@ -144,7 +138,6 @@ class DataSynchronizationManager {
       callback(payload);
       this.updateSyncState(table, { lastSync: new Date() });
     } catch (error) {
-      console.error(`[DataSync] Error handling UPDATE for ${table}:`, error);
       this.queueRetry(table, { type: 'UPDATE', payload, callback });
     }
   }
@@ -161,7 +154,6 @@ class DataSynchronizationManager {
       callback(payload);
       this.updateSyncState(table, { lastSync: new Date() });
     } catch (error) {
-      console.error(`[DataSync] Error handling INSERT for ${table}:`, error);
       this.queueRetry(table, { type: 'INSERT', payload, callback });
     }
   }
@@ -178,7 +170,6 @@ class DataSynchronizationManager {
       callback(payload);
       this.updateSyncState(table, { lastSync: new Date() });
     } catch (error) {
-      console.error(`[DataSync] Error handling DELETE for ${table}:`, error);
       this.queueRetry(table, { type: 'DELETE', payload, callback });
     }
   }
@@ -202,7 +193,6 @@ class DataSynchronizationManager {
     const queue = this.retryQueue.get(table);
     if (!queue || queue.length === 0) return;
 
-    console.log(
       `[DataSync] Processing retry queue for ${table}:`,
       queue.length
     );
@@ -214,13 +204,11 @@ class DataSynchronizationManager {
       operation.callback(operation.payload);
       this.retryQueue.set(table, queue);
     } catch (error) {
-      console.error(`[DataSync] Retry failed for ${table}:`, error);
       if (queue.length < this.maxRetries) {
         queue.push(operation);
         this.retryQueue.set(table, queue);
         setTimeout(() => this.processRetryQueue(table), this.retryDelay * 2);
       } else {
-        console.error(`[DataSync] Max retries exceeded for ${table}`);
       }
     }
   }
@@ -252,7 +240,6 @@ class DataSynchronizationManager {
 
     const state = this.syncState.get(table);
     if (!state) {
-      console.error(`[DataSync] No sync state for ${table}`);
       return [];
     }
 
@@ -269,7 +256,6 @@ class DataSynchronizationManager {
       // Merge local and server data (server wins on conflicts)
       const merged = this.mergeData(localData, serverData || []);
 
-      console.log(`[DataSync] Synced ${table}:`, merged.length, 'records');
       this.updateSyncState(table, {
         syncInProgress: false,
         lastSync: new Date(),
@@ -277,7 +263,6 @@ class DataSynchronizationManager {
 
       return merged;
     } catch (error) {
-      console.error(`[DataSync] Error syncing ${table}:`, error);
       this.updateSyncState(table, { syncInProgress: false });
       throw error;
     }
@@ -310,7 +295,6 @@ class DataSynchronizationManager {
    * Cleanup all subscriptions
    */
   async cleanup(): Promise<void> {
-    console.log('[DataSync] Cleaning up all subscriptions');
     for (const [channelName] of this.subscriptions) {
       await this.unsubscribe(channelName);
     }

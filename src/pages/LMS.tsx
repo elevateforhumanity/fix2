@@ -38,7 +38,6 @@ export default function LMS() {
         setCourses(data);
       }
     } catch (error) {
-      console.error('Failed to load courses:', error);
     } finally {
       setLoading(false);
     }

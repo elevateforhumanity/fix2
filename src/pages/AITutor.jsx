@@ -72,7 +72,6 @@ export function AITutor() {
         },
       ]);
     } catch (error) {
-      console.error('Essay grading error:', error);
     } finally {
       setLoading(false);
     }

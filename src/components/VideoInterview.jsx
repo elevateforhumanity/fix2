@@ -83,7 +83,6 @@ export default function VideoInterview() {
       setRecording(true);
       setTimeLeft(120);
     } catch (error) {
-      console.error('Error accessing camera:', error);
       alert('Unable to access camera. Please check permissions.');
     }
   };
@@ -109,10 +108,8 @@ export default function VideoInterview() {
       });
 
       if (response.ok) {
-        console.log('Video uploaded successfully');
       }
     } catch (error) {
-      console.error('Upload error:', error);
     }
   };
 
