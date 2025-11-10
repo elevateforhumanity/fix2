@@ -38,8 +38,8 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-          VITE_API_URL: ${{ secrets.VITE_API_URL || 'https://cuxzzpsyufcewtmicszk.supabase.co' }}
-          VITE_SITE_URL: ${{ secrets.VITE_SITE_URL || 'https://elevateforhumanityfix.netlify.app' }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_SITE_URL: ${{ secrets.VITE_SITE_URL }}
           NODE_ENV: production
           
       - name: Deploy to Netlify
