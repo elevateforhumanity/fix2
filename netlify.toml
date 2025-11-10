@@ -6,6 +6,8 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--version"
   PNPM_VERSION = "9.7.0"
+  # Exclude documentation and script files from secret scanning
+  SECRETS_SCAN_OMIT_PATHS = "docs/**,scripts/**,*.md,*.sh"
 
 # Force HTTPS
 [[redirects]]
