@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://elevateforhumanity.pages.dev/</loc>
-    <lastmod>2025-10-30T00:21:12.613Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
-    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
+    <loc>https://portal.elevateforhumanity.org/</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://portal.elevateforhumanity.org/og-image.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.pages.dev/programs</loc>
-    <lastmod>2025-10-30T00:21:12.613Z</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://portal.elevateforhumanity.org/programs</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://elevateforhumanity.pages.dev/programs/placeholder.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://elevateforhumanity.pages.dev/get-started</loc>
-    <lastmod>2025-10-30T00:21:12.613Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
+    <loc>https://portal.elevateforhumanity.org/apply</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.pages.dev/apply</loc>
-    <lastmod>2025-10-30T00:21:12.613Z</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://portal.elevateforhumanity.org/partners</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://elevateforhumanity.pages.dev/assets/og/efh-hero.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://portal.elevateforhumanity.org/about</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://portal.elevateforhumanity.org/contact</loc>
+    <lastmod>2025-01-10T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://elevateforhumanity.pages.dev/connect</loc>
