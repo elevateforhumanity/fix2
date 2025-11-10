@@ -102,6 +102,19 @@ python -m playwright install chromium
 python sba_connect_portal.py
 ```
 
+## Development & Deployment
+
+This repository uses the Next.js pages router. To run the site locally:
+
+1. Install dependencies: pnpm install (or npm install)
+2. Start dev server: pnpm run dev
+3. Build for production: pnpm run build
+4. Export/static build (if applicable): pnpm run export or see the deployment docs
+
+Build artifacts (nextjs-site/, .next/, out/, dist/) are intentionally not tracked and are added to .gitignore. To reproduce builds locally, run pnpm run build.
+
+If you deploy from the repository directly, update the deploy branch or CI pipeline to build from source rather than committing generated output.
+
 ## 🚀 Tech Stack
 
 ### LMS Platform
