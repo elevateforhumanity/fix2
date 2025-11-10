@@ -100,10 +100,14 @@ export function useCourseProgress(courseId: string) {
     setProgress(updatedProgress);
 
     // Save to localStorage - replace with API call
-    localStorage.setItem(
-      `course_progress_${courseId}`,
-      JSON.stringify(updatedProgress)
-    );
+    try {
+      localStorage.setItem(
+        `course_progress_${courseId}`,
+        JSON.stringify(updatedProgress)
+      );
+    } catch (error) {
+      // localStorage not available (private browsing, quota exceeded, etc.)
+    }
 
     // TODO: Send to backend API
     // await fetch('/api/progress', {
@@ -129,7 +133,11 @@ export function useCourseProgress(courseId: string) {
       totalLessons: 0,
     };
     setProgress(emptyProgress);
-    localStorage.removeItem(`course_progress_${courseId}`);
+    try {
+      localStorage.removeItem(`course_progress_${courseId}`);
+    } catch (error) {
+      // localStorage not available
+    }
   };
 
   return {

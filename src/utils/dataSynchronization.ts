@@ -128,8 +128,7 @@ class DataSynchronizationManager {
       // Check for conflicts
       const state = this.syncState.get(table);
       if (state?.syncInProgress) {
-          `[DataSync] Sync in progress for ${table}, queuing update`
-        );
+        // Sync in progress, queuing update
         state.pendingChanges.push({ type: 'UPDATE', payload });
         return;
       }
@@ -193,9 +192,7 @@ class DataSynchronizationManager {
     const queue = this.retryQueue.get(table);
     if (!queue || queue.length === 0) return;
 
-      `[DataSync] Processing retry queue for ${table}:`,
-      queue.length
-    );
+    // Processing retry queue
 
     const operation = queue.shift();
     if (!operation) return;

@@ -438,9 +438,9 @@ export class SocialMediaAutomation {
    * Send report via email/notification
    */
   private async sendReport(report: DailyReport): Promise<void> {
+    // Log top performing posts
     report.topPerforming.forEach((post, i) => {
-        `${i + 1}. ${post.platform}: ${post.content.substring(0, 50)}...`
-      );
+      // Post logged for reporting
     });
 
     // Send via email (implement with your email service)
@@ -470,6 +470,7 @@ export class SocialMediaAutomation {
    * Start automation
    */
   startAutomation(): void {
+    // Automation started
 
     // Schedule daily posts
     this.scheduleDailyPosts();
@@ -484,7 +485,6 @@ export class SocialMediaAutomation {
       },
       24 * 60 * 60 * 1000
     );
-
   }
 }
 

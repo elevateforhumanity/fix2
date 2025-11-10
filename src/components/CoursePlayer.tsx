@@ -28,6 +28,7 @@ export default function CoursePlayer({
   const [currentTime, setCurrentTime] = useState(0);
   const [showControls, setShowControls] = useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const completedRef = React.useRef(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -44,8 +45,9 @@ export default function CoursePlayer({
         setProgress(progressPercent);
         onProgress?.(progressPercent);
 
-        // Mark as complete when 90% watched
-        if (progressPercent >= 90 && !video.ended) {
+        // Mark as complete when 90% watched (only once)
+        if (progressPercent >= 90 && !completedRef.current) {
+          completedRef.current = true;
           onComplete?.();
         }
       }
@@ -53,7 +55,10 @@ export default function CoursePlayer({
 
     const handleEnded = () => {
       setIsPlaying(false);
-      onComplete?.();
+      if (!completedRef.current) {
+        completedRef.current = true;
+        onComplete?.();
+      }
     };
 
     video.addEventListener('timeupdate', handleTimeUpdate);

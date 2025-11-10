@@ -29,7 +29,7 @@ export function getAuthRoutes() {
       key="staff-panel"
       path="/staff"
       element={
-        <RoleRoute roles={['staff', 'admin']}>
+        <RoleRoute allowedRoles={['staff', 'admin']}>
           <StaffPanel />
         </RoleRoute>
       }

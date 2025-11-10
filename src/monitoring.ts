@@ -3,18 +3,14 @@ type Metric = { name: string; value: number; id?: string };
 export async function startWebVitals(report?: (m: Metric) => void) {
   try {
     const mod = await import('web-vitals');
-    const cb =
-      report ??
-      ((m: Metric) =>
+    const cb = report ?? ((m: Metric) => void 0);
     mod.onCLS(cb);
     // onFID is deprecated in web-vitals v4, use onINP instead
     mod.onLCP(cb);
     if (typeof mod.onINP === 'function') mod.onINP(cb);
     mod.onTTFB(cb);
   } catch (e) {
-      'web-vitals not available or failed to load:',
-      (e as Error)?.message ?? e
-    );
+    // web-vitals not available or failed to load
   }
 }
 

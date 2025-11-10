@@ -18,10 +18,20 @@ export function useAnalyticsEvent(
       const actor: AnalyticsActor | undefined = await resolveActor();
       if (!mounted) return;
 
+      let parsedProps: Record<string, unknown> | undefined;
+      if (serializedProps) {
+        try {
+          parsedProps = JSON.parse(serializedProps);
+        } catch (error) {
+          // Invalid JSON, skip properties
+          parsedProps = undefined;
+        }
+      }
+
       await recordAnalyticsEvent({
         eventType,
         actor,
-        properties: serializedProps ? JSON.parse(serializedProps) : undefined,
+        properties: parsedProps,
       });
     })();
 

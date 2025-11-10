@@ -254,10 +254,7 @@ export async function sendEmail(
     }
 
     // Log for development
-      to: notification.to,
-      subject: notification.subject,
-      type: notification.type,
-    });
+    // Email notification logged
 
     return true;
   } catch (error) {

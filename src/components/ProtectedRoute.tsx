@@ -11,7 +11,7 @@ interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
-export default function ProtectedRoute({ children }: ProtectedRouteProps) {
+function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
   const location = useLocation();
 
@@ -36,3 +36,40 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   // User is authenticated, render the protected content
   return <>{children}</>;
 }
+
+// Role-based route protection
+interface RoleRouteProps {
+  children: React.ReactNode;
+  allowedRoles: string[];
+}
+
+function RoleRoute({ children, allowedRoles }: RoleRouteProps) {
+  const { user, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand mx-auto mb-4"></div>
+          <p className="text-text-secondary">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  // Check if user has required role
+  const userRole = (user as any).role || 'user';
+  if (!allowedRoles.includes(userRole)) {
+    return <Navigate to="/not-authorized" replace />;
+  }
+
+  return <>{children}</>;
+}
+
+export { ProtectedRoute, RoleRoute };
+export default ProtectedRoute;

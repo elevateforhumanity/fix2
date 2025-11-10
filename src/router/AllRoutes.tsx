@@ -43,7 +43,7 @@ export default function AllRoutes() {
         <Route
           path="/staff"
           element={
-            <RoleRoute roles={['staff', 'admin']}>
+            <RoleRoute allowedRoles={['staff', 'admin']}>
               <StaffPanel />
             </RoleRoute>
           }

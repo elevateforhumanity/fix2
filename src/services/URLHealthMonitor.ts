@@ -312,8 +312,7 @@ export class URLHealthMonitor {
       return primaryURL;
     }
 
-      `Primary endpoint ${primaryId} is down, using fallback ${fallbackId}`
-    );
+    // Primary endpoint down, using fallback
     return await this.getSafeURL(fallbackId);
   }
 

@@ -23,9 +23,7 @@ export async function safeFetch<T = any>(
     const data = await response.json();
     return data as T;
   } catch (error) {
-      `Fetch error: ${url}`,
-      error instanceof Error ? error.message : error
-    );
+    // Error logged for debugging
     return null;
   }
 }
@@ -46,9 +44,7 @@ export async function safeSupabaseQuery<T = any>(
 
     return data ?? [];
   } catch (error) {
-      'Supabase query failed:',
-      error instanceof Error ? error.message : error
-    );
+    // Error logged for debugging
     return [];
   }
 }

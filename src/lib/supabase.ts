@@ -5,9 +5,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 // Don't crash if env vars are missing - allow preview/dev to render
 if (!supabaseUrl || !supabaseAnonKey) {
-    '⚠️  Supabase env vars not configured. Data features will be disabled.',
-    '\nSet VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to enable.'
-  );
+  // Supabase not configured - data features disabled
 }
 
 // Export null if not configured, so components can check and render fallback
