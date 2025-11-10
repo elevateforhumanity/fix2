@@ -473,3 +473,590 @@
     border-width: 2px;
   }
 }
+
+/* ============================================
+   MULTI-STEP FORM PROGRESS
+   Visual progress indicator for multi-step forms
+   ============================================ */
+
+.form-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.form-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gray-300);
+  z-index: 0;
+}
+
+.form-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.form-step-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+  transition: all 0.3s ease;
+  border: 2px solid var(--gray-300);
+}
+
+.form-step.active .form-step-indicator {
+  background: var(--brand-primary);
+  color: white;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(228, 30, 38, 0.1);
+}
+
+.form-step.completed .form-step-indicator {
+  background: var(--success-500);
+  color: white;
+  border-color: var(--success-500);
+}
+
+.form-step.completed .form-step-indicator::before {
+  content: '✓';
+}
+
+.form-step-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-step.active .form-step-label {
+  color: var(--brand-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.form-step.completed .form-step-label {
+  color: var(--success-600);
+}
+
+/* Progress Bar Variant */
+.form-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: var(--brand-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.form-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.form-progress-percentage {
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-primary);
+}
+
+/* ============================================
+   PASSWORD STRENGTH INDICATOR
+   Visual feedback for password security
+   ============================================ */
+
+.password-field {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+  background: var(--gray-100);
+}
+
+.password-strength {
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  margin-top: var(--space-2);
+  overflow: hidden;
+  display: flex;
+  gap: 2px;
+}
+
+.password-strength-segment {
+  flex: 1;
+  background: var(--gray-300);
+  transition: background-color 0.3s ease;
+}
+
+/* Strength Levels */
+.password-strength.weak .password-strength-segment:nth-child(1) {
+  background: var(--error-500);
+}
+
+.password-strength.fair .password-strength-segment:nth-child(1),
+.password-strength.fair .password-strength-segment:nth-child(2) {
+  background: var(--warning-500);
+}
+
+.password-strength.good .password-strength-segment:nth-child(1),
+.password-strength.good .password-strength-segment:nth-child(2),
+.password-strength.good .password-strength-segment:nth-child(3) {
+  background: var(--info-500);
+}
+
+.password-strength.strong .password-strength-segment {
+  background: var(--success-500);
+}
+
+.password-strength-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.password-strength-text {
+  font-weight: var(--font-weight-semibold);
+}
+
+.password-strength.weak .password-strength-text {
+  color: var(--error-600);
+}
+
+.password-strength.fair .password-strength-text {
+  color: var(--warning-600);
+}
+
+.password-strength.good .password-strength-text {
+  color: var(--info-600);
+}
+
+.password-strength.strong .password-strength-text {
+  color: var(--success-600);
+}
+
+/* Password Requirements */
+.password-requirements {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  color: var(--text-secondary);
+}
+
+.password-requirement:last-child {
+  margin-bottom: 0;
+}
+
+.password-requirement-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.password-requirement.met {
+  color: var(--success-600);
+}
+
+.password-requirement.met .password-requirement-icon {
+  background: var(--success-500);
+  border-color: var(--success-500);
+  color: white;
+}
+
+.password-requirement.met .password-requirement-icon::before {
+  content: '✓';
+}
+
+/* ============================================
+   CHARACTER COUNTER
+   Input length feedback
+   ============================================ */
+
+.form-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.form-counter-text {
+  font-weight: var(--font-weight-medium);
+}
+
+.form-counter.limit-reached {
+  color: var(--error-500);
+}
+
+.form-counter.limit-warning {
+  color: var(--warning-600);
+}
+
+/* ============================================
+   DRAG AND DROP FILE UPLOAD
+   Enhanced file input
+   ============================================ */
+
+.file-dropzone {
+  border: 2px dashed var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12);
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background: var(--bg-secondary);
+}
+
+.file-dropzone:hover {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary-light);
+}
+
+.file-dropzone.drag-over {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary-light);
+  border-style: solid;
+}
+
+.file-dropzone-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-4);
+  color: var(--text-secondary);
+}
+
+.file-dropzone-text {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.file-dropzone-hint {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.file-dropzone-button {
+  margin-top: var(--space-4);
+}
+
+/* File List */
+.file-list {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+}
+
+.file-item-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.file-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-item-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-item-size {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.file-item-remove {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.file-item-remove:hover {
+  background: var(--error-100);
+  color: var(--error-600);
+}
+
+/* Upload Progress */
+.file-item-progress {
+  margin-top: var(--space-2);
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.file-item-progress-bar {
+  height: 100%;
+  background: var(--brand-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* ============================================
+   AUTO-COMPLETE DROPDOWN
+   Searchable select with suggestions
+   ============================================ */
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-input {
+  width: 100%;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: var(--space-1);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 50;
+  display: none;
+}
+
+.autocomplete.open .autocomplete-dropdown {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: var(--gray-100);
+}
+
+.autocomplete-item.active {
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+}
+
+.autocomplete-item mark {
+  background: var(--warning-200);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.autocomplete-empty {
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* ============================================
+   DATE/TIME PICKER STYLING
+   Enhanced native inputs
+   ============================================ */
+
+.form-date,
+.form-time,
+.form-datetime {
+  position: relative;
+}
+
+.form-date input[type="date"],
+.form-time input[type="time"],
+.form-datetime input[type="datetime-local"] {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.form-date input[type="date"]::-webkit-calendar-picker-indicator,
+.form-time input[type="time"]::-webkit-calendar-picker-indicator,
+.form-datetime input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   COLOR PICKER STYLING
+   Enhanced color input
+   ============================================ */
+
+.form-color {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.form-color input[type="color"] {
+  width: 60px;
+  height: 40px;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form-color input[type="color"]:hover {
+  border-color: var(--brand-primary);
+}
+
+.form-color-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-3);
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   INPUT MASKS
+   Formatted input patterns
+   ============================================ */
+
+.form-input-masked {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.form-input-phone::placeholder {
+  content: '(___) ___-____';
+}
+
+.form-input-credit-card::placeholder {
+  content: '____ ____ ____ ____';
+}
+
+.form-input-date::placeholder {
+  content: 'MM/DD/YYYY';
+}
+
+/* ============================================
+   DARK MODE ADJUSTMENTS
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .file-dropzone {
+    background: var(--gray-800);
+  }
+  
+  .file-dropzone:hover,
+  .file-dropzone.drag-over {
+    background: var(--gray-700);
+  }
+  
+  .file-item {
+    background: var(--gray-800);
+    border-color: var(--gray-700);
+  }
+  
+  .password-requirements {
+    background: var(--gray-800);
+  }
+  
+  .autocomplete-dropdown {
+    border-color: var(--gray-700);
+  }
+  
+  .autocomplete-item:hover,
+  .autocomplete-item.selected {
+    background: var(--gray-800);
+  }
+  
+  .form-color-value {
+    background: var(--gray-800);
+  }
+}

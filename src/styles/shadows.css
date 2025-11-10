@@ -383,3 +383,562 @@
     box-shadow: none;
   }
 }
+
+/* ============================================
+   TEXT SHADOWS
+   Depth and emphasis for typography
+   ============================================ */
+
+:root {
+  --text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --text-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.15);
+  --text-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --text-shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.25);
+  --text-shadow-glow: 0 0 10px rgba(228, 30, 38, 0.8);
+  --text-shadow-glow-blue: 0 0 10px rgba(37, 99, 235, 0.8);
+  --text-shadow-glow-success: 0 0 10px rgba(16, 185, 129, 0.8);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+.text-shadow-sm {
+  text-shadow: var(--text-shadow-sm);
+}
+
+.text-shadow-md,
+.text-shadow {
+  text-shadow: var(--text-shadow-md);
+}
+
+.text-shadow-lg {
+  text-shadow: var(--text-shadow-lg);
+}
+
+.text-shadow-xl {
+  text-shadow: var(--text-shadow-xl);
+}
+
+/* Text Glow Effects */
+.text-glow {
+  text-shadow: var(--text-shadow-glow);
+}
+
+.text-glow-blue {
+  text-shadow: var(--text-shadow-glow-blue);
+}
+
+.text-glow-success {
+  text-shadow: var(--text-shadow-glow-success);
+}
+
+/* Embossed Text */
+.text-emboss {
+  text-shadow: 
+    1px 1px 0 rgba(255, 255, 255, 0.3),
+    -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Engraved Text */
+.text-engrave {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.3),
+    0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* 3D Text */
+.text-3d {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.2),
+    2px 2px 0 rgba(0, 0, 0, 0.15),
+    3px 3px 0 rgba(0, 0, 0, 0.1),
+    4px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Outline Text */
+.text-outline {
+  text-shadow: 
+    -1px -1px 0 var(--gray-900),
+    1px -1px 0 var(--gray-900),
+    -1px 1px 0 var(--gray-900),
+    1px 1px 0 var(--gray-900);
+}
+
+.text-outline-white {
+  text-shadow: 
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+/* ============================================
+   GLASSMORPHISM
+   Frosted glass effect with backdrop blur
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Glassmorphism with Brand Colors */
+.glass-brand {
+  background: rgba(228, 30, 38, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(228, 30, 38, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(228, 30, 38, 0.2);
+}
+
+.glass-blue {
+  background: rgba(37, 99, 235, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.2);
+}
+
+/* Backdrop Blur Utilities */
+.backdrop-blur-none {
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.backdrop-blur-2xl {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.backdrop-blur-3xl {
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+}
+
+/* Backdrop Brightness */
+.backdrop-brightness-50 {
+  backdrop-filter: brightness(0.5);
+  -webkit-backdrop-filter: brightness(0.5);
+}
+
+.backdrop-brightness-75 {
+  backdrop-filter: brightness(0.75);
+  -webkit-backdrop-filter: brightness(0.75);
+}
+
+.backdrop-brightness-100 {
+  backdrop-filter: brightness(1);
+  -webkit-backdrop-filter: brightness(1);
+}
+
+.backdrop-brightness-125 {
+  backdrop-filter: brightness(1.25);
+  -webkit-backdrop-filter: brightness(1.25);
+}
+
+.backdrop-brightness-150 {
+  backdrop-filter: brightness(1.5);
+  -webkit-backdrop-filter: brightness(1.5);
+}
+
+/* Backdrop Saturation */
+.backdrop-saturate-0 {
+  backdrop-filter: saturate(0);
+  -webkit-backdrop-filter: saturate(0);
+}
+
+.backdrop-saturate-50 {
+  backdrop-filter: saturate(0.5);
+  -webkit-backdrop-filter: saturate(0.5);
+}
+
+.backdrop-saturate-100 {
+  backdrop-filter: saturate(1);
+  -webkit-backdrop-filter: saturate(1);
+}
+
+.backdrop-saturate-150 {
+  backdrop-filter: saturate(1.5);
+  -webkit-backdrop-filter: saturate(1.5);
+}
+
+.backdrop-saturate-200 {
+  backdrop-filter: saturate(2);
+  -webkit-backdrop-filter: saturate(2);
+}
+
+/* Browser Fallback for Backdrop Filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass,
+  .glass-dark,
+  .glass-strong,
+  .glass-subtle,
+  .glass-brand,
+  .glass-blue {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .glass,
+    .glass-dark,
+    .glass-strong,
+    .glass-subtle,
+    .glass-brand,
+    .glass-blue {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+/* ============================================
+   NEUMORPHISM
+   Soft UI design with realistic depth
+   ============================================ */
+
+.neomorphic {
+  background: var(--gray-100);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    -8px -8px 16px rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.neomorphic:hover {
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.12),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+}
+
+.neomorphic-inset {
+  background: var(--gray-100);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+}
+
+.neomorphic-flat {
+  background: var(--gray-100);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.08),
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+}
+
+.neomorphic-pressed {
+  background: var(--gray-100);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+}
+
+/* Neumorphic Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .neomorphic {
+    background: var(--gray-800);
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.05);
+  }
+  
+  .neomorphic:hover {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.08);
+  }
+  
+  .neomorphic-inset {
+    background: var(--gray-800);
+    box-shadow: 
+      inset 8px 8px 16px rgba(0, 0, 0, 0.4),
+      inset -8px -8px 16px rgba(255, 255, 255, 0.05);
+  }
+  
+  .neomorphic-flat {
+    background: var(--gray-800);
+    box-shadow: 
+      4px 4px 8px rgba(0, 0, 0, 0.3),
+      -4px -4px 8px rgba(255, 255, 255, 0.03);
+  }
+  
+  .neomorphic-pressed {
+    background: var(--gray-800);
+    box-shadow: 
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Soft UI (Alternative Neumorphism) */
+.soft-ui {
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 
+    20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
+  border-radius: var(--radius-xl);
+}
+
+.soft-ui-inset {
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 
+    inset 20px 20px 60px #bebebe,
+    inset -20px -20px 60px #ffffff;
+  border-radius: var(--radius-xl);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   Luminous shadows for emphasis
+   ============================================ */
+
+.glow-brand {
+  box-shadow: 0 0 20px rgba(228, 30, 38, 0.5);
+}
+
+.glow-brand-strong {
+  box-shadow: 0 0 40px rgba(228, 30, 38, 0.7);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.glow-success-strong {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.7);
+}
+
+.glow-warning {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.glow-warning-strong {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.7);
+}
+
+.glow-error {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.glow-error-strong {
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.7);
+}
+
+.glow-info {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-info-strong {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.7);
+}
+
+.glow-white {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.glow-white-strong {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+}
+
+/* Animated Glow Pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(228, 30, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(228, 30, 38, 0.6);
+  }
+}
+
+@keyframes glow-pulse-success {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes glow-pulse-info {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.glow-pulse-success {
+  animation: glow-pulse-success 2s ease-in-out infinite;
+}
+
+.glow-pulse-info {
+  animation: glow-pulse-info 2s ease-in-out infinite;
+}
+
+/* Glow on Hover */
+.hover-glow-brand:hover {
+  box-shadow: 0 0 30px rgba(228, 30, 38, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow-success:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow-info:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+/* ============================================
+   MULTI-LAYER SHADOWS
+   Complex depth with multiple shadow layers
+   ============================================ */
+
+.shadow-layered {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-layered-lg {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-layered-xl {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   DIRECTIONAL SHADOWS
+   Shadows from specific directions
+   ============================================ */
+
+.shadow-top {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-top-lg {
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-bottom {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-bottom-lg {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-left {
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-left-lg {
+  box-shadow: -8px 0 16px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-right {
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-right-lg {
+  box-shadow: 8px 0 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   SHADOW ON SCROLL
+   Dynamic shadows based on scroll position
+   ============================================ */
+
+.shadow-scroll {
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-scroll.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+/* Reduced Motion for Glow Animations */
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse,
+  .glow-pulse-success,
+  .glow-pulse-info {
+    animation: none;
+  }
+  
+  .hover-glow-brand:hover,
+  .hover-glow-success:hover,
+  .hover-glow-info:hover {
+    transition: none;
+  }
+}

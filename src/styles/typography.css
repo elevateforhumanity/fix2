@@ -16,7 +16,7 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   
-  /* Font Sizes */
+  /* Font Sizes - Fixed */
   --text-xs: 0.75rem;      /* 12px */
   --text-sm: 0.875rem;     /* 14px */
   --text-base: 1rem;       /* 16px */
@@ -28,6 +28,25 @@
   --text-5xl: 3rem;        /* 48px */
   --text-6xl: 3.75rem;     /* 60px */
   --text-7xl: 4.5rem;      /* 72px */
+  
+  /* Fluid Typography (scales perfectly between breakpoints) */
+  --text-fluid-xs: clamp(0.7rem, 0.66rem + 0.2vw, 0.75rem);
+  --text-fluid-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-fluid-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  --text-fluid-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-fluid-xl: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+  --text-fluid-2xl: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
+  --text-fluid-3xl: clamp(1.5rem, 1.25rem + 1.25vw, 1.875rem);
+  --text-fluid-4xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);
+  --text-fluid-5xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+  --text-fluid-6xl: clamp(2.75rem, 2rem + 3.75vw, 3.75rem);
+  --text-fluid-7xl: clamp(3.25rem, 2.5rem + 4.5vw, 4.5rem);
+  
+  /* Vertical Rhythm */
+  --baseline: 1.5rem; /* 24px baseline grid */
+  
+  /* Typographic Scale Ratio (Major Third - 1.25) */
+  --scale-ratio: 1.25;
   
   /* Line Heights */
   --leading-none: 1;
@@ -144,7 +163,7 @@ p:last-child {
   color: var(--text-secondary, #6B7280);
 }
 
-/* Text Utilities */
+/* Text Utilities - Fixed Sizes */
 .text-xs { font-size: var(--text-xs); }
 .text-sm { font-size: var(--text-sm); }
 .text-base { font-size: var(--text-base); }
@@ -154,6 +173,19 @@ p:last-child {
 .text-3xl { font-size: var(--text-3xl); }
 .text-4xl { font-size: var(--text-4xl); }
 .text-5xl { font-size: var(--text-5xl); }
+
+/* Fluid Typography Utilities */
+.text-fluid-xs { font-size: var(--text-fluid-xs); }
+.text-fluid-sm { font-size: var(--text-fluid-sm); }
+.text-fluid-base { font-size: var(--text-fluid-base); }
+.text-fluid-lg { font-size: var(--text-fluid-lg); }
+.text-fluid-xl { font-size: var(--text-fluid-xl); }
+.text-fluid-2xl { font-size: var(--text-fluid-2xl); }
+.text-fluid-3xl { font-size: var(--text-fluid-3xl); }
+.text-fluid-4xl { font-size: var(--text-fluid-4xl); }
+.text-fluid-5xl { font-size: var(--text-fluid-5xl); }
+.text-fluid-6xl { font-size: var(--text-fluid-6xl); }
+.text-fluid-7xl { font-size: var(--text-fluid-7xl); }
 
 .font-normal { font-weight: var(--font-weight-normal); }
 .font-medium { font-weight: var(--font-weight-medium); }
@@ -290,6 +322,26 @@ blockquote {
 ::selection {
   background: var(--selection-bg, #DBEAFE);
   color: var(--selection-text, #1E40AF);
+}
+
+/* Vertical Rhythm */
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+  margin-bottom: var(--baseline);
+}
+
+h1:last-child, h2:last-child, h3:last-child, 
+h4:last-child, h5:last-child, h6:last-child,
+p:last-child, ul:last-child, ol:last-child {
+  margin-bottom: 0;
+}
+
+/* Font Loading Optimization */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap; /* Prevent FOIT (Flash of Invisible Text) */
+  src: local('Inter'), local('Inter-Regular');
 }
 
 /* Print Styles */
