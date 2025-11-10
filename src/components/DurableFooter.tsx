@@ -6,7 +6,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Linkedin, Youtube, Instagram, Twitter } from 'lucide-react';
 import { footerSections, socialLinks as defaultSocialLinks, branding } from '../config/navigation';
-import '../styles/durable-design.css';
+import '../styles/design-system-v2.css';
 
 export default function DurableFooter() {
   const currentYear = new Date().getFullYear();

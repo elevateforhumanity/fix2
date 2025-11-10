@@ -54,12 +54,14 @@ export function VideoMeeting() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userName }),
+    }).catch(console.error);
   };
 
   const handleLeaveMeeting = () => {
     // In production, call API to unregister participant
     fetch(`/api/meetings/${meetingCode}/leave`, {
       method: 'POST',
+    }).catch(console.error);
 
     navigate('/dashboard');
   };

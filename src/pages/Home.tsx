@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import DurableLayout from '../layouts/DurableLayout';
-import '../styles/durable-design.css';
+import '../styles/design-system-v2.css';
 
 export default function Home() {
   return (

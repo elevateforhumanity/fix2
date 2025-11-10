@@ -801,6 +801,7 @@ class AdvancedLMSFeatures {
    */
   async initializeCompleteLMS(schoolConfig) {
     try {
+      console.log(
         '🚀 Initializing Complete LMS Enterprise-grade LMS feature...'
       );
 

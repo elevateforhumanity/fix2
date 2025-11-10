@@ -1,7 +1,7 @@
 import React from 'react';
 import DurableNav from '../components/DurableNav';
 import DurableFooter from '../components/DurableFooter';
-import '../styles/durable-design.css';
+import '../styles/design-system-v2.css';
 
 interface DurableLayoutProps {
   children: React.ReactNode;

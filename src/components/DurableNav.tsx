@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { mainNavigation, ctaButton, branding } from '../config/navigation';
-import '../styles/durable-design.css';
+import '../styles/design-system-v2.css';
 
 export default function DurableNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
