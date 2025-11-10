@@ -120,10 +120,7 @@ export const miladyRISECourse = {
   },
 
   contact: {
-    program_coordinator: 'Jessica Boyd',
-    email: 'jessica.boyd@cengage.com',
-    phone: '(919) 623-4623',
-    support_url: 'https://www.miladytraining.com/support',
+    info: 'See your partner email for contact information and support links',
   },
 
   marketing: {

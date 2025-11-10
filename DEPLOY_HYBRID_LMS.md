@@ -142,25 +142,25 @@ All Certificates in One Place
 ### After Deployment, Test These:
 
 1. **Magic Link Login**
-   - Visit: [https://elevateforhumanityfix.netlify.app/login](https://elevateforhumanityfix.netlify.app/login)
+   - Visit: [https://elevateforhumanity.org/login](https://elevateforhumanity.org/login)
    - Enter email → Get magic link → Sign in
 
 2. **Milady RISE Enrollment**
-   - Visit: [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+   - Visit: [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
    - See full course info → Click "Enroll Now"
    - Redirects to Milady with promo code
 
 3. **Milady Barber Course**
-   - Visit: [https://elevateforhumanityfix.netlify.app/lms/milady-barber-course](https://elevateforhumanityfix.netlify.app/lms/milady-barber-course)
+   - Visit: [https://elevateforhumanity.org/lms/milady-barber-course](https://elevateforhumanity.org/lms/milady-barber-course)
    - See 2,000-hour curriculum → Expand modules
 
 4. **Certificate System**
    - Sign in as staff/admin
-   - Visit: [https://elevateforhumanityfix.netlify.app/staff](https://elevateforhumanityfix.netlify.app/staff)
+   - Visit: [https://elevateforhumanity.org/staff](https://elevateforhumanity.org/staff)
    - Issue test certificate
 
 5. **My Certificates**
-   - Visit: [https://elevateforhumanityfix.netlify.app/my-certificates](https://elevateforhumanityfix.netlify.app/my-certificates)
+   - Visit: [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
    - See all earned certificates
 
 ---

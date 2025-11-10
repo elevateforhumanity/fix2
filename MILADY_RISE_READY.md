@@ -6,14 +6,14 @@
 - **Custom Code:** `efhcti-rise295`
 - **Redemptions:** 1,000 free enrollments
 - **Scholarship:** $500 (10 recipients, Spring & Fall)
-- **Contact:** Jessica Boyd (jessica.boyd@cengage.com)
+- **Partner Info:** See your partner email for all links and contacts
 
 ---
 
 ## 🚀 Your LMS is Ready!
 
 ### Live Enrollment Page
-**URL:** [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+**URL:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
 
 **Features:**
 - ✅ Complete course information
@@ -41,13 +41,13 @@ Eligible for $500 scholarship
 
 ---
 
-## 📋 Next Steps (Jessica's Recommendations)
+## 📋 Next Steps (Partner Recommendations)
 
 ### 1. Complete It Yourself (30 min)
 **Why:** Leaders who complete it see higher student participation
 
 **How:**
-1. Go to [your enrollment page](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+1. Go to [your enrollment page](https://elevateforhumanity.org/lms/milady-riseenrollment)
 2. Click "Enroll Now"
 3. Complete all 3 courses
 4. Get your certificate
@@ -126,7 +126,7 @@ Time: 4 hours
 Cost: FREE
 Bonus: Eligible for $500 scholarship!
 
-Get started: https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment
+Get started: https://elevateforhumanity.org/lms/milady-riseenrollment
 
 Questions? Let me know!
 
@@ -138,12 +138,12 @@ Elizabeth
 ## 📞 Support
 
 ### For Students
-- Technical issues → Jessica Boyd (jessica.boyd@cengage.com)
+- Technical issues → Use support link from partner email
 - Enrollment help → Your staff
-- LMS access → [Your enrollment page](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+- LMS access → [Your enrollment page](https://elevateforhumanity.org/lms/milady-riseenrollment)
 
 ### For You
-- **Jessica Boyd** - jessica.boyd@cengage.com, (919) 623-4623
+- **Partner Contact:** Use links from your partner email
 - **Full Guide:** `docs/MILADY_RISE_PARTNER_GUIDE.md`
 - **LMS Admin:** [Supabase Dashboard](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 
@@ -172,4 +172,4 @@ With 1,000 redemptions available, you have plenty of room to grow beyond your cu
 
 **Everything is ready. Start by completing the certification yourself, then share with your students!** 🚀
 
-**Your enrollment page:** [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+**Your enrollment page:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)

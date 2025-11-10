@@ -8,14 +8,14 @@
 
 ## What is Milady?
 
-Milady is a **Cengage Learning brand** that provides professional beauty and wellness education. Your platform has two Milady integrations:
+Milady is a professional beauty and wellness education provider. Your platform has two Milady integrations:
 
 ### 1. Milady RISE Program (External Partnership)
 - **Client Well-Being & Safety Certification**
-- **Partner Contact**: Jessica Boyd (jessica.boyd@cengage.com, 919-623-4623)
+- **Partner Info**: See your partner email for contact details
 - **Partner Code**: `efhcti-rise295` (1,000 free redemptions)
 - **Cost**: FREE with promo code
-- **Enrollment**: https://www.miladytraining.com/bundles/client-well-being-safety-certification
+- **Enrollment**: Use link from partner email
 
 **Three Courses:**
 - Domestic Violence Awareness (60 min)
@@ -415,9 +415,7 @@ POST https://api.miladytraining.com/v1/webhooks
 ## Contact Information
 
 ### Milady RISE Program
-- **Contact**: Jessica Boyd
-- **Email**: jessica.boyd@cengage.com
-- **Phone**: 919-623-4623
+- **Partner Info**: See your partner email for contact details
 - **Partner Code**: efhcti-rise295
 - **Redemptions**: 1,000 available
 

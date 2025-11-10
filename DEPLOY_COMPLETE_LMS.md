@@ -139,13 +139,13 @@ git push origin main
 ## 🎯 What Students Will Experience
 
 ### 1. Browse Courses
-**URL:** [https://elevateforhumanityfix.netlify.app/lms](https://elevateforhumanityfix.netlify.app/lms)
+**URL:** [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
 - See all available courses
 - View course details
 - Check enrollment status
 
 ### 2. Enroll in Barber Course
-**URL:** [https://elevateforhumanityfix.netlify.app/lms/milady-barber-course](https://elevateforhumanityfix.netlify.app/lms/milady-barber-course)
+**URL:** [https://elevateforhumanity.org/lms/milady-barber-course](https://elevateforhumanity.org/lms/milady-barber-course)
 - View full curriculum (10 modules)
 - Click "Enroll in Course"
 - Course appears in their dashboard
@@ -165,7 +165,7 @@ git push origin main
 - ✅ Certificate issued when 100% complete
 
 ### 5. View Certificates
-**URL:** [https://elevateforhumanityfix.netlify.app/my-certificates](https://elevateforhumanityfix.netlify.app/my-certificates)
+**URL:** [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
 - See all earned certificates
 - Download PDFs
 - Share verification links
@@ -371,14 +371,14 @@ Create a script to import lessons from a spreadsheet or JSON file.
 ## 🔗 All Your Links
 
 ### Student Experience
-- **LMS Home:** [https://elevateforhumanityfix.netlify.app/lms](https://elevateforhumanityfix.netlify.app/lms)
-- **Barber Course:** [https://elevateforhumanityfix.netlify.app/lms/milady-barber-course](https://elevateforhumanityfix.netlify.app/lms/milady-barber-course)
-- **RISE Enrollment:** [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
-- **My Certificates:** [https://elevateforhumanityfix.netlify.app/my-certificates](https://elevateforhumanityfix.netlify.app/my-certificates)
-- **Login:** [https://elevateforhumanityfix.netlify.app/login](https://elevateforhumanityfix.netlify.app/login)
+- **LMS Home:** [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
+- **Barber Course:** [https://elevateforhumanity.org/lms/milady-barber-course](https://elevateforhumanity.org/lms/milady-barber-course)
+- **RISE Enrollment:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+- **My Certificates:** [https://elevateforhumanity.org/my-certificates](https://elevateforhumanity.org/my-certificates)
+- **Login:** [https://elevateforhumanity.org/login](https://elevateforhumanity.org/login)
 
 ### Admin Tools
-- **Staff Panel:** [https://elevateforhumanityfix.netlify.app/staff](https://elevateforhumanityfix.netlify.app/staff)
+- **Staff Panel:** [https://elevateforhumanity.org/staff](https://elevateforhumanity.org/staff)
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 - **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
 

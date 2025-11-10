@@ -1,6 +1,6 @@
 /**
- * Milady RISE Enrollment Page
- * Client Well-Being & Safety Certification
+ * Client Well-Being & Safety Certification Enrollment
+ * Partner Program Integration
  */
 
 import React, { useState } from 'react';
@@ -40,12 +40,12 @@ export default function MiladyRISEEnrollment() {
         throw enrollError;
       }
 
-      // Redirect to Milady platform with promo code
+      // Redirect to partner platform with promo code
       const enrollmentUrl = `${miladyRISECourse.enrollment.url}?promo=${miladyRISECourse.enrollment.promo_code}`;
       window.open(enrollmentUrl, '_blank');
 
       // Show success message
-      alert('Opening Milady enrollment page. Use promo code: ' + miladyRISECourse.enrollment.promo_code);
+      alert('Opening enrollment page. Use promo code: ' + miladyRISECourse.enrollment.promo_code);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -56,8 +56,8 @@ export default function MiladyRISEEnrollment() {
   return (
     <div className="min-h-screen bg-surface-base">
       <Helmet>
-        <title>Milady RISE Enrollment | Elevate for Humanity</title>
-        <meta name="description" content="Enroll in the Milady RISE Client Well-Being & Safety Certification program" />
+        <title>Client Well-Being & Safety Certification | Elevate for Humanity</title>
+        <meta name="description" content="Enroll in the Client Well-Being & Safety Certification program" />
       </Helmet>
 
       <Navigation />
@@ -184,7 +184,7 @@ export default function MiladyRISEEnrollment() {
               {enrolling ? 'Enrolling...' : 'Enroll Now - FREE'}
             </button>
             <p className="text-sm text-text-secondary mt-4">
-              You'll be redirected to the Milady platform to complete enrollment
+              You'll be redirected to the partner platform to complete enrollment
             </p>
           </div>
         </div>

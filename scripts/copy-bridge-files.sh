@@ -19,4 +19,4 @@ if [ -d "bridge/public" ]; then
 fi
 
 echo "✅ Bridge files copied to dist"
-ls -la dist/ | grep -E "(inject|efh-bridge|enrollment)" || echo "No bridge files found in dist"
+ls -la dist/ | grep -E "(inject|efh-bridge|enrollment)" || true

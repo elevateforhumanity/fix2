@@ -14,9 +14,6 @@ You're now an official **Milady RISE Partner** with:
 
 ### Your Partnership
 - **School:** Elevate for Humanity Career & Training Institute
-- **Contact:** Elizabeth Greene (CEO)
-- **Email:** Elizabethpowell6262@gmail.com
-- **Phone:** (317) 760-7908
 - **Students per year:** 150
 - **Locations:** 1
 
@@ -26,10 +23,7 @@ You're now an official **Milady RISE Partner** with:
 - **Cost:** FREE for your students
 
 ### Partner Contact
-- **Jessica Boyd** - Senior Community and Insights Specialist
-- **Email:** jessica.boyd@cengage.com
-- **Phone:** (919) 623-4623
-- **Time Zone:** Eastern
+- All contact information and support links available in your partner email
 
 ---
 
@@ -38,7 +32,7 @@ You're now an official **Milady RISE Partner** with:
 ### Student Experience
 
 **1. Student visits your enrollment page:**
-[https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+[https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
 
 **2. They see:**
 - Complete course information
@@ -99,7 +93,7 @@ ORDER BY e.enrolled_at DESC;
 
 ## 🎓 Maximizing Participation
 
-### Jessica's Tips (from Milady)
+### Partner Best Practices
 
 #### 1. Lead by Example
 **Take the course yourself!**
@@ -167,8 +161,8 @@ ORDER BY e.enrolled_at DESC;
 - Professional course presentation
 
 **Share these links:**
-- Direct enrollment: [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
-- Your LMS home: [https://elevateforhumanityfix.netlify.app/lms](https://elevateforhumanityfix.netlify.app/lms)
+- Direct enrollment: [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
+- Your LMS home: [https://elevateforhumanity.org/lms](https://elevateforhumanity.org/lms)
 
 ---
 
@@ -226,7 +220,7 @@ Cost: FREE with our code
 Bonus: Eligible for $500 scholarship!
 
 Get started now:
-https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment
+https://elevateforhumanity.org/lms/milady-riseenrollment
 
 Questions? Let me know!
 
@@ -326,7 +320,7 @@ WHERE c.code = 'MILADY-RISE';
 ### Best Practices
 
 **Stay engaged:**
-- Respond to Jessica's emails promptly
+- Respond to partner emails promptly
 - Share success stories
 - Provide feedback on program
 - Suggest improvements
@@ -342,7 +336,7 @@ WHERE c.code = 'MILADY-RISE';
 1. Check promo code is entered correctly: `efhcti-rise295`
 2. No spaces, periods, or commas
 3. Must be at checkout page
-4. Contact Jessica if code doesn't work
+4. Use support link from partner email if code doesn't work
 
 **Access Issues:**
 1. Ensure they registered on Milady platform
@@ -353,7 +347,7 @@ WHERE c.code = 'MILADY-RISE';
 ### For You
 
 **Questions about:**
-- Program details → Jessica Boyd (jessica.boyd@cengage.com)
+- Program details → Use contact links from your partner email
 - Technical issues → Milady support
 - LMS integration → Your development team
 - Database tracking → Check Supabase
@@ -443,13 +437,10 @@ WHERE c.code = 'MILADY-RISE';
 - **Status:** Active
 
 ### Milady Contact
-- **Jessica Boyd**
-- jessica.boyd@cengage.com
-- (919) 623-4623
-- Eastern Time Zone
+- Contact information available in your Milady RISE partner email
 
 ### Your LMS
-- **Enrollment Page:** [https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment](https://elevateforhumanityfix.netlify.app/lms/milady-riseenrollment)
+- **Enrollment Page:** [https://elevateforhumanity.org/lms/milady-riseenrollment](https://elevateforhumanity.org/lms/milady-riseenrollment)
 - **Admin Dashboard:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 
 ---
