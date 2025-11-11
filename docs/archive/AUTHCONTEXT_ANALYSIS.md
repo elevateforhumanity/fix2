@@ -608,7 +608,7 @@ This bug affects **every page load** and creates a poor first impression for all
 ### Similar Issues in Other Projects
 
 - [React Router: Authentication](https://reactrouter.com/en/main/start/examples#auth)
-- [Next.js: Authentication Patterns](https://nextjs.org/docs/authentication)
+- [React: Authentication Patterns](https://nextjs.org/docs/authentication)
 - [Supabase: Auth Helpers](https://supabase.com/docs/guides/auth/auth-helpers)
 
 All recommend **not blocking** the entire app during auth checks.

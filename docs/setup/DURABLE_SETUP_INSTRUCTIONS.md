@@ -61,7 +61,7 @@ git push origin main
 
 ### Step 1: Add Script to Durable
 
-1. Log into your [Durable.co](https://durable.co) account
+1. Log into your [](https://durable.co) account
 2. Go to your site settings
 3. Find **Custom Code** or **Scripts** section
 4. Add this to the `<head>` section:

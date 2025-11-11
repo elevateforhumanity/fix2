@@ -331,7 +331,7 @@ Home → Programs → [Program Name]
 
 ### External Links Checked
 
-**Durable.co API:**
+** API:**
 
 ```javascript
 fetch('https://api.durable.co/v1/blogs/elevateforhumanity/posts?limit=3');
@@ -405,7 +405,7 @@ elevateforhumanity.org (custom domain)
 
 ## 9. Landing Page Compatibility ✅
 
-### Durable.co Integration
+###  Integration
 
 **Current Status:**
 

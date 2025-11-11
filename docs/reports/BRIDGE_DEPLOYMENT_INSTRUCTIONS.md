@@ -1,7 +1,7 @@
 # Bridge Deployment Instructions for www.elevateforhumanity.org
 
 **Current Status:** Bridge files are built and ready ✅  
-**Target:** www.elevateforhumanity.org (Durable.co site)  
+**Target:** www.elevateforhumanity.org ( site)  
 **Issue:** Netlify subdomain returns 404 (needs configuration)
 
 ---

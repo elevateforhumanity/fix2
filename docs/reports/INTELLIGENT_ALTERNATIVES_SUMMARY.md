@@ -6,7 +6,7 @@
 
 ## My Answer: 8 Intelligent Approaches Created
 
-Since Durable.co's Workers section isn't accessible via automation, I've created **8 different intelligent approaches** to deploy your enrollment programs.
+Since 's Workers section isn't accessible via automation, I've created **8 different intelligent approaches** to deploy your enrollment programs.
 
 ---
 

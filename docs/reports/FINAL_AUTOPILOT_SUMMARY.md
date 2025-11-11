@@ -77,7 +77,7 @@ chmod +x durable*
 ### What It Does:
 
 1. ✅ Launches browser (Chromium)
-2. ✅ Navigates to Durable.co
+2. ✅ Navigates to 
 3. ✅ Logs in with your credentials
 4. ✅ Finds your site
 5. ✅ Opens editor
@@ -208,7 +208,7 @@ If autopilot doesn't work, you have 4 backup options:
 
 **Gitpod Limitations:**
 
-- ❌ Network restrictions block Durable.co
+- ❌ Network restrictions block 
 - ❌ No display server for browser
 - ❌ Timeouts on external requests
 - ❌ Limited resources

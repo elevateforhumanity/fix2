@@ -363,7 +363,7 @@
 
 ---
 
-## 🔗 Blog Integration (Durable.co)
+## 🔗 Blog Integration ()
 
 ### Durable Blog Setup
 
@@ -577,7 +577,7 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 - LinkedIn API
 - YouTube Data API
 - TikTok API (limited)
-- Durable.co API
+-  API
 
 ---
 

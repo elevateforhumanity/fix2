@@ -773,7 +773,7 @@ curl -X POST https://YOUR-SITE.netlify.app/.netlify/functions/lead-intake \
 
 Before proceeding, clarify:
 
-1. **Do you have a Durable.co website?**
+1. **Do you have a  website?**
    - Yes → What's the URL?
    - No → Need to create one first
 

@@ -312,7 +312,7 @@ src/pages/
 
 ## Comparison to Competitors
 
-### vs Durable.co
+### vs 
 
 **What they have:**
 

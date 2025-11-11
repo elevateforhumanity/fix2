@@ -30,7 +30,7 @@ I've created a fully automated system called **"durable"** that deploys your enr
 
 ## 🎯 What It Does Automatically
 
-1. **Logs into Durable.co** with your credentials
+1. **Logs into ** with your credentials
 2. **Finds your site** (Elevate for Humanity)
 3. **Opens the editor** and waits for it to load
 4. **Adds Custom HTML block** after hero section

@@ -230,7 +230,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/stats.json
 
 ## 🎯 Integration Points
 
-### 1. Durable.co Website
+### 1.  Website
 
 **Status:** Ready to integrate
 **Script:** Already deployed to GitHub Pages
@@ -300,7 +300,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/stats.json
 
 ### Short-term (This Week)
 
-1. Add script to Durable.co website
+1. Add script to  website
 2. Create feed generator script
 3. Set up automated feed updates
 4. Monitor bridge performance

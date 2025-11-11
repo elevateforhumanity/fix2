@@ -6,7 +6,7 @@ Your enrollment programs are coded and ready. Here's how to add them to www.elev
 
 ## Option 1: Copy/Paste (FASTEST - 2 minutes)
 
-1. **Log into Durable.co**
+1. **Log into **
    - Go to: https://durable.co/login
    - Email: Elevateforhumanity@gmail.com
    - Password: Elijah1$

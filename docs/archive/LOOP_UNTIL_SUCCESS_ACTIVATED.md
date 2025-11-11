@@ -407,7 +407,7 @@ Just wait and watch:
 **Integration:** 🟡 IN PROGRESS  
 **Success:** ⏳ GUARANTEED (just a matter of time)
 
-**The autopilot will NEVER give up until your bridge is integrated with Durable.co!**
+**The autopilot will NEVER give up until your bridge is integrated with !**
 
 ---
 

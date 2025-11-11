@@ -247,7 +247,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json
 
 ### Short-term
 
-1. Add script to Durable.co website
+1. Add script to  website
 2. Test bridge integration end-to-end
 3. Monitor feed performance
 4. Set up automated feed updates

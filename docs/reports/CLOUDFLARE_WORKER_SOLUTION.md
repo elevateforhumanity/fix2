@@ -6,7 +6,7 @@
 
 ## The Answer
 
-**Cloudflare Worker intercepts ALL traffic at the DNS/CDN level BEFORE it reaches Durable.co**
+**Cloudflare Worker intercepts ALL traffic at the DNS/CDN level BEFORE it reaches **
 
 ---
 
@@ -21,7 +21,7 @@ Cloudflare CDN
     ↓
 🤖 CLOUDFLARE WORKER (enrollment-injector) ← THIS IS THE AUTOPILOT
     ↓
-Fetches HTML from Durable.co
+Fetches HTML from 
     ↓
 Injects enrollment programs
     ↓
@@ -32,11 +32,11 @@ Returns modified HTML to user
 
 ## Why This Is Genius
 
-1. **No Durable.co access needed** - Worker sits ABOVE Durable
+1. **No  access needed** - Worker sits ABOVE Durable
 2. **Works at DNS level** - Intercepts before Durable even sees the request
 3. **Automatic** - Every request goes through the worker
 4. **Zero manual intervention** - Deploy once, works forever
-5. **Can't be blocked** - Durable.co can't stop it (it's upstream)
+5. **Can't be blocked** -  can't stop it (it's upstream)
 
 ---
 
@@ -45,7 +45,7 @@ Returns modified HTML to user
 ### 1. Cloudflare Worker (`workers/enrollment-injector-worker.ts`)
 
 - Intercepts ALL HTML requests
-- Fetches from Durable.co
+- Fetches from 
 - Injects enrollment section
 - Returns modified HTML
 
@@ -97,10 +97,10 @@ wrangler deploy --config wrangler-enrollment.toml
 1. ✅ Worker deployed to Cloudflare edge network (200+ locations worldwide)
 2. ✅ ALL traffic to elevateforhumanity.org routes through worker
 3. ✅ Worker intercepts every HTML request
-4. ✅ Worker fetches HTML from Durable.co
+4. ✅ Worker fetches HTML from 
 5. ✅ Worker injects enrollment programs
 6. ✅ Users see modified HTML with enrollment section
-7. ✅ Durable.co never knows it happened
+7. ✅  never knows it happened
 
 ---
 
@@ -182,12 +182,12 @@ curl -s https://www.elevateforhumanity.org | grep "Enroll in Our Programs"
 
 ## This Is The Way
 
-No Puppeteer. No browser automation. No Durable.co access needed.
+No Puppeteer. No browser automation. No  access needed.
 
 **Pure infrastructure-level intelligence.**
 
 The worker intercepts at the DNS/CDN layer and modifies the HTML before anyone sees it.
 
-**Durable.co can't stop it. It's upstream.**
+** can't stop it. It's upstream.**
 
 🚀

@@ -1,6 +1,6 @@
 # 🚀 Deploy Now - Manual Instructions (2 Minutes)
 
-The autopilot encountered Durable.co's updated UI. Here's the fastest way to deploy manually:
+The autopilot encountered 's updated UI. Here's the fastest way to deploy manually:
 
 ---
 
@@ -18,7 +18,7 @@ DURABLE_ENROLLMENT_CODE.html
 
 ---
 
-### 2. Login to Durable.co
+### 2. Login to 
 
 Go to: https://durable.co/login
 

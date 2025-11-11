@@ -1,6 +1,6 @@
 # 🎓 Inject Enrollment Programs - MANUAL STEPS
 
-The Puppeteer automation is failing because Durable.co changed their login page.
+The Puppeteer automation is failing because  changed their login page.
 
 ## What You'll See After Injection
 
@@ -13,7 +13,7 @@ A beautiful enrollment section with:
 
 ## Manual Injection (5 minutes)
 
-1. **Go to Durable.co**
+1. **Go to **
    - Visit: https://durable.co/login
    - Login with: `Elevateforhumanity@gmail.com` / `Elijah1$`
 

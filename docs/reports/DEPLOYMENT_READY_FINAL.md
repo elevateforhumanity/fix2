@@ -155,7 +155,7 @@ Should show 16 tables.
 
 ```
 ┌─────────────────────────────────────────┐
-│     Durable.co (Main Website)           │
+│      (Main Website)           │
 │     elevateforhumanity.org              │
 │                                         │
 │  - Homepage                             │

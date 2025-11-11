@@ -40,7 +40,7 @@
 
 ## ❌ WHAT I CANNOT AUTOMATE
 
-### 1. Durable.co (No Access)
+### 1.  (No Access)
 
 - ❌ Cannot login (requires your credentials)
 - ❌ Cannot edit pages (no API)
@@ -66,7 +66,7 @@
 
 **Steps:**
 
-1. Login to Durable.co
+1. Login to 
 2. Go to Settings → Custom Code
 3. Paste bridge script in HEAD section
 4. Save and Publish
@@ -125,7 +125,7 @@ RESULT: Beautiful page immediately
 
 ## 💡 WHY THIS MATTERS
 
-**Durable.co is a "walled garden":**
+** is a "walled garden":**
 
 - They control the platform
 - They control access

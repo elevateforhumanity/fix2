@@ -6,9 +6,9 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 
 ---
 
-## Task 1: Login to Durable.co
+## Task 1: Login to 
 
-**Action:** Navigate to Durable.co and authenticate
+**Action:** Navigate to  and authenticate
 **Steps:**
 
 1. Go to URL: `https://durable.co/login`
@@ -88,7 +88,7 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 
 **Automation Notes:**
 
-- Durable.co UI may vary - look for:
+-  UI may vary - look for:
   - "Custom Code"
   - "HTML"
   - "Embed"
@@ -297,7 +297,7 @@ Use this prompt with ChatGPT Advanced Voice Mode or API:
 ```
 I need you to create a Puppeteer automation script that:
 
-1. Logs into Durable.co with email "Elevateforhumanity@gmail.com" and password "Elijah1$"
+1. Logs into  with email "Elevateforhumanity@gmail.com" and password "Elijah1$"
 2. Navigates to my site "Elevate for Humanity Career and Technical Institute"
 3. Opens the site editor
 4. Adds a Custom HTML block after the hero section
@@ -344,7 +344,7 @@ Use the selectors and steps documented in MANUAL_TASKS_SCRIPT.md
 
 **Deployment is successful when:**
 
-- ✅ Login to Durable.co succeeds
+- ✅ Login to  succeeds
 - ✅ Site editor loads
 - ✅ Custom HTML block is added
 - ✅ Enrollment code is pasted

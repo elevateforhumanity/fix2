@@ -249,7 +249,7 @@ export async function handler(event) {
 
 ```
 ┌─────────────────────────────────────────┐
-│     Durable.co (Main Website)           │
+│      (Main Website)           │
 │     elevateforhumanity.org              │
 │     - Marketing pages                   │
 │     - About, Contact, Blog              │
@@ -388,7 +388,7 @@ export async function handler(event) {
 
 ### Step 1: Point Domain to Cloudflare
 
-**In Durable.co DNS:**
+**In  DNS:**
 
 ```
 Change nameservers to Cloudflare:

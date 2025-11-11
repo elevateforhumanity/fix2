@@ -156,9 +156,9 @@ After next deploy, check:
     contexts = ["production"]
 ```
 
-### @netlify/plugin-nextjs (if using Next.js)
+### @netlify/plugin-nextjs (if using React)
 
-**Purpose**: Next.js optimization
+**Purpose**: React optimization
 
 ```toml
 [[plugins]]

@@ -2,7 +2,7 @@
 
 ## You're Already Logged In! ✅
 
-The autopilot successfully logged you into Durable.co. Now just follow these simple steps:
+The autopilot successfully logged you into . Now just follow these simple steps:
 
 ## Option 1: Use Durable's AI (FASTEST - 30 seconds)
 

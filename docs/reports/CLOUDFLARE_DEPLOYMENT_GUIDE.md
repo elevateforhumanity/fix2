@@ -77,7 +77,7 @@ If the manual deployment works, but GitHub Actions still fails, the issue is wit
 Once deployed and routes are configured:
 
 1. **DNS-Level Interception**: All traffic to elevateforhumanity.org goes through the worker
-2. **Automatic Injection**: The worker fetches HTML from Durable.co and injects enrollment programs
+2. **Automatic Injection**: The worker fetches HTML from  and injects enrollment programs
 3. **Zero Manual Work**: Runs autonomously on Cloudflare's edge network
 4. **Real Programs Displayed**:
    - Barber Training Program
@@ -105,4 +105,4 @@ The most common issues are:
 
 ---
 
-**Remember**: This is the intelligent solution you asked for - "How the autopilot signal the worker thru dns". The worker IS the autopilot, running at the DNS level, intercepting all traffic before it reaches Durable.co.
+**Remember**: This is the intelligent solution you asked for - "How the autopilot signal the worker thru dns". The worker IS the autopilot, running at the DNS level, intercepting all traffic before it reaches .

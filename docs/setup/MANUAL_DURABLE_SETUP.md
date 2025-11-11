@@ -1,8 +1,8 @@
-# Manual Durable.co Setup Instructions
+# Manual  Setup Instructions
 
 ## Quick Setup (5 minutes)
 
-### Step 1: Log into Durable.co
+### Step 1: Log into 
 
 1. Go to https://durable.co/login
 2. Email: Elevateforhumanity@gmail.com
@@ -44,7 +44,7 @@ Find where you want the enrollment programs to appear (probably on the homepage 
 
 ## What This Does
 
-The bridge script will automatically inject your enrollment programs (AI & Machine Learning, Data Science Bootcamp, Cybersecurity Specialist) into the Durable.co site wherever you place the `data-efh-slot` divs.
+The bridge script will automatically inject your enrollment programs (AI & Machine Learning, Data Science Bootcamp, Cybersecurity Specialist) into the  site wherever you place the `data-efh-slot` divs.
 
 ## Troubleshooting
 
@@ -56,4 +56,4 @@ If you don't see the programs after 60 seconds:
 
 ## Need Help?
 
-The enrollment programs are already coded in your React app at `/workspaces/fix2/src/pages/Home.jsx` - they just need the bridge to display on Durable.co.
+The enrollment programs are already coded in your React app at `/workspaces/fix2/src/pages/Home.jsx` - they just need the bridge to display on .

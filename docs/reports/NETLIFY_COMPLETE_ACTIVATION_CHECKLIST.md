@@ -314,7 +314,7 @@
 - Reduce file sizes
 - Faster page loads
 
-**6. @netlify/plugin-nextjs** (if using Next.js)
+**6. @netlify/plugin-nextjs** (if using React)
 
 ```toml
 [[plugins]]
