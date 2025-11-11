@@ -8,13 +8,13 @@
  */
 
 :root {
-  /* === EFH Primary Brand Colors === */
-  --brand-primary: #4d4b37; /* Olive/Brown - Main brand color */
-  --brand-primary-hover: #3a3629; /* Darker olive - Hover state */
-  --brand-primary-active: #2d2a1f; /* Even darker - Active/pressed state */
-  --brand-secondary: #6b6847; /* Lighter Olive - Secondary actions */
-  --brand-secondary-hover: #5a5738; /* Darker secondary */
-  --brand-accent: #f59e0b; /* Amber - Highlights & badges */
+  /* === EFH Primary Brand Colors (Vibrant Thinkific-Inspired) === */
+  --brand-primary: #FF6B35; /* Vibrant Coral - Main brand color */
+  --brand-primary-hover: #FF5722; /* Deeper coral - Hover state */
+  --brand-primary-active: #E64A19; /* Even deeper - Active/pressed state */
+  --brand-secondary: #004E89; /* Deep Blue - Secondary actions */
+  --brand-secondary-hover: #003D6B; /* Darker blue */
+  --brand-accent: #00D9FF; /* Bright Cyan - Highlights & badges */
   --brand-muted: #6b7280; /* Gray - Meta text & disabled states */
 
   /* === Background Colors === */
@@ -24,15 +24,15 @@
   --brand-surface: #f8fafc; /* Off-white - Cards & panels */
   --brand-surface-dark: #f1f5f9; /* Slightly darker surface */
 
-  /* === Semantic Colors === */
-  --brand-success: #059669; /* Green - Success states */
-  --brand-success-hover: #047857; /* Darker green */
-  --brand-info: #1e40af; /* Blue - Info & links */
-  --brand-info-hover: #1e3a8a; /* Darker blue */
-  --brand-warning: #f59e0b; /* Amber - Warnings */
-  --brand-warning-hover: #d97706; /* Darker amber */
-  --brand-danger: #ef4444; /* Red - Errors & destructive actions */
-  --brand-danger-hover: #dc2626; /* Darker red */
+  /* === Semantic Colors (Vibrant) === */
+  --brand-success: #00C896; /* Bright Green - Success states */
+  --brand-success-hover: #00B383; /* Darker green */
+  --brand-info: #0066FF; /* Bright Blue - Info & links */
+  --brand-info-hover: #0052CC; /* Darker blue */
+  --brand-warning: #FFB800; /* Bright Yellow - Warnings */
+  --brand-warning-hover: #FFA000; /* Darker yellow */
+  --brand-danger: #FF4757; /* Bright Red - Errors & destructive actions */
+  --brand-danger-hover: #EE3344; /* Darker red */
 
   /* === Text Colors === */
   --brand-text: #000; /* Black - Primary text */
@@ -51,10 +51,12 @@
   --brand-border-dark: #d1d5db; /* Medium gray - Emphasized borders */
   --brand-border-light: #f3f4f6; /* Very light gray */
 
-  /* === Gradients === */
-  --brand-gradient-primary: linear-gradient(135deg, #4d4b37 0%, #6b6847 100%);
-  --brand-gradient-success: linear-gradient(90deg, #059669, #10b981);
-  --brand-gradient-info: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  /* === Gradients (Vibrant) === */
+  --brand-gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  --brand-gradient-secondary: linear-gradient(135deg, #004E89 0%, #0066FF 100%);
+  --brand-gradient-success: linear-gradient(90deg, #00C896, #00E5A8);
+  --brand-gradient-info: linear-gradient(135deg, #0066FF 0%, #00D9FF 100%);
+  --brand-gradient-hero: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFB35C 100%);
 
   /* === Shadows === */
   --brand-shadow-sm: 0 2px 10px rgb(0 0 0 / 10%);
@@ -74,6 +76,11 @@
   --brand-font-weight-medium: 500;
   --brand-font-weight-semibold: 600;
   --brand-font-weight-bold: 700;
+  
+  /* === DEPRECATED - Old Dull Colors (DO NOT USE) === */
+  --color-beige: var(--brand-accent); /* Redirect to vibrant cyan */
+  --color-brown: var(--brand-primary); /* Redirect to vibrant coral */
+  --color-white: #FFFFFF;
 }
 
 /* === Utility Classes === */

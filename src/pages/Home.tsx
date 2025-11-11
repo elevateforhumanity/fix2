@@ -6,131 +6,337 @@ export default function Home() {
   return (
     <DurableLayout>
       <div className="home-durable">
-        {/* Hero Section */}
-        <section className="hero">
-          <div className="container">
-            <div className="hero-content">
-              <h1 className="hero-title">
-                Ignite Your Future: Transform Your Career Today
+        {/* Hero Section - Vibrant Thinkific-Inspired */}
+        <section 
+          className="hero"
+          style={{
+            background: 'var(--brand-gradient-hero)',
+            padding: '120px 0',
+            color: 'white',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="hero-content" style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
+              <h1 
+                className="hero-title"
+                style={{
+                  fontSize: 'clamp(48px, 8vw, 72px)',
+                  fontWeight: 800,
+                  marginBottom: '24px',
+                  lineHeight: 1.1,
+                  textShadow: '0 2px 20px rgba(0,0,0,0.2)'
+                }}
+              >
+                Transform Your Career with Free Training
               </h1>
-              <p className="hero-subtitle">
-                Empower your dreams with federally-funded workforce training
-                programs. Build in-demand skills, earn industry certifications,
-                and launch a rewarding career—at $0 cost with approved funding.
+              <p 
+                className="hero-subtitle"
+                style={{
+                  fontSize: 'clamp(18px, 3vw, 24px)',
+                  marginBottom: '40px',
+                  opacity: 0.95,
+                  lineHeight: 1.6,
+                  maxWidth: '700px',
+                  margin: '0 auto 40px'
+                }}
+              >
+                Build in-demand skills, earn industry certifications, and launch your dream career—100% funded through federal programs.
               </p>
-              <div className="flex flex-wrap gap-6 justify-center mb-8">
+              
+              {/* Vibrant Badges */}
+              <div className="flex flex-wrap gap-4 justify-center mb-12">
                 <span
-                  className="px-4 py-2 rounded"
+                  className="badge"
                   style={{
-                    background: 'var(--color-beige)',
-                    color: 'var(--color-brown)',
-                    fontWeight: 500,
+                    background: 'rgba(255, 255, 255, 0.25)',
+                    backdropFilter: 'blur(10px)',
+                    color: 'white',
+                    padding: '12px 24px',
+                    borderRadius: '50px',
+                    fontWeight: 600,
+                    fontSize: '16px',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                   }}
                 >
                   💰 100% Funded
                 </span>
                 <span
-                  className="px-4 py-2 rounded"
+                  className="badge"
                   style={{
-                    background: 'var(--color-beige)',
-                    color: 'var(--color-brown)',
-                    fontWeight: 500,
+                    background: 'rgba(255, 255, 255, 0.25)',
+                    backdropFilter: 'blur(10px)',
+                    color: 'white',
+                    padding: '12px 24px',
+                    borderRadius: '50px',
+                    fontWeight: 600,
+                    fontSize: '16px',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                   }}
                 >
                   📜 8 Career Pathways
                 </span>
                 <span
-                  className="px-4 py-2 rounded"
+                  className="badge"
                   style={{
-                    background: 'var(--color-beige)',
-                    color: 'var(--color-brown)',
-                    fontWeight: 500,
+                    background: 'rgba(255, 255, 255, 0.25)',
+                    backdropFilter: 'blur(10px)',
+                    color: 'white',
+                    padding: '12px 24px',
+                    borderRadius: '50px',
+                    fontWeight: 600,
+                    fontSize: '16px',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                   }}
                 >
                   🎯 92% Job Placement
                 </span>
-                <span
-                  className="px-4 py-2 rounded"
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-6 justify-center">
+                <Link 
+                  to="/apply" 
+                  className="btn btn-lg"
                   style={{
-                    background: 'var(--color-beige)',
-                    color: 'var(--color-brown)',
-                    fontWeight: 500,
+                    background: 'white',
+                    color: 'var(--brand-primary)',
+                    padding: '18px 40px',
+                    fontSize: '20px',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
+                    border: 'none',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    display: 'inline-block'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 15px 50px rgba(0,0,0,0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.2)';
                   }}
                 >
-                  📍 Marion County, IN
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-6 justify-center">
-                <Link to="/apply" className="button">
-                  Start Your Application
+                  Start Free Application →
                 </Link>
-                <Link to="/programs" className="button button-secondary">
+                <Link 
+                  to="/programs" 
+                  className="btn btn-lg"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    color: 'white',
+                    padding: '18px 40px',
+                    fontSize: '20px',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    display: 'inline-block'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
                   Explore Programs
                 </Link>
               </div>
             </div>
           </div>
+          
+          {/* Decorative Elements */}
+          <div style={{
+            position: 'absolute',
+            top: '-50%',
+            right: '-10%',
+            width: '600px',
+            height: '600px',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
+            borderRadius: '50%',
+            pointerEvents: 'none'
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: '-30%',
+            left: '-5%',
+            width: '400px',
+            height: '400px',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
+            borderRadius: '50%',
+            pointerEvents: 'none'
+          }} />
         </section>
-        {/* Stats Section */}
+        {/* Stats Section - Vibrant Cards */}
         <section
           className="section"
-          style={{ background: 'var(--color-white)' }}
+          style={{ 
+            background: '#F8FAFC',
+            padding: '80px 0'
+          }}
         >
           <div className="container">
             <div className="flex flex-wrap gap-8 justify-center">
-              <div className="text-center" style={{ flex: '1 1 200px' }}>
+              {/* Stat Card 1 */}
+              <div 
+                className="text-center" 
+                style={{ 
+                  flex: '1 1 250px',
+                  background: 'white',
+                  padding: '40px 30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }}
+              >
                 <div
                   style={{
-                    fontSize: '3rem',
-                    fontWeight: 700,
-                    color: 'var(--color-brown)',
+                    fontSize: '56px',
+                    fontWeight: 800,
+                    background: 'var(--brand-gradient-primary)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '12px'
                   }}
                 >
                   5,000+
                 </div>
-                <div style={{ fontSize: '1.125rem', opacity: 0.8 }}>
+                <div style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A' }}>
                   Graduates
                 </div>
               </div>
-              <div className="text-center" style={{ flex: '1 1 200px' }}>
+              
+              {/* Stat Card 2 */}
+              <div 
+                className="text-center" 
+                style={{ 
+                  flex: '1 1 250px',
+                  background: 'white',
+                  padding: '40px 30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }}
+              >
                 <div
                   style={{
-                    fontSize: '3rem',
-                    fontWeight: 700,
-                    color: 'var(--color-brown)',
+                    fontSize: '56px',
+                    fontWeight: 800,
+                    background: 'var(--brand-gradient-success)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '12px'
                   }}
                 >
                   92%
                 </div>
-                <div style={{ fontSize: '1.125rem', opacity: 0.8 }}>
-                  Job Placement Rate
+                <div style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A' }}>
+                  Job Placement
                 </div>
               </div>
-              <div className="text-center" style={{ flex: '1 1 200px' }}>
+              
+              {/* Stat Card 3 */}
+              <div 
+                className="text-center" 
+                style={{ 
+                  flex: '1 1 250px',
+                  background: 'white',
+                  padding: '40px 30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }}
+              >
                 <div
                   style={{
-                    fontSize: '3rem',
-                    fontWeight: 700,
-                    color: 'var(--color-brown)',
+                    fontSize: '56px',
+                    fontWeight: 800,
+                    background: 'var(--brand-gradient-info)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '12px'
                   }}
                 >
                   8
                 </div>
-                <div style={{ fontSize: '1.125rem', opacity: 0.8 }}>
+                <div style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A' }}>
                   Career Programs
                 </div>
               </div>
-              <div className="text-center" style={{ flex: '1 1 200px' }}>
+              
+              {/* Stat Card 4 */}
+              <div 
+                className="text-center" 
+                style={{ 
+                  flex: '1 1 250px',
+                  background: 'white',
+                  padding: '40px 30px',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.12)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }}
+              >
                 <div
                   style={{
-                    fontSize: '3rem',
-                    fontWeight: 700,
-                    color: 'var(--color-brown)',
+                    fontSize: '56px',
+                    fontWeight: 800,
+                    background: 'var(--brand-gradient-success)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '12px'
                   }}
                 >
                   $0
                 </div>
-                <div style={{ fontSize: '1.125rem', opacity: 0.8 }}>
+                <div style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A' }}>
                   Cost with Funding
                 </div>
               </div>
