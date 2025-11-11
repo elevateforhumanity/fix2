@@ -85,11 +85,10 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
 
             {/* Desktop Navigation */}
             <nav
+              className="desktop-nav"
               style={{
-                display: 'none',
                 gap: 'var(--space-1)',
               }}
-              className="desktop-nav"
             >
               {navigation.map((item) =>
                 'items' in item ? (
@@ -173,12 +172,11 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
 
             {/* CTA Buttons */}
             <div
+              className="desktop-nav"
               style={{
-                display: 'none',
                 gap: 'var(--space-2)',
                 alignItems: 'center',
               }}
-              className="desktop-nav"
             >
               <Link to="/login" className="btn-ghost btn-sm">
                 Sign In
