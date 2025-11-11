@@ -39,7 +39,7 @@ const DEFAULT_KEYWORDS = [
   'Online Learning',
   'Elevate for Humanity',
 ];
-const SITE_URL = 'https://elevateforhumanity.org';
+const SITE_URL = 'https://elevateproduction.netlify.app';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export default function DynamicSEO({
@@ -133,7 +133,7 @@ export function createCourseSchema(course: {
     provider: {
       '@type': 'Organization',
       name: 'Elevate for Humanity',
-      url: 'https://elevateforhumanity.org',
+      url: 'https://elevateproduction.netlify.app',
     },
     ...(course.duration && { timeRequired: course.duration }),
     ...(course.price !== undefined && {
@@ -163,7 +163,7 @@ export function createProgramSchema(program: {
     provider: {
       '@type': 'Organization',
       name: 'Elevate for Humanity',
-      url: 'https://elevateforhumanity.org',
+      url: 'https://elevateproduction.netlify.app',
     },
     ...(program.courses && { numberOfCourses: program.courses }),
   };
@@ -194,10 +194,10 @@ export function createArticleSchema(article: {
     publisher: {
       '@type': 'Organization',
       name: 'Elevate for Humanity',
-      url: 'https://elevateforhumanity.org',
+      url: 'https://elevateproduction.netlify.app',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://elevateforhumanity.org/logo.png',
+        url: 'https://elevateproduction.netlify.app/logo.png',
       },
     },
   };

@@ -38,7 +38,7 @@ export function addCourseSchema(course: CourseSchemaProps) {
     provider: {
       '@type': 'Organization',
       name: course.provider || 'Elevate for Humanity',
-      sameAs: 'https://elevateforhumanity.org',
+      sameAs: 'https://elevateproduction.netlify.app',
     },
     offers: {
       '@type': 'Offer',

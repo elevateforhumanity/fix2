@@ -43,9 +43,9 @@ export default function SEO({
           alternateName: 'EFH Workforce Development',
           description:
             'Indianapolis-based ETPL provider offering 106+ industry-recognized certification programs with 92% job placement rate. FREE workforce development through WIOA funding.',
-          url: 'https://elevateforhumanity.org',
-          logo: 'https://elevateforhumanity.org/images/logo.png',
-          image: 'https://elevateforhumanity.org/og-image.svg',
+          url: 'https://elevateproduction.netlify.app',
+          logo: 'https://elevateproduction.netlify.app/images/logo.png',
+          image: 'https://elevateproduction.netlify.app/og-image.svg',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Indianapolis',
@@ -94,7 +94,7 @@ export default function SEO({
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'Elevate for Humanity',
-          image: 'https://elevateforhumanity.org/og-image.svg',
+          image: 'https://elevateproduction.netlify.app/og-image.svg',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Indianapolis',
@@ -102,7 +102,7 @@ export default function SEO({
             addressCountry: 'US',
           },
           telephone: '+1-317-314-3757',
-          url: 'https://elevateforhumanity.org',
+          url: 'https://elevateproduction.netlify.app',
           priceRange: 'FREE',
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',

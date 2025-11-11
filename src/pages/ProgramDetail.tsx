@@ -54,8 +54,8 @@ export default function ProgramDetail() {
 
   const pageTitle = `${p.name} | Elevate for Humanity`;
   const pageDescription = `${p.tagline} - ${p.summary}`;
-  const pageUrl = `https://elevateforhumanity.org/programs/${p.slug}`;
-  const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
+  const pageUrl = `https://elevateproduction.netlify.app/programs/${p.slug}`;
+  const imageUrl = `https://elevateproduction.netlify.app${p.cardSrc}`;
 
   return (
     <div className="min-h-screen bg-surface-base">
@@ -89,7 +89,7 @@ export default function ProgramDetail() {
             provider: {
               '@type': 'Organization',
               name: 'Elevate for Humanity',
-              url: 'https://elevateforhumanity.org',
+              url: 'https://elevateproduction.netlify.app',
             },
             image: imageUrl,
             offers: {

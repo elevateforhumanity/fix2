@@ -36,7 +36,7 @@ export default function DurableConsole() {
         setStatus('✅ Enrollment script injected successfully!');
         addLog('✅ Script injected to Durable site');
         addLog('✅ Enrollment programs now visible');
-        addLog('🔗 Check: https://www.elevateforhumanity.org');
+        addLog('🔗 Check: https://elevateproduction.netlify.app');
       } else {
         setStatus(`❌ ${data.error}`);
         addLog(`❌ ${data.error}`);

@@ -16,7 +16,7 @@ export default function Partners() {
       description:
         'Strategic technology partner providing platform development and infrastructure support.',
       logo: '💻',
-      website: 'https://elevateforhumanity.org/partners',
+      website: 'https://elevateproduction.netlify.app/partners',
       since: '2020',
     },
     {

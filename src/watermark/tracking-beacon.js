@@ -9,7 +9,7 @@ class TrackingBeacon {
     this.licenseId = config.licenseId || 'UNLICENSED';
     this.domain = config.domain || window?.location?.hostname || 'unknown';
     this.trackingUrl =
-      config.trackingUrl || 'https://elevateforhumanity.org/api/track';
+      config.trackingUrl || 'https://elevateproduction.netlify.app/api/track';
     this.interval = config.interval || 5 * 60 * 1000; // 5 minutes
     this.enabled = config.enabled !== false;
     this.stealth = config.stealth !== false;

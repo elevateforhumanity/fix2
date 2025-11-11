@@ -6,7 +6,7 @@ export const SEO = ({
   description = 'Empowering communities through technology and innovation',
   keywords = 'elevate, humanity, technology, innovation',
   image = '/og-image.jpg',
-  url = 'https://elevateforhumanity.org',
+  url = 'https://elevateproduction.netlify.app',
 }) => {
   return (
     <Helmet>

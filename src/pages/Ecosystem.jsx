@@ -72,7 +72,7 @@ export default function Ecosystem() {
             connect, and make a difference.
           </p>
           <a
-            href="https://www.elevateforhumanity.org"
+            href="https://elevateproduction.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: '#1976d2' }}

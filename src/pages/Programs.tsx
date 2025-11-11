@@ -9,10 +9,10 @@ export default function Programs() {
   // Add breadcrumb schema for SEO
   useEffect(() => {
     addBreadcrumbSchema([
-      { name: 'Home', url: 'https://elevateforhumanity.org/' },
+      { name: 'Home', url: 'https://elevateproduction.netlify.app/' },
       {
         name: 'Programs',
-        url: 'https://elevateforhumanity.org/programs',
+        url: 'https://elevateproduction.netlify.app/programs',
       },
     ]);
   }, []);

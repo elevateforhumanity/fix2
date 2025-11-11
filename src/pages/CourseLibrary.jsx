@@ -64,11 +64,11 @@ export default function CourseLibrary() {
         />
         <meta
           property="og:image"
-          content="https://elevateforhumanity.org/og-image.png"
+          content="https://elevateproduction.netlify.app/og-image.png"
         />
         <meta
           property="og:url"
-          content="https://elevateforhumanity.org/courses"
+          content="https://elevateproduction.netlify.app/courses"
         />
       </Helmet>
       <header>

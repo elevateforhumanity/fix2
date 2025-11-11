@@ -88,7 +88,7 @@ export default function SocialMediaManager() {
           response = await announceProgram({
             name: 'Sample Program',
             description: 'This is a sample program announcement',
-            enrollmentUrl: 'https://elevateforhumanity.org/programs',
+            enrollmentUrl: 'https://elevateproduction.netlify.app/programs',
           });
           break;
 
@@ -109,7 +109,7 @@ export default function SocialMediaManager() {
             ).toLocaleDateString(),
             description:
               'Join us for an open house to learn about our programs!',
-            registrationUrl: 'https://elevateforhumanity.org/events',
+            registrationUrl: 'https://elevateproduction.netlify.app/events',
           });
           break;
 
