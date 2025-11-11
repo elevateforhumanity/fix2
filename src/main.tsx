@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { AuthProvider } from './contexts/AuthContext'
 import App from './App'
-import './styles/design-system-v2.css'
+import './styles/docebo.css'
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
-import MainLayout from '../layouts/MainLayout';
-import '../styles/design-system-v2.css';
+import DoceboLayout from "../layouts/DoceboLayout"';
 
 export default function Home() {
   return (
-    <MainLayout>
-      <div className="home-durable">
-        {/* Hero Section - Vibrant Thinkific-Inspired */}
+    <DoceboLayout>
+      <div>
+        {/* Hero Section - Docebo Style */}
         <section 
-          className="hero"
           style={{
-            background: 'var(--brand-gradient-hero)',
+            background: 'linear-gradient(135deg, var(--docebo-blue-500) 0%, var(--docebo-cyan-500) 100%)',
             padding: '120px 0',
             color: 'white',
             position: 'relative',
@@ -747,6 +745,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </MainLayout>
+    </DoceboLayout>
   );
 }
