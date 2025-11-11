@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Award, Briefcase, DollarSign, CheckCircle, Users, TrendingUp } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { ApprovalBanner } from '../components/ApprovalBadge';
 
 const trustMetrics = [
   {
@@ -76,7 +77,7 @@ export default function Home() {
         <title>Elevate for Humanity | Workforce Training & Career Development</title>
         <meta
           name="description"
-          content="Career-ready training powered by apprenticeships, WIOA/WRG funding, and employer partnerships in Indiana. Enroll, learn, and get placed into real jobs."
+          content="WRG & ETPL Approved! Career-ready training powered by apprenticeships, WIOA/WRG funding, and employer partnerships in Indiana. Enroll, learn, and get placed into real jobs."
         />
       </Helmet>
 
@@ -89,6 +90,12 @@ export default function Home() {
             <h1 className="heading-display text-white mb-6">
               Workforce Training That Leads to Real Jobs
             </h1>
+            
+            {/* WRG & ETPL Approval Banner */}
+            <div className="max-w-4xl mx-auto mb-8">
+              <ApprovalBanner />
+            </div>
+            
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">
               Learn with state-aligned programs, access WIOA/WRG/JRI funding, and step into paid apprenticeships and employment.
             </p>
