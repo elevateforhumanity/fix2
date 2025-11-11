@@ -19,6 +19,14 @@
 - Simplified to single Netlify configuration
 - Eliminated configuration conflicts
 
+### Commit 4: `9ec2f9e1` - Aggressively fix hero images - put at head with preload
+- **MAJOR FIX:** Restructured hero component for prominent image display
+- Added `<link rel="preload">` in HTML head for hero images
+- Applied background images at top level with full-width display
+- Increased text sizes and improved contrast
+- Split rendering into two paths: with/without background image
+- Ensured images load first before other resources
+
 ## 🚀 Deployment Configuration
 
 **Platform:** Netlify  

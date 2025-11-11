@@ -9,6 +9,7 @@ import Navigation from './Navigation';
 import Hero from './Hero';
 import Section from './Section';
 import Footer from './Footer';
+import VideoEmbed from './VideoEmbed';
 
 interface ProgramPageProps {
   title: string;
@@ -25,6 +26,13 @@ interface ProgramPageProps {
   heroImage?: string;
   cardImage?: string;
   ogImage?: string;
+  highlights?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+  videoUrl?: string;
+  videoTitle?: string;
 }
 
 export default function ProgramPageTemplate({
@@ -42,6 +50,9 @@ export default function ProgramPageTemplate({
   heroImage,
   cardImage,
   ogImage,
+  highlights,
+  videoUrl,
+  videoTitle,
 }: ProgramPageProps) {
   return (
     <div>
@@ -74,10 +85,44 @@ export default function ProgramPageTemplate({
         primaryButton={{ text: 'Apply Now', href: '/apply' }}
         secondaryButton={{ text: 'Contact Us', href: '/contact' }}
       />
+      {highlights && highlights.length > 0 && (
+        <Section background="beige">
+          <div className="mx-auto max-w-[1200px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {highlights.map((highlight, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                >
+                  <div className="text-5xl mb-4">{highlight.icon}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-[var(--color-brown)]">
+                    {highlight.title}
+                  </h3>
+                  <p className="text-gray-700">{highlight.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
       <Section background="white">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="section-title">Program Overview</h2>
-          <p className="body-large">{overview}</p>
+        <div className="mx-auto max-w-[1200px]">
+          <div className={`grid grid-cols-1 ${videoUrl ? 'lg:grid-cols-2' : ''} gap-12 items-center`}>
+            <div className={videoUrl ? '' : 'max-w-[800px] mx-auto'}>
+              <h2 className="section-title">Program Overview</h2>
+              <p className="body-large">{overview}</p>
+            </div>
+            {videoUrl && (
+              <div>
+                <VideoEmbed
+                  url={videoUrl}
+                  title={videoTitle || `${title} Program Video`}
+                  controls={true}
+                  autoplay={false}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </Section>
       <Section background="green">

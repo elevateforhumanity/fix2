@@ -17,6 +17,28 @@ export default function BuildingTechPage() {
       heroImage="/images/programs/efh-building-tech-hero.jpg"
       cardImage="/images/programs/efh-building-tech-card.jpg"
       ogImage="/images/programs/efh-building-tech-og.jpg"
+      highlights={[
+        {
+          icon: '💰',
+          title: '100% Funded',
+          description:
+            'Complete training at no cost through WRG and WIOA funding programs.',
+        },
+        {
+          icon: '🏆',
+          title: 'Industry Certification',
+          description:
+            'Earn recognized credentials that employers value and trust.',
+        },
+        {
+          icon: '🚀',
+          title: 'High Demand',
+          description:
+            'Enter a growing field with excellent job prospects and career advancement.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      videoTitle="Building Services Technician Program Overview"
       overview="Our Building Services Technician program prepares you for a career in facility maintenance and building operations. You'll learn essential skills in HVAC, plumbing, electrical systems, and general maintenance to keep commercial and residential properties running smoothly."
       benefits={[
         '100% funded training',
