@@ -121,35 +121,19 @@ export default function Hero({
           </div>
         </div>
       )}
-      {!showCarousel && (
+      {!showCarousel && backgroundImage && (
         <div
-          className="relative w-full"
-          style={
-            backgroundImage
-              ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  minHeight: '500px',
-                }
-              : undefined
-          }
+          className="relative w-full min-h-[500px] bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+          }}
         >
-          <div className="container">
-            <div
-              className="hero-content"
-              style={backgroundImage ? { color: 'white' } : undefined}
-            >
-              <h1
-                className="hero-title"
-                style={backgroundImage ? { color: 'white' } : undefined}
-              >
+          <div className="container h-full flex items-center justify-center py-20">
+            <div className="hero-content text-center text-white max-w-4xl">
+              <h1 className="hero-title text-white text-5xl md:text-6xl font-bold mb-6">
                 {title}
               </h1>
-              <p
-                className="hero-subtitle"
-                style={backgroundImage ? { color: 'white' } : undefined}
-              >
+              <p className="hero-subtitle text-white text-xl md:text-2xl mb-8">
                 {subtitle}
               </p>
               {badges.length > 0 && (
@@ -169,7 +153,7 @@ export default function Hero({
                   {primaryButton && (
                     <Link
                       to={primaryButton.href}
-                      className={backgroundImage ? 'button-white' : 'button'}
+                      className="button-white text-lg px-8 py-4"
                     >
                       {primaryButton.text}
                     </Link>
@@ -177,11 +161,7 @@ export default function Hero({
                   {secondaryButton && (
                     <Link
                       to={secondaryButton.href}
-                      className={
-                        backgroundImage
-                          ? 'button-outline-white'
-                          : 'button-secondary'
-                      }
+                      className="button-outline-white text-lg px-8 py-4"
                     >
                       {secondaryButton.text}
                     </Link>
@@ -189,6 +169,40 @@ export default function Hero({
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+      {!showCarousel && !backgroundImage && (
+        <div className="container">
+          <div className="hero-content">
+            <h1 className="hero-title">{title}</h1>
+            <p className="hero-subtitle">{subtitle}</p>
+            {badges.length > 0 && (
+              <div className="flex flex-wrap gap-6 justify-center mb-8">
+                {badges.map((badge, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded bg-[var(--color-beige)] text-[var(--color-brown)] font-medium"
+                  >
+                    {badge.icon} {badge.text}
+                  </span>
+                ))}
+              </div>
+            )}
+            {(primaryButton || secondaryButton) && (
+              <div className="flex flex-wrap gap-6 justify-center">
+                {primaryButton && (
+                  <Link to={primaryButton.href} className="button">
+                    {primaryButton.text}
+                  </Link>
+                )}
+                {secondaryButton && (
+                  <Link to={secondaryButton.href} className="button-secondary">
+                    {secondaryButton.text}
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

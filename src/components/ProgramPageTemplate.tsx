@@ -48,6 +48,9 @@ export default function ProgramPageTemplate({
       <Helmet>
         <title>{title} | Elevate for Humanity</title>
         <meta name="description" content={metaDescription} />
+        {heroImage && (
+          <link rel="preload" as="image" href={heroImage} />
+        )}
         {ogImage && (
           <>
             <meta property="og:image" content={ogImage} />
