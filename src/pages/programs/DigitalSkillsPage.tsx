@@ -10,6 +10,25 @@ export default function DigitalSkillsPage() {
       funding="WRG • WIOA"
       metaDescription="Digital skills training including Microsoft Office, Google Workspace, and essential computer skills. 100% funded, self-paced learning."
       heroImage="/images/hero-training.jpg"
+      highlights={[
+        {
+          icon: '💻',
+          title: 'Self-Paced Learning',
+          description: 'Learn at your own speed with flexible online and in-person options.',
+        },
+        {
+          icon: '🎯',
+          title: 'Essential Skills',
+          description: 'Master Microsoft Office, Google Workspace, and professional communication.',
+        },
+        {
+          icon: '🏅',
+          title: 'Multiple Certifications',
+          description: 'Earn industry-recognized certifications to boost your resume.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="Digital Skills Training"
       overview="Our Digital Skills program builds essential computer and technology skills needed in today's workplace. Learn Microsoft Office, Google Workspace, email, internet research, and professional online communication."
       benefits={[
         '100% funded training',

@@ -10,6 +10,25 @@ export default function HVACPage() {
       funding="WRG • WIOA"
       metaDescription="Dual certification in HVAC and Welding. 100% funded training for two high-demand trades in Marion County, IN."
       heroImage="/images/programs/efh-building-tech-hero.jpg"
+      highlights={[
+        {
+          icon: '🔥',
+          title: 'Dual Certification',
+          description: 'Get certified in both HVAC and Welding - two skills, double the opportunities.',
+        },
+        {
+          icon: '💪',
+          title: 'Hands-On Training',
+          description: 'Work with real equipment and materials in our state-of-the-art facilities.',
+        },
+        {
+          icon: '📈',
+          title: 'High Earning Potential',
+          description: 'Skilled trades professionals earn $40,000-$60,000+ annually.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="HVAC & Welding Program"
       overview="Our HVAC & Welding program offers dual certification in two high-demand trades. You'll gain expertise in heating, ventilation, air conditioning systems, plus welding techniques used in construction and manufacturing."
       benefits={[
         'Dual certification in two trades',

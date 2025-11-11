@@ -12,6 +12,25 @@ export default function HealthcarePage() {
       heroImage="/images/programs/efh-cna-hero.jpg"
       cardImage="/images/programs/efh-cna-card.jpg"
       ogImage="/images/programs/efh-cna-og.jpg"
+      highlights={[
+        {
+          icon: '🏥',
+          title: 'High Demand Field',
+          description: 'Healthcare is one of the fastest-growing industries with excellent job security.',
+        },
+        {
+          icon: '🎓',
+          title: 'Multiple Certifications',
+          description: 'Choose from CNA, Medical Assistant, and Patient Care certification paths.',
+        },
+        {
+          icon: '💉',
+          title: 'Clinical Experience',
+          description: 'Gain hands-on experience in real healthcare settings during training.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="Healthcare Training Program"
       overview="Our Healthcare Training program prepares you for entry-level positions in the healthcare industry. Learn patient care, medical terminology, clinical procedures, and professional healthcare practices."
       benefits={[
         '100% funded training',

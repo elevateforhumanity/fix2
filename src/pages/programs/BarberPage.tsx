@@ -17,6 +17,25 @@ export default function BarberPage() {
       heroImage="/images/programs/efh-barber-hero.jpg"
       cardImage="/images/programs/efh-barber-card.jpg"
       ogImage="/images/programs/efh-barber-og.jpg"
+      highlights={[
+        {
+          icon: '💼',
+          title: 'Earn While You Learn',
+          description: 'Get paid while completing your 2,000-hour apprenticeship with experienced barbers.',
+        },
+        {
+          icon: '📜',
+          title: 'State Licensure',
+          description: 'Qualify for Indiana State Barber Licensure upon program completion.',
+        },
+        {
+          icon: '✂️',
+          title: 'Master the Craft',
+          description: 'Learn cutting, styling, shaving, and customer service from industry professionals.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="Barber Apprenticeship Program"
       overview="Our Barber Apprenticeship program combines hands-on training with paid work experience. You'll master cutting techniques, styling, shaving, and customer service while earning income. Upon completion, you'll be eligible for Indiana State Barber Licensure and ready to start your career in a high-demand field."
       benefits={[
         'Earn while you learn through paid apprenticeship',

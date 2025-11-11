@@ -10,6 +10,25 @@ export default function DrugTestingPage() {
       funding="WRG • WIOA"
       metaDescription="Become a certified Drug Testing Specialist. Learn collection procedures, compliance, and chain of custody with 100% funded training."
       heroImage="/images/hero-training.jpg"
+      highlights={[
+        {
+          icon: '🧪',
+          title: 'Industry Certification',
+          description: 'Become a certified drug testing specialist with recognized credentials.',
+        },
+        {
+          icon: '📋',
+          title: 'Compliance Training',
+          description: 'Learn DOT regulations, chain of custody, and legal requirements.',
+        },
+        {
+          icon: '🏢',
+          title: 'Growing Demand',
+          description: 'Increasing need for certified specialists in workplace safety programs.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="Drug Testing Specialist Program"
       overview="Our Drug Testing Specialist program trains you in proper collection procedures, chain of custody protocols, and compliance requirements for workplace drug testing programs."
       benefits={[
         '100% funded training',

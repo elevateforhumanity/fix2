@@ -12,6 +12,25 @@ export default function CPRSPage() {
       heroImage="/images/programs/efh-public-safety-reentry-hero.jpg"
       cardImage="/images/programs/efh-public-safety-reentry-card.jpg"
       ogImage="/images/programs/efh-public-safety-reentry-og.jpg"
+      highlights={[
+        {
+          icon: '🤝',
+          title: 'Meaningful Work',
+          description: 'Use your lived experience to help others on their recovery journey.',
+        },
+        {
+          icon: '📜',
+          title: 'State Certification',
+          description: 'Become a Certified Peer Recovery Support Specialist.',
+        },
+        {
+          icon: '🌱',
+          title: 'Growing Field',
+          description: 'Increasing demand for peer support specialists in recovery services.',
+        },
+      ]}
+      videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      videoTitle="Peer Recovery Support Program"
       overview="Our Peer Recovery Support program trains you to become a certified specialist who helps individuals in recovery from substance use disorders. Use your lived experience to support others on their recovery journey."
       benefits={[
         '100% funded training',
