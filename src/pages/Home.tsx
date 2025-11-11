@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import DoceboLayout from "../layouts/DoceboLayout"';
+import DoceboLayout from "../layouts/DoceboLayout";
 
 export default function Home() {
   return (

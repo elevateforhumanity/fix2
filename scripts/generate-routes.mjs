@@ -112,7 +112,7 @@ async function main() {
   );
   lines.push(`import React, { lazy, Suspense } from 'react';`);
   lines.push(`import { Routes, Route } from 'react-router-dom';`);
-  lines.push(`import SiteLayout from '../layouts/SiteLayout';`);
+  lines.push(`import DoceboLayout from '../layouts/DoceboLayout';`);
   lines.push(``);
   // Error boundary
   lines.push(
@@ -153,7 +153,7 @@ async function main() {
   lines.push(`  return (`);
   lines.push(`    <RouteErrorBoundary>`);
   lines.push(`      <Suspense fallback={<Fallback />}>`);
-  lines.push(`        <SiteLayout>`);
+  lines.push(`        <DoceboLayout>`);
   lines.push(`          <Routes>`);
 
   // ensure * is last
@@ -164,7 +164,7 @@ async function main() {
   }
 
   lines.push(`          </Routes>`);
-  lines.push(`        </SiteLayout>`);
+  lines.push(`        </DoceboLayout>`);
   lines.push(`      </Suspense>`);
   lines.push(`    </RouteErrorBoundary>`);
   lines.push(`  );`);
