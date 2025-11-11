@@ -1,7 +1,7 @@
 /**
  * Section Component
  * Matches elevateforhumanity.org section layout exactly
- * Extracted from: https://www.elevateforhumanity.org
+ * Extracted from: https://elevateproduction.netlify.app
  */
 
 import React from 'react';

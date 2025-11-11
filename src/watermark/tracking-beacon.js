@@ -83,7 +83,7 @@ Session: ${this.sessionId}
 This software is protected by copyright law and licensing agreements.
 Unauthorized use, copying, or redistribution will result in legal action.
 
-Contact: legal@elevateforhumanity.org
+Contact: legal@elevateproduction.netlify.app
       `);
     }
   }

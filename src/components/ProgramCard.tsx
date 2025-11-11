@@ -1,7 +1,7 @@
 /**
  * ProgramCard Component
  * Matches elevateforhumanity.org program card design exactly
- * Extracted from: https://www.elevateforhumanity.org
+ * Extracted from: https://elevateproduction.netlify.app
  */
 
 import { Link } from 'react-router-dom';

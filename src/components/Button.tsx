@@ -1,7 +1,7 @@
 /**
  * Button Component
  * Matches elevateforhumanity.org button styles exactly
- * Extracted from: https://www.elevateforhumanity.org
+ * Extracted from: https://elevateproduction.netlify.app
  *
  * Variants:
  * - primary (default): Green background, white text

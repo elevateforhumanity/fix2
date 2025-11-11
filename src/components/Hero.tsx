@@ -1,7 +1,7 @@
 /**
  * Hero Component
  * Matches elevateforhumanity.org hero section exactly
- * Extracted from: https://www.elevateforhumanity.org
+ * Extracted from: https://elevateproduction.netlify.app
  */
 
 import React, { useState, useEffect } from 'react';
