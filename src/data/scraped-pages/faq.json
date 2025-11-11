@@ -1,0 +1,40 @@
+{
+  "name": "faq",
+  "title": "Explore Trades & Apprenticeships in Marion County Today",
+  "description": "Elevate for Humanity Career and Technical Institute offers workforce training, apprenticeships, and WIO funding in Marion County, IN to boost career prospects.",
+  "sections": [
+    {
+      "type": "hero",
+      "title": "Frequently asked questions",
+      "subtitle": ""
+    },
+    {
+      "type": "heading",
+      "text": "Elevate for Humanity Career and Technical Institute"
+    },
+    {
+      "type": "heading",
+      "text": "Empower Your Future Today"
+    },
+    {
+      "type": "text",
+      "content": "Frequently asked questionsWhat types of apprenticeships does Elevate for Humanity offer?"
+    },
+    {
+      "type": "text",
+      "content": "We offer apprenticeships in various technical fields, including electrical, plumbing, and IT, tailored to industry needs and standards.How can I apply for a training program?"
+    },
+    {
+      "type": "text",
+      "content": "You can apply online through our website or visit us at our Marion County location for assistance.Are there any eligibility requirements for the programs?"
+    },
+    {
+      "type": "text",
+      "content": "Yes, applicants must meet specific age, educational, and residency criteria. Details are available on our website or by contacting us.What funding options are available for participants?"
+    },
+    {
+      "type": "text",
+      "content": "We provide scholarship opportunities, government grants, and payment plans to ensure affordability for all eligible participants.How long do the apprenticeship programs typically last?"
+    }
+  ]
+}

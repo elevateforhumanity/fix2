@@ -1,11 +1,11 @@
-# Robots.txt for https://elevateconnectsdirectory.org
+# Robots.txt for https://elevateconnects1.netlify.app
 # Generated: Tue Nov 11 11:28:59 UTC 2025
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://elevateconnectsdirectory.org/sitemap.xml
+Sitemap: https://elevateconnects1.netlify.app/sitemap.xml
 
 # Disallow admin areas
 Disallow: /admin/

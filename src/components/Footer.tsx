@@ -77,18 +77,7 @@ export default function Footer({
                 </div>
               </a>
               
-              <a 
-                href={`mailto:${branding.email}`}
-                className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-orange-600/20 flex items-center justify-center group-hover:bg-orange-600/30 transition-colors">
-                  <Mail className="h-5 w-5 text-orange-400" />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500">Email Us</div>
-                  <div className="font-medium">{branding.email}</div>
-                </div>
-              </a>
+
               
               <div className="flex items-center gap-3 text-sm text-gray-300">
                 <div className="w-10 h-10 rounded-lg bg-orange-600/20 flex items-center justify-center">

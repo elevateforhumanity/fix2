@@ -8,16 +8,15 @@ export const branding = {
   location: "Marion County, Indiana",
   phone: "(317) 314-3757",
   phoneRaw: "3173143757",
-  email: "info@elevateforhumanity.org",
+  email: "",
 };
 
 export const mainNavigation: NavLink[] = [
-  { label: "Home", to: "/" },
+  { label: "Dashboard", to: "/" },
   { label: "Programs", to: "/programs" },
-  { label: "Student Portal", to: "/lms" },
-  { label: "About", to: "/about" },
-  { label: "Partners", to: "/partners" },
-  { label: "Contact", to: "/contact" },
+  { label: "Courses", to: "/courses" },
+  { label: "My Progress", to: "/student-portal" },
+  { label: "Apply", to: "/apply" },
 ];
 
 export const ctaButton = { label: "Apply Now", to: "/apply" };
@@ -32,27 +31,18 @@ export const footerSections = [
     title: "Programs",
     links: [
       { label: "All Programs", to: "/programs" },
-      { label: "Barber Apprenticeship", to: "/programs/barber" },
-      { label: "Building Services", to: "/programs/building-tech" },
-      { label: "HVAC & Welding", to: "/programs/hvac" },
-      { label: "Healthcare CNA/QMA", to: "/programs/healthcare" },
-    ],
-  },
-  {
-    title: "About",
-    links: [
-      { label: "About Us", to: "/about" },
-      { label: "Partners", to: "/partners" },
-      { label: "Contact", to: "/contact" },
+      { label: "Apprenticeships", to: "/apprenticeship-programs" },
+      { label: "State Programs", to: "/state-programs" },
       { label: "Apply Now", to: "/apply" },
     ],
   },
   {
-    title: "Resources",
+    title: "Learning",
     links: [
-      { label: "Student Portal", to: "/lms" },
-      { label: "Blog", to: "/blog" },
-      { label: "Support", to: "/support" },
+      { label: "Course Catalog", to: "/courses" },
+      { label: "My Dashboard", to: "/student-portal" },
+      { label: "My Certificates", to: "/certificates" },
+      { label: "FAQ", to: "/faq" },
     ],
   },
   {
@@ -60,6 +50,7 @@ export const footerSections = [
     links: [
       { label: "Privacy Policy", to: "/privacy" },
       { label: "Terms of Service", to: "/terms" },
+      { label: "Accessibility", to: "/accessibility" },
     ],
   },
 ];

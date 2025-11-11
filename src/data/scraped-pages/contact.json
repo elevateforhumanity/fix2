@@ -1,0 +1,24 @@
+{
+  "name": "contact",
+  "title": "Youth Trade and Apprenticeships Program in Marion County, IN",
+  "description": "Elevate for Humanity offers workforce ETPL WIO funding for courses, trade, apprenticeship programs, OJT, and internships in Marion County, IN. Empowering careers!",
+  "sections": [
+    {
+      "type": "hero",
+      "title": "Contact",
+      "subtitle": ""
+    },
+    {
+      "type": "heading",
+      "text": "Elevate for Humanity Career and Technical Institute"
+    },
+    {
+      "type": "heading",
+      "text": "Transform Your Career Today"
+    },
+    {
+      "type": "text",
+      "content": "ContactGet in touchConnect With Us Today Reach out to Elevate for Humanity for program funding assistance in Marion County, IN."
+    }
+  ]
+}
