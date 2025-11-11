@@ -1,0 +1,99 @@
+name: Configure Netlify Domain
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/configure-netlify-domain.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  configure-domain:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Add Custom Domain to Netlify
+        run: |
+          echo "🤖 Adding elevateconnectsdirectory.org to Netlify..."
+          
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"domain_name":"elevateconnectsdirectory.org"}' \
+            "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/domains")
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          RESPONSE_BODY=$(echo "$RESPONSE" | sed '$d')
+          
+          if [ "$HTTP_CODE" = "201" ] || [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Domain added successfully!"
+            echo "$RESPONSE_BODY"
+          elif [ "$HTTP_CODE" = "422" ]; then
+            echo "✅ Domain already exists (that's OK!)"
+            echo "$RESPONSE_BODY"
+          else
+            echo "❌ Failed to add domain (HTTP $HTTP_CODE)"
+            echo "$RESPONSE_BODY"
+            exit 1
+          fi
+      
+      - name: Check SSL Status
+        run: |
+          echo "🔒 Checking SSL certificate status..."
+          sleep 5
+          
+          SITE_INFO=$(curl -s \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}")
+          
+          echo "Site configuration:"
+          echo "$SITE_INFO" | jq '{custom_domain, domain_aliases, ssl, ssl_url}'
+          
+          echo ""
+          echo "✅ Domain configuration complete!"
+          echo "⏳ SSL certificate will be ready in 2-10 minutes"
+          echo ""
+          echo "Monitor SSL status:"
+          echo "  curl -Ivk https://elevateconnectsdirectory.org 2>&1 | grep 'subject:'"
+      
+      - name: Trigger Cache Clear
+        run: |
+          echo "🔄 Triggering cache-clearing rebuild..."
+          
+          BUILD_RESPONSE=$(curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"clear_cache":true}' \
+            "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/builds")
+          
+          BUILD_ID=$(echo "$BUILD_RESPONSE" | jq -r '.id')
+          
+          if [ "$BUILD_ID" != "null" ] && [ -n "$BUILD_ID" ]; then
+            echo "✅ Build triggered: $BUILD_ID"
+          else
+            echo "⚠️  Could not trigger build"
+            echo "$BUILD_RESPONSE"
+          fi
+      
+      - name: Summary
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ NETLIFY CONFIGURATION COMPLETE"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Domain: elevateconnectsdirectory.org"
+          echo "Status: Added to Netlify"
+          echo "SSL: Provisioning (2-10 minutes)"
+          echo ""
+          echo "Next steps:"
+          echo "1. Wait for SSL certificate"
+          echo "2. Visit: https://elevateconnectsdirectory.org"
+          echo "3. Clear browser cache if needed"
+          echo ""
+          echo "Check SSL status:"
+          echo "  https://app.netlify.com/sites/elevateproduction/settings/domain"
+          echo ""
