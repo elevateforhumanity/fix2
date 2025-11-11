@@ -57,6 +57,18 @@ export default {
           result = await triggerGitHubWorkflow(env, data.workflow);
           break;
 
+        case 'add_domain':
+          result = await addCustomDomain(env, data.domain);
+          break;
+
+        case 'check_ssl':
+          result = await checkSSLStatus(env, data.domain);
+          break;
+
+        case 'configure_netlify':
+          result = await configureNetlifyComplete(env, data.domain);
+          break;
+
         default:
           return new Response(JSON.stringify({ error: 'Unknown task' }), {
             status: 400,
@@ -181,6 +193,140 @@ async function triggerGitHubWorkflow(env: Env, workflow: string) {
   }
 
   return { triggered: true, workflow };
+}
+
+// Add custom domain to Netlify
+async function addCustomDomain(env: Env, domain: string) {
+  console.log(`Adding custom domain: ${domain}`);
+
+  const response = await fetch(
+    `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}/domains`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.NETLIFY_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        domain_name: domain,
+      }),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (response.status === 422 && data.message?.includes('already exists')) {
+      return {
+        status: 'already_exists',
+        domain,
+        message: 'Domain already added to Netlify',
+      };
+    }
+    throw new Error(`Failed to add domain: ${JSON.stringify(data)}`);
+  }
+
+  return {
+    status: 'added',
+    domain,
+    ssl_url: data.ssl_url,
+    message: 'Domain added successfully, SSL provisioning started',
+  };
+}
+
+// Check SSL certificate status
+async function checkSSLStatus(env: Env, domain: string) {
+  console.log(`Checking SSL status for: ${domain}`);
+
+  const response = await fetch(
+    `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}`,
+    {
+      headers: {
+        Authorization: `Bearer ${env.NETLIFY_TOKEN}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Failed to get site info: ${await response.text()}`);
+  }
+
+  const siteData = await response.json();
+
+  return {
+    domain,
+    ssl_enabled: siteData.ssl,
+    ssl_url: siteData.ssl_url,
+    custom_domain: siteData.custom_domain,
+    domain_aliases: siteData.domain_aliases || [],
+    force_ssl: siteData.force_ssl,
+  };
+}
+
+// Complete Netlify configuration
+async function configureNetlifyComplete(env: Env, domain: string) {
+  console.log(`Starting complete Netlify configuration for: ${domain}`);
+
+  const results: any = {
+    steps: [],
+  };
+
+  // Step 1: Add domain
+  try {
+    const addResult = await addCustomDomain(env, domain);
+    results.steps.push({
+      step: 'add_domain',
+      status: 'success',
+      result: addResult,
+    });
+  } catch (error: any) {
+    results.steps.push({
+      step: 'add_domain',
+      status: 'error',
+      error: error.message,
+    });
+    return results;
+  }
+
+  // Step 2: Wait for SSL to start provisioning
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
+  // Step 3: Check SSL status
+  try {
+    const sslResult = await checkSSLStatus(env, domain);
+    results.steps.push({
+      step: 'check_ssl',
+      status: 'success',
+      result: sslResult,
+    });
+  } catch (error: any) {
+    results.steps.push({
+      step: 'check_ssl',
+      status: 'error',
+      error: error.message,
+    });
+  }
+
+  // Step 4: Trigger rebuild with cache clear
+  try {
+    const deployResult = await triggerDeploy(env);
+    results.steps.push({
+      step: 'trigger_deploy',
+      status: 'success',
+      result: deployResult,
+    });
+  } catch (error: any) {
+    results.steps.push({
+      step: 'trigger_deploy',
+      status: 'error',
+      error: error.message,
+    });
+  }
+
+  results.status = 'complete';
+  results.message = `Domain ${domain} configuration complete. SSL certificate will be ready in 2-10 minutes.`;
+
+  return results;
 }
 
 // Scheduled health check

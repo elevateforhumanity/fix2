@@ -1,0 +1,22 @@
+name = "autopilot-deploy"
+main = "autopilot-deploy-worker.ts"
+compatibility_date = "2024-01-01"
+
+# Environment variables (set via wrangler secret put)
+# AUTOPILOT_TOKEN = "your-token"
+# NETLIFY_TOKEN = "your-netlify-token"
+# NETLIFY_SITE_ID = "12f120ab-3f63-419b-bc49-430f043415c1"
+# GITHUB_TOKEN = "your-github-token"
+# SUPABASE_URL = "https://cuxzzpsyufcewtmicszk.supabase.co"
+
+# Routes
+routes = [
+  { pattern = "autopilot-deploy.elevateforhumanity.workers.dev/*", zone_name = "elevateforhumanity.org" }
+]
+
+# Alternative: Use workers.dev subdomain
+workers_dev = true
+
+# Cron triggers for scheduled tasks
+[triggers]
+crons = ["0 */6 * * *"]  # Every 6 hours
