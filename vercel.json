@@ -1,9 +1,0 @@
-{
-  "buildCommand": "pnpm build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "headers": [{"source": "/(.*)", "headers": [
-    {"key": "Cache-Control", "value": "public, max-age=31536000"}
-  ]}],
-  "rewrites": [{"source": "/api/:path*", "destination": "https://api.elevateforhumanity.org/:path*"}]
-}
