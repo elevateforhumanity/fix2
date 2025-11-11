@@ -1,3 +1,96 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --brand-primary: #2563EB;
+    --brand-secondary: #10B981;
+    --brand-success: #10B981;
+    --brand-info: #06B6D4;
+    --brand-warning: #F59E0B;
+    --brand-danger: #EF4444;
+    
+    /* Brand Gradients */
+    --brand-gradient-primary: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    --brand-gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    --brand-gradient-info: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+    
+    /* Brand Surface & Text */
+    --brand-surface: #FFFFFF;
+    --brand-text: #111827;
+    --brand-text-light: #6B7280;
+    --brand-text-muted: #9CA3AF;
+    --brand-border: #E5E7EB;
+    --brand-border-dark: #D1D5DB;
+    
+    /* Docebo Style Colors */
+    --docebo-blue-500: #2563EB;
+    --docebo-cyan-500: #06B6D4;
+    
+    /* Semantic Colors */
+    --color-primary: #2563EB;
+    --color-primary-light: #DBEAFE;
+    --color-secondary: #10B981;
+    --color-success: #10B981;
+    --color-error: #EF4444;
+    --color-green: #10B981;
+    --color-green-600: #059669;
+    --color-white: #FFFFFF;
+    
+    /* Background Colors */
+    --bg-secondary: #F9FAFB;
+    --bg-tertiary: #F3F4F6;
+    --color-bg-secondary: #F9FAFB;
+    --color-card-bg: #FFFFFF;
+    
+    /* Text Colors */
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-tertiary: #9CA3AF;
+    --color-text-secondary: #6B7280;
+    
+    /* Border Colors */
+    --border-light: #E5E7EB;
+    --color-border: #E5E7EB;
+    
+    /* Palette Colors */
+    --color-beige: #F5F5DC;
+    --color-cream: #FFFDD0;
+    --color-brown: #8B4513;
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    
+    /* Radius */
+    --radius-sm: 0.125rem;
+    --radius-md: 0.375rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    /* Livewire Design System */
+    --lw-primary-600: #2563EB;
+    --lw-gray-50: #F9FAFB;
+    --lw-gray-600: #4B5563;
+    --lw-gray-900: #111827;
+    --lw-font-semibold: 600;
+    --lw-font-bold: 700;
+    --lw-text-sm: 0.875rem;
+    --lw-text-lg: 1.125rem;
+    --lw-text-4xl: 2.25rem;
+    --lw-space-2: 0.5rem;
+    --lw-space-4: 1rem;
+    --lw-space-6: 1.5rem;
+    --lw-space-8: 2rem;
+  }
+}
