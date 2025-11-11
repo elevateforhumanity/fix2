@@ -152,7 +152,11 @@
   --selection-text: var(--blue-900);
 }
 
-/* Dark Mode Colors */
+/* Dark Mode Colors - DISABLED FOR PROFESSIONAL LMS APPEARANCE */
+/* Enterprise LMS platforms (Docebo, Cornerstone) use light themes by default */
+/* Uncomment below if dark mode is needed in the future */
+
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: var(--gray-50);
@@ -180,6 +184,7 @@
     --selection-text: var(--blue-100);
   }
 }
+*/
 
 /* Color Utilities */
 .text-primary { color: var(--text-primary); }
@@ -584,15 +589,17 @@
   --contrast-safe-text-on-dark: var(--gray-50);
 }
 
-/* Automatic Dark Mode Color Adjustments */
+/* Automatic Dark Mode Color Adjustments - DISABLED */
+/* Force light mode for professional LMS appearance */
+/*
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Lighter colors in dark mode for better visibility */
     --red-500: #EF4444;
     --orange-500: #FB923C;
     --blue-500: #60A5FA;
   }
 }
+*/
 
 /* Color Blindness Safe Indicators */
 .status-success::before {

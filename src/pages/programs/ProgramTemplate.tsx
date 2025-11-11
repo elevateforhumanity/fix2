@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import DurableLayout from '../../layouts/DurableLayout';
+import MainLayout from '../../layouts/MainLayout';
 import '../../styles/design-system-v2.css';
 
 interface ProgramData {
@@ -51,7 +51,7 @@ const defaultProgram: ProgramData = {
 
 export default function ProgramTemplate({ program = defaultProgram }: ProgramTemplateProps) {
   return (
-    <DurableLayout>
+    <MainLayout>
       <div className="program-page">
         {/* Hero Section */}
         <section className="hero">
@@ -379,6 +379,6 @@ export default function ProgramTemplate({ program = defaultProgram }: ProgramTem
           </div>
         </section>
       </div>
-    </DurableLayout>
+    </MainLayout>
   );
 }

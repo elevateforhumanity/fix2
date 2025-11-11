@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import DurableLayout from '../layouts/DurableLayout';
+import MainLayout from '../layouts/MainLayout';
 import '../styles/design-system-v2.css';
 
 export default function Home() {
   return (
-    <DurableLayout>
+    <MainLayout>
       <div className="home-durable">
         {/* Hero Section - Vibrant Thinkific-Inspired */}
         <section 
@@ -747,6 +747,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </DurableLayout>
+    </MainLayout>
   );
 }

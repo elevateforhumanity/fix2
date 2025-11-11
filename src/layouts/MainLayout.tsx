@@ -31,7 +31,7 @@ const navigation = [
   { to: '/elevate', label: 'Elevate' },
 ];
 
-export default function FullSiteLayout({ children }: PropsWithChildren) {
+export default function FullMainLayout({ children }: PropsWithChildren) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
