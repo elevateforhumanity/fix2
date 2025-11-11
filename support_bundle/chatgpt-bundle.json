@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-11T19:33:25.881Z",
+  "generatedAt": "2025-11-11T22:20:10.152Z",
   "host": {
     "os": "linux 6.14.10-gitpod",
     "arch": "x64",
@@ -10,7 +10,7 @@
   "repo": {
     "remote": "https://github.com/elevateforhumanity/fix2.git",
     "branch": "main",
-    "commit": "8d837721"
+    "commit": "6617c919"
   },
   "packageJson": {
     "parsed": {
@@ -222,6 +222,7 @@
       "007_autopilot_system.sql",
       "2025-11-06_feature_pack.sql",
       "20250104_milady_rise_tables.sql",
+      "20250111_lms_schema.sql",
       "20250127000000_autopilot_logging.sql",
       "20250127000001_autopilot_phase4_dashboard.sql",
       "20250127_create_automation_tables.sql",
@@ -240,15 +241,15 @@
     ]
   },
   "sizes": {
-    "workspaceBytes": 841877937,
+    "workspaceBytes": 842690797,
     "nodeModulesBytes": 683080326,
-    "distBytes": 11869435,
-    "srcBytes": 3192857,
+    "distBytes": 11995494,
+    "srcBytes": 3377597,
     "human": {
-      "workspace": "802.88 MB",
+      "workspace": "803.65 MB",
       "node_modules": "651.44 MB",
-      "dist": "11.32 MB",
-      "src": "3.04 MB"
+      "dist": "11.44 MB",
+      "src": "3.22 MB"
     }
   },
   "pages": {
@@ -256,7 +257,7 @@
       "src/pages",
       "public"
     ],
-    "fileCount": 429,
+    "fileCount": 441,
     "truncated": false,
     "note": "Increase maxFiles= to capture more.",
     "files": [
@@ -441,6 +442,11 @@
         "sha256": "af03d778a43f870bd73a4b66df38b7248054e707e80ba5fb551f49aaa12578c3"
       },
       {
+        "path": "src/pages/CourseCatalogPage.tsx",
+        "size": 20506,
+        "sha256": "c8f1e283fd42ffefd3be490bb294638b9b0601585ea3144c29a8645d9bf0e9d8"
+      },
+      {
         "path": "src/pages/CourseDetail.jsx",
         "size": 4252,
         "sha256": "3f6efddf86a35b20065d821a81c35354c70dd026656131e577da1d1b431ecc87"
@@ -449,6 +455,11 @@
         "path": "src/pages/CourseLibrary.jsx",
         "size": 9570,
         "sha256": "f40223b9ea9afb4e2518021593f95db75dc84181ff28d4538add36602726e4a9"
+      },
+      {
+        "path": "src/pages/Courses.tsx",
+        "size": 20506,
+        "sha256": "c8f1e283fd42ffefd3be490bb294638b9b0601585ea3144c29a8645d9bf0e9d8"
       },
       {
         "path": "src/pages/CurriculumUpload.jsx",
@@ -1031,6 +1042,36 @@
         "sha256": "998130253881d89cf8bda00a92dea0986c1ae20ff2ba4c9cc52c7f7ac376a01f"
       },
       {
+        "path": "src/pages/student/Dashboard.tsx",
+        "size": 8556,
+        "sha256": "9c63d6707ee16d740a871595bd2e605fd71ef85e79b9eabd95b19dad261e4871"
+      },
+      {
+        "path": "src/pages/student/MyCourses.tsx",
+        "size": 8571,
+        "sha256": "8a82853d592a0f83ed1e86acdfa655668c2a2d3d19507f8a27c183d7d4cdab59"
+      },
+      {
+        "path": "src/pages/staff/CourseBuilder.tsx",
+        "size": 17202,
+        "sha256": "6640a501a560169aef0202744b56ba2b648a4e8375d228585a93e551ec4ae21e"
+      },
+      {
+        "path": "src/pages/staff/QuizBuilder.tsx",
+        "size": 20743,
+        "sha256": "c555acd5ab5483c158b9223b7e95f00696a88edb8f946a291d1fca7a503e4576"
+      },
+      {
+        "path": "src/pages/staff/TextBuilder.tsx",
+        "size": 13509,
+        "sha256": "93128b439e9d85d08f7ba7f5ffa0b5f25969d330b7d73f967d381bf5a0d5c779"
+      },
+      {
+        "path": "src/pages/staff/VideoBuilder.tsx",
+        "size": 20206,
+        "sha256": "58315547c286d64f7153b783eabd26761f28e867efb43b576a96982c7d2d052e"
+      },
+      {
         "path": "src/pages/sisters/MentorDirectory.jsx",
         "size": 3146,
         "sha256": "541e89402f4f3b320c31b18752215761923bb415639b67113f06cba9ab130d88"
@@ -1129,6 +1170,26 @@
         "path": "src/pages/programs/programsData.ts",
         "size": 16315,
         "sha256": "a2fef75d7e3847354cbfebfd45edb408b8ef8fafca1380fe4d60d9cda5cceaf8"
+      },
+      {
+        "path": "src/pages/portals/PartnerPortal.tsx",
+        "size": 11491,
+        "sha256": "c3af16c1ef8df5a150b4780059020f5a9950a8ff2100b68b0f422b984b66d5ff"
+      },
+      {
+        "path": "src/pages/portals/StaffPortal.tsx",
+        "size": 11654,
+        "sha256": "72c19279e0da10671cc9f0c1f99019d6dcd317ca55b5e343190cfd782382c060"
+      },
+      {
+        "path": "src/pages/portals/StudentPortalAccess.tsx",
+        "size": 8967,
+        "sha256": "eb099c2e9bb82d89e14c6be3bed0aa3678ee6f1689dabe6d595627ad60affd36"
+      },
+      {
+        "path": "src/pages/partner/ManageStudents.tsx",
+        "size": 9823,
+        "sha256": "bc195dfb6db6a0698780cc6e23985e876366547dede2fbe4cc9d2f684acb12c9"
       },
       {
         "path": "src/pages/lms/ClientSafetyCertification.jsx",
