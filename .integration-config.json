@@ -3,8 +3,8 @@
   "integrations": {
     "netlify": {
       "siteId": "12f120ab-3f63-419b-bc49-430f043415c1",
-      "siteName": "elevateforhumanityfix2",
-      "url": "https://elevateforhumanityfix2.netlify.app",
+      "siteName": "elevateproduction",
+      "url": "https://elevateproduction.netlify.app",
       "functions": {
         "directory": "netlify/functions",
         "count": 17,
@@ -69,9 +69,9 @@
     "storage": "Supabase Storage"
   },
   "endpoints": {
-    "site": "https://elevateforhumanityfix2.netlify.app",
-    "api": "https://elevateforhumanityfix2.netlify.app/api",
+    "site": "https://elevateproduction.netlify.app",
+    "api": "https://elevateproduction.netlify.app/api",
     "supabase": "https://cuxzzpsyufcewtmicszk.supabase.co",
-    "functions": "https://elevateforhumanityfix2.netlify.app/.netlify/functions"
+    "functions": "https://elevateproduction.netlify.app/.netlify/functions"
   }
 }
