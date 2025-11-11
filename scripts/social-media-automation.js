@@ -47,8 +47,8 @@ class SocialMediaAutomation {
       // Durable Blog
       durable: {
         apiKey: process.env.DURABLE_API_KEY || '',
-        blogUrl: 'https://elevateforhumanity.durable.co/blog',
-        apiUrl: 'https://api.durable.co/v1/blogs/elevateforhumanity',
+        blogUrl: 'https://elevateforhumanity.org/blog',
+        apiUrl: 'https://elevateforhumanity.org/api/blog',
       },
 
       // Zapier Webhooks

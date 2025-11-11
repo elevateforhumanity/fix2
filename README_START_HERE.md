@@ -33,7 +33,6 @@
 1. ❌ **NOT DEPLOYED** - No live site
 2. ❌ **Placeholder secrets** - Need real Stripe keys
 3. ❌ **934 GitHub issues** - Need to close
-4. ❌ **Vercel not linked** - Need deployment setup
 
 **Time to Fix:** 30 minutes (automated)
 
@@ -49,7 +48,6 @@ bash scripts/autopilot-complete-setup.sh
 
 This will:
 
-1. ✅ Set up Vercel deployment
 2. ✅ Configure environment variables
 3. ✅ Sync secrets to GitHub
 4. ✅ Deploy to production
@@ -58,7 +56,6 @@ This will:
 
 **Prerequisites:**
 
-- Vercel account (free): https://vercel.com
 - Real Stripe keys: https://dashboard.stripe.com/apikeys
 - Supabase keys: Already in `.env.production`
 
@@ -66,16 +63,13 @@ This will:
 
 ## Before You Run the Script
 
-### 1. Get Vercel Token (5 min)
 
 ```bash
-# 1. Go to: https://vercel.com/account/tokens
 # 2. Click "Create Token"
 # 3. Name: "Autopilot Deploy"
 # 4. Copy the token
 
 # 5. Add to .env.production
-echo "VERCEL_TOKEN=your_token_here" >> .env.production
 ```
 
 ### 2. Get Real Stripe Keys (5 min)
@@ -113,7 +107,6 @@ bash scripts/autopilot-complete-setup.sh
 
 **What happens:**
 
-1. Installs Vercel CLI
 2. Links your project
 3. Sets all environment variables
 4. Deploys to production
@@ -133,7 +126,6 @@ bash scripts/autopilot-complete-setup.sh
 ✅ **Autopilot Worker (Runs Inside Your App):**
 
 - Reads `.env.production` automatically
-- Syncs secrets to GitHub/Vercel
 - Monitors health every 30 minutes
 - Self-heals by triggering redeploy
 - Rate limited (max 1 issue per 24h)
@@ -142,7 +134,6 @@ bash scripts/autopilot-complete-setup.sh
 ✅ **Self-Healing:**
 
 - Detects when site is down
-- Triggers Vercel redeploy
 - Waits 60 seconds
 - Verifies recovery
 - Creates issue only if healing fails
@@ -211,7 +202,6 @@ bash scripts/autopilot-complete-setup.sh
 📄 **QUICK_ACTION_GUIDE.md** - Step-by-step
 
 - Close 934 issues (5 min)
-- Add Vercel secrets (10 min)
 - Deploy to production (15 min)
 
 ---
@@ -220,10 +210,8 @@ bash scripts/autopilot-complete-setup.sh
 
 If you prefer manual control:
 
-### Step 1: Deploy to Vercel (15 min)
 
 ```bash
-bash scripts/autopilot-vercel-setup.sh
 ```
 
 ### Step 2: Sync GitHub Secrets (5 min)
@@ -246,7 +234,6 @@ bash scripts/close-autopilot-issues.sh
 
 ### Test Your Platform
 
-1. **Visit your site** (Vercel will give you URL)
 2. **Create account** (test authentication)
 3. **Enroll in course** (test course player)
 4. **Complete quiz** (test quiz engine)
@@ -255,9 +242,7 @@ bash scripts/close-autopilot-issues.sh
 
 ### Monitor Your Platform
 
-**Vercel Dashboard:**
 
-- https://vercel.com/dashboard
 - View deployments
 - Check analytics
 - Monitor usage
@@ -272,10 +257,8 @@ bash scripts/close-autopilot-issues.sh
 
 ```bash
 # Check status
-curl https://your-site.vercel.app/api/autopilot/status
 
 # Trigger health check
-curl -X POST https://your-site.vercel.app/api/autopilot/health-check
 ```
 
 ---
@@ -284,21 +267,18 @@ curl -X POST https://your-site.vercel.app/api/autopilot/health-check
 
 ### Free Tier (0-4,000 students)
 
-- **Vercel:** $0/month
 - **Supabase:** $0/month
 - **Stripe:** 2.9% + 30¢ per transaction
 - **Total:** ~$0/month + transaction fees
 
 ### Pro Tier (4,000-50,000 students)
 
-- **Vercel:** $20/month
 - **Supabase:** $25/month
 - **Stripe:** 2.9% + 30¢ per transaction
 - **Total:** ~$45/month + transaction fees
 
 ### Enterprise (50,000+ students)
 
-- **Vercel:** Custom
 - **Supabase:** Custom
 - **Stripe:** Negotiated rates
 - **Total:** Custom pricing
@@ -397,8 +377,6 @@ curl -X POST https://your-site.vercel.app/api/autopilot/health-check
 ### Right Now (30 min)
 
 ```bash
-# 1. Add Vercel token
-echo "VERCEL_TOKEN=your_token" >> .env.production
 
 # 2. Add real Stripe keys
 nano .env.production

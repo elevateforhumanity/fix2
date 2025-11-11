@@ -77,18 +77,15 @@ export default defineConfig({
       closeBundle() {
         // Copy bridge files and ensure all public assets are in dist
         try {
-          // Copy bridge files
+          // Copy API config
           mkdirSync('dist/api', { recursive: true });
-          copyFileSync('public/efh-bridge.js', 'dist/efh-bridge.js');
-          copyFileSync('public/inject-bridge.js', 'dist/inject-bridge.js');
-          copyFileSync(
-            'public/auto-inject-bridge.html',
-            'dist/auto-inject-bridge.html'
-          );
           copyFileSync(
             'public/api/efh-config.json',
             'dist/api/efh-config.json'
           );
+          
+          // NOTE: Durable.co injection files (efh-bridge.js, inject-bridge.js, auto-inject-bridge.html) 
+          // have been removed as they are no longer needed
           
           // Ensure all images are copied (Vite should do this, but double-check)
           if (existsSync('public/images')) {

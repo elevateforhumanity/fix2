@@ -1,1 +1,0 @@
-module.exports={extends:["eslint:recommended","plugin:react/recommended"],parserOptions:{ecmaVersion:2023,sourceType:"module",ecmaFeatures:{jsx:true}},rules:{"no-console":"error","react/prop-types":"off"}}
