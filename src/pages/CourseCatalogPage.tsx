@@ -34,8 +34,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG', 'JRI'],
-    description: 'Master professional barbering with hands-on training in licensed shops. Earn while you learn.',
-    outcomes: ['State License', '95% Job Placement', '$25-35/hour'],
+    description: 'Launch your career in professional barbering through our comprehensive registered apprenticeship program. Train in real licensed barbershops under master barbers, learning classic and modern cutting techniques, beard trimming, hot towel shaves, and client consultation. This hands-on program combines 1,500 hours of practical experience with classroom instruction covering sanitation, safety protocols, business management, and customer service. Earn while you learn with paid apprenticeship wages starting at $12-18/hour. Upon completion, you\'ll be fully prepared for Indiana state licensure and ready to work in established shops or start your own business. Many graduates open their own shops within 3 years.',
+    outcomes: ['Indiana State Barber License', 'Earn $25-35/hour', '1,500 Hours Hands-On Training', 'Business Ownership Path'],
     image: '/images/barber.jpg'
   },
   {
@@ -47,8 +47,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG'],
-    description: 'Learn HVAC, electrical, plumbing, and building systems maintenance.',
-    outcomes: ['Multiple Certifications', '92% Job Placement', '$22-32/hour'],
+    description: 'Become a skilled building maintenance technician with comprehensive training in all major building systems. This program covers HVAC basics and troubleshooting, electrical system maintenance and repair, plumbing repairs and fixture installation, carpentry and drywall work, preventive maintenance scheduling, and OSHA safety compliance. Work alongside experienced technicians in real commercial and residential facilities, learning to diagnose problems, perform repairs, and maintain safe, functional buildings. Gain multiple industry certifications including EPA and OSHA credentials. High demand in commercial real estate, property management, healthcare facilities, and educational institutions. Clear pathway to facility manager and supervisory roles.',
+    outcomes: ['EPA & OSHA Certifications', 'Earn $22-32/hour', 'Multiple Building Systems', 'Facility Manager Track'],
     image: '/images/building.jpg'
   },
   {
@@ -60,8 +60,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG', 'JRI'],
-    description: 'Fast-track to healthcare careers with state certification and clinical hours.',
-    outcomes: ['State Certification', '98% Job Placement', '$18-25/hour'],
+    description: 'Fast-track your healthcare career with our intensive Certified Nursing Assistant and Qualified Medication Aide certification program. This accelerated training prepares you to provide essential patient care in hospitals, nursing homes, assisted living facilities, and home health settings. Learn hands-on patient care skills including daily living assistance, vital signs monitoring and recording, medication administration and documentation, medical charting with electronic health records, infection control and universal precautions, and compassionate patient communication. Complete required clinical hours in real healthcare settings. With Indiana\'s growing healthcare needs and aging population, CNAs and QMAs are in high demand across all care settings. This program serves as an excellent foundation for advancing to LPN and RN programs.',
+    outcomes: ['State CNA/QMA Certification', 'Earn $18-25/hour', 'Clinical Hours Included', 'Pathway to LPN/RN'],
     image: '/images/healthcare.jpg'
   },
   {
@@ -73,8 +73,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG'],
-    description: 'Comprehensive HVAC training with EPA 608 certification included.',
-    outcomes: ['EPA Certified', '94% Job Placement', '$28-40/hour'],
+    description: 'Launch a rewarding career in heating, ventilation, air conditioning, and refrigeration with comprehensive hands-on training. This registered apprenticeship teaches you to install, maintain, troubleshoot, and repair HVAC systems in residential and commercial settings. Master HVAC system installation and commissioning, troubleshooting and diagnostic procedures, refrigerant handling with EPA 608 certification, electrical systems and controls, customer service and communication, and energy efficiency optimization. Work with experienced technicians on real job sites, learning industry best practices and safety protocols. With year-round demand and excellent earning potential, HVAC technicians enjoy job security and opportunities for advancement to service manager and business ownership roles. Indiana\'s construction boom and aging infrastructure create strong demand.',
+    outcomes: ['EPA 608 Certification', 'Earn $28-40/hour', 'Residential & Commercial', 'Year-Round Work'],
     image: '/images/hvac.jpg'
   },
   {
@@ -86,8 +86,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG', 'JRI'],
-    description: 'Master MIG, TIG, and Stick welding with AWS certification.',
-    outcomes: ['AWS Certified', '96% Job Placement', '$25-38/hour'],
+    description: 'Master the art and science of welding with comprehensive training in multiple welding processes. This program teaches MIG, TIG, and Stick welding techniques, blueprint reading and interpretation, metal fabrication and fitting, quality inspection and testing, safety procedures and PPE usage, and welding metallurgy and joint design. Work in a professional welding lab with industry-standard equipment, earning American Welding Society (AWS) certifications that are recognized nationwide. Indiana\'s strong manufacturing sector offers excellent opportunities for skilled welders in automotive, aerospace, construction, industrial fabrication, shipbuilding, and pipeline work. Many welders advance to welding inspector, supervisor, or start their own fabrication businesses. Specialized certifications in pipe welding and underwater welding can command premium wages.',
+    outcomes: ['AWS Certification', 'Earn $25-38/hour', 'MIG, TIG & Stick Welding', 'Manufacturing & Construction'],
     image: '/images/welding.jpg'
   },
   {
@@ -99,8 +99,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG'],
-    description: 'Earn your Commercial Driver\'s License and start a trucking career.',
-    outcomes: ['CDL License', '97% Job Placement', '$55k-75k/year'],
+    description: 'Launch a stable, well-paying career in professional trucking with our comprehensive Commercial Driver\'s License training program. This intensive course combines classroom instruction with extensive behind-the-wheel training, teaching you pre-trip vehicle inspection procedures, safe driving techniques and defensive driving, backing, parking, and maneuvering in tight spaces, hours of service regulations and electronic logbook management, cargo securement and weight distribution, and trip planning and route optimization. Train on modern commercial vehicles with experienced instructors. With a nationwide driver shortage, CDL holders enjoy excellent job security, competitive wages, and often receive sign-on bonuses of $3,000-$10,000. Many carriers offer benefits, home-time options, and tuition reimbursement. Opportunities in long-haul, regional, and local delivery. Clear pathway to owner-operator status.',
+    outcomes: ['Class A CDL License', 'Earn $55k-75k/year', 'Behind-the-Wheel Training', 'Sign-On Bonuses Available'],
     image: '/images/cdl.jpg'
   },
   {
@@ -112,8 +112,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG'],
-    description: 'Learn essential computer skills, Microsoft Office, and digital literacy.',
-    outcomes: ['Industry Certifications', '88% Job Placement', '$15-22/hour'],
+    description: 'Build essential digital literacy skills for today\'s technology-driven workplace. This comprehensive bootcamp covers computer fundamentals and operating systems, Microsoft Office Suite (Word, Excel, PowerPoint, Outlook), internet research and online communication, email etiquette and professional correspondence, cloud storage and file management, basic troubleshooting and tech support, cybersecurity awareness and data protection, and social media for professional networking. Perfect for career changers, returning workers, or anyone looking to enhance their technology skills. Hands-on training in modern computer labs with individual workstations. Earn industry-recognized certifications in Microsoft Office Specialist and IC3 Digital Literacy. These foundational skills are required for virtually every modern job and open doors to administrative, customer service, data entry, and office support positions.',
+    outcomes: ['Microsoft Office Specialist', 'Earn $15-22/hour', 'Word, Excel & PowerPoint', 'IT Career Foundation'],
     image: '/images/digital.jpg'
   },
   {
@@ -125,8 +125,8 @@ const courses: Course[] = [
     level: 'Beginner',
     price: '$0',
     funding: ['WIOA', 'WRG'],
-    description: 'Master customer service skills for retail, hospitality, and call centers.',
-    outcomes: ['Professional Certificate', '85% Job Placement', '$14-20/hour'],
+    description: 'Master the essential skills needed to excel in customer-facing roles across retail, hospitality, call centers, and service industries. This intensive program covers effective communication and active listening, conflict resolution and de-escalation techniques, problem-solving and critical thinking, phone etiquette and email communication, point-of-sale systems and cash handling, customer relationship management (CRM) software, time management and multitasking, and professional appearance and workplace conduct. Learn through role-playing exercises, real-world scenarios, and interactive workshops. Understand customer psychology, build rapport, handle difficult situations with grace, and turn complaints into opportunities. High demand in retail stores, restaurants, hotels, banks, healthcare facilities, and call centers. Many customer service professionals advance to team leader, supervisor, and management positions. Strong customer service skills are transferable across all industries.',
+    outcomes: ['Professional Certificate', 'Earn $14-20/hour', 'Retail & Hospitality Skills', 'Management Track'],
     image: '/images/customer-service.jpg'
   }
 ];
