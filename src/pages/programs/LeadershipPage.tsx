@@ -9,6 +9,7 @@ export default function LeadershipPage() {
       description="Develop leadership, communication, and professional skills to advance your career and lead teams effectively."
       funding="WRG • WIOA"
       metaDescription="Leadership development and professional skills training. Build communication, management, and leadership skills with 100% funded training."
+      heroImage="/images/hero-banner.jpg"
       overview="Our Leadership Development program builds essential soft skills and leadership capabilities. Learn effective communication, team management, conflict resolution, and professional development strategies."
       benefits={[
         '100% funded training',

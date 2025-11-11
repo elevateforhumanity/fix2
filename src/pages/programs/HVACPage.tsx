@@ -9,6 +9,7 @@ export default function HVACPage() {
       description="Master two in-demand trades with comprehensive training in heating, ventilation, air conditioning, and welding."
       funding="WRG • WIOA"
       metaDescription="Dual certification in HVAC and Welding. 100% funded training for two high-demand trades in Marion County, IN."
+      heroImage="/images/programs/efh-building-tech-hero.jpg"
       overview="Our HVAC & Welding program offers dual certification in two high-demand trades. You'll gain expertise in heating, ventilation, air conditioning systems, plus welding techniques used in construction and manufacturing."
       benefits={[
         'Dual certification in two trades',

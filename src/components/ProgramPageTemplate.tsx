@@ -22,6 +22,9 @@ interface ProgramPageProps {
   curriculum: string[];
   requirements: string[];
   outcomes: string[];
+  heroImage?: string;
+  cardImage?: string;
+  ogImage?: string;
 }
 
 export default function ProgramPageTemplate({
@@ -36,17 +39,30 @@ export default function ProgramPageTemplate({
   curriculum,
   requirements,
   outcomes,
+  heroImage,
+  cardImage,
+  ogImage,
 }: ProgramPageProps) {
   return (
     <div>
       <Helmet>
         <title>{title} | Elevate for Humanity</title>
         <meta name="description" content={metaDescription} />
+        {ogImage && (
+          <>
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content={ogImage} />
+          </>
+        )}
       </Helmet>
       <Navigation />
       <Hero
         title={`${icon} ${title}`}
         subtitle={description}
+        backgroundImage={heroImage}
         badges={[
           { icon: '⏱️', text: duration },
           { icon: '💰', text: funding },

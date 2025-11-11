@@ -9,6 +9,7 @@ export default function DigitalSkillsPage() {
       description="Build essential digital literacy skills including Microsoft Office, Google Workspace, and online communication."
       funding="WRG • WIOA"
       metaDescription="Digital skills training including Microsoft Office, Google Workspace, and essential computer skills. 100% funded, self-paced learning."
+      heroImage="/images/hero-training.jpg"
       overview="Our Digital Skills program builds essential computer and technology skills needed in today's workplace. Learn Microsoft Office, Google Workspace, email, internet research, and professional online communication."
       benefits={[
         '100% funded training',

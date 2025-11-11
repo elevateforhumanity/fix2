@@ -9,6 +9,7 @@ export default function DrugTestingPage() {
       description="Become a certified drug testing specialist with training in collection procedures, chain of custody, and compliance."
       funding="WRG • WIOA"
       metaDescription="Become a certified Drug Testing Specialist. Learn collection procedures, compliance, and chain of custody with 100% funded training."
+      heroImage="/images/hero-training.jpg"
       overview="Our Drug Testing Specialist program trains you in proper collection procedures, chain of custody protocols, and compliance requirements for workplace drug testing programs."
       benefits={[
         '100% funded training',

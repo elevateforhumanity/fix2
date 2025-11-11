@@ -23,6 +23,7 @@ interface HeroProps {
     href: string;
   };
   showCarousel?: boolean;
+  backgroundImage?: string;
   className?: string;
 }
 
@@ -54,6 +55,7 @@ export default function Hero({
   primaryButton,
   secondaryButton,
   showCarousel = false,
+  backgroundImage,
   className = '',
 }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -120,36 +122,73 @@ export default function Hero({
         </div>
       )}
       {!showCarousel && (
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title">{title}</h1>
-            <p className="hero-subtitle">{subtitle}</p>
-            {badges.length > 0 && (
-              <div className="flex flex-wrap gap-6 justify-center mb-8">
-                {badges.map((badge, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 rounded bg-[var(--color-beige)] text-[var(--color-brown)] font-medium"
-                  >
-                    {badge.icon} {badge.text}
-                  </span>
-                ))}
-              </div>
-            )}
-            {(primaryButton || secondaryButton) && (
-              <div className="flex flex-wrap gap-6 justify-center">
-                {primaryButton && (
-                  <Link to={primaryButton.href} className="button">
-                    {primaryButton.text}
-                  </Link>
-                )}
-                {secondaryButton && (
-                  <Link to={secondaryButton.href} className="button-secondary">
-                    {secondaryButton.text}
-                  </Link>
-                )}
-              </div>
-            )}
+        <div
+          className="relative w-full"
+          style={
+            backgroundImage
+              ? {
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: '500px',
+                }
+              : undefined
+          }
+        >
+          <div className="container">
+            <div
+              className="hero-content"
+              style={backgroundImage ? { color: 'white' } : undefined}
+            >
+              <h1
+                className="hero-title"
+                style={backgroundImage ? { color: 'white' } : undefined}
+              >
+                {title}
+              </h1>
+              <p
+                className="hero-subtitle"
+                style={backgroundImage ? { color: 'white' } : undefined}
+              >
+                {subtitle}
+              </p>
+              {badges.length > 0 && (
+                <div className="flex flex-wrap gap-6 justify-center mb-8">
+                  {badges.map((badge, index) => (
+                    <span
+                      key={index}
+                      className="px-4 py-2 rounded bg-white/90 text-[var(--color-brown)] font-medium"
+                    >
+                      {badge.icon} {badge.text}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {(primaryButton || secondaryButton) && (
+                <div className="flex flex-wrap gap-6 justify-center">
+                  {primaryButton && (
+                    <Link
+                      to={primaryButton.href}
+                      className={backgroundImage ? 'button-white' : 'button'}
+                    >
+                      {primaryButton.text}
+                    </Link>
+                  )}
+                  {secondaryButton && (
+                    <Link
+                      to={secondaryButton.href}
+                      className={
+                        backgroundImage
+                          ? 'button-outline-white'
+                          : 'button-secondary'
+                      }
+                    >
+                      {secondaryButton.text}
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

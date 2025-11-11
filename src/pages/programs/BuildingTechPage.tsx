@@ -14,6 +14,9 @@ export default function BuildingTechPage() {
       description="Learn essential building maintenance and repair skills for commercial and residential properties."
       funding="WRG • WIOA"
       metaDescription="Become a certified Building Services Technician. Learn HVAC, plumbing, electrical, and facility maintenance with 100% funded training."
+      heroImage="/images/programs/efh-building-tech-hero.jpg"
+      cardImage="/images/programs/efh-building-tech-card.jpg"
+      ogImage="/images/programs/efh-building-tech-og.jpg"
       overview="Our Building Services Technician program prepares you for a career in facility maintenance and building operations. You'll learn essential skills in HVAC, plumbing, electrical systems, and general maintenance to keep commercial and residential properties running smoothly."
       benefits={[
         '100% funded training',

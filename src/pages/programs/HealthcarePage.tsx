@@ -9,6 +9,9 @@ export default function HealthcarePage() {
       description="Enter the healthcare field with comprehensive training in patient care, medical terminology, and clinical skills."
       funding="WRG • WIOA"
       metaDescription="Healthcare training programs including CNA, Medical Assistant, and Patient Care. 100% funded training in Marion County, IN."
+      heroImage="/images/programs/efh-cna-hero.jpg"
+      cardImage="/images/programs/efh-cna-card.jpg"
+      ogImage="/images/programs/efh-cna-og.jpg"
       overview="Our Healthcare Training program prepares you for entry-level positions in the healthcare industry. Learn patient care, medical terminology, clinical procedures, and professional healthcare practices."
       benefits={[
         '100% funded training',

@@ -14,6 +14,9 @@ export default function BarberPage() {
       description="Earn while you learn. Master professional barbering skills and qualify for Indiana State Licensure."
       funding="WRG • WIOA • Apprenticeship"
       metaDescription="Become a licensed barber through our 2,000-hour apprenticeship program. Earn while you learn with 100% funded training in Marion County, IN."
+      heroImage="/images/programs/efh-barber-hero.jpg"
+      cardImage="/images/programs/efh-barber-card.jpg"
+      ogImage="/images/programs/efh-barber-og.jpg"
       overview="Our Barber Apprenticeship program combines hands-on training with paid work experience. You'll master cutting techniques, styling, shaving, and customer service while earning income. Upon completion, you'll be eligible for Indiana State Barber Licensure and ready to start your career in a high-demand field."
       benefits={[
         'Earn while you learn through paid apprenticeship',

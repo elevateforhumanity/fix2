@@ -9,6 +9,9 @@ export default function CPRSPage() {
       description="Train to become a certified peer recovery support specialist and help others on their recovery journey."
       funding="WRG • WIOA"
       metaDescription="Become a Certified Peer Recovery Support Specialist. Help others in recovery with 100% funded training in Marion County, IN."
+      heroImage="/images/programs/efh-public-safety-reentry-hero.jpg"
+      cardImage="/images/programs/efh-public-safety-reentry-card.jpg"
+      ogImage="/images/programs/efh-public-safety-reentry-og.jpg"
       overview="Our Peer Recovery Support program trains you to become a certified specialist who helps individuals in recovery from substance use disorders. Use your lived experience to support others on their recovery journey."
       benefits={[
         '100% funded training',
