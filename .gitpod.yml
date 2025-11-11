@@ -10,6 +10,16 @@ ports:
     visibility: public
     name: Vite Dev Server
     description: EFH LMS Development Server
+  - port: 8080
+    onOpen: open-preview
+    visibility: public
+    name: Vite Preview Server
+    description: Production Build Preview
+  - port: 4173
+    onOpen: ignore
+    visibility: public
+    name: Vite Preview (Alt)
+    description: Alternative Preview Port
   - port: 7070
     onOpen: ignore
     visibility: public

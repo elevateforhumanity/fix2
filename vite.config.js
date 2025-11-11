@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import sitemap from 'vite-plugin-sitemap';
-import { copyFileSync, mkdirSync } from 'fs';
+import { copyFileSync, mkdirSync, cpSync, existsSync } from 'fs';
 
 // Define all routes for sitemap generation
 const routes = [
@@ -73,10 +73,11 @@ export default defineConfig({
     //   robots: false,
     // }),
     {
-      name: 'copy-bridge-files',
+      name: 'copy-assets-and-bridge-files',
       closeBundle() {
-        // Copy bridge files to dist after build
+        // Copy bridge files and ensure all public assets are in dist
         try {
+          // Copy bridge files
           mkdirSync('dist/api', { recursive: true });
           copyFileSync('public/efh-bridge.js', 'dist/efh-bridge.js');
           copyFileSync('public/inject-bridge.js', 'dist/inject-bridge.js');
@@ -88,9 +89,17 @@ export default defineConfig({
             'public/api/efh-config.json',
             'dist/api/efh-config.json'
           );
-          console.log('✅ All bridge files copied to dist/');
+          
+          // Ensure all images are copied (Vite should do this, but double-check)
+          if (existsSync('public/images')) {
+            mkdirSync('dist/images', { recursive: true });
+            cpSync('public/images', 'dist/images', { recursive: true });
+            console.log('✅ Images directory verified/copied to dist/');
+          }
+          
+          console.log('✅ All bridge files and assets copied to dist/');
         } catch (err) {
-          console.error('⚠️ Failed to copy bridge files:', err.message);
+          console.error('⚠️ Failed to copy files:', err.message);
         }
       },
     },
@@ -106,6 +115,7 @@ export default defineConfig({
     sourcemap: false, // Disable sourcemaps for production
     target: 'es2019',
     minify: 'terser',
+    assetsInlineLimit: 0, // Don't inline any assets - keep them as separate files
     terserOptions: {
       compress: {
         drop_console: false, // Keep console for error tracking
@@ -115,6 +125,15 @@ export default defineConfig({
     rollupOptions: {
       external: ['workers/autopilot-worker.js', 'workers/start-autopilot.js'],
       output: {
+        assetFileNames: (assetInfo) => {
+          // Preserve original asset paths for images
+          if (assetInfo.name && /\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name)) {
+            // Keep images in their original structure
+            return 'images/[name][extname]';
+          }
+          // Default for other assets
+          return 'assets/[name]-[hash][extname]';
+        },
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('react-router')) return 'vendor-router';
@@ -130,14 +149,19 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
   server: {
-    host: true, // listen on 0.0.0.0
+    host: '0.0.0.0', // listen on all interfaces
     port: 5173,
-    strictPort: true,
-    hmr: { clientPort: 443 },
+    strictPort: false, // allow fallback to other ports
+    hmr: {
+      clientPort: 443,
+      host: process.env.GITPOD_WORKSPACE_URL
+        ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '5173-')
+        : undefined,
+    },
   },
   preview: {
-    host: true,
+    host: '0.0.0.0', // listen on all interfaces
     port: 8080,
-    strictPort: true,
+    strictPort: false, // allow fallback to other ports
   },
 });
