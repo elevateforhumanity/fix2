@@ -124,7 +124,7 @@
     "make:logo": "python3 tools/make_logo_assets.py",
     "prebuild": "node scripts/generate-routes.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/postbuild.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-complete-sitemap.mjs && node scripts/fix-broken-links.mjs && node scripts/fix-domain-urls.js && node scripts/update-canonical-urls.js && node scripts/no-source-maps.cjs && bash scripts/copy-bridge-files.sh",
+    "postbuild": "node scripts/no-source-maps.cjs && bash scripts/copy-bridge-files.sh",
     "verify:build": "bash scripts/verify-build.sh",
     "preview": "node scripts/preview-server.cjs",
     "preview:serve": "serve -c serve.json -l 8080 --no-clipboard",
