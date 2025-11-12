@@ -1,0 +1,37 @@
+name = "media-download-worker"
+main = "media-download-worker.ts"
+compatibility_date = "2024-01-01"
+
+# R2 Bucket for media storage
+[[r2_buckets]]
+binding = "MEDIA_R2"
+bucket_name = "video-media"
+
+# KV Namespace for stock media metadata
+[[kv_namespaces]]
+binding = "STOCK_MEDIA_KV"
+id = "your_stock_media_kv_id"
+
+# Queue for download jobs
+[[queues.producers]]
+queue = "media-download-queue"
+binding = "DOWNLOAD_QUEUE"
+
+[[queues.consumers]]
+queue = "media-download-queue"
+max_batch_size = 10
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "media-download-dlq"
+
+# Routes
+routes = [
+  { pattern = "media.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
+]
+
+# Alternative: Use workers.dev subdomain
+workers_dev = true
+
+# Cron triggers - download monthly on 1st at 4 AM UTC
+[triggers]
+crons = ["0 4 1 * *"]

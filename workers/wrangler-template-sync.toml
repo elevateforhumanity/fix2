@@ -1,0 +1,31 @@
+name = "template-sync-worker"
+main = "template-sync-worker.ts"
+compatibility_date = "2024-01-01"
+
+# KV Namespaces
+[[kv_namespaces]]
+binding = "TEMPLATES_KV"
+id = "your_templates_kv_id"
+
+[[kv_namespaces]]
+binding = "STOCK_MEDIA_KV"
+id = "your_stock_media_kv_id"
+
+# Environment variables
+[vars]
+GITHUB_REPO = "elevateforhumanity/fix2"
+
+# Secrets (set via wrangler secret put)
+# GITHUB_TOKEN
+
+# Routes
+routes = [
+  { pattern = "templates.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
+]
+
+# Alternative: Use workers.dev subdomain
+workers_dev = true
+
+# Cron triggers - sync daily at 3 AM UTC
+[triggers]
+crons = ["0 3 * * *"]

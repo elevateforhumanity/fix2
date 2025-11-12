@@ -1,0 +1,50 @@
+name = "video-generation-worker"
+main = "video-worker.ts"
+compatibility_date = "2024-01-01"
+
+# KV Namespaces
+[[kv_namespaces]]
+binding = "VIDEO_KV"
+id = "your_video_kv_id"
+
+[[kv_namespaces]]
+binding = "TEMPLATES_KV"
+id = "your_templates_kv_id"
+
+# R2 Bucket for temporary storage
+[[r2_buckets]]
+binding = "VIDEO_R2"
+bucket_name = "video-temp"
+
+# Queue for video generation jobs
+[[queues.producers]]
+queue = "video-generation-queue"
+binding = "VIDEO_QUEUE"
+
+[[queues.consumers]]
+queue = "video-generation-queue"
+max_batch_size = 5
+max_batch_timeout = 60
+max_retries = 3
+dead_letter_queue = "video-generation-dlq"
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+
+# Secrets (set via wrangler secret put)
+# OPENAI_API_KEY
+# CLOUDFLARE_ACCOUNT_ID
+# CLOUDFLARE_STREAM_API_TOKEN
+
+# Routes
+routes = [
+  { pattern = "video-api.elevateforhumanity.org/*", zone_name = "elevateforhumanity.org" }
+]
+
+# Alternative: Use workers.dev subdomain
+workers_dev = true
+
+# Cron triggers - generate videos weekly on Sundays at 2 AM UTC
+[triggers]
+crons = ["0 2 * * 0"]
