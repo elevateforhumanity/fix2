@@ -1,0 +1,316 @@
+{
+  "task": "cloudflare_video_workers_setup",
+  "priority": "high",
+  "assigned_to": "autopilot_orchestrator",
+  "created_at": "2025-11-12T09:55:00Z",
+  "description": "Set up Cloudflare Workers for AI Video Builder system with free TTS",
+  "user_instructions": {
+    "step_1": "Get Cloudflare API credentials",
+    "step_1_url": "https://dash.cloudflare.com/profile/api-tokens",
+    "step_1_actions": [
+      "Click 'Create Token'",
+      "Use 'Edit Cloudflare Workers' template",
+      "Add permissions: Workers R2 Storage (Edit), Workers Scripts (Edit)",
+      "Click 'Continue to summary' then 'Create Token'",
+      "Copy the token (starts with 'Bearer ...')"
+    ],
+    "step_2": "Get Cloudflare Account ID",
+    "step_2_url": "https://dash.cloudflare.com",
+    "step_2_actions": [
+      "Click on 'Workers & Pages' in left sidebar",
+      "Look for 'Account ID' on the right side",
+      "Copy the Account ID (32-character hex string)"
+    ],
+    "step_3": "Set environment variables",
+    "step_3_command": "export CLOUDFLARE_API_TOKEN='your_token_here' && export CLOUDFLARE_ACCOUNT_ID='your_account_id_here'"
+  },
+  "subtasks": [
+    {
+      "id": "vw_001",
+      "name": "Verify Cloudflare Credentials",
+      "assigned_to": "user",
+      "manual": true,
+      "instructions": [
+        "Go to https://dash.cloudflare.com/profile/api-tokens",
+        "Create API token with Workers permissions",
+        "Get Account ID from Workers dashboard",
+        "Set CLOUDFLARE_API_TOKEN environment variable",
+        "Set CLOUDFLARE_ACCOUNT_ID environment variable"
+      ],
+      "verification": "Run: wrangler whoami",
+      "success_criteria": [
+        "API token is valid",
+        "Account ID is correct",
+        "wrangler CLI can authenticate"
+      ]
+    },
+    {
+      "id": "vw_002",
+      "name": "Install Wrangler CLI",
+      "assigned_to": "autopilot",
+      "dependencies": [],
+      "actions": [
+        {
+          "type": "command",
+          "description": "Install wrangler globally",
+          "command": "npm install -g wrangler"
+        },
+        {
+          "type": "command",
+          "description": "Verify wrangler installation",
+          "command": "wrangler --version"
+        }
+      ],
+      "success_criteria": [
+        "Wrangler CLI is installed",
+        "Version 3.x or higher"
+      ]
+    },
+    {
+      "id": "vw_003",
+      "name": "Authenticate Wrangler",
+      "assigned_to": "user",
+      "manual": true,
+      "dependencies": ["vw_001", "vw_002"],
+      "instructions": [
+        "Run: wrangler login",
+        "Browser will open to Cloudflare login",
+        "Authorize Wrangler to access your account",
+        "Return to terminal when complete"
+      ],
+      "verification": "Run: wrangler whoami",
+      "success_criteria": [
+        "Wrangler is authenticated",
+        "Shows your account email",
+        "Shows your account ID"
+      ]
+    },
+    {
+      "id": "vw_004",
+      "name": "Deploy Video Generation Worker",
+      "assigned_to": "autopilot",
+      "dependencies": ["vw_003"],
+      "actions": [
+        {
+          "type": "command",
+          "description": "Deploy video worker",
+          "command": "cd workers && wrangler deploy --config wrangler-video.toml",
+          "working_dir": "/workspaces/fix2"
+        },
+        {
+          "type": "verify",
+          "description": "Test video worker endpoint",
+          "command": "curl https://video-worker.YOUR_SUBDOMAIN.workers.dev/health"
+        }
+      ],
+      "success_criteria": [
+        "Worker deployed successfully",
+        "Health endpoint returns 200 OK",
+        "Worker URL is accessible"
+      ]
+    },
+    {
+      "id": "vw_005",
+      "name": "Deploy Template Sync Worker",
+      "assigned_to": "autopilot",
+      "dependencies": ["vw_003"],
+      "actions": [
+        {
+          "type": "command",
+          "description": "Deploy template sync worker",
+          "command": "cd workers && wrangler deploy --config wrangler-template-sync.toml",
+          "working_dir": "/workspaces/fix2"
+        },
+        {
+          "type": "verify",
+          "description": "Test template sync worker",
+          "command": "curl https://template-sync.YOUR_SUBDOMAIN.workers.dev/health"
+        }
+      ],
+      "success_criteria": [
+        "Worker deployed successfully",
+        "Health endpoint returns 200 OK"
+      ]
+    },
+    {
+      "id": "vw_006",
+      "name": "Deploy Media Download Worker",
+      "assigned_to": "autopilot",
+      "dependencies": ["vw_003"],
+      "actions": [
+        {
+          "type": "command",
+          "description": "Deploy media download worker",
+          "command": "cd workers && wrangler deploy --config wrangler-media-download.toml",
+          "working_dir": "/workspaces/fix2"
+        },
+        {
+          "type": "verify",
+          "description": "Test media download worker",
+          "command": "curl https://media-download.YOUR_SUBDOMAIN.workers.dev/health"
+        }
+      ],
+      "success_criteria": [
+        "Worker deployed successfully",
+        "Health endpoint returns 200 OK"
+      ]
+    },
+    {
+      "id": "vw_007",
+      "name": "Update Frontend with Worker URLs",
+      "assigned_to": "autopilot",
+      "dependencies": ["vw_004", "vw_005", "vw_006"],
+      "actions": [
+        {
+          "type": "update_env",
+          "description": "Update .env with Worker URLs",
+          "file": ".env",
+          "variables": {
+            "VITE_VIDEO_WORKER_URL": "https://video-worker.YOUR_SUBDOMAIN.workers.dev",
+            "VITE_TEMPLATE_SYNC_URL": "https://template-sync.YOUR_SUBDOMAIN.workers.dev",
+            "VITE_MEDIA_DOWNLOAD_URL": "https://media-download.YOUR_SUBDOMAIN.workers.dev"
+          }
+        },
+        {
+          "type": "update_source",
+          "description": "Update AIVideoBuilder.tsx with Worker URLs",
+          "file": "src/pages/staff/AIVideoBuilder.tsx",
+          "note": "Replace placeholder URLs with actual Worker URLs"
+        }
+      ],
+      "success_criteria": [
+        "Environment variables updated",
+        "Source code has correct URLs",
+        "No placeholder URLs remain"
+      ]
+    },
+    {
+      "id": "vw_008",
+      "name": "Test Video Generation System",
+      "assigned_to": "autopilot",
+      "dependencies": ["vw_007"],
+      "actions": [
+        {
+          "type": "command",
+          "description": "Start backend server",
+          "command": "cd server && npx tsx index.ts &",
+          "working_dir": "/workspaces/fix2"
+        },
+        {
+          "type": "command",
+          "description": "Test TTS generation",
+          "command": "curl -X POST http://localhost:3001/api/video/tts -H 'Content-Type: application/json' -d '{\"text\":\"Test\",\"voice\":\"alloy\"}'"
+        },
+        {
+          "type": "command",
+          "description": "Test video generation",
+          "command": "cd server && npx tsx test-video-generation.ts",
+          "working_dir": "/workspaces/fix2"
+        }
+      ],
+      "success_criteria": [
+        "Backend server starts successfully",
+        "TTS generates audio (espeak-ng)",
+        "Video generation completes",
+        "Output video file exists"
+      ]
+    },
+    {
+      "id": "vw_009",
+      "name": "Deploy to Production",
+      "assigned_to": "user",
+      "manual": true,
+      "dependencies": ["vw_008"],
+      "instructions": [
+        "Commit changes: git add . && git commit -m 'Add Worker URLs'",
+        "Push to GitHub: git push origin main",
+        "Netlify will auto-deploy the frontend",
+        "Verify at: https://elevateconnectsdirectory.org/staff/aivideo-builder"
+      ],
+      "success_criteria": [
+        "Changes committed and pushed",
+        "Netlify build succeeds",
+        "AI Video Builder is accessible",
+        "Video generation works in production"
+      ]
+    }
+  ],
+  "quick_start_commands": [
+    "# 1. Install wrangler",
+    "npm install -g wrangler",
+    "",
+    "# 2. Login to Cloudflare",
+    "wrangler login",
+    "",
+    "# 3. Deploy all workers",
+    "cd workers && ./deploy-all.sh",
+    "",
+    "# 4. Test the system",
+    "cd ../server && npx tsx test-video-generation.ts"
+  ],
+  "environment_variables_required": [
+    "CLOUDFLARE_API_TOKEN",
+    "CLOUDFLARE_ACCOUNT_ID",
+    "VITE_VIDEO_WORKER_URL",
+    "VITE_TEMPLATE_SYNC_URL",
+    "VITE_MEDIA_DOWNLOAD_URL"
+  ],
+  "files_to_update": [
+    ".env",
+    "src/pages/staff/AIVideoBuilder.tsx"
+  ],
+  "estimated_time": "15-20 minutes",
+  "manual_steps_required": [
+    "Create Cloudflare account (if needed)",
+    "Generate API token",
+    "Get Account ID",
+    "Run wrangler login",
+    "Deploy workers",
+    "Update environment variables",
+    "Test and verify"
+  ],
+  "success_criteria": [
+    "All 3 workers deployed successfully",
+    "Workers are accessible via HTTPS",
+    "Backend server runs with free TTS (espeak-ng)",
+    "Video generation works end-to-end",
+    "Frontend can communicate with workers",
+    "AI Video Builder UI is functional"
+  ],
+  "troubleshooting": {
+    "cloudflare_403": {
+      "issue": "Cloudflare returns 403 Forbidden",
+      "solution": "Wait a few hours and try again. Cloudflare may be experiencing issues."
+    },
+    "wrangler_auth_failed": {
+      "issue": "wrangler login fails",
+      "solution": "Use API token instead: wrangler login --api-token YOUR_TOKEN"
+    },
+    "worker_deploy_failed": {
+      "issue": "Worker deployment fails",
+      "solution": "Check wrangler.toml files, verify account ID is correct"
+    },
+    "tts_not_working": {
+      "issue": "Text-to-speech fails",
+      "solution": "Ensure espeak-ng is installed: sudo apt-get install espeak-ng"
+    },
+    "backend_wont_start": {
+      "issue": "Backend server won't start",
+      "solution": "Check port 3001 is free: lsof -ti:3001 | xargs kill -9"
+    }
+  },
+  "documentation": [
+    "VIDEO_SYSTEM_COMPLETE.md - Complete system overview",
+    "VIDEO_QUICK_START.md - Quick start guide",
+    "DEPLOY_INSTRUCTIONS.md - Deployment guide",
+    "CLOUDFLARE_WORKERS_DEPLOY.md - Cloudflare Workers guide",
+    "GET_API_KEYS.md - API key instructions"
+  ],
+  "notes": [
+    "System uses FREE espeak-ng TTS (no API key required)",
+    "Cloudflare Workers are optional - system works locally",
+    "Frontend is already deployed to Netlify",
+    "Backend can run locally or on any server",
+    "Videos are stored locally by default (can use R2/Stream)"
+  ]
+}
