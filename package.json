@@ -106,7 +106,7 @@
     "typescript-eslint": "^8.46.1",
     "vitest": "^3.2.4",
     "web-vitals": "^5.1.0",
-    "wrangler": "^4.43.0"
+    "wrangler": "^4.47.0"
   },
   "scripts": {
     "preinstall": "corepack enable || true",
