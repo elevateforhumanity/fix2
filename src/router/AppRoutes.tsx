@@ -222,12 +222,13 @@ const Page_196 = lazy(() => import('../pages/sisters/VolunteerOpportunities.jsx'
 const Page_197 = lazy(() => import('../pages/sisters/VolunteerStories.jsx'));
 const Page_198 = lazy(() => import('../pages/sisters/Wellness.jsx'));
 const Page_199 = lazy(() => import('../pages/sisters/WellnessResources.jsx'));
-const Page_200 = lazy(() => import('../pages/staff/CourseBuilder.tsx'));
-const Page_201 = lazy(() => import('../pages/staff/QuizBuilder.tsx'));
-const Page_202 = lazy(() => import('../pages/staff/TextBuilder.tsx'));
-const Page_203 = lazy(() => import('../pages/staff/VideoBuilder.tsx'));
-const Page_204 = lazy(() => import('../pages/student/Dashboard.tsx'));
-const Page_205 = lazy(() => import('../pages/student/MyCourses.tsx'));
+const Page_200 = lazy(() => import('../pages/staff/AIVideoBuilder.tsx'));
+const Page_201 = lazy(() => import('../pages/staff/CourseBuilder.tsx'));
+const Page_202 = lazy(() => import('../pages/staff/QuizBuilder.tsx'));
+const Page_203 = lazy(() => import('../pages/staff/TextBuilder.tsx'));
+const Page_204 = lazy(() => import('../pages/staff/VideoBuilder.tsx'));
+const Page_205 = lazy(() => import('../pages/student/Dashboard.tsx'));
+const Page_206 = lazy(() => import('../pages/student/MyCourses.tsx'));
 
 export default function AppRoutes(){
   return (
@@ -434,12 +435,13 @@ export default function AppRoutes(){
             <Route path="/sisters/volunteer-stories" element={<Page_197 />} />
             <Route path="/sisters/wellness" element={<Page_198 />} />
             <Route path="/sisters/wellness-resources" element={<Page_199 />} />
-            <Route path="/staff/course-builder" element={<Page_200 />} />
-            <Route path="/staff/quiz-builder" element={<Page_201 />} />
-            <Route path="/staff/text-builder" element={<Page_202 />} />
-            <Route path="/staff/video-builder" element={<Page_203 />} />
-            <Route path="/student/dashboard" element={<Page_204 />} />
-            <Route path="/student/my-courses" element={<Page_205 />} />
+            <Route path="/staff/aivideo-builder" element={<Page_200 />} />
+            <Route path="/staff/course-builder" element={<Page_201 />} />
+            <Route path="/staff/quiz-builder" element={<Page_202 />} />
+            <Route path="/staff/text-builder" element={<Page_203 />} />
+            <Route path="/staff/video-builder" element={<Page_204 />} />
+            <Route path="/student/dashboard" element={<Page_205 />} />
+            <Route path="/student/my-courses" element={<Page_206 />} />
             <Route path="*" element={<Page_90 />} />
           </Routes>
         </DoceboLayout>

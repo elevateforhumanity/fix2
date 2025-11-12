@@ -53,6 +53,24 @@ interface GradeItem {
   feedback: string;
 }
 
+interface SiteInfo {
+  sitename: string;
+  username: string;
+  firstname: string;
+  lastname: string;
+  fullname: string;
+  lang: string;
+  userid: number;
+  siteurl: string;
+  userpictureurl: string;
+  functions: Array<{ name: string; version: string }>;
+  downloadfiles: number;
+  uploadfiles: number;
+  release: string;
+  version: string;
+  mobilecssurl: string;
+}
+
 export class OpenLMSService {
   private client: AxiosInstance;
   private config: OpenLMSConfig;
@@ -99,8 +117,8 @@ export class OpenLMSService {
   // SITE INFORMATION
   // ============================================
 
-  async getSiteInfo() {
-    return this.call('core_webservice_get_site_info');
+  async getSiteInfo(): Promise<SiteInfo> {
+    return this.call<SiteInfo>('core_webservice_get_site_info');
   }
 
   // ============================================

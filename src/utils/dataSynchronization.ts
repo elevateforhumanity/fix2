@@ -308,7 +308,7 @@ export function useDataSync(config: SyncConfig) {
   useEffect(() => {
     const cleanup = dataSyncManager.subscribe(config);
     return cleanup;
-  }, [config.table]);
+  }, [config.table, config.onUpdate, config.onInsert, config.onDelete, config.filter]);
 
   return {
     syncStatus: dataSyncManager.getSyncStatus(config.table),

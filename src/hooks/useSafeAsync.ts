@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface AsyncState<T> {
   data: T | null;
@@ -9,6 +9,7 @@ interface AsyncState<T> {
 /**
  * Safe async hook that prevents infinite loading states
  * Always resolves to a final state (success, error, or empty)
+ * Fixed: Uses ref for cancellation to prevent race conditions
  */
 export function useSafeAsync<T>(
   asyncFn: () => Promise<T>,
@@ -20,32 +21,32 @@ export function useSafeAsync<T>(
     loading: true,
     error: null,
   });
+  
+  // Use ref to track cancellation - prevents race condition
+  const cancelledRef = useRef(false);
 
   const execute = useCallback(async () => {
-    let cancelled = false;
+    cancelledRef.current = false;
     setState(prev => ({ ...prev, loading: true, error: null }));
 
     try {
       const result = await asyncFn();
-      if (!cancelled) {
+      if (!cancelledRef.current) {
         setState({ data: result ?? defaultValue, loading: false, error: null });
       }
     } catch (err) {
-      if (!cancelled) {
+      if (!cancelledRef.current) {
         const error = err instanceof Error ? err : new Error(String(err));
         setState({ data: defaultValue, loading: false, error });
       }
     }
-
-    return () => {
-      cancelled = true;
-    };
   }, deps);
 
   useEffect(() => {
-    const cleanup = execute();
+    execute();
+    
     return () => {
-      cleanup.then(fn => fn?.());
+      cancelledRef.current = true;
     };
   }, [execute]);
 
