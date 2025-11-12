@@ -6,6 +6,8 @@ vendor/
 # Build outputs
 dist/
 build/
+out/
+.next/
 *.egg-info/
 __pycache__/
 *.pyc

@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html","./src/**/*.{ts,tsx,js,jsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{ts,tsx,js,jsx}",
+    "./app/**/*.{ts,tsx,js,jsx}",
+  ],
   theme: {
     extend:{
       colors:{ efh:{ red:"var(--efh-red)", orange:"var(--efh-orange)", blue:"var(--efh-blue)",
