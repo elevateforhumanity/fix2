@@ -3,36 +3,12 @@ import { programs } from '../src/data/programs';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { DoceboHeader } from '@/components/DoceboHeader';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                E
-              </div>
-              <span className="text-xl font-bold">Elevate for Humanity</span>
-            </Link>
-            <nav className="hidden md:flex gap-6">
-              <Link href="/programs" className="hover:text-blue-600">Programs</Link>
-              <Link href="/about" className="hover:text-blue-600">About</Link>
-              <Link href="/contact" className="hover:text-blue-600">Contact</Link>
-            </nav>
-            <div className="flex gap-2">
-              <Button variant="ghost" asChild>
-                <Link href="/login">Sign In</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/apply">Apply Now</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <DoceboHeader />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-20">

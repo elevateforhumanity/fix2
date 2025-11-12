@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { programs } from '../../../src/data/programs';
 import { notFound } from 'next/navigation';
+import { DoceboHeader } from '@/components/DoceboHeader';
 
 // ISR: Revalidate every 60 seconds
 export const revalidate = 60;
@@ -30,21 +31,7 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">E</div>
-              <span className="text-xl font-bold">Elevate for Humanity</span>
-            </Link>
-            <nav className="hidden md:flex gap-6">
-              <Link href="/programs" className="hover:text-blue-600">Programs</Link>
-              <Link href="/about" className="hover:text-blue-600">About</Link>
-              <Link href="/contact" className="hover:text-blue-600">Contact</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <DoceboHeader />
 
       <main>
         {/* Hero */}
