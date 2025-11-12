@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { programs } from '../../../src/data/programs';
 import { notFound } from 'next/navigation';
 
+// ISR: Revalidate every 60 seconds
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   return programs.map((program) => ({
     slug: program.slug,

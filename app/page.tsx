@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { programs } from '../src/data/programs';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
         <div className="container mx-auto px-4">
@@ -20,12 +23,12 @@ export default function HomePage() {
               <Link href="/contact" className="hover:text-blue-600">Contact</Link>
             </nav>
             <div className="flex gap-2">
-              <Link href="/login" className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded">
-                Sign In
-              </Link>
-              <Link href="/apply" className="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded hover:bg-blue-700">
-                Apply Now
-              </Link>
+              <Button variant="ghost" asChild>
+                <Link href="/login">Sign In</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/apply">Apply Now</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -52,12 +55,12 @@ export default function HomePage() {
             </span>
           </div>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/programs" className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100">
-              Browse Programs
-            </Link>
-            <Link href="/apply" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/10">
-              Apply Now
-            </Link>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/programs">Browse Programs</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <Link href="/apply">Apply Now</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -68,30 +71,30 @@ export default function HomePage() {
           <h2 className="text-4xl font-bold text-center mb-12">Featured Programs</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.slice(0, 6).map((program) => (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="border rounded-xl overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-500" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{program.name}</h3>
-                  <p className="text-gray-600 mb-4">{program.tagline}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {program.funding.map((fund) => (
-                      <span key={fund} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                        {fund}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <Link key={program.slug} href={`/programs/${program.slug}`}>
+                <Card className="overflow-hidden hover:shadow-xl transition-shadow h-full">
+                  <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-500" />
+                  <CardHeader>
+                    <CardTitle>{program.name}</CardTitle>
+                    <CardDescription>{program.tagline}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {program.funding.map((fund) => (
+                        <Badge key={fund} variant="secondary">
+                          {fund}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href="/programs" className="px-8 py-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 inline-block">
-              View All Programs
-            </Link>
+            <Button size="lg" asChild>
+              <Link href="/programs">View All Programs</Link>
+            </Button>
           </div>
         </div>
       </section>

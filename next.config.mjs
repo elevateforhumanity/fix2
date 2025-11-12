@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // Remove 'output: export' to enable API routes
   trailingSlash: true,
   images: {
     unoptimized: true,

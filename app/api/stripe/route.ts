@@ -1,7 +1,9 @@
 import Stripe from 'stripe';
 
 export async function POST(req: Request) {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder', {
+    apiVersion: '2024-11-20.acacia',
+  });
   const body = await req.json();
 
   const session = await stripe.checkout.sessions.create({

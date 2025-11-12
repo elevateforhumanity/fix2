@@ -1,0 +1,8 @@
+# Cloudflare Workers environment variables
+# Copy to .dev.vars for local development
+
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+STRIPE_SECRET_KEY=sk_test_your_stripe_key_here
