@@ -17,10 +17,10 @@ function enabled(level: LogLevel) {
 // In production, only log warnings and errors
 // In development, log everything
 export const log = {
-  debug: (...a: unknown[]) => enabled('debug') && void 0,
-  info: (...a: unknown[]) => enabled('info') && void 0,
-  warn: (...a: unknown[]) => enabled('warn') && void 0,
-  error: (...a: unknown[]) => enabled('error') && void 0,
+  debug: (...a: unknown[]) => enabled('debug') && console.log(...a),
+  info: (...a: unknown[]) => enabled('info') && console.log(...a),
+  warn: (...a: unknown[]) => enabled('warn') && console.warn(...a),
+  error: (...a: unknown[]) => enabled('error') && console.error(...a),
 };
 
 // Export default for convenience
