@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { randomBytes } from 'crypto';
+import { getUserById } from '@/lib/supabase-admin';
 
 function makeSerial() {
   return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`;
@@ -41,12 +42,14 @@ export async function POST(req: NextRequest) {
     return new Response('Course not found', { status: 404 });
   }
 
-  // Fetch user details
-  const { data: learner } = await supabase
-    .from('auth.users')
-    .select('email')
-    .eq('id', user_id)
-    .maybeSingle();
+  // Fetch user details using admin client
+  let learner;
+  try {
+    learner = await getUserById(user_id);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    return new Response('Failed to fetch user', { status: 500 });
+  }
 
   // Mark enrollment as completed
   await supabase.from('enrollments').upsert({

@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { getUserById } from '@/lib/supabase-admin';
 
 export async function GET(req: NextRequest) {
   const supabase = createRouteHandlerClient({ cookies });
@@ -24,18 +25,20 @@ export async function GET(req: NextRequest) {
     return new Response('Missing user_id', { status: 400 });
   }
 
-  // Get user info from auth.users
-  const { data: userData, error } = await supabase
-    .from('auth.users')
-    .select('id, email')
-    .eq('id', user_id)
-    .maybeSingle();
+  try {
+    // Get user info using admin client
+    const userData = await getUserById(user_id);
 
-  if (error) return new Response(error.message, { status: 500 });
-  if (!userData) return new Response('User not found', { status: 404 });
+    if (!userData) {
+      return new Response('User not found', { status: 404 });
+    }
 
-  return Response.json({
-    id: userData.id,
-    email: userData.email
-  });
+    return Response.json({
+      id: userData.id,
+      email: userData.email
+    });
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    return new Response('Failed to fetch user', { status: 500 });
+  }
 }

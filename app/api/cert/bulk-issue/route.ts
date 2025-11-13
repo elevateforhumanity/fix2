@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { randomBytes } from 'crypto';
+import { getUserByEmail } from '@/lib/supabase-admin';
 
 function parseCSV(raw: string) {
   const lines = raw.trim().split(/\r?\n/);
@@ -33,8 +34,8 @@ export async function POST(req: NextRequest) {
       const email = r.email;
       if (!email) { errors.push({row:r, err:'Missing email'}); continue; }
 
-      // user
-      const { data: u } = await supabase.from('auth.users').select('id,email').eq('email', email).maybeSingle();
+      // user - use admin client
+      const u = await getUserByEmail(email);
       if (!u?.id) { errors.push({row:r, err:'User not found'}); continue; }
 
       // course

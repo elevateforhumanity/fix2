@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { getUserById } from '@/lib/supabase-admin';
 
 // Simple email function (replace with Resend in production)
 async function sendEmail(to: string, subject: string, text: string) {
@@ -44,43 +45,48 @@ export async function POST(req: NextRequest) {
   }
 
   // Get related data
-  const [userResult, courseResult, programResult] = await Promise.all([
-    supabase.from('auth.users').select('email').eq('id', app.user_id).maybeSingle(),
-    supabase.from('courses').select('title').eq('id', app.course_id).maybeSingle(),
-    supabase.from('funding_programs').select('code, name').eq('id', app.program_id).maybeSingle(),
-  ]);
+  try {
+    const [learnerUser, courseResult, programResult] = await Promise.all([
+      getUserById(app.user_id),
+      supabase.from('courses').select('title').eq('id', app.course_id).maybeSingle(),
+      supabase.from('funding_programs').select('code, name').eq('id', app.program_id).maybeSingle(),
+    ]);
 
-  const learnerEmail = userResult.data?.email;
-  const courseTitle = courseResult.data?.title || 'your course';
-  const programName = programResult.data?.name || programResult.data?.code;
+    const learnerEmail = learnerUser?.email;
+    const courseTitle = courseResult.data?.title || 'your course';
+    const programName = programResult.data?.name || programResult.data?.code;
 
-  if (!learnerEmail) {
-    return new Response('Learner email not found', { status: 404 });
-  }
+    if (!learnerEmail) {
+      return new Response('Learner email not found', { status: 404 });
+    }
 
-  // Get base URL
-  const origin = process.env.NEXT_PUBLIC_BASE_URL || new URL(req.url).origin;
+    // Get base URL
+    const origin = process.env.NEXT_PUBLIC_BASE_URL || new URL(req.url).origin;
 
-  // Send welcome email
-  await sendEmail(
-    learnerEmail,
-    'Welcome to Elevate – Your Training Access',
-    `Great news! Your training in ${courseTitle} is funded through ${programName}.
+    // Send welcome email
+    await sendEmail(
+      learnerEmail,
+      'Welcome to Elevate – Your Training Access',
+      `Great news! Your training in ${courseTitle} is funded through ${programName}.
 
 Start your learning journey here: ${origin}/lms/dashboard
 
 Your tuition is fully covered. If you need any help getting started, simply reply to this email.
 
 Welcome to Elevate for Humanity!`
-  );
+    );
 
-  // Log the action
-  await supabase.from('audit_log').insert({
-    who: user.id,
-    action: 'RESEND_WELCOME',
-    subject: application_id,
-    meta: { email: learnerEmail },
-  });
+    // Log the action
+    await supabase.from('audit_log').insert({
+      who: user.id,
+      action: 'RESEND_WELCOME',
+      subject: application_id,
+      meta: { email: learnerEmail },
+    });
 
-  return Response.json({ ok: true });
+    return Response.json({ ok: true });
+  } catch (error) {
+    console.error('Error resending welcome email:', error);
+    return new Response('Failed to resend email', { status: 500 });
+  }
 }
