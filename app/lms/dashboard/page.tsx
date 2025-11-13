@@ -207,7 +207,6 @@ export default async function LMSDashboard() {
                     {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
                   </Link>
                 </div>
-                </div>
               </div>
             ))}
           </div>
