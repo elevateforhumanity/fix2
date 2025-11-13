@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate LMS - All Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        a {
+            display: block;
+            padding: 15px;
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #1e40af;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        a:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #2563eb;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .update-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .update-btn:hover {
+            background: #1e40af;
+        }
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎓 Elevate for Humanity LMS - All Pages</h1>
+    
+    <div class="note">
+        <strong>⚠️ IMPORTANT:</strong> Enter your Netlify URL below and click "Update Links" to make all links clickable!
+    </div>
+
+    <div class="section">
+        <h2>🔧 Setup</h2>
+        <label for="siteUrl"><strong>Your Netlify Site URL:</strong></label>
+        <input 
+            type="text" 
+            id="siteUrl" 
+            class="url-input" 
+            placeholder="https://your-site-name.netlify.app"
+            value="https://your-site-name.netlify.app"
+        >
+        <button class="update-btn" onclick="updateLinks()">Update All Links</button>
+    </div>
+
+    <div class="section">
+        <h2>🏠 Main Pages</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/">Homepage</a>
+            <a href="#" data-path="/privacy-policy">Privacy Policy</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎓 Student/Learner Portal (LMS)</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/lms/dashboard">📊 Dashboard</a>
+            <a href="#" data-path="/lms/courses">📚 Browse Courses</a>
+            <a href="#" data-path="/lms/learning-paths">🛤️ Learning Paths</a>
+            <a href="#" data-path="/lms/progress">📈 My Progress</a>
+            <a href="#" data-path="/lms/assignments">📝 Assignments</a>
+            <a href="#" data-path="/lms/grades">🎯 Grades</a>
+            <a href="#" data-path="/lms/enroll">✍️ Enroll in Course</a>
+            <a href="#" data-path="/lms/enroll-workforce">💼 Workforce Enrollment</a>
+            <a href="#" data-path="/lms/certificates">🏆 My Certificates</a>
+            <a href="#" data-path="/lms/messages">💬 Messages</a>
+            <a href="#" data-path="/lms/notifications">🔔 Notifications</a>
+            <a href="#" data-path="/lms/calendar">📅 Calendar</a>
+            <a href="#" data-path="/lms/resources">📖 Resources</a>
+            <a href="#" data-path="/lms/profile">👤 My Profile</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👨‍💼 Admin Portal</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/admin/program-holders">🏢 Training Providers</a>
+            <a href="#" data-path="/admin/applications">📋 Review Applications</a>
+            <a href="#" data-path="/admin/delegates">👥 Manage Delegates</a>
+            <a href="#" data-path="/admin/reports">📊 Reports Hub</a>
+            <a href="#" data-path="/admin/reports/caseload">📈 Caseload Report</a>
+            <a href="#" data-path="/admin/certifications/bulk">🎓 Bulk Certificates</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🏢 Program Holder Portal (Training Providers)</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/program-holder/dashboard">📊 Provider Dashboard</a>
+            <a href="#" data-path="/program-holder/apply">✍️ Apply to Become Provider</a>
+            <a href="#" data-path="/program-holder/mou">📄 Sign MOU Agreement</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👥 Delegate Portal (Case Managers)</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/delegate/reports">📊 Delegate Reports</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📜 Public Pages</h2>
+        <div class="link-grid">
+            <a href="#" data-path="/cert/verify/SAMPLE123">🔍 Verify Certificate (Sample)</a>
+            <a href="#" data-path="/enroll/sample-program">✍️ Public Enrollment (Sample)</a>
+        </div>
+    </div>
+
+    <script>
+        function updateLinks() {
+            const siteUrl = document.getElementById('siteUrl').value.trim();
+            
+            if (!siteUrl) {
+                alert('Please enter your Netlify site URL!');
+                return;
+            }
+
+            // Remove trailing slash if present
+            const baseUrl = siteUrl.replace(/\/$/, '');
+
+            // Update all links
+            const links = document.querySelectorAll('a[data-path]');
+            links.forEach(link => {
+                const path = link.getAttribute('data-path');
+                link.href = baseUrl + path;
+            });
+
+            alert('✅ All links updated! You can now click any link to visit that page.');
+        }
+
+        // Auto-update on page load if URL is already set
+        window.addEventListener('load', () => {
+            const urlInput = document.getElementById('siteUrl');
+            if (urlInput.value && urlInput.value !== 'https://your-site-name.netlify.app') {
+                updateLinks();
+            }
+        });
+    </script>
+</body>
+</html>

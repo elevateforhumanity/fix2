@@ -15,33 +15,39 @@ export const metadata = {
 const enrolledCourses = [
   {
     id: 1,
-    title: 'Barber Fundamentals',
+    title: 'Barber Apprenticeship',
     progress: 100,
     nextLesson: 'Course Completed!',
-    thumbnail: '/images/barber.jpg',
+    thumbnail: '/course-covers/barber-apprenticeship/cover.svg',
     totalLessons: 24,
     completedLessons: 24,
     status: 'completed',
+    instructor: 'Master Barber Johnson',
+    duration: '12 weeks',
   },
   {
     id: 2,
     title: 'CNA Certification Prep',
     progress: 65,
     nextLesson: 'Module 3: Infection Control',
-    thumbnail: '/images/cna.jpg',
+    thumbnail: '/course-covers/cna-training/cover.svg',
     totalLessons: 30,
     completedLessons: 19,
     status: 'active',
+    instructor: 'RN Sarah Martinez',
+    duration: '8 weeks',
   },
   {
     id: 3,
     title: 'HVAC Technician Training',
     progress: 23,
     nextLesson: 'Module 2: Heating Systems',
-    thumbnail: '/images/hvac.jpg',
+    thumbnail: '/course-covers/hvac-tech/cover.svg',
     totalLessons: 28,
     completedLessons: 7,
     status: 'active',
+    instructor: 'Tech Specialist Mike Davis',
+    duration: '16 weeks',
   },
 ];
 
@@ -80,22 +86,24 @@ export default function LMSDashboard() {
 
       {/* Hero Section */}
       <section className="elevate-hero">
-        <div className="elevate-hero-kicker">Student / Learner Portal</div>
-        <h1 className="elevate-hero-title">Welcome back, John!</h1>
-        <p className="mt-1 text-sm text-slate-300">
-          Continue your learning journey and achieve your workforce training goals
-        </p>
-        <div className="mt-3 flex gap-2">
-          <Link href="/lms/courses/2" className="elevate-btn-primary">
-            Continue Learning
-          </Link>
-          <Link href="/lms/progress" className="elevate-btn-secondary">
-            View Progress
-          </Link>
+        <div className="elevate-hero-content">
+          <div className="elevate-hero-kicker">Student Learning Portal</div>
+          <h1 className="elevate-hero-title">Welcome back, John!</h1>
+          <p className="elevate-hero-subtitle">
+            Continue your learning journey and achieve your workforce training goals
+          </p>
+          <div className="flex gap-3">
+            <Link href="/lms/courses/2" className="elevate-btn-primary">
+              Continue Learning
+            </Link>
+            <Link href="/lms/progress" className="elevate-btn-secondary">
+              View Progress
+            </Link>
+          </div>
         </div>
       </section>
 
-      <main className="mt-5">
+      <main className="elevate-container" style={{paddingTop: '2rem', paddingBottom: '2rem'}}>
 
         {/* Stats Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-5">
@@ -121,49 +129,57 @@ export default function LMSDashboard() {
               View All Courses
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {enrolledCourses.map((course) => (
               <div key={course.id} className="elevate-card">
-                <div className="h-32 bg-gradient-to-br from-orange-500 to-blue-500 relative rounded-lg mb-3">
+                {/* Course Cover Image */}
+                <div className="relative rounded-lg overflow-hidden mb-4">
+                  <img 
+                    src={course.thumbnail} 
+                    alt={course.title}
+                    className="w-full h-48 object-cover"
+                  />
                   {course.status === 'completed' && (
-                    <span className="elevate-pill elevate-pill--success absolute top-2 right-2">
-                      <Award className="h-3 w-3" />
+                    <span className="elevate-pill elevate-pill--success absolute top-3 right-3">
+                      <Award className="h-4 w-4" />
                       Completed
                     </span>
                   )}
                 </div>
-                <div className="elevate-card-header">
+                
+                {/* Course Info */}
+                <div className="space-y-3">
                   <div>
-                    <h3 className="elevate-card-title">{course.title}</h3>
-                    <p className="elevate-card-subtitle mt-1">
-                      {course.nextLesson}
-                    </p>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">{course.title}</h3>
+                    <p className="text-sm text-gray-600 mb-2">{course.instructor}</p>
+                    <p className="text-sm text-gray-500">{course.nextLesson}</p>
                   </div>
-                </div>
-                <div className="mt-3 space-y-3">
+                  
                   {/* Progress Bar */}
                   <div>
-                    <div className="flex justify-between text-xs mb-2">
-                      <span className="text-slate-400">Progress</span>
-                      <span className="font-medium text-slate-300">
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-gray-600">Progress</span>
+                      <span className="font-semibold text-gray-900">
                         {course.completedLessons}/{course.totalLessons} lessons
                       </span>
                     </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
-                        className={`h-full transition-all ${
-                          course.status === 'completed' ? 'bg-green-500' : 'bg-orange-500'
+                        className={`h-full transition-all rounded-full ${
+                          course.status === 'completed' ? 'bg-green-500' : 'bg-red-600'
                         }`}
                         style={{ width: `${course.progress}%` }}
                       />
                     </div>
                   </div>
+                  
                   <Link 
                     href={`/lms/courses/${course.id}`}
                     className={course.status === 'completed' ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block'}
                   >
                     {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
                   </Link>
+                </div>
                 </div>
               </div>
             ))}

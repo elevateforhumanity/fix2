@@ -1,405 +1,336 @@
-# Elevate for Humanity - Complete System
+# Elevate Connects Directory – Workforce LMS + Case Management
 
-> **Full-stack workforce development platform + Government certification automation suite**  
-> LMS built with React 19, Vite 6, Supabase | Autopilot Suite v2 with RBAC for DBE/MBE/WBE/8(a) certifications
+Elevate Connects is a workforce-first LMS and directory built for real programs like **WRG, WIOA, JRI, EmployIndy, DOL apprenticeships, and employer-sponsored upskilling**.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elevateforhumanity/fix2)
-[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://elevateforhumanity.org)
+Instead of a one-sided "course website," Elevate brings together:
 
-## 📁 Repository Organization
+- A full **Student/Learner portal**
+- An **Admin portal** for training sponsors
+- A **Program Holder portal** for barbershops, CNA schools, HVAC partners, etc.
+- A **Delegate/Case Manager portal** for workforce agencies
+- **Public verification & enrollment** pages
 
-```
-/workspaces/fix2/
-├── src/                          # LMS Frontend (React 19 + Vite)
-├── backend/                      # Autopilot Suite v2 (FastAPI + RBAC)
-├── frontend/                     # Autopilot Dashboard (Vite + React)
-├── field_mappings/               # Certification field mappings (JSON)
-├── playwright_scripts/           # Portal automation (Playwright)
-├── packet_templates/             # Certification packet templates
-├── scripts/                      # PDF tools + utilities
-├── docs/                         # Documentation
-│   ├── status/                   # Status reports and diagnostics
-│   ├── guides/                   # Setup and configuration guides
-│   └── archive/                  # Historical documentation
-├── CERTIFICATION_APPLICATIONS_BUNDLE/  # Complete cert applications
-└── README.md                     # This file
-```
-
-## 🎯 Overview
-
-This repository contains **two integrated systems**:
-
-### 1. LMS Platform (Production)
-
-Enterprise-grade Learning Management System for workforce development, apprenticeship programs, and government-aligned training.
-
-**Features:**
-
-- ✅ 106+ Industry Certifications (Healthcare, IT, Construction, Business)
-- ✅ 92% Job Placement Rate with outcomes tracking
-- ✅ DOL/DOE/DWD Compliant - Government program ready
-- ✅ ETPL Provider - WIOA funding eligible
-- ✅ AI-Powered content generation and tutoring
-- ✅ Mobile Apps (iOS/Android via Capacitor)
-- ✅ Revenue Sharing via Stripe Connect
-
-### 2. Autopilot Suite v2 (Development)
-
-Government certification automation system with role-based access control for team collaboration.
-
-**Features:**
-
-- ✅ Worker Dashboard + API with RBAC (Admin/Worker/Reviewer/Auditor)
-- ✅ FastAPI backend + Vite/React frontend
-- ✅ 6 Certification automations (DBE, ACDBE, MBE, WBE, 8(a), HUBZone)
-- ✅ PDF automation tools (list fields, fill, flatten)
-- ✅ Playwright portal automation with MFA support
-- ✅ JSONL audit logging for compliance
-- ✅ Field mapping templates for all certifications
-
-## 🚀 Quick Start
-
-### LMS Platform
-
-```bash
-# Install dependencies
-npm install
-
-# Set environment variables
-cp .env.example .env
-# Add your Supabase, Stripe, and API keys
-
-# Run development server
-npm run dev
-```
-
-### Autopilot Suite v2
-
-```bash
-# Backend
-cd backend
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-export ADMIN_KEY=admin-demo-key WORKER_KEY=worker-demo-key
-uvicorn app.main:app --reload --port 7070
-
-# Frontend Dashboard
-cd frontend
-npm install
-npm run dev -- --port 5173
-
-# PDF Tools
-cd scripts
-pip install pypdf2
-python list_pdf_fields.py <pdf_file>
-python fill_pdf.py --blank <pdf> --mapping <json> --profile ../backend/data/master_profile.json --out filled.pdf
-
-# Portal Automation
-cd scripts/playwright
-pip install playwright
-python -m playwright install chromium
-python sba_connect_portal.py
-```
-
-## 🚀 Tech Stack
-
-### LMS Platform
-
-- **Frontend:** React 19, Vite 6, TypeScript, Tailwind CSS
-- **Backend:** Supabase (PostgreSQL + Auth + Storage)
-- **Hosting:** Netlify (17 serverless functions)
-- **Payments:** Stripe Connect
-- **Mobile:** Capacitor (iOS/Android)
-
-### Autopilot Suite v2
-
-- **Backend:** FastAPI, Python 3.11+
-- **Frontend:** Vite, React, TypeScript
-- **Automation:** Playwright (headful mode with MFA)
-- **PDF Tools:** PyPDF2
-- **Storage:** File-based (backend/data/)
-- **Audit:** JSONL logging
-
-## 📊 Platform Statistics
-
-- **150+ React Components** - Modular, reusable architecture
-- **133 TypeScript Files** - Type-safe codebase
-- **17 Serverless Functions** - Netlify Functions for backend logic
-- **3 Cloudflare Workers** - Edge computing for AI/automation
-- **25+ Autopilot Tasks** - Automated infrastructure management
-- **4 Storage Buckets** - Supabase storage for files
-- **100+ Routes** - Comprehensive page coverage
-- **430+ Accessibility Improvements** - WCAG 2.1 AA committed
-
-## 🎓 Use Cases
-
-- **Workforce Development** - Career training and upskilling
-- **Apprenticeship Programs** - DOL-compliant tracking
-- **Government Training** - WIOA, ETPL, DWD programs
-- **Corporate Training** - Employee development
-- **Non-Profit Education** - IRS VITA, career services
-- **Educational Institutions** - Online learning platforms
-
-## 🔑 Key Technologies
-
-**React LMS** • **Workforce Platform** • **Supabase SaaS** • **Education** • **Government Compliance** • **Apprenticeship Programs** • **AI Learning System** • **Stripe Connect** • **ETPL Provider** • **WIOA Programs** • **Career Training** • **Job Placement** • **Mobile Learning** • **Autonomous Operations**
-
-## 📖 Documentation
-
-### LMS Platform
-
-- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Netlify + Supabase deployment
-- **[docs/API.md](docs/API.md)** - API documentation
-- **[docs/SETUP.md](docs/SETUP.md)** - Development setup guide
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
-
-### Autopilot Suite v2
-
-- **[backend/README.md](backend/README.md)** - Backend API documentation
-- **[docs/WORKER_GUIDE.md](docs/WORKER_GUIDE.md)** - Worker role guide
-- **[docs/PORTAL_SELECTORS.md](docs/PORTAL_SELECTORS.md)** - Portal automation guide
-- **[CERTIFICATION_APPLICATIONS_BUNDLE/](CERTIFICATION_APPLICATIONS_BUNDLE/)** - Complete certification applications
-
-### Historical Documentation
-
-- **[docs/status/](docs/status/)** - Status reports and diagnostics (400+ files)
-- **[docs/guides/](docs/guides/)** - Setup and configuration guides
-- **[docs/archive/](docs/archive/)** - Historical development notes
-
-## 📁 What's Included
-
-This repository contains essential configuration files that ensure proper VS Code and environment setup in Gitpod:
-
-### `.gitpod.yml`
-
-The main Gitpod configuration file that:
-
-- Specifies the Docker image to use
-- Defines startup tasks and initialization scripts
-- Lists VS Code extensions to install automatically
-- Configures port forwarding
-- Sets up GitHub prebuilds for faster workspace starts
-
-### `.vscode/settings.json`
-
-VS Code workspace settings that:
-
-- Enable format on save
-- Configure code formatting preferences
-- Set up code actions (auto-fix, organize imports)
-- Configure default formatters for different file types
-- Set terminal and Git preferences
-
-### `.vscode/extensions.json`
-
-Recommended VS Code extensions including:
-
-- ESLint for JavaScript/TypeScript linting
-- Prettier for code formatting
-- GitLens for enhanced Git capabilities
-- Python support
-- Docker support
-- YAML support
-- GitHub Copilot and Pull Request integration
-
-### Additional Configuration Files
-
-#### `.editorconfig`
-
-Ensures consistent coding styles across different editors and IDEs:
-
-- Character encoding (UTF-8)
-- Line endings (LF)
-- Indentation style and size
-- Trailing whitespace handling
-
-#### `.prettierrc`
-
-Code formatting configuration for Prettier:
-
-- Semicolons, quotes, and trailing commas
-- Print width and tab width
-- Line endings
-
-#### `.eslintrc.json`
-
-JavaScript/TypeScript linting rules:
-
-- Code style enforcement
-- Best practices
-- Error prevention
-
-#### `.gitignore`
-
-Common patterns to exclude from version control:
-
-- Dependencies (node_modules, vendor)
-- Build outputs (dist, build)
-- IDE files
-- Environment variables
-- Temporary files
-
-#### `.github/workflows/validate.yml`
-
-GitHub Actions workflow that automatically validates:
-
-- YAML syntax in `.gitpod.yml` and templates
-- JSON syntax in VS Code configuration files
-- Presence of essential documentation
-
-## 🔧 How to Use This Template
-
-### For New Repositories
-
-1. **Copy configuration files to your repository:**
-
-   ```bash
-   # Copy .gitpod.yml
-   cp .gitpod.yml /path/to/your/repo/
-
-   # Copy .vscode directory
-   cp -r .vscode /path/to/your/repo/
-   ```
-
-2. **Customize for your project:**
-   - Edit `.gitpod.yml` to add your project-specific setup commands
-   - Modify the `init` task to install dependencies (npm install, pip install, etc.)
-   - Adjust port configurations based on your application
-   - Add or remove VS Code extensions in both files
-
-3. **Commit and push:**
-   ```bash
-   git add .gitpod.yml .vscode/
-   git commit -m "Add Gitpod and VS Code configuration"
-   git push
-   ```
-
-### For Existing Repositories
-
-If you already have `.gitpod.yml` or `.vscode` configuration:
-
-1. **Merge configurations carefully** - Don't overwrite existing settings
-2. **Test in Gitpod** - Open your repository in Gitpod to verify everything works
-3. **Adjust as needed** - Each project may have unique requirements
-
-## 🛠️ Customization Guide
-
-### Adding Project Dependencies
-
-Edit the `init` section in `.gitpod.yml`:
-
-```yaml
-tasks:
-  - name: Setup Environment
-    init: |
-      # Node.js project
-      npm install
-
-      # Python project
-      pip install -r requirements.txt
-
-      # Multiple commands
-      npm install
-      npm run build
-```
-
-### Configuring Ports
-
-Add ports your application uses:
-
-```yaml
-ports:
-  - port: 3000
-    onOpen: open-browser # Options: notify, open-browser, open-preview, ignore
-    visibility: public # Options: public, private
-```
-
-### Adding VS Code Extensions
-
-Edit `.vscode/extensions.json` or add to `.gitpod.yml`:
-
-```yaml
-vscode:
-  extensions:
-    - publisher.extension-name
-```
-
-## 🐛 Common Issues and Solutions
-
-### Issue: Extensions not installing automatically
-
-**Solution:** Ensure extension IDs are correct in both `.gitpod.yml` and `.vscode/extensions.json`
-
-### Issue: Workspace initialization fails
-
-**Solution:** Check the `init` commands in `.gitpod.yml` for errors. View logs in Gitpod terminal.
-
-### Issue: Port not accessible
-
-**Solution:** Verify port configuration in `.gitpod.yml` and ensure your app is listening on `0.0.0.0` not `localhost`
-
-### Issue: Formatting not working
-
-**Solution:** Install the Prettier extension and ensure it's set as the default formatter in settings.json
-
-## 📚 Resources
-
-- [Gitpod Documentation](https://www.gitpod.io/docs)
-- [Gitpod .gitpod.yml Reference](https://www.gitpod.io/docs/references/gitpod-yml)
-- [VS Code Settings Reference](https://code.visualstudio.com/docs/getstarted/settings)
-- [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)
-
-## 🤝 Contributing
-
-Feel free to submit issues or pull requests to improve this template configuration.
-
-## 🏆 Certifications & Compliance
-
-- ✅ **Buy Black Certified** - Supporting Black-owned businesses
-- ✅ **Veteran-Owned Business** - Supporting veterans
-- ✅ **WCAG 2.1 AA Accessibility** - Committed to accessibility
-- ✅ **DOL/DOE/DWD Compliant** - Government program ready
-- ✅ **ETPL Provider** - Eligible Training Provider List
-- ✅ **IRS VITA Program** - Tax preparation training
-
-## 🌐 Live Platform
-
-**Production:** [https://elevateforhumanity.org](https://elevateforhumanity.org)
-
-### Quick Links
-
-- [Browse Programs](https://elevateforhumanity.org/programs)
-- [Student Dashboard](https://elevateforhumanity.org/lms)
-- [Verify Certificate](https://elevateforhumanity.org/verify)
-- [Legal & Terms](https://elevateforhumanity.org/legal/terms)
-
-## 📞 Contact
-
-**Elevate for Humanity**  
-9465 Counselors Row, Suite 200  
-Indianapolis, IN 46240
-
-- **Website:** [elevateforhumanity.org](https://elevateforhumanity.org)
-- **Email:** info@elevateforhumanity.org
-- **Phone:** (317) 314-3757
-- **Legal:** legal@elevateforhumanity.org
-
-### Social Media
-
-- [Facebook](https://www.facebook.com/elevateforhumanity)
-- [LinkedIn](https://www.linkedin.com/company/elevate-for-humanity)
-- [YouTube](https://www.youtube.com/@elevateforhumanity)
-- [Instagram](https://www.instagram.com/elevateforhumanity)
-
-## 📝 License
-
-**Proprietary License** - Copyright © 2024-2025 Elevate for Humanity. All rights reserved.
-
-This software is confidential and proprietary. No part may be copied, reproduced, distributed, or transmitted without prior written permission. See [LICENSE](LICENSE) for full terms.
-
-For licensing inquiries: legal@elevateforhumanity.org
+**Live at:** [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
 
 ---
 
-**Built with ❤️ for workforce development and community empowerment**
+## 🌱 Student / Learner Portal
+
+- **Dashboard** – at-a-glance view of active training
+- **Courses & Learning Paths** – structured programs instead of random standalone lessons  
+- **Assignments & Grades** – track what's due and what's completed  
+- **My Progress** – see training hours and completion percentages  
+- **Workforce Enrollment** – specialized flows for funded programs (WRG, WIOA, JRI, etc.)  
+- **My Certificates** – view, download, and share credentials  
+- **Messages & Notifications** – built-in communication with admins, providers, and coaches  
+- **Calendar & Resources** – upcoming sessions, deadlines, and support resources  
+- **Profile** – update contact info and preferences  
+
+---
+
+## 🏛 Admin Portal (Training Sponsor / System Owner)
+
+- **Training Providers (Program Holders)** – Manage the organizations that host training (barbershops, CNA schools, HVAC shops, etc.)
+- **Review Applications** – Approve or decline new program holder applications
+- **Manage Delegates** – Invite and manage case managers / delegates for each provider
+- **Reports Hub** – Central reporting for participation, completions, certificates, and funding programs
+- **Caseload Report** – WRG/WIOA-style view of who is On Track / At Risk / Not Engaged
+- **Bulk Certificates** – Issue and manage credentials at scale with QR-ready verification
+
+---
+
+## 🧩 Program Holder Portal (Training Providers)
+
+For barbers, CNA owners, HVAC/Construction partners, and other training sites:
+
+- **Provider Dashboard** – overview of learners, caseload, and payouts  
+- **Self-Service Application** – become a training provider inside the platform  
+- **Digital MOU Signing** – sign Elevate's revenue-share agreement online  
+
+Program holders can see their participants, track progress, add case notes, and eventually receive payout reports tied to funded enrollments.
+
+---
+
+## 👥 Delegate Portal (Case Managers / Navigators)
+
+For workforce staff and case managers:
+
+- **Delegate Reports** – view learner progress, case notes, and follow-up dates per provider and program  
+
+This turns Elevate into a **lightweight case management layer** on top of the LMS.
+
+---
+
+## 🌍 Public Pages
+
+- **Homepage:** [elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
+- **Privacy Policy:** `/privacy-policy`
+- **Public Enrollment:** `/enroll/:program`
+- **Certificate Verification:** `/cert/verify/:code`
+
+Employers and agencies can verify credentials without logging in.
+
+---
+
+## 🔍 How Elevate Compares to Moodle / Docebo / LearnWorlds
+
+### What Elevate Already Has ✅
+
+Elevate covers the same "core LMS" terrain as the big players:
+
+- ✅ Dashboards, courses, learning paths, grades, progress tracking
+- ✅ Certificates and public verification
+- ✅ Multi-role access and comprehensive reports
+- ✅ Messages, notifications, calendar
+- ✅ Assignments and assessments
+
+### Where Elevate is Different 🎯
+
+Built from day one for **funded workforce programs**:
+
+- ✅ **Program Holder Portal** – Not bolted on later, baked in from the start
+- ✅ **Delegate/Case Manager Portal** – Lightweight case management layer
+- ✅ **Digital MOU Signing** – Two-step signature workflow with PDF generation
+- ✅ **Workforce Enrollment Flows** – WRG, WIOA, JRI, EmployIndy, DOL tracking
+- ✅ **Caseload Reports** – On Track / At Risk / Not Engaged status tracking
+- ✅ **Revenue Share Model** – Built-in payout tracking for training providers
+
+### Feature Comparison Table
+
+| Feature | Moodle | Docebo | LearnWorlds | Elevate Connects |
+|---------|--------|--------|-------------|------------------|
+| Student Portal | ✅ | ✅ | ✅ | ✅ |
+| Admin Portal | ✅ | ✅ | ✅ | ✅ |
+| Courses & Learning Paths | ✅ | ✅ | ✅ | ✅ |
+| Certificates | ✅ | ✅ | ✅ | ✅ + Public Verification |
+| Reports & Analytics | ✅ | ✅ | ✅ | ✅ + Caseload Tracking |
+| **Workforce Program Support** | ❌ | ❌ | ❌ | ✅ |
+| **Program Holder Portal** | ❌ | ❌ | ❌ | ✅ |
+| **Delegate/Case Manager Portal** | ❌ | ❌ | ❌ | ✅ |
+| **Digital MOU Signing** | ❌ | ❌ | ❌ | ✅ |
+| **WRG/WIOA/JRI Integration** | ❌ | ❌ | ❌ | ✅ |
+| Interactive Video | ✅ | ✅ | ✅ | 🔄 Roadmap |
+| SCORM/xAPI | ✅ | ✅ | ✅ | 🔄 Roadmap |
+| Course Authoring | ✅ | ✅ | ✅ | 🔄 Roadmap |
+| eCommerce | ✅ | ✅ | ✅ | 🔄 Roadmap |
+| Gamification | ✅ | ✅ | ✅ | 🔄 Roadmap |
+
+---
+
+## 🗺️ Roadmap
+
+To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
+
+### Phase 2 (Q1 2025)
+- **Interactive Video Player**
+  - Auto-generated transcripts
+  - In-video quizzes
+  - Time-coded notes
+  - Clickable links and resources
+
+- **SCORM/xAPI Import**
+  - Import existing course packages
+  - Support for SCORM 1.2/2004
+  - xAPI (Tin Can) compatibility
+
+- **Course Authoring Tools**
+  - Drag-and-drop lesson builder
+  - Quiz and assessment creator
+  - File upload and management
+  - Module organization
+
+### Phase 3 (Q2 2025)
+- **Gamification**
+  - Badges for completion
+  - Streak tracking
+  - Progress rewards
+  - Leaderboards
+
+- **Live Session Integration**
+  - Zoom integration
+  - Google Meet support
+  - Teams compatibility
+  - Session recording
+
+- **eCommerce (Optional)**
+  - Stripe checkout
+  - Free vs Paid vs Workforce-funded tracks
+  - Subscription management
+  - Revenue reporting
+
+### Phase 4 (Q3 2025)
+- **Community Features**
+  - Cohort discussion spaces
+  - Announcements
+  - Peer support forums
+  - Group projects
+
+- **Mobile App**
+  - iOS and Android apps
+  - Offline content access
+  - Push notifications
+  - Mobile-optimized video
+
+---
+
+## ⚙️ Technology Stack
+
+- **Frontend:** Next.js 16 + TypeScript + Tailwind CSS
+- **Backend:** Supabase (Postgres + Auth + Storage)
+- **Deployment:** Netlify with serverless functions
+- **Email:** Resend for transactional emails
+- **PDF Generation:** pdf-lib for certificates and MOUs
+- **Signatures:** react-signature-canvas for digital signing
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 20.x or higher
+- npm or yarn
+- Supabase account
+- Netlify account (for deployment)
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/elevateforhumanity/fix2.git
+   cd fix2
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Edit `.env.local` with your credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+   RESEND_API_KEY=your_resend_key
+   EMAIL_FROM=noreply@yourdomain.com
+   ```
+
+4. **Run database migrations**
+   - Open Supabase dashboard
+   - Go to SQL Editor
+   - Run migrations from `supabase/migrations/`
+
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Visit** [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📦 Deployment
+
+### Netlify Deployment
+
+1. **Connect to GitHub**
+   - Link your repository to Netlify
+   - Set build command: `npm run build`
+   - Set publish directory: `.next`
+
+2. **Configure Environment Variables**
+   - Add all variables from `.env.local`
+   - Ensure `SUPABASE_SERVICE_ROLE_KEY` is set
+
+3. **Deploy**
+   - Push to main branch
+   - Netlify auto-deploys
+
+### Environment Variables Required
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
+SUPABASE_SERVICE_ROLE_KEY=eyJxxx
+RESEND_API_KEY=re_xxxxx
+EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
+MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
+```
+
+---
+
+## 🎥 Video Demo Scripts
+
+### Clip 1: "What Elevate Is" (30-40s)
+
+> "Most LMS platforms like Moodle, Docebo, and LearnWorlds were built for generic online courses. Elevate Connects is different. We combine a full student portal, an admin portal, a program holder portal, and a delegate case-manager portal in one place — built around real workforce programs like WRG, WIOA, JRI, EmployIndy, and DOL apprenticeships.
+>
+> Learners see courses, assignments, grades, progress, certificates, and workforce enrollment. Admins see training providers, applications, reports, caseloads, and bulk certificates. Program holders sign their MOU, log in, and track their own participants. Case managers see live caseload reports, notes, and follow-ups.
+>
+> It's not just an LMS. It's a workforce training system."
+
+### Clip 2: "How We Compare" (40-50s)
+
+> "If you've looked at Moodle, Docebo, or LearnWorlds, you'll see a lot of the same checkboxes: dashboards, courses, learning paths, grades, certificates. Elevate already has those — plus things they don't give you out of the box:
+>
+> - Workforce enrollment flows
+> - Partner and program holder onboarding with digital MOUs
+> - Delegate and case manager portals tied to funding programs
+> - Public certificate verification for employers
+>
+> Where we're different is focus: Elevate is built from day one around funded training, case notes, caseloads, and reporting back to agencies — not just selling courses."
+
+### Clip 3: "What's on the Roadmap" (30-40s)
+
+> "Feature-wise, we're catching up fast to the biggest LMS names. Next on our roadmap:
+>
+> - Interactive video lessons with transcripts and in-video quizzes
+> - SCORM/xAPI import so you can bring in existing content
+> - Light gamification so learners earn badges and milestones
+> - Deeper integrations with Zoom and other tools
+> - And optional eCommerce for providers who want to sell private courses on top of workforce programs.
+>
+> So if you want the structure of Moodle and Docebo, but tuned for real-world workforce training and funding — that's exactly what Elevate Connects is becoming."
+
+---
+
+## 📊 Key Metrics
+
+- **4 Portals:** Student, Admin, Program Holder, Delegate
+- **30+ Pages:** Comprehensive coverage of all workflows
+- **Digital MOU:** Two-step signature with PDF generation
+- **Certificate Verification:** Public QR code verification
+- **Caseload Tracking:** On Track / At Risk / Not Engaged
+- **Multi-Tenant:** Support for multiple training providers
+
+---
+
+## 🤝 Contributing
+
+This is a private repository for Elevate for Humanity's workforce training platform. 
+
+For questions or partnership inquiries:
+- **Email:** elevateforhumanity@gmail.com
+- **Website:** [elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
+
+---
+
+## 📝 License
+
+Copyright © 2024-2025 Elevate for Humanity. All rights reserved.
+
+---
+
+## 🙏 Acknowledgments
+
+Built with:
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Netlify](https://www.netlify.com/)
