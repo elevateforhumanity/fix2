@@ -30,23 +30,31 @@ ports:
     visibility: private
 
 tasks:
-  - name: Setup & Frontend
+  - name: Setup Elevate Script Pack
     init: |
       echo "🎓 Welcome to Elevate for Humanity LMS Development"
       echo ""
-      bash scripts/setup.sh
+      mkdir -p scripts docs
+      chmod +x scripts/bootstrap-elevate-scripts.sh || true
+      ./scripts/bootstrap-elevate-scripts.sh || echo "Run scripts/bootstrap-elevate-scripts.sh manually if needed."
+      echo ""
+      bash scripts/setup.sh || echo "Setup script not found, continuing..."
       echo ""
       echo "🎨 Generating course covers..."
-      node scripts/generate-course-covers.mjs
+      node scripts/generate-course-covers.mjs || echo "Course cover generation skipped"
     command: |
       echo ""
       echo "✅ Workspace ready!"
       echo ""
+      echo "📚 Script Pack: docs/Elevate_Script_Pack.md"
+      echo "🔗 Quick Start: QUICK_START.md"
+      echo "📞 Phone: (317) 314-3757"
+      echo ""
       echo "📚 Quick Start:"
-      echo "   pnpm dev          - Start dev server"
-      echo "   pnpm build        - Build for production"
-      echo "   pnpm typecheck    - Check TypeScript"
-      echo "   pnpm lint         - Run ESLint"
+      echo "   npm run dev       - Start dev server"
+      echo "   npm run build     - Build for production"
+      echo "   npm run typecheck - Check TypeScript"
+      echo "   npm run lint      - Run ESLint"
       echo ""
       echo "🔧 Utility Scripts:"
       echo "   bash scripts/verify-env.sh      - Check environment variables"
@@ -55,7 +63,7 @@ tasks:
       echo "   npm run generate-covers         - Regenerate course covers"
       echo ""
       echo "🚀 Starting dev server..."
-      bash scripts/dev.sh
+      npm run dev || bash scripts/dev.sh || echo "Start server with: npm run dev"
   
   - name: Backend (Optional)
     command: |
