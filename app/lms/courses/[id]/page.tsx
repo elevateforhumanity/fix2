@@ -19,7 +19,7 @@ interface Props {
 export default async function CoursePage({ params }: Props) {
   await requireStudent();
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch course details
   const { data: course, error: courseError } = await supabase

@@ -35,7 +35,7 @@ export default async function LMSDashboard() {
   await requireStudent();
   
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch user's enrollments with course details
   const { data: enrollments, error } = await supabase

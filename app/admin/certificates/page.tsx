@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function AdminCertificatesPage() {
   await requireAdmin();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch all certificates
   const { data: certificates } = await supabase

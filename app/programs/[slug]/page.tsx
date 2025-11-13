@@ -1,29 +1,43 @@
 import Link from 'next/link';
-import { programs } from '../../../src/data/programs';
 import { notFound } from 'next/navigation';
 import { DoceboHeader } from '@/components/DoceboHeader';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 // ISR: Revalidate every 60 seconds
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  return programs.map((program) => ({
+  const supabase = await createServerSupabaseClient();
+  const { data: programs } = await supabase.from('programs').select('slug');
+  
+  return programs?.map((program) => ({
     slug: program.slug,
-  }));
+  })) || [];
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const program = programs.find((p) => p.slug === params.slug);
+  const supabase = await createServerSupabaseClient();
+  const { data: program } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('slug', params.slug)
+    .single();
+    
   if (!program) return {};
 
   return {
-    title: `${program.name} | Elevate for Humanity`,
+    title: `${program.title} | Elevate for Humanity`,
     description: program.summary,
   };
 }
 
-export default function ProgramPage({ params }: { params: { slug: string } }) {
-  const program = programs.find((p) => p.slug === params.slug);
+export default async function ProgramPage({ params }: { params: { slug: string } }) {
+  const supabase = await createServerSupabaseClient();
+  const { data: program } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('slug', params.slug)
+    .single();
 
   if (!program) {
     notFound();
@@ -40,10 +54,10 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
             <Link href="/programs" className="text-white/80 hover:text-white mb-4 inline-block">
               ← Back to Programs
             </Link>
-            <h1 className="text-5xl font-bold mb-4">{program.name}</h1>
+            <h1 className="text-5xl font-bold mb-4">{program.title}</h1>
             <p className="text-2xl opacity-90 mb-6">{program.tagline}</p>
             <div className="flex flex-wrap gap-3">
-              {program.funding.map((fund) => (
+              {program.funding?.map((fund: string) => (
                 <span key={fund} className="px-4 py-2 bg-white/20 backdrop-blur rounded-full font-semibold border-2 border-white/30">
                   {fund}
                 </span>
@@ -61,7 +75,7 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
 
               <h3 className="text-2xl font-bold mb-4">What You'll Learn</h3>
               <ul className="space-y-3 mb-8">
-                {program.bullets.map((bullet, index) => (
+                {program.bullets?.map((bullet: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-blue-600 text-xl">✓</span>
                     <span className="text-gray-700">{bullet}</span>
@@ -72,7 +86,7 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-8">
                 <h3 className="text-xl font-bold mb-2">Funding Available</h3>
                 <p className="text-gray-700">
-                  This program is 100% funded through: {program.funding.join(', ')}
+                  This program is 100% funded through: {program.funding?.join(', ')}
                 </p>
               </div>
 

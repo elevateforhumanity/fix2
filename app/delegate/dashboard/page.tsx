@@ -12,7 +12,7 @@ export const metadata = {
 export default async function DelegateDashboard() {
   await requireDelegate();
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Get delegate info
   const { data: delegate } = await supabase

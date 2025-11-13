@@ -14,7 +14,7 @@ interface Props {
 export default async function QuizResultsPage({ params }: Props) {
   await requireStudent();
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch attempt
   const { data: attempt } = await supabase

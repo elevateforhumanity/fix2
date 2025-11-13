@@ -11,7 +11,7 @@ export const metadata = {
 export default async function CertificatesPage() {
   await requireStudent();
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch user's certificates
   const { data: certificates } = await supabase

@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function AdminDashboardPage() {
   await requireAdmin();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Get total students
   const { count: totalStudents } = await supabase

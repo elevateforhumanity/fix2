@@ -1,13 +1,21 @@
 import Link from 'next/link';
-import { programs } from '../../src/data/programs';
 import { DoceboHeader } from '@/components/DoceboHeader';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 export const metadata = {
   title: 'Training Programs | Elevate for Humanity',
   description: 'Explore our free workforce training programs in healthcare, construction, technology, and more.',
 };
 
-export default function ProgramsPage() {
+export default async function ProgramsPage() {
+  const supabase = await createServerSupabaseClient();
+  
+  // Fetch programs from database
+  const { data: programs } = await supabase
+    .from('programs')
+    .select('*')
+    .order('title');
+
   return (
     <div className="min-h-screen bg-white">
       <DoceboHeader />
@@ -20,7 +28,7 @@ export default function ProgramsPage() {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program) => (
+            {programs?.map((program) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
@@ -28,11 +36,11 @@ export default function ProgramsPage() {
               >
                 <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-500" />
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold mb-2">{program.name}</h2>
+                  <h2 className="text-2xl font-bold mb-2">{program.title}</h2>
                   <p className="text-gray-600 mb-4">{program.tagline}</p>
                   <p className="text-sm text-gray-700 mb-4">{program.summary}</p>
                   <div className="flex flex-wrap gap-2">
-                    {program.funding.map((fund) => (
+                    {program.funding?.map((fund: string) => (
                       <span key={fund} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
                         {fund}
                       </span>

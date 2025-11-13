@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { certificateId } = body;
 
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

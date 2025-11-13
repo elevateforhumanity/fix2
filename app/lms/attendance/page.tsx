@@ -12,7 +12,7 @@ export const metadata = {
 export default async function AttendancePage() {
   await requireStudent();
   const user = await getCurrentUser();
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   // Fetch attendance logs
   const { data: attendanceLogs } = await supabase
