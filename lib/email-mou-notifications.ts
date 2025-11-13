@@ -1,6 +1,13 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.warn('RESEND_API_KEY not configured - email notifications will be skipped');
+    return null;
+  }
+  return new Resend(apiKey);
+}
 
 interface MOUSignedNotificationData {
   programHolderName: string;
@@ -14,6 +21,11 @@ interface MOUSignedNotificationData {
  * Send email notification to program holder confirming MOU signature
  */
 export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData) {
+  const resend = getResendClient();
+  if (!resend) {
+    return false;
+  }
+  
   try {
     const { error } = await resend.emails.send({
       from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
@@ -72,6 +84,11 @@ export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData)
  * Send email notification to admin team when MOU is signed
  */
 export async function sendMOUSignedAdminNotification(data: MOUSignedNotificationData) {
+  const resend = getResendClient();
+  if (!resend) {
+    return false;
+  }
+  
   try {
     const { error } = await resend.emails.send({
       from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',

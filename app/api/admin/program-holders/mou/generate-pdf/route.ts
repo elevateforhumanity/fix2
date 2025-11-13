@@ -5,7 +5,14 @@ import { createClient } from '@supabase/supabase-js';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.warn('RESEND_API_KEY not configured - email notifications will be skipped');
+    return null;
+  }
+  return new Resend(apiKey);
+}
 
 export async function POST(req: NextRequest) {
   const supabase = createRouteHandlerClient({ cookies });
@@ -361,8 +368,10 @@ export async function POST(req: NextRequest) {
       ].filter(Boolean) as string[];
 
       if (recipients.length > 0) {
-        try {
-          await resend.emails.send({
+        const resend = getResendClient();
+        if (resend) {
+          try {
+            await resend.emails.send({
             from: process.env.EMAIL_FROM || 'Elevate for Humanity <noreply@elevateforhumanity.org>',
             to: recipients,
             subject: `Fully Executed MOU – ${ph.name}`,
@@ -402,10 +411,11 @@ export async function POST(req: NextRequest) {
                 <strong>Elevate for Humanity Team</strong></p>
               </div>
             `
-          });
-        } catch (emailError) {
-          console.error('Error sending email:', emailError);
-          // Don't fail the request if email fails
+            });
+          } catch (emailError) {
+            console.error('Error sending email:', emailError);
+            // Don't fail the request if email fails
+          }
         }
       }
     }
