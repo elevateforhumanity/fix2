@@ -157,60 +157,58 @@ export default async function LMSDashboard() {
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {enrolledCourses.map((course) => (
-              <div key={course.id} className="elevate-card">
-                {/* Course Cover Image */}
-                <div className="relative rounded-lg overflow-hidden mb-4">
-                  <img 
-                    src={course.thumbnail} 
-                    alt={course.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  {course.status === 'completed' && (
-                    <span className="elevate-pill elevate-pill--success absolute top-3 right-3">
-                      <Award className="h-4 w-4" />
-                      Completed
-                    </span>
-                  )}
-                </div>
-                
-                {/* Course Info */}
-                <div className="space-y-3">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{course.title}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{course.instructor}</p>
-                    <p className="text-sm text-gray-500">{course.nextLesson}</p>
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-600">Progress</span>
-                      <span className="font-semibold text-gray-900">
-                        {course.completedLessons}/{course.totalLessons} lessons
+            {enrolledCourses.map((course) => {
+              const isCompleted = course.status === 'completed';
+              const progressColor = isCompleted ? 'bg-green-500' : 'bg-red-600';
+              const buttonClass = isCompleted ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block';
+              
+              return (
+                <div key={course.id} className="elevate-card">
+                  <div className="relative rounded-lg overflow-hidden mb-4">
+                    <img 
+                      src={course.thumbnail} 
+                      alt={course.title}
+                      className="w-full h-48 object-cover"
+                    />
+                    {isCompleted && (
+                      <span className="elevate-pill elevate-pill--success absolute top-3 right-3">
+                        <Award className="h-4 w-4" />
+                        Completed
                       </span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full transition-all rounded-full ${
-                          course.status === 'completed' ? 'bg-green-500' : 'bg-red-600'
-                        }`}
-                        style={{ width: `${course.progress}%` }}
-                      />
-                    </div>
+                    )}
                   </div>
                   
-                  <div>
-                    <Link 
-                      href={`/lms/courses/${course.id}`}
-                      className={course.status === 'completed' ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block'}
-                    >
-                      {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
-                    </Link>
+                  <div className="space-y-3">
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{course.title}</h3>
+                      <p className="text-sm text-gray-600 mb-2">{course.instructor}</p>
+                      <p className="text-sm text-gray-500">{course.nextLesson}</p>
+                    </div>
+                    
+                    <div>
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="text-gray-600">Progress</span>
+                        <span className="font-semibold text-gray-900">
+                          {course.completedLessons}/{course.totalLessons} lessons
+                        </span>
+                      </div>
+                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full transition-all rounded-full ${progressColor}`}
+                          style={{ width: `${course.progress}%` }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <Link href={`/lms/courses/${course.id}`} className={buttonClass}>
+                        {isCompleted ? 'Review Course' : 'Continue Learning'}
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
