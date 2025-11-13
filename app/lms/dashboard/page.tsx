@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Clock, Award, TrendingUp, Target, Calendar } from 'lucide-react';
 import LMSNav from '@/components/lms/LMSNav';
+import LoginTracker from '@/components/lms/LoginTracker';
 
 export const metadata = {
   title: 'Dashboard | Elevate LMS',
@@ -59,6 +60,7 @@ const upcomingDeadlines = [
 export default function LMSDashboard() {
   return (
     <div className="min-h-screen bg-background">
+      <LoginTracker />
       <LMSNav />
 
       <main className="container mx-auto px-4 py-8">
