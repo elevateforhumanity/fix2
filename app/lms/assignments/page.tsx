@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,11 +13,31 @@ import {
   CheckCircle,
   AlertCircle,
   Calendar,
-  Upload
+  Upload,
+  Loader2
 } from 'lucide-react';
 
-// Mock assignments data
-const assignments = [
+type Assignment = {
+  id: string;
+  title: string;
+  description: string;
+  due_date: string;
+  points_possible: number;
+  submission_type: string;
+  courses: {
+    id: string;
+    title: string;
+  };
+  assignment_submissions: Array<{
+    id: string;
+    status: string;
+    score: number | null;
+    submitted_at: string;
+  }>;
+};
+
+// Mock assignments data (fallback)
+const mockAssignments = [
   {
     id: 1,
     title: 'Module 3 Quiz',
@@ -128,9 +149,51 @@ const getDaysUntil = (dateStr: string) => {
 };
 
 export default function AssignmentsPage() {
-  const pendingAssignments = assignments.filter(a => a.status === 'pending');
-  const submittedAssignments = assignments.filter(a => a.status === 'submitted');
-  const gradedAssignments = assignments.filter(a => a.status === 'graded');
+  const [assignments, setAssignments] = useState<Assignment[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  const fetchAssignments = async () => {
+    try {
+      const res = await fetch('/api/assignments');
+      const data = await res.json();
+      setAssignments(data.assignments || mockAssignments);
+    } catch (error) {
+      console.error('Error fetching assignments:', error);
+      setAssignments(mockAssignments);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <LMSNav />
+        <div className="flex items-center justify-center h-96">
+          <Loader2 className="h-8 w-8 animate-spin text-red-600" />
+        </div>
+      </div>
+    );
+  }
+
+  const pendingAssignments = assignments.filter(a => {
+    const submission = a.assignment_submissions?.[0];
+    return !submission || submission.status === 'draft';
+  });
+  
+  const submittedAssignments = assignments.filter(a => {
+    const submission = a.assignment_submissions?.[0];
+    return submission?.status === 'submitted';
+  });
+  
+  const gradedAssignments = assignments.filter(a => {
+    const submission = a.assignment_submissions?.[0];
+    return submission?.status === 'graded';
+  });
 
   return (
     <div className="min-h-screen bg-background">
