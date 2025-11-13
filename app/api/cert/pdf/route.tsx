@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { getUserById } from '@/lib/supabase-admin';
 import QRCode from 'qrcode';
 import { Document, Page, Text, View, Image, StyleSheet, pdf } from '@react-pdf/renderer';
 
@@ -30,11 +31,12 @@ export async function GET(req: NextRequest) {
   if (!cert) return new Response('Certificate not found', { status: 404 });
 
   // Fetch user and course details
-  const { data: u } = await supabase
-    .from('auth.users')
-    .select('email')
-    .eq('id', cert.user_id)
-    .maybeSingle();
+  let u;
+  try {
+    u = await getUserById(cert.user_id);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+  }
   
   const { data: c } = await supabase
     .from('courses')
