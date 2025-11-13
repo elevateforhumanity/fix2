@@ -3,9 +3,21 @@
 // =====================================================
 
 import { createServerClient } from '@supabase/ssr';
+import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import type { UserRole } from '@/types/database';
+
+// =====================================================
+// BUILD-TIME CLIENT (No cookies, for generateStaticParams)
+// =====================================================
+
+export function createBuildTimeSupabaseClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
 
 // =====================================================
 // SERVER-SIDE AUTH

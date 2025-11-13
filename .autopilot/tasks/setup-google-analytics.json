@@ -1,0 +1,500 @@
+{
+  "task_id": "setup-google-analytics",
+  "name": "Setup Google Analytics for Marketing Site and LMS",
+  "description": "Automated Google Analytics configuration with step-by-step instructions for workers",
+  "version": "1.0.0",
+  "priority": "high",
+  "estimated_time": "15 minutes",
+  "prerequisites": [
+    "Google account with admin access",
+    "Access to Durable dashboard (marketing site)",
+    "Access to Netlify dashboard (LMS site)"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "title": "Create Google Analytics Account",
+      "type": "manual",
+      "instructions": [
+        "Open browser and go to: https://analytics.google.com/",
+        "Sign in with Google account",
+        "Click 'Start measuring' button",
+        "Account name: 'Elevate for Humanity'",
+        "Check all data sharing settings (recommended)",
+        "Click 'Next'"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the Google Analytics account?"
+      },
+      "screenshots_needed": true,
+      "help_url": "https://support.google.com/analytics/answer/9304153"
+    },
+    {
+      "step": 2,
+      "title": "Create Property for Marketing Site",
+      "type": "manual",
+      "instructions": [
+        "Property name: 'Marketing Site - www.elevateforhumanity.org'",
+        "Reporting time zone: 'United States - Eastern Time'",
+        "Currency: 'US Dollar ($)'",
+        "Click 'Next'",
+        "Industry category: 'Education'",
+        "Business size: 'Small (1-10 employees)' or appropriate size",
+        "Select 'Get baseline reports' and 'Measure customer engagement'",
+        "Click 'Create'"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the Marketing Site property?"
+      },
+      "output": {
+        "save_to_file": "analysis/ga-marketing-property.txt",
+        "fields": ["property_id", "measurement_id"]
+      }
+    },
+    {
+      "step": 3,
+      "title": "Setup Data Stream for Marketing Site",
+      "type": "manual",
+      "instructions": [
+        "Platform: Select 'Web'",
+        "Website URL: 'https://www.elevateforhumanity.org'",
+        "Stream name: 'Marketing Site Production'",
+        "Click 'Create stream'",
+        "IMPORTANT: Copy the Measurement ID (format: G-XXXXXXXXXX)",
+        "Save this ID - you'll need it in next steps"
+      ],
+      "validation": {
+        "type": "regex",
+        "pattern": "^G-[A-Z0-9]{10}$",
+        "message": "Please enter the Measurement ID (format: G-XXXXXXXXXX)"
+      },
+      "output": {
+        "variable": "MARKETING_GA_ID",
+        "save_to_file": "analysis/ga-marketing-id.txt"
+      }
+    },
+    {
+      "step": 4,
+      "title": "Configure Enhanced Measurement (Marketing Site)",
+      "type": "manual",
+      "instructions": [
+        "In the Data Stream settings, scroll to 'Enhanced measurement'",
+        "Toggle ON (should be enabled by default)",
+        "Verify these are checked:",
+        "  ✓ Page views",
+        "  ✓ Scrolls",
+        "  ✓ Outbound clicks",
+        "  ✓ Site search",
+        "  ✓ Video engagement",
+        "  ✓ File downloads",
+        "Click 'Save'"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you enabled Enhanced Measurement?"
+      }
+    },
+    {
+      "step": 5,
+      "title": "Add Google Analytics to Durable (Marketing Site)",
+      "type": "manual",
+      "instructions": [
+        "Open new tab: https://durable.co/",
+        "Log in to Durable dashboard",
+        "Select site: 'www.elevateforhumanity.org'",
+        "Go to: Settings → Integrations (or Analytics)",
+        "Find 'Google Analytics' section",
+        "Paste Measurement ID from Step 3",
+        "Click 'Save' or 'Connect'",
+        "Wait for confirmation message"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you added GA to Durable?"
+      },
+      "screenshots_needed": true
+    },
+    {
+      "step": 6,
+      "title": "Verify Marketing Site Tracking",
+      "type": "manual",
+      "instructions": [
+        "Go back to Google Analytics tab",
+        "Click 'Reports' in left sidebar",
+        "Click 'Realtime' report",
+        "Open new tab: https://www.elevateforhumanity.org",
+        "Refresh the Realtime report",
+        "You should see 1 active user (yourself)",
+        "If not visible, wait 30 seconds and refresh"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Do you see active users in Realtime report?"
+      },
+      "troubleshooting": [
+        "If no users appear after 2 minutes:",
+        "  1. Check Measurement ID is correct in Durable",
+        "  2. Clear browser cache and try again",
+        "  3. Check browser has JavaScript enabled",
+        "  4. Try incognito/private browsing mode"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Create Property for LMS Platform",
+      "type": "manual",
+      "instructions": [
+        "In Google Analytics, click 'Admin' (gear icon, bottom left)",
+        "In 'Account' column, ensure 'Elevate for Humanity' is selected",
+        "Click 'Create Property' button",
+        "Property name: 'LMS Platform - elevateconnectsdirectory.org'",
+        "Same time zone and currency as before",
+        "Click 'Next'",
+        "Same industry and business size",
+        "Click 'Create'"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the LMS property?"
+      }
+    },
+    {
+      "step": 8,
+      "title": "Setup Data Stream for LMS Platform",
+      "type": "manual",
+      "instructions": [
+        "Platform: Select 'Web'",
+        "Website URL: 'https://elevateconnectsdirectory.org'",
+        "Stream name: 'LMS Platform Production'",
+        "Click 'Create stream'",
+        "IMPORTANT: Copy the Measurement ID (different from marketing site)",
+        "Save this ID - you'll need it for Netlify"
+      ],
+      "validation": {
+        "type": "regex",
+        "pattern": "^G-[A-Z0-9]{10}$",
+        "message": "Please enter the LMS Measurement ID (format: G-XXXXXXXXXX)"
+      },
+      "output": {
+        "variable": "LMS_GA_ID",
+        "save_to_file": "analysis/ga-lms-id.txt"
+      }
+    },
+    {
+      "step": 9,
+      "title": "Configure Enhanced Measurement (LMS Platform)",
+      "type": "manual",
+      "instructions": [
+        "In the LMS Data Stream settings, scroll to 'Enhanced measurement'",
+        "Toggle ON",
+        "Verify these are checked:",
+        "  ✓ Page views",
+        "  ✓ Scrolls",
+        "  ✓ Outbound clicks",
+        "  ✓ Site search",
+        "  ✓ Video engagement (important for course videos)",
+        "  ✓ File downloads (important for certificates)",
+        "Click 'Save'"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you enabled Enhanced Measurement for LMS?"
+      }
+    },
+    {
+      "step": 10,
+      "title": "Add Custom Events for LMS",
+      "type": "manual",
+      "instructions": [
+        "In LMS Data Stream, scroll to 'Events'",
+        "Click 'Create event'",
+        "Create these custom events:",
+        "",
+        "Event 1: course_enrollment",
+        "  - Matching conditions: event_name equals 'enroll'",
+        "  - Parameter: course_id",
+        "",
+        "Event 2: course_completion",
+        "  - Matching conditions: event_name equals 'complete'",
+        "  - Parameter: course_id",
+        "",
+        "Event 3: certificate_download",
+        "  - Matching conditions: event_name equals 'download'",
+        "  - Parameter: certificate_id",
+        "",
+        "Click 'Create' for each event"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the custom events?"
+      },
+      "optional": true,
+      "help_url": "https://support.google.com/analytics/answer/12229021"
+    },
+    {
+      "step": 11,
+      "title": "Add Google Analytics to Netlify (LMS Platform)",
+      "type": "manual",
+      "instructions": [
+        "Open new tab: https://app.netlify.com/",
+        "Log in to Netlify",
+        "Select site: 'elevateconnectsdirectory.org' or site ID: 12f120ab-3f63-419b-bc49-430f043415c1",
+        "Go to: Site settings → Environment variables",
+        "Click 'Add a variable'",
+        "Key: NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "Value: [Paste LMS Measurement ID from Step 8]",
+        "Scopes: Select 'All' or 'Production'",
+        "Click 'Create variable'",
+        "Click 'Trigger deploy' to redeploy with new variable"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you added GA_MEASUREMENT_ID to Netlify?"
+      },
+      "screenshots_needed": true
+    },
+    {
+      "step": 12,
+      "title": "Add to GitHub Secrets (Backup)",
+      "type": "manual",
+      "instructions": [
+        "Open new tab: https://github.com/elevateforhumanity/fix2/settings/secrets/actions",
+        "Click 'New repository secret'",
+        "Name: NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "Secret: [Paste LMS Measurement ID from Step 8]",
+        "Click 'Add secret'",
+        "This ensures the ID is available for future deployments"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you added the secret to GitHub?"
+      }
+    },
+    {
+      "step": 13,
+      "title": "Wait for Netlify Deployment",
+      "type": "manual",
+      "instructions": [
+        "Go back to Netlify tab",
+        "Click 'Deploys' in top navigation",
+        "Wait for deployment to complete (usually 2-3 minutes)",
+        "Status should show: 'Published'",
+        "Note the deployment time"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Has the deployment completed successfully?"
+      },
+      "timeout": 300
+    },
+    {
+      "step": 14,
+      "title": "Verify LMS Tracking",
+      "type": "manual",
+      "instructions": [
+        "Go back to Google Analytics tab",
+        "Switch to LMS property (dropdown at top)",
+        "Click 'Reports' → 'Realtime'",
+        "Open new tab: https://elevateconnectsdirectory.org",
+        "Navigate to a few pages (courses, login, etc.)",
+        "Go back to Realtime report",
+        "You should see 1 active user and page views",
+        "Verify pages are being tracked correctly"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Do you see LMS activity in Realtime report?"
+      },
+      "troubleshooting": [
+        "If no users appear:",
+        "  1. Verify deployment completed successfully",
+        "  2. Check Measurement ID in Netlify is correct",
+        "  3. Clear browser cache",
+        "  4. Check browser console for errors (F12)",
+        "  5. Wait 5 minutes and try again"
+      ]
+    },
+    {
+      "step": 15,
+      "title": "Configure Goals and Conversions",
+      "type": "manual",
+      "instructions": [
+        "In Google Analytics, go to: Admin → Data display → Events",
+        "Mark these events as conversions:",
+        "",
+        "For Marketing Site:",
+        "  - Click 'Mark as conversion' for:",
+        "    • form_submit (contact forms)",
+        "    • click (CTA buttons to LMS)",
+        "",
+        "For LMS Platform:",
+        "  - Click 'Mark as conversion' for:",
+        "    • sign_up (new user registration)",
+        "    • purchase (course payments)",
+        "    • course_enrollment",
+        "    • course_completion",
+        "    • certificate_download"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you marked key events as conversions?"
+      },
+      "help_url": "https://support.google.com/analytics/answer/9267568"
+    },
+    {
+      "step": 16,
+      "title": "Setup Audience Segments",
+      "type": "manual",
+      "instructions": [
+        "Go to: Admin → Data display → Audiences",
+        "Click 'New audience'",
+        "",
+        "Create these audiences:",
+        "",
+        "1. 'Enrolled Students'",
+        "   - Condition: event_name = course_enrollment",
+        "   - Membership duration: 540 days",
+        "",
+        "2. 'Course Completers'",
+        "   - Condition: event_name = course_completion",
+        "   - Membership duration: 540 days",
+        "",
+        "3. 'High Engagement Users'",
+        "   - Condition: session_duration > 180 seconds",
+        "   - AND: page_views > 5",
+        "",
+        "Click 'Save' for each audience"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the audience segments?"
+      },
+      "optional": true
+    },
+    {
+      "step": 17,
+      "title": "Link Google Search Console (Marketing Site)",
+      "type": "manual",
+      "instructions": [
+        "In Google Analytics, go to: Admin → Product links",
+        "Click 'Search Console links'",
+        "Click 'Link'",
+        "Select property: 'www.elevateforhumanity.org'",
+        "Click 'Next'",
+        "Select web stream: 'Marketing Site Production'",
+        "Click 'Next'",
+        "Click 'Submit'",
+        "This enables SEO data in GA reports"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you linked Search Console?"
+      },
+      "prerequisites": ["Google Search Console must be set up first"],
+      "optional": true
+    },
+    {
+      "step": 18,
+      "title": "Create Custom Dashboard",
+      "type": "manual",
+      "instructions": [
+        "Go to: Reports → Library",
+        "Click 'Create new report'",
+        "Select 'Blank report'",
+        "Name: 'LMS Performance Dashboard'",
+        "",
+        "Add these cards:",
+        "  1. Total Users (metric)",
+        "  2. Course Enrollments (custom event)",
+        "  3. Course Completions (custom event)",
+        "  4. Certificate Downloads (custom event)",
+        "  5. Top Courses (dimension: course_id)",
+        "  6. User Engagement (session duration)",
+        "",
+        "Click 'Save'",
+        "Pin to home screen"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you created the custom dashboard?"
+      },
+      "optional": true
+    },
+    {
+      "step": 19,
+      "title": "Setup Email Reports",
+      "type": "manual",
+      "instructions": [
+        "Go to any report (e.g., Realtime)",
+        "Click 'Share' icon (top right)",
+        "Select 'Schedule email'",
+        "Frequency: 'Weekly' (every Monday)",
+        "Recipients: Add admin email addresses",
+        "Include: 'PDF attachment'",
+        "Click 'Schedule'",
+        "",
+        "Create reports for:",
+        "  - Weekly performance summary",
+        "  - Monthly enrollment report",
+        "  - Quarterly completion report"
+      ],
+      "validation": {
+        "type": "confirmation",
+        "message": "Have you setup email reports?"
+      },
+      "optional": true
+    },
+    {
+      "step": 20,
+      "title": "Document Configuration",
+      "type": "automated",
+      "instructions": [
+        "Save all Measurement IDs to secure location",
+        "Document which ID is for which site:",
+        "  - Marketing: [ID from Step 3]",
+        "  - LMS: [ID from Step 8]",
+        "Create backup of configuration",
+        "Share access with team members if needed"
+      ],
+      "output": {
+        "save_to_file": "analysis/google-analytics-config.json",
+        "format": "json",
+        "fields": [
+          "marketing_measurement_id",
+          "lms_measurement_id",
+          "account_id",
+          "setup_date",
+          "configured_by"
+        ]
+      }
+    }
+  ],
+  "completion": {
+    "message": "✅ Google Analytics setup complete for both sites!",
+    "next_steps": [
+      "Monitor Realtime reports for 24 hours",
+      "Check data appears in standard reports (24-48 hours)",
+      "Review conversion tracking weekly",
+      "Adjust goals and audiences as needed"
+    ],
+    "documentation": [
+      "analysis/ga-marketing-id.txt",
+      "analysis/ga-lms-id.txt",
+      "analysis/google-analytics-config.json"
+    ]
+  },
+  "rollback": {
+    "instructions": [
+      "Remove Measurement ID from Durable settings",
+      "Remove NEXT_PUBLIC_GA_MEASUREMENT_ID from Netlify",
+      "Delete properties in Google Analytics if needed"
+    ]
+  },
+  "support": {
+    "documentation": "https://support.google.com/analytics/",
+    "video_tutorial": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "contact": "Google Analytics support chat"
+  }
+}

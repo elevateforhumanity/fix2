@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { DoceboHeader } from '@/components/DoceboHeader';
-import { createServerSupabaseClient } from '@/lib/auth';
+import { createServerSupabaseClient, createBuildTimeSupabaseClient } from '@/lib/auth';
 
 // ISR: Revalidate every 60 seconds
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const supabase = await createServerSupabaseClient();
+  const supabase = createBuildTimeSupabaseClient();
   const { data: programs } = await supabase.from('programs').select('slug');
   
   return programs?.map((program) => ({

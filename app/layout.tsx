@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
@@ -23,6 +25,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: '9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so',
+    other: {
+      'msvalidate.01': 'add-your-bing-verification-code-here',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -35,8 +43,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/assets/logo-efh.svg" />
         <meta name="theme-color" content="#2563EB" />
+        <StructuredData />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
