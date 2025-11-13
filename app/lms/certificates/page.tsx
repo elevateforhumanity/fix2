@@ -11,6 +11,11 @@ export const metadata = {
 export default async function CertificatesPage() {
   await requireStudent();
   const user = await getCurrentUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+  
   const supabase = await createServerSupabaseClient();
 
   // Fetch user's certificates
@@ -51,7 +56,10 @@ export default async function CertificatesPage() {
   // Filter out enrollments that already have certificates
   const certificateCourseIds = certificates?.map(c => c.course_title) || [];
   const pendingCertificates = completedEnrollments?.filter(
-    e => !certificateCourseIds.includes(e.courses.title)
+    e => {
+      const courseTitle = Array.isArray(e.courses) ? e.courses[0]?.title : e.courses?.title;
+      return courseTitle && !certificateCourseIds.includes(courseTitle);
+    }
   ) || [];
 
   return (
