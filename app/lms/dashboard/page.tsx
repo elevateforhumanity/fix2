@@ -15,6 +15,7 @@ export const metadata = {
 const enrolledCourses = [
   {
     id: 1,
+    slug: 'barber-apprenticeship',
     title: 'Barber Apprenticeship',
     progress: 100,
     nextLesson: 'Course Completed!',
@@ -27,6 +28,7 @@ const enrolledCourses = [
   },
   {
     id: 2,
+    slug: 'cna-training',
     title: 'CNA Certification Prep',
     progress: 65,
     nextLesson: 'Module 3: Infection Control',
@@ -39,6 +41,7 @@ const enrolledCourses = [
   },
   {
     id: 3,
+    slug: 'hvac-tech',
     title: 'HVAC Technician Training',
     progress: 23,
     nextLesson: 'Module 2: Heating Systems',

@@ -35,6 +35,9 @@ tasks:
       echo "🎓 Welcome to Elevate for Humanity LMS Development"
       echo ""
       bash scripts/setup.sh
+      echo ""
+      echo "🎨 Generating course covers..."
+      node scripts/generate-course-covers.mjs
     command: |
       echo ""
       echo "✅ Workspace ready!"
@@ -49,6 +52,7 @@ tasks:
       echo "   bash scripts/verify-env.sh      - Check environment variables"
       echo "   bash scripts/test.sh            - Run all checks"
       echo "   bash scripts/netlify-preview.sh - Deploy preview"
+      echo "   npm run generate-covers         - Regenerate course covers"
       echo ""
       echo "🚀 Starting dev server..."
       bash scripts/dev.sh
