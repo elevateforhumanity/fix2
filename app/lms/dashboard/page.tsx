@@ -200,12 +200,14 @@ export default async function LMSDashboard() {
                     </div>
                   </div>
                   
-                  <Link 
-                    href={`/lms/courses/${course.id}`}
-                    className={course.status === 'completed' ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block'}
-                  >
-                    {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
-                  </Link>
+                  <div>
+                    <Link 
+                      href={`/lms/courses/${course.id}`}
+                      className={course.status === 'completed' ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block'}
+                    >
+                      {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
