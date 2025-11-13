@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -16,94 +16,201 @@ import {
   Reply,
   Trash2,
   User,
-  Clock
+  Clock,
+  Loader2
 } from 'lucide-react';
 
-// Mock messages data
-const messages = [
-  {
-    id: 1,
-    from: 'Sarah Johnson',
-    fromRole: 'Instructor',
-    subject: 'Great work on your assignment!',
-    preview: 'I wanted to commend you on your excellent work on the patient care assignment...',
-    body: 'I wanted to commend you on your excellent work on the patient care assignment. Your analysis was thorough and showed deep understanding of the concepts. Keep up the great work!',
-    time: '2 hours ago',
-    read: false,
-    courseId: 2,
-    courseName: 'CNA Certification Prep',
-  },
-  {
-    id: 2,
-    from: 'Michael Chen',
-    fromRole: 'Instructor',
-    subject: 'Question about Module 3',
-    preview: 'Hi, I noticed you had a question during the live session about infection control...',
-    body: 'Hi, I noticed you had a question during the live session about infection control procedures. I wanted to follow up and provide some additional resources that might help clarify the topic. Please let me know if you need any further assistance.',
-    time: '1 day ago',
-    read: true,
-    courseId: 2,
-    courseName: 'CNA Certification Prep',
-  },
-  {
-    id: 3,
-    from: 'David Martinez',
-    fromRole: 'Instructor',
-    subject: 'Upcoming Live Session Reminder',
-    preview: 'Just a reminder that we have a live session scheduled for tomorrow...',
-    body: 'Just a reminder that we have a live session scheduled for tomorrow at 2 PM EST. We will be covering HVAC safety procedures. Please make sure to review the pre-session materials.',
-    time: '2 days ago',
-    read: true,
-    courseId: 3,
-    courseName: 'HVAC Technician Training',
-  },
-];
-
-const sentMessages = [
-  {
-    id: 4,
-    to: 'Sarah Johnson',
-    toRole: 'Instructor',
-    subject: 'Question about final exam',
-    preview: 'Hi Professor Johnson, I have a question about the format of the final exam...',
-    body: 'Hi Professor Johnson, I have a question about the format of the final exam. Will it be multiple choice or essay format? Also, what topics should I focus on most?',
-    time: '3 days ago',
-    courseId: 2,
-    courseName: 'CNA Certification Prep',
-  },
-];
+type Message = {
+  id: string;
+  subject: string;
+  body: string;
+  read: boolean;
+  created_at: string;
+  sender: {
+    id: string;
+    email: string;
+    profiles: {
+      full_name: string;
+    };
+  };
+  recipient: {
+    id: string;
+    email: string;
+    profiles: {
+      full_name: string;
+    };
+  };
+};
 
 export default function MessagesPage() {
-  const [selectedMessage, setSelectedMessage] = useState<any>(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [sentMessages, setSentMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [showCompose, setShowCompose] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [replyText, setReplyText] = useState('');
+  const [sending, setSending] = useState(false);
   
   // Compose form state
   const [composeTo, setComposeTo] = useState('');
   const [composeSubject, setComposeSubject] = useState('');
   const [composeBody, setComposeBody] = useState('');
 
-  const unreadCount = messages.filter(m => !m.read).length;
+  // Fetch messages on mount
+  useEffect(() => {
+    fetchMessages();
+  }, []);
 
-  const handleSendReply = () => {
-    alert('Reply sent!');
-    setReplyText('');
-    setSelectedMessage(null);
+  const fetchMessages = async () => {
+    try {
+      setLoading(true);
+      
+      // Fetch inbox
+      const inboxRes = await fetch('/api/messages?type=inbox');
+      const inboxData = await inboxRes.json();
+      
+      // Fetch sent
+      const sentRes = await fetch('/api/messages?type=sent');
+      const sentData = await sentRes.json();
+      
+      setMessages(inboxData.messages || []);
+      setSentMessages(sentData.messages || []);
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleSendMessage = () => {
-    alert('Message sent!');
-    setShowCompose(false);
-    setComposeTo('');
-    setComposeSubject('');
-    setComposeBody('');
+  const handleMarkAsRead = async (messageId: string) => {
+    try {
+      await fetch(`/api/messages/${messageId}`, {
+        method: 'PATCH',
+      });
+      
+      // Update local state
+      setMessages(messages.map(m => 
+        m.id === messageId ? { ...m, read: true } : m
+      ));
+    } catch (error) {
+      console.error('Error marking message as read:', error);
+    }
+  };
+
+  const handleSendReply = async () => {
+    if (!selectedMessage || !replyText.trim()) return;
+    
+    try {
+      setSending(true);
+      await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          recipientId: selectedMessage.sender.id,
+          subject: `Re: ${selectedMessage.subject}`,
+          messageBody: replyText,
+        }),
+      });
+      
+      setReplyText('');
+      setSelectedMessage(null);
+      fetchMessages(); // Refresh messages
+    } catch (error) {
+      console.error('Error sending reply:', error);
+      alert('Failed to send reply');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (!composeTo.trim() || !composeSubject.trim() || !composeBody.trim()) {
+      alert('Please fill in all fields');
+      return;
+    }
+    
+    try {
+      setSending(true);
+      await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          recipientId: composeTo,
+          subject: composeSubject,
+          messageBody: composeBody,
+        }),
+      });
+      
+      setShowCompose(false);
+      setComposeTo('');
+      setComposeSubject('');
+      setComposeBody('');
+      fetchMessages(); // Refresh messages
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleDeleteMessage = async (messageId: string) => {
+    if (!confirm('Are you sure you want to delete this message?')) return;
+    
+    try {
+      await fetch(`/api/messages/${messageId}`, {
+        method: 'DELETE',
+      });
+      
+      setMessages(messages.filter(m => m.id !== messageId));
+      setSentMessages(sentMessages.filter(m => m.id !== messageId));
+      setSelectedMessage(null);
+    } catch (error) {
+      console.error('Error deleting message:', error);
+      alert('Failed to delete message');
+    }
+  };
+
+  const unreadCount = messages.filter(m => !m.read).length;
+
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMins / 60);
+    const diffDays = Math.floor(diffHours / 24);
+    
+    if (diffMins < 60) return `${diffMins} minutes ago`;
+    if (diffHours < 24) return `${diffHours} hours ago`;
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return date.toLocaleDateString();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <LMSNav />
+        <div className="flex items-center justify-center h-96">
+          <Loader2 className="h-8 w-8 animate-spin text-red-600" />
+        </div>
+      </div>
+    );
   };
 
   const filteredMessages = messages.filter(m => 
     m.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    m.from.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    m.preview.toLowerCase().includes(searchQuery.toLowerCase())
+    m.sender?.profiles?.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    m.sender?.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    m.body.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const filteredSentMessages = sentMessages.filter(m => 
+    m.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    m.recipient?.profiles?.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    m.recipient?.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    m.body.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -171,9 +278,13 @@ export default function MessagesPage() {
                     onChange={(e) => setComposeBody(e.target.value)}
                   />
                 </div>
-                <Button onClick={handleSendMessage} className="w-full">
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                <Button onClick={handleSendMessage} className="w-full" disabled={sending}>
+                  {sending ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2 h-4 w-4" />
+                  )}
+                  {sending ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
             </CardContent>
@@ -216,7 +327,12 @@ export default function MessagesPage() {
                       className={`cursor-pointer transition-all ${
                         !message.read ? 'border-l-4 border-l-primary bg-primary/5' : ''
                       } ${selectedMessage?.id === message.id ? 'ring-2 ring-primary' : ''}`}
-                      onClick={() => setSelectedMessage(message)}
+                      onClick={() => {
+                        setSelectedMessage(message);
+                        if (!message.read) {
+                          handleMarkAsRead(message.id);
+                        }
+                      }}
                     >
                       <CardContent className="pt-4">
                         <div className="flex items-start justify-between mb-2">
@@ -226,9 +342,9 @@ export default function MessagesPage() {
                             </div>
                             <div>
                               <p className={`text-sm font-medium ${!message.read ? 'font-bold' : ''}`}>
-                                {message.from}
+                                {message.sender?.profiles?.full_name || message.sender?.email || 'Unknown'}
                               </p>
-                              <p className="text-xs text-muted-foreground">{message.fromRole}</p>
+                              <p className="text-xs text-muted-foreground">Instructor</p>
                             </div>
                           </div>
                           {!message.read && (
@@ -239,11 +355,10 @@ export default function MessagesPage() {
                           {message.subject}
                         </p>
                         <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
-                          {message.preview}
+                          {message.body.substring(0, 100)}...
                         </p>
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
-                          <span>{message.courseName}</span>
-                          <span>{message.time}</span>
+                          <span>{formatTime(message.created_at)}</span>
                         </div>
                       </CardContent>
                     </Card>
@@ -272,11 +387,11 @@ export default function MessagesPage() {
                                 <User className="h-6 w-6" />
                               </div>
                               <div>
-                                <p className="font-semibold">{selectedMessage.from}</p>
-                                <p className="text-sm text-muted-foreground">{selectedMessage.fromRole}</p>
+                                <p className="font-semibold">{selectedMessage.sender?.profiles?.full_name || selectedMessage.sender?.email || 'Unknown'}</p>
+                                <p className="text-sm text-muted-foreground">Instructor</p>
                               </div>
                             </div>
-                            <Button variant="ghost" size="sm">
+                            <Button variant="ghost" size="sm" onClick={() => handleDeleteMessage(selectedMessage.id)}>
                               <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>
@@ -284,7 +399,7 @@ export default function MessagesPage() {
                           <div className="flex items-center gap-4 text-sm text-muted-foreground">
                             <span className="flex items-center gap-1">
                               <Clock className="h-4 w-4" />
-                              {selectedMessage.time}
+                              {formatTime(selectedMessage.created_at)}
                             </span>
                             <span>{selectedMessage.courseName}</span>
                           </div>
@@ -307,9 +422,13 @@ export default function MessagesPage() {
                             value={replyText}
                             onChange={(e) => setReplyText(e.target.value)}
                           />
-                          <Button onClick={handleSendReply} disabled={!replyText.trim()}>
-                            <Send className="mr-2 h-4 w-4" />
-                            Send Reply
+                          <Button onClick={handleSendReply} disabled={!replyText.trim() || sending}>
+                            {sending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <Send className="mr-2 h-4 w-4" />
+                            )}
+                            {sending ? 'Sending...' : 'Send Reply'}
                           </Button>
                         </div>
                       </div>
@@ -330,31 +449,42 @@ export default function MessagesPage() {
           {/* Sent Tab */}
           <TabsContent value="sent">
             <div className="space-y-2">
-              {sentMessages.map((message) => (
-                <Card key={message.id}>
-                  <CardContent className="pt-4">
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                          <User className="h-4 w-4" />
+              {filteredSentMessages.length > 0 ? (
+                filteredSentMessages.map((message) => (
+                  <Card key={message.id}>
+                    <CardContent className="pt-4">
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <User className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">To: {message.recipient?.profiles?.full_name || message.recipient?.email || 'Unknown'}</p>
+                            <p className="text-xs text-muted-foreground">Instructor</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm font-medium">To: {message.to}</p>
-                          <p className="text-xs text-muted-foreground">{message.toRole}</p>
-                        </div>
+                        <Button variant="ghost" size="sm" onClick={() => handleDeleteMessage(message.id)}>
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
-                    </div>
-                    <p className="text-sm font-semibold mb-1">{message.subject}</p>
-                    <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
-                      {message.preview}
-                    </p>
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                      <span>{message.courseName}</span>
-                      <span>{message.time}</span>
-                    </div>
+                      <p className="text-sm font-semibold mb-1">{message.subject}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
+                        {message.body.substring(0, 100)}...
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>{formatTime(message.created_at)}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                <Card>
+                  <CardContent className="py-12 text-center">
+                    <Send className="h-16 w-16 mx-auto mb-4 text-muted-foreground opacity-50" />
+                    <p className="text-muted-foreground">No sent messages</p>
                   </CardContent>
                 </Card>
-              ))}
+              )}
             </div>
           </TabsContent>
         </Tabs>
