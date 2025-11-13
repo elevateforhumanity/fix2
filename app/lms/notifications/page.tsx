@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -16,11 +16,23 @@ import {
   FileText,
   AlertCircle,
   Trash2,
-  Check
+  Check,
+  Loader2
 } from 'lucide-react';
 
-// Mock notifications
-const notifications = [
+type Notification = {
+  id: string;
+  type: string;
+  title: string;
+  message: string;
+  course?: string;
+  created_at: string;
+  read: boolean;
+  priority?: string;
+};
+
+// Mock notifications (fallback)
+const mockNotifications = [
   {
     id: 1,
     type: 'assignment',
@@ -113,8 +125,56 @@ const getNotificationIcon = (type: string) => {
 };
 
 export default function NotificationsPage() {
-  const [notificationList, setNotificationList] = useState(notifications);
+  const [notificationList, setNotificationList] = useState<Notification[]>([]);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'unread'>('all');
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      // For now, use analytics events as notifications
+      const res = await fetch('/api/analytics/events?limit=50');
+      const data = await res.json();
+      
+      // Transform events into notifications
+      const notifications: Notification[] = (data.events || []).map((event: any) => ({
+        id: event.id,
+        type: event.event_type || 'info',
+        title: formatEventTitle(event.event_type),
+        message: event.event_data?.message || formatEventMessage(event),
+        course: event.event_data?.course_title,
+        created_at: event.created_at,
+        read: false,
+        priority: 'medium'
+      }));
+      
+      setNotificationList(notifications.length > 0 ? notifications : mockNotifications);
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+      setNotificationList(mockNotifications);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatEventTitle = (eventType: string) => {
+    const titles: Record<string, string> = {
+      'course_enrolled': 'Course Enrollment',
+      'lesson_completed': 'Lesson Completed',
+      'quiz_completed': 'Quiz Completed',
+      'certificate_earned': 'Certificate Earned',
+      'assignment_submitted': 'Assignment Submitted',
+      'message_received': 'New Message'
+    };
+    return titles[eventType] || 'Notification';
+  };
+
+  const formatEventMessage = (event: any) => {
+    return event.event_data?.description || 'You have a new notification';
+  };
 
   const unreadCount = notificationList.filter(n => !n.read).length;
   
@@ -122,7 +182,7 @@ export default function NotificationsPage() {
     ? notificationList.filter(n => !n.read)
     : notificationList;
 
-  const markAsRead = (id: number) => {
+  const markAsRead = (id: string) => {
     setNotificationList(notificationList.map(n => 
       n.id === id ? { ...n, read: true } : n
     ));
@@ -132,9 +192,34 @@ export default function NotificationsPage() {
     setNotificationList(notificationList.map(n => ({ ...n, read: true })));
   };
 
-  const deleteNotification = (id: number) => {
+  const deleteNotification = (id: string) => {
     setNotificationList(notificationList.filter(n => n.id !== id));
   };
+
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMins / 60);
+    const diffDays = Math.floor(diffHours / 24);
+    
+    if (diffMins < 60) return `${diffMins} minutes ago`;
+    if (diffHours < 24) return `${diffHours} hours ago`;
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return date.toLocaleDateString();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <LMSNav />
+        <div className="flex items-center justify-center h-96">
+          <Loader2 className="h-8 w-8 animate-spin text-red-600" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -222,7 +307,7 @@ export default function NotificationsPage() {
                           {notification.course}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {notification.time}
+                          {formatTime(notification.created_at)}
                         </span>
                         {notification.priority === 'high' && (
                           <Badge variant="destructive" className="text-xs">
