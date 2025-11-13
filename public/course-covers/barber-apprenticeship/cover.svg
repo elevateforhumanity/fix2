@@ -1,0 +1,33 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="barberbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#barberbg)"/>
+  
+  <!-- Overlay -->
+  <rect width="1200" height="800" fill="rgba(0,0,0,0.3)"/>
+  
+  <!-- Content -->
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    BARBER APPRENTICESHIP
+  </text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" opacity="0.9">
+    Professional Barbering &amp; Cosmetology Training
+  </text>
+  
+  <!-- Icon placeholder -->
+  <circle cx="600" cy="500" r="80" fill="white" opacity="0.2"/>
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="60" fill="white" text-anchor="middle">✂️</text>
+  
+  <!-- Bottom bar -->
+  <rect y="720" width="1200" height="80" fill="rgba(255,255,255,0.1)"/>
+  <text x="600" y="770" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">
+    ELEVATE FOR HUMANITY
+  </text>
+</svg>
