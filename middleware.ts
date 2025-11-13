@@ -1,52 +1,131 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse, type NextRequest } from 'next/server';
 
-// Protected routes that require authentication
-const protectedRoutes = [
-  '/student-portal',
-  '/lms/dashboard',
-  '/lms/courses',
-  '/certificates',
-];
+export async function middleware(request: NextRequest) {
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
 
-// Admin routes that require admin role
-const adminRoutes = ['/admin', '/admin/dashboard'];
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: any) {
+          request.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+          response = NextResponse.next({
+            request: {
+              headers: request.headers,
+            },
+          });
+          response.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+        },
+        remove(name: string, options: any) {
+          request.cookies.set({
+            name,
+            value: '',
+            ...options,
+          });
+          response = NextResponse.next({
+            request: {
+              headers: request.headers,
+            },
+          });
+          response.cookies.set({
+            name,
+            value: '',
+            ...options,
+          });
+        },
+      },
+    }
+  );
 
-export function middleware(request: NextRequest) {
+  const { data: { session } } = await supabase.auth.getSession();
   const { pathname } = request.nextUrl;
 
-  // Check if route is protected
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
+  // Public routes that don't require auth
+  const publicRoutes = [
+    '/',
+    '/login',
+    '/signup',
+    '/about',
+    '/contact',
+    '/faq',
+    '/blog',
+    '/programs',
+    '/pricing',
+    '/demo',
+    '/compare',
+    '/privacy-policy',
+    '/terms-of-service',
+    '/cert/verify',
+  ];
+
+  const isPublicRoute = publicRoutes.some(route => 
+    pathname === route || pathname.startsWith(`${route}/`)
   );
-  const isAdminRoute = adminRoutes.some((route) => pathname.startsWith(route));
 
-  // Get auth token from cookie (adjust based on your auth implementation)
-  const token = request.cookies.get('auth-token')?.value;
-  const userRole = request.cookies.get('user-role')?.value;
-
-  // Redirect to login if accessing protected route without auth
-  if (isProtectedRoute && !token) {
-    const loginUrl = new URL('/login', request.url);
-    loginUrl.searchParams.set('redirect', pathname);
-    return NextResponse.redirect(loginUrl);
+  // Allow public routes
+  if (isPublicRoute) {
+    // Add security headers
+    response.headers.set('X-Frame-Options', 'DENY');
+    response.headers.set('X-Content-Type-Options', 'nosniff');
+    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    return response;
   }
 
-  // Redirect to home if accessing admin route without admin role
-  if (isAdminRoute && userRole !== 'admin') {
-    return NextResponse.redirect(new URL('/', request.url));
+  // Redirect to login if not authenticated
+  if (!session) {
+    const redirectUrl = new URL('/login', request.url);
+    redirectUrl.searchParams.set('redirect', pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  // Get user role
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', session.user.id)
+    .single();
+
+  const role = profile?.role;
+
+  // Role-based route protection
+  if (pathname.startsWith('/admin') && role !== 'admin') {
+    return NextResponse.redirect(new URL('/unauthorized', request.url));
+  }
+
+  if (pathname.startsWith('/program-holder') && role !== 'program_holder' && role !== 'admin') {
+    return NextResponse.redirect(new URL('/unauthorized', request.url));
+  }
+
+  if (pathname.startsWith('/delegate') && role !== 'delegate' && role !== 'admin') {
+    return NextResponse.redirect(new URL('/unauthorized', request.url));
+  }
+
+  if (pathname.startsWith('/lms') && role !== 'student' && role !== 'admin') {
+    return NextResponse.redirect(new URL('/unauthorized', request.url));
   }
 
   // Add security headers
-  const response = NextResponse.next();
-  
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set(
-    'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=()'
-  );
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
   return response;
 }

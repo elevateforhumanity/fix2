@@ -1,61 +1,22 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Clock, Award, TrendingUp, Target, Calendar } from 'lucide-react';
 import LMSNav from '@/components/lms/LMSNav';
 import LoginTracker from '@/components/lms/LoginTracker';
+import AttendanceTracker from '@/components/lms/AttendanceTracker';
 import { ActivityFeed } from '@/components/dashboard/ActivityFeed';
 import { ProgressChart } from '@/components/dashboard/ProgressChart';
 import { UpcomingCalendar } from '@/components/dashboard/UpcomingCalendar';
+import { getCurrentUser, requireStudent } from '@/lib/auth';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 export const metadata = {
   title: 'Dashboard | Elevate LMS',
   description: 'Your learning dashboard',
 };
-
-// Mock data - replace with Supabase queries
-const enrolledCourses = [
-  {
-    id: 1,
-    slug: 'barber-apprenticeship',
-    title: 'Barber Apprenticeship',
-    progress: 100,
-    nextLesson: 'Course Completed!',
-    thumbnail: '/course-covers/barber-apprenticeship/cover.svg',
-    totalLessons: 24,
-    completedLessons: 24,
-    status: 'completed',
-    instructor: 'Master Barber Johnson',
-    duration: '12 weeks',
-  },
-  {
-    id: 2,
-    slug: 'cna-training',
-    title: 'CNA Certification Prep',
-    progress: 65,
-    nextLesson: 'Module 3: Infection Control',
-    thumbnail: '/course-covers/cna-training/cover.svg',
-    totalLessons: 30,
-    completedLessons: 19,
-    status: 'active',
-    instructor: 'RN Sarah Martinez',
-    duration: '8 weeks',
-  },
-  {
-    id: 3,
-    slug: 'hvac-tech',
-    title: 'HVAC Technician Training',
-    progress: 23,
-    nextLesson: 'Module 2: Heating Systems',
-    thumbnail: '/course-covers/hvac-tech/cover.svg',
-    totalLessons: 28,
-    completedLessons: 7,
-    status: 'active',
-    instructor: 'Tech Specialist Mike Davis',
-    duration: '16 weeks',
-  },
-];
 
 const stats = [
   { label: 'Courses Enrolled', value: '4', icon: BookOpen, change: '+1 this month' },
@@ -69,10 +30,61 @@ const upcomingDeadlines = [
   { course: 'HVAC Technician Training', task: 'Safety Assessment', dueDate: '2024-11-18' },
 ];
 
-export default function LMSDashboard() {
+export default async function LMSDashboard() {
+  // Require student authentication
+  await requireStudent();
+  
+  const user = await getCurrentUser();
+  const supabase = createServerSupabaseClient();
+
+  // Fetch user's enrollments with course details
+  const { data: enrollments, error } = await supabase
+    .from('enrollments')
+    .select(`
+      id,
+      status,
+      progress,
+      enrolled_at,
+      courses (
+        id,
+        title,
+        slug,
+        description,
+        duration_weeks,
+        programs (
+          name,
+          slug
+        )
+      )
+    `)
+    .eq('student_id', user.id)
+    .order('enrolled_at', { ascending: false });
+
+  // Map enrollments to course cards
+  const enrolledCourses = enrollments?.map((enrollment: any) => {
+    const course = enrollment.courses;
+    const programSlug = course.programs?.slug || 'default';
+    
+    return {
+      id: course.id,
+      slug: course.slug,
+      title: course.title,
+      progress: enrollment.progress || 0,
+      nextLesson: enrollment.status === 'completed' ? 'Course Completed!' : 'Continue where you left off',
+      thumbnail: `/course-covers/${programSlug}/cover.svg`,
+      totalLessons: 24, // TODO: Calculate from modules/lessons
+      completedLessons: Math.floor((enrollment.progress || 0) * 24 / 100),
+      status: enrollment.status,
+      instructor: 'Instructor Name', // TODO: Add instructor to courses table
+      duration: `${course.duration_weeks} weeks`,
+    };
+  }) || [];
+
+  const firstName = user.user_metadata?.full_name?.split(' ')[0] || user.email?.split('@')[0] || 'Student';
   return (
     <div className="min-h-screen bg-gray-50">
       <LoginTracker />
+      <AttendanceTracker activityType="dashboard" />
       
       {/* Navigation */}
       <header className="elevate-nav">
@@ -101,14 +113,16 @@ export default function LMSDashboard() {
       <section className="elevate-hero">
         <div className="elevate-hero-content">
           <div className="elevate-hero-kicker">Student Learning Portal</div>
-          <h1 className="elevate-hero-title">Welcome back, John!</h1>
+          <h1 className="elevate-hero-title">Welcome back, {firstName}!</h1>
           <p className="elevate-hero-subtitle">
             Continue your learning journey and achieve your workforce training goals
           </p>
           <div className="flex gap-3">
-            <Link href="/lms/courses/2" className="elevate-btn-primary">
-              Continue Learning
-            </Link>
+            {enrolledCourses.length > 0 && (
+              <Link href={`/lms/courses/${enrolledCourses[0].id}`} className="elevate-btn-primary">
+                Continue Learning
+              </Link>
+            )}
             <Link href="/lms/progress" className="elevate-btn-secondary">
               View Progress
             </Link>
