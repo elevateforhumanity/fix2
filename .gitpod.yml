@@ -35,6 +35,11 @@ tasks:
       echo "🎓 Welcome to Elevate for Humanity LMS Development"
       echo ""
       mkdir -p scripts docs seeds
+      echo ""
+      echo "🔧 Setting up environment..."
+      chmod +x scripts/auto-setup-env.sh || true
+      ./scripts/auto-setup-env.sh || echo "⚠️  Environment setup needed - run: bash scripts/setup-env.sh"
+      echo ""
       echo "📚 Generating Elevate Script Pack..."
       chmod +x scripts/bootstrap-elevate-scripts.sh || true
       ./scripts/bootstrap-elevate-scripts.sh || echo "Run scripts/bootstrap-elevate-scripts.sh manually if needed."
@@ -42,6 +47,10 @@ tasks:
       echo "🌱 Generating Content Seeds..."
       chmod +x scripts/generate-elevate-seeds.sh || true
       ./scripts/generate-elevate-seeds.sh || echo "Run scripts/generate-elevate-seeds.sh manually if needed."
+      echo ""
+      echo "📘 Generating Digital Package..."
+      chmod +x scripts/generate-elevate-digital.sh || true
+      ./scripts/generate-elevate-digital.sh || echo "Run scripts/generate-elevate-digital.sh manually if needed."
       echo ""
       bash scripts/setup.sh || echo "Setup script not found, continuing..."
       echo ""
