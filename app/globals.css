@@ -2,67 +2,380 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-    
-    /* EFH Brand Colors */
-    --efh-red: #dc2626;
-    --efh-orange: #f97316;
-    --efh-blue: #2563eb;
-    --efh-bg: #ffffff;
-    --efh-surface: #f9fafb;
-    --efh-text: #111827;
-    --efh-muted: #6b7280;
-  }
+/* ============================================
+   ELEVATE CONNECTS BRAND THEME
+   Dark Mode Professional LMS Design System
+   ============================================ */
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-  }
+:root {
+  /* Brand colors */
+  --brand-bg: #050816;           /* deep navy background */
+  --brand-bg-soft: #0b1020;
+  --brand-surface: #111827;      /* card surface */
+  --brand-surface-soft: #1f2937;
+  --brand-primary: #f97316;      /* warm orange */
+  --brand-primary-soft: rgba(249, 115, 22, 0.12);
+  --brand-secondary: #38bdf8;    /* soft blue accent */
+  --brand-accent: #22c55e;       /* success green */
+
+  --brand-border-subtle: rgba(148, 163, 184, 0.35);
+  --brand-text: #f9fafb;
+  --brand-text-soft: #e5e7eb;
+  --brand-text-muted: #9ca3af;
+
+  --brand-radius-lg: 1.25rem;
+  --brand-radius-md: 0.875rem;
+  --brand-radius-pill: 999px;
+
+  --brand-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
+  --brand-shadow-subtle: 0 10px 24px rgba(15, 23, 42, 0.28);
+
+  --brand-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", sans-serif;
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global app background + typography */
+body {
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+  color: var(--brand-text);
+  font-family: var(--brand-font-sans);
+}
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+
+/* Generic app shell – wrap main content in a container with this class */
+.elevate-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #111827 0, #020617 55%, #000 100%);
+  padding: 1.5rem;
+}
+
+/* Top nav */
+.elevate-nav {
+  border-radius: var(--brand-radius-pill);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: linear-gradient(to right, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+  box-shadow: var(--brand-shadow-subtle);
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.elevate-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.elevate-logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 0.9rem;
+  background: radial-gradient(circle at 30% 0, #f97316 0, #ea580c 40%, #0ea5e9 100%);
+  box-shadow: 0 0 30px rgba(249,115,22,0.9);
+}
+
+/* Hero section for main dashboards */
+.elevate-hero {
+  margin-top: 1.5rem;
+  border-radius: var(--brand-radius-lg);
+  padding: 1.5rem 1.6rem;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+              linear-gradient(to bottom right, #020617, #020617, #020617);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.elevate-hero-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.elevate-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.18rem 0.75rem;
+  border-radius: var(--brand-radius-pill);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.45rem;
+  color: #bbf7d0;
+}
+
+/* ============================================
+   BUTTON SYSTEM
+   ============================================ */
+
+/* Buttons */
+.elevate-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--brand-radius-pill);
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0b1120;
+  background: linear-gradient(to right, #f97316, #fb923c);
+  box-shadow: 0 12px 30px rgba(249,115,22,0.4);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.elevate-btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 34px rgba(249,115,22,0.5);
+}
+
+.elevate-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--brand-radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15,23,42,0.9);
+  color: var(--brand-text-soft);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.elevate-btn-secondary:hover {
+  background: rgba(15,23,42,1);
+  border-color: rgba(148, 163, 184, 0.8);
+}
+
+/* ============================================
+   CARD SYSTEM
+   ============================================ */
+
+/* Cards – use on dashboard panels, program lists, etc. */
+.elevate-card {
+  border-radius: var(--brand-radius-md);
+  background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,0.9));
+  border: 1px solid var(--brand-border-subtle);
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.4);
+}
+
+.elevate-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.elevate-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.elevate-card-subtitle {
+  font-size: 0.75rem;
+  color: var(--brand-text-muted);
+}
+
+/* ============================================
+   BADGE / PILL SYSTEM
+   ============================================ */
+
+/* Pills / tags */
+.elevate-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: var(--brand-radius-pill);
+  font-size: 0.7rem;
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: var(--brand-text-muted);
+}
+
+.elevate-pill--success {
+  background: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.6);
+  color: #bbf7d0;
+}
+
+.elevate-pill--warning {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.6);
+  color: #fed7aa;
+}
+
+.elevate-pill--error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #fecaca;
+}
+
+.elevate-pill--info {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.6);
+  color: #bae6fd;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+/* Forms */
+.elevate-input,
+.elevate-textarea,
+.elevate-select {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15,23,42,0.9);
+  color: var(--brand-text);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.elevate-input:focus,
+.elevate-textarea:focus,
+.elevate-select:focus {
+  outline: none;
+  border-color: var(--brand-secondary);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
+.elevate-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-text-soft);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   TABLE SYSTEM
+   ============================================ */
+
+/* Tables (for reports / caseload) */
+.elevate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.elevate-table th,
+.elevate-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.elevate-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-text-muted);
+}
+
+.elevate-table tr:hover td {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* ============================================
+   PAGE HEADINGS
+   ============================================ */
+
+/* Page headings */
+.elevate-page-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.elevate-page-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.elevate-page-subtitle {
+  font-size: 0.8rem;
+  color: var(--brand-text-muted);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.elevate-link {
+  color: var(--brand-secondary);
+  text-decoration: none;
+  transition: color 0.1s ease;
+}
+
+.elevate-link:hover {
+  color: var(--brand-primary);
+}
+
+.elevate-divider {
+  height: 1px;
+  background: var(--brand-border-subtle);
+  margin: 1rem 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .elevate-shell {
+    padding: 1rem;
   }
-  body {
-    @apply bg-background text-foreground;
+  
+  .elevate-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .elevate-hero {
+    padding: 1.2rem;
+  }
+  
+  .elevate-hero-title {
+    font-size: 1.2rem;
   }
 }

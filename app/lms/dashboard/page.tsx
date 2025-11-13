@@ -59,175 +59,179 @@ const upcomingDeadlines = [
 
 export default function LMSDashboard() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="elevate-shell">
       <LoginTracker />
-      <LMSNav />
-
-      <main className="container mx-auto px-4 py-8">
-        {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Welcome back, John!</h1>
-          <p className="text-muted-foreground">Continue your learning journey and achieve your goals</p>
+      
+      {/* Navigation */}
+      <header className="elevate-nav">
+        <div className="elevate-logo">
+          <div className="elevate-logo-mark" />
+          <span>Elevate Connects</span>
         </div>
+        <div className="flex gap-3 items-center">
+          <Link href="/lms/courses" className="elevate-btn-secondary">
+            Browse Courses
+          </Link>
+          <Link href="/lms/profile" className="elevate-btn-secondary">
+            Profile
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="elevate-hero">
+        <div className="elevate-hero-kicker">Student / Learner Portal</div>
+        <h1 className="elevate-hero-title">Welcome back, John!</h1>
+        <p className="mt-1 text-sm text-slate-300">
+          Continue your learning journey and achieve your workforce training goals
+        </p>
+        <div className="mt-3 flex gap-2">
+          <Link href="/lms/courses/2" className="elevate-btn-primary">
+            Continue Learning
+          </Link>
+          <Link href="/lms/progress" className="elevate-btn-secondary">
+            View Progress
+          </Link>
+        </div>
+      </section>
+
+      <main className="mt-5">
 
         {/* Stats Grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-5">
           {stats.map((stat) => (
-            <Card key={stat.label}>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  {stat.label}
-                </CardTitle>
-                <stat.icon className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <p className="text-xs text-muted-foreground mt-1">{stat.change}</p>
-              </CardContent>
-            </Card>
+            <div key={stat.label} className="elevate-card">
+              <div className="elevate-card-header">
+                <div>
+                  <div className="elevate-card-subtitle">{stat.label}</div>
+                  <div className="text-2xl font-bold mt-1">{stat.value}</div>
+                </div>
+                <stat.icon className="h-5 w-5 text-slate-400" />
+              </div>
+              <p className="text-xs text-slate-400 mt-2">{stat.change}</p>
+            </div>
           ))}
         </div>
 
         {/* Continue Learning */}
-        <section className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold">Continue Learning</h2>
-            <Button variant="outline" asChild>
-              <Link href="/lms/courses">View All Courses</Link>
-            </Button>
+        <section className="mb-5">
+          <div className="elevate-page-heading">
+            <h2 className="elevate-page-title">Continue Learning</h2>
+            <Link href="/lms/courses" className="elevate-btn-secondary text-xs">
+              View All Courses
+            </Link>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {enrolledCourses.map((course) => (
-              <Card key={course.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-40 bg-gradient-to-br from-blue-500 to-purple-500 relative">
+              <div key={course.id} className="elevate-card">
+                <div className="h-32 bg-gradient-to-br from-orange-500 to-blue-500 relative rounded-lg mb-3">
                   {course.status === 'completed' && (
-                    <Badge className="absolute top-3 right-3 bg-green-600">
-                      <Award className="h-3 w-3 mr-1" />
+                    <span className="elevate-pill elevate-pill--success absolute top-2 right-2">
+                      <Award className="h-3 w-3" />
                       Completed
-                    </Badge>
+                    </span>
                   )}
                 </div>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-lg">{course.title}</CardTitle>
-                      <CardDescription className="mt-2">
-                        {course.nextLesson}
-                      </CardDescription>
+                <div className="elevate-card-header">
+                  <div>
+                    <h3 className="elevate-card-title">{course.title}</h3>
+                    <p className="elevate-card-subtitle mt-1">
+                      {course.nextLesson}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-3 space-y-3">
+                  {/* Progress Bar */}
+                  <div>
+                    <div className="flex justify-between text-xs mb-2">
+                      <span className="text-slate-400">Progress</span>
+                      <span className="font-medium text-slate-300">
+                        {course.completedLessons}/{course.totalLessons} lessons
+                      </span>
+                    </div>
+                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full transition-all ${
+                          course.status === 'completed' ? 'bg-green-500' : 'bg-orange-500'
+                        }`}
+                        style={{ width: `${course.progress}%` }}
+                      />
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {/* Progress Bar */}
-                    <div>
-                      <div className="flex justify-between text-sm mb-2">
-                        <span className="text-muted-foreground">Progress</span>
-                        <span className="font-medium">
-                          {course.completedLessons}/{course.totalLessons} lessons
-                        </span>
-                      </div>
-                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div
-                          className={`h-full transition-all ${
-                            course.status === 'completed' ? 'bg-green-600' : 'bg-primary'
-                          }`}
-                          style={{ width: `${course.progress}%` }}
-                        />
-                      </div>
-                    </div>
-                    <Button className="w-full" asChild variant={course.status === 'completed' ? 'outline' : 'default'}>
-                      <Link href={`/lms/courses/${course.id}`}>
-                        {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  <Link 
+                    href={`/lms/courses/${course.id}`}
+                    className={course.status === 'completed' ? 'elevate-btn-secondary w-full text-center block' : 'elevate-btn-primary w-full text-center block'}
+                  >
+                    {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
         {/* Upcoming Deadlines */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Upcoming Deadlines</h2>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                {upcomingDeadlines.map((deadline, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <Calendar className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="font-medium">{deadline.task}</p>
-                        <p className="text-sm text-muted-foreground">{deadline.course}</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm font-medium">
-                        {new Date(deadline.dueDate).toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {Math.ceil((new Date(deadline.dueDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days left
-                      </p>
+        <section className="mb-5">
+          <h2 className="elevate-page-title mb-3">Upcoming Deadlines</h2>
+          <div className="elevate-card">
+            <div className="space-y-3">
+              {upcomingDeadlines.map((deadline, index) => (
+                <div key={index} className="flex items-center justify-between p-3 border border-slate-700 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <Calendar className="h-5 w-5 text-orange-500" />
+                    <div>
+                      <p className="font-medium text-sm">{deadline.task}</p>
+                      <p className="text-xs text-slate-400">{deadline.course}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  <div className="text-right">
+                    <p className="text-sm font-medium">
+                      {new Date(deadline.dueDate).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric' 
+                      })}
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      {Math.ceil((new Date(deadline.dueDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days left
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Quick Actions */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">Quick Actions</h2>
+          <h2 className="elevate-page-title mb-3">Quick Actions</h2>
           <div className="grid gap-4 md:grid-cols-4">
-            <Link href="/lms/courses">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <CardHeader>
-                  <BookOpen className="h-8 w-8 mb-2 text-primary" />
-                  <CardTitle>Browse Courses</CardTitle>
-                  <CardDescription>
-                    Explore available training programs
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <Link href="/lms/courses" className="elevate-card hover:border-orange-500/50 transition-all">
+              <BookOpen className="h-7 w-7 mb-2 text-orange-500" />
+              <h3 className="elevate-card-title">Browse Courses</h3>
+              <p className="elevate-card-subtitle mt-1">
+                Explore available training programs
+              </p>
             </Link>
-            <Link href="/lms/progress">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <CardHeader>
-                  <TrendingUp className="h-8 w-8 mb-2 text-primary" />
-                  <CardTitle>My Progress</CardTitle>
-                  <CardDescription>
-                    Track your learning achievements
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <Link href="/lms/progress" className="elevate-card hover:border-blue-500/50 transition-all">
+              <TrendingUp className="h-7 w-7 mb-2 text-blue-500" />
+              <h3 className="elevate-card-title">My Progress</h3>
+              <p className="elevate-card-subtitle mt-1">
+                Track your learning achievements
+              </p>
             </Link>
-            <Link href="/lms/certificates">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <CardHeader>
-                  <Award className="h-8 w-8 mb-2 text-primary" />
-                  <CardTitle>My Certificates</CardTitle>
-                  <CardDescription>
-                    View and download certificates
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <Link href="/lms/certificates" className="elevate-card hover:border-green-500/50 transition-all">
+              <Award className="h-7 w-7 mb-2 text-green-500" />
+              <h3 className="elevate-card-title">My Certificates</h3>
+              <p className="elevate-card-subtitle mt-1">
+                View and download certificates
+              </p>
             </Link>
-            <Link href="/lms/profile">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <CardHeader>
-                  <Target className="h-8 w-8 mb-2 text-primary" />
-                  <CardTitle>Profile Settings</CardTitle>
-                  <CardDescription>
-                    Manage your account settings
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <Link href="/lms/profile" className="elevate-card hover:border-purple-500/50 transition-all">
+              <Target className="h-7 w-7 mb-2 text-purple-500" />
+              <h3 className="elevate-card-title">Profile Settings</h3>
+              <p className="elevate-card-subtitle mt-1">
+                Manage your account settings
+              </p>
             </Link>
           </div>
         </section>
