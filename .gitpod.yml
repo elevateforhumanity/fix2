@@ -30,13 +30,18 @@ ports:
     visibility: private
 
 tasks:
-  - name: Setup Elevate Script Pack
+  - name: Setup Elevate Script Pack & Seeds
     init: |
       echo "🎓 Welcome to Elevate for Humanity LMS Development"
       echo ""
-      mkdir -p scripts docs
+      mkdir -p scripts docs seeds
+      echo "📚 Generating Elevate Script Pack..."
       chmod +x scripts/bootstrap-elevate-scripts.sh || true
       ./scripts/bootstrap-elevate-scripts.sh || echo "Run scripts/bootstrap-elevate-scripts.sh manually if needed."
+      echo ""
+      echo "🌱 Generating Content Seeds..."
+      chmod +x scripts/generate-elevate-seeds.sh || true
+      ./scripts/generate-elevate-seeds.sh || echo "Run scripts/generate-elevate-seeds.sh manually if needed."
       echo ""
       bash scripts/setup.sh || echo "Setup script not found, continuing..."
       echo ""
