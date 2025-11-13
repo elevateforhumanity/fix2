@@ -37,6 +37,11 @@ export default function CountersignMOUPage() {
 
   const loadProgramHolder = async () => {
     try {
+      if (!params?.id) {
+        setMessage('Invalid program holder ID');
+        setLoading(false);
+        return;
+      }
       const res = await fetch(`/api/admin/program-holders/${params.id}`);
       if (res.ok) {
         const data = await res.json();

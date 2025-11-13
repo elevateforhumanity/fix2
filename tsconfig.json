@@ -34,7 +34,8 @@
         "name": "next"
       }
     ],
-    "allowJs": true
+    "allowJs": true,
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",

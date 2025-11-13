@@ -59,7 +59,7 @@ export async function GET() {
 
   const filename = `EFH_MOU_${holder.name.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
 
-  return new Response(pdfBytes, {
+  return new Response(pdfBytes as BodyInit, {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',

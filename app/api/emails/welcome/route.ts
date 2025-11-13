@@ -42,14 +42,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
     }
 
-    const studentName = enrollment.profiles.full_name || enrollment.profiles.email.split('@')[0];
-    const courseName = enrollment.courses.title;
+    const studentName = Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.full_name : enrollment.profiles?.full_name || Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email.split('@')[0];
+    const courseName = Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title;
     const loginUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/lms/dashboard`;
 
     const html = emailTemplates.welcome(studentName, courseName, loginUrl);
 
     await sendEmail({
-      to: enrollment.profiles.email,
+      to: Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email,
       subject: `Welcome to ${courseName} - Elevate for Humanity`,
       html,
     });

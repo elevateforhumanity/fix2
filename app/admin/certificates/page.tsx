@@ -142,7 +142,7 @@ export default async function AdminCertificatesPage() {
                       <td>
                         <div>
                           <div className="font-medium text-gray-900">{cert.student_name}</div>
-                          <div className="text-xs text-gray-500">{cert.profiles?.email}</div>
+                          <div className="text-xs text-gray-500">{Array.isArray(cert.profiles) ? cert.profiles[0]?.email : cert.profiles?.email}</div>
                         </div>
                       </td>
                       <td className="font-medium">{cert.course_title}</td>

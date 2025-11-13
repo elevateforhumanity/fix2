@@ -133,7 +133,7 @@ export default async function CertificatesPage() {
                         <Award className="h-5 w-5 text-orange-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">{enrollment.courses.title}</h3>
+                        <h3 className="font-semibold text-gray-900">{Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title}</h3>
                         <p className="text-sm text-gray-500">
                           Completed {new Date(enrollment.completed_at).toLocaleDateString('en-US', {
                             month: 'short',

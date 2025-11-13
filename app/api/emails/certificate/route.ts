@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     );
 
     await sendEmail({
-      to: certificate.profiles.email,
+      to: Array.isArray(certificate.profiles) ? certificate.profiles[0]?.email : certificate.profiles?.email,
       subject: `Your Certificate is Ready - ${certificate.course_title}`,
       html,
     });

@@ -37,72 +37,66 @@ type Assignment = {
 };
 
 // Mock assignments data (fallback)
-const mockAssignments = [
+const mockAssignments: Assignment[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Module 3 Quiz',
-    course: 'CNA Certification Prep',
-    dueDate: '2024-11-15',
-    status: 'pending',
-    type: 'quiz',
-    points: 100,
     description: 'Complete the Module 3 assessment covering infection control procedures',
+    due_date: '2024-11-15',
+    points_possible: 100,
+    submission_type: 'text',
+    courses: { id: '1', title: 'CNA Certification Prep' },
+    assignment_submissions: [],
   },
   {
-    id: 2,
+    id: '2',
     title: 'Safety Procedures Report',
-    course: 'HVAC Technician Training',
-    dueDate: '2024-11-18',
-    status: 'pending',
-    type: 'assignment',
-    points: 50,
     description: 'Write a 2-page report on HVAC safety procedures and best practices',
+    due_date: '2024-11-18',
+    points_possible: 50,
+    submission_type: 'text',
+    courses: { id: '2', title: 'HVAC Technician Training' },
+    assignment_submissions: [],
   },
   {
-    id: 3,
+    id: '3',
     title: 'Practical Skills Video',
-    course: 'Barber Fundamentals',
-    dueDate: '2024-11-20',
-    status: 'pending',
-    type: 'project',
-    points: 150,
     description: 'Record and submit a video demonstrating 3 cutting techniques',
+    due_date: '2024-11-20',
+    points_possible: 150,
+    submission_type: 'file',
+    courses: { id: '3', title: 'Barber Fundamentals' },
+    assignment_submissions: [],
   },
   {
-    id: 4,
+    id: '4',
     title: 'Patient Care Assignment',
-    course: 'CNA Certification Prep',
-    dueDate: '2024-11-10',
-    status: 'submitted',
-    type: 'assignment',
-    points: 75,
-    submittedDate: '2024-11-09',
-    grade: 88,
     description: 'Case study analysis on patient care scenarios',
+    due_date: '2024-11-10',
+    points_possible: 75,
+    submission_type: 'text',
+    courses: { id: '1', title: 'CNA Certification Prep' },
+    assignment_submissions: [{ id: '4', status: 'submitted', score: 88, submitted_at: '2024-11-09' }],
   },
   {
-    id: 5,
+    id: '5',
     title: 'Module 2 Quiz',
-    course: 'CNA Certification Prep',
-    dueDate: '2024-11-05',
-    status: 'graded',
-    type: 'quiz',
-    points: 100,
-    submittedDate: '2024-11-04',
-    grade: 90,
     description: 'Assessment on vital signs and measurements',
+    due_date: '2024-11-05',
+    points_possible: 100,
+    submission_type: 'text',
+    courses: { id: '1', title: 'CNA Certification Prep' },
+    assignment_submissions: [{ id: '5', status: 'graded', score: 90, submitted_at: '2024-11-04' }],
   },
   {
-    id: 6,
+    id: '6',
     title: 'Safety Quiz',
-    course: 'HVAC Technician Training',
-    dueDate: '2024-11-08',
-    status: 'graded',
-    type: 'quiz',
-    points: 100,
-    submittedDate: '2024-11-07',
-    grade: 95,
-    description: 'HVAC safety protocols and procedures',
+    description: 'HVAC safety assessment',
+    due_date: '2024-11-08',
+    points_possible: 100,
+    submission_type: 'text',
+    courses: { id: '2', title: 'HVAC Technician Training' },
+    assignment_submissions: [{ id: '6', status: 'graded', score: 95, submitted_at: '2024-11-07' }],
   },
 ];
 
@@ -268,35 +262,37 @@ export default function AssignmentsPage() {
           <TabsContent value="pending" className="space-y-4">
             {pendingAssignments.length > 0 ? (
               pendingAssignments.map((assignment) => {
-                const isOverdue = new Date(assignment.dueDate) < new Date();
+                const submission = assignment.assignment_submissions?.[0];
+                const status = submission?.status || 'pending';
+                const isOverdue = new Date(assignment.due_date) < new Date();
                 return (
                   <Card key={assignment.id} className={isOverdue ? 'border-l-4 border-l-red-500' : ''}>
                     <CardHeader>
                       <div className="flex items-start justify-between">
                         <div className="flex items-start gap-4 flex-1">
                           <div className="p-2 bg-secondary rounded-lg">
-                            {getTypeIcon(assignment.type)}
+                            <FileText className="h-5 w-5" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
                               <CardTitle className="text-lg">{assignment.title}</CardTitle>
-                              {getStatusBadge(assignment.status, assignment.dueDate)}
+                              {getStatusBadge(status, assignment.due_date)}
                             </div>
-                            <CardDescription>{assignment.course}</CardDescription>
+                            <CardDescription>{assignment.courses?.title}</CardDescription>
                             <p className="text-sm mt-2">{assignment.description}</p>
                             <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
                               <span className="flex items-center gap-1">
                                 <Calendar className="h-4 w-4" />
-                                {new Date(assignment.dueDate).toLocaleDateString('en-US', { 
+                                {new Date(assignment.due_date).toLocaleDateString('en-US', { 
                                   month: 'short', 
                                   day: 'numeric',
                                   year: 'numeric'
                                 })}
                               </span>
                               <span className={isOverdue ? 'text-red-600 font-medium' : ''}>
-                                {getDaysUntil(assignment.dueDate)}
+                                {getDaysUntil(assignment.due_date)}
                               </span>
-                              <span>{assignment.points} points</span>
+                              <span>{assignment.points_possible} points</span>
                             </div>
                           </div>
                         </div>
@@ -326,23 +322,25 @@ export default function AssignmentsPage() {
           {/* Submitted Tab */}
           <TabsContent value="submitted" className="space-y-4">
             {submittedAssignments.length > 0 ? (
-              submittedAssignments.map((assignment) => (
+              submittedAssignments.map((assignment) => {
+                const submission = assignment.assignment_submissions?.[0];
+                return (
                 <Card key={assignment.id}>
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-start gap-4 flex-1">
                         <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                          {getTypeIcon(assignment.type)}
+                          <FileText className="h-5 w-5" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <CardTitle className="text-lg">{assignment.title}</CardTitle>
-                            {getStatusBadge(assignment.status, assignment.dueDate)}
+                            {getStatusBadge(submission?.status || 'submitted', assignment.due_date)}
                           </div>
-                          <CardDescription>{assignment.course}</CardDescription>
+                          <CardDescription>{assignment.courses?.title}</CardDescription>
                           <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
-                            <span>Submitted: {new Date(assignment.submittedDate!).toLocaleDateString()}</span>
-                            <span>{assignment.points} points</span>
+                            <span>Submitted: {submission?.submitted_at ? new Date(submission.submitted_at).toLocaleDateString() : 'N/A'}</span>
+                            <span>{assignment.points_possible} points</span>
                           </div>
                         </div>
                       </div>
@@ -354,7 +352,7 @@ export default function AssignmentsPage() {
                     </div>
                   </CardHeader>
                 </Card>
-              ))
+              )})
             ) : (
               <Card>
                 <CardContent className="py-12 text-center">
@@ -371,7 +369,11 @@ export default function AssignmentsPage() {
           {/* Graded Tab */}
           <TabsContent value="graded" className="space-y-4">
             {gradedAssignments.length > 0 ? (
-              gradedAssignments.map((assignment) => (
+              gradedAssignments.map((assignment) => {
+                const submission = assignment.assignment_submissions?.[0];
+                const score = submission?.score || 0;
+                const percentage = assignment.points_possible > 0 ? Math.round((score / assignment.points_possible) * 100) : 0;
+                return (
                 <Card key={assignment.id}>
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -382,20 +384,20 @@ export default function AssignmentsPage() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <CardTitle className="text-lg">{assignment.title}</CardTitle>
-                            {getStatusBadge(assignment.status, assignment.dueDate)}
+                            {getStatusBadge(submission?.status || 'graded', assignment.due_date)}
                           </div>
-                          <CardDescription>{assignment.course}</CardDescription>
+                          <CardDescription>{assignment.courses?.title}</CardDescription>
                           <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
-                            <span>Submitted: {new Date(assignment.submittedDate!).toLocaleDateString()}</span>
+                            <span>Submitted: {submission?.submitted_at ? new Date(submission.submitted_at).toLocaleDateString() : 'N/A'}</span>
                             <span className="font-semibold text-foreground">
-                              Grade: {assignment.grade}/{assignment.points} ({Math.round((assignment.grade! / assignment.points) * 100)}%)
+                              Grade: {score}/{assignment.points_possible} ({percentage}%)
                             </span>
                           </div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-3xl font-bold text-green-600 mb-2">
-                          {assignment.grade}
+                          {score}
                         </div>
                         <Button variant="outline" size="sm" asChild>
                           <Link href={`/lms/assignments/${assignment.id}`}>
@@ -406,7 +408,7 @@ export default function AssignmentsPage() {
                     </div>
                   </CardHeader>
                 </Card>
-              ))
+              )})
             ) : (
               <Card>
                 <CardContent className="py-12 text-center">

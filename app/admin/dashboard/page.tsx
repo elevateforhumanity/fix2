@@ -218,8 +218,8 @@ export default async function AdminDashboardPage() {
             <h2 className="elevate-card-title mb-4">Funding Type Breakdown</h2>
             <div className="space-y-3">
               {fundingCounts && Object.entries(fundingCounts).map(([type, count]: [string, any]) => {
-                const total = Object.values(fundingCounts).reduce((sum: number, c: any) => sum + c, 0);
-                const percentage = Math.round((count / total) * 100);
+                const total = Object.values(fundingCounts).reduce((sum: number, c: any) => sum + (typeof c === 'number' ? c : 0), 0);
+                const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
                 
                 return (
                   <div key={type}>
@@ -294,12 +294,12 @@ export default async function AdminDashboardPage() {
                       <td>
                         <div>
                           <div className="font-medium text-gray-900">
-                            {enrollment.profiles?.full_name || 'Unknown'}
+                            {Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.full_name : enrollment.profiles?.full_name || 'Unknown'}
                           </div>
-                          <div className="text-xs text-gray-500">{enrollment.profiles?.email}</div>
+                          <div className="text-xs text-gray-500">{Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email}</div>
                         </div>
                       </td>
-                      <td className="font-medium">{enrollment.courses?.title}</td>
+                      <td className="font-medium">{Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title}</td>
                       <td>
                         <span className={`elevate-pill text-xs ${
                           enrollment.funding_type === 'wioa' ? 'elevate-pill--info' :

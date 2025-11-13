@@ -12,6 +12,11 @@ export const metadata = {
 export default async function DelegateDashboard() {
   await requireDelegate();
   const user = await getCurrentUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+  
   const supabase = await createServerSupabaseClient();
 
   // Get delegate info
@@ -79,12 +84,12 @@ export default async function DelegateDashboard() {
 
     return {
       id: student.id,
-      name: student.profiles?.full_name || 'Unknown',
-      email: student.profiles?.email || '',
-      phone: student.profiles?.phone || '',
+      name: Array.isArray(student.profiles) ? student.profiles[0]?.full_name : student.profiles?.full_name || 'Unknown',
+      email: Array.isArray(student.profiles) ? student.profiles[0]?.email : student.profiles?.email || '',
+      phone: Array.isArray(student.profiles) ? student.profiles[0]?.phone : student.profiles?.phone || '',
       fundingType: student.funding_type,
       county: student.county,
-      course: activeEnrollment?.courses?.title || 'No active enrollment',
+      course: Array.isArray(activeEnrollment?.courses) ? activeEnrollment?.courses[0]?.title : activeEnrollment?.courses?.title || 'No active enrollment',
       progress: activeEnrollment?.progress || 0,
       status: activeEnrollment?.status || 'not_enrolled',
       enrolledAt: activeEnrollment?.enrolled_at,

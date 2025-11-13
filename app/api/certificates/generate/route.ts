@@ -102,13 +102,13 @@ export async function POST(request: Request) {
       .insert({
         student_id: enrollment.student_id,
         course_id: enrollment.course_id,
-        program_id: enrollment.courses.programs.id,
+        program_id: Array.isArray(enrollment.courses) ? (Array.isArray(enrollment.courses[0]?.programs) ? enrollment.courses[0]?.programs[0]?.id : enrollment.courses[0]?.programs?.id) : (Array.isArray(enrollment.courses?.programs) ? enrollment.courses?.programs[0]?.id : enrollment.courses?.programs?.id),
         certificate_number: certificateNumber,
         verification_code: verificationCode,
         issued_date: new Date().toISOString(),
         student_name: profile?.full_name || profile?.email || 'Student',
-        course_title: enrollment.courses.title,
-        program_name: enrollment.courses.programs.name,
+        course_title: Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title,
+        program_name: Array.isArray(enrollment.courses) ? (Array.isArray(enrollment.courses[0]?.programs) ? enrollment.courses[0]?.programs[0]?.name : enrollment.courses[0]?.programs?.name) : (Array.isArray(enrollment.courses?.programs) ? enrollment.courses?.programs[0]?.name : enrollment.courses?.programs?.name),
         hours_completed: totalHours,
         issued_by: user.id,
       })

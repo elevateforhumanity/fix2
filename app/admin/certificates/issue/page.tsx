@@ -197,7 +197,7 @@ export default function IssueCertificatePage() {
                       <option value="">Choose a completed course...</option>
                       {completedEnrollments.map((enrollment) => (
                         <option key={enrollment.id} value={enrollment.id}>
-                          {enrollment.courses.title} - Completed {new Date(enrollment.completed_at).toLocaleDateString()}
+                          {Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title} - Completed {new Date(enrollment.completed_at).toLocaleDateString()}
                         </option>
                       ))}
                     </select>
