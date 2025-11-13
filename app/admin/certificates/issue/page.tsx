@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { createBrowserClient } from '@supabase/ssr';
 import { Award, ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default function IssueCertificatePage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -17,10 +19,11 @@ export default function IssueCertificatePage() {
     certificateNumber: '',
     verificationCode: '',
   });
-
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  const [supabase] = useState(() => 
+    createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
   );
 
   // Load students on mount

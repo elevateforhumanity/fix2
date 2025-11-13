@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
 import { Plus, Edit, Trash2, ArrowLeft, FileQuestion, Clock } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: {
     id: string;
@@ -26,10 +28,11 @@ export default function CourseQuizzesPage({ params }: Props) {
     max_attempts: 3,
     is_required: true,
   });
-
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  const [supabase] = useState(() =>
+    createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
   );
 
   useEffect(() => {

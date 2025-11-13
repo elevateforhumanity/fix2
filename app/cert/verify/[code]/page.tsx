@@ -3,6 +3,8 @@ import { CheckCircle, XCircle, Award, Calendar, Clock, User, BookOpen } from 'lu
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Verify Certificate | Elevate for Humanity',
   description: 'Verify the authenticity of an Elevate for Humanity certificate',

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { createBrowserClient } from '@supabase/ssr';
 import { Plus, Trash2, ArrowLeft, GripVertical, Save } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: {
     id: string;
@@ -24,10 +26,11 @@ export default function QuizQuestionsPage({ params }: Props) {
     options: ['', '', '', ''],
     correct_answer: '',
   });
-
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  const [supabase] = useState(() =>
+    createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
   );
 
   useEffect(() => {
