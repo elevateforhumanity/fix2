@@ -1,0 +1,207 @@
+{
+  "task_id": "run-puppeteer-automation",
+  "name": "Puppeteer: Automate Netlify Environment Variables",
+  "description": "Use Puppeteer to automatically add environment variables to Netlify",
+  "version": "1.0.0",
+  "priority": "critical",
+  "automation_type": "puppeteer",
+  "estimated_time": "2-3 minutes",
+  
+  "prerequisites": [
+    "Node.js installed",
+    "Puppeteer installed (npm install puppeteer)",
+    "Netlify account credentials",
+    "Access to Netlify site: 12f120ab-3f63-419b-bc49-430f043415c1"
+  ],
+  
+  "steps": [
+    {
+      "step": 1,
+      "title": "Install Puppeteer (if not installed)",
+      "type": "automated",
+      "command": "npm install puppeteer",
+      "instructions": [
+        "Run: npm install puppeteer",
+        "This will download Chromium browser",
+        "Takes about 1-2 minutes"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Set Netlify Credentials",
+      "type": "manual",
+      "instructions": [
+        "You need Netlify login credentials",
+        "Set environment variables:",
+        "  export NETLIFY_EMAIL='your@email.com'",
+        "  export NETLIFY_PASSWORD='yourpassword'",
+        "",
+        "Or pass them when running the script"
+      ],
+      "security_note": "Credentials are only used locally, never stored"
+    },
+    {
+      "step": 3,
+      "title": "Run Puppeteer Script",
+      "type": "automated",
+      "command": "NETLIFY_EMAIL=your@email.com NETLIFY_PASSWORD=yourpass node scripts/puppeteer-add-netlify-vars.js",
+      "instructions": [
+        "Run the command above with your actual credentials",
+        "Script will:",
+        "  1. Open browser (you can watch it work)",
+        "  2. Log into Netlify",
+        "  3. Navigate to environment variables",
+        "  4. Add all 6 variables",
+        "  5. Trigger deployment",
+        "  6. Take screenshots",
+        "",
+        "Takes 2-3 minutes total"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Monitor Automation",
+      "type": "observation",
+      "instructions": [
+        "Watch the browser window as it:",
+        "  ✓ Logs into Netlify",
+        "  ✓ Navigates to site settings",
+        "  ✓ Adds each variable one by one",
+        "  ✓ Triggers deployment",
+        "",
+        "Console will show progress:",
+        "  [1/6] Adding NEXT_PUBLIC_SUPABASE_URL...",
+        "  [2/6] Adding NEXT_PUBLIC_SUPABASE_ANON_KEY...",
+        "  etc."
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Verify Completion",
+      "type": "validation",
+      "instructions": [
+        "Script will output:",
+        "  ✅ All variables added!",
+        "  ✅ Deployment triggered!",
+        "  ✅ AUTOMATION COMPLETE!",
+        "",
+        "Screenshots saved:",
+        "  - netlify-deployment.png (success)",
+        "  - netlify-error.png (if error occurred)",
+        "",
+        "Check console output for any errors"
+      ]
+    },
+    {
+      "step": 6,
+      "title": "Monitor Deployment",
+      "type": "manual",
+      "instructions": [
+        "Go to: https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys",
+        "Watch the build progress",
+        "Should complete in 2-3 minutes",
+        "Status should show: Published"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Verify Site is Live",
+      "type": "validation",
+      "instructions": [
+        "Open: https://elevateconnectsdirectory.org",
+        "Site should load without errors",
+        "Check: https://elevateconnectsdirectory.org/sitemap.xml",
+        "Check: https://elevateconnectsdirectory.org/robots.txt",
+        "All should work correctly"
+      ]
+    }
+  ],
+  
+  "script_details": {
+    "file": "scripts/puppeteer-add-netlify-vars.js",
+    "what_it_does": [
+      "Launches Chromium browser",
+      "Navigates to Netlify login",
+      "Enters email and password",
+      "Navigates to site environment variables",
+      "Clicks 'Add a variable' 6 times",
+      "Fills in key and value for each variable",
+      "Selects appropriate scopes",
+      "Clicks save for each variable",
+      "Navigates to deploys page",
+      "Clicks 'Trigger deploy'",
+      "Selects 'Clear cache and deploy site'",
+      "Takes screenshots",
+      "Closes browser"
+    ],
+    "variables_added": [
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "NEXT_PUBLIC_APP_URL",
+      "NEXT_PUBLIC_SITE_URL",
+      "NODE_ENV"
+    ]
+  },
+  
+  "troubleshooting": {
+    "puppeteer_not_installed": {
+      "error": "Cannot find module 'puppeteer'",
+      "solution": "Run: npm install puppeteer"
+    },
+    "login_failed": {
+      "error": "Could not find email input",
+      "solution": [
+        "Check Netlify credentials are correct",
+        "Netlify may have changed their login page",
+        "Try running with headless: false to see what's happening"
+      ]
+    },
+    "timeout_error": {
+      "error": "Timeout waiting for selector",
+      "solution": [
+        "Increase timeout in script",
+        "Check internet connection",
+        "Netlify may be slow - try again"
+      ]
+    },
+    "2fa_enabled": {
+      "error": "Script stops at 2FA prompt",
+      "solution": [
+        "Puppeteer cannot handle 2FA automatically",
+        "Disable 2FA temporarily",
+        "Or use manual method from WORKER_TASK_ADD_SECRETS.md"
+      ]
+    }
+  },
+  
+  "alternative_headless": {
+    "description": "Run in headless mode (no browser window)",
+    "command": "NETLIFY_EMAIL=your@email.com NETLIFY_PASSWORD=yourpass HEADLESS=true node scripts/puppeteer-add-netlify-vars.js",
+    "note": "Faster but you can't see what's happening"
+  },
+  
+  "completion": {
+    "message": "✅ Puppeteer automation completed successfully!",
+    "verification": [
+      "✓ 6 variables added to Netlify",
+      "✓ Deployment triggered",
+      "✓ Screenshots saved",
+      "✓ Site will be live in 2-3 minutes"
+    ],
+    "next_steps": [
+      "Monitor deployment completion",
+      "Verify site loads correctly",
+      "Test Supabase connection",
+      "Report completion"
+    ]
+  },
+  
+  "security_notes": [
+    "⚠️ Credentials are used locally only",
+    "⚠️ Never commit credentials to git",
+    "⚠️ Script runs on your machine, not in cloud",
+    "✅ Supabase keys are added securely to Netlify",
+    "✅ Browser closes after completion"
+  ]
+}
