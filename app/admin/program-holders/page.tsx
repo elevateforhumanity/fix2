@@ -99,31 +99,42 @@ export default function AdminProgramHolders() {
   };
 
   return (
-    <div className="elevate-shell">
+    <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
-          <div className="elevate-logo-mark" />
-          <span>Elevate Connects</span>
+          <div className="elevate-logo-mark">E</div>
+          <span>Elevate for Humanity</span>
         </div>
+        <nav className="flex gap-6 items-center">
+          <a href="/admin/dashboard" className="text-gray-700 hover:text-red-600 font-medium">Dashboard</a>
+          <a href="/admin/program-holders" className="text-red-600 font-semibold">Program Holders</a>
+          <a href="/admin/students" className="text-gray-700 hover:text-red-600 font-medium">Students</a>
+          <a href="/admin/reports" className="text-gray-700 hover:text-red-600 font-medium">Reports</a>
+        </nav>
         <div className="flex gap-3 items-center">
           <button onClick={load} disabled={loading} className="elevate-btn-secondary">
             <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
           </button>
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-bold">
+            A
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
       <section className="elevate-hero">
-        <div className="elevate-hero-kicker">Admin Portal</div>
-        <h1 className="elevate-hero-title">Program Holders Management</h1>
-        <p className="mt-1 text-sm text-slate-300">
-          Review applications, approve training providers, and manage MOUs
-        </p>
+        <div className="elevate-hero-content">
+          <div className="elevate-hero-kicker">Admin Portal</div>
+          <h1 className="elevate-hero-title">Program Holders Management</h1>
+          <p className="elevate-hero-subtitle">
+            Review applications, approve training providers, and manage MOUs
+          </p>
+        </div>
       </section>
 
-      <main className="mt-5">
+      <main className="elevate-container py-8">
 
         <div className="elevate-card">
           <div className="elevate-card-header mb-4">

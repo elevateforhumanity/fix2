@@ -101,30 +101,38 @@ export default function ProgramHolderDashboard() {
   }
 
   return (
-    <div className="elevate-shell">
+    <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
-          <div className="elevate-logo-mark" />
-          <span>Elevate Connects</span>
+          <div className="elevate-logo-mark">E</div>
+          <span>Elevate for Humanity</span>
         </div>
+        <nav className="flex gap-6 items-center">
+          <a href="/program-holder/dashboard" className="text-red-600 font-semibold">Dashboard</a>
+          <a href="/program-holder/cases" className="text-gray-700 hover:text-red-600 font-medium">Cases</a>
+          <a href="/program-holder/mou" className="text-gray-700 hover:text-red-600 font-medium">MOU</a>
+          <a href="/program-holder/reports" className="text-gray-700 hover:text-red-600 font-medium">Reports</a>
+        </nav>
         <div className="flex gap-3 items-center">
-          <a href="/program-holder/mou" className="elevate-btn-secondary">
-            MOU
-          </a>
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold">
+            {data.contact_name?.charAt(0) || 'P'}
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
       <section className="elevate-hero">
-        <div className="elevate-hero-kicker">Training Provider Dashboard</div>
-        <h1 className="elevate-hero-title">Welcome back, {data.contact_name || 'Training Provider'}</h1>
-        <p className="mt-1 text-sm text-slate-300">
-          Manage your training programs and track your partnership with Elevate Connects
-        </p>
+        <div className="elevate-hero-content">
+          <div className="elevate-hero-kicker">Training Provider Portal</div>
+          <h1 className="elevate-hero-title">Welcome back, {data.contact_name || 'Training Provider'}</h1>
+          <p className="elevate-hero-subtitle">
+            Manage your training programs and track your partnership with Elevate for Humanity
+          </p>
+        </div>
       </section>
 
-      <main className="mt-5">
+      <main className="elevate-container py-8">
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-5">
           {/* Status Card */}

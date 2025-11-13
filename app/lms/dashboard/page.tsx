@@ -5,6 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import { BookOpen, Clock, Award, TrendingUp, Target, Calendar } from 'lucide-react';
 import LMSNav from '@/components/lms/LMSNav';
 import LoginTracker from '@/components/lms/LoginTracker';
+import { ActivityFeed } from '@/components/dashboard/ActivityFeed';
+import { ProgressChart } from '@/components/dashboard/ProgressChart';
+import { UpcomingCalendar } from '@/components/dashboard/UpcomingCalendar';
 
 export const metadata = {
   title: 'Dashboard | Elevate LMS',
@@ -68,22 +71,29 @@ const upcomingDeadlines = [
 
 export default function LMSDashboard() {
   return (
-    <div className="elevate-shell">
+    <div className="min-h-screen bg-gray-50">
       <LoginTracker />
       
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
-          <div className="elevate-logo-mark" />
-          <span>Elevate Connects</span>
+          <div className="elevate-logo-mark">E</div>
+          <span>Elevate for Humanity</span>
         </div>
-        <div className="flex gap-3 items-center">
-          <Link href="/lms/courses" className="elevate-btn-secondary">
-            Browse Courses
-          </Link>
-          <Link href="/lms/profile" className="elevate-btn-secondary">
-            Profile
-          </Link>
+        <nav className="flex gap-6 items-center">
+          <Link href="/lms/dashboard" className="text-red-600 font-semibold">Dashboard</Link>
+          <Link href="/lms/courses" className="text-gray-700 hover:text-red-600 font-medium">Courses</Link>
+          <Link href="/lms/progress" className="text-gray-700 hover:text-red-600 font-medium">Progress</Link>
+          <Link href="/lms/certificates" className="text-gray-700 hover:text-red-600 font-medium">Certificates</Link>
+        </nav>
+        <div className="flex gap-4 items-center">
+          <button className="relative">
+            <span className="text-2xl">🔔</span>
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center">3</span>
+          </button>
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold">
+            J
+          </div>
         </div>
       </header>
 
@@ -218,6 +228,13 @@ export default function LMSDashboard() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Dashboard Widgets Grid */}
+        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
+          <ProgressChart />
+          <UpcomingCalendar />
+          <ActivityFeed />
         </section>
 
         {/* Quick Actions */}
