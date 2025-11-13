@@ -169,22 +169,21 @@ export default function ProgramHolderDashboard() {
             </div>
             <div className="space-y-3 mt-3">
               <div>
-                  <p className="text-xs text-slate-400 mb-1">Agreement Status</p>
-                  <MOUStatusBadge status={data.mou_status} />
-                </div>
-                {data.mou_signed_at && (
-                  <div>
-                    <p className="text-xs text-slate-400 mb-1">Signed On</p>
-                    <p className="text-sm font-medium">
-                      {new Date(data.mou_signed_at).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </p>
-                  </div>
-                )}
+                <p className="text-xs text-slate-400 mb-1">Agreement Status</p>
+                <MOUStatusBadge status={data.mou_status} />
               </div>
+              {data.mou_signed_at && (
+                <div>
+                  <p className="text-xs text-slate-400 mb-1">Signed On</p>
+                  <p className="text-sm font-medium">
+                    {new Date(data.mou_signed_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
