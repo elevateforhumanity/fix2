@@ -81,7 +81,7 @@ Browser Result:
 - Fully functional ✅
 
 ### ❌ Not Working (SSL Error)
-**https://elevateconnectsdirectory.org**
+**https://www.elevateconnectsdirectory.org**
 - DNS pointing correctly ✅
 - Domain not added to Netlify ❌
 - Wrong SSL certificate ❌
@@ -206,7 +206,7 @@ Status will change to: "HTTPS: Secured ✓"
 ```
 1. Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
 2. Or use incognito window
-3. Visit: https://elevateconnectsdirectory.org
+3. Visit: https://www.elevateconnectsdirectory.org
 4. Should load without errors
 ```
 
@@ -218,7 +218,7 @@ Status will change to: "HTTPS: Secured ✓"
 
 - [ ] Domain shows in Netlify custom domains list
 - [ ] SSL status shows "Secured ✓"
-- [ ] Site loads at https://elevateconnectsdirectory.org
+- [ ] Site loads at https://www.elevateconnectsdirectory.org
 - [ ] No SSL certificate errors
 - [ ] All styling visible (colors, gradients)
 - [ ] All images loading
@@ -320,7 +320,7 @@ Solution: Hard refresh or incognito window
 
 ### Live Sites
 - **Working Now**: https://elevateproduction.netlify.app
-- **After SSL Fix**: https://elevateconnectsdirectory.org
+- **After SSL Fix**: https://www.elevateconnectsdirectory.org
 
 ### Documentation Created
 - `SSL_CERTIFICATE_ISSUE.md` - Detailed SSL problem explanation
@@ -336,7 +336,7 @@ Solution: Hard refresh or incognito window
 
 1. **Immediate**: Add domain to Netlify dashboard
 2. **Wait**: 2-10 minutes for SSL provisioning
-3. **Test**: Visit https://elevateconnectsdirectory.org
+3. **Test**: Visit https://www.elevateconnectsdirectory.org
 4. **Clear**: Browser cache if needed
 5. **Verify**: All functionality working
 

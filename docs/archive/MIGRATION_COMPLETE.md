@@ -113,7 +113,7 @@ export async function generateStaticParams() {
 
 ## 🚀 Deployment Status
 
-**Live Site:** https://elevateconnectsdirectory.org
+**Live Site:** https://www.elevateconnectsdirectory.org
 **Status:** Deployed via Netlify
 **Build:** Successful
 

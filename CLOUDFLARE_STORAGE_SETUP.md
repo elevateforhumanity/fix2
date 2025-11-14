@@ -105,7 +105,7 @@ CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateconnectsdirectory.org
 [
   {
     "AllowedOrigins": [
-      "https://elevateconnectsdirectory.org",
+      "https://www.elevateconnectsdirectory.org",
       "https://www.elevateconnectsdirectory.org",
       "http://localhost:3000"
     ],

@@ -130,7 +130,7 @@ Refresh the page every minute. You'll see:
 
 1. **Clear browser cache**: Press `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
 
-2. **Visit**: https://elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateconnectsdirectory.org
 
 3. **You should see**:
    - 🔒 Secure padlock in address bar
@@ -144,7 +144,7 @@ Refresh the page every minute. You'll see:
 ## 🎉 DONE!
 
 Your site is now live at:
-- ✅ https://elevateconnectsdirectory.org (custom domain)
+- ✅ https://www.elevateconnectsdirectory.org (custom domain)
 - ✅ https://elevateproduction.netlify.app (Netlify subdomain)
 
 Both URLs work with valid SSL certificates!

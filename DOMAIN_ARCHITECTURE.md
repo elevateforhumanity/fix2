@@ -136,7 +136,7 @@ CNAME  www    elevateproduction.netlify.app    -
 ```toml
 # Redirect secondary domain to LMS subdomain
 [[redirects]]
-  from = "https://elevateconnectsdirectory.org/*"
+  from = "https://www.elevateconnectsdirectory.org/*"
   to = "https://lms.elevateforhumanity.org/:splat"
   status = 301
   force = true

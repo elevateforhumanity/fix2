@@ -63,7 +63,7 @@
 
 **After SSL shows "Active":**
 
-**Visit:** https://elevateconnectsdirectory.org
+**Visit:** https://www.elevateconnectsdirectory.org
 
 **Should show:**
 - ✅ Your LMS
@@ -197,7 +197,7 @@ https://durable.co/login
 
 Add a button or link:
 ```html
-<a href="https://elevateconnectsdirectory.org">
+<a href="https://www.elevateconnectsdirectory.org">
   Access Student Portal
 </a>
 ```
@@ -251,7 +251,7 @@ Add a button or link:
 
 **Wait:** 5-10 minutes for SSL
 
-**Test:** https://elevateconnectsdirectory.org
+**Test:** https://www.elevateconnectsdirectory.org
 
 ---
 

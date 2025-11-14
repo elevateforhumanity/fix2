@@ -17,7 +17,7 @@ Welcome to Elevate for Humanity! You are joining a community committed to helpin
 
 ## YOUR DASHBOARD
 Everything lives inside your Student Portal:
-https://elevateconnectsdirectory.org/lms/dashboard
+https://www.elevateconnectsdirectory.org/lms/dashboard
 
 Inside your portal you can:
 - Complete orientation  
@@ -43,7 +43,7 @@ Each program is credentialed and tied directly to real employment pathways.
 ## YOUR JOURNEY
 
 ### Step 1 — Enroll
-Go to: https://elevateconnectsdirectory.org
+Go to: https://www.elevateconnectsdirectory.org
 
 Enrollment takes less than 5 minutes.
 
@@ -88,7 +88,7 @@ You're never doing this alone.
 
 **Phone/Text**: 317-314-3757  
 **Email**: support@elevateconnectsdirectory.org  
-**Website**: https://elevateconnectsdirectory.org/contact
+**Website**: https://www.elevateconnectsdirectory.org/contact
 
 ---
 
@@ -108,7 +108,7 @@ A: We connect you with employers and provide job placement support. Your success
 
 **Q: Can I verify my certificate?**  
 A: Yes! Anyone can verify your certificate at:  
-https://elevateconnectsdirectory.org/cert/verify/[your-serial-number]
+https://www.elevateconnectsdirectory.org/cert/verify/[your-serial-number]
 
 ---
 

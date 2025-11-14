@@ -56,7 +56,7 @@ Create `.env` file in project root:
 
 ```env
 # Site Configuration
-PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 VITE_APP_ENV=production
 
 # Supabase
@@ -176,16 +176,16 @@ File: `netlify.toml`
 
 ```bash
 # Check homepage loads
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 
 # Verify SSL certificate
-curl -vI https://elevateconnectsdirectory.org 2>&1 | grep -i ssl
+curl -vI https://www.elevateconnectsdirectory.org 2>&1 | grep -i ssl
 
 # Check sitemap
-curl https://elevateconnectsdirectory.org/sitemap.xml
+curl https://www.elevateconnectsdirectory.org/sitemap.xml
 
 # Check robots.txt
-curl https://elevateconnectsdirectory.org/robots.txt
+curl https://www.elevateconnectsdirectory.org/robots.txt
 ```
 
 ### 2. Functional Tests
@@ -204,7 +204,7 @@ curl https://elevateconnectsdirectory.org/robots.txt
 
 ```bash
 # Run Lighthouse audit
-npx lighthouse https://elevateconnectsdirectory.org --view
+npx lighthouse https://www.elevateconnectsdirectory.org --view
 
 # Check Core Web Vitals
 # Visit: https://pagespeed.web.dev/
@@ -353,7 +353,7 @@ netlify rollback
 
 **Setup:**
 1. Create account at uptimerobot.com
-2. Add monitor for https://elevateconnectsdirectory.org
+2. Add monitor for https://www.elevateconnectsdirectory.org
 3. Set check interval: 5 minutes
 4. Configure alerts (email, SMS)
 
@@ -396,7 +396,7 @@ jobs:
       - uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
-            https://elevateconnectsdirectory.org
+            https://www.elevateconnectsdirectory.org
           uploadArtifacts: true
 ```
 

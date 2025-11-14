@@ -86,7 +86,7 @@ Webhooks notify your app about payment events (successful payments, failed payme
 
 1. In Stripe Dashboard, go to **Developers** → **Webhooks**
 2. Click **Add endpoint**
-3. Endpoint URL: `https://elevateconnectsdirectory.org/api/webhooks/stripe`
+3. Endpoint URL: `https://www.elevateconnectsdirectory.org/api/webhooks/stripe`
 4. Description: `LMS Payment Webhooks`
 5. Select events to listen for:
    - `checkout.session.completed` - Payment successful

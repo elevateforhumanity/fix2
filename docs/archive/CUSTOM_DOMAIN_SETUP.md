@@ -98,7 +98,7 @@ Test these URLs:
 - http://www.elevateconnectsdirectory.org → Should redirect to HTTPS
 - https://www.elevateconnectsdirectory.org → Should load site
 - http://elevateconnectsdirectory.org → Should redirect to www + HTTPS
-- https://elevateconnectsdirectory.org → Should redirect to www
+- https://www.elevateconnectsdirectory.org → Should redirect to www
 
 ---
 

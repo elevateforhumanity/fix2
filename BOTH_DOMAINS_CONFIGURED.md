@@ -80,7 +80,7 @@ In Netlify domain settings, you can choose which domain is primary:
 - elevateconnectsdirectory.org redirects to it
 
 **Option B: elevateconnectsdirectory.org as primary**
-- Main URL: https://elevateconnectsdirectory.org
+- Main URL: https://www.elevateconnectsdirectory.org
 - elevateforhumanity.org redirects to it
 
 **Option C: Both work independently**
@@ -107,7 +107,7 @@ After SSL is provisioned (5-10 minutes):
 3. SSL: Secure (🔒)
 
 **Test elevateconnectsdirectory.org:**
-1. Visit: https://elevateconnectsdirectory.org
+1. Visit: https://www.elevateconnectsdirectory.org
 2. Should show: Your LMS
 3. SSL: Secure (🔒)
 
@@ -126,7 +126,7 @@ After SSL is provisioned (5-10 minutes):
 ```
 ✅ https://elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
-✅ https://elevateconnectsdirectory.org
+✅ https://www.elevateconnectsdirectory.org
 ✅ https://www.elevateconnectsdirectory.org
 ```
 
@@ -225,7 +225,7 @@ Total:         ~25-40 minutes
 ### Testing:
 - [ ] https://elevateforhumanity.org works
 - [ ] https://www.elevateforhumanity.org works
-- [ ] https://elevateconnectsdirectory.org works
+- [ ] https://www.elevateconnectsdirectory.org works
 - [ ] https://www.elevateconnectsdirectory.org works
 - [ ] All have SSL (🔒)
 - [ ] All show LMS correctly

@@ -79,7 +79,7 @@ Action:      Add to Netlify, wait for SSL
 - Should NOT show: Netlify LMS
 
 **Test Netlify site:**
-- Visit: https://elevateconnectsdirectory.org
+- Visit: https://www.elevateconnectsdirectory.org
 - Should show: Netlify LMS (fully styled now!)
 - Should have: SSL padlock (🔒)
 
@@ -129,7 +129,7 @@ CNAME  www  elevateproduction.netlify.app
 
 Add a prominent button:
 ```html
-<a href="https://elevateconnectsdirectory.org" 
+<a href="https://www.elevateconnectsdirectory.org" 
    style="display: inline-block;
           background: #0066CC;
           color: white;

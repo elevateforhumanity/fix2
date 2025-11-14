@@ -61,7 +61,7 @@ Value: elevateproduction.netlify.app
 
 ### Step 3: Test (1 minute)
 
-1. **Visit:** https://elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateconnectsdirectory.org
 2. **Should show:** Your LMS site
 3. **SSL:** Should be secure (🔒)
 4. **Done!**
@@ -216,8 +216,8 @@ git push
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateconnectsdirectory.org
+PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```

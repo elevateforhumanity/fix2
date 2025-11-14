@@ -106,7 +106,7 @@ Domains added:
 
 Next steps:
   1. Visit: https://elevateforhumanity.org
-  2. Visit: https://elevateconnectsdirectory.org
+  2. Visit: https://www.elevateconnectsdirectory.org
 ```
 
 ---
@@ -138,7 +138,7 @@ If you prefer to do it manually or autopilot has issues:
 **Test domains:**
 ```bash
 curl -I https://elevateforhumanity.org
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 ```
 
 **Should show:**
@@ -149,7 +149,7 @@ HTTP/2 200
 
 **Or visit in browser:**
 - https://elevateforhumanity.org (should work with 🔒)
-- https://elevateconnectsdirectory.org (should work with 🔒)
+- https://www.elevateconnectsdirectory.org (should work with 🔒)
 
 ---
 

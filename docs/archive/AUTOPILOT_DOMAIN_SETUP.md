@@ -116,14 +116,14 @@ Expected: `75.2.60.5`
 
 ### Check SSL Certificate
 ```bash
-curl -Ivk https://elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 ```
 
 Expected: `CN=elevateconnectsdirectory.org`
 
 ### Check Site Loads
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 ```
 
 Expected: `HTTP/2 200`
@@ -221,14 +221,14 @@ After running autopilot, you should see:
 
 ✅ Domain added to Netlify
 ✅ SSL certificate provisioned
-✅ Site accessible at https://elevateconnectsdirectory.org
+✅ Site accessible at https://www.elevateconnectsdirectory.org
 ✅ No SSL errors in browser
 ✅ All styling and images loading correctly
 
 ## Next Steps After Success
 
 1. Clear browser cache (Ctrl+Shift+R)
-2. Visit https://elevateconnectsdirectory.org
+2. Visit https://www.elevateconnectsdirectory.org
 3. Verify all pages work
 4. Test navigation and functionality
 5. Check mobile responsiveness
@@ -274,7 +274,7 @@ bash scripts/autopilot-add-domain.sh
 bash scripts/autopilot-check-ssl.sh
 
 # 5. Visit site
-# https://elevateconnectsdirectory.org
+# https://www.elevateconnectsdirectory.org
 ```
 
 **That's it!** Your autopilot will handle the rest.

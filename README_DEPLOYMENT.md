@@ -29,7 +29,7 @@ CNAME  www  elevateproduction.netlify.app
 ### Step 3: Wait & Test (10 min)
 
 1. Wait: 10-15 minutes for SSL
-2. Visit: https://elevateconnectsdirectory.org
+2. Visit: https://www.elevateconnectsdirectory.org
 3. Done!
 
 ---

@@ -223,7 +223,7 @@ The Elevate for Humanity LMS platform has been upgraded to Tier 1 enterprise-gra
 ## 🚀 Deployment Status
 
 ### Live URLs
-**Production:** https://elevateconnectsdirectory.org ✅ LIVE
+**Production:** https://www.elevateconnectsdirectory.org ✅ LIVE
 
 ### Deployment Verification
 ✅ HTTPS enabled

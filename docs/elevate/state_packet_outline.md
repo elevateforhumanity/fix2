@@ -7,7 +7,7 @@ Credentialed • Verifiable • Workforce-Aligned
 ## SECTION 1 — ORGANIZATION OVERVIEW
 
 **Organization Name**: Elevate for Humanity  
-**Website**: https://elevateconnectsdirectory.org  
+**Website**: https://www.elevateconnectsdirectory.org  
 **Phone**: 317-314-3757  
 **Email**: support@elevateconnectsdirectory.org
 
@@ -76,7 +76,7 @@ We provide credentialed pathways in:
 ## SECTION 3 — COMPLIANCE & VERIFICATION
 
 ### Public Certificate Verification
-**URL**: https://elevateconnectsdirectory.org/cert/verify/[serial]
+**URL**: https://www.elevateconnectsdirectory.org/cert/verify/[serial]
 
 Anyone can verify a certificate by:
 - Entering serial number  
@@ -293,7 +293,7 @@ Our model aligns with:
 **Primary Contact**: Elevate for Humanity Team  
 **Phone**: 317-314-3757  
 **Email**: support@elevateconnectsdirectory.org  
-**Website**: https://elevateconnectsdirectory.org
+**Website**: https://www.elevateconnectsdirectory.org
 
 ### For State Agencies
 To discuss partnership, data sharing, or ETPL application:

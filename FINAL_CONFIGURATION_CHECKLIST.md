@@ -296,8 +296,8 @@ Add these to Netlify (Site settings → Environment variables):
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 NODE_ENV=production
 ```
 

@@ -149,7 +149,7 @@ CNAME  www  elevateproduction.netlify.app  ✅
 
 Add a button/link:
 ```html
-<a href="https://elevateconnectsdirectory.org" 
+<a href="https://www.elevateconnectsdirectory.org" 
    class="button">
   Access Student Portal
 </a>
@@ -243,7 +243,7 @@ https://app.netlify.com/sites/elevateproduction/settings/domain
 1. **Go to Netlify:** https://app.netlify.com/sites/elevateproduction/settings/domain
 2. **Add domain:** elevateconnectsdirectory.org
 3. **Wait for SSL**
-4. **Test:** https://elevateconnectsdirectory.org
+4. **Test:** https://www.elevateconnectsdirectory.org
 
 ---
 

@@ -96,7 +96,7 @@ If you prefer to do it manually:
 - All images loading ✅
 
 ### Not Working (SSL error):
-**https://elevateconnectsdirectory.org**
+**https://www.elevateconnectsdirectory.org**
 - DNS configured ✅
 - Domain not added to Netlify ❌
 - Wrong SSL certificate ❌
@@ -106,7 +106,7 @@ If you prefer to do it manually:
 Once the domain is added and SSL is provisioned:
 
 1. **Clear browser cache**: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-2. **Visit**: https://elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateconnectsdirectory.org
 3. **Verify**: No SSL errors, all styling visible
 4. **Test**: Navigate through pages
 
@@ -158,7 +158,7 @@ bash scripts/autopilot-add-domain.sh
 bash scripts/autopilot-check-ssl.sh
 
 # Visit site
-# https://elevateconnectsdirectory.org
+# https://www.elevateconnectsdirectory.org
 ```
 
 ## Summary
@@ -172,7 +172,7 @@ bash scripts/autopilot-check-ssl.sh
 2. Run autopilot script
 3. Wait 5-15 minutes
 
-**Result**: Site will be live at https://elevateconnectsdirectory.org with valid SSL
+**Result**: Site will be live at https://www.elevateconnectsdirectory.org with valid SSL
 
 ---
 

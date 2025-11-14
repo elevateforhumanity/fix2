@@ -36,7 +36,7 @@ After adding the domain:
 ### Step 4: Test
 
 Once SSL shows "Secured ✓":
-1. Visit: https://elevateconnectsdirectory.org
+1. Visit: https://www.elevateconnectsdirectory.org
 2. Should load without SSL errors
 3. Should show your fully styled site
 
@@ -201,13 +201,13 @@ Once the SSL certificate is provisioned and working:
 - All images present
 
 ### ❌ Needs SSL Fix:
-- https://elevateconnectsdirectory.org
+- https://www.elevateconnectsdirectory.org
 - Domain not added to Netlify
 - SSL certificate mismatch
 - Browser blocks connection
 
 ### ⏳ After Adding Domain:
-- https://elevateconnectsdirectory.org
+- https://www.elevateconnectsdirectory.org
 - Will work perfectly
 - Valid SSL certificate
 - No browser errors
@@ -218,4 +218,4 @@ Once the SSL certificate is provisioned and working:
 
 **Estimated Time**: 5-15 minutes (including SSL provisioning)
 
-**Result**: Site will be accessible at https://elevateconnectsdirectory.org with valid SSL
+**Result**: Site will be accessible at https://www.elevateconnectsdirectory.org with valid SSL

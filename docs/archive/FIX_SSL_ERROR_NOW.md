@@ -27,7 +27,7 @@ You're seeing: **"Your connection is not private - net::ERR_CERT_COMMON_NAME_INV
 - When ready: "HTTPS: Secured ✓"
 
 ### Step 4: Test
-- Visit: https://elevateconnectsdirectory.org
+- Visit: https://www.elevateconnectsdirectory.org
 - Should load without SSL errors
 - Clear browser cache if needed (Ctrl+Shift+R)
 
@@ -156,7 +156,7 @@ But the manual method above is faster (2 minutes vs 5-10 minutes to get token).
 Once you see "HTTPS: Secured ✓":
 
 1. **Clear browser cache**: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-2. **Visit**: https://elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateconnectsdirectory.org
 3. **Verify**: No SSL errors, site loads perfectly
 4. **Enjoy**: Your fully functional, production-ready site!
 

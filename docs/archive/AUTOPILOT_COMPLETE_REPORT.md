@@ -258,7 +258,7 @@ All autopilot systems configured and operational. Repository is clean, build is 
 - SEO: ✅ Optimized
 
 ### Pending SSL Configuration
-**https://elevateconnectsdirectory.org**
+**https://www.elevateconnectsdirectory.org**
 - Status: ⏳ Pending
 - DNS: ✅ Configured
 - Domain: ❌ Not added to Netlify
@@ -428,7 +428,7 @@ Option 2: Manual in Dashboard
 
 ### Live URLs
 - **Working Now**: https://elevateproduction.netlify.app
-- **After SSL**: https://elevateconnectsdirectory.org
+- **After SSL**: https://www.elevateconnectsdirectory.org
 
 ### Dashboards
 - **Netlify**: https://app.netlify.com/sites/elevateproduction

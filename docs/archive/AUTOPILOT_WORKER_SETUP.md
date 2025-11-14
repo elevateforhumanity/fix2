@@ -168,7 +168,7 @@ bash scripts/autopilot-check-ssl.sh
 Once SSL is ready:
 
 1. **Clear browser cache**: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-2. **Visit**: https://elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateconnectsdirectory.org
 3. **Verify**:
    - ✅ No SSL errors
    - ✅ Site loads correctly
@@ -247,7 +247,7 @@ curl -H "Authorization: Bearer YOUR_NETLIFY_TOKEN" \
 
 ### Check SSL certificate:
 ```bash
-curl -Ivk https://elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 ```
 
 ---
@@ -271,7 +271,7 @@ curl -Ivk https://elevateconnectsdirectory.org 2>&1 | grep "subject:"
 **Result:**
 - ✅ Domain added to Netlify
 - ✅ SSL certificate provisioned
-- ✅ Site accessible at https://elevateconnectsdirectory.org
+- ✅ Site accessible at https://www.elevateconnectsdirectory.org
 - ✅ No more SSL errors!
 
 ---

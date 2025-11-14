@@ -109,7 +109,7 @@ Should show:
 
 ### Step 3: Test Custom Domain (after SSL)
 
-**Visit:** https://elevateconnectsdirectory.org
+**Visit:** https://www.elevateconnectsdirectory.org
 
 Should show:
 - ✅ Your LMS
@@ -246,7 +246,7 @@ Result: Cleaner, faster, production-ready
 ### After Build:
 1. 🌐 Add elevateconnectsdirectory.org to Netlify
 2. ⏳ Wait for SSL (5-10 minutes)
-3. ✅ Test: https://elevateconnectsdirectory.org
+3. ✅ Test: https://www.elevateconnectsdirectory.org
 
 ### Final:
 1. ✅ Verify elevateforhumanity.org still on Durable

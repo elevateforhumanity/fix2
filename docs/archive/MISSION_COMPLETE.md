@@ -223,7 +223,7 @@ Features:
 - ✅ Security hardened
 
 ### ⏳ Pending SSL Configuration
-**https://elevateconnectsdirectory.org**
+**https://www.elevateconnectsdirectory.org**
 
 Status:
 - ✅ DNS configured correctly

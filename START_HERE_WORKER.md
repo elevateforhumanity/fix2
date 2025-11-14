@@ -63,8 +63,8 @@ Add 6 variables:
 - `NEXT_PUBLIC_SUPABASE_URL` (from Supabase)
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (from Supabase)
 - `SUPABASE_SERVICE_ROLE_KEY` (from Supabase)
-- `NEXT_PUBLIC_APP_URL` = `https://elevateconnectsdirectory.org`
-- `NEXT_PUBLIC_SITE_URL` = `https://elevateconnectsdirectory.org`
+- `NEXT_PUBLIC_APP_URL` = `https://www.elevateconnectsdirectory.org`
+- `NEXT_PUBLIC_SITE_URL` = `https://www.elevateconnectsdirectory.org`
 - `NODE_ENV` = `production`
 
 ### 4. Deploy (2 min)
@@ -73,7 +73,7 @@ In Netlify → Deploys → "Trigger deploy" → "Clear cache and deploy site"
 Wait 2-3 minutes for build to complete.
 
 ### 5. Verify (1 min)
-Open: https://elevateconnectsdirectory.org
+Open: https://www.elevateconnectsdirectory.org
 
 Site should load without errors. ✅
 

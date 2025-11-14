@@ -148,7 +148,7 @@ export default function WelcomeEmail({ userName, loginUrl }: WelcomeEmailProps) 
       <Body style={main}>
         <Container style={container}>
           <Img
-            src="https://elevateconnectsdirectory.org/logo.png"
+            src="https://www.elevateconnectsdirectory.org/logo.png"
             width="150"
             height="50"
             alt="Elevate for Humanity"
@@ -569,7 +569,7 @@ async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
 ### Set Up Webhooks (Optional)
 1. Go to Resend Dashboard → **Webhooks**
 2. Click **Add Webhook**
-3. URL: `https://elevateconnectsdirectory.org/api/webhooks/resend`
+3. URL: `https://www.elevateconnectsdirectory.org/api/webhooks/resend`
 4. Events:
    - `email.sent`
    - `email.delivered`

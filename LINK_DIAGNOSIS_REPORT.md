@@ -21,11 +21,11 @@
 
 | Link | Status | Size | Notes |
 |------|--------|------|-------|
-| [Homepage](https://elevateconnectsdirectory.org) | ✅ READY | 20KB+ | Full WIOA-focused homepage with stats, testimonials |
-| [HVAC Program](https://elevateconnectsdirectory.org/programs/hvac) | ✅ READY | 5.2KB | **NEW** - Complete program page |
-| [Barber Program](https://elevateconnectsdirectory.org/programs/barber) | ✅ READY | 5.8KB | **NEW** - Complete program page |
-| [CNA Program](https://elevateconnectsdirectory.org/programs/cna) | ✅ READY | 5.8KB | **NEW** - Complete program page |
-| [Student Portal](https://elevateconnectsdirectory.org/lms/dashboard) | ✅ READY | 12.5KB | Full dashboard with courses, progress |
+| [Homepage](https://www.elevateconnectsdirectory.org) | ✅ READY | 20KB+ | Full WIOA-focused homepage with stats, testimonials |
+| [HVAC Program](https://www.elevateconnectsdirectory.org/programs/hvac) | ✅ READY | 5.2KB | **NEW** - Complete program page |
+| [Barber Program](https://www.elevateconnectsdirectory.org/programs/barber) | ✅ READY | 5.8KB | **NEW** - Complete program page |
+| [CNA Program](https://www.elevateconnectsdirectory.org/programs/cna) | ✅ READY | 5.8KB | **NEW** - Complete program page |
+| [Student Portal](https://www.elevateconnectsdirectory.org/lms/dashboard) | ✅ READY | 12.5KB | Full dashboard with courses, progress |
 
 **Student Portal Status**: ✅ **READY FOR ONBOARDING**
 
@@ -35,9 +35,9 @@
 
 | Link | Status | Size | Notes |
 |------|--------|------|-------|
-| [Apply as Partner](https://elevateconnectsdirectory.org/program-holder/apply) | ✅ READY | 8.6KB | Complete application form |
-| [Partner Dashboard](https://elevateconnectsdirectory.org/program-holder/dashboard) | ✅ READY | 11.2KB | Full dashboard with MOU, referrals |
-| [Delegate Portal](https://elevateconnectsdirectory.org/delegate/dashboard) | ✅ READY | 13.8KB | Complete caseload tracking |
+| [Apply as Partner](https://www.elevateconnectsdirectory.org/program-holder/apply) | ✅ READY | 8.6KB | Complete application form |
+| [Partner Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard) | ✅ READY | 11.2KB | Full dashboard with MOU, referrals |
+| [Delegate Portal](https://www.elevateconnectsdirectory.org/delegate/dashboard) | ✅ READY | 13.8KB | Complete caseload tracking |
 
 **Partner Portal Status**: ✅ **READY FOR ONBOARDING**
 
@@ -47,9 +47,9 @@
 
 | Link | Status | Size | Notes |
 |------|--------|------|-------|
-| [Admin Dashboard](https://elevateconnectsdirectory.org/admin/dashboard) | ✅ READY | 15.3KB | Full admin overview |
-| [Issue Certificates](https://elevateconnectsdirectory.org/admin/certificates/issue) | ✅ READY | 8.8KB | Complete certificate issuance |
-| [View Reports](https://elevateconnectsdirectory.org/admin/reports) | ✅ READY | 8.3KB | Full reporting dashboard |
+| [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard) | ✅ READY | 15.3KB | Full admin overview |
+| [Issue Certificates](https://www.elevateconnectsdirectory.org/admin/certificates/issue) | ✅ READY | 8.8KB | Complete certificate issuance |
+| [View Reports](https://www.elevateconnectsdirectory.org/admin/reports) | ✅ READY | 8.3KB | Full reporting dashboard |
 
 **Admin Portal Status**: ✅ **READY FOR ONBOARDING**
 
@@ -59,8 +59,8 @@
 
 | Link | Status | Size | Notes |
 |------|--------|------|-------|
-| [Verify Certificate](https://elevateconnectsdirectory.org/cert/verify/[serial]) | ✅ READY | 6.1KB | QR code verification working |
-| [Contact](https://elevateconnectsdirectory.org/contact) | ✅ READY | 3.7KB | Phone: (317) 314-3757 ✅ |
+| [Verify Certificate](https://www.elevateconnectsdirectory.org/cert/verify/[serial]) | ✅ READY | 6.1KB | QR code verification working |
+| [Contact](https://www.elevateconnectsdirectory.org/contact) | ✅ READY | 3.7KB | Phone: (317) 314-3757 ✅ |
 
 **Public Pages Status**: ✅ **READY FOR ONBOARDING**
 

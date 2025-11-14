@@ -44,14 +44,14 @@ Scopes: All scopes
 ### Variable 4:
 ```
 Key: NEXT_PUBLIC_APP_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://www.elevateconnectsdirectory.org
 Scopes: Production
 ```
 
 ### Variable 5:
 ```
 Key: NEXT_PUBLIC_SITE_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://www.elevateconnectsdirectory.org
 Scopes: Production
 ```
 
@@ -75,7 +75,7 @@ Scopes: Production
 
 ## STEP 4: Verify (30 seconds)
 
-Open: **https://elevateconnectsdirectory.org**
+Open: **https://www.elevateconnectsdirectory.org**
 
 Site should load! ✅
 

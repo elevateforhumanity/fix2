@@ -409,18 +409,18 @@ On your marketing site, add clear calls-to-action:
 
 **Homepage**:
 ```html
-<a href="https://elevateconnectsdirectory.org/signup" class="btn-primary">
+<a href="https://www.elevateconnectsdirectory.org/signup" class="btn-primary">
   Enroll Now
 </a>
 
-<a href="https://elevateconnectsdirectory.org/login" class="btn-secondary">
+<a href="https://www.elevateconnectsdirectory.org/login" class="btn-secondary">
   Student Login
 </a>
 ```
 
 **Programs Page**:
 ```html
-<a href="https://elevateconnectsdirectory.org/programs/workforce-readiness">
+<a href="https://www.elevateconnectsdirectory.org/programs/workforce-readiness">
   View Course Details
 </a>
 ```
@@ -431,7 +431,7 @@ On your marketing site, add clear calls-to-action:
 - About
 - Programs
 - Contact
-- Student Portal → https://elevateconnectsdirectory.org/login
+- Student Portal → https://www.elevateconnectsdirectory.org/login
 ```
 
 ---

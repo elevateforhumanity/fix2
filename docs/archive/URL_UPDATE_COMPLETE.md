@@ -105,7 +105,7 @@ The application is now configured for **https://elevateconnects1.netlify.app/**
 
 ### Old Domain
 ```
-https://elevateconnectsdirectory.org
+https://www.elevateconnectsdirectory.org
 https://www.elevateconnectsdirectory.org
 ```
 

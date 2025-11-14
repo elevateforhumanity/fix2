@@ -217,13 +217,13 @@
 ✅ <meta name="keywords" content="career training, workforce development..."/>
 ✅ <meta name="author" content="Elevate for Humanity"/>
 ✅ <meta name="robots" content="index, follow"/>
-✅ <link rel="canonical" href="https://elevateconnectsdirectory.org/"/>
+✅ <link rel="canonical" href="https://www.elevateconnectsdirectory.org/"/>
 ```
 
 ### Open Graph Tags
 ```
 ✅ <meta property="og:type" content="website"/>
-✅ <meta property="og:url" content="https://elevateconnectsdirectory.org/"/>
+✅ <meta property="og:url" content="https://www.elevateconnectsdirectory.org/"/>
 ✅ <meta property="og:title" content="Elevate for Humanity - Career Training..."/>
 ✅ <meta property="og:description" content="Transform your career..."/>
 ✅ <meta property="og:image" content=".../images/og-image.jpg"/>
@@ -234,7 +234,7 @@
 ### Twitter Card Tags
 ```
 ✅ <meta name="twitter:card" content="summary_large_image"/>
-✅ <meta name="twitter:url" content="https://elevateconnectsdirectory.org/"/>
+✅ <meta name="twitter:url" content="https://www.elevateconnectsdirectory.org/"/>
 ✅ <meta name="twitter:title" content="Elevate for Humanity..."/>
 ✅ <meta name="twitter:description" content="Transform your career..."/>
 ✅ <meta name="twitter:image" content=".../images/og-image.jpg"/>
@@ -274,7 +274,7 @@
 ✅ Status: HTTP 200
 ✅ User-agent: * (all crawlers allowed)
 ✅ Allow: / (all pages crawlable)
-✅ Sitemap: https://elevateconnectsdirectory.org/sitemap.xml
+✅ Sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
 ```
 
 ### Crawlability
@@ -575,7 +575,7 @@ bash scripts/autopilot-add-domain.sh
 - All features: ✅ Working
 
 ### After SSL Configuration
-**https://elevateconnectsdirectory.org**
+**https://www.elevateconnectsdirectory.org**
 - Status: ⏳ Pending SSL
 - DNS: ✅ Configured
 - Action: Add domain to Netlify

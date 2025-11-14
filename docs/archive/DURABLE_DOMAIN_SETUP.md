@@ -97,7 +97,7 @@ TTL: 3600 (or 1 hour)
 
 ### Check Website (15-20 minutes after setup):
 
-1. **Visit:** https://elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateconnectsdirectory.org
 2. **Should show:** Your Netlify LMS
 3. **SSL:** Should be secure (🔒 in browser)
 4. **www redirect:** www.elevateconnectsdirectory.org should redirect to apex
@@ -299,7 +299,7 @@ If SSL doesn't work after 1 hour:
 
 ### Testing:
 - [ ] Checked DNS propagation (dnschecker.org)
-- [ ] Visited https://elevateconnectsdirectory.org
+- [ ] Visited https://www.elevateconnectsdirectory.org
 - [ ] Site loads correctly
 - [ ] SSL works (🔒 in browser)
 - [ ] www.elevateconnectsdirectory.org redirects to apex

@@ -297,7 +297,7 @@
 
 ### 🚀 DEPLOYMENT STATUS
 
-**Site:** https://elevateconnectsdirectory.org
+**Site:** https://www.elevateconnectsdirectory.org
 **Status:** ✅ LIVE
 **Build:** ✅ Successful
 **Pages:** 18 static pages generated

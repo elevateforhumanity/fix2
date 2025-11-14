@@ -160,7 +160,7 @@ debug: (...a: unknown[]) => enabled('debug') && console.log(...a),
 ```html
 <title>Elevate for Humanity - Career Training & Workforce Development</title>
 <meta name="description" content="Transform your career with free training programs..."/>
-<meta property="og:image" content="https://elevateconnectsdirectory.org/images/og-image.jpg"/>
+<meta property="og:image" content="https://www.elevateconnectsdirectory.org/images/og-image.jpg"/>
 ```
 
 ### **Google Analytics** ✅

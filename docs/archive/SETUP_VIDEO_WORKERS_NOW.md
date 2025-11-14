@@ -215,7 +215,7 @@ http://localhost:5173/staff/aivideo-builder
 
 Once deployed to Netlify:
 ```
-https://elevateconnectsdirectory.org/staff/aivideo-builder
+https://www.elevateconnectsdirectory.org/staff/aivideo-builder
 ```
 
 ---
@@ -262,7 +262,7 @@ pnpm run dev
 
 **To access:**
 - Local: [http://localhost:5173/staff/aivideo-builder](http://localhost:5173/staff/aivideo-builder)
-- Production: [https://elevateconnectsdirectory.org/staff/aivideo-builder](https://elevateconnectsdirectory.org/staff/aivideo-builder)
+- Production: [https://www.elevateconnectsdirectory.org/staff/aivideo-builder](https://www.elevateconnectsdirectory.org/staff/aivideo-builder)
 
 ---
 

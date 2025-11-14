@@ -39,7 +39,7 @@ Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in
 
 ### Step 4: Test
 1. Clear browser cache: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-2. Visit: https://elevateconnectsdirectory.org
+2. Visit: https://www.elevateconnectsdirectory.org
 3. Should load without SSL errors
 4. Should show your site with all styling
 
@@ -105,11 +105,11 @@ curl -s "https://dns.google/resolve?name=elevateconnectsdirectory.org&type=A"
 # Should show: 75.2.60.5
 
 # Check SSL certificate
-curl -Ivk https://elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 # Should show: CN=elevateconnectsdirectory.org
 
 # Check site loads
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 # Should show: HTTP/2 200
 ```
 
@@ -168,7 +168,7 @@ Custom domains
 Once SSL shows "Secured ✅":
 
 1. **Clear browser cache**: Ctrl+Shift+R or Cmd+Shift+R
-2. **Visit**: https://elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateconnectsdirectory.org
 3. **Verify**:
    - ✅ No SSL errors
    - ✅ Secure padlock in browser

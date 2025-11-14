@@ -83,9 +83,9 @@ User Journey:
 ### Navigation Links
 
 **Marketing Site → LMS**:
-- "Enroll Now" → `https://elevateconnectsdirectory.org/signup`
-- "Student Login" → `https://elevateconnectsdirectory.org/login`
-- "View Courses" → `https://elevateconnectsdirectory.org/lms/courses`
+- "Enroll Now" → `https://www.elevateconnectsdirectory.org/signup`
+- "Student Login" → `https://www.elevateconnectsdirectory.org/login`
+- "View Courses" → `https://www.elevateconnectsdirectory.org/lms/courses`
 
 **LMS → Marketing Site**:
 - "Back to Main Site" → `https://www.elevateforhumanity.org`
@@ -128,9 +128,9 @@ User Journey:
 ### Deployment
 - [ ] Push to GitHub
 - [ ] Verify Netlify deployment
-- [ ] Test site loads: https://elevateconnectsdirectory.org
-- [ ] Test sitemap: https://elevateconnectsdirectory.org/sitemap.xml
-- [ ] Test robots.txt: https://elevateconnectsdirectory.org/robots.txt
+- [ ] Test site loads: https://www.elevateconnectsdirectory.org
+- [ ] Test sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
+- [ ] Test robots.txt: https://www.elevateconnectsdirectory.org/robots.txt
 
 ### Post-Deployment
 - [ ] Submit sitemap to Google Search Console (optional)

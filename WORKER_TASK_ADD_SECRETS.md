@@ -44,8 +44,8 @@ You will add:
    - `NEXT_PUBLIC_SUPABASE_URL` (from Supabase)
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (from Supabase)
    - `SUPABASE_SERVICE_ROLE_KEY` (from Supabase)
-   - `NEXT_PUBLIC_APP_URL` = `https://elevateconnectsdirectory.org`
-   - `NEXT_PUBLIC_SITE_URL` = `https://elevateconnectsdirectory.org`
+   - `NEXT_PUBLIC_APP_URL` = `https://www.elevateconnectsdirectory.org`
+   - `NEXT_PUBLIC_SITE_URL` = `https://www.elevateconnectsdirectory.org`
    - `NODE_ENV` = `production`
 
 ### Step 4: Deploy
@@ -55,9 +55,9 @@ You will add:
 4. Status should show "Published"
 
 ### Step 5: Verify
-1. Open: https://elevateconnectsdirectory.org
+1. Open: https://www.elevateconnectsdirectory.org
 2. Site should load without errors
-3. Check: https://elevateconnectsdirectory.org/sitemap.xml
+3. Check: https://www.elevateconnectsdirectory.org/sitemap.xml
 4. ✅ Done!
 
 ---
@@ -117,7 +117,7 @@ When done, you should have:
 - ✅ 3 secrets in GitHub (visible in secrets list)
 - ✅ 6 variables in Netlify (visible in env vars list)
 - ✅ Netlify deployment status: "Published"
-- ✅ Site loads: https://elevateconnectsdirectory.org
+- ✅ Site loads: https://www.elevateconnectsdirectory.org
 - ✅ No errors in browser console
 
 ---

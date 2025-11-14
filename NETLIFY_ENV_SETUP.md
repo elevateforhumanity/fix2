@@ -56,13 +56,13 @@ Scopes: All scopes (or Production)
 
 ```
 Key: NEXT_PUBLIC_APP_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://www.elevateconnectsdirectory.org
 Scopes: Production
 ```
 
 ```
 Key: NEXT_PUBLIC_SITE_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://www.elevateconnectsdirectory.org
 Scopes: Production
 ```
 
@@ -83,9 +83,9 @@ After adding all variables:
 ### Step 4: Verify
 
 Once deployed, check:
-- ✅ https://elevateconnectsdirectory.org (site loads)
-- ✅ https://elevateconnectsdirectory.org/sitemap.xml (sitemap works)
-- ✅ https://elevateconnectsdirectory.org/robots.txt (robots.txt works)
+- ✅ https://www.elevateconnectsdirectory.org (site loads)
+- ✅ https://www.elevateconnectsdirectory.org/sitemap.xml (sitemap works)
+- ✅ https://www.elevateconnectsdirectory.org/robots.txt (robots.txt works)
 
 ---
 
@@ -108,12 +108,12 @@ SUPABASE_SERVICE_ROLE_KEY=[YOUR_SERVICE_ROLE_KEY_HERE]
 
 ### Variable 4
 ```
-NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
 ```
 
 ### Variable 5
 ```
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 ```
 
 ### Variable 6
@@ -131,8 +131,8 @@ If you have Netlify CLI installed:
 netlify env:set NEXT_PUBLIC_SUPABASE_URL "https://cuxzzpsyufcewtmicszk.supabase.co"
 netlify env:set NEXT_PUBLIC_SUPABASE_ANON_KEY "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ"
 netlify env:set SUPABASE_SERVICE_ROLE_KEY "YOUR_SERVICE_ROLE_KEY"
-netlify env:set NEXT_PUBLIC_APP_URL "https://elevateconnectsdirectory.org"
-netlify env:set NEXT_PUBLIC_SITE_URL "https://elevateconnectsdirectory.org"
+netlify env:set NEXT_PUBLIC_APP_URL "https://www.elevateconnectsdirectory.org"
+netlify env:set NEXT_PUBLIC_SITE_URL "https://www.elevateconnectsdirectory.org"
 netlify env:set NODE_ENV "production"
 netlify deploy --prod
 ```

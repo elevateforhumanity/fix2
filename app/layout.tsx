@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Elevate for Humanity | Workforce Training & Career Development',
     description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-    url: 'https://elevateconnectsdirectory.org',
+    url: 'https://www.elevateconnectsdirectory.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
     type: 'website',

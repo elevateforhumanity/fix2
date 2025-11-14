@@ -19,7 +19,7 @@
 - Dynamically pulls programs from database
 - Dynamically pulls courses from database
 - Proper priorities and change frequencies
-- **URL**: https://elevateconnectsdirectory.org/sitemap.xml
+- **URL**: https://www.elevateconnectsdirectory.org/sitemap.xml
 
 ### 2. ✅ Robots.txt - COMPLETE
 **File**: `app/robots.ts`
@@ -27,7 +27,7 @@
 - Allows search engines to crawl public pages
 - Blocks private areas (admin, API, profiles)
 - References sitemap location
-- **URL**: https://elevateconnectsdirectory.org/robots.txt
+- **URL**: https://www.elevateconnectsdirectory.org/robots.txt
 
 ### 3. ✅ Google Analytics - READY (needs API key)
 **Files Created**:
@@ -139,8 +139,8 @@
 
 ### Post-Launch (First Day)
 4. **Submit Sitemaps** (2 min)
-   - Google Search Console: Submit `https://elevateconnectsdirectory.org/sitemap.xml`
-   - Bing Webmaster Tools: Submit `https://elevateconnectsdirectory.org/sitemap.xml`
+   - Google Search Console: Submit `https://www.elevateconnectsdirectory.org/sitemap.xml`
+   - Bing Webmaster Tools: Submit `https://www.elevateconnectsdirectory.org/sitemap.xml`
 
 5. **Create Social Images** (15 min)
    - Open Graph image: 1200x630px
@@ -153,9 +153,9 @@
 ## Testing After Deployment
 
 Test these URLs:
-- ✅ https://elevateconnectsdirectory.org/sitemap.xml
-- ✅ https://elevateconnectsdirectory.org/robots.txt
-- ✅ https://elevateconnectsdirectory.org/ (verify GA tracking)
+- ✅ https://www.elevateconnectsdirectory.org/sitemap.xml
+- ✅ https://www.elevateconnectsdirectory.org/robots.txt
+- ✅ https://www.elevateconnectsdirectory.org/ (verify GA tracking)
 
 Use these tools:
 - **Rich Results Test**: https://search.google.com/test/rich-results

@@ -54,7 +54,7 @@ Copy the **service_role** key (starts with `eyJhbGci...`)
    https://app.netlify.com/sites/elevateconnectsdirectory/deploys
 
 🌐 Site will be live at:
-   https://elevateconnectsdirectory.org
+   https://www.elevateconnectsdirectory.org
 ```
 
 ---
@@ -97,7 +97,7 @@ curl -X POST https://add-netlify-env-vars.YOUR_SUBDOMAIN.workers.dev/ \
   "deploy_triggered": true,
   "deploy_id": "507f1f77bcf86cd799439011",
   "deploy_url": "https://app.netlify.com/sites/.../deploys/...",
-  "site_url": "https://elevateconnectsdirectory.org",
+  "site_url": "https://www.elevateconnectsdirectory.org",
   "message": "✅ All environment variables added and deploy triggered successfully!"
 }
 ```
@@ -164,8 +164,8 @@ Follow: **FIX_DEPLOYMENT_NOW.md**
 NEXT_PUBLIC_SUPABASE_URL = https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGci... (public key)
 SUPABASE_SERVICE_ROLE_KEY = eyJhbGci... (secret key - from you)
-NEXT_PUBLIC_APP_URL = https://elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL = https://elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL = https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL = https://www.elevateconnectsdirectory.org
 NODE_ENV = production
 ```
 
@@ -175,8 +175,8 @@ NODE_ENV = production
 
 ### Verify Deployment
 1. Wait 2-3 minutes for build
-2. Check: https://elevateconnectsdirectory.org
-3. Verify: https://elevateconnectsdirectory.org/sitemap.xml
+2. Check: https://www.elevateconnectsdirectory.org
+3. Verify: https://www.elevateconnectsdirectory.org/sitemap.xml
 4. Test: Login/signup functionality
 
 ### Monitor

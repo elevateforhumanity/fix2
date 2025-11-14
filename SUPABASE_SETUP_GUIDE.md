@@ -31,7 +31,7 @@ In the root of your project (`/workspaces/fix2/`), create a file named `.env.loc
 # Copy this template and fill in your actual values
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 
 # Supabase (REQUIRED)
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
@@ -238,7 +238,7 @@ For production deployment, set environment variables in Netlify:
    NEXT_PUBLIC_SUPABASE_URL = https://YOUR_PROJECT_REF.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGci...
    SUPABASE_SERVICE_ROLE_KEY = eyJhbGci...
-   NEXT_PUBLIC_SITE_URL = https://elevateconnectsdirectory.org
+   NEXT_PUBLIC_SITE_URL = https://www.elevateconnectsdirectory.org
    ```
 
 4. **Redeploy**:

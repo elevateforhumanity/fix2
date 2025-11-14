@@ -116,7 +116,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 **Redirect Configuration** (add to netlify.toml):
 ```toml
 [[redirects]]
-  from = "https://elevateconnectsdirectory.org/*"
+  from = "https://www.elevateconnectsdirectory.org/*"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -180,7 +180,7 @@ Add redirects to force non-www and redirect secondary domain:
 ```toml
 # Redirect all domains to primary
 [[redirects]]
-  from = "https://elevateconnectsdirectory.org/*"
+  from = "https://www.elevateconnectsdirectory.org/*"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -226,7 +226,7 @@ git push
 Wait for deployment, then test:
 - https://elevateforhumanity.org ✅
 - https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
-- https://elevateconnectsdirectory.org → redirects to https://elevateforhumanity.org ✅
+- https://www.elevateconnectsdirectory.org → redirects to https://elevateforhumanity.org ✅
 
 ---
 
@@ -299,7 +299,7 @@ After DNS changes propagate (10-30 minutes):
 
 - [ ] https://elevateforhumanity.org loads correctly
 - [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
-- [ ] https://elevateconnectsdirectory.org redirects to https://elevateforhumanity.org
+- [ ] https://www.elevateconnectsdirectory.org redirects to https://elevateforhumanity.org
 - [ ] https://www.elevateconnectsdirectory.org redirects to https://elevateforhumanity.org
 - [ ] SSL certificate is valid (green padlock)
 - [ ] All pages load correctly

@@ -4,7 +4,7 @@
 
 The new build with CSS variables **IS LIVE** at:
 - https://elevateproduction.netlify.app
-- https://elevateconnectsdirectory.org
+- https://www.elevateconnectsdirectory.org
 
 **Deployment Details:**
 - Commit: `f871b8fd`
@@ -59,13 +59,13 @@ Open the site in an incognito/private window:
 - **Firefox**: `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac)
 - **Safari**: `Cmd + Shift + N`
 
-Then visit: https://elevateconnectsdirectory.org
+Then visit: https://www.elevateconnectsdirectory.org
 
 ### Option 4: Cache-Busting URL
 
 Add `?v=2` to the URL:
 ```
-https://elevateconnectsdirectory.org/?v=2
+https://www.elevateconnectsdirectory.org/?v=2
 ```
 
 This forces the browser to fetch a fresh version.
@@ -175,6 +175,6 @@ If you still see the old version after clearing cache:
 
 ---
 
-**Quick Test**: Open in incognito window: https://elevateconnectsdirectory.org
+**Quick Test**: Open in incognito window: https://www.elevateconnectsdirectory.org
 
 You should immediately see the properly styled site with colors, gradients, and all styling working correctly.

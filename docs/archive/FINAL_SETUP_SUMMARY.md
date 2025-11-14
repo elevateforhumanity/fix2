@@ -55,7 +55,7 @@ Cost: $0 (free tier)
 
 ### Step 3: Test
 
-Visit: https://elevateconnectsdirectory.org
+Visit: https://www.elevateconnectsdirectory.org
 
 Should show your LMS with SSL!
 
@@ -148,8 +148,8 @@ Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environm
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateconnectsdirectory.org
+PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```

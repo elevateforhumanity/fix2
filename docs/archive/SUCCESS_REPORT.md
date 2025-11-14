@@ -155,7 +155,7 @@ Status: ✅ Live and working
 
 ### LMS Site:
 ```
-URL: https://elevateconnectsdirectory.org
+URL: https://www.elevateconnectsdirectory.org
 Purpose: Student portal / courses
 Platform: Netlify
 Status: ✅ Live and working
@@ -237,7 +237,7 @@ curl -I https://elevateforhumanity.org
 
 **LMS Site:**
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 # Should return: HTTP 200
 # Should show: Netlify LMS
 # Should have: SSL certificate

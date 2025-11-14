@@ -23,9 +23,9 @@
 - ✅ Dynamically includes program pages from database
 - ✅ Dynamically includes course pages from database
 - ✅ Proper priority and change frequency settings
-- ✅ Uses correct domain: `https://elevateconnectsdirectory.org`
+- ✅ Uses correct domain: `https://www.elevateconnectsdirectory.org`
 
-**URL**: https://elevateconnectsdirectory.org/sitemap.xml
+**URL**: https://www.elevateconnectsdirectory.org/sitemap.xml
 
 **What it includes**:
 - Homepage (priority: 1.0)
@@ -54,7 +54,7 @@
 - ✅ References sitemap location
 - ✅ Uses correct domain
 
-**URL**: https://elevateconnectsdirectory.org/robots.txt
+**URL**: https://www.elevateconnectsdirectory.org/robots.txt
 
 **What it does**:
 ```
@@ -68,7 +68,7 @@ Disallow: /lms/notifications
 Disallow: /_next/
 Disallow: /private/
 
-Sitemap: https://elevateconnectsdirectory.org/sitemap.xml
+Sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
 ```
 
 ---
@@ -135,7 +135,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 2. Deploy to production
 3. Go to Google Search Console: https://search.google.com/search-console
 4. Verify domain is showing as verified
-5. Submit sitemap: `https://elevateconnectsdirectory.org/sitemap.xml`
+5. Submit sitemap: `https://www.elevateconnectsdirectory.org/sitemap.xml`
 6. Monitor indexing status
 
 ---
@@ -151,7 +151,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 **To Complete**:
 1. Go to Bing Webmaster Tools: https://www.bing.com/webmasters
 2. Sign in with Microsoft account
-3. Add site: `https://elevateconnectsdirectory.org`
+3. Add site: `https://www.elevateconnectsdirectory.org`
 4. Choose verification method:
 
 **Option A: Meta Tag (Recommended)**
@@ -173,7 +173,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 3. Deploy and verify
 
 **After Verification**:
-1. Submit sitemap: `https://elevateconnectsdirectory.org/sitemap.xml`
+1. Submit sitemap: `https://www.elevateconnectsdirectory.org/sitemap.xml`
 2. Configure crawl settings
 3. Monitor indexing
 
@@ -199,8 +199,8 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "Elevate for Humanity",
-  "url": "https://elevateconnectsdirectory.org",
-  "logo": "https://elevateconnectsdirectory.org/assets/logo-efh.svg",
+  "url": "https://www.elevateconnectsdirectory.org",
+  "logo": "https://www.elevateconnectsdirectory.org/assets/logo-efh.svg",
   "description": "Career & Technical training that elevates communities...",
   "address": {
     "@type": "PostalAddress",
@@ -257,7 +257,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 openGraph: {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description: 'Career & Technical training that elevates communities...',
-  url: 'https://elevateconnectsdirectory.org',
+  url: 'https://www.elevateconnectsdirectory.org',
   siteName: 'Elevate for Humanity',
   locale: 'en_US',
   type: 'website',
@@ -283,7 +283,7 @@ twitter: {
    openGraph: {
      images: [
        {
-         url: 'https://elevateconnectsdirectory.org/og-image.jpg',
+         url: 'https://www.elevateconnectsdirectory.org/og-image.jpg',
          width: 1200,
          height: 630,
          alt: 'Elevate for Humanity',
@@ -395,13 +395,13 @@ Google Search Console:
 1. Go to https://search.google.com/search-console
 2. Select property: elevateconnectsdirectory.org
 3. Go to Sitemaps
-4. Submit: https://elevateconnectsdirectory.org/sitemap.xml
+4. Submit: https://www.elevateconnectsdirectory.org/sitemap.xml
 
 Bing Webmaster Tools:
 1. Go to https://www.bing.com/webmasters
 2. Select site: elevateconnectsdirectory.org
 3. Go to Sitemaps
-4. Submit: https://elevateconnectsdirectory.org/sitemap.xml
+4. Submit: https://www.elevateconnectsdirectory.org/sitemap.xml
 ```
 
 ### 4. Create Social Images (15 minutes)
@@ -422,9 +422,9 @@ Bing Webmaster Tools:
 
 After deployment, test these URLs:
 
-- **Sitemap**: https://elevateconnectsdirectory.org/sitemap.xml
-- **Robots**: https://elevateconnectsdirectory.org/robots.txt
-- **Homepage**: https://elevateconnectsdirectory.org/
+- **Sitemap**: https://www.elevateconnectsdirectory.org/sitemap.xml
+- **Robots**: https://www.elevateconnectsdirectory.org/robots.txt
+- **Homepage**: https://www.elevateconnectsdirectory.org/
 - **Rich Results Test**: https://search.google.com/test/rich-results
 - **PageSpeed Insights**: https://pagespeed.web.dev/
 - **Mobile-Friendly Test**: https://search.google.com/test/mobile-friendly

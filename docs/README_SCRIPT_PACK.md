@@ -161,7 +161,7 @@ Copy social media scripts for consistent messaging.
 ## 📞 Key Information
 
 **Phone**: (317) 314-3757  
-**Website**: https://elevateconnectsdirectory.org  
+**Website**: https://www.elevateconnectsdirectory.org  
 **Support Email**: support@elevateconnectsdirectory.org
 
 ---
@@ -169,19 +169,19 @@ Copy social media scripts for consistent messaging.
 ## 🔗 Quick Links
 
 ### Students
-- Homepage: https://elevateconnectsdirectory.org
-- HVAC: https://elevateconnectsdirectory.org/programs/hvac
-- Barber: https://elevateconnectsdirectory.org/programs/barber
-- CNA: https://elevateconnectsdirectory.org/programs/cna
-- Portal: https://elevateconnectsdirectory.org/lms/dashboard
+- Homepage: https://www.elevateconnectsdirectory.org
+- HVAC: https://www.elevateconnectsdirectory.org/programs/hvac
+- Barber: https://www.elevateconnectsdirectory.org/programs/barber
+- CNA: https://www.elevateconnectsdirectory.org/programs/cna
+- Portal: https://www.elevateconnectsdirectory.org/lms/dashboard
 
 ### Partners
-- Apply: https://elevateconnectsdirectory.org/program-holder/apply
-- Dashboard: https://elevateconnectsdirectory.org/program-holder/dashboard
+- Apply: https://www.elevateconnectsdirectory.org/program-holder/apply
+- Dashboard: https://www.elevateconnectsdirectory.org/program-holder/dashboard
 
 ### Admins
-- Dashboard: https://elevateconnectsdirectory.org/admin/dashboard
-- Certificates: https://elevateconnectsdirectory.org/admin/certificates/issue
+- Dashboard: https://www.elevateconnectsdirectory.org/admin/dashboard
+- Certificates: https://www.elevateconnectsdirectory.org/admin/certificates/issue
 
 ---
 

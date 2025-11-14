@@ -26,8 +26,8 @@ Click **Add a variable** and add these 6:
 1. NEXT_PUBLIC_SUPABASE_URL = https://cuxzzpsyufcewtmicszk.supabase.co
 2. NEXT_PUBLIC_SUPABASE_ANON_KEY = [paste anon key]
 3. SUPABASE_SERVICE_ROLE_KEY = [paste service_role key]
-4. NEXT_PUBLIC_APP_URL = https://elevateconnectsdirectory.org
-5. NEXT_PUBLIC_SITE_URL = https://elevateconnectsdirectory.org
+4. NEXT_PUBLIC_APP_URL = https://www.elevateconnectsdirectory.org
+5. NEXT_PUBLIC_SITE_URL = https://www.elevateconnectsdirectory.org
 6. NODE_ENV = production
 ```
 
@@ -46,7 +46,7 @@ Click **Add a variable** and add these 6:
 - [ ] Added 6 variables to Netlify
 - [ ] Triggered clear cache deploy
 - [ ] Site deployed successfully
-- [ ] Verified site loads: https://elevateconnectsdirectory.org
+- [ ] Verified site loads: https://www.elevateconnectsdirectory.org
 
 ---
 
@@ -55,7 +55,7 @@ Click **Add a variable** and add these 6:
 - **Supabase API Keys**: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 - **Netlify Environment**: https://app.netlify.com/ → Site settings → Environment variables
 - **Netlify Deploys**: https://app.netlify.com/ → Deploys tab
-- **Your Site**: https://elevateconnectsdirectory.org
+- **Your Site**: https://www.elevateconnectsdirectory.org
 
 ---
 

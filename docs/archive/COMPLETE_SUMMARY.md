@@ -184,7 +184,7 @@ Grand Total: $0/month ✅
 ### After Adding Domain:
 ```
 Same process, but also live at:
-- https://elevateconnectsdirectory.org
+- https://www.elevateconnectsdirectory.org
 ```
 
 ---
@@ -232,7 +232,7 @@ docs/archive/
    - Wait for SSL (5-10 minutes)
    
 2. Test the site
-   - Visit: https://elevateconnectsdirectory.org
+   - Visit: https://www.elevateconnectsdirectory.org
    - Verify styling works
    - Verify SSL works
 ```
@@ -383,7 +383,7 @@ curl -I https://elevateproduction.netlify.app
 ```
 1. Add elevateconnectsdirectory.org to Netlify
 2. Wait for SSL (5-10 minutes)
-3. Test: https://elevateconnectsdirectory.org
+3. Test: https://www.elevateconnectsdirectory.org
 4. Done!
 ```
 

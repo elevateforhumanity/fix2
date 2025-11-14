@@ -55,7 +55,7 @@ You mentioned earlier that both domains were "correct now", but the custom domai
 
 Once SSL is provisioned:
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 # Should show: HTTP/2 200
 # No SSL errors
 ```
@@ -124,14 +124,14 @@ dig elevateconnectsdirectory.org +short
 
 ### Check SSL Certificate
 ```bash
-curl -vI https://elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -vI https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 # Current: CN=*.netlify.app ❌
 # After fix: CN=elevateconnectsdirectory.org ✅
 ```
 
 ### Check Site Loads
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://www.elevateconnectsdirectory.org
 # Current: SSL error ❌
 # After fix: HTTP/2 200 ✅
 ```
@@ -185,7 +185,7 @@ Status will change to: "HTTPS enabled ✓"
 
 ### 5. Test
 ```
-Visit: https://elevateconnectsdirectory.org
+Visit: https://www.elevateconnectsdirectory.org
 Should load without SSL errors
 ```
 

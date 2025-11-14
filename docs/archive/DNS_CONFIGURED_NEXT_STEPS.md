@@ -63,13 +63,13 @@ Once DNS has propagated (10-15 minutes):
 
 After SSL is provisioned:
 
-1. **Visit:** https://elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateconnectsdirectory.org
 2. **Should show:** Your LMS site
 3. **SSL:** Should be secure (🔒 in browser)
 
 **Also test www:**
 1. **Visit:** https://www.elevateconnectsdirectory.org
-2. **Should redirect to:** https://elevateconnectsdirectory.org
+2. **Should redirect to:** https://www.elevateconnectsdirectory.org
 3. **Should show:** Your LMS site
 
 ---
@@ -103,7 +103,7 @@ Total:         ~20-30 minutes
 - [ ] Domain shows as "Active"
 
 ### Testing:
-- [ ] https://elevateconnectsdirectory.org loads
+- [ ] https://www.elevateconnectsdirectory.org loads
 - [ ] SSL works (🔒)
 - [ ] www redirects to apex
 - [ ] Site displays correctly
@@ -140,7 +140,7 @@ HTTPS enabled automatically
 ### Result:
 ```
 Your site is live at:
-- https://elevateconnectsdirectory.org ✅
+- https://www.elevateconnectsdirectory.org ✅
 - https://www.elevateconnectsdirectory.org ✅
 - Both with SSL (🔒)
 - Both showing your LMS
@@ -168,8 +168,8 @@ Add these:
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateconnectsdirectory.org
+PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```
@@ -245,7 +245,7 @@ NODE_ENV=production
    - ✅ Domain status: "Active"
 
 3. **Browser shows:**
-   - ✅ https://elevateconnectsdirectory.org loads
+   - ✅ https://www.elevateconnectsdirectory.org loads
    - ✅ Padlock icon (🔒) in address bar
    - ✅ Your LMS site displays
    - ✅ No security warnings

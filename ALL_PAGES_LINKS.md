@@ -3,124 +3,124 @@
 ## 🏠 PUBLIC PAGES
 
 ### Homepage & Marketing
-- [Homepage](https://elevateconnectsdirectory.org)
-- [About Us](https://elevateconnectsdirectory.org/about)
-- [Programs Overview](https://elevateconnectsdirectory.org/programs)
-- [Compare Programs](https://elevateconnectsdirectory.org/compare)
-- [Pricing](https://elevateconnectsdirectory.org/pricing)
-- [Blog](https://elevateconnectsdirectory.org/blog)
-- [Contact](https://elevateconnectsdirectory.org/contact)
-- [Privacy Policy](https://elevateconnectsdirectory.org/privacy-policy)
+- [Homepage](https://www.elevateconnectsdirectory.org)
+- [About Us](https://www.elevateconnectsdirectory.org/about)
+- [Programs Overview](https://www.elevateconnectsdirectory.org/programs)
+- [Compare Programs](https://www.elevateconnectsdirectory.org/compare)
+- [Pricing](https://www.elevateconnectsdirectory.org/pricing)
+- [Blog](https://www.elevateconnectsdirectory.org/blog)
+- [Contact](https://www.elevateconnectsdirectory.org/contact)
+- [Privacy Policy](https://www.elevateconnectsdirectory.org/privacy-policy)
 
 ### Program Pages (✅ Production-Ready)
-- [HVAC Technician](https://elevateconnectsdirectory.org/programs/hvac) ✅ **NEW**
-- [Barber Apprenticeship](https://elevateconnectsdirectory.org/programs/barber) ✅ **NEW**
-- [CNA Certification](https://elevateconnectsdirectory.org/programs/cna) ✅ **NEW**
-- [Dynamic Program Page](https://elevateconnectsdirectory.org/programs/[slug]) (template)
+- [HVAC Technician](https://www.elevateconnectsdirectory.org/programs/hvac) ✅ **NEW**
+- [Barber Apprenticeship](https://www.elevateconnectsdirectory.org/programs/barber) ✅ **NEW**
+- [CNA Certification](https://www.elevateconnectsdirectory.org/programs/cna) ✅ **NEW**
+- [Dynamic Program Page](https://www.elevateconnectsdirectory.org/programs/[slug]) (template)
 
 ### Authentication
-- [Sign Up](https://elevateconnectsdirectory.org/signup)
-- [Login](https://elevateconnectsdirectory.org/login)
-- [Apply](https://elevateconnectsdirectory.org/apply)
-- [Enroll in Program](https://elevateconnectsdirectory.org/enroll/[program])
+- [Sign Up](https://www.elevateconnectsdirectory.org/signup)
+- [Login](https://www.elevateconnectsdirectory.org/login)
+- [Apply](https://www.elevateconnectsdirectory.org/apply)
+- [Enroll in Program](https://www.elevateconnectsdirectory.org/enroll/[program])
 
 ### Certificate Verification (Public)
-- [Verify Certificate by Code](https://elevateconnectsdirectory.org/cert/verify/[code])
-- [Verify Certificate by Serial](https://elevateconnectsdirectory.org/cert/verify/[serial])
+- [Verify Certificate by Code](https://www.elevateconnectsdirectory.org/cert/verify/[code])
+- [Verify Certificate by Serial](https://www.elevateconnectsdirectory.org/cert/verify/[serial])
 
 ---
 
 ## 🎓 STUDENT PORTAL (LMS)
 
 ### Dashboard & Overview
-- [LMS Dashboard](https://elevateconnectsdirectory.org/lms/dashboard)
-- [My Profile](https://elevateconnectsdirectory.org/lms/profile)
-- [My Progress](https://elevateconnectsdirectory.org/lms/progress)
-- [My Certificates](https://elevateconnectsdirectory.org/lms/certificates)
-- [My Grades](https://elevateconnectsdirectory.org/lms/grades)
+- [LMS Dashboard](https://www.elevateconnectsdirectory.org/lms/dashboard)
+- [My Profile](https://www.elevateconnectsdirectory.org/lms/profile)
+- [My Progress](https://www.elevateconnectsdirectory.org/lms/progress)
+- [My Certificates](https://www.elevateconnectsdirectory.org/lms/certificates)
+- [My Grades](https://www.elevateconnectsdirectory.org/lms/grades)
 
 ### Courses & Learning
-- [Browse Courses](https://elevateconnectsdirectory.org/lms/courses)
-- [Course Details](https://elevateconnectsdirectory.org/lms/courses/[id])
-- [Lesson Viewer](https://elevateconnectsdirectory.org/lms/courses/[id]/lessons/[lessonId])
-- [Learning Paths](https://elevateconnectsdirectory.org/lms/learning-paths)
+- [Browse Courses](https://www.elevateconnectsdirectory.org/lms/courses)
+- [Course Details](https://www.elevateconnectsdirectory.org/lms/courses/[id])
+- [Lesson Viewer](https://www.elevateconnectsdirectory.org/lms/courses/[id]/lessons/[lessonId])
+- [Learning Paths](https://www.elevateconnectsdirectory.org/lms/learning-paths)
 
 ### Assessments
-- [Assignments](https://elevateconnectsdirectory.org/lms/assignments)
-- [Assignment Details](https://elevateconnectsdirectory.org/lms/assignments/[id])
-- [Quizzes](https://elevateconnectsdirectory.org/lms/quizzes/[quizId])
-- [Quiz Taking](https://elevateconnectsdirectory.org/lms/quiz/[id])
-- [Quiz Results](https://elevateconnectsdirectory.org/lms/quizzes/[quizId]/results/[attemptId])
+- [Assignments](https://www.elevateconnectsdirectory.org/lms/assignments)
+- [Assignment Details](https://www.elevateconnectsdirectory.org/lms/assignments/[id])
+- [Quizzes](https://www.elevateconnectsdirectory.org/lms/quizzes/[quizId])
+- [Quiz Taking](https://www.elevateconnectsdirectory.org/lms/quiz/[id])
+- [Quiz Results](https://www.elevateconnectsdirectory.org/lms/quizzes/[quizId]/results/[attemptId])
 
 ### Engagement
-- [Messages](https://elevateconnectsdirectory.org/lms/messages)
-- [Notifications](https://elevateconnectsdirectory.org/lms/notifications)
-- [Calendar](https://elevateconnectsdirectory.org/lms/calendar)
-- [Resources](https://elevateconnectsdirectory.org/lms/resources)
-- [Attendance](https://elevateconnectsdirectory.org/lms/attendance)
+- [Messages](https://www.elevateconnectsdirectory.org/lms/messages)
+- [Notifications](https://www.elevateconnectsdirectory.org/lms/notifications)
+- [Calendar](https://www.elevateconnectsdirectory.org/lms/calendar)
+- [Resources](https://www.elevateconnectsdirectory.org/lms/resources)
+- [Attendance](https://www.elevateconnectsdirectory.org/lms/attendance)
 
 ### Enrollment
-- [Enroll in Courses](https://elevateconnectsdirectory.org/lms/enroll)
-- [Workforce Enrollment](https://elevateconnectsdirectory.org/lms/enroll-workforce)
+- [Enroll in Courses](https://www.elevateconnectsdirectory.org/lms/enroll)
+- [Workforce Enrollment](https://www.elevateconnectsdirectory.org/lms/enroll-workforce)
 
 ---
 
 ## 👨‍💼 ADMIN PORTAL
 
 ### Dashboard & Overview
-- [Admin Dashboard](https://elevateconnectsdirectory.org/admin/dashboard)
-- [Applications](https://elevateconnectsdirectory.org/admin/applications)
+- [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard)
+- [Applications](https://www.elevateconnectsdirectory.org/admin/applications)
 
 ### User Management
-- [Learner Details](https://elevateconnectsdirectory.org/admin/learner/[id])
-- [Delegates](https://elevateconnectsdirectory.org/admin/delegates)
+- [Learner Details](https://www.elevateconnectsdirectory.org/admin/learner/[id])
+- [Delegates](https://www.elevateconnectsdirectory.org/admin/delegates)
 
 ### Course Management
-- [Course Content Editor](https://elevateconnectsdirectory.org/admin/courses/[id]/content)
-- [Course Quizzes](https://elevateconnectsdirectory.org/admin/courses/[id]/quizzes)
-- [Quiz Questions](https://elevateconnectsdirectory.org/admin/courses/[id]/quizzes/[quizId]/questions)
+- [Course Content Editor](https://www.elevateconnectsdirectory.org/admin/courses/[id]/content)
+- [Course Quizzes](https://www.elevateconnectsdirectory.org/admin/courses/[id]/quizzes)
+- [Quiz Questions](https://www.elevateconnectsdirectory.org/admin/courses/[id]/quizzes/[quizId]/questions)
 
 ### Certificates
-- [Certificates Overview](https://elevateconnectsdirectory.org/admin/certificates)
-- [Issue Certificate](https://elevateconnectsdirectory.org/admin/certificates/issue)
-- [Bulk Certifications](https://elevateconnectsdirectory.org/admin/certifications/bulk)
+- [Certificates Overview](https://www.elevateconnectsdirectory.org/admin/certificates)
+- [Issue Certificate](https://www.elevateconnectsdirectory.org/admin/certificates/issue)
+- [Bulk Certifications](https://www.elevateconnectsdirectory.org/admin/certifications/bulk)
 
 ### Program Holders
-- [Program Holders List](https://elevateconnectsdirectory.org/admin/program-holders)
-- [Countersign MOU](https://elevateconnectsdirectory.org/admin/program-holders/[id]/countersign-mou)
+- [Program Holders List](https://www.elevateconnectsdirectory.org/admin/program-holders)
+- [Countersign MOU](https://www.elevateconnectsdirectory.org/admin/program-holders/[id]/countersign-mou)
 
 ### Programs & Reports
-- [Program Dashboard](https://elevateconnectsdirectory.org/admin/programs/[code]/dashboard)
-- [Reports Overview](https://elevateconnectsdirectory.org/admin/reports)
-- [Caseload Report](https://elevateconnectsdirectory.org/admin/reports/caseload)
+- [Program Dashboard](https://www.elevateconnectsdirectory.org/admin/programs/[code]/dashboard)
+- [Reports Overview](https://www.elevateconnectsdirectory.org/admin/reports)
+- [Caseload Report](https://www.elevateconnectsdirectory.org/admin/reports/caseload)
 
 ---
 
 ## 🤝 PROGRAM HOLDER PORTAL
 
 ### Dashboard & Management
-- [Program Holder Dashboard](https://elevateconnectsdirectory.org/program-holder/dashboard)
-- [Apply as Program Holder](https://elevateconnectsdirectory.org/program-holder/apply)
+- [Program Holder Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard)
+- [Apply as Program Holder](https://www.elevateconnectsdirectory.org/program-holder/apply)
 
 ### MOU Management
-- [MOU Overview](https://elevateconnectsdirectory.org/program-holder/mou)
-- [Sign MOU](https://elevateconnectsdirectory.org/program-holder/sign-mou)
+- [MOU Overview](https://www.elevateconnectsdirectory.org/program-holder/mou)
+- [Sign MOU](https://www.elevateconnectsdirectory.org/program-holder/sign-mou)
 
 ---
 
 ## 👥 DELEGATE PORTAL
 
 ### Dashboard & Reports
-- [Delegate Dashboard](https://elevateconnectsdirectory.org/delegate/dashboard)
-- [Reports](https://elevateconnectsdirectory.org/delegate/reports)
-- [Export Reports](https://elevateconnectsdirectory.org/delegate/reports/export)
+- [Delegate Dashboard](https://www.elevateconnectsdirectory.org/delegate/dashboard)
+- [Reports](https://www.elevateconnectsdirectory.org/delegate/reports)
+- [Export Reports](https://www.elevateconnectsdirectory.org/delegate/reports/export)
 
 ---
 
 ## 🔒 UTILITY PAGES
 
-- [Unauthorized Access](https://elevateconnectsdirectory.org/unauthorized)
-- [Demo](https://elevateconnectsdirectory.org/demo)
+- [Unauthorized Access](https://www.elevateconnectsdirectory.org/unauthorized)
+- [Demo](https://www.elevateconnectsdirectory.org/demo)
 
 ---
 
@@ -229,50 +229,50 @@
 ## 🎯 KEY USER JOURNEYS
 
 ### Student Journey
-1. [Homepage](https://elevateconnectsdirectory.org) → Browse programs
-2. [HVAC Program](https://elevateconnectsdirectory.org/programs/hvac) → Learn details
-3. [Apply](https://elevateconnectsdirectory.org/apply) → Submit application
-4. [Sign Up](https://elevateconnectsdirectory.org/signup) → Create account
-5. [LMS Dashboard](https://elevateconnectsdirectory.org/lms/dashboard) → Access courses
-6. [Course](https://elevateconnectsdirectory.org/lms/courses/[id]) → Start learning
-7. [Certificates](https://elevateconnectsdirectory.org/lms/certificates) → Download credential
+1. [Homepage](https://www.elevateconnectsdirectory.org) → Browse programs
+2. [HVAC Program](https://www.elevateconnectsdirectory.org/programs/hvac) → Learn details
+3. [Apply](https://www.elevateconnectsdirectory.org/apply) → Submit application
+4. [Sign Up](https://www.elevateconnectsdirectory.org/signup) → Create account
+5. [LMS Dashboard](https://www.elevateconnectsdirectory.org/lms/dashboard) → Access courses
+6. [Course](https://www.elevateconnectsdirectory.org/lms/courses/[id]) → Start learning
+7. [Certificates](https://www.elevateconnectsdirectory.org/lms/certificates) → Download credential
 
 ### Partner Journey
-1. [Homepage](https://elevateconnectsdirectory.org) → Learn about partnership
-2. [Program Holder Apply](https://elevateconnectsdirectory.org/program-holder/apply) → Submit application
-3. [Sign MOU](https://elevateconnectsdirectory.org/program-holder/sign-mou) → Sign agreement
-4. [Dashboard](https://elevateconnectsdirectory.org/program-holder/dashboard) → Manage referrals
+1. [Homepage](https://www.elevateconnectsdirectory.org) → Learn about partnership
+2. [Program Holder Apply](https://www.elevateconnectsdirectory.org/program-holder/apply) → Submit application
+3. [Sign MOU](https://www.elevateconnectsdirectory.org/program-holder/sign-mou) → Sign agreement
+4. [Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard) → Manage referrals
 
 ### Admin Journey
-1. [Admin Dashboard](https://elevateconnectsdirectory.org/admin/dashboard) → Overview
-2. [Applications](https://elevateconnectsdirectory.org/admin/applications) → Review applications
-3. [Issue Certificate](https://elevateconnectsdirectory.org/admin/certificates/issue) → Award credentials
-4. [Reports](https://elevateconnectsdirectory.org/admin/reports) → View analytics
+1. [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard) → Overview
+2. [Applications](https://www.elevateconnectsdirectory.org/admin/applications) → Review applications
+3. [Issue Certificate](https://www.elevateconnectsdirectory.org/admin/certificates/issue) → Award credentials
+4. [Reports](https://www.elevateconnectsdirectory.org/admin/reports) → View analytics
 
 ---
 
 ## 🔗 QUICK ACCESS LINKS
 
 ### For Students
-- 🏠 [Start Here](https://elevateconnectsdirectory.org)
-- 📚 [Browse Programs](https://elevateconnectsdirectory.org/programs)
-- 📝 [Apply Now](https://elevateconnectsdirectory.org/apply)
-- 🎓 [Student Portal](https://elevateconnectsdirectory.org/lms/dashboard)
+- 🏠 [Start Here](https://www.elevateconnectsdirectory.org)
+- 📚 [Browse Programs](https://www.elevateconnectsdirectory.org/programs)
+- 📝 [Apply Now](https://www.elevateconnectsdirectory.org/apply)
+- 🎓 [Student Portal](https://www.elevateconnectsdirectory.org/lms/dashboard)
 
 ### For Partners
-- 🤝 [Become a Partner](https://elevateconnectsdirectory.org/program-holder/apply)
-- 📊 [Partner Dashboard](https://elevateconnectsdirectory.org/program-holder/dashboard)
-- 👥 [Delegate Portal](https://elevateconnectsdirectory.org/delegate/dashboard)
+- 🤝 [Become a Partner](https://www.elevateconnectsdirectory.org/program-holder/apply)
+- 📊 [Partner Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard)
+- 👥 [Delegate Portal](https://www.elevateconnectsdirectory.org/delegate/dashboard)
 
 ### For Admins
-- 🔧 [Admin Dashboard](https://elevateconnectsdirectory.org/admin/dashboard)
-- 📜 [Issue Certificates](https://elevateconnectsdirectory.org/admin/certificates/issue)
-- 📈 [View Reports](https://elevateconnectsdirectory.org/admin/reports)
+- 🔧 [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard)
+- 📜 [Issue Certificates](https://www.elevateconnectsdirectory.org/admin/certificates/issue)
+- 📈 [View Reports](https://www.elevateconnectsdirectory.org/admin/reports)
 
 ### For Public
-- ✅ [Verify Certificate](https://elevateconnectsdirectory.org/cert/verify/[serial])
-- 📞 [Contact Us](https://elevateconnectsdirectory.org/contact)
-- ℹ️ [About](https://elevateconnectsdirectory.org/about)
+- ✅ [Verify Certificate](https://www.elevateconnectsdirectory.org/cert/verify/[serial])
+- 📞 [Contact Us](https://www.elevateconnectsdirectory.org/contact)
+- ℹ️ [About](https://www.elevateconnectsdirectory.org/about)
 
 ---
 
@@ -288,7 +288,7 @@ All pages are responsive and work on:
 
 ## 🚀 DEPLOYMENT
 
-**Live Site**: [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
+**Live Site**: [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
 
 **Platform**: Netlify
 **Status**: ✅ Production Ready

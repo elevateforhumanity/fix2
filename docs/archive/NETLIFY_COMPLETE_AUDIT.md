@@ -66,7 +66,7 @@ Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environm
 ```
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=[from Supabase]
-VITE_SITE_URL=https://elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateconnectsdirectory.org
 NODE_ENV=production
 ```
 
@@ -74,7 +74,7 @@ NODE_ENV=production
 
 **Action Required:**
 1. Go to environment variables
-2. Verify VITE_SITE_URL = https://elevateconnectsdirectory.org
+2. Verify VITE_SITE_URL = https://www.elevateconnectsdirectory.org
 3. Verify all Supabase variables are set
 4. Verify NODE_ENV = production
 
@@ -491,7 +491,7 @@ Time: Should be recent
 2. Check these variables exist:
    - VITE_SUPABASE_URL
    - VITE_SUPABASE_ANON_KEY
-   - VITE_SITE_URL (should be https://elevateconnectsdirectory.org)
+   - VITE_SITE_URL (should be https://www.elevateconnectsdirectory.org)
    - NODE_ENV (should be production)
 3. Add/update if needed
 4. Trigger new deploy if changed
@@ -520,7 +520,7 @@ Time: Should be recent
 
 1. Wait for SSL certificate (check: https://app.netlify.com/sites/elevateproduction/settings/domain)
 2. Clear browser cache (Ctrl+Shift+R)
-3. Visit: https://elevateconnectsdirectory.org
+3. Visit: https://www.elevateconnectsdirectory.org
 4. Verify:
    - No SSL errors
    - Site loads correctly

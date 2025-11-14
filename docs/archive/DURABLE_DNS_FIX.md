@@ -171,7 +171,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
    - Free
 
 5. **Test:**
-   - Visit: https://elevateconnectsdirectory.org
+   - Visit: https://www.elevateconnectsdirectory.org
    - Should show: Your LMS
    - SSL: Should be secure (🔒)
 
@@ -236,7 +236,7 @@ User sees: Your site ✅
 
 ### Testing:
 - [ ] Checked DNS propagation (dnschecker.org)
-- [ ] Visited https://elevateconnectsdirectory.org
+- [ ] Visited https://www.elevateconnectsdirectory.org
 - [ ] Visited https://www.elevateconnectsdirectory.org
 - [ ] Both URLs work
 - [ ] SSL works (🔒)
@@ -301,7 +301,7 @@ https://dnschecker.org
 
 ### What Will Work:
 ```
-✅ https://elevateconnectsdirectory.org
+✅ https://www.elevateconnectsdirectory.org
 ✅ https://www.elevateconnectsdirectory.org
 ✅ http://elevateconnectsdirectory.org (redirects to https)
 ✅ http://www.elevateconnectsdirectory.org (redirects to https)
