@@ -10,3 +10,10 @@ durable-extension
 frontend/dist
 workers
 *.min.js
+.archive
+.next
+deployment-ready
+supabase/functions
+docs
+marketing-site
+support_bundle
