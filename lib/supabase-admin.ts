@@ -7,10 +7,13 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cuxzzpsyufcewtmicszk.supabase.co';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
-// Create client with fallback - will fail at runtime if keys are missing, but won't crash build
+if (!supabaseUrl || !supabaseServiceKey) {
+  throw new Error('Missing Supabase environment variables for admin client');
+}
+
 export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
   auth: {
     autoRefreshToken: false,
@@ -26,7 +29,7 @@ export async function getUserByEmail(email: string) {
     throw error;
   }
   
-  const user = data.users.find(u => u.email?.toLowerCase() === email.toLowerCase());
+  const user = data.users.find(u => u.email === email);
   return user || null;
 }
 
