@@ -36,7 +36,7 @@ export default async function DelegateDashboard() {
       case_manager_name,
       case_manager_email,
       county,
-      profiles (
+      profiles!inner (
         full_name,
         email,
         phone
@@ -47,7 +47,7 @@ export default async function DelegateDashboard() {
         progress,
         enrolled_at,
         completed_at,
-        courses (
+        courses!inner (
           title,
           duration_weeks
         )
@@ -82,14 +82,18 @@ export default async function DelegateDashboard() {
       ? Math.floor((Date.now() - new Date(lastLogin.login_time).getTime()) / (1000 * 60 * 60 * 24))
       : null;
 
+    // Type guards for nested relations
+    const profile = Array.isArray(student.profiles) ? student.profiles[0] : student.profiles;
+    const course = activeEnrollment && (Array.isArray(activeEnrollment.courses) ? activeEnrollment.courses[0] : activeEnrollment.courses);
+
     return {
       id: student.id,
-      name: Array.isArray(student.profiles) ? student.profiles[0]?.full_name : student.profiles?.full_name || 'Unknown',
-      email: Array.isArray(student.profiles) ? student.profiles[0]?.email : student.profiles?.email || '',
-      phone: Array.isArray(student.profiles) ? student.profiles[0]?.phone : student.profiles?.phone || '',
+      name: profile?.full_name || 'Unknown',
+      email: profile?.email || '',
+      phone: profile?.phone || '',
       fundingType: student.funding_type,
       county: student.county,
-      course: Array.isArray(activeEnrollment?.courses) ? activeEnrollment?.courses[0]?.title : activeEnrollment?.courses?.title || 'No active enrollment',
+      course: course?.title || 'No active enrollment',
       progress: activeEnrollment?.progress || 0,
       status: activeEnrollment?.status || 'not_enrolled',
       enrolledAt: activeEnrollment?.enrolled_at,

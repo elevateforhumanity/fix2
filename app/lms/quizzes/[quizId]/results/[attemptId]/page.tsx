@@ -26,12 +26,12 @@ export default async function QuizResultsPage({ params }: Props) {
       started_at,
       completed_at,
       answers,
-      quizzes (
+      quizzes!inner (
         id,
         title,
         passing_score,
         max_attempts,
-        courses (
+        courses!inner (
           id,
           title
         )
@@ -44,6 +44,10 @@ export default async function QuizResultsPage({ params }: Props) {
   if (!attempt) {
     redirect('/lms/dashboard');
   }
+
+  // Type guard: Supabase returns nested relations as arrays, extract first element
+  const quiz = (Array.isArray(attempt.quizzes) ? attempt.quizzes[0] : attempt.quizzes) as { id: any; title: any; passing_score: any; max_attempts: any; courses: any } | undefined;
+  const course = (quiz && (Array.isArray(quiz.courses) ? quiz.courses[0] : quiz.courses)) as { id: any; title: any } | undefined;
 
   // Fetch questions with correct answers
   const { data: questions } = await supabase
@@ -72,7 +76,7 @@ export default async function QuizResultsPage({ params }: Props) {
     .order('started_at', { ascending: false });
 
   const attemptNumber = allAttempts?.length || 1;
-  const canRetake = attemptNumber < attempt.quizzes.max_attempts && !attempt.passed;
+  const canRetake = quiz && attemptNumber < quiz.max_attempts && !attempt.passed;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -109,8 +113,8 @@ export default async function QuizResultsPage({ params }: Props) {
           </p>
           <p className="text-lg opacity-75">
             {attempt.passed 
-              ? `You passed! The passing score was ${attempt.quizzes.passing_score}%`
-              : `You need ${attempt.quizzes.passing_score}% to pass. You can try again!`
+              ? `You passed! The passing score was ${quiz?.passing_score}%`
+              : `You need ${quiz?.passing_score}% to pass. You can try again!`
             }
           </p>
         </div>
@@ -152,7 +156,7 @@ export default async function QuizResultsPage({ params }: Props) {
                 <TrendingUp className="h-5 w-5 text-purple-600" />
                 <div>
                   <div className="text-sm text-gray-500">Attempt</div>
-                  <div className="text-2xl font-bold">{attemptNumber}/{attempt.quizzes.max_attempts}</div>
+                  <div className="text-2xl font-bold">{attemptNumber}/{quiz?.max_attempts}</div>
                 </div>
               </div>
             </div>
@@ -160,8 +164,8 @@ export default async function QuizResultsPage({ params }: Props) {
 
           {/* Quiz Info */}
           <div className="elevate-card mb-8">
-            <h2 className="font-bold text-gray-900 mb-2">{attempt.quizzes.title}</h2>
-            <p className="text-sm text-gray-600">{attempt.quizzes.courses.title}</p>
+            <h2 className="font-bold text-gray-900 mb-2">{quiz?.title}</h2>
+            <p className="text-sm text-gray-600">{course?.title}</p>
           </div>
 
           {/* Question Review */}
@@ -281,7 +285,7 @@ export default async function QuizResultsPage({ params }: Props) {
               </Link>
             )}
             <Link
-              href={`/lms/courses/${attempt.quizzes.courses.id}`}
+              href={`/lms/courses/${course?.id}`}
               className="elevate-btn-secondary"
             >
               Back to Course

@@ -27,10 +27,10 @@ export async function POST(request: Request) {
       .select(`
         id,
         student_id,
-        courses (
+        courses!inner (
           title
         ),
-        profiles!enrollments_student_id_fkey (
+        profiles!enrollments_student_id_fkey!inner (
           full_name,
           email
         )
@@ -42,14 +42,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
     }
 
-    const studentName = Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.full_name : enrollment.profiles?.full_name || Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email.split('@')[0];
-    const courseName = Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title;
+    // Type guards: Extract nested relations
+    const profile = Array.isArray(enrollment.profiles) ? enrollment.profiles[0] : enrollment.profiles;
+    const course = Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses;
+
+    const studentName = profile?.full_name || profile?.email?.split('@')[0] || 'Student';
+    const courseName = course?.title || 'Course';
     const loginUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/lms/dashboard`;
 
     const html = emailTemplates.welcome(studentName, courseName, loginUrl);
 
     await sendEmail({
-      to: Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email,
+      to: profile?.email || '',
       subject: `Welcome to ${courseName} - Elevate for Humanity`,
       html,
     });

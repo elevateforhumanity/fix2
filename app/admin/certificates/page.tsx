@@ -13,7 +13,7 @@ export default async function AdminCertificatesPage() {
   const supabase = await createServerSupabaseClient();
 
   // Fetch all certificates
-  const { data: certificates } = await supabase
+  const { data: certificatesRaw } = await supabase
     .from('certificates')
     .select(`
       id,
@@ -25,11 +25,17 @@ export default async function AdminCertificatesPage() {
       program_name,
       hours_completed,
       status,
-      profiles!certificates_student_id_fkey (
+      profiles!certificates_student_id_fkey!inner (
         email
       )
     `)
     .order('issued_date', { ascending: false });
+
+  // Map certificates with type guards
+  const certificates = certificatesRaw?.map(cert => ({
+    ...cert,
+    profile: Array.isArray(cert.profiles) ? cert.profiles[0] : cert.profiles
+  }));
 
   // Get stats
   const totalCertificates = certificates?.length || 0;
@@ -142,7 +148,7 @@ export default async function AdminCertificatesPage() {
                       <td>
                         <div>
                           <div className="font-medium text-gray-900">{cert.student_name}</div>
-                          <div className="text-xs text-gray-500">{Array.isArray(cert.profiles) ? cert.profiles[0]?.email : cert.profiles?.email}</div>
+                          <div className="text-xs text-gray-500">{cert.profile?.email}</div>
                         </div>
                       </td>
                       <td className="font-medium">{cert.course_title}</td>

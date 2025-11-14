@@ -29,11 +29,11 @@ export async function GET(request: Request) {
       .select(`
         id,
         student_id,
-        courses (
+        courses!inner (
           id,
           title
         ),
-        profiles!enrollments_student_id_fkey (
+        profiles!enrollments_student_id_fkey!inner (
           full_name,
           email
         )
@@ -66,14 +66,19 @@ export async function GET(request: Request) {
     for (const enrollment of enrollments) {
       const lastLogin = lastLoginMap.get(enrollment.student_id);
       
+      // Type guards: Extract nested relations
+      const profile = Array.isArray(enrollment.profiles) ? enrollment.profiles[0] : enrollment.profiles;
+      const course = Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses;
+      
       // If no login ever, or last login was 7+ days ago
       if (!lastLogin || lastLogin < sevenDaysAgo) {
         const daysSinceLogin = lastLogin 
           ? Math.floor((Date.now() - lastLogin.getTime()) / (1000 * 60 * 60 * 24))
           : 30; // Default to 30 if never logged in
 
-        const studentName = Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.full_name : enrollment.profiles?.full_name || Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email.split('@')[0];
-        const courseName = Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title;
+        const studentName = profile?.full_name || profile?.email?.split('@')[0] || 'Student';
+        const courseName = course?.title || 'Course';
+        const studentEmail = profile?.email || '';
         const loginUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/lms/dashboard`;
 
         const html = emailTemplates.inactivityReminder(
@@ -85,18 +90,18 @@ export async function GET(request: Request) {
 
         try {
           await sendEmail({
-            to: Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email,
+            to: studentEmail,
             subject: `We Miss You! Continue Your ${courseName} Journey`,
             html,
           });
 
           reminders.push({
             studentId: enrollment.student_id,
-            email: Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email,
+            email: studentEmail,
             daysSinceLogin,
           });
         } catch (error) {
-          console.error(`Failed to send reminder to ${Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email}:`, error);
+          console.error(`Failed to send reminder to ${studentEmail}:`, error);
         }
       }
     }

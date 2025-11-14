@@ -34,11 +34,11 @@ export async function POST(request: Request) {
         student_id,
         course_id,
         completed_at,
-        courses (
+        courses!inner (
           id,
           title,
           duration_weeks,
-          programs (
+          programs!inner (
             id,
             name
           )
@@ -50,6 +50,10 @@ export async function POST(request: Request) {
     if (enrollmentError || !enrollment) {
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
     }
+
+    // Type guards: Extract nested relations
+    const course = Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses;
+    const program = course && (Array.isArray(course.programs) ? course.programs[0] : course.programs);
 
     // Verify enrollment is completed
     if (!enrollment.completed_at) {
@@ -102,13 +106,13 @@ export async function POST(request: Request) {
       .insert({
         student_id: enrollment.student_id,
         course_id: enrollment.course_id,
-        program_id: Array.isArray(enrollment.courses) ? (Array.isArray(enrollment.courses[0]?.programs) ? enrollment.courses[0]?.programs[0]?.id : enrollment.courses[0]?.programs?.id) : (Array.isArray(enrollment.courses?.programs) ? enrollment.courses?.programs[0]?.id : enrollment.courses?.programs?.id),
+        program_id: program?.id,
         certificate_number: certificateNumber,
         verification_code: verificationCode,
         issued_date: new Date().toISOString(),
         student_name: profile?.full_name || profile?.email || 'Student',
-        course_title: Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title,
-        program_name: Array.isArray(enrollment.courses) ? (Array.isArray(enrollment.courses[0]?.programs) ? enrollment.courses[0]?.programs[0]?.name : enrollment.courses[0]?.programs?.name) : (Array.isArray(enrollment.courses?.programs) ? enrollment.courses?.programs[0]?.name : enrollment.courses?.programs?.name),
+        course_title: course?.title,
+        program_name: program?.name,
         hours_completed: totalHours,
         issued_by: user.id,
       })

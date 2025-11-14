@@ -30,7 +30,7 @@ export async function POST(request: Request) {
         verification_code,
         student_name,
         course_title,
-        profiles!certificates_student_id_fkey (
+        profiles!certificates_student_id_fkey!inner (
           email
         )
       `)
@@ -40,6 +40,9 @@ export async function POST(request: Request) {
     if (!certificate) {
       return NextResponse.json({ error: 'Certificate not found' }, { status: 404 });
     }
+
+    // Type guard: Extract profile from array
+    const profile = Array.isArray(certificate.profiles) ? certificate.profiles[0] : certificate.profiles;
 
     const verificationUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/cert/verify/${certificate.verification_code}`;
 
@@ -51,7 +54,7 @@ export async function POST(request: Request) {
     );
 
     await sendEmail({
-      to: Array.isArray(certificate.profiles) ? certificate.profiles[0]?.email : certificate.profiles?.email,
+      to: profile?.email || '',
       subject: `Your Certificate is Ready - ${certificate.course_title}`,
       html,
     });

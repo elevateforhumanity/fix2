@@ -48,7 +48,7 @@ export default function LessonPage({ params }: Props) {
           duration_minutes,
           order_index,
           is_required,
-          modules (
+          modules!inner (
             id,
             title,
             course_id
@@ -61,6 +61,9 @@ export default function LessonPage({ params }: Props) {
         router.push(`/lms/courses/${params.id}`);
         return;
       }
+
+      // Type guard: Extract module from array
+      const module = Array.isArray(lessonData.modules) ? lessonData.modules[0] : lessonData.modules;
 
       setLesson(lessonData);
 
@@ -78,7 +81,7 @@ export default function LessonPage({ params }: Props) {
       const { data: allLessons } = await supabase
         .from('lessons')
         .select('id, title, order_index')
-        .eq('module_id', lessonData.modules.id)
+        .eq('module_id', module?.id)
         .order('order_index', { ascending: true });
 
       const currentIndex = allLessons?.findIndex(l => l.id === parseInt(params.lessonId));

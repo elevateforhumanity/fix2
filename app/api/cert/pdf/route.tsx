@@ -81,7 +81,7 @@ export async function GET(req: NextRequest) {
   // Generate PDF buffer
   const pdfBuffer = await pdf(doc).toBuffer();
 
-  return new Response(pdfBuffer as BodyInit, {
+  return new Response(pdfBuffer as unknown as BodyInit, {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',

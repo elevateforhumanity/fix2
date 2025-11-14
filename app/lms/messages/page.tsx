@@ -26,6 +26,7 @@ type Message = {
   body: string;
   read: boolean;
   created_at: string;
+  courseName?: string;
   sender: {
     id: string;
     email: string;

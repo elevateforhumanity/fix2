@@ -30,7 +30,7 @@ export default async function CoursePage({ params }: Props) {
       description,
       duration_weeks,
       price,
-      programs (
+      programs!inner (
         id,
         name,
         slug
@@ -42,6 +42,9 @@ export default async function CoursePage({ params }: Props) {
   if (courseError || !course) {
     redirect('/lms/courses');
   }
+
+  // Type guard: Extract program from array
+  const program = Array.isArray(course.programs) ? course.programs[0] : course.programs;
 
   // Check enrollment
   const { data: enrollment } = await supabase
@@ -115,7 +118,7 @@ export default async function CoursePage({ params }: Props) {
       <section className="bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 text-white py-12">
         <div className="elevate-container">
           <div className="max-w-4xl">
-            <div className="text-sm font-semibold mb-2 opacity-90">{course.programs.name}</div>
+            <div className="text-sm font-semibold mb-2 opacity-90">{program?.name}</div>
             <h1 className="text-4xl font-bold mb-4">{course.title}</h1>
             <p className="text-lg opacity-90 mb-6">{course.description}</p>
             

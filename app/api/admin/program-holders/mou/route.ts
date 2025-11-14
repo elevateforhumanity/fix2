@@ -33,6 +33,7 @@ export async function GET(req: NextRequest) {
       id,
       name,
       payout_share,
+      mou_status,
       application:program_holder_applications(
         contact_name,
         contact_email

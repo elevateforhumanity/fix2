@@ -52,23 +52,30 @@ export default async function AdminDashboardPage() {
   }, {});
 
   // Get recent enrollments
-  const { data: recentEnrollments } = await supabase
+  const { data: recentEnrollmentsRaw } = await supabase
     .from('enrollments')
     .select(`
       id,
       enrolled_at,
       status,
       funding_type,
-      profiles!enrollments_student_id_fkey (
+      profiles!enrollments_student_id_fkey!inner (
         full_name,
         email
       ),
-      courses (
+      courses!inner (
         title
       )
     `)
     .order('enrolled_at', { ascending: false })
     .limit(10);
+
+  // Map enrollments with type guards
+  const recentEnrollments = recentEnrollmentsRaw?.map(enrollment => ({
+    ...enrollment,
+    profile: Array.isArray(enrollment.profiles) ? enrollment.profiles[0] : enrollment.profiles,
+    course: Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses
+  }));
 
   // Get at-risk students (no login in 7+ days)
   const sevenDaysAgo = new Date();
@@ -218,14 +225,15 @@ export default async function AdminDashboardPage() {
             <h2 className="elevate-card-title mb-4">Funding Type Breakdown</h2>
             <div className="space-y-3">
               {fundingCounts && Object.entries(fundingCounts).map(([type, count]: [string, any]) => {
-                const total = Object.values(fundingCounts).reduce((sum: number, c: any) => sum + (typeof c === 'number' ? c : 0), 0);
-                const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+                const total = Object.values(fundingCounts).reduce((sum: number, c: unknown) => sum + (typeof c === 'number' ? c : 0), 0) as number;
+                const countNum = typeof count === 'number' ? count : 0;
+                const percentage = total > 0 ? Math.round((countNum / total) * 100) : 0;
                 
                 return (
                   <div key={type}>
                     <div className="flex justify-between text-sm mb-1">
                       <span className="font-medium capitalize">{type.replace('_', ' ')}</span>
-                      <span className="text-gray-600">{count} ({percentage}%)</span>
+                      <span className="text-gray-600">{countNum} ({percentage}%)</span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
@@ -294,12 +302,12 @@ export default async function AdminDashboardPage() {
                       <td>
                         <div>
                           <div className="font-medium text-gray-900">
-                            {Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.full_name : enrollment.profiles?.full_name || 'Unknown'}
+                            {enrollment.profile?.full_name || 'Unknown'}
                           </div>
-                          <div className="text-xs text-gray-500">{Array.isArray(enrollment.profiles) ? enrollment.profiles[0]?.email : enrollment.profiles?.email}</div>
+                          <div className="text-xs text-gray-500">{enrollment.profile?.email}</div>
                         </div>
                       </td>
-                      <td className="font-medium">{Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title}</td>
+                      <td className="font-medium">{enrollment.course?.title}</td>
                       <td>
                         <span className={`elevate-pill text-xs ${
                           enrollment.funding_type === 'wioa' ? 'elevate-pill--info' :

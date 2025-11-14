@@ -20,7 +20,7 @@ export default async function AttendancePage() {
   const supabase = await createServerSupabaseClient();
 
   // Fetch attendance logs
-  const { data: attendanceLogs } = await supabase
+  const { data: attendanceLogsRaw } = await supabase
     .from('attendance_log')
     .select(`
       id,
@@ -29,13 +29,19 @@ export default async function AttendancePage() {
       duration_minutes,
       activity_type,
       notes,
-      courses (
+      courses!inner (
         title
       )
     `)
     .eq('student_id', user.id)
     .order('login_time', { ascending: false })
     .limit(50);
+
+  // Map logs with type guards
+  const attendanceLogs = attendanceLogsRaw?.map(log => ({
+    ...log,
+    course: Array.isArray(log.courses) ? log.courses[0] : log.courses
+  }));
 
   // Fetch weekly contact hours summary
   const { data: weeklyHours } = await supabase
@@ -201,7 +207,7 @@ export default async function AttendancePage() {
                     return (
                       <tr key={log.id}>
                         <td>{loginTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
-                        <td className="font-medium">{Array.isArray(log.courses) ? log.courses[0]?.title : log.courses?.title || 'N/A'}</td>
+                        <td className="font-medium">{log.course?.title || 'N/A'}</td>
                         <td>
                           <span className="elevate-pill elevate-pill--info text-xs">
                             {log.activity_type || 'Learning'}

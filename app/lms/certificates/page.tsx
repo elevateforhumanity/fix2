@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { Award, Download, ExternalLink, Calendar, CheckCircle } from 'lucide-react';
 import { getCurrentUser, requireStudent } from '@/lib/auth';
 import { createServerSupabaseClient } from '@/lib/auth';
@@ -36,15 +37,15 @@ export default async function CertificatesPage() {
     .order('issued_date', { ascending: false });
 
   // Fetch completed enrollments without certificates
-  const { data: completedEnrollments } = await supabase
+  const { data: completedEnrollmentsRaw } = await supabase
     .from('enrollments')
     .select(`
       id,
       completed_at,
-      courses (
+      courses!inner (
         id,
         title,
-        programs (
+        programs!inner (
           name
         )
       )
@@ -53,11 +54,17 @@ export default async function CertificatesPage() {
     .eq('status', 'completed')
     .not('completed_at', 'is', null);
 
+  // Map enrollments with type guards
+  const completedEnrollments = completedEnrollmentsRaw?.map(e => ({
+    ...e,
+    course: Array.isArray(e.courses) ? e.courses[0] : e.courses
+  }));
+
   // Filter out enrollments that already have certificates
   const certificateCourseIds = certificates?.map(c => c.course_title) || [];
   const pendingCertificates = completedEnrollments?.filter(
     e => {
-      const courseTitle = Array.isArray(e.courses) ? e.courses[0]?.title : e.courses?.title;
+      const courseTitle = e.course?.title;
       return courseTitle && !certificateCourseIds.includes(courseTitle);
     }
   ) || [];
@@ -141,7 +148,7 @@ export default async function CertificatesPage() {
                         <Award className="h-5 w-5 text-orange-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">{Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title}</h3>
+                        <h3 className="font-semibold text-gray-900">{enrollment.course?.title}</h3>
                         <p className="text-sm text-gray-500">
                           Completed {new Date(enrollment.completed_at).toLocaleDateString('en-US', {
                             month: 'short',
