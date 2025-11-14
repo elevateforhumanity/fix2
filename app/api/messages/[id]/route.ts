@@ -4,8 +4,9 @@ import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 // PATCH /api/messages/[id] - Mark message as read
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const user = await getCurrentUser();
     if (!user) {
@@ -18,7 +19,7 @@ export async function PATCH(
     const { data: message, error } = await supabase
       .from('messages')
       .update({ read: true, updated_at: new Date().toISOString() })
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('recipient_id', user.id)
       .select()
       .single();
@@ -42,8 +43,9 @@ export async function PATCH(
 // DELETE /api/messages/[id] - Delete message
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const user = await getCurrentUser();
     if (!user) {
@@ -56,7 +58,7 @@ export async function DELETE(
     const { error } = await supabase
       .from('messages')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
       .or(`sender_id.eq.${user.id},recipient_id.eq.${user.id}`);
 
     if (error) {

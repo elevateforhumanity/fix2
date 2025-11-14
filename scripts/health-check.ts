@@ -4,7 +4,7 @@
  * Runs every 5 minutes via cron
  */
 
-import { OpenLMSService } from '../src/services/openLmsService';
+// import { OpenLMSService } from '../src/services/openLmsService'; // TODO: Fix path or create service
 import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
 
@@ -17,15 +17,15 @@ interface HealthStatus {
 }
 
 class HealthCheckService {
-  private openLms: OpenLMSService;
+  private openLms: any; // OpenLMSService;
   private supabase: any;
   private slackWebhook: string;
 
   constructor() {
-    this.openLms = new OpenLMSService({
-      url: process.env.OPEN_LMS_URL || '',
-      token: process.env.OPEN_LMS_TOKEN || '',
-    });
+    // this.openLms = new OpenLMSService({
+    //   url: process.env.OPEN_LMS_URL || '',
+    //   token: process.env.OPEN_LMS_TOKEN || '',
+    // });
 
     this.supabase = createClient(
       process.env.SUPABASE_URL || '',

@@ -20,44 +20,48 @@ describe('WebSocket Integration', () => {
     expect(mockSocket.connected).toBe(false);
   });
 
-  it('should handle connection events', (done) => {
+  it('should handle connection events', async () => {
     const mockSocket = io('http://localhost:3000', {
       autoConnect: false,
     });
 
-    mockSocket.on('connect', () => {
-      expect(mockSocket.connected).toBe(true);
-      mockSocket.disconnect();
-      done();
-    });
+    await new Promise<void>((resolve) => {
+      mockSocket.on('connect', () => {
+        expect(mockSocket.connected).toBe(true);
+        mockSocket.disconnect();
+        resolve();
+      });
 
-    mockSocket.on('connect_error', () => {
-      // Expected in test environment
-      mockSocket.disconnect();
-      done();
-    });
+      mockSocket.on('connect_error', () => {
+        // Expected in test environment
+        mockSocket.disconnect();
+        resolve();
+      });
 
-    mockSocket.connect();
+      mockSocket.connect();
+    });
   });
 
-  it('should emit and receive messages', (done) => {
+  it('should emit and receive messages', async () => {
     const mockSocket = io('http://localhost:3000', {
       autoConnect: false,
     });
 
-    mockSocket.on('message', (data) => {
-      expect(data).toBeDefined();
-      mockSocket.disconnect();
-      done();
-    });
+    await new Promise<void>((resolve) => {
+      mockSocket.on('message', (data) => {
+        expect(data).toBeDefined();
+        mockSocket.disconnect();
+        resolve();
+      });
 
-    mockSocket.on('connect_error', () => {
-      // Expected in test environment
-      mockSocket.disconnect();
-      done();
-    });
+      mockSocket.on('connect_error', () => {
+        // Expected in test environment
+        mockSocket.disconnect();
+        resolve();
+      });
 
-    mockSocket.connect();
+      mockSocket.connect();
+    });
   });
 
   it('should handle disconnection', () => {

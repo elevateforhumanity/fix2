@@ -3,8 +3,9 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const supabase = createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -39,7 +40,7 @@ export async function GET(
       mou_admin_sig_url,
       mou_final_pdf_url
     `)
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (error || !ph) {

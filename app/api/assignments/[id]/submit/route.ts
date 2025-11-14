@@ -4,8 +4,9 @@ import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 // POST /api/assignments/[id]/submit - Submit assignment
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const user = await getCurrentUser();
     if (!user) {
@@ -21,7 +22,7 @@ export async function POST(
     const { data: existing } = await supabase
       .from('assignment_submissions')
       .select('id')
-      .eq('assignment_id', params.id)
+      .eq('assignment_id', id)
       .eq('student_id', user.id)
       .single();
 
@@ -51,7 +52,7 @@ export async function POST(
       const result = await supabase
         .from('assignment_submissions')
         .insert({
-          assignment_id: params.id,
+          assignment_id: id,
           student_id: user.id,
           submission_text: submissionText,
           submission_url: submissionUrl,

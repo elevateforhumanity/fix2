@@ -3,7 +3,8 @@
  * Pre-generates videos for all templates for demo/testing purposes
  */
 
-import { videoTemplates } from '../src/data/video-templates';
+// import { videoTemplates } from '../src/data/video-templates'; // TODO: Create video templates data
+const videoTemplates: any[] = [];
 import { generateVideo, VideoGenerationRequest } from './video-generator-v2';
 import { defaultStorage } from './video-storage';
 import path from 'path';

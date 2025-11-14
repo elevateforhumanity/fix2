@@ -74,7 +74,7 @@ test.describe('Authentication Security', () => {
     
     // Should have CSRF protection (token or SameSite cookies)
     const cookies = await page.context().cookies();
-    const hasSecureCookies = cookies.some(c => c.sameSite === 'strict' || c.sameSite === 'lax');
+    const hasSecureCookies = cookies.some(c => c.sameSite === 'Strict' || c.sameSite === 'Lax');
     
     expect(csrfToken > 0 || hasSecureCookies).toBe(true);
   });

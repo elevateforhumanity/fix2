@@ -440,7 +440,7 @@ export class CloudflareStreamService {
         }
       );
 
-      const data = await response.json();
+      const data = await response.json() as { result?: any };
       return data.result;
     } catch (error) {
       console.error('Error getting video analytics:', error);

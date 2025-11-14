@@ -29,7 +29,7 @@ export async function getUserByEmail(email: string) {
     throw error;
   }
   
-  const user = data.users.find(u => u.email === email);
+  const user = data.users.find(u => u.email?.toLowerCase() === email.toLowerCase());
   return user || null;
 }
 

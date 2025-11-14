@@ -126,7 +126,7 @@ export class VideoGenerator {
 
     // Add text
     if (scene.script) {
-      this.drawText(ctx, scene.script, dimensions, scene.textPosition);
+      this.drawText(ctx as any, scene.script, dimensions, scene.textPosition);
     }
 
     // Save frame as image
