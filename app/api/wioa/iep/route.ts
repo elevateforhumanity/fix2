@@ -1,0 +1,97 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+// GET /api/wioa/iep - Get Individual Employment Plans
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const userId = searchParams.get('userId');
+    const status = searchParams.get('status');
+
+    let query = supabase
+      .from('individual_employment_plans')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (userId) query = query.eq('user_id', userId);
+    if (status) query = query.eq('status', status);
+
+    const { data, error } = await query;
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      { status: 500 }
+    );
+  }
+}
+
+// POST /api/wioa/iep - Create Individual Employment Plan
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const {
+      userId,
+      careerGoal,
+      employmentGoal,
+      educationLevel,
+      workExperience,
+      skills,
+      barriers,
+      strengths,
+      trainingNeeds,
+      supportServicesNeeded,
+      targetOccupation,
+      targetIndustry,
+      targetWage,
+      completionDate,
+      milestones,
+      notes
+    } = body;
+
+    const iepData = {
+      user_id: userId,
+      career_goal: careerGoal,
+      employment_goal: employmentGoal,
+      education_level: educationLevel,
+      work_experience: workExperience || [],
+      skills: skills || [],
+      barriers: barriers || [],
+      strengths: strengths || [],
+      training_needs: trainingNeeds || [],
+      support_services_needed: supportServicesNeeded || [],
+      target_occupation: targetOccupation,
+      target_industry: targetIndustry,
+      target_wage: targetWage,
+      target_completion_date: completionDate,
+      milestones: milestones || [],
+      status: 'draft',
+      notes,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    const { data, error } = await supabase
+      .from('individual_employment_plans')
+      .insert(iepData)
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, data }, { status: 201 });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      { status: 500 }
+    );
+  }
+}

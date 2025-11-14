@@ -1,0 +1,98 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+// GET /api/wioa/iep/[id] - Get IEP by ID
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+
+    const { data, error } = await supabase
+      .from('individual_employment_plans')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      { status: 500 }
+    );
+  }
+}
+
+// PUT /api/wioa/iep/[id] - Update IEP
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const body = await request.json();
+
+    const updateData = {
+      ...body,
+      updated_at: new Date().toISOString()
+    };
+
+    const { data, error } = await supabase
+      .from('individual_employment_plans')
+      .update(updateData)
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      { status: 500 }
+    );
+  }
+}
+
+// POST /api/wioa/iep/[id]/approve - Approve IEP
+export async function POST(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const body = await request.json();
+    const { approvedBy, approvalNotes } = body;
+
+    const { data, error } = await supabase
+      .from('individual_employment_plans')
+      .update({
+        status: 'approved',
+        approved_by: approvedBy,
+        approved_at: new Date().toISOString(),
+        approval_notes: approvalNotes,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      { status: 500 }
+    );
+  }
+}
