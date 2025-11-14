@@ -1,0 +1,184 @@
+name: Autopilot - Fix Netlify Environment Variables
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_redeploy:
+        description: 'Force redeploy even if vars are correct'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  fix-netlify-env:
+    name: Check, Correct, and Set Netlify Env Vars
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Netlify CLI
+        run: |
+          npm install -g netlify-cli
+          echo "✅ Netlify CLI installed"
+      
+      - name: Check Netlify Authentication
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "❌ NETLIFY_AUTH_TOKEN not found in GitHub Secrets"
+            echo "Add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
+            exit 1
+          fi
+          
+          if [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "❌ NETLIFY_SITE_ID not found in GitHub Secrets"
+            echo "Add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
+            exit 1
+          fi
+          
+          echo "✅ Netlify credentials found"
+      
+      - name: Get Current Environment Variables
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          echo "🔍 Fetching current environment variables..."
+          netlify env:list --site $NETLIFY_SITE_ID || echo "Could not list env vars"
+      
+      - name: Check and Fix NEXT_PUBLIC_SUPABASE_URL
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          CORRECT_VALUE="https://cuxzzpsyufcewtmicszk.supabase.co"
+          CURRENT_VALUE=$(netlify env:get NEXT_PUBLIC_SUPABASE_URL --site $NETLIFY_SITE_ID 2>/dev/null || echo "")
+          
+          if [ -z "$CURRENT_VALUE" ]; then
+            echo "⚠️  NEXT_PUBLIC_SUPABASE_URL is missing - Setting..."
+            netlify env:set NEXT_PUBLIC_SUPABASE_URL "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Set NEXT_PUBLIC_SUPABASE_URL"
+          elif [ "$CURRENT_VALUE" != "$CORRECT_VALUE" ]; then
+            echo "❌ NEXT_PUBLIC_SUPABASE_URL is incorrect"
+            echo "   Current: $CURRENT_VALUE"
+            echo "   Correct: $CORRECT_VALUE"
+            echo "🔧 Fixing..."
+            netlify env:set NEXT_PUBLIC_SUPABASE_URL "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Fixed NEXT_PUBLIC_SUPABASE_URL"
+          else
+            echo "✅ NEXT_PUBLIC_SUPABASE_URL is correct"
+          fi
+      
+      - name: Check and Fix NEXT_PUBLIC_SUPABASE_ANON_KEY
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          CORRECT_VALUE="${{ secrets.SUPABASE_ANON_KEY }}"
+          CURRENT_VALUE=$(netlify env:get NEXT_PUBLIC_SUPABASE_ANON_KEY --site $NETLIFY_SITE_ID 2>/dev/null || echo "")
+          
+          if [ -z "$CURRENT_VALUE" ]; then
+            echo "⚠️  NEXT_PUBLIC_SUPABASE_ANON_KEY is missing - Setting..."
+            netlify env:set NEXT_PUBLIC_SUPABASE_ANON_KEY "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Set NEXT_PUBLIC_SUPABASE_ANON_KEY"
+          elif [ "$CURRENT_VALUE" != "$CORRECT_VALUE" ]; then
+            echo "❌ NEXT_PUBLIC_SUPABASE_ANON_KEY is incorrect"
+            echo "🔧 Fixing..."
+            netlify env:set NEXT_PUBLIC_SUPABASE_ANON_KEY "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Fixed NEXT_PUBLIC_SUPABASE_ANON_KEY"
+          else
+            echo "✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is correct"
+          fi
+      
+      - name: Check and Fix SUPABASE_SERVICE_ROLE_KEY
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          CORRECT_VALUE="${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
+          CURRENT_VALUE=$(netlify env:get SUPABASE_SERVICE_ROLE_KEY --site $NETLIFY_SITE_ID 2>/dev/null || echo "")
+          
+          if [ -z "$CORRECT_VALUE" ]; then
+            echo "⚠️  SUPABASE_SERVICE_ROLE_KEY not found in GitHub Secrets"
+            echo "   Add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
+          elif [ -z "$CURRENT_VALUE" ]; then
+            echo "⚠️  SUPABASE_SERVICE_ROLE_KEY is missing in Netlify - Setting..."
+            netlify env:set SUPABASE_SERVICE_ROLE_KEY "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Set SUPABASE_SERVICE_ROLE_KEY"
+          elif [ "$CURRENT_VALUE" != "$CORRECT_VALUE" ]; then
+            echo "❌ SUPABASE_SERVICE_ROLE_KEY is incorrect"
+            echo "🔧 Fixing..."
+            netlify env:set SUPABASE_SERVICE_ROLE_KEY "$CORRECT_VALUE" --site $NETLIFY_SITE_ID
+            echo "✅ Fixed SUPABASE_SERVICE_ROLE_KEY"
+          else
+            echo "✅ SUPABASE_SERVICE_ROLE_KEY is correct"
+          fi
+      
+      - name: Set Site URLs
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          echo "Setting site URLs..."
+          netlify env:set NEXT_PUBLIC_APP_URL "https://elevateconnectsdirectory.org" --site $NETLIFY_SITE_ID
+          netlify env:set NEXT_PUBLIC_SITE_URL "https://elevateconnectsdirectory.org" --site $NETLIFY_SITE_ID
+          netlify env:set NEXT_PUBLIC_BASE_URL "https://elevateconnectsdirectory.org" --site $NETLIFY_SITE_ID
+          netlify env:set NODE_ENV "production" --site $NETLIFY_SITE_ID
+          echo "✅ Site URLs set"
+      
+      - name: Verify All Variables
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          echo "📋 Final environment variable check:"
+          netlify env:list --site $NETLIFY_SITE_ID
+      
+      - name: Trigger Netlify Deploy
+        if: ${{ github.event.inputs.force_redeploy == 'true' || success() }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          echo "🚀 Triggering production deployment..."
+          
+          # Use Netlify API to trigger build
+          curl -X POST "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/builds" \
+            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"clear_cache": true}'
+          
+          echo ""
+          echo "✅ Deployment triggered!"
+          echo "Monitor at: https://app.netlify.com/sites/$NETLIFY_SITE_ID/deploys"
+      
+      - name: Create Summary
+        if: always()
+        run: |
+          echo "# 🤖 Autopilot - Netlify Environment Variables" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Status" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Environment variables checked and corrected" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Variables Set" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NEXT_PUBLIC_SUPABASE_URL" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ SUPABASE_SERVICE_ROLE_KEY" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NEXT_PUBLIC_APP_URL" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NEXT_PUBLIC_SITE_URL" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NEXT_PUBLIC_BASE_URL" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ NODE_ENV" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Wait 2-3 minutes for Netlify to build" >> $GITHUB_STEP_SUMMARY
+          echo "2. Check: https://elevateconnectsdirectory.org" >> $GITHUB_STEP_SUMMARY
+          echo "3. Verify: https://elevateconnectsdirectory.org/api/health" >> $GITHUB_STEP_SUMMARY
