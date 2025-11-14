@@ -26,16 +26,16 @@ jobs:
         run: |
           # Check multiple possible secret names
           if [ -n "$TOKEN1" ]; then
-            echo "token=$TOKEN1" >> $GITHUB_OUTPUT
             echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "token_name=TOKEN1" >> $GITHUB_OUTPUT
             echo "✅ Found NETLIFY_AUTH_TOKEN"
           elif [ -n "$TOKEN2" ]; then
-            echo "token=$TOKEN2" >> $GITHUB_OUTPUT
             echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "token_name=TOKEN2" >> $GITHUB_OUTPUT
             echo "✅ Found NETLIFYAUTH"
           elif [ -n "$TOKEN3" ]; then
-            echo "token=$TOKEN3" >> $GITHUB_OUTPUT
             echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "token_name=TOKEN3" >> $GITHUB_OUTPUT
             echo "✅ Found NETLIFY"
           else
             echo "has_token=false" >> $GITHUB_OUTPUT
@@ -45,8 +45,11 @@ jobs:
       - name: Set NEXT_PUBLIC_SUPABASE_URL
         if: steps.check_token.outputs.has_token == 'true'
         env:
-          TOKEN: ${{ steps.check_token.outputs.token }}
+          TOKEN1: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN2: ${{ secrets.NETLIFYAUTH }}
+          TOKEN3: ${{ secrets.NETLIFY }}
         run: |
+          TOKEN="${TOKEN1:-${TOKEN2:-$TOKEN3}}"
           echo "Setting NEXT_PUBLIC_SUPABASE_URL..."
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SUPABASE_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
@@ -58,8 +61,11 @@ jobs:
       - name: Set NEXT_PUBLIC_SUPABASE_ANON_KEY
         if: steps.check_token.outputs.has_token == 'true'
         env:
-          TOKEN: ${{ steps.check_token.outputs.token }}
+          TOKEN1: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN2: ${{ secrets.NETLIFYAUTH }}
+          TOKEN3: ${{ secrets.NETLIFY }}
         run: |
+          TOKEN="${TOKEN1:-${TOKEN2:-$TOKEN3}}"
           echo "Setting NEXT_PUBLIC_SUPABASE_ANON_KEY..."
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SUPABASE_ANON_KEY?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
@@ -71,9 +77,12 @@ jobs:
       - name: Set SUPABASE_SERVICE_ROLE_KEY
         if: steps.check_token.outputs.has_token == 'true'
         env:
-          TOKEN: ${{ steps.check_token.outputs.token }}
+          TOKEN1: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN2: ${{ secrets.NETLIFYAUTH }}
+          TOKEN3: ${{ secrets.NETLIFY }}
           SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
+          TOKEN="${TOKEN1:-${TOKEN2:-$TOKEN3}}"
           if [ -n "$SERVICE_KEY" ]; then
             echo "Setting SUPABASE_SERVICE_ROLE_KEY..."
             curl -X PUT \
@@ -89,21 +98,24 @@ jobs:
       - name: Set Site URLs
         if: steps.check_token.outputs.has_token == 'true'
         env:
-          TOKEN: ${{ steps.check_token.outputs.token }}
+          TOKEN1: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN2: ${{ secrets.NETLIFYAUTH }}
+          TOKEN3: ${{ secrets.NETLIFY }}
         run: |
+          TOKEN="${TOKEN1:-${TOKEN2:-$TOKEN3}}"
           echo "Setting site URLs..."
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_APP_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
+            -d '{"context":"all","value":"https://www.elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SITE_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
+            -d '{"context":"all","value":"https://www.elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NODE_ENV?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
