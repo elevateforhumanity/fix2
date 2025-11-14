@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react';
 
 export function Calendar() {
@@ -43,7 +45,7 @@ export function Calendar() {
       id: Date.now(),
       title: newEvent.title,
       date: new Date(`${newEvent.date}T${newEvent.time}`),
-      duration: parseInt(newEvent.duration),
+      duration: typeof newEvent.duration === "string" ? parseInt(newEvent.duration, 10) : newEvent.duration,
       color: '#3b82f6'
     };
     setEvents([...events, event]);
@@ -132,7 +134,7 @@ export function Calendar() {
               <input type="text" placeholder="Event Title" value={newEvent.title} onChange={(e) => setNewEvent({...newEvent, title: e.target.value})} style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '1rem' }} />
               <input type="date" value={newEvent.date} onChange={(e) => setNewEvent({...newEvent, date: e.target.value})} style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '1rem' }} />
               <input type="time" value={newEvent.time} onChange={(e) => setNewEvent({...newEvent, time: e.target.value})} style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '1rem' }} />
-              <select value={newEvent.duration} onChange={(e) => setNewEvent({...newEvent, duration: e.target.value})} style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '1rem' }}>
+              <select value={newEvent.duration} onChange={(e) => setNewEvent({...newEvent, duration: parseInt(e.target.value, 10)})} style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '0.375rem', fontSize: '1rem' }}>
                 <option value={30}>30 minutes</option>
                 <option value={60}>1 hour</option>
                 <option value={90}>1.5 hours</option>

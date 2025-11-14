@@ -177,10 +177,12 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 
 - **Frontend:** Next.js 16 + TypeScript + Tailwind CSS
 - **Backend:** Supabase (Postgres + Auth + Storage)
-- **Deployment:** Netlify with serverless functions
+- **Deployment:** Vercel (recommended) with Edge Functions
 - **Email:** Resend for transactional emails
 - **PDF Generation:** pdf-lib for certificates and MOUs
 - **Signatures:** react-signature-canvas for digital signing
+- **Payments:** Stripe for course enrollment
+- **Analytics:** Google Analytics 4
 
 ---
 
@@ -188,9 +190,9 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 
 ### Prerequisites
 - Node.js 20.x or higher
-- npm or yarn
+- pnpm, npm, or yarn
 - Supabase account
-- Netlify account (for deployment)
+- Vercel account (for deployment)
 
 ### Local Development
 
@@ -235,20 +237,28 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 
 ## 📦 Deployment
 
-### Netlify Deployment
+### ⚡ Vercel Deployment (RECOMMENDED)
 
-1. **Connect to GitHub**
-   - Link your repository to Netlify
-   - Set build command: `npm run build`
-   - Set publish directory: `.next`
+**Vercel is the ONLY recommended platform for this Next.js 16 application.**
 
-2. **Configure Environment Variables**
-   - Add all variables from `.env.local`
-   - Ensure `SUPABASE_SERVICE_ROLE_KEY` is set
+Vercel is built by the Next.js team and provides:
+- ✅ Zero-configuration deployment
+- ✅ Automatic optimization for Next.js 16 + Turbopack
+- ✅ Native App Router support
+- ✅ Better build performance and error reporting
+- ✅ Edge Functions for API routes
 
-3. **Deploy**
-   - Push to main branch
-   - Netlify auto-deploys
+**Quick Deploy:**
+
+1. **Push to GitHub** (if not already done)
+2. **Go to [vercel.com](https://vercel.com)** and click "Add New Project"
+3. **Import your repository** from GitHub
+4. **Add environment variables** (see below)
+5. **Click Deploy** - Vercel handles the rest!
+
+**Your site is already live**: [fix2-one.vercel.app](https://fix2-one.vercel.app)
+
+📖 **Full deployment guide**: See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)
 
 ### Environment Variables Required
 
@@ -260,7 +270,20 @@ RESEND_API_KEY=re_xxxxx
 EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
 MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
 NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
+STRIPE_SECRET_KEY=sk_live_xxx
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
+
+### ⚠️ Why Not Netlify?
+
+Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll encounter:
+- ❌ Build failures with TypeScript
+- ❌ Runtime errors with serverless functions
+- ❌ Slower builds and deployments
+- ❌ More configuration required
+
+**Use Vercel instead** - it's built specifically for Next.js.
 
 ---
 

@@ -44,7 +44,7 @@ export async function getUserByEmail(email: string) {
     throw error;
   }
   
-  const user = data.users.find(u => u.email === email);
+  const user = data.users.find((u: any) => u.email === email);
   return user || null;
 }
 

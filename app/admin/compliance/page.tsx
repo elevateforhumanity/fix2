@@ -1,6 +1,8 @@
+"use client"
+
 import { useState } from "react";
 import { Shield, FileCheck, Users, BarChart, CheckCircle, Award, TrendingUp } from "lucide-react";
-import { Link } from "wouter";
+import Link from "next/link";
 
 export default function Compliance() {
   const [activeSection, setActiveSection] = useState("overview");

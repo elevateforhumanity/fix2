@@ -41,10 +41,22 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/ui/**/*.ts",
+    "components/ui/**/*.tsx",
+    "components/dashboard/**/*.ts",
+    "components/dashboard/**/*.tsx",
+    "components/lms/**/*.ts",
+    "components/lms/**/*.tsx",
+    "components/DoceboHeader.tsx",
+    "components/GoogleAnalytics.tsx",
+    "components/MOUStatusBadge.tsx",
+    "components/SignaturePad.tsx",
+    "components/StructuredData.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
     ".next/types/**/*.ts",
-    "src",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
@@ -52,6 +64,8 @@
     "workers",
     "deployment-ready",
     "supabase/functions",
-    ".archive"
+    ".archive",
+    "backend",
+    "lib/new-ecosystem-services"
   ]
 }

@@ -1,6 +1,8 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 
-export function Email() {
+export default function EmailPage() {
   const [emails, setEmails] = useState([]);
   const [selectedEmail, setSelectedEmail] = useState(null);
   const [composing, setComposing] = useState(false);
@@ -141,4 +143,3 @@ export function Email() {
   );
 }
 
-export default Email;
