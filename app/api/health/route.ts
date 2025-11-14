@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function GET() {
   const checks: Record<string, any> = {
@@ -21,10 +21,7 @@ export async function GET() {
   // Check 2: Database Connection
   try {
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-      );
+      const supabase = createSupabaseClient();
       
       const { error } = await supabase.from('programs').select('count').limit(1);
       

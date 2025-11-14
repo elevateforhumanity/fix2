@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { sendEmail, emailTemplates } from '@/lib/email';
 
 // This endpoint should be called by a cron job (e.g., Vercel Cron, GitHub Actions, or external service)
@@ -14,10 +14,7 @@ export async function GET(request: Request) {
     }
 
     // Use service role key for admin operations
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
-    );
+    const supabase = createSupabaseClient();
 
     // Find students who haven't logged in for 7+ days
     const sevenDaysAgo = new Date();

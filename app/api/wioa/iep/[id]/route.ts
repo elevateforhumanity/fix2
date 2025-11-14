@@ -1,16 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 // GET /api/wioa/iep/[id] - Get IEP by ID
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const supabase = createSupabaseClient();
   try {
     const { id } = await params;
 
@@ -36,6 +33,7 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const supabase = createSupabaseClient();
   try {
     const { id } = await params;
     const body = await request.json();
@@ -68,6 +66,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const supabase = createSupabaseClient();
   try {
     const { id } = await params;
     const body = await request.json();

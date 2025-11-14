@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+  const supabase = createSupabaseClient();
+const searchParams = request.nextUrl.searchParams;
   const code = searchParams.get('code');
   const next = searchParams.get('next') ?? '/';
 

@@ -1,13 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 // GET /api/wioa/case-management - Get all cases
 export async function GET(request: NextRequest) {
+  const supabase = createSupabaseClient();
   try {
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get('userId');
@@ -41,6 +38,7 @@ export async function GET(request: NextRequest) {
 
 // POST /api/wioa/case-management - Create new case
 export async function POST(request: NextRequest) {
+  const supabase = createSupabaseClient();
   try {
     const body = await request.json();
     const { userId, caseManagerId, priority, contactFrequency, intakeNotes, barriers, accommodations } = body;

@@ -1,13 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 // GET /api/wioa/reporting - Generate WIOA reports
 export async function GET(request: NextRequest) {
+  const supabase = createSupabaseClient();
   try {
     const { searchParams } = new URL(request.url);
     const reportType = searchParams.get('type');
@@ -25,19 +22,19 @@ export async function GET(request: NextRequest) {
 
     switch (reportType) {
       case 'enrollment':
-        reportData = await generateEnrollmentReport(startDate, endDate);
+        reportData = await generateEnrollmentReport(supabase, startDate, endDate);
         break;
       case 'outcomes':
-        reportData = await generateOutcomesReport(startDate, endDate);
+        reportData = await generateOutcomesReport(supabase, startDate, endDate);
         break;
       case 'performance':
-        reportData = await generatePerformanceReport(startDate, endDate);
+        reportData = await generatePerformanceReport(supabase, startDate, endDate);
         break;
       case 'demographics':
-        reportData = await generateDemographicsReport(startDate, endDate);
+        reportData = await generateDemographicsReport(supabase, startDate, endDate);
         break;
       case 'services':
-        reportData = await generateServicesReport(startDate, endDate);
+        reportData = await generateServicesReport(supabase, startDate, endDate);
         break;
       default:
         return NextResponse.json(
@@ -55,7 +52,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-async function generateEnrollmentReport(startDate: string | null, endDate: string | null) {
+async function generateEnrollmentReport(supabase: any, startDate: string | null, endDate: string | null) {
   let query = supabase
     .from('enrollments')
     .select('*, profiles(*)');
@@ -73,7 +70,7 @@ async function generateEnrollmentReport(startDate: string | null, endDate: strin
   };
 }
 
-async function generateOutcomesReport(startDate: string | null, endDate: string | null) {
+async function generateOutcomesReport(supabase: any, startDate: string | null, endDate: string | null) {
   let query = supabase
     .from('employment_outcomes')
     .select('*');
@@ -96,10 +93,10 @@ async function generateOutcomesReport(startDate: string | null, endDate: string 
   };
 }
 
-async function generatePerformanceReport(startDate: string | null, endDate: string | null) {
+async function generatePerformanceReport(supabase: any, startDate: string | null, endDate: string | null) {
   // WIOA Performance Measures
-  const enrollments = await generateEnrollmentReport(startDate, endDate);
-  const outcomes = await generateOutcomesReport(startDate, endDate);
+  const enrollments = await generateEnrollmentReport(supabase, startDate, endDate);
+  const outcomes = await generateOutcomesReport(supabase, startDate, endDate);
 
   return {
     enrollmentRate: enrollments.totalEnrollments,
@@ -109,7 +106,7 @@ async function generatePerformanceReport(startDate: string | null, endDate: stri
   };
 }
 
-async function generateDemographicsReport(startDate: string | null, endDate: string | null) {
+async function generateDemographicsReport(supabase: any, startDate: string | null, endDate: string | null) {
   const { data, error } = await supabase
     .from('participant_eligibility')
     .select('*');
@@ -129,7 +126,7 @@ async function generateDemographicsReport(startDate: string | null, endDate: str
   return demographics;
 }
 
-async function generateServicesReport(startDate: string | null, endDate: string | null) {
+async function generateServicesReport(supabase: any, startDate: string | null, endDate: string | null) {
   let query = supabase
     .from('support_services')
     .select('*');
