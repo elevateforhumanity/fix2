@@ -57,8 +57,14 @@ jobs:
           echo "✅ Set NEXT_PUBLIC_SUPABASE_URL"
       
       - name: Set NEXT_PUBLIC_SUPABASE_ANON_KEY
-        if: ${{ secrets.SUPABASE_ANON_KEY != '' }}
+        env:
+          ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
+          if [ -z "$ANON_KEY" ]; then
+            echo "⚠️  SUPABASE_ANON_KEY not set in GitHub Secrets - skipping"
+            exit 0
+          fi
+          
           echo "Setting NEXT_PUBLIC_SUPABASE_ANON_KEY..."
           
           curl -X PUT \
@@ -67,14 +73,20 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{
               \"context\": \"all\",
-              \"value\": \"${{ secrets.SUPABASE_ANON_KEY }}\"
+              \"value\": \"$ANON_KEY\"
             }"
           
           echo "✅ Set NEXT_PUBLIC_SUPABASE_ANON_KEY"
       
       - name: Set SUPABASE_SERVICE_ROLE_KEY
-        if: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY != '' }}
+        env:
+          SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
+          if [ -z "$SERVICE_KEY" ]; then
+            echo "⚠️  SUPABASE_SERVICE_ROLE_KEY not set in GitHub Secrets - skipping"
+            exit 0
+          fi
+          
           echo "Setting SUPABASE_SERVICE_ROLE_KEY..."
           
           curl -X PUT \
@@ -83,7 +95,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{
               \"context\": \"all\",
-              \"value\": \"${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}\"
+              \"value\": \"$SERVICE_KEY\"
             }"
           
           echo "✅ Set SUPABASE_SERVICE_ROLE_KEY"
