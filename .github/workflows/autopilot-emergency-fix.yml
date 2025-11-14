@@ -19,36 +19,51 @@ jobs:
       
       - name: Check for Netlify Token
         id: check_token
+        env:
+          TOKEN1: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN2: ${{ secrets.NETLIFYAUTH }}
+          TOKEN3: ${{ secrets.NETLIFY }}
         run: |
-          if [ -n "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+          # Check multiple possible secret names
+          if [ -n "$TOKEN1" ]; then
+            echo "token=$TOKEN1" >> $GITHUB_OUTPUT
             echo "has_token=true" >> $GITHUB_OUTPUT
-            echo "✅ Found NETLIFY_AUTH_TOKEN in GitHub Secrets"
+            echo "✅ Found NETLIFY_AUTH_TOKEN"
+          elif [ -n "$TOKEN2" ]; then
+            echo "token=$TOKEN2" >> $GITHUB_OUTPUT
+            echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "✅ Found NETLIFYAUTH"
+          elif [ -n "$TOKEN3" ]; then
+            echo "token=$TOKEN3" >> $GITHUB_OUTPUT
+            echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "✅ Found NETLIFY"
           else
             echo "has_token=false" >> $GITHUB_OUTPUT
-            echo "❌ NETLIFY_AUTH_TOKEN not found in GitHub Secrets"
-            echo ""
-            echo "Add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
-            echo "Get token from: https://app.netlify.com/user/applications"
+            echo "❌ No Netlify token found"
           fi
       
       - name: Set NEXT_PUBLIC_SUPABASE_URL
         if: steps.check_token.outputs.has_token == 'true'
+        env:
+          TOKEN: ${{ steps.check_token.outputs.token }}
         run: |
           echo "Setting NEXT_PUBLIC_SUPABASE_URL..."
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SUPABASE_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"context":"all","value":"https://cuxzzpsyufcewtmicszk.supabase.co"}'
           echo "✅ Set NEXT_PUBLIC_SUPABASE_URL"
       
       - name: Set NEXT_PUBLIC_SUPABASE_ANON_KEY
         if: steps.check_token.outputs.has_token == 'true'
+        env:
+          TOKEN: ${{ steps.check_token.outputs.token }}
         run: |
           echo "Setting NEXT_PUBLIC_SUPABASE_ANON_KEY..."
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SUPABASE_ANON_KEY?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"context":"all","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ"}'
           echo "✅ Set NEXT_PUBLIC_SUPABASE_ANON_KEY"
@@ -56,13 +71,14 @@ jobs:
       - name: Set SUPABASE_SERVICE_ROLE_KEY
         if: steps.check_token.outputs.has_token == 'true'
         env:
+          TOKEN: ${{ steps.check_token.outputs.token }}
           SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           if [ -n "$SERVICE_KEY" ]; then
             echo "Setting SUPABASE_SERVICE_ROLE_KEY..."
             curl -X PUT \
               "https://api.netlify.com/api/v1/accounts/-/env/SUPABASE_SERVICE_ROLE_KEY?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-              -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+              -H "Authorization: Bearer $TOKEN" \
               -H "Content-Type: application/json" \
               -d "{\"context\":\"all\",\"value\":\"$SERVICE_KEY\"}"
             echo "✅ Set SUPABASE_SERVICE_ROLE_KEY"
@@ -72,24 +88,26 @@ jobs:
       
       - name: Set Site URLs
         if: steps.check_token.outputs.has_token == 'true'
+        env:
+          TOKEN: ${{ steps.check_token.outputs.token }}
         run: |
           echo "Setting site URLs..."
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_APP_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SITE_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NODE_ENV?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"context":"all","value":"production"}'
           
@@ -97,12 +115,14 @@ jobs:
       
       - name: Trigger Netlify Deployment
         if: steps.check_token.outputs.has_token == 'true'
+        env:
+          TOKEN: ${{ steps.check_token.outputs.token }}
         run: |
           echo "🚀 Triggering Netlify deployment with cache clear..."
           
           curl -X POST \
             "https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1/builds" \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"clear_cache":true}'
           
