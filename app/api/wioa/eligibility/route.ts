@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 
-
 // GET /api/wioa/eligibility - Get eligibility records
 export async function GET(request: NextRequest) {
   const supabase = createSupabaseClient();
@@ -28,7 +27,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
@@ -58,7 +60,7 @@ export async function POST(request: NextRequest) {
       hasDisability,
       disabilityDocumentUrl,
       disabilityType,
-      notes
+      notes,
     } = body;
 
     // Check if eligibility record already exists
@@ -70,7 +72,13 @@ export async function POST(request: NextRequest) {
 
     if (existing) {
       return NextResponse.json(
-        { success: false, error: { code: 'ALREADY_EXISTS', message: 'Eligibility record already exists' } },
+        {
+          success: false,
+          error: {
+            code: 'ALREADY_EXISTS',
+            message: 'Eligibility record already exists',
+          },
+        },
         { status: 400 }
       );
     }
@@ -95,7 +103,7 @@ export async function POST(request: NextRequest) {
       disability_document_url: disabilityDocumentUrl,
       disability_type: disabilityType,
       eligibility_status: 'pending',
-      notes
+      notes,
     };
 
     const { data, error } = await supabase
@@ -109,7 +117,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, data }, { status: 201 });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }

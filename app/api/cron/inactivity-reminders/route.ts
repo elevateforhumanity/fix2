@@ -23,7 +23,8 @@ export async function GET(request: Request) {
     // Get all active enrollments
     const { data: enrollments } = await supabase
       .from('enrollments')
-      .select(`
+      .select(
+        `
         id,
         student_id,
         courses!inner (
@@ -34,14 +35,15 @@ export async function GET(request: Request) {
           full_name,
           email
         )
-      `)
+      `
+      )
       .eq('status', 'active');
 
     if (!enrollments || enrollments.length === 0) {
       return NextResponse.json({ message: 'No active enrollments found' });
     }
 
-    const studentIds = enrollments.map(e => e.student_id);
+    const studentIds = enrollments.map((e) => e.student_id);
 
     // Get last login for each student
     const { data: lastLogins } = await supabase
@@ -52,7 +54,7 @@ export async function GET(request: Request) {
 
     // Group by student_id to get most recent login
     const lastLoginMap = new Map();
-    lastLogins?.forEach(log => {
+    lastLogins?.forEach((log) => {
       if (!lastLoginMap.has(log.student_id)) {
         lastLoginMap.set(log.student_id, new Date(log.login_time));
       }
@@ -62,18 +64,25 @@ export async function GET(request: Request) {
     const reminders = [];
     for (const enrollment of enrollments) {
       const lastLogin = lastLoginMap.get(enrollment.student_id);
-      
+
       // Type guards: Extract nested relations
-      const profile = Array.isArray(enrollment.profiles) ? enrollment.profiles[0] : enrollment.profiles;
-      const course = Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses;
-      
+      const profile = Array.isArray(enrollment.profiles)
+        ? enrollment.profiles[0]
+        : enrollment.profiles;
+      const course = Array.isArray(enrollment.courses)
+        ? enrollment.courses[0]
+        : enrollment.courses;
+
       // If no login ever, or last login was 7+ days ago
       if (!lastLogin || lastLogin < sevenDaysAgo) {
-        const daysSinceLogin = lastLogin 
-          ? Math.floor((Date.now() - lastLogin.getTime()) / (1000 * 60 * 60 * 24))
+        const daysSinceLogin = lastLogin
+          ? Math.floor(
+              (Date.now() - lastLogin.getTime()) / (1000 * 60 * 60 * 24)
+            )
           : 30; // Default to 30 if never logged in
 
-        const studentName = profile?.full_name || profile?.email?.split('@')[0] || 'Student';
+        const studentName =
+          profile?.full_name || profile?.email?.split('@')[0] || 'Student';
         const courseName = course?.title || 'Course';
         const studentEmail = profile?.email || '';
         const loginUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/lms/dashboard`;
@@ -110,6 +119,9 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error('Error in inactivity reminders cron:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

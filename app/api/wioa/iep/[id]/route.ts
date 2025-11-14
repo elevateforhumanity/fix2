@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 
-
 // GET /api/wioa/iep/[id] - Get IEP by ID
 export async function GET(
   request: NextRequest,
@@ -22,7 +21,10 @@ export async function GET(
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
@@ -40,7 +42,7 @@ export async function PUT(
 
     const updateData = {
       ...body,
-      updated_at: new Date().toISOString()
+      updated_at: new Date().toISOString(),
     };
 
     const { data, error } = await supabase
@@ -55,7 +57,10 @@ export async function PUT(
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
@@ -79,7 +84,7 @@ export async function POST(
         approved_by: approvedBy,
         approved_at: new Date().toISOString(),
         approval_notes: approvalNotes,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
       })
       .eq('id', id)
       .select()
@@ -90,7 +95,10 @@ export async function POST(
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
