@@ -109,13 +109,13 @@ jobs:
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_APP_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"context":"all","value":"https://www.elevateconnectsdirectory.org"}'
+            -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NEXT_PUBLIC_SITE_URL?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"context":"all","value":"https://www.elevateconnectsdirectory.org"}'
+            -d '{"context":"all","value":"https://elevateconnectsdirectory.org"}'
           
           curl -X PUT \
             "https://api.netlify.com/api/v1/accounts/-/env/NODE_ENV?site_id=12f120ab-3f63-419b-bc49-430f043415c1" \

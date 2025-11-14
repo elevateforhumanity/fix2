@@ -17,6 +17,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://www.elevateconnectsdirectory.org/sitemap.xml',
+    sitemap: 'https://elevateconnectsdirectory.org/sitemap.xml',
   };
 }

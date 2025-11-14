@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { createBuildTimeSupabaseClient } from '@/lib/auth';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.elevateconnectsdirectory.org';
+  const baseUrl = 'https://elevateconnectsdirectory.org';
 
   // Static pages
   const staticPages = [
