@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 
-
 // POST /api/wioa/support-services/[id]/approve - Approve/deny support service
 export async function POST(
   request: NextRequest,
@@ -20,7 +19,7 @@ export async function POST(
       approval_date: new Date().toISOString(),
       approval_notes: notes,
       denial_reason: denialReason,
-      updated_at: new Date().toISOString()
+      updated_at: new Date().toISOString(),
     };
 
     const { data, error } = await supabase
@@ -35,7 +34,10 @@ export async function POST(
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }

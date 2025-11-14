@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 
-
 // GET /api/wioa/support-services - Get support service requests
 export async function GET(request: NextRequest) {
   const supabase = createSupabaseClient();
@@ -27,7 +26,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
@@ -47,7 +49,7 @@ export async function POST(request: NextRequest) {
       startDate,
       endDate,
       justification,
-      urgency
+      urgency,
     } = body;
 
     const serviceData = {
@@ -63,7 +65,7 @@ export async function POST(request: NextRequest) {
       status: 'pending',
       request_date: new Date().toISOString(),
       created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
+      updated_at: new Date().toISOString(),
     };
 
     const { data, error } = await supabase
@@ -77,7 +79,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, data }, { status: 201 });
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, error: { code: 'SERVER_ERROR', message: error.message } },
+      {
+        success: false,
+        error: { code: 'SERVER_ERROR', message: error.message },
+      },
       { status: 500 }
     );
   }
