@@ -7,12 +7,22 @@ import { createServerSupabaseClient, createBuildTimeSupabaseClient } from '@/lib
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const supabase = createBuildTimeSupabaseClient();
-  const { data: programs } = await supabase.from('programs').select('slug');
-  
-  return programs?.map((program) => ({
-    slug: program.slug,
-  })) || [];
+  try {
+    const supabase = createBuildTimeSupabaseClient();
+    const { data: programs, error } = await supabase.from('programs').select('slug');
+    
+    if (error) {
+      console.error('generateStaticParams error:', error);
+      return [];
+    }
+    
+    return programs?.map((program) => ({
+      slug: program.slug,
+    })) || [];
+  } catch (err) {
+    console.error('generateStaticParams failed:', err);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
