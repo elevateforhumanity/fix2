@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
@@ -15,6 +16,17 @@ export const metadata: Metadata = {
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://elevateconnectsdirectory.org/assets/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Elevate for Humanity - Workforce Training',
+      },
+    ],
+  },
+  facebook: {
+    appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
   },
 
   robots: {
@@ -43,6 +55,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <GoogleAnalytics />
+        <FacebookPixel />
         {children}
       </body>
     </html>
