@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createRouteHandlerClient } from '@/lib/auth';
 import { getUserById } from '@/lib/supabase-admin';
 import QRCode from 'qrcode';
 import { Document, Page, Text, View, Image, StyleSheet, pdf } from '@react-pdf/renderer';
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 });
 
 export async function GET(req: NextRequest) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = await createRouteHandlerClient({ cookies });
   const { searchParams } = new URL(req.url);
   const serial = searchParams.get('serial');
   

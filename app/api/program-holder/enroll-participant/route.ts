@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createRouteHandlerClient } from '@/lib/auth';
 import { checkMOUStatusServer } from '@/lib/mou-checks';
 
 /**
@@ -8,7 +8,7 @@ import { checkMOUStatusServer } from '@/lib/mou-checks';
  * This demonstrates how to gate functionality behind MOU completion
  */
 export async function POST(req: NextRequest) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = await createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {

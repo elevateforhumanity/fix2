@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
 import { sendMOUSignedConfirmation, sendMOUSignedAdminNotification } from '@/lib/email-mou-notifications';
 
 export async function POST(req: Request) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = await createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {

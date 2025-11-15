@@ -1,4 +1,4 @@
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createBrowserClient } from '@supabase/ssr';
 
 /**
  * Check if a program holder has a fully executed MOU
@@ -6,7 +6,10 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
  * @returns Boolean indicating if MOU is fully executed
  */
 export async function hasMOUFullyExecuted(programHolderId: string): Promise<boolean> {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
   
   const { data, error } = await supabase
     .from('program_holders')
@@ -27,7 +30,10 @@ export async function hasMOUFullyExecuted(programHolderId: string): Promise<bool
  * @returns MOU status object with details
  */
 export async function getMOUStatus(programHolderId: string) {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
   
   const { data, error } = await supabase
     .from('program_holders')

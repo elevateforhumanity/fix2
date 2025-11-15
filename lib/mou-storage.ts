@@ -1,4 +1,4 @@
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createBrowserClient } from '@supabase/ssr';
 
 /**
  * Get a signed URL for downloading a signed MOU from storage
@@ -6,7 +6,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
  * @returns Public URL for downloading the signed MOU
  */
 export async function getSignedMOUUrl(filename: string): Promise<string | null> {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   
   const { data, error } = await supabase.storage
     .from('mous')
@@ -26,7 +26,7 @@ export async function getSignedMOUUrl(filename: string): Promise<string | null> 
  * @returns Blob of the PDF file
  */
 export async function downloadSignedMOU(filename: string): Promise<Blob | null> {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   
   const { data, error } = await supabase.storage
     .from('mous')
@@ -46,7 +46,7 @@ export async function downloadSignedMOU(filename: string): Promise<Blob | null> 
  * @returns Boolean indicating if file exists
  */
 export async function signedMOUExists(filename: string): Promise<boolean> {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   
   const { data, error } = await supabase.storage
     .from('mous')

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createRouteHandlerClient } from '@/lib/auth';
 import { randomBytes } from 'crypto';
 import { getUserByEmail } from '@/lib/supabase-admin';
 
@@ -18,7 +18,7 @@ function parseCSV(raw: string) {
 function serial(){ return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`; }
 
 export async function POST(req: NextRequest) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = await createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
   const { data: prof } = await supabase.from('user_profiles').select('role').eq('user_id', user.id).single();

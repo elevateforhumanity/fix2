@@ -39,6 +39,13 @@ export async function createServerSupabaseClient() {
   );
 }
 
+// Alias for compatibility with old code using createRouteHandlerClient
+// Old API: createRouteHandlerClient({ cookies })
+// New API: createServerSupabaseClient() - cookies are handled internally
+export async function createRouteHandlerClient(_options?: any) {
+  return await createServerSupabaseClient();
+}
+
 export async function getSession() {
   const supabase = await createServerSupabaseClient();
   const { data: { session }, error } = await supabase.auth.getSession();
