@@ -213,5 +213,10 @@
     "video:generate-samples": "ts-node server/generate-template-videos.ts",
     "video:download-media": "ts-node server/download-sample-media.ts",
     "generate-covers": "node scripts/generate-course-covers.mjs"
+  },
+  "overrides": {
+    "glob": "^11.0.0",
+    "inflight": "npm:lru-cache@^10.0.0",
+    "node-domexception": "npm:domexception@^4.0.0"
   }
 }
