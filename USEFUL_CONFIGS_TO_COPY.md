@@ -8,6 +8,7 @@
 ## ✅ VERCEL STATUS - CLEAN
 
 **Good News:**
+
 - ❌ No Vercel webhooks found in any of the scanned repos
 - ❌ No `.vercel` directories
 - ❌ No `vercel.json` files actively deploying
@@ -24,12 +25,14 @@
 **Location:** `ecosystem-5/scripts/verify-deploy.mjs`
 
 **What it does:**
+
 - Verifies your deployment is working
 - Tests all pages for 200 status codes
 - Checks robots.txt and sitemap.xml
 - Runs after deployment completes
 
 **How to use:**
+
 ```bash
 # Copy to your repo
 cp /tmp/scan-repos/ecosystem-5/scripts/verify-deploy.mjs /workspaces/fix2/scripts/
@@ -39,6 +42,7 @@ SITE_URL=https://www.elevateconnectsdirectory.org node scripts/verify-deploy.mjs
 ```
 
 **Why you need it:**
+
 - ✅ Catches broken pages after deployment
 - ✅ Verifies all routes work
 - ✅ Tests 404 handling
@@ -51,12 +55,19 @@ SITE_URL=https://www.elevateconnectsdirectory.org node scripts/verify-deploy.mjs
 **Location:** `ecosystem-5/scripts/elevate.config.json`
 
 **What it contains:**
+
 ```json
 {
   "sisterSites": [
-    { "name": "Elevate Connects Directory", "url": "https://www.elevateconnectsdirectory.org" },
+    {
+      "name": "Elevate Connects Directory",
+      "url": "https://www.elevateconnectsdirectory.org"
+    },
     { "name": "Selfish Inc.", "url": "https://www.selfishinc.org" },
-    { "name": "Rise Forward Foundation", "url": "https://www.riseforwardfoundation.org" }
+    {
+      "name": "Rise Forward Foundation",
+      "url": "https://www.riseforwardfoundation.org"
+    }
   ],
   "org": {
     "name": "Elevate for Humanity Career & Technical Institute",
@@ -102,12 +113,14 @@ export function SisterSites() {
 **Location:** `ecosystem-5/scripts/utilities/deployment-health-check.js`
 
 **What it does:**
+
 - Checks if deployment is healthy
 - Tests API endpoints
 - Verifies database connection
 - Monitors response times
 
 **How to use:**
+
 ```bash
 # Copy to your repo
 cp /tmp/scan-repos/ecosystem-5/scripts/utilities/deployment-health-check.js /workspaces/fix2/scripts/
@@ -123,12 +136,14 @@ node scripts/deployment-health-check.js
 **Location:** `ecosystem-5/scripts/postbuild.mjs`
 
 **What it does:**
+
 - Generates sitemaps after build
 - Creates robots.txt
 - Optimizes images
 - Generates schema.org JSON-LD
 
 **Why you might need it:**
+
 - ✅ Automatic sitemap generation
 - ✅ SEO optimization
 - ✅ Schema markup for better Google results
@@ -157,9 +172,9 @@ Add to your site footer or contact page:
 ```typescript
 // app/layout.tsx or components/Footer.tsx
 const orgInfo = {
-  name: "Elevate for Humanity Career & Technical Institute",
-  phone: "+1-317-760-7908",
-  email: "info@elevateforhumanity.org"
+  name: 'Elevate for Humanity Career & Technical Institute',
+  phone: '+1-317-760-7908',
+  email: 'info@elevateforhumanity.org',
 };
 ```
 
@@ -170,6 +185,7 @@ const orgInfo = {
 **Location:** `ecosystem-5/scripts/utilities/backend-api.js`
 
 **What it provides:**
+
 - Centralized API client
 - Authentication handling
 - Error handling
@@ -247,8 +263,8 @@ export function SisterSites() {
       <ul className="space-y-2">
         {sites.map((site) => (
           <li key={site.url}>
-            <a 
-              href={site.url} 
+            <a
+              href={site.url}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-600 hover:text-gray-900"
@@ -289,18 +305,22 @@ EOF
 ## ❌ WHAT NOT TO COPY
 
 ### **1. Vite Configuration**
+
 - ❌ You use Next.js, not Vite
 - ❌ Next.js handles this better
 
 ### **2. React Router Setup**
+
 - ❌ You use Next.js App Router
 - ❌ File-based routing is better
 
 ### **3. Backend Server Code**
+
 - ❌ You already have Next.js API routes
 - ❌ Don't need separate Express server
 
 ### **4. Vercel Configs**
+
 - ❌ None found (good!)
 - ❌ Your Vercel setup is already correct
 
@@ -309,6 +329,7 @@ EOF
 ## ✅ SUMMARY
 
 **Found in Other Repos:**
+
 - ✅ Deployment verification script (COPY THIS)
 - ✅ Sister sites configuration (COPY THIS)
 - ✅ Organization info (COPY THIS)
@@ -316,11 +337,13 @@ EOF
 - ✅ Post-build scripts (OPTIONAL - Next.js has alternatives)
 
 **Vercel Status:**
+
 - ✅ No Vercel webhooks found
 - ✅ No interference with your deployments
 - ✅ Clean - no action needed
 
 **What to Do:**
+
 1. Copy deployment verification script (5 min)
 2. Add sister sites component (10 min)
 3. Add organization config (5 min)
