@@ -2,6 +2,9 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 
+// Use Node.js runtime for PDF generation
+export const runtime = 'nodejs';
+
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();

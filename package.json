@@ -158,7 +158,7 @@
     "dev": "next dev",
     "make:images": "python3 tools/make_brand_images.py",
     "make:logo": "python3 tools/make_logo_assets.py",
-    "prebuild": "echo 'Building Next.js...'",
+    "prebuild": "node vercel-check.mjs",
     "build": "next build",
     "postbuild": "echo 'Next.js build complete'",
     "verify:build": "bash scripts/verify-build.sh || true",
