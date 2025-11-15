@@ -5,6 +5,9 @@ import { createClient } from '@supabase/supabase-js';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { Resend } from 'resend';
 
+// Use Node.js runtime for PDF generation
+export const runtime = 'nodejs';
+
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {

@@ -5,6 +5,9 @@ import { getUserById } from '@/lib/supabase-admin';
 import QRCode from 'qrcode';
 import { Document, Page, Text, View, Image, StyleSheet, pdf } from '@react-pdf/renderer';
 
+// Use Node.js runtime for PDF generation
+export const runtime = 'nodejs';
+
 const styles = StyleSheet.create({
   page: { padding: 60, fontFamily: 'Helvetica' },
   h1: { fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 10 },

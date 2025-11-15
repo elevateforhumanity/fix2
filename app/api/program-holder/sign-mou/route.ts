@@ -4,6 +4,9 @@ import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
 import { sendMOUSignedConfirmation, sendMOUSignedAdminNotification } from '@/lib/email-mou-notifications';
 
+// Use Node.js runtime for PDF generation
+export const runtime = 'nodejs';
+
 export async function POST(req: Request) {
   const supabase = await createRouteHandlerClient({ cookies });
   const { data: { user } } = await supabase.auth.getUser();
