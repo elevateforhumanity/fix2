@@ -8,7 +8,9 @@ import { Resend } from 'resend';
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn('RESEND_API_KEY not configured - email notifications will be skipped');
+    console.warn(
+      'RESEND_API_KEY not configured - email notifications will be skipped'
+    );
     return null;
   }
   return new Resend(apiKey);
@@ -16,8 +18,10 @@ function getResendClient() {
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -35,7 +39,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const { programHolderId } = body || {};
-  
+
   if (!programHolderId) {
     return new Response('Missing program holder ID', { status: 400 });
   }
@@ -43,7 +47,8 @@ export async function POST(req: NextRequest) {
   // Get program holder details with owner info
   const { data: ph, error: phError } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -55,7 +60,8 @@ export async function POST(req: NextRequest) {
       mou_admin_sig_url,
       owner_user_id,
       application:program_holder_applications(contact_email)
-    `)
+    `
+    )
     .eq('id', programHolderId)
     .single();
 
@@ -72,10 +78,10 @@ export async function POST(req: NextRequest) {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([612, 792]); // Letter size
     const { width, height } = page.getSize();
-    
+
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
     const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-    
+
     let yPosition = height - 50;
     const margin = 50;
     const lineHeight = 15;
@@ -99,12 +105,15 @@ export async function POST(req: NextRequest) {
     });
     yPosition -= lineHeight;
 
-    page.drawText('Elevate for Humanity Career & Technical Institute ("Elevate")', {
-      x: margin,
-      y: yPosition,
-      size: 10,
-      font,
-    });
+    page.drawText(
+      'Elevate for Humanity Career & Technical Institute ("Elevate")',
+      {
+        x: margin,
+        y: yPosition,
+        size: 10,
+        font,
+      }
+    );
     yPosition -= lineHeight;
 
     page.drawText('and', {
@@ -133,7 +142,7 @@ export async function POST(req: NextRequest) {
     yPosition -= lineHeight;
 
     const purposeText = `This MOU outlines the partnership between Elevate and Program Holder for workforce training programs. Elevate serves as the training sponsor and system of record, while Program Holder provides training environment and instruction.`;
-    
+
     const words = purposeText.split(' ');
     let line = '';
     for (const word of words) {
@@ -161,20 +170,26 @@ export async function POST(req: NextRequest) {
     });
     yPosition -= lineHeight;
 
-    page.drawText(`Program Holder will receive ${Math.round((ph.payout_share || 0.333) * 100)}% of Net Program Revenue per enrolled,`, {
-      x: margin,
-      y: yPosition,
-      size: 10,
-      font,
-    });
+    page.drawText(
+      `Program Holder will receive ${Math.round((ph.payout_share || 0.333) * 100)}% of Net Program Revenue per enrolled,`,
+      {
+        x: margin,
+        y: yPosition,
+        size: 10,
+        font,
+      }
+    );
     yPosition -= lineHeight;
 
-    page.drawText('funded participant, after direct costs (credentials, toolkits, compliance expenses).', {
-      x: margin,
-      y: yPosition,
-      size: 10,
-      font,
-    });
+    page.drawText(
+      'funded participant, after direct costs (credentials, toolkits, compliance expenses).',
+      {
+        x: margin,
+        y: yPosition,
+        size: 10,
+        font,
+      }
+    );
     yPosition -= lineHeight * 2;
 
     // Responsibilities
@@ -192,7 +207,7 @@ export async function POST(req: NextRequest) {
       '• Maintain required insurance and safety standards',
       '• Report participant progress and completion data',
       '• Comply with workforce program requirements',
-      '• Maintain confidentiality of participant information'
+      '• Maintain confidentiality of participant information',
     ];
 
     for (const resp of responsibilities) {
@@ -210,20 +225,26 @@ export async function POST(req: NextRequest) {
     });
     yPosition -= lineHeight;
 
-    page.drawText('This agreement may be terminated by either party with 30 days written notice.', {
-      x: margin,
-      y: yPosition,
-      size: 10,
-      font,
-    });
+    page.drawText(
+      'This agreement may be terminated by either party with 30 days written notice.',
+      {
+        x: margin,
+        y: yPosition,
+        size: 10,
+        font,
+      }
+    );
     yPosition -= lineHeight;
 
-    page.drawText('Elevate may terminate immediately for safety concerns, fraud, or noncompliance.', {
-      x: margin,
-      y: yPosition,
-      size: 10,
-      font,
-    });
+    page.drawText(
+      'Elevate may terminate immediately for safety concerns, fraud, or noncompliance.',
+      {
+        x: margin,
+        y: yPosition,
+        size: 10,
+        font,
+      }
+    );
     yPosition -= lineHeight * 3;
 
     // Use service client to download signatures
@@ -246,9 +267,13 @@ export async function POST(req: NextRequest) {
       // Embed signatures
       const holderSigBytes = await holderSigData.arrayBuffer();
       const adminSigBytes = await adminSigData.arrayBuffer();
-      
-      const holderSigImage = await pdfDoc.embedPng(new Uint8Array(holderSigBytes));
-      const adminSigImage = await pdfDoc.embedPng(new Uint8Array(adminSigBytes));
+
+      const holderSigImage = await pdfDoc.embedPng(
+        new Uint8Array(holderSigBytes)
+      );
+      const adminSigImage = await pdfDoc.embedPng(
+        new Uint8Array(adminSigBytes)
+      );
 
       // Signatures section
       page.drawText('Signatures', {
@@ -285,12 +310,15 @@ export async function POST(req: NextRequest) {
       });
       yPosition -= lineHeight;
 
-      page.drawText(`Date: ${new Date(ph.mou_holder_signed_at!).toLocaleDateString()}`, {
-        x: margin,
-        y: yPosition,
-        size: 10,
-        font,
-      });
+      page.drawText(
+        `Date: ${new Date(ph.mou_holder_signed_at!).toLocaleDateString()}`,
+        {
+          x: margin,
+          y: yPosition,
+          size: 10,
+          font,
+        }
+      );
       yPosition -= lineHeight * 3;
 
       // Admin signature
@@ -319,12 +347,15 @@ export async function POST(req: NextRequest) {
       });
       yPosition -= lineHeight;
 
-      page.drawText(`Date: ${new Date(ph.mou_admin_signed_at!).toLocaleDateString()}`, {
-        x: margin,
-        y: yPosition,
-        size: 10,
-        font,
-      });
+      page.drawText(
+        `Date: ${new Date(ph.mou_admin_signed_at!).toLocaleDateString()}`,
+        {
+          x: margin,
+          y: yPosition,
+          size: 10,
+          font,
+        }
+      );
     }
 
     // Save PDF
@@ -334,7 +365,10 @@ export async function POST(req: NextRequest) {
     const pdfPath = `program_holders/${ph.id}/MOU_signed.pdf`;
     const { error: uploadError } = await serviceClient.storage
       .from('agreements')
-      .upload(pdfPath, pdfBytes, { contentType: 'application/pdf', upsert: true });
+      .upload(pdfPath, pdfBytes, {
+        contentType: 'application/pdf',
+        upsert: true,
+      });
 
     if (uploadError) {
       console.error('PDF upload error:', uploadError);
@@ -364,7 +398,7 @@ export async function POST(req: NextRequest) {
       const contactEmail = ph.application?.[0]?.contact_email;
       const recipients = [
         contactEmail,
-        process.env.MOU_ARCHIVE_EMAIL || 'agreements@elevateforhumanity.org'
+        process.env.MOU_ARCHIVE_EMAIL || 'agreements@elevateforhumanity.org',
       ].filter(Boolean) as string[];
 
       if (recipients.length > 0) {
@@ -372,10 +406,12 @@ export async function POST(req: NextRequest) {
         if (resend) {
           try {
             await resend.emails.send({
-            from: process.env.EMAIL_FROM || 'Elevate for Humanity <noreply@elevateforhumanity.org>',
-            to: recipients,
-            subject: `Fully Executed MOU – ${ph.name}`,
-            html: `
+              from:
+                process.env.EMAIL_FROM ||
+                'Elevate for Humanity <noreply@elevateforhumanity.org>',
+              to: recipients,
+              subject: `Fully Executed MOU – ${ph.name}`,
+              html: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                 <h2 style="color: #2563eb;">MOU Fully Executed</h2>
                 
@@ -410,7 +446,7 @@ export async function POST(req: NextRequest) {
                 <p>Best regards,<br>
                 <strong>Elevate for Humanity Team</strong></p>
               </div>
-            `
+            `,
             });
           } catch (emailError) {
             console.error('Error sending email:', emailError);
@@ -420,11 +456,10 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    return Response.json({ 
+    return Response.json({
       success: true,
-      pdfUrl: pdfPath
+      pdfUrl: pdfPath,
     });
-
   } catch (error) {
     console.error('Error generating PDF:', error);
     return new Response('Failed to generate PDF', { status: 500 });

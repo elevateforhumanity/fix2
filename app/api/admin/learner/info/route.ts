@@ -5,7 +5,9 @@ import { getUserById } from '@/lib/supabase-admin';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
 
   const { data: prof } = await supabase
@@ -35,7 +37,7 @@ export async function GET(req: NextRequest) {
 
     return Response.json({
       id: userData.id,
-      email: userData.email
+      email: userData.email,
     });
   } catch (error) {
     console.error('Error fetching user:', error);

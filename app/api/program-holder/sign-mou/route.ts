@@ -2,12 +2,17 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
-import { sendMOUSignedConfirmation, sendMOUSignedAdminNotification } from '@/lib/email-mou-notifications';
+import {
+  sendMOUSignedConfirmation,
+  sendMOUSignedAdminNotification,
+} from '@/lib/email-mou-notifications';
 
 export async function POST(req: Request) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -33,7 +38,8 @@ export async function POST(req: Request) {
   // Get program holder details
   const { data: holder, error: holderError } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -44,12 +50,16 @@ export async function POST(req: Request) {
         phone,
         site_address
       )
-    `)
+    `
+    )
     .eq('id', prof.program_holder_id)
     .single();
 
   if (holderError || !holder) {
-    return Response.json({ error: 'Program holder not found' }, { status: 404 });
+    return Response.json(
+      { error: 'Program holder not found' },
+      { status: 404 }
+    );
   }
 
   // Check if already signed
@@ -69,8 +79,8 @@ export async function POST(req: Request) {
       date: new Date().toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
-      })
+        day: 'numeric',
+      }),
     });
 
     // Load PDF and add signature
@@ -81,7 +91,7 @@ export async function POST(req: Request) {
     // Convert signature data URL to bytes
     const signatureImageBytes = Uint8Array.from(
       atob(signatureDataUrl.split(',')[1]),
-      c => c.charCodeAt(0)
+      (c) => c.charCodeAt(0)
     );
     const signatureImage = await pdfDoc.embedPng(signatureImageBytes);
 
@@ -119,12 +129,15 @@ export async function POST(req: Request) {
       .from('mous')
       .upload(filename, signedPdfBytes, {
         contentType: 'application/pdf',
-        upsert: false
+        upsert: false,
       });
 
     if (uploadError) {
       console.error('Upload error:', uploadError);
-      return Response.json({ error: 'Failed to upload signed MOU' }, { status: 500 });
+      return Response.json(
+        { error: 'Failed to upload signed MOU' },
+        { status: 500 }
+      );
     }
 
     // Update program holder status
@@ -134,13 +147,16 @@ export async function POST(req: Request) {
       .update({
         mou_status: 'signed',
         mou_signed_at: signedAt,
-        signed_mou_url: filename
+        signed_mou_url: filename,
       })
       .eq('id', holder.id);
 
     if (updateError) {
       console.error('Update error:', updateError);
-      return Response.json({ error: 'Failed to update MOU status' }, { status: 500 });
+      return Response.json(
+        { error: 'Failed to update MOU status' },
+        { status: 500 }
+      );
     }
 
     // Send email notifications
@@ -149,21 +165,23 @@ export async function POST(req: Request) {
       signerName,
       signerTitle,
       contactEmail: holder.application?.[0]?.contact_email || '',
-      signedAt
+      signedAt,
     };
 
     await Promise.all([
       sendMOUSignedConfirmation(emailData),
-      sendMOUSignedAdminNotification(emailData)
+      sendMOUSignedAdminNotification(emailData),
     ]);
 
-    return Response.json({ 
+    return Response.json({
       success: true,
-      message: 'MOU signed successfully'
+      message: 'MOU signed successfully',
     });
-
   } catch (error) {
     console.error('Error signing MOU:', error);
-    return Response.json({ error: 'Failed to process signature' }, { status: 500 });
+    return Response.json(
+      { error: 'Failed to process signature' },
+      { status: 500 }
+    );
   }
 }
