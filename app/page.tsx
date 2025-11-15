@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 
@@ -14,10 +20,16 @@ export default function HomePage() {
           <span>Elevate for Humanity</span>
         </div>
         <div className="flex gap-3 items-center">
-          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/programs"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Programs
           </Link>
-          <Link href="/about" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/about"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             About
           </Link>
           <Link href="/login" className="elevate-btn-secondary">
@@ -33,9 +45,16 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
-        
+
         <div className="elevate-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
             {/* Left: Content */}
@@ -47,17 +66,25 @@ export default function HomePage() {
                 Transform Your Future with FREE Workforce Training
               </h1>
               <p className="text-xl mb-8 text-white/90 leading-relaxed">
-                Access high-quality career training programs funded by the Workforce Innovation and Opportunity Act (WIOA). Get the skills employers need—at no cost to you.
+                Access high-quality career training programs funded by the
+                Workforce Innovation and Opportunity Act (WIOA). Get the skills
+                employers need—at no cost to you.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <Link href="/enroll" className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                <Link
+                  href="/enroll"
+                  className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
                   Check Your Eligibility
                 </Link>
-                <Link href="/programs" className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                <Link
+                  href="/programs"
+                  className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/20 transition-all"
+                >
                   Browse Programs
                 </Link>
               </div>
-              
+
               {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6 text-sm">
                 <div className="flex items-center gap-2">
@@ -74,7 +101,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right: Video Placeholder */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
@@ -82,11 +109,17 @@ export default function HomePage() {
                 <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
+                      <svg
+                        className="w-10 h-10 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <p className="text-white/80 text-sm">Watch: How Elevate Works</p>
+                    <p className="text-white/80 text-sm">
+                      Watch: How Elevate Works
+                    </p>
                     <p className="text-white/60 text-xs mt-1">2:30 min</p>
                   </div>
                 </div>
@@ -102,7 +135,7 @@ export default function HomePage() {
                 </video>
                 */}
               </div>
-              
+
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
                 <div className="text-3xl font-bold text-purple-600">100%</div>
@@ -122,40 +155,44 @@ export default function HomePage() {
         <div className="elevate-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={100} 
-                suffix="%" 
+              <AnimatedCounter
+                end={100}
+                suffix="%"
                 className="text-5xl font-bold text-purple-600 mb-2"
               />
               <div className="text-gray-700 font-semibold">Free Training</div>
               <div className="text-sm text-gray-500 mt-1">WIOA-Funded</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={10} 
-                suffix="+" 
+              <AnimatedCounter
+                end={10}
+                suffix="+"
                 className="text-5xl font-bold text-orange-600 mb-2"
               />
               <div className="text-gray-700 font-semibold">Career Programs</div>
-              <div className="text-sm text-gray-500 mt-1">High-Demand Fields</div>
+              <div className="text-sm text-gray-500 mt-1">
+                High-Demand Fields
+              </div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={85} 
-                suffix="%" 
+              <AnimatedCounter
+                end={85}
+                suffix="%"
                 className="text-5xl font-bold text-teal-600 mb-2"
               />
               <div className="text-gray-700 font-semibold">Job Placement</div>
               <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={45} 
-                prefix="$" 
-                suffix="K+" 
+              <AnimatedCounter
+                end={45}
+                prefix="$"
+                suffix="K+"
                 className="text-5xl font-bold text-blue-600 mb-2"
               />
-              <div className="text-gray-700 font-semibold">Avg. Starting Salary</div>
+              <div className="text-gray-700 font-semibold">
+                Avg. Starting Salary
+              </div>
               <div className="text-sm text-gray-500 mt-1">For Graduates</div>
             </div>
           </div>
@@ -167,15 +204,20 @@ export default function HomePage() {
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">What is WIOA?</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                What is WIOA?
+              </h2>
               <p className="text-lg text-gray-600">
-                The Workforce Innovation and Opportunity Act provides FREE training to help Americans get high-quality jobs
+                The Workforce Innovation and Opportunity Act provides FREE
+                training to help Americans get high-quality jobs
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="elevate-card elevate-card-red">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Who Qualifies?</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Who Qualifies?
+                </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
@@ -195,9 +237,11 @@ export default function HomePage() {
                   </li>
                 </ul>
               </div>
-              
+
               <div className="elevate-card elevate-card-blue">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">What's Included?</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  What's Included?
+                </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
@@ -226,7 +270,9 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="elevate-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Training Programs</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Featured Training Programs
+            </h2>
             <p className="text-lg text-gray-600">
               Industry-recognized certifications in high-demand careers
             </p>
@@ -235,15 +281,18 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="elevate-card elevate-card-red group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
-                <img 
-                  src="/course-covers/barber-apprenticeship/cover.svg" 
+                <img
+                  src="/course-covers/barber-apprenticeship/cover.svg"
                   alt="Barber Apprenticeship"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Barber Apprenticeship</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Barber Apprenticeship
+              </h3>
               <p className="text-gray-600 mb-4">
-                Master the art of barbering with comprehensive training in cutting, styling, and business skills.
+                Master the art of barbering with comprehensive training in
+                cutting, styling, and business skills.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
@@ -259,22 +308,28 @@ export default function HomePage() {
                   $35K-$55K starting salary
                 </li>
               </ul>
-              <Link href="/programs/barber" className="elevate-btn-primary w-full text-center block">
+              <Link
+                href="/programs/barber"
+                className="elevate-btn-primary w-full text-center block"
+              >
                 Learn More
               </Link>
             </div>
 
             <div className="elevate-card elevate-card-blue group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
-                <img 
-                  src="/course-covers/cna-training/cover.svg" 
+                <img
+                  src="/course-covers/cna-training/cover.svg"
                   alt="CNA Certification"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">CNA Certification</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                CNA Certification
+              </h3>
               <p className="text-gray-600 mb-4">
-                Prepare for your Certified Nursing Assistant certification with expert-led training.
+                Prepare for your Certified Nursing Assistant certification with
+                expert-led training.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
@@ -290,22 +345,28 @@ export default function HomePage() {
                   $30K-$40K starting salary
                 </li>
               </ul>
-              <Link href="/programs/cna" className="elevate-btn-accent w-full text-center block">
+              <Link
+                href="/programs/cna"
+                className="elevate-btn-accent w-full text-center block"
+              >
                 Learn More
               </Link>
             </div>
 
             <div className="elevate-card elevate-card-orange group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
-                <img 
-                  src="/course-covers/hvac-tech/cover.svg" 
+                <img
+                  src="/course-covers/hvac-tech/cover.svg"
                   alt="HVAC Technician"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">HVAC Technician</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                HVAC Technician
+              </h3>
               <p className="text-gray-600 mb-4">
-                Learn heating, ventilation, and air conditioning systems from industry experts.
+                Learn heating, ventilation, and air conditioning systems from
+                industry experts.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
@@ -321,14 +382,21 @@ export default function HomePage() {
                   $45K-$65K starting salary
                 </li>
               </ul>
-              <Link href="/programs/hvac-tech" className="elevate-btn-secondary w-full text-center block">
+              <Link
+                href="/programs/hvac-tech"
+                className="elevate-btn-secondary w-full text-center block"
+              >
                 Learn More
               </Link>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/programs" className="elevate-btn-primary" style={{fontSize: '1.125rem', padding: '1rem 2rem'}}>
+            <Link
+              href="/programs"
+              className="elevate-btn-primary"
+              style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}
+            >
               View All 10 Programs
             </Link>
           </div>
@@ -339,9 +407,12 @@ export default function HomePage() {
       <section className="py-16 bg-gray-50">
         <div className="elevate-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Success Stories
+            </h2>
             <p className="text-lg text-gray-600">
-              Real people, real results—hear from graduates who transformed their careers
+              Real people, real results—hear from graduates who transformed
+              their careers
             </p>
           </div>
 
@@ -354,19 +425,26 @@ export default function HomePage() {
                 </div>
                 <div>
                   <div className="font-bold text-gray-900">Marcus Johnson</div>
-                  <div className="text-sm text-gray-600">Barber Apprenticeship</div>
+                  <div className="text-sm text-gray-600">
+                    Barber Apprenticeship
+                  </div>
                 </div>
               </div>
               <div className="flex gap-1 mb-3">
-                {[1,2,3,4,5].map(i => (
-                  <span key={i} className="text-orange-500">★</span>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <span key={i} className="text-orange-500">
+                    ★
+                  </span>
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "This program changed my life. I went from unemployed to owning my own barbershop in less than a year. The training was top-notch and 100% free through WIOA."
+                "This program changed my life. I went from unemployed to owning
+                my own barbershop in less than a year. The training was
+                top-notch and 100% free through WIOA."
               </p>
               <div className="text-sm text-gray-600">
-                Now earning: <span className="font-bold text-green-600">$52K/year</span>
+                Now earning:{' '}
+                <span className="font-bold text-green-600">$52K/year</span>
               </div>
             </div>
 
@@ -382,15 +460,20 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex gap-1 mb-3">
-                {[1,2,3,4,5].map(i => (
-                  <span key={i} className="text-orange-500">★</span>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <span key={i} className="text-orange-500">
+                    ★
+                  </span>
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "As a single mom, I couldn't afford training. WIOA covered everything—tuition, books, even childcare. I passed my state exam and got hired immediately."
+                "As a single mom, I couldn't afford training. WIOA covered
+                everything—tuition, books, even childcare. I passed my state
+                exam and got hired immediately."
               </p>
               <div className="text-sm text-gray-600">
-                Now earning: <span className="font-bold text-green-600">$38K/year</span>
+                Now earning:{' '}
+                <span className="font-bold text-green-600">$38K/year</span>
               </div>
             </div>
 
@@ -406,15 +489,20 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex gap-1 mb-3">
-                {[1,2,3,4,5].map(i => (
-                  <span key={i} className="text-orange-500">★</span>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <span key={i} className="text-orange-500">
+                    ★
+                  </span>
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "After 15 years in retail, I needed a career change. The HVAC program gave me real skills and certifications. I'm now making double what I used to earn."
+                "After 15 years in retail, I needed a career change. The HVAC
+                program gave me real skills and certifications. I'm now making
+                double what I used to earn."
               </p>
               <div className="text-sm text-gray-600">
-                Now earning: <span className="font-bold text-green-600">$58K/year</span>
+                Now earning:{' '}
+                <span className="font-bold text-green-600">$58K/year</span>
               </div>
             </div>
           </div>
@@ -439,7 +527,9 @@ export default function HomePage() {
             </div>
             <div className="flex items-center justify-center">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-400">EmployIndy</div>
+                <div className="text-2xl font-bold text-gray-400">
+                  EmployIndy
+                </div>
                 <div className="text-xs text-gray-400">Partner</div>
               </div>
             </div>
@@ -463,7 +553,9 @@ export default function HomePage() {
       <section className="py-16 bg-gray-50">
         <div className="elevate-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
             <p className="text-lg text-gray-600">
               Get started in 4 simple steps
             </p>
@@ -474,7 +566,9 @@ export default function HomePage() {
               <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Check Eligibility</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Check Eligibility
+              </h3>
               <p className="text-sm text-gray-600">
                 See if you qualify for free WIOA-funded training
               </p>
@@ -494,7 +588,9 @@ export default function HomePage() {
               <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Complete Training</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Complete Training
+              </h3>
               <p className="text-sm text-gray-600">
                 Learn from experts and earn industry certifications
               </p>
@@ -516,19 +612,40 @@ export default function HomePage() {
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 via-orange-600 to-blue-600 text-white">
         <div className="elevate-container text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Future?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Transform Your Future?
+          </h2>
           <p className="text-xl mb-8 opacity-95 max-w-2xl mx-auto">
-            Join thousands of Americans who have launched successful careers through FREE WIOA-funded training.
+            Join thousands of Americans who have launched successful careers
+            through FREE WIOA-funded training.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/enroll" className="elevate-btn-primary" style={{fontSize: '1.125rem', padding: '1rem 2.5rem', backgroundColor: 'white', color: '#dc2626'}}>
+            <Link
+              href="/enroll"
+              className="elevate-btn-primary"
+              style={{
+                fontSize: '1.125rem',
+                padding: '1rem 2.5rem',
+                backgroundColor: 'white',
+                color: '#dc2626',
+              }}
+            >
               Check Your Eligibility
             </Link>
-            <Link href="/programs" className="elevate-btn-secondary" style={{fontSize: '1.125rem', padding: '1rem 2.5rem', borderColor: 'white', color: 'white'}}>
+            <Link
+              href="/programs"
+              className="elevate-btn-secondary"
+              style={{
+                fontSize: '1.125rem',
+                padding: '1rem 2.5rem',
+                borderColor: 'white',
+                color: 'white',
+              }}
+            >
               Browse Programs
             </Link>
           </div>
-          
+
           <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
             <div>
               <div className="text-3xl font-bold mb-1">100%</div>
@@ -555,40 +672,91 @@ export default function HomePage() {
                 <div className="w-8 h-8 rounded bg-gradient-to-br from-red-600 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
                   E
                 </div>
-                <span className="text-white font-bold">Elevate for Humanity</span>
+                <span className="text-white font-bold">
+                  Elevate for Humanity
+                </span>
               </div>
               <p className="text-sm text-gray-400">
-                Empowering Americans through free workforce training and career development.
+                Empowering Americans through free workforce training and career
+                development.
               </p>
             </div>
 
             <div>
               <h4 className="font-bold text-white mb-4">Programs</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/programs/barber" className="hover:text-white">Barber Apprenticeship</Link></li>
-                <li><Link href="/programs/cna" className="hover:text-white">CNA Certification</Link></li>
-                <li><Link href="/programs/hvac-tech" className="hover:text-white">HVAC Technician</Link></li>
-                <li><Link href="/programs" className="hover:text-white">View All Programs</Link></li>
+                <li>
+                  <Link href="/programs/barber" className="hover:text-white">
+                    Barber Apprenticeship
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs/cna" className="hover:text-white">
+                    CNA Certification
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs/hvac-tech" className="hover:text-white">
+                    HVAC Technician
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs" className="hover:text-white">
+                    View All Programs
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-white mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-                <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
-                <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
+                <li>
+                  <Link href="/about" className="hover:text-white">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-white">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="hover:text-white">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white">
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-white mb-4">Get Started</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/enroll" className="hover:text-white">Check Eligibility</Link></li>
-                <li><Link href="/signup" className="hover:text-white">Create Account</Link></li>
-                <li><Link href="/login" className="hover:text-white">Sign In</Link></li>
-                <li><Link href="/apply" className="hover:text-white">Apply Now</Link></li>
+                <li>
+                  <Link href="/enroll" className="hover:text-white">
+                    Check Eligibility
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signup" className="hover:text-white">
+                    Create Account
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/login" className="hover:text-white">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/apply" className="hover:text-white">
+                    Apply Now
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -598,8 +766,12 @@ export default function HomePage() {
               © 2024 Elevate for Humanity. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-              <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
+              <Link href="/privacy-policy" className="hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-service" className="hover:text-white">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>
