@@ -1,0 +1,172 @@
+{
+  "task_id": "vercel-redeploy-fix2-1c7w",
+  "priority": "CRITICAL",
+  "status": "pending",
+  "created_at": "2025-11-15T10:45:00Z",
+  "task_type": "vercel_deployment",
+  "title": "Redeploy fix2-1c7w with latest clean code",
+  "description": "Environment variables are already configured. Need to redeploy fix2-1c7w project with latest commit (7396ef0e) that has all deprecated packages removed. Currently deploying old commit (3d3bd68) with deprecation warnings.",
+  "estimated_duration": "10-15 minutes",
+  "cost_impact": "HIGH - Stopping failed builds will save money",
+  "worker_requirements": {
+    "access_needed": [
+      "Vercel dashboard access (gitpod organization)",
+      "Supabase dashboard access (project: cuxzzpsyufcewtmicszk)"
+    ],
+    "skills": [
+      "Vercel configuration",
+      "Environment variable setup",
+      "Basic deployment verification"
+    ]
+  },
+  "context": {
+    "current_problem": {
+      "wrong_project": "fix2-8mig",
+      "old_commit": "3d3bd68",
+      "issues": [
+        "10+ deprecation warnings in build logs",
+        "Failed builds costing money",
+        "Deploying old code with deprecated packages"
+      ]
+    },
+    "target_state": {
+      "correct_project": "fix2-1c7w",
+      "latest_commit": "7396ef0e",
+      "expected_result": "Clean build with no warnings, site loads successfully"
+    },
+    "code_fixes_completed": [
+      "Removed xss-clean, netlify-cli, quill, @sentry/nextjs",
+      "Migrated from @supabase/auth-helpers to @supabase/ssr",
+      "Fixed Stripe API version to 2025-10-29.clover",
+      "Updated jest to remove inflight/glob warnings"
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "navigate_to_vercel",
+      "instruction": "Open Vercel dashboard",
+      "url": "https://vercel.com/gitpod/fix2-1c7w",
+      "verification": "Confirm you can see the fix2-1c7w project dashboard"
+    },
+    {
+      "step": 2,
+      "action": "verify_environment_variables",
+      "instruction": "Confirm all 6 environment variables are already configured",
+      "details": {
+        "location": "Settings → Environment Variables",
+        "required_variables": [
+          "SUPABASE_URL",
+          "SUPABASE_ANON_KEY",
+          "SUPABASE_SERVICE_ROLE_KEY",
+          "NEXT_PUBLIC_SUPABASE_URL",
+          "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "NEXT_PUBLIC_SITE_URL"
+        ]
+      },
+      "verification": "All 6 variables present with Production environment"
+    },
+    {
+      "step": 3,
+      "action": "trigger_deployment",
+      "instruction": "Deploy the application",
+      "details": {
+        "location": "Deployments tab",
+        "action": "Click 'Deploy' or 'Redeploy' button",
+        "important": "UNCHECK 'Use existing build cache'",
+        "expected_commit": "7396ef0e or newer"
+      },
+      "verification": "Deployment starts and shows correct commit hash"
+    },
+    {
+      "step": 4,
+      "action": "monitor_build",
+      "instruction": "Watch build logs for success",
+      "details": {
+        "expected_duration": "2-3 minutes",
+        "success_indicators": [
+          "NO deprecation warnings (xss-clean, lodash.isequal, node-domexception, inflight)",
+          "NO @supabase/auth-helpers warnings",
+          "Build completes with '✓ Compiled successfully'",
+          "No TypeScript errors"
+        ],
+        "failure_indicators": [
+          "Module not found errors",
+          "TypeScript compilation errors",
+          "Environment variable errors"
+        ]
+      },
+      "verification": "Build completes successfully with clean logs"
+    },
+    {
+      "step": 5,
+      "action": "verify_deployment",
+      "instruction": "Test the deployed site",
+      "details": {
+        "test_urls": [
+          "/",
+          "/lms/dashboard",
+          "/programs",
+          "/login"
+        ],
+        "expected_behavior": "All pages load without 500 errors (login redirect is OK)"
+      },
+      "verification": "All test pages load successfully"
+    },
+    {
+      "step": 8,
+      "action": "report_completion",
+      "instruction": "Document the deployment",
+      "details": {
+        "create_file": "VERCEL_DEPLOYMENT_COMPLETE.md",
+        "include": [
+          "Deployment URL",
+          "Commit hash deployed",
+          "Build duration",
+          "Any warnings or errors",
+          "Verification results",
+          "Timestamp"
+        ]
+      },
+      "verification": "Completion report file created and committed"
+    }
+  ],
+  "success_criteria": {
+    "required": [
+      "Repository connected to fix2-1c7w project",
+      "All 6 environment variables configured",
+      "Build completes with no deprecation warnings",
+      "Site loads without 500 errors",
+      "Deployment URL accessible"
+    ],
+    "optional": [
+      "Custom domain configured",
+      "Old projects (fix2-8mig) disconnected"
+    ]
+  },
+  "rollback_plan": {
+    "if_build_fails": [
+      "Check environment variables are correct",
+      "Verify commit is 7396ef0e or newer",
+      "Check build logs for specific error",
+      "Consult WORKER_TASK_VERCEL_CONNECT.md troubleshooting section"
+    ],
+    "if_site_500_errors": [
+      "Verify SUPABASE_SERVICE_ROLE_KEY is correct",
+      "Check all 6 environment variables are set",
+      "Check Vercel function logs for error details"
+    ]
+  },
+  "documentation_references": [
+    "WORKER_TASK_VERCEL_CONNECT.md",
+    "AUTOPILOT_VERCEL_LINK.md",
+    "VERCEL_DEPLOYMENT.md",
+    "scripts/vercel-setup.sh"
+  ],
+  "estimated_cost_savings": "Significant - eliminates repeated failed builds",
+  "blocking_issues": [],
+  "dependencies": [],
+  "assigned_to": null,
+  "completed_at": null,
+  "completion_notes": null
+}
