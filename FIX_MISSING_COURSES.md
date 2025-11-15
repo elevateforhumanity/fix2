@@ -9,13 +9,15 @@
 ## 🔴 Current Problem
 
 ### Homepage Shows:
+
 1. **Barber Apprenticeship** - 2,000 hours, DOL registered
 2. **CNA Certification** - 120 hours, healthcare
 3. **HVAC Technician** - 640 hours, skilled trades
 
 ### Database Has:
+
 1. Community Health Initiative
-2. Digital Literacy Program  
+2. Digital Literacy Program
 3. Service Key Test Program
 4. Youth Leadership Development
 
@@ -30,6 +32,7 @@
 **File:** `supabase/seed-homepage-programs.sql`
 
 **What it does:**
+
 - Deletes old programs (if exist)
 - Adds Barber Apprenticeship
 - Adds CNA Certification
@@ -38,18 +41,21 @@
 **How to run:**
 
 **Option A: Supabase Dashboard**
+
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
 2. Click "SQL Editor"
 3. Paste contents of `supabase/seed-homepage-programs.sql`
 4. Click "Run"
 
 **Option B: Supabase CLI**
+
 ```bash
 cd /workspaces/fix2
 supabase db push --file supabase/seed-homepage-programs.sql
 ```
 
 **Option C: psql**
+
 ```bash
 psql postgresql://postgres:[password]@db.cuxzzpsyufcewtmicszk.supabase.co:5432/postgres \
   -f supabase/seed-homepage-programs.sql
@@ -62,6 +68,7 @@ psql postgresql://postgres:[password]@db.cuxzzpsyufcewtmicszk.supabase.co:5432/p
 **File:** `supabase/migrations/archive/004_load_milady_barber_course.sql`
 
 **What it does:**
+
 - Adds complete 2,000-hour Milady curriculum
 - 12 modules with lessons
 - Quizzes and assessments
@@ -70,11 +77,13 @@ psql postgresql://postgres:[password]@db.cuxzzpsyufcewtmicszk.supabase.co:5432/p
 **How to run:**
 
 **Option A: Supabase Dashboard**
+
 1. Go to SQL Editor
 2. Paste contents of `004_load_milady_barber_course.sql`
 3. Click "Run"
 
 **Option B: Move from archive and run**
+
 ```bash
 cd /workspaces/fix2
 cp supabase/migrations/archive/004_load_milady_barber_course.sql supabase/migrations/
@@ -86,13 +95,15 @@ supabase db push
 ### Step 3: Verify Courses Appear
 
 **Check in Supabase:**
+
 ```sql
-SELECT slug, title, track, hours 
-FROM programs 
+SELECT slug, title, track, hours
+FROM programs
 WHERE slug IN ('barber', 'cna', 'hvac-tech');
 ```
 
 **Should return:**
+
 ```
 slug      | title                  | track          | hours
 ----------|------------------------|----------------|-------
@@ -102,6 +113,7 @@ hvac-tech | HVAC Technician        | Skilled Trades | 640 hours
 ```
 
 **Check on website:**
+
 - Visit: https://www.elevateconnectsdirectory.org/programs
 - Should show 3 programs: Barber, CNA, HVAC
 - Click each to verify detail pages load
@@ -131,6 +143,7 @@ CREATE TABLE programs (
 ```
 
 ### Required Fields for Homepage:
+
 - `slug` - URL-friendly identifier
 - `title` - Program name
 - `tagline` - Short description
@@ -146,6 +159,7 @@ CREATE TABLE programs (
 Milady is the industry-standard curriculum for barber and cosmetology training. The Milady Barber course includes:
 
 **12 Modules:**
+
 1. History & Career Opportunities
 2. Professional Image
 3. Infection Control
@@ -182,6 +196,7 @@ content (text, video, quizzes)
 Created: `.autopilot/tasks/seed-homepage-courses.json`
 
 **What it does:**
+
 - Connects to Supabase
 - Runs seed SQL
 - Verifies courses added
@@ -189,6 +204,7 @@ Created: `.autopilot/tasks/seed-homepage-courses.json`
 - Generates report
 
 **How to trigger:**
+
 - Create flag: `.autopilot/TRIGGER_SEED_COURSES`
 - Autopilot worker will execute
 - Report generated: `COURSES_SEEDED_REPORT.md`
@@ -336,12 +352,14 @@ SELECT slug, title, track, hours FROM programs WHERE slug IN ('barber', 'cna', '
 ### Programs still not showing:
 
 **Check:**
+
 1. SQL ran without errors
 2. Programs table exists
 3. RLS policies allow read access
 4. Supabase connection working
 
 **Solution:**
+
 ```sql
 -- Check if programs exist
 SELECT COUNT(*) FROM programs;
@@ -351,20 +369,22 @@ SELECT * FROM pg_policies WHERE tablename = 'programs';
 
 -- Grant public read access if needed
 ALTER TABLE programs ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Programs are viewable by everyone" 
-  ON programs FOR SELECT 
+CREATE POLICY "Programs are viewable by everyone"
+  ON programs FOR SELECT
   USING (true);
 ```
 
 ### Milady content not showing:
 
 **Check:**
+
 1. Courses table has barber course
 2. Modules table has 12 modules
 3. Lessons table has content
 4. Foreign keys are correct
 
 **Solution:**
+
 ```sql
 -- Check course exists
 SELECT * FROM courses WHERE slug = 'milady-barber-apprenticeship';
