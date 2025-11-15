@@ -7,17 +7,20 @@
 ## 🗑️ What to Clean Up
 
 ### 1. Old Deployments
+
 - Previous failed builds
 - Test deployments
 - Preview deployments from old commits
 - Deployments from deleted branches
 
 ### 2. Old Domains
+
 - Unused preview domains
 - Old custom domains
 - Duplicate domain configurations
 
 ### 3. Old Environment Variables
+
 - Deprecated variables
 - Test/development variables in production
 - Duplicate variables
@@ -27,6 +30,7 @@
 ## 🚀 Quick Cleanup via Vercel Dashboard
 
 ### Step 1: Access Your Project
+
 1. Go to https://vercel.com/dashboard
 2. Select your project: `fix2`
 3. You should see your deployments list
@@ -34,6 +38,7 @@
 ### Step 2: Delete Old Deployments
 
 **Option A: Bulk Delete (Recommended)**
+
 1. Click "Deployments" tab
 2. Filter by status: "Failed" or "Canceled"
 3. Select multiple deployments (checkbox)
@@ -41,12 +46,14 @@
 5. Confirm deletion
 
 **Option B: Individual Delete**
+
 1. Click on a deployment
 2. Click "..." menu (top right)
 3. Select "Delete Deployment"
 4. Confirm
 
 **What to Delete**:
+
 - ❌ All failed builds
 - ❌ Canceled deployments
 - ❌ Old preview deployments (keep last 5-10)
@@ -65,11 +72,13 @@
    - Duplicate entries
 
 **Keep**:
+
 - ✅ `fix2-one.vercel.app` (production)
 - ✅ Your custom domain (if configured)
 - ✅ Active preview domains
 
 **Delete**:
+
 - ❌ `fix2-tlr1.vercel.app` (if unused)
 - ❌ `fix2-i3z8.vercel.app` (if unused)
 - ❌ Any other old preview domains
@@ -83,12 +92,14 @@
 3. Delete duplicates or unused variables
 
 **Check for**:
+
 - Duplicate `NEXT_PUBLIC_*` variables
 - Old API keys
 - Test/development variables in production
 - Variables with wrong values
 
 **Keep**:
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -102,6 +113,7 @@ NEXT_PUBLIC_APP_URL
 ```
 
 **Delete**:
+
 - Old Netlify variables
 - Duplicate entries
 - Test variables
@@ -112,22 +124,26 @@ NEXT_PUBLIC_APP_URL
 ## 🔧 Cleanup via Vercel CLI
 
 ### Install Vercel CLI
+
 ```bash
 npm i -g vercel
 vercel login
 ```
 
 ### List All Deployments
+
 ```bash
 vercel ls
 ```
 
 ### Delete Specific Deployment
+
 ```bash
 vercel rm <deployment-url>
 ```
 
 ### Delete Multiple Deployments (Script)
+
 ```bash
 # List all deployments and filter failed ones
 vercel ls --json | jq -r '.[] | select(.state == "ERROR") | .url' | while read url; do
@@ -140,11 +156,13 @@ done
 ## 📊 Recommended Cleanup Strategy
 
 ### Keep:
+
 - ✅ **Latest production deployment** (1)
 - ✅ **Recent successful previews** (last 5-10)
 - ✅ **Active branch previews** (main, develop)
 
 ### Delete:
+
 - ❌ **Failed builds** (all)
 - ❌ **Canceled deployments** (all)
 - ❌ **Old previews** (older than 30 days)
@@ -155,6 +173,7 @@ done
 ## 🎯 Step-by-Step Cleanup Process
 
 ### Phase 1: Delete Failed Builds (5 minutes)
+
 1. Go to Deployments
 2. Filter: Status = "Failed"
 3. Select all
@@ -166,6 +185,7 @@ done
 ---
 
 ### Phase 2: Delete Old Previews (10 minutes)
+
 1. Go to Deployments
 2. Sort by date (oldest first)
 3. Select deployments older than 30 days
@@ -178,6 +198,7 @@ done
 ---
 
 ### Phase 3: Clean Domains (5 minutes)
+
 1. Go to Settings → Domains
 2. Review list
 3. Delete unused domains
@@ -188,6 +209,7 @@ done
 ---
 
 ### Phase 4: Clean Environment Variables (10 minutes)
+
 1. Go to Settings → Environment Variables
 2. Review each variable
 3. Delete duplicates
@@ -201,6 +223,7 @@ done
 ## 🔍 What to Look For
 
 ### Red Flags:
+
 - 🚩 100+ deployments (too many)
 - 🚩 Multiple failed builds in a row
 - 🚩 Duplicate environment variables
@@ -208,6 +231,7 @@ done
 - 🚩 Variables with "test" or "dev" in production
 
 ### Good Signs:
+
 - ✅ <50 total deployments
 - ✅ Latest deployment is successful
 - ✅ Clean environment variables
@@ -219,6 +243,7 @@ done
 ## 📋 Cleanup Checklist
 
 ### Deployments:
+
 - [ ] Delete all failed builds
 - [ ] Delete all canceled deployments
 - [ ] Delete old preview deployments (>30 days)
@@ -226,6 +251,7 @@ done
 - [ ] Keep recent successful previews (5-10)
 
 ### Domains:
+
 - [ ] Review all domains
 - [ ] Delete unused preview domains
 - [ ] Delete old custom domains
@@ -233,6 +259,7 @@ done
 - [ ] Keep active custom domain
 
 ### Environment Variables:
+
 - [ ] Review all variables
 - [ ] Delete duplicates
 - [ ] Delete test/dev variables from production
@@ -240,6 +267,7 @@ done
 - [ ] Check for typos in variable names
 
 ### Settings:
+
 - [ ] Review build settings
 - [ ] Check deployment protection
 - [ ] Verify Git integration
@@ -250,11 +278,13 @@ done
 ## 🚨 Before You Delete
 
 ### Backup Important Data:
+
 1. **Environment Variables**: Copy to `.env.production.backup`
 2. **Domain Settings**: Screenshot domain configuration
 3. **Build Settings**: Note any custom build commands
 
 ### Verify:
+
 - ✅ Latest deployment is working
 - ✅ Production site is accessible
 - ✅ No active users on preview deployments
@@ -287,6 +317,7 @@ EOF
 ## 🔄 After Cleanup
 
 ### Verify Everything Works:
+
 1. Visit production site
 2. Test key features:
    - Homepage loads
@@ -297,6 +328,7 @@ EOF
 4. Test on mobile
 
 ### Monitor:
+
 - Check deployment logs
 - Monitor error rates
 - Verify analytics working
@@ -307,15 +339,18 @@ EOF
 ## 📈 Maintenance Schedule
 
 ### Weekly:
+
 - Delete failed builds
 - Review recent deployments
 
 ### Monthly:
+
 - Clean old preview deployments
 - Review environment variables
 - Check domain configuration
 
 ### Quarterly:
+
 - Full cleanup
 - Review team access
 - Update documentation
@@ -325,16 +360,19 @@ EOF
 ## 🆘 Troubleshooting
 
 ### "Can't delete deployment"
+
 - Check if it's the production deployment (can't delete)
 - Verify you have admin access
 - Try via CLI instead of dashboard
 
 ### "Domain still showing after delete"
+
 - DNS propagation takes time (24-48 hours)
 - Clear browser cache
 - Check DNS settings
 
 ### "Environment variable not working"
+
 - Redeploy after changing variables
 - Check variable name (case-sensitive)
 - Verify it's set for correct environment
@@ -344,11 +382,13 @@ EOF
 ## 📞 Need Help?
 
 **Vercel Support**:
+
 - Dashboard: https://vercel.com/support
 - Docs: https://vercel.com/docs
 - Community: https://github.com/vercel/vercel/discussions
 
 **Common Issues**:
+
 - Deployment errors: Check build logs
 - Domain issues: Verify DNS settings
 - Environment variables: Redeploy after changes
@@ -358,6 +398,7 @@ EOF
 ## ✅ Success Criteria
 
 After cleanup, you should have:
+
 - ✅ <50 total deployments
 - ✅ 0 failed builds
 - ✅ Clean domain list (2-3 domains max)

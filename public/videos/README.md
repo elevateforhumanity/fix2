@@ -20,6 +20,7 @@ videos/
 ## Video Specifications
 
 ### Homepage Hero Video
+
 - **Duration**: 30-60 seconds
 - **Resolution**: 1920x1080 (1080p)
 - **Format**: MP4 (H.264)
@@ -29,6 +30,7 @@ videos/
 - **Content**: Overview of programs, students in training
 
 ### Program Showcase Videos
+
 - **Duration**: 15-30 seconds
 - **Resolution**: 1280x720 (720p) or 1920x1080 (1080p)
 - **Format**: MP4 (H.264)
@@ -38,6 +40,7 @@ videos/
 - **Content**: Students in training, equipment, instructors
 
 ### Testimonial Videos
+
 - **Duration**: 30-60 seconds
 - **Resolution**: 1280x720 (720p)
 - **Format**: MP4 (H.264)
