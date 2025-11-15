@@ -98,7 +98,10 @@ export async function createSubscription(params: SubscriptionParams) {
 }
 
 // Cancel a subscription
-export async function cancelSubscription(subscriptionId: string, immediately: boolean = false) {
+export async function cancelSubscription(
+  subscriptionId: string,
+  immediately: boolean = false
+) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }

@@ -71,9 +71,10 @@ export class SCORMAPIWrapper {
     }
 
     try {
-      const result = this.version === '1.2'
-        ? this.lmsAPI.LMSInitialize('')
-        : this.lmsAPI.Initialize('');
+      const result =
+        this.version === '1.2'
+          ? this.lmsAPI.LMSInitialize('')
+          : this.lmsAPI.Initialize('');
 
       this.initialized = result === 'true';
 
@@ -98,9 +99,10 @@ export class SCORMAPIWrapper {
     }
 
     try {
-      const value = this.version === '1.2'
-        ? this.lmsAPI.LMSGetValue(element)
-        : this.lmsAPI.GetValue(element);
+      const value =
+        this.version === '1.2'
+          ? this.lmsAPI.LMSGetValue(element)
+          : this.lmsAPI.GetValue(element);
 
       return value || '';
     } catch (error) {
@@ -117,9 +119,10 @@ export class SCORMAPIWrapper {
     }
 
     try {
-      const result = this.version === '1.2'
-        ? this.lmsAPI.LMSSetValue(element, value)
-        : this.lmsAPI.SetValue(element, value);
+      const result =
+        this.version === '1.2'
+          ? this.lmsAPI.LMSSetValue(element, value)
+          : this.lmsAPI.SetValue(element, value);
 
       return result === 'true';
     } catch (error) {
@@ -136,9 +139,10 @@ export class SCORMAPIWrapper {
     }
 
     try {
-      const result = this.version === '1.2'
-        ? this.lmsAPI.LMSCommit('')
-        : this.lmsAPI.Commit('');
+      const result =
+        this.version === '1.2'
+          ? this.lmsAPI.LMSCommit('')
+          : this.lmsAPI.Commit('');
 
       return result === 'true';
     } catch (error) {
@@ -155,9 +159,10 @@ export class SCORMAPIWrapper {
     }
 
     try {
-      const result = this.version === '1.2'
-        ? this.lmsAPI.LMSFinish('')
-        : this.lmsAPI.Terminate('');
+      const result =
+        this.version === '1.2'
+          ? this.lmsAPI.LMSFinish('')
+          : this.lmsAPI.Terminate('');
 
       this.initialized = false;
 
@@ -199,18 +204,33 @@ export class SCORMAPIWrapper {
   }
 
   // Helper: Set lesson status
-  setStatus(status: 'passed' | 'completed' | 'failed' | 'incomplete' | 'browsed' | 'not attempted'): boolean {
-    const element = this.version === '1.2'
-      ? 'cmi.core.lesson_status'
-      : 'cmi.completion_status';
+  setStatus(
+    status:
+      | 'passed'
+      | 'completed'
+      | 'failed'
+      | 'incomplete'
+      | 'browsed'
+      | 'not attempted'
+  ): boolean {
+    const element =
+      this.version === '1.2'
+        ? 'cmi.core.lesson_status'
+        : 'cmi.completion_status';
 
-    const value = this.version === '2004' && (status === 'passed' || status === 'failed')
-      ? status === 'passed' ? 'completed' : 'incomplete'
-      : status;
+    const value =
+      this.version === '2004' && (status === 'passed' || status === 'failed')
+        ? status === 'passed'
+          ? 'completed'
+          : 'incomplete'
+        : status;
 
     const success = this.setValue(element, value);
 
-    if (this.version === '2004' && (status === 'passed' || status === 'failed')) {
+    if (
+      this.version === '2004' &&
+      (status === 'passed' || status === 'failed')
+    ) {
       this.setValue('cmi.success_status', status);
     }
 
@@ -235,27 +255,24 @@ export class SCORMAPIWrapper {
 
   // Helper: Set progress/location
   setProgress(location: string): boolean {
-    const element = this.version === '1.2'
-      ? 'cmi.core.lesson_location'
-      : 'cmi.location';
+    const element =
+      this.version === '1.2' ? 'cmi.core.lesson_location' : 'cmi.location';
 
     return this.setValue(element, location) && this.commit();
   }
 
   // Helper: Get progress/location
   getProgress(): string {
-    const element = this.version === '1.2'
-      ? 'cmi.core.lesson_location'
-      : 'cmi.location';
+    const element =
+      this.version === '1.2' ? 'cmi.core.lesson_location' : 'cmi.location';
 
     return this.getValue(element);
   }
 
   // Helper: Set session time
   setSessionTime(seconds: number): boolean {
-    const element = this.version === '1.2'
-      ? 'cmi.core.session_time'
-      : 'cmi.session_time';
+    const element =
+      this.version === '1.2' ? 'cmi.core.session_time' : 'cmi.session_time';
 
     const timeString = this.formatTime(seconds);
     return this.setValue(element, timeString) && this.commit();
@@ -282,18 +299,16 @@ export class SCORMAPIWrapper {
 
   // Helper: Set suspend data (for saving progress)
   setSuspendData(data: string): boolean {
-    const element = this.version === '1.2'
-      ? 'cmi.suspend_data'
-      : 'cmi.suspend_data';
+    const element =
+      this.version === '1.2' ? 'cmi.suspend_data' : 'cmi.suspend_data';
 
     return this.setValue(element, data) && this.commit();
   }
 
   // Helper: Get suspend data
   getSuspendData(): string {
-    const element = this.version === '1.2'
-      ? 'cmi.suspend_data'
-      : 'cmi.suspend_data';
+    const element =
+      this.version === '1.2' ? 'cmi.suspend_data' : 'cmi.suspend_data';
 
     return this.getValue(element);
   }
@@ -331,8 +346,10 @@ export function useSCORM() {
   return {
     initialize: () => scorm.initialize(),
     terminate: () => scorm.terminate(),
-    setStatus: (status: Parameters<typeof scorm.setStatus>[0]) => scorm.setStatus(status),
-    setScore: (score: number, min?: number, max?: number) => scorm.setScore(score, min, max),
+    setStatus: (status: Parameters<typeof scorm.setStatus>[0]) =>
+      scorm.setStatus(status),
+    setScore: (score: number, min?: number, max?: number) =>
+      scorm.setScore(score, min, max),
     setProgress: (location: string) => scorm.setProgress(location),
     getProgress: () => scorm.getProgress(),
     setSessionTime: (seconds: number) => scorm.setSessionTime(seconds),
@@ -340,6 +357,6 @@ export function useSCORM() {
     getSuspendData: () => scorm.getSuspendData(),
     isAvailable: () => scorm.isAvailable(),
     isInitialized: () => scorm.isInitialized(),
-    getVersion: () => scorm.getVersion()
+    getVersion: () => scorm.getVersion(),
   };
 }

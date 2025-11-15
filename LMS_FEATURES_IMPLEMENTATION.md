@@ -2,19 +2,20 @@
 
 ## Status Overview
 
-| Feature | Status | Priority | Timeline |
-|---------|--------|----------|----------|
-| Interactive Video | ✅ Implemented | High | Complete |
-| SCORM/xAPI | 🔄 In Progress | High | 2 weeks |
-| Course Authoring | 🔄 In Progress | High | 2 weeks |
-| eCommerce | 🔄 In Progress | Medium | 3 weeks |
-| Gamification | ✅ Implemented | Medium | Complete |
+| Feature           | Status         | Priority | Timeline |
+| ----------------- | -------------- | -------- | -------- |
+| Interactive Video | ✅ Implemented | High     | Complete |
+| SCORM/xAPI        | 🔄 In Progress | High     | 2 weeks  |
+| Course Authoring  | 🔄 In Progress | High     | 2 weeks  |
+| eCommerce         | 🔄 In Progress | Medium   | 3 weeks  |
+| Gamification      | ✅ Implemented | Medium   | Complete |
 
 ---
 
 ## 1. Interactive Video ✅
 
 ### Current Implementation
+
 - **Location**: `components/video/InteractiveVideoPlayer.tsx`
 - **Features**:
   - Video playback with controls
@@ -25,6 +26,7 @@
   - Completion callbacks
 
 ### Enhancements Needed
+
 - [ ] Add video bookmarks
 - [ ] Implement video chapters
 - [ ] Add interactive hotspots
@@ -64,6 +66,7 @@ interface EnhancedVideoPlayerProps {
 ## 2. SCORM/xAPI 🔄
 
 ### Requirements
+
 - SCORM 1.2 and 2004 support
 - xAPI (Tin Can API) integration
 - Learning Record Store (LRS) connection
@@ -74,6 +77,7 @@ interface EnhancedVideoPlayerProps {
 ### Implementation Plan
 
 #### Phase 1: xAPI Foundation (Week 1)
+
 ```typescript
 // lib/xapi/xapi-client.ts
 import { Statement, Actor, Verb, Activity } from '@xapi/xapi';
@@ -81,54 +85,58 @@ import { Statement, Actor, Verb, Activity } from '@xapi/xapi';
 export class XAPIClient {
   private endpoint: string;
   private auth: string;
-  
+
   constructor(endpoint: string, username: string, password: string) {
     this.endpoint = endpoint;
     this.auth = btoa(`${username}:${password}`);
   }
-  
+
   async sendStatement(statement: Statement): Promise<void> {
     const response = await fetch(`${this.endpoint}/statements`, {
       method: 'POST',
       headers: {
-        'Authorization': `Basic ${this.auth}`,
+        Authorization: `Basic ${this.auth}`,
         'Content-Type': 'application/json',
-        'X-Experience-API-Version': '1.0.3'
+        'X-Experience-API-Version': '1.0.3',
       },
-      body: JSON.stringify(statement)
+      body: JSON.stringify(statement),
     });
-    
+
     if (!response.ok) {
       throw new Error(`xAPI error: ${response.statusText}`);
     }
   }
-  
+
   // Track course started
-  async trackCourseStarted(userId: string, courseId: string, courseName: string) {
+  async trackCourseStarted(
+    userId: string,
+    courseId: string,
+    courseName: string
+  ) {
     const statement: Statement = {
       actor: {
         mbox: `mailto:${userId}@elevateforhumanity.org`,
         name: userId,
-        objectType: 'Agent'
+        objectType: 'Agent',
       },
       verb: {
         id: 'http://adlnet.gov/expapi/verbs/initialized',
-        display: { 'en-US': 'initialized' }
+        display: { 'en-US': 'initialized' },
       },
       object: {
         id: `https://elevateconnectsdirectory.org/courses/${courseId}`,
         definition: {
           name: { 'en-US': courseName },
-          type: 'http://adlnet.gov/expapi/activities/course'
+          type: 'http://adlnet.gov/expapi/activities/course',
         },
-        objectType: 'Activity'
+        objectType: 'Activity',
       },
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     await this.sendStatement(statement);
   }
-  
+
   // Track lesson completed
   async trackLessonCompleted(
     userId: string,
@@ -141,116 +149,125 @@ export class XAPIClient {
       actor: {
         mbox: `mailto:${userId}@elevateforhumanity.org`,
         name: userId,
-        objectType: 'Agent'
+        objectType: 'Agent',
       },
       verb: {
         id: 'http://adlnet.gov/expapi/verbs/completed',
-        display: { 'en-US': 'completed' }
+        display: { 'en-US': 'completed' },
       },
       object: {
         id: `https://elevateconnectsdirectory.org/lessons/${lessonId}`,
         definition: {
           name: { 'en-US': lessonName },
-          type: 'http://adlnet.gov/expapi/activities/lesson'
+          type: 'http://adlnet.gov/expapi/activities/lesson',
         },
-        objectType: 'Activity'
+        objectType: 'Activity',
       },
       result: {
         completion: true,
         success: score ? score >= 70 : undefined,
-        score: score ? {
-          scaled: score / 100,
-          raw: score,
-          min: 0,
-          max: 100
-        } : undefined,
-        duration: duration ? `PT${duration}S` : undefined
+        score: score
+          ? {
+              scaled: score / 100,
+              raw: score,
+              min: 0,
+              max: 100,
+            }
+          : undefined,
+        duration: duration ? `PT${duration}S` : undefined,
       },
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     await this.sendStatement(statement);
   }
 }
 ```
 
 #### Phase 2: SCORM Support (Week 2)
+
 ```typescript
 // lib/scorm/scorm-api.ts
 export class SCORMAPIWrapper {
   private lmsAPI: any;
   private initialized: boolean = false;
-  
+
   constructor() {
     this.lmsAPI = this.findAPI(window);
   }
-  
+
   private findAPI(win: Window): any {
     let attempts = 0;
     const maxAttempts = 500;
-    
-    while (!win.API && !win.API_1484_11 && win.parent && win.parent !== win && attempts < maxAttempts) {
+
+    while (
+      !win.API &&
+      !win.API_1484_11 &&
+      win.parent &&
+      win.parent !== win &&
+      attempts < maxAttempts
+    ) {
       attempts++;
       win = win.parent;
     }
-    
+
     return win.API || win.API_1484_11;
   }
-  
+
   initialize(): boolean {
     if (this.initialized) return true;
-    
+
     if (this.lmsAPI) {
-      const result = this.lmsAPI.LMSInitialize ? 
-        this.lmsAPI.LMSInitialize('') : 
-        this.lmsAPI.Initialize('');
-      
+      const result = this.lmsAPI.LMSInitialize
+        ? this.lmsAPI.LMSInitialize('')
+        : this.lmsAPI.Initialize('');
+
       this.initialized = result === 'true';
       return this.initialized;
     }
-    
+
     return false;
   }
-  
+
   getValue(element: string): string {
     if (!this.initialized) return '';
-    
-    return this.lmsAPI.LMSGetValue ? 
-      this.lmsAPI.LMSGetValue(element) : 
-      this.lmsAPI.GetValue(element);
+
+    return this.lmsAPI.LMSGetValue
+      ? this.lmsAPI.LMSGetValue(element)
+      : this.lmsAPI.GetValue(element);
   }
-  
+
   setValue(element: string, value: string): boolean {
     if (!this.initialized) return false;
-    
-    const result = this.lmsAPI.LMSSetValue ? 
-      this.lmsAPI.LMSSetValue(element, value) : 
-      this.lmsAPI.SetValue(element, value);
-    
+
+    const result = this.lmsAPI.LMSSetValue
+      ? this.lmsAPI.LMSSetValue(element, value)
+      : this.lmsAPI.SetValue(element, value);
+
     return result === 'true';
   }
-  
+
   commit(): boolean {
     if (!this.initialized) return false;
-    
-    const result = this.lmsAPI.LMSCommit ? 
-      this.lmsAPI.LMSCommit('') : 
-      this.lmsAPI.Commit('');
-    
+
+    const result = this.lmsAPI.LMSCommit
+      ? this.lmsAPI.LMSCommit('')
+      : this.lmsAPI.Commit('');
+
     return result === 'true';
   }
-  
+
   terminate(): boolean {
     if (!this.initialized) return false;
-    
-    const result = this.lmsAPI.LMSFinish ? 
-      this.lmsAPI.LMSFinish('') : 
-      this.lmsAPI.Terminate('');
-    
+
+    const result = this.lmsAPI.LMSFinish
+      ? this.lmsAPI.LMSFinish('')
+      : this.lmsAPI.Terminate('');
+
     this.initialized = false;
     return result === 'true';
   }
-  
+
   // Helper methods
   setScore(score: number, min: number = 0, max: number = 100): boolean {
     this.setValue('cmi.core.score.raw', score.toString());
@@ -258,12 +275,12 @@ export class SCORMAPIWrapper {
     this.setValue('cmi.core.score.max', max.toString());
     return this.commit();
   }
-  
+
   setStatus(status: 'passed' | 'completed' | 'failed' | 'incomplete'): boolean {
     this.setValue('cmi.core.lesson_status', status);
     return this.commit();
   }
-  
+
   setProgress(progress: number): boolean {
     this.setValue('cmi.core.lesson_location', progress.toString());
     return this.commit();
@@ -276,6 +293,7 @@ export class SCORMAPIWrapper {
 ## 3. Course Authoring 🔄
 
 ### Requirements
+
 - Drag-and-drop course builder
 - Lesson editor with rich text
 - Quiz/assessment creator
@@ -287,6 +305,7 @@ export class SCORMAPIWrapper {
 ### Implementation Plan
 
 #### Phase 1: Course Builder UI (Week 1)
+
 ```typescript
 // components/authoring/CourseBuilder.tsx
 interface CourseStructure {
@@ -316,21 +335,21 @@ export function CourseBuilder() {
   const [course, setCourse] = useState<CourseStructure | null>(null);
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
-  
+
   // Drag and drop handlers
   const onDragEnd = (result: DropResult) => {
     // Reorder modules or lessons
   };
-  
+
   // CRUD operations
   const addModule = () => { /* ... */ };
   const addLesson = (moduleId: string, type: Lesson['type']) => { /* ... */ };
   const updateLesson = (lessonId: string, content: any) => { /* ... */ };
   const deleteLesson = (lessonId: string) => { /* ... */ };
-  
+
   return (
     <div className="course-builder">
-      <CourseOutline 
+      <CourseOutline
         course={course}
         onDragEnd={onDragEnd}
         onSelectModule={setSelectedModule}
@@ -347,6 +366,7 @@ export function CourseBuilder() {
 ```
 
 #### Phase 2: Rich Text Editor (Week 2)
+
 ```typescript
 // components/authoring/RichTextEditor.tsx
 import { useEditor, EditorContent } from '@tiptap/react';
@@ -371,7 +391,7 @@ export function RichTextEditor({ content, onChange }: {
       onChange(editor.getHTML());
     }
   });
-  
+
   return (
     <div className="rich-text-editor">
       <EditorToolbar editor={editor} />
@@ -386,6 +406,7 @@ export function RichTextEditor({ content, onChange }: {
 ## 4. eCommerce 🔄
 
 ### Requirements
+
 - Course pricing and packages
 - Shopping cart
 - Checkout process
@@ -398,12 +419,13 @@ export function RichTextEditor({ content, onChange }: {
 ### Implementation Plan
 
 #### Phase 1: Stripe Integration (Week 1)
+
 ```typescript
 // lib/stripe/stripe-client.ts
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16'
+  apiVersion: '2023-10-16',
 });
 
 export async function createCheckoutSession(
@@ -416,18 +438,18 @@ export async function createCheckoutSession(
     line_items: [
       {
         price: priceId,
-        quantity: 1
-      }
+        quantity: 1,
+      },
     ],
     success_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${courseId}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${courseId}`,
     client_reference_id: userId,
     metadata: {
       courseId,
-      userId
-    }
+      userId,
+    },
   });
-  
+
   return session;
 }
 
@@ -440,25 +462,26 @@ export async function createSubscription(
   let customer = customerId;
   if (!customer) {
     const newCustomer = await stripe.customers.create({
-      metadata: { userId }
+      metadata: { userId },
     });
     customer = newCustomer.id;
   }
-  
+
   // Create subscription
   const subscription = await stripe.subscriptions.create({
     customer,
     items: [{ price: priceId }],
     payment_behavior: 'default_incomplete',
     payment_settings: { save_default_payment_method: 'on_subscription' },
-    expand: ['latest_invoice.payment_intent']
+    expand: ['latest_invoice.payment_intent'],
   });
-  
+
   return subscription;
 }
 ```
 
 #### Phase 2: Shopping Cart (Week 2)
+
 ```typescript
 // components/ecommerce/ShoppingCart.tsx
 interface CartItem {
@@ -471,15 +494,15 @@ interface CartItem {
 export function ShoppingCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(false);
-  
+
   const addToCart = (item: CartItem) => {
     setCart(prev => [...prev, item]);
   };
-  
+
   const removeFromCart = (courseId: string) => {
     setCart(prev => prev.filter(item => item.courseId !== courseId));
   };
-  
+
   const checkout = async () => {
     setLoading(true);
     try {
@@ -488,7 +511,7 @@ export function ShoppingCart() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: cart })
       });
-      
+
       const { url } = await response.json();
       window.location.href = url;
     } catch (error) {
@@ -497,13 +520,13 @@ export function ShoppingCart() {
       setLoading(false);
     }
   };
-  
+
   const total = cart.reduce((sum, item) => sum + item.price, 0);
-  
+
   return (
     <div className="shopping-cart">
       {cart.map(item => (
-        <CartItemCard 
+        <CartItemCard
           key={item.courseId}
           item={item}
           onRemove={removeFromCart}
@@ -521,23 +544,24 @@ export function ShoppingCart() {
 ```
 
 #### Phase 3: Subscription Management (Week 3)
+
 ```typescript
 // app/api/subscriptions/route.ts
 export async function POST(request: Request) {
   const { userId, planId } = await request.json();
-  
+
   // Create subscription
   const subscription = await createSubscription(userId, planId);
-  
+
   // Save to database
   await supabase.from('subscriptions').insert({
     user_id: userId,
     stripe_subscription_id: subscription.id,
     status: subscription.status,
     current_period_start: new Date(subscription.current_period_start * 1000),
-    current_period_end: new Date(subscription.current_period_end * 1000)
+    current_period_end: new Date(subscription.current_period_end * 1000),
   });
-  
+
   return Response.json({ subscription });
 }
 ```
@@ -547,6 +571,7 @@ export async function POST(request: Request) {
 ## 5. Gamification ✅
 
 ### Current Implementation
+
 - **Location**: `components/gamification/`
 - **Features**:
   - Achievement badges
@@ -555,6 +580,7 @@ export async function POST(request: Request) {
   - Progress tracking
 
 ### Enhancements Needed
+
 - [ ] Add experience points (XP)
 - [ ] Implement levels/ranks
 - [ ] Add daily/weekly challenges
@@ -576,7 +602,12 @@ interface Achievement {
 }
 
 interface AchievementCriteria {
-  type: 'lessons_completed' | 'courses_completed' | 'quiz_score' | 'streak_days' | 'total_time';
+  type:
+    | 'lessons_completed'
+    | 'courses_completed'
+    | 'quiz_score'
+    | 'streak_days'
+    | 'total_time';
   threshold: number;
 }
 
@@ -585,23 +616,23 @@ export class GamificationEngine {
     const userStats = await this.getUserStats(userId);
     const allAchievements = await this.getAllAchievements();
     const earnedAchievements = await this.getEarnedAchievements(userId);
-    
+
     const newAchievements: Achievement[] = [];
-    
+
     for (const achievement of allAchievements) {
-      if (earnedAchievements.some(a => a.id === achievement.id)) {
+      if (earnedAchievements.some((a) => a.id === achievement.id)) {
         continue; // Already earned
       }
-      
+
       if (this.meetsAchievementCriteria(userStats, achievement.criteria)) {
         await this.awardAchievement(userId, achievement);
         newAchievements.push(achievement);
       }
     }
-    
+
     return newAchievements;
   }
-  
+
   private meetsAchievementCriteria(
     stats: UserStats,
     criteria: AchievementCriteria
@@ -621,19 +652,19 @@ export class GamificationEngine {
         return false;
     }
   }
-  
+
   async awardPoints(userId: string, points: number, reason: string) {
     await supabase.from('user_points').insert({
       user_id: userId,
       points,
       reason,
-      awarded_at: new Date().toISOString()
+      awarded_at: new Date().toISOString(),
     });
-    
+
     // Update total points
     await supabase.rpc('increment_user_points', {
       user_id: userId,
-      points_to_add: points
+      points_to_add: points,
     });
   }
 }
@@ -725,18 +756,21 @@ CREATE TABLE user_points (
 ## Implementation Timeline
 
 ### Week 1-2: SCORM/xAPI
+
 - Set up xAPI client
 - Implement SCORM API wrapper
 - Add tracking to existing components
 - Test with SCORM content
 
 ### Week 3-4: Course Authoring
+
 - Build course builder UI
 - Implement rich text editor
 - Add media management
 - Create preview functionality
 
 ### Week 5-7: eCommerce
+
 - Integrate Stripe
 - Build shopping cart
 - Implement checkout flow
@@ -744,12 +778,14 @@ CREATE TABLE user_points (
 - Test payment flows
 
 ### Week 8: Gamification Enhancements
+
 - Add XP and levels
 - Implement challenges
 - Create achievement system
 - Add social sharing
 
 ### Week 9: Testing & Polish
+
 - End-to-end testing
 - Performance optimization
 - Bug fixes
@@ -801,18 +837,21 @@ ENABLE_COURSE_AUTHORING=true
 ## Testing Checklist
 
 ### Interactive Video
+
 - [ ] Video plays correctly
 - [ ] Quizzes appear at correct timestamps
 - [ ] Progress is tracked
 - [ ] Completion is recorded
 
 ### SCORM/xAPI
+
 - [ ] Statements are sent correctly
 - [ ] Progress is tracked
 - [ ] Scores are recorded
 - [ ] Completion is tracked
 
 ### Course Authoring
+
 - [ ] Can create new courses
 - [ ] Can add/edit/delete modules
 - [ ] Can add/edit/delete lessons
@@ -820,6 +859,7 @@ ENABLE_COURSE_AUTHORING=true
 - [ ] Publishing works
 
 ### eCommerce
+
 - [ ] Can add courses to cart
 - [ ] Checkout flow works
 - [ ] Payments process correctly
@@ -827,6 +867,7 @@ ENABLE_COURSE_AUTHORING=true
 - [ ] Subscriptions work correctly
 
 ### Gamification
+
 - [ ] Achievements unlock correctly
 - [ ] Points are awarded
 - [ ] Leaderboard updates
