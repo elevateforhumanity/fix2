@@ -4,7 +4,9 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
 
   const body = await req.json().catch(() => ({}));
@@ -12,7 +14,7 @@ export async function POST(req: NextRequest) {
 
   await supabase.from('login_events').insert({
     user_id: user.id,
-    source
+    source,
   });
 
   return Response.json({ ok: true });

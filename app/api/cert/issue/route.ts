@@ -10,23 +10,25 @@ function makeSerial() {
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) return new Response('Unauthorized', { status: 401 });
-  
+
   // Check role permissions
   const { data: prof } = await supabase
     .from('user_profiles')
     .select('role')
     .eq('user_id', user.id)
     .single();
-  
+
   if (!['admin', 'partner', 'instructor'].includes(prof?.role)) {
     return new Response('Forbidden', { status: 403 });
   }
 
   const { user_id, course_id, expires_at } = await req.json();
-  
+
   if (!user_id || !course_id) {
     return new Response('Missing user_id or course_id', { status: 400 });
   }
@@ -56,7 +58,7 @@ export async function POST(req: NextRequest) {
     user_id,
     course_id,
     status: 'completed',
-    completed_at: new Date().toISOString()
+    completed_at: new Date().toISOString(),
   });
 
   // Get enrollment for funding program
@@ -72,7 +74,7 @@ export async function POST(req: NextRequest) {
     user_id,
     course_id,
     funding_program_id: en?.funding_program_id || null,
-    kind: 'COMPLETED'
+    kind: 'COMPLETED',
   });
 
   // Calculate expiry date
@@ -99,7 +101,7 @@ export async function POST(req: NextRequest) {
       course_name: course.title,
       completion_date: new Date().toISOString().split('T')[0],
       issued_at: new Date().toISOString(),
-      expires_at: expires_at_calc
+      expires_at: expires_at_calc,
     });
 
     if (!error) {
@@ -119,7 +121,7 @@ export async function POST(req: NextRequest) {
     user_id,
     course_id,
     funding_program_id: en?.funding_program_id || null,
-    kind: 'CERTIFIED'
+    kind: 'CERTIFIED',
   });
 
   return Response.json({ ok: true, serial });

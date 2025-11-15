@@ -5,23 +5,25 @@ import { generateMOUText } from '@/lib/mou-template';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) return new Response('Unauthorized', { status: 401 });
-  
+
   const { data: prof } = await supabase
     .from('user_profiles')
     .select('role')
     .eq('user_id', user.id)
     .single();
-  
+
   if (prof?.role !== 'admin') {
     return new Response('Forbidden', { status: 403 });
   }
 
   const url = new URL(req.url);
   const id = url.searchParams.get('id');
-  
+
   if (!id) {
     return new Response('Missing program holder id', { status: 400 });
   }
@@ -29,7 +31,8 @@ export async function GET(req: NextRequest) {
   // Get program holder details
   const { data: holder, error } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -38,7 +41,8 @@ export async function GET(req: NextRequest) {
         contact_name,
         contact_email
       )
-    `)
+    `
+    )
     .eq('id', id)
     .single();
 
@@ -55,8 +59,8 @@ export async function GET(req: NextRequest) {
     date: new Date().toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
-    })
+      day: 'numeric',
+    }),
   });
 
   // Update MOU status to 'sent' if not already
@@ -69,12 +73,12 @@ export async function GET(req: NextRequest) {
 
   // Return as downloadable text file
   const filename = `EFH_MOU_${holder.name.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.txt`;
-  
+
   return new Response(mouText, {
     status: 200,
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Content-Disposition': `attachment; filename="${filename}"`
-    }
+      'Content-Disposition': `attachment; filename="${filename}"`,
+    },
   });
 }

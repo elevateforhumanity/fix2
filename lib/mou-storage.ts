@@ -5,9 +5,14 @@ import { createBrowserClient } from '@supabase/ssr';
  * @param filename - The filename stored in program_holders.signed_mou_url
  * @returns Public URL for downloading the signed MOU
  */
-export async function getSignedMOUUrl(filename: string): Promise<string | null> {
-  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  
+export async function getSignedMOUUrl(
+  filename: string
+): Promise<string | null> {
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
   const { data, error } = await supabase.storage
     .from('mous')
     .createSignedUrl(filename, 3600); // 1 hour expiry
@@ -25,9 +30,14 @@ export async function getSignedMOUUrl(filename: string): Promise<string | null> 
  * @param filename - The filename stored in program_holders.signed_mou_url
  * @returns Blob of the PDF file
  */
-export async function downloadSignedMOU(filename: string): Promise<Blob | null> {
-  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  
+export async function downloadSignedMOU(
+  filename: string
+): Promise<Blob | null> {
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
   const { data, error } = await supabase.storage
     .from('mous')
     .download(filename);
@@ -46,13 +56,14 @@ export async function downloadSignedMOU(filename: string): Promise<Blob | null> 
  * @returns Boolean indicating if file exists
  */
 export async function signedMOUExists(filename: string): Promise<boolean> {
-  const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  
-  const { data, error } = await supabase.storage
-    .from('mous')
-    .list('', {
-      search: filename
-    });
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  const { data, error } = await supabase.storage.from('mous').list('', {
+    search: filename,
+  });
 
   if (error) {
     console.error('Error checking MOU existence:', error);

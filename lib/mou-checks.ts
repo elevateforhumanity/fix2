@@ -5,12 +5,14 @@ import { createBrowserClient } from '@supabase/ssr';
  * @param programHolderId - The program holder ID to check
  * @returns Boolean indicating if MOU is fully executed
  */
-export async function hasMOUFullyExecuted(programHolderId: string): Promise<boolean> {
+export async function hasMOUFullyExecuted(
+  programHolderId: string
+): Promise<boolean> {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-  
+
   const { data, error } = await supabase
     .from('program_holders')
     .select('mou_status')
@@ -34,15 +36,17 @@ export async function getMOUStatus(programHolderId: string) {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-  
+
   const { data, error } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       mou_status,
       mou_holder_signed_at,
       mou_admin_signed_at,
       mou_final_pdf_url
-    `)
+    `
+    )
     .eq('id', programHolderId)
     .single();
 
@@ -52,7 +56,7 @@ export async function getMOUStatus(programHolderId: string) {
       isFullyExecuted: false,
       holderSigned: false,
       adminSigned: false,
-      hasPDF: false
+      hasPDF: false,
     };
   }
 
@@ -61,14 +65,17 @@ export async function getMOUStatus(programHolderId: string) {
     isFullyExecuted: data.mou_status === 'fully_executed',
     holderSigned: !!data.mou_holder_signed_at,
     adminSigned: !!data.mou_admin_signed_at,
-    hasPDF: !!data.mou_final_pdf_url
+    hasPDF: !!data.mou_final_pdf_url,
   };
 }
 
 /**
  * Server-side check for MOU status (for API routes)
  */
-export async function checkMOUStatusServer(supabase: any, programHolderId: string) {
+export async function checkMOUStatusServer(
+  supabase: any,
+  programHolderId: string
+) {
   const { data, error } = await supabase
     .from('program_holders')
     .select('mou_status')
@@ -81,6 +88,6 @@ export async function checkMOUStatusServer(supabase: any, programHolderId: strin
 
   return {
     isValid: data.mou_status === 'fully_executed',
-    status: data.mou_status
+    status: data.mou_status,
   };
 }

@@ -7,22 +7,31 @@ import { getUserByEmail } from '@/lib/supabase-admin';
 function parseCSV(raw: string) {
   const lines = raw.trim().split(/\r?\n/);
   const head = lines.shift()!;
-  const cols = head.split(',').map(s=>s.trim().toLowerCase());
-  return lines.map(line=>{
-    const vals = line.split(',').map(v=>v.trim());
+  const cols = head.split(',').map((s) => s.trim().toLowerCase());
+  return lines.map((line) => {
+    const vals = line.split(',').map((v) => v.trim());
     const row: any = {};
-    cols.forEach((c,i)=> row[c]=vals[i] ?? '');
+    cols.forEach((c, i) => (row[c] = vals[i] ?? ''));
     return row;
   });
 }
-function serial(){ return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`; }
+function serial() {
+  return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`;
+}
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
-  const { data: prof } = await supabase.from('user_profiles').select('role').eq('user_id', user.id).single();
-  if (!['admin','partner'].includes(prof?.role)) return new Response('Forbidden', { status: 403 });
+  const { data: prof } = await supabase
+    .from('user_profiles')
+    .select('role')
+    .eq('user_id', user.id)
+    .single();
+  if (!['admin', 'partner'].includes(prof?.role))
+    return new Response('Forbidden', { status: 403 });
 
   const raw = await req.text();
   const rows = parseCSV(raw);
@@ -32,33 +41,60 @@ export async function POST(req: NextRequest) {
   for (const r of rows) {
     try {
       const email = r.email;
-      if (!email) { errors.push({row:r, err:'Missing email'}); continue; }
+      if (!email) {
+        errors.push({ row: r, err: 'Missing email' });
+        continue;
+      }
 
       // user - use admin client
       const u = await getUserByEmail(email);
-      if (!u?.id) { errors.push({row:r, err:'User not found'}); continue; }
+      if (!u?.id) {
+        errors.push({ row: r, err: 'User not found' });
+        continue;
+      }
 
       // course
       let course;
       if (r.course_id) {
-        const { data } = await supabase.from('courses').select('id,title,slug,cert_valid_days').eq('id', r.course_id).maybeSingle();
+        const { data } = await supabase
+          .from('courses')
+          .select('id,title,slug,cert_valid_days')
+          .eq('id', r.course_id)
+          .maybeSingle();
         course = data;
       } else if (r.course_slug) {
-        const { data } = await supabase.from('courses').select('id,title,slug,cert_valid_days').eq('slug', r.course_slug).maybeSingle();
+        const { data } = await supabase
+          .from('courses')
+          .select('id,title,slug,cert_valid_days')
+          .eq('slug', r.course_slug)
+          .maybeSingle();
         course = data;
       }
-      if (!course?.id) { errors.push({row:r, err:'Course not found'}); continue; }
+      if (!course?.id) {
+        errors.push({ row: r, err: 'Course not found' });
+        continue;
+      }
 
       // mark enrollment completed (create if missing)
       await supabase.from('enrollments').upsert({
-        user_id: u.id, course_id: course.id, status: 'completed', completed_at: new Date().toISOString()
+        user_id: u.id,
+        course_id: course.id,
+        status: 'completed',
+        completed_at: new Date().toISOString(),
       });
 
       // KPI event
-      const { data: en } = await supabase.from('enrollments')
-        .select('funding_program_id').eq('user_id', u.id).eq('course_id', course.id).maybeSingle();
+      const { data: en } = await supabase
+        .from('enrollments')
+        .select('funding_program_id')
+        .eq('user_id', u.id)
+        .eq('course_id', course.id)
+        .maybeSingle();
       await supabase.from('enrollment_events').insert({
-        user_id: u.id, course_id: course.id, funding_program_id: en?.funding_program_id || null, kind: 'COMPLETED'
+        user_id: u.id,
+        course_id: course.id,
+        funding_program_id: en?.funding_program_id || null,
+        kind: 'COMPLETED',
       });
 
       // expiry: priority = CSV expires_at → course.cert_valid_days → none
@@ -71,10 +107,14 @@ export async function POST(req: NextRequest) {
         expires_at = d.toISOString();
       }
 
-      const issued_at = r.issued_at ? new Date(r.issued_at).toISOString() : new Date().toISOString();
+      const issued_at = r.issued_at
+        ? new Date(r.issued_at).toISOString()
+        : new Date().toISOString();
 
       // issue cert (retry on collision)
-      let s = serial(); let ok = false; let tries = 0;
+      let s = serial();
+      let ok = false;
+      let tries = 0;
       while (!ok && tries < 3) {
         const { error } = await supabase.from('certificates').insert({
           user_id: u.id,
@@ -84,20 +124,30 @@ export async function POST(req: NextRequest) {
           course_name: course.title,
           completion_date: new Date(issued_at).toISOString().split('T')[0],
           issued_at,
-          expires_at
+          expires_at,
         });
-        if (!error) ok = true; else { s = serial(); tries++; }
+        if (!error) ok = true;
+        else {
+          s = serial();
+          tries++;
+        }
       }
-      if (!ok) { errors.push({row:r, err:'Serial issue failed'}); continue; }
-      
+      if (!ok) {
+        errors.push({ row: r, err: 'Serial issue failed' });
+        continue;
+      }
+
       // Log certification event
       await supabase.from('enrollment_events').insert({
-        user_id: u.id, course_id: course.id, funding_program_id: en?.funding_program_id || null, kind: 'CERTIFIED'
+        user_id: u.id,
+        course_id: course.id,
+        funding_program_id: en?.funding_program_id || null,
+        kind: 'CERTIFIED',
       });
-      
+
       issued++;
-    } catch (e:any) {
-      errors.push({row:r, err:e?.message || 'Unknown error'});
+    } catch (e: any) {
+      errors.push({ row: r, err: e?.message || 'Unknown error' });
     }
   }
 

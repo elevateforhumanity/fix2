@@ -5,54 +5,61 @@ import { getUserByEmail } from '@/lib/supabase-admin';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return new Response('Unauthorized',{status:401});
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return new Response('Unauthorized', { status: 401 });
+
   const { data: prof } = await supabase
     .from('user_profiles')
     .select('role')
     .eq('user_id', user.id)
     .single();
-  
-  if (prof?.role !== 'admin') return new Response('Forbidden',{status:403});
+
+  if (prof?.role !== 'admin') return new Response('Forbidden', { status: 403 });
 
   const body = await req.json();
   const { program_holder_id, email } = body;
-  
+
   if (!program_holder_id || !email) {
-    return new Response('Missing fields',{status:400});
+    return new Response('Missing fields', { status: 400 });
   }
 
   try {
     // Find user by email using admin client
     const u = await getUserByEmail(email);
-    
+
     if (!u) {
-      return new Response('User not found (create account first)',{status:400});
+      return new Response('User not found (create account first)', {
+        status: 400,
+      });
     }
 
     // Create delegate record
     const { error: delError } = await supabase.from('delegates').insert({
       program_holder_id,
-      user_id: u.id
+      user_id: u.id,
     });
 
     if (delError) {
-      return new Response(delError.message, {status:500});
+      return new Response(delError.message, { status: 500 });
     }
 
     // Update user profile with program holder and partner role
-    await supabase.from('user_profiles').upsert({
-      user_id: u.id,
-      program_holder_id: program_holder_id,
-      role: 'partner'
-    }, {
-      onConflict: 'user_id'
-    });
+    await supabase.from('user_profiles').upsert(
+      {
+        user_id: u.id,
+        program_holder_id: program_holder_id,
+        role: 'partner',
+      },
+      {
+        onConflict: 'user_id',
+      }
+    );
 
-    return Response.json({ ok:true });
+    return Response.json({ ok: true });
   } catch (error) {
     console.error('Error adding delegate:', error);
-    return new Response('Failed to add delegate', {status:500});
+    return new Response('Failed to add delegate', { status: 500 });
   }
 }

@@ -12,9 +12,11 @@ async function sendEmail(to: string, subject: string, text: string) {
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  
+
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -48,8 +50,16 @@ export async function POST(req: NextRequest) {
   try {
     const [learnerUser, courseResult, programResult] = await Promise.all([
       getUserById(app.user_id),
-      supabase.from('courses').select('title').eq('id', app.course_id).maybeSingle(),
-      supabase.from('funding_programs').select('code, name').eq('id', app.program_id).maybeSingle(),
+      supabase
+        .from('courses')
+        .select('title')
+        .eq('id', app.course_id)
+        .maybeSingle(),
+      supabase
+        .from('funding_programs')
+        .select('code, name')
+        .eq('id', app.program_id)
+        .maybeSingle(),
     ]);
 
     const learnerEmail = learnerUser?.email;

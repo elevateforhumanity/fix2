@@ -5,8 +5,10 @@ import { createClient } from '@supabase/supabase-js';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -24,7 +26,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const { programHolderId, name, signatureDataUrl } = body || {};
-  
+
   if (!programHolderId || !name || !signatureDataUrl) {
     return new Response('Missing required fields', { status: 400 });
   }
@@ -34,7 +36,7 @@ export async function POST(req: NextRequest) {
   if (!matches) {
     return new Response('Invalid signature format', { status: 400 });
   }
-  
+
   const base64 = matches[1];
   const buffer = Buffer.from(base64, 'base64');
 
@@ -63,10 +65,11 @@ export async function POST(req: NextRequest) {
       mou_status: 'fully_executed',
       mou_admin_name: name,
       mou_admin_signed_at: now,
-      mou_admin_sig_url: sigUrl
+      mou_admin_sig_url: sigUrl,
     })
     .eq('id', programHolderId)
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -78,7 +81,8 @@ export async function POST(req: NextRequest) {
       mou_admin_signed_at,
       mou_admin_sig_url,
       mou_final_pdf_url
-    `)
+    `
+    )
     .single();
 
   if (error) {

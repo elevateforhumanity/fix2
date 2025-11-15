@@ -3,8 +3,10 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -23,7 +25,9 @@ export async function GET() {
   // Get program holder details
   const { data: ph, error } = await supabase
     .from('program_holders')
-    .select('id, name, payout_share, mou_status, mou_holder_name, mou_holder_signed_at')
+    .select(
+      'id, name, payout_share, mou_status, mou_holder_name, mou_holder_signed_at'
+    )
     .eq('id', prof.program_holder_id)
     .single();
 

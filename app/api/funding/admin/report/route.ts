@@ -4,9 +4,11 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  
+
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -52,12 +54,14 @@ export async function GET(req: NextRequest) {
         : 0,
     minutes: rows?.reduce((a: any, b: any) => a + (b.minutes || 0), 0) || 0,
     completed:
-      rows?.filter((r: any) => (r.status || '').toLowerCase() === 'completed').length || 0,
+      rows?.filter((r: any) => (r.status || '').toLowerCase() === 'completed')
+        .length || 0,
   };
 
   // Return CSV format if requested
   if (format === 'csv') {
-    const header = 'learner,email,course,start_date,minutes,percent,status,certificate_id\n';
+    const header =
+      'learner,email,course,start_date,minutes,percent,status,certificate_id\n';
     const lines = (rows || [])
       .map((r: any) =>
         [

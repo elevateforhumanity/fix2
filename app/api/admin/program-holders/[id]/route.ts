@@ -7,8 +7,10 @@ export async function GET(
 ) {
   const { id } = await params;
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -27,7 +29,8 @@ export async function GET(
   // Get program holder details
   const { data: ph, error } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -39,7 +42,8 @@ export async function GET(
       mou_admin_signed_at,
       mou_admin_sig_url,
       mou_final_pdf_url
-    `)
+    `
+    )
     .eq('id', id)
     .single();
 

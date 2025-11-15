@@ -3,8 +3,10 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -23,7 +25,8 @@ export async function GET() {
   // Get program holder details with application
   const { data: holder, error } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       status,
@@ -36,7 +39,8 @@ export async function GET() {
         phone,
         site_address
       )
-    `)
+    `
+    )
     .eq('id', prof.program_holder_id)
     .single();
 

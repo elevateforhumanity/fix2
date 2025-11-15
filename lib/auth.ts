@@ -48,13 +48,16 @@ export async function createRouteHandlerClient(_options?: any) {
 
 export async function getSession() {
   const supabase = await createServerSupabaseClient();
-  const { data: { session }, error } = await supabase.auth.getSession();
-  
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.getSession();
+
   if (error) {
     console.error('Error getting session:', error);
     return null;
   }
-  
+
   return session;
 }
 
@@ -102,7 +105,7 @@ export async function requireRole(allowedRoles: UserRole | UserRole[]) {
   const role = await getUserRole();
 
   const roles = Array.isArray(allowedRoles) ? allowedRoles : [allowedRoles];
-  
+
   if (!role || !roles.includes(role)) {
     redirect('/unauthorized');
   }
@@ -157,7 +160,7 @@ export async function canAccessStudent(studentId: string): Promise<boolean> {
       .eq('student_id', studentId)
       .eq('delegate_id', user.id)
       .single();
-    
+
     return !!data;
   }
 
@@ -170,14 +173,16 @@ export async function canAccessStudent(studentId: string): Promise<boolean> {
       .eq('student_id', studentId)
       .eq('program_holder_id', user.profile.id)
       .single();
-    
+
     return !!data;
   }
 
   return false;
 }
 
-export async function canAccessEnrollment(enrollmentId: string): Promise<boolean> {
+export async function canAccessEnrollment(
+  enrollmentId: string
+): Promise<boolean> {
   const user = await getCurrentUser();
   if (!user) return false;
 
@@ -202,7 +207,11 @@ export async function canAccessEnrollment(enrollmentId: string): Promise<boolean
   if (role === 'delegate' && enrollment.delegate_id === user.id) return true;
 
   // Program holders can access their enrollments
-  if (role === 'program_holder' && enrollment.program_holder_id === user.profile.id) return true;
+  if (
+    role === 'program_holder' &&
+    enrollment.program_holder_id === user.profile.id
+  )
+    return true;
 
   return false;
 }
