@@ -3,6 +3,7 @@
 ## 🦊 The One-Slot Fox Summary
 
 > Your package.json is not broken, but it's heavy and server-only in places. The main issues for Vercel are:
+>
 > 1. **Node version mismatch** - Vercel must use Node 20+ to match your engines requirement
 > 2. **Heavy server libraries** - ffmpeg, Google TTS, AWS SDK, react-pdf must stay on Node.js runtime only
 > 3. **Build validation** - Added prebuild check to catch missing environment variables early
@@ -16,12 +17,14 @@
 **File:** `vercel-check.mjs`
 
 This script runs before every build and validates:
+
 - Node.js version
 - Critical environment variables (Supabase, Stripe, etc.)
 - Optional environment variables (VAPID, AWS, OpenAI, etc.)
 - Heavy dependencies that require special handling
 
 **Updated package.json:**
+
 ```json
 "scripts": {
   "prebuild": "node vercel-check.mjs",
@@ -36,10 +39,12 @@ Now every Vercel build will show you exactly what's missing or misconfigured.
 Heavy server-side operations now explicitly use Node.js runtime:
 
 **Files updated:**
+
 - `app/api/program-holder/mou-pdf/route.ts` - PDF generation
 - `app/api/files/route.ts` - File uploads
 
 **Pattern used:**
+
 ```typescript
 // Use Node.js runtime for heavy operations
 export const runtime = 'nodejs';
@@ -58,6 +63,7 @@ export async function POST(request: NextRequest) {
 ## 🚨 Critical: Set Node Version in Vercel
 
 Your `package.json` declares:
+
 ```json
 "engines": {
   "node": ">=20.11.1 <23"
@@ -83,24 +89,24 @@ These libraries are in your dependencies and **MUST** only be used in specific c
 
 ### Server-Only Libraries
 
-| Library | Purpose | Where to Use |
-|---------|---------|--------------|
-| `@ffmpeg-installer/ffmpeg` | Video processing | Background workers, Node.js API routes |
-| `@ffprobe-installer/ffprobe` | Video analysis | Background workers, Node.js API routes |
-| `@google-cloud/text-to-speech` | TTS generation | Background workers, Node.js API routes |
-| `@aws-sdk/client-s3` | S3 uploads | Node.js API routes with `runtime='nodejs'` |
-| `@react-pdf/renderer` | PDF generation | Node.js API routes with `runtime='nodejs'` |
-| `canvas` | Image manipulation | Node.js API routes, server components |
-| `fluent-ffmpeg` | Video processing | Background workers, Node.js API routes |
+| Library                        | Purpose            | Where to Use                               |
+| ------------------------------ | ------------------ | ------------------------------------------ |
+| `@ffmpeg-installer/ffmpeg`     | Video processing   | Background workers, Node.js API routes     |
+| `@ffprobe-installer/ffprobe`   | Video analysis     | Background workers, Node.js API routes     |
+| `@google-cloud/text-to-speech` | TTS generation     | Background workers, Node.js API routes     |
+| `@aws-sdk/client-s3`           | S3 uploads         | Node.js API routes with `runtime='nodejs'` |
+| `@react-pdf/renderer`          | PDF generation     | Node.js API routes with `runtime='nodejs'` |
+| `canvas`                       | Image manipulation | Node.js API routes, server components      |
+| `fluent-ffmpeg`                | Video processing   | Background workers, Node.js API routes     |
 
 ### ✅ Safe Usage Pattern
 
 ```typescript
 // app/api/video/process/route.ts
-export const runtime = "nodejs"; // 🔴 CRITICAL
+export const runtime = 'nodejs'; // 🔴 CRITICAL
 
-import ffmpeg from "@ffmpeg-installer/ffmpeg";
-import { NextResponse } from "next/server";
+import ffmpeg from '@ffmpeg-installer/ffmpeg';
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   // Your server-side logic with ffmpeg here
@@ -112,10 +118,10 @@ export async function POST(req: Request) {
 
 ```typescript
 // ❌ DON'T import heavy libs in client components
-"use client";
+'use client';
 
-import ffmpeg from "@ffmpeg-installer/ffmpeg"; // 💥 BREAKS BUILD
-import { S3Client } from "@aws-sdk/client-s3"; // 💥 BREAKS BUILD
+import ffmpeg from '@ffmpeg-installer/ffmpeg'; // 💥 BREAKS BUILD
+import { S3Client } from '@aws-sdk/client-s3'; // 💥 BREAKS BUILD
 
 export default function MyComponent() {
   // This will fail on Vercel
@@ -126,7 +132,7 @@ export default function MyComponent() {
 // ❌ DON'T use heavy libs without runtime declaration
 // app/api/upload/route.ts
 
-import { S3Client } from "@aws-sdk/client-s3";
+import { S3Client } from '@aws-sdk/client-s3';
 
 // Missing: export const runtime = "nodejs";
 
@@ -164,6 +170,7 @@ Run `node vercel-check.mjs` to see which are missing.
 - [ ] `RESEND_API_KEY` - Email sending
 
 **To add environment variables in Vercel:**
+
 1. Go to **Settings** → **Environment Variables**
 2. Add each variable for Production, Preview, and Development
 3. Redeploy after adding variables
@@ -190,11 +197,13 @@ echo $?  # Should be 0 if successful
 After deploying, check the build logs for:
 
 1. **Node version confirmation:**
+
    ```
    Node version: v20.x.x
    ```
 
 2. **Environment variable status:**
+
    ```
    ✅ NEXT_PUBLIC_SITE_URL: [set]
    ✅ NEXT_PUBLIC_SUPABASE_URL: [set]
@@ -214,11 +223,12 @@ After deploying, check the build logs for:
 **Cause:** Importing server-only libraries in client components or Edge runtime
 
 **Solution:**
+
 1. Add `export const runtime = 'nodejs';` to the route
 2. Move heavy imports to server-only files
 3. Use dynamic imports if needed:
    ```typescript
-   const { S3Client } = await import("@aws-sdk/client-s3");
+   const { S3Client } = await import('@aws-sdk/client-s3');
    ```
 
 ### Issue: Build succeeds but runtime errors
@@ -226,6 +236,7 @@ After deploying, check the build logs for:
 **Cause:** Missing environment variables
 
 **Solution:**
+
 1. Run `node vercel-check.mjs` locally
 2. Add missing variables to Vercel
 3. Redeploy
@@ -235,6 +246,7 @@ After deploying, check the build logs for:
 **Cause:** Native dependencies not available in Edge runtime
 
 **Solution:**
+
 1. Ensure route has `export const runtime = 'nodejs';`
 2. Check that the route isn't accidentally using Edge runtime
 3. Verify the dependency is in `dependencies`, not `devDependencies`
@@ -244,6 +256,7 @@ After deploying, check the build logs for:
 **Cause:** Heavy dependencies loading on every request
 
 **Solution:**
+
 1. Consider moving heavy operations to background workers
 2. Use Vercel's serverless functions for heavy operations
 3. Implement caching where possible

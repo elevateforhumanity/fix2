@@ -3,7 +3,7 @@
 ## One-Slot Fox Summary
 
 > **Your deploys keep failing because production (Vercel) doesn't have all the environment variables your app expects.**
-> 
+>
 > Once we add these vars into Vercel (and Gitpod), your builds will be way more stable.
 
 ---
@@ -15,6 +15,7 @@ Based on scanning your codebase, here are **ALL** the environment variables your
 ### ✅ CRITICAL (App won't work without these)
 
 #### Supabase (Database & Auth)
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -22,12 +23,14 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 **Where to get:**
+
 1. Go to https://supabase.com/dashboard
 2. Select your project
 3. Settings → API
 4. Copy URL and both keys
 
 #### Site Configuration
+
 ```bash
 NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
 NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
@@ -48,6 +51,7 @@ VAPID_SUBJECT=mailto:admin@elevateforhumanity.org
 ```
 
 **How to generate:**
+
 ```bash
 npm run generate:vapid
 ```
@@ -65,6 +69,7 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxx
 ```
 
 **Where to get:**
+
 1. https://dashboard.stripe.com
 2. Developers → API keys
 3. For webhook: Developers → Webhooks → Add endpoint
@@ -82,6 +87,7 @@ MOU_ARCHIVE_EMAIL=archive@elevateforhumanity.org
 ```
 
 **Where to get:**
+
 1. https://resend.com/api-keys
 2. Create new API key
 
@@ -98,6 +104,7 @@ NEXT_PUBLIC_FACEBOOK_APP_ID=xxxxxxxxxxxxx
 ```
 
 **Where to get:**
+
 - Google Analytics: https://analytics.google.com
 - Facebook: https://business.facebook.com
 
@@ -124,6 +131,7 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxx
 ```
 
 **Where to get:**
+
 1. https://platform.openai.com/api-keys
 
 **Skip if:** Not using AI features yet.
@@ -148,6 +156,7 @@ NODE_ENV=production
 ```
 
 **Generate CRON_SECRET:**
+
 ```bash
 openssl rand -base64 32
 ```
@@ -182,6 +191,7 @@ openssl rand -base64 32
 ### Step 1: Find What You're Missing
 
 Run this in Gitpod:
+
 ```bash
 ./gp-fix.sh
 ```
@@ -225,6 +235,7 @@ Look for lines that say `(not set)` - those are missing.
 **Option B: Local .env File**
 
 Create `.env.local`:
+
 ```bash
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
@@ -270,6 +281,7 @@ NODE_ENV=development
 ```
 
 Look for this section:
+
 ```
 ⚠️  The following env vars are NOT set in Gitpod:
   - NEXT_PUBLIC_VAPID_PUBLIC_KEY
@@ -287,6 +299,7 @@ Visit http://localhost:3000 - should work without errors.
 ### Test on Vercel
 
 After adding all vars and redeploying:
+
 1. Visit your production URL
 2. Check browser console for errors
 3. Test at `/pwa-test`
@@ -298,6 +311,7 @@ After adding all vars and redeploying:
 ### "Supabase client not initialized"
 
 **Missing:**
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
@@ -306,6 +320,7 @@ After adding all vars and redeploying:
 ### "Push notifications not working"
 
 **Missing:**
+
 - `NEXT_PUBLIC_VAPID_PUBLIC_KEY`
 - `VAPID_PRIVATE_KEY`
 - `VAPID_SUBJECT`
@@ -315,6 +330,7 @@ After adding all vars and redeploying:
 ### "Stripe not defined"
 
 **Missing:**
+
 - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
 
 **Fix:** Add Stripe keys or remove Stripe code if not using.
@@ -322,6 +338,7 @@ After adding all vars and redeploying:
 ### "Email sending failed"
 
 **Missing:**
+
 - `RESEND_API_KEY`
 - `EMAIL_FROM`
 
@@ -332,17 +349,20 @@ After adding all vars and redeploying:
 ## 📊 Priority Matrix
 
 ### Must Have (Deploy will fail without these)
+
 - ✅ Supabase URL
 - ✅ Supabase Anon Key
 - ✅ Supabase Service Role Key
 - ✅ Site URL
 
 ### Should Have (Features won't work)
+
 - ⚠️ VAPID keys (push notifications)
 - ⚠️ Stripe keys (payments)
 - ⚠️ Resend key (emails)
 
 ### Nice to Have (Optional features)
+
 - 💡 Analytics IDs
 - 💡 OpenAI key
 - 💡 xAPI credentials
@@ -415,6 +435,7 @@ Before deploying to Vercel:
 **For all features:** 25+ variables (see full list above)
 
 **Quick check:**
+
 ```bash
 ./gp-fix.sh
 ```

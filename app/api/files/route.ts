@@ -6,7 +6,9 @@ export const runtime = 'nodejs';
 
 export async function GET(request: NextRequest) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -30,7 +32,9 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -55,9 +59,9 @@ export async function POST(request: NextRequest) {
   }
 
   // Get public URL
-  const { data: { publicUrl } } = supabase.storage
-    .from('files')
-    .getPublicUrl(fileName);
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from('files').getPublicUrl(fileName);
 
   // Save file metadata
   const { data, error } = await supabase
@@ -83,7 +87,9 @@ export async function POST(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -105,9 +111,7 @@ export async function DELETE(request: NextRequest) {
 
   if (file) {
     // Delete from storage
-    await supabase.storage
-      .from('files')
-      .remove([file.storage_path]);
+    await supabase.storage.from('files').remove([file.storage_path]);
   }
 
   // Delete from database

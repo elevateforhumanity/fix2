@@ -9,11 +9,13 @@ Since you deleted your Vercel team and need a clean slate, here's how to set eve
 ## Step 1: Create New Vercel Account/Team (5 min)
 
 ### Option A: Personal Account
+
 1. Go to https://vercel.com/signup
 2. Sign up with GitHub (recommended)
 3. Authorize Vercel to access your GitHub
 
 ### Option B: New Team
+
 1. Go to https://vercel.com/signup
 2. Create account
 3. Click "Create Team" in dashboard
@@ -89,6 +91,7 @@ Edit `.vercel-autopilot-config.json`:
 ```
 
 **To get these IDs**:
+
 1. Go to Vercel Dashboard → Your Project
 2. Settings → General
 3. Copy "Project ID"
@@ -127,6 +130,7 @@ npm run generate:vapid
 ```
 
 **Output**:
+
 ```
 NEXT_PUBLIC_VAPID_PUBLIC_KEY=BNxxx...
 VAPID_PRIVATE_KEY=xxx...
@@ -192,6 +196,7 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
    - Should show storage quota
 
 ### Check Device Compatibility:
+
 - Scroll down to see compatibility report
 - Note any unsupported features (expected on some browsers)
 
@@ -200,6 +205,7 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
 ## Step 8: Test Installation (10 min)
 
 ### iOS (Safari)
+
 1. Open site in Safari on iPhone/iPad
 2. Tap Share button (square with arrow)
 3. Scroll down, tap "Add to Home Screen"
@@ -209,6 +215,7 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
 7. **Check**: Opens in standalone mode (no browser UI)
 
 ### Android (Chrome)
+
 1. Open site in Chrome on Android
 2. Tap menu (three dots)
 3. Tap "Install app"
@@ -218,6 +225,7 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
 7. **Test**: Long-press icon to see shortcuts
 
 ### Desktop (Chrome/Edge)
+
 1. Open site in Chrome or Edge
 2. Look for install icon in address bar
 3. Click install icon
@@ -243,6 +251,7 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
 ## Step 10: Run Lighthouse Audit (3 min)
 
 ### Chrome DevTools Method:
+
 1. Open site in Chrome
 2. Press F12 (DevTools)
 3. Go to "Lighthouse" tab
@@ -252,11 +261,13 @@ Visit: `https://your-new-url.vercel.app/pwa-test`
 7. **Target**: 100/100 PWA score
 
 ### Command Line Method:
+
 ```bash
 npm run lighthouse
 ```
 
 **Expected Scores**:
+
 - Performance: > 90
 - Accessibility: > 90
 - Best Practices: > 90
@@ -293,12 +304,14 @@ If you want a custom domain:
 ### Build Fails
 
 **Check Build Logs**:
+
 1. Go to Deployments tab
 2. Click on failed deployment
 3. View "Building" logs
 4. Look for error messages
 
 **Common Issues**:
+
 - Missing dependencies → Check `package.json`
 - TypeScript errors → Fix type errors
 - Memory issues → Optimize build
@@ -306,11 +319,13 @@ If you want a custom domain:
 ### Site Returns 404
 
 **Possible Causes**:
+
 - Build didn't complete
 - Wrong URL
 - Deployment not activated
 
 **Solutions**:
+
 1. Check deployment status in dashboard
 2. Verify production URL
 3. Try redeploying
@@ -318,16 +333,19 @@ If you want a custom domain:
 ### PWA Features Not Working
 
 **Service Worker Issues**:
+
 - Check HTTPS is enabled (Vercel provides this)
 - Clear browser cache
 - Check browser console for errors
 
 **Manifest Issues**:
+
 - Verify `/manifest.json` loads
 - Check all icon paths are correct
 - Validate JSON syntax
 
 **Notification Issues**:
+
 - Verify VAPID keys are set
 - Check notification permission granted
 - Test in supported browser
@@ -361,26 +379,31 @@ npm run lighthouse
 ## What You Should Have Now
 
 ✅ **New Vercel Project**
+
 - Fresh project imported from GitHub
 - Clean deployment with no legacy issues
 
 ✅ **Working PWA**
+
 - Service worker active
 - Manifest configured
 - All icons present
 - Offline mode working
 
 ✅ **Push Notifications**
+
 - VAPID keys configured
 - Notifications working
 
 ✅ **Mobile Optimized**
+
 - Responsive design
 - Touch-friendly UI
 - Bottom navigation
 - Install prompt
 
 ✅ **Production URL**
+
 - HTTPS enabled
 - SSL certificate active
 - CDN distribution
@@ -391,18 +414,21 @@ npm run lighthouse
 ## Next Steps
 
 ### Immediate
+
 1. ✅ Test all PWA features
 2. ✅ Install on mobile devices
 3. ✅ Run Lighthouse audit
 4. ✅ Share URL with team
 
 ### Soon
+
 1. Configure custom domain (optional)
 2. Set up analytics
 3. Monitor performance
 4. Test on various devices
 
 ### Ongoing
+
 1. Monitor deployment logs
 2. Check error tracking
 3. Review analytics

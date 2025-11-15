@@ -11,11 +11,13 @@ Your package.json is heavy with server-only libraries (ffmpeg, Google TTS, AWS S
 ### 1. Set Node Version in Vercel (CRITICAL)
 
 Your `package.json` requires Node 20+:
+
 ```json
 "engines": { "node": ">=20.11.1 <23" }
 ```
 
 **Action Required:**
+
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard) → Your Project
 2. **Settings** → **General** → **Node.js Version**
 3. Set to **20.x** or **22.x**
@@ -24,6 +26,7 @@ Your `package.json` requires Node 20+:
 ### 2. Add Environment Variables
 
 **Minimum required for basic functionality:**
+
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
@@ -34,12 +37,14 @@ STRIPE_SECRET_KEY=sk_xxx...
 ```
 
 **Where to add:**
+
 - Vercel Dashboard → Your Project → **Settings** → **Environment Variables**
 - Add for: Production, Preview, Development
 
 ### 3. Verify Build
 
 Run locally to test:
+
 ```bash
 node vercel-check.mjs
 npm run build
@@ -52,15 +57,18 @@ Then push to trigger Vercel deployment.
 ## 🔧 What We Already Fixed
 
 ✅ **Added prebuild validation** (`vercel-check.mjs`)
+
 - Runs before every build
 - Shows missing environment variables
 - Warns about heavy dependencies
 
 ✅ **Added runtime declarations** to API routes
+
 - `app/api/program-holder/mou-pdf/route.ts` - PDF generation
 - `app/api/files/route.ts` - File uploads
 
 ✅ **Verified version alignment**
+
 - `next@16.0.1` matches `@next/bundle-analyzer@16.0.1`
 
 ---
@@ -87,6 +95,7 @@ Then push to trigger Vercel deployment.
 ## 📚 Full Documentation
 
 See `VERCEL_DEPLOYMENT_FIX_GUIDE.md` for:
+
 - Detailed explanation of all fixes
 - Heavy dependency usage rules
 - Common issues and solutions
@@ -95,6 +104,7 @@ See `VERCEL_DEPLOYMENT_FIX_GUIDE.md` for:
 ---
 
 **Quick Deploy:**
+
 ```bash
 git add .
 git commit -m "fix: Vercel deployment configuration"
