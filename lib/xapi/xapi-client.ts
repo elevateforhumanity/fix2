@@ -51,11 +51,13 @@ export class XAPIClient {
   constructor(endpoint?: string, username?: string, password?: string) {
     this.endpoint = endpoint || process.env.NEXT_PUBLIC_XAPI_ENDPOINT || '';
     this.enabled = !!this.endpoint;
-    
+
     if (username && password) {
       this.auth = btoa(`${username}:${password}`);
     } else {
-      this.auth = btoa(`${process.env.XAPI_USERNAME || ''}:${process.env.XAPI_PASSWORD || ''}`);
+      this.auth = btoa(
+        `${process.env.XAPI_USERNAME || ''}:${process.env.XAPI_PASSWORD || ''}`
+      );
     }
   }
 
@@ -69,18 +71,20 @@ export class XAPIClient {
       const response = await fetch(`${this.endpoint}/statements`, {
         method: 'POST',
         headers: {
-          'Authorization': `Basic ${this.auth}`,
+          Authorization: `Basic ${this.auth}`,
           'Content-Type': 'application/json',
-          'X-Experience-API-Version': '1.0.3'
+          'X-Experience-API-Version': '1.0.3',
         },
         body: JSON.stringify({
           ...statement,
-          timestamp: statement.timestamp || new Date().toISOString()
-        })
+          timestamp: statement.timestamp || new Date().toISOString(),
+        }),
       });
 
       if (!response.ok) {
-        throw new Error(`xAPI error: ${response.status} ${response.statusText}`);
+        throw new Error(
+          `xAPI error: ${response.status} ${response.statusText}`
+        );
       }
 
       console.log('[xAPI] Statement sent successfully');
@@ -95,7 +99,7 @@ export class XAPIClient {
     return {
       mbox: `mailto:${userId}@elevateforhumanity.org`,
       name: userName,
-      objectType: 'Agent'
+      objectType: 'Agent',
     };
   }
 
@@ -103,32 +107,32 @@ export class XAPIClient {
   static VERBS = {
     INITIALIZED: {
       id: 'http://adlnet.gov/expapi/verbs/initialized',
-      display: { 'en-US': 'initialized' }
+      display: { 'en-US': 'initialized' },
     },
     COMPLETED: {
       id: 'http://adlnet.gov/expapi/verbs/completed',
-      display: { 'en-US': 'completed' }
+      display: { 'en-US': 'completed' },
     },
     PASSED: {
       id: 'http://adlnet.gov/expapi/verbs/passed',
-      display: { 'en-US': 'passed' }
+      display: { 'en-US': 'passed' },
     },
     FAILED: {
       id: 'http://adlnet.gov/expapi/verbs/failed',
-      display: { 'en-US': 'failed' }
+      display: { 'en-US': 'failed' },
     },
     ATTEMPTED: {
       id: 'http://adlnet.gov/expapi/verbs/attempted',
-      display: { 'en-US': 'attempted' }
+      display: { 'en-US': 'attempted' },
     },
     EXPERIENCED: {
       id: 'http://adlnet.gov/expapi/verbs/experienced',
-      display: { 'en-US': 'experienced' }
+      display: { 'en-US': 'experienced' },
     },
     ANSWERED: {
       id: 'http://adlnet.gov/expapi/verbs/answered',
-      display: { 'en-US': 'answered' }
-    }
+      display: { 'en-US': 'answered' },
+    },
   };
 
   // Track course started
@@ -145,10 +149,10 @@ export class XAPIClient {
         id: `https://elevateconnectsdirectory.org/courses/${courseId}`,
         definition: {
           name: { 'en-US': courseName },
-          type: 'http://adlnet.gov/expapi/activities/course'
+          type: 'http://adlnet.gov/expapi/activities/course',
         },
-        objectType: 'Activity'
-      }
+        objectType: 'Activity',
+      },
     });
   }
 
@@ -162,7 +166,7 @@ export class XAPIClient {
     duration?: number
   ): Promise<void> {
     const result: XAPIResult = {
-      completion: true
+      completion: true,
     };
 
     if (score !== undefined) {
@@ -171,7 +175,7 @@ export class XAPIClient {
         scaled: score / 100,
         raw: score,
         min: 0,
-        max: 100
+        max: 100,
       };
     }
 
@@ -186,11 +190,11 @@ export class XAPIClient {
         id: `https://elevateconnectsdirectory.org/lessons/${lessonId}`,
         definition: {
           name: { 'en-US': lessonName },
-          type: 'http://adlnet.gov/expapi/activities/lesson'
+          type: 'http://adlnet.gov/expapi/activities/lesson',
         },
-        objectType: 'Activity'
+        objectType: 'Activity',
       },
-      result
+      result,
     });
   }
 
@@ -211,21 +215,21 @@ export class XAPIClient {
         id: `https://elevateconnectsdirectory.org/quizzes/${quizId}`,
         definition: {
           name: { 'en-US': quizName },
-          type: 'http://adlnet.gov/expapi/activities/assessment'
+          type: 'http://adlnet.gov/expapi/activities/assessment',
         },
-        objectType: 'Activity'
+        objectType: 'Activity',
       },
       result: {
         score: {
           scaled: score / 100,
           raw: score,
           min: 0,
-          max: 100
+          max: 100,
         },
         success: passed,
         completion: true,
-        duration: duration ? `PT${duration}S` : undefined
-      }
+        duration: duration ? `PT${duration}S` : undefined,
+      },
     });
   }
 
@@ -245,14 +249,14 @@ export class XAPIClient {
         id: `https://elevateconnectsdirectory.org/videos/${videoId}`,
         definition: {
           name: { 'en-US': videoName },
-          type: 'https://w3id.org/xapi/video/activity-type/video'
+          type: 'https://w3id.org/xapi/video/activity-type/video',
         },
-        objectType: 'Activity'
+        objectType: 'Activity',
       },
       result: {
         completion: completionPercentage >= 90,
-        duration: `PT${duration}S`
-      }
+        duration: `PT${duration}S`,
+      },
     });
   }
 }
