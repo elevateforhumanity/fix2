@@ -79,8 +79,24 @@ tasks:
       echo "🚀 Starting dev server..."
       npm run dev || bash scripts/dev.sh || echo "Start server with: npm run dev"
   
+  - name: Vercel Build Check
+    command: |
+      echo "🔍 Vercel Build Checker"
+      echo "Run this to debug Vercel build issues:"
+      echo "   ./gp-fix.sh"
+      echo ""
+      echo "This will:"
+      echo "  - Check system info"
+      echo "  - Install dependencies"
+      echo "  - Verify PWA files"
+      echo "  - Run production build"
+      echo "  - Show required env vars"
+      echo ""
+      gp sync-done vercel-check
+  
   - name: Backend (Optional)
     command: |
+      gp sync-await vercel-check
       if [ -d backend ] && [ -f backend/requirements.txt ]; then
         echo "🐍 Starting Python backend..."
         cd backend
