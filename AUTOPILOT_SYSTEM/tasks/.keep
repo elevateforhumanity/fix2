@@ -1,0 +1,2 @@
+# This directory contains file-based task queue for the Autopilot system
+# Tasks are stored as JSON files with format: <taskType>-<timestamp>-<hash>.json

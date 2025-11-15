@@ -1,0 +1,234 @@
+# Example: Task-Based Autopilot Workflow
+#
+# This workflow demonstrates how to use the file-based task queue
+# instead of creating GitHub issues. This prevents issue spam and
+# provides better task management.
+#
+# Key Changes from Issue-Based System:
+# 1. No more github.rest.issues.create() calls
+# 2. Tasks are created with deduplication and cooldown
+# 3. Tasks are processed by a separate worker workflow
+# 4. GitHub issues are only created for critical failures
+
+name: Task-Based Health Check (Example)
+
+on:
+  # Run every 6 hours
+  schedule:
+    - cron: '0 */6 * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run health checks
+        id: health
+        run: |
+          # Run your health check logic here
+          echo "Running health checks..."
+          
+          # Example: Check if services are up
+          # If health check fails, we'll create a task instead of an issue
+          HEALTH_STATUS="healthy"
+          
+          echo "status=$HEALTH_STATUS" >> $GITHUB_OUTPUT
+
+      - name: Create healing task if unhealthy
+        if: steps.health.outputs.status != 'healthy'
+        run: |
+          # Instead of creating a GitHub issue, create a task
+          node scripts/create-task.js auto-heal \
+            --priority high \
+            --cooldown 360 \
+            --payload '{"source":"health-check","workflow":"${{ github.workflow }}","issue":"${{ steps.health.outputs.issue }}"}' \
+            --metadata '{"runId":"${{ github.run_id }}","actor":"${{ github.actor }}","branch":"${{ github.ref }}"}' \
+            --key '{"type":"health-check-failure"}'
+          
+          echo "✅ Created healing task instead of GitHub issue"
+
+      - name: Create critical issue only if repeatedly failing
+        if: steps.health.outputs.status != 'healthy'
+        run: |
+          # Check if this is a repeated failure by looking at task history
+          TASK_COUNT=$(node scripts/task-worker.js status | grep -c "auto-heal" || echo 0)
+          
+          if [ $TASK_COUNT -gt 5 ]; then
+            echo "⚠️  Multiple healing tasks detected, creating critical issue"
+            # Only create GitHub issue for critical repeated failures
+            gh issue create \
+              --title "🚨 Critical: Repeated Health Check Failures" \
+              --body "Health check has failed multiple times. Manual intervention required." \
+              --label "critical,autopilot,manual-intervention-required"
+          else
+            echo "✅ Single failure, task created, no GitHub issue needed"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+---
+
+# Example: Task Processing Workflow
+#
+# This workflow processes tasks from the queue periodically.
+# It runs more frequently than task creation to ensure timely processing.
+
+name: Process Autopilot Tasks (Example)
+
+on:
+  # Run every 15 minutes
+  schedule:
+    - cron: '*/15 * * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      max_tasks:
+        description: 'Maximum number of tasks to process'
+        required: false
+        default: '5'
+
+jobs:
+  process-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check task queue status
+        id: status
+        run: |
+          node scripts/task-worker.js status
+          
+          PENDING_COUNT=$(node scripts/task-worker.js status | grep -A 20 "Pending Tasks:" | grep -c "^  [a-f0-9]" || echo 0)
+          echo "pending=$PENDING_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Process tasks
+        if: steps.status.outputs.pending > 0
+        run: |
+          MAX_TASKS="${{ github.event.inputs.max_tasks || '5' }}"
+          
+          echo "Processing up to $MAX_TASKS tasks..."
+          node scripts/task-worker.js run $MAX_TASKS
+
+      - name: Update task queue in repository
+        if: steps.status.outputs.pending > 0
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Only commit if there are changes
+          if ! git diff --quiet AUTOPILOT_SYSTEM/tasks/; then
+            git add AUTOPILOT_SYSTEM/tasks/
+            git commit -m "chore: update task queue [skip ci]"
+            git push
+            echo "✅ Task queue updated"
+          else
+            echo "No task updates to commit"
+          fi
+
+      - name: Report queue metrics
+        if: always()
+        run: |
+          echo "📊 Task Queue Metrics:"
+          node scripts/task-worker.js status
+
+      - name: Clean up old tasks
+        if: github.event_name == 'schedule'
+        run: |
+          # Clean up completed/failed tasks older than 7 days
+          node scripts/task-worker.js cleanup 7
+
+---
+
+# Example: Migration from Issue-Based to Task-Based
+#
+# BEFORE (Creates GitHub Issue - causes spam):
+#
+# - name: Create Issue on Failure
+#   if: failure()
+#   uses: actions/github-script@v7
+#   with:
+#     script: |
+#       github.rest.issues.create({
+#         owner: context.repo.owner,
+#         repo: context.repo.repo,
+#         title: '🚨 Autopilot Auto-Heal Failed',
+#         body: 'The autopilot healing process failed...',
+#         labels: ['autopilot', 'auto-heal-failed']
+#       })
+#
+# AFTER (Creates Task - no spam):
+#
+# - name: Create Task on Failure
+#   if: failure()
+#   run: |
+#     node scripts/create-task.js auto-heal \
+#       --priority high \
+#       --payload '{"error":"${{ steps.check.outputs.error }}"}' \
+#       --metadata '{"runId":"${{ github.run_id }}"}' \
+#       --key '{"type":"auto-heal-failure"}'
+
+---
+
+# Example: Task Handler Implementation
+#
+# To implement actual task handling, update scripts/task-worker.js
+# or create separate handler files:
+
+# File: scripts/handlers/health-check-handler.js
+# export async function handleHealthCheck(task) {
+#   console.log('Running health check for:', task.payload);
+#   
+#   // Run actual health check logic
+#   const results = await runHealthChecks();
+#   
+#   if (!results.healthy) {
+#     // Create a healing task
+#     await taskQueue.createTask('auto-heal', {
+#       priority: 'high',
+#       payload: { issues: results.issues },
+#       keyFields: { type: 'health-check-issues' }
+#     });
+#   }
+#   
+#   return results;
+# }
+
+# File: scripts/handlers/auto-heal-handler.js
+# export async function handleAutoHeal(task) {
+#   console.log('Running auto-heal for:', task.payload);
+#   
+#   // Run actual healing logic
+#   const fixes = [];
+#   
+#   for (const issue of task.payload.issues) {
+#     const fixed = await tryFixIssue(issue);
+#     fixes.push({ issue, fixed });
+#   }
+#   
+#   return { fixes, success: fixes.every(f => f.fixed) };
+# }
+
+# Then update task-worker.js to use these handlers:
+# import { handleHealthCheck } from './handlers/health-check-handler.js';
+# import { handleAutoHeal } from './handlers/auto-heal-handler.js';
+#
+# const taskHandlers = {
+#   'health-check': handleHealthCheck,
+#   'auto-heal': handleAutoHeal,
+#   // ... other handlers
+# };
