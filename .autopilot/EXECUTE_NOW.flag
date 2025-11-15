@@ -1,0 +1,15 @@
+EXECUTE_TASK_NOW
+================
+
+Task: vercel-cleanup-all-projects
+Status: READY_TO_EXECUTE
+Priority: CRITICAL
+Created: 2025-11-15T11:20:00Z
+
+This flag file signals the autopilot system to begin task execution immediately.
+
+Task File: .autopilot/tasks/vercel-cleanup-all-projects.json
+Worker Instructions: WORKER_START_NOW.txt
+Checklist: VERCEL_ENV_AUDIT_CHECKLIST.md
+
+AUTOPILOT: Detect this flag and start the worker on the Vercel cleanup task.
