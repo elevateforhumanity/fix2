@@ -32,7 +32,8 @@ jobs:
       
       - name: Process repositories
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use PAT if available, otherwise fall back to GITHUB_TOKEN
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
         run: |
           IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repositories }}"
           

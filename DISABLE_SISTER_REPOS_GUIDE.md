@@ -26,6 +26,31 @@ Disable scheduled autopilot workflows in all sister repositories to prevent auto
 
 **Easiest method - runs automatically via GitHub Actions**
 
+#### Prerequisites:
+
+**GitHub Personal Access Token (PAT) Required:**
+
+The default `GITHUB_TOKEN` only has access to the current repository. To access sister repositories, you need to add a Personal Access Token:
+
+1. **Create a PAT:**
+   - Go to: https://github.com/settings/tokens/new
+   - Name: "Elevate Autopilot - Sister Repos"
+   - Expiration: 90 days (or as needed)
+   - Scopes needed:
+     - ✅ `repo` (Full control of private repositories)
+     - ✅ `workflow` (Update GitHub Action workflows)
+   - Click "Generate token"
+   - **Copy the token immediately** (you won't see it again)
+
+2. **Add PAT to GitHub Secrets:**
+   - Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
+   - Click "New repository secret"
+   - Name: `GH_PAT`
+   - Value: Paste your PAT token
+   - Click "Add secret"
+
+#### Execution Steps:
+
 1. Go to the Actions tab in the fix2 repository:
    https://github.com/elevateforhumanity/fix2/actions
 
@@ -46,10 +71,12 @@ Disable scheduled autopilot workflows in all sister repositories to prevent auto
 - ✅ Runs in GitHub's infrastructure
 - ✅ Creates proper commits with co-author attribution
 - ✅ Can be run multiple times safely
+- ✅ Works across all organization repositories
 
 **Cons:**
+- ⚠️ Requires creating and storing a PAT
+- ⚠️ PAT needs to be refreshed when it expires
 - ⚠️ Requires GitHub Actions to be enabled
-- ⚠️ Requires GITHUB_TOKEN to have write access to other repos
 
 ---
 
