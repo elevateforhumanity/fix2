@@ -63,7 +63,7 @@ export function useOfflineData<T>(
     async function fetchFresh() {
       try {
         const freshData = await fetchFn();
-        
+
         if (mounted) {
           setData(freshData);
           setFromCache(false);

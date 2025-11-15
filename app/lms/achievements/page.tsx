@@ -97,15 +97,21 @@ export default function AchievementsPage() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{unlockedCount}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {unlockedCount}
+            </div>
             <div className="text-xs text-gray-600">Unlocked</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{totalCount - unlockedCount}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {totalCount - unlockedCount}
+            </div>
             <div className="text-xs text-gray-600">In Progress</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{Math.round(progressPercent)}%</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {Math.round(progressPercent)}%
+            </div>
             <div className="text-xs text-gray-600">Complete</div>
           </div>
         </div>

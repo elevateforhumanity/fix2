@@ -168,6 +168,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 ### Browser DevTools
 
 **Chrome DevTools**
+
 ```
 1. Open DevTools (F12)
 2. Click "Toggle device toolbar" (Ctrl+Shift+M)
@@ -177,6 +178,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 ```
 
 **Lighthouse**
+
 ```
 1. Open DevTools
 2. Go to Lighthouse tab
@@ -189,6 +191,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 ### Remote Debugging
 
 **iOS (Safari)**
+
 ```
 1. Enable Web Inspector on iOS device
    Settings > Safari > Advanced > Web Inspector
@@ -198,6 +201,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 ```
 
 **Android (Chrome)**
+
 ```
 1. Enable USB debugging on Android
    Settings > Developer Options > USB Debugging
@@ -209,6 +213,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 ### Testing Checklist
 
 #### Installation
+
 - [ ] PWA install prompt appears
 - [ ] App installs successfully
 - [ ] App icon displays correctly
@@ -216,6 +221,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 - [ ] App opens in standalone mode
 
 #### Offline
+
 - [ ] Service worker registers
 - [ ] Assets are cached
 - [ ] Offline page displays
@@ -223,6 +229,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 - [ ] Background sync works
 
 #### Performance
+
 - [ ] First Contentful Paint < 1.8s
 - [ ] Time to Interactive < 3.8s
 - [ ] Speed Index < 3.4s
@@ -230,6 +237,7 @@ This guide covers testing the Elevate LMS PWA on iOS and Android devices.
 - [ ] Cumulative Layout Shift < 0.1
 
 #### Accessibility
+
 - [ ] Touch targets are large enough
 - [ ] Color contrast meets WCAG AA
 - [ ] Text is readable

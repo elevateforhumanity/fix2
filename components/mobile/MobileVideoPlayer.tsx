@@ -1,7 +1,15 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, RotateCw, RotateCcw } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  RotateCw,
+  RotateCcw,
+} from 'lucide-react';
 
 interface MobileVideoPlayerProps {
   src: string;
@@ -94,7 +102,10 @@ export default function MobileVideoPlayer({
     const video = videoRef.current;
     if (!video) return;
 
-    video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+    video.currentTime = Math.max(
+      0,
+      Math.min(video.duration, video.currentTime + seconds)
+    );
   };
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -128,7 +139,9 @@ export default function MobileVideoPlayer({
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 flex flex-col justify-between p-4">
           {/* Top Bar */}
           <div className="flex items-center justify-between">
-            <h3 className="text-white font-medium text-sm line-clamp-1">{title}</h3>
+            <h3 className="text-white font-medium text-sm line-clamp-1">
+              {title}
+            </h3>
           </div>
 
           {/* Center Play Button */}
@@ -180,7 +193,8 @@ export default function MobileVideoPlayer({
                   <RotateCw size={20} />
                 </button>
                 <span className="text-white text-sm font-medium">
-                  {formatTime(videoRef.current?.currentTime || 0)} / {formatTime(duration)}
+                  {formatTime(videoRef.current?.currentTime || 0)} /{' '}
+                  {formatTime(duration)}
                 </span>
               </div>
 

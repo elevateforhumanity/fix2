@@ -55,9 +55,11 @@ export default function NotificationSettings() {
     <div className="bg-white rounded-lg border border-gray-200 p-6">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-            enabled ? 'bg-blue-100' : 'bg-gray-100'
-          }`}>
+          <div
+            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              enabled ? 'bg-blue-100' : 'bg-gray-100'
+            }`}
+          >
             {enabled ? (
               <Bell size={24} className="text-blue-600" />
             ) : (
@@ -88,9 +90,7 @@ export default function NotificationSettings() {
       </div>
 
       <div className="space-y-3 text-sm text-gray-600">
-        <p>
-          Receive notifications about:
-        </p>
+        <p>Receive notifications about:</p>
         <ul className="space-y-2 ml-4">
           <li className="flex items-center gap-2">
             <Check size={16} className="text-green-500" />

@@ -2,7 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Download, Check, Trash2, Loader2 } from 'lucide-react';
-import { OfflineVideoManager, DownloadProgress } from '@/lib/video/offline-video';
+import {
+  OfflineVideoManager,
+  DownloadProgress,
+} from '@/lib/video/offline-video';
 
 interface VideoDownloadButtonProps {
   videoId: string;
@@ -44,7 +47,12 @@ export default function VideoDownloadButton({
       setProgress(Math.round(prog.percent));
     };
 
-    const success = await manager.downloadVideo(videoId, lessonId, videoUrl, onProgress);
+    const success = await manager.downloadVideo(
+      videoId,
+      lessonId,
+      videoUrl,
+      onProgress
+    );
 
     if (success) {
       setIsDownloaded(true);
@@ -91,7 +99,9 @@ export default function VideoDownloadButton({
 
   if (isDownloading) {
     return (
-      <div className={`${sizeClasses[size]} rounded-lg bg-blue-100 text-blue-600 relative`}>
+      <div
+        className={`${sizeClasses[size]} rounded-lg bg-blue-100 text-blue-600 relative`}
+      >
         <Loader2 size={iconSizes[size]} className="animate-spin" />
         {progress > 0 && (
           <div className="absolute inset-0 flex items-center justify-center">

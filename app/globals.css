@@ -9,44 +9,44 @@
 
 :root {
   /* Brand colors - Red, White, Orange, Blue */
-  --brand-red: #dc2626;          /* bright red */
+  --brand-red: #dc2626; /* bright red */
   --brand-red-dark: #b91c1c;
   --brand-red-light: #ef4444;
   --brand-red-soft: rgba(220, 38, 38, 0.08);
-  
-  --brand-orange: #f97316;       /* vibrant orange */
+
+  --brand-orange: #f97316; /* vibrant orange */
   --brand-orange-dark: #ea580c;
   --brand-orange-light: #fb923c;
   --brand-orange-soft: rgba(249, 115, 22, 0.08);
-  
-  --brand-blue: #2563eb;         /* professional blue */
+
+  --brand-blue: #2563eb; /* professional blue */
   --brand-blue-dark: #1e40af;
   --brand-blue-light: #3b82f6;
   --brand-blue-soft: rgba(37, 99, 235, 0.08);
-  
-  --brand-white: #ffffff;        /* pure white */
-  
+
+  --brand-white: #ffffff; /* pure white */
+
   /* Primary = Red */
   --brand-primary: #dc2626;
   --brand-primary-dark: #b91c1c;
   --brand-primary-light: #ef4444;
   --brand-primary-soft: rgba(220, 38, 38, 0.08);
-  
+
   /* Secondary = Orange */
   --brand-secondary: #f97316;
   --brand-secondary-dark: #ea580c;
   --brand-secondary-light: #fb923c;
-  
+
   /* Accent = Blue */
   --brand-accent: #2563eb;
   --brand-accent-dark: #1e40af;
   --brand-accent-light: #3b82f6;
 
   /* Backgrounds - Light Theme */
-  --brand-bg: #ffffff;           /* pure white */
-  --brand-bg-soft: #f9fafb;      /* off-white */
-  --brand-bg-gray: #f3f4f6;      /* light gray */
-  --brand-surface: #ffffff;      /* card surface */
+  --brand-bg: #ffffff; /* pure white */
+  --brand-bg-soft: #f9fafb; /* off-white */
+  --brand-bg-gray: #f3f4f6; /* light gray */
+  --brand-surface: #ffffff; /* card surface */
   --brand-surface-hover: #f9fafb;
 
   /* Borders */
@@ -62,9 +62,12 @@
 
   /* Shadows - Softer for light theme */
   --brand-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --brand-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --brand-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --brand-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --brand-shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --brand-shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --brand-shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
   /* Border Radius */
   --brand-radius-sm: 0.375rem;
@@ -81,7 +84,9 @@
   --brand-space-xl: 2rem;
   --brand-space-2xl: 3rem;
 
-  --brand-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", sans-serif;
+  --brand-font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto',
+    'Helvetica Neue', sans-serif;
 }
 
 /* ============================================
@@ -142,7 +147,12 @@ body {
   width: 36px;
   height: 36px;
   border-radius: var(--brand-radius-md);
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 50%, var(--brand-blue) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-red) 0%,
+    var(--brand-orange) 50%,
+    var(--brand-blue) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +163,11 @@ body {
 
 /* Hero section */
 .elevate-hero {
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-red) 0%,
+    var(--brand-orange) 100%
+  );
   color: white;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
@@ -218,7 +232,11 @@ body {
   font-size: 0.9375rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-red) 0%,
+    var(--brand-red-dark) 100%
+  );
   box-shadow: var(--brand-shadow-md);
   transition: all 0.2s ease;
 }
@@ -226,7 +244,11 @@ body {
 .elevate-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--brand-shadow-lg);
-  background: linear-gradient(135deg, var(--brand-red-light) 0%, var(--brand-red) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-red-light) 0%,
+    var(--brand-red) 100%
+  );
 }
 
 /* Secondary Button - Orange */
@@ -266,7 +288,11 @@ body {
   font-size: 0.9375rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--brand-blue) 0%,
+    var(--brand-blue-dark) 100%
+  );
   box-shadow: var(--brand-shadow-md);
   transition: all 0.2s ease;
 }
@@ -404,7 +430,7 @@ body {
   width: 100%;
   border-radius: 0.75rem;
   border: 1px solid rgba(148, 163, 184, 0.5);
-  background: rgba(15,23,42,0.9);
+  background: rgba(15, 23, 42, 0.9);
   color: var(--brand-text);
   padding: 0.5rem 0.75rem;
   font-size: 0.82rem;
@@ -508,16 +534,16 @@ body {
   .elevate-shell {
     padding: 1rem;
   }
-  
+
   .elevate-nav {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
+
   .elevate-hero {
     padding: 1.2rem;
   }
-  
+
   .elevate-hero-title {
     font-size: 1.2rem;
   }
@@ -612,12 +638,12 @@ body {
 
 /* Prevent zoom on input focus (iOS) */
 @media (max-width: 1024px) {
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="url"],
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='url'],
   textarea,
   select {
     font-size: 16px !important;
@@ -648,7 +674,7 @@ body {
   .mobile-nav-bottom {
     display: none;
   }
-  
+
   .has-bottom-nav {
     padding-bottom: 0;
   }
@@ -656,9 +682,15 @@ body {
 
 /* Haptic feedback simulation */
 @keyframes haptic-pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .haptic-feedback:active {
@@ -667,19 +699,18 @@ body {
 
 /* Loading skeleton for mobile */
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 25%,
-    #e0e0e0 50%,
-    #f0f0f0 75%
-  );
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s ease-in-out infinite;
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Mobile-first utility classes */
