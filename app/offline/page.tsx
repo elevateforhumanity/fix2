@@ -17,7 +17,8 @@ export default function OfflinePage() {
         </h1>
 
         <p className="text-gray-600 mb-6">
-          It looks like you've lost your internet connection. Some features may be limited until you're back online.
+          It looks like you've lost your internet connection. Some features may
+          be limited until you're back online.
         </p>
 
         <button
