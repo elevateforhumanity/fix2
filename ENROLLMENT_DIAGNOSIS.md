@@ -8,6 +8,7 @@
 ## Root Cause
 
 The enrollment page is a **dynamic route** that requires a program parameter:
+
 - **Route Structure**: `/app/enroll/[program]/page.tsx`
 - **Expected URLs**: `/enroll/wrg`, `/enroll/wioa`, `/enroll/jri`, etc.
 - **Problem**: Visiting `/enroll/` (without program) returns 404
@@ -46,7 +47,13 @@ Create `/app/enroll/page.tsx` to show all enrollment options:
 // app/enroll/page.tsx
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { GraduationCap, Users, Scale, Building, Award } from 'lucide-react';
@@ -57,36 +64,38 @@ const programs = [
     title: 'Workforce Ready Grant (WRG)',
     description: 'Free training for Indiana residents in high-demand careers',
     icon: GraduationCap,
-    color: 'bg-blue-500'
+    color: 'bg-blue-500',
   },
   {
     code: 'wioa',
     title: 'WorkOne / WIOA',
-    description: 'Workforce Innovation and Opportunity Act funding for eligible adults',
+    description:
+      'Workforce Innovation and Opportunity Act funding for eligible adults',
     icon: Users,
-    color: 'bg-green-500'
+    color: 'bg-green-500',
   },
   {
     code: 'jri',
     title: 'Justice Reinvestment Initiative (JRI)',
-    description: 'Training for justice-involved individuals reentering the workforce',
+    description:
+      'Training for justice-involved individuals reentering the workforce',
     icon: Scale,
-    color: 'bg-purple-500'
+    color: 'bg-purple-500',
   },
   {
     code: 'employindy',
     title: 'EmployIndy',
     description: 'Marion County workforce development programs',
     icon: Building,
-    color: 'bg-orange-500'
+    color: 'bg-orange-500',
   },
   {
     code: 'dol',
     title: 'DOL Apprenticeship',
     description: 'Department of Labor Registered Apprenticeship programs',
     icon: Award,
-    color: 'bg-red-500'
-  }
+    color: 'bg-red-500',
+  },
 ];
 
 export default function EnrollIndexPage() {
@@ -103,7 +112,8 @@ export default function EnrollIndexPage() {
             Choose Your Funding Program
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Select the program that matches your eligibility to start your enrollment
+            Select the program that matches your eligibility to start your
+            enrollment
           </p>
         </div>
 
@@ -111,13 +121,15 @@ export default function EnrollIndexPage() {
           {programs.map((program) => {
             const Icon = program.icon;
             return (
-              <Card 
+              <Card
                 key={program.code}
                 className="hover:shadow-xl transition-shadow cursor-pointer"
                 onClick={() => router.push(`/enroll/${program.code}`)}
               >
                 <CardHeader>
-                  <div className={`w-12 h-12 ${program.color} rounded-lg flex items-center justify-center mb-4`}>
+                  <div
+                    className={`w-12 h-12 ${program.color} rounded-lg flex items-center justify-center mb-4`}
+                  >
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <CardTitle className="text-xl">{program.title}</CardTitle>
@@ -148,7 +160,10 @@ export default function EnrollIndexPage() {
                 <Button onClick={() => router.push('/contact')}>
                   Contact Us
                 </Button>
-                <Button variant="outline" onClick={() => router.push('/programs')}>
+                <Button
+                  variant="outline"
+                  onClick={() => router.push('/programs')}
+                >
                   View Programs
                 </Button>
               </div>
@@ -179,7 +194,10 @@ export default function EnrollPage() {
 Add to `middleware.ts`:
 
 ```typescript
-if (request.nextUrl.pathname === '/enroll' || request.nextUrl.pathname === '/enroll/') {
+if (
+  request.nextUrl.pathname === '/enroll' ||
+  request.nextUrl.pathname === '/enroll/'
+) {
   return NextResponse.redirect(new URL('/programs', request.url));
 }
 ```
