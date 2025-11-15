@@ -42,7 +42,7 @@ export class OfflineVideoManager {
         throw new Error('Failed to get response reader');
       }
 
-      const chunks: Uint8Array[] = [];
+      const chunks: BlobPart[] = [];
       let loaded = 0;
 
       while (true) {
