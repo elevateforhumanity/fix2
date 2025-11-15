@@ -19,6 +19,7 @@ These are **planned sister organizations** that are part of your broader mission
 **Purpose:** Workforce LMS + Case Management Platform
 
 **What it does:**
+
 - Learning Management System for workforce training
 - Case management for WIOA, WRG, JRI programs
 - Course catalog and enrollment
@@ -27,6 +28,7 @@ These are **planned sister organizations** that are part of your broader mission
 - Admin portal for program management
 
 **Target Users:**
+
 - Students/Learners
 - Workforce program administrators
 - Training providers (Program Holders)
@@ -34,7 +36,7 @@ These are **planned sister organizations** that are part of your broader mission
 
 ---
 
-## 2. Selfish Inc. 
+## 2. Selfish Inc.
 
 **URL:** https://www.selfishinc.org (not live yet)  
 **Also:** https://www.selfishincsupport.org (mentioned in docs)  
@@ -43,6 +45,7 @@ These are **planned sister organizations** that are part of your broader mission
 **Purpose:** Nonprofit/Philanthropic Arm
 
 **What it's supposed to do:**
+
 - Grant programs for individual learners ($500-$5,000)
 - Scholarship funding
 - Community impact initiatives
@@ -50,9 +53,11 @@ These are **planned sister organizations** that are part of your broader mission
 - Volunteer coordination
 
 **Mission Statement (from docs):**
+
 > "Creating Pathways to Prosperity Through Education and Workforce Development"
 
 **Grant Programs:**
+
 - Individual Learner Grants
 - Tuition assistance
 - Books and materials
@@ -74,6 +79,7 @@ These are **planned sister organizations** that are part of your broader mission
 **Purpose:** Foundation/Funding Organization
 
 **What it's supposed to do:**
+
 - Foundation-level philanthropy
 - Large-scale grant programs
 - Strategic partnerships
@@ -81,6 +87,7 @@ These are **planned sister organizations** that are part of your broader mission
 - Impact measurement
 
 **Focus Areas (inferred):**
+
 - Workforce development
 - Educational equity
 - Economic mobility
@@ -140,11 +147,11 @@ Trained Workforce
 
 ## 📊 CURRENT STATUS
 
-| Organization | Status | URL | Purpose |
-|-------------|--------|-----|---------|
-| **Elevate Connects Directory** | 🚧 Building | elevateconnectsdirectory.org | LMS Platform |
-| **Selfish Inc.** | 🔮 Planned | selfishinc.org | Grants & Scholarships |
-| **Rise Forward Foundation** | 🔮 Planned | riseforwardfoundation.org | Foundation Funding |
+| Organization                   | Status      | URL                          | Purpose               |
+| ------------------------------ | ----------- | ---------------------------- | --------------------- |
+| **Elevate Connects Directory** | 🚧 Building | elevateconnectsdirectory.org | LMS Platform          |
+| **Selfish Inc.**               | 🔮 Planned  | selfishinc.org               | Grants & Scholarships |
+| **Rise Forward Foundation**    | 🔮 Planned  | riseforwardfoundation.org    | Foundation Funding    |
 
 ---
 
@@ -153,29 +160,32 @@ Trained Workforce
 ### **Option 1: Include Them (Build Anticipation)**
 
 **Pros:**
+
 - ✅ Shows your broader vision
 - ✅ Builds brand awareness
 - ✅ Creates anticipation
 - ✅ Demonstrates comprehensive ecosystem
 
 **Cons:**
+
 - ❌ Links go to non-existent sites (404 errors)
 - ❌ Might confuse users
 - ❌ Looks unprofessional if sites don't exist
 
 **How to do it:**
+
 ```typescript
 // components/SisterSites.tsx
 export function SisterSites() {
   const sites = [
-    { 
-      name: "Selfish Inc.", 
+    {
+      name: "Selfish Inc.",
       url: "#", // Don't link yet
       description: "Grant programs and scholarships",
       status: "Coming Soon"
     },
-    { 
-      name: "Rise Forward Foundation", 
+    {
+      name: "Rise Forward Foundation",
       url: "#",
       description: "Foundation funding and partnerships",
       status: "Coming Soon"
@@ -204,12 +214,14 @@ export function SisterSites() {
 ### **Option 2: Don't Include Them Yet (Recommended)**
 
 **Pros:**
+
 - ✅ No broken links
 - ✅ Professional appearance
 - ✅ Focus on what's working
 - ✅ Add them when they're ready
 
 **Cons:**
+
 - ❌ Doesn't show full vision
 - ❌ Misses cross-promotion opportunity
 
@@ -220,12 +232,14 @@ export function SisterSites() {
 ## 🚀 WHEN TO ADD THEM
 
 **Add sister sites when:**
+
 1. ✅ Your main LMS is deployed and working
 2. ✅ The sister sites are actually built
 3. ✅ The domains are registered and live
 4. ✅ There's content on those sites
 
 **Don't add them if:**
+
 - ❌ Sites don't exist yet
 - ❌ Domains aren't registered
 - ❌ You're still building the main LMS
@@ -235,16 +249,19 @@ export function SisterSites() {
 ## 📝 WHAT TO DO NOW
 
 ### **Immediate (Now):**
+
 - ❌ **Don't add sister sites to your footer yet**
 - ✅ Focus on getting your LMS deployed
 - ✅ Get elevateconnectsdirectory.org working first
 
 ### **Short-term (1-3 months):**
+
 - Register the domains (selfishinc.org, riseforwardfoundation.org)
 - Build simple landing pages for each
 - Add "Coming Soon" messaging
 
 ### **Long-term (6-12 months):**
+
 - Build out full sites for each organization
 - Implement grant application system
 - Create foundation portal
@@ -263,14 +280,14 @@ export function Footer() {
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* About */}
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">
               Elevate for Humanity
             </h3>
             <p className="text-sm text-gray-600">
-              Career & Technical Institute providing workforce training 
+              Career & Technical Institute providing workforce training
               and case management for WIOA, WRG, and JRI programs.
             </p>
           </div>
@@ -310,15 +327,18 @@ export function Footer() {
 ## ✅ CONCLUSION
 
 **Sister Sites:**
+
 - Selfish Inc. = Grants & Scholarships (not live)
 - Rise Forward Foundation = Foundation Funding (not live)
 
 **What to do:**
+
 - ❌ Don't add them to your site yet
 - ✅ Focus on deploying your LMS first
 - ✅ Add them later when they're actually built
 
 **Priority:**
+
 1. Get elevateconnectsdirectory.org deployed ⭐⭐⭐
 2. Build sister sites (later)
 3. Add cross-linking (much later)
