@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
-import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 export default function HomePage() {
   return (
@@ -117,44 +116,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section with Animations */}
+      {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="elevate-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={100} 
-                suffix="%" 
-                className="text-5xl font-bold text-purple-600 mb-2"
-              />
+              <div className="text-5xl font-bold text-purple-600 mb-2">100%</div>
               <div className="text-gray-700 font-semibold">Free Training</div>
               <div className="text-sm text-gray-500 mt-1">WIOA-Funded</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={10} 
-                suffix="+" 
-                className="text-5xl font-bold text-orange-600 mb-2"
-              />
+              <div className="text-5xl font-bold text-orange-600 mb-2">10+</div>
               <div className="text-gray-700 font-semibold">Career Programs</div>
               <div className="text-sm text-gray-500 mt-1">High-Demand Fields</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={85} 
-                suffix="%" 
-                className="text-5xl font-bold text-teal-600 mb-2"
-              />
+              <div className="text-5xl font-bold text-teal-600 mb-2">85%</div>
               <div className="text-gray-700 font-semibold">Job Placement</div>
               <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <AnimatedCounter 
-                end={45} 
-                prefix="$" 
-                suffix="K+" 
-                className="text-5xl font-bold text-blue-600 mb-2"
-              />
+              <div className="text-5xl font-bold text-blue-600 mb-2">$45K+</div>
               <div className="text-gray-700 font-semibold">Avg. Starting Salary</div>
               <div className="text-sm text-gray-500 mt-1">For Graduates</div>
             </div>
