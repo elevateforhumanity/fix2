@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
 
   // Generate QR code
   const origin = req.headers.get('origin') || 'https://efh-lms.com';
-  const verifyUrl = `${origin}/cert/verify/${cert.serial}`;
+  const verifyUrl = `${origin}/cert/verify/${cert.verification_code || cert.serial}`;
   const qrDataUrl = await QRCode.toDataURL(verifyUrl, { margin: 0 });
 
   // Create PDF document

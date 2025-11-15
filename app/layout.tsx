@@ -16,11 +16,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Elevate for Humanity | Workforce Training & Career Development',
-    description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-  },
+
   robots: {
     index: true,
     follow: true,

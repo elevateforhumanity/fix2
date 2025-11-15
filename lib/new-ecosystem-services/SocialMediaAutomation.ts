@@ -12,7 +12,7 @@
 
 interface SocialMediaPost {
   id: string;
-  platform: 'facebook' | 'linkedin' | 'youtube' | 'twitter';
+  platform: 'facebook' | 'linkedin' | 'youtube';
   content: string;
   mediaUrl?: string;
   scheduledTime: Date;
@@ -132,7 +132,7 @@ export class SocialMediaAutomation {
    */
   private selectPlatform(
     index: number
-  ): 'facebook' | 'linkedin' | 'youtube' | 'twitter' {
+  ): 'facebook' | 'linkedin' | 'youtube' {
     const platforms: ('facebook' | 'linkedin' | 'youtube')[] = [
       'facebook',
       'linkedin',

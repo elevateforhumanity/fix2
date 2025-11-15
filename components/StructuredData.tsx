@@ -20,7 +20,6 @@ export default function StructuredData() {
     sameAs: [
       'https://www.facebook.com/elevateforhumanity',
       'https://www.linkedin.com/company/elevateforhumanity',
-      'https://twitter.com/elevate4humanity',
     ],
   };
 
