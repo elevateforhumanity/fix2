@@ -243,16 +243,16 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Barber Apprenticeship</h3>
               <p className="text-gray-600 mb-4">
-                Master the art of barbering with comprehensive training in cutting, styling, and business skills.
+                DOL Registered Apprenticeship. Master barbering with 2,000-hour comprehensive training.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-red-600" />
-                  24 lessons • 12 weeks
+                  DOL Registered • 2,000 hours
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-red-600" />
-                  State certification prep
+                  Indiana State Barber License
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-red-600" />
@@ -267,30 +267,30 @@ export default function HomePage() {
             <div className="elevate-card elevate-card-blue group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
                 <img 
-                  src="/course-covers/cna-training/cover.svg" 
-                  alt="CNA Certification"
+                  src="/course-covers/truck-driving/cover.svg" 
+                  alt="CDL Truck Driving"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">CNA Certification</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">CDL Truck Driving</h3>
               <p className="text-gray-600 mb-4">
-                Prepare for your Certified Nursing Assistant certification with expert-led training.
+                Professional truck driver training leading to Class A Commercial Driver License.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  30 lessons • 8 weeks
+                  DOL Approved • 160 hours
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  State exam preparation
+                  Class A CDL certification
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600" />
-                  $30K-$40K starting salary
+                  $50K-$65K starting salary
                 </li>
               </ul>
-              <Link href="/programs/cna" className="elevate-btn-accent w-full text-center block">
+              <Link href="/programs/truck-driving" className="elevate-btn-accent w-full text-center block">
                 Learn More
               </Link>
             </div>
@@ -305,12 +305,12 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">HVAC Technician</h3>
               <p className="text-gray-600 mb-4">
-                Learn heating, ventilation, and air conditioning systems from industry experts.
+                ETPL Approved. Master HVAC systems with comprehensive 640-hour training program.
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
-                  28 lessons • 16 weeks
+                  ETPL Approved • 640 hours
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
