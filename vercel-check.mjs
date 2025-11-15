@@ -59,17 +59,8 @@ console.log("\n" + "=".repeat(50));
 if (missingCritical > 0) {
   console.log(`❌ ${missingCritical} critical environment variable(s) missing`);
   console.log("⚠️  Build may fail or app may not function correctly");
+  console.log("⚠️  Continuing build despite missing variables...\n");
 } else {
   console.log("✅ All critical environment variables are set");
-}
-
-console.log("\n💡 Reminder: Heavy server-side libraries must only be used in:");
-console.log("   - API routes with: export const runtime = 'nodejs'");
-console.log("   - Server components (not client components)");
-console.log("   - Background scripts (not browser code)");
-console.log("");
-
-// Exit with warning code if critical vars missing (but don't fail build)
-if (missingCritical > 0) {
-  console.log("⚠️  Continuing build despite missing variables...\n");
+  console.log("✅ Build environment is ready\n");
 }
