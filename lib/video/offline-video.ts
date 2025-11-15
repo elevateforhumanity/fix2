@@ -42,7 +42,7 @@ export class OfflineVideoManager {
         throw new Error('Failed to get response reader');
       }
 
-      const chunks: BlobPart[] = [];
+      const chunks: Uint8Array[] = [];
       let loaded = 0;
 
       while (true) {
@@ -62,8 +62,8 @@ export class OfflineVideoManager {
         }
       }
 
-      // Combine chunks into blob
-      const blob = new Blob(chunks, { type: 'video/mp4' });
+      // Combine chunks into blob - convert Uint8Array[] to BlobPart[]
+      const blob = new Blob(chunks as BlobPart[], { type: 'video/mp4' });
 
       // Save to IndexedDB
       const db = await getDB();
