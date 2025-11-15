@@ -5,7 +5,8 @@ export default function StructuredData() {
     name: 'Elevate for Humanity',
     url: 'https://elevateconnectsdirectory.org',
     logo: 'https://elevateconnectsdirectory.org/assets/logo-efh.svg',
-    description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
+    description:
+      'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Indianapolis',

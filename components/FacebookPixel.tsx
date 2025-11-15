@@ -20,10 +20,12 @@ export default function FacebookPixel() {
 
     // Initialize Facebook Pixel
     if (!window.fbq) {
-      (function(f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
+      (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
         if (f.fbq) return;
-        n = f.fbq = function() {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
         };
         if (!f._fbq) f._fbq = n;
         n.push = n;
@@ -35,7 +37,12 @@ export default function FacebookPixel() {
         t.src = v;
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s);
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+      );
 
       window.fbq!('init', pixelId);
     }
@@ -60,7 +67,10 @@ export default function FacebookPixel() {
 }
 
 // Helper functions for tracking events
-export const trackFacebookEvent = (eventName: string, data?: Record<string, any>) => {
+export const trackFacebookEvent = (
+  eventName: string,
+  data?: Record<string, any>
+) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', eventName, data);
   }
@@ -76,7 +86,11 @@ export const trackCourseView = (courseId: string, courseName: string) => {
   });
 };
 
-export const trackEnrollment = (courseId: string, courseName: string, value?: number) => {
+export const trackEnrollment = (
+  courseId: string,
+  courseName: string,
+  value?: number
+) => {
   trackFacebookEvent('InitiateCheckout', {
     content_name: courseName,
     content_category: 'Course',

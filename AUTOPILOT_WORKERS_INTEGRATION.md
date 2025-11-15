@@ -7,7 +7,9 @@
 ## 🤖 What Autopilot Workers Will Do
 
 ### 1. Program Holder Applications
+
 **Worker Task**: Process new training provider applications
+
 - Auto-verify business information
 - Pre-fill state licensing forms
 - Generate MOU documents
@@ -15,7 +17,9 @@
 - Track approval status
 
 ### 2. Student Certifications
+
 **Worker Task**: Handle student certification applications
+
 - Auto-fill WIOA eligibility forms
 - Submit to workforce portals
 - Track certification status
@@ -23,7 +27,9 @@
 - Send notifications
 
 ### 3. Instructor Credentials
+
 **Worker Task**: Manage instructor licensing
+
 - Verify credentials
 - Submit license applications
 - Track renewal dates
@@ -31,7 +37,9 @@
 - Alert for expiring licenses
 
 ### 4. Compliance Reporting
+
 **Worker Task**: Automated compliance tracking
+
 - Generate WIOA reports
 - Submit to funding agencies
 - Track participant progress
@@ -83,9 +91,11 @@
 ## 📋 Worker Types & Responsibilities
 
 ### Worker 1: Application Processor
+
 **Role**: Process program holder applications
 
 **Tasks**:
+
 1. Receive new application from `/api/program-holder/apply`
 2. Create autopilot packet
 3. Validate business information
@@ -102,9 +112,11 @@
 ---
 
 ### Worker 2: Certification Manager
+
 **Role**: Handle student certifications
 
 **Tasks**:
+
 1. Monitor student enrollments
 2. Check WIOA eligibility
 3. Generate eligibility packets
@@ -121,9 +133,11 @@
 ---
 
 ### Worker 3: Compliance Reporter
+
 **Role**: Automated compliance reporting
 
 **Tasks**:
+
 1. Collect participant data
 2. Generate WIOA reports
 3. Calculate performance metrics
@@ -139,9 +153,11 @@
 ---
 
 ### Worker 4: Credential Monitor
+
 **Role**: Track instructor credentials
 
 **Tasks**:
+
 1. Monitor license expiration dates
 2. Alert 60 days before expiry
 3. Pre-fill renewal forms
@@ -157,9 +173,11 @@
 ---
 
 ### Worker 5: Document Generator
+
 **Role**: Generate program documents
 
 **Tasks**:
+
 1. Generate MOUs for program holders
 2. Create enrollment agreements
 3. Generate certificates
@@ -239,10 +257,11 @@ import { createSupabaseClient } from '@/lib/supabase-api';
 // POST - Add task to worker queue
 export async function POST(request: NextRequest) {
   const supabase = createSupabaseClient();
-  
+
   try {
-    const { worker_type, task_data, priority, scheduled_for } = await request.json();
-    
+    const { worker_type, task_data, priority, scheduled_for } =
+      await request.json();
+
     const { data, error } = await supabase
       .from('autopilot_worker_queue')
       .insert({
@@ -254,27 +273,24 @@ export async function POST(request: NextRequest) {
       })
       .select()
       .single();
-    
+
     if (error) throw error;
-    
+
     return NextResponse.json({ success: true, task: data });
   } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
 // GET - Get pending tasks
 export async function GET(request: NextRequest) {
   const supabase = createSupabaseClient();
-  
+
   try {
     const { searchParams } = new URL(request.url);
     const worker_type = searchParams.get('worker_type');
     const status = searchParams.get('status') || 'pending';
-    
+
     let query = supabase
       .from('autopilot_worker_queue')
       .select('*')
@@ -282,21 +298,18 @@ export async function GET(request: NextRequest) {
       .lte('scheduled_for', new Date().toISOString())
       .order('priority', { ascending: false })
       .order('created_at', { ascending: true });
-    
+
     if (worker_type) {
       query = query.eq('worker_type', worker_type);
     }
-    
+
     const { data, error } = await query.limit(10);
-    
+
     if (error) throw error;
-    
+
     return NextResponse.json({ tasks: data });
   } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 ```
@@ -322,7 +335,7 @@ const workers = {
 
 export async function POST(request: NextRequest) {
   const supabase = createSupabaseClient();
-  
+
   try {
     // Get next pending task
     const { data: task, error: fetchError } = await supabase
@@ -334,11 +347,11 @@ export async function POST(request: NextRequest) {
       .order('created_at', { ascending: true })
       .limit(1)
       .single();
-    
+
     if (fetchError || !task) {
       return NextResponse.json({ message: 'No pending tasks' });
     }
-    
+
     // Mark as processing
     await supabase
       .from('autopilot_worker_queue')
@@ -347,16 +360,16 @@ export async function POST(request: NextRequest) {
         started_at: new Date().toISOString(),
       })
       .eq('id', task.id);
-    
+
     // Process task
     const processor = workers[task.worker_type as keyof typeof workers];
-    
+
     if (!processor) {
       throw new Error(`Unknown worker type: ${task.worker_type}`);
     }
-    
+
     const result = await processor(task.task_data, supabase);
-    
+
     // Mark as completed
     await supabase
       .from('autopilot_worker_queue')
@@ -365,19 +378,16 @@ export async function POST(request: NextRequest) {
         completed_at: new Date().toISOString(),
       })
       .eq('id', task.id);
-    
+
     // Log success
-    await supabase
-      .from('autopilot_worker_logs')
-      .insert({
-        queue_id: task.id,
-        worker_type: task.worker_type,
-        action: 'completed',
-        details: result,
-      });
-    
+    await supabase.from('autopilot_worker_logs').insert({
+      queue_id: task.id,
+      worker_type: task.worker_type,
+      action: 'completed',
+      details: result,
+    });
+
     return NextResponse.json({ success: true, result });
-    
   } catch (error: any) {
     // Handle failure
     const { data: task } = await supabase
@@ -385,11 +395,11 @@ export async function POST(request: NextRequest) {
       .select('*')
       .eq('status', 'processing')
       .single();
-    
+
     if (task) {
       const retry_count = (task.retry_count || 0) + 1;
       const status = retry_count >= task.max_retries ? 'failed' : 'pending';
-      
+
       await supabase
         .from('autopilot_worker_queue')
         .update({
@@ -398,22 +408,17 @@ export async function POST(request: NextRequest) {
           error_message: error.message,
         })
         .eq('id', task.id);
-      
+
       // Log error
-      await supabase
-        .from('autopilot_worker_logs')
-        .insert({
-          queue_id: task.id,
-          worker_type: task.worker_type,
-          action: 'error',
-          details: { error: error.message },
-        });
+      await supabase.from('autopilot_worker_logs').insert({
+        queue_id: task.id,
+        worker_type: task.worker_type,
+        action: 'error',
+        details: { error: error.message },
+      });
     }
-    
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
@@ -425,11 +430,11 @@ async function processApplication(data: any, supabase: any) {
     .select('*')
     .eq('id', data.application_id)
     .single();
-  
+
   // 2. Create autopilot packet
   // 3. Pre-fill forms
   // 4. Queue for review
-  
+
   return { status: 'queued_for_review', application_id: data.application_id };
 }
 
@@ -438,7 +443,7 @@ async function processCertification(data: any, supabase: any) {
   // 2. Check WIOA eligibility
   // 3. Generate certification packet
   // 4. Submit to portal
-  
+
   return { status: 'submitted', student_id: data.student_id };
 }
 
@@ -446,7 +451,7 @@ async function processCompliance(data: any, supabase: any) {
   // 1. Collect participant data
   // 2. Generate report
   // 3. Submit to agency
-  
+
   return { status: 'submitted', report_id: data.report_id };
 }
 
@@ -454,7 +459,7 @@ async function processCredential(data: any, supabase: any) {
   // 1. Check credential expiration
   // 2. Send alerts
   // 3. Pre-fill renewal forms
-  
+
   return { status: 'alert_sent', instructor_id: data.instructor_id };
 }
 
@@ -462,7 +467,7 @@ async function processDocument(data: any, supabase: any) {
   // 1. Generate document
   // 2. Store in database
   // 3. Send notification
-  
+
   return { status: 'generated', document_id: data.document_id };
 }
 ```
@@ -514,41 +519,39 @@ export async function GET(request: NextRequest) {
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
-  
+
   try {
     // Process up to 10 tasks
     const results = [];
-    
+
     for (let i = 0; i < 10; i++) {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_APP_URL}/api/autopilot/workers/process`,
         { method: 'POST' }
       );
-      
+
       const result = await response.json();
-      
+
       if (result.message === 'No pending tasks') {
         break;
       }
-      
+
       results.push(result);
     }
-    
+
     return NextResponse.json({
       success: true,
       processed: results.length,
       results,
     });
   } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 ```
 
 **Configure in Vercel**:
+
 1. Go to Project Settings → Cron Jobs
 2. Add new cron job:
    - Path: `/api/cron/process-workers`
@@ -573,26 +576,26 @@ export default function WorkersDashboard() {
     completed: 0,
     failed: 0,
   });
-  
+
   useEffect(() => {
     fetchTasks();
     const interval = setInterval(fetchTasks, 10000); // Refresh every 10s
     return () => clearInterval(interval);
   }, []);
-  
+
   async function fetchTasks() {
     const response = await fetch('/api/autopilot/workers/queue');
     const data = await response.json();
     setTasks(data.tasks || []);
-    
+
     // Calculate stats
     // ... (count by status)
   }
-  
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Autopilot Workers</h1>
-      
+
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         <StatCard title="Pending" value={stats.pending} color="yellow" />
@@ -600,7 +603,7 @@ export default function WorkersDashboard() {
         <StatCard title="Completed" value={stats.completed} color="green" />
         <StatCard title="Failed" value={stats.failed} color="red" />
       </div>
-      
+
       {/* Task List */}
       <div className="bg-white rounded-lg shadow">
         <table className="w-full">
@@ -643,7 +646,7 @@ function StatCard({ title, value, color }: any) {
     green: 'bg-green-100 text-green-800',
     red: 'bg-red-100 text-red-800',
   };
-  
+
   return (
     <div className={`p-4 rounded-lg ${colors[color as keyof typeof colors]}`}>
       <div className="text-sm font-medium">{title}</div>
@@ -659,7 +662,7 @@ function StatusBadge({ status }: { status: string }) {
     completed: 'bg-green-100 text-green-800',
     failed: 'bg-red-100 text-red-800',
   };
-  
+
   return (
     <span className={`px-2 py-1 rounded text-xs font-medium ${colors[status as keyof typeof colors]}`}>
       {status}
@@ -686,6 +689,7 @@ function StatusBadge({ status }: { status: string }) {
 ## 📊 Monitoring & Alerts
 
 ### Metrics to Track:
+
 - Tasks processed per hour
 - Average processing time
 - Success/failure rate
@@ -693,6 +697,7 @@ function StatusBadge({ status }: { status: string }) {
 - Worker uptime
 
 ### Alerts:
+
 - Failed tasks > 5
 - Queue depth > 100
 - Processing time > 5 minutes
@@ -703,6 +708,7 @@ function StatusBadge({ status }: { status: string }) {
 ## 🎯 Success Criteria
 
 After implementation:
+
 - ✅ Applications auto-processed within 5 minutes
 - ✅ Certifications submitted within 24 hours
 - ✅ Compliance reports auto-generated

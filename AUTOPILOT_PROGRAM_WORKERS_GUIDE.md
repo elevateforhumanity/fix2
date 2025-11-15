@@ -46,6 +46,7 @@ The **Autopilot System** automates certification applications with human oversig
 ## Current System Status
 
 ### ✅ Already Built:
+
 - FastAPI backend with API routes
 - Supabase database schema
 - Profile management system
@@ -54,6 +55,7 @@ The **Autopilot System** automates certification applications with human oversig
 - Worker dashboard components (React/TypeScript)
 
 ### ⏳ Needs Integration:
+
 - Connect to main Next.js app
 - Add worker role to existing auth system
 - Create UI in admin portal for autopilot
@@ -83,6 +85,7 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
 
 **Deploy to**:
+
 - Vercel (as serverless functions)
 - Railway
 - Fly.io
@@ -100,6 +103,7 @@ psql -h your-supabase-url -f schema.sql
 ```
 
 **Tables Created**:
+
 - `autopilot_profiles` - Master business profiles
 - `autopilot_packets` - Certification applications
 - `autopilot_packet_fields` - Field values
@@ -114,21 +118,21 @@ psql -h your-supabase-url -f schema.sql
 **Update**: `lib/auth.ts`
 
 ```typescript
-export type UserRole = 
-  | 'student' 
-  | 'admin' 
-  | 'program_holder' 
+export type UserRole =
+  | 'student'
+  | 'admin'
+  | 'program_holder'
   | 'delegate'
-  | 'cert_worker'      // NEW
-  | 'cert_reviewer';   // NEW
+  | 'cert_worker' // NEW
+  | 'cert_reviewer'; // NEW
 ```
 
 **Add to Supabase**:
 
 ```sql
 -- Add worker roles to profiles table
-ALTER TABLE profiles 
-ADD COLUMN IF NOT EXISTS autopilot_role TEXT 
+ALTER TABLE profiles
+ADD COLUMN IF NOT EXISTS autopilot_role TEXT
 CHECK (autopilot_role IN ('cert_worker', 'cert_reviewer', 'auditor'));
 
 -- Grant permissions
@@ -137,7 +141,7 @@ ON autopilot_packets FOR SELECT
 TO authenticated
 USING (
   auth.uid() IN (
-    SELECT user_id FROM profiles 
+    SELECT user_id FROM profiles
     WHERE autopilot_role IN ('cert_worker', 'cert_reviewer')
   )
 );
@@ -173,7 +177,8 @@ app/admin/autopilot/
 **Create API Client**: `lib/autopilot-api.ts`
 
 ```typescript
-const AUTOPILOT_API = process.env.NEXT_PUBLIC_AUTOPILOT_API_URL || 'http://localhost:8000';
+const AUTOPILOT_API =
+  process.env.NEXT_PUBLIC_AUTOPILOT_API_URL || 'http://localhost:8000';
 
 export async function getPackets() {
   const res = await fetch(`${AUTOPILOT_API}/api/packets`);
@@ -211,6 +216,7 @@ export async function approvePacket(packetId: string) {
 **Scenario**: Barbershop applies to become training provider
 
 **Autopilot Flow**:
+
 1. Program holder fills out application in portal
 2. Autopilot creates packet with their data
 3. Autopilot pre-fills state licensing forms (PDF)
@@ -220,6 +226,7 @@ export async function approvePacket(packetId: string) {
 7. Confirmation logged in audit trail
 
 **Benefits**:
+
 - No manual form filling
 - Consistent data across applications
 - Audit trail for compliance
@@ -232,6 +239,7 @@ export async function approvePacket(packetId: string) {
 **Scenario**: Student needs WIOA eligibility certification
 
 **Autopilot Flow**:
+
 1. Student completes enrollment form
 2. Autopilot creates WIOA packet
 3. Pre-fills WIOA forms with student data
@@ -241,6 +249,7 @@ export async function approvePacket(packetId: string) {
 7. Certificate generated and stored
 
 **Benefits**:
+
 - Automated eligibility checks
 - Document management
 - Compliance tracking
@@ -253,6 +262,7 @@ export async function approvePacket(packetId: string) {
 **Scenario**: New instructor needs state teaching license
 
 **Autopilot Flow**:
+
 1. Instructor profile created in system
 2. Autopilot generates license application
 3. Pre-fills with credentials, experience
@@ -261,6 +271,7 @@ export async function approvePacket(packetId: string) {
 6. License tracked in system
 
 **Benefits**:
+
 - Centralized credential management
 - Automated renewals
 - Compliance tracking
@@ -270,7 +281,9 @@ export async function approvePacket(packetId: string) {
 ## Worker Roles & Permissions
 
 ### Cert Worker
+
 **Can**:
+
 - View assigned packets
 - Edit packet fields
 - Upload attachments
@@ -278,13 +291,16 @@ export async function approvePacket(packetId: string) {
 - Mark packet as "Ready for Review"
 
 **Cannot**:
+
 - Approve packets
 - Submit to portals
 - Delete audit logs
 - Change master profiles
 
 ### Cert Reviewer
+
 **Can**:
+
 - Everything Cert Worker can do
 - Approve packets
 - Reject packets with feedback
@@ -292,18 +308,22 @@ export async function approvePacket(packetId: string) {
 - View all packets
 
 **Cannot**:
+
 - Delete audit logs
 - Modify submitted packets
 - Change RBAC settings
 
 ### Auditor
+
 **Can**:
+
 - View all audit logs
 - Export audit reports
 - View packet history
 - View snapshots
 
 **Cannot**:
+
 - Edit anything
 - Approve packets
 - Submit applications
@@ -321,7 +341,7 @@ import { createPacket } from '@/lib/autopilot-api';
 
 export async function POST(request: Request) {
   const application = await request.json();
-  
+
   // Create autopilot packet
   const packet = await createPacket({
     profile_id: application.organization_id,
@@ -335,13 +355,13 @@ export async function POST(request: Request) {
       // ... more fields
     },
   });
-  
+
   // Store packet ID with application
   await supabase
     .from('program_holder_applications')
     .update({ autopilot_packet_id: packet.id })
     .eq('id', application.id);
-    
+
   return NextResponse.json({ success: true, packet_id: packet.id });
 }
 ```
@@ -358,11 +378,11 @@ import { getPackets } from '@/lib/autopilot-api';
 
 export default function PacketsPage() {
   const [packets, setPackets] = useState([]);
-  
+
   useEffect(() => {
     getPackets().then(setPackets);
   }, []);
-  
+
   return (
     <div>
       <h1>Certification Packets</h1>
@@ -426,6 +446,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx
 ## Deployment Checklist
 
 ### Backend Deployment:
+
 - [ ] Deploy FastAPI to Vercel/Railway/Fly.io
 - [ ] Set environment variables
 - [ ] Run database migrations
@@ -433,6 +454,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx
 - [ ] Configure CORS for Next.js app
 
 ### Frontend Integration:
+
 - [ ] Add autopilot routes to admin portal
 - [ ] Create worker dashboard components
 - [ ] Add API client functions
@@ -440,12 +462,14 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx
 - [ ] Test worker editing flow
 
 ### Database Setup:
+
 - [ ] Run schema.sql in Supabase
 - [ ] Add worker roles to profiles
 - [ ] Configure RLS policies
 - [ ] Seed test data
 
 ### Automation Setup:
+
 - [ ] Install Playwright
 - [ ] Configure portal credentials
 - [ ] Test PDF generation

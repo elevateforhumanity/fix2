@@ -10,18 +10,18 @@ Real course cover images needed for professional appearance.
 
 ## Required Course Covers
 
-| Program | Folder | Current | Needed |
-|---------|--------|---------|--------|
-| Barber Apprenticeship | `barber-apprenticeship/` | SVG | cover.jpg |
-| Building Tech | `building-tech/` | SVG | cover.jpg |
-| CNA Training | `cna-training/` | SVG | cover.jpg |
-| HVAC Tech | `hvac-tech/` | SVG | cover.jpg |
-| Life Coach | `life-coach/` | SVG | cover.jpg |
-| Medical Assistant | `medical-assistant/` | SVG | cover.jpg |
-| Peer Recovery | `peer-recovery/` | SVG | cover.jpg |
-| Tax Prep | `tax-prep/` | SVG | cover.jpg |
-| Truck Driving | `truck-driving/` | SVG | cover.jpg |
-| Workforce Readiness | `workforce-readiness/` | SVG | cover.jpg |
+| Program               | Folder                   | Current | Needed    |
+| --------------------- | ------------------------ | ------- | --------- |
+| Barber Apprenticeship | `barber-apprenticeship/` | SVG     | cover.jpg |
+| Building Tech         | `building-tech/`         | SVG     | cover.jpg |
+| CNA Training          | `cna-training/`          | SVG     | cover.jpg |
+| HVAC Tech             | `hvac-tech/`             | SVG     | cover.jpg |
+| Life Coach            | `life-coach/`            | SVG     | cover.jpg |
+| Medical Assistant     | `medical-assistant/`     | SVG     | cover.jpg |
+| Peer Recovery         | `peer-recovery/`         | SVG     | cover.jpg |
+| Tax Prep              | `tax-prep/`              | SVG     | cover.jpg |
+| Truck Driving         | `truck-driving/`         | SVG     | cover.jpg |
+| Workforce Readiness   | `workforce-readiness/`   | SVG     | cover.jpg |
 
 ---
 
@@ -38,6 +38,7 @@ Real course cover images needed for professional appearance.
 ## Design Guidelines
 
 ### Visual Elements:
+
 - Program-specific imagery
 - Professional, clean design
 - Consistent branding
@@ -45,11 +46,13 @@ Real course cover images needed for professional appearance.
 - High contrast for visibility
 
 ### Color Scheme:
+
 - Match Elevate brand colors
 - Or use program-specific colors
 - Ensure good contrast
 
 ### Typography (if text overlay):
+
 - Bold, readable fonts
 - Program name clearly visible
 - Avoid cluttered text
@@ -59,9 +62,11 @@ Real course cover images needed for professional appearance.
 ## Quick Creation Methods
 
 ### Method 1: Canva (Easiest)
+
 **URL**: https://www.canva.com/
 
 **Steps**:
+
 1. Create new design (1200x675px)
 2. Search for "course cover" templates
 3. Customize with program name
@@ -76,9 +81,11 @@ Real course cover images needed for professional appearance.
 ---
 
 ### Method 2: Adobe Express (Professional)
+
 **URL**: https://www.adobe.com/express/
 
 **Steps**:
+
 1. Choose "Social Media Post" template
 2. Resize to 1200x675px
 3. Add program-specific elements
@@ -91,7 +98,9 @@ Real course cover images needed for professional appearance.
 ---
 
 ### Method 3: Stock Photos + Text (Fast)
+
 **Steps**:
+
 1. Download program-specific stock photo
 2. Resize to 1200x675px
 3. Add text overlay (program name)
@@ -104,16 +113,19 @@ Real course cover images needed for professional appearance.
 ---
 
 ### Method 4: AI-Generated (Modern)
+
 **Tools**: Midjourney, DALL-E 3, Adobe Firefly
 
 **Prompt Template**:
+
 ```
-"Professional course cover for [PROGRAM NAME] training program, 
-modern design, clean layout, educational theme, 16:9 aspect ratio, 
+"Professional course cover for [PROGRAM NAME] training program,
+modern design, clean layout, educational theme, 16:9 aspect ratio,
 high quality, professional"
 ```
 
 **Examples**:
+
 - "Professional course cover for Barber Apprenticeship, scissors and comb, modern salon, 16:9"
 - "Professional course cover for HVAC Tech training, air conditioning unit, tools, 16:9"
 - "Professional course cover for CNA Training, healthcare setting, medical equipment, 16:9"
@@ -126,6 +138,7 @@ high quality, professional"
 ## Stock Photo Resources
 
 ### Pexels
+
 - Barber: https://www.pexels.com/search/barber/
 - CNA: https://www.pexels.com/search/nursing/
 - HVAC: https://www.pexels.com/search/hvac/
@@ -133,6 +146,7 @@ high quality, professional"
 - Truck: https://www.pexels.com/search/truck%20driver/
 
 ### Unsplash
+
 - Medical: https://unsplash.com/s/photos/medical-assistant
 - Life Coach: https://unsplash.com/s/photos/coaching
 - Tax Prep: https://unsplash.com/s/photos/accounting
@@ -169,6 +183,7 @@ high quality, professional"
 ## Canva Template Recommendations
 
 **Search in Canva**:
+
 - "Course Cover"
 - "Online Course"
 - "Educational Banner"
@@ -176,6 +191,7 @@ high quality, professional"
 - "Professional Certificate"
 
 **Customize**:
+
 - Replace text with program name
 - Change colors to match brand
 - Add program-specific icons
@@ -186,26 +202,31 @@ high quality, professional"
 ## Example Cover Designs
 
 ### Barber Apprenticeship
+
 **Elements**: Scissors, comb, barber pole, modern salon
 **Colors**: Black, white, red (traditional barber colors)
 **Text**: "Barber Apprenticeship" + "Elevate for Humanity"
 
 ### CNA Training
+
 **Elements**: Stethoscope, medical cross, caring hands
 **Colors**: Blue, white (healthcare colors)
 **Text**: "CNA Training" + "Certified Nursing Assistant"
 
 ### HVAC Tech
+
 **Elements**: Air conditioning unit, tools, thermometer
 **Colors**: Blue, orange (hot/cold)
 **Text**: "HVAC Technician" + "Heating & Cooling"
 
 ### Welding
+
 **Elements**: Welding mask, sparks, metal work
 **Colors**: Orange, black, silver
 **Text**: "Welding Certification" + "AWS SENSE"
 
 ### CDL/Truck Driving
+
 **Elements**: Semi truck, highway, steering wheel
 **Colors**: Red, blue, white
 **Text**: "CDL Training" + "Commercial Driver's License"
@@ -215,6 +236,7 @@ high quality, professional"
 ## Quality Checklist
 
 Before finalizing each cover:
+
 - [ ] Correct dimensions (1200x675px)
 - [ ] File size <150KB
 - [ ] High resolution (not pixelated)
@@ -251,27 +273,23 @@ After creating all covers:
 ## Priority Order
 
 **High Priority** (Create First):
+
 1. Barber Apprenticeship
 2. CNA Training
 3. HVAC Tech
 4. Welding
 5. CDL/Truck Driving
 
-**Medium Priority**:
-6. Medical Assistant
-7. Building Tech
-8. Workforce Readiness
+**Medium Priority**: 6. Medical Assistant 7. Building Tech 8. Workforce Readiness
 
-**Lower Priority**:
-9. Life Coach
-10. Peer Recovery
-11. Tax Prep
+**Lower Priority**: 9. Life Coach 10. Peer Recovery 11. Tax Prep
 
 ---
 
 ## Quick Start (Today)
 
 **30-Minute Solution**:
+
 1. Go to Canva.com
 2. Create 1200x675px design
 3. Use "Course Cover" template
