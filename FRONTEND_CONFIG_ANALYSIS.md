@@ -8,6 +8,7 @@
 ## 🎨 FRONTEND STACK COMPARISON
 
 ### **Your Stack (fix2) - Next.js**
+
 ```
 Framework: Next.js 16.0.1
 React: 19.2.0
@@ -20,6 +21,7 @@ Build: Turbopack
 ```
 
 ### **Other Repos Stack - Vite + React**
+
 ```
 Framework: Vite 7.1.7
 React: 19.1.1
@@ -40,8 +42,8 @@ Build: Vite
 **Purpose:** Build optimization and code splitting
 
 ```typescript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
@@ -56,10 +58,11 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000,
   },
-})
+});
 ```
 
 **What You Can Use:**
+
 - ✅ Code splitting strategy (already handled by Next.js)
 - ✅ Chunk size optimization (Next.js does this automatically)
 
@@ -87,10 +90,12 @@ VITE_SENTRY_DSN=your-sentry-dsn
 ```
 
 **What You Can Use:**
+
 - ✅ Same pattern you're already using
 - ✅ `VITE_` prefix = `NEXT_PUBLIC_` prefix in Next.js
 
 **Your Equivalent:**
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-key
@@ -128,6 +133,7 @@ export default ProtectedRoute;
 ```
 
 **What You Can Use:**
+
 - ✅ Protected route pattern
 - ✅ Loading state handling
 - ✅ Redirect logic
@@ -135,6 +141,7 @@ export default ProtectedRoute;
 **Your Next.js Equivalent:**
 
 Create `/workspaces/fix2/middleware.ts` (you already have this):
+
 ```typescript
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
@@ -142,16 +149,16 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Check authentication
   const token = request.cookies.get('sb-access-token');
-  
+
   if (!token && request.nextUrl.pathname.startsWith('/lms')) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
-  
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/lms/:path*', '/admin/:path*', '/delegate/:path*']
+  matcher: ['/lms/:path*', '/admin/:path*', '/delegate/:path*'],
 };
 ```
 
@@ -165,10 +172,7 @@ export const config = {
 
 ```javascript
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -181,21 +185,20 @@ export default {
     },
   },
   plugins: [],
-}
+};
 ```
 
 **What You Can Use:**
+
 - ✅ Color palette structure
 - ✅ Content paths pattern
 
 **Your Configuration:**
+
 ```javascript
 // You already have this in tailwind.config.js
 export default {
-  content: [
-    './app/**/*.{ts,tsx,js,jsx}',
-    './components/**/*.{ts,tsx,js,jsx}',
-  ],
+  content: ['./app/**/*.{ts,tsx,js,jsx}', './components/**/*.{ts,tsx,js,jsx}'],
   theme: {
     extend: {
       colors: {
@@ -205,7 +208,7 @@ export default {
       },
     },
   },
-}
+};
 ```
 
 **Recommendation:** Your config is already good
@@ -217,6 +220,7 @@ export default {
 **Found in:** All repos have tsconfig.json
 
 **Common Settings:**
+
 ```json
 {
   "compilerOptions": {
@@ -239,6 +243,7 @@ export default {
 ```
 
 **Your Configuration:**
+
 ```json
 {
   "compilerOptions": {
@@ -249,7 +254,7 @@ export default {
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowJs": true,
-    "strict": false,  // ⚠️ You have this disabled
+    "strict": false, // ⚠️ You have this disabled
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./*"]
@@ -267,6 +272,7 @@ export default {
 ### **1. Routing**
 
 **Other Repos (React Router):**
+
 ```typescript
 // Manual route configuration
 <Routes>
@@ -279,6 +285,7 @@ export default {
 ```
 
 **Your Setup (Next.js App Router):**
+
 ```
 app/
 ├── page.tsx              → /
@@ -294,21 +301,23 @@ app/
 ### **2. Data Fetching**
 
 **Other Repos (Client-side):**
+
 ```typescript
 useEffect(() => {
   fetch('/api/courses')
-    .then(res => res.json())
-    .then(data => setCourses(data));
+    .then((res) => res.json())
+    .then((data) => setCourses(data));
 }, []);
 ```
 
 **Your Setup (Server Components):**
+
 ```typescript
 // Server Component - no useEffect needed
 export default async function CoursesPage() {
   const supabase = await createClient();
   const { data: courses } = await supabase.from('courses').select('*');
-  
+
   return <CourseList courses={courses} />;
 }
 ```
@@ -320,11 +329,13 @@ export default async function CoursesPage() {
 ### **3. Build & Deploy**
 
 **Other Repos (Vite):**
+
 - Build: `vite build` → static files
 - Deploy: Upload to Netlify/Vercel as static site
 - No SSR, no API routes
 
 **Your Setup (Next.js):**
+
 - Build: `next build` → optimized app
 - Deploy: Vercel (automatic)
 - SSR + API routes + static pages
@@ -338,6 +349,7 @@ export default async function CoursesPage() {
 ### **1. Nothing Critical**
 
 The other repos use Vite + React Router, which is:
+
 - ❌ Less powerful than Next.js
 - ❌ No server-side rendering
 - ❌ No API routes
@@ -350,10 +362,12 @@ The other repos use Vite + React Router, which is:
 ### **2. Some Useful Patterns**
 
 **Protected Route Component:**
+
 - You can adapt this for client-side route protection
 - But Next.js middleware is better for server-side protection
 
 **Code Splitting:**
+
 - Vite has manual chunk configuration
 - Next.js does this automatically (better)
 
@@ -373,6 +387,7 @@ The other repos use Vite + React Router, which is:
 ### **What You Should Add:**
 
 1. **Better Auth Middleware**
+
 ```typescript
 // middleware.ts
 import { createServerClient } from '@supabase/ssr';
@@ -381,7 +396,7 @@ import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
-  
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -400,7 +415,9 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   // Protect LMS routes
   if (!user && request.nextUrl.pathname.startsWith('/lms')) {
@@ -416,11 +433,17 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/lms/:path*', '/admin/:path*', '/delegate/:path*', '/program-holder/:path*']
+  matcher: [
+    '/lms/:path*',
+    '/admin/:path*',
+    '/delegate/:path*',
+    '/program-holder/:path*',
+  ],
 };
 ```
 
 2. **Loading States Component**
+
 ```typescript
 // components/LoadingSpinner.tsx
 export function LoadingSpinner() {
@@ -433,6 +456,7 @@ export function LoadingSpinner() {
 ```
 
 3. **Error Boundary**
+
 ```typescript
 // app/error.tsx
 'use client';
@@ -464,15 +488,15 @@ export default function Error({
 
 **Your Frontend Configuration is BETTER than the other repos:**
 
-| Feature | Other Repos (Vite) | Your Setup (Next.js) |
-|---------|-------------------|---------------------|
-| Routing | Manual (React Router) | ✅ File-based (simpler) |
-| SSR | ❌ No | ✅ Yes |
-| API Routes | ❌ No | ✅ Yes (73 routes) |
-| Build Optimization | Manual | ✅ Automatic |
-| Code Splitting | Manual | ✅ Automatic |
-| Image Optimization | ❌ No | ✅ Yes |
-| SEO | ❌ Limited | ✅ Excellent |
+| Feature            | Other Repos (Vite)    | Your Setup (Next.js)    |
+| ------------------ | --------------------- | ----------------------- |
+| Routing            | Manual (React Router) | ✅ File-based (simpler) |
+| SSR                | ❌ No                 | ✅ Yes                  |
+| API Routes         | ❌ No                 | ✅ Yes (73 routes)      |
+| Build Optimization | Manual                | ✅ Automatic            |
+| Code Splitting     | Manual                | ✅ Automatic            |
+| Image Optimization | ❌ No                 | ✅ Yes                  |
+| SEO                | ❌ Limited            | ✅ Excellent            |
 
 **You don't need to copy anything from those repos. Your Next.js setup is superior.**
 
