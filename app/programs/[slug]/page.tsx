@@ -7,6 +7,12 @@ import { createServerSupabaseClient, createBuildTimeSupabaseClient } from '@/lib
 export const revalidate = 60;
 
 export async function generateStaticParams() {
+  // Skip static generation if env vars not available (e.g., during local build)
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.log('Skipping generateStaticParams: Supabase env vars not set');
+    return [];
+  }
+
   try {
     const supabase = createBuildTimeSupabaseClient();
     const { data: programs, error } = await supabase.from('programs').select('slug');

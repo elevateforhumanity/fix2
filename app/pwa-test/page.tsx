@@ -1,9 +1,6 @@
-import DeviceCompatibility from '@/components/DeviceCompatibility';
+'use client';
 
-export const metadata = {
-  title: 'PWA Test | Elevate LMS',
-  description: 'Test PWA installation and features',
-};
+import DeviceCompatibility from '@/components/DeviceCompatibility';
 
 export default function PWATestPage() {
   return (
