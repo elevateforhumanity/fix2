@@ -51,23 +51,127 @@
     },
     {
       "step": 2,
-      "action": "verify_environment_variables",
-      "instruction": "Confirm all 6 environment variables are already configured",
+      "action": "audit_all_environment_variables",
+      "instruction": "Check ALL environments (Production, Preview, Development) and ensure all 6 variables are present in each",
       "details": {
         "location": "Settings → Environment Variables",
+        "environments_to_check": [
+          "Production",
+          "Preview", 
+          "Development"
+        ],
         "required_variables": [
-          "SUPABASE_URL",
-          "SUPABASE_ANON_KEY",
-          "SUPABASE_SERVICE_ROLE_KEY",
-          "NEXT_PUBLIC_SUPABASE_URL",
-          "NEXT_PUBLIC_SUPABASE_ANON_KEY",
-          "NEXT_PUBLIC_SITE_URL"
-        ]
+          {
+            "key": "SUPABASE_URL",
+            "value": "https://cuxzzpsyufcewtmicszk.supabase.co",
+            "required_in": ["Production", "Preview", "Development"]
+          },
+          {
+            "key": "SUPABASE_ANON_KEY",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ",
+            "required_in": ["Production", "Preview", "Development"]
+          },
+          {
+            "key": "SUPABASE_SERVICE_ROLE_KEY",
+            "value": "GET_FROM_SUPABASE_DASHBOARD",
+            "required_in": ["Production", "Preview", "Development"],
+            "retrieval_url": "https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api",
+            "retrieval_note": "Find 'service_role' key (secret), click 'Reveal' and copy"
+          },
+          {
+            "key": "NEXT_PUBLIC_SUPABASE_URL",
+            "value": "https://cuxzzpsyufcewtmicszk.supabase.co",
+            "required_in": ["Production", "Preview", "Development"]
+          },
+          {
+            "key": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ",
+            "required_in": ["Production", "Preview", "Development"]
+          },
+          {
+            "key": "NEXT_PUBLIC_SITE_URL",
+            "value_production": "https://www.elevateconnectsdirectory.org",
+            "value_preview": "https://fix2-1c7w-git-BRANCH.vercel.app",
+            "value_development": "http://localhost:3000",
+            "required_in": ["Production", "Preview", "Development"],
+            "note": "Different values per environment"
+          }
+        ],
+        "action_if_missing": "Add the missing variable with correct value for each environment",
+        "action_if_wrong_value": "Update the variable to match the correct value",
+        "action_if_wrong_environment": "Edit variable and check the missing environment boxes"
       },
-      "verification": "All 6 variables present with Production environment"
+      "verification_checklist": [
+        "Production environment has all 6 variables",
+        "Preview environment has all 6 variables",
+        "Development environment has all 6 variables",
+        "SUPABASE_SERVICE_ROLE_KEY is present (not placeholder)",
+        "NEXT_PUBLIC_SITE_URL has correct value per environment",
+        "All values match the specified values above"
+      ]
     },
     {
       "step": 3,
+      "action": "audit_and_cleanup_old_deployments",
+      "instruction": "Review all Vercel projects, identify unused ones, and clean up old failed deployments",
+      "details": {
+        "projects_to_check": [
+          {
+            "name": "fix2-1c7w",
+            "status": "KEEP - This is the correct project",
+            "action": "Verify and use this one"
+          },
+          {
+            "name": "fix2-8mig",
+            "status": "DELETE - Wrong project, deploying old code",
+            "action": "Delete this project if it exists"
+          },
+          {
+            "name": "fix2-i3z8",
+            "status": "DELETE - Old project from config",
+            "action": "Delete this project if it exists"
+          },
+          {
+            "name": "Any other fix2-* projects",
+            "status": "REVIEW - Check if needed",
+            "action": "Delete if not actively used"
+          }
+        ],
+        "cleanup_steps": [
+          {
+            "step": "List all projects",
+            "location": "Vercel Dashboard → Projects",
+            "action": "Make a list of all projects starting with 'fix2'"
+          },
+          {
+            "step": "Identify correct project",
+            "action": "Confirm fix2-1c7w is the one connected to elevateforhumanity/fix2"
+          },
+          {
+            "step": "Delete unused projects",
+            "action": "For each unused project: Settings → Advanced → Delete Project"
+          },
+          {
+            "step": "Clean up failed deployments",
+            "location": "fix2-1c7w → Deployments",
+            "action": "Review failed deployments, note any patterns, can delete old failed ones"
+          }
+        ],
+        "old_deployments_review": {
+          "location": "fix2-1c7w → Deployments tab",
+          "check_for": [
+            "Failed deployments with old commits (3d3bd68 and earlier)",
+            "Deployments with deprecation warnings",
+            "Deployments that never completed"
+          ],
+          "action": "Document which commits failed and why",
+          "cleanup": "Can delete old failed deployments to clean up the list"
+        }
+      },
+      "verification": "Only fix2-1c7w project remains, old failed deployments documented"
+    },
+    {
+      "step": 4,
       "action": "trigger_deployment",
       "instruction": "Deploy the application",
       "details": {
@@ -79,7 +183,7 @@
       "verification": "Deployment starts and shows correct commit hash"
     },
     {
-      "step": 4,
+      "step": 5,
       "action": "monitor_build",
       "instruction": "Watch build logs for success",
       "details": {
@@ -99,7 +203,7 @@
       "verification": "Build completes successfully with clean logs"
     },
     {
-      "step": 5,
+      "step": 6,
       "action": "verify_deployment",
       "instruction": "Test the deployed site",
       "details": {
@@ -114,7 +218,7 @@
       "verification": "All test pages load successfully"
     },
     {
-      "step": 8,
+      "step": 7,
       "action": "report_completion",
       "instruction": "Document the deployment",
       "details": {
@@ -134,7 +238,11 @@
   "success_criteria": {
     "required": [
       "Repository connected to fix2-1c7w project",
-      "All 6 environment variables configured",
+      "All 6 environment variables configured in Production",
+      "All 6 environment variables configured in Preview",
+      "All 6 environment variables configured in Development",
+      "SUPABASE_SERVICE_ROLE_KEY is set (not placeholder)",
+      "NEXT_PUBLIC_SITE_URL has correct value per environment",
       "Build completes with no deprecation warnings",
       "Site loads without 500 errors",
       "Deployment URL accessible"
