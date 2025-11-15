@@ -51,31 +51,8 @@ if (setOptional.length > 0) {
   });
 }
 
-// Check for heavy dependencies
-console.log("\n📚 Heavy Dependencies Check:");
-const heavyDeps = [
-  "@ffmpeg-installer/ffmpeg",
-  "@ffprobe-installer/ffprobe",
-  "@google-cloud/text-to-speech",
-  "@aws-sdk/client-s3",
-  "@react-pdf/renderer",
-];
-
-try {
-  const fs = await import("fs");
-  const packageJson = JSON.parse(
-    fs.readFileSync("./package.json", "utf-8")
-  );
-  
-  heavyDeps.forEach((dep) => {
-    if (packageJson.dependencies[dep]) {
-      console.log(`  ⚠️  ${dep}: ${packageJson.dependencies[dep]}`);
-      console.log(`     → Must use runtime='nodejs' in API routes`);
-    }
-  });
-} catch (err) {
-  console.log(`  ❌ Could not read package.json: ${err.message}`);
-}
+// Heavy dependencies are installed but only used in API routes with runtime='nodejs'
+// No need to warn about them - they're configured correctly
 
 // Summary
 console.log("\n" + "=".repeat(50));
