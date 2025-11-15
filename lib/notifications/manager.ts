@@ -129,9 +129,8 @@ export class NotificationManager {
       await registration.showNotification(title, {
         icon: '/icon-192.png',
         badge: '/icon-72.png',
-        vibrate: [200, 100, 200],
         ...options,
-      });
+      } as NotificationOptions);
     } else {
       // Fallback to regular notification
       new Notification(title, {
