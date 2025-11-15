@@ -9,31 +9,38 @@ All your secrets are ready. Follow these steps in order.
 ## ✅ Step 1: Add GitHub Secrets (5 minutes)
 
 ### Go to GitHub Secrets Page
+
 **Direct Link**: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new](https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new)
 
 ### Add These 4 Secrets (Copy & Paste):
 
 #### 1️⃣ SUPABASE_ANON_KEY
+
 ```
 Name: SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA
 ```
+
 Click "Add secret" ✅
 
 #### 2️⃣ SUPABASE_SERVICE_ROLE_KEY
+
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE
 ```
+
 Click "Add secret" ✅
 
 #### 3️⃣ NETLIFY_AUTH_TOKEN
+
 ```
 Name: NETLIFY_AUTH_TOKEN
 Value: [GET THIS FROM NETLIFY - See instructions below]
 ```
 
 **How to get it**:
+
 1. Go to: [https://app.netlify.com/user/applications](https://app.netlify.com/user/applications)
 2. Scroll to "Personal access tokens"
 3. Click "New access token"
@@ -44,12 +51,14 @@ Value: [GET THIS FROM NETLIFY - See instructions below]
 8. Click "Add secret" ✅
 
 #### 4️⃣ NETLIFY_SITE_ID
+
 ```
 Name: NETLIFY_SITE_ID
 Value: [GET THIS FROM NETLIFY - See instructions below]
 ```
 
 **How to get it**:
+
 1. Go to: [https://app.netlify.com](https://app.netlify.com)
 2. Click on your site (elevateconnectsdirectory)
 3. Go to "Site settings"
@@ -65,6 +74,7 @@ Value: [GET THIS FROM NETLIFY - See instructions below]
 **Check**: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions](https://github.com/elevateforhumanity/fix2/settings/secrets/actions)
 
 You should see all 4 secrets:
+
 - ✅ NETLIFY_AUTH_TOKEN
 - ✅ NETLIFY_SITE_ID
 - ✅ SUPABASE_ANON_KEY
@@ -75,6 +85,7 @@ You should see all 4 secrets:
 ## ✅ Step 3: Run Autopilot Workflows (5 minutes)
 
 ### 3.1 Validate Secrets
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-secrets-validator.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-secrets-validator.yml)
 
 1. Click "Run workflow" button
@@ -88,6 +99,7 @@ You should see all 4 secrets:
 ---
 
 ### 3.2 Sync Environment to Netlify
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-netlify-guardian.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-netlify-guardian.yml)
 
 1. Click "Run workflow" button
@@ -97,13 +109,15 @@ You should see all 4 secrets:
 5. Click on the workflow run
 6. Check summary
 
-**Expected Result**: 
+**Expected Result**:
+
 - "✅ Fixed X variable(s) and triggered redeploy"
 - OR "✅ All environment variables correct"
 
 ---
 
 ### 3.3 Verify Deployment Target
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-deployment-bouncer.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-deployment-bouncer.yml)
 
 1. Click "Run workflow" button
@@ -116,6 +130,7 @@ You should see all 4 secrets:
 ---
 
 ### 3.4 Test Production Site
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-readiness.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-readiness.yml)
 
 1. Click "Run workflow" button
@@ -131,9 +146,11 @@ You should see all 4 secrets:
 ## ✅ Step 4: Visit Your Live Site (1 minute)
 
 ### Open Your Site
+
 **Link**: [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
 
 ### Check These Pages:
+
 - ✅ Homepage loads
 - ✅ No "Internal Server Error"
 - ✅ Programs page: [/programs](https://elevateconnectsdirectory.org/programs)
@@ -170,21 +187,25 @@ You should see all 4 secrets:
 After completing all steps, verify:
 
 ### GitHub Secrets
+
 - [x] All 4 secrets added
 - [x] Secrets validator passed
 
 ### Autopilot System
+
 - [x] Netlify Guardian synced environment
 - [x] Deployment Bouncer verified config
 - [x] Readiness Tester passed all checks
 
 ### Production Site
+
 - [x] Homepage loads without errors
 - [x] Programs pages work
 - [x] Navigation functional
 - [x] No "Internal Server Error"
 
 ### Security
+
 - [x] MFA enabled on GitHub account
 - [x] Recovery codes saved
 - [x] Security warning resolved
@@ -196,14 +217,17 @@ After completing all steps, verify:
 Your autopilot system is now active with:
 
 ### Daily Checks
+
 - **2 AM UTC**: Secrets Validator runs automatically
 - **10 AM UTC**: Readiness Tester runs automatically
 
 ### On Every Push
+
 - Readiness Tester validates site health
 - Deployment Bouncer checks configs
 
 ### On Pull Requests
+
 - Deployment Bouncer prevents bad configs
 - All checks must pass before merge
 
@@ -214,6 +238,7 @@ Your autopilot system is now active with:
 **View All Runs**: [https://github.com/elevateforhumanity/fix2/actions](https://github.com/elevateforhumanity/fix2/actions)
 
 **Filter by Workflow**:
+
 - Secrets Validator
 - Netlify Guardian
 - Deployment Bouncer
@@ -226,27 +251,34 @@ Your autopilot system is now active with:
 ## 🆘 Troubleshooting
 
 ### Secrets Validator Failed
+
 **Problem**: One or more secrets missing  
 **Solution**: Go back to Step 1, add missing secrets
 
 ### Netlify Guardian Failed
+
 **Problem**: Can't authenticate with Netlify  
-**Solution**: 
+**Solution**:
+
 1. Verify NETLIFY_AUTH_TOKEN is correct
 2. Generate new token if needed
 3. Re-run workflow
 
 ### Readiness Tester Failed
+
 **Problem**: Site showing errors  
 **Solution**:
+
 1. Wait 5 minutes for Netlify to deploy
 2. Run Netlify Guardian again
 3. Check Netlify build logs
 4. Clear browser cache
 
 ### Site Still Shows Error
+
 **Problem**: "Internal Server Error" persists  
 **Solution**:
+
 1. Check Netlify environment variables match
 2. Verify Supabase project is active
 3. Run Netlify Guardian with `force_redeploy: true`
@@ -269,16 +301,19 @@ Your autopilot system is now active with:
 After activation:
 
 ### Immediate
+
 1. Test all program pages
 2. Verify student signup flow
 3. Check partner application page
 
 ### This Week
+
 1. Run Page Auditor to check for issues
 2. Run Schema Guardian to document database
 3. Review autopilot summaries
 
 ### Ongoing
+
 1. Monitor daily autopilot runs
 2. Review security alerts
 3. Keep dependencies updated
@@ -289,6 +324,7 @@ After activation:
 ## 🚀 You're Ready!
 
 Your Elevate for Humanity LMS now has:
+
 - ✅ Automated environment management
 - ✅ Daily health checks
 - ✅ Security monitoring
@@ -304,4 +340,4 @@ Your Elevate for Humanity LMS now has:
 
 **Need Help?** All workflows provide detailed error messages and next steps.
 
-🤖 *Autopilot System - Keeping your LMS running smoothly, automatically.*
+🤖 _Autopilot System - Keeping your LMS running smoothly, automatically._
