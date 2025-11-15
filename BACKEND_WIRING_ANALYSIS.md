@@ -8,6 +8,7 @@
 ## ✅ VERCEL STATUS
 
 **Good News:** None of the scanned repositories have active Vercel webhooks or workflows.
+
 - No `.github/workflows/*vercel*.yml` files found
 - No vercel.json configurations triggering deployments
 - **Action Required:** None - these repos won't interfere with fix2 deployments
@@ -19,6 +20,7 @@
 ### **1. Complete Backend Server (ecosystem-5/backend/)**
 
 **Structure:**
+
 ```
 backend/
 ├── src/
@@ -36,12 +38,14 @@ backend/
 ```
 
 **Key Files:**
+
 - `backend/src/index.ts` - Main Express server
 - `backend/server.mjs` - Server startup
 - `backend/prisma/schema.prisma` - Database models
 - `backend/.env.example` - Required environment variables
 
 **What You Can Use:**
+
 - ✅ Complete Express.js backend structure
 - ✅ Prisma ORM setup (alternative to direct Supabase queries)
 - ✅ WebSocket/Socket.io integration
@@ -57,6 +61,7 @@ backend/
 **Purpose:** Connects frontend to backend API
 
 **Key Features:**
+
 ```javascript
 // API client configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -66,19 +71,20 @@ async function authenticateUser(credentials) {
   return await fetch(`${API_BASE_URL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(credentials)
+    body: JSON.stringify(credentials),
   });
 }
 
 // Data fetching
 async function fetchCourses() {
   return await fetch(`${API_BASE_URL}/api/courses`, {
-    headers: { 'Authorization': `Bearer ${token}` }
+    headers: { Authorization: `Bearer ${token}` },
   });
 }
 ```
 
 **What You Can Use:**
+
 - ✅ API client wrapper functions
 - ✅ Authentication flow
 - ✅ Error handling patterns
@@ -93,12 +99,13 @@ async function fetchCourses() {
 **Purpose:** Stripe payment processing with backend
 
 **Key Features:**
+
 ```javascript
 // Create payment intent
 async function createPaymentIntent(amount, courseId) {
   return await fetch(`${API_BASE_URL}/api/payments/create-intent`, {
     method: 'POST',
-    body: JSON.stringify({ amount, courseId })
+    body: JSON.stringify({ amount, courseId }),
   });
 }
 
@@ -109,6 +116,7 @@ async function verifyPayment(paymentIntentId) {
 ```
 
 **What You Can Use:**
+
 - ✅ Stripe backend integration
 - ✅ Payment verification flow
 - ✅ Webhook handling
@@ -120,12 +128,14 @@ async function verifyPayment(paymentIntentId) {
 **Found in:** All repos have `/supabase` directories
 
 **Common Files:**
+
 - `supabase/migrations/` - Database migrations
 - `supabase/functions/` - Edge functions
 - `supabase/config.toml` - Supabase configuration
 - `supabase/seed.sql` - Seed data
 
 **What You Can Use:**
+
 - ✅ Additional database migrations
 - ✅ Edge function examples
 - ✅ Supabase configuration patterns
@@ -140,17 +150,20 @@ async function verifyPayment(paymentIntentId) {
 **Alternative:** Separate Express.js backend server
 
 **Pros of Separate Backend:**
+
 - ✅ Better for WebSocket/real-time features
 - ✅ More control over server configuration
 - ✅ Can run background jobs
 - ✅ Better for complex business logic
 
 **Cons:**
+
 - ❌ Need to deploy two services (frontend + backend)
 - ❌ More complex architecture
 - ❌ Additional hosting costs
 
 **Recommendation:** Stick with Next.js API routes for now. Only add separate backend if you need:
+
 - Real-time features (chat, live updates)
 - Long-running background jobs
 - Complex server-side processing
@@ -163,6 +176,7 @@ async function verifyPayment(paymentIntentId) {
 **Alternative:** Prisma ORM layer
 
 **Example:**
+
 ```typescript
 // Current (Supabase)
 const { data } = await supabase.from('courses').select('*');
@@ -172,12 +186,14 @@ const courses = await prisma.course.findMany();
 ```
 
 **Pros of Prisma:**
+
 - ✅ Type-safe database queries
 - ✅ Better TypeScript integration
 - ✅ Migration management
 - ✅ Easier to switch databases
 
 **Cons:**
+
 - ❌ Additional layer of complexity
 - ❌ Supabase client is already type-safe
 
@@ -193,6 +209,7 @@ const courses = await prisma.course.findMany();
 **Found in:** `ecosystem-5/backend/src/socket/`
 
 **What it provides:**
+
 - Custom real-time events
 - Room-based messaging
 - Presence tracking
@@ -230,6 +247,7 @@ Replace mock data with real API calls:
 **Example: LMS Assignments**
 
 **Current (Mock Data):**
+
 ```typescript
 // app/lms/assignments/page.tsx
 const mockAssignments = [
@@ -239,6 +257,7 @@ const mockAssignments = [
 ```
 
 **Wire It Up:**
+
 ```typescript
 // app/lms/assignments/page.tsx
 'use client';
@@ -261,6 +280,7 @@ export default function AssignmentsPage() {
 ```
 
 **Your API route already exists:**
+
 ```typescript
 // app/api/assignments/route.ts
 export async function GET(request: Request) {
@@ -280,11 +300,12 @@ Use Supabase real-time:
 // Subscribe to new messages
 const channel = supabase
   .channel('messages')
-  .on('postgres_changes', 
+  .on(
+    'postgres_changes',
     { event: 'INSERT', schema: 'public', table: 'messages' },
     (payload) => {
       console.log('New message:', payload.new);
-      setMessages(prev => [...prev, payload.new]);
+      setMessages((prev) => [...prev, payload.new]);
     }
   )
   .subscribe();
@@ -300,7 +321,9 @@ Use Vercel Cron Jobs:
 // app/api/cron/send-reminders/route.ts
 export async function GET(request: Request) {
   // Verify cron secret
-  if (request.headers.get('authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (
+    request.headers.get('authorization') !== `Bearer ${process.env.CRON_SECRET}`
+  ) {
     return new Response('Unauthorized', { status: 401 });
   }
 
@@ -320,12 +343,15 @@ export async function GET(request: Request) {
 ```
 
 **Add to vercel.json:**
+
 ```json
 {
-  "crons": [{
-    "path": "/api/cron/send-reminders",
-    "schedule": "0 9 * * *"
-  }]
+  "crons": [
+    {
+      "path": "/api/cron/send-reminders",
+      "schedule": "0 9 * * *"
+    }
+  ]
 }
 ```
 
@@ -381,6 +407,7 @@ export async function GET(request: Request) {
 ### **If You Want a Separate Backend Server:**
 
 Copy from `ecosystem-5/backend/`:
+
 - `backend/src/` - Complete backend structure
 - `backend/package.json` - Dependencies
 - `backend/Dockerfile` - Container config
@@ -394,6 +421,7 @@ Copy from `ecosystem-5/backend/`:
 ### **If You Want Better API Organization:**
 
 Copy from `ecosystem-5/scripts/utilities/`:
+
 - `backend-api.js` - API client wrapper
 - `pay-backend-integration.js` - Payment integration
 
@@ -404,6 +432,7 @@ Copy from `ecosystem-5/scripts/utilities/`:
 ## ✅ CONCLUSION
 
 **Your Backend is 90% Complete:**
+
 - ✅ Database (Supabase)
 - ✅ API routes (73 endpoints)
 - ✅ Authentication (Supabase Auth)
@@ -411,10 +440,12 @@ Copy from `ecosystem-5/scripts/utilities/`:
 - ✅ Payments (Stripe)
 
 **What's Missing:**
+
 - ❌ Frontend not connected to API routes (still using mock data)
 - ❌ Real-time features not implemented
 
 **Recommendation:**
+
 1. **First:** Get your site deployed successfully (fix the build errors)
 2. **Then:** Wire up frontend to existing API routes (2-3 days)
 3. **Later:** Add real-time features if needed (1-2 days)
@@ -426,6 +457,7 @@ Copy from `ecosystem-5/scripts/utilities/`:
 ## 🔗 USEFUL CODE TO COPY
 
 I can help you copy specific files from these repos if you want:
+
 - Backend API client wrapper
 - Payment integration code
 - Real-time subscription examples
