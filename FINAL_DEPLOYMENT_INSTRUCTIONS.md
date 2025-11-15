@@ -9,24 +9,28 @@
 ## ✅ What's Been Done
 
 ### 1. Branding Updated
+
 - ✅ Header shows "Elevate for Humanity" as main brand
 - ✅ Subline shows "Elevate Connects Directory"
 - ✅ Hero tagline: "Innovate. Elevate. Reset."
 - ✅ Positioned as "workforce & wellness ecosystem"
 
 ### 2. Video Placeholders Added
+
 - ✅ Hero video section (25 sec script included)
 - ✅ Student portal video section (18 sec script included)
 - ✅ Partner video section (15 sec script included)
 - ✅ All with detailed script descriptions in code comments
 
 ### 3. Programs Updated
+
 - ✅ Barber Apprenticeship (DOL Registered)
 - ✅ HVAC Technician (ETPL Approved)
 - ✅ CDL Truck Driving (DOL Approved)
 - ✅ CNA removed per request
 
 ### 4. Design Enhancements
+
 - ✅ Gradient hero (blue → purple → blue)
 - ✅ Static stats (100%, 10+, 85%, $45K+)
 - ✅ Hover effects on program cards
@@ -39,6 +43,7 @@
 ### Step 1: Deploy Code (5 minutes)
 
 **Vercel (Recommended):**
+
 1. Go to: https://vercel.com/dashboard
 2. Find project or click "Add New Project"
 3. Import: `elevateforhumanity/fix2`
@@ -46,6 +51,7 @@
 5. Wait 3-5 minutes
 
 **Netlify:**
+
 1. Go to: https://app.netlify.com
 2. Find site or click "Add new site"
 3. Import: `elevateforhumanity/fix2`
@@ -60,6 +66,7 @@
 https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
 
 **Copy and paste this SQL:**
+
 ```sql
 DELETE FROM programs;
 
@@ -78,6 +85,7 @@ INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bull
 **Visit:** www.elevateconnectsdirectory.org
 
 **Check:**
+
 - [ ] Header shows "Elevate for Humanity" with "Elevate Connects Directory" subline
 - [ ] Hero shows "Innovate. Elevate. Reset." tagline
 - [ ] Hero video placeholder visible
@@ -95,6 +103,7 @@ INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bull
 ### When You Have Videos Ready:
 
 **1. Upload to Supabase Storage:**
+
 ```bash
 # Go to Supabase Storage
 https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage
@@ -107,6 +116,7 @@ https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage
 ```
 
 **2. Get Public URLs:**
+
 ```
 https://cuxzzpsyufcewtmicszk.supabase.co/storage/v1/object/public/videos/hero-innovate-elevate-reset.mp4
 ```
@@ -117,17 +127,21 @@ In `app/page.tsx`, uncomment the video tags and update src:
 
 ```tsx
 // Replace placeholder with:
-<video 
+<video
   className="w-full h-full object-cover"
   poster="/videos/hero-poster.jpg"
   controls
   preload="metadata"
 >
-  <source src="https://cuxzzpsyufcewtmicszk.supabase.co/storage/v1/object/public/videos/hero-innovate-elevate-reset.mp4" type="video/mp4" />
+  <source
+    src="https://cuxzzpsyufcewtmicszk.supabase.co/storage/v1/object/public/videos/hero-innovate-elevate-reset.mp4"
+    type="video/mp4"
+  />
 </video>
 ```
 
 **4. Redeploy:**
+
 - Commit changes
 - Push to GitHub
 - Redeploy on Vercel/Netlify
@@ -137,6 +151,7 @@ In `app/page.tsx`, uncomment the video tags and update src:
 ## 📊 What Will Be Live
 
 ### Homepage:
+
 - **Header:** Elevate for Humanity (main) / Elevate Connects Directory (sub)
 - **Hero:** Gradient background, "Innovate. Elevate. Reset." tagline
 - **Video 1:** Hero video placeholder (25 sec script in code)
@@ -146,11 +161,13 @@ In `app/page.tsx`, uncomment the video tags and update src:
 - **Video 3:** Partner placeholder (15 sec script in code)
 
 ### Programs Page:
+
 - **3 Programs:** Barber, HVAC, CDL
 - **All DOL/ETPL approved**
 - **Funding badges:** DOL, WIOA, WRG, ETPL
 
 ### Program Detail Pages:
+
 - `/programs/barber` - DOL Registered Apprenticeship
 - `/programs/hvac-tech` - ETPL Approved
 - `/programs/truck-driving` - DOL Approved
@@ -160,18 +177,22 @@ In `app/page.tsx`, uncomment the video tags and update src:
 ## 🎬 Video Scripts (For Your Video Generator)
 
 ### Script 1: Hero Video (25 seconds)
+
 **Style:** Cinematic, warm oranges and deep blues
 
 **Scenes:**
+
 - 0-6s: Close-ups of diverse people getting ready for work. Text: "Innovate."
 - 6-12s: Students using laptops, dashboard, progress bars. Text: "Elevate."
 - 12-18s: Wellness montage - journaling, tea, stretching. Text: "Reset."
 - 18-25s: City lights connecting like network. Text: "Elevate for Humanity - Innovate. Elevate. Reset."
 
 ### Script 2: Student Portal (18 seconds)
+
 **Style:** Inspirational, modern
 
 **Shots:**
+
 - Student logging into dashboard
 - "Enrollment confirmed" + progress bar
 - Digital certificate animating
@@ -180,9 +201,11 @@ In `app/page.tsx`, uncomment the video tags and update src:
 **Text:** "Enroll." → "Learn." → "Elevate."
 
 ### Script 3: Partner Video (15 seconds)
+
 **Style:** High-energy, professional
 
 **Shots:**
+
 - Barber owner shaking hands with apprentice
 - HVAC instructor coaching student
 - CNA instructor in lab
@@ -212,16 +235,19 @@ After deployment:
 ## 📞 Support
 
 **If deployment fails:**
+
 - Check Vercel/Netlify build logs
 - Verify environment variables are set
 - Check Supabase connection
 
 **If programs don't show:**
+
 - Verify SQL ran successfully
 - Check Supabase table: `SELECT * FROM programs;`
 - Verify RLS policies allow read access
 
 **If videos don't upload:**
+
 - Check file size (under 100MB for Supabase free tier)
 - Verify bucket is public
 - Check file format (MP4 recommended)
@@ -233,6 +259,7 @@ After deployment:
 **Everything is committed, pushed, and ready to deploy.**
 
 **Total time:** 12 minutes
+
 - Deploy: 5 min
 - Database: 2 min
 - Testing: 5 min
