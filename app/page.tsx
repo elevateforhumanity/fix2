@@ -10,7 +10,10 @@ export default function HomePage() {
       <header className="elevate-nav">
         <div className="elevate-logo">
           <div className="elevate-logo-mark">E</div>
-          <span>Elevate for Humanity</span>
+          <div className="flex flex-col">
+            <span className="font-bold text-lg">Elevate for Humanity</span>
+            <span className="text-xs text-gray-600">Elevate Connects Directory</span>
+          </div>
         </div>
         <div className="flex gap-3 items-center">
           <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
@@ -42,11 +45,14 @@ export default function HomePage() {
               <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
                 ✓ WIOA-Funded Training • 100% Free for Eligible Participants
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
                 Transform Your Future with FREE Workforce Training
               </h1>
+              <p className="text-2xl font-semibold mb-6 text-orange-300">
+                Innovate. Elevate. Reset.
+              </p>
               <p className="text-xl mb-8 text-white/90 leading-relaxed">
-                Access high-quality career training programs funded by the Workforce Innovation and Opportunity Act (WIOA). Get the skills employers need—at no cost to you.
+                A workforce & wellness ecosystem for real people. Access high-quality career training programs funded by WIOA. Get the skills employers need—at no cost to you.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link href="/enroll" className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
@@ -77,26 +83,44 @@ export default function HomePage() {
             {/* Right: Video Placeholder */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
-                {/* Video Placeholder - Replace with actual video */}
+                {/* VIDEO SCRIPT 1: Homepage Hero (25 seconds)
+                    Cinematic video for Elevate for Humanity
+                    
+                    Scene 1 (0-6s): Close-ups of diverse people (barber, HVAC tech, CNA, CDL student) 
+                    getting ready for work. Overlay: "Innovate."
+                    
+                    Scene 2 (6-12s): Students using laptops/phones, dashboard with progress bars, 
+                    enroll buttons, certificates. Overlay: "Elevate."
+                    
+                    Scene 3 (12-18s): Wellness montage - journaling, tea/coffee, stretching, breathing. 
+                    Overlay: "Reset."
+                    
+                    Scene 4 (18-25s): Wide shot of city/neighborhood, lights connecting like network map.
+                    Final text: "Elevate for Humanity - Innovate. Elevate. Reset."
+                    "A workforce & wellness ecosystem for real people."
+                    
+                    Replace this placeholder with actual video URL when ready.
+                */}
                 <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
-                  <div className="text-center">
+                  <div className="text-center p-8">
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                       <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
-                    <p className="text-white/80 text-sm">Watch: How Elevate Works</p>
-                    <p className="text-white/60 text-xs mt-1">2:30 min</p>
+                    <p className="text-white/80 text-sm font-semibold">Innovate. Elevate. Reset.</p>
+                    <p className="text-white/60 text-xs mt-2">25 sec hero video</p>
+                    <p className="text-white/40 text-xs mt-1">Upload video to replace placeholder</p>
                   </div>
                 </div>
                 {/* Uncomment when video is ready:
                 <video 
                   className="w-full h-full object-cover"
-                  poster="/hero-video-poster.jpg"
+                  poster="/videos/hero-poster.jpg"
                   controls
                   preload="metadata"
                 >
-                  <source src="/videos/hero-video.mp4" type="video/mp4" />
+                  <source src="/videos/hero-innovate-elevate-reset.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 */}
@@ -144,10 +168,117 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What is WIOA Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Employer-Led Apprenticeship & WIOA Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="elevate-container">
-          <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Empowering Employers. Advancing Apprenticeships. Transforming Tomorrow.
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Through Elevate Connects Directory, employers across Indiana are linking with high-quality, WIOA-eligible apprenticeship and training programs to build a skilled workforce.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                <Users className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Employer-Led Registered Apprenticeships</h3>
+              <p className="text-gray-600 mb-4">
+                Provide paid work experience + classroom instruction. Apprentices earn while they learn.
+              </p>
+              <a href="https://www.in.gov/dwd/apprenticeship-indiana/home/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-2">
+                Learn More →
+              </a>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                <Award className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">WIOA-Eligible Training</h3>
+              <p className="text-gray-600 mb-4">
+                Eligible jobseekers access training at little or no cost through Workforce Innovation and Opportunity Act funding.
+              </p>
+              <a href="https://www.dol.gov/agencies/eta/wioa/programs" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 font-semibold inline-flex items-center gap-2">
+                Learn More →
+              </a>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                <TrendingUp className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Local Partnership Initiatives</h3>
+              <p className="text-gray-600 mb-4">
+                EmployIndy's Modern Apprenticeship and Indiana Plan's readiness programs create pathways into in-demand industries.
+              </p>
+              <a href="https://employindy.org/modern-apprenticeship/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-semibold inline-flex items-center gap-2">
+                Learn More →
+              </a>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">For Employers</h3>
+              <p className="text-gray-700 mb-6">
+                List your apprenticeship-ready program in the directory. Gain access to a pipeline of motivated talent, reimbursement opportunities, and reporting support.
+              </p>
+              <ul className="space-y-3 text-gray-700 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <span>Access pre-screened, motivated candidates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <span>WIOA reimbursement opportunities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <span>Reporting and compliance support</span>
+                </li>
+              </ul>
+              <Link href="/program-holder/apply" className="elevate-btn-primary w-full text-center block">
+                List Your Program
+              </Link>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">For Applicants</h3>
+              <p className="text-gray-700 mb-6">
+                Explore programs matching employers, training providers, and funding under WIOA or registered apprenticeship models. Search by industry, location, or funding type.
+              </p>
+              <ul className="space-y-3 text-gray-700 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
+                  <span>100% free training through WIOA</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
+                  <span>Earn while you learn in apprenticeships</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
+                  <span>Job placement support included</span>
+                </li>
+              </ul>
+              <Link href="/enroll" className="elevate-btn-primary w-full text-center block">
+                Check Your Eligibility
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-lg text-gray-600 italic">
+              Building the workforce of tomorrow, today.
+            </p>
+          </div>
+
+          {/* Original WIOA Info */}
+          <div className="max-w-4xl mx-auto mt-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">What is WIOA?</h2>
               <p className="text-lg text-gray-600">
@@ -398,6 +529,118 @@ export default function HomePage() {
               <div className="text-sm text-gray-600">
                 Now earning: <span className="font-bold text-green-600">$58K/year</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Portal Video Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="elevate-container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Your Learning Journey</h2>
+              <p className="text-xl text-gray-600">Enroll. Learn. Elevate.</p>
+            </div>
+            
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              {/* VIDEO SCRIPT 2: Student Portal Focus (18 seconds)
+                  
+                  Shots:
+                  - Student logging into clean, modern dashboard on laptop
+                  - Close-up of "Enrollment confirmed" and progress bar climbing
+                  - Badge or digital certificate animating onto screen
+                  - Student smiling, closing laptop, looking relieved/hopeful
+                  
+                  On-screen text (3-beat):
+                  1. "Enroll."
+                  2. "Learn."
+                  3. "Elevate."
+                  
+                  Final text: "Elevate for Humanity – Student Portal"
+                  "Where workforce training meets real support."
+                  
+                  Replace this placeholder with actual video URL when ready.
+              */}
+              <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-lg font-semibold mb-2">Enroll. Learn. Elevate.</p>
+                  <p className="text-white/60 text-sm">18 sec student portal video</p>
+                  <p className="text-white/40 text-xs mt-2">Upload video to replace placeholder</p>
+                </div>
+              </div>
+              {/* Uncomment when video is ready:
+              <video 
+                className="w-full h-full object-cover"
+                poster="/videos/student-portal-poster.jpg"
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/student-portal-enroll-learn-elevate.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner / Provider Video Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+        <div className="elevate-container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">For Training Partners</h2>
+              <p className="text-xl text-gray-600">Build Boss-Energy Programs</p>
+            </div>
+            
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              {/* VIDEO SCRIPT 3: Partner / Provider "Boss Energy" (15 seconds)
+                  
+                  Shots:
+                  - Barber shop owner shaking hands with apprentice
+                  - HVAC instructor coaching student at unit
+                  - CNA instructor in lab with trainees
+                  - Close-up of "Partner Dashboard" showing "New applicants", "Active enrollments"
+                  
+                  Overlay phrases (large, bold, 1.5-2 seconds each):
+                  - "Build Boss-Energy Programs."
+                  - "Innovate Training."
+                  - "Elevate Communities."
+                  
+                  Final text: "Elevate for Humanity"
+                  "List your program on Elevate Connects Directory."
+                  
+                  Replace this placeholder with actual video URL when ready.
+              */}
+              <div className="aspect-video bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-lg font-semibold mb-2">Build Boss-Energy Programs</p>
+                  <p className="text-white/60 text-sm">15 sec partner video</p>
+                  <p className="text-white/40 text-xs mt-2">Upload video to replace placeholder</p>
+                </div>
+              </div>
+              {/* Uncomment when video is ready:
+              <video 
+                className="w-full h-full object-cover"
+                poster="/videos/partner-poster.jpg"
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/partner-boss-energy.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              */}
             </div>
           </div>
         </div>
