@@ -79,19 +79,14 @@ tasks:
       echo "🚀 Starting dev server..."
       npm run dev || bash scripts/dev.sh || echo "Start server with: npm run dev"
   
-  - name: Vercel Build Check
+  - name: Elevate Fix
+    init: |
+      chmod +x gp-fix.sh || true
+      ./gp-fix.sh || true
     command: |
-      echo "🔍 Vercel Build Checker"
-      echo "Run this to debug Vercel build issues:"
-      echo "   ./gp-fix.sh"
-      echo ""
-      echo "This will:"
-      echo "  - Check system info"
-      echo "  - Install dependencies"
-      echo "  - Verify PWA files"
-      echo "  - Run production build"
-      echo "  - Show required env vars"
-      echo ""
+      echo "Gitpod is ready. If the build above failed, scroll up to see why."
+      echo "To re-run the helper script manually, use:"
+      echo "  ./gp-fix.sh"
       gp sync-done vercel-check
   
   - name: Backend (Optional)
