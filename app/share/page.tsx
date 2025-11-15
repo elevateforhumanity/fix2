@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Share2, CheckCircle2, XCircle } from 'lucide-react';
 
-export default function ShareTargetPage() {
+function ShareTargetContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [processing, setProcessing] = useState(true);
@@ -105,5 +105,17 @@ export default function ShareTargetPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ShareTargetPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-4">
+        <div className="text-gray-600">Loading...</div>
+      </div>
+    }>
+      <ShareTargetContent />
+    </Suspense>
   );
 }
