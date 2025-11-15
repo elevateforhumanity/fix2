@@ -1,0 +1,278 @@
+{
+  "task_id": "deploy-to-vercel-now",
+  "title": "Deploy Elevate Connects Directory to Vercel",
+  "description": "Deploy the LMS to Vercel production with environment variables. Site is ready - no videos yet but has placeholders.",
+  "priority": "critical",
+  "status": "ready",
+  "created_at": "2025-11-15T22:10:00Z",
+  "worker_type": "vercel-deployment",
+  "estimated_duration": "10-15 minutes",
+  
+  "current_state": {
+    "frontend": "Built and tested - ready to deploy",
+    "backend": "Supabase - already configured",
+    "videos": "NONE - has placeholders only",
+    "animations": "Working - counters, hover effects",
+    "colors": "Enhanced - purple, teal, orange added",
+    "domain": "www.elevateconnectsdirectory.org (needs DNS config)"
+  },
+  
+  "deployment_methods": {
+    "method_1_github_integration": {
+      "name": "Deploy via Vercel Dashboard (Recommended)",
+      "steps": [
+        "Go to https://vercel.com/new",
+        "Click 'Import Git Repository'",
+        "Select: elevateforhumanity/fix2",
+        "Framework: Next.js (auto-detected)",
+        "Root Directory: ./ (default)",
+        "Build Command: npm run build (auto-detected)",
+        "Output Directory: .next (auto-detected)",
+        "Install Command: npm install (auto-detected)",
+        "Click 'Deploy'",
+        "Wait 3-5 minutes for build",
+        "Get deployment URL"
+      ],
+      "pros": [
+        "Easiest method",
+        "Auto-deploys on git push",
+        "No CLI needed",
+        "Visual interface"
+      ]
+    },
+    "method_2_vercel_cli": {
+      "name": "Deploy via Vercel CLI",
+      "steps": [
+        "vercel login",
+        "vercel --prod",
+        "Follow prompts",
+        "Confirm deployment"
+      ],
+      "requires": "VERCEL_TOKEN secret",
+      "pros": [
+        "Automated",
+        "Can be scripted",
+        "Good for CI/CD"
+      ]
+    },
+    "method_3_github_actions": {
+      "name": "Deploy via GitHub Actions",
+      "workflow_file": ".github/workflows/deploy-vercel.yml",
+      "requires": "VERCEL_TOKEN and VERCEL_ORG_ID secrets",
+      "pros": [
+        "Fully automated",
+        "Runs on every push",
+        "No manual intervention"
+      ]
+    }
+  },
+  
+  "environment_variables_required": {
+    "critical": {
+      "NEXT_PUBLIC_SITE_URL": {
+        "value": "https://www.elevateconnectsdirectory.org",
+        "description": "Site URL for SEO and redirects"
+      },
+      "NEXT_PUBLIC_SUPABASE_URL": {
+        "value": "https://cuxzzpsyufcewtmicszk.supabase.co",
+        "description": "Supabase project URL",
+        "get_from": "https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api"
+      },
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "description": "Supabase anonymous key (public)",
+        "get_from": "https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api"
+      },
+      "SUPABASE_SERVICE_ROLE_KEY": {
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "description": "Supabase service role key (secret)",
+        "get_from": "https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api",
+        "security": "KEEP SECRET - has admin access"
+      }
+    },
+    "optional": {
+      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": {
+        "description": "Stripe public key for payments",
+        "get_from": "https://dashboard.stripe.com/apikeys"
+      },
+      "STRIPE_SECRET_KEY": {
+        "description": "Stripe secret key",
+        "get_from": "https://dashboard.stripe.com/apikeys",
+        "security": "KEEP SECRET"
+      },
+      "RESEND_API_KEY": {
+        "description": "Resend API key for emails",
+        "get_from": "https://resend.com/api-keys"
+      },
+      "NEXT_PUBLIC_GA_MEASUREMENT_ID": {
+        "description": "Google Analytics measurement ID",
+        "get_from": "https://analytics.google.com"
+      }
+    }
+  },
+  
+  "domain_configuration": {
+    "domain": "www.elevateconnectsdirectory.org",
+    "steps": [
+      "In Vercel dashboard, go to Settings → Domains",
+      "Click 'Add Domain'",
+      "Enter: www.elevateconnectsdirectory.org",
+      "Vercel will show DNS records needed",
+      "Add CNAME record at DNS provider:",
+      "  Type: CNAME",
+      "  Name: www",
+      "  Value: cname.vercel-dns.com",
+      "Wait 1-5 minutes for SSL certificate",
+      "Site will be live at https://www.elevateconnectsdirectory.org"
+    ]
+  },
+  
+  "post_deployment_tasks": {
+    "immediate": [
+      "Test site loads at deployment URL",
+      "Check homepage renders correctly",
+      "Test signup/login functionality",
+      "Verify Supabase connection works",
+      "Check console for errors"
+    ],
+    "within_24_hours": [
+      "Configure custom domain",
+      "Test domain with SSL",
+      "Add Google Analytics",
+      "Set up error monitoring (Sentry)",
+      "Test on mobile devices"
+    ],
+    "within_1_week": [
+      "Create hero video (30-60 sec)",
+      "Record video testimonials (3-5)",
+      "Create product demo video (2-3 min)",
+      "Upload videos to Supabase Storage or Cloudflare Stream",
+      "Replace video placeholders with actual videos"
+    ]
+  },
+  
+  "video_status": {
+    "hero_video": {
+      "status": "PLACEHOLDER ONLY",
+      "location": "app/page.tsx - hero section",
+      "needed": "30-60 second platform overview",
+      "shows": "Play button placeholder with 'Watch: How Elevate Works'"
+    },
+    "testimonial_videos": {
+      "status": "TEXT ONLY",
+      "location": "Success Stories section",
+      "needed": "3-5 video testimonials from students",
+      "current": "Text testimonials with initials"
+    },
+    "demo_video": {
+      "status": "MISSING",
+      "needed": "2-3 minute platform walkthrough",
+      "purpose": "Show how to enroll, take courses, get certified"
+    }
+  },
+  
+  "deployment_checklist": {
+    "pre_deployment": [
+      "✅ Code committed and pushed to main",
+      "✅ Build succeeds locally (npm run build)",
+      "✅ No TypeScript errors",
+      "✅ Environment variables documented",
+      "⚠️ Videos are placeholders (will add later)"
+    ],
+    "deployment": [
+      "Deploy to Vercel",
+      "Add environment variables",
+      "Wait for build to complete",
+      "Get deployment URL",
+      "Test deployment"
+    ],
+    "post_deployment": [
+      "Configure custom domain",
+      "Test all pages load",
+      "Test signup/login",
+      "Test course enrollment",
+      "Monitor for errors"
+    ]
+  },
+  
+  "expected_results": {
+    "deployment_url": "https://fix2-xxx.vercel.app",
+    "build_time": "3-5 minutes",
+    "features_working": [
+      "Homepage with gradient hero",
+      "Animated statistics",
+      "Hover effects on cards",
+      "Program listings",
+      "Signup/login pages",
+      "Course catalog"
+    ],
+    "features_placeholder": [
+      "Hero video (shows play button placeholder)",
+      "Video testimonials (text only)",
+      "Product demo (not available)"
+    ]
+  },
+  
+  "troubleshooting": {
+    "build_fails": {
+      "check": [
+        "Environment variables are set",
+        "Supabase keys are correct",
+        "Build logs for specific errors"
+      ],
+      "solution": "Review Vercel build logs, verify env vars"
+    },
+    "site_loads_but_broken": {
+      "check": [
+        "Browser console for errors",
+        "Network tab for failed requests",
+        "Supabase connection"
+      ],
+      "solution": "Verify Supabase keys, check RLS policies"
+    },
+    "domain_not_working": {
+      "check": [
+        "DNS records are correct",
+        "SSL certificate provisioned",
+        "DNS propagation (can take 1-48 hours)"
+      ],
+      "solution": "Wait for DNS propagation, check DNS with dnschecker.org"
+    }
+  },
+  
+  "success_criteria": {
+    "deployment_successful": true,
+    "site_accessible": true,
+    "homepage_renders": true,
+    "animations_working": true,
+    "supabase_connected": true,
+    "no_console_errors": true
+  },
+  
+  "next_steps_after_deployment": {
+    "priority_1": [
+      "Create hero video",
+      "Record testimonial videos",
+      "Create demo video"
+    ],
+    "priority_2": [
+      "Add Stripe for payments",
+      "Configure email sending",
+      "Set up analytics"
+    ],
+    "priority_3": [
+      "Add more courses",
+      "Create marketing materials",
+      "Launch marketing campaign"
+    ]
+  },
+  
+  "notes": [
+    "Site is READY to deploy - backend is wired",
+    "Videos are PLACEHOLDERS - need to create actual videos",
+    "Animations and colors are working",
+    "Supabase is configured and ready",
+    "Can start enrolling students after videos are added",
+    "Domain needs DNS configuration after deployment"
+  ]
+}

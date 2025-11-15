@@ -1,0 +1,33 @@
+TASK: deploy-to-vercel-now
+PRIORITY: CRITICAL
+CREATED: 2025-11-15T22:10:00Z
+STATUS: READY_TO_EXECUTE
+
+Deploy Elevate Connects Directory to Vercel NOW.
+
+CURRENT STATUS:
+- Frontend: READY ✅
+- Backend: WIRED (Supabase) ✅
+- Videos: PLACEHOLDERS (need to create) ⚠️
+- Build: PASSING ✅
+- Domain: www.elevateconnectsdirectory.org
+
+DEPLOYMENT METHOD:
+Go to https://vercel.com/new and import elevateforhumanity/fix2
+
+OR use Vercel CLI with token:
+vercel --token $VERCEL_TOKEN --prod
+
+REQUIRED ENV VARS:
+- NEXT_PUBLIC_SITE_URL
+- NEXT_PUBLIC_SUPABASE_URL
+- NEXT_PUBLIC_SUPABASE_ANON_KEY
+- SUPABASE_SERVICE_ROLE_KEY
+
+AFTER DEPLOYMENT:
+1. Configure domain
+2. Test site
+3. Create videos
+4. Replace placeholders
+
+Expected completion: 10-15 minutes
