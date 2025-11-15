@@ -59,7 +59,7 @@
     "joi": "^18.0.1",
     "jsdom": "23.2.0",
     "jsonwebtoken": "^9.0.2",
-    "lucide-react": "^0.471.2",
+    "lucide-react": "^0.553.0",
     "multer": "^2.0.2",
     "next": "16.0.1",
     "next-intl": "4.5.2",
