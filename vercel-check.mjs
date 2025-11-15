@@ -33,42 +33,22 @@ criticalVars.forEach((varName) => {
   }
 });
 
-// Optional but recommended variables
-console.log("\n⚙️  Optional Environment Variables:");
+// Optional variables (only show if set)
 const optionalVars = [
   "RESEND_API_KEY",
   "NEXT_PUBLIC_GA_MEASUREMENT_ID",
   "NEXT_PUBLIC_FACEBOOK_PIXEL_ID",
-];
-
-optionalVars.forEach((varName) => {
-  const value = process.env[varName];
-  if (value) {
-    console.log(`  ✅ ${varName}: [set]`);
-  } else {
-    console.log(`  ⚠️  ${varName}: (not set)`);
-  }
-});
-
-// Advanced optional features (not needed for basic deployment)
-console.log("\n🔧 Advanced Features (Optional - can add later):");
-const advancedVars = [
   "NEXT_PUBLIC_VAPID_PUBLIC_KEY",
   "OPENAI_API_KEY",
 ];
 
-let advancedSet = 0;
-advancedVars.forEach((varName) => {
-  const value = process.env[varName];
-  if (value) {
-    console.log(`  ✅ ${varName}: [set]`);
-    advancedSet++;
-  }
-});
+const setOptional = optionalVars.filter(varName => process.env[varName]);
 
-if (advancedSet === 0) {
-  console.log(`  ℹ️  No advanced features configured (Push Notifications, AI features)`);
-  console.log(`     These can be added later when needed`);
+if (setOptional.length > 0) {
+  console.log("\n⚙️  Optional Features Enabled:");
+  setOptional.forEach((varName) => {
+    console.log(`  ✅ ${varName}: [set]`);
+  });
 }
 
 // Check for heavy dependencies
