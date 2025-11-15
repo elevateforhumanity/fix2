@@ -9,6 +9,7 @@
 ## 🎯 TL;DR - What You Need
 
 **The system is ALREADY WIRED:**
+
 - ✅ Frontend: Next.js 16 (ready to deploy)
 - ✅ Backend: Supabase (cloud database + auth + storage)
 - ✅ Payments: Stripe (ready to configure)
@@ -16,6 +17,7 @@
 - ✅ Analytics: Google Analytics + Facebook Pixel (ready)
 
 **You DON'T need:**
+
 - ❌ Separate backend server
 - ❌ Redis setup
 - ❌ Additional infrastructure
@@ -144,6 +146,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ## 📊 What's Already Working
 
 ### ✅ Database (Supabase)
+
 - **Location:** `lib/supabase-admin.ts`, `lib/auth.ts`
 - **Status:** Fully configured
 - **Features:**
@@ -154,6 +157,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
   - File storage
 
 ### ✅ Authentication
+
 - **Location:** `lib/auth.ts`
 - **Status:** Fully configured
 - **Features:**
@@ -163,6 +167,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
   - Protected routes
 
 ### ✅ API Routes
+
 - **Location:** `app/api/`
 - **Status:** Ready to use
 - **Features:**
@@ -172,6 +177,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
   - Progress tracking
 
 ### ✅ File Storage
+
 - **Location:** Supabase Storage
 - **Status:** Configured
 - **Features:**
@@ -187,12 +193,14 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Option 1: Supabase Storage (Current Setup)
 
 **Pros:**
+
 - ✅ Already configured
 - ✅ Free tier: 1GB storage
 - ✅ CDN included
 - ✅ No additional setup
 
 **Cons:**
+
 - ⚠️ Not optimized for video streaming
 - ⚠️ Limited bandwidth on free tier
 
@@ -203,6 +211,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Option 2: Cloudflare Stream (Recommended for Production)
 
 **Pros:**
+
 - ✅ Optimized for video streaming
 - ✅ Adaptive bitrate
 - ✅ Global CDN
@@ -210,6 +219,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 - ✅ $1/1000 minutes viewed
 
 **Setup:**
+
 1. Go to: https://dash.cloudflare.com/stream
 2. Create account
 3. Get API token
@@ -226,17 +236,20 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Option 3: YouTube (Free Alternative)
 
 **Pros:**
+
 - ✅ Completely free
 - ✅ Unlimited storage
 - ✅ Global CDN
 - ✅ No bandwidth costs
 
 **Cons:**
+
 - ⚠️ YouTube branding
 - ⚠️ Ads (unless YouTube Premium)
 - ⚠️ Less control
 
 **Setup:**
+
 1. Upload videos to YouTube
 2. Set to "Unlisted"
 3. Embed in courses
@@ -250,6 +263,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Priority 1: Hero Video (30-60 seconds)
 
 **Script:**
+
 ```
 0:00-0:10 - "Transform your future with free workforce training"
 0:10-0:20 - Show platform interface, students learning
@@ -260,6 +274,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ```
 
 **How to Create:**
+
 - **DIY:** Screen recording + stock footage + voiceover
 - **Tools:** OBS Studio (free), Canva (free), Descript ($12/mo)
 - **Cost:** $0-50
@@ -270,6 +285,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Priority 2: Video Testimonials (3-5 students, 30-60 sec each)
 
 **Questions to Ask:**
+
 1. What was your situation before Elevate?
 2. Why did you choose this program?
 3. What was your experience like?
@@ -277,11 +293,13 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 5. What would you tell someone considering this?
 
 **How to Record:**
+
 - **Option A:** Zoom recording (free)
 - **Option B:** Phone camera (free)
 - **Option C:** Professional videographer ($500-1000)
 
 **Editing:**
+
 - **Free:** DaVinci Resolve
 - **Paid:** Adobe Premiere ($20/mo), Final Cut Pro ($300)
 
@@ -290,6 +308,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Priority 3: Product Demo Video (2-3 minutes)
 
 **What to Show:**
+
 1. Homepage and enrollment process
 2. Course catalog and program details
 3. Student dashboard
@@ -298,6 +317,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 6. Getting certified
 
 **How to Create:**
+
 - **Tool:** Loom (free for 5 min videos)
 - **Alternative:** OBS Studio + voiceover
 - **Cost:** $0
@@ -310,23 +330,27 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### DIY Video Production (Budget: $0-100)
 
 **Equipment:**
+
 - Smartphone camera (you already have)
 - Lapel mic ($20-50) - Amazon
 - Ring light ($30-50) - Amazon
 - Tripod ($15-30) - Amazon
 
 **Software:**
+
 - **Recording:** OBS Studio (free)
 - **Editing:** DaVinci Resolve (free)
 - **Voiceover:** Audacity (free)
 - **Screen recording:** Loom (free)
 
 **Stock Footage:**
+
 - Pexels.com (free)
 - Pixabay.com (free)
 - Unsplash.com (free)
 
 **Music:**
+
 - YouTube Audio Library (free)
 - Epidemic Sound ($15/mo)
 - Artlist ($9/mo)
@@ -336,12 +360,14 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Semi-Pro Production (Budget: $500-2000)
 
 **Hire on Fiverr:**
+
 - Video editor: $50-200
 - Voiceover artist: $50-150
 - Motion graphics: $100-300
 - Full video production: $300-1000
 
 **Process:**
+
 1. Write script
 2. Record footage (or use stock)
 3. Hire editor on Fiverr
@@ -353,6 +379,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Professional Production (Budget: $3000-10000)
 
 **Hire Local Video Production Company:**
+
 - Full-service production
 - Professional equipment
 - Multiple camera angles
@@ -398,24 +425,24 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 
 ### Minimum to Launch (Free Tier):
 
-| Service | Cost | What You Get |
-|---------|------|--------------|
-| Vercel | $0 | Hosting, SSL, CDN |
-| Supabase | $0 | Database, Auth, 1GB storage |
-| Domain | $12/year | .org domain |
-| **Total** | **$12/year** | **Fully functional LMS** |
+| Service   | Cost         | What You Get                |
+| --------- | ------------ | --------------------------- |
+| Vercel    | $0           | Hosting, SSL, CDN           |
+| Supabase  | $0           | Database, Auth, 1GB storage |
+| Domain    | $12/year     | .org domain                 |
+| **Total** | **$12/year** | **Fully functional LMS**    |
 
 ### Recommended (Production):
 
-| Service | Cost | What You Get |
-|---------|------|--------------|
-| Vercel Pro | $20/mo | Better performance, analytics |
-| Supabase Pro | $25/mo | More storage, better support |
-| Cloudflare Stream | ~$5/mo | Video streaming (1000 views) |
-| Stripe | 2.9% + $0.30 | Payment processing |
-| Resend | $20/mo | Email sending |
-| Domain | $12/year | .org domain |
-| **Total** | **~$70/mo** | **Professional LMS** |
+| Service           | Cost         | What You Get                  |
+| ----------------- | ------------ | ----------------------------- |
+| Vercel Pro        | $20/mo       | Better performance, analytics |
+| Supabase Pro      | $25/mo       | More storage, better support  |
+| Cloudflare Stream | ~$5/mo       | Video streaming (1000 views)  |
+| Stripe            | 2.9% + $0.30 | Payment processing            |
+| Resend            | $20/mo       | Email sending                 |
+| Domain            | $12/year     | .org domain                   |
+| **Total**         | **~$70/mo**  | **Professional LMS**          |
 
 ---
 
@@ -424,11 +451,13 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Build Fails on Vercel
 
 **Check:**
+
 1. Environment variables are set
 2. Supabase URL and keys are correct
 3. Build logs for specific errors
 
 **Solution:**
+
 - Review Vercel build logs
 - Verify all required env vars
 - Check Supabase project is active
@@ -436,11 +465,13 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Site Loads But Features Don't Work
 
 **Check:**
+
 1. Browser console for errors
 2. Network tab for failed requests
 3. Supabase dashboard for connection issues
 
 **Solution:**
+
 - Verify Supabase keys are correct
 - Check RLS policies allow access
 - Test API routes directly
@@ -448,11 +479,13 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ### Videos Don't Play
 
 **Check:**
+
 1. Video file format (MP4 recommended)
 2. File size (under 100MB for Supabase free tier)
 3. Storage bucket is public
 
 **Solution:**
+
 - Convert videos to MP4
 - Compress large videos
 - Check Supabase storage permissions
@@ -462,14 +495,17 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ## 📞 Support Resources
 
 ### Vercel:
+
 - Docs: https://vercel.com/docs
 - Support: https://vercel.com/support
 
 ### Supabase:
+
 - Docs: https://supabase.com/docs
 - Discord: https://discord.supabase.com
 
 ### Next.js:
+
 - Docs: https://nextjs.org/docs
 - GitHub: https://github.com/vercel/next.js
 
@@ -478,6 +514,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ## ✅ Summary
 
 **The system is READY:**
+
 - ✅ Frontend built and tested
 - ✅ Backend (Supabase) configured
 - ✅ Authentication working
@@ -487,6 +524,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 **Just deploy and add videos!**
 
 **Next Steps:**
+
 1. Deploy to Vercel (5 min)
 2. Add environment variables (10 min)
 3. Configure domain (5 min)
