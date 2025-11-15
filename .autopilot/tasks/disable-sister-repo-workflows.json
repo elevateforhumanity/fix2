@@ -1,0 +1,187 @@
+{
+  "task_id": "disable-sister-repo-workflows",
+  "title": "Disable Autopilot Workflows in Sister Repositories",
+  "description": "Disable scheduled autopilot workflows in ecosystem2, ecosystem3, ecosystem-5, new-ecosysstem, new2, and tiny-new repositories to prevent interference with fix2 deployment",
+  "priority": "high",
+  "status": "ready",
+  "created_at": "2025-11-15T21:25:00Z",
+  "worker_type": "github-automation",
+  "estimated_duration": "15-20 minutes",
+  
+  "prerequisites": {
+    "github_access": true,
+    "repositories": [
+      "elevateforhumanity/ecosystem2",
+      "elevateforhumanity/ecosystem3",
+      "elevateforhumanity/ecosystem-5",
+      "elevateforhumanity/new-ecosysstem",
+      "elevateforhumanity/new2",
+      "elevateforhumanity/tiny-new"
+    ],
+    "permissions": "write access to repositories"
+  },
+  
+  "steps": [
+    {
+      "step": 1,
+      "action": "authenticate",
+      "description": "Authenticate with GitHub CLI",
+      "command": "gh auth status || gh auth login",
+      "validation": "gh auth status returns success"
+    },
+    {
+      "step": 2,
+      "action": "clone_repositories",
+      "description": "Clone all sister repositories to temporary directory",
+      "commands": [
+        "mkdir -p /tmp/elevate-disable-workflows",
+        "cd /tmp/elevate-disable-workflows",
+        "gh repo clone elevateforhumanity/ecosystem2 || echo 'Skip ecosystem2'",
+        "gh repo clone elevateforhumanity/ecosystem3 || echo 'Skip ecosystem3'",
+        "gh repo clone elevateforhumanity/ecosystem-5 || echo 'Skip ecosystem-5'",
+        "gh repo clone elevateforhumanity/new-ecosysstem || echo 'Skip new-ecosysstem'",
+        "gh repo clone elevateforhumanity/new2 || echo 'Skip new2'",
+        "gh repo clone elevateforhumanity/tiny-new || echo 'Skip tiny-new'"
+      ]
+    },
+    {
+      "step": 3,
+      "action": "process_each_repository",
+      "description": "For each repository, find and disable scheduled workflows",
+      "script": "disable-workflows-in-repo.sh",
+      "logic": {
+        "for_each_repo": {
+          "check_workflows_exist": "test -d .github/workflows",
+          "create_disabled_folder": "mkdir -p .github/workflows/disabled",
+          "find_scheduled_workflows": "grep -l 'schedule:' .github/workflows/*.yml .github/workflows/*.yaml",
+          "move_to_disabled": "git mv WORKFLOW_FILE .github/workflows/disabled/",
+          "commit_changes": "git commit -m 'DISABLE scheduled workflows: Stop autopilot cron jobs'",
+          "push_changes": "git push origin main || git push origin master"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "action": "verify_completion",
+      "description": "Verify no scheduled workflows remain active",
+      "validation": {
+        "for_each_repo": {
+          "check": "grep -r 'schedule:' .github/workflows/*.yml .github/workflows/*.yaml 2>/dev/null | wc -l",
+          "expected": "0",
+          "message": "All scheduled workflows should be in disabled/ folder"
+        }
+      }
+    },
+    {
+      "step": 5,
+      "action": "cleanup",
+      "description": "Clean up temporary directory",
+      "command": "rm -rf /tmp/elevate-disable-workflows"
+    },
+    {
+      "step": 6,
+      "action": "report_results",
+      "description": "Generate summary report of disabled workflows",
+      "output_file": "/workspaces/fix2/SISTER_REPOS_DISABLED_REPORT.md"
+    }
+  ],
+  
+  "execution_methods": {
+    "method_1": {
+      "name": "GitHub Actions Workflow",
+      "file": ".github/workflows/disable-sister-repo-workflows.yml",
+      "trigger": "workflow_dispatch",
+      "instructions": [
+        "Go to https://github.com/elevateforhumanity/fix2/actions",
+        "Find 'Disable Workflows in Sister Repositories' workflow",
+        "Click 'Run workflow'",
+        "Set dry_run to 'false'",
+        "Click 'Run workflow' button",
+        "Monitor execution in Actions tab"
+      ],
+      "pros": [
+        "Fully automated",
+        "Runs in GitHub infrastructure",
+        "No local setup needed",
+        "Proper commit attribution"
+      ],
+      "cons": [
+        "Requires GitHub Actions enabled",
+        "Requires GITHUB_TOKEN with write access"
+      ]
+    },
+    "method_2": {
+      "name": "Bash Script",
+      "file": "disable-autopilot-all-repos.sh",
+      "trigger": "manual execution",
+      "instructions": [
+        "Ensure GitHub CLI is authenticated: gh auth login",
+        "Run: ./disable-autopilot-all-repos.sh",
+        "Review changes for each repository",
+        "Confirm push when prompted"
+      ],
+      "pros": [
+        "Full control over each step",
+        "Can review before pushing",
+        "Works with local git setup"
+      ],
+      "cons": [
+        "Requires local authentication",
+        "More manual work",
+        "Need to handle each repo"
+      ]
+    },
+    "method_3": {
+      "name": "Autopilot Worker",
+      "description": "Use autopilot worker system to execute task",
+      "instructions": [
+        "Worker reads this task file",
+        "Executes steps 1-6 automatically",
+        "Reports results back to fix2 repository",
+        "Creates SISTER_REPOS_DISABLED_REPORT.md"
+      ],
+      "pros": [
+        "Fully automated",
+        "Integrated with autopilot system",
+        "Generates detailed report",
+        "Can be scheduled or triggered"
+      ],
+      "cons": [
+        "Requires autopilot worker to be running",
+        "Requires worker to have GitHub access"
+      ]
+    }
+  },
+  
+  "success_criteria": {
+    "all_repos_processed": true,
+    "no_scheduled_workflows_active": true,
+    "changes_committed": true,
+    "changes_pushed": true,
+    "report_generated": true
+  },
+  
+  "rollback_plan": {
+    "description": "If needed, workflows can be re-enabled by moving them back",
+    "steps": [
+      "cd REPO_NAME",
+      "git mv .github/workflows/disabled/WORKFLOW.yml .github/workflows/",
+      "git commit -m 'Re-enable WORKFLOW'",
+      "git push origin main"
+    ]
+  },
+  
+  "documentation": {
+    "guide": "DISABLE_SISTER_REPOS_GUIDE.md",
+    "script": "disable-autopilot-all-repos.sh",
+    "workflow": ".github/workflows/disable-sister-repo-workflows.yml"
+  },
+  
+  "notes": [
+    "Only scheduled (cron) workflows are disabled",
+    "Manual workflows remain active",
+    "Workflows are moved, not deleted (can be restored)",
+    "fix2 repository workflows already disabled",
+    "This prevents automated interference during manual deployment"
+  ]
+}

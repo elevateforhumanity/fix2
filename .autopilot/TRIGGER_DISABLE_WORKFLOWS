@@ -1,0 +1,16 @@
+TASK: disable-sister-repo-workflows
+PRIORITY: HIGH
+CREATED: 2025-11-15T21:25:00Z
+STATUS: READY_TO_EXECUTE
+
+This flag triggers the autopilot worker to disable scheduled workflows
+in all sister repositories (ecosystem2, ecosystem3, ecosystem-5, 
+new-ecosysstem, new2, tiny-new).
+
+The worker should:
+1. Read the task file: .autopilot/tasks/disable-sister-repo-workflows.json
+2. Execute the steps defined in the task
+3. Generate a report: SISTER_REPOS_DISABLED_REPORT.md
+4. Remove this flag file when complete
+
+Expected completion time: 15-20 minutes
