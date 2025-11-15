@@ -7,6 +7,7 @@
 ## Step 1: Get Your Vercel IDs (2 minutes)
 
 ### Option A: Use Vercel CLI (Fastest)
+
 ```bash
 # Install Vercel CLI if you haven't
 npm i -g vercel
@@ -26,6 +27,7 @@ vercel link
 ### Option B: Use Vercel Dashboard
 
 **VERCEL_TOKEN**:
+
 1. Go to: [https://vercel.com/account/tokens](https://vercel.com/account/tokens)
 2. Click "Create Token"
 3. Name: "Elevate Autopilot"
@@ -33,11 +35,13 @@ vercel link
 5. Copy the token
 
 **VERCEL_ORG_ID**:
+
 1. Go to: [https://vercel.com/account](https://vercel.com/account)
 2. Click your team name → Settings
 3. Copy "Team ID" or "Organization ID"
 
 **VERCEL_PROJECT_ID**:
+
 1. Go to: [https://vercel.com/dashboard](https://vercel.com/dashboard)
 2. Click your project
 3. Settings → General
@@ -52,30 +56,35 @@ Go to: **[Add GitHub Secrets](https://github.com/elevateforhumanity/fix2/setting
 ### Copy & Paste These:
 
 #### 1. VERCEL_TOKEN
+
 ```
 Name: VERCEL_TOKEN
 Value: [Your token from Step 1]
 ```
 
 #### 2. VERCEL_ORG_ID
+
 ```
 Name: VERCEL_ORG_ID
 Value: [Your org ID from Step 1]
 ```
 
 #### 3. VERCEL_PROJECT_ID
+
 ```
 Name: VERCEL_PROJECT_ID
 Value: [Your project ID from Step 1]
 ```
 
 #### 4. SUPABASE_ANON_KEY
+
 ```
 Name: SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA
 ```
 
 #### 5. SUPABASE_SERVICE_ROLE_KEY
+
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE
@@ -86,6 +95,7 @@ Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1
 ## Step 3: Run Autopilots (5 minutes)
 
 ### 3.1 Validate Secrets
+
 **[Click here to run](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-secrets-validator.yml)**
 
 1. Click "Run workflow" → "Run workflow"
@@ -93,6 +103,7 @@ Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1
 3. Should show: ✅ All 5 secrets present
 
 ### 3.2 Sync to Vercel
+
 **[Click here to run](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-vercel-guardian.yml)**
 
 1. Click "Run workflow" → "Run workflow"
@@ -101,6 +112,7 @@ Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1
 4. Vercel will automatically deploy
 
 ### 3.3 Test Site
+
 **[Click here to run](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-readiness.yml)**
 
 1. Click "Run workflow" → "Run workflow"
@@ -114,6 +126,7 @@ Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1
 **[https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)**
 
 Should now show:
+
 - ✅ Homepage loads
 - ✅ No errors
 - ✅ Programs work
@@ -124,6 +137,7 @@ Should now show:
 ## 🔄 What Happens Next?
 
 Your autopilot system now:
+
 - ✅ Runs nightly checks (2 AM & 10 AM UTC)
 - ✅ Tests site on every push
 - ✅ Syncs environment variables automatically
@@ -134,14 +148,17 @@ Your autopilot system now:
 ## 🆘 Need Help?
 
 **Secrets Validator Failed?**
+
 - Check you added all 5 secrets correctly
 - Verify Vercel token hasn't expired
 
 **Vercel Guardian Failed?**
+
 - Verify VERCEL_TOKEN has correct permissions
 - Check VERCEL_PROJECT_ID is correct
 
 **Site Still Shows Error?**
+
 - Wait 5 minutes for Vercel deployment
 - Check Vercel deployment logs
 - Run Vercel Guardian again
