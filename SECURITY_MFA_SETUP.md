@@ -24,6 +24,7 @@
    - Choose your preferred method:
 
 #### Option A: Authenticator App (Recommended)
+
 - Download an authenticator app:
   - **Google Authenticator** (iOS/Android)
   - **Microsoft Authenticator** (iOS/Android)
@@ -34,11 +35,13 @@
 - **Save your recovery codes** (download and store securely)
 
 #### Option B: SMS (Backup method)
+
 - Enter your phone number
 - Receive verification code via SMS
 - Enter code to verify
 
 #### Option C: Security Keys (Most secure)
+
 - Use a hardware security key like:
   - **YubiKey**
   - **Google Titan Security Key**
@@ -120,21 +123,25 @@ If `elevateforhumanity` is an organization you own/admin:
 ### For Maximum Security:
 
 **Primary Method**: Authenticator App (TOTP)
+
 - Most secure and convenient
 - Works offline
 - No SMS interception risk
 
 **Backup Method 1**: Security Key (Hardware)
+
 - Physical device required
 - Cannot be phished
 - Most secure option
 
 **Backup Method 2**: SMS
+
 - Last resort backup
 - Works when you don't have other devices
 - Less secure but better than nothing
 
-**Recovery Codes**: 
+**Recovery Codes**:
+
 - Download and store in password manager
 - Print and store in secure location
 - Use only if all other methods fail
@@ -184,6 +191,7 @@ If `elevateforhumanity` is an organization you own/admin:
 After setup, verify these are enabled:
 
 ### Personal Account:
+
 - [ ] Two-factor authentication enabled
 - [ ] Authenticator app configured
 - [ ] Backup method added (SMS or security key)
@@ -191,6 +199,7 @@ After setup, verify these are enabled:
 - [ ] Tested login with 2FA
 
 ### Repository:
+
 - [ ] Dependency graph enabled
 - [ ] Dependabot alerts enabled
 - [ ] Dependabot security updates enabled
@@ -199,12 +208,14 @@ After setup, verify these are enabled:
 - [ ] Code scanning enabled (CodeQL)
 
 ### Branch Protection (main):
+
 - [ ] Require pull request reviews
 - [ ] Require status checks to pass
 - [ ] Require conversation resolution
 - [ ] No bypass allowed
 
 ### Organization (if applicable):
+
 - [ ] Two-factor authentication required
 - [ ] All members have 2FA enabled
 - [ ] Multiple MFA methods allowed
@@ -214,25 +225,33 @@ After setup, verify these are enabled:
 ## Troubleshooting
 
 ### Issue: "Can't enable 2FA"
-**Solution**: 
+
+**Solution**:
+
 - Ensure you have a verified email address
 - Try a different authenticator app
 - Clear browser cache and try again
 
 ### Issue: "Lost access to 2FA device"
+
 **Solution**:
+
 - Use recovery codes you downloaded
 - Use backup SMS method
 - Contact GitHub support if all else fails
 
 ### Issue: "SMS not arriving"
+
 **Solution**:
+
 - Check phone number is correct
 - Try resending code
 - Use authenticator app instead
 
 ### Issue: "Organization members can't enable 2FA"
+
 **Solution**:
+
 - Extend grace period
 - Provide setup instructions
 - Offer to help with setup
@@ -242,6 +261,7 @@ After setup, verify these are enabled:
 ## Security Best Practices
 
 ### Do:
+
 - ✅ Use authenticator app as primary method
 - ✅ Add multiple backup methods
 - ✅ Store recovery codes securely
@@ -251,6 +271,7 @@ After setup, verify these are enabled:
 - ✅ Keep recovery methods up to date
 
 ### Don't:
+
 - ❌ Share recovery codes
 - ❌ Use SMS as only method (can be intercepted)
 - ❌ Ignore security alerts
@@ -264,17 +285,20 @@ After setup, verify these are enabled:
 ## Quick Links
 
 ### GitHub Security Settings:
+
 - **Personal Security**: [https://github.com/settings/security](https://github.com/settings/security)
 - **Repository Security**: [https://github.com/elevateforhumanity/fix2/settings/security_analysis](https://github.com/elevateforhumanity/fix2/settings/security_analysis)
 - **Branch Protection**: [https://github.com/elevateforhumanity/fix2/settings/branches](https://github.com/elevateforhumanity/fix2/settings/branches)
 - **Organization Security**: [https://github.com/organizations/elevateforhumanity/settings/security](https://github.com/organizations/elevateforhumanity/settings/security)
 
 ### Authenticator Apps:
+
 - **Google Authenticator**: [iOS](https://apps.apple.com/app/google-authenticator/id388497605) | [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)
 - **Microsoft Authenticator**: [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458) | [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator)
 - **Authy**: [https://authy.com/download/](https://authy.com/download/)
 
 ### Hardware Security Keys:
+
 - **YubiKey**: [https://www.yubico.com/](https://www.yubico.com/)
 - **Google Titan**: [https://store.google.com/product/titan_security_key](https://store.google.com/product/titan_security_key)
 
@@ -315,13 +339,14 @@ After completing this setup:
 ✅ **Account Security**: Significantly improved  
 ✅ **Repository Protection**: Enhanced  
 ✅ **Compliance**: Meets security best practices  
-✅ **Team Access**: Controlled and monitored  
+✅ **Team Access**: Controlled and monitored
 
 ---
 
 ## Support
 
 ### Need Help?
+
 - **GitHub Docs**: [https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa)
 - **GitHub Support**: [https://support.github.com/](https://support.github.com/)
 - **Security Questions**: Contact your organization admin
@@ -332,4 +357,4 @@ After completing this setup:
 **Timeline**: Full setup within 24 hours  
 **Status**: ⚠️ Action Required
 
-🔒 *Securing your code, securing your future.*
+🔒 _Securing your code, securing your future._
