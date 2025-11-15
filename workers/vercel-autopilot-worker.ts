@@ -242,7 +242,10 @@ async function checkDomainStatus(env: Env, domain: string) {
 }
 
 // Add environment variables
-async function addEnvironmentVariables(env: Env, variables: Record<string, string>) {
+async function addEnvironmentVariables(
+  env: Env,
+  variables: Record<string, string>
+) {
   console.log(`Adding ${Object.keys(variables).length} environment variables`);
 
   const url = `https://api.vercel.com/v10/projects/${env.VERCEL_PROJECT_ID}/env`;
@@ -399,9 +402,12 @@ async function performHealthCheck(env: Env) {
 
   // Check deployment URL
   try {
-    const response = await fetch('https://fix2-1c7w-git-main-gitpod.vercel.app', {
-      method: 'HEAD',
-    });
+    const response = await fetch(
+      'https://fix2-1c7w-git-main-gitpod.vercel.app',
+      {
+        method: 'HEAD',
+      }
+    );
 
     checks.push({
       name: 'deployment_url',

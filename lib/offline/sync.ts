@@ -14,7 +14,10 @@ export class SyncManager {
   }
 
   async registerBackgroundSync() {
-    if ('serviceWorker' in navigator && 'sync' in ServiceWorkerRegistration.prototype) {
+    if (
+      'serviceWorker' in navigator &&
+      'sync' in ServiceWorkerRegistration.prototype
+    ) {
       try {
         const registration = await navigator.serviceWorker.ready;
         await (registration as any).sync.register('sync-progress');
@@ -32,11 +35,14 @@ export class SyncManager {
 
   private startPeriodicSync() {
     // Sync every 5 minutes when online
-    setInterval(() => {
-      if (navigator.onLine) {
-        this.syncNow();
-      }
-    }, 5 * 60 * 1000);
+    setInterval(
+      () => {
+        if (navigator.onLine) {
+          this.syncNow();
+        }
+      },
+      5 * 60 * 1000
+    );
 
     // Sync when coming back online
     window.addEventListener('online', () => {
@@ -64,7 +70,9 @@ export class SyncManager {
 
       // Sync progress
       const unsyncedProgress = await db.getUnsyncedProgress();
-      console.log(`[Sync] Found ${unsyncedProgress.length} unsynced progress items`);
+      console.log(
+        `[Sync] Found ${unsyncedProgress.length} unsynced progress items`
+      );
 
       for (const progress of unsyncedProgress) {
         try {
@@ -84,10 +92,15 @@ export class SyncManager {
             // Mark as synced
             if (progress.id) {
               await db.markProgressSynced(progress.id);
-              console.log(`[Sync] Synced progress for lesson ${progress.lessonId}`);
+              console.log(
+                `[Sync] Synced progress for lesson ${progress.lessonId}`
+              );
             }
           } else {
-            console.error(`[Sync] Failed to sync progress:`, response.statusText);
+            console.error(
+              `[Sync] Failed to sync progress:`,
+              response.statusText
+            );
           }
         } catch (error) {
           console.error('[Sync] Error syncing progress item:', error);

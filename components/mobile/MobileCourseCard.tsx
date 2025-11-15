@@ -48,9 +48,7 @@ export default function MobileCourseCard({
         <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">
           {title}
         </h3>
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-          {description}
-        </p>
+        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{description}</p>
 
         {/* Progress Bar */}
         {progress > 0 && (

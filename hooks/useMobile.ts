@@ -23,7 +23,9 @@ export function useMobile(breakpoint: number = 1024) {
 }
 
 export function useOrientation() {
-  const [orientation, setOrientation] = useState<'portrait' | 'landscape'>('portrait');
+  const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
+    'portrait'
+  );
 
   useEffect(() => {
     const checkOrientation = () => {
@@ -80,7 +82,10 @@ export function useInstallPrompt() {
     });
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener(
+        'beforeinstallprompt',
+        handleBeforeInstallPrompt
+      );
     };
   }, []);
 

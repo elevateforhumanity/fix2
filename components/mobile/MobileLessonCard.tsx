@@ -24,7 +24,8 @@ export default function MobileLessonCard({
   const getIcon = () => {
     if (locked) return <Lock size={20} className="text-gray-400" />;
     if (completed) return <CheckCircle2 size={20} className="text-green-500" />;
-    if (type === 'video') return <PlayCircle size={20} className="text-blue-500" />;
+    if (type === 'video')
+      return <PlayCircle size={20} className="text-blue-500" />;
     return <Circle size={20} className="text-gray-400" />;
   };
 
@@ -49,8 +50,8 @@ export default function MobileLessonCard({
         locked
           ? 'bg-gray-50 border-gray-200 cursor-not-allowed'
           : completed
-          ? 'bg-green-50 border-green-200 active:scale-98'
-          : 'bg-white border-gray-200 active:scale-98 hover:border-blue-300'
+            ? 'bg-green-50 border-green-200 active:scale-98'
+            : 'bg-white border-gray-200 active:scale-98 hover:border-blue-300'
       }`}
     >
       {/* Icon */}
@@ -60,7 +61,11 @@ export default function MobileLessonCard({
       <div className="flex-1 text-left">
         <h4
           className={`font-medium text-sm mb-1 ${
-            locked ? 'text-gray-400' : completed ? 'text-gray-700' : 'text-gray-900'
+            locked
+              ? 'text-gray-400'
+              : completed
+                ? 'text-gray-700'
+                : 'text-gray-900'
           }`}
         >
           {title}

@@ -78,9 +78,7 @@ export default function ShareTargetPage() {
             <p className="text-gray-600 mb-4">
               Your shared content has been saved successfully.
             </p>
-            <p className="text-sm text-gray-500">
-              Redirecting to dashboard...
-            </p>
+            <p className="text-sm text-gray-500">Redirecting to dashboard...</p>
           </>
         )}
 
@@ -91,9 +89,7 @@ export default function ShareTargetPage() {
                 <XCircle size={40} className="text-red-600" />
               </div>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Error
-            </h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">Error</h1>
             <p className="text-gray-600 mb-6">{error}</p>
             <button
               onClick={() => router.push('/lms/dashboard')}

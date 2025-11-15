@@ -20,7 +20,10 @@ export default function ServiceWorkerRegistration() {
             const newWorker = registration.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                if (
+                  newWorker.state === 'installed' &&
+                  navigator.serviceWorker.controller
+                ) {
                   // New service worker available, prompt user to refresh
                   if (confirm('New version available! Reload to update?')) {
                     newWorker.postMessage({ type: 'SKIP_WAITING' });

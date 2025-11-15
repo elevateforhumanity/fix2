@@ -5,7 +5,8 @@ import webpush from 'web-push';
 // In production, these should be in environment variables
 const vapidPublicKey = process.env.VAPID_PUBLIC_KEY || '';
 const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY || '';
-const vapidSubject = process.env.VAPID_SUBJECT || 'mailto:admin@elevateforhumanity.org';
+const vapidSubject =
+  process.env.VAPID_SUBJECT || 'mailto:admin@elevateforhumanity.org';
 
 if (vapidPublicKey && vapidPrivateKey) {
   webpush.setVapidDetails(vapidSubject, vapidPublicKey, vapidPrivateKey);
@@ -23,10 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send push notification
-    await webpush.sendNotification(
-      subscription,
-      JSON.stringify(notification)
-    );
+    await webpush.sendNotification(subscription, JSON.stringify(notification));
 
     return NextResponse.json({
       success: true,

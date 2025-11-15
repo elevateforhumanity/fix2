@@ -73,13 +73,13 @@ export default function MobileNav() {
                 key={item.href}
                 href={item.href}
                 className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg min-w-[64px] ${
-                  active
-                    ? 'text-blue-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                  active ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 <Icon size={24} strokeWidth={active ? 2.5 : 2} />
-                <span className={`text-xs ${active ? 'font-semibold' : 'font-medium'}`}>
+                <span
+                  className={`text-xs ${active ? 'font-semibold' : 'font-medium'}`}
+                >
                   {item.label}
                 </span>
               </Link>

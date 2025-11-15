@@ -47,6 +47,7 @@ npm run start
 ```
 
 Open `http://localhost:3000` and verify:
+
 - Service worker registers
 - Manifest loads correctly
 - Icons display properly
@@ -112,6 +113,7 @@ lighthouse https://yourdomain.com --view
 ```
 
 **Target Scores:**
+
 - Performance: > 90
 - Accessibility: > 90
 - Best Practices: > 90
@@ -279,6 +281,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 **Problem**: Users see old version after deployment
 
 **Solutions:**
+
 1. Increment cache version in `sw.js`
 2. Call `skipWaiting()` in service worker
 3. Clear cache on activation
@@ -289,6 +292,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 **Problem**: App icon is blank or default
 
 **Solutions:**
+
 1. Verify icon paths in manifest
 2. Check icon files exist and are accessible
 3. Ensure icons are correct format (PNG)
@@ -299,6 +303,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 **Problem**: App doesn't work offline
 
 **Solutions:**
+
 1. Verify service worker is registered
 2. Check cache strategy in `sw.js`
 3. Ensure assets are being cached
@@ -309,6 +314,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 **Problem**: Notifications don't appear
 
 **Solutions:**
+
 1. Verify VAPID keys are configured
 2. Check notification permission is granted
 3. Ensure HTTPS is enabled
@@ -319,16 +325,19 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 ### Regular Tasks
 
 **Weekly:**
+
 - Monitor error logs
 - Check service worker status
 - Review performance metrics
 
 **Monthly:**
+
 - Update dependencies
 - Review and optimize cache strategy
 - Test on new devices/browsers
 
 **Quarterly:**
+
 - Audit PWA score with Lighthouse
 - Review and update icons
 - Test installation flow
@@ -354,6 +363,7 @@ When deploying updates:
 ## Support
 
 For issues or questions:
+
 - GitHub Issues: [Repository URL]
 - Email: admin@elevateforhumanity.org
 - Documentation: [Docs URL]

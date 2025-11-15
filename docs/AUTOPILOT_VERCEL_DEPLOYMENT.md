@@ -36,6 +36,7 @@ The Autopilot system automates deployment to Vercel using Cloudflare Workers to 
 **File**: `workers/vercel-autopilot-worker.ts`
 
 **Capabilities**:
+
 - Trigger deployments via GitHub push
 - Check deployment status
 - Add custom domains
@@ -44,6 +45,7 @@ The Autopilot system automates deployment to Vercel using Cloudflare Workers to 
 - Scheduled monitoring (every 10 minutes)
 
 **API Endpoints**:
+
 - `POST /` with `task: "trigger_deploy"` - Trigger deployment
 - `POST /` with `task: "check_deploy_status"` - Check status
 - `POST /` with `task: "get_deployments"` - List deployments
@@ -56,6 +58,7 @@ The Autopilot system automates deployment to Vercel using Cloudflare Workers to 
 **File**: `scripts/autopilot-deploy-to-vercel.sh`
 
 **Features**:
+
 - Automatic commit of changes
 - Triggers autopilot worker
 - Monitors deployment progress
@@ -67,6 +70,7 @@ The Autopilot system automates deployment to Vercel using Cloudflare Workers to 
 **File**: `workers/wrangler-vercel-autopilot.toml`
 
 **Settings**:
+
 - Cron schedule: Every 10 minutes
 - Environment: Production
 - Compatibility: 2024-11-15
@@ -80,6 +84,7 @@ The Autopilot system automates deployment to Vercel using Cloudflare Workers to 
    - Get API token
 
 2. **Wrangler CLI**
+
    ```bash
    npm install -g wrangler
    ```
@@ -129,6 +134,7 @@ vercel inspect fix2-1c7w
 ```
 
 Or from Vercel dashboard:
+
 1. Go to https://vercel.com/dashboard
 2. Select project: fix2-1c7w
 3. Go to Settings → General
@@ -166,6 +172,7 @@ npm run deploy:vercel
 ```
 
 This will:
+
 1. ✅ Commit all changes
 2. ✅ Push to GitHub
 3. ✅ Trigger Vercel deployment
@@ -245,6 +252,7 @@ wrangler tail --config wrangler-vercel-autopilot.toml
 ### Metrics
 
 View deployment metrics in Vercel dashboard:
+
 - Build times
 - Deployment frequency
 - Error rates
@@ -257,6 +265,7 @@ View deployment metrics in Vercel dashboard:
 **Problem**: Autopilot worker returns errors
 
 **Solutions**:
+
 1. Check worker is deployed: `wrangler deployments list`
 2. Verify secrets are set: `wrangler secret list`
 3. Check worker logs: `wrangler tail`
@@ -267,6 +276,7 @@ View deployment metrics in Vercel dashboard:
 **Problem**: Deployment triggered but fails
 
 **Solutions**:
+
 1. Check Vercel build logs in dashboard
 2. Verify GitHub push succeeded
 3. Check environment variables are set
@@ -277,6 +287,7 @@ View deployment metrics in Vercel dashboard:
 **Problem**: Health check reports unhealthy
 
 **Solutions**:
+
 1. Check Vercel API token is valid
 2. Verify GitHub token has correct permissions
 3. Test deployment URL manually
@@ -287,6 +298,7 @@ View deployment metrics in Vercel dashboard:
 **Problem**: 401 Unauthorized errors
 
 **Solutions**:
+
 1. Verify AUTOPILOT_TOKEN is correct
 2. Check token is set in worker secrets
 3. Ensure Authorization header is included
@@ -338,6 +350,7 @@ git push origin main
 ```
 
 Or use Vercel dashboard:
+
 1. Go to Deployments
 2. Find previous successful deployment
 3. Click "..." → "Promote to Production"
@@ -369,7 +382,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Trigger Autopilot
         run: |
           curl -X POST ${{ secrets.AUTOPILOT_WORKER_URL }} \

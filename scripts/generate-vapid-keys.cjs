@@ -43,7 +43,7 @@ console.log('Add these to your .env file:\n');
 console.log('─'.repeat(60));
 console.log(`NEXT_PUBLIC_VAPID_PUBLIC_KEY=${keys.publicKey}`);
 console.log(`VAPID_PRIVATE_KEY=${keys.privateKey}`);
-console.log(`VAPID_SUBJECT=mailto:admin@elevateforhumanity.org`);
+console.log('VAPID_SUBJECT=mailto:admin@elevateforhumanity.org');
 console.log('─'.repeat(60));
 console.log('\n⚠️  Important:');
 console.log('  • Public key is exposed to the client');
