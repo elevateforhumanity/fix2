@@ -48,7 +48,7 @@ export function AnimatedCounter({
     const updateCount = () => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / duration, 1);
-      
+
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = startValue + (end - startValue) * easeOutQuart;
@@ -65,13 +65,14 @@ export function AnimatedCounter({
     requestAnimationFrame(updateCount);
   };
 
-  const formattedCount = decimals > 0
-    ? count.toFixed(decimals)
-    : Math.floor(count).toString();
+  const formattedCount =
+    decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString();
 
   return (
     <div ref={counterRef} className={className}>
-      {prefix}{formattedCount}{suffix}
+      {prefix}
+      {formattedCount}
+      {suffix}
     </div>
   );
 }
