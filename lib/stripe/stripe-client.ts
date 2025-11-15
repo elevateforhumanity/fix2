@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 // Initialize Stripe (server-side only)
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2023-10-16',
+      apiVersion: '2025-10-29.clover',
     })
   : null;
 
