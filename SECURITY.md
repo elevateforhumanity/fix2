@@ -36,12 +36,14 @@ When reporting a vulnerability, please include:
 ## Security Features
 
 ### Authentication & Authorization
+
 - ✅ Supabase Auth with Row Level Security (RLS)
 - ✅ JWT-based session management
 - ✅ Role-based access control (RBAC)
 - ✅ Multi-factor authentication (MFA) support
 
 ### Data Protection
+
 - ✅ Environment variables for sensitive data
 - ✅ Secrets stored in GitHub Secrets
 - ✅ No hardcoded credentials
@@ -49,6 +51,7 @@ When reporting a vulnerability, please include:
 - ✅ Database encryption at rest (Supabase)
 
 ### Infrastructure Security
+
 - ✅ Netlify hosting with DDoS protection
 - ✅ Automated security updates (Dependabot)
 - ✅ Secret scanning enabled
@@ -56,6 +59,7 @@ When reporting a vulnerability, please include:
 - ✅ Dependency vulnerability alerts
 
 ### Application Security
+
 - ✅ Input validation and sanitization
 - ✅ SQL injection prevention (Supabase parameterized queries)
 - ✅ XSS protection (React/Next.js built-in)
@@ -121,6 +125,7 @@ When reporting a vulnerability, please include:
 ## Security Checklist
 
 ### Repository Security
+
 - [x] Two-factor authentication required
 - [x] Branch protection enabled (main)
 - [x] Required reviews for PRs
@@ -132,6 +137,7 @@ When reporting a vulnerability, please include:
 - [x] Security policy published
 
 ### Application Security
+
 - [x] Environment variables configured
 - [x] Secrets in GitHub Secrets
 - [x] HTTPS enforced
@@ -144,6 +150,7 @@ When reporting a vulnerability, please include:
 - [x] Rate limiting
 
 ### Infrastructure Security
+
 - [x] Netlify hosting configured
 - [x] Custom domain with SSL
 - [x] DDoS protection active
@@ -193,14 +200,17 @@ When reporting a vulnerability, please include:
 ## Security Contacts
 
 ### Primary Contact
+
 - **Email**: security@elevateforhumanity.org
 - **Response Time**: 48 hours
 
 ### Emergency Contact
+
 - **For critical vulnerabilities**: Use GitHub Security Advisory
 - **Response Time**: 24 hours
 
 ### Bug Bounty
+
 - Currently not available
 - Planned for future implementation
 
@@ -210,7 +220,7 @@ When reporting a vulnerability, please include:
 
 ### How We Communicate Security Issues
 
-1. **Critical vulnerabilities**: 
+1. **Critical vulnerabilities**:
    - Private security advisory
    - Direct notification to users
    - Immediate patch release
@@ -235,21 +245,23 @@ When reporting a vulnerability, please include:
 
 ## Security Audit History
 
-| Date       | Type          | Findings | Status   |
-|------------|---------------|----------|----------|
-| 2025-01-15 | Self-audit    | MFA setup| Resolved |
-| TBD        | External audit| Pending  | Planned  |
+| Date       | Type           | Findings  | Status   |
+| ---------- | -------------- | --------- | -------- |
+| 2025-01-15 | Self-audit     | MFA setup | Resolved |
+| TBD        | External audit | Pending   | Planned  |
 
 ---
 
 ## Resources
 
 ### Internal Documentation
+
 - [SECURITY_MFA_SETUP.md](./SECURITY_MFA_SETUP.md) - MFA setup guide
 - [AUTOPILOT_CHARTER.md](./AUTOPILOT_CHARTER.md) - Automated security checks
 - [SECRETS_CATALOG.md](./SECRETS_CATALOG.md) - Secrets management
 
 ### External Resources
+
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [GitHub Security Best Practices](https://docs.github.com/en/code-security)
 - [Supabase Security](https://supabase.com/docs/guides/platform/security)
@@ -262,6 +274,7 @@ When reporting a vulnerability, please include:
 We thank the security researchers and community members who help keep this project secure.
 
 ### Hall of Fame
+
 - TBD - First security researcher to report a valid vulnerability
 
 ---
@@ -270,4 +283,4 @@ We thank the security researchers and community members who help keep this proje
 **Next Review**: 2025-04-15  
 **Version**: 1.0
 
-🔒 *Security is everyone's responsibility.*
+🔒 _Security is everyone's responsibility._
