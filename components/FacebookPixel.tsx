@@ -60,6 +60,11 @@ function FacebookPixelContent() {
 }
 
 export default function FacebookPixel() {
+  // Disable on error pages to prevent build issues
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  
   return (
     <Suspense fallback={null}>
       <FacebookPixelContent />
