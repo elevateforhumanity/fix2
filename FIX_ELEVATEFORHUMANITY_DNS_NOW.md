@@ -12,6 +12,7 @@
 The domain **www.elevateforhumanity.org** was added to Cloudflare (likely during Cloudflare Workers setup) and the nameservers were changed. This broke the Durablesites.co marketing site.
 
 **Current (BROKEN) State:**
+
 ```
 Domain: elevateforhumanity.org
 Nameservers: Cloudflare nameservers
@@ -21,6 +22,7 @@ Result: Site completely DOWN
 ```
 
 **Correct State Should Be:**
+
 ```
 Domain: elevateforhumanity.org
 Nameservers: Domain registrar default OR Durablesites nameservers
@@ -48,6 +50,7 @@ Result: Site works perfectly
    - Confirm removal
 
 **This will:**
+
 - Remove Cloudflare DNS management
 - Stop Cloudflare from intercepting traffic
 - Allow direct connection to Durablesites.co
@@ -59,6 +62,7 @@ Result: Site works perfectly
 **Find Your Domain Registrar:**
 
 Check where elevateforhumanity.org is registered:
+
 - GoDaddy
 - Namecheap
 - Google Domains
@@ -77,6 +81,7 @@ Check where elevateforhumanity.org is registered:
 **Option A: Use Durablesites Nameservers (Recommended)**
 
 Login to Durablesites.co and get their nameservers, then set:
+
 ```
 Nameserver 1: [Get from Durablesites]
 Nameserver 2: [Get from Durablesites]
@@ -85,6 +90,7 @@ Nameserver 2: [Get from Durablesites]
 **Option B: Use Registrar Default Nameservers**
 
 Remove Cloudflare nameservers and use registrar's default:
+
 ```
 Remove: xxx.ns.cloudflare.com
 Remove: yyy.ns.cloudflare.com
@@ -125,12 +131,14 @@ Use: Registrar's default nameservers
 Then test:
 
 1. **Check DNS:**
+
    ```bash
    # Should NOT show Cloudflare IPs
    nslookup www.elevateforhumanity.org
    ```
 
 2. **Test HTTPS:**
+
    ```bash
    curl -I https://www.elevateforhumanity.org
    # Should return: HTTP/1.1 200 OK
@@ -195,12 +203,14 @@ During Cloudflare Workers setup (for enrollment form injection), the domain was 
 ## 🚫 What NOT to Do
 
 **Don't:**
+
 - ❌ Try to fix SSL in Cloudflare (wrong approach)
 - ❌ Add more DNS records in Cloudflare
 - ❌ Contact Durablesites support (they can't fix Cloudflare issues)
 - ❌ Wait for it to "fix itself" (it won't)
 
 **Do:**
+
 - ✅ Remove site from Cloudflare
 - ✅ Change nameservers at registrar
 - ✅ Let Durablesites manage DNS
@@ -211,15 +221,18 @@ During Cloudflare Workers setup (for enrollment form injection), the domain was 
 ## 📞 Where to Get Help
 
 ### Cloudflare Support:
+
 - **Dashboard:** https://dash.cloudflare.com
 - **Community:** https://community.cloudflare.com
 - **Docs:** https://developers.cloudflare.com
 
 ### Durablesites Support:
+
 - **Website:** https://durablesites.co
 - **Support:** Check their website for contact info
 
 ### Domain Registrar Support:
+
 - Check your registrar's support page
 - Usually have live chat or phone support
 
@@ -228,14 +241,17 @@ During Cloudflare Workers setup (for enrollment form injection), the domain was 
 ## ✅ Expected Timeline
 
 **Immediate (0-5 minutes):**
+
 - Remove site from Cloudflare
 - Change nameservers at registrar
 
 **Short Term (1-2 hours):**
+
 - DNS propagation begins
 - Some users can access site
 
 **Complete (24-48 hours):**
+
 - Full DNS propagation worldwide
 - All users can access site
 - SSL certificate fully active
@@ -287,12 +303,14 @@ ELEVATE CONNECTS DIRECTORY
 ## 🚀 After Fix is Complete
 
 **Update these files:**
+
 - [ ] Mark ELEVATEFORHUMANITY_ORG_ISSUE.md as RESOLVED
 - [ ] Update DEPLOYMENT_STATUS_CURRENT.md
 - [ ] Document what was learned
 - [ ] Add note to prevent future issues
 
 **Prevent Future Issues:**
+
 - [ ] Document: "Do NOT add elevateforhumanity.org to Cloudflare"
 - [ ] Document: "Only elevateconnectsdirectory.org should be on Vercel"
 - [ ] Add warning in Cloudflare Workers documentation
@@ -302,17 +320,20 @@ ELEVATE CONNECTS DIRECTORY
 ## 💡 Lessons Learned
 
 **What Happened:**
+
 - Cloudflare Workers setup required adding domain to Cloudflare
 - This changed nameservers and broke the marketing site
 - Cloudflare SSL mode was incompatible with Durablesites setup
 
 **What to Do Differently:**
+
 - Don't add marketing site domain to Cloudflare
 - Use Cloudflare Workers on a different domain if needed
 - Keep marketing site (elevateforhumanity.org) on Durablesites
 - Keep LMS (elevateconnectsdirectory.org) on Vercel
 
 **Key Takeaway:**
+
 - **Two separate domains = Two separate hosting platforms**
 - **Don't mix them!**
 
