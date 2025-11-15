@@ -1,0 +1,37 @@
+# Wrangler configuration for Vercel Autopilot Worker
+# Target deployment: fix2-1c7w-git-main-gitpod.vercel.app
+
+name = "vercel-autopilot-worker"
+main = "vercel-autopilot-worker.ts"
+compatibility_date = "2024-11-15"
+
+# Worker settings
+workers_dev = true
+route = ""
+zone_id = ""
+
+# Cron triggers for scheduled tasks
+[triggers]
+crons = ["*/10 * * * *"]  # Every 10 minutes
+
+# Environment variables (set via wrangler secret)
+# wrangler secret put AUTOPILOT_TOKEN
+# wrangler secret put VERCEL_TOKEN
+# wrangler secret put VERCEL_PROJECT_ID
+# wrangler secret put VERCEL_TEAM_ID
+# wrangler secret put GITHUB_TOKEN
+# wrangler secret put SUPABASE_URL
+
+# KV Namespaces (optional, for caching)
+# [[kv_namespaces]]
+# binding = "AUTOPILOT_CACHE"
+# id = "your_kv_namespace_id"
+
+# Durable Objects (optional, for state management)
+# [[durable_objects.bindings]]
+# name = "DEPLOYMENT_STATE"
+# class_name = "DeploymentState"
+
+# Analytics Engine (optional, for metrics)
+# [analytics_engine_datasets]
+# binding = "AUTOPILOT_ANALYTICS"

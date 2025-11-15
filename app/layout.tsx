@@ -3,12 +3,16 @@ import './globals.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
+import OfflineIndicator from '@/components/OfflineIndicator';
+import NotificationPrompt from '@/components/NotificationPrompt';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
   keywords: ['workforce training', 'career development', 'WIOA', 'job training', 'technical education', 'apprenticeships', 'Marion County', 'Indiana'],
   authors: [{ name: 'Elevate for Humanity' }],
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Elevate for Humanity | Workforce Training & Career Development',
     description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
@@ -28,7 +32,11 @@ export const metadata: Metadata = {
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
   },
-
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Elevate',
+  },
   robots: {
     index: true,
     follow: true,
@@ -56,6 +64,9 @@ export default function RootLayout({
       <body className="antialiased">
         <GoogleAnalytics />
         <FacebookPixel />
+        <ServiceWorkerRegistration />
+        <OfflineIndicator />
+        <NotificationPrompt />
         {children}
       </body>
     </html>
