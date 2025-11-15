@@ -7,10 +7,12 @@ The Elevate for Humanity LMS includes a comprehensive autopilot system that auto
 ## Autopilot Components
 
 ### 1. Netlify Environment Guardian
+
 **File**: `.github/workflows/autopilot-netlify-guardian.yml`  
 **Purpose**: Ensures Netlify environment variables are correct and synced with GitHub Secrets
 
 **What it does**:
+
 - ✅ Validates all required GitHub Secrets exist
 - ✅ Reads current Netlify environment variables
 - ✅ Compares with expected values
@@ -18,48 +20,57 @@ The Elevate for Humanity LMS includes a comprehensive autopilot system that auto
 - ✅ Triggers Netlify redeploy if changes made
 
 **When to run**:
+
 - After adding/updating GitHub Secrets
 - When site shows "Internal Server Error"
 - After Supabase project changes
 - Manual trigger anytime via GitHub Actions
 
 ### 2. GitHub Secrets Validator
+
 **File**: `.github/workflows/autopilot-secrets-validator.yml`  
 **Purpose**: Validates required GitHub Secrets are present
 
 **What it does**:
+
 - ✅ Checks all 4 required secrets exist
 - ✅ Provides clear instructions for missing secrets
 - ✅ Validates Supabase URL in repo config
 - ✅ Runs nightly to catch configuration drift
 
 **When to run**:
+
 - Automatically runs nightly at 2 AM UTC
 - After fresh clone/fork of repository
 - When setting up new environment
 - Manual trigger anytime
 
 ### 3. Deployment Target Bouncer
+
 **File**: `.github/workflows/autopilot-deployment-bouncer.yml`  
 **Purpose**: Ensures only Netlify is configured as deployment target
 
 **What it does**:
+
 - ✅ Detects Vercel configuration files
 - ✅ Checks for unauthorized deployment configs
 - ✅ Validates .gitignore includes deployment artifacts
 - ✅ Confirms Netlify is primary deployment
 
 **When to run**:
+
 - Automatically on pull requests
 - After removing Vercel integration
 - When cleaning up deployment configs
 - Manual trigger anytime
 
 ### 4. Page Completeness Auditor
+
 **File**: `.github/workflows/autopilot-fix-pages.yml`  
 **Purpose**: Audits and fixes incomplete pages, routing issues, and placeholder content
 
 **What it does**:
+
 - ✅ Scans for skeleton loaders
 - ✅ Detects mock/placeholder data
 - ✅ Finds TODO/FIXME markers
@@ -68,6 +79,7 @@ The Elevate for Humanity LMS includes a comprehensive autopilot system that auto
 - ✅ Optionally auto-commits fixes
 
 **When to run**:
+
 - Before major releases
 - After adding new pages
 - When preparing for student onboarding
@@ -84,6 +96,7 @@ Go to: **Settings → Secrets and variables → Actions → New repository secre
 Add these 4 secrets:
 
 #### 1. NETLIFY_AUTH_TOKEN
+
 ```
 Where to find:
 1. Go to https://app.netlify.com
@@ -94,6 +107,7 @@ Where to find:
 ```
 
 #### 2. NETLIFY_SITE_ID
+
 ```
 Where to find:
 1. Go to https://app.netlify.com
@@ -103,6 +117,7 @@ Where to find:
 ```
 
 #### 3. SUPABASE_ANON_KEY
+
 ```
 Where to find:
 1. Go to https://supabase.com/dashboard
@@ -112,6 +127,7 @@ Where to find:
 ```
 
 #### 4. SUPABASE_SERVICE_ROLE_KEY
+
 ```
 Where to find:
 1. Same location as above (Settings → API)
@@ -140,6 +156,7 @@ Run the **Autopilot – Fix Netlify Environment Variables** workflow:
 5. Click "Run workflow"
 
 The autopilot will:
+
 - Validate GitHub Secrets
 - Read current Netlify environment variables
 - Fix any incorrect or missing variables
@@ -154,6 +171,7 @@ Run the **Autopilot – Deployment Target Bouncer** workflow:
 3. Click "Run workflow"
 
 If it finds Vercel configs:
+
 - Delete the files it identifies
 - Commit the changes
 - Re-run the workflow
@@ -179,23 +197,28 @@ Run the **Autopilot – Fix LMS Pages** workflow:
 ## Autopilot Workflow Triggers
 
 ### Manual Triggers
+
 All autopilots can be triggered manually via GitHub Actions UI.
 
 ### Automatic Triggers
 
 #### Secrets Validator
+
 - **Nightly**: 2 AM UTC
 - **On push**: When charter or workflow changes
 
 #### Deployment Bouncer
+
 - **On pull request**: Any PR opened/updated
 - **On push**: When Vercel configs or workflows change
 
 #### Netlify Guardian
+
 - **On push**: When charter or workflow changes
 - **Manual only**: For environment variable fixes
 
 #### Page Auditor
+
 - **Manual only**: Run when needed before releases
 
 ---
@@ -205,6 +228,7 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ### Issue: "Missing GitHub Secret"
 
 **Solution**:
+
 1. Check which secret is missing in workflow summary
 2. Follow instructions in Step 1 to add it
 3. Re-run the workflow
@@ -212,6 +236,7 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ### Issue: "Netlify API authentication failed"
 
 **Solution**:
+
 1. Verify `NETLIFY_AUTH_TOKEN` is correct
 2. Check token hasn't expired
 3. Generate new token if needed
@@ -221,6 +246,7 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ### Issue: "Environment variables not syncing"
 
 **Solution**:
+
 1. Run Secrets Validator first
 2. Ensure all 4 secrets are present
 3. Run Netlify Guardian with `force_redeploy: true`
@@ -229,6 +255,7 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ### Issue: "Site still shows Internal Server Error"
 
 **Solution**:
+
 1. Run Netlify Guardian to fix environment variables
 2. Check Netlify build logs for errors
 3. Verify Supabase project is active
@@ -238,6 +265,7 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ### Issue: "Vercel still deploying"
 
 **Solution**:
+
 1. Run Deployment Bouncer to detect configs
 2. Delete identified Vercel files
 3. Go to Vercel dashboard
@@ -249,20 +277,24 @@ All autopilots can be triggered manually via GitHub Actions UI.
 ## Maintenance Schedule
 
 ### Daily
+
 - Secrets Validator runs automatically at 2 AM UTC
 
 ### Weekly
+
 - Review autopilot workflow summaries
 - Check for any failed runs
 - Address any flagged issues
 
 ### Before Releases
+
 - Run Page Completeness Auditor
 - Fix any routing issues
 - Replace mock data with real queries
 - Verify all assets present
 
 ### After Major Changes
+
 - Run Netlify Guardian to sync environment
 - Run Deployment Bouncer to verify configs
 - Run Page Auditor to check for issues
@@ -302,6 +334,7 @@ gh workflow enable autopilot-netlify-guardian.yml
 ```
 
 Or in GitHub UI:
+
 1. Go to Actions
 2. Select the workflow
 3. Click "..." → Disable workflow
@@ -311,18 +344,21 @@ Or in GitHub UI:
 ## Security Best Practices
 
 ### GitHub Secrets
+
 - ✅ Never commit secrets to repository
 - ✅ Rotate tokens every 90 days
 - ✅ Use service_role key only in server-side code
 - ✅ Limit token permissions to minimum required
 
 ### Autopilot Permissions
+
 - ✅ Autopilots only read/write environment variables
 - ✅ No access to sensitive data
 - ✅ All changes logged in workflow summaries
 - ✅ Manual approval required for auto-commits
 
 ### Monitoring
+
 - ✅ Review workflow runs weekly
 - ✅ Check for failed autopilot runs
 - ✅ Investigate any unexpected changes
@@ -333,18 +369,21 @@ Or in GitHub UI:
 ## Support
 
 ### Workflow Fails
+
 1. Check workflow summary for error details
 2. Review step logs for specific failures
 3. Consult troubleshooting section above
 4. Check related documentation
 
 ### Environment Issues
+
 1. Run Secrets Validator
 2. Run Netlify Guardian
 3. Check Netlify dashboard
 4. Review Supabase project status
 
 ### Code Issues
+
 1. Run Page Auditor
 2. Review audit report artifact
 3. Fix flagged issues manually
