@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 export default function HomePage() {
   return (
@@ -28,67 +29,133 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="elevate-hero">
-        <div className="elevate-hero-content">
-          <div className="elevate-hero-kicker">
-            ✓ WIOA-Funded Training • 100% Free for Eligible Participants
-          </div>
-          <h1 className="elevate-hero-title">
-            Transform Your Future with FREE Workforce Training
-          </h1>
-          <p className="elevate-hero-subtitle">
-            Access high-quality career training programs funded by the Workforce Innovation and Opportunity Act (WIOA). Get the skills employers need—at no cost to you.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/enroll" className="elevate-btn-primary" style={{fontSize: '1.125rem', padding: '1rem 2rem'}}>
-              Check Your Eligibility
-            </Link>
-            <Link href="/programs" className="elevate-btn-secondary" style={{fontSize: '1.125rem', padding: '1rem 2rem'}}>
-              Browse Programs
-            </Link>
-          </div>
-          
-          {/* Trust Indicators */}
-          <div className="mt-8 flex gap-6 items-center text-sm opacity-90">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>WIOA Certified</span>
+      {/* Hero Section with Video */}
+      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
+        </div>
+        
+        <div className="elevate-container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
+            {/* Left: Content */}
+            <div>
+              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
+                ✓ WIOA-Funded Training • 100% Free for Eligible Participants
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Transform Your Future with FREE Workforce Training
+              </h1>
+              <p className="text-xl mb-8 text-white/90 leading-relaxed">
+                Access high-quality career training programs funded by the Workforce Innovation and Opportunity Act (WIOA). Get the skills employers need—at no cost to you.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <Link href="/enroll" className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                  Check Your Eligibility
+                </Link>
+                <Link href="/programs" className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                  Browse Programs
+                </Link>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>WIOA Certified</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>Industry-Recognized Credentials</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>Job Placement Support</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>Industry-Recognized Credentials</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>Job Placement Support</span>
+            
+            {/* Right: Video Placeholder */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                {/* Video Placeholder - Replace with actual video */}
+                <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <p className="text-white/80 text-sm">Watch: How Elevate Works</p>
+                    <p className="text-white/60 text-xs mt-1">2:30 min</p>
+                  </div>
+                </div>
+                {/* Uncomment when video is ready:
+                <video 
+                  className="w-full h-full object-cover"
+                  poster="/hero-video-poster.jpg"
+                  controls
+                  preload="metadata"
+                >
+                  <source src="/videos/hero-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                */}
+              </div>
+              
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-purple-600">100%</div>
+                <div className="text-sm text-gray-600">Free Training</div>
+              </div>
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-teal-600">85%</div>
+                <div className="text-sm text-gray-600">Job Placement</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
+      {/* Stats Section with Animations */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="elevate-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">100%</div>
-              <div className="text-gray-600">Free Training</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <AnimatedCounter 
+                end={100} 
+                suffix="%" 
+                className="text-5xl font-bold text-purple-600 mb-2"
+              />
+              <div className="text-gray-700 font-semibold">Free Training</div>
               <div className="text-sm text-gray-500 mt-1">WIOA-Funded</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">10+</div>
-              <div className="text-gray-600">Career Programs</div>
+            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <AnimatedCounter 
+                end={10} 
+                suffix="+" 
+                className="text-5xl font-bold text-orange-600 mb-2"
+              />
+              <div className="text-gray-700 font-semibold">Career Programs</div>
               <div className="text-sm text-gray-500 mt-1">High-Demand Fields</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
-              <div className="text-gray-600">Job Placement</div>
+            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <AnimatedCounter 
+                end={85} 
+                suffix="%" 
+                className="text-5xl font-bold text-teal-600 mb-2"
+              />
+              <div className="text-gray-700 font-semibold">Job Placement</div>
               <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">$45K+</div>
-              <div className="text-gray-600">Avg. Starting Salary</div>
+            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <AnimatedCounter 
+                end={45} 
+                prefix="$" 
+                suffix="K+" 
+                className="text-5xl font-bold text-blue-600 mb-2"
+              />
+              <div className="text-gray-700 font-semibold">Avg. Starting Salary</div>
               <div className="text-sm text-gray-500 mt-1">For Graduates</div>
             </div>
           </div>
@@ -166,12 +233,14 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="elevate-card elevate-card-red">
-              <img 
-                src="/course-covers/barber-apprenticeship/cover.svg" 
-                alt="Barber Apprenticeship"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
+            <div className="elevate-card elevate-card-red group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <div className="overflow-hidden rounded-lg mb-4">
+                <img 
+                  src="/course-covers/barber-apprenticeship/cover.svg" 
+                  alt="Barber Apprenticeship"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Barber Apprenticeship</h3>
               <p className="text-gray-600 mb-4">
                 Master the art of barbering with comprehensive training in cutting, styling, and business skills.
@@ -195,12 +264,14 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="elevate-card elevate-card-blue">
-              <img 
-                src="/course-covers/cna-training/cover.svg" 
-                alt="CNA Certification"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
+            <div className="elevate-card elevate-card-blue group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <div className="overflow-hidden rounded-lg mb-4">
+                <img 
+                  src="/course-covers/cna-training/cover.svg" 
+                  alt="CNA Certification"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">CNA Certification</h3>
               <p className="text-gray-600 mb-4">
                 Prepare for your Certified Nursing Assistant certification with expert-led training.
@@ -224,12 +295,14 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="elevate-card elevate-card-orange">
-              <img 
-                src="/course-covers/hvac-tech/cover.svg" 
-                alt="HVAC Technician"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
+            <div className="elevate-card elevate-card-orange group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <div className="overflow-hidden rounded-lg mb-4">
+                <img 
+                  src="/course-covers/hvac-tech/cover.svg" 
+                  alt="HVAC Technician"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">HVAC Technician</h3>
               <p className="text-gray-600 mb-4">
                 Learn heating, ventilation, and air conditioning systems from industry experts.
