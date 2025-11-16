@@ -7,6 +7,7 @@ import StructuredData from '@/components/StructuredData';
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
+import { VoiceAssistant } from '@/components/VoiceAssistant';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
@@ -78,6 +79,7 @@ export default function RootLayout({
         <ServiceWorkerRegistration />
         <OfflineIndicator />
         <NotificationPrompt />
+        <VoiceAssistant />
         {children}
       </body>
     </html>
