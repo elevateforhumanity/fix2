@@ -1,0 +1,228 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Clock, MapPin, DollarSign, Star } from 'lucide-react';
+
+// Base Card Component
+export interface CardProps {
+  children: React.ReactNode;
+  className?: string;
+  hover?: boolean;
+}
+
+export const Card: React.FC<CardProps> = ({ children, className = '', hover = false }) => {
+  const hoverStyles = hover ? 'hover:border-blue-600 hover:-translate-y-1 hover:shadow-lg' : '';
+  return (
+    <div className={`bg-white border border-slate-200 transition-all duration-200 ${hoverStyles} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+// Program Card Component
+export interface ProgramCardProps {
+  title: string;
+  slug: string;
+  category: string;
+  provider?: string;
+  duration?: string;
+  location?: string;
+  funding?: string;
+  image: string;
+  description: string;
+}
+
+export const ProgramCard: React.FC<ProgramCardProps> = ({
+  title,
+  slug,
+  category,
+  provider,
+  duration,
+  location,
+  funding,
+  image,
+  description,
+}) => {
+  return (
+    <Link href={`/programs/${slug}`} className="group block">
+      <Card hover className="overflow-hidden">
+        <div className="relative h-48 w-full">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-200"
+          />
+        </div>
+        <div className="p-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded">
+              {category}
+            </span>
+            {funding && (
+              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded">
+                {funding}
+              </span>
+            )}
+          </div>
+          <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+            {title}
+          </h3>
+          {provider && (
+            <p className="text-sm text-slate-600 mb-3">{provider}</p>
+          )}
+          <p className="text-sm text-slate-600 mb-4 line-clamp-2">{description}</p>
+          <div className="flex items-center gap-4 text-sm text-slate-500">
+            {duration && (
+              <div className="flex items-center gap-1">
+                <Clock className="h-4 w-4" />
+                <span>{duration}</span>
+              </div>
+            )}
+            {location && (
+              <div className="flex items-center gap-1">
+                <MapPin className="h-4 w-4" />
+                <span>{location}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </Card>
+    </Link>
+  );
+};
+
+// Testimonial Card Component
+export interface TestimonialCardProps {
+  name: string;
+  program: string;
+  image: string;
+  quote: string;
+  rating?: number;
+}
+
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  name,
+  program,
+  image,
+  quote,
+  rating,
+}) => {
+  return (
+    <Card className="p-6">
+      <div className="flex items-start gap-4 mb-4">
+        <div className="relative h-16 w-16 rounded-full overflow-hidden flex-shrink-0">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-900">{name}</h4>
+          <p className="text-sm text-slate-600">{program}</p>
+          {rating && (
+            <div className="flex items-center gap-1 mt-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`h-4 w-4 ${
+                    i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+      <p className="text-slate-700 leading-relaxed italic">"{quote}"</p>
+    </Card>
+  );
+};
+
+// Blog Card Component
+export interface BlogCardProps {
+  title: string;
+  slug: string;
+  excerpt: string;
+  image: string;
+  date: string;
+  category: string;
+  readTime?: string;
+}
+
+export const BlogCard: React.FC<BlogCardProps> = ({
+  title,
+  slug,
+  excerpt,
+  image,
+  date,
+  category,
+  readTime,
+}) => {
+  return (
+    <Link href={`/blog/${slug}`} className="group block">
+      <Card hover className="overflow-hidden">
+        <div className="relative h-48 w-full">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-200"
+          />
+        </div>
+        <div className="p-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded">
+              {category}
+            </span>
+            {readTime && (
+              <span className="text-xs text-slate-500">{readTime}</span>
+            )}
+          </div>
+          <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+            {title}
+          </h3>
+          <p className="text-sm text-slate-600 mb-4 line-clamp-3">{excerpt}</p>
+          <p className="text-xs text-slate-500">{date}</p>
+        </div>
+      </Card>
+    </Link>
+  );
+};
+
+// Stat Card Component
+export interface StatCardProps {
+  number: string;
+  label: string;
+  icon?: React.ReactNode;
+  trend?: {
+    value: string;
+    direction: 'up' | 'down';
+  };
+}
+
+export const StatCard: React.FC<StatCardProps> = ({
+  number,
+  label,
+  icon,
+  trend,
+}) => {
+  return (
+    <Card className="p-6 text-center">
+      {icon && (
+        <div className="flex justify-center mb-4">
+          {icon}
+        </div>
+      )}
+      <div className="text-4xl font-bold text-blue-600 mb-2">{number}</div>
+      <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">{label}</div>
+      {trend && (
+        <div className={`text-xs mt-2 ${trend.direction === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+          {trend.direction === 'up' ? '↑' : '↓'} {trend.value}
+        </div>
+      )}
+    </Card>
+  );
+};
