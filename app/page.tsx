@@ -146,7 +146,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* Programs - Visual & Engaging */}
+      {/* Programs - Visual and Engaging */}
       <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="elevate-container">
           <div className="text-center mb-16">
