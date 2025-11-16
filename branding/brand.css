@@ -142,13 +142,13 @@
   background: white;
   border-radius: var(--efh-radius-xl);
   padding: var(--efh-space-xl);
-  box-shadow: var(--efh-shadow-md);
-  transition: all 0.3s ease;
+  border: 1px solid var(--efh-gray-200);
+  transition: all 0.2s ease;
 }
 
 .elevate-card:hover {
-  box-shadow: var(--efh-shadow-xl);
-  transform: translateY(-4px);
+  border-color: var(--efh-red);
+  transform: translateY(-2px);
 }
 
 .elevate-card-red {
