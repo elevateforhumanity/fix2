@@ -21,14 +21,15 @@ The easiest way to set up your database is to run the comprehensive migration sc
    - Check for success message
 
 4. **Verify Installation**
+
    ```sql
    -- Check programs were created
    SELECT COUNT(*) FROM programs;
    -- Should return: 16
-   
+
    -- Check lesson_progress table exists
    SELECT * FROM lesson_progress LIMIT 1;
-   
+
    -- Check view exists
    SELECT * FROM course_completion_status LIMIT 1;
    ```
@@ -40,7 +41,9 @@ The easiest way to set up your database is to run the comprehensive migration sc
 ### Tables
 
 #### 1. **programs** (16 ETPL Programs)
+
 All California ETPL-approved workforce training programs:
+
 - Barber Apprenticeship
 - Certified Nursing Assistant (CNA)
 - Dental Assistant
@@ -59,6 +62,7 @@ All California ETPL-approved workforce training programs:
 - Cosmetology
 
 Each program includes:
+
 - Title, slug, tagline, summary, description
 - CIP Code (Classification of Instructional Programs)
 - SOC Code (Standard Occupational Classification)
@@ -67,7 +71,9 @@ Each program includes:
 - Hero images
 
 #### 2. **lesson_progress** Table
+
 Tracks student progress through lessons:
+
 - `user_id` - Student identifier
 - `lesson_id` - Lesson being tracked
 - `status` - 'not_started', 'in_progress', 'completed'
@@ -77,12 +83,15 @@ Tracks student progress through lessons:
 - `completed_at` - Completion timestamp
 
 **Features:**
+
 - Unique constraint: One progress record per user per lesson
 - Automatic timestamps (created_at, updated_at)
 - Indexes for fast queries
 
 #### 3. **course_completion_status** View
+
 Aggregated view of course completion:
+
 - `user_id` - Student
 - `course_id` - Course
 - `total_lessons` - Total lessons in course
@@ -91,6 +100,7 @@ Aggregated view of course completion:
 - `last_activity` - Most recent lesson access
 
 **Use Cases:**
+
 - Dashboard progress bars
 - Course completion certificates
 - Student analytics
@@ -101,24 +111,29 @@ Aggregated view of course completion:
 ## Migration Script Features
 
 ### Idempotent Execution
+
 The script uses `ON CONFLICT DO UPDATE` which means:
+
 - ✅ Safe to run multiple times
 - ✅ Updates existing records instead of failing
 - ✅ Won't create duplicates
 - ✅ Can be used to update program data
 
 ### Example:
+
 ```sql
 INSERT INTO programs (slug, title, ...)
 VALUES ('barber', 'Barber Apprenticeship', ...)
-ON CONFLICT (slug) 
+ON CONFLICT (slug)
 DO UPDATE SET
   title = EXCLUDED.title,
   updated_at = NOW();
 ```
 
 ### Transaction Safety
+
 Entire script runs in a transaction:
+
 - All changes succeed together, or
 - All changes roll back on error
 - Database stays consistent
@@ -130,6 +145,7 @@ Entire script runs in a transaction:
 If you prefer to run migrations separately:
 
 ### 1. Programs Migration
+
 **File:** `supabase/migrations/20240101000000_add_all_etpl_programs.sql`
 
 Creates all 16 ETPL programs with complete metadata.
@@ -139,6 +155,7 @@ Creates all 16 ETPL programs with complete metadata.
 ```
 
 ### 2. Lesson Progress Migration
+
 **File:** `supabase/migrations/20240101000001_add_lesson_progress.sql`
 
 Creates lesson_progress table and course_completion_status view.
@@ -152,15 +169,16 @@ Creates lesson_progress table and course_completion_status view.
 ## Verification Queries
 
 ### Check Programs
+
 ```sql
 -- List all programs
-SELECT slug, title, cip_code, soc_code 
-FROM programs 
+SELECT slug, title, cip_code, soc_code
+FROM programs
 ORDER BY title;
 
 -- Check funding eligibility
-SELECT title, funding_eligibility 
-FROM programs 
+SELECT title, funding_eligibility
+FROM programs
 WHERE 'WIOA' = ANY(funding_eligibility);
 
 -- Count programs
@@ -168,6 +186,7 @@ SELECT COUNT(*) as total_programs FROM programs;
 ```
 
 ### Check Lesson Progress
+
 ```sql
 -- Check table structure
 \d lesson_progress
@@ -181,12 +200,13 @@ SELECT * FROM lesson_progress WHERE user_id = 'test-user-id';
 ```
 
 ### Check Course Completion View
+
 ```sql
 -- View structure
 \d course_completion_status
 
 -- Test query
-SELECT * FROM course_completion_status 
+SELECT * FROM course_completion_status
 WHERE user_id = 'test-user-id';
 ```
 
@@ -195,17 +215,23 @@ WHERE user_id = 'test-user-id';
 ## Troubleshooting
 
 ### Error: "relation already exists"
+
 **Solution:** The table already exists. Either:
+
 1. Use the `RUN_ALL_MIGRATIONS.sql` script (handles conflicts)
 2. Drop the table first: `DROP TABLE IF EXISTS programs CASCADE;`
 
 ### Error: "duplicate key value"
+
 **Solution:** Program with that slug already exists. Either:
+
 1. Use the `RUN_ALL_MIGRATIONS.sql` script (updates existing)
 2. Delete existing: `DELETE FROM programs WHERE slug = 'barber';`
 
 ### Error: "column does not exist"
+
 **Solution:** Your programs table might be missing columns. Run:
+
 ```sql
 -- Add missing columns
 ALTER TABLE programs ADD COLUMN IF NOT EXISTS cip_code TEXT;
@@ -214,7 +240,9 @@ ALTER TABLE programs ADD COLUMN IF NOT EXISTS funding_eligibility TEXT[];
 ```
 
 ### Error: "permission denied"
+
 **Solution:** You need database admin access. Check:
+
 1. You're logged into correct Supabase project
 2. Your user has proper permissions
 3. You're using the SQL Editor (not API)
@@ -224,6 +252,7 @@ ALTER TABLE programs ADD COLUMN IF NOT EXISTS funding_eligibility TEXT[];
 ## Next Steps After Migration
 
 ### 1. Verify Data
+
 ```sql
 -- Check all programs loaded
 SELECT COUNT(*) FROM programs;
@@ -234,6 +263,7 @@ SELECT * FROM programs WHERE slug = 'barber';
 ```
 
 ### 2. Test Lesson Progress
+
 ```sql
 -- Create test progress record
 INSERT INTO lesson_progress (user_id, lesson_id, status, progress_percentage)
@@ -244,7 +274,9 @@ SELECT * FROM course_completion_status WHERE user_id = 'test-user';
 ```
 
 ### 3. Update Application
+
 Your Next.js app should now be able to:
+
 - Load all 16 programs from database
 - Display program details with CIP/SOC codes
 - Show funding eligibility badges
@@ -252,6 +284,7 @@ Your Next.js app should now be able to:
 - Display course completion percentages
 
 ### 4. Test in Browser
+
 ```bash
 # Start dev server
 npm run dev
@@ -267,6 +300,7 @@ npm run dev
 ## Database Schema Reference
 
 ### programs Table
+
 ```sql
 CREATE TABLE programs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -287,6 +321,7 @@ CREATE TABLE programs (
 ```
 
 ### lesson_progress Table
+
 ```sql
 CREATE TABLE lesson_progress (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -304,16 +339,17 @@ CREATE TABLE lesson_progress (
 ```
 
 ### course_completion_status View
+
 ```sql
 CREATE VIEW course_completion_status AS
-SELECT 
+SELECT
   lp.user_id,
   l.course_id,
   COUNT(l.id) as total_lessons,
   COUNT(CASE WHEN lp.status = 'completed' THEN 1 END) as completed_lessons,
   ROUND(
-    (COUNT(CASE WHEN lp.status = 'completed' THEN 1 END)::NUMERIC / 
-     COUNT(l.id)::NUMERIC) * 100, 
+    (COUNT(CASE WHEN lp.status = 'completed' THEN 1 END)::NUMERIC /
+     COUNT(l.id)::NUMERIC) * 100,
     2
   ) as completion_percentage,
   MAX(lp.last_accessed_at) as last_activity
@@ -327,6 +363,7 @@ GROUP BY lp.user_id, l.course_id;
 ## Funding Eligibility Reference
 
 Programs support these funding sources:
+
 - **WIOA** - Workforce Innovation and Opportunity Act
 - **Pell Grant** - Federal student aid
 - **CalWORKs** - California Work Opportunity and Responsibility to Kids
@@ -337,10 +374,11 @@ Programs support these funding sources:
 - **Employer-Sponsored** - Company-paid training
 
 ### Query by Funding Type
+
 ```sql
 -- Find all WIOA-eligible programs
-SELECT title, slug 
-FROM programs 
+SELECT title, slug
+FROM programs
 WHERE 'WIOA' = ANY(funding_eligibility);
 
 -- Find programs with multiple funding options
@@ -354,7 +392,9 @@ ORDER BY funding_count DESC;
 ## CIP/SOC Code Reference
 
 ### CIP Codes (Classification of Instructional Programs)
+
 Used for educational program classification:
+
 - `12.0402` - Barbering/Barber
 - `51.3902` - Nursing Assistant/Aide
 - `46.0201` - Electrician
@@ -362,7 +402,9 @@ Used for educational program classification:
 - And more...
 
 ### SOC Codes (Standard Occupational Classification)
+
 Used for job/occupation classification:
+
 - `39-5011` - Barbers
 - `31-1014` - Nursing Assistants
 - `47-2111` - Electricians
@@ -370,6 +412,7 @@ Used for job/occupation classification:
 - And more...
 
 ### Query by Code
+
 ```sql
 -- Find programs by CIP code
 SELECT title FROM programs WHERE cip_code = '12.0402';
@@ -383,17 +426,20 @@ SELECT title FROM programs WHERE soc_code = '39-5011';
 ## Support
 
 ### Need Help?
+
 1. Check Supabase logs for error details
 2. Verify your database connection
 3. Ensure you have admin permissions
 4. Review the troubleshooting section above
 
 ### Common Issues
+
 - **Slow queries?** Add indexes on frequently queried columns
 - **Missing data?** Re-run the migration script (it's idempotent)
 - **Permission errors?** Check RLS policies in Supabase
 
 ### Resources
+
 - [Supabase Documentation](https://supabase.com/docs)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 - [ETPL Program List](https://www.edd.ca.gov/jobs_and_training/Eligible_Training_Provider_List.htm)

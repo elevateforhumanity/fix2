@@ -4,7 +4,8 @@ import { VideoShell } from '@/components/VideoShell';
 
 export const metadata = {
   title: 'HVAC Technician | Elevate for Humanity',
-  description: 'ETPL-approved HVAC training program. Master heating, ventilation, and air conditioning systems. 640 hours, EPA 608 certification, $45K-$65K starting salary.',
+  description:
+    'ETPL-approved HVAC training program. Master heating, ventilation, and air conditioning systems. 640 hours, EPA 608 certification, $45K-$65K starting salary.',
 };
 
 export default function HVACTechPage() {
@@ -16,11 +17,16 @@ export default function HVACTechPage() {
           <div className="elevate-logo-mark">E</div>
           <div className="flex flex-col">
             <span className="font-bold text-lg">Elevate for Humanity</span>
-            <span className="text-xs text-gray-600">Elevate Connects Directory</span>
+            <span className="text-xs text-gray-600">
+              Elevate Connects Directory
+            </span>
           </div>
         </div>
         <div className="flex gap-3 items-center">
-          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/programs"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             All Programs
           </Link>
           <Link href="/enroll" className="elevate-btn-primary">
@@ -35,9 +41,15 @@ export default function HVACTechPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="elevate-badge elevate-badge-blue">ETPL Approved</span>
-                <span className="elevate-badge elevate-badge-purple">640 Hours</span>
-                <span className="elevate-badge elevate-badge-green">High Demand</span>
+                <span className="elevate-badge elevate-badge-blue">
+                  ETPL Approved
+                </span>
+                <span className="elevate-badge elevate-badge-purple">
+                  640 Hours
+                </span>
+                <span className="elevate-badge elevate-badge-green">
+                  High Demand
+                </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 HVAC Technician
@@ -46,10 +58,16 @@ export default function HVACTechPage() {
                 Master HVAC systems with comprehensive 640-hour training program
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <Link href="/enroll?program=hvac" className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100">
+                <Link
+                  href="/enroll?program=hvac"
+                  className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100"
+                >
                   Start Enrollment
                 </Link>
-                <Link href="/programs" className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20">
+                <Link
+                  href="/programs"
+                  className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20"
+                >
                   View All Programs
                 </Link>
               </div>
@@ -84,21 +102,27 @@ export default function HVACTechPage() {
       <section className="py-16 bg-gray-50">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Program Overview</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Program Overview
+            </h2>
             <div className="elevate-card mb-8">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Our HVAC Technician program provides comprehensive training in heating, ventilation, 
-                air conditioning, and refrigeration systems. You'll learn installation, maintenance, 
-                repair, and troubleshooting of residential and commercial HVAC equipment.
+                Our HVAC Technician program provides comprehensive training in
+                heating, ventilation, air conditioning, and refrigeration
+                systems. You'll learn installation, maintenance, repair, and
+                troubleshooting of residential and commercial HVAC equipment.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                HVAC technicians are in high demand across Indiana and nationwide. This ETPL-approved 
-                program prepares you for EPA 608 certification and immediate employment in a growing 
-                industry. 100% free for WIOA-eligible participants.
+                HVAC technicians are in high demand across Indiana and
+                nationwide. This ETPL-approved program prepares you for EPA 608
+                certification and immediate employment in a growing industry.
+                100% free for WIOA-eligible participants.
               </p>
             </div>
 
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">What You'll Learn</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              What You'll Learn
+            </h3>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
                 'HVAC fundamentals and theory',
@@ -114,14 +138,19 @@ export default function HVACTechPage() {
                 'Commercial HVAC systems',
                 'Customer service and communication',
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 elevate-card">
+                <div
+                  key={index}
+                  className="flex items-start gap-3 elevate-card"
+                >
                   <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
             </div>
 
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Career Opportunities</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Career Opportunities
+            </h3>
             <div className="elevate-card mb-8">
               <p className="text-gray-700 mb-4">
                 HVAC technicians work in various settings:
@@ -129,40 +158,61 @@ export default function HVACTechPage() {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600">•</span>
-                  <span><strong>Residential HVAC:</strong> Home installation and repair</span>
+                  <span>
+                    <strong>Residential HVAC:</strong> Home installation and
+                    repair
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600">•</span>
-                  <span><strong>Commercial HVAC:</strong> Large building systems</span>
+                  <span>
+                    <strong>Commercial HVAC:</strong> Large building systems
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600">•</span>
-                  <span><strong>Industrial HVAC:</strong> Manufacturing and facilities</span>
+                  <span>
+                    <strong>Industrial HVAC:</strong> Manufacturing and
+                    facilities
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600">•</span>
-                  <span><strong>Self-employment:</strong> Start your own HVAC business</span>
+                  <span>
+                    <strong>Self-employment:</strong> Start your own HVAC
+                    business
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Certifications Earned</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Certifications Earned
+            </h3>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               <div className="elevate-card bg-blue-50 border-2 border-blue-200">
-                <h4 className="font-bold text-gray-900 mb-2">EPA 608 Certification</h4>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  EPA 608 Certification
+                </h4>
                 <p className="text-gray-700 text-sm">
-                  Required federal certification for handling refrigerants. Covers Type I, II, III, and Universal.
+                  Required federal certification for handling refrigerants.
+                  Covers Type I, II, III, and Universal.
                 </p>
               </div>
               <div className="elevate-card bg-green-50 border-2 border-green-200">
-                <h4 className="font-bold text-gray-900 mb-2">OSHA 10-Hour Safety</h4>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  OSHA 10-Hour Safety
+                </h4>
                 <p className="text-gray-700 text-sm">
-                  Workplace safety certification covering construction safety and health hazards.
+                  Workplace safety certification covering construction safety
+                  and health hazards.
                 </p>
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Program Details</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Program Details
+            </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="elevate-card">
                 <h4 className="font-bold text-gray-900 mb-2">Duration</h4>
@@ -177,12 +227,16 @@ export default function HVACTechPage() {
                 <p className="text-gray-700">100% FREE with WIOA funding</p>
               </div>
               <div className="elevate-card">
-                <h4 className="font-bold text-gray-900 mb-2">Starting Salary</h4>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Starting Salary
+                </h4>
                 <p className="text-gray-700">$45,000 - $65,000 per year</p>
               </div>
               <div className="elevate-card">
                 <h4 className="font-bold text-gray-900 mb-2">Job Outlook</h4>
-                <p className="text-gray-700">15% growth (much faster than average)</p>
+                <p className="text-gray-700">
+                  15% growth (much faster than average)
+                </p>
               </div>
               <div className="elevate-card">
                 <h4 className="font-bold text-gray-900 mb-2">Funding</h4>
@@ -200,7 +254,8 @@ export default function HVACTechPage() {
             Ready to Start Your HVAC Career?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join a high-demand industry with excellent job security and growth potential.
+            Join a high-demand industry with excellent job security and growth
+            potential.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/enroll?program=hvac" className="elevate-btn-primary">
