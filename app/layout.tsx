@@ -48,6 +48,16 @@ export const metadata: Metadata = {
       'msvalidate.01': 'add-your-bing-verification-code-here',
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

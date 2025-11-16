@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
 import { ArrowLeft, ArrowRight, CheckCircle, Clock, FileText, Video, BookOpen } from 'lucide-react';
 import AttendanceTracker from '@/components/lms/AttendanceTracker';
+import VideoPlayer from '@/components/lms/VideoPlayer';
 
 interface Props {
   params: {
@@ -289,12 +290,23 @@ export default function LessonPage({ params }: Props) {
           <div className="elevate-card mb-6">
             <div className="prose max-w-none">
               {lesson.content_type === 'video' && lesson.content && (
-                <div className="aspect-video bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <Video className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                    <p className="text-sm opacity-75">Video player will be integrated here</p>
-                    <p className="text-xs opacity-50 mt-2">Video URL: {lesson.content}</p>
-                  </div>
+                <div className="mb-6">
+                  <VideoPlayer 
+                    url={lesson.content}
+                    title={lesson.title}
+                    onProgress={(percent) => {
+                      // Track video progress
+                      if (percent > 90 && !progress?.completed) {
+                        // Auto-mark complete when 90% watched
+                        markComplete();
+                      }
+                    }}
+                    onComplete={() => {
+                      if (!progress?.completed) {
+                        markComplete();
+                      }
+                    }}
+                  />
                 </div>
               )}
 
