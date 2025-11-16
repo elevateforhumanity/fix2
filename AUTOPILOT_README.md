@@ -7,6 +7,7 @@
 ## 🎯 WHAT THIS DOES
 
 The autopilot system automatically:
+
 1. ✅ Creates 12 professional video scripts
 2. ✅ Generates VideoPlaceholder component
 3. ✅ Injects placeholders into all pages
@@ -18,27 +19,32 @@ The autopilot system automatically:
 ## 🚀 QUICK START
 
 ### Step 1: Run Setup (Already Done!)
+
 ```bash
 ./setup-video-placeholders.sh
 ```
 
 **Creates:**
+
 - `content/video-scripts/` - 12 video scripts
 - `components/VideoPlaceholder.tsx` - Placeholder component
 
 ### Step 2: Inject Components
+
 ```bash
 chmod +x autopilot-video-setup.sh
 ./autopilot-video-setup.sh
 ```
 
 **Does:**
+
 - Automatically adds VideoPlaceholder to all pages
 - Injects import statements
 - Configures titles and descriptions
 - Ready to commit!
 
 ### Step 3: Generate Thumbnails (Optional)
+
 ```bash
 # Set OpenAI API key
 export OPENAI_API_KEY=sk-your-key-here
@@ -51,11 +57,13 @@ npx tsx autopilot-generate-videos.ts
 ```
 
 **Generates:**
+
 - 12 professional AI thumbnails
 - Cost: ~$0.50 total
 - Time: ~5 minutes
 
 ### Step 4: Deploy
+
 ```bash
 git add -A
 git commit -m "🤖 Autopilot: Add video system"
@@ -96,34 +104,36 @@ Scripts:
 
 ## 🎬 WHERE VIDEOS ARE INJECTED
 
-| Page | Component Location | Script File |
-|------|-------------------|-------------|
-| Homepage | `app/page.tsx` | `homepage-hero.md` |
-| LMS Landing | `app/lms/page.tsx` | `how-it-works-student-portal.md` |
-| Student Dashboard | `app/lms/dashboard/page.tsx` | `how-it-works-student-portal.md` |
-| Partners | `app/partners/page.tsx` | `employers-partners.md` |
-| Admin Portal | `app/admin/page.tsx` | `program-holder-admin-portal.md` |
-| Delegate Portal | `app/delegate/page.tsx` | `delegate-instructor-portal.md` |
-| Programs Overview | `app/programs/page.tsx` | (general overview) |
-| HVAC Program | `app/programs/hvac/page.tsx` | `program-hvac.md` |
-| Barber Program | `app/programs/barber/page.tsx` | `program-barber-apprenticeship.md` |
-| CNA Program | `app/programs/cna/page.tsx` | `program-healthcare-cna.md` |
-| Building Tech | `app/programs/building-tech/page.tsx` | `program-building-tech-trades.md` |
-| CDL Program | `app/programs/truck-driving/page.tsx` | `program-cdl-logistics.md` |
-| Apply Page | `app/apply/page.tsx` | `apply-now.md` |
-| Contact Page | `app/contact/page.tsx` | `contact-support.md` |
+| Page              | Component Location                    | Script File                        |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| Homepage          | `app/page.tsx`                        | `homepage-hero.md`                 |
+| LMS Landing       | `app/lms/page.tsx`                    | `how-it-works-student-portal.md`   |
+| Student Dashboard | `app/lms/dashboard/page.tsx`          | `how-it-works-student-portal.md`   |
+| Partners          | `app/partners/page.tsx`               | `employers-partners.md`            |
+| Admin Portal      | `app/admin/page.tsx`                  | `program-holder-admin-portal.md`   |
+| Delegate Portal   | `app/delegate/page.tsx`               | `delegate-instructor-portal.md`    |
+| Programs Overview | `app/programs/page.tsx`               | (general overview)                 |
+| HVAC Program      | `app/programs/hvac/page.tsx`          | `program-hvac.md`                  |
+| Barber Program    | `app/programs/barber/page.tsx`        | `program-barber-apprenticeship.md` |
+| CNA Program       | `app/programs/cna/page.tsx`           | `program-healthcare-cna.md`        |
+| Building Tech     | `app/programs/building-tech/page.tsx` | `program-building-tech-trades.md`  |
+| CDL Program       | `app/programs/truck-driving/page.tsx` | `program-cdl-logistics.md`         |
+| Apply Page        | `app/apply/page.tsx`                  | `apply-now.md`                     |
+| Contact Page      | `app/contact/page.tsx`                | `contact-support.md`               |
 
 ---
 
 ## 💡 USAGE EXAMPLES
 
 ### View Generated Placeholders
+
 ```bash
 # Check what was injected
 git diff app/
 ```
 
 ### Test Locally
+
 ```bash
 npm run dev
 # Visit http://localhost:3000
@@ -131,6 +141,7 @@ npm run dev
 ```
 
 ### Generate Real Videos
+
 ```bash
 # Option 1: Use AI video tools (recommended)
 # See: AI_VIDEO_GENERATION_GUIDE.md
@@ -144,6 +155,7 @@ npx tsx autopilot-generate-videos.ts
 ## 🎨 CUSTOMIZING
 
 ### Change Placeholder Text
+
 Edit `autopilot-video-setup.sh` and modify the `inject_video_placeholder` calls:
 
 ```bash
@@ -155,6 +167,7 @@ inject_video_placeholder \
 ```
 
 ### Add More Pages
+
 Add new injection calls to `autopilot-video-setup.sh`:
 
 ```bash
@@ -170,12 +183,14 @@ inject_video_placeholder \
 ## 🔧 TROUBLESHOOTING
 
 ### "VideoPlaceholder not found"
+
 ```bash
 # Run setup first
 ./setup-video-placeholders.sh
 ```
 
 ### "File not found" errors
+
 ```bash
 # Check if page exists
 ls -la app/page.tsx
@@ -184,6 +199,7 @@ ls -la app/page.tsx
 ```
 
 ### "Dev server not running"
+
 ```bash
 # Start dev server
 npm run dev
@@ -193,6 +209,7 @@ npm run dev
 ```
 
 ### "OpenAI API error"
+
 ```bash
 # Check API key
 echo $OPENAI_API_KEY
@@ -210,16 +227,19 @@ source .env.local
 ## 📊 COST & TIME
 
 ### Autopilot Setup (Free)
+
 - Time: 2 minutes
 - Cost: $0
 - Result: All scripts and components ready
 
 ### AI Thumbnail Generation (Optional)
+
 - Time: 5 minutes
 - Cost: ~$0.50 (12 images)
 - Result: Professional thumbnails
 
 ### AI Video Generation (External)
+
 - Time: 3-4 hours
 - Cost: $19-29/month (tool subscription)
 - Result: 12 professional videos
@@ -262,6 +282,7 @@ After running autopilot:
 ## 🎯 NEXT STEPS
 
 ### Immediate (Deploy with Placeholders)
+
 ```bash
 git add -A
 git commit -m "🤖 Add video system"
@@ -269,6 +290,7 @@ git push origin main
 ```
 
 ### When Ready (Generate Real Videos)
+
 1. Choose AI video tool (HeyGen recommended)
 2. Use scripts from `content/video-scripts/`
 3. Generate 12 videos
@@ -307,6 +329,7 @@ git add -A && git commit -m "🤖 Autopilot" && git push
 ## ✨ RESULT
 
 **You now have:**
+
 - ✅ Professional video infrastructure
 - ✅ Placeholders on all pages
 - ✅ Scripts ready for generation

@@ -1,14 +1,14 @@
 #!/usr/bin/env tsx
 /**
  * 🤖 AUTOPILOT: Generate All Videos
- * 
+ *
  * This script automatically:
  * 1. Reads all video scripts from content/video-scripts/
  * 2. Uses your AI generators to create thumbnails
  * 3. Generates video metadata
  * 4. Saves everything to database
  * 5. Creates a report
- * 
+ *
  * Prerequisites:
  * - OPENAI_API_KEY set in environment
  * - Dev server running (npm run dev)
@@ -34,7 +34,9 @@ if (!OPENAI_API_KEY) {
   console.log('2. Add to .env.local: OPENAI_API_KEY=sk-...');
   console.log('3. Run: source .env.local');
   console.log('4. Run this script again\n');
-  console.log('💡 Or use manual video generation (see AI_VIDEO_GENERATION_GUIDE.md)\n');
+  console.log(
+    '💡 Or use manual video generation (see AI_VIDEO_GENERATION_GUIDE.md)\n'
+  );
   process.exit(0);
 }
 
@@ -51,100 +53,118 @@ const videos = [
     title: 'Welcome to Elevate Connects Directory',
     page: 'homepage',
     duration: 45,
-    prompt: 'Professional welcome video for workforce training platform, diverse students, modern educational setting, Elevate for Humanity branding',
+    prompt:
+      'Professional welcome video for workforce training platform, diverse students, modern educational setting, Elevate for Humanity branding',
   },
   {
     script: 'how-it-works-student-portal.md',
     title: 'How Elevate Works for Students',
     page: 'lms',
     duration: 60,
-    prompt: 'Student using online learning portal, modern LMS interface, diverse learner, professional educational technology',
+    prompt:
+      'Student using online learning portal, modern LMS interface, diverse learner, professional educational technology',
   },
   {
     script: 'employers-partners.md',
     title: 'For Employers & Training Partners',
     page: 'partners',
     duration: 45,
-    prompt: 'Business professionals in meeting, workforce development, partnership, modern office, diverse team',
+    prompt:
+      'Business professionals in meeting, workforce development, partnership, modern office, diverse team',
   },
   {
     script: 'program-holder-admin-portal.md',
     title: 'Program Holder Dashboard',
     page: 'admin',
     duration: 45,
-    prompt: 'Administrator using dashboard, data analytics, program management, professional office setting',
+    prompt:
+      'Administrator using dashboard, data analytics, program management, professional office setting',
   },
   {
     script: 'delegate-instructor-portal.md',
     title: 'For Instructors & Delegates',
     page: 'delegate',
     duration: 45,
-    prompt: 'Teacher or instructor with students, classroom setting, diverse learners, professional education',
+    prompt:
+      'Teacher or instructor with students, classroom setting, diverse learners, professional education',
   },
   {
     script: 'program-hvac.md',
     title: 'HVAC Career Pathway',
     page: 'programs/hvac',
     duration: 45,
-    prompt: 'HVAC technician working on heating and cooling equipment, professional training, hands-on learning',
+    prompt:
+      'HVAC technician working on heating and cooling equipment, professional training, hands-on learning',
   },
   {
     script: 'program-barber-apprenticeship.md',
     title: 'Barber Apprenticeship',
     page: 'programs/barber',
     duration: 45,
-    prompt: 'Professional barber cutting hair in modern barbershop, apprentice learning, diverse professionals',
+    prompt:
+      'Professional barber cutting hair in modern barbershop, apprentice learning, diverse professionals',
   },
   {
     script: 'program-healthcare-cna.md',
     title: 'Healthcare & CNA',
     page: 'programs/cna',
     duration: 45,
-    prompt: 'Healthcare worker or CNA in medical setting, caring for patients, professional medical training',
+    prompt:
+      'Healthcare worker or CNA in medical setting, caring for patients, professional medical training',
   },
   {
     script: 'program-building-tech-trades.md',
     title: 'Building Tech & Trades',
     page: 'programs/building-tech',
     duration: 45,
-    prompt: 'Skilled trades worker, construction or maintenance, tools and equipment, professional training',
+    prompt:
+      'Skilled trades worker, construction or maintenance, tools and equipment, professional training',
   },
   {
     script: 'program-cdl-logistics.md',
     title: 'CDL & Transportation',
     page: 'programs/cdl',
     duration: 45,
-    prompt: 'Professional truck driver with commercial vehicle, CDL training, transportation career',
+    prompt:
+      'Professional truck driver with commercial vehicle, CDL training, transportation career',
   },
   {
     script: 'apply-now.md',
     title: 'Apply Now',
     page: 'apply',
     duration: 30,
-    prompt: 'Person filling out online application, hopeful expression, modern computer, career opportunity',
+    prompt:
+      'Person filling out online application, hopeful expression, modern computer, career opportunity',
   },
   {
     script: 'contact-support.md',
     title: 'Contact & Support',
     page: 'contact',
     duration: 30,
-    prompt: 'Friendly support representative, helping customer, professional office, welcoming atmosphere',
+    prompt:
+      'Friendly support representative, helping customer, professional office, welcoming atmosphere',
   },
 ];
 
-async function generateThumbnail(video: typeof videos[0]): Promise<string | null> {
+async function generateThumbnail(
+  video: (typeof videos)[0]
+): Promise<string | null> {
   try {
     console.log(`  🎨 Generating thumbnail: ${video.title}`);
-    
-    const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'image',
-        prompt: video.prompt,
-        style: 'professional, modern, educational, high quality, photorealistic',
-      }),
-    });
+
+    const response = await fetch(
+      'http://localhost:3000/api/ai/generate-asset',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'image',
+          prompt: video.prompt,
+          style:
+            'professional, modern, educational, high quality, photorealistic',
+        }),
+      }
+    );
 
     if (!response.ok) {
       const error = await response.text();
@@ -153,7 +173,7 @@ async function generateThumbnail(video: typeof videos[0]): Promise<string | null
     }
 
     const data = await response.json();
-    
+
     if (data.url) {
       console.log(`  ✅ Generated: ${data.url.substring(0, 60)}...`);
       return data.url;
@@ -180,9 +200,9 @@ async function checkServer(): Promise<boolean> {
 
 async function main() {
   console.log('🔍 Checking dev server...\n');
-  
+
   const serverRunning = await checkServer();
-  
+
   if (!serverRunning) {
     console.log('❌ Dev server not running!\n');
     console.log('To fix:');
@@ -192,32 +212,40 @@ async function main() {
     console.log('4. Run this script again\n');
     process.exit(1);
   }
-  
+
   console.log('✅ Dev server is running\n');
   console.log(`📹 Found ${videos.length} videos to generate\n`);
-  console.log('💰 Estimated cost: $${(videos.length * 0.04).toFixed(2)} (${videos.length} images × $0.04)\n');
-  console.log('⏱️  Estimated time: ~${Math.ceil(videos.length * 0.5)} minutes\n');
+  console.log(
+    '💰 Estimated cost: $${(videos.length * 0.04).toFixed(2)} (${videos.length} images × $0.04)\n'
+  );
+  console.log(
+    '⏱️  Estimated time: ~${Math.ceil(videos.length * 0.5)} minutes\n'
+  );
   console.log('Starting generation...\n');
   console.log('='.repeat(60));
-  
+
   const results: Array<{
-    video: typeof videos[0];
+    video: (typeof videos)[0];
     thumbnail: string | null;
     script: string;
     success: boolean;
   }> = [];
-  
+
   for (let i = 0; i < videos.length; i++) {
     const video = videos[i];
     console.log(`\n[${i + 1}/${videos.length}] ${video.title}`);
     console.log(`  📄 Script: ${video.script}`);
     console.log(`  📍 Page: ${video.page}`);
     console.log(`  ⏱️  Duration: ${video.duration}s`);
-    
+
     // Read script
-    const scriptPath = path.join(process.cwd(), 'content/video-scripts', video.script);
+    const scriptPath = path.join(
+      process.cwd(),
+      'content/video-scripts',
+      video.script
+    );
     let scriptContent = '';
-    
+
     try {
       scriptContent = fs.readFileSync(scriptPath, 'utf-8');
       console.log(`  ✅ Script loaded (${scriptContent.length} chars)`);
@@ -226,59 +254,59 @@ async function main() {
       results.push({ video, thumbnail: null, script: '', success: false });
       continue;
     }
-    
+
     // Generate thumbnail
     const thumbnail = await generateThumbnail(video);
-    
+
     results.push({
       video,
       thumbnail,
       script: scriptContent,
       success: thumbnail !== null,
     });
-    
+
     // Rate limiting - wait 2 seconds between requests
     if (i < videos.length - 1) {
       console.log(`  ⏳ Waiting 2s before next request...`);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
-  
+
   // Generate report
   console.log('\n' + '='.repeat(60));
   console.log('📊 GENERATION REPORT');
   console.log('='.repeat(60));
-  
-  const successful = results.filter(r => r.success).length;
-  const failed = results.filter(r => !r.success).length;
-  
+
+  const successful = results.filter((r) => r.success).length;
+  const failed = results.filter((r) => !r.success).length;
+
   console.log(`\n✅ Successful: ${successful}/${videos.length}`);
   console.log(`❌ Failed: ${failed}/${videos.length}`);
-  
+
   if (successful > 0) {
     console.log('\n📸 Generated Thumbnails:');
     results
-      .filter(r => r.success)
-      .forEach(r => {
+      .filter((r) => r.success)
+      .forEach((r) => {
         console.log(`  ✓ ${r.video.title}`);
         console.log(`    ${r.thumbnail}`);
       });
   }
-  
+
   if (failed > 0) {
     console.log('\n❌ Failed:');
     results
-      .filter(r => !r.success)
-      .forEach(r => {
+      .filter((r) => !r.success)
+      .forEach((r) => {
         console.log(`  ✗ ${r.video.title}`);
       });
   }
-  
+
   // Save report
   const reportPath = path.join(process.cwd(), 'video-generation-report.json');
   fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
   console.log(`\n💾 Report saved: ${reportPath}`);
-  
+
   console.log('\n' + '='.repeat(60));
   console.log('🎬 NEXT STEPS');
   console.log('='.repeat(60));
@@ -295,7 +323,7 @@ async function main() {
   console.log('📖 See: AI_VIDEO_GENERATION_GUIDE.md for details\n');
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error('\n❌ Fatal error:', error.message);
   process.exit(1);
 });

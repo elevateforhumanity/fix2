@@ -13,11 +13,13 @@ All scripts are ready in: `content/video-scripts/`
 **Website:** [heygen.com](https://www.heygen.com)
 
 **Pricing:**
+
 - Creator: $24/month (unlimited videos)
 - Business: $72/month (advanced features)
 - Free trial: 1 credit (1 minute video)
 
 **Features:**
+
 - ✅ 100+ realistic AI avatars
 - ✅ 40+ languages
 - ✅ Custom avatars (upload your photo)
@@ -34,11 +36,13 @@ All scripts are ready in: `content/video-scripts/`
 **Website:** [synthesia.io](https://www.synthesia.io)
 
 **Pricing:**
+
 - Starter: $22/month (10 videos)
 - Creator: $67/month (30 videos)
 - Free demo available
 
 **Features:**
+
 - ✅ 140+ AI avatars
 - ✅ 120+ languages
 - ✅ Custom avatars
@@ -55,11 +59,13 @@ All scripts are ready in: `content/video-scripts/`
 **Website:** [pictory.ai](https://pictory.ai)
 
 **Pricing:**
+
 - Standard: $19/month (30 videos)
 - Premium: $39/month (60 videos)
 - Free trial: 3 videos
 
 **Features:**
+
 - ✅ Text to video
 - ✅ Auto-captions
 - ✅ Stock footage
@@ -76,11 +82,13 @@ All scripts are ready in: `content/video-scripts/`
 **Website:** [d-id.com](https://www.d-id.com)
 
 **Pricing:**
+
 - Lite: $5.9/month (20 videos)
 - Pro: $29/month (100 videos)
 - Free trial: 20 credits
 
 **Features:**
+
 - ✅ Fast generation (2-3 min)
 - ✅ 100+ avatars
 - ✅ Custom photos
@@ -95,23 +103,27 @@ All scripts are ready in: `content/video-scripts/`
 ## 🚀 STEP-BY-STEP: HEYGEN (RECOMMENDED)
 
 ### Step 1: Sign Up
+
 1. Go to [heygen.com](https://www.heygen.com)
 2. Sign up (free trial available)
 3. Choose a plan ($24/month for unlimited)
 
 ### Step 2: Create Video
+
 1. Click **"Create Video"**
 2. Choose **"Avatar"** template
 3. Select an avatar (professional, diverse options)
 4. Choose voice (male/female, accent)
 
 ### Step 3: Add Script
+
 1. Click **"Script"** tab
 2. Open `content/video-scripts/homepage-hero.md`
 3. Copy the script text (not the markdown headers)
 4. Paste into HeyGen script box
 
 **Example for Homepage Hero:**
+
 ```
 Hi, I'm from Elevate for Humanity, and welcome to Elevate Connects Directory.
 
@@ -125,18 +137,21 @@ When you're ready, hit "Apply Now" and let us help you move from looking for opp
 ```
 
 ### Step 4: Customize
+
 1. **Background:** Choose solid color or upload image
 2. **Music:** Add background music (optional)
 3. **Branding:** Add logo (optional)
 4. **Captions:** Enable auto-captions
 
 ### Step 5: Generate
+
 1. Click **"Generate"**
 2. Wait 2-5 minutes
 3. Preview video
 4. Download (1080p MP4)
 
 ### Step 6: Upload to YouTube
+
 1. Go to [youtube.com/upload](https://youtube.com/upload)
 2. Upload video
 3. Set as **"Unlisted"** (if not public yet)
@@ -217,23 +232,27 @@ When you're ready, hit "Apply Now" and let us help you move from looking for opp
 ## 💡 PRO TIPS
 
 ### Avatar Selection
+
 - **Homepage/Main:** Use same avatar for consistency
 - **Programs:** Can vary by program type
 - **Portals:** Match to audience (student, admin, teacher)
 
 ### Voice Selection
+
 - **Tone:** Professional but warm
 - **Pace:** Medium (not too fast)
 - **Accent:** Neutral American English
 - **Gender:** Mix male/female for diversity
 
 ### Background
+
 - **Solid colors:** Use Elevate brand colors
 - **Images:** Use from `/public/programs/` folder
 - **Screenshots:** Capture from your actual portals
 - **Branding:** Add logo in corner
 
 ### Captions
+
 - ✅ Always enable auto-captions
 - ✅ Improves accessibility
 - ✅ Better engagement
@@ -244,17 +263,20 @@ When you're ready, hit "Apply Now" and let us help you move from looking for opp
 ## 🎨 BRANDING GUIDELINES
 
 ### Colors (from your brand)
+
 - **Primary Red:** #dc2626
 - **Orange:** #f97316
 - **Blue:** #2563eb
 - **White:** #ffffff
 
 ### Logo
+
 - Use: `/public/assets/logo-efh.svg`
 - Position: Bottom right corner
 - Size: Small, non-intrusive
 
 ### Fonts
+
 - Use Inter (already in your app)
 - Professional, clean, modern
 
@@ -263,6 +285,7 @@ When you're ready, hit "Apply Now" and let us help you move from looking for opp
 ## 📤 AFTER GENERATION
 
 ### 1. Upload to YouTube
+
 ```
 Title: [Program Name] - Elevate for Humanity
 Description: Learn about [program] at Elevate Connects Directory...
@@ -271,11 +294,13 @@ Visibility: Unlisted (or Public when ready)
 ```
 
 ### 2. Get Video URLs
+
 ```
 https://www.youtube.com/watch?v=VIDEO_ID
 ```
 
 ### 3. Update Database
+
 ```sql
 -- Example for homepage video
 UPDATE site_content
@@ -289,6 +314,7 @@ WHERE slug = 'hvac';
 ```
 
 ### 4. Replace Placeholders
+
 ```tsx
 // Before (placeholder)
 <VideoPlaceholder
@@ -308,23 +334,27 @@ WHERE slug = 'hvac';
 ## 💰 COST BREAKDOWN
 
 ### HeyGen (Recommended)
+
 - **Monthly:** $24
 - **Videos:** Unlimited
 - **Cost per video:** $0 (after subscription)
 - **Total for 12 videos:** $24
 
 ### Synthesia
+
 - **Monthly:** $22 (Starter)
 - **Videos:** 10 videos
 - **Need:** 2 months for 12 videos
 - **Total:** $44
 
 ### Pictory
+
 - **Monthly:** $19
 - **Videos:** 30 videos
 - **Total for 12 videos:** $19
 
 ### D-ID
+
 - **Monthly:** $29 (Pro)
 - **Videos:** 100 videos
 - **Total for 12 videos:** $29
@@ -336,6 +366,7 @@ WHERE slug = 'hvac';
 ## ⏱️ TIME ESTIMATE
 
 ### Per Video:
+
 - Script prep: 2 min (already done!)
 - Avatar selection: 2 min
 - Script input: 3 min
@@ -345,6 +376,7 @@ WHERE slug = 'hvac';
 - **Total:** ~15 min per video
 
 ### All 12 Videos:
+
 - **Active time:** ~3 hours
 - **Generation time:** ~1 hour (automated)
 - **Total:** ~4 hours start to finish
@@ -375,15 +407,18 @@ WHERE slug = 'hvac';
 ## 📞 SUPPORT
 
 ### HeyGen Support
+
 - Help Center: [help.heygen.com](https://help.heygen.com)
 - Email: support@heygen.com
 - Chat: In-app support
 
 ### Synthesia Support
+
 - Help Center: [help.synthesia.io](https://help.synthesia.io)
 - Email: support@synthesia.io
 
 ### Pictory Support
+
 - Help Center: [help.pictory.ai](https://help.pictory.ai)
 - Email: support@pictory.ai
 
@@ -404,6 +439,7 @@ WHERE slug = 'hvac';
 ## 🎉 RESULT
 
 After completing this:
+
 - ✅ 12 professional AI videos
 - ✅ Consistent branding
 - ✅ All pages have video content
