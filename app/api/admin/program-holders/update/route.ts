@@ -4,32 +4,34 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) return new Response('Unauthorized', { status: 401 });
-  
+
   const { data: prof } = await supabase
     .from('user_profiles')
     .select('role')
     .eq('user_id', user.id)
     .single();
-  
+
   if (prof?.role !== 'admin') {
     return new Response('Forbidden', { status: 403 });
   }
 
   const { id, status, mou_status } = await req.json();
-  
+
   if (!id) {
     return new Response('Missing id', { status: 400 });
   }
 
   const updates: any = {};
-  
+
   if (status) {
     updates.status = status;
   }
-  
+
   if (mou_status) {
     updates.mou_status = mou_status;
     if (mou_status === 'signed') {

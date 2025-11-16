@@ -1,7 +1,9 @@
 # Resend Email Service Configuration Guide
 
 ## Overview
+
 Resend is the email service provider for the LMS platform, handling:
+
 - Welcome emails for new users
 - Course enrollment confirmations
 - Certificate delivery emails
@@ -10,6 +12,7 @@ Resend is the email service provider for the LMS platform, handling:
 - Admin alerts
 
 ## Why Resend?
+
 - ✅ **Modern API**: Simple, developer-friendly
 - ✅ **High deliverability**: 99%+ inbox placement
 - ✅ **React Email support**: Build emails with React components
@@ -38,6 +41,7 @@ Resend is the email service provider for the LMS platform, handling:
 ## Step 3: Verify Domain (Recommended)
 
 ### Why Verify Domain?
+
 - Send from `noreply@elevateconnectsdirectory.org` instead of `onboarding@resend.dev`
 - Better deliverability and trust
 - Professional appearance
@@ -79,7 +83,9 @@ Value: resend._domainkey.resend.com
 8. Status should change to **Verified** ✅
 
 ### Alternative: Use Subdomain
+
 If you want to keep main domain separate:
+
 - Use `mail.elevateconnectsdirectory.org` or `email.elevateconnectsdirectory.org`
 - Follow same verification steps
 - Send from `noreply@mail.elevateconnectsdirectory.org`
@@ -87,6 +93,7 @@ If you want to keep main domain separate:
 ## Step 4: Configure Environment Variables
 
 ### Local Development (.env.local)
+
 ```bash
 RESEND_API_KEY=re_your_api_key_here
 RESEND_FROM_EMAIL=noreply@elevateconnectsdirectory.org
@@ -94,12 +101,15 @@ RESEND_FROM_NAME=Elevate for Humanity
 ```
 
 ### GitHub Secrets (Production)
+
 Add these secrets to your repository:
+
 ```
 RESEND_API_KEY=re_your_api_key_here
 ```
 
 ### Netlify Environment Variables
+
 1. Go to Netlify Dashboard → Site settings → Environment variables
 2. Add:
    - `RESEND_API_KEY` = your API key
@@ -110,6 +120,7 @@ RESEND_API_KEY=re_your_api_key_here
 ## Step 5: Install Resend SDK
 
 Already installed in package.json:
+
 ```json
 {
   "dependencies": {
@@ -123,6 +134,7 @@ Already installed in package.json:
 ### Example: Welcome Email
 
 Create `lib/emails/welcome.tsx`:
+
 ```tsx
 import * as React from 'react';
 import {
@@ -141,7 +153,10 @@ interface WelcomeEmailProps {
   loginUrl: string;
 }
 
-export default function WelcomeEmail({ userName, loginUrl }: WelcomeEmailProps) {
+export default function WelcomeEmail({
+  userName,
+  loginUrl,
+}: WelcomeEmailProps) {
   return (
     <Html>
       <Head />
@@ -156,11 +171,10 @@ export default function WelcomeEmail({ userName, loginUrl }: WelcomeEmailProps) 
           />
           <Section style={section}>
             <Text style={heading}>Welcome to Elevate for Humanity!</Text>
+            <Text style={text}>Hi {userName},</Text>
             <Text style={text}>
-              Hi {userName},
-            </Text>
-            <Text style={text}>
-              Thank you for joining our learning platform. We're excited to have you on board!
+              Thank you for joining our learning platform. We're excited to have
+              you on board!
             </Text>
             <Button style={button} href={loginUrl}>
               Get Started
@@ -180,7 +194,8 @@ export default function WelcomeEmail({ userName, loginUrl }: WelcomeEmailProps) 
 
 const main = {
   backgroundColor: '#f6f9fc',
-  fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+  fontFamily:
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
 };
 
 const container = {
@@ -233,6 +248,7 @@ const footer = {
 ## Step 7: Create Email Service
 
 Create `lib/email-service.ts`:
+
 ```typescript
 import { Resend } from 'resend';
 import WelcomeEmail from './emails/welcome';
@@ -241,7 +257,8 @@ import PasswordResetEmail from './emails/password-reset';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@elevateconnectsdirectory.org';
+const FROM_EMAIL =
+  process.env.RESEND_FROM_EMAIL || 'noreply@elevateconnectsdirectory.org';
 const FROM_NAME = process.env.RESEND_FROM_NAME || 'Elevate for Humanity';
 
 export async function sendWelcomeEmail(to: string, userName: string) {
@@ -368,19 +385,21 @@ export async function sendEnrollmentConfirmation(
 ## Step 8: Test Email Sending
 
 ### Test Script
+
 Create `scripts/test-email.ts`:
+
 ```typescript
 import { sendWelcomeEmail } from '../lib/email-service';
 
 async function testEmail() {
   try {
     console.log('Sending test email...');
-    
+
     const result = await sendWelcomeEmail(
       'your-email@example.com',
       'Test User'
     );
-    
+
     console.log('✅ Email sent successfully!');
     console.log('Email ID:', result?.id);
   } catch (error) {
@@ -392,6 +411,7 @@ testEmail();
 ```
 
 Run test:
+
 ```bash
 npx tsx scripts/test-email.ts
 ```
@@ -449,6 +469,7 @@ npx tsx scripts/test-email.ts
    - **Complaints**: Spam reports
 
 ### Enable Click Tracking
+
 ```typescript
 await resend.emails.send({
   from: FROM_EMAIL,
@@ -468,6 +489,7 @@ await resend.emails.send({
 ## Step 11: Best Practices
 
 ### 1. Email Deliverability
+
 - ✅ Verify domain (SPF, DKIM, DMARC)
 - ✅ Use consistent "From" address
 - ✅ Avoid spam trigger words
@@ -475,6 +497,7 @@ await resend.emails.send({
 - ✅ Maintain clean email list
 
 ### 2. Content Guidelines
+
 - ✅ Clear subject lines (< 50 characters)
 - ✅ Mobile-responsive design
 - ✅ Plain text alternative
@@ -482,6 +505,7 @@ await resend.emails.send({
 - ✅ Test across email clients
 
 ### 3. Security
+
 - ✅ Never expose API key in client code
 - ✅ Use environment variables
 - ✅ Validate email addresses
@@ -489,6 +513,7 @@ await resend.emails.send({
 - ✅ Log all email activity
 
 ### 4. Performance
+
 - ✅ Send emails asynchronously
 - ✅ Use queue for bulk emails
 - ✅ Batch similar emails
@@ -500,6 +525,7 @@ await resend.emails.send({
 ### Resend Pricing (as of 2024)
 
 **Free Tier**:
+
 - 3,000 emails/month
 - 100 emails/day
 - 1 verified domain
@@ -507,6 +533,7 @@ await resend.emails.send({
 - API access
 
 **Pro Plan** ($20/month):
+
 - 50,000 emails/month
 - Unlimited domains
 - Priority support
@@ -514,12 +541,14 @@ await resend.emails.send({
 - Webhooks
 
 **Enterprise** (Custom):
+
 - Custom volume
 - Dedicated IP
 - SLA guarantees
 - White-glove support
 
 ### Estimated Monthly Cost (1000 students)
+
 - Welcome emails: 100/month
 - Enrollment confirmations: 200/month
 - Certificates: 50/month
@@ -531,26 +560,31 @@ await resend.emails.send({
 ### Common Errors
 
 **Error: "Invalid API key"**
+
 - Check `RESEND_API_KEY` is set correctly
 - Verify key hasn't expired
 - Ensure key has sending permissions
 
 **Error: "Domain not verified"**
+
 - Complete domain verification in Resend Dashboard
 - Check DNS records are correct
 - Wait for DNS propagation (up to 24 hours)
 
 **Error: "Rate limit exceeded"**
+
 - Implement exponential backoff
 - Use queue for bulk sends
 - Upgrade to Pro plan if needed
 
 **Error: "Invalid recipient"**
+
 - Validate email format before sending
 - Check for typos in email address
 - Remove bounced emails from list
 
 ### Retry Logic
+
 ```typescript
 async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
   for (let i = 0; i < maxRetries; i++) {
@@ -558,7 +592,9 @@ async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
       return await emailFn();
     } catch (error) {
       if (i === maxRetries - 1) throw error;
-      await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+      await new Promise((resolve) =>
+        setTimeout(resolve, 1000 * Math.pow(2, i))
+      );
     }
   }
 }
@@ -567,6 +603,7 @@ async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
 ## Step 14: Monitoring and Maintenance
 
 ### Set Up Webhooks (Optional)
+
 1. Go to Resend Dashboard → **Webhooks**
 2. Click **Add Webhook**
 3. URL: `https://www.elevateconnectsdirectory.org/api/webhooks/resend`
@@ -578,6 +615,7 @@ async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
 5. Save webhook secret to environment variables
 
 ### Create Webhook Handler
+
 ```typescript
 // app/api/webhooks/resend/route.ts
 import { NextRequest, NextResponse } from 'next/server';
@@ -602,6 +640,7 @@ export async function POST(request: NextRequest) {
 ```
 
 ### Regular Maintenance
+
 - [ ] Review bounce rates weekly
 - [ ] Clean email list monthly
 - [ ] Update email templates quarterly
@@ -611,6 +650,7 @@ export async function POST(request: NextRequest) {
 ## Troubleshooting
 
 ### Emails Not Sending
+
 1. Check API key is valid
 2. Verify domain is verified
 3. Check rate limits
@@ -618,6 +658,7 @@ export async function POST(request: NextRequest) {
 5. Test with simple HTML email first
 
 ### Emails Going to Spam
+
 1. Complete domain verification (SPF, DKIM, DMARC)
 2. Warm up domain (start with low volume)
 3. Avoid spam trigger words
@@ -625,6 +666,7 @@ export async function POST(request: NextRequest) {
 5. Maintain good sender reputation
 
 ### Low Open Rates
+
 1. Improve subject lines
 2. Send at optimal times
 3. Segment email list

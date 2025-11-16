@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -11,7 +11,7 @@ function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/lms/dashboard';
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -55,16 +55,16 @@ function LoginForm() {
           <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
           <p className="text-gray-600 mt-2">Sign in to your student portal</p>
         </div>
-
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
             {error}
           </div>
         )}
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-700">Email</label>
+            <label className="block text-sm font-medium mb-2 text-gray-700">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -76,7 +76,9 @@ function LoginForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-700">Password</label>
+            <label className="block text-sm font-medium mb-2 text-gray-700">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -87,7 +89,7 @@ function LoginForm() {
               disabled={loading}
             />
           </div>
-          <button 
+          <button
             type="submit"
             className="elevate-btn-primary w-full"
             disabled={loading}
@@ -95,9 +97,11 @@ function LoginForm() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-
         <div className="mt-6 text-center space-y-2">
-          <Link href="/signup" className="block text-red-600 hover:underline font-medium">
+          <Link
+            href="/signup"
+            className="block text-red-600 hover:underline font-medium"
+          >
             Don't have an account? Sign up
           </Link>
           <Link href="/" className="block text-gray-600 hover:underline">
@@ -111,11 +115,13 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 flex items-center justify-center">
-        <div className="text-white">Loading...</div>
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 flex items-center justify-center">
+          <div className="text-white">Loading...</div>
+        </div>
+      }
+    >
       <LoginForm />
     </Suspense>
   );

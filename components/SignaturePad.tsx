@@ -10,9 +10,15 @@ interface SignaturePadProps {
   height?: number;
 }
 
-export default function SignaturePad({ onSave, width = 500, height = 200 }: SignaturePadProps) {
+export default function SignaturePad({
+  onSave,
+  width = 500,
+  height = 200,
+}: SignaturePadProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [signaturePad, setSignaturePad] = useState<SignatureCanvas | null>(null);
+  const [signaturePad, setSignaturePad] = useState<SignatureCanvas | null>(
+    null
+  );
   const [isEmpty, setIsEmpty] = useState(true);
 
   useEffect(() => {
@@ -21,13 +27,13 @@ export default function SignaturePad({ onSave, width = 500, height = 200 }: Sign
         backgroundColor: 'rgb(255, 255, 255)',
         penColor: 'rgb(0, 0, 0)',
       });
-      
+
       pad.addEventListener('endStroke', () => {
         setIsEmpty(pad.isEmpty());
       });
-      
+
       setSignaturePad(pad);
-      
+
       // Handle window resize
       const handleResize = () => {
         if (canvasRef.current && pad) {
@@ -38,10 +44,10 @@ export default function SignaturePad({ onSave, width = 500, height = 200 }: Sign
           pad.clear();
         }
       };
-      
+
       handleResize();
       window.addEventListener('resize', handleResize);
-      
+
       return () => {
         window.removeEventListener('resize', handleResize);
         pad.off();
@@ -71,7 +77,6 @@ export default function SignaturePad({ onSave, width = 500, height = 200 }: Sign
           style={{ width: '100%', height: `${height}px`, touchAction: 'none' }}
         />
       </div>
-      
       <div className="flex gap-3">
         <Button
           type="button"
@@ -81,15 +86,10 @@ export default function SignaturePad({ onSave, width = 500, height = 200 }: Sign
         >
           Clear Signature
         </Button>
-        <Button
-          type="button"
-          onClick={handleSave}
-          disabled={isEmpty}
-        >
+        <Button type="button" onClick={handleSave} disabled={isEmpty}>
           Save Signature
         </Button>
       </div>
-      
       <p className="text-sm text-muted-foreground">
         Sign above using your mouse, trackpad, or touch screen
       </p>

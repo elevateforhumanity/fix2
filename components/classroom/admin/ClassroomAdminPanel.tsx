@@ -199,7 +199,6 @@ export default function ClassroomAdminPanel() {
           Queue tasks for Google Classroom autopilot
         </p>
       </div>
-
       {message && (
         <div
           className={`mb-6 p-4 rounded-lg ${
@@ -211,7 +210,6 @@ export default function ClassroomAdminPanel() {
           {message.text}
         </div>
       )}
-
       {!selectedTemplate ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {TASK_TEMPLATES.map((template) => (
@@ -251,7 +249,6 @@ export default function ClassroomAdminPanel() {
               ✕
             </button>
           </div>
-
           <form onSubmit={handleSubmit} className="space-y-4">
             {selectedTemplate.fields.map((field) => (
               <div key={field.name}>
@@ -300,7 +297,6 @@ export default function ClassroomAdminPanel() {
                 )}
               </div>
             ))}
-
             <div>
               <label className="block text-sm font-medium text-brand-text mb-1">
                 Priority (1-10, higher = more urgent)
@@ -314,7 +310,6 @@ export default function ClassroomAdminPanel() {
                 className="w-full px-3 py-2 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-transparent"
               />
             </div>
-
             <div className="flex gap-3 pt-4">
               <button
                 type="submit"

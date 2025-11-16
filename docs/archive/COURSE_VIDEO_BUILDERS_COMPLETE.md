@@ -8,7 +8,9 @@
 ## ✅ COMPLETED
 
 ### 1. Course Builder (`/staff/course-builder`)
+
 **Features:**
+
 - Drag & drop module organization
 - Add/edit/delete modules
 - Add lessons (Video, Text, Quiz, Assignment, Resource)
@@ -19,6 +21,7 @@
 - Preview and save functionality
 
 **Lesson Types:**
+
 - 🎥 Video - Video content
 - 📄 Text - Written content/articles
 - ✅ Quiz - Assessments
@@ -26,7 +29,9 @@
 - 🔗 Resource - Downloads/links
 
 ### 2. Video Builder (`/staff/video-builder`)
+
 **Features:**
+
 - Video library management
 - Multiple upload methods:
   - File upload (MP4, MOV, AVI)
@@ -48,6 +53,7 @@
 ## COURSE BUILDER DETAILS
 
 ### Module Structure
+
 ```typescript
 interface Module {
   id: string;
@@ -59,6 +65,7 @@ interface Module {
 ```
 
 ### Lesson Structure
+
 ```typescript
 interface Lesson {
   id: string;
@@ -70,6 +77,7 @@ interface Lesson {
 ```
 
 ### Workflow
+
 1. Create course (name, description, settings)
 2. Add modules
 3. Add lessons to each module
@@ -82,6 +90,7 @@ interface Lesson {
 ## VIDEO BUILDER DETAILS
 
 ### Video Structure
+
 ```typescript
 interface VideoFile {
   id: string;
@@ -100,22 +109,26 @@ interface VideoFile {
 ### Upload Methods
 
 #### 1. File Upload
+
 - Drag & drop interface
 - Multiple file support
 - Max 2GB per file
 - Supports: MP4, MOV, AVI
 
 #### 2. YouTube Embed
+
 - Paste YouTube URL
 - Automatic embedding
 - No storage needed
 
 #### 3. External URL
+
 - Link to hosted video
 - CDN support
 - Custom server videos
 
 ### Video Settings
+
 - **Title** - Display name
 - **Description** - Video description
 - **Thumbnail** - Custom thumbnail upload
@@ -128,8 +141,10 @@ interface VideoFile {
 ## PHASE 2 - LESSON BUILDERS
 
 ### Text/Article Builder
+
 **Path:** `/staff/lesson-builder/text/:id`
 **Features:**
+
 - Rich text editor
 - Formatting tools
 - Image insertion
@@ -138,8 +153,10 @@ interface VideoFile {
 - Save drafts
 
 ### Quiz Builder
+
 **Path:** `/staff/lesson-builder/quiz/:id`
 **Features:**
+
 - Multiple choice questions
 - True/False questions
 - Short answer
@@ -150,8 +167,10 @@ interface VideoFile {
 - Randomize questions
 
 ### Assignment Builder
+
 **Path:** `/staff/lesson-builder/assignment/:id`
 **Features:**
+
 - Assignment instructions
 - File upload requirements
 - Due dates
@@ -160,8 +179,10 @@ interface VideoFile {
 - Submission settings
 
 ### Resource Manager
+
 **Path:** `/staff/lesson-builder/resource/:id`
 **Features:**
+
 - File uploads (PDF, DOC, etc.)
 - External links
 - Resource descriptions
@@ -172,6 +193,7 @@ interface VideoFile {
 ## PHASE 3 - ADVANCED FEATURES
 
 ### Course Builder Enhancements
+
 - [ ] Drag & drop reordering
 - [ ] Bulk operations
 - [ ] Course templates
@@ -184,6 +206,7 @@ interface VideoFile {
 - [ ] Course analytics
 
 ### Video Builder Enhancements
+
 - [ ] Video trimming/editing
 - [ ] Subtitle upload
 - [ ] Multiple quality options
@@ -196,6 +219,7 @@ interface VideoFile {
 - [ ] CDN integration
 
 ### Content Library
+
 - [ ] Shared resource library
 - [ ] Content search
 - [ ] Tags and categories
@@ -208,6 +232,7 @@ interface VideoFile {
 ## INTEGRATION POINTS
 
 ### With Student Portal
+
 - Students view courses created here
 - Video player uses videos from library
 - Progress tracking on lessons
@@ -215,12 +240,14 @@ interface VideoFile {
 - Assignment uploads
 
 ### With Partner Portal
+
 - Partners can view course content
 - Track student progress through courses
 - Generate completion reports
 - Monitor video engagement
 
 ### With Staff Portal
+
 - Course analytics
 - Student performance data
 - Content usage statistics
@@ -231,6 +258,7 @@ interface VideoFile {
 ## DATABASE SCHEMA
 
 ### Courses Table
+
 ```sql
 CREATE TABLE courses (
   id UUID PRIMARY KEY,
@@ -248,6 +276,7 @@ CREATE TABLE courses (
 ```
 
 ### Modules Table
+
 ```sql
 CREATE TABLE modules (
   id UUID PRIMARY KEY,
@@ -260,6 +289,7 @@ CREATE TABLE modules (
 ```
 
 ### Lessons Table
+
 ```sql
 CREATE TABLE lessons (
   id UUID PRIMARY KEY,
@@ -275,6 +305,7 @@ CREATE TABLE lessons (
 ```
 
 ### Videos Table
+
 ```sql
 CREATE TABLE videos (
   id UUID PRIMARY KEY,
@@ -296,6 +327,7 @@ CREATE TABLE videos (
 ## API ENDPOINTS
 
 ### Course Builder
+
 ```
 POST   /api/courses              - Create course
 GET    /api/courses/:id          - Get course
@@ -310,6 +342,7 @@ DELETE /api/lessons/:id          - Delete lesson
 ```
 
 ### Video Builder
+
 ```
 POST   /api/videos/upload        - Upload video
 POST   /api/videos/youtube       - Add YouTube video
@@ -383,6 +416,7 @@ GET    /api/videos/:id/analytics - Video analytics
 ## ROUTING
 
 Add to `AppRoutes.tsx`:
+
 ```typescript
 <Route path="/staff/course-builder" element={<CourseBuilder />} />
 <Route path="/staff/course-builder/:id" element={<CourseBuilder />} />
@@ -398,6 +432,7 @@ Add to `AppRoutes.tsx`:
 ## NEXT STEPS
 
 ### Immediate
+
 1. [ ] Add routing for builders
 2. [ ] Create lesson builders (Phase 2)
 3. [ ] Connect to Supabase
@@ -405,6 +440,7 @@ Add to `AppRoutes.tsx`:
 5. [ ] Build and deploy
 
 ### Short Term
+
 6. [ ] Implement file upload to storage
 7. [ ] Add video processing
 8. [ ] Create course preview
@@ -412,6 +448,7 @@ Add to `AppRoutes.tsx`:
 10. [ ] Test with real content
 
 ### Long Term
+
 11. [ ] Add Phase 3 features
 12. [ ] Implement analytics
 13. [ ] Add collaboration

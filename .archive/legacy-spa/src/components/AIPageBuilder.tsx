@@ -55,8 +55,7 @@ export default function AIPageBuilder() {
       if (data.success) {
         setTemplates(data.templates);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   async function generatePage() {
@@ -372,11 +371,42 @@ export default function AIPageBuilder() {
                 <div
                   className="border border-brand-border rounded-lg p-4 bg-brand-surface overflow-auto"
                   style={{ maxHeight: '600px' }}
-                  dangerouslySetInnerHTML={{ 
+                  dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(generatedPage.html, {
-                      ALLOWED_TAGS: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'section', 'article', 'header', 'footer', 'nav'],
-                      ALLOWED_ATTR: ['class', 'id', 'href', 'src', 'alt', 'title', 'style']
-                    })
+                      ALLOWED_TAGS: [
+                        'div',
+                        'span',
+                        'p',
+                        'h1',
+                        'h2',
+                        'h3',
+                        'h4',
+                        'h5',
+                        'h6',
+                        'a',
+                        'img',
+                        'ul',
+                        'ol',
+                        'li',
+                        'strong',
+                        'em',
+                        'br',
+                        'section',
+                        'article',
+                        'header',
+                        'footer',
+                        'nav',
+                      ],
+                      ALLOWED_ATTR: [
+                        'class',
+                        'id',
+                        'href',
+                        'src',
+                        'alt',
+                        'title',
+                        'style',
+                      ],
+                    }),
                   }}
                 />
                 <div className="mt-4 text-xs text-brand-text-light">

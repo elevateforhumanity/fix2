@@ -9,18 +9,22 @@
 ## Issues Fixed
 
 ### Issue #1: JSX in TypeScript File
+
 **Error:** `app/api/cert/pdf/route.ts` contains JSX but has `.ts` extension  
 **Fix:** Renamed to `route.tsx`  
 **Why:** Turbopack requires `.tsx` extension for files containing JSX
 
 ### Issue #2: Missing UI Component
+
 **Error:** `Module not found: Can't resolve '@/components/ui/select'`  
 **Fix:** Created `components/ui/select.tsx` with full Radix UI Select implementation  
 **Why:** Component was referenced but never created
 
 ### Issue #3: Missing Dependencies
+
 **Error:** Multiple module resolution errors  
 **Fix:** Installed missing packages:
+
 - `@radix-ui/react-select` - For select dropdown component
 - `resend` - For email notifications
 
@@ -42,7 +46,9 @@ package-lock.json                         # Updated lockfile
 ## What Was Fixed
 
 ### 1. Certificate PDF Route
+
 **Before:**
+
 ```typescript
 // app/api/cert/pdf/route.ts
 const doc = (
@@ -51,6 +57,7 @@ const doc = (
 ```
 
 **After:**
+
 ```typescript
 // app/api/cert/pdf/route.tsx
 const doc = (
@@ -59,25 +66,31 @@ const doc = (
 ```
 
 ### 2. Select Component
+
 **Before:**
+
 ```typescript
 // app/admin/applications/page.tsx
-import { Select } from '@/components/ui/select'  // ← Error: File doesn't exist
+import { Select } from '@/components/ui/select'; // ← Error: File doesn't exist
 ```
 
 **After:**
+
 ```typescript
 // components/ui/select.tsx created with full implementation
 export { Select, SelectTrigger, SelectContent, SelectItem, ... }
 ```
 
 ### 3. Dependencies
+
 **Before:**
+
 ```json
 // package.json - Missing packages
 ```
 
 **After:**
+
 ```json
 {
   "dependencies": {
@@ -126,17 +139,20 @@ The build should now:
 Once deployed:
 
 ### Critical Pages
+
 - [ ] Homepage loads
 - [ ] `/lms/dashboard` works
 - [ ] `/admin/program-holders` accessible
 - [ ] `/program-holder/dashboard` loads
 
 ### API Routes
+
 - [ ] `/api/program-holder/me` responds
 - [ ] `/api/cert/pdf` generates PDFs
 - [ ] `/api/admin/program-holders` returns data
 
 ### Components
+
 - [ ] Select dropdowns work
 - [ ] Forms submit correctly
 - [ ] Navigation functions
@@ -179,11 +195,13 @@ mv file.ts file.tsx
 ## Common Next.js 16 Issues
 
 ### Turbopack Strictness
+
 - Requires `.tsx` for JSX
 - Stricter module resolution
 - Better error messages
 
 ### Solutions Applied
+
 - ✅ Renamed JSX files to .tsx
 - ✅ Added missing components
 - ✅ Installed all dependencies
@@ -202,18 +220,21 @@ Build succeeds when:
 ## Post-Build Tasks
 
 ### Immediate
+
 1. Test homepage
 2. Check console for errors
 3. Verify API endpoints
 4. Test authentication
 
 ### Within 1 Hour
+
 1. Run database migrations
 2. Test MOU workflow
 3. Verify email sending
 4. Check storage uploads
 
 ### Within 24 Hours
+
 1. Complete feature testing
 2. Load test critical paths
 3. Set up monitoring
@@ -224,6 +245,7 @@ Build succeeds when:
 ### Why .tsx is Required
 
 Turbopack (Next.js 16's bundler) is stricter than Webpack:
+
 - `.ts` files = TypeScript only
 - `.tsx` files = TypeScript + JSX
 - No mixing allowed
@@ -231,6 +253,7 @@ Turbopack (Next.js 16's bundler) is stricter than Webpack:
 ### Select Component Implementation
 
 Full Radix UI implementation with:
+
 - SelectTrigger - Button to open dropdown
 - SelectContent - Dropdown container
 - SelectItem - Individual options
@@ -241,6 +264,7 @@ Full Radix UI implementation with:
 ### Resend Package
 
 Email delivery service for:
+
 - MOU execution notifications
 - Certificate delivery
 - System alerts
@@ -275,11 +299,13 @@ MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
 ## What's Different from Local
 
 ### Local Development
+
 - Webpack (more permissive)
 - Allows .ts with JSX
 - Lazy module resolution
 
 ### Netlify Production
+
 - Turbopack (stricter)
 - Requires .tsx for JSX
 - Strict module resolution

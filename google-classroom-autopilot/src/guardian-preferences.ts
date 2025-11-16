@@ -1,6 +1,6 @@
 /**
  * Guardian Email Preferences & Opt-Out System
- * 
+ *
  * Allows guardians to:
  * - Opt out of weekly digests
  * - Opt out of all emails
@@ -36,7 +36,10 @@ export interface GuardianPreferences {
 /**
  * Generate secure unsubscribe token
  */
-export function generateUnsubscribeToken(email: string, studentId?: string): string {
+export function generateUnsubscribeToken(
+  email: string,
+  studentId?: string
+): string {
   const data = `${email}:${studentId || 'all'}:${Date.now()}`;
   return crypto.createHash('sha256').update(data).digest('hex');
 }
@@ -266,7 +269,11 @@ export async function updateGuardianPreferences(
 /**
  * Get unsubscribe URL
  */
-export function getUnsubscribeUrl(email: string, studentId?: string, token?: string): string {
+export function getUnsubscribeUrl(
+  email: string,
+  studentId?: string,
+  token?: string
+): string {
   const baseUrl = process.env.APP_URL || 'https://elevateforhumanity.org';
   const params = new URLSearchParams({
     email,
@@ -279,7 +286,11 @@ export function getUnsubscribeUrl(email: string, studentId?: string, token?: str
 /**
  * Get preferences management URL
  */
-export function getPreferencesUrl(email: string, studentId?: string, token?: string): string {
+export function getPreferencesUrl(
+  email: string,
+  studentId?: string,
+  token?: string
+): string {
   const baseUrl = process.env.APP_URL || 'https://elevateforhumanity.org';
   const params = new URLSearchParams({
     email,
@@ -355,38 +366,50 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   switch (command) {
     case 'check':
       if (!email) {
-        console.error('Usage: npx tsx src/guardian-preferences.ts check <email> [studentId]');
+        console.error(
+          'Usage: npx tsx src/guardian-preferences.ts check <email> [studentId]'
+        );
         process.exit(1);
       }
-      shouldSendToGuardian(email, studentId).then(should => {
+      shouldSendToGuardian(email, studentId).then((should) => {
         console.log(`Should send to ${email}:`, should);
       });
       break;
 
     case 'opt-out':
       if (!email) {
-        console.error('Usage: npx tsx src/guardian-preferences.ts opt-out <email> [studentId]');
+        console.error(
+          'Usage: npx tsx src/guardian-preferences.ts opt-out <email> [studentId]'
+        );
         process.exit(1);
       }
-      optOutGuardian(email, studentId).then(result => {
+      optOutGuardian(email, studentId).then((result) => {
         console.log(result.message);
       });
       break;
 
     case 'opt-in':
       if (!email) {
-        console.error('Usage: npx tsx src/guardian-preferences.ts opt-in <email> [studentId]');
+        console.error(
+          'Usage: npx tsx src/guardian-preferences.ts opt-in <email> [studentId]'
+        );
         process.exit(1);
       }
-      optInGuardian(email, studentId).then(result => {
+      optInGuardian(email, studentId).then((result) => {
         console.log(result.message);
       });
       break;
 
     default:
       console.log('Usage:');
-      console.log('  npx tsx src/guardian-preferences.ts check <email> [studentId]');
-      console.log('  npx tsx src/guardian-preferences.ts opt-out <email> [studentId]');
-      console.log('  npx tsx src/guardian-preferences.ts opt-in <email> [studentId]');
+      console.log(
+        '  npx tsx src/guardian-preferences.ts check <email> [studentId]'
+      );
+      console.log(
+        '  npx tsx src/guardian-preferences.ts opt-out <email> [studentId]'
+      );
+      console.log(
+        '  npx tsx src/guardian-preferences.ts opt-in <email> [studentId]'
+      );
   }
 }

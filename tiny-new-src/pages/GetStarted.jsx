@@ -14,14 +14,14 @@ export function GetStarted() {
         'Create your first course',
         'Add students to your class',
         'Create an assignment',
-        'Schedule a virtual class'
+        'Schedule a virtual class',
       ],
       resources: [
         { name: 'Teacher Quick Start Guide', url: '/resources/teacher-guide' },
         { name: 'Video Tutorials', url: '/training/videos' },
         { name: 'Lesson Plan Templates', url: '/resources/templates' },
-        { name: 'Teacher Community', url: '/community/teachers' }
-      ]
+        { name: 'Teacher Community', url: '/community/teachers' },
+      ],
     },
     {
       title: 'Students',
@@ -31,14 +31,14 @@ export function GetStarted() {
         'Join your first class',
         'Complete your profile',
         'Submit an assignment',
-        'Join a study group'
+        'Join a study group',
       ],
       resources: [
         { name: 'Student Guide', url: '/resources/student-guide' },
         { name: 'Mobile App Tutorial', url: '/training/mobile' },
         { name: 'Study Tips', url: '/resources/study-tips' },
-        { name: 'Student Help Center', url: '/support/students' }
-      ]
+        { name: 'Student Help Center', url: '/support/students' },
+      ],
     },
     {
       title: 'Administrators',
@@ -48,14 +48,14 @@ export function GetStarted() {
         'Set up your institution',
         'Add users and assign roles',
         'Configure security policies',
-        'View analytics dashboard'
+        'View analytics dashboard',
       ],
       resources: [
         { name: 'Admin Setup Guide', url: '/resources/admin-guide' },
         { name: 'Security Best Practices', url: '/resources/security' },
         { name: 'Billing & Licensing', url: '/admin/billing' },
-        { name: 'Technical Documentation', url: '/docs' }
-      ]
+        { name: 'Technical Documentation', url: '/docs' },
+      ],
     },
     {
       title: 'Parents',
@@ -65,45 +65,64 @@ export function GetStarted() {
         'Create parent account',
         'Link to student account',
         'View grades and progress',
-        'Message teachers'
+        'Message teachers',
       ],
       resources: [
         { name: 'Parent Portal Guide', url: '/resources/parent-guide' },
         { name: 'Progress Monitoring', url: '/parent/progress' },
         { name: 'Communication Tools', url: '/parent/messages' },
-        { name: 'Parent Community', url: '/community/parents' }
-      ]
-    }
+        { name: 'Parent Community', url: '/community/parents' },
+      ],
+    },
   ];
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
       {/* Hero Section */}
-      <div style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: '#fff',
-        padding: '4rem 2rem',
-        textAlign: 'center'
-      }}>
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontWeight: '700' }}>
+      <div
+        style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: '#fff',
+          padding: '4rem 2rem',
+          textAlign: 'center',
+        }}
+      >
+        <h1
+          style={{ fontSize: '3rem', marginBottom: '1rem', fontWeight: '700' }}
+        >
           Get Started with Elevate
         </h1>
-        <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
+        <p
+          style={{
+            fontSize: '1.25rem',
+            maxWidth: '800px',
+            margin: '0 auto',
+            opacity: 0.9,
+          }}
+        >
           Everything you need to start teaching, learning, and collaborating
         </p>
       </div>
-
       {/* Quick Start by Role */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '4rem 2rem' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
+      <div
+        style={{ maxWidth: '1400px', margin: '0 auto', padding: '4rem 2rem' }}
+      >
+        <h2
+          style={{
+            fontSize: '2rem',
+            marginBottom: '2rem',
+            textAlign: 'center',
+          }}
+        >
           Choose Your Role to Get Started
         </h2>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem'
-        }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '2rem',
+          }}
+        >
           {roles.map((role, index) => (
             <div
               key={index}
@@ -112,11 +131,12 @@ export function GetStarted() {
                 borderRadius: '0.75rem',
                 padding: '2rem',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                transition: 'transform 0.2s, box-shadow 0.2s'
+                transition: 'transform 0.2s, box-shadow 0.2s',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.15)';
+                e.currentTarget.style.boxShadow =
+                  '0 12px 24px rgba(0,0,0,0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -132,23 +152,41 @@ export function GetStarted() {
               <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>
                 {role.description}
               </p>
-
               <div style={{ marginBottom: '1.5rem' }}>
-                <h4 style={{ fontSize: '1rem', marginBottom: '0.75rem', fontWeight: '600' }}>
+                <h4
+                  style={{
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem',
+                    fontWeight: '600',
+                  }}
+                >
                   Quick Start Steps:
                 </h4>
                 <ol style={{ paddingLeft: '1.5rem', color: '#374151' }}>
                   {role.quickStart.map((step, i) => (
-                    <li key={i} style={{ marginBottom: '0.5rem' }}>{step}</li>
+                    <li key={i} style={{ marginBottom: '0.5rem' }}>
+                      {step}
+                    </li>
                   ))}
                 </ol>
               </div>
-
               <div>
-                <h4 style={{ fontSize: '1rem', marginBottom: '0.75rem', fontWeight: '600' }}>
+                <h4
+                  style={{
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem',
+                    fontWeight: '600',
+                  }}
+                >
                   Resources:
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                  }}
+                >
                   {role.resources.map((resource, i) => (
                     <Link
                       key={i}
@@ -159,7 +197,7 @@ export function GetStarted() {
                         fontSize: '0.875rem',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.5rem'
+                        gap: '0.5rem',
                       }}
                     >
                       <span>→</span>
@@ -168,7 +206,6 @@ export function GetStarted() {
                   ))}
                 </div>
               </div>
-
               <button
                 style={{
                   width: '100%',
@@ -180,7 +217,7 @@ export function GetStarted() {
                   borderRadius: '0.5rem',
                   fontSize: '1rem',
                   fontWeight: '600',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
                 }}
               >
                 Start as {role.title.slice(0, -1)}
@@ -189,31 +226,39 @@ export function GetStarted() {
           ))}
         </div>
       </div>
-
       {/* Training & Certification */}
       <div style={{ backgroundColor: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontSize: '2rem',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}
+          >
             Training & Certification
           </h2>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '2rem',
+            }}
+          >
             <div style={{ textAlign: 'center' }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#eff6ff',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem'
-              }}>
+              <div
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: '#eff6ff',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem',
+                  fontSize: '2rem',
+                }}
+              >
                 📚
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
@@ -227,25 +272,26 @@ export function GetStarted() {
                 style={{
                   color: '#3b82f6',
                   textDecoration: 'none',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Browse Courses →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#f0fdf4',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem'
-              }}>
+              <div
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: '#f0fdf4',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem',
+                  fontSize: '2rem',
+                }}
+              >
                 🎓
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
@@ -259,25 +305,26 @@ export function GetStarted() {
                 style={{
                   color: '#3b82f6',
                   textDecoration: 'none',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 View Programs →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#fef3c7',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem'
-              }}>
+              <div
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: '#fef3c7',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem',
+                  fontSize: '2rem',
+                }}
+              >
                 🎥
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
@@ -291,25 +338,26 @@ export function GetStarted() {
                 style={{
                   color: '#3b82f6',
                   textDecoration: 'none',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Watch Demos →
               </Link>
             </div>
-
             <div style={{ textAlign: 'center' }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                backgroundColor: '#fce7f3',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem'
-              }}>
+              <div
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: '#fce7f3',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem',
+                  fontSize: '2rem',
+                }}
+              >
                 🛠️
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
@@ -323,7 +371,7 @@ export function GetStarted() {
                 style={{
                   color: '#3b82f6',
                   textDecoration: 'none',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Explore Apps →
@@ -332,25 +380,33 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* Community & Support */}
       <div style={{ padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontSize: '2rem',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}
+          >
             Connect with the Community
           </h2>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div style={{
-              backgroundColor: '#fff',
-              padding: '2rem',
-              borderRadius: '0.75rem',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-            }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '2rem',
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              }}
+            >
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
                 💬 Communities
               </h3>
@@ -359,29 +415,39 @@ export function GetStarted() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/community/teachers" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/community/teachers"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Teacher Community
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/community/admins" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/community/admins"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Administrator Forum
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/community/developers" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/community/developers"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Developer Community
                   </Link>
                 </li>
               </ul>
             </div>
-
-            <div style={{
-              backgroundColor: '#fff',
-              padding: '2rem',
-              borderRadius: '0.75rem',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-            }}>
+            <div
+              style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              }}
+            >
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
                 🤝 Find a Partner
               </h3>
@@ -390,29 +456,39 @@ export function GetStarted() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/partners/sales" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/partners/sales"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Sales Partners
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/partners/training" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/partners/training"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Training Partners
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/partners/technology" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/partners/technology"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Technology Partners
                   </Link>
                 </li>
               </ul>
             </div>
-
-            <div style={{
-              backgroundColor: '#fff',
-              padding: '2rem',
-              borderRadius: '0.75rem',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-            }}>
+            <div
+              style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              }}
+            >
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
                 📞 Get Support
               </h3>
@@ -421,17 +497,26 @@ export function GetStarted() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/support" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/support"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Help Center
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <Link to="/support/contact" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <Link
+                    to="/support/contact"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Contact Support
                   </Link>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <a href="tel:1-800-ELEVATE" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                  <a
+                    href="tel:1-800-ELEVATE"
+                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                  >
                     → Call 1-800-ELEVATE
                   </a>
                 </li>
@@ -440,27 +525,38 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* Institution Types */}
       <div style={{ backgroundColor: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontSize: '2rem',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}
+          >
             Solutions by Institution Type
           </h2>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div style={{
-              border: '2px solid #e5e7eb',
-              borderRadius: '0.75rem',
-              padding: '2rem',
-              transition: 'border-color 0.2s'
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+              gap: '2rem',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.borderColor = '#3b82f6'}
-            onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
+          >
+            <div
+              style={{
+                border: '2px solid #e5e7eb',
+                borderRadius: '0.75rem',
+                padding: '2rem',
+                transition: 'border-color 0.2s',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.borderColor = '#3b82f6')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.borderColor = '#e5e7eb')
+              }
             >
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏫</div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
@@ -484,21 +580,25 @@ export function GetStarted() {
                   color: '#fff',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Learn More
               </Link>
             </div>
-
-            <div style={{
-              border: '2px solid #e5e7eb',
-              borderRadius: '0.75rem',
-              padding: '2rem',
-              transition: 'border-color 0.2s'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.borderColor = '#3b82f6'}
-            onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
+            <div
+              style={{
+                border: '2px solid #e5e7eb',
+                borderRadius: '0.75rem',
+                padding: '2rem',
+                transition: 'border-color 0.2s',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.borderColor = '#3b82f6')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.borderColor = '#e5e7eb')
+              }
             >
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎓</div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
@@ -522,21 +622,25 @@ export function GetStarted() {
                   color: '#fff',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Learn More
               </Link>
             </div>
-
-            <div style={{
-              border: '2px solid #e5e7eb',
-              borderRadius: '0.75rem',
-              padding: '2rem',
-              transition: 'border-color 0.2s'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.borderColor = '#3b82f6'}
-            onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
+            <div
+              style={{
+                border: '2px solid #e5e7eb',
+                borderRadius: '0.75rem',
+                padding: '2rem',
+                transition: 'border-color 0.2s',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.borderColor = '#3b82f6')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.borderColor = '#e5e7eb')
+              }
             >
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🌐</div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
@@ -560,7 +664,7 @@ export function GetStarted() {
                   color: '#fff',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 Learn More
@@ -569,21 +673,29 @@ export function GetStarted() {
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
-      <div style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: '#fff',
-        padding: '4rem 2rem',
-        textAlign: 'center'
-      }}>
+      <div
+        style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: '#fff',
+          padding: '4rem 2rem',
+          textAlign: 'center',
+        }}
+      >
         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
           Ready to Get Started?
         </h2>
         <p style={{ fontSize: '1.25rem', marginBottom: '2rem', opacity: 0.9 }}>
           Start your free 30-day trial today. No credit card required.
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
           <Link
             to="/signup"
             style={{
@@ -594,7 +706,7 @@ export function GetStarted() {
               textDecoration: 'none',
               borderRadius: '0.5rem',
               fontSize: '1.125rem',
-              fontWeight: '600'
+              fontWeight: '600',
             }}
           >
             Start Free Trial
@@ -610,7 +722,7 @@ export function GetStarted() {
               borderRadius: '0.5rem',
               fontSize: '1.125rem',
               fontWeight: '600',
-              border: '2px solid #fff'
+              border: '2px solid #fff',
             }}
           >
             Schedule Demo
@@ -626,7 +738,7 @@ export function GetStarted() {
               borderRadius: '0.5rem',
               fontSize: '1.125rem',
               fontWeight: '600',
-              border: '2px solid #fff'
+              border: '2px solid #fff',
             }}
           >
             Call Sales

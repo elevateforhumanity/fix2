@@ -11,6 +11,7 @@ The Elevate for Humanity platform implements **military-grade security** with mu
 **Location:** `simple-server.cjs`
 
 **Protection:**
+
 - Content Security Policy (CSP)
 - HTTP Strict Transport Security (HSTS)
 - X-Frame-Options (clickjacking protection)
@@ -18,15 +19,18 @@ The Elevate for Humanity platform implements **military-grade security** with mu
 - X-XSS-Protection
 
 **Configuration:**
+
 ```javascript
 helmet({
-  contentSecurityPolicy: { /* CSP directives */ },
+  contentSecurityPolicy: {
+    /* CSP directives */
+  },
   hsts: {
     maxAge: 31536000,
     includeSubDomains: true,
-    preload: true
-  }
-})
+    preload: true,
+  },
+});
 ```
 
 ### 2. CORS Whitelist
@@ -36,12 +40,14 @@ helmet({
 **Protection:** Prevents unauthorized cross-origin requests
 
 **Configuration:**
+
 ```bash
 # .env
 CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173,https://elevateforhumanity.org
 ```
 
 **Default Allowed Origins:**
+
 - `http://localhost:3000` (development)
 - `http://localhost:5173` (Vite dev server)
 - `https://elevateforhumanity.org` (production)
@@ -53,11 +59,13 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173,https://elevate
 **Protection:** Prevents brute force attacks and API abuse
 
 **Limits:**
+
 - **API Endpoints:** 100 requests per 15 minutes per IP
 - **Authentication:** 5 attempts per 15 minutes per IP
 - **Slow Down:** Adds 500ms delay after 50 requests
 
 **Configuration:**
+
 ```bash
 # .env
 RATE_LIMIT_PER_MIN=100
@@ -70,12 +78,14 @@ RATE_LIMIT_PER_MIN=100
 **Protection:** Blocks automated scrapers and bots
 
 **Features:**
+
 - User agent parsing
 - Bot detection via `express-useragent`
 - Blocks requests with no user agent
 - Logs all blocked attempts to audit log
 
 **Exceptions:**
+
 - Health check endpoints (`/api/healthz`, `/api/readiness`)
 
 ### 5. XSS Protection
@@ -93,6 +103,7 @@ RATE_LIMIT_PER_MIN=100
 **Protection:** Validates and sanitizes all user input
 
 **Schemas:**
+
 - `createTask` - Task creation validation
 - `search` - Search query validation
 - `ask` - Question validation
@@ -100,6 +111,7 @@ RATE_LIMIT_PER_MIN=100
 - `taskId` - UUID validation
 
 **Usage:**
+
 ```javascript
 app.post('/api/endpoint', validate(schemas.schemaName), handler);
 ```
@@ -109,12 +121,14 @@ app.post('/api/endpoint', validate(schemas.schemaName), handler);
 **Location:** `src/crypto/encryption.js`
 
 **Algorithms:**
+
 - **AES-256-GCM** - Symmetric encryption (FIPS 140-2 compliant)
 - **RSA-4096** - Asymmetric encryption for key exchange
 - **Argon2id** - Password hashing (OWASP recommended)
 - **HMAC-SHA256** - Message authentication
 
 **Features:**
+
 - License token generation/verification
 - Digital watermarking
 - CSRF token generation
@@ -125,12 +139,14 @@ app.post('/api/endpoint', validate(schemas.schemaName), handler);
 **Location:** `middleware/auth.cjs`
 
 **Features:**
+
 - JWT token validation
 - Role-based access control (RBAC)
 - Permission-based authorization
 - Token expiration handling
 
 **Configuration:**
+
 ```bash
 # .env
 JWT_SECRET=change-me-to-random-secret-in-production
@@ -141,18 +157,21 @@ JWT_SECRET=change-me-to-random-secret-in-production
 **Location:** `simple-server.cjs`
 
 **Protected Endpoints:**
+
 - `/api/protected/financial/revenue`
 - `/api/protected/audit/logs`
 - `/api/security/audit`
 - `/api/security/shutdown`
 
 **Configuration:**
+
 ```bash
 # .env
 ADMIN_SECRET=change-me-to-random-admin-secret
 ```
 
 **Usage:**
+
 ```bash
 curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/security/audit
 ```
@@ -162,6 +181,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 **Location:** `.data/security/audit.json`
 
 **Logged Events:**
+
 - `SCRAPER_BLOCK` - Bot/scraper blocked
 - `NO_UA_BLOCK` - No user agent blocked
 - `UNAUTHORIZED_ACCESS` - Failed API key authentication
@@ -169,6 +189,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 - `SYSTEM_SHUTDOWN` - Kill switch activated
 
 **Access:**
+
 ```bash
 curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/security/audit
 ```
@@ -178,6 +199,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 **Location:** `services/duplication-scanner.cjs`
 
 **Features:**
+
 - SHA-256 content fingerprinting
 - Multi-level fingerprint generation (full, first100, first50, first25 words)
 - Key phrase extraction for search
@@ -188,6 +210,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 - Scan history tracking
 
 **Algorithms:**
+
 - **SHA-256** for content fingerprinting
 - **Fuzzy matching** with multiple fingerprint levels
 - **Similarity scoring** based on fingerprint matches
@@ -197,6 +220,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 **Location:** `services/content-protection.cjs`
 
 **Features:**
+
 - Digital watermarking with invisible markers
 - Zero-width character encoding for stealth watermarks
 - HMAC-SHA256 signature verification
@@ -205,12 +229,14 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 - Protection registry with audit trail
 
 **Watermark Components:**
+
 - **Invisible Watermark:** Zero-width characters (U+200B, U+200C)
 - **Visible Watermark:** Copyright notice and legal disclaimer
 - **Content ID:** Unique 16-character identifier
 - **HMAC Signature:** Tamper-proof verification
 
 **Legal Protection:**
+
 - Copyright notice embedded in all protected content
 - Federal law citations (17 U.S.C. § 506, 18 U.S.C. § 2319)
 - License information and contact details
@@ -222,6 +248,7 @@ curl -H "x-api-key: your-admin-secret" https://api.elevateforhumanity.org/api/se
 Returns current security status and active protections.
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -245,6 +272,7 @@ Returns last 100 security audit log entries.
 **Authentication:** Requires `x-api-key` header
 
 **Response:**
+
 ```json
 {
   "entries": [
@@ -267,6 +295,7 @@ Returns last 100 security audit log entries.
 Returns compliance and copyright information.
 
 **Response:**
+
 ```json
 {
   "copyright": "© Elevate for Humanity / Selfish Inc. DBA Rise Forward Foundation",
@@ -284,6 +313,7 @@ Emergency kill switch to shut down the server.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "reason": "security incident"
@@ -291,6 +321,7 @@ Emergency kill switch to shut down the server.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -309,6 +340,7 @@ Scan content for potential duplicates across the web.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "content": "Your content to scan...",
@@ -318,6 +350,7 @@ Scan content for potential duplicates across the web.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -344,6 +377,7 @@ Scan content for potential duplicates across the web.
 ```
 
 **Risk Levels:**
+
 - `none` - No matches found (0-10% match rate)
 - `low` - Few matches (10-40% match rate)
 - `medium` - Some matches (40-70% match rate)
@@ -356,9 +390,11 @@ Get scan history.
 **Authentication:** Requires `x-api-key` header
 
 **Query Parameters:**
+
 - `limit` - Number of entries (default: 50)
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -374,6 +410,7 @@ Compare two content pieces for similarity.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "content1": "First content...",
@@ -382,6 +419,7 @@ Compare two content pieces for similarity.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -399,6 +437,7 @@ Compare two content pieces for similarity.
 ```
 
 **Verdicts:**
+
 - `duplicate` - 75%+ similarity
 - `similar` - 50-75% similarity
 - `partial` - 25-50% similarity
@@ -411,6 +450,7 @@ Scan local directory for duplicate files.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "path": "/path/to/directory"
@@ -418,6 +458,7 @@ Scan local directory for duplicate files.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -438,6 +479,7 @@ Add digital watermark to content.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "content": "Content to protect...",
@@ -450,6 +492,7 @@ Add digital watermark to content.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -474,6 +517,7 @@ Verify content watermark.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "content": "Watermarked content...",
@@ -482,6 +526,7 @@ Verify content watermark.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -502,6 +547,7 @@ Check if content is protected.
 **Authentication:** Requires `x-api-key` header
 
 **Request:**
+
 ```json
 {
   "content": "Content to check..."
@@ -509,6 +555,7 @@ Check if content is protected.
 ```
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -529,9 +576,11 @@ Get content protection registry.
 **Authentication:** Requires `x-api-key` header
 
 **Query Parameters:**
+
 - `limit` - Number of entries (default: 100)
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -547,6 +596,7 @@ Get content protection statistics.
 **Authentication:** Requires `x-api-key` header
 
 **Response:**
+
 ```json
 {
   "ok": true,
@@ -606,6 +656,7 @@ The platform implements comprehensive compliance with:
 - **WIOA** - Workforce Innovation and Opportunity Act
 
 **Documentation:**
+
 - `legal/ferpa-compliance.md`
 - `legal/coppa-compliance.md`
 - `legal/privacy-policy.md`
@@ -641,6 +692,7 @@ The platform implements comprehensive compliance with:
 ### If Security Breach Detected
 
 1. **Activate Kill Switch:**
+
    ```bash
    curl -X POST -H "x-api-key: your-admin-secret" \
      -H "Content-Type: application/json" \
@@ -649,6 +701,7 @@ The platform implements comprehensive compliance with:
    ```
 
 2. **Review Audit Logs:**
+
    ```bash
    curl -H "x-api-key: your-admin-secret" \
      https://api.elevateforhumanity.org/api/security/audit
@@ -831,6 +884,7 @@ For enhanced duplication detection:
    - Get API key
 
 3. **Configure Environment:**
+
    ```bash
    GOOGLE_SEARCH_API_KEY=your-api-key
    GOOGLE_SEARCH_ENGINE_ID=your-engine-id

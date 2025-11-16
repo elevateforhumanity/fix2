@@ -12,7 +12,7 @@ let _supabaseAdmin: ReturnType<typeof createClient> | null = null;
 
 function getSupabaseAdmin() {
   if (_supabaseAdmin) return _supabaseAdmin;
-  
+
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -26,24 +26,24 @@ function getSupabaseAdmin() {
       persistSession: false,
     },
   });
-  
+
   return _supabaseAdmin;
 }
 
 export const supabaseAdmin = new Proxy({} as ReturnType<typeof createClient>, {
   get(target, prop) {
     return getSupabaseAdmin()[prop as keyof ReturnType<typeof createClient>];
-  }
+  },
 });
 
 // Helper function to get user by email
 export async function getUserByEmail(email: string) {
   const { data, error } = await supabaseAdmin.auth.admin.listUsers();
-  
+
   if (error) {
     throw error;
   }
-  
+
   const user = data.users.find((u: any) => u.email === email);
   return user || null;
 }
@@ -51,10 +51,10 @@ export async function getUserByEmail(email: string) {
 // Helper function to get user by ID
 export async function getUserById(userId: string) {
   const { data, error } = await supabaseAdmin.auth.admin.getUserById(userId);
-  
+
   if (error) {
     throw error;
   }
-  
+
   return data.user;
 }

@@ -3,6 +3,7 @@
 ## What You Have
 
 ✅ **Complete video generation system** with:
+
 - 7 professional templates
 - Free stock media (20+ images, 7+ videos, 4 music tracks)
 - OpenAI text-to-speech (6 voices)
@@ -13,31 +14,40 @@
 ## Quick Commands
 
 ### 1. Download Stock Media (Optional)
+
 Download free images/videos for offline use:
+
 ```bash
 pnpm video:download-media
 ```
+
 - Downloads 20+ images (~100MB)
 - Downloads 7+ videos (~400MB)
 - Takes 10-20 minutes
 - Creates local copies in `public/media/`
 
 ### 2. Start Video API Server
+
 ```bash
 pnpm video:server
 ```
+
 Server runs on `http://localhost:3001`
 
 ### 3. Test the System
+
 ```bash
 pnpm video:test
 ```
+
 Generates a test video to verify everything works.
 
 ### 4. Generate Sample Videos from Templates
+
 ```bash
 pnpm video:generate-samples
 ```
+
 - Generates videos for all 7 templates
 - Takes 30-60 minutes
 - Saves to `./samples/` directory
@@ -46,13 +56,16 @@ pnpm video:generate-samples
 ## Environment Setup
 
 ### Get API Keys
+
 **📖 [Complete Guide: GET_API_KEYS.md](GET_API_KEYS.md)**
 
 **Quick Links:**
+
 - **OpenAI API Key:** [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 - **Cloudflare Stream:** [https://dash.cloudflare.com/stream](https://dash.cloudflare.com/stream)
 
 Create `.env` file:
+
 ```env
 # Required for TTS
 OPENAI_API_KEY=sk-your-key-here
@@ -74,12 +87,14 @@ CLOUDFLARE_STREAM_API_TOKEN=your_token
 ## How It Works
 
 ### Without Downloaded Media (Default)
+
 - Templates use URLs to free stock sites (Unsplash, Pexels)
 - Videos generated on-demand when users click "Generate"
 - No local storage needed
 - Always uses latest stock media
 
 ### With Downloaded Media (Optional)
+
 - Run `pnpm video:download-media` first
 - Media stored locally in `public/media/`
 - Faster generation (no external downloads)
@@ -89,6 +104,7 @@ CLOUDFLARE_STREAM_API_TOKEN=your_token
 ## What Gets Generated
 
 Each video includes:
+
 - ✅ Text-to-speech voice-over
 - ✅ Text overlays with animations
 - ✅ Background images/videos
@@ -99,11 +115,13 @@ Each video includes:
 ## Costs
 
 ### OpenAI TTS
+
 - $15 per 1 million characters
 - ~500 words = ~2,500 chars = $0.04 per video
 - 100 videos/month = ~$4
 
 ### Cloudflare Stream (Optional)
+
 - $5 per 1,000 minutes storage
 - $1 per 1,000 minutes delivered
 - 100 videos × 1 min = $0.50/month
@@ -119,6 +137,7 @@ Each video includes:
 ## Support
 
 Questions? Check the documentation or run:
+
 ```bash
 pnpm video:test  # Test if everything works
 ```

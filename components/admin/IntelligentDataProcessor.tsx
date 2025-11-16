@@ -339,7 +339,6 @@ export function IntelligentDataProcessor() {
           automatically!
         </p>
       </div>
-
       {/* Copilot Messages */}
       {copilotMessages.length > 0 && (
         <div className="copilot-messages mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -355,7 +354,6 @@ export function IntelligentDataProcessor() {
           </div>
         </div>
       )}
-
       {/* Input Area */}
       <div className="mb-6">
         <label className="block text-sm font-medium text-brand-text mb-2">
@@ -376,7 +374,6 @@ John Smith    Medical Assistant    2025-01-15    john@email.com
 Sarah Johnson IT Support         2025-01-22    sarah@email.com"
           className="w-full h-40 p-4 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus font-mono text-sm"
         />
-
         <div className="mt-4 flex space-x-3">
           <button
             onClick={() => intelligentParse(rawInput)}
@@ -387,7 +384,6 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
               ? '🔄 Processing...'
               : '🤖 Process & Create Everything'}
           </button>
-
           <button
             onClick={() => setRawInput('')}
             className="bg-brand-border text-brand-text px-4 py-3 rounded-lg hover:bg-gray-300"
@@ -396,7 +392,6 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
           </button>
         </div>
       </div>
-
       {/* Results */}
       {processedData && (
         <div className="results space-y-6">
@@ -439,7 +434,6 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
               </div>
             </div>
           </div>
-
           {/* Quick Actions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button className="p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-brand-surface text-left">
@@ -450,7 +444,6 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
                 See auto-generated visualizations
               </div>
             </button>
-
             <button className="p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-brand-surface text-left">
               <div className="font-medium text-green-900">
                 📈 Analytics Dashboard
@@ -459,7 +452,6 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
                 Real-time retention tracking
               </div>
             </button>
-
             <button className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg hover:bg-yellow-100 text-left">
               <div className="font-medium text-yellow-900">⚠️ Risk Alerts</div>
               <div className="text-sm text-yellow-700 mt-1">

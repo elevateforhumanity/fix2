@@ -48,10 +48,10 @@ export class AccessibilityAuditor {
     this.checkSkipLinks();
 
     // Calculate score
-    const errors = this.issues.filter(i => i.severity === 'error').length;
-    const warnings = this.issues.filter(i => i.severity === 'warning').length;
+    const errors = this.issues.filter((i) => i.severity === 'error').length;
+    const warnings = this.issues.filter((i) => i.severity === 'warning').length;
     const total = this.issues.length;
-    const passed = 100 - ((errors * 10) + (warnings * 2));
+    const passed = 100 - (errors * 10 + warnings * 2);
     const score = Math.max(0, Math.min(100, passed));
 
     return {
@@ -82,7 +82,10 @@ export class AccessibilityAuditor {
           wcagLevel: 'A',
           wcagCriteria: '1.1.1 Non-text Content',
         });
-      } else if (img.alt === '' && img.getAttribute('role') !== 'presentation') {
+      } else if (
+        img.alt === '' &&
+        img.getAttribute('role') !== 'presentation'
+      ) {
         this.issues.push({
           severity: 'warning',
           rule: 'img-alt-empty',
@@ -99,8 +102,10 @@ export class AccessibilityAuditor {
    * Check heading hierarchy
    */
   private checkHeadings(): void {
-    const headings = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'));
-    
+    const headings = Array.from(
+      document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+    );
+
     // Check for h1
     const h1Count = document.querySelectorAll('h1').length;
     if (h1Count === 0) {
@@ -226,16 +231,19 @@ export class AccessibilityAuditor {
    */
   private checkColorContrast(): void {
     // This is a simplified check - full contrast checking requires color analysis
-    const textElements = document.querySelectorAll('p, span, a, button, h1, h2, h3, h4, h5, h6');
-    
+    const textElements = document.querySelectorAll(
+      'p, span, a, button, h1, h2, h3, h4, h5, h6'
+    );
+
     textElements.forEach((element) => {
       const styles = window.getComputedStyle(element);
       const fontSize = parseFloat(styles.fontSize);
       const fontWeight = styles.fontWeight;
-      
+
       // Large text is 18pt+ or 14pt+ bold
-      const isLargeText = fontSize >= 24 || (fontSize >= 18.66 && parseInt(fontWeight) >= 700);
-      
+      const isLargeText =
+        fontSize >= 24 || (fontSize >= 18.66 && parseInt(fontWeight) >= 700);
+
       // Note: Actual contrast ratio calculation would require color parsing
       // This is a placeholder for the check
       if (!isLargeText && fontSize < 14) {
@@ -255,11 +263,13 @@ export class AccessibilityAuditor {
    * Check keyboard navigation
    */
   private checkKeyboardNavigation(): void {
-    const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, [tabindex]');
-    
+    const interactiveElements = document.querySelectorAll(
+      'a, button, input, select, textarea, [tabindex]'
+    );
+
     interactiveElements.forEach((element, index) => {
       const tabindex = element.getAttribute('tabindex');
-      
+
       if (tabindex && parseInt(tabindex) > 0) {
         this.issues.push({
           severity: 'warning',
@@ -277,21 +287,55 @@ export class AccessibilityAuditor {
    * Check ARIA usage
    */
   private checkARIA(): void {
-    const ariaElements = document.querySelectorAll('[role], [aria-label], [aria-labelledby], [aria-describedby]');
-    
+    const ariaElements = document.querySelectorAll(
+      '[role], [aria-label], [aria-labelledby], [aria-describedby]'
+    );
+
     ariaElements.forEach((element, index) => {
       const role = element.getAttribute('role');
-      
+
       // Check for invalid roles
       const validRoles = [
-        'alert', 'alertdialog', 'application', 'article', 'banner', 'button',
-        'checkbox', 'complementary', 'contentinfo', 'dialog', 'document',
-        'feed', 'figure', 'form', 'grid', 'gridcell', 'heading', 'img',
-        'link', 'list', 'listbox', 'listitem', 'main', 'navigation', 'region',
-        'row', 'rowgroup', 'search', 'switch', 'tab', 'table', 'tablist',
-        'tabpanel', 'textbox', 'timer', 'toolbar', 'tooltip', 'tree'
+        'alert',
+        'alertdialog',
+        'application',
+        'article',
+        'banner',
+        'button',
+        'checkbox',
+        'complementary',
+        'contentinfo',
+        'dialog',
+        'document',
+        'feed',
+        'figure',
+        'form',
+        'grid',
+        'gridcell',
+        'heading',
+        'img',
+        'link',
+        'list',
+        'listbox',
+        'listitem',
+        'main',
+        'navigation',
+        'region',
+        'row',
+        'rowgroup',
+        'search',
+        'switch',
+        'tab',
+        'table',
+        'tablist',
+        'tabpanel',
+        'textbox',
+        'timer',
+        'toolbar',
+        'tooltip',
+        'tree',
       ];
-      
+
       if (role && !validRoles.includes(role)) {
         this.issues.push({
           severity: 'error',
@@ -311,7 +355,7 @@ export class AccessibilityAuditor {
   private checkLandmarks(): void {
     const hasMain = document.querySelector('main, [role="main"]');
     const hasNav = document.querySelector('nav, [role="navigation"]');
-    
+
     if (!hasMain) {
       this.issues.push({
         severity: 'warning',
@@ -321,7 +365,7 @@ export class AccessibilityAuditor {
         wcagCriteria: '2.4.1 Bypass Blocks',
       });
     }
-    
+
     if (!hasNav) {
       this.issues.push({
         severity: 'info',
@@ -339,7 +383,7 @@ export class AccessibilityAuditor {
   private checkLanguage(): void {
     const html = document.documentElement;
     const lang = html.getAttribute('lang');
-    
+
     if (!lang) {
       this.issues.push({
         severity: 'error',
@@ -356,7 +400,7 @@ export class AccessibilityAuditor {
    */
   private checkPageTitle(): void {
     const title = document.querySelector('title');
-    
+
     if (!title || !title.textContent?.trim()) {
       this.issues.push({
         severity: 'error',
@@ -373,7 +417,7 @@ export class AccessibilityAuditor {
    */
   private checkSkipLinks(): void {
     const skipLink = document.querySelector('a[href^="#"]');
-    
+
     if (!skipLink) {
       this.issues.push({
         severity: 'warning',
@@ -392,20 +436,29 @@ export class AccessibilityAuditor {
 export function runAccessibilityAudit(): AuditResult {
   const auditor = new AccessibilityAuditor();
   const result = auditor.audit();
-  
+
   console.group('♿ Accessibility Audit Results');
   console.log(`Score: ${result.score}/100`);
   console.log(`Status: ${result.passed ? '✅ PASSED' : '❌ FAILED'}`);
   console.log(`Total Issues: ${result.summary.total}`);
   console.log(`  - Errors: ${result.summary.failed}`);
   console.log(`  - Warnings: ${result.summary.warnings}`);
-  console.log(`  - Info: ${result.summary.total - result.summary.failed - result.summary.warnings}`);
-  
+  console.log(
+    `  - Info: ${result.summary.total - result.summary.failed - result.summary.warnings}`
+  );
+
   if (result.issues.length > 0) {
     console.group('Issues:');
     result.issues.forEach((issue, index) => {
-      const icon = issue.severity === 'error' ? '❌' : issue.severity === 'warning' ? '⚠️' : 'ℹ️';
-      console.log(`${icon} [${issue.wcagLevel}] ${issue.rule}: ${issue.description}`);
+      const icon =
+        issue.severity === 'error'
+          ? '❌'
+          : issue.severity === 'warning'
+            ? '⚠️'
+            : 'ℹ️';
+      console.log(
+        `${icon} [${issue.wcagLevel}] ${issue.rule}: ${issue.description}`
+      );
       if (issue.element) {
         console.log(`   Element: ${issue.element}`);
       }
@@ -413,8 +466,8 @@ export function runAccessibilityAudit(): AuditResult {
     });
     console.groupEnd();
   }
-  
+
   console.groupEnd();
-  
+
   return result;
 }

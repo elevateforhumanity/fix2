@@ -175,7 +175,6 @@ export class ContentAutomation {
    */
   private async updateFeed(feed: DataFeed): Promise<void> {
     try {
-
       const response = await fetch(feed.url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -208,8 +207,7 @@ export class ContentAutomation {
 
       // Apply content rules
       await this.applyContentRules(feed.id);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   /**

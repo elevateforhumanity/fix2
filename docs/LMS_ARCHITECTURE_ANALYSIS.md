@@ -13,6 +13,7 @@
 ### Current LMS Structure
 
 **Database Schema** (`supabase/migrations/001_lms_schema.sql`):
+
 ```sql
 programs → courses → lessons
     ↓
@@ -28,17 +29,18 @@ quiz_questions → quiz_responses
 ✅ **Enrollment System** - Tracks who's enrolled in what  
 ✅ **Scalable** - Can handle thousands of courses and students  
 ✅ **Query Efficient** - Indexed for fast lookups  
-✅ **Multi-tenant Ready** - RLS policies for data isolation  
+✅ **Multi-tenant Ready** - RLS policies for data isolation
 
 **Weaknesses:**
 ❌ **Minimal Metadata** - Lacks rich course descriptions  
 ❌ **No Module Structure** - Flat lesson structure (no grouping)  
 ❌ **Limited Course Info** - Missing duration, prerequisites, outcomes  
-❌ **No External Integration** - Not designed for partner courses  
+❌ **No External Integration** - Not designed for partner courses
 
 ### Milady Structure
 
 **Data Files** (`src/data/miladyBarberCourse.ts`, `milady-rise-course.js`):
+
 ```javascript
 {
   course: {
@@ -63,7 +65,7 @@ quiz_questions → quiz_responses
 ✅ **External Integration** - Partner enrollment URLs, promo codes  
 ✅ **Certification Info** - Detailed credential information  
 ✅ **Scholarship Data** - Built-in scholarship information  
-✅ **Self-Documenting** - All info in one place  
+✅ **Self-Documenting** - All info in one place
 
 **Weaknesses:**
 ❌ **Static Files** - Hard to update without code changes  
@@ -71,13 +73,14 @@ quiz_questions → quiz_responses
 ❌ **No User Data** - No connection to students  
 ❌ **Not Scalable** - Would need 100s of files for 100s of courses  
 ❌ **No Queries** - Can't search or filter efficiently  
-❌ **No RLS** - No security policies  
+❌ **No RLS** - No security policies
 
 ---
 
 ## Recommended Architecture: HYBRID
 
 ### Core Principle
+
 **Use database for dynamic data, enhance with rich metadata**
 
 ### Enhanced Database Schema
@@ -107,7 +110,7 @@ create table courses (
   title text not null,
   summary text,
   cover_url text,
-  
+
   -- NEW: Rich metadata
   provider text,                    -- 'Internal', 'Milady', 'NCCER', etc.
   duration_hours int,               -- Total hours
@@ -116,21 +119,21 @@ create table courses (
   prerequisites text[],             -- Array of prerequisite course IDs
   learning_outcomes text[],         -- Array of learning outcomes
   target_audience text[],           -- Who should take this
-  
+
   -- NEW: External integration
   external_url text,                -- For partner courses (Milady, etc.)
   promo_code text,                  -- Partner promo code
   partner_code text,                -- Partner identifier
-  
+
   -- NEW: Certification
   certification_name text,          -- Certificate awarded
   certification_issuer text,        -- Who issues it
   certification_valid_period text,  -- 'Lifetime', '2 years', etc.
-  
+
   -- NEW: Compliance
   dol_registered boolean default false,
   etpl_approved boolean default false,
-  
+
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
@@ -157,12 +160,12 @@ create table lessons (
   title text not null,
   video_url text,
   html text,
-  
+
   -- NEW: Rich metadata
   duration_minutes int,             -- Lesson duration
   topics text[],                    -- Array of topics covered
   resources jsonb,                  -- Additional resources
-  
+
   created_at timestamptz default now()
 );
 create index idx_lessons_module_id on lessons(module_id, idx);
@@ -173,14 +176,14 @@ create table enrollments (
   user_id uuid not null,
   course_id uuid not null references courses(id) on delete cascade,
   status text default 'active',     -- 'active', 'completed', 'dropped'
-  
+
   -- NEW: External integration
   external_enrollment_id text,      -- ID from partner system (Milady, etc.)
   external_status text,             -- Status from partner system
-  
+
   enrolled_at timestamptz default now(),
   completed_at timestamptz,
-  
+
   primary key (user_id, course_id)
 );
 
@@ -307,7 +310,8 @@ export class CourseService {
   async getCourse(courseId: string) {
     const { data: course } = await supabase
       .from('courses')
-      .select(`
+      .select(
+        `
         *,
         program:programs(*),
         modules(
@@ -315,17 +319,18 @@ export class CourseService {
           lessons(*)
         ),
         scholarships(*)
-      `)
+      `
+      )
       .eq('id', courseId)
       .single();
-    
+
     return course;
   }
-  
+
   // Enroll student (handles both internal and external)
   async enroll(userId: string, courseId: string) {
     const course = await this.getCourse(courseId);
-    
+
     if (course.external_url) {
       // External course (Milady, etc.)
       return this.enrollExternal(userId, course);
@@ -334,7 +339,7 @@ export class CourseService {
       return this.enrollInternal(userId, courseId);
     }
   }
-  
+
   // Track progress (unified for both types)
   async updateProgress(userId: string, lessonId: string, percent: number) {
     // Update lesson_progress
@@ -403,7 +408,7 @@ async function migrateMiladyCourses() {
     })
     .select()
     .single();
-  
+
   // Insert modules
   for (const module of miladyBarberCourse.modules) {
     const { data: dbModule } = await supabase
@@ -413,11 +418,11 @@ async function migrateMiladyCourses() {
         title: module.title,
         description: module.description,
         duration_hours: module.hours,
-        order: module.id.split('-')[1]
+        order: module.id.split('-')[1],
       })
       .select()
       .single();
-    
+
     // Insert lessons
     for (const lesson of module.lessons) {
       await supabase.from('lessons').insert({
@@ -425,11 +430,11 @@ async function migrateMiladyCourses() {
         course_id: course.id,
         title: lesson.title,
         duration_minutes: parseInt(lesson.duration),
-        topics: lesson.topics
+        topics: lesson.topics,
       });
     }
   }
-  
+
   // Insert RISE course (external)
   await supabase.from('courses').insert({
     code: 'MILADY-RISE',
@@ -479,18 +484,18 @@ All existing components continue to work, just enhanced with new data.
 
 ## Comparison Table
 
-| Feature | Current LMS | Milady Files | Hybrid (Recommended) |
-|---------|-------------|--------------|----------------------|
-| Database-backed | ✅ | ❌ | ✅ |
-| Rich metadata | ❌ | ✅ | ✅ |
-| Module structure | ❌ | ✅ | ✅ |
-| Progress tracking | ✅ | ❌ | ✅ |
-| External integration | ❌ | ✅ | ✅ |
-| Scalable | ✅ | ❌ | ✅ |
-| Admin interface | ✅ | ❌ | ✅ |
-| Certification tracking | ❌ | ✅ | ✅ |
-| Scholarship management | ❌ | ✅ | ✅ |
-| Query performance | ✅ | ❌ | ✅ |
+| Feature                | Current LMS | Milady Files | Hybrid (Recommended) |
+| ---------------------- | ----------- | ------------ | -------------------- |
+| Database-backed        | ✅          | ❌           | ✅                   |
+| Rich metadata          | ❌          | ✅           | ✅                   |
+| Module structure       | ❌          | ✅           | ✅                   |
+| Progress tracking      | ✅          | ❌           | ✅                   |
+| External integration   | ❌          | ✅           | ✅                   |
+| Scalable               | ✅          | ❌           | ✅                   |
+| Admin interface        | ✅          | ❌           | ✅                   |
+| Certification tracking | ❌          | ✅           | ✅                   |
+| Scholarship management | ❌          | ✅           | ✅                   |
+| Query performance      | ✅          | ❌           | ✅                   |
 
 ---
 
@@ -499,6 +504,7 @@ All existing components continue to work, just enhanced with new data.
 **DO NOT rebuild from scratch.** Your current LMS foundation is solid.
 
 **DO enhance it** with:
+
 1. Modules table (hierarchy)
 2. Rich metadata columns
 3. External integration support

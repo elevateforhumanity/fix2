@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,7 +6,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
-import { Plus, Edit, Trash2, ArrowLeft, FileQuestion, Clock } from 'lucide-react';
+import {
+  Plus,
+  Edit,
+  Trash2,
+  ArrowLeft,
+  FileQuestion,
+  Clock,
+} from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,13 +53,15 @@ export default function CourseQuizzesPage({ params }: Props) {
       // Fetch course
       const { data: courseData } = await supabase
         .from('courses')
-        .select(`
+        .select(
+          `
           id,
           title,
           programs (
             name
           )
-        `)
+        `
+        )
         .eq('id', params.id)
         .single();
 
@@ -61,7 +70,8 @@ export default function CourseQuizzesPage({ params }: Props) {
       // Fetch quizzes with question count
       const { data: quizzesData } = await supabase
         .from('quizzes')
-        .select(`
+        .select(
+          `
           id,
           title,
           description,
@@ -70,7 +80,8 @@ export default function CourseQuizzesPage({ params }: Props) {
           max_attempts,
           is_required,
           created_at
-        `)
+        `
+        )
         .eq('course_id', params.id)
         .order('created_at', { ascending: false });
 
@@ -82,7 +93,7 @@ export default function CourseQuizzesPage({ params }: Props) {
               .from('quiz_questions')
               .select('*', { count: 'exact', head: true })
               .eq('quiz_id', quiz.id);
-            
+
             return { ...quiz, questionCount: count || 0 };
           })
         );
@@ -154,7 +165,7 @@ export default function CourseQuizzesPage({ params }: Props) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading quizzes...</p>
         </div>
       </div>
@@ -169,21 +180,28 @@ export default function CourseQuizzesPage({ params }: Props) {
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href="/admin/courses" className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href="/admin/courses"
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Courses
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-5xl mx-auto">
           {/* Page Header */}
           <div className="mb-8">
-            <div className="text-sm text-gray-500 mb-2">{course?.programs?.name}</div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{course?.title}</h1>
-            <p className="text-gray-600">Manage course quizzes and assessments</p>
+            <div className="text-sm text-gray-500 mb-2">
+              {course?.programs?.name}
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {course?.title}
+            </h1>
+            <p className="text-gray-600">
+              Manage course quizzes and assessments
+            </p>
           </div>
-
           {/* Actions */}
           <div className="flex gap-3 mb-6">
             <button
@@ -200,28 +218,35 @@ export default function CourseQuizzesPage({ params }: Props) {
               Manage Content
             </Link>
           </div>
-
           {/* Quiz Form */}
           {showQuizForm && (
             <div className="elevate-card mb-6">
               <h3 className="font-bold text-gray-900 mb-4">Create New Quiz</h3>
               <form onSubmit={handleCreateQuiz} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Quiz Title *</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Quiz Title *
+                  </label>
                   <input
                     type="text"
                     value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
                     className="elevate-input w-full"
                     placeholder="e.g., Module 1 Assessment"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Description</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Description
+                  </label>
                   <textarea
                     value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
                     className="elevate-textarea w-full"
                     rows={3}
                     placeholder="Brief description of what this quiz covers"
@@ -229,11 +254,18 @@ export default function CourseQuizzesPage({ params }: Props) {
                 </div>
                 <div className="grid gap-4 md:grid-cols-3">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Passing Score (%) *</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Passing Score (%) *
+                    </label>
                     <input
                       type="number"
                       value={formData.passing_score}
-                      onChange={(e) => setFormData({ ...formData, passing_score: parseInt(e.target.value) })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          passing_score: parseInt(e.target.value),
+                        })
+                      }
                       className="elevate-input w-full"
                       min="0"
                       max="100"
@@ -241,21 +273,35 @@ export default function CourseQuizzesPage({ params }: Props) {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Time Limit (minutes)</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Time Limit (minutes)
+                    </label>
                     <input
                       type="number"
                       value={formData.time_limit_minutes}
-                      onChange={(e) => setFormData({ ...formData, time_limit_minutes: parseInt(e.target.value) })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          time_limit_minutes: parseInt(e.target.value),
+                        })
+                      }
                       className="elevate-input w-full"
                       min="0"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Max Attempts *</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Max Attempts *
+                    </label>
                     <input
                       type="number"
                       value={formData.max_attempts}
-                      onChange={(e) => setFormData({ ...formData, max_attempts: parseInt(e.target.value) })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          max_attempts: parseInt(e.target.value),
+                        })
+                      }
                       className="elevate-input w-full"
                       min="1"
                       required
@@ -267,7 +313,12 @@ export default function CourseQuizzesPage({ params }: Props) {
                     type="checkbox"
                     id="is_required"
                     checked={formData.is_required}
-                    onChange={(e) => setFormData({ ...formData, is_required: e.target.checked })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        is_required: e.target.checked,
+                      })
+                    }
                     className="rounded"
                   />
                   <label htmlFor="is_required" className="text-sm font-medium">
@@ -299,16 +350,20 @@ export default function CourseQuizzesPage({ params }: Props) {
               </form>
             </div>
           )}
-
           {/* Quizzes List */}
           <div className="space-y-4">
             {quizzes.length > 0 ? (
               quizzes.map((quiz) => (
-                <div key={quiz.id} className="elevate-card hover:shadow-lg transition-shadow">
+                <div
+                  key={quiz.id}
+                  className="elevate-card hover:shadow-lg transition-shadow"
+                >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-gray-900 text-lg">{quiz.title}</h3>
+                        <h3 className="font-bold text-gray-900 text-lg">
+                          {quiz.title}
+                        </h3>
                         {quiz.is_required && (
                           <span className="elevate-pill elevate-pill--danger text-xs">
                             Required
@@ -316,7 +371,9 @@ export default function CourseQuizzesPage({ params }: Props) {
                         )}
                       </div>
                       {quiz.description && (
-                        <p className="text-sm text-gray-600 mb-3">{quiz.description}</p>
+                        <p className="text-sm text-gray-600 mb-3">
+                          {quiz.description}
+                        </p>
                       )}
                       <div className="flex items-center gap-6 text-sm text-gray-500">
                         <div className="flex items-center gap-2">

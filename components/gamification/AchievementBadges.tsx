@@ -60,7 +60,7 @@ const badges = [
 ];
 
 export function AchievementBadges() {
-  const earnedCount = badges.filter(b => b.earned).length;
+  const earnedCount = badges.filter((b) => b.earned).length;
 
   return (
     <div className="elevate-card">
@@ -72,7 +72,6 @@ export function AchievementBadges() {
           </p>
         </div>
       </div>
-
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {badges.map((badge) => {
           const Icon = badge.icon;
@@ -81,21 +80,31 @@ export function AchievementBadges() {
               key={badge.id}
               className={`relative p-4 rounded-lg border-2 text-center transition-all ${
                 badge.earned
-                  ? 'border-transparent bg-gradient-to-br ' + badge.color + ' text-white shadow-lg hover:scale-105'
+                  ? 'border-transparent bg-gradient-to-br ' +
+                    badge.color +
+                    ' text-white shadow-lg hover:scale-105'
                   : 'border-gray-200 bg-gray-50 opacity-50'
               }`}
             >
               <div className="flex justify-center mb-2">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                  badge.earned ? 'bg-white/20' : 'bg-gray-200'
-                }`}>
-                  <Icon className={`h-6 w-6 ${badge.earned ? 'text-white' : 'text-gray-400'}`} />
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                    badge.earned ? 'bg-white/20' : 'bg-gray-200'
+                  }`}
+                >
+                  <Icon
+                    className={`h-6 w-6 ${badge.earned ? 'text-white' : 'text-gray-400'}`}
+                  />
                 </div>
               </div>
-              <h4 className={`font-bold text-sm mb-1 ${badge.earned ? 'text-white' : 'text-gray-700'}`}>
+              <h4
+                className={`font-bold text-sm mb-1 ${badge.earned ? 'text-white' : 'text-gray-700'}`}
+              >
                 {badge.name}
               </h4>
-              <p className={`text-xs ${badge.earned ? 'text-white/90' : 'text-gray-500'}`}>
+              <p
+                className={`text-xs ${badge.earned ? 'text-white/90' : 'text-gray-500'}`}
+              >
                 {badge.description}
               </p>
               {badge.earned && badge.earnedDate && (
@@ -112,11 +121,12 @@ export function AchievementBadges() {
           );
         })}
       </div>
-
       <div className="mt-6 pt-6 border-t border-gray-200">
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-600">Next Achievement</span>
-          <span className="elevate-pill elevate-pill--orange">2 lessons away</span>
+          <span className="elevate-pill elevate-pill--orange">
+            2 lessons away
+          </span>
         </div>
       </div>
     </div>

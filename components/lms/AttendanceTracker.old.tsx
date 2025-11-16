@@ -8,7 +8,10 @@ interface AttendanceTrackerProps {
   activityType?: string;
 }
 
-export default function AttendanceTracker({ courseId, activityType = 'learning' }: AttendanceTrackerProps) {
+export default function AttendanceTracker({
+  courseId,
+  activityType = 'learning',
+}: AttendanceTrackerProps) {
   const [sessionId, setSessionId] = useState<number | null>(null);
   const [isActive, setIsActive] = useState(true);
   const loginTimeRef = useRef<Date>(new Date());
@@ -23,7 +26,9 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
   // Start attendance session
   const startSession = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const { data, error } = await supabase
@@ -54,7 +59,9 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
 
     try {
       const now = new Date();
-      const durationMinutes = Math.round((now.getTime() - loginTimeRef.current.getTime()) / 60000);
+      const durationMinutes = Math.round(
+        (now.getTime() - loginTimeRef.current.getTime()) / 60000
+      );
 
       await supabase
         .from('attendance_log')
@@ -74,7 +81,9 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
 
     try {
       const now = new Date();
-      const durationMinutes = Math.round((now.getTime() - loginTimeRef.current.getTime()) / 60000);
+      const durationMinutes = Math.round(
+        (now.getTime() - loginTimeRef.current.getTime()) / 60000
+      );
 
       await supabase
         .from('attendance_log')
@@ -85,7 +94,9 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
         .eq('id', sessionId);
 
       // Update weekly contact hours
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (user) {
         await updateWeeklyHours(user.id, durationMinutes);
       }
@@ -116,20 +127,19 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
         await supabase
           .from('contact_hours')
           .update({
-            total_hours: existing.total_hours + Math.round(minutesToAdd / 60 * 10) / 10,
+            total_hours:
+              existing.total_hours + Math.round((minutesToAdd / 60) * 10) / 10,
             sessions_count: existing.sessions_count + 1,
           })
           .eq('id', existing.id);
       } else {
         // Create new record
-        await supabase
-          .from('contact_hours')
-          .insert({
-            student_id: userId,
-            week_start: weekStart.toISOString().split('T')[0],
-            total_hours: Math.round(minutesToAdd / 60 * 10) / 10,
-            sessions_count: 1,
-          });
+        await supabase.from('contact_hours').insert({
+          student_id: userId,
+          week_start: weekStart.toISOString().split('T')[0],
+          total_hours: Math.round((minutesToAdd / 60) * 10) / 10,
+          sessions_count: 1,
+        });
       }
     } catch (error) {
       console.error('Failed to update weekly hours:', error);
@@ -147,8 +157,9 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
   // Check for inactivity (5 minutes)
   const checkInactivity = () => {
     const now = new Date();
-    const inactiveMinutes = (now.getTime() - lastActivityRef.current.getTime()) / 60000;
-    
+    const inactiveMinutes =
+      (now.getTime() - lastActivityRef.current.getTime()) / 60000;
+
     if (inactiveMinutes > 5 && isActive) {
       setIsActive(false);
       updateSession();
@@ -161,7 +172,7 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
 
     // Set up activity listeners
     const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
-    events.forEach(event => {
+    events.forEach((event) => {
       window.addEventListener(event, handleActivity);
     });
 
@@ -175,14 +186,14 @@ export default function AttendanceTracker({ courseId, activityType = 'learning' 
 
     // End session on unmount
     return () => {
-      events.forEach(event => {
+      events.forEach((event) => {
         window.removeEventListener(event, handleActivity);
       });
-      
+
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
-      
+
       endSession();
     };
   }, []);

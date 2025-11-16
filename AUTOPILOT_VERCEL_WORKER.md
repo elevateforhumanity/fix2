@@ -17,7 +17,9 @@ No more "configure this in the dashboard" - the autopilot just runs and fixes it
 ## 📁 Files Created
 
 ### 1. `scripts/autopilot-config-vercel.sh`
+
 The main worker script that:
+
 - Validates required secrets are present
 - Installs Vercel CLI if needed
 - Links to your Vercel project
@@ -25,7 +27,9 @@ The main worker script that:
 - Handles optional integrations (Stripe, AWS, VAPID, etc.)
 
 ### 2. `.github/workflows/autopilot-config-vercel.yml`
+
 GitHub Actions workflow that:
+
 - Can be triggered manually or via API
 - Runs the autopilot script with all secrets
 - Optionally triggers a Vercel deployment
@@ -39,31 +43,31 @@ Add these to your GitHub repository: **Settings** → **Secrets and variables** 
 
 ### Critical (Required)
 
-| Secret Name | Description | How to Get |
-|-------------|-------------|------------|
-| `VERCEL_TOKEN` | Vercel API token | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token |
-| `VERCEL_ORG_ID` | Your Vercel organization ID | Run `vercel link` locally, check `.vercel/project.json` |
-| `VERCEL_PROJECT_ID` | Your Vercel project ID | Run `vercel link` locally, check `.vercel/project.json` |
-| `SUPABASE_ANON_KEY` | Supabase anonymous key | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |
+| Secret Name                 | Description                 | How to Get                                                                    |
+| --------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| `VERCEL_TOKEN`              | Vercel API token            | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token          |
+| `VERCEL_ORG_ID`             | Your Vercel organization ID | Run `vercel link` locally, check `.vercel/project.json`                       |
+| `VERCEL_PROJECT_ID`         | Your Vercel project ID      | Run `vercel link` locally, check `.vercel/project.json`                       |
+| `SUPABASE_ANON_KEY`         | Supabase anonymous key      | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key   | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |
 
 ### Optional (For Full Functionality)
 
-| Secret Name | Description |
-|-------------|-------------|
-| `RESEND_API_KEY` | Email sending via Resend |
-| `STRIPE_SECRET_KEY` | Stripe payments (secret key) |
-| `STRIPE_PUBLISHABLE_KEY` | Stripe payments (public key) |
-| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signature |
-| `VAPID_PUBLIC_KEY` | Push notifications (public) |
-| `VAPID_PRIVATE_KEY` | Push notifications (private) |
-| `VAPID_SUBJECT` | Push notifications subject (email or URL) |
-| `AWS_ACCESS_KEY_ID` | AWS S3 uploads |
-| `AWS_SECRET_ACCESS_KEY` | AWS S3 uploads |
-| `AWS_REGION` | AWS region (e.g., us-east-1) |
-| `AWS_S3_BUCKET` | S3 bucket name |
-| `OPENAI_API_KEY` | OpenAI API for AI features |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Google Cloud TTS |
+| Secret Name                      | Description                               |
+| -------------------------------- | ----------------------------------------- |
+| `RESEND_API_KEY`                 | Email sending via Resend                  |
+| `STRIPE_SECRET_KEY`              | Stripe payments (secret key)              |
+| `STRIPE_PUBLISHABLE_KEY`         | Stripe payments (public key)              |
+| `STRIPE_WEBHOOK_SECRET`          | Stripe webhook signature                  |
+| `VAPID_PUBLIC_KEY`               | Push notifications (public)               |
+| `VAPID_PRIVATE_KEY`              | Push notifications (private)              |
+| `VAPID_SUBJECT`                  | Push notifications subject (email or URL) |
+| `AWS_ACCESS_KEY_ID`              | AWS S3 uploads                            |
+| `AWS_SECRET_ACCESS_KEY`          | AWS S3 uploads                            |
+| `AWS_REGION`                     | AWS region (e.g., us-east-1)              |
+| `AWS_S3_BUCKET`                  | S3 bucket name                            |
+| `OPENAI_API_KEY`                 | OpenAI API for AI features                |
+| `GOOGLE_APPLICATION_CREDENTIALS` | Google Cloud TTS                          |
 
 ---
 
@@ -126,6 +130,7 @@ cat .vercel/project.json
 ```
 
 You'll see:
+
 ```json
 {
   "orgId": "team_xxxxxxxxxxxxx",
@@ -136,6 +141,7 @@ You'll see:
 ### Method 2: From Vercel Dashboard URL
 
 When viewing your project in Vercel, the URL looks like:
+
 ```
 https://vercel.com/your-team/your-project/settings
 ```
@@ -162,6 +168,7 @@ curl -H "Authorization: Bearer $VERCEL_TOKEN" \
 The worker sets these for **all three environments** (production, preview, development):
 
 #### Core Application
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
@@ -171,25 +178,30 @@ The worker sets these for **all three environments** (production, preview, devel
 - `NODE_ENV`
 
 #### Payments (if secrets provided)
+
 - `STRIPE_SECRET_KEY`
 - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
 - `STRIPE_WEBHOOK_SECRET`
 
 #### Email (if secrets provided)
+
 - `RESEND_API_KEY`
 
 #### Push Notifications (if secrets provided)
+
 - `NEXT_PUBLIC_VAPID_PUBLIC_KEY`
 - `VAPID_PRIVATE_KEY`
 - `VAPID_SUBJECT`
 
 #### AWS/S3 (if secrets provided)
+
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 - `AWS_REGION`
 - `AWS_S3_BUCKET`
 
 #### AI Features (if secrets provided)
+
 - `OPENAI_API_KEY`
 - `GOOGLE_APPLICATION_CREDENTIALS`
 
@@ -238,10 +250,10 @@ if (vercelEnvMissing || vercelDeployFailing) {
     workflow: 'autopilot-config-vercel.yml',
     inputs: {
       trigger_deploy: true,
-      set_node_version: '20'
-    }
+      set_node_version: '20',
+    },
   });
-  
+
   console.log('✅ Vercel worker dispatched');
 }
 ```
@@ -260,6 +272,7 @@ if (vercelEnvMissing || vercelDeployFailing) {
 ### ⚠️ Token Permissions
 
 Your `VERCEL_TOKEN` needs these permissions:
+
 - Read/Write access to projects
 - Read/Write access to environment variables
 - (Optional) Deploy permissions if using `trigger_deploy`
@@ -267,6 +280,7 @@ Your `VERCEL_TOKEN` needs these permissions:
 ### 🔒 Secret Storage
 
 Secrets are stored in:
+
 - **GitHub Secrets** (encrypted at rest)
 - **Vercel Environment Variables** (encrypted at rest)
 - **Never in code** or logs
@@ -330,7 +344,8 @@ vercel env ls --token $VERCEL_TOKEN
 
 ### Workflow doesn't trigger
 
-**Solution:** 
+**Solution:**
+
 1. Check GitHub Actions are enabled for the repository
 2. Verify the workflow file is in `.github/workflows/`
 3. Check branch name matches (default is `main`)
@@ -342,6 +357,7 @@ vercel env ls --token $VERCEL_TOKEN
 ### GitHub Actions Logs
 
 View detailed logs:
+
 1. Go to **Actions** tab
 2. Click on the workflow run
 3. Expand each step to see output
@@ -349,6 +365,7 @@ View detailed logs:
 ### Vercel Deployment Logs
 
 If `trigger_deploy` is enabled:
+
 1. Go to Vercel dashboard
 2. Click on your project
 3. View **Deployments** tab
@@ -359,6 +376,7 @@ If `trigger_deploy` is enabled:
 ## 🔄 Syncing with Netlify
 
 Want to keep Vercel and Netlify in sync? See the companion workflow:
+
 - `AUTOPILOT_NETLIFY_VERCEL_SYNC.md` (created separately)
 
 ---
@@ -374,11 +392,13 @@ Want to keep Vercel and Netlify in sync? See the companion workflow:
 ## 🎯 Quick Reference
 
 ### Run Worker from GitHub UI
+
 ```
 Actions → Autopilot - Configure Vercel Environment → Run workflow
 ```
 
 ### Run Worker via API
+
 ```bash
 curl -X POST \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
@@ -387,11 +407,13 @@ curl -X POST \
 ```
 
 ### Check Configuration
+
 ```bash
 vercel env ls --token $VERCEL_TOKEN
 ```
 
 ### Trigger Deploy
+
 ```bash
 vercel --prod --token $VERCEL_TOKEN
 ```

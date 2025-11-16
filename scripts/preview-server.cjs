@@ -34,22 +34,35 @@ const MIME_TYPES = {
 
 function getCacheControl(filePath) {
   const ext = path.extname(filePath);
-  
+
   // HTML files - no cache
   if (ext === '.html') {
     return 'public, max-age=0, must-revalidate';
   }
-  
+
   // Images and static assets - long cache
-  if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico', '.woff', '.woff2', '.ttf'].includes(ext)) {
+  if (
+    [
+      '.jpg',
+      '.jpeg',
+      '.png',
+      '.gif',
+      '.webp',
+      '.svg',
+      '.ico',
+      '.woff',
+      '.woff2',
+      '.ttf',
+    ].includes(ext)
+  ) {
     return 'public, max-age=31536000, immutable';
   }
-  
+
   // JS and CSS - long cache (they have hashes in filenames)
   if (['.js', '.css'].includes(ext)) {
     return 'public, max-age=31536000, immutable';
   }
-  
+
   // Default
   return 'public, max-age=3600';
 }
@@ -57,20 +70,20 @@ function getCacheControl(filePath) {
 const server = http.createServer((req, res) => {
   // Parse URL and remove query string
   let filePath = req.url.split('?')[0];
-  
+
   // Remove trailing slash
   if (filePath.endsWith('/') && filePath !== '/') {
     filePath = filePath.slice(0, -1);
   }
-  
+
   // Default to index.html for root
   if (filePath === '/' || filePath === '') {
     filePath = '/index.html';
   }
-  
+
   // Build full path
   let fullPath = path.join(DIST_DIR, filePath);
-  
+
   // Check if file exists
   fs.stat(fullPath, (err, stats) => {
     if (err || !stats.isFile()) {
@@ -100,18 +113,18 @@ function serveFile(filePath, res) {
       console.error('Error reading file:', filePath, err);
       return;
     }
-    
+
     const ext = path.extname(filePath);
     const mimeType = MIME_TYPES[ext] || 'application/octet-stream';
     const cacheControl = getCacheControl(filePath);
-    
+
     res.writeHead(200, {
       'Content-Type': mimeType,
       'Cache-Control': cacheControl,
       'Access-Control-Allow-Origin': '*',
     });
     res.end(data);
-    
+
     // Log request
     const relativePath = path.relative(DIST_DIR, filePath);
     console.log(`[${new Date().toISOString()}] 200 ${relativePath}`);
@@ -129,7 +142,9 @@ server.listen(PORT, '0.0.0.0', () => {
 server.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
     console.error(`\n❌ Port ${PORT} is already in use.`);
-    console.error(`   Try a different port: PORT=8081 node scripts/preview-server.js\n`);
+    console.error(
+      `   Try a different port: PORT=8081 node scripts/preview-server.js\n`
+    );
   } else {
     console.error('\n❌ Server error:', err.message, '\n');
   }

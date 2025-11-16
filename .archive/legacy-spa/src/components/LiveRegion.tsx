@@ -47,7 +47,9 @@ export default function LiveRegion({
  */
 export function useLiveRegion() {
   const [message, setMessage] = useState('');
-  const [politeness, setPoliteness] = useState<'polite' | 'assertive'>('polite');
+  const [politeness, setPoliteness] = useState<'polite' | 'assertive'>(
+    'polite'
+  );
 
   const announce = (text: string, level: 'polite' | 'assertive' = 'polite') => {
     setPoliteness(level);

@@ -122,13 +122,13 @@ tar -xzf deployment-support-bundle.tar.gz
 
 **Gitpod can't run the autopilots because:**
 
-- ❌ Network restrictions block 
+- ❌ Network restrictions block
 - ❌ No display server for browser automation
 - ❌ Timeouts on external requests
 
 **Your local machine can:**
 
-- ✅ Full network access to 
+- ✅ Full network access to
 - ✅ Browser automation works perfectly
 - ✅ Can see browser window (debugging)
 - ✅ Faster execution

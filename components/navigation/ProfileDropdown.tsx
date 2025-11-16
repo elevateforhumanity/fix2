@@ -2,7 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { User, Settings, Award, BookOpen, LogOut, HelpCircle } from 'lucide-react';
+import {
+  User,
+  Settings,
+  Award,
+  BookOpen,
+  LogOut,
+  HelpCircle,
+} from 'lucide-react';
 
 interface ProfileDropdownProps {
   userName?: string;
@@ -10,13 +17,20 @@ interface ProfileDropdownProps {
   userInitial?: string;
 }
 
-export function ProfileDropdown({ userName = 'John Doe', userEmail = 'john@example.com', userInitial = 'J' }: ProfileDropdownProps) {
+export function ProfileDropdown({
+  userName = 'John Doe',
+  userEmail = 'john@example.com',
+  userInitial = 'J',
+}: ProfileDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
@@ -32,7 +46,6 @@ export function ProfileDropdown({ userName = 'John Doe', userEmail = 'john@examp
       >
         {userInitial}
       </button>
-
       {isOpen && (
         <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
           {/* User Info */}
@@ -40,7 +53,6 @@ export function ProfileDropdown({ userName = 'John Doe', userEmail = 'john@examp
             <div className="font-semibold text-gray-900">{userName}</div>
             <div className="text-sm text-gray-500">{userEmail}</div>
           </div>
-
           {/* Menu Items */}
           <div className="py-2">
             <Link
@@ -76,7 +88,6 @@ export function ProfileDropdown({ userName = 'John Doe', userEmail = 'john@examp
               Settings
             </Link>
           </div>
-
           <div className="border-t border-gray-100 py-2">
             <Link
               href="/faq"

@@ -5,18 +5,21 @@ The Google Classroom Autopilot includes a comprehensive alert system that notifi
 ## Alert Types
 
 ### 1. Sync Failure Alerts
+
 Triggered when a nightly sync run fails.
 
 **Severity**: Error  
 **Channels**: Email, Slack, Discord
 
 ### 2. Task Failure Alerts
+
 Triggered when a task fails after maximum retry attempts.
 
 **Severity**: Warning  
 **Channels**: Email, Slack, Discord
 
 ### 3. Critical System Errors
+
 Triggered for critical system failures.
 
 **Severity**: Critical  
@@ -27,6 +30,7 @@ Triggered for critical system failures.
 ### Email (SMTP)
 
 **Setup**:
+
 1. Get SMTP credentials from your email provider
 2. For Gmail: Use [App Passwords](https://support.google.com/accounts/answer/185833)
 3. Set environment variables:
@@ -41,6 +45,7 @@ SMTP_PASS=your-app-password
 ```
 
 **Providers**:
+
 - Gmail: `smtp.gmail.com:587`
 - Outlook: `smtp-mail.outlook.com:587`
 - SendGrid: `smtp.sendgrid.net:587`
@@ -49,6 +54,7 @@ SMTP_PASS=your-app-password
 ### Slack
 
 **Setup**:
+
 1. Go to [Slack API](https://api.slack.com/apps)
 2. Create new app → "From scratch"
 3. Enable "Incoming Webhooks"
@@ -62,6 +68,7 @@ SLACK_CHANNEL=#classroom-alerts
 ```
 
 **Test**:
+
 ```bash
 curl -X POST $SLACK_WEBHOOK_URL \
   -H 'Content-Type: application/json' \
@@ -71,6 +78,7 @@ curl -X POST $SLACK_WEBHOOK_URL \
 ### Discord
 
 **Setup**:
+
 1. Open Discord server settings
 2. Go to Integrations → Webhooks
 3. Click "New Webhook"
@@ -84,6 +92,7 @@ DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR/WEBHOOK/URL
 ```
 
 **Test**:
+
 ```bash
 curl -X POST $DISCORD_WEBHOOK_URL \
   -H 'Content-Type: application/json' \
@@ -93,6 +102,7 @@ curl -X POST $DISCORD_WEBHOOK_URL \
 ### SMS (Twilio) - Critical Alerts Only
 
 **Setup**:
+
 1. Sign up for [Twilio](https://www.twilio.com)
 2. Get a phone number
 3. Copy Account SID and Auth Token
@@ -121,7 +131,11 @@ This sends a test alert through all configured channels.
 ### Test Specific Alert Types
 
 ```typescript
-import { alertSyncFailure, alertTaskFailure, alertCriticalError } from './src/alerts';
+import {
+  alertSyncFailure,
+  alertTaskFailure,
+  alertCriticalError,
+} from './src/alerts';
 
 // Test sync failure alert
 await alertSyncFailure({
@@ -151,12 +165,12 @@ await alertCriticalError({
 
 ### Severity Levels
 
-| Severity | Description | Channels | Example |
-|----------|-------------|----------|---------|
-| **info** | Informational | Email, Slack, Discord | Sync completed successfully |
-| **warning** | Non-critical issue | Email, Slack, Discord | Task failed (will retry) |
-| **error** | Significant problem | Email, Slack, Discord | Sync run failed |
-| **critical** | System failure | Email, Slack, Discord, SMS | Database connection lost |
+| Severity     | Description         | Channels                   | Example                     |
+| ------------ | ------------------- | -------------------------- | --------------------------- |
+| **info**     | Informational       | Email, Slack, Discord      | Sync completed successfully |
+| **warning**  | Non-critical issue  | Email, Slack, Discord      | Task failed (will retry)    |
+| **error**    | Significant problem | Email, Slack, Discord      | Sync run failed             |
+| **critical** | System failure      | Email, Slack, Discord, SMS | Database connection lost    |
 
 ### Customizing Alert Behavior
 
@@ -204,18 +218,18 @@ All alerts are logged to Supabase `alert_logs` table:
 
 ```sql
 -- View recent alerts
-SELECT * FROM alert_logs 
-ORDER BY created_at DESC 
+SELECT * FROM alert_logs
+ORDER BY created_at DESC
 LIMIT 50;
 
 -- Count alerts by severity
-SELECT severity, COUNT(*) 
-FROM alert_logs 
+SELECT severity, COUNT(*)
+FROM alert_logs
 WHERE created_at > NOW() - INTERVAL '7 days'
 GROUP BY severity;
 
 -- Find failed channels
-SELECT 
+SELECT
   severity,
   title,
   channels_sent->>'email' as email_sent,
@@ -228,28 +242,33 @@ WHERE created_at > NOW() - INTERVAL '1 day';
 ## Best Practices
 
 ### 1. Start with Email + Slack
+
 - Email for permanent record
 - Slack for real-time notifications
 
 ### 2. Use Separate Channels for Different Severities
+
 ```bash
 # Info/Warning → #classroom-logs
 # Error/Critical → #classroom-alerts
 ```
 
 ### 3. Set Up Alert Routing
+
 ```typescript
 const config = {
   slack: {
     enabled: true,
-    webhookUrl: alert.severity === 'critical' 
-      ? process.env.SLACK_CRITICAL_WEBHOOK 
-      : process.env.SLACK_GENERAL_WEBHOOK,
+    webhookUrl:
+      alert.severity === 'critical'
+        ? process.env.SLACK_CRITICAL_WEBHOOK
+        : process.env.SLACK_GENERAL_WEBHOOK,
   },
 };
 ```
 
 ### 4. Implement Alert Throttling
+
 Prevent alert spam:
 
 ```typescript
@@ -262,9 +281,10 @@ if (lastAlert && Date.now() - lastAlert.created_at < 5 * 60 * 1000) {
 ```
 
 ### 5. Monitor Alert System Health
+
 ```sql
 -- Check if alerts are being sent
-SELECT 
+SELECT
   DATE(created_at) as date,
   COUNT(*) as total_alerts,
   SUM(CASE WHEN channels_sent->>'slack' = 'true' THEN 1 ELSE 0 END) as slack_sent,
@@ -280,12 +300,14 @@ ORDER BY date DESC;
 ### Alerts Not Sending
 
 **Check**:
+
 1. Environment variables are set correctly
 2. Webhook URLs are valid
 3. Network connectivity
 4. Rate limits (Slack: 1 message/second)
 
 **Debug**:
+
 ```bash
 # Enable debug logging
 DEBUG=alerts npx tsx src/alerts.ts test
@@ -294,12 +316,14 @@ DEBUG=alerts npx tsx src/alerts.ts test
 ### Email Alerts Failing
 
 **Common Issues**:
+
 - Wrong SMTP credentials
 - App password not enabled (Gmail)
 - Firewall blocking port 587
 - Rate limits exceeded
 
 **Test SMTP**:
+
 ```bash
 # Test SMTP connection
 npx tsx -e "
@@ -320,6 +344,7 @@ console.log('SMTP connection successful');
 ### Slack Alerts Not Appearing
 
 **Check**:
+
 - Webhook URL is correct
 - Channel exists and bot has access
 - Message format is valid
@@ -328,6 +353,7 @@ console.log('SMTP connection successful');
 ### Discord Alerts Not Appearing
 
 **Check**:
+
 - Webhook URL is correct
 - Webhook not deleted
 - Server permissions

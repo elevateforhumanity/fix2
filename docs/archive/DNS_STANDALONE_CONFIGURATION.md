@@ -1,4 +1,5 @@
 # DNS STANDALONE CONFIGURATION
+
 **Purpose:** Configure EFH to run completely standalone without Durable.co
 **Status:** Ready to implement
 
@@ -7,11 +8,13 @@
 ## 🎯 CURRENT STATE
 
 ### Primary Domain:
+
 - **Production:** `elevateforhumanity.org`
 - **Netlify:** `elevateproduction.netlify.app`
 - **Supabase:** `cuxzzpsyufcewtmicszk.supabase.co`
 
 ### Current DNS Setup:
+
 ```
 elevateforhumanity.org → Needs DNS configuration
 ├── www.elevateforhumanity.org → Should redirect to apex
@@ -26,6 +29,7 @@ elevateforhumanity.org → Needs DNS configuration
 ### 1. Apex Domain (elevateforhumanity.org)
 
 #### Option A: Point to Netlify (RECOMMENDED)
+
 ```
 Type: A
 Name: @
@@ -37,6 +41,7 @@ Value: 2600:1f18:2148:bc00:e87f:535d:9c1:b5c (Netlify IPv6)
 ```
 
 #### Option B: Use CNAME (if registrar supports ANAME/ALIAS)
+
 ```
 Type: ANAME/ALIAS
 Name: @
@@ -44,6 +49,7 @@ Value: elevateproduction.netlify.app
 ```
 
 ### 2. WWW Subdomain
+
 ```
 Type: CNAME
 Name: www
@@ -51,6 +57,7 @@ Value: elevateproduction.netlify.app
 ```
 
 ### 3. API Subdomain (Optional - for Supabase)
+
 ```
 Type: CNAME
 Name: api
@@ -58,6 +65,7 @@ Value: cuxzzpsyufcewtmicszk.supabase.co
 ```
 
 ### 4. Admin Subdomain (Optional)
+
 ```
 Type: CNAME
 Name: admin
@@ -120,6 +128,7 @@ Value: elevateproduction.netlify.app
 ### Step 3: Enable HTTPS
 
 Netlify automatically provisions SSL certificates via Let's Encrypt.
+
 - ✅ Automatic SSL
 - ✅ Auto-renewal
 - ✅ Force HTTPS
@@ -129,6 +138,7 @@ Netlify automatically provisions SSL certificates via Let's Encrypt.
 ## 🔧 ENVIRONMENT VARIABLES
 
 ### Update .env.example:
+
 ```bash
 # Production URLs
 PUBLIC_SITE_URL=https://elevateforhumanity.org
@@ -148,6 +158,7 @@ NODE_ENV=production
 ```
 
 ### Set in Netlify Dashboard:
+
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environment
 2. Add each variable
 3. Redeploy
@@ -189,15 +200,17 @@ const sitemapConfig = {
    - Click "Add Site"
 
 2. **Update Nameservers at Registrar:**
+
    ```
    Cloudflare will provide nameservers like:
    - ns1.cloudflare.com
    - ns2.cloudflare.com
-   
+
    Update these at your domain registrar (GoDaddy, Namecheap, etc.)
    ```
 
 3. **Add DNS Records in Cloudflare:**
+
    ```
    A     @     75.2.60.5 (Netlify)
    AAAA  @     2600:1f18:2148:bc00:e87f:535d:9c1:b5c (Netlify)
@@ -217,6 +230,7 @@ const sitemapConfig = {
 
 1. **Login to DNS Management**
 2. **Add A Records:**
+
    ```
    Type: A
    Host: @
@@ -239,6 +253,7 @@ const sitemapConfig = {
 ### After DNS Configuration:
 
 1. **Wait for DNS Propagation (24-48 hours)**
+
    ```bash
    # Check DNS propagation
    dig elevateforhumanity.org
@@ -251,6 +266,7 @@ const sitemapConfig = {
    - Verify SSL certificate is active
 
 3. **Test URLs:**
+
    ```bash
    # Should all resolve to your site
    curl -I https://elevateforhumanity.org
@@ -280,6 +296,7 @@ const sitemapConfig = {
 ## 🚀 DEPLOYMENT WORKFLOW
 
 ### Current Workflow:
+
 ```
 1. Push to GitHub
 2. Netlify auto-deploys
@@ -287,6 +304,7 @@ const sitemapConfig = {
 ```
 
 ### After DNS Setup:
+
 ```
 1. Push to GitHub
 2. Netlify auto-deploys
@@ -299,6 +317,7 @@ const sitemapConfig = {
 ## 🔒 SECURITY CONSIDERATIONS
 
 ### 1. HTTPS Enforcement
+
 ```toml
 # netlify.toml
 [[redirects]]
@@ -309,6 +328,7 @@ const sitemapConfig = {
 ```
 
 ### 2. HSTS Header
+
 ```toml
 [[headers]]
   for = "/*"
@@ -317,6 +337,7 @@ const sitemapConfig = {
 ```
 
 ### 3. Content Security Policy
+
 ```toml
 [[headers]]
   for = "/*"
@@ -359,6 +380,7 @@ const sitemapConfig = {
 ## 🎯 FINAL CONFIGURATION
 
 ### Minimal Setup (Start Here):
+
 ```
 DNS Records:
 - A     @     75.2.60.5
@@ -374,6 +396,7 @@ Environment Variables:
 ```
 
 ### Full Setup (Recommended):
+
 ```
 DNS Records:
 - A     @     75.2.60.5
@@ -412,21 +435,25 @@ Netlify:
 ## 🆘 TROUBLESHOOTING
 
 ### Domain not resolving?
+
 - Check DNS propagation: https://dnschecker.org
 - Verify nameservers at registrar
 - Wait 24-48 hours for full propagation
 
 ### SSL certificate error?
+
 - Verify domain is added in Netlify
 - Check DNS records point to Netlify
 - Wait for Netlify to provision certificate (can take 24 hours)
 
 ### Redirects not working?
+
 - Check netlify.toml configuration
 - Verify redirects in Netlify dashboard
 - Clear browser cache
 
 ### Site not loading?
+
 - Check Netlify deployment status
 - Verify build succeeded
 - Check browser console for errors
@@ -440,4 +467,4 @@ Netlify:
 
 ---
 
-*This configuration makes EFH completely standalone and independent of Durable.co*
+_This configuration makes EFH completely standalone and independent of Durable.co_

@@ -5,7 +5,7 @@ import {
   createEligibility,
   updateEligibility,
   approveEligibility,
-  getPendingEligibility
+  getPendingEligibility,
 } from '../controllers/eligibility.controller';
 
 const router = Router();
@@ -20,9 +20,19 @@ router.post('/', authenticate, createEligibility);
 router.put('/:id', authenticate, updateEligibility);
 
 // Approve/deny eligibility (admin/case manager only)
-router.post('/:id/approve', authenticate, authorize('admin', 'case_manager'), approveEligibility);
+router.post(
+  '/:id/approve',
+  authenticate,
+  authorize('admin', 'case_manager'),
+  approveEligibility
+);
 
 // Get all pending eligibility records (admin/case manager only)
-router.get('/pending/all', authenticate, authorize('admin', 'case_manager'), getPendingEligibility);
+router.get(
+  '/pending/all',
+  authenticate,
+  authorize('admin', 'case_manager'),
+  getPendingEligibility
+);
 
 export default router;

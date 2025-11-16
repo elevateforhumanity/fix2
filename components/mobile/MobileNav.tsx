@@ -34,7 +34,6 @@ export default function MobileNav() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
         {/* Mobile Menu Overlay */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
@@ -61,7 +60,6 @@ export default function MobileNav() {
           </div>
         )}
       </header>
-
       {/* Bottom Navigation Bar */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-area-inset-bottom">
         <div className="flex items-center justify-around px-2 py-2">
@@ -73,13 +71,13 @@ export default function MobileNav() {
                 key={item.href}
                 href={item.href}
                 className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg min-w-[64px] ${
-                  active
-                    ? 'text-blue-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                  active ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 <Icon size={24} strokeWidth={active ? 2.5 : 2} />
-                <span className={`text-xs ${active ? 'font-semibold' : 'font-medium'}`}>
+                <span
+                  className={`text-xs ${active ? 'font-semibold' : 'font-medium'}`}
+                >
                   {item.label}
                 </span>
               </Link>
@@ -87,7 +85,6 @@ export default function MobileNav() {
           })}
         </div>
       </nav>
-
       {/* Spacer for fixed bottom nav */}
       <div className="lg:hidden h-20" />
     </>

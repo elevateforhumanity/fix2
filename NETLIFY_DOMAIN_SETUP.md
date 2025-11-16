@@ -3,6 +3,7 @@
 ## Current Situation
 
 Based on your DNS records, you have:
+
 - **elevateforhumanity.org** - Primary domain (A record: 172.66.0.42)
 - **www.elevateforhumanity.org** - CNAME to Durablesites.co (showing fallback site)
 - **elevateconnectsdirectory.org** - Secondary domain (A record: 75.2.60.5)
@@ -33,18 +34,21 @@ This makes both `elevateforhumanity.org` and `www.elevateforhumanity.org` point 
 In your DNS provider (looks like Durable Technologies):
 
 **Remove these records**:
+
 ```
 A     @    172.66.0.42
 CNAME www  Durablesites.co
 ```
 
 **Add these records** (Netlify will provide exact values):
+
 ```
 A     @    75.2.60.5
 CNAME www  [your-site].netlify.app
 ```
 
 Or use Netlify DNS (recommended):
+
 ```
 NETLIFY  @    [your-site].netlify.app
 NETLIFY  www  [your-site].netlify.app
@@ -81,12 +85,14 @@ If you want to keep the current DNS setup:
 ### Primary Domain: elevateforhumanity.org
 
 **Netlify Settings**:
+
 - Primary domain: `elevateforhumanity.org`
 - Domain aliases: `www.elevateforhumanity.org`
 - HTTPS: Enabled
 - Force HTTPS: Enabled
 
 **DNS Records** (in your DNS provider):
+
 ```
 Type   Name   Content                          TTL
 A      @      75.2.60.5                        Auto
@@ -94,6 +100,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 ```
 
 Or if using Netlify DNS:
+
 ```
 Type      Name   Content
 NETLIFY   @      elevateproduction.netlify.app
@@ -103,10 +110,12 @@ NETLIFY   www    elevateproduction.netlify.app
 ### Secondary Domain: elevateconnectsdirectory.org
 
 **Netlify Settings**:
+
 - Add as domain alias
 - Redirect to primary domain
 
 **DNS Records**:
+
 ```
 Type   Name   Content                          TTL
 A      @      75.2.60.5                        Auto
@@ -114,6 +123,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 ```
 
 **Redirect Configuration** (add to netlify.toml):
+
 ```toml
 [[redirects]]
   from = "https://www.elevateconnectsdirectory.org/*"
@@ -143,6 +153,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 Contact your DNS provider (Durable Technologies) or access DNS settings:
 
 **For elevateforhumanity.org**:
+
 ```
 Change:
   A     @    172.66.0.42
@@ -154,6 +165,7 @@ To:
 ```
 
 **Keep these records** (for email and verification):
+
 ```
 MX    @    SMTP.GOOGLE.COM (Priority: 1)
 TXT   @    google-site-verification=9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so
@@ -205,7 +217,7 @@ Add redirects to force non-www and redirect secondary domain:
   force = true
 ```
 
-### 4. Remove Old _redirects File
+### 4. Remove Old \_redirects File
 
 The current `_redirects` file is for a SPA, not Next.js:
 
@@ -224,6 +236,7 @@ git push
 ```
 
 Wait for deployment, then test:
+
 - https://elevateforhumanity.org ✅
 - https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
 - https://www.elevateconnectsdirectory.org → redirects to https://elevateforhumanity.org ✅
@@ -237,6 +250,7 @@ Wait for deployment, then test:
 **Cause**: CNAME points to Durablesites.co instead of Netlify
 
 **Fix**: Update DNS CNAME record:
+
 ```
 CNAME www elevateproduction.netlify.app
 ```
@@ -246,6 +260,7 @@ CNAME www elevateproduction.netlify.app
 **Cause**: DNS not propagated or certificate not provisioned
 
 **Fix**:
+
 1. Wait 10-30 minutes for DNS propagation
 2. In Netlify, click "Verify DNS configuration"
 3. Click "Provision certificate"
@@ -255,6 +270,7 @@ CNAME www elevateproduction.netlify.app
 **Cause**: Domain not added to Netlify
 
 **Fix**:
+
 1. Go to Netlify Domain settings
 2. Add custom domain
 3. Verify DNS records
@@ -264,6 +280,7 @@ CNAME www elevateproduction.netlify.app
 **Cause**: Conflicting redirect rules
 
 **Fix**:
+
 1. Check netlify.toml redirects
 2. Remove duplicate rules
 3. Ensure `force = true` on redirects
@@ -275,6 +292,7 @@ CNAME www elevateproduction.netlify.app
 After setup, your DNS should look like this:
 
 ### elevateforhumanity.org
+
 ```
 Type   Name   Content                                      Priority
 A      @      75.2.60.5                                    -
@@ -285,6 +303,7 @@ TXT    @      google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsieg
 ```
 
 ### elevateconnectsdirectory.org
+
 ```
 Type   Name   Content                          Priority
 A      @      75.2.60.5                        -
@@ -312,11 +331,13 @@ After DNS changes propagate (10-30 minutes):
 **Immediate action to fix www subdomain**:
 
 1. Change this DNS record:
+
    ```
    CNAME www Durablesites.co
    ```
-   
+
    To:
+
    ```
    CNAME www elevateproduction.netlify.app
    ```

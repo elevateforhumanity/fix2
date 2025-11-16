@@ -53,7 +53,7 @@ export async function createCourse(course: Partial<Course>) {
 
 export async function getCourses(published?: boolean) {
   let query = supabase.from('courses').select('*');
-  
+
   if (published !== undefined) {
     query = query.eq('published', published);
   }
@@ -67,13 +67,15 @@ export async function getCourses(published?: boolean) {
 export async function getCourse(id: string) {
   const { data, error } = await supabase
     .from('courses')
-    .select(`
+    .select(
+      `
       *,
       modules (
         *,
         lessons (*)
       )
-    `)
+    `
+    )
     .eq('id', id)
     .single();
 
@@ -94,10 +96,7 @@ export async function updateCourse(id: string, updates: Partial<Course>) {
 }
 
 export async function deleteCourse(id: string) {
-  const { error } = await supabase
-    .from('courses')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('courses').delete().eq('id', id);
 
   if (error) throw error;
 }
@@ -143,10 +142,7 @@ export async function updateModule(id: string, updates: Partial<Module>) {
 }
 
 export async function deleteModule(id: string) {
-  const { error } = await supabase
-    .from('modules')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('modules').delete().eq('id', id);
 
   if (error) throw error;
 }
@@ -188,10 +184,7 @@ export async function updateLesson(id: string, updates: Partial<Lesson>) {
 }
 
 export async function deleteLesson(id: string) {
-  const { error } = await supabase
-    .from('lessons')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('lessons').delete().eq('id', id);
 
   if (error) throw error;
 }
@@ -212,10 +205,12 @@ export async function enrollStudent(studentId: string, courseId: string) {
 export async function getStudentCourses(studentId: string) {
   const { data, error } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       *,
       courses (*)
-    `)
+    `
+    )
     .eq('student_id', studentId)
     .order('enrolled_at', { ascending: false });
 
@@ -240,7 +235,7 @@ export async function markLessonComplete(
       course_id: courseId,
       completed: true,
       score,
-      completed_at: new Date().toISOString()
+      completed_at: new Date().toISOString(),
     })
     .select()
     .single();
@@ -248,13 +243,16 @@ export async function markLessonComplete(
   if (error) throw error;
 
   // Calculate and update course progress
-  const { data: progressData, error: progressError } = await supabase
-    .rpc('calculate_course_progress', {
+  const { data: progressData, error: progressError } = await supabase.rpc(
+    'calculate_course_progress',
+    {
       p_student_id: studentId,
-      p_course_id: courseId
-    });
+      p_course_id: courseId,
+    }
+  );
 
-  if (progressError) console.error('Error calculating progress:', progressError);
+  if (progressError)
+    console.error('Error calculating progress:', progressError);
 
   return data;
 }

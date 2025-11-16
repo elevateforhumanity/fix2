@@ -11,6 +11,7 @@
 **Direct Link**: [https://vercel.com/gitpod/fix2-1c7w/settings/environment-variables](https://vercel.com/gitpod/fix2-1c7w/settings/environment-variables)
 
 Or manually:
+
 1. Go to [https://vercel.com/dashboard](https://vercel.com/dashboard)
 2. Click on "fix2-1c7w" project
 3. Click "Settings" tab
@@ -23,59 +24,73 @@ Or manually:
 Click "Add New" for each one:
 
 #### 1. NEXT_PUBLIC_SUPABASE_URL
+
 ```
 Name: NEXT_PUBLIC_SUPABASE_URL
 Value: https://cuxzzpsyufcewtmicszk.supabase.co
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 2. NEXT_PUBLIC_SUPABASE_ANON_KEY
+
 ```
 Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 3. SUPABASE_SERVICE_ROLE_KEY
+
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 4. NEXT_PUBLIC_APP_URL
+
 ```
 Name: NEXT_PUBLIC_APP_URL
 Value: https://elevateconnectsdirectory.org
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 5. NEXT_PUBLIC_SITE_URL
+
 ```
 Name: NEXT_PUBLIC_SITE_URL
 Value: https://elevateconnectsdirectory.org
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 6. NEXT_PUBLIC_BASE_URL
+
 ```
 Name: NEXT_PUBLIC_BASE_URL
 Value: https://elevateconnectsdirectory.org
 Environment: Production, Preview, Development (check all 3)
 ```
+
 Click "Save"
 
 #### 7. NODE_ENV
+
 ```
 Name: NODE_ENV
 Value: production
 Environment: Production only (check Production only)
 ```
+
 Click "Save"
 
 ---
@@ -99,6 +114,7 @@ Just push a new commit and Vercel will auto-deploy with the new environment vari
 ## ✅ Expected Result
 
 After redeployment:
+
 - ✅ Build should succeed
 - ✅ No "supabaseUrl is required" error
 - ✅ Site loads at [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
@@ -108,6 +124,7 @@ After redeployment:
 ## 🔍 Your Project Info
 
 Based on the error, your Vercel project is:
+
 - **Project Name**: fix2-1c7w
 - **Organization**: gitpod
 - **Latest Commit**: 512714e (Add quick start guide for Vercel autopilot)

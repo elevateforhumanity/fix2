@@ -11,14 +11,16 @@ interface VideoPlayerProps {
   autoplay?: boolean;
 }
 
-export default function VideoPlayer({ 
-  url, 
-  title, 
-  onProgress, 
+export default function VideoPlayer({
+  url,
+  title,
+  onProgress,
   onComplete,
-  autoplay = false 
+  autoplay = false,
 }: VideoPlayerProps) {
-  const [videoType, setVideoType] = useState<'youtube' | 'vimeo' | 'direct' | null>(null);
+  const [videoType, setVideoType] = useState<
+    'youtube' | 'vimeo' | 'direct' | null
+  >(null);
   const [videoId, setVideoId] = useState<string>('');
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -28,7 +30,9 @@ export default function VideoPlayer({
     // Detect video type and extract ID
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
       setVideoType('youtube');
-      const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+      const match = url.match(
+        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+      );
       if (match) setVideoId(match[1]);
     } else if (url.includes('vimeo.com')) {
       setVideoType('vimeo');
@@ -116,9 +120,9 @@ export default function VideoPlayer({
       <div className="text-center text-white p-6">
         <Play className="h-16 w-16 mx-auto mb-4 opacity-50" />
         <p className="text-sm opacity-75 mb-2">Unsupported video format</p>
-        <a 
-          href={url} 
-          target="_blank" 
+        <a
+          href={url}
+          target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 hover:text-blue-300 text-sm underline"
         >

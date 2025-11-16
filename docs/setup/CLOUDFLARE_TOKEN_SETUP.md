@@ -90,7 +90,7 @@ This will create a new API token automatically.
 
 Until Cloudflare Worker is deployed, you can manually add the enrollment script to Durable:
 
-1. Go to  site editor
+1. Go to site editor
 2. Add custom HTML block
 3. Paste:
 

@@ -20,35 +20,48 @@ class MonitoringService {
     fastestEndpoint: null,
   };
 
-  private endpointMetrics: Map<string, { count: number; totalTime: number }> = new Map();
+  private endpointMetrics: Map<string, { count: number; totalTime: number }> =
+    new Map();
 
   recordRequest(duration: number, url: string, statusCode: number) {
     this.metrics.requestCount++;
     this.metrics.totalResponseTime += duration;
-    this.metrics.averageResponseTime = this.metrics.totalResponseTime / this.metrics.requestCount;
+    this.metrics.averageResponseTime =
+      this.metrics.totalResponseTime / this.metrics.requestCount;
 
     if (statusCode >= 400) {
       this.metrics.errorCount++;
     }
 
-    if (!this.metrics.slowestEndpoint || duration > this.metrics.slowestEndpoint.duration) {
+    if (
+      !this.metrics.slowestEndpoint ||
+      duration > this.metrics.slowestEndpoint.duration
+    ) {
       this.metrics.slowestEndpoint = { url, duration };
     }
 
-    if (!this.metrics.fastestEndpoint || duration < this.metrics.fastestEndpoint.duration) {
+    if (
+      !this.metrics.fastestEndpoint ||
+      duration < this.metrics.fastestEndpoint.duration
+    ) {
       this.metrics.fastestEndpoint = { url, duration };
     }
 
-    const existing = this.endpointMetrics.get(url) || { count: 0, totalTime: 0 };
+    const existing = this.endpointMetrics.get(url) || {
+      count: 0,
+      totalTime: 0,
+    };
     this.endpointMetrics.set(url, {
       count: existing.count + 1,
       totalTime: existing.totalTime + duration,
     });
   }
 
-  getMetrics(): PerformanceMetrics & { endpoints: Record<string, { count: number; avgTime: number }> } {
+  getMetrics(): PerformanceMetrics & {
+    endpoints: Record<string, { count: number; avgTime: number }>;
+  } {
     const endpoints: Record<string, { count: number; avgTime: number }> = {};
-    
+
     this.endpointMetrics.forEach((value, key) => {
       endpoints[key] = {
         count: value.count,
@@ -81,7 +94,11 @@ class MonitoringService {
 
 export const monitoring = new MonitoringService();
 
-export const performanceMonitoring = (req: Request, res: Response, next: NextFunction) => {
+export const performanceMonitoring = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const start = Date.now();
 
   res.on('finish', () => {
@@ -106,10 +123,14 @@ setInterval(() => {
 
 export const getHealthStatus = () => {
   const metrics = monitoring.getMetrics();
-  const errorRate = metrics.requestCount > 0 ? (metrics.errorCount / metrics.requestCount) * 100 : 0;
+  const errorRate =
+    metrics.requestCount > 0
+      ? (metrics.errorCount / metrics.requestCount) * 100
+      : 0;
 
   return {
-    status: errorRate < 5 ? 'healthy' : errorRate < 10 ? 'degraded' : 'unhealthy',
+    status:
+      errorRate < 5 ? 'healthy' : errorRate < 10 ? 'degraded' : 'unhealthy',
     uptime: process.uptime(),
     memory: process.memoryUsage(),
     metrics: {

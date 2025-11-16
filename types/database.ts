@@ -3,13 +3,38 @@
 // Auto-generated from Supabase schema
 // =====================================================
 
-export type UserRole = 'student' | 'admin' | 'program_holder' | 'delegate' | 'instructor';
-export type EnrollmentStatus = 'pending' | 'active' | 'completed' | 'withdrawn' | 'suspended';
-export type FundingType = 'wrg' | 'wioa' | 'jri' | 'employindy' | 'self_pay' | 'employer_sponsored';
+export type UserRole =
+  | 'student'
+  | 'admin'
+  | 'program_holder'
+  | 'delegate'
+  | 'instructor';
+export type EnrollmentStatus =
+  | 'pending'
+  | 'active'
+  | 'completed'
+  | 'withdrawn'
+  | 'suspended';
+export type FundingType =
+  | 'wrg'
+  | 'wioa'
+  | 'jri'
+  | 'employindy'
+  | 'self_pay'
+  | 'employer_sponsored';
 export type ProgramHolderStatus = 'pending' | 'approved' | 'inactive';
-export type MouStatus = 'not_sent' | 'pending' | 'sent' | 'signed_by_holder' | 'fully_executed';
+export type MouStatus =
+  | 'not_sent'
+  | 'pending'
+  | 'sent'
+  | 'signed_by_holder'
+  | 'fully_executed';
 export type CertificateStatus = 'pending' | 'issued' | 'revoked';
-export type AttendanceType = 'login' | 'lesson_complete' | 'quiz_attempt' | 'live_session';
+export type AttendanceType =
+  | 'login'
+  | 'lesson_complete'
+  | 'quiz_attempt'
+  | 'live_session';
 
 export interface Profile {
   id: string;

@@ -24,7 +24,8 @@ export async function POST(request: Request) {
     // Fetch certificate details
     const { data: certificate } = await supabase
       .from('certificates')
-      .select(`
+      .select(
+        `
         id,
         certificate_number,
         verification_code,
@@ -33,16 +34,22 @@ export async function POST(request: Request) {
         profiles!certificates_student_id_fkey!inner (
           email
         )
-      `)
+      `
+      )
       .eq('id', certificateId)
       .single();
 
     if (!certificate) {
-      return NextResponse.json({ error: 'Certificate not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Certificate not found' },
+        { status: 404 }
+      );
     }
 
     // Type guard: Extract profile from array
-    const profile = Array.isArray(certificate.profiles) ? certificate.profiles[0] : certificate.profiles;
+    const profile = Array.isArray(certificate.profiles)
+      ? certificate.profiles[0]
+      : certificate.profiles;
 
     const verificationUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/cert/verify/${certificate.verification_code}`;
 
@@ -62,6 +69,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error sending certificate email:', error);
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to send email' },
+      { status: 500 }
+    );
   }
 }

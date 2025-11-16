@@ -19,26 +19,31 @@ bash scripts/setup-supabase-codespaces.sh
 ## What the Script Does
 
 ### 🔧 Interactive Configuration
+
 - Prompts for your Supabase URL and keys with input validation
 - Securely handles sensitive service keys (hidden input)
 - Validates all inputs are provided before proceeding
 
 ### 📄 Environment File Creation
+
 - Creates `.env` in the root directory
 - Creates `client/.env` (if client directory exists)
 - Creates `server/.env` (if server directory exists)
 - Updates `.env.example` with proper Supabase configuration
 
 ### 🔒 Security & Git Management
+
 - Automatically updates `.gitignore` to prevent committing secrets
 - Exports environment variables for the current session
 - Persists variables in `~/.bashrc` for future sessions
 
 ### 📦 Dependency Management
+
 - Installs npm dependencies if `package.json` exists
 - Installs client dependencies if `client/package.json` exists
 
 ### 🧪 Connection Testing
+
 - Tests Supabase configuration with Node.js
 - Provides feedback on configuration status
 - Shows abbreviated keys for verification
@@ -61,6 +66,7 @@ You'll need these values from your Supabase project:
 ## Environment Variables Created
 
 ### Root `.env`
+
 ```bash
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
@@ -70,12 +76,14 @@ NODE_ENV=development
 ```
 
 ### Client `.env` (if client/ exists)
+
 ```bash
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
 ```
 
 ### Server `.env` (if server/ exists)
+
 ```bash
 SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_KEY=your_service_key
@@ -85,6 +93,7 @@ NODE_ENV=development
 ## Integration with Existing Code
 
 The script works with the existing Supabase client in `shared/supabase.js`, which automatically detects:
+
 - Vite environment variables (`VITE_*`) for client-side builds
 - Window variables for static HTML
 - Fallback handling when Supabase isn't configured
@@ -92,14 +101,17 @@ The script works with the existing Supabase client in `shared/supabase.js`, whic
 ## Troubleshooting
 
 ### Script Won't Run
+
 - Ensure the script is executable: `chmod +x scripts/setup-supabase-codespaces.sh`
 - Check you're in the repository root directory
 
 ### Environment Variables Not Persisting
+
 - Run `source ~/.bashrc` to reload your shell
 - Or restart your terminal/Codespace
 
 ### Supabase Connection Issues
+
 - Verify your project URL and keys in the Supabase dashboard
 - Check that your project is active and not paused
 - Ensure your keys have the correct permissions

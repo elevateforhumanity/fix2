@@ -5,6 +5,7 @@
 **Visit**: [https://3000--019a8014-910c-7bbe-89d1-9e340ed3ede3.us-east-1-01.gitpod.dev/download-images.html](https://3000--019a8014-910c-7bbe-89d1-9e340ed3ede3.us-east-1-01.gitpod.dev/download-images.html)
 
 This page has:
+
 - ✅ Direct links to Pexels for each image
 - ✅ Exact filenames to use
 - ✅ Step-by-step instructions
@@ -18,12 +19,14 @@ This page has:
 ## 📋 Quick Checklist
 
 ### Priority 1 (Do First):
+
 - [ ] Hero Banner (1 image) - `efh-hero.jpg`
 - [ ] HVAC (2 images) - card + hero
 - [ ] Welding (2 images) - card + hero
 - [ ] CDL (2 images) - card + hero
 
 ### Priority 2:
+
 - [ ] Medical Assistant (2 images)
 - [ ] Nail Tech (2 images)
 
@@ -34,9 +37,11 @@ This page has:
 ## 🎯 Step-by-Step Process
 
 ### 1. Open the Download Guide
+
 Visit: `/download-images.html` on your dev server
 
 ### 2. For Each Image:
+
 1. Click "View on Pexels" button
 2. Browse and select a good image
 3. Click green "Free Download" button
@@ -45,12 +50,14 @@ Visit: `/download-images.html` on your dev server
 6. Place in correct folder
 
 ### 3. Compress Images
+
 - Visit: https://tinypng.com
 - Upload all downloaded images
 - Download compressed versions
 - Replace originals
 
 ### 4. Test on Site
+
 - Refresh homepage
 - Check program pages
 - Verify all images load
@@ -81,6 +88,7 @@ public/
 ## 🔍 What to Look For
 
 ### Hero Banner:
+
 - Diverse group of students
 - Training or classroom setting
 - Professional, well-lit
@@ -88,6 +96,7 @@ public/
 - Modern facility
 
 ### Program Images:
+
 - **HVAC**: Technician with AC unit, tools, professional setting
 - **Welding**: Welder with mask, sparks, safety gear
 - **CDL**: Truck driver, semi truck, highway
@@ -99,6 +108,7 @@ public/
 ## ⚡ Even Faster: Use These Direct Searches
 
 ### Pexels Search Links:
+
 1. **Hero**: https://www.pexels.com/search/diverse%20students%20training/
 2. **HVAC**: https://www.pexels.com/search/hvac%20technician/
 3. **Welding**: https://www.pexels.com/search/welding/
@@ -111,6 +121,7 @@ public/
 ## ✅ After Downloading
 
 ### Verify:
+
 - [ ] All filenames match exactly (case-sensitive)
 - [ ] Images are in correct folders
 - [ ] File sizes are reasonable (<500KB each)
@@ -118,6 +129,7 @@ public/
 - [ ] No watermarks or logos
 
 ### Test:
+
 - [ ] Homepage hero displays
 - [ ] Program cards show images
 - [ ] Images load quickly
@@ -128,15 +140,18 @@ public/
 ## 🆘 Troubleshooting
 
 **Image won't download?**
+
 - Try a different browser
 - Right-click > Save Image As
 - Check Pexels is accessible
 
 **Wrong size?**
+
 - Download "Original" or "Large"
 - Resize if needed at: https://www.iloveimg.com/resize-image
 
 **File too large?**
+
 - Compress at: https://tinypng.com
 - Target: <200KB for program images
 
@@ -165,6 +180,7 @@ Nail Tech Hero:  [ ]
 ## 🎉 When Complete
 
 Your site will have:
+
 - ✅ Professional hero banner
 - ✅ All program images
 - ✅ No more placeholders

@@ -3,7 +3,9 @@ import { Resend } from 'resend';
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn('RESEND_API_KEY not configured - email notifications will be skipped');
+    console.warn(
+      'RESEND_API_KEY not configured - email notifications will be skipped'
+    );
     return null;
   }
   return new Resend(apiKey);
@@ -20,12 +22,14 @@ interface MOUSignedNotificationData {
 /**
  * Send email notification to program holder confirming MOU signature
  */
-export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData) {
+export async function sendMOUSignedConfirmation(
+  data: MOUSignedNotificationData
+) {
   const resend = getResendClient();
   if (!resend) {
     return false;
   }
-  
+
   try {
     const { error } = await resend.emails.send({
       from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
@@ -44,10 +48,12 @@ export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData)
             <p><strong>Program Holder:</strong> ${data.programHolderName}</p>
             <p><strong>Signed by:</strong> ${data.signerName}</p>
             <p><strong>Title:</strong> ${data.signerTitle}</p>
-            <p><strong>Date:</strong> ${new Date(data.signedAt).toLocaleDateString('en-US', {
+            <p><strong>Date:</strong> ${new Date(
+              data.signedAt
+            ).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
-              day: 'numeric'
+              day: 'numeric',
             })}</p>
           </div>
           
@@ -65,7 +71,7 @@ export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData)
           <p>Best regards,<br>
           <strong>Elevate for Humanity Team</strong></p>
         </div>
-      `
+      `,
     });
 
     if (error) {
@@ -83,12 +89,14 @@ export async function sendMOUSignedConfirmation(data: MOUSignedNotificationData)
 /**
  * Send email notification to admin team when MOU is signed
  */
-export async function sendMOUSignedAdminNotification(data: MOUSignedNotificationData) {
+export async function sendMOUSignedAdminNotification(
+  data: MOUSignedNotificationData
+) {
   const resend = getResendClient();
   if (!resend) {
     return false;
   }
-  
+
   try {
     const { error } = await resend.emails.send({
       from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
@@ -106,10 +114,12 @@ export async function sendMOUSignedAdminNotification(data: MOUSignedNotification
             <p><strong>Signed by:</strong> ${data.signerName}</p>
             <p><strong>Title:</strong> ${data.signerTitle}</p>
             <p><strong>Contact Email:</strong> ${data.contactEmail}</p>
-            <p><strong>Date:</strong> ${new Date(data.signedAt).toLocaleDateString('en-US', {
+            <p><strong>Date:</strong> ${new Date(
+              data.signedAt
+            ).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
-              day: 'numeric'
+              day: 'numeric',
             })}</p>
           </div>
           
@@ -121,7 +131,7 @@ export async function sendMOUSignedAdminNotification(data: MOUSignedNotification
             View Program Holders
           </a></p>
         </div>
-      `
+      `,
     });
 
     if (error) {

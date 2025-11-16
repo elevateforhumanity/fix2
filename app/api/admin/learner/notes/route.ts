@@ -4,7 +4,9 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
 
   const { data: prof } = await supabase
@@ -27,7 +29,8 @@ export async function GET(req: NextRequest) {
   // Get all notes for this learner
   const { data: notes, error } = await supabase
     .from('program_holder_notes')
-    .select(`
+    .select(
+      `
       user_id,
       course_id,
       program_holder_id,
@@ -38,7 +41,8 @@ export async function GET(req: NextRequest) {
       course:course_id(title),
       program_holder:program_holder_id(name),
       creator:created_by(email)
-    `)
+    `
+    )
     .eq('user_id', learner_id)
     .order('created_at', { ascending: false });
 
@@ -52,7 +56,7 @@ export async function GET(req: NextRequest) {
     status: n.status,
     note: n.note,
     created_at: n.created_at,
-    created_by_email: n.creator?.email || 'Unknown'
+    created_by_email: n.creator?.email || 'Unknown',
   }));
 
   return Response.json(mapped);

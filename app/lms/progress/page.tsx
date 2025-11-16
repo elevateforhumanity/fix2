@@ -2,19 +2,25 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  BookOpen, 
-  Clock, 
-  Award, 
-  TrendingUp, 
+import {
+  BookOpen,
+  Clock,
+  Award,
+  TrendingUp,
   Calendar,
   CheckCircle2,
   Circle,
   PlayCircle,
   FileText,
-  Video
+  Video,
 } from 'lucide-react';
 
 const progressData = {
@@ -102,10 +108,31 @@ const progressData = {
     },
   ],
   recentActivity: [
-    { date: '2024-11-12', course: 'CNA Certification Prep', lesson: 'Emergency Response Protocols', type: 'video' },
-    { date: '2024-11-11', course: 'CNA Certification Prep', lesson: 'Module 3 Quiz', type: 'quiz', score: 90 },
-    { date: '2024-11-10', course: 'HVAC Technician Training', lesson: 'Furnace Components', type: 'video' },
-    { date: '2024-11-09', course: 'CNA Certification Prep', lesson: 'Infection Control Procedures', type: 'video' },
+    {
+      date: '2024-11-12',
+      course: 'CNA Certification Prep',
+      lesson: 'Emergency Response Protocols',
+      type: 'video',
+    },
+    {
+      date: '2024-11-11',
+      course: 'CNA Certification Prep',
+      lesson: 'Module 3 Quiz',
+      type: 'quiz',
+      score: 90,
+    },
+    {
+      date: '2024-11-10',
+      course: 'HVAC Technician Training',
+      lesson: 'Furnace Components',
+      type: 'video',
+    },
+    {
+      date: '2024-11-09',
+      course: 'CNA Certification Prep',
+      lesson: 'Infection Control Procedures',
+      type: 'video',
+    },
   ],
 };
 
@@ -163,7 +190,6 @@ export default function ProgressPage() {
           </div>
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
         {/* Overall Stats */}
         <section className="mb-8">
@@ -171,7 +197,9 @@ export default function ProgressPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Courses Completed</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Courses Completed
+                </CardTitle>
                 <BookOpen className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -179,14 +207,20 @@ export default function ProgressPage() {
                   {overallStats.completedCourses}/{overallStats.totalCourses}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  {Math.round((overallStats.completedCourses / overallStats.totalCourses) * 100)}% completion rate
+                  {Math.round(
+                    (overallStats.completedCourses /
+                      overallStats.totalCourses) *
+                      100
+                  )}
+                  % completion rate
                 </p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Learning Hours</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Learning Hours
+                </CardTitle>
                 <Clock className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -198,27 +232,33 @@ export default function ProgressPage() {
                 </p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Certificates Earned</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Certificates Earned
+                </CardTitle>
                 <Award className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{overallStats.certificatesEarned}</div>
+                <div className="text-2xl font-bold">
+                  {overallStats.certificatesEarned}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Professional credentials
                 </p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Average Score</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Average Score
+                </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{overallStats.averageScore}%</div>
+                <div className="text-2xl font-bold">
+                  {overallStats.averageScore}%
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Across all assessments
                 </p>
@@ -226,7 +266,6 @@ export default function ProgressPage() {
             </Card>
           </div>
         </section>
-
         {/* Course Progress */}
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-6">Course Progress</h2>
@@ -241,18 +280,24 @@ export default function ProgressPage() {
                         {getStatusBadge(course.status)}
                       </div>
                       <CardDescription>
-                        {course.completedLessons} of {course.totalLessons} lessons completed
+                        {course.completedLessons} of {course.totalLessons}{' '}
+                        lessons completed
                         {course.lastAccessed && (
                           <span className="ml-4">
-                            Last accessed: {new Date(course.lastAccessed).toLocaleDateString()}
+                            Last accessed:{' '}
+                            {new Date(course.lastAccessed).toLocaleDateString()}
                           </span>
                         )}
                       </CardDescription>
                     </div>
                     {course.grade && (
                       <div className="text-right">
-                        <div className="text-2xl font-bold">{course.grade}%</div>
-                        <div className="text-xs text-muted-foreground">Current Grade</div>
+                        <div className="text-2xl font-bold">
+                          {course.grade}%
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Current Grade
+                        </div>
                       </div>
                     )}
                   </div>
@@ -261,7 +306,9 @@ export default function ProgressPage() {
                   {/* Overall Progress Bar */}
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-muted-foreground">Overall Progress</span>
+                      <span className="text-muted-foreground">
+                        Overall Progress
+                      </span>
                       <span className="font-medium">{course.progress}%</span>
                     </div>
                     <div className="h-3 bg-secondary rounded-full overflow-hidden">
@@ -271,7 +318,6 @@ export default function ProgressPage() {
                       />
                     </div>
                   </div>
-
                   {/* Time Stats */}
                   <div className="flex items-center gap-6 text-sm">
                     <div className="flex items-center gap-2">
@@ -283,17 +329,20 @@ export default function ProgressPage() {
                     <div className="flex items-center gap-2">
                       <BookOpen className="h-4 w-4 text-muted-foreground" />
                       <span>
-                        {course.completedLessons} / {course.totalLessons} lessons
+                        {course.completedLessons} / {course.totalLessons}{' '}
+                        lessons
                       </span>
                     </div>
                   </div>
-
                   {/* Module Breakdown */}
                   <div>
                     <h4 className="font-semibold mb-3">Module Breakdown</h4>
                     <div className="space-y-3">
                       {course.modules.map((module) => (
-                        <div key={module.id} className="flex items-center gap-3">
+                        <div
+                          key={module.id}
+                          className="flex items-center gap-3"
+                        >
                           {module.completed === module.total ? (
                             <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
                           ) : module.completed > 0 ? (
@@ -303,7 +352,9 @@ export default function ProgressPage() {
                           )}
                           <div className="flex-1">
                             <div className="flex justify-between items-center mb-1">
-                              <span className="text-sm font-medium">{module.title}</span>
+                              <span className="text-sm font-medium">
+                                {module.title}
+                              </span>
                               <span className="text-xs text-muted-foreground">
                                 {module.completed}/{module.total}
                               </span>
@@ -311,7 +362,9 @@ export default function ProgressPage() {
                             <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
                               <div
                                 className="h-full bg-primary transition-all"
-                                style={{ width: `${(module.completed / module.total) * 100}%` }}
+                                style={{
+                                  width: `${(module.completed / module.total) * 100}%`,
+                                }}
                               />
                             </div>
                           </div>
@@ -319,17 +372,20 @@ export default function ProgressPage() {
                       ))}
                     </div>
                   </div>
-
                   {/* Action Button */}
                   <div className="pt-2">
                     {course.status === 'not-started' ? (
                       <Button className="w-full" asChild>
-                        <Link href={`/lms/courses/${course.id}`}>Start Course</Link>
+                        <Link href={`/lms/courses/${course.id}`}>
+                          Start Course
+                        </Link>
                       </Button>
                     ) : (
                       <Button className="w-full" asChild>
                         <Link href={`/lms/courses/${course.id}`}>
-                          {course.status === 'completed' ? 'Review Course' : 'Continue Learning'}
+                          {course.status === 'completed'
+                            ? 'Review Course'
+                            : 'Continue Learning'}
                         </Link>
                       </Button>
                     )}
@@ -339,7 +395,6 @@ export default function ProgressPage() {
             ))}
           </div>
         </section>
-
         {/* Recent Activity */}
         <section>
           <h2 className="text-2xl font-bold mb-6">Recent Activity</h2>
@@ -347,13 +402,18 @@ export default function ProgressPage() {
             <CardContent className="pt-6">
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start gap-4 pb-4 border-b last:border-0 last:pb-0">
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 pb-4 border-b last:border-0 last:pb-0"
+                  >
                     <div className="flex-shrink-0 mt-1">
                       {getLessonIcon(activity.type)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium">{activity.lesson}</p>
-                      <p className="text-sm text-muted-foreground">{activity.course}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {activity.course}
+                      </p>
                     </div>
                     <div className="flex-shrink-0 text-right">
                       {activity.score && (

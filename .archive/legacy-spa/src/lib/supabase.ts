@@ -22,7 +22,6 @@ export const testSupabaseConnection = async () => {
   }
 
   try {
-
     const { data, error } = await supabase
       .from('programs')
       .select('*')

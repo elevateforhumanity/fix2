@@ -161,7 +161,7 @@ Self-Heal Monitor (Every 5 Minutes)
 
 ## ⚠️ ONE-TIME MANUAL STEP
 
-The autopilot **CANNOT** directly edit your  site.
+The autopilot **CANNOT** directly edit your site.
 
 You need to do this **ONCE**:
 
@@ -173,7 +173,7 @@ The puppet autopilot has generated the code for you:
 
 ### Step 2: Add to Durable
 
-1. Log into 
+1. Log into
 2. Go to your site: www.elevateforhumanity.org
 3. Go to **Settings** → **Custom Code**
 4. Find the **Head Section**
@@ -371,7 +371,7 @@ The autopilot has created these files for you:
 
 ### Manual (One-Time)
 
-1. ⚠️ Add integration code to 
+1. ⚠️ Add integration code to
 2. ⚠️ Add content slots to Durable pages
 3. ⚠️ Save and publish Durable site
 

@@ -17,9 +17,9 @@ const getClassroomClient = () => {
     process.env.GOOGLE_SA_JSON_B64 || '',
     'base64'
   ).toString('utf-8');
-  
+
   const serviceAccount = JSON.parse(serviceAccountJson);
-  
+
   const auth = new google.auth.JWT({
     email: serviceAccount.client_email,
     key: serviceAccount.private_key,
@@ -57,19 +57,19 @@ async function processSyncTask(task: SyncTask): Promise<void> {
       case 'course.upsert':
         classroomId = await syncCourse(classroom, task);
         break;
-      
+
       case 'topic.upsert':
         classroomId = await syncTopic(classroom, task);
         break;
-      
+
       case 'work.upsert':
         classroomId = await syncCoursework(classroom, task);
         break;
-      
+
       case 'roster.upsert':
         classroomId = await syncRoster(classroom, task);
         break;
-      
+
       default:
         throw new Error(`Unknown event type: ${task.event_type}`);
     }
@@ -89,9 +89,9 @@ async function processSyncTask(task: SyncTask): Promise<void> {
     await supabase.rpc('fail_sync_task', {
       p_task_id: task.id,
       p_error_message: error.message,
-      p_error_details: { 
-        code: error.code, 
-        stack: error.stack?.split('\n').slice(0, 5) 
+      p_error_details: {
+        code: error.code,
+        stack: error.stack?.split('\n').slice(0, 5),
       },
     });
   }
@@ -102,7 +102,7 @@ async function processSyncTask(task: SyncTask): Promise<void> {
  */
 async function syncCourse(classroom: any, task: SyncTask): Promise<string> {
   const { payload, event_source } = task;
-  
+
   // Check if course already exists in mapping
   const { data: existingMapping } = await supabase
     .from('lms_classroom_course_map')
@@ -116,7 +116,7 @@ async function syncCourse(classroom: any, task: SyncTask): Promise<string> {
   if (existingMapping) {
     // Update existing course
     classroomCourseId = existingMapping.classroom_course_id;
-    
+
     await classroom.courses.patch({
       id: classroomCourseId,
       updateMask: 'name,section,descriptionHeading,description',
@@ -173,7 +173,9 @@ async function syncTopic(classroom: any, task: SyncTask): Promise<string> {
     .single();
 
   if (!courseMapping) {
-    throw new Error(`Course mapping not found for LMS course ${payload.course_id}`);
+    throw new Error(
+      `Course mapping not found for LMS course ${payload.course_id}`
+    );
   }
 
   const classroomCourseId = courseMapping.classroom_course_id;
@@ -192,7 +194,7 @@ async function syncTopic(classroom: any, task: SyncTask): Promise<string> {
   if (existingMapping) {
     // Update existing topic
     classroomTopicId = existingMapping.classroom_topic_id;
-    
+
     await classroom.courses.topics.patch({
       courseId: classroomCourseId,
       id: classroomTopicId,
@@ -217,17 +219,15 @@ async function syncTopic(classroom: any, task: SyncTask): Promise<string> {
   }
 
   // Update mapping
-  await supabase
-    .from('lms_classroom_topic_map')
-    .upsert({
-      lms_source: event_source,
-      lms_course_id: payload.course_id,
-      lms_topic_id: payload.id,
-      classroom_course_id: classroomCourseId,
-      classroom_topic_id: classroomTopicId,
-      lms_data: payload,
-      last_synced_at: new Date().toISOString(),
-    });
+  await supabase.from('lms_classroom_topic_map').upsert({
+    lms_source: event_source,
+    lms_course_id: payload.course_id,
+    lms_topic_id: payload.id,
+    classroom_course_id: classroomCourseId,
+    classroom_topic_id: classroomTopicId,
+    lms_data: payload,
+    last_synced_at: new Date().toISOString(),
+  });
 
   return classroomTopicId;
 }
@@ -247,7 +247,9 @@ async function syncCoursework(classroom: any, task: SyncTask): Promise<string> {
     .single();
 
   if (!courseMapping) {
-    throw new Error(`Course mapping not found for LMS course ${payload.course_id}`);
+    throw new Error(
+      `Course mapping not found for LMS course ${payload.course_id}`
+    );
   }
 
   const classroomCourseId = courseMapping.classroom_course_id;
@@ -291,7 +293,7 @@ async function syncCoursework(classroom: any, task: SyncTask): Promise<string> {
   if (existingMapping) {
     // Update existing coursework
     classroomWorkId = existingMapping.classroom_work_id;
-    
+
     await classroom.courses.courseWork.patch({
       courseId: classroomCourseId,
       id: classroomWorkId,
@@ -312,17 +314,15 @@ async function syncCoursework(classroom: any, task: SyncTask): Promise<string> {
   }
 
   // Update mapping
-  await supabase
-    .from('lms_classroom_work_map')
-    .upsert({
-      lms_source: event_source,
-      lms_course_id: payload.course_id,
-      lms_work_id: payload.id,
-      classroom_course_id: classroomCourseId,
-      classroom_work_id: classroomWorkId,
-      lms_data: payload,
-      last_synced_at: new Date().toISOString(),
-    });
+  await supabase.from('lms_classroom_work_map').upsert({
+    lms_source: event_source,
+    lms_course_id: payload.course_id,
+    lms_work_id: payload.id,
+    classroom_course_id: classroomCourseId,
+    classroom_work_id: classroomWorkId,
+    lms_data: payload,
+    last_synced_at: new Date().toISOString(),
+  });
 
   return classroomWorkId;
 }
@@ -342,7 +342,9 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
     .single();
 
   if (!courseMapping) {
-    throw new Error(`Course mapping not found for LMS course ${payload.course_id}`);
+    throw new Error(
+      `Course mapping not found for LMS course ${payload.course_id}`
+    );
   }
 
   const classroomCourseId = courseMapping.classroom_course_id;
@@ -393,21 +395,19 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
     enrollmentId = response.data.userId!;
 
     // Create mapping
-    await supabase
-      .from('lms_classroom_roster_map')
-      .upsert({
-        lms_source: event_source,
-        lms_course_id: payload.course_id,
-        lms_user_id: payload.user_id,
-        lms_user_email: payload.user_email,
-        lms_user_role: payload.role || 'student',
-        classroom_course_id: classroomCourseId,
-        classroom_user_id: enrollmentId,
-        classroom_enrollment_id: enrollmentId,
-        enrollment_status: 'active',
-        lms_data: payload,
-        last_synced_at: new Date().toISOString(),
-      });
+    await supabase.from('lms_classroom_roster_map').upsert({
+      lms_source: event_source,
+      lms_course_id: payload.course_id,
+      lms_user_id: payload.user_id,
+      lms_user_email: payload.user_email,
+      lms_user_role: payload.role || 'student',
+      classroom_course_id: classroomCourseId,
+      classroom_user_id: enrollmentId,
+      classroom_enrollment_id: enrollmentId,
+      enrollment_status: 'active',
+      lms_data: payload,
+      last_synced_at: new Date().toISOString(),
+    });
 
     console.log(`Enrolled student: ${payload.user_email}`);
   }
@@ -418,7 +418,11 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
 /**
  * Helper: Parse due date
  */
-function parseDueDate(dateString: string): { year: number; month: number; day: number } {
+function parseDueDate(dateString: string): {
+  year: number;
+  month: number;
+  day: number;
+} {
   const date = new Date(dateString);
   return {
     year: date.getFullYear(),
@@ -470,7 +474,7 @@ async function runSyncLoop(maxTasks: number = 10): Promise<void> {
  */
 if (import.meta.url === `file://${process.argv[1]}`) {
   const maxTasks = parseInt(process.argv[2]) || 10;
-  
+
   runSyncLoop(maxTasks)
     .then(() => {
       console.log('Sync complete');

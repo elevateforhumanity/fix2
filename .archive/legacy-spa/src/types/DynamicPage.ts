@@ -5,7 +5,18 @@
 
 export interface PageBlock {
   id: string;
-  type: 'hero' | 'text' | 'image' | 'video' | 'carousel' | 'grid' | 'testimonials' | 'cta' | 'form' | 'accordion' | 'stats';
+  type:
+    | 'hero'
+    | 'text'
+    | 'image'
+    | 'video'
+    | 'carousel'
+    | 'grid'
+    | 'testimonials'
+    | 'cta'
+    | 'form'
+    | 'accordion'
+    | 'stats';
   order: number;
   data: any;
   settings?: {
@@ -137,7 +148,14 @@ export interface FormBlock extends PageBlock {
     fields: Array<{
       name: string;
       label: string;
-      type: 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'checkbox' | 'radio';
+      type:
+        | 'text'
+        | 'email'
+        | 'tel'
+        | 'textarea'
+        | 'select'
+        | 'checkbox'
+        | 'radio';
       required?: boolean;
       placeholder?: string;
       options?: string[];

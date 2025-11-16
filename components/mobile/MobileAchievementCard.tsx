@@ -52,7 +52,6 @@ export default function MobileAchievementCard({
             <Lock size={20} className="text-gray-500" />
           )}
         </div>
-
         <div className="flex-1">
           <h3
             className={`font-semibold text-sm mb-1 ${
@@ -70,7 +69,6 @@ export default function MobileAchievementCard({
           </p>
         </div>
       </div>
-
       {/* Progress or Unlock Date */}
       {unlocked ? (
         unlockedAt && (
@@ -94,7 +92,6 @@ export default function MobileAchievementCard({
           </div>
         </div>
       )}
-
       {/* Unlocked Badge */}
       {unlocked && (
         <div className="absolute top-2 right-2 px-2 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full">

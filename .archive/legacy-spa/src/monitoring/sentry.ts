@@ -35,14 +35,12 @@ export function addSentryBreadcrumb(
   // No-op: Sentry removed
 }
 
-export function captureError(error: Error, context?: Record<string, any>) {
-}
+export function captureError(error: Error, context?: Record<string, any>) {}
 
 export function captureMessage(
   message: string,
   level: 'info' | 'warning' | 'error' = 'info'
-) {
-}
+) {}
 
 export function startTransaction(_name: string, _op: string) {
   return null;

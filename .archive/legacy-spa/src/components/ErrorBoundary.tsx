@@ -18,17 +18,19 @@ export class ErrorBoundary extends Component<
     return { err };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-  }
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {}
 
   render() {
     if (this.state.err) {
       return (
         <main className="mx-auto max-w-3xl px-4 lg:px-6 py-16">
           <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
-            <h1 className="text-2xl font-bold text-slate-900">Something went wrong</h1>
+            <h1 className="text-2xl font-bold text-slate-900">
+              Something went wrong
+            </h1>
             <p className="mt-2 text-slate-700">
-              We encountered an unexpected error. Please try refreshing the page or contact support if this continues.
+              We encountered an unexpected error. Please try refreshing the page
+              or contact support if this continues.
             </p>
             <details className="mt-4 rounded border border-slate-200 bg-white p-4">
               <summary className="cursor-pointer font-semibold text-slate-900 mb-2">

@@ -43,7 +43,11 @@ export class CacheService {
     }
   }
 
-  async set(key: string, value: any, ttl: number = this.defaultTTL): Promise<boolean> {
+  async set(
+    key: string,
+    value: any,
+    ttl: number = this.defaultTTL
+  ): Promise<boolean> {
     try {
       await redis.setex(key, ttl, JSON.stringify(value));
       return true;
@@ -133,10 +137,10 @@ export const cacheMiddleware = (ttl: number = 300) => {
     }
 
     const key = `cache:${req.originalUrl}`;
-    
+
     try {
       const cachedData = await cache.get(key);
-      
+
       if (cachedData) {
         logger.debug('Cache hit', { key });
         return res.json(cachedData);

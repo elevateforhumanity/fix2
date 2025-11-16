@@ -1,11 +1,11 @@
 /**
  * Alert System for Google Classroom Autopilot
- * 
+ *
  * Sends notifications when:
  * - Sync runs fail
  * - Tasks fail after max retries
  * - Critical errors occur
- * 
+ *
  * Supports: Email, Slack, Discord, SMS (Twilio)
  */
 
@@ -46,7 +46,9 @@ interface AlertConfig {
 const DEFAULT_CONFIG: AlertConfig = {
   email: {
     enabled: !!process.env.ALERT_EMAIL_ENABLED,
-    recipients: (process.env.ALERT_EMAIL_RECIPIENTS || '').split(',').filter(Boolean),
+    recipients: (process.env.ALERT_EMAIL_RECIPIENTS || '')
+      .split(',')
+      .filter(Boolean),
     smtpHost: process.env.SMTP_HOST,
     smtpPort: parseInt(process.env.SMTP_PORT || '587'),
     smtpUser: process.env.SMTP_USER,
@@ -66,7 +68,9 @@ const DEFAULT_CONFIG: AlertConfig = {
     twilioAccountSid: process.env.TWILIO_ACCOUNT_SID,
     twilioAuthToken: process.env.TWILIO_AUTH_TOKEN,
     twilioPhoneNumber: process.env.TWILIO_PHONE_NUMBER,
-    recipients: (process.env.SMS_ALERT_RECIPIENTS || '').split(',').filter(Boolean),
+    recipients: (process.env.SMS_ALERT_RECIPIENTS || '')
+      .split(',')
+      .filter(Boolean),
   },
 };
 
@@ -81,12 +85,15 @@ interface Alert {
 /**
  * Send alert through all configured channels
  */
-export async function sendAlert(alert: Alert, config: AlertConfig = DEFAULT_CONFIG) {
+export async function sendAlert(
+  alert: Alert,
+  config: AlertConfig = DEFAULT_CONFIG
+) {
   const timestamp = alert.timestamp || new Date();
-  
+
   console.log(`🚨 Alert [${alert.severity.toUpperCase()}]: ${alert.title}`);
   console.log(`   ${alert.message}`);
-  
+
   const results = {
     email: false,
     slack: false,
@@ -125,7 +132,11 @@ export async function sendAlert(alert: Alert, config: AlertConfig = DEFAULT_CONF
   }
 
   // Send SMS (for critical alerts only)
-  if (alert.severity === 'critical' && config.sms?.enabled && config.sms.recipients.length > 0) {
+  if (
+    alert.severity === 'critical' &&
+    config.sms?.enabled &&
+    config.sms.recipients.length > 0
+  ) {
     try {
       await sendSMSAlert(alert, config.sms);
       results.sms = true;
@@ -143,7 +154,10 @@ export async function sendAlert(alert: Alert, config: AlertConfig = DEFAULT_CONF
 /**
  * Send Slack notification
  */
-async function sendSlackAlert(alert: Alert, config: { webhookUrl: string; channel?: string }) {
+async function sendSlackAlert(
+  alert: Alert,
+  config: { webhookUrl: string; channel?: string }
+) {
   const color = {
     info: '#36a64f',
     warning: '#ff9900',
@@ -244,14 +258,16 @@ async function sendEmailAlert(
 ) {
   // Use Supabase Edge Function or external email service
   // For now, log that email would be sent
-  console.log(`📧 Email alert would be sent to: ${config.recipients.join(', ')}`);
-  
+  console.log(
+    `📧 Email alert would be sent to: ${config.recipients.join(', ')}`
+  );
+
   // TODO: Implement actual email sending
   // Options:
   // 1. Supabase Edge Function with Resend/SendGrid
   // 2. Direct SMTP with nodemailer
   // 3. AWS SES
-  
+
   // Placeholder implementation
   const emailBody = `
     <h2>${alert.title}</h2>
@@ -294,10 +310,10 @@ async function sendSMSAlert(
   }
 ) {
   console.log(`📱 SMS alert would be sent to: ${config.recipients.join(', ')}`);
-  
+
   // TODO: Implement Twilio SMS
   // const message = `[CRITICAL] ${alert.title}: ${alert.message}`;
-  
+
   // For each recipient, send SMS via Twilio API
 }
 
@@ -336,7 +352,7 @@ export async function alertSyncFailure(syncRun: {
       'Sync ID': syncRun.id,
       'Sync Type': syncRun.sync_type,
       'Records Processed': syncRun.records_processed || 0,
-      'Error': syncRun.error_message || 'Unknown error',
+      Error: syncRun.error_message || 'Unknown error',
     },
   });
 }
@@ -357,8 +373,8 @@ export async function alertTaskFailure(task: {
     details: {
       'Task ID': task.id,
       'Task Type': task.kind,
-      'Attempts': task.attempts,
-      'Error': task.error_message || 'Unknown error',
+      Attempts: task.attempts,
+      Error: task.error_message || 'Unknown error',
     },
   });
 }

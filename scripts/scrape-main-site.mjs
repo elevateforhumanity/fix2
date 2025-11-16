@@ -22,7 +22,7 @@ const PAGES = [
   { path: '/contact', name: 'contact' },
   { path: '/services', name: 'services' },
   { path: '/faq', name: 'faq' },
-  { path: '/blog', name: 'blog' }
+  { path: '/blog', name: 'blog' },
 ];
 
 /**
@@ -30,11 +30,13 @@ const PAGES = [
  */
 async function fetchHTML(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, { rejectUnauthorized: false }, (res) => {
-      let data = '';
-      res.on('data', (chunk) => data += chunk);
-      res.on('end', () => resolve(data));
-    }).on('error', reject);
+    https
+      .get(url, { rejectUnauthorized: false }, (res) => {
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => resolve(data));
+      })
+      .on('error', reject);
   });
 }
 
@@ -46,7 +48,7 @@ function extractContent(html, pageName) {
     name: pageName,
     title: '',
     description: '',
-    sections: []
+    sections: [],
   };
 
   // Extract title
@@ -56,7 +58,9 @@ function extractContent(html, pageName) {
   }
 
   // Extract meta description
-  const descMatch = html.match(/<meta name="description"[^>]*content="([^"]*)"/);
+  const descMatch = html.match(
+    /<meta name="description"[^>]*content="([^"]*)"/
+  );
   if (descMatch) {
     content.description = descMatch[1];
   }
@@ -68,7 +72,7 @@ function extractContent(html, pageName) {
     content.sections.push({
       type: 'hero',
       title: heroText,
-      subtitle: ''
+      subtitle: '',
     });
   }
 
@@ -79,7 +83,7 @@ function extractContent(html, pageName) {
     if (heading) {
       content.sections.push({
         type: 'heading',
-        text: heading
+        text: heading,
       });
     }
   });
@@ -87,25 +91,27 @@ function extractContent(html, pageName) {
   // Extract paragraphs
   const pMatches = [...html.matchAll(/<p[^>]*>(.*?)<\/p>/g)];
   const paragraphs = pMatches
-    .map(m => m[1].replace(/<[^>]*>/g, '').trim())
-    .filter(p => p.length > 20 && !p.includes('cookie'));
+    .map((m) => m[1].replace(/<[^>]*>/g, '').trim())
+    .filter((p) => p.length > 20 && !p.includes('cookie'));
 
   paragraphs.forEach((p) => {
     content.sections.push({
       type: 'text',
-      content: p
+      content: p,
     });
   });
 
   // Extract images
-  const imgMatches = [...html.matchAll(/<img[^>]*alt="([^"]*)"[^>]*src="([^"]*)"/g)];
+  const imgMatches = [
+    ...html.matchAll(/<img[^>]*alt="([^"]*)"[^>]*src="([^"]*)"/g),
+  ];
   imgMatches.forEach((match) => {
     const [, alt, src] = match;
     if (src && !src.includes('data:image')) {
       content.sections.push({
         type: 'image',
         alt: alt,
-        src: src.startsWith('http') ? src : `${BASE_URL}${src}`
+        src: src.startsWith('http') ? src : `${BASE_URL}${src}`,
       });
     }
   });
@@ -132,16 +138,16 @@ async function scrapePages() {
       const url = `${BASE_URL}${page.path}`;
       const html = await fetchHTML(url);
       const content = extractContent(html, page.name);
-      
+
       // Save to file
       const outputPath = path.join(OUTPUT_DIR, `${page.name}.json`);
       fs.writeFileSync(outputPath, JSON.stringify(content, null, 2));
-      
+
       console.log(`✅ Saved to ${outputPath}`);
       results.push(content);
-      
+
       // Be nice to the server
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     } catch (error) {
       console.error(`❌ Error scraping ${page.path}:`, error.message);
     }

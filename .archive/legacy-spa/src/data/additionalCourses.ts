@@ -13,8 +13,10 @@ export const buildingTechCourse: Course = {
   id: 'building-tech-2025',
   title: 'Building Technology & Construction Fundamentals',
   slug: 'building-technology',
-  description: 'NCCER-certified construction training covering carpentry, electrical, plumbing, and HVAC basics',
-  longDescription: 'Launch your construction career with comprehensive training in building trades. Learn carpentry, electrical systems, plumbing, HVAC, and construction safety. NCCER certification included.',
+  description:
+    'NCCER-certified construction training covering carpentry, electrical, plumbing, and HVAC basics',
+  longDescription:
+    'Launch your construction career with comprehensive training in building trades. Learn carpentry, electrical systems, plumbing, HVAC, and construction safety. NCCER certification included.',
   category: 'Skilled Trades',
   level: 'beginner',
   duration: 240,
@@ -53,7 +55,8 @@ export const buildingTechCourse: Course = {
     id: 'cert-building-001',
     name: 'NCCER Core Curriculum Certificate',
     issuer: 'Elevate for Humanity / NCCER',
-    description: 'Nationally recognized construction fundamentals certification',
+    description:
+      'Nationally recognized construction fundamentals certification',
     requirements: [
       'Complete 240 hours of training',
       'Pass NCCER written exams',
@@ -72,8 +75,10 @@ export const healthcareFundamentalsCourse: Course = {
   id: 'healthcare-fundamentals-2025',
   title: 'Healthcare Fundamentals & Medical Terminology',
   slug: 'healthcare-fundamentals',
-  description: 'Essential healthcare knowledge including medical terminology, anatomy, and patient care basics',
-  longDescription: 'Build a strong foundation for any healthcare career. Learn medical terminology, basic anatomy and physiology, infection control, and healthcare systems. Perfect preparation for advanced healthcare training.',
+  description:
+    'Essential healthcare knowledge including medical terminology, anatomy, and patient care basics',
+  longDescription:
+    'Build a strong foundation for any healthcare career. Learn medical terminology, basic anatomy and physiology, infection control, and healthcare systems. Perfect preparation for advanced healthcare training.',
   category: 'Healthcare',
   level: 'beginner',
   duration: 80,
@@ -127,8 +132,10 @@ export const taxPreparationCourse: Course = {
   id: 'tax-prep-2025',
   title: 'Professional Tax Preparation & IRS Certification',
   slug: 'tax-preparation',
-  description: 'Comprehensive tax preparation training with IRS Annual Filing Season Program certification',
-  longDescription: 'Become a professional tax preparer with IRS certification. Learn individual and business tax preparation, tax law, ethics, and practice management. Start your own tax business or work for established firms.',
+  description:
+    'Comprehensive tax preparation training with IRS Annual Filing Season Program certification',
+  longDescription:
+    'Become a professional tax preparer with IRS certification. Learn individual and business tax preparation, tax law, ethics, and practice management. Start your own tax business or work for established firms.',
   category: 'Business & Finance',
   level: 'intermediate',
   duration: 120,
@@ -174,7 +181,13 @@ export const taxPreparationCourse: Course = {
       'Obtain PTIN (Preparer Tax ID)',
     ],
   },
-  tags: ['tax-preparation', 'accounting', 'irs', 'business', 'entrepreneurship'],
+  tags: [
+    'tax-preparation',
+    'accounting',
+    'irs',
+    'business',
+    'entrepreneurship',
+  ],
 };
 
 // ============================================
@@ -185,8 +198,10 @@ export const cprFirstAidCourse: Course = {
   id: 'cpr-first-aid-2025',
   title: 'CPR, AED & First Aid Certification',
   slug: 'cpr-first-aid',
-  description: 'American Heart Association CPR/AED and First Aid certification for healthcare providers and general public',
-  longDescription: 'Learn life-saving skills with AHA-certified CPR, AED, and First Aid training. Covers adult, child, and infant CPR, choking relief, and emergency response. Required for many healthcare and childcare positions.',
+  description:
+    'American Heart Association CPR/AED and First Aid certification for healthcare providers and general public',
+  longDescription:
+    'Learn life-saving skills with AHA-certified CPR, AED, and First Aid training. Covers adult, child, and infant CPR, choking relief, and emergency response. Required for many healthcare and childcare positions.',
   category: 'Healthcare',
   level: 'beginner',
   duration: 8,
@@ -205,10 +220,7 @@ export const cprFirstAidCourse: Course = {
       '12+ years ER experience',
     ],
   },
-  prerequisites: [
-    'Must be 11 years or older',
-    'No prior experience required',
-  ],
+  prerequisites: ['Must be 11 years or older', 'No prior experience required'],
   learningOutcomes: [
     'Perform high-quality CPR for adults, children, and infants',
     'Use an AED (Automated External Defibrillator)',
@@ -222,7 +234,8 @@ export const cprFirstAidCourse: Course = {
     id: 'cert-cpr-001',
     name: 'AHA CPR/AED & First Aid Certification',
     issuer: 'American Heart Association',
-    description: 'Nationally recognized CPR and First Aid certification valid for 2 years',
+    description:
+      'Nationally recognized CPR and First Aid certification valid for 2 years',
     requirements: [
       'Complete 8 hours of training',
       'Pass skills assessment',
@@ -240,8 +253,10 @@ export const socialMediaMarketingCourse: Course = {
   id: 'social-media-marketing-2025',
   title: 'Social Media Marketing & Digital Strategy',
   slug: 'social-media-marketing',
-  description: 'Master social media marketing across all major platforms with content creation and analytics',
-  longDescription: 'Become a social media marketing expert. Learn strategy, content creation, paid advertising, analytics, and community management across Facebook, Instagram, TikTok, LinkedIn, and Twitter.',
+  description:
+    'Master social media marketing across all major platforms with content creation and analytics',
+  longDescription:
+    'Become a social media marketing expert. Learn strategy, content creation, paid advertising, analytics, and community management across Facebook, Instagram, TikTok, LinkedIn, and Twitter.',
   category: 'Digital Marketing',
   level: 'beginner',
   duration: 60,
@@ -278,7 +293,8 @@ export const socialMediaMarketingCourse: Course = {
     id: 'cert-smm-001',
     name: 'Social Media Marketing Professional Certificate',
     issuer: 'Elevate for Humanity',
-    description: 'Professional certification in social media marketing and strategy',
+    description:
+      'Professional certification in social media marketing and strategy',
     requirements: [
       'Complete 60 hours of training',
       'Create portfolio of campaigns',
@@ -297,8 +313,10 @@ export const webDevelopmentCourse: Course = {
   id: 'web-development-2025',
   title: 'Full-Stack Web Development Bootcamp',
   slug: 'web-development',
-  description: 'Comprehensive web development training covering HTML, CSS, JavaScript, React, and Node.js',
-  longDescription: 'Launch your web development career with hands-on training in modern web technologies. Build responsive websites and web applications using HTML, CSS, JavaScript, React, and Node.js. Portfolio projects included.',
+  description:
+    'Comprehensive web development training covering HTML, CSS, JavaScript, React, and Node.js',
+  longDescription:
+    'Launch your web development career with hands-on training in modern web technologies. Build responsive websites and web applications using HTML, CSS, JavaScript, React, and Node.js. Portfolio projects included.',
   category: 'Technology',
   level: 'beginner',
   duration: 320,
@@ -357,8 +375,10 @@ export const dataAnalyticsCourse: Course = {
   id: 'data-analytics-2025',
   title: 'Data Analytics & Business Intelligence',
   slug: 'data-analytics',
-  description: 'Master data analysis with Excel, SQL, Python, and Tableau for business intelligence',
-  longDescription: 'Become a data analyst with training in Excel, SQL, Python, and data visualization. Learn to extract insights from data, create dashboards, and drive business decisions. Google Data Analytics certification included.',
+  description:
+    'Master data analysis with Excel, SQL, Python, and Tableau for business intelligence',
+  longDescription:
+    'Become a data analyst with training in Excel, SQL, Python, and data visualization. Learn to extract insights from data, create dashboards, and drive business decisions. Google Data Analytics certification included.',
   category: 'Technology',
   level: 'intermediate',
   duration: 180,
@@ -397,7 +417,8 @@ export const dataAnalyticsCourse: Course = {
     id: 'cert-data-001',
     name: 'Data Analytics Professional Certificate',
     issuer: 'Elevate for Humanity / Google',
-    description: 'Professional certification in data analytics and business intelligence',
+    description:
+      'Professional certification in data analytics and business intelligence',
     requirements: [
       'Complete 180 hours of training',
       'Pass Google Data Analytics exam',
@@ -416,8 +437,10 @@ export const businessManagementCourse: Course = {
   id: 'business-management-2025',
   title: 'Small Business Management & Entrepreneurship',
   slug: 'business-management',
-  description: 'Complete business management training covering operations, finance, marketing, and leadership',
-  longDescription: 'Start and grow your own business with comprehensive training in business planning, financial management, marketing, operations, and leadership. Includes business plan development and mentorship.',
+  description:
+    'Complete business management training covering operations, finance, marketing, and leadership',
+  longDescription:
+    'Start and grow your own business with comprehensive training in business planning, financial management, marketing, operations, and leadership. Includes business plan development and mentorship.',
   category: 'Business & Finance',
   level: 'intermediate',
   duration: 100,
@@ -455,7 +478,8 @@ export const businessManagementCourse: Course = {
     id: 'cert-business-001',
     name: 'Small Business Management Certificate',
     issuer: 'Elevate for Humanity',
-    description: 'Professional certification in small business management and entrepreneurship',
+    description:
+      'Professional certification in small business management and entrepreneurship',
     requirements: [
       'Complete 100 hours of training',
       'Develop complete business plan',
@@ -463,7 +487,13 @@ export const businessManagementCourse: Course = {
       'Present business pitch',
     ],
   },
-  tags: ['business', 'entrepreneurship', 'management', 'small-business', 'startup'],
+  tags: [
+    'business',
+    'entrepreneurship',
+    'management',
+    'small-business',
+    'startup',
+  ],
 };
 
 // Export all additional courses

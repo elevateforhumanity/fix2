@@ -3,6 +3,7 @@
 ## Quick Setup & Test (5 Minutes)
 
 ### 1. **Deploy Webhook Server**
+
 ```bash
 # Run the deployment script
 ./deploy-webhook.sh
@@ -14,6 +15,7 @@ npm start
 ```
 
 ### 2. **Configure Stripe Webhook**
+
 ```bash
 # In Stripe Dashboard > Developers > Webhooks
 # Add endpoint: https://your-domain.com/webhook
@@ -24,6 +26,7 @@ stripe listen --forward-to localhost:4242/webhook
 ```
 
 ### 3. **Test Payment Flow**
+
 ```bash
 # Use Stripe test card: 4242 4242 4242 4242
 # Any future date, any CVC
@@ -35,6 +38,7 @@ stripe listen --forward-to localhost:4242/webhook
 ## 🔍 Testing Checklist
 
 ### ✅ **Webhook Functionality**
+
 - [ ] Server starts without errors
 - [ ] Health check responds: `GET /health`
 - [ ] Webhook receives Stripe events
@@ -42,6 +46,7 @@ stripe listen --forward-to localhost:4242/webhook
 - [ ] Files are stored in `/licenses` directory
 
 ### ✅ **Email Delivery**
+
 - [ ] Email credentials configured
 - [ ] Test email sends successfully
 - [ ] License key appears in email
@@ -49,12 +54,14 @@ stripe listen --forward-to localhost:4242/webhook
 - [ ] Professional formatting
 
 ### ✅ **License Validation**
+
 - [ ] License validation endpoint works: `GET /validate/LICENSE-KEY`
 - [ ] Valid licenses return correct data
 - [ ] Invalid licenses return 404
 - [ ] Expired licenses are handled
 
 ### ✅ **Analytics Tracking**
+
 - [ ] Sales are logged to CSV
 - [ ] Analytics endpoint works: `GET /analytics`
 - [ ] Revenue calculations are correct
@@ -65,12 +72,14 @@ stripe listen --forward-to localhost:4242/webhook
 ## 🧪 Test Commands
 
 ### **1. Health Check**
+
 ```bash
 curl http://localhost:4242/health
 # Expected: {"status":"healthy","timestamp":"...","uptime":123}
 ```
 
 ### **2. Test License Validation**
+
 ```bash
 # First, create a test license file
 echo '{"key":"TEST-LICENSE-123","productName":"Test Product","status":"active"}' > licenses/TEST-LICENSE-123.json
@@ -81,12 +90,14 @@ curl http://localhost:4242/validate/TEST-LICENSE-123
 ```
 
 ### **3. View Analytics**
+
 ```bash
 curl http://localhost:4242/analytics
 # Expected: {"totalSales":0,"totalRevenue":0,"productBreakdown":{},...}
 ```
 
 ### **4. Test Webhook with Stripe CLI**
+
 ```bash
 # Install Stripe CLI: https://stripe.com/docs/stripe-cli
 stripe login
@@ -101,6 +112,7 @@ stripe trigger checkout.session.completed
 ## 🐛 Troubleshooting
 
 ### **Webhook Not Receiving Events**
+
 ```bash
 # Check webhook URL in Stripe Dashboard
 # Verify endpoint is publicly accessible
@@ -109,6 +121,7 @@ stripe trigger checkout.session.completed
 ```
 
 ### **Email Not Sending**
+
 ```bash
 # Test email credentials
 node -e "
@@ -127,6 +140,7 @@ transporter.sendMail({
 ```
 
 ### **License Files Not Created**
+
 ```bash
 # Check directory permissions
 ls -la licenses/
@@ -135,6 +149,7 @@ chmod 755 licenses/
 ```
 
 ### **Analytics Not Working**
+
 ```bash
 # Check CSV file exists and is writable
 ls -la licenses/master-log.csv
@@ -147,6 +162,7 @@ echo "$(date -Iseconds),TEST-123,test@example.com,Test Product,99" >> licenses/m
 ## 📊 Sample Test Data
 
 ### **Test License JSON**
+
 ```json
 {
   "key": "ELV-TEST-12345-ABCD",
@@ -165,6 +181,7 @@ echo "$(date -Iseconds),TEST-123,test@example.com,Test Product,99" >> licenses/m
 ```
 
 ### **Test Stripe Event**
+
 ```json
 {
   "type": "checkout.session.completed",
@@ -186,6 +203,7 @@ echo "$(date -Iseconds),TEST-123,test@example.com,Test Product,99" >> licenses/m
 ## 🚀 Production Deployment
 
 ### **1. Environment Setup**
+
 ```bash
 # Production environment variables
 NODE_ENV=production
@@ -195,12 +213,14 @@ STRIPE_WEBHOOK_SECRET=whsec_your_live_secret
 ```
 
 ### **2. SSL Certificate**
+
 ```bash
 # Use Let's Encrypt for free SSL
 sudo certbot --nginx -d your-domain.com
 ```
 
 ### **3. Process Management**
+
 ```bash
 # Use PM2 for production
 npm install -g pm2
@@ -210,6 +230,7 @@ pm2 save
 ```
 
 ### **4. Monitoring**
+
 ```bash
 # Monitor logs
 pm2 logs elevate-webhook
@@ -226,16 +247,21 @@ pm2 restart elevate-webhook
 ## 📈 Performance Optimization
 
 ### **1. Rate Limiting**
+
 ```javascript
 // Add to webhook.js
 const rateLimit = require('express-rate-limit');
-app.use('/webhook', rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
-}));
+app.use(
+  '/webhook',
+  rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+  })
+);
 ```
 
 ### **2. Database Upgrade**
+
 ```javascript
 // Replace JSON files with MongoDB/PostgreSQL
 const mongoose = require('mongoose');
@@ -248,6 +274,7 @@ const License = mongoose.model('License', {
 ```
 
 ### **3. File Storage**
+
 ```javascript
 // Use AWS S3 for file storage
 const AWS = require('aws-sdk');

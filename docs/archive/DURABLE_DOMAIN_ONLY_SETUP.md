@@ -1,4 +1,5 @@
 # DURABLE.CO - DOMAIN NAME ONLY
+
 **Purpose:** Use Durable.co ONLY for domain registration/DNS
 **Status:** ✅ CRYSTAL CLEAR
 
@@ -7,6 +8,7 @@
 ## 🎯 THE SETUP
 
 ### What You Want:
+
 ```
 1. Buy domain at Durable.co: elevateforhumanity.org
 2. Point domain to Netlify
@@ -20,10 +22,12 @@
 ## 🌐 DNS CONFIGURATION IN DURABLE.CO
 
 ### Step 1: Login to Durable.co
+
 1. Go to: https://durable.co
 2. Login to your account
 
 ### Step 2: Access Domain Settings
+
 1. Go to **Domains** or **Domain Management**
 2. Find: `elevateforhumanity.org`
 3. Click **Manage DNS** or **DNS Settings**
@@ -33,6 +37,7 @@
 **Remove Durable.co hosting, add Netlify DNS:**
 
 #### A Records (IPv4):
+
 ```
 Type: A
 Name: @
@@ -41,6 +46,7 @@ TTL: 3600
 ```
 
 #### AAAA Records (IPv6):
+
 ```
 Type: AAAA
 Name: @
@@ -49,6 +55,7 @@ TTL: 3600
 ```
 
 #### CNAME Record (www):
+
 ```
 Type: CNAME
 Name: www
@@ -57,6 +64,7 @@ TTL: 3600
 ```
 
 ### Step 4: Save Changes
+
 - Click **Save** or **Update DNS**
 - Wait 5-10 minutes for changes to propagate
 
@@ -75,6 +83,7 @@ TTL: 3600
 ### Step 2: Verify DNS
 
 Netlify will show:
+
 ```
 ✅ DNS configured correctly
 ✅ Domain verified
@@ -86,6 +95,7 @@ Wait 5-10 minutes for SSL.
 ### Step 3: Enable HTTPS
 
 Netlify automatically:
+
 - ✅ Provisions Let's Encrypt SSL certificate
 - ✅ Enables HTTPS
 - ✅ Redirects HTTP → HTTPS
@@ -101,6 +111,7 @@ Should show your Netlify site!
 ## 📋 WHAT DURABLE.CO DOES
 
 ### Durable.co Role:
+
 ```
 ✅ Domain registrar (you bought domain there)
 ✅ DNS hosting (manages DNS records)
@@ -110,6 +121,7 @@ Should show your Netlify site!
 ```
 
 ### Think of it like:
+
 ```
 Durable.co = Phone book (DNS)
 Netlify = Your actual house (hosting)
@@ -136,6 +148,7 @@ USER SEES: Your site at elevateforhumanity.org
 ```
 
 ### Two Separate Systems:
+
 ```
 System 1: Durable.co
 - Purpose: Domain registrar + DNS
@@ -153,12 +166,14 @@ System 2: Netlify
 ## 🔍 VERIFICATION
 
 ### Check DNS Propagation:
+
 1. Go to: https://dnschecker.org
 2. Enter: `elevateforhumanity.org`
 3. Select: **A Record**
 4. Should show: `75.2.60.5` (Netlify IP)
 
 ### Check Domain:
+
 ```bash
 # Command line check
 dig elevateforhumanity.org
@@ -169,6 +184,7 @@ elevateforhumanity.org. 3600 IN A 75.2.60.5
 ```
 
 ### Check Website:
+
 1. Visit: https://elevateforhumanity.org
 2. Should show: Your Netlify LMS
 3. SSL: Should be secure (🔒)
@@ -178,9 +194,11 @@ elevateforhumanity.org. 3600 IN A 75.2.60.5
 ## 📝 MANUAL INJECTION (After Deploy)
 
 ### What You Said:
+
 > "I'll manually inject the site once it deploys"
 
 ### What This Means:
+
 After Netlify deploys your site to `elevateforhumanity.org`, you can:
 
 1. **Edit content** in your Netlify site
@@ -194,6 +212,7 @@ After Netlify deploys your site to `elevateforhumanity.org`, you can:
 ## 💰 COSTS
 
 ### Durable.co:
+
 ```
 Domain registration: ~$12-15/year
 DNS hosting: Usually included free
@@ -201,6 +220,7 @@ Total: ~$12-15/year
 ```
 
 ### Netlify:
+
 ```
 Hosting: FREE (up to 100GB bandwidth)
 SSL: FREE (Let's Encrypt)
@@ -209,6 +229,7 @@ Total: $0/month
 ```
 
 ### Total Cost:
+
 ```
 ~$12-15/year (just domain registration)
 ```
@@ -230,6 +251,7 @@ Total: $0/month
 3. **Cancel Durable.co account**
 
 ### Why Transfer:
+
 - ✅ One less account to manage
 - ✅ Potentially cheaper
 - ✅ Better DNS management tools
@@ -240,6 +262,7 @@ Total: $0/month
 ## 📊 COMPARISON
 
 ### Option A: Keep Domain at Durable (What you're doing)
+
 ```
 Domain Registrar: Durable.co
 DNS Hosting: Durable.co
@@ -257,6 +280,7 @@ Cons:
 ```
 
 ### Option B: Transfer Domain Away
+
 ```
 Domain Registrar: Namecheap/Cloudflare/etc
 DNS Hosting: Cloudflare/Registrar
@@ -278,6 +302,7 @@ Cons:
 ## ✅ FINAL CHECKLIST
 
 ### In Durable.co:
+
 - [ ] Login to Durable.co
 - [ ] Go to DNS settings for elevateforhumanity.org
 - [ ] Add A record: @ → 75.2.60.5
@@ -286,6 +311,7 @@ Cons:
 - [ ] Save changes
 
 ### In Netlify:
+
 - [ ] Go to domain settings
 - [ ] Add custom domain: elevateforhumanity.org
 - [ ] Verify DNS
@@ -293,6 +319,7 @@ Cons:
 - [ ] Test HTTPS
 
 ### Verification:
+
 - [ ] Check DNS propagation (dnschecker.org)
 - [ ] Visit elevateforhumanity.org
 - [ ] Verify SSL works (🔒)
@@ -303,6 +330,7 @@ Cons:
 ## 🎯 SUMMARY
 
 ### What Durable.co Does:
+
 ```
 ✅ Holds your domain registration
 ✅ Provides DNS hosting
@@ -312,6 +340,7 @@ Cons:
 ```
 
 ### What Netlify Does:
+
 ```
 ✅ Hosts your website
 ✅ Serves content
@@ -321,6 +350,7 @@ Cons:
 ```
 
 ### How They Work Together:
+
 ```
 1. User types: elevateforhumanity.org
 2. DNS (Durable) says: "Go to 75.2.60.5"
@@ -330,6 +360,7 @@ Cons:
 ```
 
 ### Result:
+
 ```
 ✅ Domain: elevateforhumanity.org (registered at Durable)
 ✅ Hosting: Netlify
@@ -343,18 +374,21 @@ Cons:
 ## 📞 SUPPORT
 
 ### If DNS doesn't work:
+
 1. Wait 24-48 hours for full propagation
 2. Check DNS records in Durable.co dashboard
 3. Verify A record: 75.2.60.5
 4. Verify CNAME: elevateproduction.netlify.app
 
 ### If SSL doesn't work:
+
 1. Wait 10-15 minutes after DNS propagation
 2. Check Netlify domain settings
 3. Click "Verify DNS configuration"
 4. Netlify will auto-provision SSL
 
 ### If site doesn't load:
+
 1. Check Netlify deployment status
 2. Verify build succeeded
 3. Check DNS propagation
@@ -372,7 +406,7 @@ Cons:
 
 ---
 
-*Durable.co: Just the domain name*  
-*Netlify: Everything else*  
-*No injection needed*  
-*Just DNS pointing*
+_Durable.co: Just the domain name_  
+_Netlify: Everything else_  
+_No injection needed_  
+_Just DNS pointing_

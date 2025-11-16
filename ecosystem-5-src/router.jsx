@@ -1,14 +1,14 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import DonatePage from "./pages/DonatePage";
-import Government from "./pages/Government";
-import Philanthropy from "./pages/Philanthropy";
-import StudentHub from "./pages/StudentHub";
-import BusinessHub from "./pages/BusinessHub";
-import CommunityHub from "./pages/CommunityHub";
-import EducatorHub from "./pages/EducatorHub";
-import NotFound from "./pages/NotFound";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import DonatePage from './pages/DonatePage';
+import Government from './pages/Government';
+import Philanthropy from './pages/Philanthropy';
+import StudentHub from './pages/StudentHub';
+import BusinessHub from './pages/BusinessHub';
+import CommunityHub from './pages/CommunityHub';
+import EducatorHub from './pages/EducatorHub';
+import NotFound from './pages/NotFound';
 
 export default function AppRouter() {
   return (

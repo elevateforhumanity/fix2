@@ -137,7 +137,6 @@ export default function UnenrollPolicyPanel() {
       <p style={{ color: 'var(--brand-text-muted)', marginBottom: '2rem' }}>
         Configure automatic unenrollment for inactive users
       </p>
-
       {/* Message */}
       {message && (
         <div
@@ -153,7 +152,6 @@ export default function UnenrollPolicyPanel() {
           {message.text}
         </div>
       )}
-
       {/* Policy Form */}
       <div
         style={{
@@ -189,7 +187,6 @@ export default function UnenrollPolicyPanel() {
             Master switch to enable/disable automatic unenrollment
           </p>
         </div>
-
         {/* Dry Run Mode */}
         <div style={{ marginBottom: '1.5rem' }}>
           <label
@@ -215,7 +212,6 @@ export default function UnenrollPolicyPanel() {
             testing)
           </p>
         </div>
-
         {/* Grace Period */}
         <div style={{ marginBottom: '1.5rem' }}>
           <label
@@ -250,7 +246,6 @@ export default function UnenrollPolicyPanel() {
             Days of inactivity before unenrolling a user
           </p>
         </div>
-
         {/* Protected Domains */}
         <div style={{ marginBottom: '1.5rem' }}>
           <label
@@ -286,7 +281,6 @@ export default function UnenrollPolicyPanel() {
             Email domains that should never be auto-unenrolled (one per line)
           </p>
         </div>
-
         {/* Protected Emails */}
         <div style={{ marginBottom: '1.5rem' }}>
           <label
@@ -322,7 +316,6 @@ export default function UnenrollPolicyPanel() {
             Specific emails that should never be auto-unenrolled (one per line)
           </p>
         </div>
-
         {/* Save Button */}
         <button
           onClick={handleSave}
@@ -341,7 +334,6 @@ export default function UnenrollPolicyPanel() {
           {saving ? 'Saving...' : 'Save Policy'}
         </button>
       </div>
-
       {/* Preview Candidates */}
       <div style={{ marginBottom: '2rem' }}>
         <button
@@ -358,7 +350,6 @@ export default function UnenrollPolicyPanel() {
         >
           Preview Unenroll Candidates
         </button>
-
         {showCandidates && (
           <div>
             <h3>Unenroll Candidates ({candidates.length})</h3>
@@ -429,7 +420,6 @@ export default function UnenrollPolicyPanel() {
           </div>
         )}
       </div>
-
       {/* Current Status */}
       {policy && (
         <div

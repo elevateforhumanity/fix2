@@ -11,8 +11,25 @@ import DOMPurify from 'dompurify';
 export function sanitizeHTML(dirty: string): string {
   return DOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
-      'p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-      'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre',
+      'p',
+      'br',
+      'strong',
+      'em',
+      'u',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'ul',
+      'ol',
+      'li',
+      'a',
+      'img',
+      'blockquote',
+      'code',
+      'pre',
     ],
     ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class'],
     ALLOW_DATA_ATTR: false,
@@ -54,7 +71,8 @@ export function isValidURL(url: string): boolean {
  * Validate phone number (US format)
  */
 export function isValidPhone(phone: string): boolean {
-  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+  const phoneRegex =
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
   return phoneRegex.test(phone);
 }
 
@@ -64,7 +82,9 @@ export function isValidPhone(phone: string): boolean {
 export function generateSecureToken(length: number = 32): string {
   const array = new Uint8Array(length);
   crypto.getRandomValues(array);
-  return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+  return Array.from(array, (byte) => byte.toString(16).padStart(2, '0')).join(
+    ''
+  );
 }
 
 /**
@@ -75,7 +95,7 @@ export async function hashString(str: string): Promise<string> {
   const data = encoder.encode(str);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 /**
@@ -97,14 +117,16 @@ export class RateLimiter {
   isAllowed(key: string): boolean {
     const now = Date.now();
     const attempts = this.attempts.get(key) || [];
-    
+
     // Remove old attempts outside the window
-    const recentAttempts = attempts.filter(time => now - time < this.windowMs);
-    
+    const recentAttempts = attempts.filter(
+      (time) => now - time < this.windowMs
+    );
+
     if (recentAttempts.length >= this.maxAttempts) {
       return false;
     }
-    
+
     recentAttempts.push(now);
     this.attempts.set(key, recentAttempts);
     return true;
@@ -123,7 +145,9 @@ export class RateLimiter {
   getRemainingAttempts(key: string): number {
     const now = Date.now();
     const attempts = this.attempts.get(key) || [];
-    const recentAttempts = attempts.filter(time => now - time < this.windowMs);
+    const recentAttempts = attempts.filter(
+      (time) => now - time < this.windowMs
+    );
     return Math.max(0, this.maxAttempts - recentAttempts.length);
   }
 
@@ -133,7 +157,7 @@ export class RateLimiter {
   getTimeUntilReset(key: string): number {
     const attempts = this.attempts.get(key) || [];
     if (attempts.length === 0) return 0;
-    
+
     const oldestAttempt = Math.min(...attempts);
     const resetTime = oldestAttempt + this.windowMs;
     return Math.max(0, resetTime - Date.now());
@@ -249,7 +273,9 @@ export function validatePasswordStrength(password: string): {
 
   // Common password check
   const commonPasswords = ['password', '123456', 'qwerty', 'admin', 'letmein'];
-  if (commonPasswords.some(common => password.toLowerCase().includes(common))) {
+  if (
+    commonPasswords.some((common) => password.toLowerCase().includes(common))
+  ) {
     score = 0;
     feedback.push('Password is too common');
   }
@@ -269,7 +295,9 @@ export class SecureStorage {
     // Simple XOR encryption (for demo - use proper encryption in production)
     let result = '';
     for (let i = 0; i < data.length; i++) {
-      result += String.fromCharCode(data.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      result += String.fromCharCode(
+        data.charCodeAt(i) ^ key.charCodeAt(i % key.length)
+      );
     }
     return btoa(result);
   }
@@ -278,14 +306,16 @@ export class SecureStorage {
     const decoded = atob(data);
     let result = '';
     for (let i = 0; i < decoded.length; i++) {
-      result += String.fromCharCode(decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      result += String.fromCharCode(
+        decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length)
+      );
     }
     return result;
   }
 
   static setItem(key: string, value: any, encryptionKey?: string): void {
     const stringValue = JSON.stringify(value);
-    const finalValue = encryptionKey 
+    const finalValue = encryptionKey
       ? this.encrypt(stringValue, encryptionKey)
       : stringValue;
     localStorage.setItem(key, finalValue);
@@ -296,7 +326,7 @@ export class SecureStorage {
     if (!value) return null;
 
     try {
-      const decrypted = encryptionKey 
+      const decrypted = encryptionKey
         ? this.decrypt(value, encryptionKey)
         : value;
       return JSON.parse(decrypted);
@@ -321,7 +351,7 @@ export const validators = {
   email: isValidEmail,
   url: isValidURL,
   phone: isValidPhone,
-  
+
   required: (value: any): boolean => {
     return value !== null && value !== undefined && value !== '';
   },

@@ -184,7 +184,7 @@ export default function PageManager() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
       </div>
     );
   }
@@ -197,7 +197,6 @@ export default function PageManager() {
           Manage, edit, and publish your AI-generated pages
         </p>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Pages List */}
         <div className="lg:col-span-1">
@@ -207,7 +206,6 @@ export default function PageManager() {
                 All Pages ({pages.length})
               </h2>
             </div>
-
             <div className="divide-y divide-gray-200">
               {pages.length === 0 ? (
                 <div className="p-6 text-center text-brand-text-light">
@@ -247,7 +245,6 @@ export default function PageManager() {
             </div>
           </div>
         </div>
-
         {/* Page Details */}
         <div className="lg:col-span-2">
           {selectedPage ? (
@@ -269,7 +266,6 @@ export default function PageManager() {
                     {selectedPage.status}
                   </span>
                 </div>
-
                 <div className="flex flex-wrap gap-3">
                   {selectedPage.status === 'draft' && (
                     <button
@@ -310,7 +306,6 @@ export default function PageManager() {
                     Delete
                   </button>
                 </div>
-
                 {selectedPage.published_at && (
                   <div className="mt-4 text-sm text-brand-text-muted">
                     Published:{' '}
@@ -318,7 +313,6 @@ export default function PageManager() {
                   </div>
                 )}
               </div>
-
               {/* Edit Mode */}
               {editMode ? (
                 <div className="bg-white rounded-lg shadow-md p-6">
@@ -364,7 +358,6 @@ export default function PageManager() {
                   />
                 </div>
               )}
-
               {/* Version History */}
               {versions.length > 0 && (
                 <div className="bg-white rounded-lg shadow-md p-6">

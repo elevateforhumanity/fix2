@@ -3,11 +3,13 @@
 ## Current Setup (Correct Architecture)
 
 ### Marketing Site (Durablesites.co)
+
 - **www.elevateforhumanity.org** → Marketing/public website
 - Hosted on: Durablesites.co
 - Purpose: Public-facing marketing, information, lead generation
 
 ### LMS Platform (Netlify - This Repository)
+
 - **Should be on**: `lms.elevateforhumanity.org` or `app.elevateforhumanity.org`
 - Hosted on: Netlify
 - Purpose: Learning Management System, courses, student portal
@@ -29,6 +31,7 @@ admin.elevateforhumanity.org        → Admin portal (if needed separately)
 ## Option 1: Use lms.elevateforhumanity.org (Recommended)
 
 ### Benefits
+
 - Clear separation: marketing vs application
 - Users understand they're in the learning platform
 - SEO: Both sites can rank independently
@@ -105,6 +108,7 @@ This is already configured in DNS, so no changes needed.
 This is the cleanest architecture:
 
 ### Final Domain Structure
+
 ```
 www.elevateforhumanity.org          → Marketing (Durablesites.co)
 lms.elevateforhumanity.org          → LMS Platform (Netlify)
@@ -114,6 +118,7 @@ elevateconnectsdirectory.org        → Redirect to lms.elevateforhumanity.org
 ### DNS Configuration
 
 **elevateforhumanity.org**:
+
 ```
 Type   Name   Content                                      Priority
 A      @      172.66.0.42                                  -
@@ -125,6 +130,7 @@ TXT    @      google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsieg
 ```
 
 **elevateconnectsdirectory.org** (redirect to LMS):
+
 ```
 Type   Name   Content                          Priority
 A      @      75.2.60.5                        -
@@ -164,6 +170,7 @@ CNAME  www    elevateproduction.netlify.app    -
 Contact your DNS provider or access DNS settings:
 
 **Add this record**:
+
 ```
 Type: CNAME
 Name: lms
@@ -182,18 +189,21 @@ TTL: Auto
 ### 3. Update Environment Variables (5 minutes)
 
 **GitHub Secrets**:
+
 ```
 NEXT_PUBLIC_APP_URL=https://lms.elevateforhumanity.org
 NEXT_PUBLIC_SITE_URL=https://lms.elevateforhumanity.org
 ```
 
 **Netlify Environment Variables**:
+
 ```
 NEXT_PUBLIC_APP_URL=https://lms.elevateforhumanity.org
 NEXT_PUBLIC_SITE_URL=https://lms.elevateforhumanity.org
 ```
 
 **Local .env.local**:
+
 ```
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
@@ -216,12 +226,14 @@ git push
 ## User Journey
 
 ### Marketing Site (www.elevateforhumanity.org)
+
 1. User visits marketing site
 2. Learns about programs
 3. Clicks "Enroll Now" or "Login"
 4. Redirected to `lms.elevateforhumanity.org`
 
 ### LMS Platform (lms.elevateforhumanity.org)
+
 1. User logs in
 2. Browses courses
 3. Enrolls in programs
@@ -229,6 +241,7 @@ git push
 5. Downloads certificates
 
 ### Navigation Between Sites
+
 - Marketing site has link: "Access LMS" → `https://lms.elevateforhumanity.org`
 - LMS has link: "Back to Main Site" → `https://www.elevateforhumanity.org`
 
@@ -237,16 +250,19 @@ git push
 ## SEO Considerations
 
 ### Marketing Site (www.elevateforhumanity.org)
+
 - Focus: Brand awareness, program information, lead generation
 - Keywords: "workforce training", "career development", "WIOA programs"
 - Content: Blog posts, program descriptions, testimonials
 
 ### LMS Platform (lms.elevateforhumanity.org)
+
 - Focus: Application functionality, course content
 - Keywords: "online learning", "course portal", "student dashboard"
 - Content: Course pages, lesson content, resources
 
 ### Benefits of Subdomain
+
 - ✅ Both sites can rank independently
 - ✅ Clear separation of concerns
 - ✅ Marketing site can be optimized for conversions
@@ -258,17 +274,20 @@ git push
 ## Quick Decision Guide
 
 **Use `lms.elevateforhumanity.org` if**:
+
 - ✅ You want clear separation between marketing and application
 - ✅ You want both sites to rank in search engines
 - ✅ You want professional subdomain structure
 - ✅ You plan to keep marketing site on Durablesites.co
 
 **Use `elevateconnectsdirectory.org` if**:
+
 - You want a completely separate domain for LMS
 - You don't mind managing two domains
 - You want to rebrand the LMS separately
 
 **My Recommendation**: Use `lms.elevateforhumanity.org`
+
 - Professional
 - Clear purpose
 - Easy to remember

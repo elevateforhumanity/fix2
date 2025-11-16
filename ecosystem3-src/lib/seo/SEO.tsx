@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import { orgJsonLd, websiteJsonLd } from "./jsonld";
+import { Helmet } from 'react-helmet-async';
+import { orgJsonLd, websiteJsonLd } from './jsonld';
 
 interface SEOProps {
   title?: string;
@@ -9,18 +9,18 @@ interface SEOProps {
   image?: string;
 }
 
-const siteUrl = import.meta.env.VITE_SITE_URL || "";
-const defaultTitle = import.meta.env.VITE_SITE_DEFAULT_TITLE || "";
-const defaultDesc = import.meta.env.VITE_SITE_DEFAULT_DESC || "";
-const defaultImage = import.meta.env.VITE_SITE_OG_IMAGE || "";
-const twitter = import.meta.env.VITE_SITE_TWITTER || "";
+const siteUrl = import.meta.env.VITE_SITE_URL || '';
+const defaultTitle = import.meta.env.VITE_SITE_DEFAULT_TITLE || '';
+const defaultDesc = import.meta.env.VITE_SITE_DEFAULT_DESC || '';
+const defaultImage = import.meta.env.VITE_SITE_OG_IMAGE || '';
+const twitter = import.meta.env.VITE_SITE_TWITTER || '';
 
 export function SEO({
   title,
   description,
   canonical,
   noindex,
-  image
+  image,
 }: SEOProps) {
   const fullTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
   const desc = description || defaultDesc;
@@ -46,14 +46,14 @@ export function SEO({
       <meta property="og:image" content={img} />
       <meta name="twitter:card" content="summary_large_image" />
       {twitter && <meta name="twitter:site" content={twitter} />}
-      {googleVer && <meta name="google-site-verification" content={googleVer} />}
+      {googleVer && (
+        <meta name="google-site-verification" content={googleVer} />
+      )}
       {bingVer && <meta name="msvalidate.01" content={bingVer} />}
       {yandexVer && <meta name="yandex-verification" content={yandexVer} />}
       {fbVer && <meta name="facebook-domain-verification" content={fbVer} />}
       {pinVer && <meta name="p:domain_verify" content={pinVer} />}
-      <script type="application/ld+json">
-        {JSON.stringify(orgJsonLd())}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(orgJsonLd())}</script>
       <script type="application/ld+json">
         {JSON.stringify(websiteJsonLd())}
       </script>

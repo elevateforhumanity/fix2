@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { useState, useRef, useEffect } from 'react';
 
@@ -14,7 +14,7 @@ export default function ChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello! I\'m your AI assistant. How can I help you today?',
+      content: "Hello! I'm your AI assistant. How can I help you today?",
       timestamp: new Date(),
     },
   ]);
@@ -40,7 +40,7 @@ export default function ChatPage() {
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
 
@@ -67,16 +67,17 @@ export default function ChatPage() {
         timestamp: new Date(),
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please make sure your OpenAI API key is configured.',
+        content:
+          'Sorry, I encountered an error. Please make sure your OpenAI API key is configured.',
         timestamp: new Date(),
       };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
     }
@@ -94,7 +95,7 @@ export default function ChatPage() {
       {
         id: '1',
         role: 'assistant',
-        content: 'Hello! I\'m your AI assistant. How can I help you today?',
+        content: "Hello! I'm your AI assistant. How can I help you today?",
         timestamp: new Date(),
       },
     ]);
@@ -106,7 +107,9 @@ export default function ChatPage() {
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">AI Chat Assistant</h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              AI Chat Assistant
+            </h1>
             <p className="text-sm text-gray-500">Powered by GPT-4</p>
           </div>
           <button
@@ -117,7 +120,6 @@ export default function ChatPage() {
           </button>
         </div>
       </div>
-
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
         {messages.map((message) => (
@@ -140,7 +142,9 @@ export default function ChatPage() {
                   <p className="whitespace-pre-wrap">{message.content}</p>
                   <p
                     className={`text-xs mt-1 ${
-                      message.role === 'user' ? 'text-blue-100' : 'text-gray-500'
+                      message.role === 'user'
+                        ? 'text-blue-100'
+                        : 'text-gray-500'
                     }`}
                   >
                     {message.timestamp.toLocaleTimeString()}
@@ -150,7 +154,6 @@ export default function ChatPage() {
             </div>
           </div>
         ))}
-
         {isLoading && (
           <div className="flex justify-start">
             <div className="max-w-3xl rounded-lg px-4 py-3 bg-white border border-gray-200">
@@ -159,18 +162,22 @@ export default function ChatPage() {
                   🤖
                 </div>
                 <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
+                  <div
+                    className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                    style={{ animationDelay: '0.1s' }}
+                  />
+                  <div
+                    className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                    style={{ animationDelay: '0.2s' }}
+                  />
                 </div>
               </div>
             </div>
           </div>
         )}
-
         <div ref={messagesEndRef} />
       </div>
-
       {/* Input */}
       <div className="bg-white border-t border-gray-200 px-6 py-4">
         <div className="flex gap-4">
@@ -192,7 +199,8 @@ export default function ChatPage() {
           </button>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          Note: Requires OpenAI API key to be configured in environment variables
+          Note: Requires OpenAI API key to be configured in environment
+          variables
         </p>
       </div>
     </div>

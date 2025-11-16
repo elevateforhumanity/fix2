@@ -6,19 +6,15 @@ import { AppError, asyncHandler } from '../middleware/errorHandler';
 import { AuthRequest } from '../middleware/auth';
 
 const generateToken = (userId: string, email: string, role: string) => {
-  return jwt.sign(
-    { id: userId, email, role },
-    process.env.JWT_SECRET!,
-    { expiresIn: '7d' }
-  );
+  return jwt.sign({ id: userId, email, role }, process.env.JWT_SECRET!, {
+    expiresIn: '7d',
+  });
 };
 
 const generateRefreshToken = (userId: string) => {
-  return jwt.sign(
-    { id: userId },
-    process.env.JWT_REFRESH_SECRET!,
-    { expiresIn: '30d' }
-  );
+  return jwt.sign({ id: userId }, process.env.JWT_REFRESH_SECRET!, {
+    expiresIn: '30d',
+  });
 };
 
 export const register = asyncHandler(async (req: Request, res: Response) => {
@@ -149,7 +145,11 @@ export const refresh = asyncHandler(async (req: Request, res: Response) => {
       throw new AppError('Invalid or expired refresh token', 401);
     }
 
-    const newToken = generateToken(session.user.id, session.user.email, session.user.role);
+    const newToken = generateToken(
+      session.user.id,
+      session.user.email,
+      session.user.role
+    );
 
     res.json({ token: newToken });
   } catch (error) {

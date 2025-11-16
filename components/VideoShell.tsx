@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { useRef } from "react";
-import { useAutoPlayOnVisible } from "@/hooks/useAutoPlayOnVisible";
-import { useVideoProgress } from "@/hooks/useVideoProgress";
+import React, { useRef } from 'react';
+import { useAutoPlayOnVisible } from '@/hooks/useAutoPlayOnVisible';
+import { useVideoProgress } from '@/hooks/useVideoProgress';
 
 type VideoShellProps = {
   src: string;
@@ -11,7 +11,7 @@ type VideoShellProps = {
   caption?: string;
   onEnded?: () => void;
   className?: string;
-  layout?: "vertical" | "horizontal";
+  layout?: 'vertical' | 'horizontal';
   lessonId?: string | number;
   autoPlay?: boolean;
 };
@@ -22,8 +22,8 @@ export function VideoShell({
   poster,
   caption,
   onEnded,
-  className = "",
-  layout = "vertical",
+  className = '',
+  layout = 'vertical',
   lessonId,
   autoPlay = true,
 }: VideoShellProps) {
@@ -47,18 +47,18 @@ export function VideoShell({
     }
   };
 
-  const isVertical = layout === "vertical";
+  const isVertical = layout === 'vertical';
 
   return (
     <div
       className={[
-        "relative overflow-hidden shadow-2xl bg-black border border-slate-900",
-        "rounded-3xl",
+        'relative overflow-hidden shadow-2xl bg-black border border-slate-900',
+        'rounded-3xl',
         isVertical
-          ? "w-full aspect-[9/16] max-w-[420px] mx-auto sm:max-w-[460px]"
-          : "w-full max-w-5xl mx-auto aspect-video",
+          ? 'w-full aspect-[9/16] max-w-[420px] mx-auto sm:max-w-[460px]'
+          : 'w-full max-w-5xl mx-auto aspect-video',
         className,
-      ].join(" ")}
+      ].join(' ')}
     >
       {/* Video */}
       <video
@@ -71,7 +71,6 @@ export function VideoShell({
         playsInline
         controls={false}
       />
-
       {/* Top overlay with title */}
       {title && (
         <div className="pointer-events-none absolute inset-x-0 top-0 p-4">
@@ -85,7 +84,6 @@ export function VideoShell({
           </div>
         </div>
       )}
-
       {/* Bottom overlay with caption + brand chips + play button */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
         <div className="rounded-2xl bg-gradient-to-t from-black/85 via-black/50 to-transparent px-4 py-3 flex items-end justify-between gap-3">
@@ -104,7 +102,6 @@ export function VideoShell({
               </span>
             </div>
           </div>
-
           {/* Play icon button */}
           <button
             type="button"

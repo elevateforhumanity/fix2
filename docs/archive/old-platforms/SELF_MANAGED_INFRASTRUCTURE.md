@@ -5,7 +5,7 @@
 **Goal**: Build Open LMS-quality infrastructure ourselves  
 **Approach**: Modern DevOps stack with full automation  
 **Cost**: $50-$200/month (vs $3,000-$4,000/year for Open LMS)  
-**Result**: Same capabilities, 95% cost savings, full control  
+**Result**: Same capabilities, 95% cost savings, full control
 
 ---
 
@@ -130,7 +130,7 @@ services:
       context: .
       dockerfile: Dockerfile.frontend
     ports:
-      - "5173:5173"
+      - '5173:5173'
     environment:
       - VITE_API_URL=http://localhost:3000
     volumes:
@@ -144,7 +144,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       - NODE_ENV=production
       - DATABASE_URL=${DATABASE_URL}
@@ -155,7 +155,7 @@ services:
       - redis
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000/health']
       interval: 30s
       timeout: 10s
       retries: 3
@@ -164,7 +164,7 @@ services:
   postgres:
     image: postgres:15-alpine
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       - POSTGRES_DB=efh_lms
       - POSTGRES_USER=efh_user
@@ -174,7 +174,7 @@ services:
       - ./backups:/backups
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U efh_user"]
+      test: ['CMD-SHELL', 'pg_isready -U efh_user']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -183,12 +183,12 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - '6379:6379'
     volumes:
       - redis_data:/data
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ['CMD', 'redis-cli', 'ping']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -197,8 +197,8 @@ services:
   nginx:
     image: nginx:alpine
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'
+      - '443:443'
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./ssl:/etc/nginx/ssl
@@ -267,7 +267,7 @@ services:
         fromDatabase:
           name: efh-postgres
           property: connectionString
-    
+
   # Worker Service (for background jobs)
   - type: worker
     name: efh-worker
@@ -329,9 +329,7 @@ class BackupService {
     console.log('📦 Creating database backup...');
 
     // Create PostgreSQL dump
-    await execAsync(
-      `pg_dump ${this.config.databaseUrl} > ${filepath}`
-    );
+    await execAsync(`pg_dump ${this.config.databaseUrl} > ${filepath}`);
 
     console.log('✅ Database backup created:', filename);
     return filepath;
@@ -467,15 +465,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Run backup
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -485,10 +483,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: npm run backup
-      
+
       - name: Verify backup
         run: npm run backup:verify
-      
+
       - name: Notify on failure
         if: failure()
         uses: 8398a7/action-slack@v3
@@ -565,8 +563,8 @@ groups:
         labels:
           severity: critical
         annotations:
-          summary: "High error rate detected"
-          description: "Error rate is {{ $value }} errors/sec"
+          summary: 'High error rate detected'
+          description: 'Error rate is {{ $value }} errors/sec'
 
       # High response time
       - alert: HighResponseTime
@@ -575,8 +573,8 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "High response time"
-          description: "95th percentile response time is {{ $value }}s"
+          summary: 'High response time'
+          description: '95th percentile response time is {{ $value }}s'
 
       # API down
       - alert: APIDown
@@ -585,8 +583,8 @@ groups:
         labels:
           severity: critical
         annotations:
-          summary: "API is down"
-          description: "API has been down for more than 1 minute"
+          summary: 'API is down'
+          description: 'API has been down for more than 1 minute'
 
   - name: database_alerts
     interval: 30s
@@ -598,8 +596,8 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "High database connections"
-          description: "Database has {{ $value }} active connections"
+          summary: 'High database connections'
+          description: 'Database has {{ $value }} active connections'
 
       # Database down
       - alert: DatabaseDown
@@ -608,8 +606,8 @@ groups:
         labels:
           severity: critical
         annotations:
-          summary: "Database is down"
-          description: "Database has been down for more than 1 minute"
+          summary: 'Database is down'
+          description: 'Database has been down for more than 1 minute'
 
       # Low disk space
       - alert: LowDiskSpace
@@ -618,8 +616,8 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "Low disk space"
-          description: "Disk space is below 10%"
+          summary: 'Low disk space'
+          description: 'Disk space is below 10%'
 ```
 
 ### Grafana Dashboard
@@ -718,7 +716,7 @@ spec:
             - containerPort: 3000
           env:
             - name: NODE_ENV
-              value: "production"
+              value: 'production'
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
@@ -726,11 +724,11 @@ spec:
                   key: database-url
           resources:
             requests:
-              memory: "256Mi"
-              cpu: "250m"
+              memory: '256Mi'
+              cpu: '250m'
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: '512Mi'
+              cpu: '500m'
           livenessProbe:
             httpGet:
               path: /health
@@ -904,16 +902,16 @@ server {
 
 ### Monthly Costs
 
-| Service | Provider | Cost | Purpose |
-|---------|----------|------|---------|
-| Frontend Hosting | Netlify | $0 | Static site hosting |
-| API Hosting | Railway | $20-$50 | Backend API |
-| Database | Supabase | $25 | PostgreSQL + backups |
-| File Storage | Cloudflare R2 | $15 | User uploads, backups |
-| Monitoring | Grafana Cloud | $0 | Metrics, logs, alerts |
-| CI/CD | GitHub Actions | $0 | Automated deployment |
-| SSL Certificates | Let's Encrypt | $0 | HTTPS |
-| **Total** | | **$60-$90** | **Full stack** |
+| Service          | Provider       | Cost        | Purpose               |
+| ---------------- | -------------- | ----------- | --------------------- |
+| Frontend Hosting | Netlify        | $0          | Static site hosting   |
+| API Hosting      | Railway        | $20-$50     | Backend API           |
+| Database         | Supabase       | $25         | PostgreSQL + backups  |
+| File Storage     | Cloudflare R2  | $15         | User uploads, backups |
+| Monitoring       | Grafana Cloud  | $0          | Metrics, logs, alerts |
+| CI/CD            | GitHub Actions | $0          | Automated deployment  |
+| SSL Certificates | Let's Encrypt  | $0          | HTTPS                 |
+| **Total**        |                | **$60-$90** | **Full stack**        |
 
 ### Annual Costs
 
@@ -922,11 +920,11 @@ server {
 
 ### Comparison
 
-| Solution | Year 1 | 5 Years |
-|----------|--------|---------|
-| **Open LMS** | $3,000-$4,000 | $15,000-$20,000 |
-| **Self-Managed** | $720-$1,080 | $3,600-$5,400 |
-| **Savings** | **$2,000-$3,000** | **$11,400-$14,600** |
+| Solution         | Year 1            | 5 Years             |
+| ---------------- | ----------------- | ------------------- |
+| **Open LMS**     | $3,000-$4,000     | $15,000-$20,000     |
+| **Self-Managed** | $720-$1,080       | $3,600-$5,400       |
+| **Savings**      | **$2,000-$3,000** | **$11,400-$14,600** |
 
 **75-80% cost savings!**
 
@@ -935,24 +933,28 @@ server {
 ## 9. Implementation Timeline
 
 ### Week 1: Infrastructure Setup
+
 - [ ] Set up Railway/Render account
 - [ ] Configure Supabase database
 - [ ] Set up Cloudflare R2 storage
 - [ ] Configure domain and SSL
 
 ### Week 2: Docker & CI/CD
+
 - [ ] Create Dockerfiles
 - [ ] Set up docker-compose
 - [ ] Configure GitHub Actions
 - [ ] Test automated deployment
 
 ### Week 3: Monitoring & Backups
+
 - [ ] Set up Grafana Cloud
 - [ ] Configure Prometheus
 - [ ] Create backup scripts
 - [ ] Test disaster recovery
 
 ### Week 4: Security & Testing
+
 - [ ] Implement security hardening
 - [ ] Set up rate limiting
 - [ ] Configure SSL/TLS
@@ -965,6 +967,7 @@ server {
 ### What You Get
 
 ✅ **Same Capabilities**:
+
 - Managed hosting (Railway/Render)
 - Automatic backups (Supabase + scripts)
 - Monitoring (Grafana)
@@ -972,17 +975,20 @@ server {
 - SSL/TLS (Let's Encrypt)
 
 ✅ **Better Control**:
+
 - Full infrastructure access
 - Custom configurations
 - No vendor lock-in
 - Choose your own tools
 
 ✅ **Lower Cost**:
+
 - $60-$90/month vs $250-$333/month
 - 75% cheaper
 - $11,400-$14,600 saved over 5 years
 
 ✅ **Modern Stack**:
+
 - Docker containers
 - Kubernetes-ready
 - Infrastructure as code
@@ -1003,6 +1009,6 @@ server {
 
 **Timeline**: 4 weeks to full production  
 **Cost**: $60-$90/month  
-**Result**: Open LMS-quality infrastructure at 75% lower cost  
+**Result**: Open LMS-quality infrastructure at 75% lower cost
 
 🚀 **Let's build it!**

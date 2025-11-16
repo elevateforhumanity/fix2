@@ -27,7 +27,6 @@ export default function TrustStrip() {
             <div className="text-slate-600">FREE to students</div>
           </div>
         </div>
-
         <div className="mt-10 flex flex-wrap items-center justify-center gap-8 opacity-80">
           {logos.map((l) => (
             <img

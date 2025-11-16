@@ -8,24 +8,20 @@ describe('Enrollment Endpoints', () => {
   let courseId: string;
 
   beforeEach(async () => {
-    const instructorRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'instructor@example.com',
-        password: 'password123',
-        name: 'Instructor',
-        role: 'instructor',
-      });
+    const instructorRes = await request(app).post('/api/auth/register').send({
+      email: 'instructor@example.com',
+      password: 'password123',
+      name: 'Instructor',
+      role: 'instructor',
+    });
     instructorToken = instructorRes.body.token;
 
-    const studentRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'student@example.com',
-        password: 'password123',
-        name: 'Student',
-        role: 'student',
-      });
+    const studentRes = await request(app).post('/api/auth/register').send({
+      email: 'student@example.com',
+      password: 'password123',
+      name: 'Student',
+      role: 'student',
+    });
     studentToken = studentRes.body.token;
 
     const courseRes = await request(app)
@@ -57,11 +53,9 @@ describe('Enrollment Endpoints', () => {
     });
 
     it('should not enroll without authentication', async () => {
-      const res = await request(app)
-        .post('/api/enrollments')
-        .send({
-          courseId,
-        });
+      const res = await request(app).post('/api/enrollments').send({
+        courseId,
+      });
 
       expect(res.status).toBe(401);
     });

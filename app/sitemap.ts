@@ -42,7 +42,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .eq('published', true);
 
     if (programsError || coursesError) {
-      console.error('Sitemap generation error:', { programsError, coursesError });
+      console.error('Sitemap generation error:', {
+        programsError,
+        coursesError,
+      });
       return staticSitemap;
     }
 

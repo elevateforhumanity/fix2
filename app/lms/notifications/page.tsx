@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -9,7 +9,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import LMSNav from '@/components/lms/LMSNav';
-import { 
+import {
   Bell,
   CheckCircle,
   Award,
@@ -19,7 +19,7 @@ import {
   AlertCircle,
   Trash2,
   Check,
-  Loader2
+  Loader2,
 } from 'lucide-react';
 
 type Notification = {
@@ -39,7 +39,8 @@ const mockNotifications: Notification[] = [
     id: '1',
     type: 'assignment',
     title: 'New Assignment Posted',
-    message: 'Your instructor has posted a new assignment in HVAC Technician Training',
+    message:
+      'Your instructor has posted a new assignment in HVAC Technician Training',
     course: 'HVAC Technician Training',
     created_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
     read: false,
@@ -59,7 +60,8 @@ const mockNotifications: Notification[] = [
     id: '3',
     type: 'certificate',
     title: 'Certificate Earned!',
-    message: 'Congratulations! You have earned your Barber Fundamentals certificate',
+    message:
+      'Congratulations! You have earned your Barber Fundamentals certificate',
     course: 'Barber Fundamentals',
     created_at: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
     read: false,
@@ -140,20 +142,24 @@ export default function NotificationsPage() {
       // For now, use analytics events as notifications
       const res = await fetch('/api/analytics/events?limit=50');
       const data = await res.json();
-      
+
       // Transform events into notifications
-      const notifications: Notification[] = (data.events || []).map((event: any) => ({
-        id: event.id,
-        type: event.event_type || 'info',
-        title: formatEventTitle(event.event_type),
-        message: event.event_data?.message || formatEventMessage(event),
-        course: event.event_data?.course_title,
-        created_at: event.created_at,
-        read: false,
-        priority: 'medium'
-      }));
-      
-      setNotificationList(notifications.length > 0 ? notifications : mockNotifications);
+      const notifications: Notification[] = (data.events || []).map(
+        (event: any) => ({
+          id: event.id,
+          type: event.event_type || 'info',
+          title: formatEventTitle(event.event_type),
+          message: event.event_data?.message || formatEventMessage(event),
+          course: event.event_data?.course_title,
+          created_at: event.created_at,
+          read: false,
+          priority: 'medium',
+        })
+      );
+
+      setNotificationList(
+        notifications.length > 0 ? notifications : mockNotifications
+      );
     } catch (error) {
       console.error('Error fetching notifications:', error);
       setNotificationList(mockNotifications);
@@ -164,12 +170,12 @@ export default function NotificationsPage() {
 
   const formatEventTitle = (eventType: string) => {
     const titles: Record<string, string> = {
-      'course_enrolled': 'Course Enrollment',
-      'lesson_completed': 'Lesson Completed',
-      'quiz_completed': 'Quiz Completed',
-      'certificate_earned': 'Certificate Earned',
-      'assignment_submitted': 'Assignment Submitted',
-      'message_received': 'New Message'
+      course_enrolled: 'Course Enrollment',
+      lesson_completed: 'Lesson Completed',
+      quiz_completed: 'Quiz Completed',
+      certificate_earned: 'Certificate Earned',
+      assignment_submitted: 'Assignment Submitted',
+      message_received: 'New Message',
     };
     return titles[eventType] || 'Notification';
   };
@@ -178,24 +184,25 @@ export default function NotificationsPage() {
     return event.event_data?.description || 'You have a new notification';
   };
 
-  const unreadCount = notificationList.filter(n => !n.read).length;
-  
-  const filteredNotifications = filter === 'unread' 
-    ? notificationList.filter(n => !n.read)
-    : notificationList;
+  const unreadCount = notificationList.filter((n) => !n.read).length;
+
+  const filteredNotifications =
+    filter === 'unread'
+      ? notificationList.filter((n) => !n.read)
+      : notificationList;
 
   const markAsRead = (id: string) => {
-    setNotificationList(notificationList.map(n => 
-      n.id === id ? { ...n, read: true } : n
-    ));
+    setNotificationList(
+      notificationList.map((n) => (n.id === id ? { ...n, read: true } : n))
+    );
   };
 
   const markAllAsRead = () => {
-    setNotificationList(notificationList.map(n => ({ ...n, read: true })));
+    setNotificationList(notificationList.map((n) => ({ ...n, read: true })));
   };
 
   const deleteNotification = (id: string) => {
-    setNotificationList(notificationList.filter(n => n.id !== id));
+    setNotificationList(notificationList.filter((n) => n.id !== id));
   };
 
   const formatTime = (dateString: string) => {
@@ -205,7 +212,7 @@ export default function NotificationsPage() {
     const diffMins = Math.floor(diffMs / 60000);
     const diffHours = Math.floor(diffMins / 60);
     const diffDays = Math.floor(diffHours / 24);
-    
+
     if (diffMins < 60) return `${diffMins} minutes ago`;
     if (diffHours < 24) return `${diffHours} hours ago`;
     if (diffDays < 7) return `${diffDays} days ago`;
@@ -226,7 +233,6 @@ export default function NotificationsPage() {
   return (
     <div className="min-h-screen bg-background">
       <LMSNav />
-
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -250,49 +256,53 @@ export default function NotificationsPage() {
             Stay updated with your courses, assignments, and messages
           </p>
         </div>
-
         {/* Filter Tabs */}
         <div className="mb-6">
-          <Tabs value={filter} onValueChange={(v) => setFilter(v as 'all' | 'unread')}>
+          <Tabs
+            value={filter}
+            onValueChange={(v) => setFilter(v as 'all' | 'unread')}
+          >
             <TabsList>
               <TabsTrigger value="all">
                 All Notifications ({notificationList.length})
               </TabsTrigger>
-              <TabsTrigger value="unread">
-                Unread ({unreadCount})
-              </TabsTrigger>
+              <TabsTrigger value="unread">Unread ({unreadCount})</TabsTrigger>
             </TabsList>
           </Tabs>
         </div>
-
         {/* Notifications List */}
         {filteredNotifications.length > 0 ? (
           <div className="space-y-3">
             {filteredNotifications.map((notification) => (
-              <Card 
-                key={notification.id} 
+              <Card
+                key={notification.id}
                 className={`transition-all ${
-                  !notification.read 
-                    ? 'border-l-4 border-l-primary bg-primary/5' 
+                  !notification.read
+                    ? 'border-l-4 border-l-primary bg-primary/5'
                     : 'opacity-70'
                 }`}
               >
                 <CardContent className="pt-6">
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className={`p-3 rounded-lg ${
-                      !notification.read ? 'bg-background' : 'bg-secondary'
-                    }`}>
+                    <div
+                      className={`p-3 rounded-lg ${
+                        !notification.read ? 'bg-background' : 'bg-secondary'
+                      }`}
+                    >
                       {getNotificationIcon(notification.type)}
                     </div>
-
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-4 mb-2">
                         <div className="flex-1">
-                          <h3 className={`font-semibold ${
-                            !notification.read ? 'text-foreground' : 'text-muted-foreground'
-                          }`}>
+                          <h3
+                            className={`font-semibold ${
+                              !notification.read
+                                ? 'text-foreground'
+                                : 'text-muted-foreground'
+                            }`}
+                          >
                             {notification.title}
                           </h3>
                           <p className="text-sm text-muted-foreground mt-1">
@@ -303,7 +313,6 @@ export default function NotificationsPage() {
                           <div className="h-2 w-2 bg-primary rounded-full flex-shrink-0 mt-2" />
                         )}
                       </div>
-
                       <div className="flex items-center gap-4 mt-3">
                         <span className="text-xs text-muted-foreground">
                           {notification.course}
@@ -318,7 +327,6 @@ export default function NotificationsPage() {
                         )}
                       </div>
                     </div>
-
                     {/* Actions */}
                     <div className="flex gap-2 flex-shrink-0">
                       {!notification.read && (
@@ -351,14 +359,13 @@ export default function NotificationsPage() {
               <Bell className="h-16 w-16 mx-auto mb-4 text-muted-foreground opacity-50" />
               <h3 className="text-lg font-semibold mb-2">No notifications</h3>
               <p className="text-muted-foreground">
-                {filter === 'unread' 
+                {filter === 'unread'
                   ? "You're all caught up! No unread notifications."
                   : "You don't have any notifications yet."}
               </p>
             </CardContent>
           </Card>
         )}
-
         {/* Notification Settings */}
         <Card className="mt-8">
           <CardContent className="pt-6">

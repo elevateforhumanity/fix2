@@ -3,28 +3,34 @@
 ## Domain Structure
 
 ### Public Marketing Site
+
 **Domain**: `elevateforhumanity.org`  
 **Purpose**: Public marketing pages  
-**Hosting**: External marketing platform  
+**Hosting**: External marketing platform
 
 ### LMS Application
+
 **Domain**: `www.elevateconnectsdirectory.org`  
 **Purpose**: Learning Management System (LMS)  
 **Hosting**: Netlify  
 **Netlify Site**: `elevateproduction.netlify.app`  
-**Site ID**: `12f120ab-3f63-419b-bc49-430f043415c1`  
+**Site ID**: `12f120ab-3f63-419b-bc49-430f043415c1`
 
 ## What Was Fixed
 
 ### 1. Middleware Error Handling ✅
+
 Added proper error handling to prevent 500 errors:
+
 - Check environment variables before using them
 - Wrap Supabase calls in try-catch blocks
 - Allow public routes to work without Supabase
 - Graceful error handling with redirects
 
 ### 2. Correct URL Configuration ✅
+
 Updated all URLs to use the correct LMS domain:
+
 - `.env.production` → `https://www.elevateconnectsdirectory.org`
 - `app/layout.tsx` → `https://www.elevateconnectsdirectory.org`
 - `app/sitemap.ts` → `https://www.elevateconnectsdirectory.org`
@@ -37,12 +43,15 @@ Updated all URLs to use the correct LMS domain:
 For the site to work, you need to ensure in Netlify:
 
 ### 1. Custom Domain Added
+
 In Netlify Dashboard → Domain settings:
+
 - ✅ Add custom domain: `www.elevateconnectsdirectory.org`
 - ✅ Verify DNS is pointing to Netlify
 - ✅ Enable HTTPS/SSL
 
 ### 2. Environment Variables Set
+
 In Netlify Dashboard → Environment variables:
 
 ```bash
@@ -55,6 +64,7 @@ NODE_ENV=production
 ```
 
 ### 3. DNS Configuration
+
 In your DNS provider (for elevateconnectsdirectory.org):
 
 ```
@@ -65,6 +75,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 ## Testing the Fix
 
 ### Check if domain is configured:
+
 ```bash
 curl -I https://www.elevateconnectsdirectory.org
 ```
@@ -72,6 +83,7 @@ curl -I https://www.elevateconnectsdirectory.org
 **Expected**: Should return 200 OK (not 500)
 
 ### Check if DNS is pointing to Netlify:
+
 ```bash
 dig www.elevateconnectsdirectory.org
 ```
@@ -116,9 +128,10 @@ dig www.elevateconnectsdirectory.org
 ✅ **URLs updated**: All using www.elevateconnectsdirectory.org  
 ✅ **Build passing**: npm run build completes successfully  
 ⏳ **Netlify deployment**: Waiting for auto-deploy  
-⏳ **Domain configuration**: Verify in Netlify dashboard  
+⏳ **Domain configuration**: Verify in Netlify dashboard
 
 The repository is now correctly configured. The 500 error should be resolved once:
+
 1. Netlify finishes deploying the latest changes
 2. The domain is properly configured in Netlify
 3. Environment variables are set in Netlify

@@ -41,7 +41,7 @@ git push origin main
 
 ### Option 2: Add Bridge to Durable Site
 
-Once deployed to Netlify, add this to your  site:
+Once deployed to Netlify, add this to your site:
 
 #### Step 1: Add Script to Durable
 
@@ -207,7 +207,7 @@ curl https://elevateforhumanityfix2.netlify.app/api/efh-config.json | jq .
 
 ### Phase 3: Add to Durable (Manual)
 
-1. Log into 
+1. Log into
 2. Go to your site settings
 3. Find "Custom Code" or "Head Code" section
 4. Add the script tag (see above)

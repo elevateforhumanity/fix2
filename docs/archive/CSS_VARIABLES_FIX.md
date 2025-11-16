@@ -48,17 +48,19 @@ var(--color-green)
 ### Where They Were Used
 
 1. **Tailwind Config** (`tailwind.config.js`):
+
    ```javascript
-   colors:{ 
-     efh:{ 
+   colors:{
+     efh:{
        red:"var(--efh-red)",  // ❌ Undefined
        blue:"var(--efh-blue)", // ❌ Undefined
        // etc.
-     } 
+     }
    }
    ```
 
 2. **Component Inline Styles** (`src/pages/Home.jsx`, `Home.tsx`, etc.):
+
    ```javascript
    style={{
      background: 'var(--brand-primary)',  // ❌ Undefined
@@ -82,61 +84,61 @@ Updated `src/index.css` to define all variables:
 @layer base {
   :root {
     /* Brand Colors */
-    --brand-primary: #2563EB;
-    --brand-secondary: #10B981;
-    --brand-success: #10B981;
-    --brand-info: #06B6D4;
-    --brand-warning: #F59E0B;
-    --brand-danger: #EF4444;
-    
+    --brand-primary: #2563eb;
+    --brand-secondary: #10b981;
+    --brand-success: #10b981;
+    --brand-info: #06b6d4;
+    --brand-warning: #f59e0b;
+    --brand-danger: #ef4444;
+
     /* Brand Gradients */
-    --brand-gradient-primary: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-    --brand-gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
-    --brand-gradient-info: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
-    
+    --brand-gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --brand-gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --brand-gradient-info: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+
     /* Brand Surface & Text */
-    --brand-surface: #FFFFFF;
+    --brand-surface: #ffffff;
     --brand-text: #111827;
-    --brand-text-light: #6B7280;
-    --brand-text-muted: #9CA3AF;
-    --brand-border: #E5E7EB;
-    --brand-border-dark: #D1D5DB;
-    
+    --brand-text-light: #6b7280;
+    --brand-text-muted: #9ca3af;
+    --brand-border: #e5e7eb;
+    --brand-border-dark: #d1d5db;
+
     /* Docebo Style Colors */
-    --docebo-blue-500: #2563EB;
-    --docebo-cyan-500: #06B6D4;
-    
+    --docebo-blue-500: #2563eb;
+    --docebo-cyan-500: #06b6d4;
+
     /* Semantic Colors */
-    --color-primary: #2563EB;
-    --color-primary-light: #DBEAFE;
-    --color-secondary: #10B981;
-    --color-success: #10B981;
-    --color-error: #EF4444;
-    --color-green: #10B981;
+    --color-primary: #2563eb;
+    --color-primary-light: #dbeafe;
+    --color-secondary: #10b981;
+    --color-success: #10b981;
+    --color-error: #ef4444;
+    --color-green: #10b981;
     --color-green-600: #059669;
-    --color-white: #FFFFFF;
-    
+    --color-white: #ffffff;
+
     /* Background Colors */
-    --bg-secondary: #F9FAFB;
-    --bg-tertiary: #F3F4F6;
-    --color-bg-secondary: #F9FAFB;
-    --color-card-bg: #FFFFFF;
-    
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --color-bg-secondary: #f9fafb;
+    --color-card-bg: #ffffff;
+
     /* Text Colors */
     --text-primary: #111827;
-    --text-secondary: #6B7280;
-    --text-tertiary: #9CA3AF;
-    --color-text-secondary: #6B7280;
-    
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    --color-text-secondary: #6b7280;
+
     /* Border Colors */
-    --border-light: #E5E7EB;
-    --color-border: #E5E7EB;
-    
+    --border-light: #e5e7eb;
+    --color-border: #e5e7eb;
+
     /* Palette Colors */
-    --color-beige: #F5F5DC;
-    --color-cream: #FFFDD0;
-    --color-brown: #8B4513;
-    
+    --color-beige: #f5f5dc;
+    --color-cream: #fffdd0;
+    --color-brown: #8b4513;
+
     /* Spacing */
     --space-1: 0.25rem;
     --space-2: 0.5rem;
@@ -145,20 +147,21 @@ Updated `src/index.css` to define all variables:
     --space-6: 1.5rem;
     --space-8: 2rem;
     --space-10: 2.5rem;
-    
+
     /* Radius */
     --radius-sm: 0.125rem;
     --radius-md: 0.375rem;
     --radius-full: 9999px;
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
     /* Livewire Design System */
-    --lw-primary-600: #2563EB;
-    --lw-gray-50: #F9FAFB;
-    --lw-gray-600: #4B5563;
+    --lw-primary-600: #2563eb;
+    --lw-gray-50: #f9fafb;
+    --lw-gray-600: #4b5563;
     --lw-gray-900: #111827;
     --lw-font-semibold: 600;
     --lw-font-bold: 700;
@@ -176,6 +179,7 @@ Updated `src/index.css` to define all variables:
 ## What This Fixes
 
 ### Before Fix:
+
 ```
 ❌ Hero sections with no background color
 ❌ Buttons with no color
@@ -187,6 +191,7 @@ Updated `src/index.css` to define all variables:
 ```
 
 ### After Fix:
+
 ```
 ✅ Hero sections with proper blue gradients
 ✅ Buttons with brand colors
@@ -227,22 +232,26 @@ Once deployed (in ~3 minutes), verify:
 ## Technical Details
 
 ### Build Output
+
 - **CSS File**: `dist/assets/index-gDzT5Lo7.css` (74KB)
 - **Contains**: All Tailwind utilities + CSS variables
 - **Status**: ✅ Building correctly
 
 ### Images
+
 - **Total Images**: 88 files
 - **Location**: `public/images/`, `public/hero/`, `public/programs/`, etc.
 - **Status**: ✅ All copied to dist and deployed
 - **Accessible**: ✅ All images loading on live site
 
 ### CSS Variables in Build
+
 Verified `:root` block is present in compiled CSS with all variables defined.
 
 ## Color Palette Used
 
 ### Primary Brand Colors
+
 - **Primary Blue**: `#2563EB` (Tailwind blue-600)
 - **Secondary Green**: `#10B981` (Tailwind emerald-500)
 - **Info Cyan**: `#06B6D4` (Tailwind cyan-500)
@@ -250,6 +259,7 @@ Verified `:root` block is present in compiled CSS with all variables defined.
 - **Danger Red**: `#EF4444` (Tailwind red-500)
 
 ### Neutral Colors
+
 - **Text Primary**: `#111827` (Tailwind gray-900)
 - **Text Secondary**: `#6B7280` (Tailwind gray-500)
 - **Text Muted**: `#9CA3AF` (Tailwind gray-400)
@@ -257,6 +267,7 @@ Verified `:root` block is present in compiled CSS with all variables defined.
 - **Background**: `#F9FAFB` (Tailwind gray-50)
 
 ### Gradients
+
 - **Primary**: Blue gradient (135deg, #2563EB → #1D4ED8)
 - **Success**: Green gradient (135deg, #10B981 → #059669)
 - **Info**: Cyan gradient (135deg, #06B6D4 → #0891B2)
@@ -264,12 +275,14 @@ Verified `:root` block is present in compiled CSS with all variables defined.
 ## Impact
 
 ### Before:
+
 - Site appeared broken/unstyled
 - Colors missing throughout
 - Unprofessional appearance
 - User confusion
 
 ### After:
+
 - Site fully styled and professional
 - All colors rendering correctly
 - Consistent design system

@@ -5,6 +5,7 @@ Based on INTraining findings and verification requirements.
 ## CRITICAL PROVIDER INFORMATION UPDATES
 
 ### Legal Entity Corrections
+
 - [ ] **Provider Name**: Update to "2Exclusive LLC-S" where legally required
 - [ ] **Address**: Update to 7009 East 56th Street, Indianapolis, IN 46226
 - [ ] **INTraining Status**: Staff Approved - verify and display
@@ -13,24 +14,28 @@ Based on INTraining findings and verification requirements.
 ## ACTUAL PROGRAMS & INTEGRATIONS FOUND IN GITHUB
 
 ### 1. AI & Data Science Programs (programs.html)
+
 - [ ] **Status**: Active with 89% job placement rate
 - [ ] **Integration**: Complete Stripe payment system
 - [ ] **Partners**: Google Cloud, Microsoft, CompTIA
 - [ ] **Action**: Verify current curriculum and outcomes
 
 ### 2. DOL WIOA-Approved Training Programs
+
 - [ ] **Integration**: Indiana Connect intake system
 - [ ] **Status**: Federal workforce development approved
 - [ ] **Partners**: Multiple workforce boards
 - [ ] **Action**: Verify current ETPL status
 
 ### 3. Partner Certification Programs
+
 - [ ] **CompTIA**: Technology certifications
-- [ ] **IBEW**: Union apprenticeships  
+- [ ] **IBEW**: Union apprenticeships
 - [ ] **IMA/IHA**: Healthcare partnerships
 - [ ] **Action**: Verify active partnership agreements
 
 ### 4. Beauty & Career Educator (INTraining Verified)
+
 - [ ] **INTraining ID**: 10002424
 - [ ] **Duration**: 12-week hybrid, age 16+
 - [ ] **Cost**: ~$3,500 + fees
@@ -39,6 +44,7 @@ Based on INTraining findings and verification requirements.
 ## COMPLIANCE PAGES (CURRENTLY MISSING)
 
 ### Required Legal Pages
+
 - [ ] **Privacy Policy**: FERPA compliance, data handling
 - [ ] **Refund Policy**: Clear cancellation terms
 - [ ] **Accessibility Statement**: ADA/WCAG compliance
@@ -48,19 +54,22 @@ Based on INTraining findings and verification requirements.
 ## TECHNICAL IMPLEMENTATION (EXISTING SYSTEMS)
 
 ### Payment System (VERIFIED ACTIVE)
+
 - [ ] **Stripe Integration**: Complete with pay.html, multiple payment routes
 - [ ] **BNPL Options**: Buy now, pay later functionality
 - [ ] **Stripe Connect**: Partner revenue sharing system
 - [ ] **Multiple Plans**: Standard, enterprise, SaaS subscriptions
 - [ ] **Action**: Test all payment flows and update pricing
 
-### Form & Integration Functionality  
+### Form & Integration Functionality
+
 - [ ] **Indiana Connect**: All program intake through state system
 - [ ] **Partner Integrations**: CompTIA, Google Cloud, Microsoft verified
 - [ ] **Google Services**: Analytics, Search Console, Cloud partnerships
 - [ ] **Action**: Test all integration endpoints
 
 ### Content Accuracy
+
 - [ ] **Remove unverified programs**: AI/Data Science if not in INTraining
 - [ ] **Update pricing**: Match INTraining data exactly
 - [ ] **Add program IDs**: Include INTraining reference numbers
@@ -69,12 +78,14 @@ Based on INTraining findings and verification requirements.
 ## EXTERNAL VERIFICATION NEEDED
 
 ### Partnership Claims
+
 - [ ] **Rise Up Credential**: Verify partnership terms
 - [ ] **OSHA Certifications**: Confirm availability
 - [ ] **DOL Approval**: Verify and document
 - [ ] **ETPL Certification**: Add reference numbers
 
 ### Performance Data
+
 - [ ] **Job Placement Rates**: Verify 89% claim
 - [ ] **Graduation Rates**: Add actual data
 - [ ] **Wage Data**: Use Indiana/EmployIndy sources
@@ -100,7 +111,8 @@ Based on INTraining findings and verification requirements.
 
 ---
 
-**Next Steps**: 
+**Next Steps**:
+
 1. Use this checklist with your dev team in Gitpod
 2. Assign owners for each section
 3. Set deadlines for compliance items

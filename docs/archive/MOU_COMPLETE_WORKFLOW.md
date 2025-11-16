@@ -11,6 +11,7 @@ Full two-step MOU signing workflow with digital signatures, PDF generation, emai
 **Page:** `/program-holder/mou`
 
 **Process:**
+
 1. Program holder logs in and navigates to MOU page
 2. Reviews full MOU text with revenue share details
 3. Enters full legal name
@@ -20,6 +21,7 @@ Full two-step MOU signing workflow with digital signatures, PDF generation, emai
 7. Status updated to `signed_by_holder`
 
 **API:** `POST /api/program-holder/mou/sign`
+
 - Accepts: `{ name, signatureDataUrl }`
 - Uploads PNG signature to Supabase Storage
 - Updates program_holders table
@@ -29,6 +31,7 @@ Full two-step MOU signing workflow with digital signatures, PDF generation, emai
 **Page:** `/admin/program-holders/{id}/countersign-mou`
 
 **Process:**
+
 1. Admin views program holders list at `/admin/program-holders`
 2. Sees "Countersign MOU" button for holders with `signed_by_holder` status
 3. Clicks to view countersigning page
@@ -41,6 +44,7 @@ Full two-step MOU signing workflow with digital signatures, PDF generation, emai
 10. PDF generation triggered automatically
 
 **API:** `POST /api/admin/program-holders/mou/countersign`
+
 - Accepts: `{ programHolderId, name, signatureDataUrl }`
 - Uploads admin signature
 - Updates status to `fully_executed`
@@ -50,6 +54,7 @@ Full two-step MOU signing workflow with digital signatures, PDF generation, emai
 **API:** `POST /api/admin/program-holders/mou/generate-pdf`
 
 **Process:**
+
 1. Downloads both signature images from storage
 2. Generates PDF using pdf-lib with:
    - MOU title and parties
@@ -99,7 +104,7 @@ agreements/
   program_holders/
     {program_holder_id}/
       holder_signature.png      # Program holder's signature
-      admin_signature.png       # Admin's signature  
+      admin_signature.png       # Admin's signature
       MOU_signed.pdf           # Final signed PDF
 ```
 
@@ -117,7 +122,10 @@ const isValid = await hasMOUFullyExecuted(programHolderId);
 const status = await getMOUStatus(programHolderId);
 
 // Server-side check (API routes)
-const { isValid, status } = await checkMOUStatusServer(supabase, programHolderId);
+const { isValid, status } = await checkMOUStatusServer(
+  supabase,
+  programHolderId
+);
 ```
 
 ### Gating Enrollments
@@ -129,11 +137,15 @@ const { isValid, status } = await checkMOUStatusServer(supabase, programHolderId
 const mouStatus = await checkMOUStatusServer(supabase, programHolderId);
 
 if (!mouStatus.isValid) {
-  return Response.json({ 
-    error: 'MOU_NOT_EXECUTED',
-    message: 'A fully executed MOU is required before enrolling participants.',
-    currentStatus: mouStatus.status
-  }, { status: 403 });
+  return Response.json(
+    {
+      error: 'MOU_NOT_EXECUTED',
+      message:
+        'A fully executed MOU is required before enrolling participants.',
+      currentStatus: mouStatus.status,
+    },
+    { status: 403 }
+  );
 }
 
 // Proceed with enrollment...
@@ -148,10 +160,13 @@ Add similar checks to payout processing:
 const mouStatus = await checkMOUStatusServer(supabase, programHolderId);
 
 if (!mouStatus.isValid) {
-  return Response.json({ 
-    error: 'MOU_NOT_EXECUTED',
-    message: 'Payouts require a fully executed MOU.'
-  }, { status: 403 });
+  return Response.json(
+    {
+      error: 'MOU_NOT_EXECUTED',
+      message: 'Payouts require a fully executed MOU.',
+    },
+    { status: 403 }
+  );
 }
 ```
 
@@ -162,13 +177,15 @@ if (!mouStatus.isValid) {
 **Component:** `/components/MOUStatusBadge.tsx`
 
 **Usage:**
+
 ```tsx
 import { MOUStatusBadge } from '@/components/MOUStatusBadge';
 
-<MOUStatusBadge status={mouStatus} size="md" showIcon={true} />
+<MOUStatusBadge status={mouStatus} size="md" showIcon={true} />;
 ```
 
 **Displays:**
+
 - Color-coded badges for each status
 - Icons (CheckCircle, Clock, AlertCircle, XCircle)
 - Human-readable labels
@@ -176,13 +193,15 @@ import { MOUStatusBadge } from '@/components/MOUStatusBadge';
 ### MOUStatusAlert
 
 **Usage:**
+
 ```tsx
 import { MOUStatusAlert } from '@/components/MOUStatusBadge';
 
-<MOUStatusAlert status={mouStatus} programHolderName={name} />
+<MOUStatusAlert status={mouStatus} programHolderName={name} />;
 ```
 
 **Displays:**
+
 - Full-width alert boxes
 - Status-specific messages
 - Action guidance for users
@@ -211,10 +230,12 @@ Sent when MOU is fully executed:
 **Subject:** `Fully Executed MOU – {Program Holder Name}`
 
 **Recipients:**
+
 - Program holder contact email
 - MOU archive email
 
 **Content:**
+
 - Signature details (both parties)
 - Revenue share percentage
 - 7-day download link
@@ -225,6 +246,7 @@ Sent when MOU is fully executed:
 ### Storage Access
 
 **RLS Policies:**
+
 - Program holders can read their own files only
 - Admins can read all files
 - System (service role) can insert/update
@@ -246,6 +268,7 @@ Sent when MOU is fully executed:
 ## Testing Checklist
 
 ### Program Holder Flow
+
 - [ ] Can access `/program-holder/mou`
 - [ ] MOU text displays correctly
 - [ ] Can draw signature on canvas
@@ -256,6 +279,7 @@ Sent when MOU is fully executed:
 - [ ] Dashboard shows "awaiting countersignature"
 
 ### Admin Flow
+
 - [ ] Can view all program holders
 - [ ] "Countersign MOU" button appears for `signed_by_holder`
 - [ ] Can view holder's signature
@@ -266,6 +290,7 @@ Sent when MOU is fully executed:
 - [ ] Email sent to both parties
 
 ### PDF & Email
+
 - [ ] PDF contains correct MOU text
 - [ ] Both signatures embedded in PDF
 - [ ] Signer names and dates included
@@ -276,6 +301,7 @@ Sent when MOU is fully executed:
 - [ ] PDF accessible from portal
 
 ### Access Control
+
 - [ ] Enrollment blocked without fully executed MOU
 - [ ] Error message explains requirement
 - [ ] Dashboard shows MOU status badge
@@ -311,6 +337,7 @@ Sent when MOU is fully executed:
 ### Updating MOU Text
 
 Edit the MOU content in:
+
 - `/app/program-holder/mou/page.tsx` (display version)
 - `/app/api/admin/program-holders/mou/generate-pdf/route.ts` (PDF version)
 
@@ -324,32 +351,38 @@ Default is 0.333 (33.3%). Can be customized per holder.
 ### Email Template Updates
 
 Edit email HTML in:
+
 - `/app/api/admin/program-holders/mou/generate-pdf/route.ts`
 
 ### Storage Cleanup
 
 Old signatures can be cleaned up if MOU is re-signed:
+
 - Signatures use `upsert: true` to overwrite
 - PDFs use `upsert: true` to replace old versions
 
 ## Troubleshooting
 
 ### Signature Not Saving
+
 - Check SUPABASE_SERVICE_ROLE_KEY is set
 - Verify storage bucket exists
 - Check RLS policies allow insert
 
 ### PDF Generation Fails
+
 - Ensure both signatures exist in storage
 - Check pdf-lib is installed
 - Verify service role has storage access
 
 ### Email Not Sending
+
 - Check RESEND_API_KEY is valid
 - Verify EMAIL_FROM domain is verified
 - Check recipient email addresses
 
 ### MOU Status Not Updating
+
 - Verify database migration ran
 - Check column names match code
 - Ensure user has proper permissions
@@ -386,6 +419,7 @@ Old signatures can be cleaned up if MOU is re-signed:
 ## Support
 
 For issues or questions:
+
 1. Check this documentation
 2. Review error logs in Supabase
 3. Test with sample data

@@ -3,20 +3,27 @@
 ## ✅ Already Configured
 
 Your site already has Google Analytics tracking code in `index.html`:
+
 ```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFHWORKFORCE01"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-EFHWORKFORCE01"
+></script>
 ```
 
 ## 🔍 Google Search Console Setup (5 minutes)
 
 ### Step 1: Add Property
+
 1. Go to: [https://search.google.com/search-console](https://search.google.com/search-console)
 2. Click "Add Property"
 3. Enter: `https://elevateforhumanityfix.netlify.app`
 4. Choose verification method: **HTML tag** (easiest)
 
 ### Step 2: Verify Ownership
+
 The verification meta tag is already in your `index.html`:
+
 ```html
 <meta name="google-site-verification" content="YOUR_CODE_HERE" />
 ```
@@ -24,12 +31,15 @@ The verification meta tag is already in your `index.html`:
 Update the `content` value with your actual verification code from Google.
 
 ### Step 3: Submit Sitemap
+
 After verification:
+
 1. Go to "Sitemaps" in left menu
 2. Add sitemap URL: `https://elevateforhumanityfix.netlify.app/sitemap.xml`
 3. Click "Submit"
 
 Your sitemap is automatically generated and includes:
+
 - ✅ 92 static pages
 - ✅ All program pages
 - ✅ LMS pages
@@ -38,6 +48,7 @@ Your sitemap is automatically generated and includes:
 ## 📊 What's Already Tracking
 
 **Google Analytics (GA4):**
+
 - Page views
 - User sessions
 - Traffic sources
@@ -45,6 +56,7 @@ Your sitemap is automatically generated and includes:
 - Geographic data
 
 **Events tracked:**
+
 - Button clicks
 - Form submissions
 - Navigation
@@ -53,12 +65,14 @@ Your sitemap is automatically generated and includes:
 ## 🎯 Performance Targets
 
 **Lighthouse Scores to Aim For:**
+
 - Performance: ≥ 70
 - Accessibility: ≥ 90
 - Best Practices: ≥ 90
 - SEO: ≥ 90
 
 **Run Lighthouse:**
+
 1. Open site in Chrome
 2. Right-click → Inspect
 3. Go to "Lighthouse" tab
@@ -67,12 +81,14 @@ Your sitemap is automatically generated and includes:
 ## 📈 Monitor These Metrics
 
 **Weekly:**
+
 - Total visitors
 - Top pages
 - Bounce rate
 - Average session duration
 
 **Monthly:**
+
 - Traffic sources (organic, direct, referral)
 - Conversion rate (form submissions)
 - Mobile vs desktop traffic

@@ -4,8 +4,21 @@
  */
 
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Linkedin, Youtube, Instagram, Twitter } from 'lucide-react';
-import { footerSections, socialLinks as defaultSocialLinks, branding } from '../config/navigation';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Linkedin,
+  Youtube,
+  Instagram,
+  Twitter,
+} from 'lucide-react';
+import {
+  footerSections,
+  socialLinks as defaultSocialLinks,
+  branding,
+} from '../config/navigation';
 
 interface FooterProps {
   logo?: string;
@@ -33,7 +46,9 @@ export default function Footer({
   };
 
   return (
-    <footer className={`bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white ${className}`}>
+    <footer
+      className={`bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white ${className}`}
+    >
       <div className="container py-16">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
@@ -61,10 +76,9 @@ export default function Footer({
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               {branding.tagline}. 100% funded programs for {branding.location}.
             </p>
-            
             {/* Contact Info */}
             <div className="space-y-3">
-              <a 
+              <a
                 href={`tel:${branding.phoneRaw}`}
                 className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group"
               >
@@ -76,9 +90,6 @@ export default function Footer({
                   <div className="font-medium">{branding.phone}</div>
                 </div>
               </a>
-              
-
-              
               <div className="flex items-center gap-3 text-sm text-gray-300">
                 <div className="w-10 h-10 rounded-lg bg-orange-600/20 flex items-center justify-center">
                   <MapPin className="h-5 w-5 text-orange-400" />
@@ -90,7 +101,6 @@ export default function Footer({
               </div>
             </div>
           </div>
-          
           {/* Footer Sections - Takes 8 columns */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {sections.map((section) => (
@@ -114,7 +124,6 @@ export default function Footer({
             ))}
           </div>
         </div>
-        
         {/* Social Media & Bottom Section */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -122,7 +131,6 @@ export default function Footer({
             <p className="text-sm text-gray-400">
               © {currentYear} {branding.name}. All rights reserved.
             </p>
-            
             {/* Social Links with Icons */}
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-500 mr-2">Follow Us:</span>
@@ -135,7 +143,9 @@ export default function Footer({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-gray-800 hover:bg-orange-600 flex items-center justify-center transition-all hover:scale-110"
-                    aria-label={platform.charAt(0).toUpperCase() + platform.slice(1)}
+                    aria-label={
+                      platform.charAt(0).toUpperCase() + platform.slice(1)
+                    }
                   >
                     <Icon className="h-5 w-5" />
                   </a>

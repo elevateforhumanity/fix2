@@ -1,14 +1,26 @@
-"use client"
+'use client';
 
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { CheckCircle, Upload, AlertCircle } from 'lucide-react';
 
 const programTitles: Record<string, string> = {
@@ -51,7 +63,11 @@ const courses = [
   { id: 'life-skills', name: 'Life Skills & Job Readiness' },
 ];
 
-export default function EnrollProgramPage({ params }: { params: { program: string } }) {
+export default function EnrollProgramPage({
+  params,
+}: {
+  params: { program: string };
+}) {
   const router = useRouter();
   const program = params.program.toLowerCase();
   const [loading, setLoading] = useState(false);
@@ -149,7 +165,8 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
             </div>
             <h2 className="text-3xl font-bold mb-4">Application Submitted!</h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-              Thank you for applying to {programTitles[program]}. We'll review your application and contact you within 2-3 business days.
+              Thank you for applying to {programTitles[program]}. We'll review
+              your application and contact you within 2-3 business days.
             </p>
             <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-md mx-auto mb-6">
               <h3 className="font-semibold mb-3">What happens next?</h3>
@@ -179,7 +196,6 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
           </h1>
           <p className="text-blue-100">{programDescriptions[program]}</p>
         </div>
-
         <Card>
           <CardHeader>
             <CardTitle>Application Form</CardTitle>
@@ -210,7 +226,6 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   />
                 </div>
               </div>
-
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="email">Email *</Label>
@@ -233,7 +248,6 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   />
                 </div>
               </div>
-
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="dob">Date of Birth *</Label>
@@ -252,15 +266,19 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                     required
                     maxLength={4}
                     value={formData.ssn4}
-                    onChange={(e) => handleChange('ssn4', e.target.value.replace(/\D/g, ''))}
+                    onChange={(e) =>
+                      handleChange('ssn4', e.target.value.replace(/\D/g, ''))
+                    }
                     placeholder="1234"
                   />
                 </div>
               </div>
-
               <div className="space-y-2">
                 <Label htmlFor="course_id">Choose Training Program *</Label>
-                <Select value={formData.course_id} onValueChange={(v) => handleChange('course_id', v)}>
+                <Select
+                  value={formData.course_id}
+                  onValueChange={(v) => handleChange('course_id', v)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select a program" />
                   </SelectTrigger>
@@ -273,7 +291,6 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </SelectContent>
                 </Select>
               </div>
-
               {/* Program-Specific Fields */}
               {program === 'wrg' && (
                 <>
@@ -288,7 +305,10 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="workone">WorkOne Office</Label>
-                    <Select value={formData.workone} onValueChange={(v) => handleChange('workone', v)}>
+                    <Select
+                      value={formData.workone}
+                      onValueChange={(v) => handleChange('workone', v)}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select your region" />
                       </SelectTrigger>
@@ -303,12 +323,14 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </div>
                 </>
               )}
-
               {program === 'wioa' && (
                 <>
                   <div className="space-y-2">
                     <Label htmlFor="region">WorkOne Region *</Label>
-                    <Select value={formData.region} onValueChange={(v) => handleChange('region', v)}>
+                    <Select
+                      value={formData.region}
+                      onValueChange={(v) => handleChange('region', v)}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select your region" />
                       </SelectTrigger>
@@ -328,7 +350,9 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                         id="cm_name"
                         required
                         value={formData.cm_name}
-                        onChange={(e) => handleChange('cm_name', e.target.value)}
+                        onChange={(e) =>
+                          handleChange('cm_name', e.target.value)
+                        }
                       />
                     </div>
                     <div className="space-y-2">
@@ -338,26 +362,32 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                         type="email"
                         required
                         value={formData.cm_email}
-                        onChange={(e) => handleChange('cm_email', e.target.value)}
+                        onChange={(e) =>
+                          handleChange('cm_email', e.target.value)
+                        }
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="stream">Funding Stream *</Label>
-                    <Select value={formData.stream} onValueChange={(v) => handleChange('stream', v)}>
+                    <Select
+                      value={formData.stream}
+                      onValueChange={(v) => handleChange('stream', v)}
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Adult">Adult</SelectItem>
-                        <SelectItem value="Dislocated">Dislocated Worker</SelectItem>
+                        <SelectItem value="Dislocated">
+                          Dislocated Worker
+                        </SelectItem>
                         <SelectItem value="Youth">Youth</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </>
               )}
-
               {program === 'jri' && (
                 <>
                   <div className="grid gap-4 md:grid-cols-2">
@@ -367,7 +397,9 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                         id="po_name"
                         required
                         value={formData.po_name}
-                        onChange={(e) => handleChange('po_name', e.target.value)}
+                        onChange={(e) =>
+                          handleChange('po_name', e.target.value)
+                        }
                       />
                     </div>
                     <div className="space-y-2">
@@ -377,13 +409,14 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                         type="email"
                         required
                         value={formData.po_email}
-                        onChange={(e) => handleChange('po_email', e.target.value)}
+                        onChange={(e) =>
+                          handleChange('po_email', e.target.value)
+                        }
                       />
                     </div>
                   </div>
                 </>
               )}
-
               {program === 'employindy' && (
                 <>
                   <div className="space-y-2">
@@ -397,14 +430,23 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="track">Program Track</Label>
-                    <Select value={formData.track} onValueChange={(v) => handleChange('track', v)}>
+                    <Select
+                      value={formData.track}
+                      onValueChange={(v) => handleChange('track', v)}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select a track" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="YES">YES (Youth Employment Services)</SelectItem>
-                        <SelectItem value="Project Indy">Project Indy</SelectItem>
-                        <SelectItem value="ApprenticeTrack">ApprenticeTrack</SelectItem>
+                        <SelectItem value="YES">
+                          YES (Youth Employment Services)
+                        </SelectItem>
+                        <SelectItem value="Project Indy">
+                          Project Indy
+                        </SelectItem>
+                        <SelectItem value="ApprenticeTrack">
+                          ApprenticeTrack
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -419,7 +461,6 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </div>
                 </>
               )}
-
               {program === 'dol' && (
                 <>
                   <div className="space-y-2">
@@ -433,14 +474,19 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="occupation">Occupation *</Label>
-                    <Select value={formData.occupation} onValueChange={(v) => handleChange('occupation', v)}>
+                    <Select
+                      value={formData.occupation}
+                      onValueChange={(v) => handleChange('occupation', v)}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select occupation" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Barber">Barber</SelectItem>
                         <SelectItem value="HVAC">HVAC Technician</SelectItem>
-                        <SelectItem value="Building Tech">Building Maintenance Technician</SelectItem>
+                        <SelectItem value="Building Tech">
+                          Building Maintenance Technician
+                        </SelectItem>
                         <SelectItem value="Electrician">Electrician</SelectItem>
                       </SelectContent>
                     </Select>
@@ -450,19 +496,26 @@ export default function EnrollProgramPage({ params }: { params: { program: strin
                     <Input
                       id="rapids_id"
                       value={formData.rapids_id}
-                      onChange={(e) => handleChange('rapids_id', e.target.value)}
+                      onChange={(e) =>
+                        handleChange('rapids_id', e.target.value)
+                      }
                     />
                   </div>
                 </>
               )}
-
               {error && (
                 <div className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg">
-                  <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                  <p className="text-sm text-red-600 dark:text-red-400">
+                    {error}
+                  </p>
                 </div>
               )}
-
-              <Button type="submit" disabled={loading} className="w-full" size="lg">
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full"
+                size="lg"
+              >
                 {loading ? 'Submitting...' : 'Submit Application'}
               </Button>
             </form>

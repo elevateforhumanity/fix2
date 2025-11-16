@@ -17,9 +17,9 @@ export function AutoFlowCharts() {
 
   const generateAutoFlowCharts = async () => {
     setIsGenerating(true);
-    
+
     // Simulate data processing and chart generation
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const charts: FlowChartData[] = [
       {
@@ -29,19 +29,24 @@ export function AutoFlowCharts() {
           { stage: 'Inquiries', count: 150, percentage: 100 },
           { stage: 'Applications', count: 120, percentage: 80 },
           { stage: 'Enrolled', count: 95, percentage: 63 },
-          { stage: 'Started Classes', count: 88, percentage: 59 }
+          { stage: 'Started Classes', count: 88, percentage: 59 },
         ],
-        chartConfig: { color: '#3b82f6' }
+        chartConfig: { color: '#3b82f6' },
       },
       {
         type: 'retention',
         title: '🎯 Retention by Program',
         data: [
-          { program: 'Medical Assistant', enrolled: 35, retained: 32, rate: 91 },
+          {
+            program: 'Medical Assistant',
+            enrolled: 35,
+            retained: 32,
+            rate: 91,
+          },
           { program: 'IT Support', enrolled: 28, retained: 24, rate: 86 },
-          { program: 'HVAC Tech', enrolled: 25, retained: 23, rate: 92 }
+          { program: 'HVAC Tech', enrolled: 25, retained: 23, rate: 92 },
         ],
-        chartConfig: { color: '#059669' }
+        chartConfig: { color: '#059669' },
       },
       {
         type: 'completion',
@@ -50,9 +55,9 @@ export function AutoFlowCharts() {
           { month: 'Jan', completed: 12, total: 15, rate: 80 },
           { month: 'Feb', completed: 18, total: 20, rate: 90 },
           { month: 'Mar', completed: 22, total: 25, rate: 88 },
-          { month: 'Apr', completed: 16, total: 18, rate: 89 }
+          { month: 'Apr', completed: 16, total: 18, rate: 89 },
         ],
-        chartConfig: { color: '#dc2626' }
+        chartConfig: { color: '#dc2626' },
       },
       {
         type: 'attrition',
@@ -60,10 +65,10 @@ export function AutoFlowCharts() {
         data: [
           { risk: 'Low Risk', count: 45, percentage: 60 },
           { risk: 'Medium Risk', count: 20, percentage: 27 },
-          { risk: 'High Risk', count: 10, percentage: 13 }
+          { risk: 'High Risk', count: 10, percentage: 13 },
         ],
-        chartConfig: { color: '#f59e0b' }
-      }
+        chartConfig: { color: '#f59e0b' },
+      },
     ];
 
     setFlowCharts(charts);
@@ -78,20 +83,32 @@ export function AutoFlowCharts() {
             <div className="flex-1">
               <div className="flex items-center justify-between mb-2">
                 <span className="font-medium text-gray-900">{step.stage}</span>
-                <span className="text-sm text-gray-600">{step.count} students</span>
+                <span className="text-sm text-gray-600">
+                  {step.count} students
+                </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
-                <div 
+                <div
                   className="bg-blue-500 h-3 rounded-full transition-all duration-500"
                   style={{ width: `${step.percentage}%` }}
-                ></div>
+                />
               </div>
-              <div className="text-xs text-gray-500 mt-1">{step.percentage}% conversion</div>
+              <div className="text-xs text-gray-500 mt-1">
+                {step.percentage}% conversion
+              </div>
             </div>
             {index < data.length - 1 && (
               <div className="ml-4 text-gray-400">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                <svg
+                  className="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
             )}
@@ -107,16 +124,20 @@ export function AutoFlowCharts() {
         {data.map((program, index) => (
           <div key={index} className="program-retention">
             <div className="flex justify-between items-center mb-2">
-              <span className="font-medium text-gray-900">{program.program}</span>
-              <span className="text-lg font-bold text-green-600">{program.rate}%</span>
+              <span className="font-medium text-gray-900">
+                {program.program}
+              </span>
+              <span className="text-lg font-bold text-green-600">
+                {program.rate}%
+              </span>
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex-1">
                 <div className="w-full bg-gray-200 rounded-full h-4">
-                  <div 
+                  <div
                     className="bg-green-500 h-4 rounded-full transition-all duration-500"
                     style={{ width: `${program.rate}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
               <div className="text-sm text-gray-600">
@@ -136,11 +157,17 @@ export function AutoFlowCharts() {
           <div key={index} className="text-center">
             <div className="mb-2">
               <div className="w-16 h-16 mx-auto bg-red-100 rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-red-600">{month.rate}%</span>
+                <span className="text-2xl font-bold text-red-600">
+                  {month.rate}%
+                </span>
               </div>
             </div>
-            <div className="text-sm font-medium text-gray-900">{month.month}</div>
-            <div className="text-xs text-gray-600">{month.completed}/{month.total}</div>
+            <div className="text-sm font-medium text-gray-900">
+              {month.month}
+            </div>
+            <div className="text-xs text-gray-600">
+              {month.completed}/{month.total}
+            </div>
           </div>
         ))}
       </div>
@@ -153,24 +180,36 @@ export function AutoFlowCharts() {
         {data.map((risk, index) => (
           <div key={index} className="risk-level">
             <div className="flex justify-between items-center mb-2">
-              <span className={`font-medium ${
-                risk.risk === 'Low Risk' ? 'text-green-600' :
-                risk.risk === 'Medium Risk' ? 'text-yellow-600' : 'text-red-600'
-              }`}>
+              <span
+                className={`font-medium ${
+                  risk.risk === 'Low Risk'
+                    ? 'text-green-600'
+                    : risk.risk === 'Medium Risk'
+                      ? 'text-yellow-600'
+                      : 'text-red-600'
+                }`}
+              >
                 {risk.risk}
               </span>
-              <span className="text-sm text-gray-600">{risk.count} students</span>
+              <span className="text-sm text-gray-600">
+                {risk.count} students
+              </span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
-              <div 
+              <div
                 className={`h-3 rounded-full transition-all duration-500 ${
-                  risk.risk === 'Low Risk' ? 'bg-green-500' :
-                  risk.risk === 'Medium Risk' ? 'bg-yellow-500' : 'bg-red-500'
+                  risk.risk === 'Low Risk'
+                    ? 'bg-green-500'
+                    : risk.risk === 'Medium Risk'
+                      ? 'bg-yellow-500'
+                      : 'bg-red-500'
                 }`}
                 style={{ width: `${risk.percentage}%` }}
-              ></div>
+              />
             </div>
-            <div className="text-xs text-gray-500 mt-1">{risk.percentage}% of total</div>
+            <div className="text-xs text-gray-500 mt-1">
+              {risk.percentage}% of total
+            </div>
           </div>
         ))}
       </div>
@@ -181,8 +220,12 @@ export function AutoFlowCharts() {
     <div className="auto-flowcharts">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">📊 Auto-Generated Flow Charts</h2>
-          <p className="text-gray-600">Real-time visual analytics updated automatically</p>
+          <h2 className="text-2xl font-bold text-gray-900">
+            📊 Auto-Generated Flow Charts
+          </h2>
+          <p className="text-gray-600">
+            Real-time visual analytics updated automatically
+          </p>
         </div>
         <button
           onClick={generateAutoFlowCharts}
@@ -192,23 +235,32 @@ export function AutoFlowCharts() {
           {isGenerating ? '🔄 Generating...' : '🔄 Refresh Charts'}
         </button>
       </div>
-
       {isGenerating ? (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <p className="mt-4 text-gray-600">🤖 Copilot is generating your flow charts...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
+          <p className="mt-4 text-gray-600">
+            🤖 Copilot is generating your flow charts...
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {flowCharts.map((chart, index) => (
             <div key={index} className="chart-container">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">{chart.title}</h3>
-              
-              {chart.type === 'enrollment' && <EnrollmentFlowChart data={chart.data} />}
-              {chart.type === 'retention' && <RetentionChart data={chart.data} />}
-              {chart.type === 'completion' && <CompletionChart data={chart.data} />}
-              {chart.type === 'attrition' && <AttritionRiskChart data={chart.data} />}
-              
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">
+                {chart.title}
+              </h3>
+              {chart.type === 'enrollment' && (
+                <EnrollmentFlowChart data={chart.data} />
+              )}
+              {chart.type === 'retention' && (
+                <RetentionChart data={chart.data} />
+              )}
+              {chart.type === 'completion' && (
+                <CompletionChart data={chart.data} />
+              )}
+              {chart.type === 'attrition' && (
+                <AttritionRiskChart data={chart.data} />
+              )}
               <div className="mt-4 flex justify-between items-center">
                 <span className="text-xs text-gray-500">
                   Last updated: {new Date().toLocaleString()}
@@ -226,31 +278,41 @@ export function AutoFlowCharts() {
           ))}
         </div>
       )}
-
       {/* Auto-Generated Insights */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-blue-900 mb-4">🤖 Copilot Insights</h3>
+        <h3 className="text-lg font-semibold text-blue-900 mb-4">
+          🤖 Copilot Insights
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="insight-card bg-white p-4 rounded border">
-            <div className="text-sm font-medium text-gray-900">📈 Trending Up</div>
+            <div className="text-sm font-medium text-gray-900">
+              📈 Trending Up
+            </div>
             <div className="text-xs text-gray-600 mt-1">
-              Medical Assistant program showing 91% retention - highest this quarter
+              Medical Assistant program showing 91% retention - highest this
+              quarter
             </div>
           </div>
           <div className="insight-card bg-white p-4 rounded border">
-            <div className="text-sm font-medium text-gray-900">⚠️ Attention Needed</div>
+            <div className="text-sm font-medium text-gray-900">
+              ⚠️ Attention Needed
+            </div>
             <div className="text-xs text-gray-600 mt-1">
               10 students at high attrition risk - intervention recommended
             </div>
           </div>
           <div className="insight-card bg-white p-4 rounded border">
-            <div className="text-sm font-medium text-gray-900">🎯 WIOA Compliance</div>
+            <div className="text-sm font-medium text-gray-900">
+              🎯 WIOA Compliance
+            </div>
             <div className="text-xs text-gray-600 mt-1">
               All programs meeting federal performance standards
             </div>
           </div>
           <div className="insight-card bg-white p-4 rounded border">
-            <div className="text-sm font-medium text-gray-900">📊 Next Report Due</div>
+            <div className="text-sm font-medium text-gray-900">
+              📊 Next Report Due
+            </div>
             <div className="text-xs text-gray-600 mt-1">
               Quarterly WIOA report auto-generates in 5 days
             </div>

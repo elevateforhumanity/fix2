@@ -16,7 +16,8 @@ export async function GET(request: Request) {
 
     let query = supabase
       .from('messages')
-      .select(`
+      .select(
+        `
         id,
         subject,
         body,
@@ -36,7 +37,8 @@ export async function GET(request: Request) {
             full_name
           )
         )
-      `)
+      `
+      )
       .order('created_at', { ascending: false });
 
     if (type === 'inbox') {
@@ -49,13 +51,19 @@ export async function GET(request: Request) {
 
     if (error) {
       console.error('Error fetching messages:', error);
-      return NextResponse.json({ error: 'Failed to fetch messages' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to fetch messages' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ messages });
   } catch (error) {
     console.error('Error in GET /api/messages:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -92,12 +100,18 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error('Error sending message:', error);
-      return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to send message' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ message }, { status: 201 });
   } catch (error) {
     console.error('Error in POST /api/messages:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

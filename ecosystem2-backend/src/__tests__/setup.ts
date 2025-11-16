@@ -16,12 +16,8 @@ afterEach(async () => {
   const deleteUsers = prisma.user.deleteMany();
   const deleteCourses = prisma.course.deleteMany();
   const deleteEnrollments = prisma.enrollment.deleteMany();
-  
-  await prisma.$transaction([
-    deleteEnrollments,
-    deleteCourses,
-    deleteUsers,
-  ]);
+
+  await prisma.$transaction([deleteEnrollments, deleteCourses, deleteUsers]);
 });
 
 export { prisma };

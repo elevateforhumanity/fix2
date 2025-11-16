@@ -31,6 +31,7 @@ cd workers
 ## 📋 Prerequisites
 
 ### 1. Cloudflare Account
+
 - Sign up at [dash.cloudflare.com](https://dash.cloudflare.com)
 - Free tier includes:
   - 100,000 requests/day
@@ -38,11 +39,13 @@ cd workers
   - Unlimited KV reads (1,000 writes/day)
 
 ### 2. API Keys
+
 - **OpenAI API Key:** [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 - **GitHub Token:** [github.com/settings/tokens](https://github.com/settings/tokens)
 - **Cloudflare Stream Token:** [dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens)
 
 ### 3. Wrangler CLI
+
 ```bash
 npm install -g wrangler
 wrangler --version
@@ -69,6 +72,7 @@ wrangler kv:namespace create STOCK_MEDIA_KV
 ```
 
 **Update wrangler configs with IDs:**
+
 - `wrangler-video.toml` → VIDEO_KV and TEMPLATES_KV
 - `wrangler-template-sync.toml` → TEMPLATES_KV and STOCK_MEDIA_KV
 - `wrangler-media-download.toml` → STOCK_MEDIA_KV
@@ -144,6 +148,7 @@ curl https://media-download-worker.your-subdomain.workers.dev/health
 ### 1. Video Generation Worker
 
 **Endpoints:**
+
 ```bash
 # Health check
 GET /health
@@ -164,11 +169,13 @@ GET /api/video/jobs?userId=USER_ID
 ```
 
 **Scheduled Task:**
+
 - Runs weekly on Sundays at 2 AM UTC
 - Generates videos for all templates
 - Uploads to Cloudflare Stream
 
 **Manual Trigger:**
+
 ```bash
 # Trigger scheduled task manually
 wrangler deploy --config wrangler-video.toml --test-scheduled
@@ -177,6 +184,7 @@ wrangler deploy --config wrangler-video.toml --test-scheduled
 ### 2. Template Sync Worker
 
 **Endpoints:**
+
 ```bash
 # Health check
 GET /health
@@ -195,11 +203,13 @@ POST /webhook
 ```
 
 **Scheduled Task:**
+
 - Runs daily at 3 AM UTC
 - Syncs templates from GitHub
 - Updates KV storage
 
 **Manual Sync:**
+
 ```bash
 curl -X POST https://template-sync-worker.your-subdomain.workers.dev/sync
 ```
@@ -207,6 +217,7 @@ curl -X POST https://template-sync-worker.your-subdomain.workers.dev/sync
 ### 3. Media Download Worker
 
 **Endpoints:**
+
 ```bash
 # Health check
 GET /health
@@ -225,11 +236,13 @@ GET /stats
 ```
 
 **Scheduled Task:**
+
 - Runs monthly on 1st at 4 AM UTC
 - Downloads all stock media to R2
 - Caches for faster access
 
 **Manual Download:**
+
 ```bash
 curl -X POST https://media-download-worker.your-subdomain.workers.dev/download-all
 ```
@@ -256,6 +269,7 @@ curl -X POST https://media-download-worker.your-subdomain.workers.dev/download-a
 ### Manual Triggers
 
 **Generate video on-demand:**
+
 ```bash
 curl -X POST https://video-generation-worker.your-subdomain.workers.dev/api/video/generate \
   -H "Content-Type: application/json" \
@@ -267,11 +281,13 @@ curl -X POST https://video-generation-worker.your-subdomain.workers.dev/api/vide
 ```
 
 **Sync templates immediately:**
+
 ```bash
 curl -X POST https://template-sync-worker.your-subdomain.workers.dev/sync
 ```
 
 **Download media immediately:**
+
 ```bash
 curl -X POST https://media-download-worker.your-subdomain.workers.dev/download-all
 ```
@@ -337,6 +353,7 @@ wrangler r2 object get video-media/images/img-business-1.jpg
 3. Save webhook
 
 **What it does:**
+
 - Automatically syncs templates when you push changes
 - Updates KV storage immediately
 - No manual sync needed
@@ -359,26 +376,31 @@ wrangler tail --config wrangler-template-sync.toml
 ## 💰 Cost Estimates
 
 ### Cloudflare Workers
+
 - **Free tier:** 100,000 requests/day
 - **Paid:** $5/month for 10M requests
 - **Estimated:** Free for most use cases
 
 ### KV Storage
+
 - **Free tier:** 100,000 reads/day, 1,000 writes/day
 - **Paid:** $0.50/million reads, $5/million writes
 - **Estimated:** Free for most use cases
 
 ### R2 Storage
+
 - **Free tier:** 10 GB storage
 - **Paid:** $0.015/GB/month
 - **Estimated:** $0-1/month for media
 
 ### Queues
+
 - **Free tier:** 1,000,000 operations/month
 - **Paid:** $0.40/million operations
 - **Estimated:** Free for most use cases
 
 ### Total Monthly Cost
+
 - **Small usage:** $0 (within free tiers)
 - **Medium usage:** $5-10 (OpenAI TTS)
 - **Large usage:** $20-30 (OpenAI + Cloudflare)
@@ -390,6 +412,7 @@ wrangler tail --config wrangler-template-sync.toml
 ### Worker Deployment Fails
 
 **"KV namespace not found"**
+
 ```bash
 # Create namespace
 wrangler kv:namespace create VIDEO_KV
@@ -400,6 +423,7 @@ wrangler deploy --config wrangler-video.toml
 ```
 
 **"R2 bucket not found"**
+
 ```bash
 # Create bucket
 wrangler r2 bucket create video-temp
@@ -409,6 +433,7 @@ wrangler r2 bucket list
 ```
 
 **"Queue not found"**
+
 ```bash
 # Create queue
 wrangler queues create video-generation-queue
@@ -483,14 +508,17 @@ wrangler queues purge video-generation-queue
 ### API Token Permissions
 
 **For Video Worker:**
+
 - Stream: Read, Edit
 - R2: Read, Write (video-temp bucket)
 - KV: Read, Write (VIDEO_KV, TEMPLATES_KV)
 
 **For Template Sync:**
+
 - KV: Read, Write (TEMPLATES_KV, STOCK_MEDIA_KV)
 
 **For Media Download:**
+
 - R2: Read, Write (video-media bucket)
 - KV: Read (STOCK_MEDIA_KV)
 
@@ -499,6 +527,7 @@ wrangler queues purge video-generation-queue
 ## 📚 Additional Resources
 
 ### Cloudflare Docs
+
 - [Workers](https://developers.cloudflare.com/workers/)
 - [KV Storage](https://developers.cloudflare.com/workers/runtime-apis/kv/)
 - [R2 Storage](https://developers.cloudflare.com/r2/)
@@ -506,6 +535,7 @@ wrangler queues purge video-generation-queue
 - [Stream](https://developers.cloudflare.com/stream/)
 
 ### Wrangler CLI
+
 - [Documentation](https://developers.cloudflare.com/workers/wrangler/)
 - [Commands](https://developers.cloudflare.com/workers/wrangler/commands/)
 - [Configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
@@ -536,6 +566,7 @@ wrangler queues purge video-generation-queue
 Your video generation system is now running on Cloudflare Workers!
 
 **Test it:**
+
 ```bash
 # Generate a video
 curl -X POST https://video-generation-worker.your-subdomain.workers.dev/api/video/generate \
@@ -547,6 +578,7 @@ curl https://video-generation-worker.your-subdomain.workers.dev/api/video/status
 ```
 
 **Monitor it:**
+
 ```bash
 wrangler tail --config wrangler-video.toml
 ```

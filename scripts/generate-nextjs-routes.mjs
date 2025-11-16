@@ -48,7 +48,8 @@ const routes = [
 ];
 
 function createNextRoute(route) {
-  const appPath = route.path === '/' ? 'page.tsx' : route.path.slice(1) + '/page.tsx';
+  const appPath =
+    route.path === '/' ? 'page.tsx' : route.path.slice(1) + '/page.tsx';
   const fullPath = path.join(root, 'app', appPath);
   const dir = path.dirname(fullPath);
 

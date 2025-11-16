@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * Google Classroom Autopilot - Main Entry Point
- * 
+ *
  * This is a placeholder file. Replace with your actual implementation.
- * 
+ *
  * Expected commands:
  * - auth --email <email>
  * - auth:redeem --email <email> --code <code>
@@ -22,8 +22,12 @@ const args = process.argv.slice(3);
 console.log('Command:', command);
 console.log('Args:', args);
 
-console.log('\n⚠️  This is a placeholder. Please replace with your actual implementation.');
-console.log('📁 Drop your files into: /workspaces/tiny-new/google-classroom-autopilot/src/\n');
+console.log(
+  '\n⚠️  This is a placeholder. Please replace with your actual implementation.'
+);
+console.log(
+  '📁 Drop your files into: /workspaces/tiny-new/google-classroom-autopilot/src/\n'
+);
 
 // Parse command line arguments
 function parseArgs(args: string[]): Record<string, string> {

@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -30,7 +30,10 @@ export default function App() {
         <Route path="/lms/dashboard" element={<LMSPage />} />
         <Route path="/lms/courses" element={<LMSPage />} />
         <Route path="/lms/progress" element={<LMSPage />} />
-        <Route path="*" element={<div style={{ padding: 40 }}>404 - Page Not Found</div>} />
+        <Route
+          path="*"
+          element={<div style={{ padding: 40 }}>404 - Page Not Found</div>}
+        />
       </Routes>
     </BrowserRouter>
   );

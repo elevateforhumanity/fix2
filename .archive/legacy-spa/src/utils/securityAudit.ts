@@ -46,12 +46,17 @@ export class SecurityAuditor {
     this.checkInputValidation();
 
     // Calculate score
-    const critical = this.issues.filter(i => i.severity === 'critical').length;
-    const high = this.issues.filter(i => i.severity === 'high').length;
-    const medium = this.issues.filter(i => i.severity === 'medium').length;
-    const low = this.issues.filter(i => i.severity === 'low').length;
+    const critical = this.issues.filter(
+      (i) => i.severity === 'critical'
+    ).length;
+    const high = this.issues.filter((i) => i.severity === 'high').length;
+    const medium = this.issues.filter((i) => i.severity === 'medium').length;
+    const low = this.issues.filter((i) => i.severity === 'low').length;
 
-    const score = Math.max(0, 100 - (critical * 25) - (high * 10) - (medium * 5) - (low * 2));
+    const score = Math.max(
+      0,
+      100 - critical * 25 - high * 10 - medium * 5 - low * 2
+    );
 
     return {
       passed: critical === 0 && high === 0,
@@ -62,7 +67,7 @@ export class SecurityAuditor {
         high,
         medium,
         low,
-        info: this.issues.filter(i => i.severity === 'info').length,
+        info: this.issues.filter((i) => i.severity === 'info').length,
       },
     };
   }
@@ -71,7 +76,10 @@ export class SecurityAuditor {
    * Check if site is using HTTPS
    */
   private checkHTTPS(): void {
-    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+    if (
+      window.location.protocol !== 'https:' &&
+      window.location.hostname !== 'localhost'
+    ) {
       this.issues.push({
         severity: 'critical',
         category: 'Transport Security',
@@ -92,7 +100,8 @@ export class SecurityAuditor {
       severity: 'info',
       category: 'Security Headers',
       description: 'Security headers should be verified server-side',
-      recommendation: 'Ensure X-Frame-Options, X-Content-Type-Options, CSP, HSTS are set',
+      recommendation:
+        'Ensure X-Frame-Options, X-Content-Type-Options, CSP, HSTS are set',
     });
   }
 
@@ -100,8 +109,10 @@ export class SecurityAuditor {
    * Check Content Security Policy
    */
   private checkCSP(): void {
-    const metaCSP = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
-    
+    const metaCSP = document.querySelector(
+      'meta[http-equiv="Content-Security-Policy"]'
+    );
+
     if (!metaCSP) {
       this.issues.push({
         severity: 'high',
@@ -118,13 +129,17 @@ export class SecurityAuditor {
    */
   private checkCookies(): void {
     const cookies = document.cookie.split(';');
-    
-    cookies.forEach(cookie => {
+
+    cookies.forEach((cookie) => {
       const [name] = cookie.trim().split('=');
-      
+
       // Check for sensitive data in cookie names
       const sensitivePatterns = ['password', 'secret', 'token', 'key'];
-      if (sensitivePatterns.some(pattern => name.toLowerCase().includes(pattern))) {
+      if (
+        sensitivePatterns.some((pattern) =>
+          name.toLowerCase().includes(pattern)
+        )
+      ) {
         this.issues.push({
           severity: 'high',
           category: 'Cookie Security',
@@ -141,17 +156,28 @@ export class SecurityAuditor {
    */
   private checkLocalStorage(): void {
     try {
-      const sensitivePatterns = ['password', 'secret', 'token', 'key', 'credit', 'ssn'];
-      
+      const sensitivePatterns = [
+        'password',
+        'secret',
+        'token',
+        'key',
+        'credit',
+        'ssn',
+      ];
+
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (!key) continue;
-        
+
         const value = localStorage.getItem(key);
         if (!value) continue;
-        
+
         // Check key names
-        if (sensitivePatterns.some(pattern => key.toLowerCase().includes(pattern))) {
+        if (
+          sensitivePatterns.some((pattern) =>
+            key.toLowerCase().includes(pattern)
+          )
+        ) {
           this.issues.push({
             severity: 'high',
             category: 'Data Storage',
@@ -160,7 +186,7 @@ export class SecurityAuditor {
             cwe: 'CWE-312',
           });
         }
-        
+
         // Check for unencrypted tokens
         if (value.length > 20 && !value.includes('{')) {
           this.issues.push({
@@ -184,7 +210,10 @@ export class SecurityAuditor {
     // Check for dangerous innerHTML usage
     const scripts = document.querySelectorAll('script');
     scripts.forEach((script) => {
-      if (script.innerHTML.includes('innerHTML') || script.innerHTML.includes('outerHTML')) {
+      if (
+        script.innerHTML.includes('innerHTML') ||
+        script.innerHTML.includes('outerHTML')
+      ) {
         this.issues.push({
           severity: 'high',
           category: 'XSS Prevention',
@@ -252,8 +281,10 @@ export class SecurityAuditor {
     this.issues.push({
       severity: 'info',
       category: 'Dependencies',
-      description: 'Dependency vulnerabilities should be checked with npm audit',
-      recommendation: 'Run "npm audit" regularly and update vulnerable packages',
+      description:
+        'Dependency vulnerabilities should be checked with npm audit',
+      recommendation:
+        'Run "npm audit" regularly and update vulnerable packages',
     });
   }
 
@@ -270,7 +301,8 @@ export class SecurityAuditor {
           severity: 'low',
           category: 'Authentication',
           description: 'Password field has autocomplete disabled',
-          recommendation: 'Allow password managers by using autocomplete="current-password"',
+          recommendation:
+            'Allow password managers by using autocomplete="current-password"',
         });
       }
     });
@@ -284,7 +316,7 @@ export class SecurityAuditor {
     let unvalidatedInputs = 0;
 
     inputs.forEach((input) => {
-      const hasValidation = 
+      const hasValidation =
         input.hasAttribute('required') ||
         input.hasAttribute('pattern') ||
         input.hasAttribute('minlength') ||
@@ -302,7 +334,8 @@ export class SecurityAuditor {
         severity: 'medium',
         category: 'Input Validation',
         description: `${unvalidatedInputs} input fields lack validation attributes`,
-        recommendation: 'Add validation attributes (required, pattern, min/max length)',
+        recommendation:
+          'Add validation attributes (required, pattern, min/max length)',
         cwe: 'CWE-20',
       });
     }
@@ -328,13 +361,20 @@ export function runSecurityAudit(): SecurityAuditResult {
   if (result.issues.length > 0) {
     console.group('Issues:');
     result.issues.forEach((issue) => {
-      const icon = 
-        issue.severity === 'critical' ? '🔴' :
-        issue.severity === 'high' ? '🟠' :
-        issue.severity === 'medium' ? '🟡' :
-        issue.severity === 'low' ? '🔵' : 'ℹ️';
-      
-      console.log(`${icon} [${issue.severity.toUpperCase()}] ${issue.category}`);
+      const icon =
+        issue.severity === 'critical'
+          ? '🔴'
+          : issue.severity === 'high'
+            ? '🟠'
+            : issue.severity === 'medium'
+              ? '🟡'
+              : issue.severity === 'low'
+                ? '🔵'
+                : 'ℹ️';
+
+      console.log(
+        `${icon} [${issue.severity.toUpperCase()}] ${issue.category}`
+      );
       console.log(`   ${issue.description}`);
       console.log(`   💡 ${issue.recommendation}`);
       if (issue.cwe) {

@@ -47,7 +47,7 @@ describe('logger', () => {
     log.info('should not log');
     log.warn('should log');
     log.error('should log');
-    
+
     expect(console.log).not.toHaveBeenCalled();
     expect(console.warn).toHaveBeenCalledWith('should log');
     expect(console.error).toHaveBeenCalledWith('should log');

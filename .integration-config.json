@@ -28,9 +28,7 @@
         "rlsEnabled": true
       },
       "auth": {
-        "providers": [
-          "email"
-        ],
+        "providers": ["email"],
         "jwtExpiry": 3600
       },
       "storage": {
@@ -45,9 +43,7 @@
     "cloudflare": {
       "workers": {
         "name": "autopilot-deploy-worker",
-        "routes": [
-          "elevateproduction.netlify.app/api/worker/*"
-        ]
+        "routes": ["elevateproduction.netlify.app/api/worker/*"]
       },
       "dns": {
         "zone": "elevateforhumanity.org",

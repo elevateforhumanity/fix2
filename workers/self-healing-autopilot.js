@@ -15,7 +15,7 @@ class SelfHealingAutopilot {
       lastCheck: new Date(),
       issuesFound: 0,
       issuesFixed: 0,
-      errors: []
+      errors: [],
     };
   }
 
@@ -27,30 +27,30 @@ class SelfHealingAutopilot {
     } catch (error) {
       console.log('⚠️  Config not found, using defaults');
     }
-    
+
     return {
       enabled: true,
       self_healing: true,
-      auto_fix: true
+      auto_fix: true,
     };
   }
 
   async checkHealth() {
     console.log('🔍 Checking system health...\n');
-    
+
     const checks = [
       this.checkBuild(),
       this.checkTypeScript(),
       this.checkESLint(),
       this.checkSecrets(),
       this.checkWorkflows(),
-      this.checkDependencies()
+      this.checkDependencies(),
     ];
-    
+
     for (const check of checks) {
       await check;
     }
-    
+
     return this.status.healthy;
   }
 
@@ -123,9 +123,9 @@ class SelfHealingAutopilot {
     const workflows = [
       '.github/workflows/production-ready-loop.yml',
       '.github/workflows/secrets-validator.yml',
-      '.github/workflows/vercel-deploy.yml'
+      '.github/workflows/vercel-deploy.yml',
     ];
-    
+
     let allExist = true;
     for (const workflow of workflows) {
       if (!existsSync(workflow)) {
@@ -134,7 +134,7 @@ class SelfHealingAutopilot {
         this.status.issuesFound++;
       }
     }
-    
+
     if (allExist) {
       console.log('   ✅ All workflows present\n');
     } else {
@@ -158,7 +158,10 @@ class SelfHealingAutopilot {
   async fixBuild() {
     console.log('🔧 Fixing build issues...');
     try {
-      execSync('./make-production-ready.sh', { stdio: 'inherit', timeout: 300000 });
+      execSync('./make-production-ready.sh', {
+        stdio: 'inherit',
+        timeout: 300000,
+      });
       this.status.issuesFixed++;
       console.log('   ✅ Build fixed\n');
     } catch (error) {
@@ -169,7 +172,9 @@ class SelfHealingAutopilot {
   async fixTypeScript() {
     console.log('🔧 Fixing TypeScript errors...');
     try {
-      execSync('node scripts/fix-all-typescript-errors.mjs', { stdio: 'inherit' });
+      execSync('node scripts/fix-all-typescript-errors.mjs', {
+        stdio: 'inherit',
+      });
       this.status.issuesFixed++;
       console.log('   ✅ TypeScript fixed\n');
     } catch (error) {
@@ -212,16 +217,19 @@ class SelfHealingAutopilot {
 
   async autoCommit() {
     if (!this.config.auto_commit) return;
-    
+
     console.log('💾 Auto-committing fixes...');
     try {
       execSync('git add -A', { stdio: 'pipe' });
-      execSync(`git commit -m "fix: auto-heal by self-healing autopilot
+      execSync(
+        `git commit -m "fix: auto-heal by self-healing autopilot
 
 Issues found: ${this.status.issuesFound}
 Issues fixed: ${this.status.issuesFixed}
 
-Co-authored-by: Ona <no-reply@ona.com>"`, { stdio: 'pipe' });
+Co-authored-by: Ona <no-reply@ona.com>"`,
+        { stdio: 'pipe' }
+      );
       console.log('   ✅ Changes committed\n');
     } catch (error) {
       console.log('   ℹ️  Nothing to commit\n');
@@ -230,7 +238,7 @@ Co-authored-by: Ona <no-reply@ona.com>"`, { stdio: 'pipe' });
 
   async autoPush() {
     if (!this.config.auto_push) return;
-    
+
     console.log('📤 Auto-pushing changes...');
     try {
       execSync('git push origin main', { stdio: 'pipe' });
@@ -243,28 +251,31 @@ Co-authored-by: Ona <no-reply@ona.com>"`, { stdio: 'pipe' });
   async run() {
     console.log('🤖 SELF-HEALING AUTOPILOT');
     console.log('=========================\n');
-    
+
     if (!this.config.enabled) {
       console.log('⚠️  Autopilot is disabled\n');
       return;
     }
-    
+
     const healthy = await this.checkHealth();
-    
+
     if (this.status.issuesFound > 0) {
       console.log(`📊 Found ${this.status.issuesFound} issues`);
       console.log(`✅ Fixed ${this.status.issuesFixed} issues\n`);
-      
+
       await this.autoCommit();
       await this.autoPush();
     } else {
       console.log('✅ System is healthy!\n');
     }
-    
+
     // Update status
     this.status.lastCheck = new Date();
-    writeFileSync('.autopilot-status.json', JSON.stringify(this.status, null, 2));
-    
+    writeFileSync(
+      '.autopilot-status.json',
+      JSON.stringify(this.status, null, 2)
+    );
+
     console.log('🎉 Self-healing autopilot complete!\n');
   }
 }
@@ -272,7 +283,7 @@ Co-authored-by: Ona <no-reply@ona.com>"`, { stdio: 'pipe' });
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   const autopilot = new SelfHealingAutopilot();
-  autopilot.run().catch(error => {
+  autopilot.run().catch((error) => {
     console.error('Fatal error:', error);
     process.exit(1);
   });

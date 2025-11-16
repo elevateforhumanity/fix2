@@ -16,35 +16,35 @@
   See LICENSE file for details.
 */
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const sisterSites = [
   {
-    name: "Mentorship Hub",
-    path: "/mentorship",
+    name: 'Mentorship Hub',
+    path: '/mentorship',
     subpages: [
-      { name: "Main", path: "/mentorship" },
-      { name: "Mentor Directory", path: "/mentorship/directory" },
-      { name: "Mentor Signup", path: "/mentorship/signup" },
+      { name: 'Main', path: '/mentorship' },
+      { name: 'Mentor Directory', path: '/mentorship/directory' },
+      { name: 'Mentor Signup', path: '/mentorship/signup' },
     ],
   },
   {
-    name: "Volunteer Network",
-    path: "/volunteer",
+    name: 'Volunteer Network',
+    path: '/volunteer',
     subpages: [
-      { name: "Main", path: "/volunteer" },
-      { name: "Opportunities", path: "/volunteer/opportunities" },
-      { name: "Stories", path: "/volunteer/stories" },
+      { name: 'Main', path: '/volunteer' },
+      { name: 'Opportunities', path: '/volunteer/opportunities' },
+      { name: 'Stories', path: '/volunteer/stories' },
     ],
   },
   {
-    name: "Wellness & Support",
-    path: "/wellness",
+    name: 'Wellness & Support',
+    path: '/wellness',
     subpages: [
-      { name: "Main", path: "/wellness" },
-      { name: "Resources", path: "/wellness/resources" },
-      { name: "Peer Support", path: "/wellness/peersupport" },
+      { name: 'Main', path: '/wellness' },
+      { name: 'Resources', path: '/wellness/resources' },
+      { name: 'Peer Support', path: '/wellness/peersupport' },
     ],
   },
 ];
@@ -53,7 +53,9 @@ export default function NavBar() {
   const [open, setOpen] = useState(null);
 
   return (
-    <nav style={{ display: "flex", gap: 24, padding: 16, background: "#f5f5f5" }}>
+    <nav
+      style={{ display: 'flex', gap: 24, padding: 16, background: '#f5f5f5' }}
+    >
       <Link to="/">Home</Link>
       <Link to="/ecosystem">Ecosystem</Link>
       <Link to="/student">Student</Link>
@@ -62,33 +64,33 @@ export default function NavBar() {
       <Link to="/course/demo-course">Course</Link>
       <Link to="/government">Government</Link>
       <Link to="/philanthropy">Philanthropy</Link>
-      <div style={{ position: "relative" }}>
+      <div style={{ position: 'relative' }}>
         <span
-          style={{ cursor: "pointer" }}
-          onMouseEnter={() => setOpen("sisters")}
+          style={{ cursor: 'pointer' }}
+          onMouseEnter={() => setOpen('sisters')}
           onMouseLeave={() => setOpen(null)}
         >
           Sister Sites ▼
         </span>
-        {open === "sisters" && (
+        {open === 'sisters' && (
           <div
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 24,
               left: 0,
-              background: "#fff",
-              border: "1px solid #ccc",
+              background: '#fff',
+              border: '1px solid #ccc',
               borderRadius: 6,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
               zIndex: 10,
               minWidth: 180,
             }}
-            onMouseEnter={() => setOpen("sisters")}
+            onMouseEnter={() => setOpen('sisters')}
             onMouseLeave={() => setOpen(null)}
           >
             {sisterSites.map((site) => (
               <div key={site.name} style={{ padding: 8 }}>
-                <Link to={site.path} style={{ fontWeight: "bold" }}>
+                <Link to={site.path} style={{ fontWeight: 'bold' }}>
                   {site.name}
                 </Link>
                 <div style={{ marginLeft: 12 }}>

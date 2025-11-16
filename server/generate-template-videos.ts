@@ -24,7 +24,9 @@ async function generateTemplateVideos() {
   for (let i = 0; i < videoTemplates.length; i++) {
     const template = videoTemplates[i];
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`Processing ${i + 1}/${videoTemplates.length}: ${template.name}`);
+    console.log(
+      `Processing ${i + 1}/${videoTemplates.length}: ${template.name}`
+    );
     console.log(`${'='.repeat(60)}`);
     console.log(`Category: ${template.category}`);
     console.log(`Duration: ${template.duration}s`);
@@ -45,16 +47,16 @@ async function generateTemplateVideos() {
           textPosition: scene.textPosition,
           animation: scene.animation,
           image: scene.media?.url,
-          textStyle: scene.textStyle
+          textStyle: scene.textStyle,
         })),
         settings: {
           format: template.format || '16:9',
           resolution: '720p', // Use 720p for faster generation
           voiceOver: true,
           backgroundMusic: false,
-          voice: 'alloy'
+          voice: 'alloy',
         },
-        userId: 'template-generator'
+        userId: 'template-generator',
       };
 
       console.log('Starting video generation...');
@@ -69,41 +71,41 @@ async function generateTemplateVideos() {
         // Copy to samples directory
         const samplesDir = path.join(process.cwd(), 'samples');
         await fs.mkdir(samplesDir, { recursive: true });
-        
+
         const samplePath = path.join(samplesDir, `${template.id}.mp4`);
         await fs.copyFile(result.videoPath, samplePath);
-        
+
         console.log(`   Sample: ${samplePath}`);
 
         results.push({
           template: template.name,
           status: 'success',
-          videoPath: samplePath
+          videoPath: samplePath,
         });
       } else {
         console.error('❌ Video generation failed');
         console.error(`   Error: ${result.error}`);
-        
+
         results.push({
           template: template.name,
           status: 'failed',
-          error: result.error
+          error: result.error,
         });
       }
     } catch (error) {
       console.error('❌ Error generating video:', error);
-      
+
       results.push({
         template: template.name,
         status: 'failed',
-        error: error instanceof Error ? error.message : 'Unknown error'
+        error: error instanceof Error ? error.message : 'Unknown error',
       });
     }
 
     // Add delay between generations to avoid overwhelming the system
     if (i < videoTemplates.length - 1) {
       console.log('\nWaiting 5 seconds before next generation...');
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
 
@@ -113,8 +115,8 @@ async function generateTemplateVideos() {
   console.log('='.repeat(60));
   console.log('');
 
-  const successful = results.filter(r => r.status === 'success');
-  const failed = results.filter(r => r.status === 'failed');
+  const successful = results.filter((r) => r.status === 'success');
+  const failed = results.filter((r) => r.status === 'failed');
 
   console.log(`Total Templates: ${videoTemplates.length}`);
   console.log(`✅ Successful: ${successful.length}`);
@@ -123,7 +125,7 @@ async function generateTemplateVideos() {
 
   if (successful.length > 0) {
     console.log('Successful Generations:');
-    successful.forEach(r => {
+    successful.forEach((r) => {
       console.log(`  ✅ ${r.template}`);
       console.log(`     ${r.videoPath}`);
     });
@@ -132,7 +134,7 @@ async function generateTemplateVideos() {
 
   if (failed.length > 0) {
     console.log('Failed Generations:');
-    failed.forEach(r => {
+    failed.forEach((r) => {
       console.log(`  ❌ ${r.template}`);
       console.log(`     Error: ${r.error}`);
     });
@@ -150,16 +152,28 @@ Generated: ${new Date().toISOString()}
 
 ## Videos
 
-${successful.map(r => `- **${r.template}**
+${successful
+  .map(
+    (r) => `- **${r.template}**
   - File: \`${path.basename(r.videoPath!)}\`
   - Status: ✅ Generated
-`).join('\n')}
+`
+  )
+  .join('\n')}
 
-${failed.length > 0 ? `## Failed
+${
+  failed.length > 0
+    ? `## Failed
 
-${failed.map(r => `- **${r.template}**
+${failed
+  .map(
+    (r) => `- **${r.template}**
   - Error: ${r.error}
-`).join('\n')}` : ''}
+`
+  )
+  .join('\n')}`
+    : ''
+}
 
 ## Usage
 

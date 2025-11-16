@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,13 +6,19 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import LMSNav from '@/components/lms/LMSNav';
-import { 
+import {
   FileText,
   Clock,
   CheckCircle,
@@ -20,7 +26,7 @@ import {
   Calendar,
   AlertCircle,
   Download,
-  Send
+  Send,
 } from 'lucide-react';
 
 // Mock assignment data
@@ -33,7 +39,8 @@ const assignmentData: Record<string, any> = {
     dueDate: '2024-11-15',
     type: 'quiz',
     points: 100,
-    description: 'Complete the Module 3 assessment covering infection control procedures',
+    description:
+      'Complete the Module 3 assessment covering infection control procedures',
     instructions: `
       <h3>Instructions:</h3>
       <ul>
@@ -56,7 +63,8 @@ const assignmentData: Record<string, any> = {
     dueDate: '2024-11-18',
     type: 'assignment',
     points: 50,
-    description: 'Write a 2-page report on HVAC safety procedures and best practices',
+    description:
+      'Write a 2-page report on HVAC safety procedures and best practices',
     instructions: `
       <h3>Assignment Requirements:</h3>
       <ul>
@@ -108,14 +116,19 @@ const assignmentData: Record<string, any> = {
     status: 'graded',
     submittedDate: '2024-11-04',
     grade: 90,
-    feedback: 'Excellent work! You demonstrated a strong understanding of vital signs measurement techniques. Minor improvement needed on blood pressure reading interpretation.',
+    feedback:
+      'Excellent work! You demonstrated a strong understanding of vital signs measurement techniques. Minor improvement needed on blood pressure reading interpretation.',
   },
 };
 
-export default function AssignmentDetailPage({ params }: { params: { id: string } }) {
+export default function AssignmentDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const router = useRouter();
   const assignment = assignmentData[params.id];
-  
+
   const [submissionText, setSubmissionText] = useState('');
   const [submissionFile, setSubmissionFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -142,8 +155,13 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
     );
   }
 
-  const isOverdue = new Date(assignment.dueDate) < new Date() && assignment.status === 'pending';
-  const daysUntil = Math.ceil((new Date(assignment.dueDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
+  const isOverdue =
+    new Date(assignment.dueDate) < new Date() &&
+    assignment.status === 'pending';
+  const daysUntil = Math.ceil(
+    (new Date(assignment.dueDate).getTime() - new Date().getTime()) /
+      (1000 * 60 * 60 * 24)
+  );
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -154,7 +172,7 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     setIsSubmitting(false);
     alert('Assignment submitted successfully!');
     router.push('/lms/assignments');
@@ -167,7 +185,6 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
   return (
     <div className="min-h-screen bg-background">
       <LMSNav />
-
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-6">
@@ -175,7 +192,6 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
             <Link href="/lms/assignments">← Back to Assignments</Link>
           </Button>
         </div>
-
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
@@ -185,25 +201,39 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <CardTitle className="text-2xl">{assignment.title}</CardTitle>
+                      <CardTitle className="text-2xl">
+                        {assignment.title}
+                      </CardTitle>
                       {assignment.status === 'pending' && (
-                        <Badge variant={isOverdue ? 'destructive' : 'outline'} className="bg-yellow-50 text-yellow-700 border-yellow-200">
+                        <Badge
+                          variant={isOverdue ? 'destructive' : 'outline'}
+                          className="bg-yellow-50 text-yellow-700 border-yellow-200"
+                        >
                           {isOverdue ? 'Overdue' : 'Pending'}
                         </Badge>
                       )}
                       {assignment.status === 'submitted' && (
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge
+                          variant="outline"
+                          className="bg-blue-50 text-blue-700 border-blue-200"
+                        >
                           Submitted
                         </Badge>
                       )}
                       {assignment.status === 'graded' && (
-                        <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                        <Badge
+                          variant="outline"
+                          className="bg-green-50 text-green-700 border-green-200"
+                        >
                           Graded
                         </Badge>
                       )}
                     </div>
                     <CardDescription>
-                      <Link href={`/lms/courses/${assignment.courseId}`} className="hover:underline">
+                      <Link
+                        href={`/lms/courses/${assignment.courseId}`}
+                        className="hover:underline"
+                      >
                         {assignment.course}
                       </Link>
                     </CardDescription>
@@ -213,19 +243,21 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
               <CardContent className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2">Description</h3>
-                  <p className="text-muted-foreground">{assignment.description}</p>
+                  <p className="text-muted-foreground">
+                    {assignment.description}
+                  </p>
                 </div>
-
                 {assignment.instructions && (
                   <div>
                     <h3 className="font-semibold mb-2">Instructions</h3>
-                    <div 
+                    <div
                       className="prose prose-sm max-w-none"
-                      dangerouslySetInnerHTML={{ __html: assignment.instructions }}
+                      dangerouslySetInnerHTML={{
+                        __html: assignment.instructions,
+                      }}
                     />
                   </div>
                 )}
-
                 {/* Graded View */}
                 {assignment.status === 'graded' && (
                   <div className="space-y-4">
@@ -237,67 +269,83 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                         </div>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Score: {Math.round((assignment.grade / assignment.points) * 100)}%
+                        Score:{' '}
+                        {Math.round(
+                          (assignment.grade / assignment.points) * 100
+                        )}
+                        %
                       </div>
                     </div>
-
                     {assignment.feedback && (
                       <div>
-                        <h3 className="font-semibold mb-2">Instructor Feedback</h3>
+                        <h3 className="font-semibold mb-2">
+                          Instructor Feedback
+                        </h3>
                         <div className="p-4 bg-secondary rounded-lg">
                           <p className="text-sm">{assignment.feedback}</p>
                         </div>
                       </div>
                     )}
-
                     <div>
                       <h3 className="font-semibold mb-2">Your Submission</h3>
                       <div className="p-4 bg-secondary rounded-lg">
-                        <p className="text-sm">{assignment.submittedContent || 'File submission'}</p>
+                        <p className="text-sm">
+                          {assignment.submittedContent || 'File submission'}
+                        </p>
                       </div>
                     </div>
                   </div>
                 )}
-
                 {/* Submitted View */}
                 {assignment.status === 'submitted' && (
                   <div className="space-y-4">
                     <div className="p-6 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
                       <div className="flex items-center gap-3 mb-2">
                         <CheckCircle className="h-6 w-6 text-blue-600" />
-                        <h3 className="font-semibold text-lg">Submission Received</h3>
+                        <h3 className="font-semibold text-lg">
+                          Submission Received
+                        </h3>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Submitted on {new Date(assignment.submittedDate).toLocaleDateString('en-US', { 
-                          month: 'long', 
-                          day: 'numeric',
-                          year: 'numeric',
-                          hour: 'numeric',
-                          minute: '2-digit'
-                        })}
+                        Submitted on{' '}
+                        {new Date(assignment.submittedDate).toLocaleDateString(
+                          'en-US',
+                          {
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit',
+                          }
+                        )}
                       </p>
                       <p className="text-sm text-muted-foreground mt-2">
-                        Your instructor will review and grade your submission soon.
+                        Your instructor will review and grade your submission
+                        soon.
                       </p>
                     </div>
-
                     <div>
                       <h3 className="font-semibold mb-2">Your Submission</h3>
                       <div className="p-4 bg-secondary rounded-lg">
-                        <p className="text-sm">{assignment.submittedContent || 'File submission'}</p>
+                        <p className="text-sm">
+                          {assignment.submittedContent || 'File submission'}
+                        </p>
                       </div>
                     </div>
                   </div>
                 )}
-
                 {/* Pending - Submission Form */}
                 {assignment.status === 'pending' && (
                   <div className="space-y-6">
                     {assignment.type === 'quiz' ? (
                       <div className="p-6 bg-secondary rounded-lg text-center">
-                        <h3 className="font-semibold text-lg mb-2">Ready to Start?</h3>
+                        <h3 className="font-semibold text-lg mb-2">
+                          Ready to Start?
+                        </h3>
                         <p className="text-sm text-muted-foreground mb-4">
-                          You have {assignment.attemptsAllowed - assignment.attemptsUsed} attempt(s) remaining
+                          You have{' '}
+                          {assignment.attemptsAllowed - assignment.attemptsUsed}{' '}
+                          attempt(s) remaining
                         </p>
                         <Button onClick={handleStartQuiz} size="lg">
                           Start Quiz
@@ -306,7 +354,6 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                     ) : (
                       <div className="space-y-4">
                         <h3 className="font-semibold">Submit Your Work</h3>
-                        
                         {assignment.submissionType === 'text' ? (
                           <div className="space-y-2">
                             <Label htmlFor="submission">Your Answer</Label>
@@ -314,7 +361,9 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                               id="submission"
                               rows={10}
                               value={submissionText}
-                              onChange={(e) => setSubmissionText(e.target.value)}
+                              onChange={(e) =>
+                                setSubmissionText(e.target.value)
+                              }
                               placeholder="Type your answer here..."
                             />
                           </div>
@@ -341,10 +390,11 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                             </p>
                           </div>
                         )}
-
-                        <Button 
-                          onClick={handleSubmit} 
-                          disabled={isSubmitting || (!submissionText && !submissionFile)}
+                        <Button
+                          onClick={handleSubmit}
+                          disabled={
+                            isSubmitting || (!submissionText && !submissionFile)
+                          }
                           className="w-full"
                           size="lg"
                         >
@@ -364,7 +414,6 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
               </CardContent>
             </Card>
           </div>
-
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Assignment Info */}
@@ -378,54 +427,64 @@ export default function AssignmentDetailPage({ params }: { params: { id: string 
                   <div>
                     <p className="text-sm font-medium">Due Date</p>
                     <p className="text-sm text-muted-foreground">
-                      {new Date(assignment.dueDate).toLocaleDateString('en-US', { 
-                        month: 'long', 
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
+                      {new Date(assignment.dueDate).toLocaleDateString(
+                        'en-US',
+                        {
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric',
+                        }
+                      )}
                     </p>
                     {assignment.status === 'pending' && (
-                      <p className={`text-xs mt-1 ${isOverdue ? 'text-red-600 font-medium' : 'text-muted-foreground'}`}>
-                        {isOverdue ? `${Math.abs(daysUntil)} days overdue` : daysUntil === 0 ? 'Due today' : `Due in ${daysUntil} days`}
+                      <p
+                        className={`text-xs mt-1 ${isOverdue ? 'text-red-600 font-medium' : 'text-muted-foreground'}`}
+                      >
+                        {isOverdue
+                          ? `${Math.abs(daysUntil)} days overdue`
+                          : daysUntil === 0
+                            ? 'Due today'
+                            : `Due in ${daysUntil} days`}
                       </p>
                     )}
                   </div>
                 </div>
-
                 <div className="flex items-center gap-3">
                   <FileText className="h-5 w-5 text-muted-foreground" />
                   <div>
                     <p className="text-sm font-medium">Points</p>
-                    <p className="text-sm text-muted-foreground">{assignment.points} points</p>
+                    <p className="text-sm text-muted-foreground">
+                      {assignment.points} points
+                    </p>
                   </div>
                 </div>
-
                 {assignment.type === 'quiz' && assignment.attemptsAllowed && (
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <p className="text-sm font-medium">Attempts</p>
                       <p className="text-sm text-muted-foreground">
-                        {assignment.attemptsUsed}/{assignment.attemptsAllowed} used
+                        {assignment.attemptsUsed}/{assignment.attemptsAllowed}{' '}
+                        used
                       </p>
                     </div>
                   </div>
                 )}
-
                 {assignment.status === 'submitted' && (
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5 text-green-600" />
                     <div>
                       <p className="text-sm font-medium">Submitted</p>
                       <p className="text-sm text-muted-foreground">
-                        {new Date(assignment.submittedDate).toLocaleDateString()}
+                        {new Date(
+                          assignment.submittedDate
+                        ).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
                 )}
               </CardContent>
             </Card>
-
             {/* Course Link */}
             <Card>
               <CardContent className="pt-6">

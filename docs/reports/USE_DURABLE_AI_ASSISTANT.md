@@ -2,13 +2,13 @@
 
 ## Brilliant Idea! 💡
 
-You're right -  has built-in AI assistants that can do the work for you! Let's use their AI to add the enrollment programs.
+You're right - has built-in AI assistants that can do the work for you! Let's use their AI to add the enrollment programs.
 
 ---
 
 ## 🚀 Method 1: Use Durable's AI Assistant (Easiest!)
 
-### Step 1: Login to 
+### Step 1: Login to
 
 Go to: https://durable.co/login
 
@@ -65,7 +65,7 @@ The Durable AI assistant should:
 
 ### Step 1: Open Your Site Editor
 
-1. Login to 
+1. Login to
 2. Select your site: "Elevate for Humanity"
 3. Click "Edit"
 
@@ -307,7 +307,7 @@ Thank you!
 
 **Steps:**
 
-1. Login to 
+1. Login to
 2. Find AI Assistant/Chat
 3. Paste the prompt above
 4. Let AI add the section

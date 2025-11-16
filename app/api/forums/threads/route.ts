@@ -10,11 +10,13 @@ export async function GET(req: NextRequest) {
 
     let query = supabase
       .from('forum_threads')
-      .select(`
+      .select(
+        `
         *,
         author:profiles!author_id(full_name, email),
         posts:forum_posts(count)
-      `)
+      `
+      )
       .order('pinned', { ascending: false })
       .order('updated_at', { ascending: false });
 
@@ -33,14 +35,19 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ threads: data });
   } catch (error) {
     console.error('Error fetching threads:', error);
-    return NextResponse.json({ error: 'Failed to fetch threads' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch threads' },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createServerSupabaseClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -50,7 +57,10 @@ export async function POST(req: NextRequest) {
     const { category_id, course_id, title } = body;
 
     if (!category_id || !title) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const { data, error } = await supabase
@@ -69,6 +79,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ thread: data }, { status: 201 });
   } catch (error) {
     console.error('Error creating thread:', error);
-    return NextResponse.json({ error: 'Failed to create thread' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to create thread' },
+      { status: 500 }
+    );
   }
 }

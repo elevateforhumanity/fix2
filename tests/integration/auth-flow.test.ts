@@ -5,7 +5,8 @@ describe('Complete Authentication Flow', () => {
   let supabase: ReturnType<typeof createClient>;
 
   beforeEach(() => {
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
+    const supabaseUrl =
+      process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
     const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || 'mock-key';
     supabase = createClient(supabaseUrl, supabaseKey);
   });
@@ -69,7 +70,9 @@ describe('Complete Authentication Flow', () => {
 
     expect(data).toBeDefined();
     // Session might be null if not authenticated
-    expect(data.session === null || typeof data.session === 'object').toBe(true);
+    expect(data.session === null || typeof data.session === 'object').toBe(
+      true
+    );
   });
 
   it('should get current user', async () => {
@@ -84,7 +87,8 @@ describe('OAuth Flow', () => {
   let supabase: ReturnType<typeof createClient>;
 
   beforeEach(() => {
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
+    const supabaseUrl =
+      process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
     const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || 'mock-key';
     supabase = createClient(supabaseUrl, supabaseKey);
   });
@@ -126,7 +130,8 @@ describe('OAuth Flow', () => {
 
 describe('Session Management', () => {
   it('should refresh session', async () => {
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
+    const supabaseUrl =
+      process.env.VITE_SUPABASE_URL || 'https://mock.supabase.co';
     const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || 'mock-key';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -160,10 +165,12 @@ describe('Session Management', () => {
     };
 
     localStorage.setItem('supabase.auth.token', JSON.stringify(session));
-    const stored = JSON.parse(localStorage.getItem('supabase.auth.token') || '{}');
+    const stored = JSON.parse(
+      localStorage.getItem('supabase.auth.token') || '{}'
+    );
 
     expect(stored.access_token).toBe(session.access_token);
-    
+
     localStorage.removeItem('supabase.auth.token');
   });
 });
@@ -192,7 +199,7 @@ describe('Role-Based Access Control', () => {
     };
 
     const hasAnyRole = (user: any, roles: string[]) => {
-      return roles.some(role => user.roles.includes(role));
+      return roles.some((role) => user.roles.includes(role));
     };
 
     expect(hasAnyRole(user, ['admin'])).toBe(true);
@@ -266,7 +273,7 @@ describe('Account Security', () => {
 
     const isSuspicious = (attempts: typeof loginAttempts) => {
       const recentFailed = attempts.filter(
-        a => !a.success && Date.now() - a.timestamp < 5 * 60 * 1000
+        (a) => !a.success && Date.now() - a.timestamp < 5 * 60 * 1000
       );
       return recentFailed.length >= 3;
     };

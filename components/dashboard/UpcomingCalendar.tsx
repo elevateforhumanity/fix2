@@ -40,10 +40,15 @@ export function UpcomingCalendar() {
       </div>
       <div className="space-y-3">
         {events.map((event) => (
-          <div key={event.id} className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-red-300 transition-colors">
+          <div
+            key={event.id}
+            className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-red-300 transition-colors"
+          >
             <div className="flex items-start justify-between gap-2">
               <div className="flex-1">
-                <h4 className="font-semibold text-gray-900 text-sm">{event.title}</h4>
+                <h4 className="font-semibold text-gray-900 text-sm">
+                  {event.title}
+                </h4>
                 <p className="text-xs text-gray-600 mt-1">{event.course}</p>
               </div>
               <span className="elevate-pill elevate-pill--red text-xs">

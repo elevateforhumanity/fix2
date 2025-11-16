@@ -9,16 +9,20 @@
 ## PORTAL STRUCTURE
 
 ### 1. STUDENT PORTAL
+
 **Purpose:** Students access courses, track progress, earn certificates
 
 #### Main Hub
+
 - `/student-portal` - Main portal hub with quick links
 
 #### Individual Pages Created
+
 - `/student/dashboard` - Overview dashboard with stats
 - `/student/courses` - All enrolled courses with filters
 
 #### Pages Needed (Phase 2)
+
 - `/student/course/:id` - Course player
 - `/student/assignments` - Assignment list
 - `/student/certificates` - Certificate gallery
@@ -28,15 +32,19 @@
 ---
 
 ### 2. PARTNER PORTAL
+
 **Purpose:** Partner organizations manage programs and students
 
 #### Main Hub
+
 - `/partner-portal` - Main partner dashboard
 
 #### Individual Pages Created
+
 - `/partner/students` - Manage all students
 
 #### Pages Needed (Phase 2)
+
 - `/partner/dashboard` - Partner overview
 - `/partner/applications` - Review applications
 - `/partner/programs` - Manage programs
@@ -46,12 +54,15 @@
 ---
 
 ### 3. STAFF PORTAL
+
 **Purpose:** Staff/admin manage entire LMS system
 
 #### Main Hub
+
 - `/staff-portal` - Main staff dashboard
 
 #### Pages Needed (Phase 2)
+
 - `/staff/dashboard` - System overview
 - `/staff/students` - All student management
 - `/staff/partners` - All partner management
@@ -66,18 +77,22 @@
 ## FILES CREATED
 
 ### Student Portal
+
 1. `/src/pages/portals/StudentPortalAccess.tsx` - Main hub
 2. `/src/pages/student/Dashboard.tsx` - Dashboard
 3. `/src/pages/student/MyCourses.tsx` - Course list
 
 ### Partner Portal
+
 1. `/src/pages/portals/PartnerPortal.tsx` - Main hub
 2. `/src/pages/partner/ManageStudents.tsx` - Student management
 
 ### Staff Portal
+
 1. `/src/pages/portals/StaffPortal.tsx` - Main hub
 
 ### Supporting
+
 1. `/src/pages/CourseCatalogPage.tsx` - Public course catalog
 
 ---
@@ -87,6 +102,7 @@
 ### Student Portal Pages
 
 #### `/student/course/:id` - Course Player
+
 ```typescript
 - Video player
 - Lesson navigation
@@ -97,6 +113,7 @@
 ```
 
 #### `/student/assignments` - Assignments
+
 ```typescript
 - Assignment list
 - Due dates
@@ -106,6 +123,7 @@
 ```
 
 #### `/student/certificates` - Certificates
+
 ```typescript
 - Certificate gallery
 - Download PDF
@@ -114,6 +132,7 @@
 ```
 
 #### `/student/schedule` - Schedule
+
 ```typescript
 - Calendar view
 - Upcoming classes
@@ -126,6 +145,7 @@
 ### Partner Portal Pages
 
 #### `/partner/dashboard` - Dashboard
+
 ```typescript
 - Program overview
 - Student stats
@@ -134,6 +154,7 @@
 ```
 
 #### `/partner/applications` - Applications
+
 ```typescript
 - Pending applications
 - Review/approve
@@ -142,6 +163,7 @@
 ```
 
 #### `/partner/programs` - Programs
+
 ```typescript
 - Active programs
 - Create new program
@@ -150,6 +172,7 @@
 ```
 
 #### `/partner/reports` - Reports
+
 ```typescript
 - Student progress reports
 - Completion rates
@@ -162,6 +185,7 @@
 ### Staff Portal Pages
 
 #### `/staff/students` - Student Management
+
 ```typescript
 - All students list
 - Search/filter
@@ -171,6 +195,7 @@
 ```
 
 #### `/staff/partners` - Partner Management
+
 ```typescript
 - All partners list
 - Approve new partners
@@ -179,6 +204,7 @@
 ```
 
 #### `/staff/courses` - Course Management
+
 ```typescript
 - All courses list
 - Create new course
@@ -188,6 +214,7 @@
 ```
 
 #### `/staff/applications` - Applications
+
 ```typescript
 - All applications
 - Approve/reject
@@ -196,6 +223,7 @@
 ```
 
 #### `/staff/reports` - System Reports
+
 ```typescript
 - System-wide analytics
 - Revenue reports
@@ -205,6 +233,7 @@
 ```
 
 #### `/staff/funding` - Funding Management
+
 ```typescript
 - WIOA allocations
 - WRG tracking
@@ -218,6 +247,7 @@
 ## PHASE 3 - ADVANCED FEATURES
 
 ### Student Portal
+
 - [ ] AI Tutor integration
 - [ ] Peer messaging
 - [ ] Study groups
@@ -225,6 +255,7 @@
 - [ ] Mobile app
 
 ### Partner Portal
+
 - [ ] Automated reporting
 - [ ] API access
 - [ ] Custom branding
@@ -232,6 +263,7 @@
 - [ ] Bulk student upload
 
 ### Staff Portal
+
 - [ ] Advanced analytics
 - [ ] Automated workflows
 - [ ] Email campaigns
@@ -244,12 +276,14 @@
 ## AUTHENTICATION & ROLES
 
 ### User Roles
+
 1. **Student** - Access student portal only
 2. **Partner** - Access partner portal only
 3. **Staff** - Access staff portal only
 4. **Admin** - Access all portals
 
 ### Authentication Flow
+
 ```
 1. User logs in
 2. System checks role
@@ -261,6 +295,7 @@
 ```
 
 ### Role-Based Access Control (RBAC)
+
 ```typescript
 interface User {
   id: string;
@@ -277,6 +312,7 @@ interface User {
 ## NAVIGATION STRUCTURE
 
 ### Student Portal Nav
+
 ```
 - Dashboard
 - My Courses
@@ -287,6 +323,7 @@ interface User {
 ```
 
 ### Partner Portal Nav
+
 ```
 - Dashboard
 - Students
@@ -297,6 +334,7 @@ interface User {
 ```
 
 ### Staff Portal Nav
+
 ```
 - Dashboard
 - Students
@@ -313,6 +351,7 @@ interface User {
 ## DATA MODELS
 
 ### Student
+
 ```typescript
 interface Student {
   id: string;
@@ -328,6 +367,7 @@ interface Student {
 ```
 
 ### Partner
+
 ```typescript
 interface Partner {
   id: string;
@@ -341,6 +381,7 @@ interface Partner {
 ```
 
 ### Course
+
 ```typescript
 interface Course {
   id: string;
@@ -360,6 +401,7 @@ interface Course {
 ## NEXT STEPS
 
 ### Immediate (Today)
+
 1. ✅ Create portal hub pages
 2. ✅ Create initial individual pages
 3. [ ] Add routing for all pages
@@ -367,6 +409,7 @@ interface Course {
 5. [ ] Build and deploy
 
 ### Short Term (This Week)
+
 6. [ ] Create remaining Phase 2 pages
 7. [ ] Add authentication
 8. [ ] Connect to Supabase
@@ -374,6 +417,7 @@ interface Course {
 10. [ ] Test all portals
 
 ### Medium Term (This Month)
+
 11. [ ] Implement Phase 3 features
 12. [ ] Add payment processing
 13. [ ] Create mobile app
@@ -385,6 +429,7 @@ interface Course {
 ## ROUTING CONFIGURATION
 
 ### Add to AppRoutes.tsx
+
 ```typescript
 // Student Portal
 <Route path="/student-portal" element={<StudentPortalAccess />} />

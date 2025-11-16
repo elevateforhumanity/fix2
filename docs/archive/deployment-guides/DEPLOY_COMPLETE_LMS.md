@@ -7,7 +7,7 @@
 ✅ **Milady RISE Integration** - External enrollment with tracking  
 ✅ **Progress Tracking** - Automatic tracking of lesson completion  
 ✅ **Certificate System** - Auto-issue certificates when courses complete  
-✅ **Role-Based Access** - Student/Staff/Admin with magic link auth  
+✅ **Role-Based Access** - Student/Staff/Admin with magic link auth
 
 ---
 
@@ -21,24 +21,28 @@
 **Run these in order (copy/paste each one):**
 
 #### 1. Certificate System
+
 ```sql
 -- Copy entire contents of: supabase/migrations/APPLY_ALL_MIGRATIONS.sql
 -- Paste and Run
 ```
 
 #### 2. Enhanced LMS Schema
+
 ```sql
 -- Copy entire contents of: supabase/migrations/003_enhanced_lms_schema.sql
 -- Paste and Run
 ```
 
 #### 3. Load Milady Barber Course
+
 ```sql
 -- Copy entire contents of: supabase/migrations/004_load_milady_barber_course.sql
 -- Paste and Run
 ```
 
 **Expected Output:**
+
 ```
 ✅ All migrations applied successfully!
 ✅ Enhanced LMS schema applied successfully!
@@ -64,12 +68,14 @@ Course Details:
 ### Step 3: Deploy Edge Function (2 min)
 
 **Option A: Using Supabase CLI (if installed)**
+
 ```bash
 cd /workspaces/fix2
 supabase functions deploy check-course-completion
 ```
 
 **Option B: Manual (if no CLI)**
+
 1. Go to [Supabase Functions](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/functions)
 2. Click **Create a new function**
 3. Name: `check-course-completion`
@@ -82,6 +88,7 @@ supabase functions deploy check-course-completion
 [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users)
 
 **Run in SQL Editor:**
+
 ```sql
 -- Replace YOUR_USER_ID with your actual ID
 INSERT INTO public.user_roles (user_id, role)
@@ -89,7 +96,7 @@ VALUES ('YOUR_USER_ID', 'admin')
 ON CONFLICT (user_id) DO UPDATE SET role = 'admin';
 
 -- Verify
-SELECT u.email, ur.role 
+SELECT u.email, ur.role
 FROM auth.users u
 JOIN public.user_roles ur ON u.id = ur.user_id
 WHERE u.id = 'YOUR_USER_ID';
@@ -139,33 +146,43 @@ git push origin main
 ## 🎯 What Students Will Experience
 
 ### 1. Browse Courses
+
 **URL:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
+
 - See all available courses
 - View course details
 - Check enrollment status
 
 ### 2. Enroll in Barber Course
+
 **URL:** [https://portal.elevateforhumanity.org/lms/milady-barber-course](https://portal.elevateforhumanity.org/lms/milady-barber-course)
+
 - View full curriculum (10 modules)
 - Click "Enroll in Course"
 - Course appears in their dashboard
 
 ### 3. Take Lessons
+
 **URL:** `/lms/courses/{courseId}/lessons/{lessonId}`
+
 - Watch videos (if available)
 - Read lesson content
 - Take quizzes
 - Mark lessons complete
 
 ### 4. Track Progress
+
 **Automatic tracking:**
+
 - ✅ Each lesson marked complete updates progress
 - ✅ Module progress calculated automatically
 - ✅ Course completion tracked
 - ✅ Certificate issued when 100% complete
 
 ### 5. View Certificates
+
 **URL:** [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
+
 - See all earned certificates
 - Download PDFs
 - Share verification links
@@ -175,10 +192,12 @@ git push origin main
 ## 📊 What You (Admin) Will See
 
 ### 1. Student Enrollments
+
 **Query in Supabase:**
+
 ```sql
 -- See all enrollments
-SELECT 
+SELECT
   u.email,
   c.title as course,
   e.status,
@@ -191,10 +210,12 @@ ORDER BY e.enrolled_at DESC;
 ```
 
 ### 2. Student Progress
+
 **Query in Supabase:**
+
 ```sql
 -- See progress for a specific student
-SELECT 
+SELECT
   c.title as course,
   m.title as module,
   l.title as lesson,
@@ -210,16 +231,18 @@ ORDER BY c.title, m."order", l.idx;
 ```
 
 ### 3. Course Completion Rates
+
 **Query in Supabase:**
+
 ```sql
 -- See completion rates by course
-SELECT 
+SELECT
   c.title,
   COUNT(DISTINCT e.user_id) as total_enrolled,
   COUNT(DISTINCT CASE WHEN e.status = 'completed' THEN e.user_id END) as completed,
   ROUND(
-    COUNT(DISTINCT CASE WHEN e.status = 'completed' THEN e.user_id END)::numeric / 
-    NULLIF(COUNT(DISTINCT e.user_id), 0) * 100, 
+    COUNT(DISTINCT CASE WHEN e.status = 'completed' THEN e.user_id END)::numeric /
+    NULLIF(COUNT(DISTINCT e.user_id), 0) * 100,
     2
   ) as completion_rate
 FROM courses c
@@ -229,10 +252,12 @@ ORDER BY total_enrolled DESC;
 ```
 
 ### 4. Certificates Issued
+
 **Query in Supabase:**
+
 ```sql
 -- See all issued certificates
-SELECT 
+SELECT
   u.email,
   cert.certification_name,
   cert.issued_at,
@@ -278,9 +303,10 @@ SELECT check_course_completion('USER_ID', 'COURSE_ID');
 ```
 
 Or via API:
+
 ```javascript
 const { data } = await supabase.functions.invoke('check-course-completion', {
-  body: { userId: 'USER_ID', courseId: 'COURSE_ID' }
+  body: { userId: 'USER_ID', courseId: 'COURSE_ID' },
 });
 ```
 
@@ -295,7 +321,7 @@ The Barber course has 4 sample lessons in Module 1. To add more:
 ```sql
 -- Add a lesson to Module 2
 INSERT INTO lessons (module_id, course_id, idx, title, duration_minutes, topics, html)
-SELECT 
+SELECT
   m.id,
   c.id,
   1,
@@ -371,6 +397,7 @@ Create a script to import lessons from a spreadsheet or JSON file.
 ## 🔗 All Your Links
 
 ### Student Experience
+
 - **LMS Home:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 - **Barber Course:** [https://portal.elevateforhumanity.org/lms/milady-barber-course](https://portal.elevateforhumanity.org/lms/milady-barber-course)
 - **RISE Enrollment:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
@@ -378,6 +405,7 @@ Create a script to import lessons from a spreadsheet or JSON file.
 - **Login:** [https://portal.elevateforhumanity.org/login](https://portal.elevateforhumanity.org/login)
 
 ### Admin Tools
+
 - **Staff Panel:** [https://portal.elevateforhumanity.org/staff](https://portal.elevateforhumanity.org/staff)
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 - **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
@@ -405,6 +433,7 @@ Create a script to import lessons from a spreadsheet or JSON file.
 ## 🎉 You're Done!
 
 Your complete LMS is ready with:
+
 - ✅ Full course content in database
 - ✅ Automatic progress tracking
 - ✅ Automatic certificate issuance
@@ -419,6 +448,7 @@ Your complete LMS is ready with:
 ## 📞 Need Help?
 
 Check these files:
+
 - `QUICK_REFERENCE.md` - Quick access guide
 - `docs/LMS_ARCHITECTURE_ANALYSIS.md` - Architecture details
 - `docs/MILADY_COURSES_EXPLAINED.md` - How courses work

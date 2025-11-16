@@ -53,13 +53,16 @@ export const initializeSocket = (httpServer: HTTPServer) => {
       });
     });
 
-    socket.on('progress:update', (data: { courseId: string; lessonId: string; progress: number }) => {
-      io.to(`course:${data.courseId}`).emit('progress:update', {
-        userId: socket.userId,
-        lessonId: data.lessonId,
-        progress: data.progress,
-      });
-    });
+    socket.on(
+      'progress:update',
+      (data: { courseId: string; lessonId: string; progress: number }) => {
+        io.to(`course:${data.courseId}`).emit('progress:update', {
+          userId: socket.userId,
+          lessonId: data.lessonId,
+          progress: data.progress,
+        });
+      }
+    );
 
     socket.on('disconnect', () => {
       console.log(`User disconnected: ${socket.userId}`);

@@ -3,10 +3,12 @@
 ## ✅ NEW BUILD IS DEPLOYED
 
 The new build with CSS variables **IS LIVE** at:
+
 - https://elevateproduction.netlify.app
 - https://www.elevateconnectsdirectory.org
 
 **Deployment Details:**
+
 - Commit: `f871b8fd`
 - CSS File: `index-gDzT5Lo7.css` (74KB)
 - Contains: All CSS variables defined
@@ -21,6 +23,7 @@ Your browser is showing the **old cached version**. The new version is deployed,
 ### Option 1: Hard Refresh (Fastest)
 
 **Windows/Linux:**
+
 ```
 Ctrl + Shift + R
 or
@@ -28,6 +31,7 @@ Ctrl + F5
 ```
 
 **Mac:**
+
 ```
 Cmd + Shift + R
 or
@@ -37,24 +41,28 @@ Cmd + Option + R
 ### Option 2: Clear Browser Cache
 
 **Chrome:**
+
 1. Press `Ctrl + Shift + Delete` (Windows) or `Cmd + Shift + Delete` (Mac)
 2. Select "Cached images and files"
 3. Click "Clear data"
 4. Reload the page
 
 **Firefox:**
+
 1. Press `Ctrl + Shift + Delete` (Windows) or `Cmd + Shift + Delete` (Mac)
 2. Select "Cache"
 3. Click "Clear Now"
 4. Reload the page
 
 **Safari:**
+
 1. Press `Cmd + Option + E` to empty cache
 2. Reload the page
 
 ### Option 3: Incognito/Private Window
 
 Open the site in an incognito/private window:
+
 - **Chrome**: `Ctrl + Shift + N` (Windows) or `Cmd + Shift + N` (Mac)
 - **Firefox**: `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac)
 - **Safari**: `Cmd + Shift + N`
@@ -64,6 +72,7 @@ Then visit: https://www.elevateconnectsdirectory.org
 ### Option 4: Cache-Busting URL
 
 Add `?v=2` to the URL:
+
 ```
 https://www.elevateconnectsdirectory.org/?v=2
 ```
@@ -75,6 +84,7 @@ This forces the browser to fetch a fresh version.
 After clearing cache, you should see:
 
 ### ✅ What You Should See:
+
 1. **Hero Section**: Blue gradient background (not plain white)
 2. **Buttons**: Colored buttons (blue, green)
 3. **Text**: Proper color hierarchy (dark headings, gray body text)
@@ -83,6 +93,7 @@ After clearing cache, you should see:
 6. **Images**: All loading correctly
 
 ### ❌ What You're Currently Seeing (Old Cache):
+
 1. Missing colors
 2. Unstyled elements
 3. Plain backgrounds
@@ -106,6 +117,7 @@ Check deployment status at:
 https://app.netlify.com/sites/elevateproduction/deploys
 
 Latest deployment should show:
+
 - ✅ Published
 - Commit: `f871b8fd`
 - Time: ~13:27 UTC (Nov 11, 2025)
@@ -113,6 +125,7 @@ Latest deployment should show:
 ## CDN Cache
 
 Netlify's CDN cache should clear automatically within:
+
 - **HTML**: Immediate (max-age=0)
 - **CSS/JS**: Immediate (new filename)
 - **Images**: 1 year (immutable)
@@ -139,6 +152,7 @@ If you still see the old version after clearing cache:
 ## What Changed
 
 ### Before (Old Build):
+
 ```css
 /* src/index.css */
 @tailwind base;
@@ -148,6 +162,7 @@ If you still see the old version after clearing cache:
 ```
 
 ### After (New Build):
+
 ```css
 /* src/index.css */
 @tailwind base;
@@ -156,8 +171,8 @@ If you still see the old version after clearing cache:
 
 @layer base {
   :root {
-    --brand-primary: #2563EB;
-    --brand-secondary: #10B981;
+    --brand-primary: #2563eb;
+    --brand-secondary: #10b981;
     /* ... 60+ more variables ... */
   }
 }

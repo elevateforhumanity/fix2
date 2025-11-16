@@ -5,6 +5,7 @@
 ### **Header/Navigation**
 
 #### Original Docebo Layout:
+
 ```
 - Height: 72px (taller)
 - Logo: 40px × 40px blue square with "E"
@@ -18,6 +19,7 @@
 ```
 
 #### Current Next.js Design:
+
 ```
 - Height: 64px (h-16, slightly shorter)
 - Logo: 40px × 40px blue square with "E" ✅ SAME
@@ -31,6 +33,7 @@
 ```
 
 **Differences:**
+
 - ❌ Missing dropdown menus
 - ❌ Missing Student Portal link
 - ❌ Simpler navigation (3 links vs 5+ with dropdowns)
@@ -41,6 +44,7 @@
 ### **Hero Section**
 
 #### Original Docebo Layout:
+
 ```
 - Gradient background (blue to purple)
 - Large heading
@@ -50,6 +54,7 @@
 ```
 
 #### Current Next.js Design:
+
 ```
 - Gradient background (blue to purple) ✅ SAME
 - Large heading: "Transform Your Career with Free Training"
@@ -60,6 +65,7 @@
 ```
 
 **Differences:**
+
 - ✅ More detailed and engaging
 - ✅ Added feature badges
 - ✅ Better visual hierarchy
@@ -70,6 +76,7 @@
 ### **Program Cards**
 
 #### Original Docebo Layout:
+
 ```
 - Grid layout (responsive)
 - Card with image placeholder
@@ -81,6 +88,7 @@
 ```
 
 #### Current Next.js Design:
+
 ```
 - Grid layout (responsive) ✅ SAME
 - shadcn/ui Card component
@@ -93,6 +101,7 @@
 ```
 
 **Differences:**
+
 - ✅ Better card styling (shadcn/ui)
 - ✅ More polished badges
 - ✅ Consistent design system
@@ -103,6 +112,7 @@
 ### **Footer**
 
 #### Original Docebo Layout:
+
 ```
 - Dark background (gray-900)
 - 4-column grid
@@ -115,6 +125,7 @@
 ```
 
 #### Current Next.js Design:
+
 ```
 - Dark background (gray-900) ✅ SAME
 - 4-column grid ✅ SAME
@@ -127,6 +138,7 @@
 ```
 
 **Differences:**
+
 - ✅ Identical structure
 - ✅ Same content organization
 
@@ -134,27 +146,28 @@
 
 ## 📊 FEATURE COMPARISON
 
-| Feature | Docebo Layout | Next.js Design | Status |
-|---------|---------------|----------------|--------|
-| **Header Height** | 72px | 64px | ⚠️ Slightly shorter |
-| **Logo** | Blue "E" square | Blue "E" square | ✅ Same |
-| **Navigation** | Dropdown menus | Simple links | ❌ Missing dropdowns |
-| **Student Portal Link** | Yes | No | ❌ Missing |
-| **Mobile Menu** | Hamburger | Not visible | ⚠️ Need to check |
-| **Hero Gradient** | Blue to purple | Blue to purple | ✅ Same |
-| **Feature Badges** | No | Yes | ✅ Enhanced |
-| **CTA Buttons** | Standard | shadcn/ui | ✅ Enhanced |
-| **Program Cards** | Standard | shadcn/ui | ✅ Enhanced |
-| **Card Hover** | Basic | Enhanced shadow | ✅ Enhanced |
-| **Funding Badges** | Standard | shadcn/ui Badge | ✅ Enhanced |
-| **Footer** | 4-column | 4-column | ✅ Same |
-| **Responsive** | Yes | Yes | ✅ Same |
+| Feature                 | Docebo Layout   | Next.js Design  | Status               |
+| ----------------------- | --------------- | --------------- | -------------------- |
+| **Header Height**       | 72px            | 64px            | ⚠️ Slightly shorter  |
+| **Logo**                | Blue "E" square | Blue "E" square | ✅ Same              |
+| **Navigation**          | Dropdown menus  | Simple links    | ❌ Missing dropdowns |
+| **Student Portal Link** | Yes             | No              | ❌ Missing           |
+| **Mobile Menu**         | Hamburger       | Not visible     | ⚠️ Need to check     |
+| **Hero Gradient**       | Blue to purple  | Blue to purple  | ✅ Same              |
+| **Feature Badges**      | No              | Yes             | ✅ Enhanced          |
+| **CTA Buttons**         | Standard        | shadcn/ui       | ✅ Enhanced          |
+| **Program Cards**       | Standard        | shadcn/ui       | ✅ Enhanced          |
+| **Card Hover**          | Basic           | Enhanced shadow | ✅ Enhanced          |
+| **Funding Badges**      | Standard        | shadcn/ui Badge | ✅ Enhanced          |
+| **Footer**              | 4-column        | 4-column        | ✅ Same              |
+| **Responsive**          | Yes             | Yes             | ✅ Same              |
 
 ---
 
 ## 🎯 KEY DIFFERENCES
 
 ### **What's Better in Next.js:**
+
 1. ✅ **shadcn/ui Components** - Professional, accessible UI
 2. ✅ **Better Buttons** - Consistent styling with variants
 3. ✅ **Enhanced Cards** - Polished look with proper shadows
@@ -165,6 +178,7 @@
 8. ✅ **Performance** - SSG with instant loading
 
 ### **What's Missing from Docebo:**
+
 1. ❌ **Dropdown Menus** - Programs dropdown with 5 items
 2. ❌ **Student Portal Link** - In main navigation
 3. ❌ **Taller Header** - 72px vs 64px
@@ -177,6 +191,7 @@
 ### **To Match Docebo More Closely:**
 
 #### 1. Add Dropdown Navigation
+
 ```tsx
 // components/ui/navigation-menu.tsx
 import {
@@ -186,7 +201,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from '@/components/ui/navigation-menu';
 
 <NavigationMenu>
   <NavigationMenuList>
@@ -201,10 +216,11 @@ import {
       </NavigationMenuContent>
     </NavigationMenuItem>
   </NavigationMenuList>
-</NavigationMenu>
+</NavigationMenu>;
 ```
 
 #### 2. Add Student Portal Link
+
 ```tsx
 <nav className="hidden md:flex gap-6">
   <Link href="/programs">Programs</Link>
@@ -215,13 +231,15 @@ import {
 ```
 
 #### 3. Increase Header Height
+
 ```tsx
 <div className="flex items-center justify-between h-18"> {/* was h-16 */}
 ```
 
 #### 4. Add Mobile Menu
+
 ```tsx
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 <Sheet>
   <SheetTrigger asChild>
@@ -229,10 +247,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
       <Menu className="h-6 w-6" />
     </Button>
   </SheetTrigger>
-  <SheetContent side="right">
-    {/* Mobile navigation */}
-  </SheetContent>
-</Sheet>
+  <SheetContent side="right">{/* Mobile navigation */}</SheetContent>
+</Sheet>;
 ```
 
 ---
@@ -240,18 +256,22 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 ## 📈 OVERALL ASSESSMENT
 
 ### **Design Quality:**
+
 - **Docebo Layout:** 8/10 - Professional, functional, LMS-focused
 - **Next.js Design:** 9/10 - Modern, polished, component-based
 
 ### **Feature Completeness:**
+
 - **Docebo Layout:** 10/10 - All navigation features
 - **Next.js Design:** 7/10 - Missing dropdowns and some links
 
 ### **Visual Polish:**
+
 - **Docebo Layout:** 7/10 - Clean but basic
 - **Next.js Design:** 10/10 - shadcn/ui components, better styling
 
 ### **Performance:**
+
 - **Docebo Layout:** 6/10 - React SPA, client-side rendering
 - **Next.js Design:** 10/10 - SSG, instant loading, SEO-optimized
 
@@ -262,6 +282,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 **The Next.js design is MORE POLISHED but LESS FEATURE-COMPLETE than Docebo.**
 
 **To achieve parity:**
+
 1. Add dropdown navigation menus
 2. Add Student Portal link
 3. Increase header height to 72px
@@ -275,6 +296,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 ## 🚀 NEXT STEPS
 
 Want me to:
+
 1. **Add dropdown navigation** with shadcn/ui NavigationMenu?
 2. **Add Student Portal link** to header?
 3. **Increase header height** to match Docebo?

@@ -101,8 +101,7 @@ export default function Courses() {
     try {
       const usageData = await getUsageStats();
       setUsage(usageData);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   async function createCourse() {
@@ -262,8 +261,7 @@ export default function Courses() {
         target,
         diff,
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   if (loading) {

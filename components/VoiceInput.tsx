@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef } from "react";
-import { Mic, MicOff, Volume2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef } from 'react';
+import { Mic, MicOff, Volume2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface VoiceInputProps {
   onCommand?: (command: string) => void;
   className?: string;
 }
 
-export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
+export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
   const [isListening, setIsListening] = useState(false);
-  const [transcript, setTranscript] = useState("");
+  const [transcript, setTranscript] = useState('');
   const [isSupported, setIsSupported] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -19,17 +19,17 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
 
   useEffect(() => {
     // Check if browser supports speech recognition
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const SpeechRecognition =
         (window as any).SpeechRecognition ||
         (window as any).webkitSpeechRecognition;
-      
+
       if (SpeechRecognition) {
         setIsSupported(true);
         recognitionRef.current = new SpeechRecognition();
         recognitionRef.current.continuous = false;
         recognitionRef.current.interimResults = true;
-        recognitionRef.current.lang = "en-US";
+        recognitionRef.current.lang = 'en-US';
 
         recognitionRef.current.onresult = (event: any) => {
           const current = event.resultIndex;
@@ -43,7 +43,7 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
         };
 
         recognitionRef.current.onerror = (event: any) => {
-          console.error("Speech recognition error:", event.error);
+          console.error('Speech recognition error:', event.error);
           setIsListening(false);
         };
 
@@ -61,7 +61,7 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
   }, []);
 
   const speak = (text: string) => {
-    if ("speechSynthesis" in window) {
+    if ('speechSynthesis' in window) {
       setIsSpeaking(true);
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = 1.0;
@@ -74,92 +74,95 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
 
   const processCommand = (command: string) => {
     const lowerCommand = command.toLowerCase().trim();
-    
+
     // Navigation commands
-    const navigationCommands: Record<string, { route: string; response: string }> = {
-      "go to dashboard": {
-        route: "/lms/dashboard",
-        response: "Navigating to dashboard",
+    const navigationCommands: Record<
+      string,
+      { route: string; response: string }
+    > = {
+      'go to dashboard': {
+        route: '/lms/dashboard',
+        response: 'Navigating to dashboard',
       },
-      "open dashboard": {
-        route: "/lms/dashboard",
-        response: "Opening dashboard",
+      'open dashboard': {
+        route: '/lms/dashboard',
+        response: 'Opening dashboard',
       },
-      "show my courses": {
-        route: "/lms/courses",
-        response: "Showing your courses",
+      'show my courses': {
+        route: '/lms/courses',
+        response: 'Showing your courses',
       },
-      "go to courses": {
-        route: "/lms/courses",
-        response: "Going to courses",
+      'go to courses': {
+        route: '/lms/courses',
+        response: 'Going to courses',
       },
-      "show programs": {
-        route: "/programs",
-        response: "Showing available programs",
+      'show programs': {
+        route: '/programs',
+        response: 'Showing available programs',
       },
-      "go to programs": {
-        route: "/programs",
-        response: "Going to programs",
+      'go to programs': {
+        route: '/programs',
+        response: 'Going to programs',
       },
-      "show certificates": {
-        route: "/lms/certificates",
-        response: "Showing your certificates",
+      'show certificates': {
+        route: '/lms/certificates',
+        response: 'Showing your certificates',
       },
-      "my certificates": {
-        route: "/lms/certificates",
-        response: "Opening certificates",
+      'my certificates': {
+        route: '/lms/certificates',
+        response: 'Opening certificates',
       },
-      "show progress": {
-        route: "/lms/progress",
-        response: "Showing your progress",
+      'show progress': {
+        route: '/lms/progress',
+        response: 'Showing your progress',
       },
-      "my progress": {
-        route: "/lms/progress",
-        response: "Opening progress page",
+      'my progress': {
+        route: '/lms/progress',
+        response: 'Opening progress page',
       },
-      "go home": {
-        route: "/",
-        response: "Going to home page",
+      'go home': {
+        route: '/',
+        response: 'Going to home page',
       },
-      "go to home": {
-        route: "/",
-        response: "Navigating to home",
+      'go to home': {
+        route: '/',
+        response: 'Navigating to home',
       },
-      "show messages": {
-        route: "/lms/messages",
-        response: "Opening messages",
+      'show messages': {
+        route: '/lms/messages',
+        response: 'Opening messages',
       },
-      "my messages": {
-        route: "/lms/messages",
-        response: "Showing your messages",
+      'my messages': {
+        route: '/lms/messages',
+        response: 'Showing your messages',
       },
-      "show profile": {
-        route: "/lms/profile",
-        response: "Opening your profile",
+      'show profile': {
+        route: '/lms/profile',
+        response: 'Opening your profile',
       },
-      "my profile": {
-        route: "/lms/profile",
-        response: "Showing your profile",
+      'my profile': {
+        route: '/lms/profile',
+        response: 'Showing your profile',
       },
-      "enroll now": {
-        route: "/enroll",
-        response: "Opening enrollment page",
+      'enroll now': {
+        route: '/enroll',
+        response: 'Opening enrollment page',
       },
-      "check eligibility": {
-        route: "/enroll",
-        response: "Checking eligibility",
+      'check eligibility': {
+        route: '/enroll',
+        response: 'Checking eligibility',
       },
-      "program holder training": {
-        route: "/program-holder/training",
-        response: "Opening program holder training",
+      'program holder training': {
+        route: '/program-holder/training',
+        response: 'Opening program holder training',
       },
-      "how to use system": {
-        route: "/program-holder/how-to-use",
-        response: "Opening system guide",
+      'how to use system': {
+        route: '/program-holder/how-to-use',
+        response: 'Opening system guide',
       },
-      "workforce partners": {
-        route: "/partners/workforce",
-        response: "Opening workforce partners page",
+      'workforce partners': {
+        route: '/partners/workforce',
+        response: 'Opening workforce partners page',
       },
     };
 
@@ -176,31 +179,38 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
     }
 
     // Action commands
-    if (lowerCommand.includes("help") || lowerCommand.includes("what can you do")) {
+    if (
+      lowerCommand.includes('help') ||
+      lowerCommand.includes('what can you do')
+    ) {
       speak(
-        "I can help you navigate the system. Try saying: go to dashboard, show my courses, show programs, my certificates, or my progress."
+        'I can help you navigate the system. Try saying: go to dashboard, show my courses, show programs, my certificates, or my progress.'
       );
       if (onCommand) onCommand(command);
       return;
     }
 
-    if (lowerCommand.includes("log out") || lowerCommand.includes("sign out")) {
-      speak("Logging you out");
+    if (lowerCommand.includes('log out') || lowerCommand.includes('sign out')) {
+      speak('Logging you out');
       setTimeout(() => {
-        router.push("/api/auth/logout");
+        router.push('/api/auth/logout');
       }, 500);
       if (onCommand) onCommand(command);
       return;
     }
 
     // If no command matched
-    speak("I didn't understand that command. Try saying 'help' to see what I can do.");
+    speak(
+      "I didn't understand that command. Try saying 'help' to see what I can do."
+    );
     if (onCommand) onCommand(command);
   };
 
   const toggleListening = () => {
     if (!isSupported) {
-      alert("Speech recognition is not supported in your browser. Please use Chrome, Edge, or Safari.");
+      alert(
+        'Speech recognition is not supported in your browser. Please use Chrome, Edge, or Safari.'
+      );
       return;
     }
 
@@ -208,10 +218,10 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
       recognitionRef.current?.stop();
       setIsListening(false);
     } else {
-      setTranscript("");
+      setTranscript('');
       recognitionRef.current?.start();
       setIsListening(true);
-      speak("Listening");
+      speak('Listening');
     }
   };
 
@@ -225,14 +235,14 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
         onClick={toggleListening}
         disabled={isSpeaking}
         className={[
-          "relative w-14 h-14 rounded-full flex items-center justify-center transition-all",
-          "focus:outline-none focus:ring-2 focus:ring-offset-2",
+          'relative w-14 h-14 rounded-full flex items-center justify-center transition-all',
+          'focus:outline-none focus:ring-2 focus:ring-offset-2',
           isListening
-            ? "bg-red-500 hover:bg-red-600 focus:ring-red-500 animate-pulse"
-            : "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500",
-          isSpeaking ? "opacity-50 cursor-not-allowed" : "",
-        ].join(" ")}
-        title={isListening ? "Stop listening" : "Start voice command"}
+            ? 'bg-red-500 hover:bg-red-600 focus:ring-red-500 animate-pulse'
+            : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
+          isSpeaking ? 'opacity-50 cursor-not-allowed' : '',
+        ].join(' ')}
+        title={isListening ? 'Stop listening' : 'Start voice command'}
       >
         {isSpeaking ? (
           <Volume2 className="h-6 w-6 text-white" />
@@ -241,23 +251,16 @@ export function VoiceInput({ onCommand, className = "" }: VoiceInputProps) {
         ) : (
           <MicOff className="h-6 w-6 text-white" />
         )}
-        
         {isListening && (
           <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75" />
         )}
       </button>
-
       {transcript && (
         <div className="text-xs text-gray-600 max-w-xs text-center">
           "{transcript}"
         </div>
       )}
-
-      {isListening && (
-        <div className="text-xs text-gray-500">
-          Listening...
-        </div>
-      )}
+      {isListening && <div className="text-xs text-gray-500">Listening...</div>}
     </div>
   );
 }

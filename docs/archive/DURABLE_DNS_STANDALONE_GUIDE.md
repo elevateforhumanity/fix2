@@ -1,4 +1,5 @@
 # DURABLE.CO DNS CONFIGURATION FOR STANDALONE LMS
+
 **Purpose:** Use Durable.co ONLY as the public face/domain host
 **LMS Backend:** Hosted independently on Netlify
 **Integration:** Manual script injection into Durable.co
@@ -8,22 +9,26 @@
 ## 🎯 UNDERSTANDING THE SETUP
 
 ### What Durable.co Does:
+
 - ✅ Hosts your **public-facing website** (marketing, info pages)
 - ✅ Provides the **domain/DNS** (elevateforhumanity.org)
 - ✅ Acts as the **front door** for visitors
 
 ### What Durable.co Does NOT Do:
+
 - ❌ Does NOT host your LMS
 - ❌ Does NOT host your database
 - ❌ Does NOT run your backend
 
 ### What YOU Host Independently:
+
 - ✅ **LMS Application:** Hosted on Netlify (elevateproduction.netlify.app)
 - ✅ **Database:** Hosted on Supabase
 - ✅ **Backend APIs:** Serverless functions on Netlify
 - ✅ **Student Portal:** Full LMS functionality
 
 ### How They Connect:
+
 ```
 Visitor → elevateforhumanity.org (Durable.co)
          ↓
@@ -45,6 +50,7 @@ Visitor → elevateforhumanity.org (Durable.co)
 **What to do:** NOTHING
 
 Durable.co automatically manages:
+
 - ✅ DNS hosting
 - ✅ SSL certificate
 - ✅ Domain routing
@@ -53,6 +59,7 @@ Durable.co automatically manages:
 **Your domain:** `elevateforhumanity.org` stays pointed to Durable.co
 
 **DNS Records (Durable.co manages automatically):**
+
 ```
 Type: A
 Name: @
@@ -70,6 +77,7 @@ Value: [Durable.co domain - they manage this]
 ### Option 2: Use Subdomain for LMS (RECOMMENDED)
 
 **Setup:**
+
 ```
 elevateforhumanity.org          → Durable.co (marketing site)
 portal.elevateforhumanity.org   → Netlify (LMS)
@@ -79,6 +87,7 @@ api.elevateforhumanity.org      → Supabase (database)
 **DNS Records in Durable.co Dashboard:**
 
 1. **Main domain (already configured by Durable):**
+
    ```
    Type: A
    Name: @
@@ -86,6 +95,7 @@ api.elevateforhumanity.org      → Supabase (database)
    ```
 
 2. **LMS Subdomain (YOU ADD THIS):**
+
    ```
    Type: CNAME
    Name: portal
@@ -102,6 +112,7 @@ api.elevateforhumanity.org      → Supabase (database)
    ```
 
 **Result:**
+
 - `elevateforhumanity.org` → Durable.co site (marketing)
 - `portal.elevateforhumanity.org` → Your LMS (Netlify)
 - `api.elevateforhumanity.org` → Your API (Supabase)
@@ -111,15 +122,18 @@ api.elevateforhumanity.org      → Supabase (database)
 ## 📋 STEP-BY-STEP: ADD SUBDOMAIN IN DURABLE.CO
 
 ### Step 1: Login to Durable.co
+
 1. Go to: https://durable.co/login
 2. Login with your credentials
 
 ### Step 2: Access DNS Settings
+
 1. Click on your site
 2. Go to **Settings** → **Domain**
 3. Click **Advanced DNS Settings** or **Manage DNS**
 
 ### Step 3: Add CNAME Record for LMS
+
 ```
 Record Type: CNAME
 Host/Name: portal
@@ -130,6 +144,7 @@ TTL: 3600 (1 hour)
 Click **Save** or **Add Record**
 
 ### Step 4: Add CNAME Record for API (Optional)
+
 ```
 Record Type: CNAME
 Host/Name: api
@@ -140,6 +155,7 @@ TTL: 3600 (1 hour)
 Click **Save** or **Add Record**
 
 ### Step 5: Wait for DNS Propagation
+
 - **Time:** 5 minutes to 24 hours
 - **Check:** https://dnschecker.org
 - **Test:** Visit portal.elevateforhumanity.org
@@ -159,6 +175,7 @@ Click **Save** or **Add Record**
 ### Step 2: Enable SSL
 
 Netlify automatically provisions SSL certificate:
+
 - ✅ Free Let's Encrypt certificate
 - ✅ Auto-renewal
 - ✅ HTTPS enforced
@@ -189,23 +206,23 @@ Save this as `public/lms-embed.js` in your Netlify project:
  * Injects LMS content into Durable.co pages
  */
 
-(function() {
+(function () {
   'use strict';
-  
+
   console.log('🎓 EFH LMS Embed Loading...');
-  
+
   // Configuration
   const LMS_URL = 'https://portal.elevateforhumanity.org';
   const API_URL = 'https://api.elevateforhumanity.org';
-  
+
   // Find injection point
   const targetElement = document.querySelector('[data-efh-lms]');
-  
+
   if (!targetElement) {
     console.warn('⚠️ No [data-efh-lms] element found');
     return;
   }
-  
+
   // Create iframe for LMS
   const iframe = document.createElement('iframe');
   iframe.src = LMS_URL;
@@ -214,11 +231,11 @@ Save this as `public/lms-embed.js` in your Netlify project:
   iframe.style.border = 'none';
   iframe.style.borderRadius = '8px';
   iframe.setAttribute('allowfullscreen', 'true');
-  
+
   // Inject iframe
   targetElement.innerHTML = '';
   targetElement.appendChild(iframe);
-  
+
   console.log('✅ EFH LMS Embedded Successfully');
 })();
 ```
@@ -266,21 +283,24 @@ Instead of embedding, add a button that links to your LMS:
 ```html
 <!-- In Durable.co page -->
 <div style="text-align: center; margin: 40px 0;">
-  <a href="https://portal.elevateforhumanity.org" 
-     style="display: inline-block; 
+  <a
+    href="https://portal.elevateforhumanity.org"
+    style="display: inline-block; 
             background: #0066CC; 
             color: white; 
             padding: 16px 32px; 
             border-radius: 8px; 
             text-decoration: none; 
             font-size: 18px; 
-            font-weight: 600;">
+            font-weight: 600;"
+  >
     🎓 Access Student Portal
   </a>
 </div>
 ```
 
 **Benefits:**
+
 - ✅ Simpler (no iframe)
 - ✅ Better performance
 - ✅ Full LMS experience
@@ -295,6 +315,7 @@ Instead of embedding, add a button that links to your LMS:
 Your Netlify LMS needs to allow embedding from Durable.co:
 
 **Add to `netlify.toml`:**
+
 ```toml
 [[headers]]
   for = "/*"
@@ -312,6 +333,7 @@ Students should login at: `portal.elevateforhumanity.org`
 ### 3. Sensitive Data
 
 **Never** embed pages with:
+
 - ❌ Payment forms
 - ❌ Personal information
 - ❌ Admin panels
@@ -323,6 +345,7 @@ Students should login at: `portal.elevateforhumanity.org`
 ## 📊 RECOMMENDED ARCHITECTURE
 
 ### Public Marketing Site (Durable.co)
+
 ```
 elevateforhumanity.org
 ├── Home page
@@ -333,6 +356,7 @@ elevateforhumanity.org
 ```
 
 ### Student Portal (Netlify)
+
 ```
 portal.elevateforhumanity.org
 ├── Login
@@ -344,6 +368,7 @@ portal.elevateforhumanity.org
 ```
 
 ### API Backend (Supabase)
+
 ```
 api.elevateforhumanity.org
 └── [Database, Auth, Functions]
@@ -378,6 +403,7 @@ Value: cuxzzpsyufcewtmicszk.supabase.co
 ```
 
 ### Result:
+
 - ✅ `elevateforhumanity.org` → Durable.co (marketing)
 - ✅ `www.elevateforhumanity.org` → Redirects to apex
 - ✅ `portal.elevateforhumanity.org` → Netlify (LMS)
@@ -404,16 +430,19 @@ After setup:
 ### Minimal Setup (5 minutes):
 
 1. **Add DNS record in Durable.co:**
+
    ```
    CNAME: portal → elevateproduction.netlify.app
    ```
 
 2. **Add domain in Netlify:**
+
    ```
    portal.elevateforhumanity.org
    ```
 
 3. **Add button to Durable.co site:**
+
    ```html
    <a href="https://portal.elevateforhumanity.org">Access LMS</a>
    ```
@@ -441,6 +470,7 @@ After setup:
 ---
 
 **SUMMARY:**
+
 - ✅ Durable.co hosts domain and marketing site
 - ✅ Netlify hosts LMS independently
 - ✅ Subdomain (portal.elevateforhumanity.org) points to Netlify

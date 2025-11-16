@@ -4,8 +4,14 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
-const { logLicenseActivity, logSecurityEvent } = require('../complete-license-system/logger');
-const { getLicense, updateLicenseUsage } = require('../complete-license-system/db');
+const {
+  logLicenseActivity,
+  logSecurityEvent,
+} = require('../complete-license-system/logger');
+const {
+  getLicense,
+  updateLicenseUsage,
+} = require('../complete-license-system/db');
 
 const router = express.Router();
 
@@ -33,11 +39,11 @@ router.post('/log-download', async (req, res) => {
       referrer,
       pageUrl,
       screenResolution,
-      timezone
+      timezone,
     } = req.body;
 
     const clientIP = req.ip || req.connection.remoteAddress;
-    
+
     // Enhanced log entry
     const logEntry = {
       timestamp: timestamp || new Date().toISOString(),
@@ -55,8 +61,8 @@ router.post('/log-download', async (req, res) => {
       timezone,
       server: {
         nodeVersion: process.version,
-        platform: process.platform
-      }
+        platform: process.platform,
+      },
     };
 
     // Log to multiple destinations
@@ -71,7 +77,7 @@ router.post('/log-download', async (req, res) => {
           fileName,
           sessionId,
           ip: clientIP,
-          userAgent: userAgent?.substring(0, 200) // Truncate long user agents
+          userAgent: userAgent?.substring(0, 200), // Truncate long user agents
         }
       ),
 
@@ -85,7 +91,7 @@ router.post('/log-download', async (req, res) => {
       fs.appendFile(
         './logs/downloads/simple.csv',
         `"${timestamp}","${email}","${productId}","${licenseKey || ''}","${fileName || ''}","${clientIP}"\n`
-      )
+      ),
     ]);
 
     // Validate license if provided
@@ -98,27 +104,31 @@ router.post('/log-download', async (req, res) => {
             email,
             productId,
             ip: clientIP,
-            severity: 'MEDIUM'
+            severity: 'MEDIUM',
           });
         }
       } catch (error) {
-        console.error('License validation error during download tracking:', error);
+        console.error(
+          'License validation error during download tracking:',
+          error
+        );
       }
     }
 
-    console.log(`📥 Download tracked: ${email} - ${productId} - ${fileName || 'unknown'}`);
-    
-    res.json({ 
-      success: true, 
-      sessionId,
-      message: 'Download tracked successfully'
-    });
+    console.log(
+      `📥 Download tracked: ${email} - ${productId} - ${fileName || 'unknown'}`
+    );
 
+    res.json({
+      success: true,
+      sessionId,
+      message: 'Download tracked successfully',
+    });
   } catch (error) {
     console.error('❌ Download tracking failed:', error);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to track download' 
+    res.status(500).json({
+      success: false,
+      error: 'Failed to track download',
     });
   }
 });
@@ -134,7 +144,7 @@ router.post('/log-download-complete', async (req, res) => {
       sessionId,
       timestamp,
       success,
-      duration
+      duration,
     } = req.body;
 
     const clientIP = req.ip || req.connection.remoteAddress;
@@ -150,7 +160,7 @@ router.post('/log-download-complete', async (req, res) => {
         sessionId,
         duration,
         ip: clientIP,
-        success
+        success,
       }
     );
 
@@ -174,7 +184,7 @@ router.post('/log-download-complete', async (req, res) => {
       sessionId,
       duration,
       success,
-      clientIP
+      clientIP,
     };
 
     await fs.appendFile(
@@ -182,15 +192,16 @@ router.post('/log-download-complete', async (req, res) => {
       JSON.stringify(completionEntry) + '\n'
     );
 
-    console.log(`✅ Download ${success ? 'completed' : 'failed'}: ${email} - ${productId}`);
-    
-    res.json({ success: true });
+    console.log(
+      `✅ Download ${success ? 'completed' : 'failed'}: ${email} - ${productId}`
+    );
 
+    res.json({ success: true });
   } catch (error) {
     console.error('❌ Download completion tracking failed:', error);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to track download completion' 
+    res.status(500).json({
+      success: false,
+      error: 'Failed to track download completion',
     });
   }
 });
@@ -205,7 +216,7 @@ router.post('/log-download-error', async (req, res) => {
       fileName,
       sessionId,
       timestamp,
-      error
+      error,
     } = req.body;
 
     const clientIP = req.ip || req.connection.remoteAddress;
@@ -220,7 +231,7 @@ router.post('/log-download-error', async (req, res) => {
         fileName,
         sessionId,
         error: error?.substring(0, 500), // Truncate long errors
-        ip: clientIP
+        ip: clientIP,
       }
     );
 
@@ -231,18 +242,17 @@ router.post('/log-download-error', async (req, res) => {
       licenseKey,
       error,
       ip: clientIP,
-      severity: 'LOW'
+      severity: 'LOW',
     });
 
     console.log(`❌ Download error: ${email} - ${productId} - ${error}`);
-    
-    res.json({ success: true });
 
+    res.json({ success: true });
   } catch (trackingError) {
     console.error('❌ Download error tracking failed:', trackingError);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to track download error' 
+    res.status(500).json({
+      success: false,
+      error: 'Failed to track download error',
     });
   }
 });
@@ -261,18 +271,19 @@ router.get('/validate-license/:licenseKey', async (req, res) => {
         licenseKey,
         ip: clientIP,
         reason: 'not_found',
-        severity: 'MEDIUM'
+        severity: 'MEDIUM',
       });
 
       return res.status(404).json({
         valid: false,
-        error: 'License not found'
+        error: 'License not found',
       });
     }
 
     // Check license status and expiry
-    const isValid = license.status === 'active' && 
-                   (!license.expiresAt || new Date(license.expiresAt) > new Date());
+    const isValid =
+      license.status === 'active' &&
+      (!license.expiresAt || new Date(license.expiresAt) > new Date());
 
     // Log validation attempt
     await logLicenseActivity(
@@ -283,7 +294,7 @@ router.get('/validate-license/:licenseKey', async (req, res) => {
       {
         valid: isValid,
         ip: clientIP,
-        userAgent: req.headers['user-agent']?.substring(0, 200)
+        userAgent: req.headers['user-agent']?.substring(0, 200),
       }
     );
 
@@ -295,8 +306,8 @@ router.get('/validate-license/:licenseKey', async (req, res) => {
         issuedAt: license.issuedAt,
         expiresAt: license.expiresAt,
         usageCount: license.usageCount || 0,
-        status: license.status
-      }
+        status: license.status,
+      },
     };
 
     if (!isValid) {
@@ -304,12 +315,11 @@ router.get('/validate-license/:licenseKey', async (req, res) => {
     }
 
     res.json(response);
-
   } catch (error) {
     console.error('❌ License validation error:', error);
     res.status(500).json({
       valid: false,
-      error: 'Validation failed'
+      error: 'Validation failed',
     });
   }
 });
@@ -317,12 +327,7 @@ router.get('/validate-license/:licenseKey', async (req, res) => {
 // Page view tracking
 router.post('/log-page-view', async (req, res) => {
   try {
-    const {
-      page,
-      timestamp,
-      sessionId,
-      referrer
-    } = req.body;
+    const { page, timestamp, sessionId, referrer } = req.body;
 
     const clientIP = req.ip || req.connection.remoteAddress;
 
@@ -333,7 +338,7 @@ router.post('/log-page-view', async (req, res) => {
       sessionId,
       referrer,
       clientIP,
-      userAgent: req.headers['user-agent']
+      userAgent: req.headers['user-agent'],
     };
 
     await fs.appendFile(
@@ -342,7 +347,6 @@ router.post('/log-page-view', async (req, res) => {
     );
 
     res.json({ success: true });
-
   } catch (error) {
     console.error('❌ Page view tracking failed:', error);
     res.status(500).json({ success: false });
@@ -364,40 +368,45 @@ router.get('/download-analytics', async (req, res) => {
 
     // Read download logs
     const logsPath = './logs/downloads/simple.csv';
-    
+
     try {
       const logData = await fs.readFile(logsPath, 'utf8');
       const lines = logData.trim().split('\n');
-      
+
       const analytics = {
         totalDownloads: 0,
         uniqueUsers: new Set(),
         productBreakdown: {},
         dailyDownloads: {},
         topFiles: {},
-        recentDownloads: []
+        recentDownloads: [],
       };
 
-      lines.forEach(line => {
-        const [timestamp, email, productId, licenseKey, fileName, ip] = line.split(',').map(s => s.replace(/"/g, ''));
+      lines.forEach((line) => {
+        const [timestamp, email, productId, licenseKey, fileName, ip] = line
+          .split(',')
+          .map((s) => s.replace(/"/g, ''));
         const downloadDate = new Date(timestamp);
 
         if (downloadDate >= cutoffDate) {
           analytics.totalDownloads++;
           analytics.uniqueUsers.add(email);
-          
+
           // Product breakdown
-          analytics.productBreakdown[productId] = (analytics.productBreakdown[productId] || 0) + 1;
-          
+          analytics.productBreakdown[productId] =
+            (analytics.productBreakdown[productId] || 0) + 1;
+
           // Daily downloads
           const dayKey = downloadDate.toISOString().split('T')[0];
-          analytics.dailyDownloads[dayKey] = (analytics.dailyDownloads[dayKey] || 0) + 1;
-          
+          analytics.dailyDownloads[dayKey] =
+            (analytics.dailyDownloads[dayKey] || 0) + 1;
+
           // Top files
           if (fileName) {
-            analytics.topFiles[fileName] = (analytics.topFiles[fileName] || 0) + 1;
+            analytics.topFiles[fileName] =
+              (analytics.topFiles[fileName] || 0) + 1;
           }
-          
+
           // Recent downloads
           if (analytics.recentDownloads.length < 20) {
             analytics.recentDownloads.push({
@@ -405,7 +414,7 @@ router.get('/download-analytics', async (req, res) => {
               email,
               productId,
               fileName,
-              ip
+              ip,
             });
           }
         }
@@ -414,7 +423,6 @@ router.get('/download-analytics', async (req, res) => {
       analytics.uniqueUsers = analytics.uniqueUsers.size;
 
       res.json(analytics);
-
     } catch (fileError) {
       res.json({
         totalDownloads: 0,
@@ -423,10 +431,9 @@ router.get('/download-analytics', async (req, res) => {
         dailyDownloads: {},
         topFiles: {},
         recentDownloads: [],
-        note: 'No download data available yet'
+        note: 'No download data available yet',
       });
     }
-
   } catch (error) {
     console.error('❌ Download analytics error:', error);
     res.status(500).json({ error: 'Analytics unavailable' });

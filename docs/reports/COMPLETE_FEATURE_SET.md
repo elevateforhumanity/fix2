@@ -312,7 +312,7 @@ src/pages/
 
 ## Comparison to Competitors
 
-### vs 
+### vs
 
 **What they have:**
 

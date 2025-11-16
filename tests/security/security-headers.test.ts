@@ -5,7 +5,7 @@ describe('Security Headers', () => {
     'Content-Security-Policy': {
       required: true,
       description: 'Prevents XSS and other injection attacks',
-      shouldContain: ["default-src", "script-src"],
+      shouldContain: ['default-src', 'script-src'],
     },
     'X-Content-Type-Options': {
       required: true,
@@ -25,7 +25,11 @@ describe('Security Headers', () => {
     'Referrer-Policy': {
       required: true,
       description: 'Controls referrer information',
-      expectedValue: ['no-referrer', 'strict-origin-when-cross-origin', 'same-origin'],
+      expectedValue: [
+        'no-referrer',
+        'strict-origin-when-cross-origin',
+        'same-origin',
+      ],
     },
     'Permissions-Policy': {
       required: false,
@@ -43,18 +47,19 @@ describe('Security Headers', () => {
   });
 
   it('should validate CSP directives', () => {
-    const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
-    
-    expect(csp).toContain("default-src");
-    expect(csp).toContain("script-src");
+    const csp =
+      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
+
+    expect(csp).toContain('default-src');
+    expect(csp).toContain('script-src');
     expect(csp).toContain("'self'");
   });
 
   it('should validate HSTS configuration', () => {
     const hsts = 'max-age=31536000; includeSubDomains; preload';
-    
+
     expect(hsts).toContain('max-age=');
-    
+
     const maxAge = parseInt(hsts.match(/max-age=(\d+)/)?.[1] || '0');
     expect(maxAge).toBeGreaterThanOrEqual(31536000); // 1 year minimum
   });
@@ -62,13 +67,13 @@ describe('Security Headers', () => {
   it('should validate X-Frame-Options', () => {
     const validValues = ['DENY', 'SAMEORIGIN'];
     const xFrameOptions = 'SAMEORIGIN';
-    
+
     expect(validValues).toContain(xFrameOptions);
   });
 
   it('should validate X-Content-Type-Options', () => {
     const xContentTypeOptions = 'nosniff';
-    
+
     expect(xContentTypeOptions).toBe('nosniff');
   });
 
@@ -83,9 +88,9 @@ describe('Security Headers', () => {
       'strict-origin-when-cross-origin',
       'unsafe-url',
     ];
-    
+
     const referrerPolicy = 'strict-origin-when-cross-origin';
-    
+
     expect(validPolicies).toContain(referrerPolicy);
   });
 });
@@ -149,13 +154,14 @@ describe('CORS Configuration', () => {
 describe('API Security', () => {
   it('should validate API key format', () => {
     const apiKey = 'sk_live_abc123def456';
-    
+
     expect(apiKey).toMatch(/^[a-z]{2}_[a-z]+_[a-zA-Z0-9]+$/);
   });
 
   it('should validate JWT structure', () => {
-    const jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-    
+    const jwt =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
     const parts = jwt.split('.');
     expect(parts).toHaveLength(3);
   });
@@ -189,7 +195,7 @@ describe('Input Validation', () => {
       const hasUpper = /[A-Z]/.test(password);
       const hasLower = /[a-z]/.test(password);
       const hasNumber = /\d/.test(password);
-      
+
       return minLength && hasUpper && hasLower && hasNumber;
     };
 
@@ -231,7 +237,11 @@ describe('Input Validation', () => {
 
 describe('Encryption', () => {
   it('should use strong encryption algorithms', () => {
-    const strongAlgorithms = ['AES-256-GCM', 'AES-256-CBC', 'ChaCha20-Poly1305'];
+    const strongAlgorithms = [
+      'AES-256-GCM',
+      'AES-256-CBC',
+      'ChaCha20-Poly1305',
+    ];
     const algorithm = 'AES-256-GCM';
 
     expect(strongAlgorithms).toContain(algorithm);
@@ -248,7 +258,9 @@ describe('Encryption', () => {
     const generateToken = () => {
       const array = new Uint8Array(32);
       crypto.getRandomValues(array);
-      return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+      return Array.from(array, (byte) =>
+        byte.toString(16).padStart(2, '0')
+      ).join('');
     };
 
     const token = generateToken();

@@ -289,7 +289,7 @@ async function configureNetlifyComplete(env: Env, domain: string) {
   }
 
   // Step 2: Wait for SSL to start provisioning
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   // Step 3: Check SSL status
   try {

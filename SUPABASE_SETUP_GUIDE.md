@@ -68,6 +68,7 @@ npm run dev
 If you already have a Supabase project:
 
 1. **Login to Supabase**:
+
    ```
    https://app.supabase.com
    ```
@@ -89,6 +90,7 @@ If you already have a Supabase project:
    - Copy the **service_role** key (⚠️ Keep this secret!)
 
 5. **Create `.env.local`**:
+
    ```bash
    cd /workspaces/fix2
    cp .env.local.example .env.local
@@ -105,6 +107,7 @@ If you already have a Supabase project:
 If you don't have a Supabase project yet:
 
 1. **Sign Up for Supabase**:
+
    ```
    https://supabase.com
    ```
@@ -124,10 +127,11 @@ If you don't have a Supabase project yet:
    - Copy the credentials as described above
 
 4. **Run Database Migration**:
+
    ```bash
    # Copy the consolidated schema
    cat supabase/migrations/000_CONSOLIDATED_SCHEMA.sql
-   
+
    # Go to Supabase Dashboard → SQL Editor
    # Paste the entire schema
    # Click "Run"
@@ -138,19 +142,23 @@ If you don't have a Supabase project yet:
 ## 🔐 SECURITY NOTES
 
 ### ⚠️ NEVER COMMIT THESE FILES:
+
 - `.env.local` (contains secrets)
 - `.env` (if you create it)
 
 ### ✅ SAFE TO COMMIT:
+
 - `.env.example` (template only)
 - `.env.local.example` (template only)
 
 ### 🔒 Service Role Key:
+
 - **NEVER** expose this in client-side code
 - Only use in API routes (server-side)
 - This key bypasses Row Level Security (RLS)
 
 ### 🌐 Anon/Public Key:
+
 - Safe to use in client-side code
 - Respects Row Level Security (RLS)
 - Used for authenticated user operations
@@ -180,21 +188,25 @@ npm run dev
 ## 🐛 TROUBLESHOOTING
 
 ### Error: "Invalid API key"
+
 - ✅ Check you copied the full key (very long string)
 - ✅ Check for extra spaces or line breaks
 - ✅ Verify you're using the correct project
 
 ### Error: "Failed to fetch"
+
 - ✅ Check your Supabase project is running
 - ✅ Verify the Project URL is correct
 - ✅ Check your internet connection
 
 ### Error: "Row Level Security policy violation"
+
 - ✅ Run the database migration (000_CONSOLIDATED_SCHEMA.sql)
 - ✅ Check RLS policies are created
 - ✅ Verify user authentication is working
 
 ### Environment variables not loading
+
 - ✅ File must be named exactly `.env.local`
 - ✅ File must be in project root (not in subdirectory)
 - ✅ Restart dev server after creating file
@@ -234,6 +246,7 @@ For production deployment, set environment variables in Netlify:
    - Or: Build & deploy → Environment
 
 3. **Add Variables**:
+
    ```
    NEXT_PUBLIC_SUPABASE_URL = https://YOUR_PROJECT_REF.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGci...
@@ -250,11 +263,13 @@ For production deployment, set environment variables in Netlify:
 ## 📞 NEED HELP?
 
 ### Supabase Support:
+
 - Docs: https://supabase.com/docs
 - Discord: https://discord.supabase.com
 - GitHub: https://github.com/supabase/supabase
 
 ### Project Support:
+
 - Contact: (317) 314-3757
 - Email: support@elevateconnectsdirectory.org
 
@@ -277,6 +292,7 @@ Before proceeding, ensure:
 ## 🎯 QUICK REFERENCE
 
 ### Minimum Required Variables:
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://[project-ref].supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
@@ -284,11 +300,13 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGci...
 ```
 
 ### Where to Find Them:
+
 ```
 https://supabase.com/dashboard/project/_/settings/api
 ```
 
 ### How to Use:
+
 1. Copy template from `.env.local.example`
 2. Replace placeholders with real values
 3. Save as `.env.local`

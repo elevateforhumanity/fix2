@@ -46,7 +46,6 @@ export default function CertificateDownload({
           Download SVG
         </button>
       </div>
-
       {/* Preview */}
       <div className="mt-6 border rounded-lg p-8 bg-white">
         <div className="border-4 border-brand-600 rounded-2xl p-12 text-center">

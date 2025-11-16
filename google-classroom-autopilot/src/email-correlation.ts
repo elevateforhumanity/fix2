@@ -1,6 +1,6 @@
 /**
  * Email Correlation Tracking
- * 
+ *
  * Links emails to tasks, sync runs, and content for complete traceability
  */
 
@@ -151,7 +151,7 @@ export async function getTaskEmailStats(taskId: string) {
     failed: 0,
   };
 
-  data.forEach(event => {
+  data.forEach((event) => {
     if (event.status in stats) {
       stats[event.status as keyof typeof stats]++;
     }
@@ -185,7 +185,7 @@ export async function getSyncRunEmailStats(syncRunId: string) {
     openRate: 0,
   };
 
-  data.forEach(event => {
+  data.forEach((event) => {
     if (event.status in stats) {
       stats[event.status as keyof typeof stats]++;
     }
@@ -193,7 +193,10 @@ export async function getSyncRunEmailStats(syncRunId: string) {
 
   if (stats.total > 0) {
     stats.deliveryRate = Math.round((stats.delivered / stats.total) * 100);
-    stats.openRate = stats.delivered > 0 ? Math.round((stats.opened / stats.delivered) * 100) : 0;
+    stats.openRate =
+      stats.delivered > 0
+        ? Math.round((stats.opened / stats.delivered) * 100)
+        : 0;
   }
 
   return stats;
@@ -253,7 +256,10 @@ export async function linkEmailToContent(eventId: string, contentId: string) {
 /**
  * Create email correlation group
  */
-export async function createEmailCorrelation(eventIds: string[], correlationId?: string) {
+export async function createEmailCorrelation(
+  eventIds: string[],
+  correlationId?: string
+) {
   const id = correlationId || generateCorrelationId();
 
   const { error } = await supabase
@@ -281,7 +287,7 @@ export async function getTaskEmailTimeline(taskId: string) {
 
   if (!data) return [];
 
-  return data.map(event => ({
+  return data.map((event) => ({
     timestamp: event.created_at,
     recipient: event.recipient,
     status: event.status,
@@ -304,7 +310,10 @@ export async function findRelatedEmails(
     .select('*')
     .eq('student_id', studentId)
     .eq('email_type', emailType)
-    .gte('created_at', new Date(Date.now() - daysBack * 24 * 60 * 60 * 1000).toISOString())
+    .gte(
+      'created_at',
+      new Date(Date.now() - daysBack * 24 * 60 * 60 * 1000).toISOString()
+    )
     .order('created_at', { ascending: false });
 
   return data || [];
@@ -321,31 +330,39 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         console.error('Usage: npx tsx src/email-correlation.ts task <task-id>');
         process.exit(1);
       }
-      Promise.all([getEmailsForTask(id), getTaskEmailStats(id)]).then(([emails, stats]) => {
-        console.log('Emails:', emails.length);
-        console.log('Stats:', stats);
-      });
+      Promise.all([getEmailsForTask(id), getTaskEmailStats(id)]).then(
+        ([emails, stats]) => {
+          console.log('Emails:', emails.length);
+          console.log('Stats:', stats);
+        }
+      );
       break;
 
     case 'sync':
       if (!id) {
-        console.error('Usage: npx tsx src/email-correlation.ts sync <sync-run-id>');
+        console.error(
+          'Usage: npx tsx src/email-correlation.ts sync <sync-run-id>'
+        );
         process.exit(1);
       }
-      Promise.all([getEmailsForSyncRun(id), getSyncRunEmailStats(id)]).then(([emails, stats]) => {
-        console.log('Emails:', emails.length);
-        console.log('Stats:', stats);
-      });
+      Promise.all([getEmailsForSyncRun(id), getSyncRunEmailStats(id)]).then(
+        ([emails, stats]) => {
+          console.log('Emails:', emails.length);
+          console.log('Stats:', stats);
+        }
+      );
       break;
 
     case 'content':
       if (!id) {
-        console.error('Usage: npx tsx src/email-correlation.ts content <content-id>');
+        console.error(
+          'Usage: npx tsx src/email-correlation.ts content <content-id>'
+        );
         process.exit(1);
       }
-      getEmailsForContent(id).then(emails => {
+      getEmailsForContent(id).then((emails) => {
         console.log('Emails:', emails.length);
-        emails.forEach(e => {
+        emails.forEach((e) => {
           console.log(`  ${e.recipient} - ${e.status} - ${e.created_at}`);
         });
       });
@@ -353,12 +370,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
     case 'correlation':
       if (!id) {
-        console.error('Usage: npx tsx src/email-correlation.ts correlation <correlation-id>');
+        console.error(
+          'Usage: npx tsx src/email-correlation.ts correlation <correlation-id>'
+        );
         process.exit(1);
       }
-      getEmailsByCorrelation(id).then(emails => {
+      getEmailsByCorrelation(id).then((emails) => {
         console.log('Emails in correlation group:', emails.length);
-        emails.forEach(e => {
+        emails.forEach((e) => {
           console.log(`  ${e.recipient} - ${e.status} - ${e.created_at}`);
         });
       });
@@ -366,12 +385,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
     case 'thread':
       if (!id) {
-        console.error('Usage: npx tsx src/email-correlation.ts thread <event-id>');
+        console.error(
+          'Usage: npx tsx src/email-correlation.ts thread <event-id>'
+        );
         process.exit(1);
       }
-      getEmailThread(id).then(thread => {
+      getEmailThread(id).then((thread) => {
         console.log('Email thread:', thread.length, 'messages');
-        thread.forEach(e => {
+        thread.forEach((e) => {
           console.log(`  ${e.created_at} - ${e.recipient} - ${e.status}`);
         });
       });
@@ -382,7 +403,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       console.log('  npx tsx src/email-correlation.ts task <task-id>');
       console.log('  npx tsx src/email-correlation.ts sync <sync-run-id>');
       console.log('  npx tsx src/email-correlation.ts content <content-id>');
-      console.log('  npx tsx src/email-correlation.ts correlation <correlation-id>');
+      console.log(
+        '  npx tsx src/email-correlation.ts correlation <correlation-id>'
+      );
       console.log('  npx tsx src/email-correlation.ts thread <event-id>');
   }
 }

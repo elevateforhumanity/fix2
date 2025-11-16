@@ -8,7 +8,14 @@ import fs from 'fs/promises';
 import path from 'path';
 import { createReadStream, createWriteStream } from 'fs';
 import { pipeline } from 'stream/promises';
-import { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand, ListObjectsV2Command, HeadObjectCommand } from '@aws-sdk/client-s3';
+import {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+  DeleteObjectCommand,
+  ListObjectsV2Command,
+  HeadObjectCommand,
+} from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 export interface StorageConfig {
@@ -73,7 +80,7 @@ export class LocalStorage {
 
   async getVideo(jobId: string): Promise<string | null> {
     const videoPath = path.join(this.basePath, 'videos', `${jobId}.mp4`);
-    
+
     try {
       await fs.access(videoPath);
       return videoPath;
@@ -84,7 +91,7 @@ export class LocalStorage {
 
   async getVideoMetadata(jobId: string): Promise<VideoMetadata | null> {
     const metadataPath = path.join(this.basePath, 'videos', `${jobId}.json`);
-    
+
     try {
       const data = await fs.readFile(metadataPath, 'utf-8');
       return JSON.parse(data);
@@ -97,12 +104,16 @@ export class LocalStorage {
     try {
       const videoPath = path.join(this.basePath, 'videos', `${jobId}.mp4`);
       const metadataPath = path.join(this.basePath, 'videos', `${jobId}.json`);
-      const thumbnailPath = path.join(this.basePath, 'thumbnails', `${jobId}.jpg`);
+      const thumbnailPath = path.join(
+        this.basePath,
+        'thumbnails',
+        `${jobId}.jpg`
+      );
 
       await Promise.all([
         fs.unlink(videoPath).catch(() => {}),
         fs.unlink(metadataPath).catch(() => {}),
-        fs.unlink(thumbnailPath).catch(() => {})
+        fs.unlink(thumbnailPath).catch(() => {}),
       ]);
 
       console.log(`Video deleted: ${jobId}`);
@@ -117,8 +128,8 @@ export class LocalStorage {
     try {
       const videosDir = path.join(this.basePath, 'videos');
       const files = await fs.readdir(videosDir);
-      
-      const metadataFiles = files.filter(f => f.endsWith('.json'));
+
+      const metadataFiles = files.filter((f) => f.endsWith('.json'));
       const videos: VideoMetadata[] = [];
 
       for (const file of metadataFiles) {
@@ -159,8 +170,8 @@ export class LocalStorage {
     try {
       const videosDir = path.join(this.basePath, 'videos');
       const files = await fs.readdir(videosDir);
-      
-      const videoFiles = files.filter(f => f.endsWith('.mp4'));
+
+      const videoFiles = files.filter((f) => f.endsWith('.mp4'));
       let totalSize = 0;
 
       for (const file of videoFiles) {
@@ -172,14 +183,14 @@ export class LocalStorage {
       return {
         totalVideos: videoFiles.length,
         totalSize,
-        availableSpace: 0 // Would need to check disk space
+        availableSpace: 0, // Would need to check disk space
       };
     } catch (error) {
       console.error('Error getting storage stats:', error);
       return {
         totalVideos: 0,
         totalSize: 0,
-        availableSpace: 0
+        availableSpace: 0,
       };
     }
   }
@@ -275,12 +286,12 @@ export async function validateVideoFile(videoPath: string): Promise<{
     return {
       valid: true,
       duration: 0,
-      resolution: '1920x1080'
+      resolution: '1920x1080',
     };
   } catch (error) {
     return {
       valid: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
+      error: error instanceof Error ? error.message : 'Unknown error',
     };
   }
 }
@@ -298,8 +309,10 @@ export async function cleanupOldVideos(
     let deletedCount = 0;
 
     for (const video of videos) {
-      const ageHours = (now.getTime() - new Date(video.createdAt).getTime()) / (1000 * 60 * 60);
-      
+      const ageHours =
+        (now.getTime() - new Date(video.createdAt).getTime()) /
+        (1000 * 60 * 60);
+
       if (ageHours > maxAgeHours) {
         await storage.deleteVideo(video.jobId);
         deletedCount++;
@@ -339,8 +352,8 @@ export class CloudflareR2Storage {
       endpoint: `https://${config.accountId}.r2.cloudflarestorage.com`,
       credentials: {
         accessKeyId: config.accessKeyId,
-        secretAccessKey: config.secretAccessKey
-      }
+        secretAccessKey: config.secretAccessKey,
+      },
     });
   }
 
@@ -361,29 +374,33 @@ export class CloudflareR2Storage {
       const videoBuffer = await fs.readFile(videoPath);
 
       // Upload video to R2
-      await this.s3Client.send(new PutObjectCommand({
-        Bucket: this.bucket,
-        Key: fileName,
-        Body: videoBuffer,
-        ContentType: 'video/mp4',
-        Metadata: {
-          title: metadata.title,
-          duration: metadata.duration.toString(),
-          format: metadata.format,
-          resolution: metadata.resolution,
-          userId: metadata.userId || ''
-        }
-      }));
+      await this.s3Client.send(
+        new PutObjectCommand({
+          Bucket: this.bucket,
+          Key: fileName,
+          Body: videoBuffer,
+          ContentType: 'video/mp4',
+          Metadata: {
+            title: metadata.title,
+            duration: metadata.duration.toString(),
+            format: metadata.format,
+            resolution: metadata.resolution,
+            userId: metadata.userId || '',
+          },
+        })
+      );
 
       // Upload metadata
-      await this.s3Client.send(new PutObjectCommand({
-        Bucket: this.bucket,
-        Key: metadataFileName,
-        Body: JSON.stringify(metadata, null, 2),
-        ContentType: 'application/json'
-      }));
+      await this.s3Client.send(
+        new PutObjectCommand({
+          Bucket: this.bucket,
+          Key: metadataFileName,
+          Body: JSON.stringify(metadata, null, 2),
+          ContentType: 'application/json',
+        })
+      );
 
-      const url = this.publicUrl 
+      const url = this.publicUrl
         ? `${this.publicUrl}/${fileName}`
         : `https://${this.bucket}.r2.cloudflarestorage.com/${fileName}`;
 
@@ -398,20 +415,24 @@ export class CloudflareR2Storage {
   async getVideo(jobId: string): Promise<string | null> {
     try {
       const fileName = `videos/${jobId}.mp4`;
-      
+
       // Check if object exists
-      await this.s3Client.send(new HeadObjectCommand({
-        Bucket: this.bucket,
-        Key: fileName
-      }));
+      await this.s3Client.send(
+        new HeadObjectCommand({
+          Bucket: this.bucket,
+          Key: fileName,
+        })
+      );
 
       // Generate presigned URL (valid for 1 hour)
       const command = new GetObjectCommand({
         Bucket: this.bucket,
-        Key: fileName
+        Key: fileName,
       });
 
-      const url = await getSignedUrl(this.s3Client, command, { expiresIn: 3600 });
+      const url = await getSignedUrl(this.s3Client, command, {
+        expiresIn: 3600,
+      });
       return url;
     } catch (error) {
       console.error('Error getting video from R2:', error);
@@ -422,11 +443,13 @@ export class CloudflareR2Storage {
   async getVideoMetadata(jobId: string): Promise<VideoMetadata | null> {
     try {
       const metadataFileName = `videos/${jobId}.json`;
-      
-      const response = await this.s3Client.send(new GetObjectCommand({
-        Bucket: this.bucket,
-        Key: metadataFileName
-      }));
+
+      const response = await this.s3Client.send(
+        new GetObjectCommand({
+          Bucket: this.bucket,
+          Key: metadataFileName,
+        })
+      );
 
       if (!response.Body) {
         return null;
@@ -447,18 +470,30 @@ export class CloudflareR2Storage {
       const thumbnailFileName = `thumbnails/${jobId}.jpg`;
 
       await Promise.all([
-        this.s3Client.send(new DeleteObjectCommand({
-          Bucket: this.bucket,
-          Key: fileName
-        })).catch(() => {}),
-        this.s3Client.send(new DeleteObjectCommand({
-          Bucket: this.bucket,
-          Key: metadataFileName
-        })).catch(() => {}),
-        this.s3Client.send(new DeleteObjectCommand({
-          Bucket: this.bucket,
-          Key: thumbnailFileName
-        })).catch(() => {})
+        this.s3Client
+          .send(
+            new DeleteObjectCommand({
+              Bucket: this.bucket,
+              Key: fileName,
+            })
+          )
+          .catch(() => {}),
+        this.s3Client
+          .send(
+            new DeleteObjectCommand({
+              Bucket: this.bucket,
+              Key: metadataFileName,
+            })
+          )
+          .catch(() => {}),
+        this.s3Client
+          .send(
+            new DeleteObjectCommand({
+              Bucket: this.bucket,
+              Key: thumbnailFileName,
+            })
+          )
+          .catch(() => {}),
       ]);
 
       console.log(`Video deleted from R2: ${jobId}`);
@@ -471,17 +506,19 @@ export class CloudflareR2Storage {
 
   async listVideos(userId?: string): Promise<VideoMetadata[]> {
     try {
-      const response = await this.s3Client.send(new ListObjectsV2Command({
-        Bucket: this.bucket,
-        Prefix: 'videos/',
-        MaxKeys: 1000
-      }));
+      const response = await this.s3Client.send(
+        new ListObjectsV2Command({
+          Bucket: this.bucket,
+          Prefix: 'videos/',
+          MaxKeys: 1000,
+        })
+      );
 
       if (!response.Contents) {
         return [];
       }
 
-      const metadataFiles = response.Contents.filter(obj => 
+      const metadataFiles = response.Contents.filter((obj) =>
         obj.Key?.endsWith('.json')
       );
 
@@ -491,10 +528,12 @@ export class CloudflareR2Storage {
         if (!file.Key) continue;
 
         try {
-          const response = await this.s3Client.send(new GetObjectCommand({
-            Bucket: this.bucket,
-            Key: file.Key
-          }));
+          const response = await this.s3Client.send(
+            new GetObjectCommand({
+              Bucket: this.bucket,
+              Key: file.Key,
+            })
+          );
 
           if (response.Body) {
             const bodyString = await response.Body.transformToString();
@@ -511,8 +550,9 @@ export class CloudflareR2Storage {
       }
 
       // Sort by creation date (newest first)
-      videos.sort((a, b) => 
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      videos.sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
 
       return videos;
@@ -525,11 +565,13 @@ export class CloudflareR2Storage {
   async getVideoStream(jobId: string): Promise<NodeJS.ReadableStream | null> {
     try {
       const fileName = `videos/${jobId}.mp4`;
-      
-      const response = await this.s3Client.send(new GetObjectCommand({
-        Bucket: this.bucket,
-        Key: fileName
-      }));
+
+      const response = await this.s3Client.send(
+        new GetObjectCommand({
+          Bucket: this.bucket,
+          Key: fileName,
+        })
+      );
 
       if (!response.Body) {
         return null;
@@ -549,28 +591,31 @@ export class CloudflareR2Storage {
     availableSpace: number;
   }> {
     try {
-      const response = await this.s3Client.send(new ListObjectsV2Command({
-        Bucket: this.bucket,
-        Prefix: 'videos/',
-        MaxKeys: 1000
-      }));
+      const response = await this.s3Client.send(
+        new ListObjectsV2Command({
+          Bucket: this.bucket,
+          Prefix: 'videos/',
+          MaxKeys: 1000,
+        })
+      );
 
       if (!response.Contents) {
         return { totalVideos: 0, totalSize: 0, availableSpace: 0 };
       }
 
-      const videoFiles = response.Contents.filter(obj => 
+      const videoFiles = response.Contents.filter((obj) =>
         obj.Key?.endsWith('.mp4')
       );
 
-      const totalSize = videoFiles.reduce((sum, file) => 
-        sum + (file.Size || 0), 0
+      const totalSize = videoFiles.reduce(
+        (sum, file) => sum + (file.Size || 0),
+        0
       );
 
       return {
         totalVideos: videoFiles.length,
         totalSize,
-        availableSpace: 0 // R2 has no practical limit
+        availableSpace: 0, // R2 has no practical limit
       };
     } catch (error) {
       console.error('Error getting R2 storage stats:', error);
@@ -591,13 +636,16 @@ export class CloudflareR2Storage {
   /**
    * Generate presigned URL for temporary access
    */
-  async getPresignedUrl(jobId: string, expiresIn: number = 3600): Promise<string | null> {
+  async getPresignedUrl(
+    jobId: string,
+    expiresIn: number = 3600
+  ): Promise<string | null> {
     try {
       const fileName = `videos/${jobId}.mp4`;
-      
+
       const command = new GetObjectCommand({
         Bucket: this.bucket,
-        Key: fileName
+        Key: fileName,
       });
 
       const url = await getSignedUrl(this.s3Client, command, { expiresIn });
@@ -617,15 +665,12 @@ export class CloudflareStreamStorage {
   private streamService: any; // CloudflareStreamService
   private localCache: LocalStorage;
 
-  constructor(config: {
-    accountId: string;
-    apiToken: string;
-  }) {
+  constructor(config: { accountId: string; apiToken: string }) {
     // Dynamically import to avoid circular dependencies
-    import('./cloudflare-stream').then(module => {
+    import('./cloudflare-stream').then((module) => {
       this.streamService = new module.CloudflareStreamService(config);
     });
-    
+
     // Use local storage for temporary caching
     this.localCache = new LocalStorage();
   }
@@ -653,7 +698,7 @@ export class CloudflareStreamStorage {
         title: metadata.title,
         userId: metadata.userId,
         requireSignedURLs: false,
-        allowedOrigins: ['*']
+        allowedOrigins: ['*'],
       });
 
       // Wait for video to be ready
@@ -665,7 +710,7 @@ export class CloudflareStreamStorage {
         streamUid: streamVideo.uid,
         streamUrl: this.streamService.getVideoUrl(streamVideo.uid),
         thumbnailUrl: this.streamService.getThumbnailUrl(streamVideo.uid),
-        embedCode: this.streamService.getEmbedCode(streamVideo.uid)
+        embedCode: this.streamService.getEmbedCode(streamVideo.uid),
       };
 
       await this.localCache.saveVideo(videoPath, jobId, extendedMetadata);
@@ -736,13 +781,18 @@ export class CloudflareStreamStorage {
       return { totalVideos: 0, totalSize: 0, availableSpace: 0 };
     }
 
-    const { videos, total } = await this.streamService.listVideos({ limit: 1000 });
-    const totalSize = videos.reduce((sum: number, video: any) => sum + (video.size || 0), 0);
+    const { videos, total } = await this.streamService.listVideos({
+      limit: 1000,
+    });
+    const totalSize = videos.reduce(
+      (sum: number, video: any) => sum + (video.size || 0),
+      0
+    );
 
     return {
       totalVideos: total,
       totalSize,
-      availableSpace: 0 // Cloudflare Stream has no practical limit
+      availableSpace: 0, // Cloudflare Stream has no practical limit
     };
   }
 
@@ -774,33 +824,44 @@ export class CloudflareStreamStorage {
 /**
  * Storage factory - creates appropriate storage based on config
  */
-export function createStorage(config?: StorageConfig): LocalStorage | CloudflareR2Storage | CloudflareStreamStorage {
+export function createStorage(
+  config?: StorageConfig
+): LocalStorage | CloudflareR2Storage | CloudflareStreamStorage {
   const storageType = config?.type || process.env.STORAGE_TYPE || 'local';
 
   if (storageType === 'cloudflare-stream') {
     const accountId = config?.accountId || process.env.CLOUDFLARE_ACCOUNT_ID;
-    const apiToken = config?.apiToken || process.env.CLOUDFLARE_STREAM_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
+    const apiToken =
+      config?.apiToken ||
+      process.env.CLOUDFLARE_STREAM_API_TOKEN ||
+      process.env.CLOUDFLARE_API_TOKEN;
 
     if (!accountId || !apiToken) {
-      console.warn('Cloudflare Stream credentials not configured, falling back to local storage');
+      console.warn(
+        'Cloudflare Stream credentials not configured, falling back to local storage'
+      );
       return new LocalStorage(config?.localPath);
     }
 
     return new CloudflareStreamStorage({
       accountId,
-      apiToken
+      apiToken,
     });
   }
 
   if (storageType === 'cloudflare-r2') {
     const accountId = config?.accountId || process.env.CLOUDFLARE_ACCOUNT_ID;
     const bucket = config?.bucket || process.env.CLOUDFLARE_R2_BUCKET;
-    const accessKeyId = config?.accessKeyId || process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
-    const secretAccessKey = config?.secretAccessKey || process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
+    const accessKeyId =
+      config?.accessKeyId || process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
+    const secretAccessKey =
+      config?.secretAccessKey || process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
     const publicUrl = config?.publicUrl || process.env.CLOUDFLARE_R2_PUBLIC_URL;
 
     if (!accountId || !bucket || !accessKeyId || !secretAccessKey) {
-      console.warn('Cloudflare R2 credentials not configured, falling back to local storage');
+      console.warn(
+        'Cloudflare R2 credentials not configured, falling back to local storage'
+      );
       return new LocalStorage(config?.localPath);
     }
 
@@ -809,7 +870,7 @@ export function createStorage(config?: StorageConfig): LocalStorage | Cloudflare
       bucket,
       accessKeyId,
       secretAccessKey,
-      publicUrl
+      publicUrl,
     });
   }
 

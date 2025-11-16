@@ -4,19 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: "Base URL to test (default: production)"
+        description: 'Base URL to test (default: production)'
         required: false
-        default: "https://elevateconnectsdirectory.org"
+        default: 'https://elevateconnectsdirectory.org'
   schedule:
     # Run daily at 10:00 UTC (optional - can be disabled)
-    - cron: "0 10 * * *"
+    - cron: '0 10 * * *'
   push:
     branches:
       - main
     paths:
-      - "app/**"
-      - "pages/**"
-      - "components/**"
+      - 'app/**'
+      - 'pages/**'
+      - 'components/**'
 
 jobs:
   readiness-check:
@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
         run: |
@@ -45,7 +45,7 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "**Testing**: $READINESS_BASE_URL" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          
+
           node scripts/readiness-check.mjs
 
       - name: Summary on success
@@ -96,37 +96,37 @@ jobs:
           script: |
             const title = '🚨 Readiness Check Failed - Site Issues Detected';
             const body = `## Automated Readiness Check Failed
-            
+
             The nightly readiness check detected issues with the production site.
-            
+
             **Time**: ${new Date().toISOString()}
             **URL**: https://elevateconnectsdirectory.org
-            
+
             ### What This Means
-            
+
             One or more critical pages are:
             - Returning server errors (500)
             - Showing error messages
             - Displaying skeleton loaders
             - Showing placeholder content
-            
+
             ### Action Required
-            
+
             1. Review the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId})
             2. Check which specific pages failed
             3. Run the Netlify Environment Guardian autopilot
             4. Review Netlify build logs
             5. Test fixes manually
-            
+
             ### Related Workflows
-            
+
             - [Autopilot – Fix Netlify Environment Variables](${context.payload.repository.html_url}/actions/workflows/autopilot-netlify-guardian.yml)
             - [Autopilot – Fix LMS Pages](${context.payload.repository.html_url}/actions/workflows/autopilot-fix-pages.yml)
-            
+
             ---
-            
+
             *This issue was automatically created by the Readiness Check autopilot.*`;
-            
+
             // Check if issue already exists
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -134,7 +134,7 @@ jobs:
               state: 'open',
               labels: 'autopilot,readiness-check'
             });
-            
+
             if (issues.data.length === 0) {
               await github.rest.issues.create({
                 owner: context.repo.owner,

@@ -9,20 +9,20 @@
 
 ## 1. Platform Comparison Matrix
 
-| Feature | Thinkific | Docebo | Your Needs | Winner |
-|---------|-----------|---------|------------|--------|
-| **Course Creation** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Good | Medium | Thinkific |
-| **Role-Based Learning Paths** | ⭐⭐ Basic | ⭐⭐⭐⭐⭐ Advanced | **HIGH** | **Docebo** |
-| **Compliance Tracking** | ⭐⭐ Limited | ⭐⭐⭐⭐⭐ Enterprise | **HIGH** | **Docebo** |
-| **Multi-Portal Setup** | ⭐ None | ⭐⭐⭐⭐⭐ Native | **HIGH** | **Docebo** |
-| **Reporting & Analytics** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Advanced | **HIGH** | **Docebo** |
-| **AI Features** | ⭐⭐ Basic | ⭐⭐⭐⭐⭐ Generative AI | Medium | Docebo |
-| **Certification Management** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Enterprise | **HIGH** | **Docebo** |
-| **External Integrations** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Extensive | **HIGH** | **Docebo** |
-| **Ease of Use** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Good | Medium | Thinkific |
-| **Pricing** | ⭐⭐⭐⭐ Affordable | ⭐⭐ Enterprise | Medium | Thinkific |
-| **Federal Compliance** | ⭐⭐ Basic | ⭐⭐⭐⭐⭐ FedRAMP | **HIGH** | **Docebo** |
-| **Apprenticeship Tracking** | ⭐ None | ⭐⭐⭐⭐⭐ Native | **HIGH** | **Docebo** |
+| Feature                       | Thinkific            | Docebo                   | Your Needs | Winner     |
+| ----------------------------- | -------------------- | ------------------------ | ---------- | ---------- |
+| **Course Creation**           | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Good            | Medium     | Thinkific  |
+| **Role-Based Learning Paths** | ⭐⭐ Basic           | ⭐⭐⭐⭐⭐ Advanced      | **HIGH**   | **Docebo** |
+| **Compliance Tracking**       | ⭐⭐ Limited         | ⭐⭐⭐⭐⭐ Enterprise    | **HIGH**   | **Docebo** |
+| **Multi-Portal Setup**        | ⭐ None              | ⭐⭐⭐⭐⭐ Native        | **HIGH**   | **Docebo** |
+| **Reporting & Analytics**     | ⭐⭐⭐ Good          | ⭐⭐⭐⭐⭐ Advanced      | **HIGH**   | **Docebo** |
+| **AI Features**               | ⭐⭐ Basic           | ⭐⭐⭐⭐⭐ Generative AI | Medium     | Docebo     |
+| **Certification Management**  | ⭐⭐⭐ Good          | ⭐⭐⭐⭐⭐ Enterprise    | **HIGH**   | **Docebo** |
+| **External Integrations**     | ⭐⭐⭐ Good          | ⭐⭐⭐⭐⭐ Extensive     | **HIGH**   | **Docebo** |
+| **Ease of Use**               | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Good            | Medium     | Thinkific  |
+| **Pricing**                   | ⭐⭐⭐⭐ Affordable  | ⭐⭐ Enterprise          | Medium     | Thinkific  |
+| **Federal Compliance**        | ⭐⭐ Basic           | ⭐⭐⭐⭐⭐ FedRAMP       | **HIGH**   | **Docebo** |
+| **Apprenticeship Tracking**   | ⭐ None              | ⭐⭐⭐⭐⭐ Native        | **HIGH**   | **Docebo** |
 
 **Score**: Docebo 10/12 | Thinkific 2/12
 
@@ -31,6 +31,7 @@
 ## 2. Why Docebo Wins for Your Use Case
 
 ### Your Specific Requirements:
+
 1. ✅ **Compliance Training** (WIOA, WRG, Apprenticeship tracking)
 2. ✅ **Role-Based Learning Paths** (Students, Instructors, Employers, Funders)
 3. ✅ **Multi-Portal Setup** (Different experiences per user type)
@@ -39,6 +40,7 @@
 6. ✅ **External Integrations** (CRM, HR systems, government portals)
 
 ### Docebo's Advantages:
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ DOCEBO ENTERPRISE ARCHITECTURE                              │
@@ -75,6 +77,7 @@
 ### A. Role-Based Learning Paths
 
 **Docebo Approach**:
+
 ```typescript
 // Automatic path assignment based on user role
 const learningPaths = {
@@ -82,20 +85,20 @@ const learningPaths = {
     onboarding: ['Orientation', 'Safety Training', 'Tool Basics'],
     technical: ['Trade-Specific Courses', 'Hands-On Labs'],
     compliance: ['OSHA 10', 'EPA Certification'],
-    career: ['Resume Building', 'Interview Prep', 'Job Placement']
+    career: ['Resume Building', 'Interview Prep', 'Job Placement'],
   },
   instructor: {
     onboarding: ['Teaching Methods', 'LMS Training'],
     compliance: ['Instructor Certification', 'Safety Protocols'],
-    ongoing: ['Curriculum Updates', 'Assessment Training']
+    ongoing: ['Curriculum Updates', 'Assessment Training'],
   },
   employer: {
     onboarding: ['Partnership Overview', 'Hiring Process'],
-    ongoing: ['Student Progress Reports', 'Placement Tracking']
+    ongoing: ['Student Progress Reports', 'Placement Tracking'],
   },
   funder: {
-    reporting: ['WIOA Compliance', 'WRG Metrics', 'ROI Dashboard']
-  }
+    reporting: ['WIOA Compliance', 'WRG Metrics', 'ROI Dashboard'],
+  },
 };
 ```
 
@@ -104,6 +107,7 @@ const learningPaths = {
 ### B. Compliance Tracking
 
 **Docebo Features**:
+
 - ✅ Automatic certification expiration tracking
 - ✅ Mandatory training enforcement
 - ✅ Audit trails for federal compliance
@@ -111,6 +115,7 @@ const learningPaths = {
 - ✅ Automated reminders for renewals
 
 **Example**:
+
 ```
 Student: John Doe
 ├── OSHA 10 Certification
@@ -132,6 +137,7 @@ Student: John Doe
 ### C. Multi-Portal Architecture
 
 **Docebo's Multi-Portal**:
+
 ```
 elevateforhumanity.com
 ├── /student-portal (Student experience)
@@ -292,25 +298,26 @@ elevateforhumanity.com
 ### Visual Design Principles
 
 **Docebo's Approach**:
+
 ```css
 /* Clean, Professional, Enterprise-Grade */
 :root {
   /* Docebo uses clean blues and whites */
-  --docebo-primary: #0066CC;      /* Professional Blue */
-  --docebo-secondary: #00A3E0;    /* Bright Blue */
-  --docebo-success: #00C896;      /* Teal Green */
-  --docebo-warning: #FFB020;      /* Amber */
-  --docebo-error: #E63946;        /* Red */
-  
+  --docebo-primary: #0066cc; /* Professional Blue */
+  --docebo-secondary: #00a3e0; /* Bright Blue */
+  --docebo-success: #00c896; /* Teal Green */
+  --docebo-warning: #ffb020; /* Amber */
+  --docebo-error: #e63946; /* Red */
+
   /* Light, airy backgrounds */
-  --docebo-bg-primary: #FFFFFF;
-  --docebo-bg-secondary: #F5F7FA;
-  --docebo-bg-tertiary: #E8EDF2;
-  
+  --docebo-bg-primary: #ffffff;
+  --docebo-bg-secondary: #f5f7fa;
+  --docebo-bg-tertiary: #e8edf2;
+
   /* Clear typography */
-  --docebo-text-primary: #1A1A1A;
-  --docebo-text-secondary: #6B7280;
-  
+  --docebo-text-primary: #1a1a1a;
+  --docebo-text-secondary: #6b7280;
+
   /* Generous spacing */
   --docebo-space-unit: 8px;
   --docebo-space-xs: 8px;
@@ -319,15 +326,16 @@ elevateforhumanity.com
   --docebo-space-lg: 32px;
   --docebo-space-xl: 48px;
   --docebo-space-2xl: 64px;
-  
+
   /* Subtle shadows */
-  --docebo-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --docebo-shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-  --docebo-shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --docebo-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --docebo-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --docebo-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 ```
 
 **Key Differences from Thinkific**:
+
 - Docebo: Professional blues, enterprise feel
 - Thinkific: Vibrant colors, consumer-friendly
 - **Your Need**: Professional (you're working with government/employers)
@@ -337,6 +345,7 @@ elevateforhumanity.com
 ## 7. Implementation Roadmap
 
 ### Phase 1: Fix Current Site (Week 1)
+
 - [ ] Remove dark mode (force light theme)
 - [ ] Add hero banners with real images
 - [ ] Replace stock photos with product screenshots
@@ -344,6 +353,7 @@ elevateforhumanity.com
 - [ ] Add hover effects and micro-interactions
 
 ### Phase 2: Multi-Portal Architecture (Weeks 2-3)
+
 - [ ] Create Student Portal
 - [ ] Create Instructor Portal
 - [ ] Create Employer Portal
@@ -351,6 +361,7 @@ elevateforhumanity.com
 - [ ] Implement role-based routing
 
 ### Phase 3: Compliance Tracking (Weeks 4-5)
+
 - [ ] WIOA reporting dashboard
 - [ ] WRG metrics tracking
 - [ ] Apprenticeship hour logging
@@ -358,6 +369,7 @@ elevateforhumanity.com
 - [ ] Audit trail system
 
 ### Phase 4: Advanced Analytics (Weeks 6-7)
+
 - [ ] Predictive dropout analytics
 - [ ] Engagement scoring
 - [ ] Placement likelihood calculator
@@ -365,6 +377,7 @@ elevateforhumanity.com
 - [ ] Custom report builder
 
 ### Phase 5: Integrations (Weeks 8-9)
+
 - [ ] Indiana DWD integration
 - [ ] DOL reporting API
 - [ ] Salesforce CRM sync
@@ -372,6 +385,7 @@ elevateforhumanity.com
 - [ ] Email automation (SendGrid)
 
 ### Phase 6: AI Features (Weeks 10-12)
+
 - [ ] AI course recommendations
 - [ ] Automated content creation
 - [ ] Chatbot support
@@ -383,16 +397,19 @@ elevateforhumanity.com
 ## 8. Cost Comparison
 
 ### Thinkific Pricing
+
 - **Basic**: $49/month (limited features)
 - **Pro**: $99/month (better, but no enterprise features)
 - **Premier**: $499/month (still missing compliance/multi-portal)
 
 ### Docebo Pricing
+
 - **Enterprise**: $25,000-$50,000/year (full features)
 - **Includes**: Multi-portal, compliance, advanced analytics, AI
 - **ROI**: Worth it for federal funding tracking alone
 
 ### Your Budget Reality
+
 - **Current**: Building custom on Supabase (free tier)
 - **Recommendation**: Hybrid approach
   - Use Docebo architecture principles
@@ -407,6 +424,7 @@ elevateforhumanity.com
 ### Must-Have Features:
 
 1. **Multi-Portal Dashboard**
+
 ```typescript
 // Student Portal Dashboard
 interface StudentDashboard {
@@ -448,6 +466,7 @@ interface FunderDashboard {
 ```
 
 2. **Compliance Tracking System**
+
 ```typescript
 interface ComplianceTracker {
   student: Student;
@@ -473,6 +492,7 @@ interface ComplianceTracker {
 ```
 
 3. **Advanced Analytics Engine**
+
 ```typescript
 interface AnalyticsEngine {
   predictDropoutRisk(student: Student): {
@@ -480,15 +500,18 @@ interface AnalyticsEngine {
     factors: string[];
     recommendations: string[];
   };
-  
+
   calculatePlacementLikelihood(student: Student): {
     likelihood: number; // 0-100
     strengths: string[];
     gaps: string[];
     suggestedActions: string[];
   };
-  
-  generateROIReport(program: Program, timeframe: Timeframe): {
+
+  generateROIReport(
+    program: Program,
+    timeframe: Timeframe
+  ): {
     studentsEnrolled: number;
     studentsCompleted: number;
     studentsPlaced: number;
@@ -509,17 +532,20 @@ interface AnalyticsEngine {
 **Build a Docebo-Inspired Custom LMS**
 
 **Why Not Buy Docebo?**
+
 - Cost: $25K-$50K/year is steep for a startup
 - Overkill: You don't need all enterprise features yet
 - Flexibility: Custom build allows rapid iteration
 
 **Why Not Use Thinkific?**
+
 - Missing: Compliance tracking (critical for you)
 - Missing: Multi-portal (critical for you)
 - Missing: Advanced reporting (critical for you)
 - Missing: Role-based learning paths (critical for you)
 
 **Best Approach: Hybrid**
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  YOUR CUSTOM LMS (Docebo-Inspired Architecture)        │
@@ -557,12 +583,14 @@ interface AnalyticsEngine {
 ### Immediate Actions (Today):
 
 1. **Fix Dark Mode**
+
    ```bash
    # Remove dark mode from colors.css
    # Force light theme always
    ```
 
 2. **Add Hero Banners**
+
    ```bash
    # Create hero-banner component
    # Add to Home, Programs, About pages
@@ -610,6 +638,7 @@ interface AnalyticsEngine {
 
 **What should you do?**  
 **Build a Docebo-inspired custom LMS** using:
+
 - Docebo's architecture principles
 - Docebo's multi-portal approach
 - Docebo's compliance features
@@ -618,6 +647,6 @@ interface AnalyticsEngine {
 
 **Timeline**: 12 weeks  
 **Cost**: $0-$500/month  
-**Result**: Enterprise-grade LMS at startup cost  
+**Result**: Enterprise-grade LMS at startup cost
 
 **Let's start building! 🚀**

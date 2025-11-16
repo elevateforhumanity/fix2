@@ -84,8 +84,7 @@ export function DocumentEditor({
 
       setCollaborators(doc.collaborators || []);
       setComments(doc.comments || []);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const saveDocument = async () => {
@@ -143,8 +142,7 @@ export function DocumentEditor({
       a.href = url;
       a.download = `document.${format}`;
       a.click();
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   return (

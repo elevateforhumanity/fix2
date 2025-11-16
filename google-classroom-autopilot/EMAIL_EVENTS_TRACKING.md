@@ -9,7 +9,7 @@ Complete email tracking with provider message IDs, delivery status, opens, click
 ✅ **Bounce/Complaint Handling** - Automatic suppression  
 ✅ **Real-time Webhooks** - Instant status updates  
 ✅ **Admin Dashboard** - Visual monitoring  
-✅ **Analytics** - Delivery rates, open rates, click rates  
+✅ **Analytics** - Delivery rates, open rates, click rates
 
 ## Architecture
 
@@ -103,11 +103,13 @@ cat sql/05_email_events.sql
 #### AWS SES (via SNS)
 
 1. Create SNS Topic:
+
    ```bash
    aws sns create-topic --name ses-email-events
    ```
 
 2. Subscribe your endpoint:
+
    ```bash
    aws sns subscribe \
      --topic-arn arn:aws:sns:us-east-1:ACCOUNT:ses-email-events \
@@ -151,18 +153,18 @@ app.listen(3000);
 export default {
   async fetch(request: Request): Promise<Response> {
     const url = new URL(request.url);
-    
+
     if (url.pathname === '/webhooks/resend') {
       const payload = await request.json();
       const signature = request.headers.get('resend-signature') || '';
       const result = await handleEmailWebhook('resend', payload, signature);
       return Response.json(result, { status: result.success ? 200 : 400 });
     }
-    
+
     // Similar for postmark and ses...
-    
+
     return new Response('Not Found', { status: 404 });
-  }
+  },
 };
 ```
 
@@ -174,13 +176,16 @@ import { handleEmailWebhook } from './email-webhooks.ts';
 
 serve(async (req) => {
   const url = new URL(req.url);
-  const provider = url.pathname.split('/').pop() as 'resend' | 'postmark' | 'ses';
-  
+  const provider = url.pathname.split('/').pop() as
+    | 'resend'
+    | 'postmark'
+    | 'ses';
+
   const payload = await req.json();
   const signature = req.headers.get('resend-signature') || '';
-  
+
   const result = await handleEmailWebhook(provider, payload, signature);
-  
+
   return new Response(JSON.stringify(result), {
     status: result.success ? 200 : 400,
     headers: { 'Content-Type': 'application/json' },
@@ -197,16 +202,19 @@ Navigate to: `/admin/email-events`
 ### Features
 
 **Stats Cards**:
+
 - Total sent
 - Delivery rate
 - Open rate
 - Click rate
 
 **Filters**:
+
 - Status (all, sent, delivered, opened, bounced, etc.)
 - Search by recipient or subject
 
 **Real-time Updates**:
+
 - Automatically refreshes when new events occur
 - Shows provider message IDs
 - Displays error messages for failures
@@ -254,7 +262,7 @@ ORDER BY bounced_at DESC;
 ### Delivery Rate by Provider
 
 ```sql
-SELECT 
+SELECT
   provider,
   COUNT(*) as total,
   COUNT(*) FILTER (WHERE status = 'delivered') as delivered,
@@ -287,12 +295,12 @@ AS $$
 DECLARE
   v_bounce_rate NUMERIC;
 BEGIN
-  SELECT 
+  SELECT
     ROUND(100.0 * COUNT(*) FILTER (WHERE status = 'bounced') / COUNT(*), 2)
   INTO v_bounce_rate
   FROM email_events
   WHERE created_at > NOW() - INTERVAL '1 hour';
-  
+
   IF v_bounce_rate > 5 THEN
     -- Trigger alert
     INSERT INTO alert_logs (severity, title, message, details)
@@ -321,6 +329,7 @@ SELECT check_bounce_rate();
 **Target**: > 95% delivery rate
 
 **Action if below**:
+
 - Check domain reputation
 - Review email content for spam triggers
 - Verify DNS records (SPF, DKIM, DMARC)
@@ -328,10 +337,12 @@ SELECT check_bounce_rate();
 ### 2. Handle Bounces
 
 **Hard Bounces** (permanent):
+
 - Remove from mailing list
 - Mark email as invalid
 
 **Soft Bounces** (temporary):
+
 - Retry up to 3 times
 - If still bouncing, treat as hard bounce
 
@@ -350,6 +361,7 @@ WHERE email IN (
 ### 3. Respect Complaints
 
 **Spam Complaints**:
+
 - Immediately suppress email
 - Add to suppression list
 - Review email content
@@ -366,11 +378,13 @@ ON CONFLICT (email) DO NOTHING;
 ### 4. Track Engagement
 
 **Low Open Rates** (< 20%):
+
 - Improve subject lines
 - Send at better times
 - Segment audience
 
 **Low Click Rates** (< 2%):
+
 - Improve call-to-action
 - Make content more relevant
 - A/B test different approaches
@@ -380,12 +394,14 @@ ON CONFLICT (email) DO NOTHING;
 ### Webhooks Not Working
 
 **Check**:
+
 1. Webhook URL is publicly accessible
 2. SSL certificate is valid
 3. Endpoint returns 200 status
 4. Webhook secret is correct (for Resend)
 
 **Debug**:
+
 ```bash
 # Test webhook locally
 curl -X POST http://localhost:3000/api/webhooks/resend \
@@ -396,12 +412,14 @@ curl -X POST http://localhost:3000/api/webhooks/resend \
 ### Events Not Updating
 
 **Check**:
+
 1. `update_email_event_status` function exists
 2. Provider message ID matches
 3. Webhook is being received
 4. No database errors in logs
 
 **Debug**:
+
 ```sql
 -- Check if function exists
 SELECT proname FROM pg_proc WHERE proname = 'update_email_event_status';
@@ -421,6 +439,7 @@ SELECT update_email_event_status('test-message-id', 'delivered', NULL, NULL);
 ### Indexes
 
 All necessary indexes are created automatically:
+
 - `recipient` - Fast lookups by email
 - `provider_message_id` - Webhook matching
 - `status` - Filter by status
@@ -451,6 +470,7 @@ WHERE created_at < NOW() - INTERVAL '90 days';
 **Questions?** Contact: info@elevateforhumanity.org
 
 **Provider Documentation**:
+
 - [Resend Webhooks](https://resend.com/docs/dashboard/webhooks/introduction)
 - [Postmark Webhooks](https://postmarkapp.com/developer/webhooks/webhooks-overview)
 - [AWS SES Events](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html)

@@ -63,7 +63,6 @@ This will:
 
 ## Before You Run the Script
 
-
 ```bash
 # 2. Click "Create Token"
 # 3. Name: "Autopilot Deploy"
@@ -210,8 +209,8 @@ bash scripts/autopilot-complete-setup.sh
 
 If you prefer manual control:
 
-
 ```bash
+
 ```
 
 ### Step 2: Sync GitHub Secrets (5 min)
@@ -241,7 +240,6 @@ bash scripts/close-autopilot-issues.sh
 6. **Get certificate** (test certificate generation)
 
 ### Monitor Your Platform
-
 
 - View deployments
 - Check analytics

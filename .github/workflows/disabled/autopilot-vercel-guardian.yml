@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       force_redeploy:
-        description: "Force Vercel redeploy even if nothing changed"
+        description: 'Force Vercel redeploy even if nothing changed'
         required: false
         type: boolean
         default: false
@@ -126,7 +126,7 @@ jobs:
 
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "✅ All environment variables configured" >> "$GITHUB_STEP_SUMMARY"
-          
+
           echo "needs_redeploy=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger Vercel redeploy

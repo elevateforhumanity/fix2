@@ -3,6 +3,7 @@
 ## 🎉 Congratulations!
 
 You're now an official **Milady RISE Partner** with:
+
 - ✅ Custom promo code: **efhcti-rise295**
 - ✅ 1,000 free redemptions
 - ✅ $500 scholarship opportunity (10 recipients, Spring & Fall)
@@ -13,16 +14,19 @@ You're now an official **Milady RISE Partner** with:
 ## 📋 Partner Details
 
 ### Your Partnership
+
 - **School:** Elevate for Humanity Career & Training Institute
 - **Students per year:** 150
 - **Locations:** 1
 
 ### Your Custom Code
+
 - **Code:** `efhcti-rise295`
 - **Redemptions:** 1,000 available
 - **Cost:** FREE for your students
 
 ### Partner Contact
+
 - All contact information and support links available in your partner email
 
 ---
@@ -35,23 +39,27 @@ You're now an official **Milady RISE Partner** with:
 [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 **2. They see:**
+
 - Complete course information
 - $500 scholarship details
 - Learning outcomes
 - Topics covered
 
 **3. They click "Enroll Now":**
+
 - System records enrollment in your database
 - Opens Milady platform in new tab
 - Promo code pre-filled: `efhcti-rise295`
 
 **4. On Milady platform:**
+
 - Register or login
 - Enter promo code at checkout
 - Complete 3 courses (4 hours total)
 - Get certified
 
 **5. After completion:**
+
 - Receive Milady certificate
 - Eligible for $500 scholarship
 - (Future) Your system auto-tracks completion via webhook
@@ -63,8 +71,9 @@ You're now an official **Milady RISE Partner** with:
 ### Current Tracking (Manual)
 
 **See who enrolled:**
+
 ```sql
-SELECT 
+SELECT
   u.email,
   e.enrolled_at,
   e.external_enrollment_id
@@ -76,6 +85,7 @@ ORDER BY e.enrolled_at DESC;
 ```
 
 **Track manually:**
+
 1. Student tells you they completed
 2. You verify on Milady platform
 3. You issue certificate via Staff Panel
@@ -83,6 +93,7 @@ ORDER BY e.enrolled_at DESC;
 ### Future Tracking (Automatic - Coming Soon)
 
 **With webhook integration:**
+
 1. Student completes on Milady
 2. Milady sends webhook to your system
 3. Your system auto-records completion
@@ -96,21 +107,27 @@ ORDER BY e.enrolled_at DESC;
 ### Partner Best Practices
 
 #### 1. Lead by Example
+
 **Take the course yourself!**
+
 - Show students it's important
 - Understand what they'll experience
 - Share your certificate
 - Current partners report higher completion when leaders participate
 
 #### 2. Make It Required
+
 **Don't make it optional!**
+
 - Integrate into curriculum
 - Assign as homework
 - Make it part of orientation
 - Emphasize importance of certification
 
 #### 3. Use Downtime
+
 **Help students maximize time:**
+
 - Post instructions in breakroom
 - Share during study periods
 - Offer during gaps in schedule
@@ -119,18 +136,21 @@ ORDER BY e.enrolled_at DESC;
 ### Your Implementation Strategy
 
 #### Week 1: Launch
+
 - [ ] Complete the course yourself
 - [ ] Share your certificate with students
 - [ ] Announce partnership in class
 - [ ] Post enrollment link in visible areas
 
 #### Week 2-4: Promote
+
 - [ ] Add to student handbook
 - [ ] Include in orientation
 - [ ] Send email to all students
 - [ ] Post on social media
 
 #### Ongoing: Track & Support
+
 - [ ] Monitor enrollment numbers
 - [ ] Help students with technical issues
 - [ ] Celebrate completions
@@ -146,6 +166,7 @@ ORDER BY e.enrolled_at DESC;
 [Milady RISE Partner Logos](https://www.milady.com/rise-partner-logos)
 
 **Use on:**
+
 - Your website
 - Social media
 - Email signatures
@@ -155,12 +176,14 @@ ORDER BY e.enrolled_at DESC;
 ### Your LMS Integration
 
 **Already live on your site:**
+
 - Enrollment page with full details
 - Automatic promo code application
 - Database tracking of enrollments
 - Professional course presentation
 
 **Share these links:**
+
 - Direct enrollment: [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 - Your LMS home: [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 
@@ -169,6 +192,7 @@ ORDER BY e.enrolled_at DESC;
 ## 💰 $500 RISE Scholarship
 
 ### Details
+
 - **Amount:** $500 per recipient
 - **Recipients:** 10 per period
 - **Frequency:** Twice yearly (Spring & Fall)
@@ -177,12 +201,14 @@ ORDER BY e.enrolled_at DESC;
 ### Application Process
 
 **Current (Manual):**
+
 1. Student completes certification
 2. Student applies via Milady
 3. Milady reviews applications
 4. Winners announced
 
 **Future (Integrated):**
+
 1. Student completes certification
 2. Your system tracks completion
 3. Student applies via your portal
@@ -192,6 +218,7 @@ ORDER BY e.enrolled_at DESC;
 ### Promoting Scholarship
 
 **Tell students:**
+
 - "Complete the certification, apply for $500!"
 - "10 winners twice a year"
 - "Free certification + scholarship opportunity"
@@ -212,7 +239,7 @@ Great news! Elevate for Humanity is now a Milady RISE Partner, which means you c
 
 What you'll learn:
 • Domestic Violence Awareness
-• Human Trafficking Awareness  
+• Human Trafficking Awareness
 • Infection Control
 
 Time: Just 4 hours
@@ -249,7 +276,7 @@ Learn more: [your link]
 ### Classroom Announcement
 
 ```
-"I'm excited to announce that we're now a Milady RISE Partner! 
+"I'm excited to announce that we're now a Milady RISE Partner!
 
 This means you can get certified in Client Well-Being & Safety - covering domestic violence awareness, human trafficking awareness, and infection control - completely FREE.
 
@@ -267,12 +294,14 @@ The link is on our LMS. Let me know if you need help getting started!"
 ### Track These Numbers
 
 **Monthly:**
+
 - [ ] Students enrolled
 - [ ] Students completed
 - [ ] Completion rate
 - [ ] Scholarship applications
 
 **Quarterly:**
+
 - [ ] Total certifications issued
 - [ ] Redemptions used (out of 1,000)
 - [ ] Student feedback
@@ -282,7 +311,7 @@ The link is on our LMS. Let me know if you need help getting started!"
 
 ```sql
 -- Monthly enrollment report
-SELECT 
+SELECT
   DATE_TRUNC('month', e.enrolled_at) as month,
   COUNT(*) as enrollments
 FROM enrollments e
@@ -292,12 +321,12 @@ GROUP BY month
 ORDER BY month DESC;
 
 -- Completion rate (when tracking is automated)
-SELECT 
+SELECT
   COUNT(*) as total_enrolled,
   COUNT(CASE WHEN status = 'completed' THEN 1 END) as completed,
   ROUND(
-    COUNT(CASE WHEN status = 'completed' THEN 1 END)::numeric / 
-    COUNT(*)::numeric * 100, 
+    COUNT(CASE WHEN status = 'completed' THEN 1 END)::numeric /
+    COUNT(*)::numeric * 100,
     2
   ) as completion_rate
 FROM enrollments e
@@ -312,6 +341,7 @@ WHERE c.code = 'MILADY-RISE';
 ### From Milady
 
 **You agreed to:**
+
 - [ ] Participate in yearly survey (up to 60 minutes)
 - [ ] Provide feedback on program
 - [ ] Share student outcomes
@@ -320,6 +350,7 @@ WHERE c.code = 'MILADY-RISE';
 ### Best Practices
 
 **Stay engaged:**
+
 - Respond to partner emails promptly
 - Share success stories
 - Provide feedback on program
@@ -333,12 +364,14 @@ WHERE c.code = 'MILADY-RISE';
 ### For Students
 
 **Technical Issues:**
+
 1. Check promo code is entered correctly: `efhcti-rise295`
 2. No spaces, periods, or commas
 3. Must be at checkout page
 4. Use support link from partner email if code doesn't work
 
 **Access Issues:**
+
 1. Ensure they registered on Milady platform
 2. Check email for confirmation
 3. Try different browser
@@ -347,6 +380,7 @@ WHERE c.code = 'MILADY-RISE';
 ### For You
 
 **Questions about:**
+
 - Program details → Use contact links from your partner email
 - Technical issues → Milady support
 - LMS integration → Your development team
@@ -359,17 +393,20 @@ WHERE c.code = 'MILADY-RISE';
 ### Goals for Year 1
 
 **Enrollment:**
+
 - [ ] 100% of current students enrolled (150 students)
 - [ ] 80% completion rate
 - [ ] 5+ scholarship applications
 
 **Engagement:**
+
 - [ ] You complete certification
 - [ ] All instructors complete certification
 - [ ] Program integrated into curriculum
 - [ ] Promoted on all channels
 
 **Impact:**
+
 - [ ] Students report increased confidence
 - [ ] Positive feedback on content
 - [ ] Scholarship winners celebrated
@@ -432,14 +469,17 @@ WHERE c.code = 'MILADY-RISE';
 ## 📞 Contact Information
 
 ### Your Partnership
+
 - **Partner Code:** efhcti-rise295
 - **Redemptions:** 1,000
 - **Status:** Active
 
 ### Milady Contact
+
 - Contact information available in your Milady RISE partner email
 
 ### Your LMS
+
 - **Enrollment Page:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 - **Admin Dashboard:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 

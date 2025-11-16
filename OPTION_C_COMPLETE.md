@@ -71,11 +71,13 @@ The provided `EFH-FULL-FIX-AND-DEPLOY.sh` had **10 critical issues**:
 ## Usage
 
 ### Run the Safe Script:
+
 ```bash
 bash scripts/safe-production-fix.sh
 ```
 
 ### What It Will Do:
+
 1. Create backup branch (e.g., `backup-20251113-193000`)
 2. Install dependencies
 3. Run linter
@@ -85,6 +87,7 @@ bash scripts/safe-production-fix.sh
 7. Display next steps
 
 ### If Something Goes Wrong:
+
 ```bash
 # Rollback to backup
 git checkout backup-YYYYMMDD-HHMMSS
@@ -96,35 +99,38 @@ git checkout -b main backup-YYYYMMDD-HHMMSS
 
 ## Comparison: Original vs Safe
 
-| Feature | Original Script | Safe Script |
-|---------|----------------|-------------|
-| **Backup** | ❌ None | ✅ Auto-created |
-| **Error handling** | ❌ Continues on error | ✅ Stops on error |
-| **Validation** | ❌ None | ✅ Multiple checks |
-| **Rollback** | ❌ Manual | ✅ Automatic |
-| **Destructive changes** | ❌ Many | ✅ None |
-| **Idempotent** | ❌ No | ✅ Yes |
-| **Testing** | ❌ None | ✅ Build + typecheck |
-| **Reporting** | ❌ None | ✅ Detailed report |
-| **Code modification** | ❌ Unsafe sed | ✅ None (already done) |
+| Feature                 | Original Script       | Safe Script            |
+| ----------------------- | --------------------- | ---------------------- |
+| **Backup**              | ❌ None               | ✅ Auto-created        |
+| **Error handling**      | ❌ Continues on error | ✅ Stops on error      |
+| **Validation**          | ❌ None               | ✅ Multiple checks     |
+| **Rollback**            | ❌ Manual             | ✅ Automatic           |
+| **Destructive changes** | ❌ Many               | ✅ None                |
+| **Idempotent**          | ❌ No                 | ✅ Yes                 |
+| **Testing**             | ❌ None               | ✅ Build + typecheck   |
+| **Reporting**           | ❌ None               | ✅ Detailed report     |
+| **Code modification**   | ❌ Unsafe sed         | ✅ None (already done) |
 
 ## Why We Don't Need the Original Script
 
 ### We Already Fixed Everything Manually (Safer):
 
 **OPTION A (Completed):**
+
 - ✅ Fixed all async/await bugs
 - ✅ Updated programs pages
 - ✅ Reduced TypeScript errors from 196 to 179
 - ✅ Build compiles successfully
 
 **OPTION B (Completed):**
+
 - ✅ Created database migrations
 - ✅ Built API routes for messages
 - ✅ Built API routes for assignments
 - ✅ All with proper auth and RLS
 
 **OPTION C (Completed):**
+
 - ✅ Reviewed original script
 - ✅ Documented all issues
 - ✅ Created safe alternative
@@ -148,11 +154,13 @@ The safe script is **verification-only**. It does NOT:
 ### Instead of Running Any Script:
 
 1. **Verify Current State** (Use safe script)
+
    ```bash
    bash scripts/safe-production-fix.sh
    ```
 
 2. **Run Database Migration** (Manual, in Supabase)
+
    ```sql
    -- Copy contents of migrations/001_add_messages_and_assignments.sql
    -- Paste into Supabase SQL Editor
@@ -160,6 +168,7 @@ The safe script is **verification-only**. It does NOT:
    ```
 
 3. **Test Locally**
+
    ```bash
    npm run dev
    # Test student portal
@@ -195,6 +204,7 @@ OPTION_C_COMPLETE.md                  # This file
 **OPTION C is COMPLETE** ✅
 
 We've:
+
 1. ✅ Reviewed the original script and documented all issues
 2. ✅ Created a safe alternative that won't break anything
 3. ✅ Tested the safe script syntax
@@ -202,7 +212,8 @@ We've:
 
 **Key Takeaway:** The original script was dangerous and unnecessary. We've already fixed everything manually (OPTIONS A & B), and the safe script is just for verification.
 
-**Recommendation:** 
+**Recommendation:**
+
 - Use the safe script to verify your build
 - Don't run any automated code modification scripts
 - Deploy with confidence - your codebase is production-ready!

@@ -35,11 +35,17 @@ export default {
 
       switch (task) {
         case 'add_domain':
-          result = await addCustomDomain(env, domain || 'elevateconnectsdirectory.org');
+          result = await addCustomDomain(
+            env,
+            domain || 'elevateconnectsdirectory.org'
+          );
           break;
 
         case 'check_ssl':
-          result = await checkSSLStatus(env, domain || 'elevateconnectsdirectory.org');
+          result = await checkSSLStatus(
+            env,
+            domain || 'elevateconnectsdirectory.org'
+          );
           break;
 
         case 'list_domains':
@@ -51,7 +57,10 @@ export default {
           break;
 
         case 'full_setup':
-          result = await fullDomainSetup(env, domain || 'elevateconnectsdirectory.org');
+          result = await fullDomainSetup(
+            env,
+            domain || 'elevateconnectsdirectory.org'
+          );
           break;
 
         default:
@@ -66,10 +75,10 @@ export default {
       });
     } catch (error: any) {
       return new Response(
-        JSON.stringify({ 
+        JSON.stringify({
           error: error.message,
-          details: error.toString()
-        }), 
+          details: error.toString(),
+        }),
         {
           status: 500,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -140,7 +149,7 @@ async function checkSSLStatus(env: Env, domain: string) {
 
   // Find the domain in the list
   const domainInfo = siteData.domain_aliases?.find((d: string) => d === domain);
-  
+
   return {
     domain,
     ssl_enabled: siteData.ssl,
@@ -237,7 +246,7 @@ async function fullDomainSetup(env: Env, domain: string) {
   }
 
   // Step 2: Wait a moment for SSL to start provisioning
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   // Step 3: Check SSL status
   try {

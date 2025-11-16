@@ -85,7 +85,6 @@ export default function ProgramsGrid() {
             mean more possibilities for growth.
           </p>
         </div>
-
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROGRAMS.map((p) => (
             <a
@@ -130,7 +129,6 @@ export default function ProgramsGrid() {
             </a>
           ))}
         </div>
-
         <div className="mt-8 text-center md:hidden">
           <a href="/apply" className="btn">
             Apply Now

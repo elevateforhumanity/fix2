@@ -15,6 +15,7 @@
 5. Wait for success message
 
 **Expected Output:**
+
 ```
 ✅ All migrations applied successfully!
 
@@ -65,13 +66,14 @@ VALUES ('YOUR_USER_ID', 'admin')
 ON CONFLICT (user_id) DO UPDATE SET role = 'admin';
 
 -- Verify it worked
-SELECT u.email, ur.role 
+SELECT u.email, ur.role
 FROM auth.users u
 JOIN public.user_roles ur ON u.id = ur.user_id
 WHERE u.id = 'YOUR_USER_ID';
 ```
 
 **Expected Output:**
+
 ```
 email                | role
 ---------------------|-------
@@ -171,6 +173,7 @@ Wait for deployment to complete (usually 2-3 minutes)
 ## 🔗 Important Links
 
 ### Production URLs
+
 - **Main Site:** [https://portal.elevateforhumanity.org](https://portal.elevateforhumanity.org)
 - **Login:** [https://portal.elevateforhumanity.org/login](https://portal.elevateforhumanity.org/login)
 - **My Certificates:** [https://portal.elevateforhumanity.org/my-certificates](https://portal.elevateforhumanity.org/my-certificates)
@@ -178,11 +181,13 @@ Wait for deployment to complete (usually 2-3 minutes)
 - **LMS:** [https://portal.elevateforhumanity.org/lms](https://portal.elevateforhumanity.org/lms)
 
 ### Admin Dashboards
+
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 - **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
 - **GitHub:** [https://github.com/elevateforhumanity/fix2](https://github.com/elevateforhumanity/fix2)
 
 ### Quick Access
+
 - **SQL Editor:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new)
 - **Storage:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/storage/buckets)
 - **Users:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users)
@@ -193,6 +198,7 @@ Wait for deployment to complete (usually 2-3 minutes)
 ## 🆘 Troubleshooting
 
 ### Build Fails
+
 ```bash
 # Clear and rebuild
 rm -rf node_modules dist
@@ -201,20 +207,23 @@ npm run build
 ```
 
 ### Magic Link Not Working
+
 - Check spam folder
 - Verify email in Supabase Auth → Users
 - Check Supabase logs
 
 ### Cannot Access /staff
+
 ```sql
 -- Verify role
-SELECT u.email, ur.role 
+SELECT u.email, ur.role
 FROM auth.users u
 LEFT JOIN public.user_roles ur ON u.id = ur.user_id
 WHERE u.email = 'your@email.com';
 ```
 
 ### Certificate Upload Fails
+
 - Verify `certificates` bucket exists
 - Check bucket is public
 - Verify file is PDF
@@ -234,6 +243,7 @@ WHERE u.email = 'your@email.com';
 ## 🎉 What You Get
 
 ### Features
+
 ✅ Magic link authentication (passwordless)  
 ✅ Role-based access (student/staff/admin)  
 ✅ Certificate issuance system  
@@ -241,19 +251,21 @@ WHERE u.email = 'your@email.com';
 ✅ PDF upload and storage  
 ✅ Mobile-responsive design  
 ✅ Integration with existing LMS  
-✅ Integration with autopilot system  
+✅ Integration with autopilot system
 
 ### Security
+
 ✅ Row-level security (RLS)  
 ✅ Role-based route protection  
 ✅ Secure authentication  
-✅ Audit trails  
+✅ Audit trails
 
 ### Automation
+
 ✅ Auto-generate verification codes  
 ✅ Auto-upload PDFs to storage  
 ✅ Auto-send magic links  
-✅ Integration with autopilot for course creation  
+✅ Integration with autopilot for course creation
 
 ---
 

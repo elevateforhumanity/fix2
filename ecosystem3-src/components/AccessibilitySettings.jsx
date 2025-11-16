@@ -17,7 +17,9 @@ export default function AccessibilitySettings() {
   };
 
   return (
-    <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}>
+    <div
+      style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -31,14 +33,13 @@ export default function AccessibilitySettings() {
           height: '48px',
           fontSize: '20px',
           cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
         }}
         title="Accessibility Settings"
         aria-label="Open accessibility settings"
       >
         ♿
       </button>
-
       {isOpen && (
         <div
           id="accessibility-panel"
@@ -54,15 +55,23 @@ export default function AccessibilitySettings() {
             padding: '1rem',
             minWidth: '280px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            zIndex: 1001
+            zIndex: 1001,
           }}
         >
-          <h3 id="accessibility-title" style={{ margin: '0 0 1rem 0', color: '#1e40af' }}>
+          <h3
+            id="accessibility-title"
+            style={{ margin: '0 0 1rem 0', color: '#1e40af' }}
+          >
             Accessibility Settings
           </h3>
-
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0.5rem',
+              }}
+            >
               <input
                 type="checkbox"
                 checked={settings.highContrast}
@@ -72,13 +81,25 @@ export default function AccessibilitySettings() {
               />
               High Contrast Mode
             </label>
-            <div id="high-contrast-desc" style={{ fontSize: '0.875rem', color: '#6b7280', marginLeft: '1.5rem' }}>
+            <div
+              id="high-contrast-desc"
+              style={{
+                fontSize: '0.875rem',
+                color: '#6b7280',
+                marginLeft: '1.5rem',
+              }}
+            >
               Increases contrast for better visibility
             </div>
           </div>
-
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0.5rem',
+              }}
+            >
               <input
                 type="checkbox"
                 checked={settings.largeText}
@@ -88,43 +109,77 @@ export default function AccessibilitySettings() {
               />
               Large Text
             </label>
-            <div id="large-text-desc" style={{ fontSize: '0.875rem', color: '#6b7280', marginLeft: '1.5rem' }}>
+            <div
+              id="large-text-desc"
+              style={{
+                fontSize: '0.875rem',
+                color: '#6b7280',
+                marginLeft: '1.5rem',
+              }}
+            >
               Increases text size by 20%
             </div>
           </div>
-
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0.5rem',
+              }}
+            >
               <input
                 type="checkbox"
                 checked={settings.reducedMotion}
-                onChange={(e) => handleToggle('reducedMotion', e.target.checked)}
+                onChange={(e) =>
+                  handleToggle('reducedMotion', e.target.checked)
+                }
                 style={{ marginRight: '0.5rem' }}
                 aria-describedby="reduced-motion-desc"
               />
               Reduce Motion
             </label>
-            <div id="reduced-motion-desc" style={{ fontSize: '0.875rem', color: '#6b7280', marginLeft: '1.5rem' }}>
+            <div
+              id="reduced-motion-desc"
+              style={{
+                fontSize: '0.875rem',
+                color: '#6b7280',
+                marginLeft: '1.5rem',
+              }}
+            >
               Minimizes animations and transitions
             </div>
           </div>
-
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0.5rem',
+              }}
+            >
               <input
                 type="checkbox"
                 checked={settings.screenReaderMode}
-                onChange={(e) => handleToggle('screenReaderMode', e.target.checked)}
+                onChange={(e) =>
+                  handleToggle('screenReaderMode', e.target.checked)
+                }
                 style={{ marginRight: '0.5rem' }}
                 aria-describedby="screen-reader-desc"
               />
               Screen Reader Mode
             </label>
-            <div id="screen-reader-desc" style={{ fontSize: '0.875rem', color: '#6b7280', marginLeft: '1.5rem' }}>
+            <div
+              id="screen-reader-desc"
+              style={{
+                fontSize: '0.875rem',
+                color: '#6b7280',
+                marginLeft: '1.5rem',
+              }}
+            >
               Shows hidden content for screen readers
             </div>
           </div>
-
           <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '1rem' }}>
             <button
               onClick={() => setIsOpen(false)}
@@ -135,19 +190,24 @@ export default function AccessibilitySettings() {
                 borderRadius: '4px',
                 padding: '0.5rem 1rem',
                 cursor: 'pointer',
-                width: '100%'
+                width: '100%',
               }}
             >
               Close Settings
             </button>
           </div>
-
-          <div style={{ marginTop: '1rem', fontSize: '0.75rem', color: '#6b7280', textAlign: 'center' }}>
+          <div
+            style={{
+              marginTop: '1rem',
+              fontSize: '0.75rem',
+              color: '#6b7280',
+              textAlign: 'center',
+            }}
+          >
             Settings are saved automatically
           </div>
         </div>
       )}
-
       {/* Overlay to close panel when clicking outside */}
       {isOpen && (
         <div
@@ -158,7 +218,7 @@ export default function AccessibilitySettings() {
             right: 0,
             bottom: 0,
             background: 'transparent',
-            zIndex: 999
+            zIndex: 999,
           }}
           onClick={() => setIsOpen(false)}
           aria-hidden="true"

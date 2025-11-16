@@ -3,9 +3,13 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const openaiKey = process.env.OPENAI_API_KEY;
   if (!openaiKey) {
-    return NextResponse.json({ 
-      error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.' 
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        error:
+          'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.',
+      },
+      { status: 500 }
+    );
   }
 
   const pageType = request.nextUrl.searchParams.get('type') || 'home';
@@ -27,14 +31,15 @@ Component should be a default export function.`;
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${openaiKey}`,
+        Authorization: `Bearer ${openaiKey}`,
       },
       body: JSON.stringify({
         model: 'gpt-4-turbo-preview',
         messages: [
           {
             role: 'system',
-            content: 'You are an expert React developer. Generate clean, production-ready React components with TypeScript and Tailwind CSS.',
+            content:
+              'You are an expert React developer. Generate clean, production-ready React components with TypeScript and Tailwind CSS.',
           },
           {
             role: 'user',
@@ -48,7 +53,10 @@ Component should be a default export function.`;
 
     if (!response.ok) {
       const error = await response.json();
-      return NextResponse.json({ error: error.error?.message || 'OpenAI API error' }, { status: 500 });
+      return NextResponse.json(
+        { error: error.error?.message || 'OpenAI API error' },
+        { status: 500 }
+      );
     }
 
     const data = await response.json();
@@ -65,6 +73,9 @@ Component should be a default export function.`;
     });
   } catch (error: any) {
     console.error('AI Page Builder error:', error);
-    return NextResponse.json({ error: error.message || 'Failed to generate page' }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message || 'Failed to generate page' },
+      { status: 500 }
+    );
   }
 }

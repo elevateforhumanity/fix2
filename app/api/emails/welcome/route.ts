@@ -24,7 +24,8 @@ export async function POST(request: Request) {
     // Fetch enrollment details
     const { data: enrollment } = await supabase
       .from('enrollments')
-      .select(`
+      .select(
+        `
         id,
         student_id,
         courses!inner (
@@ -34,19 +35,28 @@ export async function POST(request: Request) {
           full_name,
           email
         )
-      `)
+      `
+      )
       .eq('id', enrollmentId)
       .single();
 
     if (!enrollment) {
-      return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Enrollment not found' },
+        { status: 404 }
+      );
     }
 
     // Type guards: Extract nested relations
-    const profile = Array.isArray(enrollment.profiles) ? enrollment.profiles[0] : enrollment.profiles;
-    const course = Array.isArray(enrollment.courses) ? enrollment.courses[0] : enrollment.courses;
+    const profile = Array.isArray(enrollment.profiles)
+      ? enrollment.profiles[0]
+      : enrollment.profiles;
+    const course = Array.isArray(enrollment.courses)
+      ? enrollment.courses[0]
+      : enrollment.courses;
 
-    const studentName = profile?.full_name || profile?.email?.split('@')[0] || 'Student';
+    const studentName =
+      profile?.full_name || profile?.email?.split('@')[0] || 'Student';
     const courseName = course?.title || 'Course';
     const loginUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/lms/dashboard`;
 
@@ -61,6 +71,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error sending welcome email:', error);
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to send email' },
+      { status: 500 }
+    );
   }
 }

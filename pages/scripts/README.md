@@ -44,6 +44,7 @@ All pages import from `@/seeds/elevate/elevate.json`, so updating the seeds auto
 ## Dependencies
 
 These pages require:
+
 - Next.js 14+
 - React 18+
 - shadcn/ui components

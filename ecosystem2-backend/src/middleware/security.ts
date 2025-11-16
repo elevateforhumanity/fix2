@@ -1,20 +1,34 @@
 import { Request, Response, NextFunction } from 'express';
 import { AppError } from './errorHandler';
 
-export const validateContentType = (req: Request, _res: Response, next: NextFunction) => {
+export const validateContentType = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   if (['POST', 'PUT', 'PATCH'].includes(req.method)) {
     const contentType = req.headers['content-type'];
-    if (!contentType || (!contentType.includes('application/json') && !contentType.includes('multipart/form-data'))) {
+    if (
+      !contentType ||
+      (!contentType.includes('application/json') &&
+        !contentType.includes('multipart/form-data'))
+    ) {
       return next(new AppError('Invalid content type', 415));
     }
   }
   next();
 };
 
-export const sanitizeInput = (req: Request, _res: Response, next: NextFunction) => {
+export const sanitizeInput = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   const sanitize = (obj: any): any => {
     if (typeof obj === 'string') {
-      return obj.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+      return obj
+        .trim()
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     }
     if (Array.isArray(obj)) {
       return obj.map(sanitize);
@@ -44,7 +58,11 @@ export const sanitizeInput = (req: Request, _res: Response, next: NextFunction) 
   next();
 };
 
-export const preventParameterPollution = (req: Request, _res: Response, next: NextFunction) => {
+export const preventParameterPollution = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   const cleanParams = (obj: any) => {
     for (const key in obj) {
       if (Array.isArray(obj[key])) {
@@ -61,7 +79,11 @@ export const preventParameterPollution = (req: Request, _res: Response, next: Ne
   next();
 };
 
-export const csrfProtection = (req: Request, _res: Response, next: NextFunction) => {
+export const csrfProtection = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
     const origin = req.headers.origin;
     const allowedOrigins = (process.env.ALLOWED_ORIGINS || '').split(',');
@@ -85,11 +107,18 @@ export const requestSizeLimit = (maxSize: number = 10 * 1024 * 1024) => {
   };
 };
 
-export const securityHeaders = (_req: Request, res: Response, next: NextFunction) => {
+export const securityHeaders = (
+  _req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  res.setHeader(
+    'Strict-Transport-Security',
+    'max-age=31536000; includeSubDomains'
+  );
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.removeHeader('X-Powered-By');
   next();

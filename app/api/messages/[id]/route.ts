@@ -26,7 +26,10 @@ export async function PATCH(
 
     if (error) {
       console.error('Error updating message:', error);
-      return NextResponse.json({ error: 'Failed to update message' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to update message' },
+        { status: 500 }
+      );
     }
 
     if (!message) {
@@ -36,7 +39,10 @@ export async function PATCH(
     return NextResponse.json({ message });
   } catch (error) {
     console.error('Error in PATCH /api/messages/[id]:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -63,12 +69,18 @@ export async function DELETE(
 
     if (error) {
       console.error('Error deleting message:', error);
-      return NextResponse.json({ error: 'Failed to delete message' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to delete message' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error in DELETE /api/messages/[id]:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

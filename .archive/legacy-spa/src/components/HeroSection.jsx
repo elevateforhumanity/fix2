@@ -11,9 +11,10 @@ export default function HeroSection() {
             Workforce training that pays you to learn
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-700 sm:text-xl">
-            State-approved apprenticeships and earn-while-you-learn programs. Fast pathways to careers in barbering, HVAC, healthcare, CDL, and more.
+            State-approved apprenticeships and earn-while-you-learn programs.
+            Fast pathways to careers in barbering, HVAC, healthcare, CDL, and
+            more.
           </p>
-
           {/* CTAs */}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-3">
             <Link
@@ -29,30 +30,52 @@ export default function HeroSection() {
               View Programs
             </Link>
           </div>
-
           {/* Trust Badges */}
           <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-slate-600">
             <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className="h-5 w-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span className="font-medium">ETPL Approved</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className="h-5 w-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span className="font-medium">WorkOne Partner</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className="h-5 w-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span className="font-medium">DOL Registered</span>
             </div>
           </div>
         </div>
-
         {/* Right Image */}
         <div className="mt-12 lg:mt-0 lg:flex-1">
           <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-200 shadow-2xl">

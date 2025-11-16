@@ -5,13 +5,11 @@ import { prisma } from './setup';
 describe('Auth Endpoints', () => {
   describe('POST /api/auth/register', () => {
     it('should register a new user', async () => {
-      const res = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-          name: 'Test User',
-        });
+      const res = await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User',
+      });
 
       expect(res.status).toBe(201);
       expect(res.body).toHaveProperty('token');
@@ -19,31 +17,25 @@ describe('Auth Endpoints', () => {
     });
 
     it('should not register user with existing email', async () => {
-      await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-          name: 'Test User',
-        });
+      await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User',
+      });
 
-      const res = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password456',
-          name: 'Another User',
-        });
+      const res = await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password456',
+        name: 'Another User',
+      });
 
       expect(res.status).toBe(409);
     });
 
     it('should validate required fields', async () => {
-      const res = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-        });
+      const res = await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+      });
 
       expect(res.status).toBe(400);
     });
@@ -51,22 +43,18 @@ describe('Auth Endpoints', () => {
 
   describe('POST /api/auth/login', () => {
     beforeEach(async () => {
-      await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-          name: 'Test User',
-        });
+      await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User',
+      });
     });
 
     it('should login with valid credentials', async () => {
-      const res = await request(app)
-        .post('/api/auth/login')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-        });
+      const res = await request(app).post('/api/auth/login').send({
+        email: 'test@example.com',
+        password: 'password123',
+      });
 
       expect(res.status).toBe(200);
       expect(res.body).toHaveProperty('token');
@@ -74,23 +62,19 @@ describe('Auth Endpoints', () => {
     });
 
     it('should not login with invalid password', async () => {
-      const res = await request(app)
-        .post('/api/auth/login')
-        .send({
-          email: 'test@example.com',
-          password: 'wrongpassword',
-        });
+      const res = await request(app).post('/api/auth/login').send({
+        email: 'test@example.com',
+        password: 'wrongpassword',
+      });
 
       expect(res.status).toBe(401);
     });
 
     it('should not login with non-existent email', async () => {
-      const res = await request(app)
-        .post('/api/auth/login')
-        .send({
-          email: 'nonexistent@example.com',
-          password: 'password123',
-        });
+      const res = await request(app).post('/api/auth/login').send({
+        email: 'nonexistent@example.com',
+        password: 'password123',
+      });
 
       expect(res.status).toBe(401);
     });
@@ -100,13 +84,11 @@ describe('Auth Endpoints', () => {
     let token: string;
 
     beforeEach(async () => {
-      const res = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-          name: 'Test User',
-        });
+      const res = await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User',
+      });
       token = res.body.token;
     });
 
@@ -138,13 +120,11 @@ describe('Auth Endpoints', () => {
     let token: string;
 
     beforeEach(async () => {
-      const res = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'test@example.com',
-          password: 'password123',
-          name: 'Test User',
-        });
+      const res = await request(app).post('/api/auth/register').send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User',
+      });
       token = res.body.token;
     });
 

@@ -55,11 +55,7 @@
       "instruction": "Check ALL environments (Production, Preview, Development) and ensure all 6 variables are present in each",
       "details": {
         "location": "Settings → Environment Variables",
-        "environments_to_check": [
-          "Production",
-          "Preview", 
-          "Development"
-        ],
+        "environments_to_check": ["Production", "Preview", "Development"],
         "required_variables": [
           {
             "key": "SUPABASE_URL",
@@ -207,12 +203,7 @@
       "action": "verify_deployment",
       "instruction": "Test the deployed site",
       "details": {
-        "test_urls": [
-          "/",
-          "/lms/dashboard",
-          "/programs",
-          "/login"
-        ],
+        "test_urls": ["/", "/lms/dashboard", "/programs", "/login"],
         "expected_behavior": "All pages load without 500 errors (login redirect is OK)"
       },
       "verification": "All test pages load successfully"

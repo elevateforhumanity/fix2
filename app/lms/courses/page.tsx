@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Award } from 'lucide-react';
@@ -13,7 +19,8 @@ const courses = [
   {
     id: 1,
     title: 'Barber Fundamentals',
-    description: 'Master the basics of barbering including cutting, styling, and customer service',
+    description:
+      'Master the basics of barbering including cutting, styling, and customer service',
     instructor: 'Master Barber Johnson',
     duration: '8 weeks',
     lessons: 12,
@@ -24,7 +31,8 @@ const courses = [
   {
     id: 2,
     title: 'CNA Certification Prep',
-    description: 'Complete preparation for Certified Nursing Assistant certification exam',
+    description:
+      'Complete preparation for Certified Nursing Assistant certification exam',
     instructor: 'RN Sarah Williams',
     duration: '6 weeks',
     lessons: 15,
@@ -35,7 +43,8 @@ const courses = [
   {
     id: 3,
     title: 'HVAC Fundamentals',
-    description: 'Learn heating, ventilation, and air conditioning system basics',
+    description:
+      'Learn heating, ventilation, and air conditioning system basics',
     instructor: 'Tech Mike Rodriguez',
     duration: '10 weeks',
     lessons: 18,
@@ -75,17 +84,25 @@ export default function CoursesPage() {
           </div>
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
         {/* Filters */}
         <div className="flex gap-2 mb-6">
-          <Badge variant="outline" className="cursor-pointer">All Courses</Badge>
-          <Badge variant="outline" className="cursor-pointer">My Courses</Badge>
-          <Badge variant="outline" className="cursor-pointer">Beginner</Badge>
-          <Badge variant="outline" className="cursor-pointer">Intermediate</Badge>
-          <Badge variant="outline" className="cursor-pointer">Advanced</Badge>
+          <Badge variant="outline" className="cursor-pointer">
+            All Courses
+          </Badge>
+          <Badge variant="outline" className="cursor-pointer">
+            My Courses
+          </Badge>
+          <Badge variant="outline" className="cursor-pointer">
+            Beginner
+          </Badge>
+          <Badge variant="outline" className="cursor-pointer">
+            Intermediate
+          </Badge>
+          <Badge variant="outline" className="cursor-pointer">
+            Advanced
+          </Badge>
         </div>
-
         {/* Courses Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
@@ -123,9 +140,7 @@ export default function CoursesPage() {
                   </Button>
                 ) : (
                   <Button variant="outline" className="w-full" asChild>
-                    <Link href={`/lms/courses/${course.id}`}>
-                      View Course
-                    </Link>
+                    <Link href={`/lms/courses/${course.id}`}>View Course</Link>
                   </Button>
                 )}
               </CardContent>

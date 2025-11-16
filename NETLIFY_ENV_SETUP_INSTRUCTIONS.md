@@ -5,6 +5,7 @@
 The site is showing "Page not found" because **environment variables are not set in Netlify**.
 
 Without these variables:
+
 - The middleware can't connect to Supabase
 - Routes may not work correctly
 - The site can't function properly
@@ -82,11 +83,13 @@ If you have a Netlify auth token in GitHub Secrets:
 ## Why This Fixes the "Page Not Found" Error
 
 Without environment variables:
+
 - Middleware can't connect to Supabase
 - Middleware may redirect incorrectly
 - Routes don't work properly
 
 With environment variables:
+
 - Middleware works correctly
 - Routes function as expected
 - Site loads properly
@@ -116,6 +119,6 @@ curl -I https://elevateconnectsdirectory.org
 ✅ Build completes successfully  
 ❌ Environment variables not set in Netlify  
 ⏳ Need to add 6 environment variables  
-⏳ Then trigger new deployment  
+⏳ Then trigger new deployment
 
 The site will work once environment variables are configured in Netlify.

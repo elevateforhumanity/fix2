@@ -124,7 +124,6 @@ export function FileUpload({
           onChange={handleFileSelect}
           style={{ display: 'none' }}
         />
-
         {uploading ? (
           <div>
             <div
@@ -207,7 +206,6 @@ export function FileUpload({
           </>
         )}
       </div>
-
       <style>{`
         @keyframes spin {
           to { transform: rotate(360deg); }

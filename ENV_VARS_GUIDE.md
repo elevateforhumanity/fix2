@@ -20,6 +20,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 **Where to get these:**
+
 1. Go to https://supabase.com/dashboard
 2. Select your project
 3. Go to Settings → API
@@ -41,6 +42,7 @@ VAPID_SUBJECT=mailto:admin@elevateforhumanity.org
 ```
 
 **How to generate:**
+
 ```bash
 npm run generate:vapid
 ```
@@ -63,6 +65,7 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxx
 ```
 
 **Where to get these:**
+
 1. Go to https://dashboard.stripe.com
 2. Go to Developers → API keys
 3. Copy publishable and secret keys
@@ -78,6 +81,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
 ```
 
 **Where to get this:**
+
 1. Go to https://resend.com/api-keys
 2. Create new API key
 3. Copy the key (shown only once)
@@ -98,6 +102,7 @@ NEXT_PUBLIC_FACEBOOK_APP_ID=xxxxxxxxxxxxx
 ```
 
 **Where to get these:**
+
 - **Google Analytics**: https://analytics.google.com → Admin → Data Streams
 - **Facebook Pixel**: https://business.facebook.com → Events Manager
 - **Facebook App**: https://developers.facebook.com → My Apps
@@ -148,7 +153,7 @@ VERCEL_GIT_COMMIT_MESSAGE=Your commit message
    - Click "Add New"
    - **Name**: `VARIABLE_NAME` (exact name from above)
    - **Value**: Your actual value
-   - **Environment**: 
+   - **Environment**:
      - ✅ Production (always)
      - ✅ Preview (recommended)
      - ✅ Development (optional)
@@ -214,11 +219,13 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ### Public vs Private Keys
 
 **Public Keys** (safe to expose to client):
+
 - Start with `NEXT_PUBLIC_`
 - Can be seen in browser
 - Examples: Supabase URL, Stripe publishable key, VAPID public key
 
 **Private Keys** (MUST keep secret):
+
 - No `NEXT_PUBLIC_` prefix
 - Only used on server
 - Examples: Supabase service role, Stripe secret, VAPID private key
@@ -226,6 +233,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ### Never Commit Secrets
 
 Add to `.gitignore`:
+
 ```
 .env
 .env.local
@@ -248,6 +256,7 @@ Add to `.gitignore`:
 **Problem**: Code can't find an env var
 
 **Solutions**:
+
 1. Check spelling matches exactly
 2. Restart dev server after adding to `.env.local`
 3. For Vercel: Redeploy after adding variables
@@ -257,6 +266,7 @@ Add to `.gitignore`:
 **Problem**: Key is rejected by service
 
 **Solutions**:
+
 1. Verify key is copied correctly (no extra spaces)
 2. Check key hasn't expired
 3. Verify key has correct permissions
@@ -267,6 +277,7 @@ Add to `.gitignore`:
 **Problem**: Missing env vars on Vercel
 
 **Solutions**:
+
 1. Run `./gp-fix.sh` to see which vars are missing
 2. Add all missing vars to Vercel Dashboard
 3. Redeploy
@@ -357,12 +368,14 @@ npm run dev
 ## Summary
 
 **Minimum to get started:**
+
 1. Supabase keys (3 variables)
 2. VAPID keys (3 variables)
 
 **Total: 6 environment variables**
 
 **Optional but recommended:**
+
 - Stripe (3 variables) - if using payments
 - Resend (1 variable) - if sending emails
 - Analytics (2-3 variables) - if tracking users

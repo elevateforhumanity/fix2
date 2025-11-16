@@ -9,8 +9,10 @@ import { checkMOUStatusServer } from '@/lib/mou-checks';
  */
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -23,21 +25,31 @@ export async function POST(req: NextRequest) {
     .single();
 
   if (!prof?.program_holder_id) {
-    return Response.json({ 
-      error: 'No program holder assigned' 
-    }, { status: 403 });
+    return Response.json(
+      {
+        error: 'No program holder assigned',
+      },
+      { status: 403 }
+    );
   }
 
   // CHECK: MOU must be fully executed
-  const mouStatus = await checkMOUStatusServer(supabase, prof.program_holder_id);
-  
+  const mouStatus = await checkMOUStatusServer(
+    supabase,
+    prof.program_holder_id
+  );
+
   if (!mouStatus.isValid) {
-    return Response.json({ 
-      error: 'MOU_NOT_EXECUTED',
-      message: 'A fully executed MOU is required before enrolling participants.',
-      currentStatus: mouStatus.status,
-      requiresAction: true
-    }, { status: 403 });
+    return Response.json(
+      {
+        error: 'MOU_NOT_EXECUTED',
+        message:
+          'A fully executed MOU is required before enrolling participants.',
+        currentStatus: mouStatus.status,
+        requiresAction: true,
+      },
+      { status: 403 }
+    );
   }
 
   // MOU is valid, proceed with enrollment logic
@@ -57,8 +69,8 @@ export async function POST(req: NextRequest) {
   //   .select()
   //   .single();
 
-  return Response.json({ 
+  return Response.json({
     success: true,
-    message: 'Participant enrolled successfully'
+    message: 'Participant enrolled successfully',
   });
 }

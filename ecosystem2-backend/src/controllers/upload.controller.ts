@@ -28,7 +28,9 @@ export const upload = multer({
   },
   fileFilter: (_req, file, cb) => {
     const allowedTypes = /jpeg|jpg|png|gif|pdf|doc|docx|mp4|mp3/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const extname = allowedTypes.test(
+      path.extname(file.originalname).toLowerCase()
+    );
     const mimetype = allowedTypes.test(file.mimetype);
 
     if (extname && mimetype) {
@@ -39,18 +41,20 @@ export const upload = multer({
   },
 });
 
-export const uploadFile = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-    return;
+export const uploadFile = asyncHandler(
+  async (req: AuthRequest, res: Response): Promise<void> => {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+      return;
+    }
+
+    const fileUrl = `${process.env.API_URL || 'http://localhost:3001'}/uploads/${req.file.filename}`;
+
+    res.json({
+      url: fileUrl,
+      filename: req.file.originalname,
+      size: req.file.size,
+      type: req.file.mimetype,
+    });
   }
-
-  const fileUrl = `${process.env.API_URL || 'http://localhost:3001'}/uploads/${req.file.filename}`;
-
-  res.json({
-    url: fileUrl,
-    filename: req.file.originalname,
-    size: req.file.size,
-    type: req.file.mimetype,
-  });
-});
+);

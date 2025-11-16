@@ -350,11 +350,10 @@ export default function TimelineView({
           </select>
         </div>
       </div>
-
       <div className="p-6">
         {loading ? (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
             <p className="mt-4 text-brand-text-muted">Loading timeline...</p>
           </div>
         ) : filteredEvents.length > 0 ? (
@@ -374,10 +373,9 @@ export default function TimelineView({
                     </span>
                   </div>
                   {index < filteredEvents.length - 1 && (
-                    <div className="w-0.5 h-full bg-brand-border flex-1 mt-2"></div>
+                    <div className="w-0.5 h-full bg-brand-border flex-1 mt-2" />
                   )}
                 </div>
-
                 {/* Event content */}
                 <div className="flex-1 pb-8">
                   <div className="flex justify-between items-start">

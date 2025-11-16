@@ -4,27 +4,27 @@ on:
   workflow_dispatch:
     inputs:
       auto_commit:
-        description: "Automatically commit fixes to main branch"
+        description: 'Automatically commit fixes to main branch'
         required: false
         type: boolean
         default: false
       fix_routing:
-        description: "Fix routing and domain links"
+        description: 'Fix routing and domain links'
         required: false
         type: boolean
         default: true
       fix_skeletons:
-        description: "Remove skeleton loaders"
+        description: 'Remove skeleton loaders'
         required: false
         type: boolean
         default: true
       fix_mock_data:
-        description: "Remove mock/placeholder data"
+        description: 'Remove mock/placeholder data'
         required: false
         type: boolean
         default: true
       fix_assets:
-        description: "Create missing assets"
+        description: 'Create missing assets'
         required: false
         type: boolean
         default: true
@@ -43,7 +43,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -292,15 +292,15 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "### Next Steps" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          
+
           if [ "${{ steps.scan.outputs.skeleton_count }}" -gt 0 ]; then
             echo "1. Review skeleton loaders and replace with real Supabase data" >> "$GITHUB_STEP_SUMMARY"
           fi
-          
+
           if [ "${{ steps.scan.outputs.mock_count }}" -gt 0 ]; then
             echo "2. Replace mock data with real database queries" >> "$GITHUB_STEP_SUMMARY"
           fi
-          
+
           if [ "${{ steps.scan.outputs.localhost_count }}" -gt 0 ] || [ "${{ steps.scan.outputs.vercel_count }}" -gt 0 ]; then
             echo "3. Review and commit routing fixes" >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -320,11 +320,11 @@ jobs:
         if: inputs.auto_commit == true && steps.scan.outputs.total_issues != '0'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Autopilot: Fix routing, assets, and page completeness issues"
+          commit_message: '🤖 Autopilot: Fix routing, assets, and page completeness issues'
           branch: main
-          commit_user_name: "Elevate Autopilot"
-          commit_user_email: "autopilot@elevateforhumanity.org"
-          commit_author: "Elevate Autopilot <autopilot@elevateforhumanity.org>"
+          commit_user_name: 'Elevate Autopilot'
+          commit_user_email: 'autopilot@elevateforhumanity.org'
+          commit_author: 'Elevate Autopilot <autopilot@elevateforhumanity.org>'
 
       - name: Trigger Netlify Deploy
         if: inputs.auto_commit == true && steps.scan.outputs.total_issues != '0'

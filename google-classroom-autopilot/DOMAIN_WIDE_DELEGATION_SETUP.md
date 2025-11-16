@@ -96,12 +96,12 @@ https://www.googleapis.com/auth/classroom.profile.photos
 2. Navigate to **Settings** → **Secrets and variables** → **Actions**
 3. Add these secrets:
 
-| Secret Name | Value | Description |
-|-------------|-------|-------------|
-| `GOOGLE_SA_JSON_B64` | Base64-encoded service account JSON | From Part 1, Step 4 |
-| `GOOGLE_IMPERSONATE_EMAIL` | `teacher@school.org` | Teacher email to impersonate |
-| `SUPABASE_URL` | `https://xxx.supabase.co` | Your Supabase project URL |
-| `SUPABASE_SERVICE_ROLE_KEY` | `eyJhbGc...` | Supabase service role key |
+| Secret Name                 | Value                               | Description                  |
+| --------------------------- | ----------------------------------- | ---------------------------- |
+| `GOOGLE_SA_JSON_B64`        | Base64-encoded service account JSON | From Part 1, Step 4          |
+| `GOOGLE_IMPERSONATE_EMAIL`  | `teacher@school.org`                | Teacher email to impersonate |
+| `SUPABASE_URL`              | `https://xxx.supabase.co`           | Your Supabase project URL    |
+| `SUPABASE_SERVICE_ROLE_KEY` | `eyJhbGc...`                        | Supabase service role key    |
 
 ### Gitpod Environment Variables
 
@@ -139,6 +139,7 @@ npx tsx src/index.ts courses:list
 ```
 
 Expected output:
+
 ```
 🔐 Using Domain-Wide Delegation
 👤 Impersonating: teacher@school.org
@@ -154,6 +155,7 @@ npx tsx src/index.ts autopilot:run:dwd
 ```
 
 Expected output:
+
 ```
 🤖 Running autopilot with Domain-Wide Delegation...
 👤 Impersonating: teacher@school.org
@@ -170,6 +172,7 @@ npx tsx src/auto-sync-jobs.ts queue
 ```
 
 Expected output:
+
 ```
 🔄 Queueing auto-sync jobs...
 ✅ Queueing job: Nightly Roster Sync
@@ -201,6 +204,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 **Cause**: Service account key is invalid or expired
 
 **Solution**:
+
 1. Generate a new service account key
 2. Re-encode to base64
 3. Update `GOOGLE_SA_JSON_B64` secret
@@ -210,6 +214,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 **Cause**: Scopes not authorized in Admin Console
 
 **Solution**:
+
 1. Go to Admin Console → API controls
 2. Verify all required scopes are listed
 3. Re-authorize if needed
@@ -219,6 +224,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 **Cause**: Impersonation email doesn't exist or isn't a Workspace user
 
 **Solution**:
+
 1. Verify email is correct
 2. Ensure user exists in Google Workspace
 3. Check user has Classroom access
@@ -228,6 +234,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 **Cause**: Domain-wide delegation not enabled for service account
 
 **Solution**:
+
 1. Go to Service Account details in Cloud Console
 2. Enable domain-wide delegation
 3. Wait 5-10 minutes for propagation
@@ -235,6 +242,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 ## Security Best Practices
 
 ### ✅ DO:
+
 - Store service account keys securely
 - Use GitHub Secrets for CI/CD
 - Rotate keys every 90 days
@@ -243,6 +251,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 - Use separate service accounts for different environments
 
 ### ❌ DON'T:
+
 - Commit service account keys to git
 - Share keys via email or chat
 - Use production keys in development
@@ -251,15 +260,15 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 
 ## Scope Reference
 
-| Scope | Purpose | Required |
-|-------|---------|----------|
-| `classroom.courses` | Create, read, update courses | ✅ Yes |
-| `classroom.rosters` | Manage student/teacher rosters | ✅ Yes |
-| `classroom.coursework.students` | Create assignments, grade submissions | ✅ Yes |
-| `classroom.guardianlinks.students` | Manage guardian invitations | ⚠️ Optional |
-| `classroom.announcements` | Post announcements | ⚠️ Optional |
-| `classroom.profile.emails` | Read user emails | ⚠️ Optional |
-| `classroom.profile.photos` | Read user photos | ❌ No |
+| Scope                              | Purpose                               | Required    |
+| ---------------------------------- | ------------------------------------- | ----------- |
+| `classroom.courses`                | Create, read, update courses          | ✅ Yes      |
+| `classroom.rosters`                | Manage student/teacher rosters        | ✅ Yes      |
+| `classroom.coursework.students`    | Create assignments, grade submissions | ✅ Yes      |
+| `classroom.guardianlinks.students` | Manage guardian invitations           | ⚠️ Optional |
+| `classroom.announcements`          | Post announcements                    | ⚠️ Optional |
+| `classroom.profile.emails`         | Read user emails                      | ⚠️ Optional |
+| `classroom.profile.photos`         | Read user photos                      | ❌ No       |
 
 ## Next Steps
 

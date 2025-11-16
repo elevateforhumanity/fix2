@@ -13,5 +13,15 @@
     "react-refresh/only-export-components": "warn",
     "no-undef": "off"
   },
-  "ignorePatterns": ["dist", "node_modules", "*.config.js", "*.config.ts", ".archive", ".next", "deployment-ready", "supabase/functions", "workers"]
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "*.config.js",
+    "*.config.ts",
+    ".archive",
+    ".next",
+    "deployment-ready",
+    "supabase/functions",
+    "workers"
+  ]
 }

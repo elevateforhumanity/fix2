@@ -4,8 +4,10 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('You must be logged in to apply.', { status: 401 });
   }
@@ -19,7 +21,7 @@ export async function POST(req: NextRequest) {
     site_address,
     training_focus,
     funding_sources,
-    agree
+    agree,
   } = body || {};
 
   if (!agree) {
@@ -38,7 +40,9 @@ export async function POST(req: NextRequest) {
     .single();
 
   if (existingProfile?.program_holder_id) {
-    return new Response('You already have a program holder application.', { status: 400 });
+    return new Response('You already have a program holder application.', {
+      status: 400,
+    });
   }
 
   // Create program_holder in "pending" status with default 1/3 share
@@ -49,7 +53,7 @@ export async function POST(req: NextRequest) {
       owner_user_id: user.id,
       status: 'pending',
       payout_share: 0.333,
-      mou_status: 'not_sent'
+      mou_status: 'not_sent',
     })
     .select('id')
     .single();
@@ -68,7 +72,7 @@ export async function POST(req: NextRequest) {
       phone: phone || null,
       site_address: site_address || null,
       training_focus: training_focus || null,
-      funding_sources: funding_sources || null
+      funding_sources: funding_sources || null,
     });
 
   if (appError) {
@@ -76,13 +80,16 @@ export async function POST(req: NextRequest) {
   }
 
   // Update user profile with program holder and partner role
-  await supabase.from('user_profiles').upsert({
-    user_id: user.id,
-    role: 'partner',
-    program_holder_id: ph.id
-  }, {
-    onConflict: 'user_id'
-  });
+  await supabase.from('user_profiles').upsert(
+    {
+      user_id: user.id,
+      role: 'partner',
+      program_holder_id: ph.id,
+    },
+    {
+      onConflict: 'user_id',
+    }
+  );
 
   // Create delegate record with default permissions
   await supabase.from('delegates').insert({
@@ -91,7 +98,7 @@ export async function POST(req: NextRequest) {
     can_view_reports: true,
     can_view_learners: true,
     can_edit_courses: false,
-    can_view_financials: false
+    can_view_financials: false,
   });
 
   return Response.json({ ok: true, program_holder_id: ph.id });

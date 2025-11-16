@@ -1,4 +1,5 @@
 # NEW REPOSITORY MIGRATION PLAN
+
 **Date:** November 14, 2025  
 **Purpose:** Step-by-step guide to migrate from fix2 to clean new repository
 
@@ -16,16 +17,16 @@
 
 ### ✅ Migrate These (High Value):
 
-| Item | Source | Destination | Effort | Priority |
-|------|--------|-------------|--------|----------|
-| **Database Schemas** | `supabase/*.sql` | New repo | 1 hour | Critical |
-| **WIOA APIs** | `app/api/wioa/*` | New repo | 4 hours | High |
-| **Google Classroom** | `app/api/google-classroom/*` | New repo | 4 hours | High |
-| **Stripe Integration** | `app/api/stripe/*` | New repo | 2 hours | High |
-| **Utility Functions** | `lib/*`, `utils/*` | New repo | 2 hours | Medium |
-| **Type Definitions** | `types/*` | New repo | 2 hours | Medium |
-| **Configuration** | `*.config.js`, `.toml` | New repo | 1 hour | Medium |
-| **Documentation** | `docs/*`, `*.md` | New repo | 1 hour | Low |
+| Item                   | Source                       | Destination | Effort  | Priority |
+| ---------------------- | ---------------------------- | ----------- | ------- | -------- |
+| **Database Schemas**   | `supabase/*.sql`             | New repo    | 1 hour  | Critical |
+| **WIOA APIs**          | `app/api/wioa/*`             | New repo    | 4 hours | High     |
+| **Google Classroom**   | `app/api/google-classroom/*` | New repo    | 4 hours | High     |
+| **Stripe Integration** | `app/api/stripe/*`           | New repo    | 2 hours | High     |
+| **Utility Functions**  | `lib/*`, `utils/*`           | New repo    | 2 hours | Medium   |
+| **Type Definitions**   | `types/*`                    | New repo    | 2 hours | Medium   |
+| **Configuration**      | `*.config.js`, `.toml`       | New repo    | 1 hour  | Medium   |
+| **Documentation**      | `docs/*`, `*.md`             | New repo    | 1 hour  | Low      |
 
 ### ❌ Don't Migrate (Rebuild):
 
@@ -139,6 +140,7 @@ cp fix2/supabase/config.toml elevate-platform/supabase/
 ```
 
 **Then:**
+
 1. Go to https://supabase.com
 2. Create new project
 3. Run schemas in SQL Editor:
@@ -154,24 +156,24 @@ cp fix2/supabase/config.toml elevate-platform/supabase/
 **Create:** `src/lib/supabase/client.ts`
 
 ```typescript
-import { createBrowserClient } from '@supabase/ssr'
+import { createBrowserClient } from '@supabase/ssr';
 
 export function createClient() {
   return createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+  );
 }
 ```
 
 **Create:** `src/lib/supabase/server.ts`
 
 ```typescript
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import { cookies } from 'next/headers';
 
 export function createClient() {
-  const cookieStore = cookies()
+  const cookieStore = cookies();
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -179,11 +181,11 @@ export function createClient() {
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value
+          return cookieStore.get(name)?.value;
         },
       },
     }
-  )
+  );
 }
 ```
 
@@ -247,6 +249,7 @@ cp -r fix2/utils elevate-platform/src/
 ```
 
 **Review these files:**
+
 - `lib/supabase.ts` - May need updates
 - `lib/stripe.ts` - Check configuration
 - `utils/helpers.ts` - Clean up
@@ -265,6 +268,7 @@ cp -r fix2/app/api/wioa/* elevate-platform/src/app/api/wioa/
 ```
 
 **Then review each file:**
+
 1. Add `export const runtime = 'edge'` if needed
 2. Fix import paths
 3. Update Supabase client usage
@@ -279,6 +283,7 @@ cp -r fix2/app/api/google-classroom/* elevate-platform/src/app/api/google-classr
 ```
 
 **Review and update:**
+
 1. Check OAuth configuration
 2. Update environment variables
 3. Test sync functionality
@@ -292,6 +297,7 @@ cp -r fix2/app/api/stripe/* elevate-platform/src/app/api/stripe/
 ```
 
 **Review:**
+
 1. Update webhook handling
 2. Check product IDs
 3. Test payment flow
@@ -310,9 +316,9 @@ import { redirect } from 'next/navigation'
 
 export default async function DashboardPage() {
   const supabase = createClient()
-  
+
   const { data: { user } } = await supabase.auth.getUser()
-  
+
   if (!user) {
     redirect('/login')
   }
@@ -335,7 +341,7 @@ import { createClient } from '@/lib/supabase/server'
 
 export default async function CoursesPage() {
   const supabase = createClient()
-  
+
   const { data: courses } = await supabase
     .from('courses')
     .select('*')
@@ -368,6 +374,7 @@ cp fix2/types/* elevate-platform/src/types/
 ```
 
 **Clean up:**
+
 1. Remove duplicates
 2. Organize by feature
 3. Add proper exports
@@ -395,13 +402,13 @@ cp fix2/vitest.config.ts elevate-platform/
 **Create:** `src/__tests__/example.test.ts`
 
 ```typescript
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vitest';
 
 describe('Example Test', () => {
   it('should pass', () => {
-    expect(true).toBe(true)
-  })
-})
+    expect(true).toBe(true);
+  });
+});
 ```
 
 ---
@@ -457,6 +464,7 @@ pnpm netlify deploy --prod
 ```
 
 **Or use Netlify UI:**
+
 1. Go to https://app.netlify.com
 2. Connect GitHub repository
 3. Configure build settings:
@@ -470,6 +478,7 @@ pnpm netlify deploy --prod
 ## 📋 MIGRATION CHECKLIST
 
 ### Week 1: Setup
+
 - [ ] Create new repository
 - [ ] Install dependencies
 - [ ] Copy configuration files
@@ -480,6 +489,7 @@ pnpm netlify deploy --prod
 - [ ] Create basic layout
 
 ### Week 2: Core Features
+
 - [ ] Create dashboard
 - [ ] Build course listing
 - [ ] Create course details
@@ -488,6 +498,7 @@ pnpm netlify deploy --prod
 - [ ] Test core flow
 
 ### Week 3: LMS Features
+
 - [ ] Add quiz functionality
 - [ ] Create user profile
 - [ ] Implement progress tracking
@@ -495,6 +506,7 @@ pnpm netlify deploy --prod
 - [ ] Test all features
 
 ### Week 4: WIOA
+
 - [ ] Migrate WIOA APIs
 - [ ] Create WIOA pages
 - [ ] Test eligibility checker
@@ -502,6 +514,7 @@ pnpm netlify deploy --prod
 - [ ] Verify compliance
 
 ### Week 5: Advanced
+
 - [ ] Migrate Google Classroom
 - [ ] Add productivity tools
 - [ ] Build admin panel
@@ -509,6 +522,7 @@ pnpm netlify deploy --prod
 - [ ] Test integrations
 
 ### Week 6: Launch
+
 - [ ] Complete testing
 - [ ] Fix all bugs
 - [ ] Deploy to staging
@@ -546,22 +560,27 @@ pnpm netlify deploy --prod
 ## ⚠️ COMMON PITFALLS
 
 ### 1. Copying Without Understanding
+
 **Problem:** Copy code that doesn't work  
 **Solution:** Review and test each file
 
 ### 2. Missing Dependencies
+
 **Problem:** Code fails because package not installed  
 **Solution:** Check imports, install dependencies
 
 ### 3. Wrong Patterns
+
 **Problem:** Using old React/Next.js patterns  
 **Solution:** Update to Next.js 13+ App Router patterns
 
 ### 4. Environment Variables
+
 **Problem:** Missing configuration  
 **Solution:** Document all required env vars
 
 ### 5. Import Paths
+
 **Problem:** Imports fail in new structure  
 **Solution:** Update all import paths
 
@@ -570,6 +589,7 @@ pnpm netlify deploy --prod
 ## 🎯 SUCCESS CRITERIA
 
 ### After Week 1:
+
 - ✅ New repo created
 - ✅ Dependencies installed
 - ✅ Database connected
@@ -577,6 +597,7 @@ pnpm netlify deploy --prod
 - ✅ Basic layout done
 
 ### After Week 3:
+
 - ✅ Core LMS working
 - ✅ Users can enroll
 - ✅ Lessons play
@@ -584,6 +605,7 @@ pnpm netlify deploy --prod
 - ✅ Progress saves
 
 ### After Week 6:
+
 - ✅ All features working
 - ✅ No critical bugs
 - ✅ Deployed to production

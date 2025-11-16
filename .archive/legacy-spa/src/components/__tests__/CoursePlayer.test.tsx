@@ -18,19 +18,16 @@ describe('CoursePlayer', () => {
   });
 
   it('calls onProgress when video plays', async () => {
-    render(
-      <CoursePlayer
-        videoUrl={videoUrl}
-        onProgress={mockOnProgress}
-      />
-    );
+    render(<CoursePlayer videoUrl={videoUrl} onProgress={mockOnProgress} />);
 
-    const video = screen.getByRole('video', { hidden: true }) as HTMLVideoElement;
-    
+    const video = screen.getByRole('video', {
+      hidden: true,
+    }) as HTMLVideoElement;
+
     // Simulate video progress
     Object.defineProperty(video, 'currentTime', { value: 50, writable: true });
     Object.defineProperty(video, 'duration', { value: 100, writable: true });
-    
+
     fireEvent.timeUpdate(video);
 
     await waitFor(() => {
@@ -39,19 +36,16 @@ describe('CoursePlayer', () => {
   });
 
   it('calls onComplete only once at 90% progress', async () => {
-    render(
-      <CoursePlayer
-        videoUrl={videoUrl}
-        onComplete={mockOnComplete}
-      />
-    );
+    render(<CoursePlayer videoUrl={videoUrl} onComplete={mockOnComplete} />);
 
-    const video = screen.getByRole('video', { hidden: true }) as HTMLVideoElement;
-    
+    const video = screen.getByRole('video', {
+      hidden: true,
+    }) as HTMLVideoElement;
+
     // Simulate 90% progress
     Object.defineProperty(video, 'currentTime', { value: 90, writable: true });
     Object.defineProperty(video, 'duration', { value: 100, writable: true });
-    
+
     fireEvent.timeUpdate(video);
     fireEvent.timeUpdate(video);
     fireEvent.timeUpdate(video);
@@ -62,14 +56,11 @@ describe('CoursePlayer', () => {
   });
 
   it('calls onComplete when video ends', async () => {
-    render(
-      <CoursePlayer
-        videoUrl={videoUrl}
-        onComplete={mockOnComplete}
-      />
-    );
+    render(<CoursePlayer videoUrl={videoUrl} onComplete={mockOnComplete} />);
 
-    const video = screen.getByRole('video', { hidden: true }) as HTMLVideoElement;
+    const video = screen.getByRole('video', {
+      hidden: true,
+    }) as HTMLVideoElement;
     fireEvent.ended(video);
 
     await waitFor(() => {
@@ -79,7 +70,7 @@ describe('CoursePlayer', () => {
 
   it('toggles play/pause', async () => {
     render(<CoursePlayer videoUrl={videoUrl} />);
-    
+
     const playButton = screen.getByRole('button', { name: /play/i });
     fireEvent.click(playButton);
 
@@ -90,11 +81,13 @@ describe('CoursePlayer', () => {
 
   it('toggles mute', async () => {
     render(<CoursePlayer videoUrl={videoUrl} />);
-    
+
     const muteButton = screen.getByRole('button', { name: /volume/i });
     fireEvent.click(muteButton);
 
-    const video = screen.getByRole('video', { hidden: true }) as HTMLVideoElement;
+    const video = screen.getByRole('video', {
+      hidden: true,
+    }) as HTMLVideoElement;
     expect(video.muted).toBe(true);
   });
 });

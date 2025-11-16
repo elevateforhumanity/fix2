@@ -5,10 +5,12 @@
 All steps from the migration checklist have been completed:
 
 ### ✅ Step 1: Safe snapshot
+
 - Branch: main (migration done directly)
 - Package manager: pnpm 9.7.0
 
 ### ✅ Step 2: Deleted ALL SPA files
+
 ```
 REMOVED:
 - index.html (SPA entry point)
@@ -23,6 +25,7 @@ REMOVED:
 ```
 
 ### ✅ Step 3: Created Next.js App Router
+
 ```
 CREATED:
 - app/layout.tsx (root layout with metadata)
@@ -37,16 +40,19 @@ CREATED:
 ```
 
 ### ✅ Step 4: Package.json cleaned
+
 - Removed all Vite/SPA dependencies
 - Updated scripts to Next.js commands
 - Clean dependency tree
 
 ### ✅ Step 5: TypeScript configured
+
 - tsconfig.json updated for Next.js
 - allowJs: true for gradual migration
 - jsx: preserve
 
 ### ✅ Step 6: Next.js config
+
 ```javascript
 // next.config.mjs
 export default {
@@ -59,6 +65,7 @@ export default {
 ```
 
 ### ✅ Step 7: App Router structure
+
 ```
 /app
   layout.tsx          ✅
@@ -74,11 +81,13 @@ export default {
 ```
 
 ### ✅ Step 8: Assets & CSS
+
 - Kept /public with images and assets
 - Using src/index.css for global styles
 - No FOUC issues
 
 ### ✅ Step 11: SSG program pages
+
 ```typescript
 // app/programs/[slug]/page.tsx
 export async function generateStaticParams() {
@@ -90,6 +99,7 @@ export async function generateStaticParams() {
 ```
 
 ### ✅ Step 13: Netlify configured
+
 ```toml
 [build]
   command = "npm run build"
@@ -97,12 +107,14 @@ export async function generateStaticParams() {
 ```
 
 ### ✅ Step 15: Hard cleanup completed
+
 - All SPA configs removed
 - No index.html
 - No Vite references
 - Clean repository
 
 ### ✅ Step 20: Build verification
+
 ```
 ✓ 18 static pages generated
 ✓ 9 program pages pre-rendered (SSG)
@@ -119,13 +131,13 @@ export async function generateStaticParams() {
 
 ## 📊 Results
 
-| Metric | Before (SPA) | After (Next.js) |
-|--------|--------------|-----------------|
-| First Paint | ~2-3s (skeleton) | <0.5s (HTML) |
-| SEO | Poor | Excellent |
-| Bundle Size | Large | Optimized |
-| Hydration | Issues | None |
-| Page Count | 200+ files | 9 clean pages |
+| Metric      | Before (SPA)     | After (Next.js) |
+| ----------- | ---------------- | --------------- |
+| First Paint | ~2-3s (skeleton) | <0.5s (HTML)    |
+| SEO         | Poor             | Excellent       |
+| Bundle Size | Large            | Optimized       |
+| Hydration   | Issues           | None            |
+| Page Count  | 200+ files       | 9 clean pages   |
 
 ## ✅ Verification Checklist
 
@@ -141,6 +153,7 @@ export async function generateStaticParams() {
 ## 🎯 What's Different
 
 **Before:**
+
 - React SPA with Vite
 - Client-side routing
 - Loading skeletons
@@ -148,6 +161,7 @@ export async function generateStaticParams() {
 - 200+ SPA page files
 
 **After:**
+
 - Next.js 15 App Router
 - Static HTML pages
 - Instant content
@@ -167,7 +181,8 @@ If you want to add more features:
 ## 🔒 No SPA Remnants
 
 Verified clean:
-- ✅ No vite.config.*
+
+- ✅ No vite.config.\*
 - ✅ No index.html
 - ✅ No react-router-dom
 - ✅ No @vitejs/plugin-react

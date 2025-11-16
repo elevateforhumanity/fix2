@@ -432,11 +432,18 @@ export default function CNAProgramPage() {
 // Skeleton detection
 function isSkeleton(content: string): boolean {
   const lowered = content.toLowerCase();
-  const badMarkers = ['todo', 'coming soon', 'skeleton', 'placeholder', 'under construction', 'lorem ipsum'];
-  
+  const badMarkers = [
+    'todo',
+    'coming soon',
+    'skeleton',
+    'placeholder',
+    'under construction',
+    'lorem ipsum',
+  ];
+
   if (content.trim().length < 400) return true;
   if (badMarkers.some((m) => lowered.includes(m))) return true;
-  
+
   return false;
 }
 
@@ -451,31 +458,33 @@ function ensureAppDir() {
 function writeFileAggressive(targetPath: string, content: string) {
   const full = path.join(ROOT, targetPath);
   const dir = path.dirname(full);
-  
+
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
-  
+
   fs.writeFileSync(full, content, 'utf8');
 }
 
 function auditAndFixTemplates() {
   console.log('🔍 Running aggressive LMS autopilot fixer...\n');
   ensureAppDir();
-  
+
   templates.forEach((tpl) => {
     const full = path.join(ROOT, tpl.filePath);
     const exists = fs.existsSync(full);
-    
+
     if (!exists) {
       console.log(`📄 CREATING: ${tpl.filePath} (${tpl.description})`);
       writeFileAggressive(tpl.filePath, tpl.content);
       return;
     }
-    
+
     const current = fs.readFileSync(full, 'utf8');
     if (isSkeleton(current)) {
-      console.log(`🧹 OVERWRITING SKELETON: ${tpl.filePath} (${tpl.description})`);
+      console.log(
+        `🧹 OVERWRITING SKELETON: ${tpl.filePath} (${tpl.description})`
+      );
       writeFileAggressive(tpl.filePath, tpl.content);
     } else {
       console.log(`✅ OK: ${tpl.filePath}`);
@@ -485,7 +494,7 @@ function auditAndFixTemplates() {
 
 function scanForSkeletons() {
   console.log('\n🔍 Scanning for other skeleton pages...\n');
-  
+
   function walk(dir: string) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
@@ -501,33 +510,39 @@ function scanForSkeletons() {
       }
     }
   }
-  
+
   walk(APP_DIR);
 }
 
 function scanForAuthUsersQueries() {
   console.log('\n🔍 Scanning for dangerous auth.users queries...\n');
-  
+
   const badMatches: string[] = [];
-  
+
   function walk(dir: string) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) {
         walk(full);
-      } else if (entry.isFile() && (full.endsWith('.ts') || full.endsWith('.tsx'))) {
+      } else if (
+        entry.isFile() &&
+        (full.endsWith('.ts') || full.endsWith('.tsx'))
+      ) {
         const rel = path.relative(ROOT, full);
         const content = fs.readFileSync(full, 'utf8');
-        if (content.includes("from('auth.users'") || content.includes('from("auth.users"')) {
+        if (
+          content.includes("from('auth.users'") ||
+          content.includes('from("auth.users"')
+        ) {
           badMatches.push(rel);
         }
       }
     }
   }
-  
+
   walk(path.join(ROOT, 'app'));
-  
+
   if (badMatches.length === 0) {
     console.log('✅ No direct auth.users queries found');
   } else {
@@ -541,7 +556,9 @@ function main() {
   auditAndFixTemplates();
   scanForSkeletons();
   scanForAuthUsersQueries();
-  console.log('\n✨ Autopilot complete! Core LMS pages are production-ready.\n');
+  console.log(
+    '\n✨ Autopilot complete! Core LMS pages are production-ready.\n'
+  );
 }
 
 main();

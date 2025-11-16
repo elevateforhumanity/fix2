@@ -1,6 +1,6 @@
 /**
  * Missing Assignments Weekly Email Generator
- * 
+ *
  * Generates and sends weekly reports to:
  * - Students with missing assignments
  * - Guardians of students with missing work
@@ -65,11 +65,13 @@ interface InstructorReport {
 async function getMissingAssignments(): Promise<MissingAssignment[]> {
   const { data: submissions, error } = await supabase
     .from('classroom_submissions')
-    .select(`
+    .select(
+      `
       *,
       coursework:classroom_coursework(*),
       student:classroom_students(*)
-    `)
+    `
+    )
     .eq('state', 'NEW')
     .lt('coursework.due_date', new Date().toISOString());
 
@@ -94,7 +96,9 @@ async function getMissingAssignments(): Promise<MissingAssignment[]> {
 /**
  * Group missing assignments by student
  */
-function groupByStudent(assignments: MissingAssignment[]): Map<string, StudentReport> {
+function groupByStudent(
+  assignments: MissingAssignment[]
+): Map<string, StudentReport> {
   const studentMap = new Map<string, StudentReport>();
 
   for (const assignment of assignments) {
@@ -122,7 +126,9 @@ function groupByStudent(assignments: MissingAssignment[]): Map<string, StudentRe
 /**
  * Get guardian emails for students
  */
-async function getGuardianEmails(studentIds: string[]): Promise<Map<string, string[]>> {
+async function getGuardianEmails(
+  studentIds: string[]
+): Promise<Map<string, string[]>> {
   const { data: guardians } = await supabase
     .from('classroom_guardians')
     .select('student_id, guardian_email')
@@ -179,7 +185,7 @@ function generateStudentEmail(report: StudentReport): string {
       
       ${sortedAssignments
         .map(
-          assignment => `
+          (assignment) => `
         <div class="assignment">
           <div class="assignment-title">${assignment.title}</div>
           <div>Course: ${assignment.courseName}</div>
@@ -242,7 +248,7 @@ function generateGuardianEmail(report: StudentReport): string {
         <ul>
           ${report.missingAssignments
             .map(
-              a => `
+              (a) => `
             <li>
               <strong>${a.title}</strong> (${a.courseName})<br>
               Due: ${a.dueDate.toLocaleDateString()} | Points: ${a.maxPoints}
@@ -323,7 +329,7 @@ function generateInstructorEmail(report: InstructorReport): string {
       
       ${report.courses
         .map(
-          course => `
+          (course) => `
         <div class="course">
           <h2>${course.courseName}</h2>
           <p><strong>${course.studentsWithMissing}</strong> of <strong>${course.totalStudents}</strong> students have missing work</p>
@@ -338,7 +344,7 @@ function generateInstructorEmail(report: InstructorReport): string {
             <tbody>
               ${course.students
                 .map(
-                  student => `
+                  (student) => `
                 <tr>
                   <td>${student.name}</td>
                   <td>${student.missingCount}</td>
@@ -389,7 +395,9 @@ export async function sendMissingAssignmentsEmails() {
   console.log(`Affecting ${studentReports.size} students`);
 
   // Get guardian emails
-  const guardianEmails = await getGuardianEmails(Array.from(studentReports.keys()));
+  const guardianEmails = await getGuardianEmails(
+    Array.from(studentReports.keys())
+  );
 
   // Add guardian emails to reports
   for (const [studentId, report] of studentReports) {
@@ -427,24 +435,32 @@ export async function sendMissingAssignmentsEmails() {
           studentEmailsSent++;
         }
       } catch (error: any) {
-        console.error(`Failed to send student email to ${report.studentEmail}:`, error.message);
+        console.error(
+          `Failed to send student email to ${report.studentEmail}:`,
+          error.message
+        );
       }
     }
 
     // Filter guardian emails based on preferences
     if (report.guardianEmails.length > 0) {
-      const guardianList = report.guardianEmails.map(email => ({
+      const guardianList = report.guardianEmails.map((email) => ({
         email,
         studentId: report.studentId,
       }));
 
-      const filteredGuardians = await filterGuardianEmails(guardianList, 'missing_assignments');
+      const filteredGuardians = await filterGuardianEmails(
+        guardianList,
+        'missing_assignments'
+      );
 
       if (filteredGuardians.length > 0) {
         try {
           // Get preferences for unsubscribe links
           const guardianPrefs = await Promise.all(
-            filteredGuardians.map(email => getGuardianPreferences(email, report.studentId))
+            filteredGuardians.map((email) =>
+              getGuardianPreferences(email, report.studentId)
+            )
           );
 
           // Send to each guardian individually (for personalized unsubscribe links)
@@ -485,18 +501,24 @@ export async function sendMissingAssignmentsEmails() {
             }
           }
         } catch (error: any) {
-          console.error(`Failed to send guardian emails for ${report.studentName}:`, error.message);
+          console.error(
+            `Failed to send guardian emails for ${report.studentName}:`,
+            error.message
+          );
         }
       }
 
-      guardianEmailsSkipped += report.guardianEmails.length - filteredGuardians.length;
+      guardianEmailsSkipped +=
+        report.guardianEmails.length - filteredGuardians.length;
     }
   }
 
   console.log(`\n✅ Sent ${studentEmailsSent} student emails`);
   console.log(`✅ Sent ${guardianEmailsSent} guardian emails`);
   if (guardianEmailsSkipped > 0) {
-    console.log(`⏭️  Skipped ${guardianEmailsSkipped} guardian emails (opted out or preferences)`);
+    console.log(
+      `⏭️  Skipped ${guardianEmailsSkipped} guardian emails (opted out or preferences)`
+    );
   }
 
   // TODO: Generate instructor reports
@@ -514,10 +536,10 @@ export async function sendMissingAssignmentsEmails() {
 // CLI
 if (import.meta.url === `file://${process.argv[1]}`) {
   sendMissingAssignmentsEmails()
-    .then(result => {
+    .then((result) => {
       console.log('\n📊 Summary:', result);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('❌ Error:', error);
       process.exit(1);
     });

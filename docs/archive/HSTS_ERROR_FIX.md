@@ -3,9 +3,10 @@
 ## The Problem
 
 You're seeing this error:
+
 ```
-www.elevateforhumanity.org normally uses encryption to protect your information. 
-When Chrome tried to connect to www.elevateforhumanity.org this time, the website 
+www.elevateforhumanity.org normally uses encryption to protect your information.
+When Chrome tried to connect to www.elevateforhumanity.org this time, the website
 sent back unusual and incorrect credentials.
 
 You cannot visit www.elevateforhumanity.org right now because the website uses HSTS.
@@ -24,6 +25,7 @@ You cannot visit www.elevateforhumanity.org right now because the website uses H
 **www.elevateforhumanity.org should NEVER have been connected to Netlify.**
 
 Your architecture should be:
+
 ```
 Durable.co (elevateforhumanity.org)
     ↓ (embeds or links to)
@@ -31,6 +33,7 @@ Netlify (elevateproduction.netlify.app)
 ```
 
 NOT:
+
 ```
 www.elevateforhumanity.org → Netlify ❌ WRONG
 ```
@@ -40,6 +43,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 ### 1. Removed Domain from netlify.toml
 
 **Before:**
+
 ```toml
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
@@ -49,6 +53,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 ```
 
 **After:**
+
 ```toml
 # Removed - this domain should not be here
 ```
@@ -56,6 +61,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 ### 2. Changed All URLs to Netlify URL
 
 Changed in 14 files:
+
 - `src/components/SEO.jsx`
 - `src/components/DynamicSEO.tsx`
 - `src/lib/seo/SEO.jsx`
@@ -71,11 +77,13 @@ Changed in 14 files:
 - `src/watermark/tracking-beacon.js`
 
 **From:**
+
 ```javascript
 const SITE_URL = 'https://elevateforhumanity.org';
 ```
 
 **To:**
+
 ```javascript
 const SITE_URL = 'https://elevateproduction.netlify.app';
 ```
@@ -121,6 +129,7 @@ const SITE_URL = 'https://elevateproduction.netlify.app';
 ### Option 5: Use Incognito/Private Mode
 
 Incognito mode doesn't have cached HSTS:
+
 1. Open incognito window
 2. Visit the site
 3. Should work (but only in incognito)
@@ -128,6 +137,7 @@ Incognito mode doesn't have cached HSTS:
 ## Run the Puppetmaster Fix Script
 
 This script will:
+
 - Remove the domain from Netlify
 - Verify configuration
 - Rebuild with correct URLs
@@ -148,12 +158,14 @@ bash scripts/puppetmaster-fix-hsts-domain.sh
 Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Should show:**
+
 ```
 Primary domain: elevateproduction.netlify.app
 Custom domains: (none)
 ```
 
 **If you see any custom domains:**
+
 1. Click **"Options"** next to the domain
 2. Click **"Remove domain"**
 3. Confirm removal
@@ -218,6 +230,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 ### 1. Never Connect Custom Domains to Netlify
 
 Your Netlify site should ONLY use:
+
 ```
 elevateproduction.netlify.app
 ```
@@ -225,6 +238,7 @@ elevateproduction.netlify.app
 ### 2. Use Durable.co for Public Domain
 
 Your public domain should be on Durable.co:
+
 ```
 elevateforhumanity.org
 www.elevateforhumanity.org
@@ -233,11 +247,13 @@ www.elevateforhumanity.org
 ### 3. Embed Netlify in Durable
 
 In Durable.co, embed the Netlify app:
+
 ```html
 <iframe src="https://elevateproduction.netlify.app"></iframe>
 ```
 
 Or link to it:
+
 ```html
 <a href="https://elevateproduction.netlify.app">Launch LMS</a>
 ```
@@ -247,6 +263,7 @@ Or link to it:
 ### At Your Domain Registrar
 
 **For elevateforhumanity.org:**
+
 ```
 Type: A or CNAME
 Name: @
@@ -254,6 +271,7 @@ Value: (Durable.co's IP or domain)
 ```
 
 **For www.elevateforhumanity.org:**
+
 ```
 Type: CNAME
 Name: www
@@ -261,6 +279,7 @@ Value: (Durable.co's domain)
 ```
 
 **NOT:**
+
 ```
 Value: elevateproduction.netlify.app ❌ WRONG
 ```
@@ -270,16 +289,20 @@ Value: elevateproduction.netlify.app ❌ WRONG
 After clearing HSTS:
 
 1. **Test Durable.co site:**
+
    ```
    https://elevateforhumanity.org
    https://www.elevateforhumanity.org
    ```
+
    Should load Durable.co landing page
 
 2. **Test Netlify app:**
+
    ```
    https://elevateproduction.netlify.app
    ```
+
    Should load React app
 
 3. **Test in different browsers:**
@@ -296,6 +319,7 @@ After clearing HSTS:
 ### 1. Wait for HSTS to Expire
 
 HSTS can be cached for up to 1 year. If you can't clear it:
+
 - Use incognito mode
 - Use different browser
 - Wait for cache to expire
@@ -303,6 +327,7 @@ HSTS can be cached for up to 1 year. If you can't clear it:
 ### 2. Check DNS Propagation
 
 DNS changes take 24-48 hours:
+
 ```bash
 # Check current DNS
 nslookup www.elevateforhumanity.org
@@ -314,6 +339,7 @@ https://www.whatsmydns.net/
 ### 3. Contact Domain Registrar
 
 If DNS isn't updating:
+
 - Log into domain registrar
 - Verify DNS records
 - Contact support if needed
@@ -321,6 +347,7 @@ If DNS isn't updating:
 ### 4. Check Durable.co Configuration
 
 In Durable.co dashboard:
+
 - Verify domain is connected
 - Check SSL certificate status
 - Verify site is published
@@ -330,13 +357,13 @@ In Durable.co dashboard:
 ✅ **Fixed:** Removed www.elevateforhumanity.org from Netlify  
 ✅ **Fixed:** Changed all URLs to elevateproduction.netlify.app  
 ✅ **Fixed:** Removed redirect from netlify.toml  
-✅ **Fixed:** Rebuilt with correct configuration  
+✅ **Fixed:** Rebuilt with correct configuration
 
 ⚠️ **Manual:** Clear HSTS from browser (see instructions above)  
 ⚠️ **Manual:** Verify no custom domains in Netlify dashboard  
-⚠️ **Manual:** Ensure DNS points to Durable.co, not Netlify  
+⚠️ **Manual:** Ensure DNS points to Durable.co, not Netlify
 
 **Your Netlify app:** https://elevateproduction.netlify.app  
-**Your public site:** https://elevateforhumanity.org (on Durable.co)  
+**Your public site:** https://elevateforhumanity.org (on Durable.co)
 
 **These should be separate!**

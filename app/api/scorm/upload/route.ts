@@ -4,7 +4,9 @@ import { createServerSupabaseClient } from '@/lib/auth';
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createServerSupabaseClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -26,7 +28,10 @@ export async function POST(req: NextRequest) {
     const courseId = formData.get('course_id') as string;
 
     if (!file || !courseId) {
-      return NextResponse.json({ error: 'Missing file or course_id' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Missing file or course_id' },
+        { status: 400 }
+      );
     }
 
     // Upload SCORM package to Supabase Storage
@@ -54,12 +59,18 @@ export async function POST(req: NextRequest) {
 
     if (scormError) throw scormError;
 
-    return NextResponse.json({ 
-      message: 'SCORM package uploaded successfully',
-      package: scormData 
-    }, { status: 201 });
+    return NextResponse.json(
+      {
+        message: 'SCORM package uploaded successfully',
+        package: scormData,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error('Error uploading SCORM package:', error);
-    return NextResponse.json({ error: 'Failed to upload SCORM package' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to upload SCORM package' },
+      { status: 500 }
+    );
   }
 }

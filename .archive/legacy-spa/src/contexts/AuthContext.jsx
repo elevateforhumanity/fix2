@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+} from 'react';
 import { supabase } from '../supabaseClient';
 
 const AuthContext = createContext(null);
@@ -42,20 +48,22 @@ export function AuthProvider({ children }) {
 
     if (!supabase) return;
 
-    const { data: sub } = supabase.auth.onAuthStateChange(async (_e, session) => {
-      const u = session?.user ?? null;
-      setUser(u);
-      if (!u) {
-        setRole(null);
-      } else {
-        const { data: r } = await supabase
-          .from('user_roles')
-          .select('role')
-          .eq('user_id', u.id)
-          .maybeSingle();
-        setRole(r?.role || u.user_metadata?.role || 'student');
+    const { data: sub } = supabase.auth.onAuthStateChange(
+      async (_e, session) => {
+        const u = session?.user ?? null;
+        setUser(u);
+        if (!u) {
+          setRole(null);
+        } else {
+          const { data: r } = await supabase
+            .from('user_roles')
+            .select('role')
+            .eq('user_id', u.id)
+            .maybeSingle();
+          setRole(r?.role || u.user_metadata?.role || 'student');
+        }
       }
-    });
+    );
 
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -65,7 +73,7 @@ export function AuthProvider({ children }) {
     const emailRedirectTo = `${window.location.origin}/auth/callback?returnTo=${encodeURIComponent(returnTo)}`;
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo }
+      options: { emailRedirectTo },
     });
     if (error) throw error;
   };
@@ -80,9 +88,5 @@ export function AuthProvider({ children }) {
     [user, role, ready]
   );
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

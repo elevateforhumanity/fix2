@@ -1,4 +1,5 @@
 # FIX YOUR DNS NOW - 2 MINUTES
+
 **Problem:** CNAME points to wrong domain
 **Fix:** Simple change in Durable.co
 
@@ -7,11 +8,13 @@
 ## 🚨 THE PROBLEM
 
 Your CNAME currently says:
+
 ```
 CNAME  www  elevateforhumanity.org  ❌ WRONG!
 ```
 
 Should say:
+
 ```
 CNAME  www  elevateproduction.netlify.app  ✅ CORRECT!
 ```
@@ -23,6 +26,7 @@ CNAME  www  elevateproduction.netlify.app  ✅ CORRECT!
 ### Step 1: Delete Wrong CNAME
 
 In your Durable DNS table, find this row:
+
 ```
 CNAME  www  elevateforhumanity.org
 ```
@@ -32,6 +36,7 @@ Click the **Delete** button (trash icon) → Confirm
 ### Step 2: Add Correct CNAME
 
 Click **Add** button, enter:
+
 ```
 Type: CNAME
 Name: www
@@ -43,6 +48,7 @@ Click **Save**
 ### Step 3: Verify
 
 Your DNS should now show:
+
 ```
 A      @    75.2.60.5                    ✅
 CNAME  www  elevateproduction.netlify.app ✅
@@ -55,11 +61,13 @@ CNAME  www  elevateproduction.netlify.app ✅
 ## 🎯 WHAT THIS DOES
 
 ### Before Fix:
+
 ```
 www.elevateconnectsdirectory.org → elevateforhumanity.org (wrong site)
 ```
 
 ### After Fix:
+
 ```
 www.elevateconnectsdirectory.org → elevateproduction.netlify.app (your LMS)
 ```
@@ -96,4 +104,4 @@ After 10-15 minutes:
 
 ---
 
-*Then proceed to add domain in Netlify (see DURABLE_DOMAIN_SETUP.md)*
+_Then proceed to add domain in Netlify (see DURABLE_DOMAIN_SETUP.md)_

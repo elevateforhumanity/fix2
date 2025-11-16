@@ -1,7 +1,9 @@
 # Stripe Payment Configuration Guide
 
 ## Overview
+
 Stripe handles all payment processing for the LMS platform:
+
 - Course purchases
 - Subscription payments
 - One-time payments
@@ -20,16 +22,19 @@ You mentioned Stripe keys are in GitHub secrets. Let me document how to configur
 4. You'll see two types of keys:
 
 #### Test Mode Keys (for development)
+
 - **Publishable key**: `pk_test_...` (safe to expose in frontend)
 - **Secret key**: `sk_test_...` (keep secret, server-side only)
 
 #### Live Mode Keys (for production)
+
 - **Publishable key**: `pk_live_...` (safe to expose in frontend)
 - **Secret key**: `sk_live_...` (keep secret, server-side only)
 
 ## Step 2: Configure Environment Variables
 
 ### Local Development (.env.local)
+
 ```bash
 # Stripe Test Keys (for development)
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_key_here
@@ -38,6 +43,7 @@ STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 ```
 
 ### Production (.env.production or GitHub Secrets)
+
 ```bash
 # Stripe Live Keys (for production)
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_your_key_here
@@ -56,6 +62,7 @@ Since you mentioned Stripe keys are already in GitHub secrets, verify these exis
    - `STRIPE_WEBHOOK_SECRET`
 
 If they don't exist, add them:
+
 1. Click **New repository secret**
 2. Name: `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
 3. Value: Your Stripe publishable key
@@ -204,18 +211,22 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
 Use these test card numbers in test mode:
 
 **Successful Payment**:
+
 - Card: `4242 4242 4242 4242`
 - Expiry: Any future date
 - CVC: Any 3 digits
 - ZIP: Any 5 digits
 
 **Payment Requires Authentication (3D Secure)**:
+
 - Card: `4000 0025 0000 3155`
 
 **Payment Declined**:
+
 - Card: `4000 0000 0000 9995`
 
 **Insufficient Funds**:
+
 - Card: `4000 0000 0000 9995`
 
 ### Test Checkout Flow
@@ -259,6 +270,7 @@ stripe trigger payment_intent.succeeded
 3. For each course, create a product:
 
 **Example: Workforce Readiness Course**
+
 - Name: `Workforce Readiness Training`
 - Description: `Comprehensive workforce readiness program`
 - Pricing:
@@ -281,7 +293,7 @@ export const courses = [
   {
     id: 'workforce-readiness',
     title: 'Workforce Readiness Training',
-    price: 99.00,
+    price: 99.0,
     stripePriceId: 'price_1234567890abcdef', // From Stripe Dashboard
     stripeProductId: 'prod_1234567890abcdef',
   },
@@ -391,27 +403,32 @@ export default function EnrollButton({ courseId, priceId }: { courseId: string; 
 ## Step 9: Security Best Practices
 
 ### 1. Never Expose Secret Keys
+
 - ✅ Only use `NEXT_PUBLIC_` prefix for publishable key
 - ✅ Keep secret key server-side only
 - ✅ Never commit keys to Git
 - ✅ Use environment variables
 
 ### 2. Verify Webhook Signatures
+
 - ✅ Always verify webhook signatures
 - ✅ Use `stripe.webhooks.constructEvent()`
 - ✅ Return 400 for invalid signatures
 
 ### 3. Validate Amounts
+
 - ✅ Verify payment amounts match expected prices
 - ✅ Check currency is correct
 - ✅ Validate metadata (courseId, userId)
 
 ### 4. Handle Errors Gracefully
+
 - ✅ Catch and log all errors
 - ✅ Show user-friendly error messages
 - ✅ Implement retry logic for failed payments
 
 ### 5. PCI Compliance
+
 - ✅ Never store card details
 - ✅ Use Stripe Elements or Checkout
 - ✅ Let Stripe handle sensitive data
@@ -437,6 +454,7 @@ Before switching to live mode:
 ## Step 11: Monitoring and Analytics
 
 ### Stripe Dashboard Metrics
+
 - Total revenue
 - Successful payments
 - Failed payments
@@ -445,6 +463,7 @@ Before switching to live mode:
 - Customer lifetime value
 
 ### Set Up Alerts
+
 1. Go to Stripe Dashboard → **Settings** → **Notifications**
 2. Enable alerts for:
    - Failed payments
@@ -453,6 +472,7 @@ Before switching to live mode:
    - Webhook failures
 
 ### Revenue Reports
+
 1. Go to **Reports** in Stripe Dashboard
 2. View:
    - Daily revenue
@@ -465,19 +485,23 @@ Before switching to live mode:
 ### Stripe Fees (as of 2024)
 
 **Standard Pricing**:
+
 - 2.9% + $0.30 per successful card charge
 - No setup fees
 - No monthly fees
 - No hidden costs
 
 **International Cards**:
+
 - Additional 1.5% for international cards
 - Currency conversion fees apply
 
 **Disputes**:
+
 - $15 fee per dispute (refunded if you win)
 
 ### Estimated Monthly Cost (1000 students)
+
 - Average course price: $99
 - Monthly enrollments: 50 students
 - Revenue: $4,950
@@ -518,6 +542,7 @@ export async function POST(request: NextRequest) {
 ```
 
 ### Refund Policy
+
 - Full refund within 7 days of purchase
 - Partial refund (50%) within 30 days
 - No refunds after course completion
@@ -526,22 +551,26 @@ export async function POST(request: NextRequest) {
 ## Troubleshooting
 
 ### Error: "No such price"
+
 - Verify price ID is correct
 - Check you're using the right mode (test vs live)
 - Ensure product is active in Stripe Dashboard
 
 ### Error: "Invalid API key"
+
 - Check `STRIPE_SECRET_KEY` is set correctly
 - Verify you're using the right key for the mode
 - Ensure key hasn't been revoked
 
 ### Webhook Not Receiving Events
+
 - Verify webhook URL is correct and accessible
 - Check webhook signing secret is correct
 - Test webhook with Stripe CLI
 - Check server logs for errors
 
 ### Payment Declined
+
 - User's card was declined by bank
 - Insufficient funds
 - Card expired or invalid

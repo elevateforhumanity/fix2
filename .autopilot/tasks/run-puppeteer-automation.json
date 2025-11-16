@@ -6,14 +6,14 @@
   "priority": "critical",
   "automation_type": "puppeteer",
   "estimated_time": "2-3 minutes",
-  
+
   "prerequisites": [
     "Node.js installed",
     "Puppeteer installed (npm install puppeteer)",
     "Netlify account credentials",
     "Access to Netlify site: 12f120ab-3f63-419b-bc49-430f043415c1"
   ],
-  
+
   "steps": [
     {
       "step": 1,
@@ -116,7 +116,7 @@
       ]
     }
   ],
-  
+
   "script_details": {
     "file": "scripts/puppeteer-add-netlify-vars.js",
     "what_it_does": [
@@ -143,7 +143,7 @@
       "NODE_ENV"
     ]
   },
-  
+
   "troubleshooting": {
     "puppeteer_not_installed": {
       "error": "Cannot find module 'puppeteer'",
@@ -174,13 +174,13 @@
       ]
     }
   },
-  
+
   "alternative_headless": {
     "description": "Run in headless mode (no browser window)",
     "command": "NETLIFY_EMAIL=your@email.com NETLIFY_PASSWORD=yourpass HEADLESS=true node scripts/puppeteer-add-netlify-vars.js",
     "note": "Faster but you can't see what's happening"
   },
-  
+
   "completion": {
     "message": "✅ Puppeteer automation completed successfully!",
     "verification": [
@@ -196,7 +196,7 @@
       "Report completion"
     ]
   },
-  
+
   "security_notes": [
     "⚠️ Credentials are used locally only",
     "⚠️ Never commit credentials to git",

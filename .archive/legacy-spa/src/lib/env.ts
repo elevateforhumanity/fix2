@@ -66,7 +66,6 @@ To fix this:
 Note: All client-side env vars MUST be prefixed with VITE_
     `;
 
-
     // Show user-friendly banner in the app
     if (typeof document !== 'undefined') {
       showEnvErrorBanner(errors);
@@ -144,7 +143,8 @@ function showEnvErrorBanner(errors: string[]) {
   summary.textContent = 'How to fix';
 
   const pre = document.createElement('pre');
-  pre.style.cssText = 'margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 4px; overflow-x: auto;';
+  pre.style.cssText =
+    'margin-top: 0.5rem; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 4px; overflow-x: auto;';
   pre.textContent = `
 In Gitpod terminal:
 gp env VITE_SUPABASE_URL="https://your-project.supabase.co"

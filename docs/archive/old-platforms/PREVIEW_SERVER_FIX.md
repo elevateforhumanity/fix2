@@ -15,6 +15,7 @@ The `exec_preview` tool and `vite preview` command are timing out in the Gitpod 
 **File**: `.devcontainer/devcontainer.json`
 
 Added port forwarding configuration:
+
 ```json
 {
   "forwardPorts": [5173, 8080, 4173],
@@ -40,6 +41,7 @@ Added port forwarding configuration:
 **File**: `.gitpod.yml`
 
 Added preview server ports:
+
 ```yaml
 ports:
   - port: 5173
@@ -61,6 +63,7 @@ ports:
 **File**: `vite.config.js`
 
 Updated server and preview settings for Gitpod compatibility:
+
 ```javascript
 server: {
   host: '0.0.0.0', // listen on all interfaces
@@ -85,6 +88,7 @@ preview: {
 **File**: `package.json`
 
 Updated preview command:
+
 ```json
 "preview": "vite preview --port 8080 --host 0.0.0.0"
 ```
@@ -135,11 +139,13 @@ cd dist && python3 -m http.server 8080
 If you need to test the production build:
 
 1. Build the project:
+
    ```bash
    pnpm run build
    ```
 
 2. Start a simple server in another terminal:
+
    ```bash
    cd dist
    python3 -m http.server 8080
@@ -168,6 +174,7 @@ pnpm run verify:build
 ```
 
 This runs the verification script that checks:
+
 - ✅ dist/ directory exists
 - ✅ All images are copied
 - ✅ Image paths have correct leading slash
@@ -203,6 +210,7 @@ netlify deploy --prod
 The SPA routing is properly configured:
 
 ### netlify.toml
+
 ```toml
 [[redirects]]
   from = "/*"
@@ -210,7 +218,8 @@ The SPA routing is properly configured:
   status = 200
 ```
 
-### dist/_redirects
+### dist/\_redirects
+
 ```
 /*   /index.html   200
 ```

@@ -31,33 +31,34 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   badges,
   stats,
   overlay = 'gradient',
-  height = 'large'
+  height = 'large',
 }) => {
   const overlayStyles = {
     light: 'rgba(255, 255, 255, 0.85)',
     dark: 'rgba(0, 0, 0, 0.6)',
-    gradient: 'linear-gradient(135deg, rgba(228, 30, 38, 0.9) 0%, rgba(249, 115, 22, 0.85) 100%)'
+    gradient:
+      'linear-gradient(135deg, rgba(228, 30, 38, 0.9) 0%, rgba(249, 115, 22, 0.85) 100%)',
   };
 
   const heightClasses = {
     small: 'hero-banner--small',
     medium: 'hero-banner--medium',
     large: 'hero-banner--large',
-    full: 'hero-banner--full'
+    full: 'hero-banner--full',
   };
 
   return (
-    <section 
+    <section
       className={`hero-banner ${heightClasses[height]}`}
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        position: 'relative'
+        position: 'relative',
       }}
     >
       {/* Overlay */}
-      <div 
+      <div
         className="hero-banner__overlay"
         style={{
           position: 'absolute',
@@ -66,23 +67,16 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           right: 0,
           bottom: 0,
           background: overlayStyles[overlay],
-          zIndex: 1
+          zIndex: 1,
         }}
       />
-
       {/* Content */}
       <div className="hero-banner__content">
         <div className="hero-banner__inner">
           {/* Title */}
-          <h1 className="hero-banner__title">
-            {title}
-          </h1>
-
+          <h1 className="hero-banner__title">{title}</h1>
           {/* Subtitle */}
-          <p className="hero-banner__subtitle">
-            {subtitle}
-          </p>
-
+          <p className="hero-banner__subtitle">{subtitle}</p>
           {/* Badges */}
           {badges && badges.length > 0 && (
             <div className="hero-banner__badges">
@@ -93,21 +87,20 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
               ))}
             </div>
           )}
-
           {/* CTAs */}
           {(primaryCTA || secondaryCTA) && (
             <div className="hero-banner__ctas">
               {primaryCTA && (
-                <Link 
-                  to={primaryCTA.link} 
+                <Link
+                  to={primaryCTA.link}
                   className="hero-banner__cta hero-banner__cta--primary"
                 >
                   {primaryCTA.text}
                 </Link>
               )}
               {secondaryCTA && (
-                <Link 
-                  to={secondaryCTA.link} 
+                <Link
+                  to={secondaryCTA.link}
                   className="hero-banner__cta hero-banner__cta--secondary"
                 >
                   {secondaryCTA.text}
@@ -115,7 +108,6 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
               )}
             </div>
           )}
-
           {/* Stats */}
           {stats && stats.length > 0 && (
             <div className="hero-banner__stats">
@@ -129,7 +121,6 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           )}
         </div>
       </div>
-
       {/* Decorative Elements */}
       <div className="hero-banner__decoration hero-banner__decoration--1" />
       <div className="hero-banner__decoration hero-banner__decoration--2" />

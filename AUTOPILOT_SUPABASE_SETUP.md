@@ -19,6 +19,7 @@ bash scripts/add-github-secrets.sh
 ```
 
 This script will:
+
 1. ✅ Check GitHub CLI is installed
 2. ✅ Prompt you for each secret
 3. ✅ Add secrets to GitHub repository
@@ -94,23 +95,23 @@ The GitHub Actions workflow (`.github/workflows/setup-supabase-keys.yml`) automa
 
 Add these to GitHub Secrets:
 
-| Secret Name | Description | Where to Get |
-|-------------|-------------|--------------|
-| `SUPABASE_ANON_KEY` | Public/anon key | [API Settings](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api) |
+| Secret Name                 | Description                | Where to Get                                                                             |
+| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
+| `SUPABASE_ANON_KEY`         | Public/anon key            | [API Settings](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Service role key (secret!) | [API Settings](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api) |
 
 ---
 
 ## 🔧 OPTIONAL SECRETS (for full functionality)
 
-| Secret Name | Description | Purpose |
-|-------------|-------------|---------|
-| `RESEND_API_KEY` | Resend API key | Email notifications |
-| `STRIPE_SECRET_KEY` | Stripe secret key | Payment processing |
-| `STRIPE_PUBLISHABLE_KEY` | Stripe public key | Payment forms |
-| `STRIPE_WEBHOOK_SECRET` | Stripe webhook secret | Payment webhooks |
-| `NETLIFY_AUTH_TOKEN` | Netlify token | Auto-deployment |
-| `NETLIFY_SITE_ID` | Netlify site ID | Auto-deployment |
+| Secret Name              | Description           | Purpose             |
+| ------------------------ | --------------------- | ------------------- |
+| `RESEND_API_KEY`         | Resend API key        | Email notifications |
+| `STRIPE_SECRET_KEY`      | Stripe secret key     | Payment processing  |
+| `STRIPE_PUBLISHABLE_KEY` | Stripe public key     | Payment forms       |
+| `STRIPE_WEBHOOK_SECRET`  | Stripe webhook secret | Payment webhooks    |
+| `NETLIFY_AUTH_TOKEN`     | Netlify token         | Auto-deployment     |
+| `NETLIFY_SITE_ID`        | Netlify site ID       | Auto-deployment     |
 
 ---
 
@@ -119,16 +120,19 @@ Add these to GitHub Secrets:
 ### Step 1: Get Supabase Keys
 
 1. **Login to Supabase**:
+
    ```
    https://app.supabase.com
    ```
 
 2. **Navigate to your project**:
+
    ```
    https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
    ```
 
 3. **Go to API Settings**:
+
    ```
    https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
    ```
@@ -341,6 +345,7 @@ After running the autopilot, you should have:
 ### If you need help:
 
 1. **Check the workflow logs**:
+
    ```bash
    gh run list --workflow=setup-supabase-keys.yml --repo elevateforhumanity/fix2
    ```

@@ -9,12 +9,15 @@ Your advanced autopilot now has **full control** over Vercel and Netlify deploym
 ## 📦 What You Got
 
 ### 1. Vercel Autopilot Worker
+
 **Files:**
+
 - `scripts/autopilot-config-vercel.sh`
 - `.github/workflows/autopilot-config-vercel.yml`
 - `AUTOPILOT_VERCEL_WORKER.md`
 
 **Capabilities:**
+
 - ✅ Logs into Vercel with token
 - ✅ Links to your project automatically
 - ✅ Sets all environment variables (Supabase, Stripe, VAPID, AWS, etc.)
@@ -23,12 +26,15 @@ Your advanced autopilot now has **full control** over Vercel and Netlify deploym
 - ✅ Can be triggered via GitHub UI or API
 
 ### 2. Platform Sync Worker
+
 **Files:**
+
 - `scripts/autopilot-sync-platforms.sh`
 - `.github/workflows/autopilot-sync-platforms.yml`
 - `AUTOPILOT_PLATFORM_SYNC.md`
 
 **Capabilities:**
+
 - ✅ Syncs environment variables between Netlify and Vercel
 - ✅ Ensures both platforms have identical configuration
 - ✅ Updates all environments on both platforms
@@ -37,11 +43,14 @@ Your advanced autopilot now has **full control** over Vercel and Netlify deploym
 - ✅ Can be triggered via GitHub UI or API
 
 ### 3. Pre-Build Validation
+
 **Files:**
+
 - `vercel-check.mjs`
 - Updated `package.json` (prebuild script)
 
 **Capabilities:**
+
 - ✅ Runs before every build
 - ✅ Validates Node.js version
 - ✅ Checks critical environment variables
@@ -49,7 +58,9 @@ Your advanced autopilot now has **full control** over Vercel and Netlify deploym
 - ✅ Provides detailed build environment report
 
 ### 4. Comprehensive Documentation
+
 **Files:**
+
 - `VERCEL_DEPLOYMENT_FIX_GUIDE.md` - Full manual guide
 - `VERCEL_QUICK_FIX.md` - Quick reference
 - `AUTOPILOT_VERCEL_WORKER.md` - Vercel worker docs
@@ -70,10 +81,10 @@ if (vercelBuildFailed) {
     workflow: 'autopilot-config-vercel.yml',
     inputs: {
       trigger_deploy: true,
-      set_node_version: '20'
-    }
+      set_node_version: '20',
+    },
   });
-  
+
   console.log('✅ Vercel worker dispatched - will configure and deploy');
 }
 ```
@@ -87,10 +98,10 @@ if (netlifyWorks && !vercelWorks) {
   await triggerGitHubWorkflow({
     workflow: 'autopilot-sync-platforms.yml',
     inputs: {
-      trigger_deploys: true
-    }
+      trigger_deploys: true,
+    },
   });
-  
+
   console.log('✅ Platform sync dispatched - will sync and deploy both');
 }
 ```
@@ -104,10 +115,10 @@ if (newSecretAdded) {
   await triggerGitHubWorkflow({
     workflow: 'autopilot-sync-platforms.yml',
     inputs: {
-      trigger_deploys: false  // Don't deploy, just sync
-    }
+      trigger_deploys: false, // Don't deploy, just sync
+    },
   });
-  
+
   console.log('✅ Secrets synced to both platforms');
 }
 ```
@@ -120,38 +131,38 @@ Add these once to GitHub: **Settings** → **Secrets and variables** → **Actio
 
 ### Platform Credentials (Required)
 
-| Secret | Description | How to Get |
-|--------|-------------|------------|
-| `VERCEL_TOKEN` | Vercel API token | [Vercel Tokens](https://vercel.com/account/tokens) |
-| `VERCEL_ORG_ID` | Vercel org ID | Run `vercel link`, check `.vercel/project.json` |
-| `VERCEL_PROJECT_ID` | Vercel project ID | Run `vercel link`, check `.vercel/project.json` |
-| `NETLIFY_AUTH_TOKEN` | Netlify token | [Netlify Tokens](https://app.netlify.com/user/applications) |
-| `NETLIFY_SITE_ID` | Netlify site ID | Site Settings → General → API ID |
+| Secret               | Description       | How to Get                                                  |
+| -------------------- | ----------------- | ----------------------------------------------------------- |
+| `VERCEL_TOKEN`       | Vercel API token  | [Vercel Tokens](https://vercel.com/account/tokens)          |
+| `VERCEL_ORG_ID`      | Vercel org ID     | Run `vercel link`, check `.vercel/project.json`             |
+| `VERCEL_PROJECT_ID`  | Vercel project ID | Run `vercel link`, check `.vercel/project.json`             |
+| `NETLIFY_AUTH_TOKEN` | Netlify token     | [Netlify Tokens](https://app.netlify.com/user/applications) |
+| `NETLIFY_SITE_ID`    | Netlify site ID   | Site Settings → General → API ID                            |
 
 ### Application Secrets (Required)
 
-| Secret | Description |
-|--------|-------------|
-| `SUPABASE_ANON_KEY` | Supabase anonymous key |
+| Secret                      | Description               |
+| --------------------------- | ------------------------- |
+| `SUPABASE_ANON_KEY`         | Supabase anonymous key    |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key |
-| `STRIPE_SECRET_KEY` | Stripe secret key |
-| `STRIPE_PUBLISHABLE_KEY` | Stripe publishable key |
+| `STRIPE_SECRET_KEY`         | Stripe secret key         |
+| `STRIPE_PUBLISHABLE_KEY`    | Stripe publishable key    |
 
 ### Optional Secrets (For Full Features)
 
-| Secret | Description |
-|--------|-------------|
-| `RESEND_API_KEY` | Email sending |
-| `STRIPE_WEBHOOK_SECRET` | Stripe webhooks |
-| `VAPID_PUBLIC_KEY` | Push notifications |
-| `VAPID_PRIVATE_KEY` | Push notifications |
-| `VAPID_SUBJECT` | Push notifications |
-| `AWS_ACCESS_KEY_ID` | S3 uploads |
-| `AWS_SECRET_ACCESS_KEY` | S3 uploads |
-| `AWS_REGION` | AWS region |
-| `AWS_S3_BUCKET` | S3 bucket |
-| `OPENAI_API_KEY` | AI features |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Google Cloud TTS |
+| Secret                           | Description        |
+| -------------------------------- | ------------------ |
+| `RESEND_API_KEY`                 | Email sending      |
+| `STRIPE_WEBHOOK_SECRET`          | Stripe webhooks    |
+| `VAPID_PUBLIC_KEY`               | Push notifications |
+| `VAPID_PRIVATE_KEY`              | Push notifications |
+| `VAPID_SUBJECT`                  | Push notifications |
+| `AWS_ACCESS_KEY_ID`              | S3 uploads         |
+| `AWS_SECRET_ACCESS_KEY`          | S3 uploads         |
+| `AWS_REGION`                     | AWS region         |
+| `AWS_S3_BUCKET`                  | S3 bucket          |
+| `OPENAI_API_KEY`                 | AI features        |
+| `GOOGLE_APPLICATION_CREDENTIALS` | Google Cloud TTS   |
 
 ---
 
@@ -215,12 +226,12 @@ node vercel-check.mjs
 
 ### Recommended Autopilot Schedule
 
-| Task | Frequency | Workflow |
-|------|-----------|----------|
-| Sync platforms | Weekly | `autopilot-sync-platforms.yml` |
-| Verify Vercel config | After failed deploy | `autopilot-config-vercel.yml` |
-| Check environment | Before each build | `vercel-check.mjs` (automatic) |
-| Rotate secrets | Quarterly | Manual + sync workflow |
+| Task                 | Frequency           | Workflow                       |
+| -------------------- | ------------------- | ------------------------------ |
+| Sync platforms       | Weekly              | `autopilot-sync-platforms.yml` |
+| Verify Vercel config | After failed deploy | `autopilot-config-vercel.yml`  |
+| Check environment    | Before each build   | `vercel-check.mjs` (automatic) |
+| Rotate secrets       | Quarterly           | Manual + sync workflow         |
 
 ### Enable Automatic Sync
 
@@ -228,7 +239,7 @@ Uncomment in `.github/workflows/autopilot-sync-platforms.yml`:
 
 ```yaml
 schedule:
-  - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
+  - cron: '0 0 * * 0' # Weekly on Sunday at midnight
 ```
 
 ---
@@ -270,16 +281,19 @@ gh run watch
 ### Verify Platform Configuration
 
 **Vercel:**
+
 ```bash
 vercel env ls --token $VERCEL_TOKEN
 ```
 
 **Netlify:**
+
 ```bash
 netlify env:list --auth $NETLIFY_AUTH_TOKEN
 ```
 
 **Or check dashboards:**
+
 - [Vercel Dashboard](https://vercel.com/dashboard)
 - [Netlify Dashboard](https://app.netlify.com)
 
@@ -324,6 +338,7 @@ npm run build
 ### Workflow Not Triggering
 
 **Check:**
+
 1. GitHub Actions enabled for repository
 2. Workflow file in `.github/workflows/`
 3. Branch name matches (default: `main`)
@@ -332,6 +347,7 @@ npm run build
 ### Platform Configuration Failing
 
 **Check:**
+
 1. Tokens are valid and not expired
 2. Tokens have necessary permissions
 3. Org/Project/Site IDs are correct
@@ -340,6 +356,7 @@ npm run build
 ### Environment Variables Not Syncing
 
 **Check:**
+
 1. GitHub Secrets are set correctly
 2. Secret names match exactly
 3. Workflow logs for specific errors
@@ -349,14 +366,14 @@ npm run build
 
 ## 📚 Documentation Index
 
-| Document | Purpose |
-|----------|---------|
-| `AUTOPILOT_DEPLOYMENT_SYSTEM.md` | This file - system overview |
-| `AUTOPILOT_VERCEL_WORKER.md` | Vercel worker detailed docs |
-| `AUTOPILOT_PLATFORM_SYNC.md` | Platform sync detailed docs |
-| `VERCEL_DEPLOYMENT_FIX_GUIDE.md` | Manual Vercel configuration |
-| `VERCEL_QUICK_FIX.md` | Quick reference guide |
-| `ELEVATE_ENV_CHECKLIST.md` | Complete environment variable list |
+| Document                         | Purpose                            |
+| -------------------------------- | ---------------------------------- |
+| `AUTOPILOT_DEPLOYMENT_SYSTEM.md` | This file - system overview        |
+| `AUTOPILOT_VERCEL_WORKER.md`     | Vercel worker detailed docs        |
+| `AUTOPILOT_PLATFORM_SYNC.md`     | Platform sync detailed docs        |
+| `VERCEL_DEPLOYMENT_FIX_GUIDE.md` | Manual Vercel configuration        |
+| `VERCEL_QUICK_FIX.md`            | Quick reference guide              |
+| `ELEVATE_ENV_CHECKLIST.md`       | Complete environment variable list |
 
 ---
 
@@ -374,13 +391,20 @@ npm run build
 
 ```javascript
 // Trigger workflow
-POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+POST /
+  repos /
+  { owner } /
+  { repo } /
+  actions /
+  workflows /
+  { workflow_id } /
+  dispatches;
 
 // Check workflow status
-GET /repos/{owner}/{repo}/actions/runs
+GET / repos / { owner } / { repo } / actions / runs;
 
 // Get workflow run logs
-GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs
+GET / repos / { owner } / { repo } / actions / runs / { run_id } / logs;
 ```
 
 ### Success Criteria

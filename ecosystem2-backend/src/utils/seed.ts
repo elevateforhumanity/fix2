@@ -74,7 +74,8 @@ async function main() {
       price: 199.99,
       published: true,
       instructorId: instructor1.id,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+      thumbnailUrl:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
       lessons: {
         create: [
           {
@@ -115,7 +116,8 @@ async function main() {
       price: 299.99,
       published: true,
       instructorId: instructor1.id,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee',
+      thumbnailUrl:
+        'https://images.unsplash.com/photo-1633356122544-f134324a6cee',
       lessons: {
         create: [
           {
@@ -281,7 +283,8 @@ async function main() {
       userId: students[0].id,
       type: 'course_update',
       title: 'New lesson added',
-      message: 'A new lesson has been added to Complete Web Development Bootcamp',
+      message:
+        'A new lesson has been added to Complete Web Development Bootcamp',
     },
   });
 

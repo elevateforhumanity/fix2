@@ -9,6 +9,7 @@
 ## Executive Summary
 
 The codebase has **multiple header and footer implementations** that create inconsistency across the site. While not breaking functionality, this leads to:
+
 - Inconsistent user experience
 - Maintenance overhead
 - Potential branding confusion
@@ -20,30 +21,30 @@ The codebase has **multiple header and footer implementations** that create inco
 
 ### Headers/Navigation Components Found
 
-| Component | Type | Location | Status |
-|-----------|------|----------|--------|
-| `NavBar.jsx` | Legacy | `src/components/` | ⚠️ Minimal usage |
-| `Header.jsx` | Legacy | `src/components/` | ⚠️ Minimal usage |
-| `Navigation.tsx` | Modern | `src/components/` | ✅ Most used (55 imports) |
-| `DurableNav.jsx` | Duplicate | `src/components/` | ❌ Duplicate of .tsx |
-| `DurableNav.tsx` | Modern | `src/components/` | ✅ Used in DurableLayout |
+| Component        | Type      | Location          | Status                    |
+| ---------------- | --------- | ----------------- | ------------------------- |
+| `NavBar.jsx`     | Legacy    | `src/components/` | ⚠️ Minimal usage          |
+| `Header.jsx`     | Legacy    | `src/components/` | ⚠️ Minimal usage          |
+| `Navigation.tsx` | Modern    | `src/components/` | ✅ Most used (55 imports) |
+| `DurableNav.jsx` | Duplicate | `src/components/` | ❌ Duplicate of .tsx      |
+| `DurableNav.tsx` | Modern    | `src/components/` | ✅ Used in DurableLayout  |
 
 ### Footer Components Found
 
-| Component | Type | Location | Status |
-|-----------|------|----------|--------|
-| `Footer.jsx` | Legacy | `src/components/` | ⚠️ Used in ~10 pages |
-| `Footer.tsx` | Modern | `src/components/` | ✅ Full-featured |
-| `FooterLegal.tsx` | Specialized | `src/components/` | ✅ Used in SiteLayout |
+| Component           | Type        | Location          | Status                   |
+| ------------------- | ----------- | ----------------- | ------------------------ |
+| `Footer.jsx`        | Legacy      | `src/components/` | ⚠️ Used in ~10 pages     |
+| `Footer.tsx`        | Modern      | `src/components/` | ✅ Full-featured         |
+| `FooterLegal.tsx`   | Specialized | `src/components/` | ✅ Used in SiteLayout    |
 | `DurableFooter.tsx` | Specialized | `src/components/` | ✅ Used in DurableLayout |
 
 ### Layout Usage
 
-| Layout | Header | Footer | Purpose |
-|--------|--------|--------|---------|
-| `SiteLayout.tsx` | Inline header | `FooterLegal` | Main site layout |
-| `DurableLayout.tsx` | `DurableNav` | `DurableFooter` | Durable-styled pages |
-| `AppLayout.jsx` | Inline header | Inline footer | App/LMS pages |
+| Layout              | Header        | Footer          | Purpose              |
+| ------------------- | ------------- | --------------- | -------------------- |
+| `SiteLayout.tsx`    | Inline header | `FooterLegal`   | Main site layout     |
+| `DurableLayout.tsx` | `DurableNav`  | `DurableFooter` | Durable-styled pages |
+| `AppLayout.jsx`     | Inline header | Inline footer   | App/LMS pages        |
 
 ---
 
@@ -110,6 +111,7 @@ Footer.jsx:          ~10 imports (legacy pages)
 ### Navigation Link Comparison
 
 **NavBar.jsx (Legacy):**
+
 - Programs
 - Learning (→ /lms)
 - Community
@@ -117,12 +119,14 @@ Footer.jsx:          ~10 imports (legacy pages)
 - Connect
 
 **Header.jsx (Legacy):**
+
 - Home
 - About
 - Blog
 - Contact
 
 **Navigation.tsx (Modern):**
+
 - Blog
 - About
 - Contact
@@ -133,6 +137,7 @@ Footer.jsx:          ~10 imports (legacy pages)
 - Elevate
 
 **DurableNav.tsx (Durable Style):**
+
 - Programs
 - About
 - Partners
@@ -141,6 +146,7 @@ Footer.jsx:          ~10 imports (legacy pages)
 - Contact
 
 **SiteLayout.tsx (Inline):**
+
 - Blog
 - About
 - Contact
@@ -153,12 +159,14 @@ Footer.jsx:          ~10 imports (legacy pages)
 ### Footer Content Comparison
 
 **Footer.jsx (Legacy):**
+
 - Company info
 - Quick Links (Home, About, Blog, Contact, Accessibility)
 - Social (Facebook, LinkedIn, YouTube)
 - Buy Black Certified badge
 
 **Footer.tsx (Modern):**
+
 - Logo and description
 - Programs section
 - About section
@@ -167,10 +175,12 @@ Footer.jsx:          ~10 imports (legacy pages)
 - Platform statement
 
 **FooterLegal.tsx (Minimal):**
+
 - Copyright notice
 - Legal links only (Terms, Privacy, IP Notice, DMCA)
 
 **DurableFooter.tsx (Durable Style):**
+
 - Company info with subtitle
 - Programs section
 - Quick Links section
@@ -211,12 +221,14 @@ Footer.jsx:          ~10 imports (legacy pages)
 ### Priority 1: Remove Duplicates (1 hour)
 
 **Action Items:**
+
 1. Delete `DurableNav.jsx` (use .tsx version)
 2. Migrate pages using `Footer.jsx` to `Footer.tsx`
 3. Delete `Footer.jsx` after migration
 4. Delete `NavBar.jsx` and `Header.jsx` if truly unused
 
 **Commands:**
+
 ```bash
 # Check if truly unused
 grep -r "import.*NavBar" src --include="*.tsx" --include="*.jsx"
@@ -232,11 +244,13 @@ rm src/components/Footer.jsx
 ### Priority 2: Standardize Navigation (2 hours)
 
 **Recommended Approach:**
+
 - Use `Navigation.tsx` as the standard component
 - Update `DurableNav.tsx` to use same links
 - Ensure SiteLayout inline header matches Navigation.tsx
 
 **Standard Navigation Links:**
+
 ```typescript
 const standardNavigation = [
   { to: '/', label: 'Home' },
@@ -253,12 +267,14 @@ const standardNavigation = [
 ### Priority 3: Standardize Footers (2 hours)
 
 **Recommended Approach:**
+
 - Use `Footer.tsx` as the main footer
 - Keep `FooterLegal.tsx` for minimal legal-only pages
 - Keep `DurableFooter.tsx` for Durable-styled pages
 - Ensure all have same links and content
 
 **Standard Footer Sections:**
+
 ```typescript
 const standardFooterSections = [
   {
@@ -289,6 +305,7 @@ const standardFooterSections = [
 ### Priority 4: Standardize Branding (30 minutes)
 
 **Recommended Branding:**
+
 ```typescript
 const branding = {
   name: 'Elevate for Humanity',
@@ -299,6 +316,7 @@ const branding = {
 ```
 
 **Apply consistently across:**
+
 - All headers
 - All footers
 - Page titles
@@ -309,21 +327,25 @@ const branding = {
 ## Implementation Plan
 
 ### Phase 1: Cleanup (1 hour)
+
 - [ ] Delete duplicate .jsx files
 - [ ] Update imports to use .tsx versions
 - [ ] Test build
 
 ### Phase 2: Standardize Navigation (2 hours)
+
 - [ ] Create shared navigation config
 - [ ] Update all navigation components
 - [ ] Test all pages
 
 ### Phase 3: Standardize Footers (2 hours)
+
 - [ ] Create shared footer config
 - [ ] Update all footer components
 - [ ] Test all pages
 
 ### Phase 4: Verify (1 hour)
+
 - [ ] Visual regression testing
 - [ ] Check all navigation links work
 - [ ] Verify branding consistency
@@ -352,6 +374,7 @@ After implementing fixes:
 ## Current State vs. Desired State
 
 ### Current State
+
 - ❌ 5 different header implementations
 - ❌ 4 different footer implementations
 - ❌ Inconsistent navigation links
@@ -360,6 +383,7 @@ After implementing fixes:
 - ⚠️ Works but inconsistent
 
 ### Desired State
+
 - ✅ 3 header implementations (Standard, Durable, App)
 - ✅ 3 footer implementations (Standard, Legal, Durable)
 - ✅ Consistent navigation links
@@ -372,18 +396,22 @@ After implementing fixes:
 ## Impact Assessment
 
 ### User Impact
+
 - **Current:** Confusing navigation, inconsistent experience
 - **After Fix:** Consistent, professional experience
 
 ### Developer Impact
+
 - **Current:** Confusion about which component to use
 - **After Fix:** Clear component hierarchy
 
 ### Maintenance Impact
+
 - **Current:** Must update multiple files for changes
 - **After Fix:** Single source of truth
 
 ### Performance Impact
+
 - **Current:** Minimal (all components are small)
 - **After Fix:** Slightly better (less code)
 

@@ -1,6 +1,7 @@
 # 🚨 FIX DEPLOYMENT NOW - Quick Guide
 
 ## Error
+
 ```
 Error: Missing Supabase environment variables for admin client
 ```
@@ -12,6 +13,7 @@ Error: Missing Supabase environment variables for admin client
 Go to: **https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api**
 
 Copy these 3 values:
+
 1. **Project URL**: `https://cuxzzpsyufcewtmicszk.supabase.co`
 2. **anon public**: `eyJhbGci...` (long string)
 3. **service_role**: `eyJhbGci...` (different long string)
@@ -64,6 +66,7 @@ Click **Add a variable** and add these 6:
 **NEVER commit the service_role key to Git!**
 
 It's stored safely in:
+
 - ✅ Netlify Environment Variables
 - ✅ GitHub Secrets (optional)
 

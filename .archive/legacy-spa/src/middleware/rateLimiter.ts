@@ -70,7 +70,10 @@ export function checkFormRateLimit(identifier: string = getClientId()): {
 /**
  * Reset rate limit for a user (e.g., after successful login)
  */
-export function resetRateLimit(type: 'login' | 'api' | 'form', identifier: string): void {
+export function resetRateLimit(
+  type: 'login' | 'api' | 'form',
+  identifier: string
+): void {
   switch (type) {
     case 'login':
       loginRateLimiter.reset(identifier);

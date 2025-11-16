@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -58,13 +58,15 @@ export default function SignMOUPage() {
         body: JSON.stringify({
           signature,
           signer_name: agreeName,
-          signer_title: agreeTitle
-        })
+          signer_title: agreeTitle,
+        }),
       });
 
       if (res.ok) {
         setSigned(true);
-        alert('MOU signed successfully! You will receive a confirmation email shortly.');
+        alert(
+          'MOU signed successfully! You will receive a confirmation email shortly.'
+        );
       } else {
         const text = await res.text();
         alert('Failed to sign MOU: ' + text);
@@ -99,7 +101,7 @@ export default function SignMOUPage() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4" />
           <p className="text-muted-foreground">Loading MOU...</p>
         </div>
       </div>
@@ -115,7 +117,8 @@ export default function SignMOUPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              You don't have a pending MOU to sign. Please contact the Elevate admin team if you believe this is an error.
+              You don't have a pending MOU to sign. Please contact the Elevate
+              admin team if you believe this is an error.
             </p>
           </CardContent>
         </Card>
@@ -135,11 +138,12 @@ export default function SignMOUPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              Your Memorandum of Understanding has been signed and submitted. 
-              A copy has been sent to your email address.
+              Your Memorandum of Understanding has been signed and submitted. A
+              copy has been sent to your email address.
             </p>
             <p className="text-sm text-muted-foreground">
-              You now have full access to the Training Provider Portal where you can:
+              You now have full access to the Training Provider Portal where you
+              can:
             </p>
             <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
               <li>View and track your participants</li>
@@ -170,7 +174,8 @@ export default function SignMOUPage() {
             <CardHeader>
               <CardTitle>Sign Your Training Provider MOU</CardTitle>
               <p className="text-sm text-muted-foreground mt-2">
-                Review and sign your Memorandum of Understanding with Elevate for Humanity
+                Review and sign your Memorandum of Understanding with Elevate
+                for Humanity
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -183,8 +188,12 @@ export default function SignMOUPage() {
                     <p className="font-medium">{mouData.program_holder_name}</p>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Revenue Share:</span>
-                    <p className="font-medium">{(mouData.payout_share * 100).toFixed(1)}%</p>
+                    <span className="text-muted-foreground">
+                      Revenue Share:
+                    </span>
+                    <p className="font-medium">
+                      {(mouData.payout_share * 100).toFixed(1)}%
+                    </p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Contact:</span>
@@ -196,10 +205,13 @@ export default function SignMOUPage() {
                   </div>
                 </div>
               </div>
-
               {/* Download PDF Button */}
               <div>
-                <Button onClick={downloadPDF} variant="outline" className="w-full">
+                <Button
+                  onClick={downloadPDF}
+                  variant="outline"
+                  className="w-full"
+                >
                   <FileText className="h-4 w-4 mr-2" />
                   Download Full MOU Document (PDF)
                 </Button>
@@ -207,7 +219,6 @@ export default function SignMOUPage() {
                   Review the complete MOU before signing
                 </p>
               </div>
-
               {/* Signer Information */}
               <div className="space-y-4">
                 <h3 className="font-semibold">Signer Information</h3>
@@ -221,7 +232,7 @@ export default function SignMOUPage() {
                       className="border rounded px-3 py-2 w-full"
                       placeholder="Your full legal name"
                       value={agreeName}
-                      onChange={e => setAgreeName(e.target.value)}
+                      onChange={(e) => setAgreeName(e.target.value)}
                       required
                     />
                   </div>
@@ -234,17 +245,17 @@ export default function SignMOUPage() {
                       className="border rounded px-3 py-2 w-full"
                       placeholder="e.g., Owner, Director"
                       value={agreeTitle}
-                      onChange={e => setAgreeTitle(e.target.value)}
+                      onChange={(e) => setAgreeTitle(e.target.value)}
                     />
                   </div>
                 </div>
               </div>
-
               {/* Signature Pad */}
               <div className="space-y-2">
                 <h3 className="font-semibold">Electronic Signature *</h3>
                 <p className="text-sm text-muted-foreground">
-                  By signing below, you agree to the terms and conditions outlined in the MOU
+                  By signing below, you agree to the terms and conditions
+                  outlined in the MOU
                 </p>
                 <SignaturePad onSave={handleSignatureSave} height={150} />
                 {signature && (
@@ -256,26 +267,25 @@ export default function SignMOUPage() {
                   </div>
                 )}
               </div>
-
               {/* Agreement Checkbox */}
               <div className="border-t pt-4">
                 <label className="flex items-start gap-2 text-sm">
                   <input
                     type="checkbox"
                     checked={agreeTerms}
-                    onChange={e => setAgreeTerms(e.target.checked)}
+                    onChange={(e) => setAgreeTerms(e.target.checked)}
                     required
                     className="mt-1"
                   />
                   <span>
-                    I have read and understood the complete Memorandum of Understanding. 
-                    I agree to all terms and conditions outlined in this agreement, including 
-                    the revenue share model, responsibilities, and compliance requirements. 
-                    I understand this is a legally binding electronic signature.
+                    I have read and understood the complete Memorandum of
+                    Understanding. I agree to all terms and conditions outlined
+                    in this agreement, including the revenue share model,
+                    responsibilities, and compliance requirements. I understand
+                    this is a legally binding electronic signature.
                   </span>
                 </label>
               </div>
-
               {/* Submit Button */}
               <Button
                 onClick={handleSubmit}
@@ -285,10 +295,10 @@ export default function SignMOUPage() {
               >
                 {submitting ? 'Submitting...' : 'Sign and Submit MOU'}
               </Button>
-
               <p className="text-xs text-center text-muted-foreground">
-                By clicking "Sign and Submit MOU", you acknowledge that your electronic signature 
-                is legally binding and equivalent to a handwritten signature.
+                By clicking "Sign and Submit MOU", you acknowledge that your
+                electronic signature is legally binding and equivalent to a
+                handwritten signature.
               </p>
             </CardContent>
           </Card>

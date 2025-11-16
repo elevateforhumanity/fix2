@@ -1,11 +1,13 @@
 # Analytics & SEO Configuration Guide
 
 ## Overview
+
 This guide covers setting up comprehensive analytics, SEO, and search engine optimization for the LMS platform.
 
 ## Current Status
 
 ### ✅ Already Implemented
+
 - **Meta Tags**: Title, description, keywords in `app/layout.tsx`
 - **Open Graph**: Social media sharing metadata
 - **Twitter Cards**: Twitter-specific metadata
@@ -14,6 +16,7 @@ This guide covers setting up comprehensive analytics, SEO, and search engine opt
 - **Favicon**: Logo configured
 
 ### ⚠️ Needs Configuration
+
 - **Google Analytics**: Not yet implemented
 - **Bing Webmaster Tools**: Not configured
 - **Google Search Console**: Needs verification
@@ -246,11 +249,13 @@ function EnrollButton({ courseId, courseName }: { courseId: string; courseName: 
 **Option A: Meta Tag (Recommended)**
 
 1. Bing will provide a meta tag like:
+
    ```html
    <meta name="msvalidate.01" content="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
    ```
 
 2. Add to `app/layout.tsx`:
+
    ```typescript
    export default function RootLayout({ children }: { children: React.ReactNode }) {
      return (
@@ -502,7 +507,11 @@ For each page, add specific metadata:
 
 ```typescript
 // app/programs/[slug]/page.tsx
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const supabase = await createServerSupabaseClient();
   const { data: program } = await supabase
     .from('programs')
@@ -535,11 +544,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 ### URL Structure
 
 ✅ **Good URLs**:
+
 - `/programs/workforce-readiness`
 - `/lms/courses/hvac-fundamentals`
 - `/about`
 
 ❌ **Bad URLs**:
+
 - `/programs?id=123`
 - `/course/view/456`
 - `/page.php?name=about`
@@ -562,6 +573,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 ### Core Web Vitals
 
 Monitor these metrics:
+
 - **LCP** (Largest Contentful Paint): < 2.5s
 - **FID** (First Input Delay): < 100ms
 - **CLS** (Cumulative Layout Shift): < 0.1
@@ -662,6 +674,7 @@ twitter: {
 ### Create Social Images
 
 Create `public/og-image.jpg` and `public/twitter-image.jpg`:
+
 - Dimensions: 1200x630px (OG), 1200x600px (Twitter)
 - Include logo, tagline, brand colors
 - Use tools like Canva or Figma
@@ -706,25 +719,34 @@ import { createServerSupabaseClient } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   const supabase = await createServerSupabaseClient();
-  
+
   // Get enrollment stats
   const { data: enrollments, count: enrollmentCount } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact' })
-    .gte('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+    .gte(
+      'created_at',
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+    );
 
   // Get completion stats
   const { data: completions, count: completionCount } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact' })
     .eq('status', 'completed')
-    .gte('completed_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+    .gte(
+      'completed_at',
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+    );
 
   // Get popular courses
   const { data: popularCourses } = await supabase
     .from('enrollments')
     .select('course_id, courses(title)')
-    .gte('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+    .gte(
+      'created_at',
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+    );
 
   return NextResponse.json({
     enrollments: enrollmentCount,
@@ -739,6 +761,7 @@ export async function GET(request: NextRequest) {
 ## Part 12: Checklist
 
 ### Initial Setup
+
 - [ ] Create Google Analytics account
 - [ ] Add GA measurement ID to environment variables
 - [ ] Install GoogleAnalytics component
@@ -746,6 +769,7 @@ export async function GET(request: NextRequest) {
 - [ ] Test analytics tracking
 
 ### Search Engines
+
 - [ ] Verify site with Google Search Console
 - [ ] Verify site with Bing Webmaster Tools
 - [ ] Submit sitemap to both
@@ -753,6 +777,7 @@ export async function GET(request: NextRequest) {
 - [ ] Add structured data
 
 ### SEO Optimization
+
 - [ ] Optimize all page titles
 - [ ] Write compelling meta descriptions
 - [ ] Add alt text to all images
@@ -761,12 +786,14 @@ export async function GET(request: NextRequest) {
 - [ ] Ensure mobile responsiveness
 
 ### Social Media
+
 - [ ] Create social media images (OG, Twitter)
 - [ ] Test social sharing on Facebook
 - [ ] Test social sharing on Twitter
 - [ ] Test social sharing on LinkedIn
 
 ### Monitoring
+
 - [ ] Set up Google Analytics goals
 - [ ] Configure conversion tracking
 - [ ] Monitor Core Web Vitals

@@ -36,7 +36,7 @@ import Image from 'next/image';
   width={1200}
   height={800}
   className="rounded-xl shadow-lg"
-/>
+/>;
 ```
 
 ## Adding New Covers

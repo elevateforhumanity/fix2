@@ -13,6 +13,7 @@
 ## What Changed
 
 ### Before (Module-level instantiation)
+
 ```typescript
 import { Resend } from 'resend';
 
@@ -24,6 +25,7 @@ export async function sendEmail() {
 ```
 
 ### After (Function-level instantiation)
+
 ```typescript
 import { Resend } from 'resend';
 
@@ -39,7 +41,7 @@ function getResendClient() {
 export async function sendEmail() {
   const resend = getResendClient();
   if (!resend) return false; // ← Graceful degradation
-  
+
   await resend.emails.send({...});
 }
 ```
@@ -60,6 +62,7 @@ export async function sendEmail() {
 ### Build-Time vs Runtime
 
 **Build Time:**
+
 - Next.js collects page data
 - Imports all modules
 - Module-level code executes
@@ -67,6 +70,7 @@ export async function sendEmail() {
 - **Solution:** Don't instantiate clients at module level
 
 **Runtime:**
+
 - API routes execute on request
 - Environment variables are available
 - Clients can be instantiated safely
@@ -75,12 +79,14 @@ export async function sendEmail() {
 ### Graceful Degradation
 
 If `RESEND_API_KEY` is not set:
+
 - ✅ Build succeeds
 - ✅ App deploys
 - ⚠️ Email notifications are skipped
 - ✅ All other features work
 
 This is better than:
+
 - ❌ Build fails
 - ❌ App doesn't deploy
 - ❌ Nothing works
@@ -88,6 +94,7 @@ This is better than:
 ## Build Progress
 
 ### ✅ All Previous Fixes
+
 1. Switched from pnpm to npm
 2. Removed Cloudflare package
 3. Configured legacy-peer-deps
@@ -96,6 +103,7 @@ This is better than:
 6. Installed all dependencies
 
 ### ✅ Latest Fix
+
 7. Fixed Resend initialization
 
 ## Expected Build Output
@@ -114,6 +122,7 @@ This is better than:
 ## Build Should Now Succeed
 
 All blocking issues resolved:
+
 - ✅ Dependencies installed
 - ✅ TypeScript compiles
 - ✅ Page data collection works
@@ -150,6 +159,7 @@ NEXT_PUBLIC_APP_URL=https://your-site.netlify.app
 ## Testing After Deployment
 
 ### Without RESEND_API_KEY
+
 - ✅ Site loads
 - ✅ Navigation works
 - ✅ MOU signing works
@@ -157,6 +167,7 @@ NEXT_PUBLIC_APP_URL=https://your-site.netlify.app
 - ✅ PDF generation works
 
 ### With RESEND_API_KEY
+
 - ✅ Everything above
 - ✅ Email notifications sent
 - ✅ Full MOU workflow
@@ -176,16 +187,19 @@ bed28e48 - Add missing @supabase/auth-helpers-nextjs dependency
 ## What This Means
 
 ### For Development
+
 - Can build locally without all env vars
 - Faster iteration
 - Better error messages
 
 ### For Deployment
+
 - Build succeeds without secrets
 - Configure secrets after deployment
 - No rebuild needed for config changes
 
 ### For Production
+
 - Set all environment variables
 - Full functionality enabled
 - Email notifications work
@@ -203,18 +217,21 @@ Build succeeds when you see:
 ## Next Steps After Successful Deployment
 
 ### Immediate (5 minutes)
+
 1. Get your Netlify URL
 2. Visit the homepage
 3. Check console for errors
 4. Test basic navigation
 
 ### Within 1 Hour
+
 1. Set environment variables in Netlify
 2. Test authentication
 3. Test MOU signing
 4. Verify API endpoints
 
 ### Within 24 Hours
+
 1. Run database migrations
 2. Test all features
 3. Set up monitoring
@@ -225,6 +242,7 @@ Build succeeds when you see:
 ### If Build Still Fails
 
 Check for:
+
 1. TypeScript errors (unlikely now)
 2. Missing dependencies (all installed)
 3. Build timeout (increase in settings)

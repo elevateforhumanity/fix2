@@ -1,9 +1,18 @@
 import Link from 'next/link';
-import { BookOpen, Video, FileText, Users, Award, CheckCircle, Download } from 'lucide-react';
+import {
+  BookOpen,
+  Video,
+  FileText,
+  Users,
+  Award,
+  CheckCircle,
+  Download,
+} from 'lucide-react';
 
 export const metadata = {
   title: 'Program Holder Training | Elevate for Humanity',
-  description: 'Training resources and documentation for program holders and training providers',
+  description:
+    'Training resources and documentation for program holders and training providers',
 };
 
 export default function ProgramHolderTrainingPage() {
@@ -81,11 +90,16 @@ export default function ProgramHolderTrainingPage() {
           <div className="elevate-logo-mark">E</div>
           <div className="flex flex-col">
             <span className="font-bold text-lg">Elevate for Humanity</span>
-            <span className="text-xs text-gray-600">Program Holder Training</span>
+            <span className="text-xs text-gray-600">
+              Program Holder Training
+            </span>
           </div>
         </div>
         <div className="flex gap-3 items-center">
-          <Link href="/program-holder/dashboard" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/program-holder/dashboard"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Dashboard
           </Link>
           <Link href="/" className="elevate-btn-secondary">
@@ -93,7 +107,6 @@ export default function ProgramHolderTrainingPage() {
           </Link>
         </div>
       </header>
-
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-16">
         <div className="elevate-container text-center">
@@ -101,19 +114,25 @@ export default function ProgramHolderTrainingPage() {
             Program Holder Training
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Everything you need to successfully manage your training programs on the Elevate platform
+            Everything you need to successfully manage your training programs on
+            the Elevate platform
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="#video-tutorials" className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100">
+            <Link
+              href="#video-tutorials"
+              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+            >
               Watch Video Tutorials
             </Link>
-            <Link href="#quick-guides" className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20">
+            <Link
+              href="#quick-guides"
+              className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20"
+            >
               Download Guides
             </Link>
           </div>
         </div>
       </section>
-
       {/* Training Modules */}
       <section className="py-16 bg-white">
         <div className="elevate-container">
@@ -122,15 +141,18 @@ export default function ProgramHolderTrainingPage() {
               Training Modules
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive training organized by topic to help you master the platform
+              Comprehensive training organized by topic to help you master the
+              platform
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {trainingModules.map((module, index) => {
               const Icon = module.icon;
               return (
-                <div key={index} className="elevate-card hover:shadow-xl transition-shadow">
+                <div
+                  key={index}
+                  className="elevate-card hover:shadow-xl transition-shadow"
+                >
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Icon className="h-6 w-6 text-blue-600" />
@@ -143,7 +165,10 @@ export default function ProgramHolderTrainingPage() {
                   </div>
                   <ul className="space-y-2">
                     {module.lessons.map((lesson, lessonIndex) => (
-                      <li key={lessonIndex} className="flex items-start gap-2 text-gray-700">
+                      <li
+                        key={lessonIndex}
+                        className="flex items-start gap-2 text-gray-700"
+                      >
                         <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                         <span className="text-sm">{lesson}</span>
                       </li>
@@ -164,9 +189,11 @@ export default function ProgramHolderTrainingPage() {
           </div>
         </div>
       </section>
-
       {/* Video Tutorials */}
-      <section id="video-tutorials" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section
+        id="video-tutorials"
+        className="py-16 bg-gradient-to-br from-gray-50 to-blue-50"
+      >
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -176,7 +203,6 @@ export default function ProgramHolderTrainingPage() {
               Watch step-by-step video guides to learn the platform quickly
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
@@ -210,7 +236,10 @@ export default function ProgramHolderTrainingPage() {
                 description: 'Issue and manage student certificates',
               },
             ].map((video, index) => (
-              <div key={index} className="elevate-card hover:shadow-xl transition-shadow">
+              <div
+                key={index}
+                className="elevate-card hover:shadow-xl transition-shadow"
+              >
                 <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-blue-600 flex items-center justify-center">
@@ -220,9 +249,13 @@ export default function ProgramHolderTrainingPage() {
                   </div>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{video.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{video.description}</p>
+                <p className="text-sm text-gray-600 mb-3">
+                  {video.description}
+                </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">{video.duration}</span>
+                  <span className="text-xs text-gray-500">
+                    {video.duration}
+                  </span>
                   <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm">
                     Watch →
                   </button>
@@ -232,7 +265,6 @@ export default function ProgramHolderTrainingPage() {
           </div>
         </div>
       </section>
-
       {/* Quick Start Guides */}
       <section id="quick-guides" className="py-16 bg-white">
         <div className="elevate-container">
@@ -244,17 +276,23 @@ export default function ProgramHolderTrainingPage() {
               Download PDF guides and templates to help you get started
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {quickStartGuides.map((guide, index) => (
-              <div key={index} className="elevate-card hover:shadow-xl transition-shadow">
+              <div
+                key={index}
+                className="elevate-card hover:shadow-xl transition-shadow"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FileText className="h-6 w-6 text-orange-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-2">{guide.title}</h3>
-                    <p className="text-sm text-gray-600 mb-3">{guide.description}</p>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      {guide.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      {guide.description}
+                    </p>
                     <button className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm">
                       <Download className="h-4 w-4" />
                       Download PDF
@@ -266,7 +304,6 @@ export default function ProgramHolderTrainingPage() {
           </div>
         </div>
       </section>
-
       {/* Support Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="elevate-container">
@@ -286,7 +323,10 @@ export default function ProgramHolderTrainingPage() {
                 <p className="text-sm text-gray-600 mb-3">
                   Comprehensive guides and FAQs
                 </p>
-                <Link href="/docs" className="text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                <Link
+                  href="/docs"
+                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                >
                   View Docs →
                 </Link>
               </div>
@@ -298,7 +338,10 @@ export default function ProgramHolderTrainingPage() {
                 <p className="text-sm text-gray-600 mb-3">
                   Chat with our support team
                 </p>
-                <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                <Link
+                  href="/contact"
+                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                >
                   Contact Us →
                 </Link>
               </div>
@@ -310,7 +353,10 @@ export default function ProgramHolderTrainingPage() {
                 <p className="text-sm text-gray-600 mb-3">
                   Join live training sessions
                 </p>
-                <Link href="/webinars" className="text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                <Link
+                  href="/webinars"
+                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                >
                   Schedule →
                 </Link>
               </div>
@@ -318,21 +364,25 @@ export default function ProgramHolderTrainingPage() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="elevate-container text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Get Started?
-          </h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Access your program holder dashboard to begin managing your training programs
+            Access your program holder dashboard to begin managing your training
+            programs
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/program-holder/dashboard" className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100">
+            <Link
+              href="/program-holder/dashboard"
+              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+            >
               Go to Dashboard
             </Link>
-            <Link href="/program-holder/apply" className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20">
+            <Link
+              href="/program-holder/apply"
+              className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20"
+            >
               Apply as Program Holder
             </Link>
           </div>

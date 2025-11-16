@@ -7,16 +7,19 @@ You now have a complete certificate management system with role-based access con
 ## ✨ Features
 
 ### Magic Link Authentication
+
 - **No passwords needed** - Users sign in via email link
 - Secure and user-friendly
 - Automatic redirect to intended page
 
 ### Role-Based Access
+
 - **Student** - View their own certificates
 - **Staff** - Issue certificates to students
 - **Admin** - Full system access
 
 ### Certificate Management
+
 - Issue certificates with verification codes
 - Upload PDF certificates
 - Public verification links
@@ -27,6 +30,7 @@ You now have a complete certificate management system with role-based access con
 ### 1. Run Database Migrations
 
 In Supabase SQL Editor, run these files:
+
 ```
 supabase/migrations/001_user_roles.sql
 supabase/migrations/002_certificates.sql
@@ -53,24 +57,27 @@ VALUES ('your-user-id-here', 'staff');
 
 ## 🎯 Key Routes
 
-| Route | Access | Purpose |
-|-------|--------|---------|
-| `/login` | Public | Magic link sign-in |
-| `/auth/callback` | Public | Magic link redirect handler |
-| `/my-certificates` | Authenticated | View your certificates |
-| `/staff` | Staff/Admin | Issue certificates |
-| `/verify/:code` | Public | Verify certificate authenticity |
-| `/not-authorized` | Public | Access denied page |
+| Route              | Access        | Purpose                         |
+| ------------------ | ------------- | ------------------------------- |
+| `/login`           | Public        | Magic link sign-in              |
+| `/auth/callback`   | Public        | Magic link redirect handler     |
+| `/my-certificates` | Authenticated | View your certificates          |
+| `/staff`           | Staff/Admin   | Issue certificates              |
+| `/verify/:code`    | Public        | Verify certificate authenticity |
+| `/not-authorized`  | Public        | Access denied page              |
 
 ## 👥 Role Assignment
 
 ### Quick (for testing)
+
 Supabase Console → Auth → Users → Edit user_metadata:
+
 ```json
-{"role": "staff"}
+{ "role": "staff" }
 ```
 
 ### Production (recommended)
+
 ```sql
 INSERT INTO public.user_roles (user_id, role)
 VALUES ('user-uuid', 'staff');
@@ -92,6 +99,7 @@ VALUES ('user-uuid', 'staff');
 Share the link: `https://yoursite.com/verify/ABC12345`
 
 Anyone can verify:
+
 - Certificate is authentic
 - Program name
 - Issue date
@@ -100,12 +108,14 @@ Anyone can verify:
 ## 🎨 UI Updates
 
 ### Navigation
+
 - Shows user role badge
 - "My Certificates" link for authenticated users
 - "Staff Panel" link for staff/admin
 - Sign out button
 
 ### Mobile-Friendly
+
 - All features work on mobile
 - Responsive design
 - Touch-friendly interface
@@ -113,6 +123,7 @@ Anyone can verify:
 ## 📚 Full Documentation
 
 See [AUTHENTICATION_SETUP.md](./AUTHENTICATION_SETUP.md) for:
+
 - Detailed setup instructions
 - Security considerations
 - Troubleshooting guide
@@ -121,16 +132,19 @@ See [AUTHENTICATION_SETUP.md](./AUTHENTICATION_SETUP.md) for:
 ## 🐛 Troubleshooting
 
 **Magic link not working?**
+
 - Check Supabase email settings
 - Verify site URL in Supabase config
 - Check spam folder
 
 **Can't access /staff?**
+
 - Verify role is assigned in database
 - Sign out and back in
 - Check browser console for errors
 
 **Certificate upload fails?**
+
 - Ensure `certificates` bucket exists
 - Verify bucket is public
 - Check file is valid PDF

@@ -31,10 +31,12 @@ One of these issues:
 ### Step 2: Check if Site Exists
 
 **If you see the site:**
+
 - Click on it
 - Go to **Step 3**
 
 **If you DON'T see the site:**
+
 - The site was deleted or you're in the wrong account
 - Go to **Step 7** (Create New Site)
 
@@ -45,14 +47,17 @@ Click on **Deploys** tab.
 **What do you see?**
 
 #### Option A: "No deploys yet"
+
 **Problem:** Site is not connected to GitHub  
 **Solution:** Go to **Step 4**
 
 #### Option B: Failed deploys (red X)
+
 **Problem:** Builds are failing  
 **Solution:** Go to **Step 5**
 
 #### Option C: Successful deploys (green checkmark)
+
 **Problem:** Something else is wrong  
 **Solution:** Go to **Step 6**
 
@@ -89,6 +94,7 @@ If builds are failing:
 #### Error: "Command not found: pnpm"
 
 **Fix:** Update build command:
+
 1. Go to **Site settings** → **Build & deploy** → **Build settings**
 2. Click **Edit settings**
 3. Change build command to:
@@ -101,6 +107,7 @@ If builds are failing:
 #### Error: "Module not found" or dependency errors
 
 **Fix:** Clear cache:
+
 1. Go to **Site settings** → **Build & deploy**
 2. Scroll to **Build image selection**
 3. Click **Clear cache and deploy site**
@@ -108,6 +115,7 @@ If builds are failing:
 #### Error: "Out of memory"
 
 **Fix:** Add environment variable:
+
 1. Go to **Site settings** → **Build & deploy** → **Environment**
 2. Click **Edit variables**
 3. Add:
@@ -143,6 +151,7 @@ If deploys show green checkmark but site returns 404:
 **If dist/ is not being created:**
 
 The build command might be wrong. Update it to:
+
 ```
 pnpm install && pnpm build
 ```
@@ -169,6 +178,7 @@ If the old site doesn't exist or is broken:
 10. Go to **Step 8**
 
 **To rename the site:**
+
 1. Go to **Site settings** → **General** → **Site details**
 2. Click **Change site name**
 3. Enter: `elevateforhumanityfix2` (or any available name)
@@ -196,6 +206,7 @@ curl -I https://elevateforhumanityfix2.netlify.app/programs/barber
 ```
 
 Or just visit in browser:
+
 - https://elevateforhumanityfix2.netlify.app
 
 You should see your React app, not a 404 page.
@@ -207,22 +218,24 @@ Once Netlify is working:
 **Option A: Full iframe embed**
 
 In Durable.co editor, add:
+
 ```html
-<iframe 
-  src="https://elevateforhumanityfix2.netlify.app" 
-  width="100%" 
-  height="800px" 
+<iframe
+  src="https://elevateforhumanityfix2.netlify.app"
+  width="100%"
+  height="800px"
   frameborder="0"
-  style="border: none; min-height: 100vh;">
+  style="border: none; min-height: 100vh;"
+>
 </iframe>
 ```
 
 **Option B: Link to Netlify app**
 
 In Durable.co, add a button/link:
+
 ```html
-<a href="https://elevateforhumanityfix2.netlify.app" 
-   class="btn btn-primary">
+<a href="https://elevateforhumanityfix2.netlify.app" class="btn btn-primary">
   Launch LMS
 </a>
 ```
@@ -230,6 +243,7 @@ In Durable.co, add a button/link:
 **Option C: Redirect specific pages**
 
 In Durable.co, redirect certain pages to Netlify:
+
 - `/lms` → `https://elevateforhumanityfix2.netlify.app/lms`
 - `/programs` → `https://elevateforhumanityfix2.netlify.app/programs`
 
@@ -246,10 +260,12 @@ curl -I https://elevateforhumanity.org/
 ```
 
 **Expected results:**
+
 - Netlify: `HTTP/2 200` ✅
 - Durable.co: `HTTP/2 200` ✅
 
 **Current results:**
+
 - Netlify: `HTTP/2 404` ❌ (This is the problem)
 - Durable.co: `HTTP/2 200` ✅
 
@@ -291,6 +307,7 @@ Then embed that URL in Durable.co instead.
 ## Summary
 
 **Your Setup Should Be:**
+
 ```
 ┌─────────────────────────────────────┐
 │ Durable.co (elevateforhumanity.org) │
@@ -310,11 +327,13 @@ Then embed that URL in Durable.co instead.
 ```
 
 **Current Problem:**
+
 - ❌ Netlify site returns 404
 - ❌ Nothing is deployed to Netlify
 - ✅ Durable.co works fine
 
 **Fix:**
+
 - Connect Netlify to GitHub
 - Ensure builds succeed
 - Verify site deploys

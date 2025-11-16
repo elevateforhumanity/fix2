@@ -6,12 +6,12 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
   spacing?: 'sm' | 'md' | 'lg';
 }
 
-export function Section({ 
-  children, 
-  background = 'white', 
+export function Section({
+  children,
+  background = 'white',
   spacing = 'md',
   className = '',
-  ...props 
+  ...props
 }: SectionProps) {
   const backgrounds = {
     white: 'bg-white',
@@ -26,13 +26,11 @@ export function Section({
   };
 
   return (
-    <section 
+    <section
       className={`${backgrounds[background]} ${spacings[spacing]} ${className}`}
       {...props}
     >
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        {children}
-      </div>
+      <div className="mx-auto max-w-7xl px-4 lg:px-6">{children}</div>
     </section>
   );
 }
@@ -44,20 +42,18 @@ interface SectionHeaderProps {
   className?: string;
 }
 
-export function SectionHeader({ 
-  title, 
-  subtitle, 
+export function SectionHeader({
+  title,
+  subtitle,
   align = 'left',
-  className = '' 
+  className = '',
 }: SectionHeaderProps) {
   const alignClass = align === 'center' ? 'text-center' : '';
 
   return (
     <div className={`${alignClass} ${className}`}>
       <h2 className="text-3xl font-bold text-slate-900">{title}</h2>
-      {subtitle && (
-        <p className="mt-2 text-lg text-slate-700">{subtitle}</p>
-      )}
+      {subtitle && <p className="mt-2 text-lg text-slate-700">{subtitle}</p>}
     </div>
   );
 }

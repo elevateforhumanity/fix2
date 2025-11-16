@@ -11,10 +11,12 @@ export async function GET(req: NextRequest) {
       // Get user's earned badges
       const { data, error } = await supabase
         .from('user_badges')
-        .select(`
+        .select(
+          `
           *,
           badge:badges(*)
-        `)
+        `
+        )
         .eq('user_id', userId)
         .order('earned_at', { ascending: false });
 
@@ -32,14 +34,19 @@ export async function GET(req: NextRequest) {
     }
   } catch (error) {
     console.error('Error fetching badges:', error);
-    return NextResponse.json({ error: 'Failed to fetch badges' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch badges' },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createServerSupabaseClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -89,6 +96,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ badge: data }, { status: 201 });
   } catch (error) {
     console.error('Error awarding badge:', error);
-    return NextResponse.json({ error: 'Failed to award badge' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to award badge' },
+      { status: 500 }
+    );
   }
 }

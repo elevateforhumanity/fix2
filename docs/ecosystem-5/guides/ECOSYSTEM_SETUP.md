@@ -13,9 +13,11 @@ This guide will help you set up your complete 97,000-file ecosystem in GitHub Co
 ### Option 1: Automatic Setup (Recommended)
 
 1. **Open in GitHub Codespaces**
+
    ```
    https://github.com/elevateforhumanity/new-ecosysstem
    ```
+
    Click "Code" → "Codespaces" → "Create codespace on main"
 
 2. **Wait for automatic setup**
@@ -32,11 +34,13 @@ This guide will help you set up your complete 97,000-file ecosystem in GitHub Co
 1. **Open terminal in Codespaces**
 
 2. **Navigate to workspaces**
+
    ```bash
    cd /workspaces
    ```
 
 3. **Clone additional repositories**
+
    ```bash
    # Replace these with your actual repository names
    git clone https://github.com/elevateforhumanity/hub-site
@@ -54,6 +58,7 @@ This guide will help you set up your complete 97,000-file ecosystem in GitHub Co
    ```
 
 4. **Install dependencies in each repository**
+
    ```bash
    for dir in */; do
      if [ -f "$dir/package.json" ]; then
@@ -95,12 +100,15 @@ After setup, your `/workspaces` directory should contain:
 ## 🔍 Verification
 
 ### Check file count
+
 ```bash
 find /workspaces -type f | wc -l
 ```
+
 **Expected**: ~97,000 files
 
 ### Check repository status
+
 ```bash
 for dir in /workspaces/*/; do
   if [ -d "$dir/.git" ]; then
@@ -110,6 +118,7 @@ done
 ```
 
 ### Start development servers
+
 ```bash
 # Main ecosystem
 cd /workspaces/new-ecosysstem && npm run dev
@@ -123,18 +132,22 @@ cd /workspaces/programs-platform && npm run dev
 ## 🚨 Troubleshooting
 
 ### Repository not found errors
+
 - **Cause**: Repository names in script don't match actual names
 - **Solution**: Update `setup-complete-ecosystem.sh` with correct names
 
 ### Permission denied errors
+
 - **Cause**: Private repositories or insufficient access
 - **Solution**: Ensure you have access to all repositories
 
 ### Missing dependencies
+
 - **Cause**: Node.js/npm not available
 - **Solution**: Rebuild Codespace or install manually
 
 ### Low file count
+
 - **Cause**: Missing repositories or node_modules not installed
 - **Solution**: Run `npm install` in each repository
 

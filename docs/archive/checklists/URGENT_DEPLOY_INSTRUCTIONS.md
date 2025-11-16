@@ -1,6 +1,7 @@
 # 🚨 URGENT: Deploy New Design System
 
 ## Current Situation
+
 - ✅ New design system code is in GitHub (commit 15a2e18b)
 - ❌ Netlify is showing OLD build (hasn't deployed new code)
 - ❌ GitHub Actions can't deploy without secrets
@@ -91,6 +92,7 @@ git push origin main
 ```
 
 **Step 4: Watch Deployment**
+
 - Go to: https://github.com/elevateforhumanity/fix2/actions
 - Click on the running workflow
 - Wait for "Deploy to Netlify" to complete (2-3 minutes)
@@ -133,6 +135,7 @@ After deploying, check these:
 ### "I triggered deploy but still see old site"
 
 **Clear your browser cache:**
+
 - **Chrome/Edge:** `Ctrl+Shift+Delete` → Clear cached images and files
 - **Firefox:** `Ctrl+Shift+Delete` → Cached Web Content
 - **Safari:** `Cmd+Option+E`
@@ -141,12 +144,14 @@ After deploying, check these:
 ### "Netlify build failed"
 
 **Check build logs:**
+
 1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 2. Click the failed deploy
 3. Click "Deploy log"
 4. Look for error messages
 
 **Common issues:**
+
 - Missing environment variables → Add to Netlify site settings
 - Build command error → Check `netlify.toml` configuration
 - Dependency issues → Check `package.json` and `pnpm-lock.yaml`
@@ -154,11 +159,13 @@ After deploying, check these:
 ### "GitHub Actions workflow not running"
 
 **Check workflow status:**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/actions
 2. Look for "Deploy to Netlify" workflow
 3. If not running, secrets are missing
 
 **Fix:**
+
 - Add required secrets (see Option 3 above)
 - Or use Option 1 (Netlify Dashboard) instead
 
@@ -167,6 +174,7 @@ After deploying, check these:
 ## 📊 What Changed
 
 **Commit 15a2e18b includes:**
+
 - ✅ Professional EFH design system (Tailwind + CSS variables)
 - ✅ New homepage with hero, trust metrics, program catalog
 - ✅ Tabbed program detail pages

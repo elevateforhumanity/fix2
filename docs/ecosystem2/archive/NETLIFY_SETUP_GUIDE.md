@@ -11,14 +11,17 @@ Your repository is now configured for automatic deployment with **1,000 URLs per
 Add these secrets to your GitHub repository (Settings → Secrets and variables → Actions):
 
 ### **1. Netlify Authentication**
+
 ```
 NETLIFY_AUTH_TOKEN
 ```
+
 - Go to Netlify → User settings → Applications → Personal access tokens
 - Create new token with full access
 - Copy the token value
 
 ### **2. Site IDs for Each Site**
+
 ```
 NETLIFY_SITE_ID_MARKETING    # For sites/marketing/ (primary site)
 NETLIFY_SITE_ID_PROGRAMS     # For sites/programs/ (if separate)
@@ -26,12 +29,15 @@ INDEXNOW_KEY                 # For instant search engine notifications
 ```
 
 **How to get Site IDs:**
+
 1. Create each site in Netlify (see setup below)
 2. Go to Site settings → Site information
 3. Copy the "Site ID" value
 
 ### **3. Ultra-Tiny Chunk Configuration**
+
 Your system is configured for **1,000 URLs per sitemap** instead of the industry standard 50,000:
+
 - ✅ **Faster Google crawling** (smaller files = faster processing)
 - ✅ **Month-based partitioning** (organized by date)
 - ✅ **Section organization** (marketing, programs, blog, employers, misc)
@@ -45,6 +51,7 @@ Your system is configured for **1,000 URLs per sitemap** instead of the industry
 Create **3 separate sites** in Netlify from the same GitHub repository:
 
 ### **Site 1: Marketing (Primary)**
+
 - **Site Name**: `elevate-marketing`
 - **Repository**: Your GitHub repo
 - **Base Directory**: `sites/marketing`
@@ -53,6 +60,7 @@ Create **3 separate sites** in Netlify from the same GitHub repository:
 - **Custom Domain**: `elevateforhumanity.org`
 
 ### **Site 2: Programs (Resources)**
+
 - **Site Name**: `elevate-programs`
 - **Repository**: Your GitHub repo
 - **Base Directory**: `sites/programs`
@@ -61,6 +69,7 @@ Create **3 separate sites** in Netlify from the same GitHub repository:
 - **Custom Domain**: `programs.elevateforhumanity.org`
 
 ### **Site 3: Blog (Future)**
+
 - **Site Name**: `elevate-blog`
 - **Repository**: Your GitHub repo
 - **Base Directory**: `sites/blog`
@@ -75,6 +84,7 @@ Create **3 separate sites** in Netlify from the same GitHub repository:
 The GitHub Action (`.github/workflows/auto-deploy.yml`) will:
 
 ### **On Every Push to Main:**
+
 1. ✅ **Generate Fresh Sitemaps** (marketing site only)
 2. ✅ **Verify Site Structure** (all sites)
 3. ✅ **Test Redirects** (marketing site)
@@ -84,6 +94,7 @@ The GitHub Action (`.github/workflows/auto-deploy.yml`) will:
 7. ✅ **Notify Status** (success/failure)
 
 ### **Features:**
+
 - **Parallel Deployment**: All 3 sites deploy simultaneously
 - **Auto-Sitemap Generation**: Fresh sitemaps on every deploy
 - **Redirect Verification**: Ensures all redirects work
@@ -142,6 +153,7 @@ For each site:
 ## 🔧 **Local Development Options**
 
 ### **Option 1: Auto-Push While Working**
+
 ```bash
 # Start auto-commit watcher
 ./scripts/autopush.sh auto/live "chore: development changes"
@@ -151,6 +163,7 @@ For each site:
 ```
 
 ### **Option 2: Manual Commits**
+
 ```bash
 # Make changes, then:
 git add -A
@@ -161,6 +174,7 @@ git push origin main
 ```
 
 ### **Option 3: Gitpod Auto-Deploy**
+
 - Open repo in Gitpod
 - Gitpod automatically reorganizes and pushes
 - GitHub Actions deploy automatically
@@ -170,16 +184,19 @@ git push origin main
 ## 📊 **Monitoring & Verification**
 
 ### **GitHub Actions Dashboard**
+
 - Monitor deployments in real-time
 - View logs for each site deployment
 - Get notifications on success/failure
 
 ### **Netlify Dashboard**
+
 - View deployment history for each site
 - Monitor site performance and analytics
 - Configure additional settings
 
 ### **Available Scripts**
+
 ```bash
 # Test redirects locally
 npm run verify:redirects:local
@@ -199,18 +216,21 @@ npm run crawl:prod
 ## 🎯 **Benefits of This Setup**
 
 ### **Performance**
+
 - ⚡ **Independent Scaling**: Each site scales separately
 - ⚡ **Faster Deploys**: Only changed sites rebuild
 - ⚡ **Global CDN**: Netlify's worldwide edge network
 - ⚡ **Optimized Caching**: Smart cache strategies per site
 
 ### **Reliability**
+
 - 🛡️ **Isolated Failures**: One site issue doesn't affect others
 - 🛡️ **Rollback Safety**: Easy to revert individual sites
 - 🛡️ **Redundancy**: Multiple deployment targets
 - 🛡️ **Health Checks**: Automated verification
 
 ### **Scalability**
+
 - 📈 **Unlimited Growth**: Add new sites easily
 - 📈 **Team Collaboration**: Different teams per site
 - 📈 **Feature Isolation**: Independent development
@@ -223,26 +243,31 @@ npm run crawl:prod
 ### **Common Issues**
 
 **Deployment Fails:**
+
 - Check GitHub secrets are set correctly
 - Verify Netlify site IDs match
 - Ensure base directories exist
 
 **Redirects Not Working:**
+
 - Check `_redirects` file syntax
 - Verify redirects in Netlify dashboard
 - Test with `npm run verify:redirects:prod`
 
 **Sitemaps Not Updating:**
+
 - Check if marketing site deployed successfully
 - Verify sitemap generation in GitHub Actions logs
 - Manually run `npm run crawl:prod`
 
 **Sites Not Accessible:**
+
 - Check DNS configuration
 - Verify SSL certificates
 - Check Netlify deployment status
 
 ### **Support Commands**
+
 ```bash
 # Check site structure
 ls -la sites/marketing/
@@ -274,4 +299,4 @@ Your multi-site deployment pipeline is now:
 
 ---
 
-*Generated by Ona's Autopilot System - Multi-site deployment ready*
+_Generated by Ona's Autopilot System - Multi-site deployment ready_

@@ -70,8 +70,7 @@ export default function PageManager() {
 
       if (error) throw error;
       setVersions(data || []);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   async function updatePageStatus(pageId: string, status: string) {
@@ -355,11 +354,45 @@ export default function PageManager() {
                   <div
                     className="p-6 overflow-auto"
                     style={{ maxHeight: '600px' }}
-                    dangerouslySetInnerHTML={{ 
+                    dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(selectedPage.html, {
-                        ALLOWED_TAGS: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'section', 'article', 'header', 'footer', 'nav', 'button'],
-                        ALLOWED_ATTR: ['class', 'id', 'href', 'src', 'alt', 'title', 'style', 'target', 'rel']
-                      })
+                        ALLOWED_TAGS: [
+                          'div',
+                          'span',
+                          'p',
+                          'h1',
+                          'h2',
+                          'h3',
+                          'h4',
+                          'h5',
+                          'h6',
+                          'a',
+                          'img',
+                          'ul',
+                          'ol',
+                          'li',
+                          'strong',
+                          'em',
+                          'br',
+                          'section',
+                          'article',
+                          'header',
+                          'footer',
+                          'nav',
+                          'button',
+                        ],
+                        ALLOWED_ATTR: [
+                          'class',
+                          'id',
+                          'href',
+                          'src',
+                          'alt',
+                          'title',
+                          'style',
+                          'target',
+                          'rel',
+                        ],
+                      }),
                     }}
                   />
                 </div>

@@ -5,6 +5,7 @@ External monitoring for the Elevate for Humanity preview environment.
 ## Setup
 
 1. Install Wrangler:
+
 ```bash
 npm i -D wrangler
 ```
@@ -14,6 +15,7 @@ npm i -D wrangler
    - Set `SLACK_WEBHOOK` to your Slack webhook URL (or remove for no alerts)
 
 3. Deploy:
+
 ```bash
 cd workers/monitor
 npx wrangler deploy
@@ -29,6 +31,7 @@ npx wrangler deploy
 ## Configuration
 
 Edit `wrangler.toml` to change:
+
 - Check frequency (crons)
 - Target URL
 - Alert destination

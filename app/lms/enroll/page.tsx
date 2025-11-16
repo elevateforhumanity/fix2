@@ -1,11 +1,17 @@
-"use client"
+'use client';
 
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, Clock, Users, Award } from 'lucide-react';
@@ -14,7 +20,8 @@ const availableCourses = [
   {
     id: 1,
     title: 'Barber Fundamentals',
-    description: 'Master the basics of barbering including cutting, styling, and customer service',
+    description:
+      'Master the basics of barbering including cutting, styling, and customer service',
     duration: '8 weeks',
     lessons: 12,
     students: 45,
@@ -24,7 +31,8 @@ const availableCourses = [
   {
     id: 2,
     title: 'CNA Certification Prep',
-    description: 'Complete preparation for Certified Nursing Assistant certification exam',
+    description:
+      'Complete preparation for Certified Nursing Assistant certification exam',
     duration: '6 weeks',
     lessons: 15,
     students: 67,
@@ -34,7 +42,8 @@ const availableCourses = [
   {
     id: 3,
     title: 'HVAC Fundamentals',
-    description: 'Learn heating, ventilation, and air conditioning system basics',
+    description:
+      'Learn heating, ventilation, and air conditioning system basics',
     duration: '10 weeks',
     lessons: 18,
     students: 32,
@@ -59,8 +68,8 @@ export default function EnrollPage() {
   };
 
   if (step === 2 && selectedCourse) {
-    const course = availableCourses.find(c => c.id === selectedCourse);
-    
+    const course = availableCourses.find((c) => c.id === selectedCourse);
+
     return (
       <div className="min-h-screen bg-background">
         <header className="border-b bg-card">
@@ -68,7 +77,6 @@ export default function EnrollPage() {
             <h1 className="text-3xl font-bold">Confirm Enrollment</h1>
           </div>
         </header>
-
         <main className="container mx-auto px-4 py-8 max-w-2xl">
           <Card>
             <CardHeader>
@@ -94,25 +102,29 @@ export default function EnrollPage() {
                   <span className="text-sm">{course?.lessons} lessons</span>
                 </div>
               </div>
-
               <div className="border-t pt-6">
                 <h3 className="font-semibold mb-4">Student Information</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Full Name</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Full Name
+                    </label>
                     <Input placeholder="Enter your full name" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Email</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Email
+                    </label>
                     <Input type="email" placeholder="your@email.com" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Phone Number</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Phone Number
+                    </label>
                     <Input type="tel" placeholder="(555) 123-4567" />
                   </div>
                 </div>
               </div>
-
               <div className="border-t pt-6">
                 <div className="bg-muted p-4 rounded-lg mb-4">
                   <h4 className="font-semibold mb-2">Enrollment Details</h4>
@@ -131,9 +143,12 @@ export default function EnrollPage() {
                     </li>
                   </ul>
                 </div>
-
                 <div className="flex gap-2">
-                  <Button variant="outline" onClick={() => setStep(1)} className="flex-1">
+                  <Button
+                    variant="outline"
+                    onClick={() => setStep(1)}
+                    className="flex-1"
+                  >
                     Back
                   </Button>
                   <Button onClick={handleConfirmEnrollment} className="flex-1">
@@ -165,7 +180,6 @@ export default function EnrollPage() {
           </div>
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {availableCourses.map((course) => (
@@ -193,7 +207,10 @@ export default function EnrollPage() {
                     Prerequisites: {course.prerequisites}
                   </div>
                 </div>
-                <Button className="w-full" onClick={() => handleEnroll(course.id)}>
+                <Button
+                  className="w-full"
+                  onClick={() => handleEnroll(course.id)}
+                >
                   Enroll Now
                 </Button>
               </CardContent>

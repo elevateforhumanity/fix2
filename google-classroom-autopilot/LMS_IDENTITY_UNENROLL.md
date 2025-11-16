@@ -10,6 +10,7 @@ This system provides two critical features for LMS → Google Classroom sync:
 ## Features
 
 ### Identity Mapping
+
 - CSV import for bulk identity mapping
 - Resolve LMS user IDs to Google emails during sync
 - Support for multiple LMS sources (Canvas, Moodle, Blackboard, etc.)
@@ -17,6 +18,7 @@ This system provides two critical features for LMS → Google Classroom sync:
 - Admin UI for easy management
 
 ### Auto-Unenroll
+
 - Master switch to enable/disable
 - Configurable grace period (days of inactivity)
 - Protected domains and emails
@@ -33,6 +35,7 @@ psql -d your_db -f google-classroom-autopilot/sql/03_lms_identity_and_unenroll.s
 ```
 
 This creates:
+
 - `lms_identity_map` - Identity mappings
 - `lms_identity_import` - CSV import staging
 - `lms_unenroll_policy` - Auto-unenroll configuration
@@ -44,6 +47,7 @@ This creates:
 **Option A: CLI Import**
 
 Create a CSV file with format:
+
 ```csv
 lms_source,lms_user_id,google_email,full_name
 canvas,user123,student@school.edu,John Doe
@@ -52,6 +56,7 @@ blackboard,789,bob@school.edu,Bob Johnson
 ```
 
 Import:
+
 ```bash
 cd google-classroom-autopilot
 npx tsx src/identity-import.ts path/to/identities.csv
@@ -100,7 +105,7 @@ npm run lms:sync
 Check audit logs for dry-run events:
 
 ```sql
-SELECT * FROM audit_logs 
+SELECT * FROM audit_logs
 WHERE event_type = 'dry_unenroll'
 ORDER BY created_at DESC
 LIMIT 10;
@@ -138,6 +143,7 @@ moodle,abc123,admin@school.edu,Bob Johnson
 ```
 
 **Fields**:
+
 - `lms_source`: LMS platform (canvas, moodle, blackboard, etc.)
 - `lms_user_id`: User ID from LMS
 - `google_email`: Google Workspace email
@@ -156,15 +162,15 @@ psql -d your_db -c "SELECT * FROM v_lms_identity_summary;"
 ### API Usage
 
 ```typescript
-import { 
-  importIdentityRecords, 
+import {
+  importIdentityRecords,
   applyIdentityImport,
-  getIdentitySummary 
+  getIdentitySummary,
 } from './identity-import';
 
 // Import records
 const records = [
-  { lms_source: 'canvas', lms_user_id: '123', google_email: 'user@school.edu' }
+  { lms_source: 'canvas', lms_user_id: '123', google_email: 'user@school.edu' },
 ];
 const { batchId } = await importIdentityRecords(records);
 
@@ -236,7 +242,7 @@ psql -d your_db -c "SELECT * FROM process_auto_unenroll();"
 
 ```sql
 -- View dry-run events
-SELECT 
+SELECT
   created_at,
   details->>'google_email' as email,
   details->>'lms_source' as source,
@@ -247,7 +253,7 @@ ORDER BY created_at DESC
 LIMIT 20;
 
 -- View actual unenroll events
-SELECT 
+SELECT
   created_at,
   details->>'google_email' as email,
   details->>'lms_source' as source,
@@ -268,6 +274,7 @@ SELECT * FROM v_protected_users;
 **Location**: `/admin/identity-mapping`
 
 **Features**:
+
 - Upload CSV files
 - View pending import batches
 - Apply batches with one click
@@ -279,6 +286,7 @@ SELECT * FROM v_protected_users;
 **Location**: `/admin/unenroll-policy`
 
 **Features**:
+
 - Toggle auto-unenroll on/off
 - Toggle dry-run mode
 - Set grace period (days)
@@ -315,6 +323,7 @@ After processing sync queue:
 ### Tables
 
 **lms_identity_map**
+
 ```sql
 id                BIGSERIAL PRIMARY KEY
 lms_source        TEXT NOT NULL
@@ -327,6 +336,7 @@ UNIQUE(lms_source, lms_user_id)
 ```
 
 **lms_identity_import**
+
 ```sql
 id                BIGSERIAL PRIMARY KEY
 lms_source        TEXT NOT NULL
@@ -340,6 +350,7 @@ applied_at        TIMESTAMPTZ
 ```
 
 **lms_unenroll_policy**
+
 ```sql
 id                    BIGSERIAL PRIMARY KEY
 auto_unenroll         BOOLEAN DEFAULT FALSE
@@ -370,6 +381,7 @@ updated_at            TIMESTAMPTZ
 ### Row Level Security (RLS)
 
 All tables have RLS enabled:
+
 - Service role: Full access
 - Admins: Read access to policies and mappings
 - Admins: Update access to policies
@@ -377,6 +389,7 @@ All tables have RLS enabled:
 ### Audit Trail
 
 All actions logged to `audit_logs`:
+
 - `identity_import_applied` - Import batch applied
 - `dry_unenroll` - Dry-run unenroll event
 - `auto_unenroll` - Actual unenroll event
@@ -404,6 +417,7 @@ All actions logged to `audit_logs`:
 ### Troubleshooting
 
 **Identity Resolution Fails**
+
 ```sql
 -- Check if mapping exists
 SELECT * FROM lms_identity_map
@@ -415,6 +429,7 @@ VALUES ('canvas', '12345', 'user@school.edu');
 ```
 
 **User Not Unenrolled**
+
 ```sql
 -- Check if protected
 SELECT is_protected_from_unenroll('user@school.edu');
@@ -428,6 +443,7 @@ SELECT * FROM lms_unenroll_policy;
 ```
 
 **Dry-Run Not Logging**
+
 ```sql
 -- Verify policy
 SELECT auto_unenroll, dry_run_mode FROM lms_unenroll_policy;
@@ -471,7 +487,7 @@ npm run lms:sync
 
 # 6. Review dry-run results
 psql -d your_db -c "
-SELECT 
+SELECT
   details->>'google_email' as email,
   details->>'days_inactive' as days
 FROM audit_logs
@@ -489,6 +505,7 @@ UPDATE lms_unenroll_policy SET dry_run_mode = FALSE;
 ## Support
 
 For issues or questions:
+
 1. Check audit logs for error details
 2. Review policy configuration
 3. Verify identity mappings exist

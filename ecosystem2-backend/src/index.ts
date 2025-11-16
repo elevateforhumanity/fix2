@@ -5,15 +5,19 @@ import dotenv from 'dotenv';
 import { createServer } from 'http';
 import path from 'path';
 
-import { 
-  errorHandler, 
-  notFoundHandler, 
-  handleUncaughtException, 
-  handleUnhandledRejection 
+import {
+  errorHandler,
+  notFoundHandler,
+  handleUncaughtException,
+  handleUnhandledRejection,
 } from './middleware/errorHandler';
 import { requestLogger } from './middleware/logger';
 import { rateLimiter } from './middleware/rateLimiter';
-import { securityHeaders, sanitizeInput, preventParameterPollution } from './middleware/security';
+import {
+  securityHeaders,
+  sanitizeInput,
+  preventParameterPollution,
+} from './middleware/security';
 import { initializeSocket } from './socket';
 
 handleUncaughtException();
@@ -38,10 +42,12 @@ const PORT = process.env.PORT || 3001;
 
 app.use(helmet());
 app.use(securityHeaders);
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    credentials: true,
+  })
+);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(sanitizeInput);

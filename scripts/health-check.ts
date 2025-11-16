@@ -40,7 +40,7 @@ class HealthCheckService {
    */
   async checkOpenLMS(): Promise<HealthStatus> {
     const startTime = Date.now();
-    
+
     try {
       const siteInfo = await this.openLms.getSiteInfo();
       const responseTime = Date.now() - startTime;
@@ -79,7 +79,7 @@ class HealthCheckService {
    */
   async checkSupabase(): Promise<HealthStatus> {
     const startTime = Date.now();
-    
+
     try {
       // Simple query to check database connectivity
       const { data, error } = await this.supabase
@@ -114,7 +114,7 @@ class HealthCheckService {
    */
   async checkFrontend(): Promise<HealthStatus> {
     const startTime = Date.now();
-    
+
     try {
       const response = await axios.get('https://elevateforhumanity.org', {
         timeout: 10000,
@@ -155,11 +155,14 @@ class HealthCheckService {
    */
   async checkAPI(): Promise<HealthStatus> {
     const startTime = Date.now();
-    
+
     try {
-      const response = await axios.get('https://api.elevateforhumanity.org/health', {
-        timeout: 5000,
-      });
+      const response = await axios.get(
+        'https://api.elevateforhumanity.org/health',
+        {
+          timeout: 5000,
+        }
+      );
 
       const responseTime = Date.now() - startTime;
 
@@ -190,8 +193,18 @@ class HealthCheckService {
       return;
     }
 
-    const emoji = status.status === 'healthy' ? '✅' : status.status === 'degraded' ? '⚠️' : '🚨';
-    const color = status.status === 'healthy' ? 'good' : status.status === 'degraded' ? 'warning' : 'danger';
+    const emoji =
+      status.status === 'healthy'
+        ? '✅'
+        : status.status === 'degraded'
+          ? '⚠️'
+          : '🚨';
+    const color =
+      status.status === 'healthy'
+        ? 'good'
+        : status.status === 'degraded'
+          ? 'warning'
+          : 'danger';
 
     try {
       await axios.post(this.slackWebhook, {
@@ -263,17 +276,24 @@ class HealthCheckService {
 
     // Display results
     results.forEach((status) => {
-      const emoji = status.status === 'healthy' ? '✅' : status.status === 'degraded' ? '⚠️' : '❌';
-      console.log(`${emoji} ${status.service}: ${status.status} (${status.responseTime}ms)`);
+      const emoji =
+        status.status === 'healthy'
+          ? '✅'
+          : status.status === 'degraded'
+            ? '⚠️'
+            : '❌';
+      console.log(
+        `${emoji} ${status.service}: ${status.status} (${status.responseTime}ms)`
+      );
       console.log(`   ${status.message}\n`);
     });
 
     // Send alerts for unhealthy services
     const unhealthyServices = results.filter((s) => s.status !== 'healthy');
-    
+
     if (unhealthyServices.length > 0) {
       console.log('⚠️  Unhealthy services detected, sending alerts...\n');
-      
+
       for (const status of unhealthyServices) {
         await this.sendAlert(status);
         await this.logStatus(status);
@@ -286,8 +306,8 @@ class HealthCheckService {
     const overallHealth = results.every((s) => s.status === 'healthy')
       ? 'healthy'
       : results.some((s) => s.status === 'down')
-      ? 'critical'
-      : 'degraded';
+        ? 'critical'
+        : 'degraded';
 
     console.log(`Overall System Health: ${overallHealth.toUpperCase()}`);
 

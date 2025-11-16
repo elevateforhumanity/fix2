@@ -171,14 +171,18 @@ describe('Event Broadcasting', () => {
   it('should broadcast events to multiple listeners', () => {
     const listeners: Array<(data: any) => void> = [];
     const broadcast = (data: any) => {
-      listeners.forEach(listener => listener(data));
+      listeners.forEach((listener) => listener(data));
     };
 
     let received1 = false;
     let received2 = false;
 
-    listeners.push(() => { received1 = true; });
-    listeners.push(() => { received2 = true; });
+    listeners.push(() => {
+      received1 = true;
+    });
+    listeners.push(() => {
+      received2 = true;
+    });
 
     broadcast({ message: 'test' });
 
@@ -188,7 +192,7 @@ describe('Event Broadcasting', () => {
 
   it('should handle event unsubscription', () => {
     const listeners: Array<(data: any) => void> = [];
-    
+
     const subscribe = (listener: (data: any) => void) => {
       listeners.push(listener);
       return () => {
@@ -198,23 +202,29 @@ describe('Event Broadcasting', () => {
     };
 
     let count = 0;
-    const unsubscribe = subscribe(() => { count++; });
+    const unsubscribe = subscribe(() => {
+      count++;
+    });
 
-    listeners.forEach(l => l({}));
+    listeners.forEach((l) => l({}));
     expect(count).toBe(1);
 
     unsubscribe();
-    listeners.forEach(l => l({}));
+    listeners.forEach((l) => l({}));
     expect(count).toBe(1); // Should not increment
   });
 });
 
 describe('Connection State Management', () => {
   it('should track connection state', () => {
-    type ConnectionState = 'disconnected' | 'connecting' | 'connected' | 'reconnecting';
-    
+    type ConnectionState =
+      | 'disconnected'
+      | 'connecting'
+      | 'connected'
+      | 'reconnecting';
+
     let state: ConnectionState = 'disconnected';
-    
+
     const setState = (newState: ConnectionState) => {
       state = newState;
     };

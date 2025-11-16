@@ -61,10 +61,7 @@
           "command": "wrangler --version"
         }
       ],
-      "success_criteria": [
-        "Wrangler CLI is installed",
-        "Version 3.x or higher"
-      ]
+      "success_criteria": ["Wrangler CLI is installed", "Version 3.x or higher"]
     },
     {
       "id": "vw_003",
@@ -255,10 +252,7 @@
     "VITE_TEMPLATE_SYNC_URL",
     "VITE_MEDIA_DOWNLOAD_URL"
   ],
-  "files_to_update": [
-    ".env",
-    "src/pages/staff/AIVideoBuilder.tsx"
-  ],
+  "files_to_update": [".env", "src/pages/staff/AIVideoBuilder.tsx"],
   "estimated_time": "15-20 minutes",
   "manual_steps_required": [
     "Create Cloudflare account (if needed)",

@@ -19,10 +19,12 @@ describe('Supabase API Integration', () => {
 
   it('should handle authentication flow', async () => {
     // Test sign up
-    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
-      email: `test-${Date.now()}@example.com`,
-      password: 'TestPassword123!',
-    });
+    const { data: signUpData, error: signUpError } = await supabase.auth.signUp(
+      {
+        email: `test-${Date.now()}@example.com`,
+        password: 'TestPassword123!',
+      }
+    );
 
     // Should either succeed or fail gracefully
     if (signUpError) {
@@ -44,10 +46,7 @@ describe('Supabase API Integration', () => {
 
   it('should fetch public data', async () => {
     // Test public table access (if available)
-    const { data, error } = await supabase
-      .from('courses')
-      .select('*')
-      .limit(1);
+    const { data, error } = await supabase.from('courses').select('*').limit(1);
 
     // Should either return data or error gracefully
     if (error) {
@@ -60,7 +59,10 @@ describe('Supabase API Integration', () => {
 
 describe('API Error Handling', () => {
   it('should handle network errors', async () => {
-    const invalidClient = createClient('https://invalid-url.supabase.co', 'invalid-key');
+    const invalidClient = createClient(
+      'https://invalid-url.supabase.co',
+      'invalid-key'
+    );
 
     const { error } = await invalidClient.auth.signInWithPassword({
       email: 'test@example.com',
@@ -84,7 +86,7 @@ describe('API Error Handling', () => {
     const results = await Promise.all(promises);
 
     // Should handle all requests without crashing
-    results.forEach(result => {
+    results.forEach((result) => {
       expect(result).toBeDefined();
     });
   });

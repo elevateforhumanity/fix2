@@ -45,7 +45,7 @@ Your enrollment programs are **100% ready to deploy**. I've created everything y
 
 6. **puppeteer-durable-integration.js**
    - Existing automation script (reference)
-   - Needs UI updates for current 
+   - Needs UI updates for current
 
 7. **.autopilot-config.json**
    - Your autopilot configuration
@@ -163,7 +163,7 @@ node autopilot-deploy.js
 
 All manual steps are documented in `MANUAL_TASKS_SCRIPT.md`:
 
-1. ✅ Login to 
+1. ✅ Login to
 2. ✅ Select website
 3. ✅ Navigate to homepage
 4. ✅ Add Custom HTML block
@@ -205,7 +205,7 @@ Each task includes:
 
 **Deployment is successful when:**
 
-- ✅ Login to  succeeds
+- ✅ Login to succeeds
 - ✅ Site editor loads
 - ✅ Custom HTML block is added
 - ✅ Enrollment code is pasted (all 150 lines)

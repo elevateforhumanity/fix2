@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 import { useEffect, useRef, useState } from 'react';
@@ -48,10 +48,12 @@ export default function CountersignMOUPage() {
       if (res.ok) {
         const data = await res.json();
         setPh(data);
-        
+
         // Load holder signature image if available
         if (data.mou_holder_sig_url) {
-          const sigRes = await fetch(`/api/admin/storage/signature?path=${data.mou_holder_sig_url}`);
+          const sigRes = await fetch(
+            `/api/admin/storage/signature?path=${data.mou_holder_sig_url}`
+          );
           if (sigRes.ok) {
             const blob = await sigRes.blob();
             setHolderSigUrl(URL.createObjectURL(blob));
@@ -82,30 +84,35 @@ export default function CountersignMOUPage() {
     const res = await fetch('/api/admin/program-holders/mou/countersign', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         programHolderId: ph.id,
-        name, 
-        signatureDataUrl: dataUrl 
-      })
+        name,
+        signatureDataUrl: dataUrl,
+      }),
     });
 
     if (res.ok) {
       setMessage('MOU countersigned successfully! Generating final PDF...');
       const updated = await res.json();
       setPh(updated);
-      
+
       // Generate final PDF
-      const pdfRes = await fetch('/api/admin/program-holders/mou/generate-pdf', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ programHolderId: ph.id })
-      });
+      const pdfRes = await fetch(
+        '/api/admin/program-holders/mou/generate-pdf',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ programHolderId: ph.id }),
+        }
+      );
 
       if (pdfRes.ok) {
         setMessage('MOU fully executed! PDF generated successfully.');
         setTimeout(() => router.push('/admin/program-holders'), 2000);
       } else {
-        setMessage('Signature saved but PDF generation failed. Please try generating PDF manually.');
+        setMessage(
+          'Signature saved but PDF generation failed. Please try generating PDF manually.'
+        );
       }
     } else {
       const txt = await res.text();
@@ -148,7 +155,8 @@ export default function CountersignMOUPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
-              This MOU has not been signed by the program holder yet. Current status: <strong>{ph.mou_status}</strong>
+              This MOU has not been signed by the program holder yet. Current
+              status: <strong>{ph.mou_status}</strong>
             </p>
             <Button onClick={() => router.push('/admin/program-holders')}>
               <ArrowLeft className="h-4 w-4 mr-2" />
@@ -163,7 +171,10 @@ export default function CountersignMOUPage() {
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-6">
       <div className="flex items-center gap-4">
-        <Button variant="outline" onClick={() => router.push('/admin/program-holders')}>
+        <Button
+          variant="outline"
+          onClick={() => router.push('/admin/program-holders')}
+        >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
@@ -172,7 +183,6 @@ export default function CountersignMOUPage() {
           <p className="text-muted-foreground">Program Holder: {ph.name}</p>
         </div>
       </div>
-
       <Card>
         <CardHeader>
           <CardTitle>Program Holder Signature</CardTitle>
@@ -186,22 +196,26 @@ export default function CountersignMOUPage() {
             <div>
               <p className="text-muted-foreground">Signed On</p>
               <p className="font-medium">
-                {ph.mou_holder_signed_at ? new Date(ph.mou_holder_signed_at).toLocaleString() : 'N/A'}
+                {ph.mou_holder_signed_at
+                  ? new Date(ph.mou_holder_signed_at).toLocaleString()
+                  : 'N/A'}
               </p>
             </div>
           </div>
-
           {holderSigUrl && (
             <div>
               <p className="text-sm text-muted-foreground mb-2">Signature</p>
               <div className="border rounded-lg p-4 bg-white inline-block">
-                <img src={holderSigUrl} alt="Program Holder Signature" className="max-h-32" />
+                <img
+                  src={holderSigUrl}
+                  alt="Program Holder Signature"
+                  className="max-h-32"
+                />
               </div>
             </div>
           )}
         </CardContent>
       </Card>
-
       <Card>
         <CardHeader>
           <CardTitle>MOU Agreement Summary</CardTitle>
@@ -215,42 +229,45 @@ export default function CountersignMOUPage() {
               </div>
               <div>
                 <p className="text-muted-foreground">Revenue Share</p>
-                <p className="font-medium">{Math.round((ph.payout_share || 0.333) * 100)}%</p>
+                <p className="font-medium">
+                  {Math.round((ph.payout_share || 0.333) * 100)}%
+                </p>
               </div>
             </div>
             <p className="text-muted-foreground">
-              This MOU establishes a partnership for workforce training programs with a standard 1/3 revenue share model.
+              This MOU establishes a partnership for workforce training programs
+              with a standard 1/3 revenue share model.
             </p>
           </div>
         </CardContent>
       </Card>
-
       <Card>
         <CardHeader>
           <CardTitle>Elevate for Humanity Countersignature</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="admin-name">Your Full Name (Elevate Representative)</Label>
+            <Label htmlFor="admin-name">
+              Your Full Name (Elevate Representative)
+            </Label>
             <Input
               id="admin-name"
               value={name}
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Type your full name"
               className="mt-1"
             />
           </div>
-
           <div>
             <Label>Draw Your Signature Below</Label>
             <div className="border rounded-lg bg-white mt-1">
               <SignatureCanvas
                 ref={sigRef}
                 penColor="black"
-                canvasProps={{ 
-                  width: 600, 
-                  height: 200, 
-                  className: 'w-full h-[200px]'
+                canvasProps={{
+                  width: 600,
+                  height: 200,
+                  className: 'w-full h-[200px]',
                 }}
               />
             </div>
@@ -264,7 +281,6 @@ export default function CountersignMOUPage() {
               Clear Signature
             </Button>
           </div>
-
           <Button
             type="button"
             onClick={countersign}
@@ -273,9 +289,10 @@ export default function CountersignMOUPage() {
           >
             Countersign & Generate Final PDF
           </Button>
-
           {message && (
-            <p className="text-sm text-center text-muted-foreground">{message}</p>
+            <p className="text-sm text-center text-muted-foreground">
+              {message}
+            </p>
           )}
         </CardContent>
       </Card>

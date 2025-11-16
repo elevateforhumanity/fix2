@@ -19,6 +19,7 @@ bash scripts/setup-env.sh
 ```
 
 This will:
+
 1. Prompt you for your Supabase keys
 2. Create `.env.local` automatically
 3. Validate the keys
@@ -27,6 +28,7 @@ This will:
 ### Option 2: Manual Setup
 
 1. **Copy the template**:
+
    ```bash
    cp .env.local.example .env.local
    ```
@@ -48,6 +50,7 @@ This will:
 ## 🔑 Where to Get Your Keys
 
 ### Step 1: Go to Supabase Dashboard
+
 Visit: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 
 ### Step 2: Copy Your Keys
@@ -65,6 +68,7 @@ You'll see two keys:
 ### Step 3: Use the Keys
 
 Run the setup script:
+
 ```bash
 bash scripts/setup-env.sh
 ```
@@ -117,21 +121,25 @@ npm run dev
 ## 🐛 Troubleshooting
 
 ### Error: "Invalid API key"
+
 - ✅ Make sure you copied the FULL key (very long string)
 - ✅ Check for extra spaces or line breaks
 - ✅ Verify you're using keys from the correct project
 
 ### Error: "Failed to fetch"
+
 - ✅ Check your internet connection
 - ✅ Verify the Supabase project is running
 - ✅ Confirm the project URL is correct
 
 ### Error: "Row Level Security policy violation"
+
 - ✅ Run the database migration: `supabase/migrations/000_CONSOLIDATED_SCHEMA.sql`
 - ✅ Check RLS policies are created
 - ✅ Verify user authentication is working
 
 ### Keys not loading
+
 - ✅ File must be named exactly `.env.local`
 - ✅ File must be in project root (not in subdirectory)
 - ✅ Restart dev server after creating file
@@ -142,19 +150,23 @@ npm run dev
 ## 🔐 Security Notes
 
 ### ⚠️ NEVER COMMIT THESE FILES:
+
 - `.env.local` (contains secrets)
 - `.env` (if you create it)
 
 ### ✅ SAFE TO COMMIT:
+
 - `.env.example` (template only)
 - `.env.local.example` (template only)
 
 ### 🔒 Service Role Key:
+
 - **NEVER** expose this in client-side code
 - Only use in API routes (server-side)
 - This key bypasses Row Level Security (RLS)
 
 ### 🌐 Anon/Public Key:
+
 - Safe to use in client-side code
 - Respects Row Level Security (RLS)
 - Used for authenticated user operations
@@ -164,16 +176,19 @@ npm run dev
 ## 📞 Still Need Help?
 
 ### Option 1: Use the Autopilot
+
 ```bash
 # Run the GitHub Actions workflow
 gh workflow run setup-supabase-keys.yml
 ```
 
 ### Option 2: Contact Support
+
 - **Phone**: (317) 314-3757
 - **Email**: support@elevate4humanityedu.org
 
 ### Option 3: Check Documentation
+
 - [QUICK_START.md](./QUICK_START.md)
 - [SUPABASE_SETUP_GUIDE.md](./SUPABASE_SETUP_GUIDE.md)
 - [AUTOPILOT_SUPABASE_SETUP.md](./AUTOPILOT_SUPABASE_SETUP.md)

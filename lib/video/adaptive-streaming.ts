@@ -34,14 +34,16 @@ export class AdaptiveStreamingManager {
 
     if (effectiveType === 'slow-2g' || effectiveType === '2g') {
       // Low quality for 2G
-      selectedQuality = this.availableQualities[this.availableQualities.length - 1];
+      selectedQuality =
+        this.availableQualities[this.availableQualities.length - 1];
     } else if (effectiveType === '3g') {
       // Medium quality for 3G
       const midIndex = Math.floor(this.availableQualities.length / 2);
       selectedQuality = this.availableQualities[midIndex];
     } else if (bandwidth < 2) {
       // Low quality for slow connections
-      selectedQuality = this.availableQualities[this.availableQualities.length - 1];
+      selectedQuality =
+        this.availableQualities[this.availableQualities.length - 1];
     } else if (bandwidth < 5) {
       // Medium quality
       const midIndex = Math.floor(this.availableQualities.length / 2);
@@ -66,7 +68,9 @@ export class AdaptiveStreamingManager {
   /**
    * Monitor network changes and adjust quality
    */
-  startNetworkMonitoring(callback: (quality: VideoQuality) => void): () => void {
+  startNetworkMonitoring(
+    callback: (quality: VideoQuality) => void
+  ): () => void {
     const connection = this.getNetworkInfo();
 
     const handleChange = async () => {
@@ -167,7 +171,11 @@ export function isMeteredConnection(): boolean {
   const connection = (navigator as any).connection;
   if (!connection) return false;
 
-  return connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g';
+  return (
+    connection.saveData ||
+    connection.effectiveType === 'slow-2g' ||
+    connection.effectiveType === '2g'
+  );
 }
 
 /**

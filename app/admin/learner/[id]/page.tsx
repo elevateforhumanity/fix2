@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 import { useEffect, useState } from 'react';
@@ -16,7 +16,11 @@ type NoteRow = {
   created_by_email: string;
 };
 
-export default function LearnerTimeline({ params }: { params: { id: string } }) {
+export default function LearnerTimeline({
+  params,
+}: {
+  params: { id: string };
+}) {
   const [learnerEmail, setLearnerEmail] = useState('');
   const [notes, setNotes] = useState<NoteRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,14 +30,18 @@ export default function LearnerTimeline({ params }: { params: { id: string } }) 
       setLoading(true);
       try {
         // Get learner info
-        const userRes = await fetch(`/api/admin/learner/info?user_id=${params.id}`);
+        const userRes = await fetch(
+          `/api/admin/learner/info?user_id=${params.id}`
+        );
         if (userRes.ok) {
           const userData = await userRes.json();
           setLearnerEmail(userData.email || 'Unknown');
         }
 
         // Get notes timeline
-        const notesRes = await fetch(`/api/admin/learner/notes?user_id=${params.id}`);
+        const notesRes = await fetch(
+          `/api/admin/learner/notes?user_id=${params.id}`
+        );
         if (notesRes.ok) {
           const notesData = await notesRes.json();
           setNotes(notesData || []);
@@ -63,7 +71,6 @@ export default function LearnerTimeline({ params }: { params: { id: string } }) 
             {learnerEmail || 'Loading...'}
           </p>
         </div>
-
         <Card>
           <CardHeader>
             <CardTitle>Case Management History</CardTitle>
@@ -80,9 +87,11 @@ export default function LearnerTimeline({ params }: { params: { id: string } }) 
             ) : (
               <div className="space-y-6">
                 {notes.map((n, i) => (
-                  <div key={i} className="relative pl-8 pb-6 border-l-2 border-gray-200 last:border-l-0 last:pb-0">
+                  <div
+                    key={i}
+                    className="relative pl-8 pb-6 border-l-2 border-gray-200 last:border-l-0 last:pb-0"
+                  >
                     <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-2 border-background" />
-                    
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" />
@@ -92,22 +101,24 @@ export default function LearnerTimeline({ params }: { params: { id: string } }) 
                         <span>•</span>
                         <span>{n.created_by_email}</span>
                       </div>
-
                       <div className="font-semibold">{n.course_title}</div>
-
                       {n.status && (
                         <div>
-                          <span className={`inline-block px-2 py-1 rounded text-xs ${
-                            n.status === 'On Track' ? 'bg-green-100 text-green-800' :
-                            n.status === 'Behind' ? 'bg-yellow-100 text-yellow-800' :
-                            n.status === 'Dropped' ? 'bg-red-100 text-red-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
+                          <span
+                            className={`inline-block px-2 py-1 rounded text-xs ${
+                              n.status === 'On Track'
+                                ? 'bg-green-100 text-green-800'
+                                : n.status === 'Behind'
+                                  ? 'bg-yellow-100 text-yellow-800'
+                                  : n.status === 'Dropped'
+                                    ? 'bg-red-100 text-red-800'
+                                    : 'bg-gray-100 text-gray-800'
+                            }`}
+                          >
                             Status: {n.status}
                           </span>
                         </div>
                       )}
-
                       {n.note && (
                         <div className="text-sm bg-secondary/50 rounded p-3">
                           {n.note}

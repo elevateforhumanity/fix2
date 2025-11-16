@@ -1,4 +1,5 @@
 # DURABLE DNS CONFIGURATION - CORRECTED
+
 **Issue Found:** CNAME pointing to wrong domain
 **Status:** ✅ Easy fix
 
@@ -7,6 +8,7 @@
 ## 🚨 CURRENT PROBLEM
 
 ### Your Current DNS:
+
 ```
 ✅ A      @    75.2.60.5                    (CORRECT)
 ❌ CNAME  www  elevateforhumanity.org       (WRONG!)
@@ -14,6 +16,7 @@
 ```
 
 ### What's Wrong:
+
 - CNAME for www points to `elevateforhumanity.org` (wrong domain)
 - Should point to `elevateproduction.netlify.app` (your Netlify site)
 
@@ -30,6 +33,7 @@
    - Click: Delete/Remove
 
 2. **Add correct CNAME:**
+
    ```
    Type: CNAME
    Name: www
@@ -57,12 +61,14 @@ CNAME   www     elevateproduction.netlify.app
 ### In Durable.co Dashboard:
 
 **Current (WRONG):**
+
 ```
 A      @    75.2.60.5                    ✅ Keep this
 CNAME  www  elevateforhumanity.org       ❌ Delete this
 ```
 
 **Correct (RIGHT):**
+
 ```
 A      @    75.2.60.5                    ✅ Keep this
 CNAME  www  elevateproduction.netlify.app ✅ Add this
@@ -75,6 +81,7 @@ CNAME  www  elevateproduction.netlify.app ✅ Add this
 ### 1. Delete Wrong CNAME:
 
 In your Durable DNS settings:
+
 - Find the row: `CNAME www elevateforhumanity.org`
 - Click the **Action** button (trash icon or delete)
 - Confirm deletion
@@ -82,6 +89,7 @@ In your Durable DNS settings:
 ### 2. Add Correct CNAME:
 
 Click **Add** button:
+
 ```
 Type: CNAME
 Name: www
@@ -94,6 +102,7 @@ Click **Save** or **Add Record**
 ### 3. Verify:
 
 Your DNS table should show:
+
 ```
 Type    Name    Content                         Priority    Action
 A       @       75.2.60.5                                   [Delete]
@@ -105,6 +114,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
 ## ⚠️ ABOUT THE AAAA RECORD
 
 ### Durable's Limitation:
+
 ```
 "You can't add AAAA record for root"
 ```
@@ -117,6 +127,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
 - Your site will work perfectly without it
 
 ### What This Means:
+
 - ✅ Your site will work fine
 - ✅ Most users use IPv4 anyway
 - ✅ Netlify handles both IPv4 and IPv6
@@ -160,6 +171,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
    - Click: "Verify"
 
 3. **Netlify Will Check:**
+
    ```
    ✅ DNS configured correctly
    ⏳ Provisioning SSL certificate...
@@ -180,6 +192,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
 ## 📊 CORRECT vs INCORRECT
 
 ### ❌ INCORRECT (What you have now):
+
 ```
 A      @    75.2.60.5                    ✅
 CNAME  www  elevateforhumanity.org       ❌ WRONG DOMAIN!
@@ -190,6 +203,7 @@ Result:
 ```
 
 ### ✅ CORRECT (What you need):
+
 ```
 A      @    75.2.60.5                    ✅
 CNAME  www  elevateproduction.netlify.app ✅ CORRECT!
@@ -204,6 +218,7 @@ Result:
 ## 🎯 WHY THIS MATTERS
 
 ### Current Problem:
+
 ```
 User types: www.elevateconnectsdirectory.org
 DNS says: Go to elevateforhumanity.org
@@ -211,6 +226,7 @@ User sees: Wrong site (or error)
 ```
 
 ### After Fix:
+
 ```
 User types: www.elevateconnectsdirectory.org
 DNS says: Go to elevateproduction.netlify.app
@@ -223,18 +239,21 @@ User sees: Your site ✅
 ## ✅ FINAL CHECKLIST
 
 ### In Durable.co:
+
 - [ ] Deleted CNAME: www → elevateforhumanity.org
 - [ ] Added CNAME: www → elevateproduction.netlify.app
 - [ ] Kept A record: @ → 75.2.60.5
 - [ ] Saved changes
 
 ### In Netlify:
+
 - [ ] Added custom domain: elevateconnectsdirectory.org
 - [ ] Verified DNS
 - [ ] SSL certificate provisioned
 - [ ] Domain shows as "Active"
 
 ### Testing:
+
 - [ ] Checked DNS propagation (dnschecker.org)
 - [ ] Visited https://www.elevateconnectsdirectory.org
 - [ ] Visited https://www.elevateconnectsdirectory.org
@@ -248,10 +267,11 @@ User sees: Your site ✅
 ### If www still doesn't work:
 
 1. **Clear DNS cache:**
+
    ```bash
    # On Mac/Linux
    sudo dscacheutil -flushcache
-   
+
    # On Windows
    ipconfig /flushdns
    ```
@@ -275,22 +295,26 @@ User sees: Your site ✅
 ## 📝 QUICK REFERENCE
 
 ### Correct DNS Records:
+
 ```
 A      @    75.2.60.5
 CNAME  www  elevateproduction.netlify.app
 ```
 
 ### Netlify Site:
+
 ```
 elevateproduction.netlify.app
 ```
 
 ### Your Domain:
+
 ```
 elevateconnectsdirectory.org
 ```
 
 ### DNS Checker:
+
 ```
 https://dnschecker.org
 ```
@@ -300,6 +324,7 @@ https://dnschecker.org
 ## 🎉 AFTER FIX
 
 ### What Will Work:
+
 ```
 ✅ https://www.elevateconnectsdirectory.org
 ✅ https://www.elevateconnectsdirectory.org
@@ -308,6 +333,7 @@ https://dnschecker.org
 ```
 
 ### All URLs will:
+
 - Point to your Netlify LMS
 - Have SSL (🔒)
 - Work correctly
@@ -319,8 +345,8 @@ https://dnschecker.org
 **Problem:** CNAME points to wrong domain  
 **Fix:** Change www CNAME to elevateproduction.netlify.app  
 **Time:** 2 minutes to fix + 10-60 minutes for DNS  
-**Result:** Everything works perfectly  
+**Result:** Everything works perfectly
 
 ---
 
-*Fix the CNAME and you're done!*
+_Fix the CNAME and you're done!_

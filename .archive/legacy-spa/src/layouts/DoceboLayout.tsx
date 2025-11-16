@@ -24,7 +24,9 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
+    >
       {/* Header - Docebo Style */}
       <header
         style={{
@@ -82,7 +84,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 Elevate for Humanity
               </span>
             </Link>
-
             {/* Desktop Navigation */}
             <nav
               className="desktop-nav"
@@ -169,7 +170,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 )
               )}
             </nav>
-
             {/* CTA Buttons */}
             <div
               className="desktop-nav"
@@ -185,7 +185,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 Apply Now
               </Link>
             </div>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -204,7 +203,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
             </button>
           </div>
         </div>
-
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div
@@ -217,7 +215,10 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
           >
             {navigation.map((item) =>
               'items' in item ? (
-                <div key={item.label} style={{ marginBottom: 'var(--space-2)' }}>
+                <div
+                  key={item.label}
+                  style={{ marginBottom: 'var(--space-2)' }}
+                >
                   <div
                     style={{
                       fontWeight: 600,
@@ -284,10 +285,8 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
           </div>
         )}
       </header>
-
       {/* Main Content */}
       <main style={{ flex: 1 }}>{children}</main>
-
       {/* Footer - Docebo Style */}
       <footer
         style={{
@@ -314,7 +313,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 Career & Technical training that elevates communities.
               </p>
             </div>
-
             {/* Programs */}
             <div>
               <h4 style={{ marginBottom: 'var(--space-2)', fontSize: '16px' }}>
@@ -359,7 +357,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 </li>
               </ul>
             </div>
-
             {/* Resources */}
             <div>
               <h4 style={{ marginBottom: 'var(--space-2)', fontSize: '16px' }}>
@@ -404,7 +401,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
                 </li>
               </ul>
             </div>
-
             {/* Contact */}
             <div>
               <h4 style={{ marginBottom: 'var(--space-2)', fontSize: '16px' }}>
@@ -441,7 +437,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
               </ul>
             </div>
           </div>
-
           {/* Bottom Bar */}
           <div
             style={{
@@ -483,7 +478,6 @@ export default function DoceboLayout({ children }: PropsWithChildren) {
           </div>
         </div>
       </footer>
-
       <style>{`
         @media (min-width: 768px) {
           .desktop-nav {

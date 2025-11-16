@@ -3,11 +3,47 @@
 import { Trophy, TrendingUp, Award } from 'lucide-react';
 
 const leaderboardData = [
-  { rank: 1, name: 'Sarah Martinez', points: 2850, courses: 3, avatar: 'SM', color: 'from-yellow-400 to-orange-500' },
-  { rank: 2, name: 'Marcus Johnson', points: 2640, courses: 2, avatar: 'MJ', color: 'from-gray-300 to-gray-400' },
-  { rank: 3, name: 'David Williams', points: 2420, courses: 2, avatar: 'DW', color: 'from-orange-400 to-orange-600' },
-  { rank: 4, name: 'You (John Doe)', points: 2180, courses: 2, avatar: 'J', color: 'from-blue-400 to-blue-600', isCurrentUser: true },
-  { rank: 5, name: 'Lisa Chen', points: 1950, courses: 1, avatar: 'LC', color: 'from-purple-400 to-purple-600' },
+  {
+    rank: 1,
+    name: 'Sarah Martinez',
+    points: 2850,
+    courses: 3,
+    avatar: 'SM',
+    color: 'from-yellow-400 to-orange-500',
+  },
+  {
+    rank: 2,
+    name: 'Marcus Johnson',
+    points: 2640,
+    courses: 2,
+    avatar: 'MJ',
+    color: 'from-gray-300 to-gray-400',
+  },
+  {
+    rank: 3,
+    name: 'David Williams',
+    points: 2420,
+    courses: 2,
+    avatar: 'DW',
+    color: 'from-orange-400 to-orange-600',
+  },
+  {
+    rank: 4,
+    name: 'You (John Doe)',
+    points: 2180,
+    courses: 2,
+    avatar: 'J',
+    color: 'from-blue-400 to-blue-600',
+    isCurrentUser: true,
+  },
+  {
+    rank: 5,
+    name: 'Lisa Chen',
+    points: 1950,
+    courses: 1,
+    avatar: 'LC',
+    color: 'from-purple-400 to-purple-600',
+  },
 ];
 
 export function Leaderboard() {
@@ -20,7 +56,6 @@ export function Leaderboard() {
         </div>
         <span className="elevate-pill elevate-pill--orange">This Month</span>
       </div>
-
       <div className="space-y-2">
         {leaderboardData.map((user) => (
           <div
@@ -34,7 +69,9 @@ export function Leaderboard() {
             {/* Rank */}
             <div className="flex-shrink-0 w-8 text-center">
               {user.rank <= 3 ? (
-                <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-sm`}>
+                <div
+                  className={`w-8 h-8 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-sm`}
+                >
                   {user.rank}
                 </div>
               ) : (
@@ -43,22 +80,23 @@ export function Leaderboard() {
                 </div>
               )}
             </div>
-
             {/* Avatar */}
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold flex-shrink-0`}>
+            <div
+              className={`w-10 h-10 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold flex-shrink-0`}
+            >
               {user.avatar}
             </div>
-
             {/* User Info */}
             <div className="flex-1 min-w-0">
-              <p className={`font-semibold text-sm ${user.isCurrentUser ? 'text-blue-900' : 'text-gray-900'}`}>
+              <p
+                className={`font-semibold text-sm ${user.isCurrentUser ? 'text-blue-900' : 'text-gray-900'}`}
+              >
                 {user.name}
               </p>
               <p className="text-xs text-gray-500">
                 {user.courses} courses completed
               </p>
             </div>
-
             {/* Points */}
             <div className="text-right">
               <div className="flex items-center gap-1 text-orange-600 font-bold">
@@ -70,7 +108,6 @@ export function Leaderboard() {
           </div>
         ))}
       </div>
-
       <div className="mt-6 pt-6 border-t border-gray-200">
         <div className="flex items-center justify-between text-sm">
           <span className="text-gray-600">Your Progress</span>

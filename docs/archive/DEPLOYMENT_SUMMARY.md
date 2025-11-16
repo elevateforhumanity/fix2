@@ -47,11 +47,13 @@
 #### New Pages
 
 **Program Holder:**
+
 - `/program-holder/mou` - Sign MOU
 - `/program-holder/dashboard` - Updated with MOU status
 - `/program-holder/apply` - Application form
 
 **Admin:**
+
 - `/admin/program-holders` - List with MOU status
 - `/admin/program-holders/[id]/countersign-mou` - Countersigning interface
 - `/admin/applications` - Review applications
@@ -59,12 +61,14 @@
 - `/admin/reports/caseload` - Caseload reports
 
 **Public:**
+
 - `/cert/verify/[serial]` - Certificate verification
 - `/privacy-policy` - Privacy policy page
 
 #### New API Endpoints
 
 **Program Holder:**
+
 - `POST /api/program-holder/apply` - Submit application
 - `GET /api/program-holder/me` - Get holder info
 - `POST /api/program-holder/mou/sign` - Sign MOU
@@ -72,6 +76,7 @@
 - `POST /api/program-holder/enroll-participant` - Enroll with MOU check
 
 **Admin:**
+
 - `GET /api/admin/program-holders` - List all holders
 - `GET /api/admin/program-holders/[id]` - Get single holder
 - `POST /api/admin/program-holders/mou/countersign` - Admin signature
@@ -79,12 +84,14 @@
 - `GET /api/admin/storage/signature` - Download signatures
 
 **Certificates:**
+
 - `POST /api/cert/issue` - Issue certificate
 - `POST /api/cert/bulk-issue` - Bulk issuance
 - `GET /api/cert/pdf` - Generate certificate PDF
 - `POST /api/cert/revoke` - Revoke certificate
 
 **Reports:**
+
 - `GET /api/reports/caseload` - Caseload data
 - `GET /api/reports/usage` - Usage statistics
 
@@ -212,6 +219,7 @@ supabase/migrations/20240114_mou_two_step_signing.sql
 ### Error Monitoring
 
 Watch for:
+
 - Signature upload failures
 - PDF generation errors
 - Email delivery failures
@@ -252,6 +260,7 @@ git push origin main --force
 ## Success Criteria
 
 Deployment is successful when:
+
 - ✅ All pages load without errors
 - ✅ MOU signing workflow completes
 - ✅ Admin countersigning works

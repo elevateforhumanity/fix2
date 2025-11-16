@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -21,7 +21,7 @@ export default function IssueCertificatePage() {
     certificateNumber: '',
     verificationCode: '',
   });
-  const [supabase] = useState(() => 
+  const [supabase] = useState(() =>
     createBrowserClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -53,7 +53,8 @@ export default function IssueCertificatePage() {
   const loadCompletedEnrollments = async (studentId: string) => {
     const { data } = await supabase
       .from('enrollments')
-      .select(`
+      .select(
+        `
         id,
         completed_at,
         courses (
@@ -64,7 +65,8 @@ export default function IssueCertificatePage() {
             name
           )
         )
-      `)
+      `
+      )
       .eq('student_id', studentId)
       .eq('status', 'completed')
       .not('completed_at', 'is', null);
@@ -116,32 +118,43 @@ export default function IssueCertificatePage() {
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href="/admin/certificates" className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href="/admin/certificates"
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Certificates
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Issue Certificate</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Issue Certificate
+            </h1>
             <p className="text-gray-600">
               Generate a certificate for a student who has completed a course
             </p>
           </div>
-
           {success && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <h3 className="font-bold text-green-900 mb-2">Certificate Issued Successfully!</h3>
+                  <h3 className="font-bold text-green-900 mb-2">
+                    Certificate Issued Successfully!
+                  </h3>
                   <div className="text-sm text-green-800 space-y-1">
-                    <p><strong>Certificate Number:</strong> {certificateData.certificateNumber}</p>
-                    <p><strong>Verification Code:</strong> {certificateData.verificationCode}</p>
+                    <p>
+                      <strong>Certificate Number:</strong>{' '}
+                      {certificateData.certificateNumber}
+                    </p>
+                    <p>
+                      <strong>Verification Code:</strong>{' '}
+                      {certificateData.verificationCode}
+                    </p>
                     <p className="mt-3">
-                      <Link 
+                      <Link
                         href={`/cert/verify/${certificateData.verificationCode}`}
                         target="_blank"
                         className="text-green-600 hover:text-green-700 underline"
@@ -154,19 +167,19 @@ export default function IssueCertificatePage() {
               </div>
             </div>
           )}
-
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
               <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
               <p className="text-red-700">{error}</p>
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="elevate-card">
             <div className="space-y-6">
               {/* Student Selection */}
               <div>
-                <label className="block text-sm font-medium mb-2">Select Student *</label>
+                <label className="block text-sm font-medium mb-2">
+                  Select Student *
+                </label>
                 <select
                   value={selectedStudent}
                   onChange={(e) => {
@@ -184,11 +197,12 @@ export default function IssueCertificatePage() {
                   ))}
                 </select>
               </div>
-
               {/* Enrollment Selection */}
               {selectedStudent && (
                 <div>
-                  <label className="block text-sm font-medium mb-2">Select Completed Course *</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Select Completed Course *
+                  </label>
                   {completedEnrollments.length > 0 ? (
                     <select
                       value={selectedEnrollment}
@@ -199,32 +213,51 @@ export default function IssueCertificatePage() {
                       <option value="">Choose a completed course...</option>
                       {completedEnrollments.map((enrollment) => (
                         <option key={enrollment.id} value={enrollment.id}>
-                          {Array.isArray(enrollment.courses) ? enrollment.courses[0]?.title : enrollment.courses?.title} - Completed {new Date(enrollment.completed_at).toLocaleDateString()}
+                          {Array.isArray(enrollment.courses)
+                            ? enrollment.courses[0]?.title
+                            : enrollment.courses?.title}{' '}
+                          - Completed{' '}
+                          {new Date(
+                            enrollment.completed_at
+                          ).toLocaleDateString()}
                         </option>
                       ))}
                     </select>
                   ) : (
                     <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600">
-                      This student has no completed courses eligible for certification.
+                      This student has no completed courses eligible for
+                      certification.
                     </div>
                   )}
                 </div>
               )}
-
               {/* Info Box */}
               <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <h3 className="font-bold text-blue-900 mb-2">Certificate Generation</h3>
+                <h3 className="font-bold text-blue-900 mb-2">
+                  Certificate Generation
+                </h3>
                 <ul className="text-sm text-blue-800 space-y-1">
-                  <li>• Certificate number will be auto-generated (format: ELEV-YYYY-XXXXXX)</li>
-                  <li>• Verification code will be created for public verification</li>
-                  <li>• Hours completed will be calculated from attendance logs</li>
-                  <li>• Student will receive email notification (if configured)</li>
+                  <li>
+                    • Certificate number will be auto-generated (format:
+                    ELEV-YYYY-XXXXXX)
+                  </li>
+                  <li>
+                    • Verification code will be created for public verification
+                  </li>
+                  <li>
+                    • Hours completed will be calculated from attendance logs
+                  </li>
+                  <li>
+                    • Student will receive email notification (if configured)
+                  </li>
                 </ul>
               </div>
-
               {/* Submit */}
               <div className="flex justify-end gap-3">
-                <Link href="/admin/certificates" className="elevate-btn-secondary">
+                <Link
+                  href="/admin/certificates"
+                  className="elevate-btn-secondary"
+                >
                   Cancel
                 </Link>
                 <button

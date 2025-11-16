@@ -1,6 +1,7 @@
 # 🤖 RUN AUTOPILOT WORKER - 1 Command
 
 ## This worker will automatically:
+
 1. ✅ Fetch your Vercel Organization ID
 2. ✅ Fetch your Vercel Project ID
 3. ✅ Set all 7 environment variables in Vercel
@@ -22,12 +23,15 @@ That's it! The worker will do everything automatically.
 ## 📊 What It Does:
 
 ### Step 1: Fetches Your Vercel Info
+
 - Gets your Organization/Team ID
 - Finds your fix2 project
 - Gets the Project ID
 
 ### Step 2: Configures Environment Variables
+
 Sets these 7 variables in Vercel:
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
@@ -37,10 +41,12 @@ Sets these 7 variables in Vercel:
 - `NODE_ENV`
 
 ### Step 3: Triggers Deployment
+
 - Automatically triggers a new Vercel deployment
 - Your site will be live in 2-3 minutes
 
 ### Step 4: Saves Configuration
+
 - Creates `.vercel-autopilot-config.json`
 - Shows you the IDs for GitHub Secrets (optional)
 
@@ -100,14 +106,17 @@ Your site should be live in 2-3 minutes!
 ## 🆘 If It Fails:
 
 **"Vercel API error: 401"**
+
 - Token is invalid or expired
 - Generate a new token at: [https://vercel.com/account/tokens](https://vercel.com/account/tokens)
 
 **"No projects found"**
+
 - Token doesn't have access to the project
 - Check you're logged into the correct Vercel account
 
 **"Failed to set environment variable"**
+
 - Token needs "Full Account" permissions
 - Regenerate token with correct scope
 

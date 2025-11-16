@@ -11,42 +11,42 @@ describe('LocalStorage Integration', () => {
 
   it('should store and retrieve data', () => {
     localStorage.setItem('test-key', 'test-value');
-    
+
     const value = localStorage.getItem('test-key');
-    
+
     expect(value).toBe('test-value');
   });
 
   it('should handle JSON data', () => {
     const data = { name: 'Test', value: 123 };
-    
+
     localStorage.setItem('test-json', JSON.stringify(data));
     const retrieved = JSON.parse(localStorage.getItem('test-json') || '{}');
-    
+
     expect(retrieved).toEqual(data);
   });
 
   it('should handle missing keys', () => {
     const value = localStorage.getItem('non-existent-key');
-    
+
     expect(value).toBeNull();
   });
 
   it('should remove items', () => {
     localStorage.setItem('test-key', 'test-value');
     localStorage.removeItem('test-key');
-    
+
     const value = localStorage.getItem('test-key');
-    
+
     expect(value).toBeNull();
   });
 
   it('should clear all items', () => {
     localStorage.setItem('key1', 'value1');
     localStorage.setItem('key2', 'value2');
-    
+
     localStorage.clear();
-    
+
     expect(localStorage.length).toBe(0);
   });
 
@@ -76,18 +76,18 @@ describe('SessionStorage Integration', () => {
 
   it('should store and retrieve session data', () => {
     sessionStorage.setItem('session-key', 'session-value');
-    
+
     const value = sessionStorage.getItem('session-key');
-    
+
     expect(value).toBe('session-value');
   });
 
   it('should handle session JSON data', () => {
     const data = { sessionId: '123', userId: '456' };
-    
+
     sessionStorage.setItem('session', JSON.stringify(data));
     const retrieved = JSON.parse(sessionStorage.getItem('session') || '{}');
-    
+
     expect(retrieved).toEqual(data);
   });
 });
@@ -95,7 +95,7 @@ describe('SessionStorage Integration', () => {
 describe('IndexedDB Integration', () => {
   it('should check IndexedDB availability', () => {
     const isAvailable = typeof indexedDB !== 'undefined';
-    
+
     expect(typeof isAvailable).toBe('boolean');
   });
 
@@ -128,7 +128,7 @@ describe('IndexedDB Integration', () => {
       const db = await openDB();
       expect(db.name).toBe(dbName);
       db.close();
-      
+
       // Clean up
       indexedDB.deleteDatabase(dbName);
     } catch (error) {
@@ -152,7 +152,8 @@ describe('Cookie Management', () => {
       for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        if (c.indexOf(nameEQ) === 0)
+          return c.substring(nameEQ.length, c.length);
       }
       return null;
     };
@@ -164,8 +165,9 @@ describe('Cookie Management', () => {
   });
 
   it('should handle cookie attributes', () => {
-    const cookieString = 'name=value; Path=/; Secure; HttpOnly; SameSite=Strict';
-    
+    const cookieString =
+      'name=value; Path=/; Secure; HttpOnly; SameSite=Strict';
+
     expect(cookieString).toContain('Secure');
     expect(cookieString).toContain('HttpOnly');
     expect(cookieString).toContain('SameSite=Strict');
@@ -176,10 +178,10 @@ describe('Storage Quota', () => {
   it('should check storage quota', async () => {
     if ('storage' in navigator && 'estimate' in navigator.storage) {
       const estimate = await navigator.storage.estimate();
-      
+
       expect(estimate.usage).toBeDefined();
       expect(estimate.quota).toBeDefined();
-      
+
       if (estimate.usage !== undefined && estimate.quota !== undefined) {
         expect(estimate.usage).toBeLessThanOrEqual(estimate.quota);
       }

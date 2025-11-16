@@ -1,6 +1,6 @@
 /**
  * Email Provider Webhook Handlers
- * 
+ *
  * Handles webhooks from email providers to update email event status:
  * - Resend
  * - Postmark
@@ -43,7 +43,10 @@ async function updateEmailEventStatus(
  * Resend Webhook Handler
  * https://resend.com/docs/dashboard/webhooks/event-types
  */
-export async function handleResendWebhook(payload: any, signature: string): Promise<boolean> {
+export async function handleResendWebhook(
+  payload: any,
+  signature: string
+): Promise<boolean> {
   // Verify webhook signature
   const webhookSecret = process.env.RESEND_WEBHOOK_SECRET;
   if (webhookSecret) {
@@ -131,7 +134,12 @@ export async function handlePostmarkWebhook(payload: any): Promise<boolean> {
       return true;
   }
 
-  return await updateEmailEventStatus(MessageID, status, errorMessage, errorCode);
+  return await updateEmailEventStatus(
+    MessageID,
+    status,
+    errorMessage,
+    errorCode
+  );
 }
 
 /**
@@ -140,8 +148,11 @@ export async function handlePostmarkWebhook(payload: any): Promise<boolean> {
  */
 export async function handleSESWebhook(payload: any): Promise<boolean> {
   // SNS sends notifications in a specific format
-  const message = typeof payload.Message === 'string' ? JSON.parse(payload.Message) : payload.Message;
-  
+  const message =
+    typeof payload.Message === 'string'
+      ? JSON.parse(payload.Message)
+      : payload.Message;
+
   const { eventType, mail, bounce, complaint, delivery, open, click } = message;
   const messageId = mail?.messageId;
 
@@ -185,7 +196,12 @@ export async function handleSESWebhook(payload: any): Promise<boolean> {
       return true;
   }
 
-  return await updateEmailEventStatus(messageId, status, errorMessage, errorCode);
+  return await updateEmailEventStatus(
+    messageId,
+    status,
+    errorMessage,
+    errorCode
+  );
 }
 
 /**
@@ -218,7 +234,9 @@ export async function handleEmailWebhook(
 
     return {
       success: result,
-      message: result ? 'Webhook processed successfully' : 'Failed to process webhook',
+      message: result
+        ? 'Webhook processed successfully'
+        : 'Failed to process webhook',
     };
   } catch (error: any) {
     console.error('Error processing webhook:', error);
@@ -272,17 +290,21 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const testPayload = process.argv[3];
 
   if (!provider || !testPayload) {
-    console.log('Usage: npx tsx src/email-webhooks.ts <provider> <json-payload>');
-    console.log('Example: npx tsx src/email-webhooks.ts resend \'{"type":"email.delivered","data":{"email_id":"123"}}\'');
+    console.log(
+      'Usage: npx tsx src/email-webhooks.ts <provider> <json-payload>'
+    );
+    console.log(
+      'Example: npx tsx src/email-webhooks.ts resend \'{"type":"email.delivered","data":{"email_id":"123"}}\''
+    );
     process.exit(1);
   }
 
   const payload = JSON.parse(testPayload);
   handleEmailWebhook(provider, payload)
-    .then(result => {
+    .then((result) => {
       console.log('Result:', result);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Error:', error);
       process.exit(1);
     });

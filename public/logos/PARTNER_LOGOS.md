@@ -3,6 +3,7 @@
 ## Required Partner Logos
 
 ### 1. Department of Workforce Development (DWD)
+
 **Filename**: `dwd.svg` or `dwd.png`
 **Source**: https://www.in.gov/dwd/
 **Contact**: Request official logo from DWD communications team
@@ -11,6 +12,7 @@
 ---
 
 ### 2. U.S. Department of Labor (DOL)
+
 **Filename**: `dol.svg` or `dol.png`
 **Source**: https://www.dol.gov/
 **Download**: https://www.dol.gov/general/aboutdol/logo
@@ -19,6 +21,7 @@
 ---
 
 ### 3. WorkOne Indiana
+
 **Filename**: `workone.svg` or `workone.png`
 **Source**: https://www.in.gov/dwd/workone/
 **Contact**: Request from WorkOne Indiana
@@ -27,6 +30,7 @@
 ---
 
 ### 4. EmployIndy
+
 **Filename**: `employindy.svg` or `employindy.png`
 **Source**: https://employindy.org/
 **Contact**: info@employindy.org
@@ -35,6 +39,7 @@
 ---
 
 ### 5. WIOA (Workforce Innovation and Opportunity Act)
+
 **Filename**: `wioa.svg` or `wioa.png`
 **Source**: Official WIOA branding
 **Note**: May need to create text-based logo
@@ -43,6 +48,7 @@
 ---
 
 ### 6. Indiana Department of Education
+
 **Filename**: `idoe.svg` or `idoe.png`
 **Source**: https://www.in.gov/doe/
 **Contact**: Request official logo
@@ -51,6 +57,7 @@
 ---
 
 ### 7. Goodwill Industries
+
 **Filename**: `goodwill.svg` or `goodwill.png`
 **Source**: https://www.goodwill.org/
 **Download**: https://www.goodwill.org/press-room/media-resources/
@@ -59,6 +66,7 @@
 ---
 
 ### 8. Ivy Tech Community College
+
 **Filename**: `ivytech.svg` or `ivytech.png`
 **Source**: https://www.ivytech.edu/
 **Contact**: Request from Ivy Tech marketing
@@ -85,11 +93,11 @@ Subject: Logo Request for Partnership Recognition
 
 Dear [Partner Name] Team,
 
-Elevate for Humanity is a workforce development platform that partners 
-with [Partner Name] to provide training programs for WIOA-eligible 
+Elevate for Humanity is a workforce development platform that partners
+with [Partner Name] to provide training programs for WIOA-eligible
 participants.
 
-We would like to feature your logo on our website to recognize our 
+We would like to feature your logo on our website to recognize our
 partnership. Could you please provide:
 
 1. Official logo file (SVG or high-resolution PNG)
@@ -120,6 +128,7 @@ Until official logos are received, you can:
 ## Logo Usage Guidelines
 
 **DO**:
+
 - Use official logos only
 - Maintain proper spacing
 - Follow partner brand guidelines
@@ -127,6 +136,7 @@ Until official logos are received, you can:
 - Keep logos at appropriate size
 
 **DON'T**:
+
 - Modify partner logos
 - Use low-resolution images
 - Stretch or distort logos
@@ -142,8 +152,8 @@ Once logos are obtained, place them in `public/logos/` and update:
 **File**: `components/TrustStrip.tsx` or similar component
 
 ```tsx
-<img 
-  src="/logos/dwd.svg" 
+<img
+  src="/logos/dwd.svg"
   alt="Department of Workforce Development"
   className="h-8 opacity-70 hover:opacity-100"
 />
@@ -156,6 +166,7 @@ Once logos are obtained, place them in `public/logos/` and update:
 ❌ **All partner logos missing**
 
 **Action Required**:
+
 1. Contact each partner for official logo
 2. Download logos with permission
 3. Place in `public/logos/` directory

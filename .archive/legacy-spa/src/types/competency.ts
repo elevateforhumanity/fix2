@@ -3,9 +3,23 @@
  * Moodle-inspired competency-based learning system
  */
 
-export type CompetencyStatus = 'not_started' | 'in_progress' | 'mastered' | 'expired';
-export type AssessmentMethod = 'observation' | 'test' | 'project' | 'portfolio' | 'demonstration';
-export type EvidenceType = 'video' | 'photo' | 'document' | 'supervisor_sign_off' | 'test_result';
+export type CompetencyStatus =
+  | 'not_started'
+  | 'in_progress'
+  | 'mastered'
+  | 'expired';
+export type AssessmentMethod =
+  | 'observation'
+  | 'test'
+  | 'project'
+  | 'portfolio'
+  | 'demonstration';
+export type EvidenceType =
+  | 'video'
+  | 'photo'
+  | 'document'
+  | 'supervisor_sign_off'
+  | 'test_result';
 
 export interface Competency {
   id: string;

@@ -21,10 +21,13 @@ export default function PartnersBand() {
 
   useEffect(() => {
     if (!HAS_API) return;
-    
+
     (async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_PUBLIC_API}/partners/logos`, { mode: 'cors' });
+        const res = await fetch(
+          `${import.meta.env.VITE_PUBLIC_API}/partners/logos`,
+          { mode: 'cors' }
+        );
         if (!res.ok) throw new Error('Bad status ' + res.status);
         const data = await res.json();
         if (Array.isArray(data) && data.length) {
@@ -46,7 +49,6 @@ export default function PartnersBand() {
         <p className="text-center text-sm font-medium text-slate-500 uppercase tracking-wide">
           Trusted by workforce and education partners
         </p>
-
         {showShimmer ? (
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-center gap-8">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -58,7 +60,10 @@ export default function PartnersBand() {
         ) : (
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-center gap-8 opacity-70">
             {logos.map((logo, i) => (
-              <div key={logo.alt + i} className="flex items-center justify-center">
+              <div
+                key={logo.alt + i}
+                className="flex items-center justify-center"
+              >
                 <img
                   src={logo.src}
                   alt={logo.alt}

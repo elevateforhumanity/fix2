@@ -66,6 +66,7 @@ After logging in, you'll see:
 ### For Teachers
 
 Your dashboard shows:
+
 - **Classes**: All your classes
 - **Assignments**: Pending grading
 - **Calendar**: Upcoming events
@@ -75,6 +76,7 @@ Your dashboard shows:
 ### For Students
 
 Your dashboard shows:
+
 - **Classes**: Enrolled courses
 - **Assignments**: Due soon
 - **Grades**: Recent scores
@@ -84,6 +86,7 @@ Your dashboard shows:
 ### For Administrators
 
 Your dashboard shows:
+
 - **Statistics**: User counts, storage usage
 - **Recent Activity**: Platform usage
 - **Alerts**: System notifications
@@ -258,10 +261,12 @@ Your dashboard shows:
 ## Mobile App
 
 Download our mobile apps:
+
 - **iOS**: App Store
 - **Android**: Google Play
 
 Features:
+
 - Full functionality
 - Offline mode
 - Push notifications

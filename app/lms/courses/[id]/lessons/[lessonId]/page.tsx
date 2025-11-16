@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,7 +6,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
-import { ArrowLeft, ArrowRight, CheckCircle, Clock, FileText, Video, BookOpen } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  FileText,
+  Video,
+  BookOpen,
+} from 'lucide-react';
 import AttendanceTracker from '@/components/lms/AttendanceTracker';
 import { VideoShell } from '@/components/VideoShell';
 
@@ -36,13 +44,16 @@ export default function LessonPage({ params }: Props) {
 
   const loadLesson = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       // Fetch lesson details
       const { data: lessonData } = await supabase
         .from('lessons')
-        .select(`
+        .select(
+          `
           id,
           title,
           description,
@@ -56,7 +67,8 @@ export default function LessonPage({ params }: Props) {
             title,
             course_id
           )
-        `)
+        `
+        )
         .eq('id', params.lessonId)
         .single();
 
@@ -66,7 +78,9 @@ export default function LessonPage({ params }: Props) {
       }
 
       // Type guard: Extract module from array
-      const module = Array.isArray(lessonData.modules) ? lessonData.modules[0] : lessonData.modules;
+      const module = Array.isArray(lessonData.modules)
+        ? lessonData.modules[0]
+        : lessonData.modules;
 
       setLesson(lessonData);
 
@@ -87,8 +101,15 @@ export default function LessonPage({ params }: Props) {
         .eq('module_id', module?.id)
         .order('order_index', { ascending: true });
 
-      const currentIndex = allLessons?.findIndex(l => l.id === parseInt(params.lessonId));
-      if (currentIndex !== undefined && currentIndex !== -1 && allLessons && currentIndex < allLessons.length - 1) {
+      const currentIndex = allLessons?.findIndex(
+        (l) => l.id === parseInt(params.lessonId)
+      );
+      if (
+        currentIndex !== undefined &&
+        currentIndex !== -1 &&
+        allLessons &&
+        currentIndex < allLessons.length - 1
+      ) {
         setNextLesson(allLessons[currentIndex + 1]);
       }
 
@@ -101,11 +122,15 @@ export default function LessonPage({ params }: Props) {
 
   const markComplete = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const now = new Date();
-      const timeSpent = Math.round((now.getTime() - startTime.getTime()) / 60000);
+      const timeSpent = Math.round(
+        (now.getTime() - startTime.getTime()) / 60000
+      );
 
       if (progress) {
         // Update existing progress
@@ -119,15 +144,13 @@ export default function LessonPage({ params }: Props) {
           .eq('id', progress.id);
       } else {
         // Create new progress
-        await supabase
-          .from('lesson_progress')
-          .insert({
-            student_id: user.id,
-            lesson_id: parseInt(params.lessonId),
-            completed: true,
-            completed_at: now.toISOString(),
-            time_spent_minutes: timeSpent,
-          });
+        await supabase.from('lesson_progress').insert({
+          student_id: user.id,
+          lesson_id: parseInt(params.lessonId),
+          completed: true,
+          completed_at: now.toISOString(),
+          time_spent_minutes: timeSpent,
+        });
       }
 
       // Update enrollment progress
@@ -155,7 +178,7 @@ export default function LessonPage({ params }: Props) {
         .select('id')
         .eq('course_id', params.id);
 
-      const moduleIds = modules?.map(m => m.id) || [];
+      const moduleIds = modules?.map((m) => m.id) || [];
 
       const { data: allLessons } = await supabase
         .from('lessons')
@@ -165,7 +188,7 @@ export default function LessonPage({ params }: Props) {
       const totalLessons = allLessons?.length || 0;
 
       // Get completed lessons
-      const lessonIds = allLessons?.map(l => l.id) || [];
+      const lessonIds = allLessons?.map((l) => l.id) || [];
       const { data: completedProgress } = await supabase
         .from('lesson_progress')
         .select('id')
@@ -174,7 +197,10 @@ export default function LessonPage({ params }: Props) {
         .eq('completed', true);
 
       const completedCount = completedProgress?.length || 0;
-      const progressPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+      const progressPercent =
+        totalLessons > 0
+          ? Math.round((completedCount / totalLessons) * 100)
+          : 0;
 
       // Update enrollment
       await supabase
@@ -182,7 +208,6 @@ export default function LessonPage({ params }: Props) {
         .update({ progress: progressPercent })
         .eq('student_id', userId)
         .eq('course_id', params.id);
-
     } catch (error) {
       console.error('Error updating enrollment progress:', error);
     }
@@ -192,7 +217,7 @@ export default function LessonPage({ params }: Props) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading lesson...</p>
         </div>
       </div>
@@ -203,8 +228,13 @@ export default function LessonPage({ params }: Props) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Lesson Not Found</h1>
-          <Link href={`/lms/courses/${params.id}`} className="text-red-600 hover:text-red-700">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            Lesson Not Found
+          </h1>
+          <Link
+            href={`/lms/courses/${params.id}`}
+            className="text-red-600 hover:text-red-700"
+          >
             Back to Course
           </Link>
         </div>
@@ -226,19 +256,20 @@ export default function LessonPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
       <AttendanceTracker courseId={parseInt(params.id)} activityType="lesson" />
-      
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href={`/lms/courses/${params.id}`} className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href={`/lms/courses/${params.id}`}
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Course
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-4xl mx-auto">
           {/* Lesson Header */}
@@ -261,13 +292,14 @@ export default function LessonPage({ params }: Props) {
                     </span>
                   )}
                 </div>
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{lesson.title}</h1>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  {lesson.title}
+                </h1>
                 {lesson.description && (
                   <p className="text-gray-600">{lesson.description}</p>
                 )}
               </div>
             </div>
-
             <div className="flex items-center gap-6 text-sm text-gray-500 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-2">
                 {getContentIcon()}
@@ -285,7 +317,6 @@ export default function LessonPage({ params }: Props) {
               )}
             </div>
           </div>
-
           {/* Lesson Content */}
           <div className="elevate-card mb-6">
             <div className="prose max-w-none">
@@ -306,14 +337,15 @@ export default function LessonPage({ params }: Props) {
                   />
                 </div>
               )}
-
               {lesson.content_type === 'document' && lesson.content && (
                 <div className="p-6 bg-gray-50 rounded-lg mb-6">
                   <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-center text-gray-600 mb-4">Document content</p>
-                  <a 
-                    href={lesson.content} 
-                    target="_blank" 
+                  <p className="text-center text-gray-600 mb-4">
+                    Document content
+                  </p>
+                  <a
+                    href={lesson.content}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="elevate-btn-primary mx-auto block w-fit"
                   >
@@ -321,33 +353,31 @@ export default function LessonPage({ params }: Props) {
                   </a>
                 </div>
               )}
-
               {lesson.content_type === 'text' && lesson.content && (
-                <div 
+                <div
                   className="lesson-content"
                   dangerouslySetInnerHTML={{ __html: lesson.content }}
                 />
               )}
-
               {!lesson.content && (
                 <div className="text-center py-12">
                   <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Lesson content is being prepared.</p>
+                  <p className="text-gray-600">
+                    Lesson content is being prepared.
+                  </p>
                 </div>
               )}
             </div>
           </div>
-
           {/* Navigation */}
           <div className="flex items-center justify-between">
-            <Link 
+            <Link
               href={`/lms/courses/${params.id}`}
               className="elevate-btn-secondary flex items-center gap-2"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Course
             </Link>
-
             {!progress?.completed ? (
               <button
                 onClick={markComplete}

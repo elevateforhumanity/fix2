@@ -1,6 +1,12 @@
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import seeds from '@/seeds/elevate/elevate.json';
 
@@ -15,7 +21,6 @@ export default function ProgramPitchesPage() {
           Ready-to-use program descriptions for marketing and sales
         </p>
       </div>
-
       <div className="grid md:grid-cols-2 gap-6">
         {Object.entries(programs).map(([key, program]) => (
           <Card key={key}>

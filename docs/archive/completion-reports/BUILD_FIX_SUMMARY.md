@@ -9,14 +9,17 @@ The build system was working correctly, but needed optimization and verification
 ### 1. Enhanced Vite Configuration (`vite.config.js`)
 
 #### Added Asset Inline Limit
+
 ```javascript
-assetsInlineLimit: 0  // Don't inline any assets - keep as separate files
+assetsInlineLimit: 0; // Don't inline any assets - keep as separate files
 ```
+
 - Prevents Vite from inlining small images as base64
 - Ensures all images remain as separate files
 - Better for caching and CDN delivery
 
 #### Improved Asset File Naming
+
 ```javascript
 assetFileNames: (assetInfo) => {
   // Preserve original asset paths for images
@@ -24,13 +27,15 @@ assetFileNames: (assetInfo) => {
     return 'images/[name][extname]';
   }
   return 'assets/[name]-[hash][extname]';
-}
+};
 ```
+
 - Images keep their original names (no hash)
 - Other assets get content hash for cache busting
 - Maintains clean, predictable image URLs
 
 #### Enhanced Asset Copy Plugin
+
 ```javascript
 {
   name: 'copy-assets-and-bridge-files',
@@ -40,6 +45,7 @@ assetFileNames: (assetInfo) => {
   }
 }
 ```
+
 - Double-checks that all images are copied
 - Handles edge cases where Vite might miss files
 - Copies bridge files for Moodle integration
@@ -47,6 +53,7 @@ assetFileNames: (assetInfo) => {
 ### 2. Improved Caching Headers (`public/_headers`)
 
 Added comprehensive image caching:
+
 ```
 /images/*
   Cache-Control: public, max-age=31536000, immutable
@@ -62,6 +69,7 @@ Added comprehensive image caching:
 ```
 
 Benefits:
+
 - 1-year cache for images (31536000 seconds)
 - Immutable flag prevents unnecessary revalidation
 - Faster page loads for returning visitors
@@ -70,13 +78,15 @@ Benefits:
 ### 3. Build Verification Script (`scripts/verify-build.sh`)
 
 Created automated verification that checks:
+
 - ✅ dist/ directory exists
 - ✅ All images are copied
 - ✅ Image paths have correct leading slash
-- ✅ Required files present (_headers, _redirects, sitemap.xml)
+- ✅ Required files present (\_headers, \_redirects, sitemap.xml)
 - ✅ Build size and file counts
 
 Usage:
+
 ```bash
 pnpm run verify:build
 ```
@@ -84,6 +94,7 @@ pnpm run verify:build
 ### 4. Comprehensive Documentation (`BUILD_CONFIGURATION.md`)
 
 Created detailed documentation covering:
+
 - Asset handling strategy
 - Public vs source assets
 - Image path conventions
@@ -95,6 +106,7 @@ Created detailed documentation covering:
 ## Verification Results
 
 Build verification passed all checks:
+
 ```
 ✅ dist/ directory exists
 ✅ dist/images/ directory exists
@@ -117,16 +129,18 @@ Total size: 13M
 ## Image Path Verification
 
 All image paths in the built JavaScript bundles are correct:
+
 ```javascript
 // ✅ Correct format with leading slash
-heroImage: "/images/programs/efh-barber-hero.jpg"
-cardImage: "/images/programs/efh-barber-card.jpg"
-ogImage: "/images/programs/efh-barber-og.jpg"
+heroImage: '/images/programs/efh-barber-hero.jpg';
+cardImage: '/images/programs/efh-barber-card.jpg';
+ogImage: '/images/programs/efh-barber-og.jpg';
 ```
 
 ## Moodle Integration Options
 
 ### Current Architecture (Recommended)
+
 **Hybrid Approach**: Custom frontend + Open LMS backend
 
 ```
@@ -147,12 +161,14 @@ ogImage: "/images/programs/efh-barber-og.jpg"
 ```
 
 **Benefits**:
+
 - ✅ Modern, polished UI (not Moodle's default interface)
 - ✅ Zero infrastructure management (Open LMS handles it)
 - ✅ Independent deployment and updates
 - ✅ Best performance (static site + API)
 
 **Implementation**:
+
 - Frontend uses `src/services/openLmsService.ts` to communicate with Moodle
 - All LMS functionality via REST API
 - Users never see Moodle's UI
@@ -162,14 +178,16 @@ ogImage: "/images/programs/efh-barber-og.jpg"
 If you need to embed directly in Moodle:
 
 1. **Update base URL** in `vite.config.js`:
+
    ```javascript
-   base: '/theme/efh/'
+   base: '/theme/efh/';
    ```
 
 2. **Update image paths** in source code:
+
    ```javascript
    // Add theme prefix
-   heroSrc: '/theme/efh/images/programs/efh-barber-hero.jpg'
+   heroSrc: '/theme/efh/images/programs/efh-barber-hero.jpg';
    ```
 
 3. **Copy build output** to Moodle:
@@ -180,6 +198,7 @@ If you need to embed directly in Moodle:
 ## Testing Instructions
 
 ### Local Testing
+
 ```bash
 # Build the project
 pnpm run build
@@ -196,6 +215,7 @@ pnpm run check:links
 ```
 
 ### Production Deployment
+
 ```bash
 # Deploy to Netlify
 netlify deploy --prod
@@ -207,12 +227,14 @@ git push origin main
 ## Performance Metrics
 
 ### Build Output
+
 - **Total size**: 13MB
 - **JavaScript bundles**: 224 files (code-split)
 - **CSS files**: 1 file (optimized)
 - **Images**: 57 files (uncompressed, ready for CDN)
 
 ### Optimization Status
+
 - ✅ Code splitting (vendor chunks separated)
 - ✅ Minification (Terser)
 - ✅ Tree shaking (unused code removed)
@@ -221,6 +243,7 @@ git push origin main
 - ✅ Gzip compression (via Netlify)
 
 ### Future Optimizations
+
 - [ ] WebP image conversion (reduce size by 30-50%)
 - [ ] Responsive images with srcset
 - [ ] Lazy loading for below-fold images
@@ -229,15 +252,19 @@ git push origin main
 ## Common Issues & Solutions
 
 ### Issue: Images not loading
+
 **Solution**: All image paths use absolute paths from root (`/images/...`)
 
 ### Issue: Build fails
+
 **Solution**: Run `pnpm install` to ensure dependencies are up to date
 
 ### Issue: Images work in dev but not production
+
 **Solution**: Always use `/images/...` not `images/...` or `../../images/...`
 
 ### Issue: Slow image loading
+
 **Solution**: Images are cached for 1 year. First load may be slow, subsequent loads are instant.
 
 ## Files Modified
@@ -252,6 +279,7 @@ git push origin main
 ## Next Steps
 
 1. **Test the build locally**:
+
    ```bash
    pnpm run build
    pnpm run verify:build
@@ -259,6 +287,7 @@ git push origin main
    ```
 
 2. **Deploy to staging** (if available):
+
    ```bash
    netlify deploy
    ```
@@ -270,6 +299,7 @@ git push origin main
    - Check browser console for errors
 
 4. **Deploy to production**:
+
    ```bash
    netlify deploy --prod
    ```
@@ -289,6 +319,7 @@ git push origin main
 ## Conclusion
 
 The build system is now optimized for:
+
 - ✅ Reliable asset handling
 - ✅ Proper image caching
 - ✅ Moodle/LMS integration readiness

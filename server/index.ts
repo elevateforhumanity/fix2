@@ -19,12 +19,15 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
-  
+
   next();
 });
 
@@ -44,19 +47,26 @@ app.get('/', (req, res) => {
       status: 'GET /api/video/status/:jobId',
       download: 'GET /api/video/download/:jobId',
       list: 'GET /api/video/videos',
-      delete: 'DELETE /api/video/videos/:jobId'
-    }
+      delete: 'DELETE /api/video/videos/:jobId',
+    },
   });
 });
 
 // Error handling
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error('Server error:', err);
-  res.status(500).json({
-    error: 'Internal server error',
-    message: err.message
-  });
-});
+app.use(
+  (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+  ) => {
+    console.error('Server error:', err);
+    res.status(500).json({
+      error: 'Internal server error',
+      message: err.message,
+    });
+  }
+);
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {

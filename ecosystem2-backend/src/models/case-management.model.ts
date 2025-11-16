@@ -2,31 +2,31 @@ export interface CaseManagementRecord {
   id: string;
   userId: string;
   caseManagerId: string;
-  
+
   assignedDate: Date;
   caseStatus: 'active' | 'inactive' | 'closed' | 'transferred';
   priority: 'low' | 'medium' | 'high' | 'urgent';
-  
+
   intakeDate: Date;
   intakeNotes?: string;
   assessmentCompleted: boolean;
   assessmentDate?: Date;
-  
+
   contactFrequency: 'weekly' | 'biweekly' | 'monthly';
   lastContactDate?: Date;
   nextContactDate?: Date;
-  
+
   notes: CaseNote[];
   activities: CaseActivity[];
   referrals: Referral[];
-  
+
   barriers: string[];
   accommodations: string[];
-  
+
   exitDate?: Date;
   exitReason?: string;
   exitNotes?: string;
-  
+
   createdAt: Date;
   updatedAt: Date;
 }

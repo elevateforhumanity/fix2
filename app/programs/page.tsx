@@ -1,6 +1,6 @@
 // app/programs/page.tsx
-import Link from "next/link";
-import { createServerSupabaseClient } from "@/lib/auth";
+import Link from 'next/link';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 type Program = {
   id: string;
@@ -11,18 +11,18 @@ type Program = {
   funding?: string[] | null;
 };
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export default async function ProgramsPage() {
   const supabase = await createServerSupabaseClient();
 
   const { data: programs, error } = await supabase
-    .from("programs")
-    .select("id, slug, title, tagline, summary, funding")
-    .order("title", { ascending: true });
+    .from('programs')
+    .select('id, slug, title, tagline, summary, funding')
+    .order('title', { ascending: true });
 
   if (error) {
-    console.error("Error loading programs:", error);
+    console.error('Error loading programs:', error);
   }
 
   const safePrograms: Program[] = programs || [];
@@ -40,8 +40,9 @@ export default async function ProgramsPage() {
               Explore Workforce & Apprenticeship Programs
             </h1>
             <p className="max-w-xl text-sm sm:text-base text-white/90">
-              Find WIOA-aligned training, Workforce Ready Grant programs, Job Ready Indy pathways,
-              and Registered Apprenticeships — all in one directory.
+              Find WIOA-aligned training, Workforce Ready Grant programs, Job
+              Ready Indy pathways, and Registered Apprenticeships — all in one
+              directory.
             </p>
             <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wider text-white/90">
               <span className="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full">
@@ -53,7 +54,9 @@ export default async function ProgramsPage() {
             <div className="elevate-card relative aspect-video w-full overflow-hidden bg-white">
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-gray-700">
                 <div>
-                  <p className="text-efh-orange font-semibold mb-2">Program Highlight Video</p>
+                  <p className="text-efh-orange font-semibold mb-2">
+                    Program Highlight Video
+                  </p>
                   <p className="text-xs">
                     WIOA / WRG / JRI / Apprenticeship overview video placeholder
                   </p>
@@ -63,22 +66,22 @@ export default async function ProgramsPage() {
           </div>
         </div>
       </section>
-
       {/* Programs Grid */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold sm:text-3xl">All Programs</h2>
             <p className="mt-2 max-w-2xl text-sm text-gray-600">
-              Connected to Elevate for Humanity's ecosystem of workforce partners, case managers, and employer networks.
+              Connected to Elevate for Humanity's ecosystem of workforce
+              partners, case managers, and employer networks.
             </p>
           </div>
         </div>
-
         {safePrograms.length === 0 ? (
           <div className="elevate-card p-8 text-center">
             <p className="text-sm text-gray-600 mb-4">
-              No programs configured yet. Run the Supabase seed migrations to populate programs.
+              No programs configured yet. Run the Supabase seed migrations to
+              populate programs.
             </p>
           </div>
         ) : (
@@ -110,10 +113,13 @@ export default async function ProgramsPage() {
                       )}
                     </div>
                     {program.tagline && (
-                      <p className="text-sm text-efh-orange font-medium">{program.tagline}</p>
+                      <p className="text-sm text-efh-orange font-medium">
+                        {program.tagline}
+                      </p>
                     )}
                     <p className="text-sm text-gray-600 line-clamp-3">
-                      {program.summary || "Click to view program details, courses, and funding options."}
+                      {program.summary ||
+                        'Click to view program details, courses, and funding options.'}
                     </p>
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 px-5 py-3 text-xs text-gray-500">

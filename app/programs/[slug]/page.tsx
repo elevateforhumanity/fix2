@@ -1,8 +1,7 @@
 // app/programs/[slug]/page.tsx
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { createServerSupabaseClient } from "@/lib/auth";
-import { VideoShell } from "@/components/VideoShell";
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 type Program = {
   id: string;
@@ -29,7 +28,7 @@ type Course = {
   metadata?: any;
 };
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export default async function ProgramDetailPage({
   params,
@@ -40,30 +39,33 @@ export default async function ProgramDetailPage({
 
   // Load program by slug
   const { data: program, error: programError } = await supabase
-    .from("programs")
-    .select("id, slug, title, tagline, summary, description, bullets, funding, hero_image, cip_code, soc_code, funding_eligibility")
-    .eq("slug", params.slug)
+    .from('programs')
+    .select(
+      'id, slug, title, tagline, summary, description, bullets, funding, hero_image, cip_code, soc_code, funding_eligibility'
+    )
+    .eq('slug', params.slug)
     .single();
 
   if (programError || !program) {
-    console.error("Program not found:", programError);
+    console.error('Program not found:', programError);
     notFound();
   }
 
   // Load courses - try to match by program slug in metadata
   const { data: coursesData, error: coursesError } = await supabase
-    .from("courses")
-    .select("id, slug, title, subtitle, description, duration_hours, metadata")
-    .eq("status", "published");
+    .from('courses')
+    .select('id, slug, title, subtitle, description, duration_hours, metadata')
+    .eq('status', 'published');
 
   if (coursesError) {
-    console.error("Error fetching courses:", coursesError);
+    console.error('Error fetching courses:', coursesError);
   }
 
   // Filter courses that match this program (basic matching by slug similarity)
-  const courses: Course[] = (coursesData || []).filter((c) => 
-    c.slug?.includes(program.slug) || 
-    c.metadata?.program_slug === program.slug
+  const courses: Course[] = (coursesData || []).filter(
+    (c) =>
+      c.slug?.includes(program.slug) ||
+      c.metadata?.program_slug === program.slug
   );
 
   const internalCourses = courses.filter((c) => !c.metadata?.external_url);
@@ -89,7 +91,8 @@ export default async function ProgramDetailPage({
               </p>
             )}
             <p className="max-w-xl text-sm sm:text-base text-white/90">
-              {program.summary || "Explore program details, courses, and funding options."}
+              {program.summary ||
+                'Explore program details, courses, and funding options.'}
             </p>
             <div className="flex flex-wrap gap-2">
               {fundingTags.map((tag) => (
@@ -116,18 +119,20 @@ export default async function ProgramDetailPage({
               </Link>
             </div>
           </div>
-
           <div className="flex-1">
-            <VideoShell
-              src="https://player.vimeo.com/video/273947191"
-              title={`${program.title} Program Overview`}
-              caption="Learn about this workforce training program"
-              layout="horizontal"
-            />
+            <div className="elevate-card relative aspect-video w-full overflow-hidden bg-white">
+              <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-gray-700">
+                <div>
+                  <p className="text-efh-orange font-semibold mb-2">
+                    Program Video Placeholder
+                  </p>
+                  <p className="text-xs">Add program-specific video here</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
       {/* Body */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)]">
@@ -135,9 +140,10 @@ export default async function ProgramDetailPage({
           <div>
             <h2 className="mb-4 text-2xl font-bold">Program Overview</h2>
             <p className="mb-6 text-sm sm:text-base text-gray-700">
-              {program.description || program.summary || "This program is part of Elevate for Humanity's workforce ecosystem."}
+              {program.description ||
+                program.summary ||
+                "This program is part of Elevate for Humanity's workforce ecosystem."}
             </p>
-
             {program.bullets && program.bullets.length > 0 && (
               <div className="mb-6">
                 <h3 className="text-xl font-bold mb-3">Program Highlights</h3>
@@ -151,21 +157,18 @@ export default async function ProgramDetailPage({
                 </ul>
               </div>
             )}
-
             {/* Internal Courses */}
             <div className="mt-8">
               <h3 className="text-xl font-bold">Courses in This Program</h3>
               {internalCourses.length === 0 ? (
                 <p className="mt-3 text-sm text-gray-600">
-                  Courses for this program will appear here once database migrations are complete.
+                  Courses for this program will appear here once database
+                  migrations are complete.
                 </p>
               ) : (
                 <div className="mt-4 space-y-4">
                   {internalCourses.map((course) => (
-                    <div
-                      key={course.id}
-                      className="elevate-card p-4"
-                    >
+                    <div key={course.id} className="elevate-card p-4">
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         <h4 className="text-sm font-semibold text-gray-900">
                           {course.title}
@@ -199,7 +202,6 @@ export default async function ProgramDetailPage({
                 </div>
               )}
             </div>
-
             {/* External Courses */}
             {externalCourses.length > 0 && (
               <div className="mt-10">
@@ -207,7 +209,8 @@ export default async function ProgramDetailPage({
                   External Certifications & Partner Platforms
                 </h3>
                 <p className="mt-2 text-sm text-gray-600">
-                  These modules are delivered on external platforms (JRI, NRF RISE Up, Milady RISE).
+                  These modules are delivered on external platforms (JRI, NRF
+                  RISE Up, Milady RISE).
                 </p>
                 <div className="mt-4 space-y-4">
                   {externalCourses.map((course) => (
@@ -248,7 +251,6 @@ export default async function ProgramDetailPage({
               </div>
             )}
           </div>
-
           {/* Right column */}
           <aside className="space-y-5">
             {/* Workforce Codes */}
@@ -281,42 +283,43 @@ export default async function ProgramDetailPage({
                 </div>
               </div>
             )}
-
             {/* Funding Eligibility Badges */}
-            {program.funding_eligibility && program.funding_eligibility.length > 0 && (
-              <div className="elevate-card p-5">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3">
-                  Eligible Funding Types
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {program.funding_eligibility.map((funding) => {
-                    const colorMap: Record<string, string> = {
-                      'WIOA': 'bg-blue-600',
-                      'WRG-style': 'bg-orange-600',
-                      'JRI': 'bg-green-600',
-                      'Apprenticeship': 'bg-purple-600',
-                      'SEAL': 'bg-indigo-600',
-                      'Reentry': 'bg-teal-600',
-                      'Youth': 'bg-pink-600',
-                      'SNAP/TANF': 'bg-yellow-600',
-                      'Healthcare': 'bg-red-600',
-                    };
-                    const bgColor = colorMap[funding] || 'bg-gray-600';
-                    return (
-                      <span
-                        key={funding}
-                        className={`${bgColor} text-white px-3 py-1 rounded-full text-xs font-semibold`}
-                      >
-                        {funding}
-                      </span>
-                    );
-                  })}
+            {program.funding_eligibility &&
+              program.funding_eligibility.length > 0 && (
+                <div className="elevate-card p-5">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                    Eligible Funding Types
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {program.funding_eligibility.map((funding) => {
+                      const colorMap: Record<string, string> = {
+                        WIOA: 'bg-blue-600',
+                        'WRG-style': 'bg-orange-600',
+                        JRI: 'bg-green-600',
+                        Apprenticeship: 'bg-purple-600',
+                        SEAL: 'bg-indigo-600',
+                        Reentry: 'bg-teal-600',
+                        Youth: 'bg-pink-600',
+                        'SNAP/TANF': 'bg-yellow-600',
+                        Healthcare: 'bg-red-600',
+                      };
+                      const bgColor = colorMap[funding] || 'bg-gray-600';
+                      return (
+                        <span
+                          key={funding}
+                          className={`${bgColor} text-white px-3 py-1 rounded-full text-xs font-semibold`}
+                        >
+                          {funding}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            )}
-
+              )}
             <div className="elevate-card p-5">
-              <h3 className="text-sm font-semibold text-gray-900">Quick Facts</h3>
+              <h3 className="text-sm font-semibold text-gray-900">
+                Quick Facts
+              </h3>
               <dl className="mt-3 space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between gap-4">
                   <dt className="text-gray-500">Program</dt>
@@ -324,7 +327,6 @@ export default async function ProgramDetailPage({
                 </div>
               </dl>
             </div>
-
             <div className="elevate-card p-5">
               <h3 className="text-sm font-semibold text-gray-900">
                 Funding & Support Options
@@ -336,17 +338,19 @@ export default async function ProgramDetailPage({
                 <li>• Registered Apprenticeship pathways</li>
               </ul>
               <p className="mt-3 text-xs text-gray-500">
-                Eligibility depends on location, age, income, and partner agency rules.
+                Eligibility depends on location, age, income, and partner agency
+                rules.
               </p>
             </div>
-
             <div className="elevate-card p-5">
-              <h3 className="text-sm font-semibold text-gray-900">Need Help?</h3>
+              <h3 className="text-sm font-semibold text-gray-900">
+                Need Help?
+              </h3>
               <p className="mt-2 text-xs sm:text-sm text-gray-700">
-                Contact{" "}
+                Contact{' '}
                 <Link href="/contact" className="text-efh-red underline">
                   Elevate for Humanity
-                </Link>{" "}
+                </Link>{' '}
                 for assistance.
               </p>
             </div>

@@ -9,6 +9,7 @@ Updated the messages page to use real API instead of mock data. The page now fet
 ### Messages Page (`app/lms/messages/page.tsx`)
 
 **Changes:**
+
 - ✅ Replaced mock data with API calls
 - ✅ Added `useEffect` to fetch messages on mount
 - ✅ Implemented real message sending
@@ -20,6 +21,7 @@ Updated the messages page to use real API instead of mock data. The page now fet
 - ✅ Added proper TypeScript types
 
 **Features Now Working:**
+
 - Fetch inbox messages from `/api/messages?type=inbox`
 - Fetch sent messages from `/api/messages?type=sent`
 - Send new messages via POST `/api/messages`
@@ -33,14 +35,17 @@ Updated the messages page to use real API instead of mock data. The page now fet
 ## Remaining Pages to Update
 
 ### High Priority
+
 1. **`app/lms/assignments/page.tsx`** - Update to use `/api/assignments`
 2. **`app/lms/assignments/[id]/page.tsx`** - Update to use `/api/assignments/[id]/submit`
 
 ### Medium Priority
+
 3. **`app/lms/courses/page.tsx`** - Fetch from database (already partially done)
 4. **`app/lms/enroll/page.tsx`** - Fetch available courses from database
 
 ### Low Priority (Can Stay Mock for Now)
+
 5. `app/lms/notifications/page.tsx` - Notifications system
 6. `app/lms/calendar/page.tsx` - Calendar events
 7. `app/lms/resources/page.tsx` - Course resources
@@ -114,11 +119,13 @@ const handleSubmit = async () => {
 ## Testing the Messages Page
 
 ### Prerequisites:
+
 1. Run database migration in Supabase
 2. Have at least 2 users in the system
 3. Set environment variables
 
 ### Test Cases:
+
 1. ✅ Load inbox - should fetch messages
 2. ✅ Load sent messages - should fetch sent
 3. ✅ Send new message - should create message
@@ -131,12 +138,14 @@ const handleSubmit = async () => {
 ## Known Limitations
 
 ### Current Implementation:
+
 - ⚠️ Compose form requires recipient ID (not email lookup)
 - ⚠️ No file attachments yet
 - ⚠️ No message threading/conversations
 - ⚠️ No real-time updates (need to refresh)
 
 ### Future Enhancements:
+
 - Add user search/autocomplete for compose
 - Add file attachment support
 - Add message threading
@@ -157,6 +166,7 @@ DELETE /api/messages/[id]        - Delete message
 ## Data Structure
 
 ### Message Object:
+
 ```typescript
 {
   id: string;
@@ -169,21 +179,22 @@ DELETE /api/messages/[id]        - Delete message
     email: string;
     profiles: {
       full_name: string;
-    };
-  };
+    }
+  }
   recipient: {
     id: string;
     email: string;
     profiles: {
       full_name: string;
-    };
-  };
+    }
+  }
 }
 ```
 
 ## Next Steps
 
 1. **Test Messages Page:**
+
    ```bash
    npm run dev
    # Navigate to /lms/messages

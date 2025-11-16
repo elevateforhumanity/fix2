@@ -97,7 +97,7 @@ node durable-workers-autopilot.js
 The autopilot will:
 
 1. ✅ Launch browser
-2. ✅ Log into 
+2. ✅ Log into
 3. ✅ Navigate to your site
 4. ✅ Inject enrollment programs
 5. ✅ Publish changes
@@ -109,7 +109,7 @@ The autopilot will:
 
 **Gitpod Limitations:**
 
-- ❌ Network restrictions prevent  access
+- ❌ Network restrictions prevent access
 - ❌ No display server for browser automation
 - ❌ Timeouts on external requests
 

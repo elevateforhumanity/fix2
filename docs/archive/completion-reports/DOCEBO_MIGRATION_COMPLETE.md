@@ -3,6 +3,7 @@
 ## What Was Done
 
 ### 🗑️ Deleted ALL Old Styling (16 Files)
+
 ```
 ❌ design-system-v2.css
 ❌ design-system.css
@@ -32,6 +33,7 @@
 **File**: `src/styles/docebo.css` (1,260 lines)
 
 **Includes**:
+
 - ✅ Docebo color palette (professional blues, whites)
 - ✅ Clean typography system
 - ✅ 8px spacing scale
@@ -52,32 +54,33 @@
 
 ```css
 /* Primary - Professional Blue */
---docebo-blue-500: #0066CC;  /* Main brand color */
+--docebo-blue-500: #0066cc; /* Main brand color */
 
 /* Secondary - Bright Blue */
---docebo-cyan-500: #00A3E0;  /* Accent color */
+--docebo-cyan-500: #00a3e0; /* Accent color */
 
 /* Success - Teal Green */
---docebo-green-500: #00C896;
+--docebo-green-500: #00c896;
 
 /* Warning - Amber */
---docebo-amber-500: #FFB020;
+--docebo-amber-500: #ffb020;
 
 /* Error - Red */
---docebo-red-500: #E63946;
+--docebo-red-500: #e63946;
 
 /* Backgrounds */
---bg-primary: #FFFFFF;        /* White */
---bg-secondary: #F5F7FA;      /* Light gray */
---bg-tertiary: #E8EDF2;       /* Lighter gray */
+--bg-primary: #ffffff; /* White */
+--bg-secondary: #f5f7fa; /* Light gray */
+--bg-tertiary: #e8edf2; /* Lighter gray */
 
 /* Text */
---text-primary: #1A1A1A;      /* Almost black */
---text-secondary: #6B7280;    /* Medium gray */
---text-tertiary: #9CA3AF;     /* Light gray */
+--text-primary: #1a1a1a; /* Almost black */
+--text-secondary: #6b7280; /* Medium gray */
+--text-tertiary: #9ca3af; /* Light gray */
 ```
 
 **Key Differences from Old System**:
+
 - ❌ No more vibrant reds/oranges (Thinkific style)
 - ✅ Professional blues (Docebo style)
 - ❌ No more dark mode
@@ -88,15 +91,18 @@
 ### 🏗️ New Layout System
 
 **Deleted**:
+
 - ❌ `MainLayout.tsx` (complex, many dependencies)
 - ❌ `LandingLayout.astro` (unused)
 - ❌ `DurableLayout.tsx` (already deleted)
 - ❌ `AppLayout.jsx` (already deleted)
 
 **Created**:
+
 - ✅ `DoceboLayout.tsx` (single, clean layout)
 
 **Features**:
+
 - Professional header with logo
 - Desktop navigation with dropdowns
 - Mobile-responsive menu
@@ -112,6 +118,7 @@
 All components now use Docebo styling:
 
 **Buttons**:
+
 ```tsx
 <button className="btn-primary">Primary Action</button>
 <button className="btn-secondary">Secondary Action</button>
@@ -126,6 +133,7 @@ All components now use Docebo styling:
 ```
 
 **Cards**:
+
 ```tsx
 <div className="card">
   <div className="card-header">
@@ -141,6 +149,7 @@ All components now use Docebo styling:
 ```
 
 **Forms**:
+
 ```tsx
 <div className="form-group">
   <label className="form-label">Email</label>
@@ -150,6 +159,7 @@ All components now use Docebo styling:
 ```
 
 **Badges**:
+
 ```tsx
 <span className="badge badge-primary">Primary</span>
 <span className="badge badge-success">Success</span>
@@ -158,6 +168,7 @@ All components now use Docebo styling:
 ```
 
 **Alerts**:
+
 ```tsx
 <div className="alert alert-success">Success message</div>
 <div className="alert alert-warning">Warning message</div>
@@ -200,6 +211,7 @@ All components now use Docebo styling:
 ### 📊 Before vs After
 
 **Before**:
+
 - 16 CSS files (10,174 lines)
 - Multiple conflicting layouts
 - Vibrant Thinkific colors
@@ -208,6 +220,7 @@ All components now use Docebo styling:
 - Hard to maintain
 
 **After**:
+
 - 1 CSS file (1,260 lines)
 - Single DoceboLayout
 - Professional Docebo colors
@@ -251,12 +264,14 @@ Now that we have clean Docebo styling, we can build:
 ### 📝 Usage Guide
 
 **Import the design system**:
+
 ```tsx
 // In main.tsx (already done)
-import './styles/docebo.css'
+import './styles/docebo.css';
 ```
 
 **Use the layout**:
+
 ```tsx
 import DoceboLayout from '../layouts/DoceboLayout';
 
@@ -273,6 +288,7 @@ export default function MyPage() {
 ```
 
 **Use components**:
+
 ```tsx
 // Buttons
 <button className="btn-primary">Click Me</button>
@@ -299,6 +315,7 @@ export default function MyPage() {
 ### 🎨 Color Reference
 
 **Primary Colors**:
+
 - `var(--color-primary)` - #0066CC (Docebo blue)
 - `var(--color-secondary)` - #00A3E0 (bright blue)
 - `var(--color-success)` - #00C896 (teal green)
@@ -306,17 +323,20 @@ export default function MyPage() {
 - `var(--color-error)` - #E63946 (red)
 
 **Text Colors**:
+
 - `var(--text-primary)` - #1A1A1A (almost black)
 - `var(--text-secondary)` - #6B7280 (medium gray)
 - `var(--text-tertiary)` - #9CA3AF (light gray)
 - `var(--text-inverse)` - #FFFFFF (white)
 
 **Background Colors**:
+
 - `var(--bg-primary)` - #FFFFFF (white)
 - `var(--bg-secondary)` - #F5F7FA (light gray)
 - `var(--bg-tertiary)` - #E8EDF2 (lighter gray)
 
 **Spacing**:
+
 - `var(--space-1)` - 8px
 - `var(--space-2)` - 16px
 - `var(--space-3)` - 24px
@@ -326,12 +346,14 @@ export default function MyPage() {
 - `var(--space-10)` - 80px
 
 **Shadows**:
+
 - `var(--shadow-sm)` - Subtle
 - `var(--shadow-md)` - Medium
 - `var(--shadow-lg)` - Large
 - `var(--shadow-xl)` - Extra large
 
 **Border Radius**:
+
 - `var(--radius-sm)` - 4px
 - `var(--radius-md)` - 8px
 - `var(--radius-lg)` - 12px
@@ -355,6 +377,7 @@ export default function MyPage() {
 ### 🎉 Result
 
 **Your site now has**:
+
 - ✅ Clean Docebo-inspired design
 - ✅ Professional enterprise look
 - ✅ Single source of truth for styling
@@ -364,6 +387,7 @@ export default function MyPage() {
 - ✅ Ready for advanced features
 
 **Total transformation**:
+
 - Deleted 10,174 lines of old CSS
 - Created 1,260 lines of clean Docebo CSS
 - 88% reduction in CSS complexity

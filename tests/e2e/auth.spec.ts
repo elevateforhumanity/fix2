@@ -11,7 +11,7 @@ test.describe('Authentication Flow', () => {
   test('should show validation errors for empty form', async ({ page }) => {
     await page.goto('/login');
     await page.click('button[type="submit"]');
-    
+
     // Should show validation errors
     await expect(page.locator('text=/email.*required/i')).toBeVisible();
   });
@@ -19,7 +19,7 @@ test.describe('Authentication Flow', () => {
   test('should navigate to signup page', async ({ page }) => {
     await page.goto('/login');
     await page.click('text=/sign up|create account/i');
-    
+
     await expect(page).toHaveURL(/\/signup/);
     await expect(page.locator('h1')).toContainText(/sign up|create account/i);
   });
@@ -32,24 +32,31 @@ test.describe('Authentication Flow', () => {
 });
 
 test.describe('Protected Routes', () => {
-  test('should redirect to login when accessing protected route', async ({ page }) => {
+  test('should redirect to login when accessing protected route', async ({
+    page,
+  }) => {
     await page.goto('/lms/dashboard');
-    
+
     // Should redirect to login
     await expect(page).toHaveURL(/\/login/);
   });
 
-  test('should access protected route after login', async ({ page, context }) => {
+  test('should access protected route after login', async ({
+    page,
+    context,
+  }) => {
     // Mock authentication
-    await context.addCookies([{
-      name: 'auth-token',
-      value: 'mock-token',
-      domain: 'localhost',
-      path: '/',
-    }]);
+    await context.addCookies([
+      {
+        name: 'auth-token',
+        value: 'mock-token',
+        domain: 'localhost',
+        path: '/',
+      },
+    ]);
 
     await page.goto('/lms/dashboard');
-    
+
     // Should stay on dashboard (not redirect)
     await expect(page).toHaveURL(/\/lms\/dashboard/);
   });

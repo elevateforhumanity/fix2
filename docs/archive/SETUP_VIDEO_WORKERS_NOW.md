@@ -32,6 +32,7 @@ This interactive script will guide you through the entire setup process.
 ```
 
 The script will:
+
 1. ✅ Ask for your API token
 2. ✅ Ask for your Account ID
 3. ✅ Save credentials to .env
@@ -137,6 +138,7 @@ npx tsx test-video-generation.ts
 ### Issue: "wrangler: command not found"
 
 **Solution:**
+
 ```bash
 npm install -g wrangler
 ```
@@ -144,6 +146,7 @@ npm install -g wrangler
 ### Issue: Authentication fails
 
 **Solution:**
+
 ```bash
 # Use API token directly
 wrangler login --api-token YOUR_TOKEN_HERE
@@ -152,6 +155,7 @@ wrangler login --api-token YOUR_TOKEN_HERE
 ### Issue: Worker deployment fails
 
 **Solution:**
+
 ```bash
 # Check your Account ID is correct
 wrangler whoami
@@ -164,6 +168,7 @@ cat wrangler-video.toml
 ### Issue: Backend won't start
 
 **Solution:**
+
 ```bash
 # Kill any process on port 3001
 lsof -ti:3001 | xargs kill -9
@@ -214,6 +219,7 @@ http://localhost:5173/staff/aivideo-builder
 ### Production
 
 Once deployed to Netlify:
+
 ```
 https://www.elevateconnectsdirectory.org/staff/aivideo-builder
 ```
@@ -261,6 +267,7 @@ pnpm run dev
 ```
 
 **To access:**
+
 - Local: [http://localhost:5173/staff/aivideo-builder](http://localhost:5173/staff/aivideo-builder)
 - Production: [https://www.elevateconnectsdirectory.org/staff/aivideo-builder](https://www.elevateconnectsdirectory.org/staff/aivideo-builder)
 

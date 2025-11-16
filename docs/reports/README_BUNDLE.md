@@ -100,7 +100,7 @@ chmod +x durable*
 **Best for**: Fastest permanent solution
 
 ```bash
-# Log into 
+# Log into
 # Use AI Assistant with prompt
 # Publish
 ```

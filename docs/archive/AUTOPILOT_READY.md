@@ -4,7 +4,7 @@
 
 ✅ **DNS**: Configured correctly (75.2.60.5)
 ❌ **Domain**: NOT added to Netlify yet
-❌ **SSL**: Using wrong certificate (*.netlify.app)
+❌ **SSL**: Using wrong certificate (\*.netlify.app)
 ⏳ **Action**: Need to add domain to Netlify
 
 ## Autopilot Solution
@@ -14,6 +14,7 @@ I've created automated scripts that can add the domain for you using the Netlify
 ### What You Need
 
 **Netlify Personal Access Token**:
+
 1. Go to: https://app.netlify.com/user/applications
 2. Click "New access token"
 3. Name it: "Autopilot"
@@ -41,25 +42,31 @@ bash scripts/autopilot-add-domain.sh
 ## Scripts Created
 
 ### 1. Add Domain Script
+
 **File**: `scripts/autopilot-add-domain.sh`
 **Purpose**: Adds custom domain to Netlify
-**Usage**: 
+**Usage**:
+
 ```bash
 NETLIFY_AUTH_TOKEN='token' bash scripts/autopilot-add-domain.sh
 ```
 
 ### 2. Check SSL Script
+
 **File**: `scripts/autopilot-check-ssl.sh`
 **Purpose**: Monitors SSL certificate status
 **Usage**:
+
 ```bash
 bash scripts/autopilot-check-ssl.sh
 ```
 
 ### 3. Cloudflare Worker
+
 **File**: `workers/autopilot-add-domain.ts`
 **Purpose**: Remote automation via Cloudflare Worker
 **Deploy**:
+
 ```bash
 cd workers && wrangler deploy autopilot-add-domain.ts
 ```
@@ -77,6 +84,7 @@ If you prefer to do it manually:
 ## Why Autopilot?
 
 **Benefits:**
+
 - ✅ Fully automated
 - ✅ No manual clicking
 - ✅ Monitors progress
@@ -84,19 +92,24 @@ If you prefer to do it manually:
 - ✅ Can be scheduled/triggered remotely
 
 **Limitations:**
+
 - ⏳ Still needs to wait for SSL (Netlify controls this)
 - 🔑 Requires Netlify API token
 
 ## Current Site Status
 
 ### Working Now (with SSL):
+
 **https://elevateproduction.netlify.app**
+
 - Valid SSL certificate ✅
 - All styling working ✅
 - All images loading ✅
 
 ### Not Working (SSL error):
+
 **https://www.elevateconnectsdirectory.org**
+
 - DNS configured ✅
 - Domain not added to Netlify ❌
 - Wrong SSL certificate ❌
@@ -121,6 +134,7 @@ You asked about Cloudflare CDN. Currently:
 **Netlify CDN is sufficient** - it's a global CDN with edge caching, similar to Cloudflare.
 
 If you want to add Cloudflare:
+
 1. Change nameservers to Cloudflare
 2. Configure DNS in Cloudflare
 3. Set to "DNS only" mode (gray cloud)
@@ -131,6 +145,7 @@ If you want to add Cloudflare:
 ## Documentation
 
 All documentation created:
+
 - ✅ `AUTOPILOT_DOMAIN_SETUP.md` - Full guide
 - ✅ `AUTOPILOT_READY.md` - This file
 - ✅ `scripts/autopilot-add-domain.sh` - Add domain script
@@ -167,7 +182,8 @@ bash scripts/autopilot-check-ssl.sh
 
 **Solution**: Autopilot scripts that use Netlify API to add domain
 
-**Action Required**: 
+**Action Required**:
+
 1. Get Netlify API token
 2. Run autopilot script
 3. Wait 5-15 minutes

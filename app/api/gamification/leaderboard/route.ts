@@ -9,10 +9,12 @@ export async function GET(req: NextRequest) {
 
     const { data, error } = await supabase
       .from('leaderboard')
-      .select(`
+      .select(
+        `
         *,
         user:profiles!user_id(full_name, email)
-      `)
+      `
+      )
       .order('total_points', { ascending: false })
       .limit(limit);
 
@@ -21,6 +23,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ leaderboard: data });
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
-    return NextResponse.json({ error: 'Failed to fetch leaderboard' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch leaderboard' },
+      { status: 500 }
+    );
   }
 }

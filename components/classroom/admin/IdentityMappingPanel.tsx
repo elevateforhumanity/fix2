@@ -191,7 +191,6 @@ export default function IdentityMappingPanel() {
       <p style={{ color: 'var(--brand-text-muted)', marginBottom: '2rem' }}>
         Upload CSV to map LMS user IDs to Google email addresses
       </p>
-
       {/* Upload Section */}
       <div
         style={{
@@ -221,7 +220,6 @@ export default function IdentityMappingPanel() {
         />
         {uploading && <p>Uploading...</p>}
       </div>
-
       {/* Message */}
       {message && (
         <div
@@ -237,7 +235,6 @@ export default function IdentityMappingPanel() {
           {message.text}
         </div>
       )}
-
       {/* Pending Batches */}
       {batches.length > 0 && (
         <div style={{ marginBottom: '2rem' }}>
@@ -306,7 +303,6 @@ export default function IdentityMappingPanel() {
           </table>
         </div>
       )}
-
       {/* Summary */}
       {summary.length > 0 && (
         <div>
@@ -350,7 +346,6 @@ export default function IdentityMappingPanel() {
           </table>
         </div>
       )}
-
       {summary.length === 0 && batches.length === 0 && (
         <div style={{ textAlign: 'center', padding: '3rem', color: '#999' }}>
           <p>No identity mappings yet. Upload a CSV file to get started.</p>

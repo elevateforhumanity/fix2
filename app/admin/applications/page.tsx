@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,7 +6,13 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 
@@ -28,7 +34,9 @@ export default function AdminApplications() {
   const load = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/funding/admin/list?program=${program}&q=${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(
+        `/api/funding/admin/list?program=${program}&q=${encodeURIComponent(searchQuery)}`
+      );
       if (response.ok) {
         const data = await response.json();
         setRows(data);
@@ -70,7 +78,14 @@ export default function AdminApplications() {
       case 'denied':
         return <Badge variant="destructive">Denied</Badge>;
       case 'submitted':
-        return <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">Pending</Badge>;
+        return (
+          <Badge
+            variant="outline"
+            className="bg-yellow-50 text-yellow-700 border-yellow-200"
+          >
+            Pending
+          </Badge>
+        );
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
@@ -99,59 +114,82 @@ export default function AdminApplications() {
                   <SelectItem value="DOL">DOL</SelectItem>
                 </SelectContent>
               </Select>
-
               <Input
                 placeholder="Search email or course..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="flex-1 max-w-md"
               />
-
               <Button onClick={load} disabled={loading}>
-                <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                <RefreshCw
+                  className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`}
+                />
                 Refresh
               </Button>
             </div>
-
             {/* Applications Table */}
             <div className="border rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-secondary">
                     <tr>
-                      <th className="text-left py-3 px-4 font-semibold">Program</th>
-                      <th className="text-left py-3 px-4 font-semibold">Learner</th>
-                      <th className="text-left py-3 px-4 font-semibold">Course</th>
-                      <th className="text-left py-3 px-4 font-semibold">Status</th>
-                      <th className="text-left py-3 px-4 font-semibold">Submitted</th>
-                      <th className="text-right py-3 px-4 font-semibold">Actions</th>
+                      <th className="text-left py-3 px-4 font-semibold">
+                        Program
+                      </th>
+                      <th className="text-left py-3 px-4 font-semibold">
+                        Learner
+                      </th>
+                      <th className="text-left py-3 px-4 font-semibold">
+                        Course
+                      </th>
+                      <th className="text-left py-3 px-4 font-semibold">
+                        Status
+                      </th>
+                      <th className="text-left py-3 px-4 font-semibold">
+                        Submitted
+                      </th>
+                      <th className="text-right py-3 px-4 font-semibold">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {rows.length > 0 ? (
                       rows.map((row) => (
-                        <tr key={row.id} className="border-t hover:bg-secondary/50">
+                        <tr
+                          key={row.id}
+                          className="border-t hover:bg-secondary/50"
+                        >
                           <td className="py-3 px-4">
                             <Badge variant="outline">{row.program_code}</Badge>
                           </td>
                           <td className="py-3 px-4">{row.learner_email}</td>
-                          <td className="py-3 px-4">{row.course_title || '—'}</td>
-                          <td className="py-3 px-4">{getStatusBadge(row.status)}</td>
                           <td className="py-3 px-4">
-                            {new Date(row.submitted_at).toLocaleDateString('en-US', {
-                              month: 'short',
-                              day: 'numeric',
-                              year: 'numeric',
-                              hour: 'numeric',
-                              minute: '2-digit',
-                            })}
+                            {row.course_title || '—'}
+                          </td>
+                          <td className="py-3 px-4">
+                            {getStatusBadge(row.status)}
+                          </td>
+                          <td className="py-3 px-4">
+                            {new Date(row.submitted_at).toLocaleDateString(
+                              'en-US',
+                              {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                                hour: 'numeric',
+                                minute: '2-digit',
+                              }
+                            )}
                           </td>
                           <td className="py-3 px-4 text-right">
                             {row.status === 'submitted' && (
                               <div className="flex gap-2 justify-end">
                                 <Button
                                   size="sm"
-                                  onClick={() => handleAction(row.id, 'approve')}
+                                  onClick={() =>
+                                    handleAction(row.id, 'approve')
+                                  }
                                   className="bg-green-600 hover:bg-green-700"
                                 >
                                   <CheckCircle className="h-4 w-4 mr-1" />
@@ -172,7 +210,10 @@ export default function AdminApplications() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={6} className="py-12 text-center text-muted-foreground">
+                        <td
+                          colSpan={6}
+                          className="py-12 text-center text-muted-foreground"
+                        >
                           {loading ? 'Loading...' : 'No applications found'}
                         </td>
                       </tr>
@@ -181,13 +222,14 @@ export default function AdminApplications() {
                 </table>
               </div>
             </div>
-
             {/* Summary */}
             <div className="grid gap-4 md:grid-cols-4">
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold">{rows.length}</div>
-                  <div className="text-sm text-muted-foreground">Total Applications</div>
+                  <div className="text-sm text-muted-foreground">
+                    Total Applications
+                  </div>
                 </CardContent>
               </Card>
               <Card>
@@ -195,7 +237,9 @@ export default function AdminApplications() {
                   <div className="text-2xl font-bold">
                     {rows.filter((r) => r.status === 'submitted').length}
                   </div>
-                  <div className="text-sm text-muted-foreground">Pending Review</div>
+                  <div className="text-sm text-muted-foreground">
+                    Pending Review
+                  </div>
                 </CardContent>
               </Card>
               <Card>

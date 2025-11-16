@@ -5,7 +5,7 @@
 **Status**: 🔴 ACTIVE  
 **Priority**: CRITICAL  
 **Blocking**: Production deployment  
-**Time**: 5-10 minutes  
+**Time**: 5-10 minutes
 
 ---
 
@@ -15,23 +15,26 @@ Add environment variables to GitHub and Netlify to fix deployment error.
 
 **Error**: `Missing Supabase environment variables for admin client`  
 **Impact**: Site cannot deploy  
-**Solution**: Add 6 variables to Netlify  
+**Solution**: Add 6 variables to Netlify
 
 ---
 
 ## 📖 Instructions
 
 **Read this file first:**
+
 ```
 WORKER_TASK_ADD_SECRETS.md
 ```
 
 **Or detailed version:**
+
 ```
 .autopilot/tasks/secure-add-secrets.json
 ```
 
 **Active task details:**
+
 ```
 .autopilot/active-tasks/add-secrets-NOW.json
 ```
@@ -41,25 +44,31 @@ WORKER_TASK_ADD_SECRETS.md
 ## ⚡ Quick Start
 
 ### 1. Get Keys (2 min)
+
 Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 
 Copy these 3 values:
+
 - Project URL
-- anon public key  
+- anon public key
 - service_role key
 
 ### 2. Add to GitHub (2 min)
+
 Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 
 Add 3 secrets:
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
 
 ### 3. Add to Netlify (3 min)
+
 Go to: https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/settings/env
 
 Add 6 variables:
+
 - `NEXT_PUBLIC_SUPABASE_URL` (from Supabase)
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (from Supabase)
 - `SUPABASE_SERVICE_ROLE_KEY` (from Supabase)
@@ -68,11 +77,13 @@ Add 6 variables:
 - `NODE_ENV` = `production`
 
 ### 4. Deploy (2 min)
+
 In Netlify → Deploys → "Trigger deploy" → "Clear cache and deploy site"
 
 Wait 2-3 minutes for build to complete.
 
 ### 5. Verify (1 min)
+
 Open: https://www.elevateconnectsdirectory.org
 
 Site should load without errors. ✅
@@ -82,6 +93,7 @@ Site should load without errors. ✅
 ## 📊 Report Completion
 
 After completing:
+
 1. Take screenshot of Netlify deployment (status: Published)
 2. Take screenshot of site loading
 3. Confirm all variables added

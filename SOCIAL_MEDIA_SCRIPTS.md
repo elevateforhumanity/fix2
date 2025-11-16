@@ -1,4 +1,5 @@
 # 📱 TikTok & Instagram Reel Scripts
+
 ## 15 Short-Form Video Scripts for Elevate Connects
 
 Each script is 30-45 seconds, optimized for TikTok, Instagram Reels, and YouTube Shorts.
@@ -27,6 +28,7 @@ Use these opening lines to grab attention in the first 3 seconds:
 Elevate Connects is different.
 
 We have:
+
 - Student portal ✅
 - Admin dashboard ✅
 - Program holder portal ✅
@@ -56,6 +58,7 @@ No more scanning signatures.
 No more chasing paperwork.
 
 Program holders:
+
 1. Review the agreement online
 2. Sign with their finger or mouse
 3. Submit instantly
@@ -88,6 +91,7 @@ Instant verification.
 No login required.
 
 We also track:
+
 - Issue date
 - Completion status
 - Revocations
@@ -116,12 +120,14 @@ We do."
 We have WORKFORCE enrollment.
 
 Students can enroll in:
+
 - WRG programs
 - WIOA programs
 - JRI programs
 - EmployIndy programs
 
 The system:
+
 - Connects with case managers
 - Creates caseload entries
 - Generates compliance trails
@@ -146,12 +152,14 @@ It needs compliance, tracking, and agency reporting."
 "Program Holder Portal.
 
 For partners who host hands-on training:
+
 - Barbershops
 - CNA schools
 - HVAC shops
 - Construction sites
 
 They can:
+
 - Track their learners
 - View caseloads
 - Update attendance
@@ -178,6 +186,7 @@ Everything in one place."
 "Delegate Portal.
 
 See all your learners:
+
 - Who's on track ✅
 - Who's at risk ⚠️
 - Who needs outreach 🚨
@@ -214,6 +223,7 @@ Issue bulk certificates.
 Countersign MOUs.
 
 See:
+
 - Completion rates
 - Enrollment numbers
 - Funding program breakdown
@@ -237,11 +247,13 @@ Not just a course library."
 
 **Script:**
 "Moodle has:
+
 - Courses ✅
 - Grades ✅
 - Certificates ✅
 
 Elevate has:
+
 - Courses ✅
 - Grades ✅
 - Certificates ✅
@@ -274,12 +286,14 @@ That's the difference."
 But it's built for corporate training.
 
 Elevate is built for:
+
 - WRG programs
 - WIOA programs
 - JRI programs
 - DOL apprenticeships
 
 We have:
+
 - Case management
 - Program holder portals
 - Workforce compliance
@@ -305,12 +319,14 @@ That's why workforce organizations choose Elevate."
 "Student Portal.
 
 Dashboard shows:
+
 - Active courses
 - Upcoming assignments
 - Training hours
 - Progress
 
 They can:
+
 - Complete lessons
 - Submit assignments
 - Check grades
@@ -344,6 +360,7 @@ Enter certificate code.
 Instant verification.
 
 Shows:
+
 - Learner name
 - Program completed
 - Issue date
@@ -369,6 +386,7 @@ This is how you build credibility in workforce training."
 Training partners get 1/3 of net program revenue.
 
 They can see:
+
 - Enrolled students
 - Completed programs
 - Revenue earned
@@ -395,6 +413,7 @@ Just transparent partnership."
 
 **Script:**
 "Elevate tracks:
+
 - Enrollment dates
 - Attendance
 - Progress
@@ -402,6 +421,7 @@ Just transparent partnership."
 - Certificates
 
 For:
+
 - WRG
 - WIOA
 - JRI
@@ -434,6 +454,7 @@ They're great for online courses.
 But workforce training is different.
 
 You need:
+
 - Case management
 - Partner portals
 - Compliance tracking
@@ -460,12 +481,14 @@ The LMS for workforce training."
 
 **Script:**
 "If you're running:
+
 - WRG programs
 - WIOA programs
 - JRI programs
 - DOL apprenticeships
 
 And you need:
+
 - Student management
 - Partner portals
 - Case tracking
@@ -488,26 +511,31 @@ Let's talk."
 ## 📊 Posting Strategy
 
 ### Week 1: Introduction
+
 - Video #1 (Platform Overview)
 - Video #10 (Student Experience)
 - Video #14 (Why We Built This)
 
 ### Week 2: Features
+
 - Video #2 (Digital MOUs)
 - Video #3 (Certificate Verification)
 - Video #4 (Workforce Enrollment)
 
 ### Week 3: Portals
+
 - Video #5 (Program Holder)
 - Video #6 (Case Manager)
 - Video #7 (Admin)
 
 ### Week 4: Competition
+
 - Video #8 (vs Moodle)
 - Video #9 (vs Docebo)
 - Video #11 (Public Trust)
 
 ### Week 5: Value Props
+
 - Video #12 (Revenue Share)
 - Video #13 (Compliance)
 - Video #15 (Call to Action)
@@ -517,24 +545,28 @@ Let's talk."
 ## 🎨 Visual Guidelines
 
 ### Color Palette
+
 - Primary: #2563eb (Blue)
 - Secondary: #10b981 (Green)
 - Accent: #f59e0b (Orange)
 - Background: #f3f4f6 (Light Gray)
 
 ### Text Overlays
+
 - Font: Bold, sans-serif
 - Size: Large enough to read on mobile
 - Position: Center or bottom third
 - Animation: Fade in, slide up, or pop
 
 ### Transitions
+
 - Quick cuts (0.5-1 second per scene)
 - Smooth fades between sections
 - Zoom in on key features
 - Highlight important text
 
 ### Captions
+
 - Always include captions
 - White text with black outline
 - Bottom third of screen
@@ -545,14 +577,17 @@ Let's talk."
 ## 📈 Hashtag Strategy
 
 ### Primary Hashtags (Use on every post)
+
 #WorkforceTraining #LMS #EdTech #WorkforceDevelopment
 
 ### Secondary Hashtags (Rotate)
+
 #WIOA #WRG #JRI #EmployIndy #DOLApprenticeship
 #CaseManagement #TrainingPartners #SkillsTraining
 #CareerTraining #VocationalTraining
 
 ### Platform-Specific
+
 **TikTok:** #TikTokMadeMeBuyIt #SmallBusiness #Entrepreneur
 **Instagram:** #InstaGood #TechStartup #Innovation
 **LinkedIn:** #FutureOfWork #HRTech #TalentDevelopment
@@ -562,18 +597,21 @@ Let's talk."
 ## 🎯 Engagement Tips
 
 ### Respond to Comments
+
 - Answer questions within 1 hour
 - Like all positive comments
 - Address concerns professionally
 - Ask follow-up questions
 
 ### Create Conversations
+
 - Ask viewers to share their experiences
 - Poll: "What LMS do you currently use?"
 - Challenge: "Tag someone who needs this"
 - Question: "What feature would you add?"
 
 ### Cross-Promote
+
 - Share TikToks to Instagram Reels
 - Post Instagram Reels to Facebook
 - Share best performers on LinkedIn
@@ -584,12 +622,14 @@ Let's talk."
 ## 📱 Equipment Checklist
 
 ### Minimum Setup
+
 - ✅ Smartphone with good camera
 - ✅ Natural lighting or ring light
 - ✅ Quiet recording space
 - ✅ Tripod or phone stand
 
 ### Recommended Setup
+
 - ✅ DSLR or mirrorless camera
 - ✅ Lapel microphone
 - ✅ Softbox lighting
@@ -597,6 +637,7 @@ Let's talk."
 - ✅ Teleprompter app
 
 ### Editing Software
+
 - **Mobile:** CapCut, InShot, VN
 - **Desktop:** DaVinci Resolve, Adobe Premiere
 - **Quick Edits:** Descript, Kapwing

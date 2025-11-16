@@ -12,7 +12,13 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
   onSubmitEvidence,
   onViewDetails,
 }) => {
-  const { competency, student_competency, progress_percentage, levels_completed, total_levels } = progress;
+  const {
+    competency,
+    student_competency,
+    progress_percentage,
+    levels_completed,
+    total_levels,
+  } = progress;
 
   const getStatusColor = () => {
     switch (student_competency.status) {
@@ -43,32 +49,60 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
   return (
     <div className="card" style={{ marginBottom: 'var(--space-3)' }}>
       {/* Header */}
-      <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div
+        className="card-header"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <div>
           <h3 className="card-title" style={{ marginBottom: 'var(--space-1)' }}>
             {competency.name}
           </h3>
-          <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: 0 }}>
+          <p
+            style={{
+              fontSize: '14px',
+              color: 'var(--text-secondary)',
+              margin: 0,
+            }}
+          >
             {competency.category}
           </p>
         </div>
         {getStatusBadge()}
       </div>
-
       {/* Body */}
       <div className="card-body">
         {/* Description */}
-        <p style={{ marginBottom: 'var(--space-3)', color: 'var(--text-secondary)' }}>
+        <p
+          style={{
+            marginBottom: 'var(--space-3)',
+            color: 'var(--text-secondary)',
+          }}
+        >
           {competency.description}
         </p>
-
         {/* Progress Bar */}
         <div style={{ marginBottom: 'var(--space-3)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--space-1)' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: 'var(--space-1)',
+            }}
+          >
             <span style={{ fontSize: '14px', fontWeight: 600 }}>
               Level {student_competency.current_level} of {total_levels}
             </span>
-            <span style={{ fontSize: '14px', fontWeight: 600, color: getStatusColor() }}>
+            <span
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                color: getStatusColor(),
+              }}
+            >
               {progress_percentage}%
             </span>
           </div>
@@ -91,11 +125,18 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
             />
           </div>
         </div>
-
         {/* Competency Levels */}
         <div style={{ marginBottom: 'var(--space-3)' }}>
-          <h4 style={{ fontSize: '16px', marginBottom: 'var(--space-2)' }}>Competency Levels</h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+          <h4 style={{ fontSize: '16px', marginBottom: 'var(--space-2)' }}>
+            Competency Levels
+          </h4>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-2)',
+            }}
+          >
             {competency.levels.map((level, index) => {
               const isCompleted = index < student_competency.current_level;
               const isCurrent = index === student_competency.current_level - 1;
@@ -109,9 +150,13 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
                     alignItems: 'center',
                     gap: 'var(--space-2)',
                     padding: 'var(--space-2)',
-                    background: isCurrent ? 'var(--color-primary-light)' : 'var(--bg-secondary)',
+                    background: isCurrent
+                      ? 'var(--color-primary-light)'
+                      : 'var(--bg-secondary)',
                     borderRadius: 'var(--radius-md)',
-                    border: isCurrent ? '2px solid var(--color-primary)' : 'none',
+                    border: isCurrent
+                      ? '2px solid var(--color-primary)'
+                      : 'none',
                     opacity: isLocked ? 0.5 : 1,
                   }}
                 >
@@ -124,9 +169,12 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
                       background: isCompleted
                         ? 'var(--color-success)'
                         : isCurrent
-                        ? 'var(--color-primary)'
-                        : 'var(--bg-tertiary)',
-                      color: isCompleted || isCurrent ? 'white' : 'var(--text-tertiary)',
+                          ? 'var(--color-primary)'
+                          : 'var(--bg-tertiary)',
+                      color:
+                        isCompleted || isCurrent
+                          ? 'white'
+                          : 'var(--text-tertiary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -137,20 +185,31 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
                   >
                     {isCompleted ? '✓' : level.level}
                   </div>
-
                   {/* Level Info */}
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 600, marginBottom: '4px' }}>{level.name}</div>
-                    <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+                    <div style={{ fontWeight: 600, marginBottom: '4px' }}>
+                      {level.name}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '13px',
+                        color: 'var(--text-secondary)',
+                      }}
+                    >
                       {level.description}
                     </div>
                     {level.estimated_hours && (
-                      <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginTop: '4px' }}>
+                      <div
+                        style={{
+                          fontSize: '12px',
+                          color: 'var(--text-tertiary)',
+                          marginTop: '4px',
+                        }}
+                      >
                         ⏱️ Est. {level.estimated_hours} hours
                       </div>
                     )}
                   </div>
-
                   {/* Status Icon */}
                   <div style={{ fontSize: '24px', flexShrink: 0 }}>
                     {isCompleted ? '✅' : isCurrent ? '⏳' : '🔒'}
@@ -160,7 +219,6 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
             })}
           </div>
         </div>
-
         {/* Evidence Summary */}
         <div
           style={{
@@ -173,25 +231,48 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
           }}
         >
           <div style={{ flex: 1, textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', fontWeight: 700, color: 'var(--color-primary)' }}>
+            <div
+              style={{
+                fontSize: '24px',
+                fontWeight: 700,
+                color: 'var(--color-primary)',
+              }}
+            >
               {progress.evidence_submitted}
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Evidence Submitted</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+              Evidence Submitted
+            </div>
           </div>
           <div style={{ flex: 1, textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', fontWeight: 700, color: 'var(--color-success)' }}>
+            <div
+              style={{
+                fontSize: '24px',
+                fontWeight: 700,
+                color: 'var(--color-success)',
+              }}
+            >
               {progress.evidence_approved}
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Evidence Approved</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+              Evidence Approved
+            </div>
           </div>
           <div style={{ flex: 1, textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', fontWeight: 700, color: 'var(--color-secondary)' }}>
+            <div
+              style={{
+                fontSize: '24px',
+                fontWeight: 700,
+                color: 'var(--color-secondary)',
+              }}
+            >
               {progress.time_spent_hours}h
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Time Spent</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+              Time Spent
+            </div>
           </div>
         </div>
-
         {/* Next Milestone */}
         {progress.next_milestone && (
           <div
@@ -205,15 +286,19 @@ export const CompetencyCard: React.FC<CompetencyCardProps> = ({
           >
             <span style={{ fontSize: '24px' }}>🎯</span>
             <div>
-              <div style={{ fontWeight: 600, marginBottom: '4px' }}>Next Milestone</div>
+              <div style={{ fontWeight: 600, marginBottom: '4px' }}>
+                Next Milestone
+              </div>
               <div style={{ fontSize: '14px' }}>{progress.next_milestone}</div>
             </div>
           </div>
         )}
       </div>
-
       {/* Footer */}
-      <div className="card-footer" style={{ display: 'flex', gap: 'var(--space-2)' }}>
+      <div
+        className="card-footer"
+        style={{ display: 'flex', gap: 'var(--space-2)' }}
+      >
         {onSubmitEvidence && student_competency.status !== 'mastered' && (
           <button className="btn-primary" onClick={onSubmitEvidence}>
             📎 Submit Evidence

@@ -4,7 +4,7 @@ import { useAuth } from '../hooks/useAuth';
 /**
  * ProtectedRoute Component
  * Wraps routes that require authentication and/or specific roles
- * 
+ *
  * @param {React.ReactNode} children - The component to render if authorized
  * @param {string} requiredRole - Optional role required to access route (e.g., 'admin', 'instructor')
  */
@@ -15,12 +15,14 @@ export function ProtectedRoute({ children, requiredRole }) {
   // Show loading state while checking authentication
   if (isLoading) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh' 
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
         <div>Loading...</div>
       </div>
     );

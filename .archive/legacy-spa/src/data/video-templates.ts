@@ -44,8 +44,10 @@ export const videoTemplates: VideoTemplate[] = [
     id: 'wioa-program-overview',
     name: 'WIOA Program Overview',
     category: 'Workforce Development',
-    description: 'Professional template for explaining WIOA workforce training programs',
-    thumbnail: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400',
+    description:
+      'Professional template for explaining WIOA workforce training programs',
+    thumbnail:
+      'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400',
     duration: 45,
     tags: ['WIOA', 'Training', 'Education', 'Professional'],
     scenes: [
@@ -60,38 +62,40 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 72,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+        },
       },
       {
         type: 'video',
         duration: 10,
-        script: 'The Workforce Innovation and Opportunity Act provides free training for eligible individuals',
+        script:
+          'The Workforce Innovation and Opportunity Act provides free training for eligible individuals',
         voiceOver: true,
         background: '#000000',
         media: {
           type: 'video',
           url: 'https://videos.pexels.com/video-files/3196036/3196036-uhd_2560_1440_25fps.mp4',
           source: 'Pexels',
-          credit: 'fauxels'
+          credit: 'fauxels',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
         duration: 10,
-        script: 'Get trained in high-demand careers like Healthcare, Technology, and Skilled Trades',
+        script:
+          'Get trained in high-demand careers like Healthcare, Technology, and Skilled Trades',
         voiceOver: true,
         background: '#ffffff',
         media: {
           type: 'image',
           url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920',
           source: 'Unsplash',
-          credit: 'Christina @ wocintechchat.com'
+          credit: 'Christina @ wocintechchat.com',
         },
         textPosition: 'center',
-        animation: 'zoom'
+        animation: 'zoom',
       },
       {
         type: 'content',
@@ -104,8 +108,8 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 64,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+        },
       },
       {
         type: 'title',
@@ -118,10 +122,10 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 56,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
-      }
-    ]
+          fontWeight: 'bold',
+        },
+      },
+    ],
   },
 
   {
@@ -129,7 +133,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'Apprenticeship Success Story',
     category: 'Success Stories',
     description: 'Showcase apprenticeship program success with testimonials',
-    thumbnail: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400',
     duration: 60,
     tags: ['Apprenticeship', 'Success', 'Testimonial'],
     scenes: [
@@ -140,37 +145,39 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: false,
         background: '#7c3aed',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'video',
         duration: 15,
-        script: 'Meet John, who went from unemployed to certified barber in just 12 months',
+        script:
+          'Meet John, who went from unemployed to certified barber in just 12 months',
         voiceOver: true,
         background: '#000000',
         media: {
           type: 'video',
           url: 'https://videos.pexels.com/video-files/3205484/3205484-uhd_2560_1440_25fps.mp4',
           source: 'Pexels',
-          credit: 'cottonbro studio'
+          credit: 'cottonbro studio',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'split',
         duration: 15,
-        script: 'Earned while learning - Started at $15/hour, now making $35/hour',
+        script:
+          'Earned while learning - Started at $15/hour, now making $35/hour',
         voiceOver: true,
         background: '#ffffff',
         media: {
           type: 'image',
           url: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920',
           source: 'Unsplash',
-          credit: 'Allef Vinicius'
+          credit: 'Allef Vinicius',
         },
         textPosition: 'center',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -182,10 +189,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920',
           source: 'Unsplash',
-          credit: 'Arthur Edelmans'
+          credit: 'Arthur Edelmans',
         },
         textPosition: 'bottom',
-        animation: 'zoom'
+        animation: 'zoom',
       },
       {
         type: 'title',
@@ -194,9 +201,9 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#7c3aed',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
+        animation: 'fade',
+      },
+    ],
   },
 
   {
@@ -204,7 +211,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'How to Apply',
     category: 'Instructional',
     description: 'Step-by-step guide for applying to programs',
-    thumbnail: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400',
     duration: 50,
     tags: ['Application', 'Tutorial', 'Guide'],
     scenes: [
@@ -215,7 +223,7 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#f59e0b',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
@@ -227,25 +235,26 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920',
           source: 'Unsplash',
-          credit: 'Carlos Muza'
+          credit: 'Carlos Muza',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
         duration: 10,
-        script: 'Step 2: Check eligibility requirements for your chosen program',
+        script:
+          'Step 2: Check eligibility requirements for your chosen program',
         voiceOver: true,
         background: '#ffffff',
         media: {
           type: 'image',
           url: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1920',
           source: 'Unsplash',
-          credit: 'Glenn Carstens-Peters'
+          credit: 'Glenn Carstens-Peters',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -257,10 +266,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=1920',
           source: 'Unsplash',
-          credit: 'Marten Bjork'
+          credit: 'Marten Bjork',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -272,10 +281,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920',
           source: 'Unsplash',
-          credit: 'Scott Graham'
+          credit: 'Scott Graham',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'title',
@@ -284,9 +293,9 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#10b981',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
+        animation: 'fade',
+      },
+    ],
   },
 
   {
@@ -294,7 +303,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'Healthcare Training Program',
     category: 'Program Specific',
     description: 'Promote healthcare CNA/QMA training programs',
-    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
     duration: 40,
     tags: ['Healthcare', 'CNA', 'Medical', 'Training'],
     scenes: [
@@ -305,7 +315,7 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#dc2626',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'video',
@@ -317,10 +327,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'video',
           url: 'https://videos.pexels.com/video-files/4031818/4031818-uhd_2560_1440_25fps.mp4',
           source: 'Pexels',
-          credit: 'Tima Miroshnichenko'
+          credit: 'Tima Miroshnichenko',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
@@ -332,10 +342,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1920',
           source: 'Unsplash',
-          credit: 'Hush Naidoo Jade Photography'
+          credit: 'Hush Naidoo Jade Photography',
         },
         textPosition: 'center',
-        animation: 'zoom'
+        animation: 'zoom',
       },
       {
         type: 'content',
@@ -348,8 +358,8 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 56,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+        },
       },
       {
         type: 'title',
@@ -358,9 +368,9 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#dc2626',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
+        animation: 'fade',
+      },
+    ],
   },
 
   {
@@ -368,7 +378,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'Skilled Trades Overview',
     category: 'Program Specific',
     description: 'Showcase welding, HVAC, and building maintenance programs',
-    thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400',
     duration: 55,
     tags: ['Trades', 'Welding', 'HVAC', 'Construction'],
     scenes: [
@@ -379,22 +390,23 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#ea580c',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'video',
         duration: 12,
-        script: 'Master in-demand skills in welding, HVAC, and building maintenance',
+        script:
+          'Master in-demand skills in welding, HVAC, and building maintenance',
         voiceOver: true,
         background: '#000000',
         media: {
           type: 'video',
           url: 'https://videos.pexels.com/video-files/5495955/5495955-uhd_2560_1440_25fps.mp4',
           source: 'Pexels',
-          credit: 'Tima Miroshnichenko'
+          credit: 'Tima Miroshnichenko',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
@@ -406,10 +418,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920',
           source: 'Unsplash',
-          credit: 'Ant Rozetsky'
+          credit: 'Ant Rozetsky',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -421,10 +433,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920',
           source: 'Unsplash',
-          credit: 'Piotr Chrobot'
+          credit: 'Piotr Chrobot',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -437,8 +449,8 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 64,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+        },
       },
       {
         type: 'title',
@@ -447,9 +459,9 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#ea580c',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
+        animation: 'fade',
+      },
+    ],
   },
 
   {
@@ -457,7 +469,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'CDL Training Program',
     category: 'Program Specific',
     description: 'Commercial driver license training promotion',
-    thumbnail: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400',
     duration: 45,
     tags: ['CDL', 'Trucking', 'Transportation', 'Driving'],
     scenes: [
@@ -468,7 +481,7 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#0891b2',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'video',
@@ -480,10 +493,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'video',
           url: 'https://videos.pexels.com/video-files/2053100/2053100-uhd_2560_1440_24fps.mp4',
           source: 'Pexels',
-          credit: 'Marcin Jozwiak'
+          credit: 'Marcin Jozwiak',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
@@ -495,10 +508,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920',
           source: 'Unsplash',
-          credit: 'Rhys Moult'
+          credit: 'Rhys Moult',
         },
         textPosition: 'bottom',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'content',
@@ -511,8 +524,8 @@ export const videoTemplates: VideoTemplate[] = [
         textStyle: {
           fontSize: 56,
           color: '#ffffff',
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+        },
       },
       {
         type: 'title',
@@ -521,9 +534,9 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#0891b2',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
+        animation: 'fade',
+      },
+    ],
   },
 
   {
@@ -531,7 +544,8 @@ export const videoTemplates: VideoTemplate[] = [
     name: 'Partner Testimonial',
     category: 'Testimonials',
     description: 'Showcase partner organization success',
-    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400',
+    thumbnail:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400',
     duration: 50,
     tags: ['Partner', 'Testimonial', 'Collaboration'],
     scenes: [
@@ -542,7 +556,7 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: false,
         background: '#6366f1',
         textPosition: 'center',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'video',
@@ -554,10 +568,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'video',
           url: 'https://videos.pexels.com/video-files/3196036/3196036-uhd_2560_1440_25fps.mp4',
           source: 'Pexels',
-          credit: 'fauxels'
+          credit: 'fauxels',
         },
         textPosition: 'bottom',
-        animation: 'fade'
+        animation: 'fade',
       },
       {
         type: 'content',
@@ -569,10 +583,10 @@ export const videoTemplates: VideoTemplate[] = [
           type: 'image',
           url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920',
           source: 'Unsplash',
-          credit: 'LinkedIn Sales Solutions'
+          credit: 'LinkedIn Sales Solutions',
         },
         textPosition: 'center',
-        animation: 'zoom'
+        animation: 'zoom',
       },
       {
         type: 'content',
@@ -581,7 +595,7 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#10b981',
         textPosition: 'center',
-        animation: 'slide'
+        animation: 'slide',
       },
       {
         type: 'title',
@@ -590,10 +604,10 @@ export const videoTemplates: VideoTemplate[] = [
         voiceOver: true,
         background: '#6366f1',
         textPosition: 'center',
-        animation: 'fade'
-      }
-    ]
-  }
+        animation: 'fade',
+      },
+    ],
+  },
 ];
 
 // Template categories for filtering
@@ -603,7 +617,7 @@ export const templateCategories = [
   'Success Stories',
   'Instructional',
   'Program Specific',
-  'Testimonials'
+  'Testimonials',
 ];
 
 // Get templates by category
@@ -611,10 +625,10 @@ export function getTemplatesByCategory(category: string): VideoTemplate[] {
   if (category === 'All Templates') {
     return videoTemplates;
   }
-  return videoTemplates.filter(t => t.category === category);
+  return videoTemplates.filter((t) => t.category === category);
 }
 
 // Get template by ID
 export function getTemplateById(id: string): VideoTemplate | undefined {
-  return videoTemplates.find(t => t.id === id);
+  return videoTemplates.find((t) => t.id === id);
 }

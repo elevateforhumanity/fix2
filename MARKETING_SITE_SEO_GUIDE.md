@@ -1,4 +1,5 @@
 # Marketing Site SEO Setup Guide
+
 ## www.elevateforhumanity.org (Durablesites.co)
 
 ## Overview
@@ -10,11 +11,13 @@ This guide covers setting up SEO, sitemaps, and search engine optimization for y
 ## Current Setup
 
 **Marketing Site**: www.elevateforhumanity.org
+
 - **Hosted on**: Durablesites.co
 - **Purpose**: Public-facing marketing, lead generation
 - **Content**: Program information, about, contact, enrollment links
 
 **LMS Site**: elevateconnectsdirectory.org
+
 - **Hosted on**: Netlify (this repository)
 - **Purpose**: Student portal, courses, learning management
 - **SEO**: Already configured ✅
@@ -28,11 +31,13 @@ This guide covers setting up SEO, sitemaps, and search engine optimization for y
 Most website builders like Durablesites.co automatically generate sitemaps.
 
 **Check if sitemap exists**:
+
 1. Visit: https://www.elevateforhumanity.org/sitemap.xml
 2. If it loads, you already have a sitemap! ✅
 3. If 404 error, proceed to Option B
 
 **If sitemap exists**:
+
 1. Go to Google Search Console
 2. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
 3. Go to Bing Webmaster Tools
@@ -44,10 +49,11 @@ Most website builders like Durablesites.co automatically generate sitemaps.
 If Durablesites.co doesn't auto-generate, create one manually:
 
 **Create `sitemap.xml`**:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Homepage -->
   <url>
     <loc>https://www.elevateforhumanity.org/</loc>
@@ -55,7 +61,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- About Page -->
   <url>
     <loc>https://www.elevateforhumanity.org/about</loc>
@@ -63,7 +69,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Programs Page -->
   <url>
     <loc>https://www.elevateforhumanity.org/programs</loc>
@@ -71,7 +77,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- Individual Program Pages -->
   <url>
     <loc>https://www.elevateforhumanity.org/programs/workforce-readiness</loc>
@@ -79,28 +85,28 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
     <loc>https://www.elevateforhumanity.org/programs/hvac</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
     <loc>https://www.elevateforhumanity.org/programs/cna</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
     <loc>https://www.elevateforhumanity.org/programs/barber</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <!-- Contact Page -->
   <url>
     <loc>https://www.elevateforhumanity.org/contact</loc>
@@ -108,7 +114,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <!-- Enrollment Page -->
   <url>
     <loc>https://www.elevateforhumanity.org/enroll</loc>
@@ -116,7 +122,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- Blog (if exists) -->
   <url>
     <loc>https://www.elevateforhumanity.org/blog</loc>
@@ -129,6 +135,7 @@ If Durablesites.co doesn't auto-generate, create one manually:
 ```
 
 **Upload to Durablesites.co**:
+
 1. Log in to Durablesites.co dashboard
 2. Go to File Manager or Settings
 3. Upload `sitemap.xml` to root directory
@@ -154,6 +161,7 @@ Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 **Upload to Durablesites.co**:
+
 1. Create file named `robots.txt`
 2. Upload to root directory
 3. Verify: https://www.elevateforhumanity.org/robots.txt
@@ -165,6 +173,7 @@ Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ### Already Verified! ✅
 
 Your DNS records show Google verification is complete:
+
 ```
 TXT @ google-site-verification=9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so
 TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
@@ -182,6 +191,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 ### Monitor Performance
 
 In Google Search Console, check:
+
 - **Performance**: Clicks, impressions, CTR
 - **Coverage**: Indexed pages
 - **Enhancements**: Mobile usability, Core Web Vitals
@@ -203,6 +213,7 @@ In Google Search Console, check:
 **Option A: Meta Tag (Recommended)**
 
 1. Bing will provide a meta tag:
+
    ```html
    <meta name="msvalidate.01" content="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
    ```
@@ -252,10 +263,15 @@ If Durablesites.co has a "Custom Code" or "Header Code" section:
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX');
 </script>
@@ -279,27 +295,57 @@ Add these to your marketing site's `<head>` section:
 ```html
 <!-- Primary Meta Tags -->
 <title>Elevate for Humanity | Workforce Training & Career Development</title>
-<meta name="title" content="Elevate for Humanity | Workforce Training & Career Development">
-<meta name="description" content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding in Indianapolis, Indiana.">
-<meta name="keywords" content="workforce training, career development, WIOA, job training, technical education, Indianapolis, Indiana">
+<meta
+  name="title"
+  content="Elevate for Humanity | Workforce Training & Career Development"
+/>
+<meta
+  name="description"
+  content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding in Indianapolis, Indiana."
+/>
+<meta
+  name="keywords"
+  content="workforce training, career development, WIOA, job training, technical education, Indianapolis, Indiana"
+/>
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.elevateforhumanity.org/">
-<meta property="og:title" content="Elevate for Humanity | Workforce Training & Career Development">
-<meta property="og:description" content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.">
-<meta property="og:image" content="https://www.elevateforhumanity.org/images/og-image.jpg">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.elevateforhumanity.org/" />
+<meta
+  property="og:title"
+  content="Elevate for Humanity | Workforce Training & Career Development"
+/>
+<meta
+  property="og:description"
+  content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
+/>
+<meta
+  property="og:image"
+  content="https://www.elevateforhumanity.org/images/og-image.jpg"
+/>
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://www.elevateforhumanity.org/">
-<meta property="twitter:title" content="Elevate for Humanity | Workforce Training & Career Development">
-<meta property="twitter:description" content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.">
-<meta property="twitter:image" content="https://www.elevateforhumanity.org/images/twitter-image.jpg">
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://www.elevateforhumanity.org/" />
+<meta
+  property="twitter:title"
+  content="Elevate for Humanity | Workforce Training & Career Development"
+/>
+<meta
+  property="twitter:description"
+  content="Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding."
+/>
+<meta
+  property="twitter:image"
+  content="https://www.elevateforhumanity.org/images/twitter-image.jpg"
+/>
 
 <!-- Verification -->
-<meta name="google-site-verification" content="9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so">
-<meta name="msvalidate.01" content="YOUR_BING_CODE_HERE">
+<meta
+  name="google-site-verification"
+  content="9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so"
+/>
+<meta name="msvalidate.01" content="YOUR_BING_CODE_HERE" />
 ```
 
 ### How to Add in Durablesites.co
@@ -323,34 +369,35 @@ Add this JSON-LD to your homepage:
 
 ```html
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Elevate for Humanity",
-  "url": "https://www.elevateforhumanity.org",
-  "logo": "https://www.elevateforhumanity.org/images/logo.png",
-  "description": "Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Indianapolis",
-    "addressRegion": "IN",
-    "addressCountry": "US"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "Customer Service",
-    "email": "info@elevateforhumanity.org"
-  },
-  "sameAs": [
-    "https://www.facebook.com/elevateforhumanity",
-    "https://www.linkedin.com/company/elevateforhumanity",
-    "https://twitter.com/elevate4humanity"
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Elevate for Humanity",
+    "url": "https://www.elevateforhumanity.org",
+    "logo": "https://www.elevateforhumanity.org/images/logo.png",
+    "description": "Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "info@elevateforhumanity.org"
+    },
+    "sameAs": [
+      "https://www.facebook.com/elevateforhumanity",
+      "https://www.linkedin.com/company/elevateforhumanity",
+      "https://twitter.com/elevate4humanity"
+    ]
+  }
 </script>
 ```
 
 **Where to add**:
+
 - Durablesites.co → Settings → Custom Code (Footer)
 - Or in page-specific settings
 
@@ -370,12 +417,14 @@ Add this JSON-LD to your homepage:
 **Dimensions**: 1200 x 630 pixels
 
 **Content**:
+
 - Elevate for Humanity logo
 - Tagline: "Career & Technical Training"
 - Background: Brand colors (#2563EB blue)
 - Call to action: "Free Workforce Development Programs"
 
 **Tools**:
+
 - Canva: https://www.canva.com/
 - Figma: https://www.figma.com/
 - Adobe Express: https://www.adobe.com/express/
@@ -395,8 +444,14 @@ Add this JSON-LD to your homepage:
 1. Upload images to your site
 2. Update meta tags with image URLs:
    ```html
-   <meta property="og:image" content="https://www.elevateforhumanity.org/images/og-image.jpg">
-   <meta property="twitter:image" content="https://www.elevateforhumanity.org/images/twitter-image.jpg">
+   <meta
+     property="og:image"
+     content="https://www.elevateforhumanity.org/images/og-image.jpg"
+   />
+   <meta
+     property="twitter:image"
+     content="https://www.elevateforhumanity.org/images/twitter-image.jpg"
+   />
    ```
 
 ---
@@ -408,6 +463,7 @@ Add this JSON-LD to your homepage:
 On your marketing site, add clear calls-to-action:
 
 **Homepage**:
+
 ```html
 <a href="https://www.elevateconnectsdirectory.org/signup" class="btn-primary">
   Enroll Now
@@ -419,6 +475,7 @@ On your marketing site, add clear calls-to-action:
 ```
 
 **Programs Page**:
+
 ```html
 <a href="https://www.elevateconnectsdirectory.org/programs/workforce-readiness">
   View Course Details
@@ -426,6 +483,7 @@ On your marketing site, add clear calls-to-action:
 ```
 
 **Navigation Menu**:
+
 ```
 - Home
 - About
@@ -451,6 +509,7 @@ On your marketing site, add clear calls-to-action:
 ### Keywords to Target
 
 **Primary Keywords**:
+
 - Workforce training Indianapolis
 - Career development programs Indiana
 - WIOA training programs
@@ -458,6 +517,7 @@ On your marketing site, add clear calls-to-action:
 - Technical education Marion County
 
 **Long-tail Keywords**:
+
 - Free HVAC training Indianapolis
 - CNA certification programs Indiana
 - Barber school Indianapolis WIOA
@@ -565,6 +625,7 @@ On your marketing site, add clear calls-to-action:
 ### Support
 
 If you need help accessing Durablesites.co settings:
+
 1. Contact Durable Technologies support
 2. Ask for: "How to add custom code to header"
 3. Ask for: "How to upload files to root directory"

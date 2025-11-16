@@ -1,27 +1,31 @@
 # User-Friendly Status Endpoint
 
 ## Overview
+
 Added a user-friendly status page that responds to casual status queries like "how we doing?" alongside the existing technical health monitoring endpoints.
 
 ## Implementation
+
 The new status endpoint provides multiple URL aliases that respond to natural language queries:
 
 - `/howwedoing` - Primary endpoint matching the original query
-- `/status` - Standard status endpoint  
+- `/status` - Standard status endpoint
 - `/how-we-doing` - Hyphenated variant
 - `/howaredoing` - Alternative phrasing
 
 ## Features
 
 ### Visual Status Display
+
 - **Beautiful gradient UI** with glass-morphism design
 - **Emoji-based status indicators**:
   - 🚀 "Great!" - Low memory usage, optimal performance
-  - 💪 "Busy but good" - Moderate load, performing well  
+  - 💪 "Busy but good" - Moderate load, performing well
   - ⚠️ "Under heavy load" - High memory usage but operational
   - 🌱 "Just started up" - Recently restarted, warming up
 
 ### Real-time System Information
+
 - **Uptime** displayed in human-readable format (hours/minutes/seconds)
 - **Memory usage** shown as percentage
 - **Build mode** (quick/clean/unknown)
@@ -29,6 +33,7 @@ The new status endpoint provides multiple URL aliases that respond to natural la
 - **Tailwind status** with visual indicators
 
 ### Navigation & Integration
+
 - **Quick links** to technical endpoints (/health, /metrics)
 - **Auto-refresh** functionality
 - **Responsive design** that works on mobile and desktop
@@ -37,23 +42,25 @@ The new status endpoint provides multiple URL aliases that respond to natural la
 ## Technical Details
 
 ### Status Logic
+
 The endpoint intelligently determines status based on system metrics:
 
 ```javascript
 const memUsagePercent = Math.round((mem.heapUsed / mem.heapTotal) * 100);
 
 if (memUsagePercent > 90) {
-  status = "Under heavy load ⚠️";
+  status = 'Under heavy load ⚠️';
 } else if (memUsagePercent > 70) {
-  status = "Busy but good 💪";
+  status = 'Busy but good 💪';
 } else if (uptime < 60) {
-  status = "Just started up 🌱";
+  status = 'Just started up 🌱';
 } else {
-  status = "Great! 🚀";
+  status = 'Great! 🚀';
 }
 ```
 
 ### Integration with Existing Monitoring
+
 - Preserves all existing `/health` endpoint functionality
 - Uses same underlying system metrics (memory, uptime, cache)
 - Compatible with existing Prometheus `/metrics` endpoint
@@ -62,18 +69,21 @@ if (memUsagePercent > 90) {
 ## Usage Examples
 
 ### Basic Status Check
+
 ```bash
 curl http://localhost:5000/howwedoing
 # Returns beautiful HTML status page
 ```
 
 ### Quick Status via Alias
+
 ```bash
 curl http://localhost:5000/status
 # Same page, different URL
 ```
 
 ### JSON Technical Data (unchanged)
+
 ```bash
 curl http://localhost:5000/health
 # Returns technical JSON for monitoring systems
@@ -90,9 +100,10 @@ curl http://localhost:5000/health
 ## Testing
 
 Manual verification shows all endpoints working correctly:
+
 - ✅ `/howwedoing` - Primary endpoint
 - ✅ `/status` - Standard alias
-- ✅ `/how-we-doing` - Hyphenated variant  
+- ✅ `/how-we-doing` - Hyphenated variant
 - ✅ `/howaredoing` - Alternative phrasing
 - ✅ Status messages adapt to actual system load
 - ✅ Links to technical endpoints function properly
@@ -101,6 +112,7 @@ Manual verification shows all endpoints working correctly:
 ## Future Enhancements
 
 Potential improvements for future iterations:
+
 - Real-time updates via WebSocket
 - Historical status charts
 - Service-specific health indicators

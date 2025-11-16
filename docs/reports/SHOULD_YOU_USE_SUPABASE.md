@@ -4,7 +4,7 @@
 
 **What you have:**
 
--  for main website
+- for main website
 - Netlify for LMS/portals
 - Supabase for database (configured but not applied)
 

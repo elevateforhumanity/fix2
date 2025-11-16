@@ -42,12 +42,14 @@
 **Location:** `.github/workflows/`
 
 **Key Workflows:**
+
 - `autopilot-autonomous.yml` - Auto-fixes code errors every 30 min
 - `loop-until-success.yml` - Retries failed operations every 15 min
 - `master-orchestrator.yml` - Coordinates all systems every 30 min
 - `health-check.yml` - Monitors system health hourly
 
 **Capabilities:**
+
 - ✅ Auto-fix TypeScript/ESLint errors
 - ✅ Auto-commit fixes to repository
 - ✅ Auto-deploy to production
@@ -59,6 +61,7 @@
 **Location:** `supabase/migrations/007_autopilot_system.sql`
 
 **Task Queue System:**
+
 ```sql
 create table automation.tasks (
   id uuid primary key,
@@ -74,6 +77,7 @@ create table automation.tasks (
 ```
 
 **Task Types:**
+
 - Infrastructure: `db_migrate`, `redeploy`, `cache_purge`
 - AI/ML: `ai_features_boot`, `ai_course_create`
 - Accessibility: `axe_a11y_scan`, `caption_vod`
@@ -85,6 +89,7 @@ create table automation.tasks (
 **Location:** `src/lms/copilot-autopilot.js`
 
 **Features:**
+
 ```javascript
 {
   autoContentGeneration: true,      // Fills missing lessons
@@ -96,6 +101,7 @@ create table automation.tasks (
 ```
 
 **How It Works:**
+
 1. Monitors LMS database for issues
 2. Detects content gaps, struggling students, performance issues
 3. Auto-generates fixes using templates or AI
@@ -111,12 +117,14 @@ create table automation.tasks (
 **Location:** `src/`
 
 **Key Components:**
+
 - `src/pages/lms/` - LMS pages (Dashboard, Courses, Lessons)
 - `src/components/classroom/` - Classroom components
 - `src/services/` - API services layer
 - `src/lms/` - Advanced LMS features
 
 **Routes:**
+
 - `/lms` - LMS dashboard
 - `/lms/courses` - Course catalog
 - `/lms/courses/:id` - Course detail
@@ -129,6 +137,7 @@ create table automation.tasks (
 **Location:** `supabase/migrations/`
 
 **Core Tables:**
+
 ```
 programs → courses → modules → lessons
     ↓
@@ -138,6 +147,7 @@ certificates ← user_roles
 ```
 
 **Key Tables:**
+
 - `programs` - Training programs (Barber, HVAC, etc.)
 - `courses` - Individual courses within programs
 - `modules` - Course sections
@@ -154,29 +164,30 @@ certificates ← user_roles
 ### A. Course Creation Integration
 
 **Flow:**
+
 ```
 Instructor Form → Task Queue → Autopilot Worker → AI Generation → Database → Notification
 ```
 
 **Code Example:**
+
 ```typescript
 // src/components/classroom/instructor/CourseCreationForm.tsx
 const createCourse = async () => {
   // Queue autopilot task
-  const { data } = await supabase
-    .from('automation.tasks')
-    .insert({
-      kind: 'gc_create_course',
-      payload: { name, section, description },
-      priority: 7,
-      status: 'pending'
-    });
-  
+  const { data } = await supabase.from('automation.tasks').insert({
+    kind: 'gc_create_course',
+    payload: { name, section, description },
+    priority: 7,
+    status: 'pending',
+  });
+
   // Autopilot picks up task and generates course
 };
 ```
 
 **What Happens:**
+
 1. Instructor submits course form
 2. Task queued in `automation.tasks`
 3. Autopilot worker picks up task
@@ -188,11 +199,13 @@ const createCourse = async () => {
 ### B. Content Automation Integration
 
 **Flow:**
+
 ```
 Course Analysis → Gap Detection → Content Generation → Database Update → Review
 ```
 
 **Code Example:**
+
 ```javascript
 // src/lms/copilot-autopilot.js
 async autoContentGeneration(courseId) {
@@ -201,10 +214,10 @@ async autoContentGeneration(courseId) {
     .from('courses')
     .select('*, modules(*, lessons(*))')
     .eq('id', courseId);
-  
+
   // Analyze for gaps
   const gaps = await this.analyzeContentGaps(course);
-  
+
   // Generate missing content
   for (const gap of gaps) {
     if (gap.type === 'missing_lesson') {
@@ -217,6 +230,7 @@ async autoContentGeneration(courseId) {
 ```
 
 **What It Does:**
+
 - Detects missing lessons, quizzes, or content
 - Generates content using templates or AI
 - Inserts into database
@@ -225,11 +239,13 @@ async autoContentGeneration(courseId) {
 ### C. Student Engagement Integration
 
 **Flow:**
+
 ```
 Student Activity → Analysis → Intervention → Notification → Coach Update
 ```
 
 **Code Example:**
+
 ```javascript
 // src/lms/copilot-autopilot.js
 async autoStudentEngagement() {
@@ -239,7 +255,7 @@ async autoStudentEngagement() {
     .select('*, profiles(*), progress(*)')
     .lt('progress.completion_percent', 30)
     .lt('last_activity', 'now() - interval \'7 days\'');
-  
+
   // Send encouragement
   for (const student of students) {
     await this.sendEncouragementEmail(student);
@@ -249,6 +265,7 @@ async autoStudentEngagement() {
 ```
 
 **What It Does:**
+
 - Monitors student progress and activity
 - Identifies struggling or inactive students
 - Sends automated encouragement emails
@@ -258,11 +275,13 @@ async autoStudentEngagement() {
 ### D. AI Course Generation Integration
 
 **Flow:**
+
 ```
 Task Queue → Edge Function → OpenAI/Anthropic → Course Structure → Database
 ```
 
 **Code Example:**
+
 ```typescript
 // supabase/functions/ai-course-create/index.ts
 async function generateCourseOutline(request: CourseRequest) {
@@ -274,25 +293,26 @@ async function generateCourseOutline(request: CourseRequest) {
       content: 'Generate a course outline for workforce training...'
     }]
   });
-  
+
   // Parse response and create database records
   const outline = JSON.parse(completion.choices[0].message.content);
-  
+
   // Insert course
   const { data: course } = await supabase
     .from('courses')
     .insert({ title: outline.title, ... });
-  
+
   // Insert modules and lessons
   for (const module of outline.modules) {
     await supabase.from('modules').insert({ course_id: course.id, ... });
   }
-  
+
   return course;
 }
 ```
 
 **What It Does:**
+
 - Uses AI to generate complete course structures
 - Creates courses, modules, lessons, quizzes
 - Populates with initial content
@@ -301,34 +321,37 @@ async function generateCourseOutline(request: CourseRequest) {
 ### E. Compliance Integration
 
 **Flow:**
+
 ```
 Scheduled Check → Regulation Fetch → Comparison → Auto-fix → Audit Log
 ```
 
 **Code Example:**
+
 ```typescript
 // src/services/ComplianceAutomation.ts
 async checkFERPACompliance() {
   // Check privacy policy is up to date
   const policy = await this.fetchPrivacyPolicy();
   const regulations = await this.fetchFERPARegulations();
-  
+
   // Compare and detect issues
   const issues = this.compareCompliance(policy, regulations);
-  
+
   // Auto-fix if enabled
   if (this.config.autoFix) {
     for (const issue of issues) {
       await this.fixComplianceIssue(issue);
     }
   }
-  
+
   // Log for audit
   await this.logComplianceCheck(issues);
 }
 ```
 
 **What It Does:**
+
 - Monitors FERPA, WCAG, DOL, WIOA compliance
 - Auto-fixes accessibility issues
 - Updates policies automatically
@@ -480,6 +503,7 @@ user_roles (student/staff/admin)
 ```
 
 **Cross-System Queries:**
+
 ```sql
 -- Autopilot can query LMS data
 SELECT c.title, COUNT(e.id) as enrollment_count
@@ -499,30 +523,33 @@ VALUES ('auto_content_gen', '{"course_id": "123"}', 7);
 ### Enable/Disable Autopilot Features
 
 **In Supabase:**
+
 ```sql
 -- Store autopilot config
 INSERT INTO automation.config (key, value)
-VALUES 
+VALUES
   ('autoContentGeneration', 'true'),
   ('autoStudentEngagement', 'true'),
   ('autoPerformanceOptimization', 'true');
 ```
 
 **In Code:**
+
 ```javascript
 // src/lms/copilot-autopilot.js
 const config = {
-  autoContentGeneration: true,      // Enable/disable
+  autoContentGeneration: true, // Enable/disable
   autoStudentEngagement: true,
   autoPerformanceOptimization: true,
-  autoAssessmentCreation: false,    // Disabled
-  autoMarketingOptimization: false
+  autoAssessmentCreation: false, // Disabled
+  autoMarketingOptimization: false,
 };
 ```
 
 ### API Keys
 
 Stored securely in Supabase:
+
 ```sql
 -- Store API keys
 INSERT INTO automation.api_keys (service, key_encrypted)
@@ -537,17 +564,17 @@ VALUES ('openai', encrypt('sk-...'));
 
 ```sql
 -- See all pending tasks
-SELECT * FROM automation.tasks 
-WHERE status = 'pending' 
+SELECT * FROM automation.tasks
+WHERE status = 'pending'
 ORDER BY priority DESC, created_at ASC;
 
 -- See failed tasks
-SELECT * FROM automation.tasks 
-WHERE status = 'failed' 
+SELECT * FROM automation.tasks
+WHERE status = 'failed'
 ORDER BY created_at DESC;
 
 -- See task history for a course
-SELECT * FROM automation.tasks 
+SELECT * FROM automation.tasks
 WHERE payload->>'course_id' = 'your-course-id'
 ORDER BY created_at DESC;
 ```
@@ -556,13 +583,13 @@ ORDER BY created_at DESC;
 
 ```sql
 -- See system health
-SELECT * FROM automation.health_logs 
-ORDER BY checked_at DESC 
+SELECT * FROM automation.health_logs
+ORDER BY checked_at DESC
 LIMIT 10;
 
 -- See errors
-SELECT * FROM automation.health_logs 
-WHERE status = 'error' 
+SELECT * FROM automation.health_logs
+WHERE status = 'error'
 ORDER BY checked_at DESC;
 ```
 
@@ -600,6 +627,7 @@ ORDER BY checked_at DESC;
 ## Summary
 
 The Autopilot and LMS are **tightly integrated** through:
+
 - **Shared database** (Supabase)
 - **Task queue system** for async operations
 - **AI-powered automation** for content and engagement

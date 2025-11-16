@@ -6,9 +6,9 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 
 ---
 
-## Task 1: Login to 
+## Task 1: Login to
 
-**Action:** Navigate to  and authenticate
+**Action:** Navigate to and authenticate
 **Steps:**
 
 1. Go to URL: `https://durable.co/login`
@@ -88,11 +88,11 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 
 **Automation Notes:**
 
--  UI may vary - look for:
-  - "Custom Code"
-  - "HTML"
-  - "Embed"
-  - "Advanced"
+- UI may vary - look for:
+- "Custom Code"
+- "HTML"
+- "Embed"
+- "Advanced"
 - May need to click "Show More" to see all block types
 
 **Success Criteria:**
@@ -344,7 +344,7 @@ Use the selectors and steps documented in MANUAL_TASKS_SCRIPT.md
 
 **Deployment is successful when:**
 
-- ✅ Login to  succeeds
+- ✅ Login to succeeds
 - ✅ Site editor loads
 - ✅ Custom HTML block is added
 - ✅ Enrollment code is pasted

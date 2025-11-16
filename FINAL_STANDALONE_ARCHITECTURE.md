@@ -1,4 +1,5 @@
 # FINAL STANDALONE ARCHITECTURE
+
 **Purpose:** Complete separation - NO connection between platforms
 **Status:** ✅ CRYSTAL CLEAR
 
@@ -7,6 +8,7 @@
 ## 🎯 THE TRUTH: COMPLETE SEPARATION
 
 ### Durable.co:
+
 ```
 Domain: elevateforhumanity.org (or whatever domain Durable hosts)
 Purpose: Marketing website ONLY
@@ -20,6 +22,7 @@ NO SUBDOMAINS POINTING TO NETLIFY
 ```
 
 ### Netlify (Standalone):
+
 ```
 Domain: elevateproduction.netlify.app (Netlify's subdomain)
 OR: portal.yourdomain.com (completely different domain)
@@ -38,13 +41,14 @@ STANDALONE SYSTEM
 ## 🌐 DNS CONFIGURATION
 
 ### Durable.co DNS (LEAVE AS IS):
+
 ```
 Type: A
 Name: @
 Value: [Durable.co IP]
 Points to: Durable.co servers
 
-Type: CNAME  
+Type: CNAME
 Name: www
 Value: [Durable.co domain]
 Points to: Durable.co servers
@@ -55,6 +59,7 @@ DURABLE STANDS ALONE
 ```
 
 ### Netlify DNS (SEPARATE):
+
 ```
 Option 1: Use Netlify's subdomain
 URL: https://elevateproduction.netlify.app
@@ -103,16 +108,18 @@ COMPLETELY INDEPENDENT
 **On Durable.co site, add a button:**
 
 ```html
-<a href="https://elevateproduction.netlify.app" 
-   target="_blank"
-   style="display: inline-block; 
+<a
+  href="https://elevateproduction.netlify.app"
+  target="_blank"
+  style="display: inline-block; 
           background: #0066CC; 
           color: white; 
           padding: 16px 32px; 
           border-radius: 8px; 
           text-decoration: none; 
           font-size: 18px; 
-          font-weight: 600;">
+          font-weight: 600;"
+>
   🎓 Access Student Portal
 </a>
 ```
@@ -124,6 +131,7 @@ COMPLETELY INDEPENDENT
 ## ❌ WHAT NOT TO DO
 
 ### DON'T:
+
 - ❌ Add Netlify subdomain to Durable DNS
 - ❌ Point portal.elevateforhumanity.org to Netlify
 - ❌ Add CNAME records in Durable pointing to Netlify
@@ -132,6 +140,7 @@ COMPLETELY INDEPENDENT
 - ❌ Create any DNS connection between them
 
 ### WHY NOT:
+
 - Creates confusion
 - Creates dependencies
 - Makes troubleshooting harder
@@ -143,12 +152,14 @@ COMPLETELY INDEPENDENT
 ## ✅ WHAT TO DO
 
 ### Durable.co:
+
 1. ✅ Keep domain as is
 2. ✅ Use for marketing website
 3. ✅ Add button/link to Netlify LMS
 4. ✅ That's it
 
 ### Netlify:
+
 1. ✅ Use Netlify subdomain (elevateproduction.netlify.app)
 2. ✅ OR buy separate domain (portal-efh.com)
 3. ✅ Host full LMS
@@ -190,6 +201,7 @@ COMPLETELY INDEPENDENT
 ## 🎯 USER FLOW
 
 ### Marketing Visitor:
+
 ```
 1. Visits: elevateforhumanity.org (Durable.co)
 2. Reads about programs
@@ -201,6 +213,7 @@ COMPLETELY INDEPENDENT
 ```
 
 ### Returning Student:
+
 ```
 1. Bookmarks: elevateproduction.netlify.app
 2. Goes directly to LMS
@@ -214,29 +227,34 @@ COMPLETELY INDEPENDENT
 ## 💡 WHY THIS IS BETTER
 
 ### 1. Complete Independence ✅
+
 - Durable.co can go down → LMS still works
 - Netlify can go down → Marketing site still works
 - No single point of failure
 
 ### 2. No Confusion ✅
+
 - Clear separation
 - Easy to understand
 - Easy to maintain
 - Easy to troubleshoot
 
 ### 3. Flexibility ✅
+
 - Can change Durable.co site anytime
 - Can change Netlify LMS anytime
 - No dependencies
 - No breaking changes
 
 ### 4. Performance ✅
+
 - No iframe overhead
 - No embedding issues
 - Direct access to LMS
 - Faster load times
 
 ### 5. Security ✅
+
 - No CORS issues
 - No cross-domain problems
 - Clean authentication
@@ -247,6 +265,7 @@ COMPLETELY INDEPENDENT
 ## 📊 COMPARISON
 
 ### Option A: Connected (DON'T DO THIS)
+
 ```
 Durable.co DNS:
 ├── elevateforhumanity.org → Durable
@@ -260,6 +279,7 @@ Problems:
 ```
 
 ### Option B: Standalone (DO THIS) ✅
+
 ```
 Durable.co DNS:
 └── elevateforhumanity.org → Durable ✅
@@ -282,6 +302,7 @@ Benefits:
 ## 🔧 NETLIFY CONFIGURATION
 
 ### Current Setup (Perfect):
+
 ```
 Site: elevateproduction
 URL: https://elevateproduction.netlify.app
@@ -291,6 +312,7 @@ Status: ✅ Working perfectly
 ```
 
 ### What NOT to add:
+
 ```
 ❌ Don't add: elevateforhumanity.org
 ❌ Don't add: portal.elevateforhumanity.org
@@ -298,6 +320,7 @@ Status: ✅ Working perfectly
 ```
 
 ### Why:
+
 - Creates dependency
 - Creates confusion
 - Not necessary
@@ -310,6 +333,7 @@ Status: ✅ Working perfectly
 ### If you want a custom domain for LMS:
 
 **Buy a NEW domain (not from Durable):**
+
 ```
 Examples:
 - portal-efh.com
@@ -319,6 +343,7 @@ Examples:
 ```
 
 **Point it to Netlify:**
+
 ```
 1. Buy domain at Namecheap/GoDaddy
 2. Add to Netlify
@@ -327,6 +352,7 @@ Examples:
 ```
 
 **Result:**
+
 ```
 Durable.co: elevateforhumanity.org (marketing)
 Netlify: portal-efh.com (LMS)
@@ -339,6 +365,7 @@ No confusion
 ## 📝 DOCUMENTATION TO UPDATE
 
 ### In Durable.co:
+
 ```
 Add to homepage:
 "Access our student portal at: elevateproduction.netlify.app"
@@ -348,6 +375,7 @@ Add button:
 ```
 
 ### In Netlify LMS:
+
 ```
 No changes needed
 Already working
@@ -355,6 +383,7 @@ Students can bookmark it
 ```
 
 ### In Marketing Materials:
+
 ```
 Marketing Site: elevateforhumanity.org
 Student Portal: elevateproduction.netlify.app
@@ -384,6 +413,7 @@ No confusion
 ## 🎯 SUMMARY
 
 ### Durable.co:
+
 - **Purpose:** Marketing website
 - **Domain:** elevateforhumanity.org
 - **DNS:** Managed by Durable
@@ -391,6 +421,7 @@ No confusion
 - **Connection to LMS:** Simple link/button
 
 ### Netlify:
+
 - **Purpose:** LMS application
 - **Domain:** elevateproduction.netlify.app
 - **DNS:** Managed by Netlify
@@ -398,6 +429,7 @@ No confusion
 - **Connection to marketing:** None needed
 
 ### How they work together:
+
 - **Link:** Button on Durable site links to Netlify
 - **That's it:** No DNS, no subdomains, no embedding
 - **Result:** Clean, simple, independent
@@ -407,6 +439,7 @@ No confusion
 ## 🚀 DEPLOYMENT
 
 ### Durable.co:
+
 ```
 1. Edit site in Durable dashboard
 2. Add link to Netlify LMS
@@ -415,6 +448,7 @@ No confusion
 ```
 
 ### Netlify:
+
 ```
 1. Push to GitHub
 2. Auto-deploys
@@ -435,4 +469,4 @@ No confusion
 
 ---
 
-*Two platforms. Zero dependencies. Complete clarity.*
+_Two platforms. Zero dependencies. Complete clarity._

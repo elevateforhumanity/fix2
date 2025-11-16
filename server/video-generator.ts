@@ -59,11 +59,11 @@ export class VideoGenerator {
 
     // Generate frames for each scene
     const sceneVideos: string[] = [];
-    
+
     for (let i = 0; i < config.scenes.length; i++) {
       const scene = config.scenes[i];
       console.log(`Processing scene ${i + 1}/${config.scenes.length}`);
-      
+
       const sceneVideo = await this.generateScene(scene, dimensions, i);
       sceneVideos.push(sceneVideo);
     }
@@ -80,7 +80,10 @@ export class VideoGenerator {
     return finalVideo;
   }
 
-  private getDimensions(format: string, resolution: string): { width: number; height: number } {
+  private getDimensions(
+    format: string,
+    resolution: string
+  ): { width: number; height: number } {
     const resMap = {
       '1080p': 1080,
       '720p': 720,
@@ -91,9 +94,9 @@ export class VideoGenerator {
 
     switch (format) {
       case '16:9':
-        return { width: Math.round(height * 16 / 9), height };
+        return { width: Math.round((height * 16) / 9), height };
       case '9:16':
-        return { width: Math.round(height * 9 / 16), height };
+        return { width: Math.round((height * 9) / 16), height };
       case '1:1':
         return { width: height, height };
       default:
@@ -136,19 +139,12 @@ export class VideoGenerator {
 
     // Convert static image to video with duration
     const sceneVideoPath = path.join(this.tempDir, `scene-${index}.mp4`);
-    
+
     await new Promise<void>((resolve, reject) => {
       let command = ffmpeg()
         .input(framePath)
-        .inputOptions([
-          '-loop 1',
-          `-t ${scene.duration}`
-        ])
-        .outputOptions([
-          '-c:v libx264',
-          '-pix_fmt yuv420p',
-          '-r 30'
-        ]);
+        .inputOptions(['-loop 1', `-t ${scene.duration}`])
+        .outputOptions(['-c:v libx264', '-pix_fmt yuv420p', '-r 30']);
 
       // Add audio if available
       if (scene.audioUrl) {
@@ -193,7 +189,7 @@ export class VideoGenerator {
     for (const word of words) {
       const testLine = currentLine + word + ' ';
       const metrics = ctx.measureText(testLine);
-      
+
       if (metrics.width > maxWidth && currentLine !== '') {
         lines.push(currentLine);
         currentLine = word + ' ';
@@ -226,12 +222,15 @@ export class VideoGenerator {
     });
   }
 
-  private async concatenateScenes(sceneVideos: string[], videoId: string): Promise<string> {
+  private async concatenateScenes(
+    sceneVideos: string[],
+    videoId: string
+  ): Promise<string> {
     const outputPath = path.join(this.outputDir, `${videoId}.mp4`);
     const fileListPath = path.join(this.tempDir, 'filelist.txt');
 
     // Create file list for FFmpeg concat
-    const fileList = sceneVideos.map(v => `file '${v}'`).join('\n');
+    const fileList = sceneVideos.map((v) => `file '${v}'`).join('\n');
     await writeFile(fileListPath, fileList);
 
     return new Promise((resolve, reject) => {
@@ -264,7 +263,9 @@ export class VideoGenerator {
 }
 
 // Example usage
-export async function generateVideoFromConfig(config: VideoConfig): Promise<string> {
+export async function generateVideoFromConfig(
+  config: VideoConfig
+): Promise<string> {
   const generator = new VideoGenerator();
   const videoPath = await generator.generateVideo(config);
   return videoPath;

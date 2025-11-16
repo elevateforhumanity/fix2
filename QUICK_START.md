@@ -18,6 +18,7 @@ bash scripts/add-github-secrets.sh
 ```
 
 This will:
+
 1. Prompt you for Supabase keys
 2. Add them to GitHub Secrets
 3. Trigger autopilot workflow
@@ -31,6 +32,7 @@ This will:
    - Copy the **service_role** key
 
 2. **Create `.env.local`**:
+
    ```bash
    cat > .env.local << 'EOF'
    NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co

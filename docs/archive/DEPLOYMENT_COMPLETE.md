@@ -21,6 +21,7 @@ We use Supabase, not direct Postgres connections.
 ## 🚀 Build Should Now Succeed
 
 Expected output:
+
 ```
 ✓ Dependencies installed (2477 packages)
 ✓ Compiled successfully
@@ -31,6 +32,7 @@ Expected output:
 ## 📋 Post-Deployment Steps
 
 ### 1. Get Your Site URL
+
 Check Netlify dashboard for your live URL (e.g., `your-site.netlify.app`)
 
 ### 2. Set Environment Variables (Required)
@@ -44,6 +46,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx
 ```
 
 Optional (for email features):
+
 ```env
 RESEND_API_KEY=re_xxxxx
 EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
@@ -53,6 +56,7 @@ MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
 ### 3. Test Your Site
 
 Visit these pages:
+
 - Homepage: `https://your-site.netlify.app/`
 - LMS: `https://your-site.netlify.app/lms/dashboard`
 - Admin: `https://your-site.netlify.app/admin/program-holders`
@@ -61,17 +65,20 @@ Visit these pages:
 ### 4. Run Database Migrations
 
 In Supabase dashboard → SQL Editor, run:
+
 - `supabase/migrations/20240113_create_mous_bucket.sql`
 - `supabase/migrations/20240114_mou_two_step_signing.sql`
 
 ## 📊 What Works Now
 
 **Without env vars:**
+
 - ✅ Site loads
 - ✅ Pages render
 - ⚠️ Auth won't work
 
 **With env vars:**
+
 - ✅ Everything
 - ✅ Authentication
 - ✅ Database queries
@@ -83,17 +90,20 @@ In Supabase dashboard → SQL Editor, run:
 Replace `YOUR-SITE-URL` with your Netlify URL:
 
 **Student Portal:**
+
 - `/lms/dashboard`
 - `/lms/courses`
 - `/lms/assignments`
 - `/lms/certificates`
 
 **Admin Portal:**
+
 - `/admin/program-holders`
 - `/admin/reports`
 - `/admin/delegates`
 
 **Program Holder:**
+
 - `/program-holder/dashboard`
 - `/program-holder/mou`
 

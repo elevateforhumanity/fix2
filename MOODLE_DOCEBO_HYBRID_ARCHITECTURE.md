@@ -4,7 +4,7 @@
 
 **Goal**: Combine Moodle's vocational training strengths with Docebo's polished UI  
 **Approach**: Custom-built LMS with best features from both platforms  
-**Result**: Enterprise-grade vocational training platform at zero licensing cost  
+**Result**: Enterprise-grade vocational training platform at zero licensing cost
 
 ---
 
@@ -13,6 +13,7 @@
 ### A. Apprenticeship Support
 
 **Moodle Features**:
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ MOODLE APPRENTICESHIP MODULE                            │
@@ -46,6 +47,7 @@
 ```
 
 **Key Benefits**:
+
 - ✅ Built-in competency framework
 - ✅ OJT hour tracking
 - ✅ Supervisor approval workflows
@@ -55,6 +57,7 @@
 ### B. Customizable Workflows
 
 **Moodle Workflow Engine**:
+
 ```php
 // Example: Apprenticeship Approval Workflow
 Workflow Steps:
@@ -67,6 +70,7 @@ Workflow Steps:
 ```
 
 **Benefits**:
+
 - ✅ Multi-step approval processes
 - ✅ Role-based permissions
 - ✅ Automated notifications
@@ -76,6 +80,7 @@ Workflow Steps:
 ### C. Open-Source Flexibility
 
 **Advantages**:
+
 - ✅ No licensing costs ($0 vs $25K-$50K/year)
 - ✅ Full source code access
 - ✅ Unlimited customization
@@ -83,6 +88,7 @@ Workflow Steps:
 - ✅ Active community support
 
 **Disadvantages**:
+
 - ❌ Less polished UI (needs theming)
 - ❌ Infrastructure overhead (hosting, updates)
 - ❌ Requires technical expertise
@@ -135,6 +141,7 @@ Workflow Steps:
 ```
 
 **Result**:
+
 - ✅ Docebo's polished UI
 - ✅ Moodle's vocational features
 - ✅ Zero licensing costs
@@ -147,6 +154,7 @@ Workflow Steps:
 ### A. Competency Framework
 
 **What Moodle Does**:
+
 ```
 Competency: "Perform Basic Electrical Wiring"
 ├── Level 1: Identify wire types (Beginner)
@@ -162,6 +170,7 @@ Evidence Required:
 ```
 
 **Our Implementation**:
+
 ```typescript
 // Database Schema
 interface Competency {
@@ -192,6 +201,7 @@ interface StudentCompetency {
 ```
 
 **UI Component**:
+
 ```tsx
 // Competency Progress Card
 <div className="card">
@@ -225,6 +235,7 @@ interface StudentCompetency {
 ### B. Apprenticeship Tracking Module
 
 **What Moodle Does**:
+
 ```
 Apprenticeship Requirements:
 - 2,000 OJT hours (on-the-job training)
@@ -235,6 +246,7 @@ Apprenticeship Requirements:
 ```
 
 **Our Implementation**:
+
 ```typescript
 interface Apprenticeship {
   id: string;
@@ -244,20 +256,20 @@ interface Apprenticeship {
   supervisor_id: string;
   start_date: Date;
   expected_completion: Date;
-  
+
   // Hour Tracking
   ojt_hours_required: number;
   ojt_hours_completed: number;
   ri_hours_required: number;
   ri_hours_completed: number;
-  
+
   // Competencies
   competencies_required: string[];
   competencies_completed: string[];
-  
+
   // Evaluations
   evaluations: SupervisorEvaluation[];
-  
+
   // Status
   status: 'active' | 'on_hold' | 'completed' | 'terminated';
   completion_date?: Date;
@@ -294,6 +306,7 @@ interface SupervisorEvaluation {
 ```
 
 **UI Component**:
+
 ```tsx
 // Apprenticeship Dashboard
 <div className="apprenticeship-dashboard">
@@ -308,7 +321,7 @@ interface SupervisorEvaluation {
       </div>
       <p className="text-secondary">550 hours remaining</p>
     </div>
-    
+
     <div className="card">
       <h4>Related Instruction</h4>
       <div className="progress-circle">
@@ -319,7 +332,7 @@ interface SupervisorEvaluation {
       </div>
       <p className="text-secondary">24 hours remaining</p>
     </div>
-    
+
     <div className="card">
       <h4>Competencies</h4>
       <div className="progress-circle">
@@ -331,13 +344,15 @@ interface SupervisorEvaluation {
       <p className="text-secondary">3 competencies remaining</p>
     </div>
   </div>
-  
+
   <div className="recent-activity">
     <h3>Recent Activity</h3>
     <div className="activity-list">
       <div className="activity-item">
         <span className="activity-icon">✓</span>
-        <span className="activity-text">8 OJT hours approved by supervisor</span>
+        <span className="activity-text">
+          8 OJT hours approved by supervisor
+        </span>
         <span className="activity-date">2 hours ago</span>
       </div>
       <div className="activity-item">
@@ -353,6 +368,7 @@ interface SupervisorEvaluation {
 ### C. Certification Automation
 
 **What Moodle Does**:
+
 ```
 Certification Workflow:
 1. Student completes all requirements
@@ -366,13 +382,18 @@ Certification Workflow:
 ```
 
 **Our Implementation**:
+
 ```typescript
 interface CertificationRule {
   id: string;
   program_id: string;
   name: string;
   requirements: {
-    type: 'course_completion' | 'competency_mastery' | 'hours_completed' | 'assessment_passed';
+    type:
+      | 'course_completion'
+      | 'competency_mastery'
+      | 'hours_completed'
+      | 'assessment_passed';
     target_id: string;
     threshold?: number;
   }[];
@@ -400,29 +421,35 @@ interface Certificate {
 
 // Auto-Certification Service
 class CertificationService {
-  async checkEligibility(studentId: string, programId: string): Promise<boolean> {
+  async checkEligibility(
+    studentId: string,
+    programId: string
+  ): Promise<boolean> {
     const rules = await this.getCertificationRules(programId);
-    
+
     for (const rule of rules) {
       for (const requirement of rule.requirements) {
         const met = await this.checkRequirement(studentId, requirement);
         if (!met) return false;
       }
     }
-    
+
     return true;
   }
-  
-  async issueCertificate(studentId: string, programId: string): Promise<Certificate> {
+
+  async issueCertificate(
+    studentId: string,
+    programId: string
+  ): Promise<Certificate> {
     // 1. Generate unique verification code
     const verificationCode = this.generateVerificationCode();
-    
+
     // 2. Populate certificate template
     const certificateData = await this.getCertificateData(studentId, programId);
-    
+
     // 3. Generate PDF
     const pdfUrl = await this.generateCertificatePDF(certificateData);
-    
+
     // 4. Save to database
     const certificate = await this.saveCertificate({
       student_id: studentId,
@@ -431,13 +458,13 @@ class CertificationService {
       pdf_url: pdfUrl,
       issue_date: new Date(),
     });
-    
+
     // 5. Send email notification
     await this.sendCertificateEmail(studentId, certificate);
-    
+
     // 6. Trigger state reporting
     await this.reportToState(certificate);
-    
+
     return certificate;
   }
 }
@@ -446,6 +473,7 @@ class CertificationService {
 ### D. Job Placement Tracking
 
 **What Moodle Does** (via plugins):
+
 ```
 Job Placement Module:
 - Job board integration
@@ -458,6 +486,7 @@ Job Placement Module:
 ```
 
 **Our Implementation**:
+
 ```typescript
 interface JobPlacement {
   id: string;
@@ -472,7 +501,7 @@ interface JobPlacement {
   benefits: string[];
   placement_source: 'direct' | 'referral' | 'job_board' | 'career_fair';
   status: 'placed' | 'active' | 'terminated' | 'promoted';
-  
+
   // Follow-up
   follow_ups: PlacementFollowUp[];
   retention_status: {
@@ -524,6 +553,7 @@ interface PlacementMetrics {
 ### Moodle's Reporting Capabilities
 
 **What Moodle Provides**:
+
 - Custom report builder
 - Scheduled reports
 - Export to Excel/PDF
@@ -531,6 +561,7 @@ interface PlacementMetrics {
 - Audit logs
 
 **Our Implementation**:
+
 ```typescript
 // WIOA Compliance Report
 interface WIOAReport {
@@ -538,7 +569,7 @@ interface WIOAReport {
     start_date: Date;
     end_date: Date;
   };
-  
+
   enrollment_data: {
     total_enrolled: number;
     by_demographics: {
@@ -550,7 +581,7 @@ interface WIOAReport {
       count: number;
     }[];
   };
-  
+
   completion_data: {
     total_completed: number;
     completion_rate: number;
@@ -560,7 +591,7 @@ interface WIOAReport {
       count: number;
     }[];
   };
-  
+
   placement_data: {
     total_placed: number;
     placement_rate: number;
@@ -572,7 +603,7 @@ interface WIOAReport {
       average_wage: number;
     }[];
   };
-  
+
   performance_metrics: {
     employment_rate_q2: number;
     employment_rate_q4: number;
@@ -589,7 +620,7 @@ interface WRGReport {
     start_date: Date;
     end_date: Date;
   };
-  
+
   training_data: {
     total_participants: number;
     total_training_hours: number;
@@ -600,7 +631,7 @@ interface WRGReport {
       hours: number;
     }[];
   };
-  
+
   certification_data: {
     total_certifications: number;
     by_type: {
@@ -609,14 +640,14 @@ interface WRGReport {
       pass_rate: number;
     }[];
   };
-  
+
   employer_engagement: {
     total_employers: number;
     new_partnerships: number;
     work_based_learning_placements: number;
     apprenticeships_started: number;
   };
-  
+
   outcomes: {
     job_placements: number;
     wage_gains: {
@@ -630,7 +661,7 @@ interface WRGReport {
       180_day: number;
     };
   };
-  
+
   funding_utilization: {
     total_grant_amount: number;
     amount_spent: number;
@@ -645,78 +676,77 @@ interface WRGReport {
 ## 5. Implementation Roadmap
 
 ### Phase 1: Competency Framework (Weeks 1-2)
+
 ```typescript
 // Database tables
-- competencies
-- competency_levels
-- student_competencies
-- competency_evidence
-
-// Components
-- CompetencyCard
-- CompetencyProgress
-- EvidenceUpload
-- CompetencyAssessment
+-competencies -
+  competency_levels -
+  student_competencies -
+  competency_evidence -
+  // Components
+  CompetencyCard -
+  CompetencyProgress -
+  EvidenceUpload -
+  CompetencyAssessment;
 ```
 
 ### Phase 2: Apprenticeship Tracking (Weeks 3-4)
+
 ```typescript
 // Database tables
-- apprenticeships
-- ojt_hour_logs
-- supervisor_evaluations
-- competency_assessments
-
-// Components
-- ApprenticeshipDashboard
-- HourLogForm
-- SupervisorApproval
-- EvaluationForm
+-apprenticeships -
+  ojt_hour_logs -
+  supervisor_evaluations -
+  competency_assessments -
+  // Components
+  ApprenticeshipDashboard -
+  HourLogForm -
+  SupervisorApproval -
+  EvaluationForm;
 ```
 
 ### Phase 3: Certification Automation (Week 5)
+
 ```typescript
 // Database tables
-- certification_rules
-- certificates
-- certificate_templates
-
-// Services
-- CertificationService
-- PDFGenerationService
-- EmailNotificationService
-
-// Components
-- CertificateViewer
-- CertificateVerification
+-certification_rules -
+  certificates -
+  certificate_templates -
+  // Services
+  CertificationService -
+  PDFGenerationService -
+  EmailNotificationService -
+  // Components
+  CertificateViewer -
+  CertificateVerification;
 ```
 
 ### Phase 4: Job Placement Tracking (Week 6)
+
 ```typescript
 // Database tables
-- job_placements
-- placement_follow_ups
-- employers
-
-// Components
-- PlacementDashboard
-- JobBoard
-- PlacementForm
-- FollowUpSurvey
+-job_placements -
+  placement_follow_ups -
+  employers -
+  // Components
+  PlacementDashboard -
+  JobBoard -
+  PlacementForm -
+  FollowUpSurvey;
 ```
 
 ### Phase 5: Compliance Reporting (Weeks 7-8)
+
 ```typescript
 // Database tables
-- wioa_reports
-- wrg_reports
-- report_schedules
-
-// Components
-- WIOAReportBuilder
-- WRGReportBuilder
-- ReportDashboard
-- ExportTools
+-wioa_reports -
+  wrg_reports -
+  report_schedules -
+  // Components
+  WIOAReportBuilder -
+  WRGReportBuilder -
+  ReportDashboard -
+  ExportTools;
 ```
 
 ---
@@ -724,17 +754,20 @@ interface WRGReport {
 ## 6. Cost Comparison
 
 ### Moodle (Self-Hosted)
+
 - **Software**: $0 (open-source)
 - **Hosting**: $50-$200/month (VPS)
 - **Maintenance**: $500-$1,000/month (developer time)
 - **Total**: $6,000-$14,400/year
 
 ### Docebo (SaaS)
+
 - **License**: $25,000-$50,000/year
 - **Implementation**: $10,000-$20,000 (one-time)
 - **Total Year 1**: $35,000-$70,000
 
 ### Our Hybrid Approach
+
 - **Software**: $0 (custom-built)
 - **Hosting**: $0-$500/month (Supabase + Netlify)
 - **Development**: One-time build (12 weeks)
@@ -747,6 +780,7 @@ interface WRGReport {
 ## 7. Key Advantages of Hybrid Approach
 
 ### vs Moodle
+
 - ✅ Better UI/UX (Docebo-style)
 - ✅ Modern tech stack (React vs PHP)
 - ✅ Easier maintenance
@@ -754,6 +788,7 @@ interface WRGReport {
 - ✅ Mobile-first design
 
 ### vs Docebo
+
 - ✅ Zero licensing costs
 - ✅ Full customization control
 - ✅ Vocational training features
@@ -761,6 +796,7 @@ interface WRGReport {
 - ✅ Compliance reporting
 
 ### vs Building from Scratch
+
 - ✅ Proven patterns (Moodle)
 - ✅ Best practices (Docebo)
 - ✅ Faster development
@@ -779,6 +815,6 @@ interface WRGReport {
 
 **Timeline**: 8 weeks to full vocational LMS  
 **Cost**: $0-$6,000/year  
-**Result**: Enterprise vocational training platform  
+**Result**: Enterprise vocational training platform
 
 🚀 **Let's build the best of Moodle + Docebo!**

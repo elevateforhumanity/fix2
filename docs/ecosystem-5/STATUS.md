@@ -5,15 +5,17 @@ This document describes the comprehensive status reporting system implemented fo
 ## Quick Status Commands
 
 ### 1. Simple Status Check
+
 ```bash
 npm run status
 # or
 ./status
-# or 
+# or
 node status
 ```
 
 **Output Example:**
+
 ```
 🎯 EFH System Status - How is everything going?
 
@@ -48,6 +50,7 @@ node status
 ```
 
 ### 2. Detailed Health Check
+
 ```bash
 npm run status:detailed
 # or
@@ -55,6 +58,7 @@ node tools/today-health-check.js
 ```
 
 **Output Example:**
+
 ```
 🎯 EFH COMPREHENSIVE HEALTH CHECK - All Today's Work
 ============================================================
@@ -76,12 +80,15 @@ node tools/today-health-check.js
 ## Web-Based Status Monitoring
 
 ### Monitor Dashboard
+
 Access the interactive monitoring dashboard at:
+
 ```
 http://localhost:3000/monitor-dashboard.html
 ```
 
 Features:
+
 - **Quick Status Section**: "How is Everything Going?" summary
 - Real-time system metrics
 - Health score visualization
@@ -91,11 +98,13 @@ Features:
 ### API Endpoints
 
 #### Quick Status API
+
 ```bash
 curl http://localhost:5000/api/status
 ```
 
 Response format:
+
 ```json
 {
   "status": "excellent",
@@ -112,6 +121,7 @@ Response format:
 ```
 
 #### Comprehensive Health API
+
 ```bash
 curl http://localhost:5000/api/health
 ```
@@ -119,6 +129,7 @@ curl http://localhost:5000/api/health
 ## Status Categories
 
 ### Health Score Ranges
+
 - **90-100%**: 🎉 EXCELLENT - All systems operational
 - **75-89%**: ⚠️ GOOD - Minor issues, core functionality intact
 - **50-74%**: 🚨 NEEDS ATTENTION - Multiple issues detected
@@ -127,18 +138,21 @@ curl http://localhost:5000/api/health
 ### Monitored Components
 
 #### Critical Files (Required)
+
 - `simple-server.cjs` - Main server
 - `backend-api.js` - API services
 - `monitor-dashboard.html` - Monitoring interface
 - `package.json` - Project configuration
 
 #### Critical Sites (Required)
+
 - `index.html` - Landing page
 - `hub.html` - Main hub
 - `programs.html` - Programs listing
 - `lms.html` - Learning management
 
 #### System Health Checks
+
 - Server processes status
 - Dependencies installation
 - Database connectivity
@@ -147,6 +161,7 @@ curl http://localhost:5000/api/health
 ## Usage Scenarios
 
 ### Daily Operations
+
 ```bash
 # Quick morning check
 npm run status
@@ -159,6 +174,7 @@ curl localhost:5000/api/status | jq .
 ```
 
 ### CI/CD Integration
+
 ```bash
 #!/bin/bash
 # deployment-check.sh
@@ -168,14 +184,16 @@ npm run status
 
 if [ $? -eq 0 ]; then
   echo "✅ System healthy - proceeding with deployment"
-else 
+else
   echo "❌ System issues detected - aborting deployment"
   exit 1
 fi
 ```
 
 ### Monitoring & Alerts
+
 The monitor dashboard provides:
+
 - Real-time status updates
 - Visual health indicators
 - Quick action recommendations
@@ -184,13 +202,14 @@ The monitor dashboard provides:
 ## Customization
 
 ### Adding Custom Checks
+
 Edit the `status` script to add custom health checks:
 
 ```javascript
 // Add to criticalFiles array
 const criticalFiles = [
   'simple-server.cjs',
-  'your-custom-file.js'  // Add custom files here
+  'your-custom-file.js', // Add custom files here
 ];
 
 // Add custom logic
@@ -203,24 +222,29 @@ if (customCondition) {
 ```
 
 ### Monitor Dashboard Integration
+
 The dashboard automatically refreshes status every time the page loads and can be manually refreshed using the "🔄 Refresh" button.
 
 ## Troubleshooting
 
 ### Common Issues
+
 1. **Dependencies Missing**: Run `npm install`
-2. **Server Not Running**: Start with `npm start` 
+2. **Server Not Running**: Start with `npm start`
 3. **Low Health Score**: Run detailed check with `npm run status:detailed`
 
 ### Support
+
 For issues with status reporting:
+
 1. Check logs in monitor dashboard
 2. Run detailed health check
 3. Verify all critical files exist
 4. Ensure dependencies are installed
 
 ## Implementation Files
-- `status` - Main status command script  
+
+- `status` - Main status command script
 - `tools/today-health-check.js` - Comprehensive health check
 - `monitor-dashboard.html` - Web-based monitoring interface
 - `backend-api.js` - Status API endpoints

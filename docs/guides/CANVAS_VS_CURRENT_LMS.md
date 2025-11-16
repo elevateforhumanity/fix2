@@ -12,7 +12,7 @@
 
 ### What We Just Fixed
 
-- **Bridge System:** Feeds content to  website
+- **Bridge System:** Feeds content to website
 - **API Endpoints:** 7 programs including CPRS
 - **Deployment:** Working on Netlify
 - **Purpose:** Marketing/enrollment, NOT the LMS itself
@@ -159,7 +159,7 @@ If NO → Consider adding specific features, not replacing everything
    - Vimeo Pro: $75/month
    - Bunny.net: $10-$50/month
    - YouTube Private: Free
-3. **Fix the  bridge** (what we've been working on)
+3. **Fix the bridge** (what we've been working on)
 4. **Sell/license your LMS** to other organizations
 5. **Use CPRS revenue** ($600K Year 1) to enhance your LMS
 
@@ -178,7 +178,7 @@ If NO → Consider adding specific features, not replacing everything
 
 **Option 2: Marketing & Enrollment ($10K-$15K)**
 
-- Fix  integration (free, we're doing it)
+- Fix integration (free, we're doing it)
 - SEO and ads ($5K)
 - Enrollment automation ($3K)
 - CRM integration ($2K)
@@ -248,7 +248,7 @@ You said "I don't see anything on Durable" - This is about the **marketing websi
 
 ### The Fix:
 
-1. Add bridge script to  (we provided the code)
+1. Add bridge script to (we provided the code)
 2. Add content slots to your Durable pages
 3. The bridge will show your 7 programs (including CPRS)
 
@@ -310,7 +310,7 @@ You said "I don't see anything on Durable" - This is about the **marketing websi
 ### Immediate (This Week):
 
 1. ✅ Keep your current LMS
-2. ✅ Fix  bridge (add script + slots)
+2. ✅ Fix bridge (add script + slots)
 3. ✅ Test that programs show on website
 
 ### Short-term (This Month):
@@ -345,7 +345,7 @@ You said "I don't see anything on Durable" - This is about the **marketing websi
 
 **DO focus on:**
 
-- Fixing the  bridge (marketing)
+- Fixing the bridge (marketing)
 - Launching CPRS program (revenue)
 - Licensing your LMS (additional revenue)
 - Enhancing what you have (better ROI)

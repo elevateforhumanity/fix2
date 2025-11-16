@@ -40,7 +40,10 @@ const getEnvVar = (key: string, defaultValue?: string): string => {
   return value;
 };
 
-const getEnvVarOptional = (key: string, defaultValue?: string): string | undefined => {
+const getEnvVarOptional = (
+  key: string,
+  defaultValue?: string
+): string | undefined => {
   return process.env[key] || defaultValue;
 };
 
@@ -92,15 +95,21 @@ export const validateConfig = (): void => {
   if (missing.length > 0) {
     throw new Error(
       `Missing required environment variables: ${missing.join(', ')}\n` +
-      'Please check your .env file and ensure all required variables are set.'
+        'Please check your .env file and ensure all required variables are set.'
     );
   }
 
   if (config.node_env === 'production') {
-    if (config.jwt_secret === 'your-super-secret-jwt-key-change-this-in-production') {
+    if (
+      config.jwt_secret ===
+      'your-super-secret-jwt-key-change-this-in-production'
+    ) {
       throw new Error('JWT_SECRET must be changed in production');
     }
-    if (config.jwt_refresh_secret === 'your-super-secret-refresh-key-change-this-in-production') {
+    if (
+      config.jwt_refresh_secret ===
+      'your-super-secret-refresh-key-change-this-in-production'
+    ) {
       throw new Error('JWT_REFRESH_SECRET must be changed in production');
     }
   }

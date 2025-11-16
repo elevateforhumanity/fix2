@@ -56,9 +56,9 @@
 
 ```sql
 -- Check tables exist
-SELECT table_name 
-FROM information_schema.tables 
-WHERE table_schema = 'public' 
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema = 'public'
 AND table_name IN ('user_tokens', 'tasks', 'audit_logs');
 ```
 
@@ -100,6 +100,7 @@ npx tsx src/index.ts auth --email teacher@school.org
 ```
 
 This will:
+
 1. Generate an authorization URL
 2. Print it to console
 3. Start a local server on port 53682
@@ -119,6 +120,7 @@ npx tsx src/index.ts auth:redeem --email teacher@school.org --code 4/0AY0e-g7...
 ```
 
 This will:
+
 1. Exchange code for tokens
 2. Store refresh token in Supabase
 3. Confirm successful authorization
@@ -132,6 +134,7 @@ npx tsx src/index.ts courses:list --email teacher@school.org
 ```
 
 Expected output:
+
 ```
 📚 Courses for teacher@school.org:
   - CNA Training Fall 2025 (id: 123456789)
@@ -160,6 +163,7 @@ npx tsx src/index.ts autopilot:run --email teacher@school.org
 ```
 
 Expected output:
+
 ```
 🤖 Running autopilot for teacher@school.org...
 ✅ Processed 1 task(s)
@@ -205,18 +209,22 @@ tasks:
 ## Troubleshooting
 
 ### Error: "Invalid grant"
+
 - Your authorization code expired (valid for 10 minutes)
 - Run `auth` command again to get a new code
 
 ### Error: "Token has been expired or revoked"
+
 - Refresh token was revoked
 - Run `auth` flow again to re-authorize
 
 ### Error: "Insufficient permissions"
+
 - Check OAuth scopes in Google Cloud Console
 - Re-authorize with correct scopes
 
 ### Error: "Course not found"
+
 - Verify courseId in task payload
 - Check user has access to the course
 

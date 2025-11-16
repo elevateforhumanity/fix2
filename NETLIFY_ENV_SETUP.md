@@ -11,6 +11,7 @@ project's URL and Key are required to create a Supabase client!
 ### Step 1: Get Supabase Keys
 
 From `SECRETS_CATALOG.md`, we have:
+
 - **SUPABASE_URL**: `https://cuxzzpsyufcewtmicszk.supabase.co`
 - **SUPABASE_ANON_KEY**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ`
 
@@ -75,6 +76,7 @@ Scopes: Production
 ### Step 3: Redeploy
 
 After adding all variables:
+
 1. Click **Save**
 2. Go to **Deploys** tab
 3. Click **Trigger deploy** → **Deploy site**
@@ -83,6 +85,7 @@ After adding all variables:
 ### Step 4: Verify
 
 Once deployed, check:
+
 - ✅ https://www.elevateconnectsdirectory.org (site loads)
 - ✅ https://www.elevateconnectsdirectory.org/sitemap.xml (sitemap works)
 - ✅ https://www.elevateconnectsdirectory.org/robots.txt (robots.txt works)
@@ -92,31 +95,37 @@ Once deployed, check:
 ## Quick Copy-Paste for Netlify
 
 ### Variable 1
+
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 ```
 
 ### Variable 2
+
 ```
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ
 ```
 
 ### Variable 3 (Get from Supabase)
+
 ```
 SUPABASE_SERVICE_ROLE_KEY=[YOUR_SERVICE_ROLE_KEY_HERE]
 ```
 
 ### Variable 4
+
 ```
 NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
 ```
 
 ### Variable 5
+
 ```
 NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
 ```
 
 ### Variable 6
+
 ```
 NODE_ENV=production
 ```
@@ -142,14 +151,17 @@ netlify deploy --prod
 ## Troubleshooting
 
 ### Error: "Invalid API key"
+
 - Check the anon key is copied correctly (no extra spaces)
 - Verify it matches the key in Supabase Dashboard
 
 ### Error: "Project not found"
+
 - Check the URL is correct: `https://cuxzzpsyufcewtmicszk.supabase.co`
 - Verify project is active in Supabase Dashboard
 
 ### Build still failing
+
 - Clear Netlify cache: Deploys → Options → Clear cache and retry deploy
 - Check all 6 variables are added
 - Verify no typos in variable names (case-sensitive)

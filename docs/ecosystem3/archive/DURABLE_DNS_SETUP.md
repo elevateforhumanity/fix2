@@ -1,6 +1,7 @@
 # 🚀 Durable Custom Domain Setup Guide
 
 ## Current Status
+
 - **✅ Durable Site**: https://elevateforhumanity.durable.co (Live)
 - **✅ Redirect Configured**: 308 redirect to elevateforhumanity.org
 - **❌ Custom Domain**: elevateforhumanity.org (DNS not configured)
@@ -8,6 +9,7 @@
 ## Required DNS Configuration
 
 ### Step 1: Add DNS Records
+
 At your DNS provider (systemdns.com), add these CNAME records:
 
 ```
@@ -16,13 +18,14 @@ Name: @
 Value: elevateforhumanity.durable.co
 TTL: 3600
 
-Record Type: CNAME  
+Record Type: CNAME
 Name: www
 Value: elevateforhumanity.durable.co
 TTL: 3600
 ```
 
 ### Step 2: Configure in Durable Dashboard
+
 1. Login to your Durable account
 2. Go to your site settings
 3. Navigate to "Custom Domain" or "Domain Settings"
@@ -30,6 +33,7 @@ TTL: 3600
 5. Complete any verification steps required
 
 ### Step 3: Verify Setup
+
 After DNS propagation (15 minutes to 2 hours):
 
 ```bash
@@ -52,6 +56,7 @@ curl -I https://www.elevateforhumanity.org
 ## SEO Configuration Status ✅
 
 Your site is already optimized for search engines:
+
 - **Canonical URLs**: Point to www.elevateforhumanity.org
 - **Sitemaps**: Reference correct domain
 - **Robots.txt**: Properly configured
@@ -60,12 +65,14 @@ Your site is already optimized for search engines:
 ## Troubleshooting
 
 ### If DNS doesn't work:
+
 1. Verify CNAME records are correct
 2. Check TTL settings (use 3600 or Auto)
 3. Wait up to 24 hours for full propagation
 4. Contact your DNS provider if issues persist
 
 ### If Durable doesn't recognize domain:
+
 1. Ensure domain is added in Durable dashboard
 2. Complete any verification steps
 3. Check Durable's custom domain documentation
@@ -74,6 +81,7 @@ Your site is already optimized for search engines:
 ## Monitoring Progress
 
 Run this command to check DNS status:
+
 ```bash
 watch -n 30 './test-dns-fix.sh'
 ```

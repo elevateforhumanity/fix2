@@ -1,4 +1,5 @@
 # User Guide
+
 ## Elevate for Humanity LMS Platform
 
 **Welcome!** This guide will help you get started with our learning management system.
@@ -25,17 +26,20 @@
 ### System Requirements
 
 **Supported Browsers:**
+
 - Chrome 90+ (recommended)
 - Firefox 88+
 - Safari 14+
 - Edge 90+
 
 **Devices:**
+
 - Desktop/Laptop
 - Tablet
 - Smartphone
 
 **Internet:**
+
 - Minimum 5 Mbps for video streaming
 - 10+ Mbps recommended
 
@@ -54,6 +58,7 @@ Located in the top right corner of the homepage.
 ### Step 3: Fill Out Registration Form
 
 **Required Information:**
+
 - Full Name
 - Email Address
 - Password (minimum 8 characters)
@@ -61,6 +66,7 @@ Located in the top right corner of the homepage.
 - Date of Birth
 
 **Optional Information:**
+
 - Address
 - Employment Status
 - Education Level
@@ -96,6 +102,7 @@ Located in the top right corner of the homepage.
 ### Course Information
 
 Each course page includes:
+
 - **Description:** What you'll learn
 - **Duration:** Total hours
 - **Prerequisites:** Required knowledge
@@ -150,6 +157,7 @@ Each course page includes:
 ### Watching Videos
 
 **Controls:**
+
 - Play/Pause
 - Volume
 - Playback speed (0.5x - 2x)
@@ -157,6 +165,7 @@ Each course page includes:
 - Captions/Subtitles
 
 **Tips:**
+
 - Take notes while watching
 - Pause to review concepts
 - Rewatch difficult sections
@@ -165,12 +174,14 @@ Each course page includes:
 ### Taking Quizzes
 
 **Types of Questions:**
+
 - Multiple choice
 - True/False
 - Short answer
 - Matching
 
 **Quiz Rules:**
+
 - Passing score: 80%
 - Unlimited attempts
 - Immediate feedback
@@ -193,6 +204,7 @@ Each course page includes:
 View your progress at: Dashboard > My Progress
 
 **Metrics Displayed:**
+
 - Overall completion percentage
 - Lessons completed
 - Quizzes passed
@@ -203,6 +215,7 @@ View your progress at: Dashboard > My Progress
 ### Course Progress
 
 Each course shows:
+
 - Percentage complete
 - Current lesson
 - Next lesson
@@ -221,6 +234,7 @@ Each course shows:
 ### Certificate Requirements
 
 **To earn a certificate, you must:**
+
 1. Complete all lessons
 2. Pass all quizzes (80%+)
 3. Submit all assignments
@@ -237,6 +251,7 @@ Each course shows:
 ### Sharing Certificates
 
 **Options:**
+
 - Download PDF
 - Share on LinkedIn
 - Share on Facebook
@@ -246,6 +261,7 @@ Each course shows:
 ### Certificate Verification
 
 Each certificate includes:
+
 - Unique verification code
 - QR code for instant verification
 - Issue date
@@ -263,24 +279,29 @@ Each certificate includes:
 Click the blue accessibility button (bottom right) to access:
 
 **Font Size:**
+
 - Normal
 - Large
 - Extra Large
 
 **Contrast:**
+
 - Normal
 - High Contrast
 
 **Motion:**
+
 - Reduce Motion (for users sensitive to animations)
 
 **Keyboard Navigation:**
+
 - Enhanced focus indicators
 - Tab navigation support
 
 ### Screen Reader Support
 
 Our platform is compatible with:
+
 - NVDA (Windows)
 - JAWS (Windows)
 - VoiceOver (Mac/iOS)
@@ -297,6 +318,7 @@ Our platform is compatible with:
 ### Captions and Transcripts
 
 All videos include:
+
 - Closed captions
 - Full transcripts
 - Multiple languages (where available)
@@ -308,6 +330,7 @@ All videos include:
 ### Can't Log In
 
 **Solutions:**
+
 1. Check email and password
 2. Click "Forgot Password" to reset
 3. Clear browser cache and cookies
@@ -317,6 +340,7 @@ All videos include:
 ### Video Won't Play
 
 **Solutions:**
+
 1. Check internet connection
 2. Refresh the page
 3. Clear browser cache
@@ -327,6 +351,7 @@ All videos include:
 ### Quiz Not Submitting
 
 **Solutions:**
+
 1. Check all questions answered
 2. Refresh the page
 3. Try submitting again
@@ -335,6 +360,7 @@ All videos include:
 ### Certificate Not Downloading
 
 **Solutions:**
+
 1. Check popup blocker settings
 2. Try different browser
 3. Right-click and "Save As"

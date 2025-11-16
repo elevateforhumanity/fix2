@@ -42,16 +42,12 @@ export default function MobileCourseCard({
           )}
         </div>
       )}
-
       {/* Content */}
       <div className="p-4">
         <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">
           {title}
         </h3>
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-          {description}
-        </p>
-
+        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{description}</p>
         {/* Progress Bar */}
         {progress > 0 && (
           <div className="mb-3">
@@ -67,7 +63,6 @@ export default function MobileCourseCard({
             </div>
           </div>
         )}
-
         {/* Meta Info */}
         <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
           <div className="flex items-center gap-1">
@@ -79,7 +74,6 @@ export default function MobileCourseCard({
             <span>{lessons} lessons</span>
           </div>
         </div>
-
         {/* Action */}
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium text-blue-600">

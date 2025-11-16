@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,7 +6,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
-import { Clock, AlertCircle, CheckCircle, ArrowLeft, ArrowRight } from 'lucide-react';
+import {
+  Clock,
+  AlertCircle,
+  CheckCircle,
+  ArrowLeft,
+  ArrowRight,
+} from 'lucide-react';
 
 interface Props {
   params: {
@@ -54,13 +60,16 @@ export default function TakeQuizPage({ params }: Props) {
 
   const loadQuiz = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       // Fetch quiz
       const { data: quizData } = await supabase
         .from('quizzes')
-        .select(`
+        .select(
+          `
           id,
           title,
           description,
@@ -71,7 +80,8 @@ export default function TakeQuizPage({ params }: Props) {
             id,
             title
           )
-        `)
+        `
+        )
         .eq('id', params.quizId)
         .single();
 
@@ -80,7 +90,9 @@ export default function TakeQuizPage({ params }: Props) {
       // Fetch questions
       const { data: questionsData } = await supabase
         .from('quiz_questions')
-        .select('id, question_text, question_type, options, points, order_index')
+        .select(
+          'id, question_text, question_type, options, points, order_index'
+        )
         .eq('quiz_id', params.quizId)
         .order('order_index', { ascending: true });
 
@@ -134,7 +146,9 @@ export default function TakeQuizPage({ params }: Props) {
     setSubmitting(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user || !attemptId) return;
 
       // Calculate score
@@ -149,12 +163,17 @@ export default function TakeQuizPage({ params }: Props) {
       questionsWithAnswers?.forEach((question) => {
         totalPoints += question.points;
         const studentAnswer = answers[question.id];
-        if (studentAnswer && studentAnswer.trim().toLowerCase() === question.correct_answer.trim().toLowerCase()) {
+        if (
+          studentAnswer &&
+          studentAnswer.trim().toLowerCase() ===
+            question.correct_answer.trim().toLowerCase()
+        ) {
           earnedPoints += question.points;
         }
       });
 
-      const score = totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
+      const score =
+        totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
       const passed = score >= quiz.passing_score;
 
       // Update attempt
@@ -169,17 +188,15 @@ export default function TakeQuizPage({ params }: Props) {
         .eq('id', attemptId);
 
       // Create grade record
-      await supabase
-        .from('grades')
-        .insert({
-          student_id: user.id,
-          course_id: quiz.courses.id,
-          quiz_id: parseInt(params.quizId),
-          score: score,
-          max_score: 100,
-          passed: passed,
-          graded_at: new Date().toISOString(),
-        });
+      await supabase.from('grades').insert({
+        student_id: user.id,
+        course_id: quiz.courses.id,
+        quiz_id: parseInt(params.quizId),
+        score: score,
+        max_score: 100,
+        passed: passed,
+        graded_at: new Date().toISOString(),
+      });
 
       // Redirect to results
       router.push(`/lms/quizzes/${params.quizId}/results/${attemptId}`);
@@ -200,7 +217,7 @@ export default function TakeQuizPage({ params }: Props) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading quiz...</p>
         </div>
       </div>
@@ -219,9 +236,12 @@ export default function TakeQuizPage({ params }: Props) {
         <div className="elevate-container py-12">
           <div className="max-w-2xl mx-auto elevate-card text-center">
             <AlertCircle className="h-16 w-16 text-red-600 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Maximum Attempts Reached</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Maximum Attempts Reached
+            </h1>
             <p className="text-gray-600 mb-6">
-              You have used all {quiz.max_attempts} attempts for this quiz. Please contact your instructor for assistance.
+              You have used all {quiz.max_attempts} attempts for this quiz.
+              Please contact your instructor for assistance.
             </p>
             <Link href="/lms/dashboard" className="elevate-btn-primary">
               Back to Dashboard
@@ -245,15 +265,18 @@ export default function TakeQuizPage({ params }: Props) {
           <span>Elevate for Humanity</span>
         </div>
         {timeRemaining !== null && (
-          <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
-            timeRemaining < 300 ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
-          }`}>
+          <div
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+              timeRemaining < 300
+                ? 'bg-red-100 text-red-700'
+                : 'bg-blue-100 text-blue-700'
+            }`}
+          >
             <Clock className="h-4 w-4" />
             <span className="font-bold">{formatTime(timeRemaining)}</span>
           </div>
         )}
       </header>
-
       {/* Quiz Header */}
       <section className="bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 text-white py-8">
         <div className="elevate-container">
@@ -264,17 +287,20 @@ export default function TakeQuizPage({ params }: Props) {
           <div className="mt-4 flex items-center gap-6 text-sm">
             <span>{questions.length} questions</span>
             <span>Passing score: {quiz.passing_score}%</span>
-            <span>Attempt {previousAttempts.length + 1} of {quiz.max_attempts}</span>
+            <span>
+              Attempt {previousAttempts.length + 1} of {quiz.max_attempts}
+            </span>
           </div>
         </div>
       </section>
-
       <main className="elevate-container py-8">
         <div className="max-w-3xl mx-auto">
           {/* Progress Bar */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>Question {currentQuestion + 1} of {questions.length}</span>
+              <span>
+                Question {currentQuestion + 1} of {questions.length}
+              </span>
               <span>{answeredCount} answered</span>
             </div>
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -284,7 +310,6 @@ export default function TakeQuizPage({ params }: Props) {
               />
             </div>
           </div>
-
           {/* Question Card */}
           {currentQ && (
             <div className="elevate-card mb-6">
@@ -294,14 +319,17 @@ export default function TakeQuizPage({ params }: Props) {
                     {currentQ.question_type.replace('_', ' ')}
                   </span>
                   <span className="text-sm text-gray-500">
-                    {currentQ.points} {currentQ.points === 1 ? 'point' : 'points'}
+                    {currentQ.points}{' '}
+                    {currentQ.points === 1 ? 'point' : 'points'}
                   </span>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">{currentQ.question_text}</h2>
+                <h2 className="text-xl font-bold text-gray-900">
+                  {currentQ.question_text}
+                </h2>
               </div>
-
               {/* Multiple Choice / True False */}
-              {(currentQ.question_type === 'multiple_choice' || currentQ.question_type === 'true_false') && (
+              {(currentQ.question_type === 'multiple_choice' ||
+                currentQ.question_type === 'true_false') && (
                 <div className="space-y-3">
                   {currentQ.options.map((option: string, index: number) => (
                     <label
@@ -317,7 +345,9 @@ export default function TakeQuizPage({ params }: Props) {
                         name={`question-${currentQ.id}`}
                         value={option}
                         checked={answers[currentQ.id] === option}
-                        onChange={(e) => handleAnswerChange(currentQ.id, e.target.value)}
+                        onChange={(e) =>
+                          handleAnswerChange(currentQ.id, e.target.value)
+                        }
                         className="flex-shrink-0"
                       />
                       <span className="text-gray-900">{option}</span>
@@ -325,12 +355,13 @@ export default function TakeQuizPage({ params }: Props) {
                   ))}
                 </div>
               )}
-
               {/* Short Answer */}
               {currentQ.question_type === 'short_answer' && (
                 <textarea
                   value={answers[currentQ.id] || ''}
-                  onChange={(e) => handleAnswerChange(currentQ.id, e.target.value)}
+                  onChange={(e) =>
+                    handleAnswerChange(currentQ.id, e.target.value)
+                  }
                   className="elevate-textarea w-full"
                   rows={4}
                   placeholder="Type your answer here..."
@@ -338,18 +369,18 @@ export default function TakeQuizPage({ params }: Props) {
               )}
             </div>
           )}
-
           {/* Navigation */}
           <div className="flex items-center justify-between">
             <button
-              onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+              onClick={() =>
+                setCurrentQuestion(Math.max(0, currentQuestion - 1))
+              }
               disabled={currentQuestion === 0}
               className="elevate-btn-secondary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <ArrowLeft className="h-4 w-4" />
               Previous
             </button>
-
             {currentQuestion < questions.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
@@ -369,7 +400,6 @@ export default function TakeQuizPage({ params }: Props) {
               </button>
             )}
           </div>
-
           {/* Question Navigator */}
           <div className="mt-8 elevate-card">
             <h3 className="font-bold text-gray-900 mb-3">Question Navigator</h3>
@@ -382,8 +412,8 @@ export default function TakeQuizPage({ params }: Props) {
                     index === currentQuestion
                       ? 'bg-red-600 text-white'
                       : answers[q.id]
-                      ? 'bg-green-100 text-green-700 border-2 border-green-300'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        ? 'bg-green-100 text-green-700 border-2 border-green-300'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
                   {index + 1}
@@ -391,20 +421,22 @@ export default function TakeQuizPage({ params }: Props) {
               ))}
             </div>
           </div>
-
           {/* Warning */}
-          {answeredCount < questions.length && currentQuestion === questions.length - 1 && (
-            <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h3 className="font-bold text-yellow-900 mb-1">Unanswered Questions</h3>
-                <p className="text-sm text-yellow-800">
-                  You have {questions.length - answeredCount} unanswered question(s). 
-                  Please answer all questions before submitting.
-                </p>
+          {answeredCount < questions.length &&
+            currentQuestion === questions.length - 1 && (
+              <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-yellow-900 mb-1">
+                    Unanswered Questions
+                  </h3>
+                  <p className="text-sm text-yellow-800">
+                    You have {questions.length - answeredCount} unanswered
+                    question(s). Please answer all questions before submitting.
+                  </p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       </main>
     </div>

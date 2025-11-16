@@ -3,7 +3,11 @@
  * Test script for the complete video generation workflow
  */
 
-import { generateVideo, processTimeline, VideoGenerationRequest } from './video-generator-v2';
+import {
+  generateVideo,
+  processTimeline,
+  VideoGenerationRequest,
+} from './video-generator-v2';
 import { testTTSService, validateTTSConfig } from './tts-service';
 import { defaultStorage } from './video-storage';
 
@@ -40,7 +44,7 @@ async function testVideoGeneration() {
       voiceOver: true,
       background: '#2563EB',
       textPosition: 'center' as const,
-      animation: 'fade' as const
+      animation: 'fade' as const,
     },
     {
       id: 'scene-2',
@@ -50,8 +54,8 @@ async function testVideoGeneration() {
       voiceOver: true,
       background: '#FFFFFF',
       textPosition: 'bottom' as const,
-      animation: 'slide' as const
-    }
+      animation: 'slide' as const,
+    },
   ];
 
   const timelineValidation = processTimeline(testScenes);
@@ -59,7 +63,9 @@ async function testVideoGeneration() {
     console.error('❌ Timeline validation failed:', timelineValidation.errors);
     return;
   }
-  console.log(`✅ Timeline valid (${timelineValidation.totalDuration}s total)\n`);
+  console.log(
+    `✅ Timeline valid (${timelineValidation.totalDuration}s total)\n`
+  );
 
   // Test 4: Test Storage Initialization
   console.log('Test 4: Testing Storage Initialization...');
@@ -83,9 +89,9 @@ async function testVideoGeneration() {
       resolution: '720p',
       voiceOver: true,
       backgroundMusic: false,
-      voice: 'alloy'
+      voice: 'alloy',
     },
-    userId: 'test-user'
+    userId: 'test-user',
   };
 
   try {
@@ -116,7 +122,9 @@ async function testVideoGeneration() {
         console.log(`   Title: ${metadata.title}`);
         console.log(`   Format: ${metadata.format}`);
         console.log(`   Resolution: ${metadata.resolution}`);
-        console.log(`   File Size: ${(metadata.fileSize / 1024 / 1024).toFixed(2)} MB\n`);
+        console.log(
+          `   File Size: ${(metadata.fileSize / 1024 / 1024).toFixed(2)} MB\n`
+        );
       } else {
         console.log('⚠️  Metadata not found\n');
       }

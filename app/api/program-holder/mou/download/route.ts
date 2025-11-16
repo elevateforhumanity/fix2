@@ -3,8 +3,10 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -48,7 +50,7 @@ export async function GET() {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="${filename}"`
-    }
+      'Content-Disposition': `attachment; filename="${filename}"`,
+    },
   });
 }

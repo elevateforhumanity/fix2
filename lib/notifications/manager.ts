@@ -61,14 +61,14 @@ export class NotificationManager {
 
     try {
       const registration = await navigator.serviceWorker.ready;
-      
+
       // Check if already subscribed
       let subscription = await registration.pushManager.getSubscription();
-      
+
       if (!subscription) {
         // Subscribe to push notifications
         const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
-        
+
         if (!vapidPublicKey) {
           console.warn('[Notifications] VAPID public key not configured');
           return null;
@@ -115,9 +115,12 @@ export class NotificationManager {
     }
   }
 
-  async sendNotification(title: string, options?: NotificationOptions): Promise<void> {
+  async sendNotification(
+    title: string,
+    options?: NotificationOptions
+  ): Promise<void> {
     const permission = await this.getPermissionStatus();
-    
+
     if (!permission.granted) {
       console.warn('[Notifications] Permission not granted');
       return;
@@ -140,7 +143,9 @@ export class NotificationManager {
     }
   }
 
-  private async sendSubscriptionToServer(subscription: PushSubscription): Promise<void> {
+  private async sendSubscriptionToServer(
+    subscription: PushSubscription
+  ): Promise<void> {
     try {
       await fetch('/api/notifications/subscribe', {
         method: 'POST',
@@ -148,11 +153,16 @@ export class NotificationManager {
         body: JSON.stringify(subscription),
       });
     } catch (error) {
-      console.error('[Notifications] Failed to send subscription to server:', error);
+      console.error(
+        '[Notifications] Failed to send subscription to server:',
+        error
+      );
     }
   }
 
-  private async removeSubscriptionFromServer(subscription: PushSubscription): Promise<void> {
+  private async removeSubscriptionFromServer(
+    subscription: PushSubscription
+  ): Promise<void> {
     try {
       await fetch('/api/notifications/unsubscribe', {
         method: 'POST',
@@ -160,7 +170,10 @@ export class NotificationManager {
         body: JSON.stringify(subscription),
       });
     } catch (error) {
-      console.error('[Notifications] Failed to remove subscription from server:', error);
+      console.error(
+        '[Notifications] Failed to remove subscription from server:',
+        error
+      );
     }
   }
 

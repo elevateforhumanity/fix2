@@ -44,19 +44,19 @@ export const cacheMiddleware = (duration: number = 300) => {
     if (req.method !== 'GET') {
       return next();
     }
-    
+
     const key = `cache:${req.originalUrl}`;
-    
+
     try {
       const cached = await redis.get(key);
-      
+
       if (cached) {
         return res.json(JSON.parse(cached));
       }
-      
+
       // Store original res.json
       const originalJson = res.json.bind(res);
-      
+
       // Override res.json
       res.json = (body: any) => {
         // Cache the response
@@ -64,7 +64,7 @@ export const cacheMiddleware = (duration: number = 300) => {
         // Send response
         return originalJson(body);
       };
-      
+
       next();
     } catch (error) {
       console.error('Cache middleware error:', error);

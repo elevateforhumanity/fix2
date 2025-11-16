@@ -321,11 +321,41 @@ export default function AssetGenerator() {
                 >
                   <div
                     className="w-full h-full"
-                    dangerouslySetInnerHTML={{ 
+                    dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(generatedAsset.html, {
-                        ALLOWED_TAGS: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'img', 'svg', 'path', 'circle', 'rect', 'text'],
-                        ALLOWED_ATTR: ['class', 'id', 'style', 'src', 'alt', 'viewBox', 'd', 'fill', 'stroke', 'cx', 'cy', 'r', 'x', 'y', 'width', 'height']
-                      })
+                        ALLOWED_TAGS: [
+                          'div',
+                          'span',
+                          'p',
+                          'h1',
+                          'h2',
+                          'h3',
+                          'img',
+                          'svg',
+                          'path',
+                          'circle',
+                          'rect',
+                          'text',
+                        ],
+                        ALLOWED_ATTR: [
+                          'class',
+                          'id',
+                          'style',
+                          'src',
+                          'alt',
+                          'viewBox',
+                          'd',
+                          'fill',
+                          'stroke',
+                          'cx',
+                          'cy',
+                          'r',
+                          'x',
+                          'y',
+                          'width',
+                          'height',
+                        ],
+                      }),
                     }}
                   />
                 </div>

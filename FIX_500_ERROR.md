@@ -1,12 +1,14 @@
 # Fix 500 Error - Action Required
 
 ## Current Status
+
 - ✅ `https://elevateconnectsdirectory.org/` - Marketing site works
 - ❌ `https://elevateconnectsdirectory.org/lms/dashboard` - 500 error
 - ❌ `https://www.elevateconnectsdirectory.org/` - 500 error
 - ❌ `https://www.elevateconnectsdirectory.org/lms/dashboard` - 500 error
 
 ## Root Cause
+
 The Next.js LMS app is crashing because **environment variables are missing or incorrect in Netlify**.
 
 ## Fix Steps
@@ -56,6 +58,7 @@ After adding all 6 environment variables:
 ### 4. Verify Site Works
 
 After deployment completes, test:
+
 - https://www.elevateconnectsdirectory.org/ (should load)
 - https://www.elevateconnectsdirectory.org/lms/dashboard (should load)
 

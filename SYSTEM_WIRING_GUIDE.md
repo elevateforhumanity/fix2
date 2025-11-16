@@ -1,4 +1,5 @@
 # SYSTEM WIRING GUIDE
+
 **Generated:** November 14, 2025  
 **Purpose:** Complete guide to wire up all systems end-to-end
 
@@ -7,14 +8,23 @@
 ## 🔌 SYSTEMS TO WIRE UP
 
 ### 1. Backend API Server
+
 ### 2. Redis Cache
+
 ### 3. Sentry Monitoring
+
 ### 4. Database (Supabase)
+
 ### 5. Authentication
+
 ### 6. File Upload
+
 ### 7. Real-time Features
+
 ### 8. Workers (Cloudflare)
+
 ### 9. Frontend (Next.js)
+
 ### 10. Testing Suite
 
 ---
@@ -29,6 +39,7 @@ pnpm install
 ```
 
 This will install all the new dependencies we added:
+
 - @sentry/react, @sentry/tracing, @sentry/nextjs
 - ioredis (Redis client)
 - express-rate-limit, express-slow-down
@@ -127,15 +138,15 @@ Create `backend/server.ts`:
 ```typescript
 import express from 'express';
 import cors from 'cors';
-import { 
-  securityHeaders, 
-  xssProtection, 
-  rateLimiter, 
+import {
+  securityHeaders,
+  xssProtection,
+  rateLimiter,
   speedLimiter,
   corsOptions,
   requestLogger,
   errorHandler,
-  notFoundHandler 
+  notFoundHandler,
 } from './middleware/security';
 import { redis } from './config/redis';
 import { logger } from './config/logger';
@@ -155,10 +166,10 @@ app.use(speedLimiter);
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'ok', 
+  res.json({
+    status: 'ok',
     timestamp: new Date().toISOString(),
-    redis: redis.status === 'ready' ? 'connected' : 'disconnected'
+    redis: redis.status === 'ready' ? 'connected' : 'disconnected',
   });
 });
 
@@ -187,6 +198,7 @@ export default app;
 ### STEP 6: Wire Up Sentry in Next.js
 
 The Sentry config files are already created:
+
 - `sentry.client.config.ts`
 - `sentry.server.config.ts`
 - `sentry.edge.config.ts`
@@ -204,13 +216,13 @@ export default withSentryConfig(
   nextConfig,
   {
     silent: true,
-    org: "your-org",
-    project: "your-project",
+    org: 'your-org',
+    project: 'your-project',
   },
   {
     widenClientFileUpload: true,
     transpileClientSDK: true,
-    tunnelRoute: "/monitoring",
+    tunnelRoute: '/monitoring',
     hideSourceMaps: true,
     disableLogger: true,
   }
@@ -230,19 +242,19 @@ import { redis } from '@/backend/config/redis';
 
 export async function GET(request: NextRequest) {
   const cacheKey = 'courses:all';
-  
+
   // Try cache first
   const cached = await redis.get(cacheKey);
   if (cached) {
     return NextResponse.json(JSON.parse(cached));
   }
-  
+
   // Fetch from database
   const courses = await fetchCoursesFromDB();
-  
+
   // Cache for 5 minutes
   await redis.setex(cacheKey, 300, JSON.stringify(courses));
-  
+
   return NextResponse.json(courses);
 }
 ```
@@ -258,13 +270,17 @@ export async function GET(request: NextRequest) {
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 
-export const authenticate = (req: Request, res: Response, next: NextFunction) => {
+export const authenticate = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const token = req.headers.authorization?.replace('Bearer ', '');
-  
+
   if (!token) {
     return res.status(401).json({ error: 'No token provided' });
   }
-  
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!);
     req.user = decoded;
@@ -300,7 +316,8 @@ import { validateFileUpload } from '../middleware/validation';
 const router = express.Router();
 
 // Upload avatar
-router.post('/avatar',
+router.post(
+  '/avatar',
   authenticate,
   uploadConfig.avatar,
   validateFileUpload(['image/jpeg', 'image/png'], 2 * 1024 * 1024),
@@ -308,7 +325,7 @@ router.post('/avatar',
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
-    
+
     res.json({
       message: 'Avatar uploaded successfully',
       file: {
@@ -358,13 +375,13 @@ import { WebsocketProvider } from 'y-websocket';
 
 export const createCollaborativeDoc = (roomName: string) => {
   const ydoc = new Y.Doc();
-  
+
   const provider = new WebsocketProvider(
     process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:1234',
     roomName,
     ydoc
   );
-  
+
   return { ydoc, provider };
 };
 ```
@@ -398,11 +415,13 @@ echo "logs/" >> .gitignore
 ### STEP 14: Test Everything
 
 **1. Test Redis:**
+
 ```bash
 node -e "const Redis = require('ioredis'); const redis = new Redis(process.env.REDIS_URL); redis.ping().then(console.log);"
 ```
 
 **2. Test Backend:**
+
 ```bash
 cd backend
 ts-node server.ts
@@ -411,12 +430,14 @@ curl http://localhost:3001/health
 ```
 
 **3. Test Sentry:**
+
 ```bash
 # Trigger test error
 curl http://localhost:3000/api/test-sentry
 ```
 
 **4. Test File Upload:**
+
 ```bash
 curl -X POST http://localhost:3001/api/upload/avatar \
   -H "Authorization: Bearer YOUR_TOKEN" \
@@ -428,36 +449,43 @@ curl -X POST http://localhost:3001/api/upload/avatar \
 ## 🔗 SYSTEM CONNECTIONS
 
 ### Frontend → Backend
+
 ```
 Next.js (Port 3000) → Express API (Port 3001)
 ```
 
 ### Backend → Redis
+
 ```
 Express API → Redis (Port 6379) → Cache/Sessions
 ```
 
 ### Backend → Database
+
 ```
 Express API → Supabase → PostgreSQL
 ```
 
 ### Frontend → Sentry
+
 ```
 Next.js → Sentry Client → Error Tracking
 ```
 
 ### Backend → Sentry
+
 ```
 Express API → Sentry Server → Error Tracking
 ```
 
 ### Frontend → Supabase
+
 ```
 Next.js → Supabase Client → Auth/Database
 ```
 
 ### Workers → APIs
+
 ```
 Cloudflare Workers → External APIs → Processing
 ```
@@ -499,58 +527,68 @@ Cloudflare Workers → External APIs → Processing
 ## ✅ VERIFICATION CHECKLIST
 
 ### Environment Setup
+
 - [ ] `.env.local` created and configured
 - [ ] All required environment variables set
 - [ ] Redis connection string configured
 - [ ] Sentry DSN configured
 
 ### Dependencies
+
 - [ ] `pnpm install` completed successfully
 - [ ] No dependency conflicts
 - [ ] All new packages installed
 
 ### Redis
+
 - [ ] Redis server running (local or cloud)
 - [ ] Connection test successful
 - [ ] Cache operations working
 
 ### Sentry
+
 - [ ] Sentry project created
 - [ ] DSN configured in environment
 - [ ] Test error sent successfully
 - [ ] Errors appearing in Sentry dashboard
 
 ### Backend
+
 - [ ] Backend server starts without errors
 - [ ] Health check endpoint responding
 - [ ] API routes accessible
 - [ ] Middleware functioning
 
 ### Security
+
 - [ ] Rate limiting working
 - [ ] CORS configured correctly
 - [ ] Security headers present
 - [ ] XSS protection active
 
 ### Logging
+
 - [ ] Logs directory created
 - [ ] Winston logger working
 - [ ] Log files being created
 - [ ] Log rotation configured
 
 ### File Upload
+
 - [ ] Upload directory created
 - [ ] Multer configured
 - [ ] File validation working
 - [ ] Upload endpoint functional
 
 ### Frontend
+
 - [ ] Next.js dev server running
 - [ ] API calls to backend working
 - [ ] Sentry client initialized
 - [ ] Error boundary catching errors
 
 ### Testing
+
 - [ ] Unit tests passing
 - [ ] Integration tests passing
 - [ ] E2E tests passing
@@ -561,13 +599,14 @@ Cloudflare Workers → External APIs → Processing
 ## 🚀 NEXT STEPS
 
 1. **Run Full System:**
+
    ```bash
    # Terminal 1: Start Redis
    redis-server
-   
+
    # Terminal 2: Start Backend
    cd backend && ts-node server.ts
-   
+
    # Terminal 3: Start Frontend
    pnpm dev
    ```
@@ -608,6 +647,6 @@ All systems are now wired up and ready to use:
 ✅ Logging system  
 ✅ Authentication  
 ✅ Rate limiting  
-✅ CORS configuration  
+✅ CORS configuration
 
 **Your platform is production-ready!** 🎉

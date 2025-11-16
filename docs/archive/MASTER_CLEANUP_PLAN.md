@@ -1,4 +1,5 @@
 # MASTER CLEANUP PLAN - LINE BY LINE
+
 **Generated:** $(date)
 **Status:** 🚀 READY TO EXECUTE
 **Approach:** AUTOPILOT - NO MANUAL INTERVENTION
@@ -8,6 +9,7 @@
 ## 🎯 EXECUTIVE SUMMARY
 
 ### Current State:
+
 - **Total Files:** 1,000+ files
 - **Durable.co Files:** 20+ files
 - **Old Documentation:** 154 MD files
@@ -18,6 +20,7 @@
 - **Build Artifacts:** 13MB (contains Durable files)
 
 ### Target State:
+
 - **Total Files:** 500-600 files (50% reduction)
 - **Durable.co Files:** 0 files
 - **Documentation:** 10-15 essential MD files
@@ -28,6 +31,7 @@
 - **Build Artifacts:** 10MB (clean)
 
 ### Expected Impact:
+
 - **Disk Space Saved:** 50-100MB
 - **Bundle Size Reduction:** 30-40%
 - **Clarity Improvement:** 90%
@@ -38,10 +42,13 @@
 ## 📋 PHASE 1: REMOVE DURABLE.CO FILES
 
 ### Priority: 🔴 CRITICAL
+
 ### Risk: LOW
+
 ### Time: 5 minutes
 
 #### Root Directory Scripts (5 files):
+
 ```bash
 rm -f durable
 rm -f durable-ai-autopilot.js
@@ -51,6 +58,7 @@ rm -f durable-regenerate-autopilot.js
 ```
 
 #### Documentation (3 files):
+
 ```bash
 rm -f DURABLE_CREDENTIALS_SETUP.md
 rm -f DURABLE_INTEGRATION.md
@@ -58,6 +66,7 @@ rm -f DURABLE_LANDING_PAGE.html
 ```
 
 #### Source Files (7 files):
+
 ```bash
 rm -f src/pages/DurableAI.jsx
 rm -f src/pages/DurableConsole.tsx
@@ -69,17 +78,20 @@ rm -f src/pages/ProgramsDurable.jsx
 ```
 
 #### Public Files (1 file):
+
 ```bash
 rm -f public/durable-landing.html
 ```
 
 #### Workers (2 files):
+
 ```bash
 rm -f workers/autopilot-metrics-durable.ts
 rm -f workers/durable-injection-worker.ts
 ```
 
 #### Wrangler Config (1 file):
+
 ```bash
 # Review first - may be needed for other workers
 # rm -f workers/wrangler-metrics.toml
@@ -92,16 +104,20 @@ rm -f workers/durable-injection-worker.ts
 ## 📋 PHASE 2: REMOVE CONFLICTING CSS
 
 ### Priority: 🔴 CRITICAL
+
 ### Risk: MEDIUM (requires component updates)
+
 ### Time: 30 minutes
 
 #### Step 1: Create Tailwind Plugin
+
 ```bash
 # Update tailwind.config.js with component classes
 # See STYLING_CONFLICTS_REPORT.md for full plugin code
 ```
 
 #### Step 2: Remove Custom CSS Files
+
 ```bash
 rm -f src/styles/docebo.css
 rm -f src/styles/hero-banner.css
@@ -109,6 +125,7 @@ rm -rf extracted-styles/
 ```
 
 #### Step 3: Update Imports
+
 ```bash
 # Remove from src/main.tsx:
 # import './styles/docebo.css'
@@ -118,6 +135,7 @@ rm -rf extracted-styles/
 ```
 
 #### Step 4: Update HeroBanner Component
+
 ```bash
 # Convert hero-banner.css classes to Tailwind utilities
 # See STYLING_CONFLICTS_REPORT.md for migration guide
@@ -130,7 +148,9 @@ rm -rf extracted-styles/
 ## 📋 PHASE 3: REMOVE OLD BUNDLES
 
 ### Priority: 🟡 HIGH
+
 ### Risk: NONE
+
 ### Time: 1 minute
 
 ```bash
@@ -149,10 +169,13 @@ rm -f support-bundle.tar.gz
 ## 📋 PHASE 4: CONSOLIDATE DOCUMENTATION
 
 ### Priority: 🟡 HIGH
+
 ### Risk: LOW
+
 ### Time: 10 minutes
 
 #### Create Archive Directory
+
 ```bash
 mkdir -p docs/archive/completion-reports
 mkdir -p docs/archive/deployment-guides
@@ -161,6 +184,7 @@ mkdir -p docs/archive/durable-docs
 ```
 
 #### Move Completion Reports (50+ files)
+
 ```bash
 mv *_COMPLETE.md docs/archive/completion-reports/
 mv *_SUMMARY.md docs/archive/completion-reports/
@@ -169,6 +193,7 @@ mv *_STATUS.md docs/archive/completion-reports/
 ```
 
 #### Move Deployment Guides (30+ files)
+
 ```bash
 mv DEPLOY_*.md docs/archive/deployment-guides/
 mv DEPLOYMENT_*.md docs/archive/deployment-guides/
@@ -177,6 +202,7 @@ mv NETLIFY_*.md docs/archive/deployment-guides/
 ```
 
 #### Move Checklists (20+ files)
+
 ```bash
 mv *_CHECKLIST.md docs/archive/checklists/
 mv *_GUIDE.md docs/archive/checklists/
@@ -184,6 +210,7 @@ mv *_INSTRUCTIONS.md docs/archive/checklists/
 ```
 
 #### Move Durable Documentation
+
 ```bash
 mv docs/reports/*DURABLE*.md docs/archive/durable-docs/
 mv docs/setup/*DURABLE*.md docs/archive/durable-docs/
@@ -191,6 +218,7 @@ mv docs/guides/*DURABLE*.md docs/archive/durable-docs/
 ```
 
 #### Keep Only Essential Docs
+
 ```
 ✅ KEEP:
 - README.md
@@ -215,10 +243,13 @@ mv docs/guides/*DURABLE*.md docs/archive/durable-docs/
 ## 📋 PHASE 5: CLEAN SCRIPTS
 
 ### Priority: 🟡 HIGH
+
 ### Risk: LOW
+
 ### Time: 5 minutes
 
 #### Create Scripts Archive
+
 ```bash
 mkdir -p scripts/archive/fix-scripts
 mkdir -p scripts/archive/setup-scripts
@@ -226,18 +257,21 @@ mkdir -p scripts/archive/autopilot-scripts
 ```
 
 #### Move Old Fix Scripts
+
 ```bash
 mv fix-*.sh scripts/archive/fix-scripts/
 mv *-fix-*.sh scripts/archive/fix-scripts/
 ```
 
 #### Move Old Setup Scripts
+
 ```bash
 mv setup-*.sh scripts/archive/setup-scripts/
 mv bootstrap_*.sh scripts/archive/setup-scripts/
 ```
 
 #### Move Old Autopilot Scripts
+
 ```bash
 mv *-autopilot*.sh scripts/archive/autopilot-scripts/
 mv autopilot-*.sh scripts/archive/autopilot-scripts/
@@ -245,6 +279,7 @@ mv durable-*.js scripts/archive/autopilot-scripts/
 ```
 
 #### Keep Only Active Scripts
+
 ```
 ✅ KEEP:
 - scripts/cleanup-unused-styling.sh (if needed)
@@ -267,10 +302,13 @@ mv durable-*.js scripts/archive/autopilot-scripts/
 ## 📋 PHASE 6: REMOVE DUPLICATE CONFIGS
 
 ### Priority: 🟢 MEDIUM
+
 ### Risk: LOW
+
 ### Time: 2 minutes
 
 #### Check for Duplicates
+
 ```bash
 # ESLint configs
 ls -la .eslintrc.*
@@ -289,6 +327,7 @@ ls -la vitest.config.*
 ```
 
 #### Remove Duplicates
+
 ```bash
 # Only if duplicates exist:
 # rm -f .eslintrc.cjs
@@ -303,7 +342,9 @@ ls -la vitest.config.*
 ## 📋 PHASE 7: CLEAN BUILD ARTIFACTS
 
 ### Priority: 🟢 MEDIUM
+
 ### Risk: NONE (will rebuild)
+
 ### Time: 2 minutes
 
 ```bash
@@ -324,10 +365,13 @@ find . -type d -name ".temp" -o -name ".tmp" | xargs rm -rf
 ## 📋 PHASE 8: UPDATE DOMAIN REFERENCES
 
 ### Priority: 🟢 MEDIUM
+
 ### Risk: LOW
+
 ### Time: 5 minutes
 
 #### Update Social Media Script
+
 ```bash
 # Edit scripts/social-media-automation.js
 # Change: blogUrl: 'https://elevateforhumanity.durable.co/blog'
@@ -335,11 +379,13 @@ find . -type d -name ".temp" -o -name ".tmp" | xargs rm -rf
 ```
 
 #### Remove Durable.co Documentation References
+
 ```bash
 # Already handled in Phase 4 (archive Durable docs)
 ```
 
 #### Verify No Remaining Durable.co References
+
 ```bash
 grep -r "durable\.co" . --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx" | grep -v node_modules | grep -v dist | grep -v docs/archive
 # Should return nothing
@@ -352,33 +398,40 @@ grep -r "durable\.co" . --include="*.ts" --include="*.tsx" --include="*.js" --in
 ## 📋 PHASE 9: REBUILD AND VERIFY
 
 ### Priority: 🔴 CRITICAL
+
 ### Risk: NONE
+
 ### Time: 5 minutes
 
 #### Step 1: Install Dependencies (if needed)
+
 ```bash
 pnpm install
 ```
 
 #### Step 2: Run Linter
+
 ```bash
 pnpm lint
 # Should pass with no errors
 ```
 
 #### Step 3: Run Tests
+
 ```bash
 pnpm test
 # Should pass all tests
 ```
 
 #### Step 4: Build
+
 ```bash
 pnpm build
 # Should complete successfully
 ```
 
 #### Step 5: Verify Build Output
+
 ```bash
 # Check dist size
 du -sh dist/
@@ -393,6 +446,7 @@ du -sh dist/assets/*.css dist/styles.css
 ```
 
 #### Step 6: Preview
+
 ```bash
 pnpm preview
 # Should serve without errors
@@ -403,10 +457,13 @@ pnpm preview
 ## 📋 PHASE 10: FINAL VERIFICATION
 
 ### Priority: 🔴 CRITICAL
+
 ### Risk: NONE
+
 ### Time: 5 minutes
 
 #### Checklist:
+
 ```bash
 # 1. No Durable.co files
 find . -name "*durable*" -o -name "*Durable*" | grep -v node_modules | grep -v dist | grep -v docs/archive
@@ -454,6 +511,7 @@ du -sh dist/
 ## 🤖 AUTOPILOT EXECUTION SCRIPT
 
 ### Create Master Cleanup Script:
+
 ```bash
 #!/bin/bash
 # master-cleanup.sh
@@ -574,6 +632,7 @@ echo ""
 ## 📊 EXPECTED RESULTS
 
 ### Before Cleanup:
+
 ```
 Total Files:              1,000+
 Durable.co Files:         20+
@@ -587,6 +646,7 @@ Styling Systems:          2 (Tailwind + Custom)
 ```
 
 ### After Cleanup:
+
 ```
 Total Files:              500-600 (50% reduction)
 Durable.co Files:         0 (100% removed)
@@ -600,6 +660,7 @@ Styling Systems:          1 (Tailwind only)
 ```
 
 ### Improvements:
+
 - ✅ 50% fewer files
 - ✅ 100% Durable.co removal
 - ✅ 90% documentation reduction
@@ -648,4 +709,3 @@ chmod +x master-cleanup.sh
 ```
 
 **OR** execute phases manually as documented above.
-

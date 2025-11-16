@@ -9,9 +9,11 @@
 ## COMPLETED TASKS
 
 ### 1. ✅ URL Migration
+
 **Task:** Switch all URLs from elevateconnectsdirectory.org to elevateconnects1.netlify.app
 
 **Files Updated:**
+
 - `index.html` - Meta tags, canonical, Open Graph, Twitter Card
 - `.env.example` - Environment variables
 - `scripts/elevate.config.json` - Sister sites config
@@ -21,6 +23,7 @@
 - `public/sitemap.xml` - All page URLs (100+ entries)
 
 **Verification:**
+
 ```bash
 grep -r "elevateconnectsdirectory" dist/ | wc -l
 # Result: 0 (all references removed)
@@ -30,9 +33,11 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 ```
 
 ### 2. ✅ Apprenticeship Programs Page
+
 **Task:** Add full descriptions and aligned jobs for all programs
 
 **Programs Updated:**
+
 1. **Barber Apprenticeship** - 6 career paths, full description
 2. **Building Maintenance Technician** - 6 career paths, full description
 3. **Healthcare CNA/QMA** - 6 career paths, full description
@@ -41,6 +46,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 6. **CDL Training** - 6 career paths, full description
 
 **Changes:**
+
 - ✅ Removed all placeholder text
 - ✅ Added detailed program descriptions
 - ✅ Listed specific career opportunities (jobs field)
@@ -48,9 +54,11 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 - ✅ Added full skills, requirements, and outcomes
 
 ### 3. ✅ State Programs Page
+
 **Task:** Add YouTube videos to State Programs page
 
 **Videos Added:**
+
 - WIOA Program Overview
 - WRG Success Stories
 - JRI Program Impact
@@ -61,9 +69,11 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 **Layout:** 3-column grid with responsive design
 
 ### 4. ✅ Footer Updates
+
 **Task:** Remove email, add link to main site
 
 **Changes:**
+
 - ❌ Removed email address display
 - ❌ Removed email link
 - ✅ Added "Visit Main Site" link to elevateforhumanity.org
@@ -71,9 +81,11 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 - ✅ Kept location (Marion County, IN)
 
 ### 5. ✅ Support Bundle Generated
+
 **Location:** `support_bundle/chatgpt-bundle.json`
 
 **Contents:**
+
 - Repository info (branch, commit, remote)
 - Package.json with all dependencies
 - Host environment details
@@ -86,6 +98,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 ## CURRENT SITE STRUCTURE
 
 ### LMS Pages (Keep)
+
 - `/student-portal` - Student dashboard
 - `/courses` - Course catalog
 - `/apprenticeship-programs` - Apprenticeship details
@@ -95,6 +108,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 - `/certificates` - Certificate verification
 
 ### Marketing Pages (Should Redirect to Main Site)
+
 - `/` - Home page
 - `/about` - About us
 - `/contact` - Contact
@@ -106,7 +120,9 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 ## PENDING CLARIFICATIONS
 
 ### 1. Site Separation
+
 **Question:** Should elevateconnects1.netlify.app be:
+
 - **Option A:** LMS portal ONLY (no marketing home page)
 - **Option B:** Duplicate of main site content
 - **Option C:** Hybrid (some marketing + LMS)
@@ -116,7 +132,9 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 **Recommendation:** Option A - LMS portal only, redirect marketing to elevateforhumanity.org
 
 ### 2. Dynamic Pages
+
 **Question:** What does "dynamic pages" mean?
+
 - **Option A:** Scrape content from elevateforhumanity.org and recreate
 - **Option B:** CMS-like system to create pages without coding
 - **Option C:** Keep sites completely separate
@@ -126,7 +144,9 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 **Recommendation:** Option C - Keep sites separate, no duplication
 
 ### 3. Root Path Behavior
+
 **Question:** What should `/` show on elevateconnects1.netlify.app?
+
 - **Option A:** Redirect to elevateforhumanity.org
 - **Option B:** Student portal/login
 - **Option C:** Course catalog
@@ -141,16 +161,19 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 ## WARNINGS FROM SUPPORT BUNDLE
 
 ### ⚠️ Node Version
+
 - **Current:** v22.17.0
 - **Recommended:** 18.x (e.g., 18.20.4)
 - **Impact:** May cause compatibility issues
 
 ### ⚠️ Stripe Webhook
+
 - **Status:** Not found
 - **Location:** Should be in `netlify/functions/` or `api/stripe/webhook`
 - **Impact:** Payment processing won't work
 
 ### ⚠️ Supabase Schema
+
 - **Missing:** Multitenancy tables (organizations/memberships)
 - **Missing:** Row Level Security (RLS) policies
 - **Impact:** Security and multi-tenant features limited
@@ -167,6 +190,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
    - Determine page structure
 
 2. **Remove Marketing Content** (if LMS-only)
+
    ```bash
    # Remove home page marketing
    # Redirect / to /student-portal
@@ -222,6 +246,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 ## BUILD STATUS
 
 ### ✅ Working
+
 - React 19.1.1
 - Vite 7.1.12
 - TypeScript
@@ -233,12 +258,14 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 - Image assets (21 generated)
 
 ### ⚠️ Needs Attention
+
 - Stripe webhook missing
 - Supabase RLS not configured
 - Node version mismatch
 - Site purpose unclear
 
 ### ❌ Not Implemented
+
 - Payment processing
 - Multitenancy
 - Advanced analytics
@@ -255,6 +282,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 **Size:** 11.32 MB
 
 **DNS Status:**
+
 - ✅ elevateconnects1.netlify.app - Working
 - ❌ elevateconnectsdirectory.org - SSL error (old domain)
 
@@ -281,6 +309,7 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 **Location:** `support_bundle/chatgpt-bundle.json`
 
 **Key Metrics:**
+
 - Total files: 429
 - Workspace size: 802.88 MB
 - node_modules: 651.44 MB
@@ -288,11 +317,13 @@ grep -r "elevateconnects1.netlify.app" dist/ | wc -l
 - Truncated: false (complete bundle)
 
 **Repository:**
+
 - Remote: https://github.com/elevateforhumanity/fix2.git
 - Branch: main
 - Commit: 8d837721
 
 **Environment:**
+
 - OS: Linux 6.14.10-gitpod
 - Node: v22.17.0
 - NPM: 9.8.1

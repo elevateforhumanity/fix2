@@ -24,38 +24,48 @@ export interface AuditLog {
 
 class AuditLogger {
   private sensitiveFields = ['password', 'ssn', 'token', 'secret', 'apiKey'];
-  
+
   private sanitizeData(data: any): any {
     if (!data || typeof data !== 'object') return data;
-    
+
     const sanitized = Array.isArray(data) ? [...data] : { ...data };
-    
+
     for (const key in sanitized) {
-      if (this.sensitiveFields.some(field => key.toLowerCase().includes(field.toLowerCase()))) {
+      if (
+        this.sensitiveFields.some((field) =>
+          key.toLowerCase().includes(field.toLowerCase())
+        )
+      ) {
         sanitized[key] = '[REDACTED]';
       } else if (typeof sanitized[key] === 'object') {
         sanitized[key] = this.sanitizeData(sanitized[key]);
       }
     }
-    
+
     return sanitized;
   }
-  
-  private extractResourceInfo(path: string, method: string): { resource: string, resourceId?: string } {
-    const parts = path.split('/').filter(p => p);
-    
+
+  private extractResourceInfo(
+    path: string,
+    method: string
+  ): { resource: string; resourceId?: string } {
+    const parts = path.split('/').filter((p) => p);
+
     // Remove 'api' prefix if present
     if (parts[0] === 'api') parts.shift();
-    
+
     const resource = parts[0] || 'unknown';
-    const resourceId = parts.length > 1 && !['create', 'update', 'delete'].includes(parts[1]) ? parts[1] : undefined;
-    
+    const resourceId =
+      parts.length > 1 && !['create', 'update', 'delete'].includes(parts[1])
+        ? parts[1]
+        : undefined;
+
     return { resource, resourceId };
   }
-  
+
   private determineAction(method: string, path: string): string {
     const lowerPath = path.toLowerCase();
-    
+
     if (method === 'POST') {
       if (lowerPath.includes('login')) return 'login';
       if (lowerPath.includes('logout')) return 'logout';
@@ -65,14 +75,14 @@ class AuditLogger {
     if (method === 'PUT' || method === 'PATCH') return 'update';
     if (method === 'DELETE') return 'delete';
     if (method === 'GET') return 'read';
-    
+
     return 'unknown';
   }
-  
+
   async log(logEntry: Partial<AuditLog>): Promise<void> {
     try {
       const id = `audit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      
+
       await pool.query(
         `INSERT INTO audit_logs (
           id, user_id, action, resource, resource_id, method, path,
@@ -93,40 +103,43 @@ class AuditLogger {
           logEntry.responseStatus,
           logEntry.changes ? JSON.stringify(logEntry.changes) : null,
           logEntry.success !== false,
-          logEntry.errorMessage
+          logEntry.errorMessage,
         ]
       );
     } catch (error) {
       console.error('Failed to write audit log:', error);
     }
   }
-  
+
   middleware() {
     return async (req: AuthRequest, res: Response, next: NextFunction) => {
       const startTime = Date.now();
       const originalSend = res.send;
-      
+
       let responseBody: any;
       let responseStatus = res.statusCode;
-      
+
       // Capture response
       res.send = function (body: any): Response {
         responseBody = body;
         responseStatus = res.statusCode;
         return originalSend.call(this, body);
       };
-      
+
       // Wait for response to complete
       res.on('finish', async () => {
         try {
-          const { resource, resourceId } = this.extractResourceInfo(req.path, req.method);
+          const { resource, resourceId } = this.extractResourceInfo(
+            req.path,
+            req.method
+          );
           const action = this.determineAction(req.method, req.path);
-          
+
           // Skip logging for health checks and static assets
           if (req.path.includes('/health') || req.path.includes('/static')) {
             return;
           }
-          
+
           const logEntry: Partial<AuditLog> = {
             userId: req.user?.id,
             action,
@@ -139,26 +152,31 @@ class AuditLogger {
             requestBody: this.sanitizeData(req.body),
             responseStatus,
             success: responseStatus < 400,
-            errorMessage: responseStatus >= 400 ? responseBody : undefined
+            errorMessage: responseStatus >= 400 ? responseBody : undefined,
           };
-          
+
           // For update operations, try to capture changes
           if (action === 'update' && req.body) {
             logEntry.changes = this.sanitizeData(req.body);
           }
-          
+
           await this.log(logEntry);
         } catch (error) {
           console.error('Audit logging error:', error);
         }
       });
-      
+
       next();
     };
   }
-  
+
   // Specific audit methods for important actions
-  async logLogin(userId: string, success: boolean, ipAddress?: string, errorMessage?: string): Promise<void> {
+  async logLogin(
+    userId: string,
+    success: boolean,
+    ipAddress?: string,
+    errorMessage?: string
+  ): Promise<void> {
     await this.log({
       userId,
       action: 'login',
@@ -167,10 +185,10 @@ class AuditLogger {
       path: '/api/auth/login',
       ipAddress,
       success,
-      errorMessage
+      errorMessage,
     });
   }
-  
+
   async logLogout(userId: string, ipAddress?: string): Promise<void> {
     await this.log({
       userId,
@@ -179,11 +197,16 @@ class AuditLogger {
       method: 'POST',
       path: '/api/auth/logout',
       ipAddress,
-      success: true
+      success: true,
     });
   }
-  
-  async logDataAccess(userId: string, resource: string, resourceId: string, action: string): Promise<void> {
+
+  async logDataAccess(
+    userId: string,
+    resource: string,
+    resourceId: string,
+    action: string
+  ): Promise<void> {
     await this.log({
       userId,
       action,
@@ -191,24 +214,36 @@ class AuditLogger {
       resourceId,
       method: 'GET',
       path: `/api/${resource}/${resourceId}`,
-      success: true
+      success: true,
     });
   }
-  
-  async logDataModification(userId: string, resource: string, resourceId: string, action: string, changes: any): Promise<void> {
+
+  async logDataModification(
+    userId: string,
+    resource: string,
+    resourceId: string,
+    action: string,
+    changes: any
+  ): Promise<void> {
     await this.log({
       userId,
       action,
       resource,
       resourceId,
-      method: action === 'create' ? 'POST' : action === 'delete' ? 'DELETE' : 'PUT',
+      method:
+        action === 'create' ? 'POST' : action === 'delete' ? 'DELETE' : 'PUT',
       path: `/api/${resource}/${resourceId}`,
       changes: this.sanitizeData(changes),
-      success: true
+      success: true,
     });
   }
-  
-  async logSecurityEvent(userId: string | undefined, event: string, details: any, success: boolean): Promise<void> {
+
+  async logSecurityEvent(
+    userId: string | undefined,
+    event: string,
+    details: any,
+    success: boolean
+  ): Promise<void> {
     await this.log({
       userId,
       action: event,
@@ -216,11 +251,17 @@ class AuditLogger {
       method: 'POST',
       path: '/security/event',
       requestBody: this.sanitizeData(details),
-      success
+      success,
     });
   }
-  
-  async logComplianceEvent(userId: string, event: string, resource: string, resourceId: string, details: any): Promise<void> {
+
+  async logComplianceEvent(
+    userId: string,
+    event: string,
+    resource: string,
+    resourceId: string,
+    details: any
+  ): Promise<void> {
     await this.log({
       userId,
       action: event,
@@ -229,7 +270,7 @@ class AuditLogger {
       method: 'POST',
       path: `/compliance/${resource}/${resourceId}`,
       requestBody: this.sanitizeData(details),
-      success: true
+      success: true,
     });
   }
 }
@@ -245,6 +286,8 @@ export function auditLog() {
 export const logLogin = auditLogger.logLogin.bind(auditLogger);
 export const logLogout = auditLogger.logLogout.bind(auditLogger);
 export const logDataAccess = auditLogger.logDataAccess.bind(auditLogger);
-export const logDataModification = auditLogger.logDataModification.bind(auditLogger);
+export const logDataModification =
+  auditLogger.logDataModification.bind(auditLogger);
 export const logSecurityEvent = auditLogger.logSecurityEvent.bind(auditLogger);
-export const logComplianceEvent = auditLogger.logComplianceEvent.bind(auditLogger);
+export const logComplianceEvent =
+  auditLogger.logComplianceEvent.bind(auditLogger);

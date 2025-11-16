@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -55,12 +55,27 @@ const PROGRAMS = [
   { id: 1, name: 'Barber Apprenticeship', duration: '12 weeks', cost: 2500 },
   { id: 2, name: 'CNA Certification Prep', duration: '8 weeks', cost: 1800 },
   { id: 3, name: 'HVAC Technician Training', duration: '16 weeks', cost: 3200 },
-  { id: 4, name: 'Building Maintenance Tech', duration: '10 weeks', cost: 2200 },
+  {
+    id: 4,
+    name: 'Building Maintenance Tech',
+    duration: '10 weeks',
+    cost: 2200,
+  },
   { id: 5, name: 'Life Coach Certification', duration: '6 weeks', cost: 1500 },
   { id: 6, name: 'Peer Recovery Specialist', duration: '8 weeks', cost: 1800 },
-  { id: 7, name: 'Tax Preparation Professional', duration: '6 weeks', cost: 1200 },
+  {
+    id: 7,
+    name: 'Tax Preparation Professional',
+    duration: '6 weeks',
+    cost: 1200,
+  },
   { id: 8, name: 'Medical Assistant', duration: '12 weeks', cost: 2800 },
-  { id: 9, name: 'Commercial Truck Driving (CDL)', duration: '4 weeks', cost: 4500 },
+  {
+    id: 9,
+    name: 'Commercial Truck Driving (CDL)',
+    duration: '4 weeks',
+    cost: 4500,
+  },
   { id: 10, name: 'Workforce Readiness', duration: '2 weeks', cost: 500 },
 ];
 
@@ -81,25 +96,25 @@ export default function WorkforceEnrollmentPage() {
     email: '',
     phone: '',
     dateOfBirth: '',
-    
+
     // Address
     address: '',
     city: '',
     state: 'IN',
     zipCode: '',
     county: '',
-    
+
     // Funding-specific
     caseManagerName: '',
     caseManagerEmail: '',
     caseManagerPhone: '',
     referralSource: '',
     eligibilityDocuments: '',
-    
+
     // Employer (if applicable)
     employerName: '',
     employerContact: '',
-    
+
     // Additional
     educationLevel: '',
     employmentStatus: '',
@@ -113,7 +128,11 @@ export default function WorkforceEnrollmentPage() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -127,47 +146,51 @@ export default function WorkforceEnrollmentPage() {
 
     try {
       // Get current user
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) throw new Error('Not authenticated');
 
       // Get the course ID for the selected program
       const { data: course } = await supabase
         .from('courses')
         .select('id')
-        .eq('title', PROGRAMS.find(p => p.id.toString() === selectedProgram)?.name)
+        .eq(
+          'title',
+          PROGRAMS.find((p) => p.id.toString() === selectedProgram)?.name
+        )
         .single();
 
       if (!course) throw new Error('Course not found');
 
       // Create enrollment
-      const { error: enrollError } = await supabase
-        .from('enrollments')
-        .insert({
-          student_id: user.id,
-          course_id: course.id,
-          funding_type: selectedFunding,
-          status: 'pending',
-          enrollment_data: {
-            ...formData,
-            submittedAt: new Date().toISOString(),
-          },
-        });
+      const { error: enrollError } = await supabase.from('enrollments').insert({
+        student_id: user.id,
+        course_id: course.id,
+        funding_type: selectedFunding,
+        status: 'pending',
+        enrollment_data: {
+          ...formData,
+          submittedAt: new Date().toISOString(),
+        },
+      });
 
       if (enrollError) throw enrollError;
 
       // Create student record if doesn't exist
-      const { error: studentError } = await supabase
-        .from('students')
-        .upsert({
+      const { error: studentError } = await supabase.from('students').upsert(
+        {
           id: user.id,
           wioa_eligible: ['wioa', 'wrg', 'jri'].includes(selectedFunding),
           funding_type: selectedFunding,
           case_manager_name: formData.caseManagerName || null,
           case_manager_email: formData.caseManagerEmail || null,
           county: formData.county || null,
-        }, {
+        },
+        {
           onConflict: 'id',
-        });
+        }
+      );
 
       if (studentError) throw studentError;
 
@@ -195,11 +218,10 @@ export default function WorkforceEnrollmentPage() {
             Enrollment Submitted!
           </h1>
           <p className="text-gray-600 mb-6">
-            Your workforce training enrollment has been submitted for review. You'll receive an email confirmation shortly.
+            Your workforce training enrollment has been submitted for review.
+            You'll receive an email confirmation shortly.
           </p>
-          <p className="text-sm text-gray-500">
-            Redirecting to dashboard...
-          </p>
+          <p className="text-sm text-gray-500">Redirecting to dashboard...</p>
         </div>
       </div>
     );
@@ -213,12 +235,14 @@ export default function WorkforceEnrollmentPage() {
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href="/lms/dashboard" className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href="/lms/dashboard"
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Dashboard
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-4xl mx-auto">
           {/* Progress Steps */}
@@ -226,37 +250,53 @@ export default function WorkforceEnrollmentPage() {
             <div className="flex items-center justify-center gap-4">
               {[1, 2, 3].map((s) => (
                 <div key={s} className="flex items-center">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                    step >= s ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-500'
-                  }`}>
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
+                      step >= s
+                        ? 'bg-red-600 text-white'
+                        : 'bg-gray-200 text-gray-500'
+                    }`}
+                  >
                     {s}
                   </div>
                   {s < 3 && (
-                    <div className={`w-16 h-1 ${step > s ? 'bg-red-600' : 'bg-gray-200'}`} />
+                    <div
+                      className={`w-16 h-1 ${step > s ? 'bg-red-600' : 'bg-gray-200'}`}
+                    />
                   )}
                 </div>
               ))}
             </div>
             <div className="flex justify-center gap-16 mt-3 text-sm">
-              <span className={step >= 1 ? 'text-red-600 font-semibold' : 'text-gray-500'}>
+              <span
+                className={
+                  step >= 1 ? 'text-red-600 font-semibold' : 'text-gray-500'
+                }
+              >
                 Funding Type
               </span>
-              <span className={step >= 2 ? 'text-red-600 font-semibold' : 'text-gray-500'}>
+              <span
+                className={
+                  step >= 2 ? 'text-red-600 font-semibold' : 'text-gray-500'
+                }
+              >
                 Program Selection
               </span>
-              <span className={step >= 3 ? 'text-red-600 font-semibold' : 'text-gray-500'}>
+              <span
+                className={
+                  step >= 3 ? 'text-red-600 font-semibold' : 'text-gray-500'
+                }
+              >
                 Application
               </span>
             </div>
           </div>
-
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
               <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
               <p className="text-red-700 text-sm">{error}</p>
             </div>
           )}
-
           {/* Step 1: Funding Type */}
           {step === 1 && (
             <div className="elevate-card">
@@ -280,8 +320,12 @@ export default function WorkforceEnrollmentPage() {
                     <div className="flex items-start gap-4">
                       <span className="text-3xl">{funding.icon}</span>
                       <div className="flex-1">
-                        <h3 className="font-bold text-gray-900 mb-1">{funding.name}</h3>
-                        <p className="text-sm text-gray-600 mb-2">{funding.description}</p>
+                        <h3 className="font-bold text-gray-900 mb-1">
+                          {funding.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-2">
+                          {funding.description}
+                        </p>
                         <p className="text-xs text-gray-500">
                           <strong>Eligibility:</strong> {funding.eligibility}
                         </p>
@@ -304,12 +348,13 @@ export default function WorkforceEnrollmentPage() {
               </div>
             </div>
           )}
-
           {/* Step 2: Program Selection */}
           {step === 2 && (
             <div className="elevate-card">
               <div className="elevate-card-header">
-                <h2 className="elevate-card-title">Select Your Training Program</h2>
+                <h2 className="elevate-card-title">
+                  Select Your Training Program
+                </h2>
                 <p className="elevate-card-subtitle mt-1">
                   Choose the career pathway that's right for you
                 </p>
@@ -326,12 +371,16 @@ export default function WorkforceEnrollmentPage() {
                     }`}
                   >
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-bold text-gray-900">{program.name}</h3>
+                      <h3 className="font-bold text-gray-900">
+                        {program.name}
+                      </h3>
                       {selectedProgram === program.id.toString() && (
                         <CheckCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
                       )}
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">{program.duration}</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {program.duration}
+                    </p>
                     <p className="text-sm font-semibold text-gray-900">
                       {['wioa', 'wrg', 'jri'].includes(selectedFunding) ? (
                         <span className="text-green-600">100% Funded</span>
@@ -359,24 +408,28 @@ export default function WorkforceEnrollmentPage() {
               </div>
             </div>
           )}
-
           {/* Step 3: Application Form */}
           {step === 3 && (
             <form onSubmit={handleSubmit} className="elevate-card">
               <div className="elevate-card-header">
-                <h2 className="elevate-card-title">Complete Your Application</h2>
+                <h2 className="elevate-card-title">
+                  Complete Your Application
+                </h2>
                 <p className="elevate-card-subtitle mt-1">
                   Provide the information needed to process your enrollment
                 </p>
               </div>
-
               <div className="space-y-6">
                 {/* Personal Information */}
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-3">Personal Information</h3>
+                  <h3 className="font-bold text-gray-900 mb-3">
+                    Personal Information
+                  </h3>
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium mb-1">First Name *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        First Name *
+                      </label>
                       <input
                         type="text"
                         name="firstName"
@@ -387,7 +440,9 @@ export default function WorkforceEnrollmentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Last Name *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Last Name *
+                      </label>
                       <input
                         type="text"
                         name="lastName"
@@ -398,7 +453,9 @@ export default function WorkforceEnrollmentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Email *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Email *
+                      </label>
                       <input
                         type="email"
                         name="email"
@@ -409,7 +466,9 @@ export default function WorkforceEnrollmentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Phone *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Phone *
+                      </label>
                       <input
                         type="tel"
                         name="phone"
@@ -420,7 +479,9 @@ export default function WorkforceEnrollmentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Date of Birth *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Date of Birth *
+                      </label>
                       <input
                         type="date"
                         name="dateOfBirth"
@@ -432,13 +493,14 @@ export default function WorkforceEnrollmentPage() {
                     </div>
                   </div>
                 </div>
-
                 {/* Address */}
                 <div>
                   <h3 className="font-bold text-gray-900 mb-3">Address</h3>
                   <div className="grid gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Street Address *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Street Address *
+                      </label>
                       <input
                         type="text"
                         name="address"
@@ -450,7 +512,9 @@ export default function WorkforceEnrollmentPage() {
                     </div>
                     <div className="grid gap-4 md:grid-cols-4">
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium mb-1">City *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          City *
+                        </label>
                         <input
                           type="text"
                           name="city"
@@ -461,7 +525,9 @@ export default function WorkforceEnrollmentPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">State *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          State *
+                        </label>
                         <select
                           name="state"
                           value={formData.state}
@@ -473,7 +539,9 @@ export default function WorkforceEnrollmentPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">ZIP Code *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          ZIP Code *
+                        </label>
                         <input
                           type="text"
                           name="zipCode"
@@ -485,7 +553,9 @@ export default function WorkforceEnrollmentPage() {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">County *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        County *
+                      </label>
                       <input
                         type="text"
                         name="county"
@@ -498,14 +568,17 @@ export default function WorkforceEnrollmentPage() {
                     </div>
                   </div>
                 </div>
-
                 {/* Funding-Specific Fields */}
                 {['wioa', 'wrg', 'jri'].includes(selectedFunding) && (
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Case Manager Information</h3>
+                    <h3 className="font-bold text-gray-900 mb-3">
+                      Case Manager Information
+                    </h3>
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        <label className="block text-sm font-medium mb-1">Case Manager Name *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Case Manager Name *
+                        </label>
                         <input
                           type="text"
                           name="caseManagerName"
@@ -516,7 +589,9 @@ export default function WorkforceEnrollmentPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">Case Manager Email *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Case Manager Email *
+                        </label>
                         <input
                           type="email"
                           name="caseManagerEmail"
@@ -527,7 +602,9 @@ export default function WorkforceEnrollmentPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">Case Manager Phone</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Case Manager Phone
+                        </label>
                         <input
                           type="tel"
                           name="caseManagerPhone"
@@ -537,7 +614,9 @@ export default function WorkforceEnrollmentPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">Referral Source *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Referral Source *
+                        </label>
                         <select
                           name="referralSource"
                           value={formData.referralSource}
@@ -557,13 +636,16 @@ export default function WorkforceEnrollmentPage() {
                     </div>
                   </div>
                 )}
-
                 {selectedFunding === 'employer' && (
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Employer Information</h3>
+                    <h3 className="font-bold text-gray-900 mb-3">
+                      Employer Information
+                    </h3>
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        <label className="block text-sm font-medium mb-1">Employer Name *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Employer Name *
+                        </label>
                         <input
                           type="text"
                           name="employerName"
@@ -574,7 +656,9 @@ export default function WorkforceEnrollmentPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">Employer Contact *</label>
+                        <label className="block text-sm font-medium mb-1">
+                          Employer Contact *
+                        </label>
                         <input
                           type="text"
                           name="employerContact"
@@ -588,13 +672,16 @@ export default function WorkforceEnrollmentPage() {
                     </div>
                   </div>
                 )}
-
                 {/* Additional Information */}
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-3">Additional Information</h3>
+                  <h3 className="font-bold text-gray-900 mb-3">
+                    Additional Information
+                  </h3>
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Highest Education Level *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Highest Education Level *
+                      </label>
                       <select
                         name="educationLevel"
                         value={formData.educationLevel}
@@ -603,8 +690,12 @@ export default function WorkforceEnrollmentPage() {
                         required
                       >
                         <option value="">Select...</option>
-                        <option value="less_than_hs">Less than High School</option>
-                        <option value="hs_diploma">High School Diploma/GED</option>
+                        <option value="less_than_hs">
+                          Less than High School
+                        </option>
+                        <option value="hs_diploma">
+                          High School Diploma/GED
+                        </option>
                         <option value="some_college">Some College</option>
                         <option value="associates">Associate's Degree</option>
                         <option value="bachelors">Bachelor's Degree</option>
@@ -612,7 +703,9 @@ export default function WorkforceEnrollmentPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Employment Status *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Employment Status *
+                      </label>
                       <select
                         name="employmentStatus"
                         value={formData.employmentStatus}
@@ -628,7 +721,9 @@ export default function WorkforceEnrollmentPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Do you have reliable transportation? *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Do you have reliable transportation? *
+                      </label>
                       <select
                         name="hasTransportation"
                         value={formData.hasTransportation}
@@ -643,7 +738,9 @@ export default function WorkforceEnrollmentPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Do you need childcare support? *</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Do you need childcare support? *
+                      </label>
                       <select
                         name="hasChildcare"
                         value={formData.hasChildcare}
@@ -673,7 +770,6 @@ export default function WorkforceEnrollmentPage() {
                   </div>
                 </div>
               </div>
-
               <div className="mt-6 flex justify-between">
                 <button
                   type="button"

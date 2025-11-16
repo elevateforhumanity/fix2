@@ -4,17 +4,21 @@
    - No-op if configs missing (prevents crashes)
 */
 (() => {
-  const $ = (sel, root=document) => root.querySelector(sel);
+  const $ = (sel, root = document) => root.querySelector(sel);
 
   // Read config from <script> data-*
   const THIS = document.currentScript || [...document.scripts].slice(-1)[0];
   const ASSETS = THIS?.dataset?.assets || '';
   const PAY_API = THIS?.dataset?.payapi || '';
-  const PROGRAMS_PATH = THIS?.dataset?.programs || '/config/health-programs.json';
+  const PROGRAMS_PATH =
+    THIS?.dataset?.programs || '/config/health-programs.json';
   const PARTNERS_PATH = THIS?.dataset?.partners || ''; // optional
   const DEFAULT_TAB = THIS?.dataset?.activeTab || 'state-funded';
 
-  const ABS = (p) => /^https?:\/\//i.test(p) ? p : (ASSETS.replace(/\/$/,'') + '/' + p.replace(/^\//,''));
+  const ABS = (p) =>
+    /^https?:\/\//i.test(p)
+      ? p
+      : ASSETS.replace(/\/$/, '') + '/' + p.replace(/^\//, '');
 
   // ---------- tiny sanitizer ----------
   function sanitizeHTMLString(html) {
@@ -23,14 +27,19 @@
     const doc = parser.parseFromString(html, 'text/html');
 
     // remove potentially dangerous nodes
-    doc.querySelectorAll('script,noscript,iframe,object,embed,style,link').forEach(n => n.remove());
+    doc
+      .querySelectorAll('script,noscript,iframe,object,embed,style,link')
+      .forEach((n) => n.remove());
 
     // remove on* attributes and "javascript:" URLs
-    doc.querySelectorAll('*').forEach(el => {
-      [...el.attributes].forEach(a => {
+    doc.querySelectorAll('*').forEach((el) => {
+      [...el.attributes].forEach((a) => {
         const name = a.name.toLowerCase();
         if (name.startsWith('on')) el.removeAttribute(a.name); // onclick, onload, etc.
-        if ((name === 'href' || name === 'src') && /^javascript:/i.test(a.value || '')) {
+        if (
+          (name === 'href' || name === 'src') &&
+          /^javascript:/i.test(a.value || '')
+        ) {
           el.removeAttribute(a.name);
         }
       });
@@ -38,7 +47,7 @@
 
     // Return a DocumentFragment we can safely append
     const frag = document.createDocumentFragment();
-    [...doc.body.childNodes].forEach(n => frag.appendChild(n));
+    [...doc.body.childNodes].forEach((n) => frag.appendChild(n));
     return frag;
   }
 
@@ -48,16 +57,26 @@
       const frag = sanitizeHTMLString(html);
       target.textContent = ''; // clear container
       target.appendChild(frag);
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }
 
   // ---------- fetch helpers ----------
   async function fetchText(url) {
-    const r = await fetch(url, { cache: 'no-store', credentials: 'omit', redirect: 'follow' });
+    const r = await fetch(url, {
+      cache: 'no-store',
+      credentials: 'omit',
+      redirect: 'follow',
+    });
     return r.ok ? r.text() : '';
   }
   async function fetchJSON(url) {
-    const r = await fetch(url, { cache: 'no-store', credentials: 'omit', redirect: 'follow' });
+    const r = await fetch(url, {
+      cache: 'no-store',
+      credentials: 'omit',
+      redirect: 'follow',
+    });
     if (!r.ok) throw new Error('Not found: ' + url);
     return r.json();
   }
@@ -81,8 +100,8 @@
   function asPrograms(x) {
     if (!Array.isArray(x)) return [];
     return x
-      .filter(p => p && typeof p === 'object')
-      .map(p => ({
+      .filter((p) => p && typeof p === 'object')
+      .map((p) => ({
         slug: String(p.slug || '').trim(),
         name: String(p.name || '').trim(),
         track: (p.track || '').toString(),
@@ -91,13 +110,13 @@
         stripe_price_id: String(p.stripe_price_id || ''),
         partner_connect_acc: String(p.partner_connect_acc || ''),
       }))
-      .filter(p => p.slug && p.name);
+      .filter((p) => p.slug && p.name);
   }
   function asPartners(x) {
     if (!Array.isArray(x)) return [];
     return x
-      .filter(p => p && typeof p === 'object')
-      .map(p => ({
+      .filter((p) => p && typeof p === 'object')
+      .map((p) => ({
         name: String(p.name || '').trim(),
         type: String(p.type || ''),
         role: String(p.role || ''),
@@ -106,35 +125,43 @@
         connect_acc: String(p.connect_acc || ''),
         logo: String(p.logo || p.icon || ''),
       }))
-      .filter(p => p.name);
+      .filter((p) => p.name);
   }
 
   async function loadData() {
-    const programsUrl = /^https?:\/\//i.test(PROGRAMS_PATH) ? PROGRAMS_PATH : ABS(PROGRAMS_PATH.replace(/^\//,''));
+    const programsUrl = /^https?:\/\//i.test(PROGRAMS_PATH)
+      ? PROGRAMS_PATH
+      : ABS(PROGRAMS_PATH.replace(/^\//, ''));
     const partnersUrl = PARTNERS_PATH
-      ? (/^https?:\/\//i.test(PARTNERS_PATH) ? PARTNERS_PATH : ABS(PARTNERS_PATH.replace(/^\//,'')))
+      ? /^https?:\/\//i.test(PARTNERS_PATH)
+        ? PARTNERS_PATH
+        : ABS(PARTNERS_PATH.replace(/^\//, ''))
       : '';
 
     const [pRes, prRes] = await Promise.allSettled([
       fetchJSON(programsUrl),
-      partnersUrl ? fetchJSON(partnersUrl) : Promise.resolve([])
+      partnersUrl ? fetchJSON(partnersUrl) : Promise.resolve([]),
     ]);
 
     return {
       programs: pRes.status === 'fulfilled' ? asPrograms(pRes.value) : [],
-      partners: prRes.status === 'fulfilled' ? asPartners(prRes.value) : []
+      partners: prRes.status === 'fulfilled' ? asPartners(prRes.value) : [],
     };
   }
 
   // ---------- header: ensure Partners link when data exists ----------
   function ensurePartnersLink(hasPartners, partners) {
     if (!hasPartners) return;
-    const existing = document.querySelector('a[href="/partners"], a[href$="/partners"]');
+    const existing = document.querySelector(
+      'a[href="/partners"], a[href$="/partners"]'
+    );
     if (existing) return;
 
     const headerRoot = $('#efh-header');
     if (!headerRoot) return;
-    let nav = headerRoot.querySelector('.efh-header') || headerRoot.querySelector('nav');
+    let nav =
+      headerRoot.querySelector('.efh-header') ||
+      headerRoot.querySelector('nav');
     if (!nav) {
       nav = document.createElement('nav');
       nav.className = 'efh-header';
@@ -148,7 +175,7 @@
 
     // Get partner logo helper function
     function getPartnerLogo(partners) {
-      return partners.find(p => p.logo && /^https?:\/\//i.test(p.logo));
+      return partners.find((p) => p.logo && /^https?:\/\//i.test(p.logo));
     }
 
     // Tiny icon if any partner has a logo
@@ -157,14 +184,20 @@
       const img = document.createElement('img');
       img.src = first.logo;
       img.alt = 'Partners';
-      img.width = 16; img.height = 16;
-      img.loading = 'lazy'; img.decoding = 'async';
+      img.width = 16;
+      img.height = 16;
+      img.loading = 'lazy';
+      img.decoding = 'async';
       const wrap = document.createElement('span');
-      wrap.style.display = 'inline-flex'; wrap.style.alignItems = 'center'; wrap.style.gap = '6px';
+      wrap.style.display = 'inline-flex';
+      wrap.style.alignItems = 'center';
+      wrap.style.gap = '6px';
       wrap.appendChild(img);
-      const t = document.createElement('span'); t.textContent = 'Partners';
+      const t = document.createElement('span');
+      t.textContent = 'Partners';
       wrap.appendChild(t);
-      a.textContent = ''; a.appendChild(wrap);
+      a.textContent = '';
+      a.appendChild(wrap);
     }
     nav.appendChild(a);
   }
@@ -176,16 +209,24 @@
       ? {
           priceId: program.stripe_price_id,
           quantity: 1,
-          metadata: { program_slug: program.slug, program: program.name, ...fundingMemory },
-          partner_connect_acc: program.partner_connect_acc || ''
+          metadata: {
+            program_slug: program.slug,
+            program: program.name,
+            ...fundingMemory,
+          },
+          partner_connect_acc: program.partner_connect_acc || '',
         }
       : {
           productName: program.name,
           unitAmount: 0, // backend decides price or free (state-funded)
           currency: 'usd',
           quantity: 1,
-          metadata: { program_slug: program.slug, program: program.name, ...fundingMemory },
-          partner_connect_acc: program.partner_connect_acc || ''
+          metadata: {
+            program_slug: program.slug,
+            program: program.name,
+            ...fundingMemory,
+          },
+          partner_connect_acc: program.partner_connect_acc || '',
         };
 
     let res;
@@ -194,12 +235,16 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       });
-    } catch { return alert('Network error.'); }
+    } catch {
+      return alert('Network error.');
+    }
 
     let data = {};
-    try { data = await res.json(); } catch {}
+    try {
+      data = await res.json();
+    } catch {}
     if (data?.url) location.href = data.url;
     else alert(data?.error || 'Checkout failed');
   }
@@ -250,48 +295,80 @@
     const tabs = shell.querySelectorAll('.efh-tabs button');
     const cards = shell.querySelector('#efh-cards');
 
-    const Funding = { get(){ try { return JSON.parse(localStorage.getItem('EFH_FUNDING') || '{}'); } catch { return {}; } } };
+    const Funding = {
+      get() {
+        try {
+          return JSON.parse(localStorage.getItem('EFH_FUNDING') || '{}');
+        } catch {
+          return {};
+        }
+      },
+    };
 
     let tab = DEFAULT_TAB;
-    if (['#state-funded','#open-enrollment','#partners'].includes(location.hash)) {
+    if (
+      ['#state-funded', '#open-enrollment', '#partners'].includes(location.hash)
+    ) {
       tab = location.hash.slice(1);
     }
 
     function drawPrograms(which) {
-      const list = programs.filter(p => which === 'state-funded' ? p.track === 'state-funded' : p.track !== 'state-funded');
-      cards.innerHTML = list.map(p => `
+      const list = programs.filter((p) =>
+        which === 'state-funded'
+          ? p.track === 'state-funded'
+          : p.track !== 'state-funded'
+      );
+      cards.innerHTML = list
+        .map(
+          (p) => `
         <article class="efh-card" id="${p.slug}">
           <h3 style="margin:0">${p.name}</h3>
-          ${p.funding?.length ? `<div style="margin:6px 0">${p.funding.map(x=>`<span class="efh-pill">${x}</span>`).join('')}</div>` : ''}
+          ${p.funding?.length ? `<div style="margin:6px 0">${p.funding.map((x) => `<span class="efh-pill">${x}</span>`).join('')}</div>` : ''}
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-            ${p.google_form_url
-              ? `<a class="efh-btn" target="_blank" rel="noopener" href="${p.google_form_url}">Enroll (Funding Form)</a>`
-              : `<button class="efh-btn" data-enroll="${p.slug}" type="button">Enroll</button>`
+            ${
+              p.google_form_url
+                ? `<a class="efh-btn" target="_blank" rel="noopener" href="${p.google_form_url}">Enroll (Funding Form)</a>`
+                : `<button class="efh-btn" data-enroll="${p.slug}" type="button">Enroll</button>`
             }
             <a class="efh-btn" href="/portal" rel="noopener">Portal</a>
           </div>
         </article>
-      `).join('');
+      `
+        )
+        .join('');
 
       // Wire enroll buttons
-      cards.querySelectorAll('[data-enroll]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const slug = btn.getAttribute('data-enroll');
-          const program = programs.find(p => p.slug === slug);
-          if (program) enrollStripe(program, Funding.get());
-        }, { passive: true });
+      cards.querySelectorAll('[data-enroll]').forEach((btn) => {
+        btn.addEventListener(
+          'click',
+          () => {
+            const slug = btn.getAttribute('data-enroll');
+            const program = programs.find((p) => p.slug === slug);
+            if (program) enrollStripe(program, Funding.get());
+          },
+          { passive: true }
+        );
       });
     }
 
     function drawPartners() {
-      if (!hasPartners) { cards.innerHTML = `<p class="efh-muted">No partners listed yet.</p>`; return; }
-      cards.innerHTML = partners.map(pr => {
-        const logo = (pr.logo && /^https?:\/\//i.test(pr.logo))
-          ? `<img class="efh-logo" src="${pr.logo}" alt="${(pr.name||'Partner')} logo" loading="lazy" decoding="async" />` : '';
-        return `
+      if (!hasPartners) {
+        cards.innerHTML = `<p class="efh-muted">No partners listed yet.</p>`;
+        return;
+      }
+      cards.innerHTML = partners
+        .map((pr) => {
+          const logo =
+            pr.logo && /^https?:\/\//i.test(pr.logo)
+              ? `<img class="efh-logo" src="${pr.logo}" alt="${pr.name || 'Partner'} logo" loading="lazy" decoding="async" />`
+              : '';
+          return `
           <article class="efh-card">
-            ${logo ? `<div class="efh-logo-row">${logo}<div><h3 style="margin:0">${pr.name}</h3></div></div>`
-                   : `<h3 style="margin:0">${pr.name}</h3>`}
+            ${
+              logo
+                ? `<div class="efh-logo-row">${logo}<div><h3 style="margin:0">${pr.name}</h3></div></div>`
+                : `<h3 style="margin:0">${pr.name}</h3>`
+            }
             <p style="margin:6px 0 10px 0">
               ${pr.type ? `<span class="efh-tag">${pr.type}</span>` : ''}
               ${pr.role ? `<span class="efh-tag">${pr.role}</span>` : ''}
@@ -303,32 +380,51 @@
             </div>
           </article>
         `;
-      }).join('');
+        })
+        .join('');
     }
 
     function draw() {
-      tabs.forEach(b => b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false'));
+      tabs.forEach((b) =>
+        b.setAttribute(
+          'aria-selected',
+          b.dataset.tab === tab ? 'true' : 'false'
+        )
+      );
       if (tab === 'partners') drawPartners();
       else drawPrograms(tab);
     }
 
-    tabs.forEach(b => b.addEventListener('click', () => { tab = b.dataset.tab; draw(); }, { passive: true }));
+    tabs.forEach((b) =>
+      b.addEventListener(
+        'click',
+        () => {
+          tab = b.dataset.tab;
+          draw();
+        },
+        { passive: true }
+      )
+    );
     draw();
   }
 
   // ---------- boot ----------
   (async () => {
-    try { await injectChrome(); } catch {}
-    try { renderApp(await loadData()); }
-    catch {
+    try {
+      await injectChrome();
+    } catch {}
+    try {
+      renderApp(await loadData());
+    } catch {
       const host = $('#efh-programs');
-      if (host) host.innerHTML = `<p class="efh-muted" style="padding:16px">Programs unavailable right now.</p>`;
+      if (host)
+        host.innerHTML = `<p class="efh-muted" style="padding:16px">Programs unavailable right now.</p>`;
     }
   })();
 
   // Add error handling to window
-  window.onerror = function(msg, url, line, col, error) {
-    console.warn('EFH Universal v2.2 error:', {msg, url, line, col, error});
+  window.onerror = function (msg, url, line, col, error) {
+    console.warn('EFH Universal v2.2 error:', { msg, url, line, col, error });
     return false; // Don't suppress default error handling
   };
 })();

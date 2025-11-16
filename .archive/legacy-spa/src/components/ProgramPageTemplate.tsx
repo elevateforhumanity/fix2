@@ -59,9 +59,7 @@ export default function ProgramPageTemplate({
       <Helmet>
         <title>{title} | Elevate for Humanity</title>
         <meta name="description" content={metaDescription} />
-        {heroImage && (
-          <link rel="preload" as="image" href={heroImage} />
-        )}
+        {heroImage && <link rel="preload" as="image" href={heroImage} />}
         {ogImage && (
           <>
             <meta property="og:image" content={ogImage} />
@@ -107,7 +105,9 @@ export default function ProgramPageTemplate({
       )}
       <Section background="white">
         <div className="mx-auto max-w-[1200px]">
-          <div className={`grid grid-cols-1 ${videoUrl ? 'lg:grid-cols-2' : ''} gap-12 items-center`}>
+          <div
+            className={`grid grid-cols-1 ${videoUrl ? 'lg:grid-cols-2' : ''} gap-12 items-center`}
+          >
             <div className={videoUrl ? '' : 'max-w-[800px] mx-auto'}>
               <h2 className="section-title">Program Overview</h2>
               <p className="body-large">{overview}</p>
@@ -117,7 +117,7 @@ export default function ProgramPageTemplate({
                 <VideoEmbed
                   url={videoUrl}
                   title={videoTitle || `${title} Program Video`}
-                  controls={true}
+                  controls
                   autoplay={false}
                 />
               </div>

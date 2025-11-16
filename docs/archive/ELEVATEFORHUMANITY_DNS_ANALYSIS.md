@@ -1,4 +1,5 @@
 # elevateforhumanity.org DNS ANALYSIS
+
 **Domain:** elevateforhumanity.org
 **Status:** ⚠️ Needs fixing if you want to use this domain
 
@@ -18,6 +19,7 @@ TXT    @     google-site-verification...  ✅ Google (keep)
 ## 🚨 PROBLEMS IDENTIFIED
 
 ### Problem 1: A Record Points to Wrong IP
+
 ```
 Current: A  @  172.66.0.42  (Cloudflare/Durable IP)
 Should be: A  @  75.2.60.5   (Netlify IP)
@@ -26,6 +28,7 @@ Should be: A  @  75.2.60.5   (Netlify IP)
 **Issue:** Domain points to Durable/Cloudflare, not your Netlify LMS
 
 ### Problem 2: CNAME Points to Itself
+
 ```
 Current: CNAME  www  elevateforhumanity.org  (circular reference)
 Should be: CNAME  www  elevateproduction.netlify.app
@@ -40,12 +43,14 @@ Should be: CNAME  www  elevateproduction.netlify.app
 ### Do you want to use elevateforhumanity.org for your LMS?
 
 **You have TWO domains:**
+
 1. **elevateforhumanity.org** (this one - currently pointing to Durable)
 2. **elevateconnectsdirectory.org** (already configured correctly ✅)
 
 ### Options:
 
 #### Option A: Use elevateconnectsdirectory.org (RECOMMENDED)
+
 ```
 ✅ Already configured correctly
 ✅ DNS pointing to Netlify
@@ -56,6 +61,7 @@ Action: Leave elevateforhumanity.org as is (for Durable site)
 ```
 
 #### Option B: Use elevateforhumanity.org for LMS
+
 ```
 ⚠️ Need to fix DNS
 ⚠️ Will break current Durable site
@@ -65,6 +71,7 @@ Action: Fix DNS to point to Netlify
 ```
 
 #### Option C: Use BOTH domains
+
 ```
 elevateforhumanity.org → Durable marketing site
 elevateconnectsdirectory.org → Netlify LMS
@@ -81,18 +88,21 @@ elevateconnectsdirectory.org → Netlify LMS
 ### Keep Current Configuration:
 
 **elevateforhumanity.org:**
+
 - Points to: Durable (172.66.0.42)
 - Purpose: Marketing website
 - Hosted by: Durable.co
 - Leave DNS as is ✅
 
 **elevateconnectsdirectory.org:**
+
 - Points to: Netlify (75.2.60.5)
 - Purpose: LMS application
 - Hosted by: Netlify
 - Already configured ✅
 
 **Result:**
+
 - Marketing site: elevateforhumanity.org (Durable)
 - Student portal: elevateconnectsdirectory.org (Netlify)
 - Two separate systems, no conflicts
@@ -104,24 +114,28 @@ elevateconnectsdirectory.org → Netlify LMS
 ### To Point This Domain to Netlify:
 
 **Step 1: Change A Record**
+
 ```
 Delete: A  @  172.66.0.42
 Add:    A  @  75.2.60.5
 ```
 
 **Step 2: Fix CNAME**
+
 ```
 Delete: CNAME  www  elevateforhumanity.org
 Add:    CNAME  www  elevateproduction.netlify.app
 ```
 
 **Step 3: Keep Email Records**
+
 ```
 Keep: MX   @  SMTP.GOOGLE.COM
 Keep: TXT  @  google-site-verification...
 ```
 
 **Result:**
+
 - elevateforhumanity.org → Points to Netlify LMS
 - Email still works (MX record preserved)
 - Google verification preserved
@@ -133,6 +147,7 @@ Keep: TXT  @  google-site-verification...
 ## 📊 COMPARISON
 
 ### Current Setup:
+
 ```
 elevateforhumanity.org
 ├── A: 172.66.0.42 (Durable/Cloudflare)
@@ -146,6 +161,7 @@ elevateconnectsdirectory.org
 ```
 
 ### If You Fix elevateforhumanity.org:
+
 ```
 elevateforhumanity.org
 ├── A: 75.2.60.5 (Netlify)
@@ -184,6 +200,7 @@ Result: Both domains point to same LMS
    - Simple, clean, works perfectly
 
 **Benefits:**
+
 - ✅ Marketing site separate from LMS
 - ✅ No DNS conflicts
 - ✅ Each platform does what it's best at
@@ -197,11 +214,13 @@ Result: Both domains point to same LMS
 ### If Keeping Separate (RECOMMENDED):
 
 **For elevateforhumanity.org:**
+
 - ✅ Leave DNS as is
 - ✅ Use for Durable marketing site
 - ✅ Add link to elevateconnectsdirectory.org
 
 **For elevateconnectsdirectory.org:**
+
 - ✅ DNS already correct
 - ⏳ Wait for DNS propagation (10-15 min)
 - ⏳ Add domain in Netlify
@@ -211,12 +230,14 @@ Result: Both domains point to same LMS
 ### If Pointing Both to Netlify:
 
 **For elevateforhumanity.org:**
+
 1. Change A record: @ → 75.2.60.5
 2. Change CNAME: www → elevateproduction.netlify.app
 3. Wait for DNS propagation
 4. Add domain in Netlify
 
 **For elevateconnectsdirectory.org:**
+
 - Already done ✅
 
 **Result:** Both domains show same LMS
@@ -226,12 +247,14 @@ Result: Both domains point to same LMS
 ## ❓ WHICH SHOULD YOU CHOOSE?
 
 ### Use Separate Domains If:
+
 - ✅ You want marketing site on Durable
 - ✅ You want LMS separate
 - ✅ You want professional separation
 - ✅ You want to avoid confusion
 
 ### Point Both to Netlify If:
+
 - ⚠️ You don't need Durable site
 - ⚠️ You want all traffic to LMS
 - ⚠️ You're okay with one domain redirecting to other
@@ -241,6 +264,7 @@ Result: Both domains point to same LMS
 ## 📝 SUMMARY
 
 ### Current Status:
+
 ```
 elevateforhumanity.org:
 - Points to: Durable (172.66.0.42)
@@ -254,6 +278,7 @@ elevateconnectsdirectory.org:
 ```
 
 ### Recommendation:
+
 ```
 Keep elevateforhumanity.org for Durable marketing
 Use elevateconnectsdirectory.org for Netlify LMS
@@ -266,16 +291,19 @@ Best of both worlds ✅
 ## 🎯 WHAT DO YOU WANT TO DO?
 
 ### Option 1: Keep Separate (Recommended)
+
 - Leave elevateforhumanity.org pointing to Durable
 - Use elevateconnectsdirectory.org for LMS
 - No changes needed to elevateforhumanity.org DNS
 
 ### Option 2: Point Both to Netlify
+
 - Fix elevateforhumanity.org DNS (change A and CNAME)
 - Both domains point to Netlify LMS
 - Durable site will be inaccessible
 
 ### Option 3: Only Use elevateforhumanity.org
+
 - Fix elevateforhumanity.org DNS
 - Don't use elevateconnectsdirectory.org
 - One domain for everything
@@ -293,4 +321,4 @@ D) Keep separate (Durable marketing + Netlify LMS)
 
 ---
 
-*Let me know which option you prefer and I'll guide you through it!*
+_Let me know which option you prefer and I'll guide you through it!_

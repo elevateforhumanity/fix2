@@ -373,12 +373,11 @@ export function CopilotDeployment() {
             : '🚀 Deploy All Features'}
         </button>
       </div>
-
       {/* Deployment Status */}
       {deploymentStatus === 'deploying' && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
           <div className="flex items-center">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-4"></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-4" />
             <div>
               <h3 className="font-semibold text-blue-900">
                 🤖 Deploying Copilot Features...
@@ -390,7 +389,6 @@ export function CopilotDeployment() {
           </div>
         </div>
       )}
-
       {/* Copilot Features */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -409,11 +407,9 @@ export function CopilotDeployment() {
                   {feature.status.toUpperCase()}
                 </span>
               </div>
-
               <p className="text-sm text-brand-text-muted mb-4">
                 {feature.description}
               </p>
-
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-brand-text-muted">Usage Rate:</span>
@@ -423,9 +419,8 @@ export function CopilotDeployment() {
                   <div
                     className="bg-blue-500 h-2 rounded-full"
                     style={{ width: `${feature.usage}%` }}
-                  ></div>
+                  />
                 </div>
-
                 <div className="flex justify-between text-sm">
                   <span className="text-brand-text-muted">Effectiveness:</span>
                   <span className="font-medium text-brand-success">
@@ -436,14 +431,13 @@ export function CopilotDeployment() {
                   <div
                     className="bg-green-500 h-2 rounded-full"
                     style={{ width: `${feature.effectiveness}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
       {/* Step-by-Step Guides */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -460,13 +454,11 @@ export function CopilotDeployment() {
                   {guide.difficulty.toUpperCase()}
                 </span>
               </div>
-
               <div className="space-y-2 text-sm text-brand-text-muted mb-4">
                 <div>📂 Category: {guide.category.replace('_', ' ')}</div>
                 <div>⏱️ Time: {guide.estimatedTime}</div>
                 <div>📋 Steps: {guide.steps.length}</div>
               </div>
-
               <button
                 onClick={() => setSelectedGuide(guide)}
                 className="w-full bg-brand-surface text-brand-info py-2 rounded hover:bg-blue-200 font-medium"
@@ -477,7 +469,6 @@ export function CopilotDeployment() {
           ))}
         </div>
       </div>
-
       {/* Guide Modal */}
       {selectedGuide && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -491,7 +482,6 @@ export function CopilotDeployment() {
                 ✕
               </button>
             </div>
-
             <div className="space-y-6">
               {selectedGuide.steps.map((step, index) => (
                 <div key={index} className="border-l-4 border-blue-500 pl-4">
@@ -503,16 +493,13 @@ export function CopilotDeployment() {
                       {step.title}
                     </h4>
                   </div>
-
                   <p className="text-brand-text mb-2">{step.description}</p>
-
                   <div className="bg-blue-50 border border-blue-200 rounded p-3 mb-3">
                     <div className="font-medium text-blue-900 mb-1">
                       🎯 Action:
                     </div>
                     <div className="text-brand-info">{step.action}</div>
                   </div>
-
                   {step.tips.length > 0 && (
                     <div className="bg-green-50 border border-green-200 rounded p-3">
                       <div className="font-medium text-green-900 mb-1">
@@ -531,7 +518,6 @@ export function CopilotDeployment() {
           </div>
         </div>
       )}
-
       {/* Success Message */}
       {deploymentStatus === 'deployed' && (
         <div className="bg-green-50 border border-green-200 rounded-lg p-6">

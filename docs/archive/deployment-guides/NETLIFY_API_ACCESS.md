@@ -3,6 +3,7 @@
 ## Overview
 
 Your autopilot CAN access Netlify via the API to:
+
 - ✅ Check site configuration
 - ✅ Trigger deployments
 - ✅ View deploy status
@@ -28,6 +29,7 @@ export NETLIFY_AUTH_TOKEN='your_token_here'
 ```
 
 To make it permanent in Gitpod:
+
 ```bash
 gp env NETLIFY_AUTH_TOKEN='your_token_here'
 ```
@@ -189,6 +191,7 @@ fi
 ### Option 3: Use Build Hooks
 
 Create a build hook in Netlify dashboard:
+
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys
 2. Scroll to **Build hooks**
 3. Click **Add build hook**
@@ -197,6 +200,7 @@ Create a build hook in Netlify dashboard:
 6. Copy the webhook URL
 
 Then trigger with:
+
 ```bash
 curl -X POST https://api.netlify.com/build_hooks/your_hook_id
 ```
@@ -216,9 +220,9 @@ while true; do
   STATE=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
     https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys/$DEPLOY_ID | \
     jq -r '.state')
-  
+
   echo "Deploy state: $STATE"
-  
+
   if [ "$STATE" = "ready" ]; then
     echo "✅ Deploy complete!"
     break
@@ -226,7 +230,7 @@ while true; do
     echo "❌ Deploy failed!"
     break
   fi
-  
+
   sleep 10
 done
 ```
@@ -236,6 +240,7 @@ done
 Full Netlify API docs: https://docs.netlify.com/api/get-started/
 
 Key endpoints:
+
 - **Sites:** `/sites/{site_id}`
 - **Deploys:** `/sites/{site_id}/deploys`
 - **Builds:** `/sites/{site_id}/builds`
@@ -244,6 +249,7 @@ Key endpoints:
 ## Security
 
 **Important:**
+
 - Never commit your NETLIFY_AUTH_TOKEN to git
 - Store it as an environment variable
 - Use Gitpod secrets: `gp env NETLIFY_AUTH_TOKEN='...'`
@@ -254,6 +260,7 @@ Key endpoints:
 ### "Unauthorized" Error
 
 Your token is invalid or expired. Get a new one:
+
 1. Go to: https://app.netlify.com/user/applications
 2. Revoke old token
 3. Create new token
@@ -262,6 +269,7 @@ Your token is invalid or expired. Get a new one:
 ### "Site not found" Error
 
 Check the site ID is correct:
+
 ```bash
 curl -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
   https://api.netlify.com/api/v1/sites | jq '.[] | {name, id, url}'
@@ -270,6 +278,7 @@ curl -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
 ### Deploy Stuck in "Building"
 
 Check build logs:
+
 ```bash
 DEPLOY_ID=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
   https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys | \
@@ -284,6 +293,6 @@ curl -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
 ✅ **Autopilot CAN access Netlify**  
 ✅ **Script created:** `scripts/netlify-api-deploy.sh`  
 ✅ **Full API access** to check and update configuration  
-✅ **Can trigger deployments** programmatically  
+✅ **Can trigger deployments** programmatically
 
 **Next step:** Get your Netlify access token and run the script!

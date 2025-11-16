@@ -28,6 +28,7 @@
 ### Step 3: Wait for SSL Certificate
 
 After adding the domain:
+
 1. You'll see: **"HTTPS: Certificate provisioning in progress..."**
 2. Wait **2-10 minutes** (usually 3-5 minutes)
 3. Refresh the page occasionally
@@ -36,6 +37,7 @@ After adding the domain:
 ### Step 4: Test
 
 Once SSL shows "Secured ✓":
+
 1. Visit: https://www.elevateconnectsdirectory.org
 2. Should load without SSL errors
 3. Should show your fully styled site
@@ -45,6 +47,7 @@ Once SSL shows "Secured ✓":
 ## What's Happening
 
 ### Current State:
+
 ```
 DNS: elevateconnectsdirectory.org → 75.2.60.5 ✅
 Netlify knows about domain: NO ❌
@@ -53,6 +56,7 @@ Browser: Shows SSL error ❌
 ```
 
 ### After Adding Domain:
+
 ```
 DNS: elevateconnectsdirectory.org → 75.2.60.5 ✅
 Netlify knows about domain: YES ✅
@@ -67,6 +71,7 @@ Browser: Loads perfectly ✅
 ### What You'll See in Netlify:
 
 **Before Adding Domain:**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -74,6 +79,7 @@ Custom domains
 ```
 
 **After Adding Domain:**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -82,6 +88,7 @@ Custom domains
 ```
 
 **After SSL Provisions:**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -98,6 +105,7 @@ While waiting for SSL, you can access the site at:
 **https://elevateproduction.netlify.app**
 
 This URL works perfectly right now with:
+
 - ✅ Valid SSL certificate
 - ✅ All styling (CSS variables)
 - ✅ All images
@@ -119,20 +127,26 @@ This URL works perfectly right now with:
 ## Troubleshooting
 
 ### "Domain already in use"
+
 If Netlify says the domain is already in use:
+
 1. It might be on another Netlify site
 2. Check your other Netlify sites
 3. Remove it from the other site first
 4. Then add it to `elevateproduction`
 
 ### "DNS not configured"
+
 If Netlify says DNS is not configured:
+
 1. Wait 5 minutes and try again
 2. DNS might still be propagating
 3. Current DNS is correct: 75.2.60.5
 
 ### SSL Taking Too Long
+
 If SSL provisioning takes more than 15 minutes:
+
 1. Check domain is spelled correctly
 2. Check DNS is pointing to 75.2.60.5
 3. Contact Netlify support (usually instant chat)
@@ -156,10 +170,12 @@ Once the SSL certificate is provisioned and working:
 ### Clear All Caches
 
 **Browser Cache:**
+
 - Windows/Linux: `Ctrl + Shift + R`
 - Mac: `Cmd + Shift + R`
 
 **Or use Incognito:**
+
 - Chrome: `Ctrl + Shift + N` (Windows) or `Cmd + Shift + N` (Mac)
 - Firefox: `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac)
 
@@ -181,12 +197,14 @@ Once the SSL certificate is provisioned and working:
 **Action**: Manual step required
 
 **Steps**:
+
 1. Open Netlify dashboard
 2. Add custom domain: `elevateconnectsdirectory.org`
 3. Wait for SSL provisioning (2-10 minutes)
 4. Test site loads correctly
 
 **Quick Links**:
+
 - **Add Domain**: https://app.netlify.com/sites/elevateproduction/settings/domain
 - **Working URL (now)**: https://elevateproduction.netlify.app
 
@@ -195,18 +213,21 @@ Once the SSL certificate is provisioned and working:
 ## Current Status
 
 ### ✅ Working Now:
+
 - https://elevateproduction.netlify.app
 - All code deployed
 - All styling fixed
 - All images present
 
 ### ❌ Needs SSL Fix:
+
 - https://www.elevateconnectsdirectory.org
 - Domain not added to Netlify
 - SSL certificate mismatch
 - Browser blocks connection
 
 ### ⏳ After Adding Domain:
+
 - https://www.elevateconnectsdirectory.org
 - Will work perfectly
 - Valid SSL certificate

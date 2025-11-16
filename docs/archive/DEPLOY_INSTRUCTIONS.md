@@ -26,6 +26,7 @@ This will open your browser to login to Cloudflare.
 ```
 
 This script will:
+
 - ✅ Create all KV namespaces
 - ✅ Create R2 buckets
 - ✅ Create queues
@@ -191,12 +192,14 @@ curl -X POST https://video-generation-worker.YOUR_SUBDOMAIN.workers.dev/api/vide
 ## 💰 Cost Breakdown
 
 ### Cloudflare (Free Tier):
+
 - Workers: 100,000 requests/day ✅ FREE
 - KV: 100,000 reads/day ✅ FREE
 - R2: 10 GB storage ✅ FREE
 - Queues: 1M operations/month ✅ FREE
 
 ### OpenAI TTS:
+
 - $15 per 1M characters
 - ~$0.04 per video
 - **~$1-5/month**
@@ -210,16 +213,19 @@ curl -X POST https://video-generation-worker.YOUR_SUBDOMAIN.workers.dev/api/vide
 After deployment, these run automatically:
 
 **Daily (3 AM UTC):**
+
 ```
 Template Sync Worker → Syncs from GitHub
 ```
 
 **Weekly (Sunday 2 AM UTC):**
+
 ```
 Video Generation Worker → Generates all template videos
 ```
 
 **Monthly (1st at 4 AM UTC):**
+
 ```
 Media Download Worker → Downloads stock media
 ```
@@ -229,12 +235,14 @@ Media Download Worker → Downloads stock media
 ## 🐛 Troubleshooting
 
 ### "Not authenticated"
+
 ```bash
 wrangler logout
 wrangler login
 ```
 
 ### "KV namespace not found"
+
 ```bash
 # List existing namespaces
 wrangler kv:namespace list
@@ -244,6 +252,7 @@ wrangler kv:namespace create VIDEO_KV
 ```
 
 ### "Deployment failed"
+
 ```bash
 # Check logs
 wrangler tail --config wrangler-video.toml
@@ -253,6 +262,7 @@ wrangler deploy --config wrangler-video.toml --force
 ```
 
 ### "Secret not set"
+
 ```bash
 # List secrets
 wrangler secret list --config wrangler-video.toml
@@ -304,16 +314,19 @@ wrangler login
 ## 🆘 Need Help?
 
 **Cloudflare Dashboard:**
+
 - Workers: https://dash.cloudflare.com/workers
 - KV: https://dash.cloudflare.com/kv
 - R2: https://dash.cloudflare.com/r2
 - Stream: https://dash.cloudflare.com/stream
 
 **Documentation:**
+
 - Cloudflare Workers: https://developers.cloudflare.com/workers/
 - Wrangler CLI: https://developers.cloudflare.com/workers/wrangler/
 
 **Support:**
+
 - Cloudflare Community: https://community.cloudflare.com/
 - GitHub Issues: https://github.com/elevateforhumanity/fix2/issues
 

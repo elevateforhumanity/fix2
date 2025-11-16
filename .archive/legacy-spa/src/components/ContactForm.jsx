@@ -51,7 +51,6 @@ export default function ContactForm() {
           Don't fill this out if you're human: <input name="bot-field" />
         </label>
       </p>
-
       {/* Name */}
       <div>
         <label
@@ -69,7 +68,6 @@ export default function ContactForm() {
           placeholder="John Doe"
         />
       </div>
-
       {/* Email */}
       <div>
         <label
@@ -87,7 +85,6 @@ export default function ContactForm() {
           placeholder="john@example.com"
         />
       </div>
-
       {/* Phone */}
       <div>
         <label
@@ -104,7 +101,6 @@ export default function ContactForm() {
           placeholder="(317) 555-0123"
         />
       </div>
-
       {/* Program Interest */}
       <div>
         <label
@@ -128,7 +124,6 @@ export default function ContactForm() {
           <option value="other">Other / General Inquiry</option>
         </select>
       </div>
-
       {/* Message */}
       <div>
         <label
@@ -146,7 +141,6 @@ export default function ContactForm() {
           placeholder="Tell us about your goals and how we can help..."
         />
       </div>
-
       {/* Submit Button */}
       <div>
         <button
@@ -156,12 +150,14 @@ export default function ContactForm() {
           Send Message
         </button>
       </div>
-
       <p className="text-center text-sm text-slate-500">
         We typically respond within 1-2 business days.
         <br />
         For urgent inquiries, call{' '}
-        <a href="tel:+13173143757" className="font-medium text-red-600 hover:text-red-700">
+        <a
+          href="tel:+13173143757"
+          className="font-medium text-red-600 hover:text-red-700"
+        >
           (317) 314-3757
         </a>
       </p>

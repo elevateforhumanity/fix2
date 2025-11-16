@@ -20,7 +20,7 @@ app.use('/public', express.static('public'));
 // Start backend API as separate process
 const backendProcess = spawn('node', ['backend/dist/index.js'], {
   env: { ...process.env, PORT: '3001' },
-  stdio: 'inherit'
+  stdio: 'inherit',
 });
 
 backendProcess.on('error', (err) => {
@@ -30,12 +30,14 @@ backendProcess.on('error', (err) => {
 // Proxy API requests to backend
 app.use('/api', (req, res) => {
   const url = `http://localhost:3001${req.url}`;
-  require('http').get(url, (apiRes) => {
-    res.writeHead(apiRes.statusCode, apiRes.headers);
-    apiRes.pipe(res);
-  }).on('error', (err) => {
-    res.status(502).json({ error: 'Backend unavailable' });
-  });
+  require('http')
+    .get(url, (apiRes) => {
+      res.writeHead(apiRes.statusCode, apiRes.headers);
+      apiRes.pipe(res);
+    })
+    .on('error', (err) => {
+      res.status(502).json({ error: 'Backend unavailable' });
+    });
 });
 
 // Health check

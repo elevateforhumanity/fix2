@@ -1,4 +1,5 @@
 # DURABLE DOMAIN → NETLIFY SETUP
+
 **Your Domain:** elevateconnectsdirectory.org (at Durable.co)
 **Goal:** Point Durable domain to Netlify LMS
 **Status:** ✅ Simple 3-step process
@@ -35,6 +36,7 @@ Netlify Site: elevateproduction.netlify.app (ready)
 **Add these records:**
 
 #### A Record (IPv4):
+
 ```
 Type: A
 Name: @ (or leave blank for root)
@@ -43,6 +45,7 @@ TTL: 3600 (or 1 hour)
 ```
 
 #### AAAA Record (IPv6):
+
 ```
 Type: AAAA
 Name: @ (or leave blank for root)
@@ -51,6 +54,7 @@ TTL: 3600 (or 1 hour)
 ```
 
 #### CNAME Record (www):
+
 ```
 Type: CNAME
 Name: www
@@ -75,6 +79,7 @@ TTL: 3600 (or 1 hour)
 4. **Click:** "Verify"
 
 5. **Netlify will check DNS** and show:
+
    ```
    ✅ DNS configured correctly
    ⏳ Provisioning SSL certificate...
@@ -107,9 +112,10 @@ TTL: 3600 (or 1 hour)
 ## 📊 WHAT EACH SYSTEM DOES
 
 ### Durable.co:
+
 ```
 Role: Domain registrar + DNS hosting ONLY
-What it does: 
+What it does:
   ✅ Holds your domain registration
   ✅ Manages DNS records
   ✅ Points domain to Netlify
@@ -120,6 +126,7 @@ What it does NOT do:
 ```
 
 ### Netlify:
+
 ```
 Role: Website hosting
 What it does:
@@ -153,6 +160,7 @@ USER SEES: Your site at elevateconnectsdirectory.org
 ## 🔧 FINDING DNS SETTINGS IN DURABLE.CO
 
 ### Option 1: Domain Dashboard
+
 ```
 1. Login to Durable.co
 2. Click "Domains" or "My Domains"
@@ -162,6 +170,7 @@ USER SEES: Your site at elevateconnectsdirectory.org
 ```
 
 ### Option 2: Site Settings
+
 ```
 1. Login to Durable.co
 2. Go to your site dashboard
@@ -171,6 +180,7 @@ USER SEES: Your site at elevateconnectsdirectory.org
 ```
 
 ### Option 3: Support
+
 ```
 If you can't find DNS settings:
 1. Contact Durable.co support
@@ -183,6 +193,7 @@ If you can't find DNS settings:
 ## 💰 COSTS
 
 ### Durable.co:
+
 ```
 Domain registration: Included with Durable plan
 DNS hosting: Included free
@@ -190,6 +201,7 @@ Total: $0 extra (already paying for Durable)
 ```
 
 ### Netlify:
+
 ```
 Hosting: FREE (up to 100GB bandwidth)
 SSL: FREE (Let's Encrypt)
@@ -198,6 +210,7 @@ Total: $0/month
 ```
 
 ### Total Cost:
+
 ```
 $0 extra (domain already at Durable)
 ```
@@ -207,6 +220,7 @@ $0 extra (domain already at Durable)
 ## ⚠️ IMPORTANT NOTES
 
 ### 1. Don't Use Durable Website Builder
+
 ```
 ❌ Don't build site in Durable
 ❌ Don't use Durable's hosting
@@ -218,6 +232,7 @@ $0 extra (domain already at Durable)
 ```
 
 ### 2. DNS Propagation Time
+
 ```
 Minimum: 5-10 minutes
 Average: 1-2 hours
@@ -227,6 +242,7 @@ Be patient - DNS changes take time
 ```
 
 ### 3. SSL Certificate
+
 ```
 Netlify automatically provisions SSL after:
 - DNS is configured correctly
@@ -246,6 +262,7 @@ If SSL doesn't work after 1 hour:
 ### Problem: Can't find DNS settings in Durable
 
 **Solution:**
+
 1. Look for "Advanced Settings" or "Developer Settings"
 2. Try searching for "DNS" or "nameservers"
 3. Contact Durable support: "I need to add custom DNS records"
@@ -254,6 +271,7 @@ If SSL doesn't work after 1 hour:
 ### Problem: DNS not propagating
 
 **Solution:**
+
 1. Wait 24-48 hours
 2. Check records are saved in Durable
 3. Use dnschecker.org to monitor
@@ -262,6 +280,7 @@ If SSL doesn't work after 1 hour:
 ### Problem: SSL certificate not provisioning
 
 **Solution:**
+
 1. Verify DNS is fully propagated (dnschecker.org)
 2. In Netlify, click "Verify DNS configuration"
 3. Wait 10-15 more minutes
@@ -270,6 +289,7 @@ If SSL doesn't work after 1 hour:
 ### Problem: Site shows "Page not found"
 
 **Solution:**
+
 1. Check Netlify deployment succeeded
 2. Verify domain is added in Netlify
 3. Check DNS points to correct IP (75.2.60.5)
@@ -280,6 +300,7 @@ If SSL doesn't work after 1 hour:
 ## ✅ VERIFICATION CHECKLIST
 
 ### In Durable.co:
+
 - [ ] Logged into Durable account
 - [ ] Found elevateconnectsdirectory.org
 - [ ] Opened DNS settings
@@ -290,6 +311,7 @@ If SSL doesn't work after 1 hour:
 - [ ] Saved changes
 
 ### In Netlify:
+
 - [ ] Logged into Netlify
 - [ ] Went to domain settings
 - [ ] Added custom domain: elevateconnectsdirectory.org
@@ -298,6 +320,7 @@ If SSL doesn't work after 1 hour:
 - [ ] Domain shows as "Active"
 
 ### Testing:
+
 - [ ] Checked DNS propagation (dnschecker.org)
 - [ ] Visited https://www.elevateconnectsdirectory.org
 - [ ] Site loads correctly
@@ -313,6 +336,7 @@ If SSL doesn't work after 1 hour:
 Some website builders don't allow custom DNS records. If Durable.co doesn't let you add A/AAAA/CNAME records:
 
 **Option 1: Transfer to Cloudflare (RECOMMENDED)**
+
 ```
 Pros:
 ✅ Cheapest ($9/year)
@@ -329,6 +353,7 @@ Steps:
 ```
 
 **Option 2: Transfer to Namecheap**
+
 ```
 Pros:
 ✅ Affordable (~$10/year)
@@ -348,6 +373,7 @@ Steps:
 ## 📊 COMPARISON
 
 ### Keep Domain at Durable (If DNS works):
+
 ```
 ✅ Already own domain there
 ✅ No transfer needed
@@ -357,6 +383,7 @@ Steps:
 ```
 
 ### Transfer to Cloudflare (If DNS doesn't work):
+
 ```
 ✅ Full DNS control
 ✅ Cheapest ($9/year)
@@ -371,6 +398,7 @@ Steps:
 ## 🎯 RECOMMENDED APPROACH
 
 ### Try This First:
+
 ```
 1. Try to add DNS records in Durable
 2. If it works → Great! Use Durable DNS
@@ -378,6 +406,7 @@ Steps:
 ```
 
 ### If Durable Allows Custom DNS:
+
 ```
 ✅ Keep domain at Durable
 ✅ Point DNS to Netlify
@@ -386,6 +415,7 @@ Steps:
 ```
 
 ### If Durable Doesn't Allow Custom DNS:
+
 ```
 ⚠️ Transfer to Cloudflare
 ⚠️ Takes 5-7 days
@@ -398,6 +428,7 @@ Steps:
 ## 📝 QUICK REFERENCE
 
 ### Netlify DNS Records (Add to Durable):
+
 ```
 A      @    75.2.60.5
 AAAA   @    2600:1f18:2148:bc00:e87f:535d:9c1:b5c
@@ -405,16 +436,19 @@ CNAME  www  elevateproduction.netlify.app
 ```
 
 ### Netlify Dashboard:
+
 ```
 https://app.netlify.com/sites/elevateproduction/settings/domain
 ```
 
 ### DNS Checker:
+
 ```
 https://dnschecker.org
 ```
 
 ### Durable Login:
+
 ```
 https://durable.co/login
 ```
@@ -424,6 +458,7 @@ https://durable.co/login
 ## 🎉 FINAL RESULT
 
 ### After Setup:
+
 ```
 Your Domain: elevateconnectsdirectory.org (Durable)
 Points to: Netlify (75.2.60.5)
@@ -433,6 +468,7 @@ Cost: $0 extra
 ```
 
 ### User Experience:
+
 ```
 1. User types: elevateconnectsdirectory.org
 2. DNS (Durable) points to: Netlify
@@ -445,6 +481,7 @@ Cost: $0 extra
 ## 📞 SUPPORT
 
 ### Durable.co Support:
+
 ```
 If you need help finding DNS settings:
 - Email: support@durable.co
@@ -453,6 +490,7 @@ If you need help finding DNS settings:
 ```
 
 ### Netlify Support:
+
 ```
 If domain verification fails:
 - Docs: https://docs.netlify.com/domains-https/custom-domains/
@@ -467,10 +505,10 @@ If domain verification fails:
 **Netlify = Website hosting (everything else)**  
 **Setup = 3 simple steps**  
 **Time = 15 minutes + DNS propagation**  
-**Cost = $0 extra**  
+**Cost = $0 extra**
 
 ---
 
-*Your Durable domain points to your Netlify site.*
+_Your Durable domain points to your Netlify site._
 
 **Start with Step 1 above!**

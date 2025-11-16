@@ -13,6 +13,7 @@
 7. **Poor Organization** - No clear feature separation
 
 ### Current Structure
+
 ```
 / (root)
 ├── /about
@@ -40,6 +41,7 @@
 6. **Breadcrumbs** - Clear navigation path
 
 ### Thinkific Structure
+
 ```
 / (public)
 ├── /courses (public catalog)
@@ -176,6 +178,7 @@
 ## Implementation Plan
 
 ### 1. Route Configuration File
+
 ```typescript
 // src/config/routes.ts
 export const routes = {
@@ -219,6 +222,7 @@ export const routes = {
 ```
 
 ### 2. Route Guards
+
 ```typescript
 // src/router/guards/ProtectedRoute.tsx
 interface ProtectedRouteProps {
@@ -227,26 +231,27 @@ interface ProtectedRouteProps {
   redirectTo?: string;
 }
 
-export function ProtectedRoute({ 
-  children, 
+export function ProtectedRoute({
+  children,
   requiredRole,
-  redirectTo = '/login' 
+  redirectTo = '/login'
 }: ProtectedRouteProps) {
   const { user, role } = useAuth();
-  
+
   if (!user) {
     return <Navigate to={redirectTo} replace />;
   }
-  
+
   if (requiredRole && role !== requiredRole) {
     return <Navigate to="/unauthorized" replace />;
   }
-  
+
   return <>{children}</>;
 }
 ```
 
 ### 3. Nested Route Structure
+
 ```typescript
 // src/router/StudentRoutes.tsx
 export function StudentRoutes() {
@@ -272,12 +277,13 @@ export function StudentRoutes() {
 ```
 
 ### 4. Breadcrumb Navigation
+
 ```typescript
 // src/components/Breadcrumbs.tsx
 export function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
-  
+
   return (
     <nav aria-label="Breadcrumb">
       <ol className="breadcrumb">
@@ -285,7 +291,7 @@ export function Breadcrumbs() {
         {pathnames.map((name, index) => {
           const to = `/${pathnames.slice(0, index + 1).join('/')}`;
           const isLast = index === pathnames.length - 1;
-          
+
           return (
             <li key={to}>
               {isLast ? (
@@ -305,20 +311,24 @@ export function Breadcrumbs() {
 ## Migration Strategy
 
 ### Step 1: Create New Route Structure (No Breaking Changes)
+
 - Add new nested routes alongside existing flat routes
 - Implement redirects from old to new routes
 - Test all new routes
 
 ### Step 2: Update Internal Links
+
 - Update all `<Link>` components to use new routes
 - Update navigation menus
 - Update programmatic navigation
 
 ### Step 3: Add Deprecation Warnings
+
 - Log warnings for old route usage
 - Add console warnings in development
 
 ### Step 4: Remove Old Routes
+
 - After 2-week transition period
 - Remove flat routes
 - Clean up route files
@@ -335,6 +345,7 @@ export function Breadcrumbs() {
 ## Route Naming Conventions
 
 ### URL Format
+
 - All lowercase
 - Hyphen-separated (kebab-case)
 - Plural for collections: `/courses`, `/users`
@@ -342,12 +353,15 @@ export function Breadcrumbs() {
 - Actions as verbs: `/courses/new`, `/courses/:id/edit`
 
 ### Examples
+
 ✅ Good:
+
 - `/learn/courses/123/lessons/456`
 - `/teach/courses/new`
 - `/admin/users/789/edit`
 
 ❌ Bad:
+
 - `/Learn/Courses/123/Lessons/456` (mixed case)
 - `/teachCourses/new` (camelCase)
 - `/admin/user/789/Edit` (inconsistent)
@@ -355,6 +369,7 @@ export function Breadcrumbs() {
 ## Conclusion
 
 Current routing is functional but not scalable or maintainable. Implementing Thinkific-style nested routing will:
+
 - Reduce routes from 200+ to ~50 organized routes
 - Improve code organization
 - Enhance user experience

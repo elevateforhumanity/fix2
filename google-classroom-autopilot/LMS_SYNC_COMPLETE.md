@@ -3,9 +3,11 @@
 ## What Was Built
 
 ### 1. Database Layer ✅
+
 **File**: `sql/02_lms_sync.sql`
 
 **Tables Created**:
+
 - `lms_sync_queue` - Event staging with idempotency
 - `lms_classroom_course_map` - Course ID mappings
 - `lms_classroom_topic_map` - Topic ID mappings
@@ -14,6 +16,7 @@
 - `lms_sync_reconciliation` - Reconciliation tracking
 
 **Functions Created**:
+
 - `enqueue_lms_sync()` - Queue events for sync
 - `get_next_sync_task()` - Get next pending task with lock
 - `complete_sync_task()` - Mark task as completed
@@ -21,14 +24,17 @@
 - `get_or_create_course_mapping()` - Manage course mappings
 
 **Views Created**:
+
 - `v_lms_sync_status` - Queue status summary
 - `v_lms_sync_failures` - Failed tasks to retry
 - `v_lms_mapping_summary` - Mapping statistics
 
 ### 2. Webhook Endpoint ✅
+
 **File**: `workers/lms-webhook/src/index.ts`
 
 **Features**:
+
 - Receives LMS webhook events
 - Validates payload structure
 - Optional signature verification
@@ -38,15 +44,18 @@
 - Idempotency support
 
 **Supported Events**:
+
 - `course.upsert` - Create/update courses
 - `topic.upsert` - Create/update topics
 - `work.upsert` - Create/update assignments
 - `roster.upsert` - Enroll/remove students
 
 ### 3. Sync Runner ✅
+
 **File**: `google-classroom-autopilot/src/lms-sync.ts`
 
 **Features**:
+
 - Processes queued events
 - Creates/updates Google Classroom objects
 - Maintains ID mappings
@@ -55,6 +64,7 @@
 - Comprehensive error logging
 
 **Sync Operations**:
+
 - Course sync (create/update)
 - Topic sync (create/update)
 - Coursework sync (create/update)
@@ -222,7 +232,7 @@ SELECT * FROM v_lms_mapping_summary;
 ### Check Specific Course Mapping
 
 ```sql
-SELECT 
+SELECT
   lms_course_id,
   classroom_course_id,
   last_synced_at,
@@ -235,7 +245,7 @@ WHERE lms_source = 'canvas'
 ### View Recent Sync Activity
 
 ```sql
-SELECT 
+SELECT
   event_type,
   event_source,
   status,
@@ -258,23 +268,23 @@ name: LMS Sync
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Every 15 minutes
-  workflow_dispatch:  # Manual trigger
+    - cron: '*/15 * * * *' # Every 15 minutes
+  workflow_dispatch: # Manual trigger
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Run LMS Sync
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -307,7 +317,7 @@ name: LMS Reconciliation
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 2 AM daily
+    - cron: '0 2 * * *' # 2 AM daily
 
 jobs:
   reconcile:
@@ -329,26 +339,31 @@ jobs:
 ## Features
 
 ### ✅ Idempotency
+
 - Duplicate events are detected and skipped
 - Safe to replay events
 - Idempotency keys prevent double-processing
 
 ### ✅ Automatic Retry
+
 - Failed tasks retry with exponential backoff
 - Maximum 3 attempts per task
 - Retry delays: 2min, 4min, 8min
 
 ### ✅ ID Mapping
+
 - Maintains LMS ↔ Classroom ID mappings
 - Enables updates to existing objects
 - Tracks sync status and timestamps
 
 ### ✅ Error Handling
+
 - Comprehensive error logging
 - Failed tasks logged to `audit_logs`
 - Detailed error messages and stack traces
 
 ### ✅ Monitoring
+
 - Real-time queue status views
 - Failed task tracking
 - Mapping statistics
@@ -381,8 +396,8 @@ async function attachDriveMaterials(courseworkId, driveFileId) {
     courseId,
     itemId: courseworkId,
     requestBody: {
-      driveFile: { id: driveFileId }
-    }
+      driveFile: { id: driveFileId },
+    },
   });
 }
 ```
@@ -439,6 +454,7 @@ WHERE status = 'processing'
 ## Summary
 
 ✅ **Complete LMS → Google Classroom sync system**
+
 - Database tables and functions
 - Webhook endpoint (Cloudflare Worker)
 - Sync runner with retry logic
@@ -452,6 +468,7 @@ WHERE status = 'processing'
 ---
 
 **Files Created**:
+
 1. `sql/02_lms_sync.sql` - Database schema
 2. `workers/lms-webhook/src/index.ts` - Webhook handler
 3. `workers/lms-webhook/wrangler.toml` - Worker config

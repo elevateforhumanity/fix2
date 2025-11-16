@@ -44,6 +44,7 @@ supabase db push
 ### User Roles
 
 The system supports three roles:
+
 - **student** (default) - Can view their own certificates
 - **staff** - Can issue certificates to students
 - **admin** - Full access to all features
@@ -108,6 +109,7 @@ Magic links are configured in Supabase:
 The magic link redirects to `/auth/callback?returnTo=/intended-page`
 
 The callback page:
+
 - Completes the authentication
 - Redirects to the `returnTo` parameter (default: `/student-portal`)
 
@@ -254,6 +256,7 @@ This allows employers or institutions to verify certificate authenticity.
 ## Support
 
 For issues or questions:
+
 - Check Supabase logs
 - Review browser console errors
 - Contact the development team

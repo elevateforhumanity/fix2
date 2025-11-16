@@ -41,11 +41,11 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-          SUPABASE_URL: "https://cuxzzpsyufcewtmicszk.supabase.co"
+          SUPABASE_URL: 'https://cuxzzpsyufcewtmicszk.supabase.co'
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
-          APP_URL: "https://elevateconnectsdirectory.org"
+          APP_URL: 'https://elevateconnectsdirectory.org'
 
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}

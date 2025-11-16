@@ -11,32 +11,36 @@ export default function PWATestPage() {
             PWA Installation Test
           </h1>
           <p className="text-gray-600 mb-6">
-            This page helps you test the Progressive Web App installation and features.
+            This page helps you test the Progressive Web App installation and
+            features.
           </p>
-
           <div className="space-y-4">
             <div className="border-l-4 border-blue-500 bg-blue-50 p-4">
               <h3 className="font-semibold text-blue-900 mb-2">
                 Installation Instructions
               </h3>
               <div className="text-sm text-blue-800 space-y-2">
-                <p><strong>iOS (Safari):</strong></p>
+                <p>
+                  <strong>iOS (Safari):</strong>
+                </p>
                 <ol className="list-decimal ml-5 space-y-1">
                   <li>Tap the Share button (square with arrow)</li>
                   <li>Scroll down and tap "Add to Home Screen"</li>
                   <li>Tap "Add" in the top right</li>
                   <li>Launch the app from your home screen</li>
                 </ol>
-
-                <p className="mt-3"><strong>Android (Chrome):</strong></p>
+                <p className="mt-3">
+                  <strong>Android (Chrome):</strong>
+                </p>
                 <ol className="list-decimal ml-5 space-y-1">
                   <li>Tap the menu button (three dots)</li>
                   <li>Tap "Install app" or "Add to Home Screen"</li>
                   <li>Tap "Install" in the dialog</li>
                   <li>Launch the app from your app drawer</li>
                 </ol>
-
-                <p className="mt-3"><strong>Desktop (Chrome/Edge):</strong></p>
+                <p className="mt-3">
+                  <strong>Desktop (Chrome/Edge):</strong>
+                </p>
                 <ol className="list-decimal ml-5 space-y-1">
                   <li>Look for the install icon in the address bar</li>
                   <li>Click "Install" in the prompt</li>
@@ -44,7 +48,6 @@ export default function PWATestPage() {
                 </ol>
               </div>
             </div>
-
             <div className="border-l-4 border-green-500 bg-green-50 p-4">
               <h3 className="font-semibold text-green-900 mb-2">
                 Features to Test
@@ -60,7 +63,6 @@ export default function PWATestPage() {
                 <li>Share target (share content to the app)</li>
               </ul>
             </div>
-
             <div className="border-l-4 border-yellow-500 bg-yellow-50 p-4">
               <h3 className="font-semibold text-yellow-900 mb-2">
                 Quick Tests
@@ -80,7 +82,6 @@ export default function PWATestPage() {
                 >
                   Test Service Worker
                 </button>
-
                 <button
                   onClick={() => {
                     if ('Notification' in window) {
@@ -100,7 +101,6 @@ export default function PWATestPage() {
                 >
                   Test Notifications
                 </button>
-
                 <button
                   onClick={() => {
                     if ('share' in navigator) {
@@ -117,18 +117,20 @@ export default function PWATestPage() {
                 >
                   Test Web Share
                 </button>
-
                 <button
                   onClick={async () => {
-                    if ('storage' in navigator && 'estimate' in navigator.storage) {
+                    if (
+                      'storage' in navigator &&
+                      'estimate' in navigator.storage
+                    ) {
                       const estimate = await navigator.storage.estimate();
                       const used = (estimate.usage || 0) / 1024 / 1024;
                       const quota = (estimate.quota || 0) / 1024 / 1024;
                       alert(
                         `Storage:\n` +
-                        `Used: ${used.toFixed(2)} MB\n` +
-                        `Quota: ${quota.toFixed(2)} MB\n` +
-                        `Available: ${(quota - used).toFixed(2)} MB`
+                          `Used: ${used.toFixed(2)} MB\n` +
+                          `Quota: ${quota.toFixed(2)} MB\n` +
+                          `Available: ${(quota - used).toFixed(2)} MB`
                       );
                     } else {
                       alert('❌ Storage API not supported');
@@ -142,7 +144,6 @@ export default function PWATestPage() {
             </div>
           </div>
         </div>
-
         <DeviceCompatibility />
       </div>
     </div>

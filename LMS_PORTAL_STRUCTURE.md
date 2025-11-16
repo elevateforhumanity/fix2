@@ -9,6 +9,7 @@
 ## UNDERSTANDING
 
 This site should be:
+
 - ✅ **LMS Portal** - Student login, courses, programs, learning
 - ❌ **NOT Marketing** - No home page hero, no contact forms, no email collection
 
@@ -19,17 +20,20 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## REQUIRED CHANGES
 
 ### 1. Remove Email/Contact Completely
+
 - ❌ Remove email from footer
 - ❌ Remove contact forms
 - ❌ Remove Contact page (or redirect to main site)
 - ❌ Remove email collection forms
 
 ### 2. Remove Marketing Home Page
+
 - ❌ Remove Home.jsx marketing content
 - ✅ Replace with LMS portal dashboard/login
 - ✅ Redirect root `/` to student portal or login
 
 ### 3. Keep LMS Pages Only
+
 - ✅ Student Portal
 - ✅ Course Catalog
 - ✅ Programs (Apprenticeships, State Programs)
@@ -44,6 +48,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## PAGES TO KEEP (LMS Functionality)
 
 ### Authentication
+
 - `/login` - Student login
 - `/register` - Student registration
 - `/forgot-password` - Password reset
@@ -51,6 +56,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 - `/auth/callback` - OAuth callback
 
 ### Student Portal
+
 - `/student-portal` - Main student dashboard
 - `/my-courses` - Student's enrolled courses
 - `/my-progress` - Progress tracking
@@ -58,6 +64,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 - `/my-assignments` - Assignment list
 
 ### Learning
+
 - `/courses` - Course catalog
 - `/course/:id` - Course player
 - `/programs` - Program list
@@ -67,16 +74,19 @@ The marketing/home page lives at www.elevateforhumanity.org
 - `/quiz/:id` - Quiz/assessment
 
 ### Applications
+
 - `/apply` - Program application
 - `/apply-scholarship` - Scholarship application
 - `/enrollment-success` - Success page
 
 ### Resources
+
 - `/certificates` - Certificate verification
 - `/faq` - Frequently asked questions
 - `/support` - Help/support (no email, just docs)
 
 ### Legal (Required)
+
 - `/privacy` - Privacy policy
 - `/terms` - Terms of use
 - `/accessibility` - Accessibility statement
@@ -86,6 +96,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## PAGES TO REMOVE/REDIRECT
 
 ### Marketing Pages (Redirect to www.elevateforhumanity.org)
+
 - `/` - Home page → Redirect to student portal or main site
 - `/about` - About us → Redirect to main site
 - `/contact` - Contact → Redirect to main site
@@ -93,6 +104,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 - `/blog` - Blog → Redirect to main site
 
 ### Duplicate/Unused Pages
+
 - `/home` - Duplicate
 - `/home-professional` - Duplicate
 - `/home-production` - Duplicate
@@ -105,12 +117,14 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## FOOTER CHANGES
 
 ### Remove
+
 - ❌ Email address
 - ❌ "Contact Us" link
 - ❌ Newsletter signup
 - ❌ Social media (unless needed for LMS)
 
 ### Keep
+
 - ✅ Phone number (for support)
 - ✅ Location (Marion County, IN)
 - ✅ Legal links (Privacy, Terms, Accessibility)
@@ -122,6 +136,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## NAVIGATION CHANGES
 
 ### Remove from Nav
+
 - ❌ "Home" (or make it go to student portal)
 - ❌ "About"
 - ❌ "Contact"
@@ -129,6 +144,7 @@ The marketing/home page lives at www.elevateforhumanity.org
 - ❌ "Donate"
 
 ### Keep in Nav
+
 - ✅ "Student Portal" (or "Dashboard")
 - ✅ "Courses"
 - ✅ "Programs"
@@ -142,17 +158,20 @@ The marketing/home page lives at www.elevateforhumanity.org
 ## ROOT PATH BEHAVIOR
 
 ### Option A: Redirect to Main Site
+
 ```
 / → https://www.elevateforhumanity.org
 ```
 
 ### Option B: Show Student Portal
+
 ```
 / → /student-portal (if logged in)
 / → /login (if not logged in)
 ```
 
 ### Option C: Show Course Catalog
+
 ```
 / → /courses
 ```

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -8,7 +8,13 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { User, Mail, Lock, Phone, MapPin } from 'lucide-react';
 
@@ -77,7 +83,7 @@ export default function SignupPage() {
     setIsSubmitting(true);
 
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // In production, this would call Supabase auth.signUp()
     // For now, redirect to dashboard
@@ -130,7 +136,6 @@ export default function SignupPage() {
                 )}
               </div>
             </div>
-
             {/* Contact Fields */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
@@ -168,7 +173,6 @@ export default function SignupPage() {
                 )}
               </div>
             </div>
-
             {/* Password Fields */}
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
@@ -197,23 +201,28 @@ export default function SignupPage() {
                   id="confirmPassword"
                   type="password"
                   value={formData.confirmPassword}
-                  onChange={(e) => handleChange('confirmPassword', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('confirmPassword', e.target.value)
+                  }
                   placeholder="••••••••"
                   className={errors.confirmPassword ? 'border-red-500' : ''}
                 />
                 {errors.confirmPassword && (
-                  <p className="text-sm text-red-500">{errors.confirmPassword}</p>
+                  <p className="text-sm text-red-500">
+                    {errors.confirmPassword}
+                  </p>
                 )}
               </div>
             </div>
-
             {/* Terms and Conditions */}
             <div className="space-y-2">
               <div className="flex items-start space-x-2">
                 <Checkbox
                   id="terms"
                   checked={formData.agreeToTerms}
-                  onCheckedChange={(checked) => handleChange('agreeToTerms', checked as boolean)}
+                  onCheckedChange={(checked) =>
+                    handleChange('agreeToTerms', checked as boolean)
+                  }
                 />
                 <div className="grid gap-1.5 leading-none">
                   <label
@@ -221,11 +230,17 @@ export default function SignupPage() {
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     I agree to the{' '}
-                    <Link href="/terms-of-service" className="text-primary hover:underline">
+                    <Link
+                      href="/terms-of-service"
+                      className="text-primary hover:underline"
+                    >
                       Terms of Service
                     </Link>{' '}
                     and{' '}
-                    <Link href="/privacy-policy" className="text-primary hover:underline">
+                    <Link
+                      href="/privacy-policy"
+                      className="text-primary hover:underline"
+                    >
                       Privacy Policy
                     </Link>
                   </label>
@@ -235,7 +250,6 @@ export default function SignupPage() {
                 <p className="text-sm text-red-500">{errors.agreeToTerms}</p>
               )}
             </div>
-
             {/* Submit Button */}
             <Button
               type="submit"
@@ -245,16 +259,21 @@ export default function SignupPage() {
             >
               {isSubmitting ? 'Creating Account...' : 'Create Account'}
             </Button>
-
             {/* Sign In Link */}
             <div className="text-center space-y-2">
               <p className="text-sm text-muted-foreground">
                 Already have an account?{' '}
-                <Link href="/login" className="text-primary hover:underline font-medium">
+                <Link
+                  href="/login"
+                  className="text-primary hover:underline font-medium"
+                >
                   Sign in
                 </Link>
               </p>
-              <Link href="/" className="block text-sm text-muted-foreground hover:underline">
+              <Link
+                href="/"
+                className="block text-sm text-muted-foreground hover:underline"
+              >
                 ← Back to home
               </Link>
             </div>

@@ -3,12 +3,14 @@
 ## Issue Resolution Timeline
 
 ### Issue 1: pnpm Lockfile Mismatch
+
 **Time:** ~8:13 PM  
 **Error:** `ERR_PNPM_OUTDATED_LOCKFILE`  
 **Fix:** Switched from pnpm to npm  
 **Commit:** `72d572d6`
 
 ### Issue 2: Peer Dependency Conflict
+
 **Time:** ~8:18 PM  
 **Error:** `@cloudflare/next-on-pages@1.13.16` incompatible with `next@16.0.1`  
 **Fix:** Removed Cloudflare package + use `--legacy-peer-deps`  
@@ -19,18 +21,22 @@
 ### Changes Made
 
 1. **Removed Cloudflare Package**
+
    ```json
    // Removed from devDependencies:
    "@cloudflare/next-on-pages": "1.13.16"
    ```
+
    - This package doesn't support Next.js 16
    - Not needed for Netlify deployment (only for Cloudflare Pages)
 
 2. **Updated Build Command**
+
    ```toml
    [build]
      command = "npm install --legacy-peer-deps && npm run build"
    ```
+
    - Forces npm to use legacy peer dependency resolution
    - Handles remaining peer dependency conflicts
 
@@ -42,12 +48,14 @@
 ## Why This Works
 
 ### The Problem
+
 - Next.js 16 is very new (released recently)
 - Many packages haven't updated peer dependencies yet
 - `@cloudflare/next-on-pages` explicitly blocks Next.js 16
 - Other packages have minor peer dependency mismatches
 
 ### The Solution
+
 - **Remove Cloudflare package:** Not needed for Netlify
 - **Use legacy peer deps:** Allows npm to install despite minor version mismatches
 - **Safe approach:** Only affects build-time dependencies, not runtime
@@ -68,18 +76,21 @@ Netlify should now show:
 ## Deployment Checklist
 
 ### Pre-Deployment (Complete)
+
 - [x] Remove incompatible packages
 - [x] Update build command
 - [x] Regenerate lockfile
 - [x] Commit and push changes
 
 ### During Deployment (Monitor)
+
 - [ ] Check Netlify build logs
 - [ ] Verify npm install succeeds
 - [ ] Confirm build completes
 - [ ] Check for deploy success
 
 ### Post-Deployment (Verify)
+
 - [ ] Visit deployed URL
 - [ ] Test homepage loads
 - [ ] Test LMS pages
@@ -92,6 +103,7 @@ Netlify should now show:
 Ensure these are set in Netlify:
 
 ### Critical (Required)
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
@@ -99,6 +111,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx
 ```
 
 ### MOU Features (Recommended)
+
 ```env
 RESEND_API_KEY=re_xxxxx
 EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
@@ -106,6 +119,7 @@ MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
 ```
 
 ### Optional
+
 ```env
 NEXT_PUBLIC_APP_URL=https://your-site.netlify.app
 ```
@@ -134,17 +148,21 @@ NEXT_PUBLIC_APP_URL=https://your-site.netlify.app
 ## If Deployment Still Fails
 
 ### Option 1: Clear Cache
+
 ```
 Netlify Dashboard → Site Settings → Build & Deploy → Clear build cache
 ```
 
 ### Option 2: Check Build Logs
+
 Look for specific errors:
+
 - Module not found → Missing dependency
 - Build error → Code issue
 - Timeout → Increase build timeout in settings
 
 ### Option 3: Test Locally
+
 ```bash
 npm install --legacy-peer-deps
 npm run build
@@ -152,7 +170,9 @@ npm start
 ```
 
 ### Option 4: Downgrade Next.js (Last Resort)
+
 If absolutely necessary:
+
 ```bash
 npm install next@15.5.2 --legacy-peer-deps
 git add package.json package-lock.json
@@ -163,11 +183,13 @@ git push
 ## What Changed vs Original
 
 ### Original Setup
+
 - Used pnpm for package management
 - Included Cloudflare Workers packages
 - Standard peer dependency resolution
 
 ### Current Setup
+
 - Uses npm for package management
 - Removed Cloudflare-specific packages
 - Legacy peer dependency resolution
@@ -176,12 +198,15 @@ git push
 ## Package Removals Explained
 
 ### @cloudflare/next-on-pages
-**Why removed:** 
+
+**Why removed:**
+
 - Only needed for Cloudflare Pages deployment
 - Doesn't support Next.js 16
 - Not compatible with Netlify
 
 **Impact:**
+
 - None - this was for Cloudflare Workers
 - Netlify has its own Next.js plugin
 - All functionality preserved
@@ -193,11 +218,13 @@ npm install --legacy-peer-deps && npm run build
 ```
 
 **Part 1:** `npm install --legacy-peer-deps`
+
 - Installs dependencies
 - Ignores peer dependency version conflicts
 - Uses legacy resolution algorithm
 
 **Part 2:** `&& npm run build`
+
 - Only runs if install succeeds
 - Executes Next.js build
 - Generates production bundle
@@ -227,12 +254,14 @@ Deployment is successful when:
 Once deployed successfully:
 
 ### Immediate
+
 1. Test all major pages
 2. Verify authentication works
 3. Check API endpoints
 4. Test database connections
 
 ### Within 24 Hours
+
 1. Run database migrations
 2. Configure custom domain (if needed)
 3. Set up monitoring
@@ -240,6 +269,7 @@ Once deployed successfully:
 5. Verify storage buckets
 
 ### Within 1 Week
+
 1. Complete MOU workflow testing
 2. Test certificate generation
 3. Verify all reports work

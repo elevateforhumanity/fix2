@@ -76,9 +76,16 @@ export default function EnhancedLoadingSpinner({
             {[0, 1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className={`w-2 bg-blue-600 rounded-full animate-pulse`}
+                className="w-2 bg-blue-600 rounded-full animate-pulse"
                 style={{
-                  height: size === 'sm' ? '16px' : size === 'md' ? '24px' : size === 'lg' ? '32px' : '40px',
+                  height:
+                    size === 'sm'
+                      ? '16px'
+                      : size === 'md'
+                        ? '24px'
+                        : size === 'lg'
+                          ? '32px'
+                          : '40px',
                   animationDelay: `${i * 100}ms`,
                 }}
               />

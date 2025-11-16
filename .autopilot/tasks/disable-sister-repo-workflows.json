@@ -7,7 +7,7 @@
   "created_at": "2025-11-15T21:25:00Z",
   "worker_type": "github-automation",
   "estimated_duration": "15-20 minutes",
-  
+
   "prerequisites": {
     "github_access": true,
     "repositories": [
@@ -20,7 +20,7 @@
     ],
     "permissions": "write access to repositories"
   },
-  
+
   "steps": [
     {
       "step": 1,
@@ -85,7 +85,7 @@
       "output_file": "/workspaces/fix2/SISTER_REPOS_DISABLED_REPORT.md"
     }
   ],
-  
+
   "execution_methods": {
     "method_1": {
       "name": "GitHub Actions Workflow",
@@ -152,7 +152,7 @@
       ]
     }
   },
-  
+
   "success_criteria": {
     "all_repos_processed": true,
     "no_scheduled_workflows_active": true,
@@ -160,7 +160,7 @@
     "changes_pushed": true,
     "report_generated": true
   },
-  
+
   "rollback_plan": {
     "description": "If needed, workflows can be re-enabled by moving them back",
     "steps": [
@@ -170,13 +170,13 @@
       "git push origin main"
     ]
   },
-  
+
   "documentation": {
     "guide": "DISABLE_SISTER_REPOS_GUIDE.md",
     "script": "disable-autopilot-all-repos.sh",
     "workflow": ".github/workflows/disable-sister-repo-workflows.yml"
   },
-  
+
   "notes": [
     "Only scheduled (cron) workflows are disabled",
     "Manual workflows remain active",

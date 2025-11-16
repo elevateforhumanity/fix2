@@ -2,16 +2,16 @@ import { describe, it, expect } from 'vitest';
 
 /**
  * Integration tests for auth.users query bug fix
- * 
+ *
  * Bug Description:
  * Multiple API routes were attempting to query 'auth.users' directly using
  * the regular Supabase client, which only has access via the anon key.
  * The auth schema is protected and requires service role access.
- * 
+ *
  * Fix:
  * Created lib/supabase-admin.ts with helper functions that use the service
  * role key to access user data via the Admin API.
- * 
+ *
  * Affected Routes:
  * - /api/admin/learner/info
  * - /api/delegates/add
@@ -23,7 +23,9 @@ import { describe, it, expect } from 'vitest';
 describe('Auth Users Query Bug Fix', () => {
   describe('API Route Imports', () => {
     it('should import getUserById in admin/learner/info route', async () => {
-      const routeContent = await import('../../app/api/admin/learner/info/route');
+      const routeContent = await import(
+        '../../app/api/admin/learner/info/route'
+      );
       expect(routeContent).toBeDefined();
       expect(routeContent.GET).toBeDefined();
     });
@@ -47,7 +49,9 @@ describe('Auth Users Query Bug Fix', () => {
     });
 
     it('should import getUserById in funding/admin/resend route', async () => {
-      const routeContent = await import('../../app/api/funding/admin/resend/route');
+      const routeContent = await import(
+        '../../app/api/funding/admin/resend/route'
+      );
       expect(routeContent).toBeDefined();
       expect(routeContent.POST).toBeDefined();
     });
@@ -79,7 +83,7 @@ describe('Auth Users Query Bug Fix', () => {
       // This is a meta-test to ensure the bug doesn't regress
       // In a real scenario, you'd use static analysis or grep
       const fs = await import('fs/promises');
-      
+
       const routesToCheck = [
         'app/api/admin/learner/info/route.ts',
         'app/api/delegates/add/route.ts',
@@ -90,10 +94,10 @@ describe('Auth Users Query Bug Fix', () => {
 
       for (const route of routesToCheck) {
         const content = await fs.readFile(route, 'utf-8');
-        
+
         // Should not contain direct auth.users queries
         expect(content).not.toContain("from('auth.users')");
-        
+
         // Should import from supabase-admin
         expect(content).toContain('@/lib/supabase-admin');
       }
@@ -112,7 +116,8 @@ describe('Bug Impact Assessment', () => {
         'Certificate issuance (single and bulk)',
         'Funding application email resend',
       ],
-      rootCause: 'Direct queries to auth.users table without service role access',
+      rootCause:
+        'Direct queries to auth.users table without service role access',
       symptoms: [
         'Runtime errors when admins try to view learner info',
         'Failed delegate additions',

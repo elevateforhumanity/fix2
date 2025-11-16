@@ -7,17 +7,20 @@ The provided `EFH-FULL-FIX-AND-DEPLOY.sh` script has **critical safety issues** 
 ### 🔴 CRITICAL ISSUES
 
 #### 1. Dangerous `sed` Commands
+
 ```bash
 sed -i 's/const supabase = createServerSupabaseClient()/const supabase = await createServerSupabaseClient()/g' "$file"
 ```
 
 **Problems:**
+
 - ❌ Will break files that already have `await`
 - ❌ Won't add `async` to function signatures (required for await)
 - ❌ Will create invalid syntax in many cases
 - ❌ No validation or error checking
 
 **Example of breakage:**
+
 ```typescript
 // Before:
 const supabase = await createServerSupabaseClient(); // Already correct
@@ -27,57 +30,68 @@ const supabase = await await createServerSupabaseClient(); // BROKEN!
 ```
 
 #### 2. Overwrites Working Code
+
 ```bash
 cat > ./app/api/webhooks/stripe/route.ts <<'EOF'
 ```
 
 **Problems:**
+
 - ❌ Completely replaces existing file
 - ❌ Loses any custom logic already there
 - ❌ No backup created
 - ❌ No way to recover if something goes wrong
 
 #### 3. Incorrect Import Paths
+
 ```typescript
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 ```
 
 **Problems:**
+
 - ❌ Wrong package - you're using `@supabase/ssr`
 - ❌ Will cause build failures
 - ❌ Incompatible API
 
 #### 4. Deletes All Console Logs
+
 ```bash
 sed -i '/console.log/d' "$file"
 ```
 
 **Problems:**
+
 - ❌ Removes legitimate error logging
 - ❌ Makes debugging impossible
 - ❌ Removes important diagnostic information
 
 #### 5. Missing Database Schema
+
 ```typescript
-const { data } = await supabase.from('messages').select('*')
+const { data } = await supabase.from('messages').select('*');
 ```
 
 **Problems:**
+
 - ❌ Assumes tables exist (`messages`, `assignments`)
 - ❌ No migration files created
 - ❌ Will fail at runtime with "relation does not exist"
 
 #### 6. No Error Handling
+
 ```bash
 pnpm install && pnpm lint --fix && pnpm build
 ```
 
 **Problems:**
+
 - ❌ If any step fails, continues anyway
 - ❌ No rollback mechanism
 - ❌ Could leave codebase in broken state
 
 #### 7. No Validation
+
 - ❌ Doesn't check if files exist before modifying
 - ❌ Doesn't verify syntax after changes
 - ❌ Doesn't test that code still compiles
@@ -85,19 +99,23 @@ pnpm install && pnpm lint --fix && pnpm build
 ### ⚠️ MODERATE ISSUES
 
 #### 8. Hardcoded Assumptions
+
 - Assumes specific file structure
 - Assumes specific function names
 - Assumes specific patterns
 
 #### 9. No Idempotency
+
 - Running twice will break things
 - No way to safely re-run
 - No state tracking
 
 #### 10. Missing Dependencies
+
 ```bash
 npm install pdfkit
 ```
+
 - Doesn't check if already installed
 - Doesn't update package.json properly
 - Could cause version conflicts
@@ -105,6 +123,7 @@ npm install pdfkit
 ## What We Did Instead (Safe Approach)
 
 ### ✅ OPTION A: Fixed Async/Await Properly
+
 - ✅ Identified exact files with issues
 - ✅ Created backup branch first
 - ✅ Fixed each file individually
@@ -115,6 +134,7 @@ npm install pdfkit
 **Result:** 17 critical errors fixed, build compiles successfully
 
 ### ✅ OPTION B: Created Database Infrastructure
+
 - ✅ Designed proper schema with RLS
 - ✅ Created migration file (not auto-applied)
 - ✅ Built API routes with proper auth
@@ -238,21 +258,22 @@ echo "To rollback: git checkout $BACKUP_BRANCH"
 
 ## Key Differences (Safe vs Unsafe)
 
-| Feature | Unsafe Script | Safe Script |
-|---------|--------------|-------------|
-| Backup | ❌ None | ✅ Auto-created |
-| Error handling | ❌ Continues on error | ✅ Stops on error |
-| Validation | ❌ None | ✅ Checks env vars |
-| Rollback | ❌ Manual | ✅ Automatic |
-| Destructive changes | ❌ Many | ✅ None |
-| Idempotent | ❌ No | ✅ Yes |
-| Testing | ❌ None | ✅ Build + typecheck |
+| Feature             | Unsafe Script         | Safe Script          |
+| ------------------- | --------------------- | -------------------- |
+| Backup              | ❌ None               | ✅ Auto-created      |
+| Error handling      | ❌ Continues on error | ✅ Stops on error    |
+| Validation          | ❌ None               | ✅ Checks env vars   |
+| Rollback            | ❌ Manual             | ✅ Automatic         |
+| Destructive changes | ❌ Many               | ✅ None              |
+| Idempotent          | ❌ No                 | ✅ Yes               |
+| Testing             | ❌ None               | ✅ Build + typecheck |
 
 ## Recommended Workflow
 
 Instead of running a single "fix everything" script, use this **safe, incremental approach**:
 
 ### Phase 1: Verify Current State ✅ DONE
+
 ```bash
 git checkout -b production-fixes
 npm run typecheck  # Check for errors
@@ -260,6 +281,7 @@ npm run build      # Verify build works
 ```
 
 ### Phase 2: Fix Critical Issues ✅ DONE
+
 ```bash
 # We already did this in OPTION A
 # - Fixed async/await bugs
@@ -268,6 +290,7 @@ npm run build      # Verify build works
 ```
 
 ### Phase 3: Add New Features ✅ DONE
+
 ```bash
 # We already did this in OPTION B
 # - Created database migrations
@@ -276,6 +299,7 @@ npm run build      # Verify build works
 ```
 
 ### Phase 4: Deploy (Next Step)
+
 ```bash
 # Run migration in Supabase
 # Push to GitHub
@@ -287,12 +311,14 @@ npm run build      # Verify build works
 **DO NOT run the original script** - it will break your codebase.
 
 **Instead:**
+
 1. ✅ We've already fixed the critical issues (OPTION A)
 2. ✅ We've already created the database infrastructure (OPTION B)
 3. ✅ Everything is committed and backed up
 4. ✅ Build compiles successfully
 
 **Next steps:**
+
 1. Run the database migration in Supabase
 2. Update frontend pages to use new APIs (optional, can be done post-launch)
 3. Push to GitHub

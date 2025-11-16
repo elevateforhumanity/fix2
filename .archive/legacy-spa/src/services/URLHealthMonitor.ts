@@ -272,8 +272,7 @@ export class URLHealthMonitor {
       try {
         const check = await this.checkEndpoint(id);
         checks.set(id, check);
-      } catch (error) {
-      }
+      } catch (error) {}
     }
 
     return checks;
@@ -323,7 +322,6 @@ export class URLHealthMonitor {
     endpoint: ServiceEndpoint,
     check: URLCheck
   ): void {
-
     // In production, send alerts via email, Slack, PagerDuty, etc.
     this.sendAlert({
       severity: 'critical',
@@ -346,7 +344,6 @@ export class URLHealthMonitor {
    * Start monitoring all endpoints
    */
   startMonitoring(): void {
-
     for (const [id, endpoint] of this.endpoints) {
       // Initial check
       this.checkEndpoint(id);

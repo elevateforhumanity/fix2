@@ -189,8 +189,7 @@ export async function logBatch(logs: AuditLogParams[]): Promise<void> {
     }));
 
     await supabase.from('audit_logs').insert(records);
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 /**

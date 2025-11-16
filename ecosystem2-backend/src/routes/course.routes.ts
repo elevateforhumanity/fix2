@@ -15,9 +15,24 @@ const router = Router();
 router.get('/', getCourses);
 router.get('/:id', getCourseById);
 router.post('/', authenticate, authorize('instructor', 'admin'), createCourse);
-router.patch('/:id', authenticate, authorize('instructor', 'admin'), updateCourse);
-router.delete('/:id', authenticate, authorize('instructor', 'admin'), deleteCourse);
+router.patch(
+  '/:id',
+  authenticate,
+  authorize('instructor', 'admin'),
+  updateCourse
+);
+router.delete(
+  '/:id',
+  authenticate,
+  authorize('instructor', 'admin'),
+  deleteCourse
+);
 router.post('/:id/enroll', authenticate, enrollInCourse);
-router.post('/:id/lessons', authenticate, authorize('instructor', 'admin'), addLesson);
+router.post(
+  '/:id/lessons',
+  authenticate,
+  authorize('instructor', 'admin'),
+  addLesson
+);
 
 export default router;

@@ -1,6 +1,7 @@
 # Autopilot: Fix Netlify Deployment
 
 ## 🚨 Problem
+
 ```
 Error: Missing Supabase environment variables for admin client
 ```
@@ -14,21 +15,25 @@ I've created **3 automated ways** to fix this:
 ## Option 1: Bash Script (Fastest - 30 seconds)
 
 ### Step 1: Get Service Role Key
+
 Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 
 Copy the **service_role** key (starts with `eyJhbGci...`)
 
 ### Step 2: Run Script
+
 ```bash
 ./scripts/add-netlify-env-vars.sh "eyJhbGci...YOUR_SERVICE_ROLE_KEY..."
 ```
 
 ### What it does:
+
 - ✅ Adds 6 environment variables to Netlify
 - ✅ Triggers deploy with cache clear
 - ✅ Shows progress and results
 
 ### Output:
+
 ```
 🚀 Adding environment variables to Netlify...
 
@@ -62,18 +67,21 @@ Copy the **service_role** key (starts with `eyJhbGci...`)
 ## Option 2: Cloudflare Worker (API-based)
 
 ### Step 1: Deploy Worker
+
 ```bash
 cd workers
 wrangler deploy add-netlify-env-vars.js
 ```
 
 ### Step 2: Set Netlify Token Secret
+
 ```bash
 wrangler secret put NETLIFY_AUTH_TOKEN
 # Paste: nfp_ZQh1EUwZgJt939dcD3kb9sEYGk7DDgwPbaae
 ```
 
 ### Step 3: Call Worker
+
 ```bash
 curl -X POST https://add-netlify-env-vars.YOUR_SUBDOMAIN.workers.dev/ \
   -H "Content-Type: application/json" \
@@ -83,12 +91,14 @@ curl -X POST https://add-netlify-env-vars.YOUR_SUBDOMAIN.workers.dev/ \
 ```
 
 ### What it does:
+
 - ✅ Accepts Supabase keys via API
 - ✅ Adds all environment variables to Netlify
 - ✅ Triggers deployment
 - ✅ Returns detailed results
 
 ### Response:
+
 ```json
 {
   "success": true,
@@ -107,12 +117,14 @@ curl -X POST https://add-netlify-env-vars.YOUR_SUBDOMAIN.workers.dev/ \
 ## Option 3: Autopilot Task (Guided)
 
 ### Run Autopilot Task
+
 ```bash
 # Task will guide you through each step
 autopilot run .autopilot/tasks/add-netlify-env-vars.json
 ```
 
 ### What it does:
+
 - ✅ Step-by-step guided process
 - ✅ Validates each step
 - ✅ Handles errors automatically
@@ -132,26 +144,29 @@ Follow: **FIX_DEPLOYMENT_NOW.md**
 
 ## Comparison
 
-| Method | Time | Difficulty | Best For |
-|--------|------|------------|----------|
-| **Bash Script** | 30 sec | Easy | Quick fix, have terminal access |
-| **Cloudflare Worker** | 2 min | Medium | API automation, remote execution |
-| **Autopilot Task** | 5 min | Easy | Guided process, learning |
-| **Manual** | 5 min | Easy | No automation tools available |
+| Method                | Time   | Difficulty | Best For                         |
+| --------------------- | ------ | ---------- | -------------------------------- |
+| **Bash Script**       | 30 sec | Easy       | Quick fix, have terminal access  |
+| **Cloudflare Worker** | 2 min  | Medium     | API automation, remote execution |
+| **Autopilot Task**    | 5 min  | Easy       | Guided process, learning         |
+| **Manual**            | 5 min  | Easy       | No automation tools available    |
 
 ---
 
 ## Files Created
 
 ### Scripts
+
 - ✅ `scripts/add-netlify-env-vars.sh` - Bash automation script
 - ✅ `workers/add-netlify-env-vars.js` - Cloudflare Worker
 
 ### Autopilot Tasks
+
 - ✅ `.autopilot/tasks/add-netlify-env-vars.json` - API automation task
 - ✅ `.autopilot/tasks/fix-supabase-deployment.json` - Guided manual task
 
 ### Documentation
+
 - ✅ `FIX_DEPLOYMENT_NOW.md` - Quick manual guide
 - ✅ `NETLIFY_ENV_SETUP.md` - Detailed setup guide
 - ✅ `AUTOPILOT_FIX_DEPLOYMENT.md` - This file
@@ -174,12 +189,14 @@ NODE_ENV = production
 ## After Running
 
 ### Verify Deployment
+
 1. Wait 2-3 minutes for build
 2. Check: https://www.elevateconnectsdirectory.org
 3. Verify: https://www.elevateconnectsdirectory.org/sitemap.xml
 4. Test: Login/signup functionality
 
 ### Monitor
+
 - Netlify Dashboard: https://app.netlify.com/
 - Build logs: Check for "Compiled successfully"
 - No errors about missing Supabase variables
@@ -189,19 +206,23 @@ NODE_ENV = production
 ## Troubleshooting
 
 ### Script fails with "Unauthorized"
+
 - Check NETLIFY_AUTH_TOKEN is correct
 - Token: `nfp_ZQh1EUwZgJt939dcD3kb9sEYGk7DDgwPbaae`
 
 ### Worker returns 400
+
 - Verify service_role_key is in request body
 - Check JSON format is correct
 
 ### Deploy still fails
+
 - Verify all 6 variables are set in Netlify
 - Check variable names are exact (case-sensitive)
 - Try "Clear cache and deploy" in Netlify
 
 ### Can't find service_role key
+
 - Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 - Look for "service_role" under "Project API keys"
 - Copy the long string starting with `eyJhbGci...`
@@ -213,12 +234,14 @@ NODE_ENV = production
 ⚠️ **NEVER commit service_role key to Git!**
 
 ✅ Safe locations:
+
 - Netlify Environment Variables
 - GitHub Secrets
 - Cloudflare Worker Secrets
 - Local environment only
 
 ❌ Unsafe:
+
 - Git repository
 - Public documentation
 - Client-side code

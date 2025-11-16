@@ -5,7 +5,12 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: 'default' | 'elevated' | 'bordered';
 }
 
-export function Card({ children, variant = 'default', className = '', ...props }: CardProps) {
+export function Card({
+  children,
+  variant = 'default',
+  className = '',
+  ...props
+}: CardProps) {
   const variants = {
     default: 'rounded-2xl border border-slate-200 bg-slate-50 p-6',
     elevated: 'rounded-2xl bg-white shadow-lg p-6',
@@ -25,7 +30,11 @@ interface CardHeaderProps {
   className?: string;
 }
 
-export function CardHeader({ title, subtitle, className = '' }: CardHeaderProps) {
+export function CardHeader({
+  title,
+  subtitle,
+  className = '',
+}: CardHeaderProps) {
   return (
     <div className={className}>
       <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
@@ -38,7 +47,11 @@ interface CardContentProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export function CardContent({ children, className = '', ...props }: CardContentProps) {
+export function CardContent({
+  children,
+  className = '',
+  ...props
+}: CardContentProps) {
   return (
     <div className={`mt-4 ${className}`} {...props}>
       {children}

@@ -1,11 +1,18 @@
-"use client"
+'use client';
 
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { createBrowserClient } from '@supabase/ssr';
-import { Plus, Edit, Trash2, ArrowLeft, GripVertical, Save } from 'lucide-react';
+import {
+  Plus,
+  Edit,
+  Trash2,
+  ArrowLeft,
+  GripVertical,
+  Save,
+} from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,13 +53,15 @@ export default function CourseContentPage({ params }: Props) {
       // Fetch course
       const { data: courseData } = await supabase
         .from('courses')
-        .select(`
+        .select(
+          `
           id,
           title,
           programs (
             name
           )
-        `)
+        `
+        )
         .eq('id', params.id)
         .single();
 
@@ -61,7 +70,8 @@ export default function CourseContentPage({ params }: Props) {
       // Fetch modules with lessons
       const { data: modulesData } = await supabase
         .from('modules')
-        .select(`
+        .select(
+          `
           id,
           title,
           description,
@@ -75,7 +85,8 @@ export default function CourseContentPage({ params }: Props) {
             order_index,
             is_required
           )
-        `)
+        `
+        )
         .eq('course_id', params.id)
         .order('order_index', { ascending: true });
 
@@ -90,19 +101,24 @@ export default function CourseContentPage({ params }: Props) {
   const handleCreateModule = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const { error } = await supabase
-        .from('modules')
-        .insert({
-          course_id: parseInt(params.id),
-          title: formData.title,
-          description: formData.description,
-          order_index: modules.length,
-        });
+      const { error } = await supabase.from('modules').insert({
+        course_id: parseInt(params.id),
+        title: formData.title,
+        description: formData.description,
+        order_index: modules.length,
+      });
 
       if (error) throw error;
 
       setShowModuleForm(false);
-      setFormData({ title: '', description: '', content: '', content_type: 'text', duration_minutes: 30, is_required: true });
+      setFormData({
+        title: '',
+        description: '',
+        content: '',
+        content_type: 'text',
+        duration_minutes: 30,
+        is_required: true,
+      });
       loadCourse();
     } catch (error) {
       console.error('Error creating module:', error);
@@ -115,24 +131,29 @@ export default function CourseContentPage({ params }: Props) {
     if (!selectedModule) return;
 
     try {
-      const { error } = await supabase
-        .from('lessons')
-        .insert({
-          module_id: selectedModule.id,
-          title: formData.title,
-          description: formData.description,
-          content: formData.content,
-          content_type: formData.content_type,
-          duration_minutes: formData.duration_minutes,
-          is_required: formData.is_required,
-          order_index: selectedModule.lessons?.length || 0,
-        });
+      const { error } = await supabase.from('lessons').insert({
+        module_id: selectedModule.id,
+        title: formData.title,
+        description: formData.description,
+        content: formData.content,
+        content_type: formData.content_type,
+        duration_minutes: formData.duration_minutes,
+        is_required: formData.is_required,
+        order_index: selectedModule.lessons?.length || 0,
+      });
 
       if (error) throw error;
 
       setShowLessonForm(false);
       setSelectedModule(null);
-      setFormData({ title: '', description: '', content: '', content_type: 'text', duration_minutes: 30, is_required: true });
+      setFormData({
+        title: '',
+        description: '',
+        content: '',
+        content_type: 'text',
+        duration_minutes: 30,
+        is_required: true,
+      });
       loadCourse();
     } catch (error) {
       console.error('Error creating lesson:', error);
@@ -178,7 +199,7 @@ export default function CourseContentPage({ params }: Props) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading course...</p>
         </div>
       </div>
@@ -193,21 +214,26 @@ export default function CourseContentPage({ params }: Props) {
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href="/admin/courses" className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href="/admin/courses"
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Courses
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-5xl mx-auto">
           {/* Page Header */}
           <div className="mb-8">
-            <div className="text-sm text-gray-500 mb-2">{course?.programs?.name}</div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{course?.title}</h1>
+            <div className="text-sm text-gray-500 mb-2">
+              {course?.programs?.name}
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {course?.title}
+            </h1>
             <p className="text-gray-600">Manage course modules and lessons</p>
           </div>
-
           {/* Add Module Button */}
           <div className="mb-6">
             <button
@@ -218,27 +244,36 @@ export default function CourseContentPage({ params }: Props) {
               Add Module
             </button>
           </div>
-
           {/* Module Form */}
           {showModuleForm && (
             <div className="elevate-card mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Create New Module</h3>
+              <h3 className="font-bold text-gray-900 mb-4">
+                Create New Module
+              </h3>
               <form onSubmit={handleCreateModule} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Module Title *</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Module Title *
+                  </label>
                   <input
                     type="text"
                     value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
                     className="elevate-input w-full"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Description</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Description
+                  </label>
                   <textarea
                     value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
                     className="elevate-textarea w-full"
                     rows={3}
                   />
@@ -251,7 +286,14 @@ export default function CourseContentPage({ params }: Props) {
                     type="button"
                     onClick={() => {
                       setShowModuleForm(false);
-                      setFormData({ title: '', description: '', content: '', content_type: 'text', duration_minutes: 30, is_required: true });
+                      setFormData({
+                        title: '',
+                        description: '',
+                        content: '',
+                        content_type: 'text',
+                        duration_minutes: 30,
+                        is_required: true,
+                      });
                     }}
                     className="elevate-btn-secondary"
                   >
@@ -261,7 +303,6 @@ export default function CourseContentPage({ params }: Props) {
               </form>
             </div>
           )}
-
           {/* Lesson Form */}
           {showLessonForm && selectedModule && (
             <div className="elevate-card mb-6">
@@ -270,30 +311,45 @@ export default function CourseContentPage({ params }: Props) {
               </h3>
               <form onSubmit={handleCreateLesson} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Lesson Title *</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Lesson Title *
+                  </label>
                   <input
                     type="text"
                     value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
                     className="elevate-input w-full"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Description</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Description
+                  </label>
                   <textarea
                     value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
                     className="elevate-textarea w-full"
                     rows={2}
                   />
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Content Type *</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Content Type *
+                    </label>
                     <select
                       value={formData.content_type}
-                      onChange={(e) => setFormData({ ...formData, content_type: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          content_type: e.target.value,
+                        })
+                      }
                       className="elevate-select w-full"
                     >
                       <option value="text">Text/HTML</option>
@@ -302,11 +358,18 @@ export default function CourseContentPage({ params }: Props) {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Duration (minutes) *</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Duration (minutes) *
+                    </label>
                     <input
                       type="number"
                       value={formData.duration_minutes}
-                      onChange={(e) => setFormData({ ...formData, duration_minutes: parseInt(e.target.value) })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          duration_minutes: parseInt(e.target.value),
+                        })
+                      }
                       className="elevate-input w-full"
                       min="1"
                       required
@@ -314,10 +377,14 @@ export default function CourseContentPage({ params }: Props) {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Content</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Content
+                  </label>
                   <textarea
                     value={formData.content}
-                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, content: e.target.value })
+                    }
                     className="elevate-textarea w-full"
                     rows={6}
                     placeholder="Enter lesson content, video URL, or document URL"
@@ -328,7 +395,12 @@ export default function CourseContentPage({ params }: Props) {
                     type="checkbox"
                     id="is_required"
                     checked={formData.is_required}
-                    onChange={(e) => setFormData({ ...formData, is_required: e.target.checked })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        is_required: e.target.checked,
+                      })
+                    }
                     className="rounded"
                   />
                   <label htmlFor="is_required" className="text-sm font-medium">
@@ -344,7 +416,14 @@ export default function CourseContentPage({ params }: Props) {
                     onClick={() => {
                       setShowLessonForm(false);
                       setSelectedModule(null);
-                      setFormData({ title: '', description: '', content: '', content_type: 'text', duration_minutes: 30, is_required: true });
+                      setFormData({
+                        title: '',
+                        description: '',
+                        content: '',
+                        content_type: 'text',
+                        duration_minutes: 30,
+                        is_required: true,
+                      });
                     }}
                     className="elevate-btn-secondary"
                   >
@@ -354,7 +433,6 @@ export default function CourseContentPage({ params }: Props) {
               </form>
             </div>
           )}
-
           {/* Modules List */}
           <div className="space-y-4">
             {modules.length > 0 ? (
@@ -368,9 +446,13 @@ export default function CourseContentPage({ params }: Props) {
                         <div className="text-sm font-bold text-gray-500 mb-1">
                           Module {moduleIndex + 1}
                         </div>
-                        <h3 className="font-bold text-gray-900 text-lg">{module.title}</h3>
+                        <h3 className="font-bold text-gray-900 text-lg">
+                          {module.title}
+                        </h3>
                         {module.description && (
-                          <p className="text-sm text-gray-600 mt-1">{module.description}</p>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {module.description}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -393,7 +475,6 @@ export default function CourseContentPage({ params }: Props) {
                       </button>
                     </div>
                   </div>
-
                   {/* Lessons */}
                   <div className="space-y-2">
                     {module.lessons && module.lessons.length > 0 ? (
@@ -409,7 +490,9 @@ export default function CourseContentPage({ params }: Props) {
                                 {lessonIndex + 1}. {lesson.title}
                               </div>
                               <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
-                                <span className="capitalize">{lesson.content_type}</span>
+                                <span className="capitalize">
+                                  {lesson.content_type}
+                                </span>
                                 <span>{lesson.duration_minutes} min</span>
                                 {lesson.is_required && (
                                   <span className="elevate-pill elevate-pill--danger text-xs">

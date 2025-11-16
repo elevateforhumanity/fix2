@@ -10,6 +10,7 @@
 6. Verify you see success messages at the bottom
 
 **Expected Output:**
+
 ```
 ✅ All migrations applied successfully!
 
@@ -47,13 +48,14 @@ VALUES ('YOUR_USER_ID', 'admin')
 ON CONFLICT (user_id) DO UPDATE SET role = 'admin';
 
 -- Verify it worked
-SELECT u.email, ur.role 
+SELECT u.email, ur.role
 FROM auth.users u
 JOIN public.user_roles ur ON u.id = ur.user_id
 WHERE u.id = 'YOUR_USER_ID';
 ```
 
 **Expected Output:**
+
 ```
 email                | role
 ---------------------|-------
@@ -78,6 +80,7 @@ npm run dev
 6. Verify you're redirected and authenticated
 
 **Expected:**
+
 - ✅ Email sent successfully
 - ✅ Magic link received
 - ✅ Redirected to `/student-portal` or intended page
@@ -95,6 +98,7 @@ npm run dev
 4. Click "Issue Certificate"
 
 **Expected:**
+
 - ✅ Form submits successfully
 - ✅ Success message with verification code
 - ✅ Certificate saved to database
@@ -105,6 +109,7 @@ npm run dev
 2. Verify you see the test certificate you just issued
 
 **Expected:**
+
 - ✅ Certificate appears in list
 - ✅ Shows program name
 - ✅ Shows issue date
@@ -118,6 +123,7 @@ npm run dev
 3. Verify certificate details are displayed
 
 **Expected:**
+
 - ✅ Certificate verified message
 - ✅ Program name displayed
 - ✅ Issue date displayed
@@ -131,6 +137,7 @@ npm run dev
 4. Try to access `/staff`
 
 **Expected:**
+
 - ❌ Redirected to `/not-authorized`
 - ✅ Can access `/my-certificates`
 - ✅ Navigation doesn't show "Staff Panel" link
@@ -144,6 +151,7 @@ npm run build
 ```
 
 **Expected:**
+
 - ✅ Build completes without errors
 - ✅ No TypeScript errors
 - ✅ No linting errors
@@ -163,6 +171,7 @@ git push origin main
 ### Verify Environment Variables
 
 In Netlify Dashboard:
+
 1. Go to **Site settings** → **Environment variables**
 2. Verify these are set:
    - `VITE_SUPABASE_URL`
@@ -203,6 +212,7 @@ In Netlify Dashboard:
 **Problem:** Email not received
 
 **Solutions:**
+
 - Check spam folder
 - Verify Supabase email settings
 - Check Supabase logs: Dashboard → Logs → Auth
@@ -213,6 +223,7 @@ In Netlify Dashboard:
 **Problem:** Redirected to /not-authorized
 
 **Solutions:**
+
 - Verify role is assigned in database:
   ```sql
   SELECT * FROM public.user_roles WHERE user_id = 'YOUR_USER_ID';
@@ -225,6 +236,7 @@ In Netlify Dashboard:
 **Problem:** Error uploading PDF
 
 **Solutions:**
+
 - Verify `certificates` bucket exists
 - Check bucket is set to public
 - Verify file is a valid PDF
@@ -235,9 +247,10 @@ In Netlify Dashboard:
 **Problem:** "new row violates row-level security policy"
 
 **Solutions:**
+
 - Verify RLS policies were created:
   ```sql
-  SELECT * FROM pg_policies 
+  SELECT * FROM pg_policies
   WHERE tablename IN ('user_roles', 'certificates');
   ```
 - Check user has correct role assigned
@@ -248,6 +261,7 @@ In Netlify Dashboard:
 **Problem:** Build fails with TypeScript errors
 
 **Solutions:**
+
 - Run `npm run build` locally first
 - Check for missing imports
 - Verify all files are committed
@@ -273,8 +287,8 @@ In Netlify Dashboard:
 
 ```sql
 -- Check query performance
-EXPLAIN ANALYZE 
-SELECT * FROM public.certificates 
+EXPLAIN ANALYZE
+SELECT * FROM public.certificates
 WHERE user_id = 'YOUR_USER_ID';
 
 -- Should use index: idx_certificates_user_id
@@ -307,6 +321,7 @@ WHERE user_id = 'YOUR_USER_ID';
 ### Analytics
 
 Track these metrics:
+
 - Magic link conversion rate
 - Certificate issuance rate
 - Verification page views
@@ -334,7 +349,7 @@ After successful deployment:
 
 ---
 
-**Test Date:** _____________  
-**Tested By:** _____________  
+**Test Date:** **\*\***\_**\*\***  
+**Tested By:** **\*\***\_**\*\***  
 **Status:** ⬜ Pass | ⬜ Fail  
-**Notes:** _____________
+**Notes:** **\*\***\_**\*\***

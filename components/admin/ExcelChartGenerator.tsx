@@ -423,11 +423,11 @@ export function ExcelChartGenerator() {
                 );
               })}
               {chart.type === 'doughnut' && (
-                <circle cx="100" cy="100" r="40" fill="white" />
+                <circle cx="100" cy="100" r="40"
+fill="white" />
               )}
             </svg>
           </div>
-
           {chart.showLegend && (
             <div className="ml-6 space-y-2">
               {chart.data.map((item, index) => (
@@ -435,7 +435,7 @@ export function ExcelChartGenerator() {
                   <div
                     className="w-3 h-3 rounded mr-2"
                     style={{ backgroundColor: item.color }}
-                  ></div>
+                  />
                   <span className="text-brand-text">
                     {item.label}{' '}
                     {chart.showPercentages &&
@@ -471,7 +471,6 @@ export function ExcelChartGenerator() {
             : '📊 Generate Excel with Charts'}
         </button>
       </div>
-
       {/* Export Options */}
       <div className="bg-white border rounded-lg p-6 mb-6">
         <h3 className="text-lg font-semibold text-brand-text mb-4">
@@ -494,7 +493,6 @@ export function ExcelChartGenerator() {
               className="w-full border border-brand-border-dark rounded px-3 py-2 text-sm"
             />
           </div>
-
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
               Chart Size
@@ -514,7 +512,6 @@ export function ExcelChartGenerator() {
               <option value="large">Large</option>
             </select>
           </div>
-
           <div className="space-y-2">
             <label className="flex items-center">
               <input
@@ -545,7 +542,6 @@ export function ExcelChartGenerator() {
               <span className="text-sm text-brand-text">Include Raw Data</span>
             </label>
           </div>
-
           <div className="space-y-2">
             <label className="flex items-center">
               <input
@@ -566,12 +562,11 @@ export function ExcelChartGenerator() {
           </div>
         </div>
       </div>
-
       {/* Generation Status */}
       {isGenerating && (
         <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
           <div className="flex items-center">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-600 mr-4"></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-600 mr-4" />
             <div>
               <h3 className="font-semibold text-green-900">
                 🤖 Generating Excel File with Charts...
@@ -586,7 +581,6 @@ export function ExcelChartGenerator() {
           </div>
         </div>
       )}
-
       {/* Chart Selection */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
@@ -610,7 +604,6 @@ export function ExcelChartGenerator() {
             </button>
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {availableCharts.map((chart, index) => (
             <div key={index} className="relative">
@@ -628,7 +621,6 @@ export function ExcelChartGenerator() {
                 </label>
               </div>
               <PieChartPreview chart={chart} />
-
               <div className="mt-3 text-center">
                 <div className="text-sm text-brand-text-muted">
                   Type: {chart.type} | Data Points: {chart.data.length}
@@ -638,7 +630,6 @@ export function ExcelChartGenerator() {
           ))}
         </div>
       </div>
-
       {/* Excel Features */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-4">
@@ -656,7 +647,6 @@ export function ExcelChartGenerator() {
               <li>• Professional legends</li>
             </ul>
           </div>
-
           <div className="bg-white rounded p-4">
             <h4 className="font-medium text-blue-900 mb-2">
               📊 Data Integration
@@ -668,7 +658,6 @@ export function ExcelChartGenerator() {
               <li>• Formatted headers</li>
             </ul>
           </div>
-
           <div className="bg-white rounded p-4">
             <h4 className="font-medium text-blue-900 mb-2">🎯 Customization</h4>
             <ul className="text-sm text-brand-info space-y-1">

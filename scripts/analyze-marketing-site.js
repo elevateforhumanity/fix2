@@ -1,6 +1,6 @@
 /**
  * Puppeteer Script: Analyze Marketing Site & Generate Durable Setup Instructions
- * 
+ *
  * This script:
  * 1. Crawls www.elevateforhumanity.org
  * 2. Analyzes current SEO setup
@@ -21,11 +21,11 @@ async function analyzeSite() {
 
   const browser = await puppeteer.launch({
     headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   const page = await browser.newPage();
-  
+
   // Set viewport for consistent screenshots
   await page.setViewport({ width: 1920, height: 1080 });
 
@@ -37,21 +37,26 @@ async function analyzeSite() {
     pages: [],
     recommendations: [],
     durableInstructions: [],
-    canvaAnimations: []
+    canvaAnimations: [],
   };
 
   try {
     console.log(`📍 Navigating to ${MARKETING_SITE}...`);
-    await page.goto(MARKETING_SITE, { waitUntil: 'networkidle2', timeout: 30000 });
+    await page.goto(MARKETING_SITE, {
+      waitUntil: 'networkidle2',
+      timeout: 30000,
+    });
 
     // ============================================
     // 1. ANALYZE SEO SETUP
     // ============================================
     console.log('\n🔍 Analyzing SEO setup...');
-    
+
     analysis.seo = await page.evaluate(() => {
       const getMetaContent = (name) => {
-        const meta = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+        const meta = document.querySelector(
+          `meta[name="${name}"], meta[property="${name}"]`
+        );
         return meta ? meta.getAttribute('content') : null;
       };
 
@@ -66,21 +71,31 @@ async function analyzeSite() {
         twitterImage: getMetaContent('twitter:image'),
         googleVerification: getMetaContent('google-site-verification'),
         bingVerification: getMetaContent('msvalidate.01'),
-        hasStructuredData: !!document.querySelector('script[type="application/ld+json"]'),
-        h1Tags: Array.from(document.querySelectorAll('h1')).map(h => h.textContent.trim()),
-        h2Tags: Array.from(document.querySelectorAll('h2')).map(h => h.textContent.trim()).slice(0, 5),
-        images: Array.from(document.querySelectorAll('img')).map(img => ({
-          src: img.src,
-          alt: img.alt || 'MISSING ALT TEXT',
-          hasAlt: !!img.alt
-        })).slice(0, 10)
+        hasStructuredData: !!document.querySelector(
+          'script[type="application/ld+json"]'
+        ),
+        h1Tags: Array.from(document.querySelectorAll('h1')).map((h) =>
+          h.textContent.trim()
+        ),
+        h2Tags: Array.from(document.querySelectorAll('h2'))
+          .map((h) => h.textContent.trim())
+          .slice(0, 5),
+        images: Array.from(document.querySelectorAll('img'))
+          .map((img) => ({
+            src: img.src,
+            alt: img.alt || 'MISSING ALT TEXT',
+            hasAlt: !!img.alt,
+          }))
+          .slice(0, 10),
       };
     });
 
     // Check for sitemap
     console.log('📄 Checking for sitemap...');
     try {
-      const sitemapResponse = await page.goto(`${MARKETING_SITE}/sitemap.xml`, { waitUntil: 'networkidle2' });
+      const sitemapResponse = await page.goto(`${MARKETING_SITE}/sitemap.xml`, {
+        waitUntil: 'networkidle2',
+      });
       analysis.seo.hasSitemap = sitemapResponse.status() === 200;
     } catch (e) {
       analysis.seo.hasSitemap = false;
@@ -89,7 +104,9 @@ async function analyzeSite() {
     // Check for robots.txt
     console.log('🤖 Checking for robots.txt...');
     try {
-      const robotsResponse = await page.goto(`${MARKETING_SITE}/robots.txt`, { waitUntil: 'networkidle2' });
+      const robotsResponse = await page.goto(`${MARKETING_SITE}/robots.txt`, {
+        waitUntil: 'networkidle2',
+      });
       analysis.seo.hasRobotsTxt = robotsResponse.status() === 200;
     } catch (e) {
       analysis.seo.hasRobotsTxt = false;
@@ -102,24 +119,28 @@ async function analyzeSite() {
     // 2. DETECT SOCIAL MEDIA LINKS
     // ============================================
     console.log('\n🔗 Detecting social media links...');
-    
+
     analysis.socialMedia = await page.evaluate(() => {
       const links = Array.from(document.querySelectorAll('a[href]'));
       const socialPlatforms = {
-        facebook: links.find(a => a.href.includes('facebook.com')),
-        twitter: links.find(a => a.href.includes('twitter.com') || a.href.includes('x.com')),
-        linkedin: links.find(a => a.href.includes('linkedin.com')),
-        instagram: links.find(a => a.href.includes('instagram.com')),
-        youtube: links.find(a => a.href.includes('youtube.com')),
-        tiktok: links.find(a => a.href.includes('tiktok.com'))
+        facebook: links.find((a) => a.href.includes('facebook.com')),
+        twitter: links.find(
+          (a) => a.href.includes('twitter.com') || a.href.includes('x.com')
+        ),
+        linkedin: links.find((a) => a.href.includes('linkedin.com')),
+        instagram: links.find((a) => a.href.includes('instagram.com')),
+        youtube: links.find((a) => a.href.includes('youtube.com')),
+        tiktok: links.find((a) => a.href.includes('tiktok.com')),
       };
 
       return Object.entries(socialPlatforms).reduce((acc, [platform, link]) => {
-        acc[platform] = link ? {
-          url: link.href,
-          text: link.textContent.trim(),
-          hasIcon: link.querySelector('svg, img, i') !== null
-        } : null;
+        acc[platform] = link
+          ? {
+              url: link.href,
+              text: link.textContent.trim(),
+              hasIcon: link.querySelector('svg, img, i') !== null,
+            }
+          : null;
         return acc;
       }, {});
     });
@@ -128,13 +149,13 @@ async function analyzeSite() {
     // 3. DISCOVER PAGES
     // ============================================
     console.log('\n📑 Discovering pages...');
-    
+
     const discoveredLinks = await page.evaluate(() => {
       const links = Array.from(document.querySelectorAll('a[href]'));
       return links
-        .map(a => a.href)
-        .filter(href => href.startsWith(window.location.origin))
-        .filter(href => !href.includes('#'))
+        .map((a) => a.href)
+        .filter((href) => href.startsWith(window.location.origin))
+        .filter((href) => !href.includes('#'))
         .filter((href, index, self) => self.indexOf(href) === index)
         .slice(0, 20); // Limit to 20 pages
     });
@@ -145,7 +166,7 @@ async function analyzeSite() {
     // 4. CHECK FOR ANALYTICS
     // ============================================
     console.log('\n📊 Checking for analytics...');
-    
+
     analysis.analytics = await page.evaluate(() => {
       return {
         hasGoogleAnalytics: !!window.gtag || !!window.ga || !!window.dataLayer,
@@ -153,14 +174,15 @@ async function analyzeSite() {
         hasFacebookPixel: !!window.fbq,
         hasHotjar: !!window.hj,
         analyticsScripts: Array.from(document.querySelectorAll('script[src]'))
-          .map(s => s.src)
-          .filter(src => 
-            src.includes('analytics') || 
-            src.includes('gtag') || 
-            src.includes('gtm') ||
-            src.includes('facebook') ||
-            src.includes('hotjar')
-          )
+          .map((s) => s.src)
+          .filter(
+            (src) =>
+              src.includes('analytics') ||
+              src.includes('gtag') ||
+              src.includes('gtm') ||
+              src.includes('facebook') ||
+              src.includes('hotjar')
+          ),
       };
     });
 
@@ -169,23 +191,23 @@ async function analyzeSite() {
     // ============================================
     console.log('\n📸 Taking screenshot...');
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
-    await page.screenshot({ 
+    await page.screenshot({
       path: path.join(OUTPUT_DIR, 'homepage-screenshot.png'),
-      fullPage: true 
+      fullPage: true,
     });
 
     // ============================================
     // 6. GENERATE RECOMMENDATIONS
     // ============================================
     console.log('\n💡 Generating recommendations...');
-    
+
     // SEO Recommendations
     if (!analysis.seo.hasSitemap) {
       analysis.recommendations.push({
         priority: 'HIGH',
         category: 'SEO',
         issue: 'Missing sitemap.xml',
-        action: 'Create and upload sitemap.xml to root directory'
+        action: 'Create and upload sitemap.xml to root directory',
       });
     }
 
@@ -194,7 +216,7 @@ async function analyzeSite() {
         priority: 'MEDIUM',
         category: 'SEO',
         issue: 'Missing robots.txt',
-        action: 'Create and upload robots.txt to root directory'
+        action: 'Create and upload robots.txt to root directory',
       });
     }
 
@@ -203,7 +225,7 @@ async function analyzeSite() {
         priority: 'HIGH',
         category: 'SEO',
         issue: 'Missing meta description',
-        action: 'Add meta description to all pages'
+        action: 'Add meta description to all pages',
       });
     }
 
@@ -212,7 +234,7 @@ async function analyzeSite() {
         priority: 'HIGH',
         category: 'Social Media',
         issue: 'Missing Open Graph image',
-        action: 'Create and add og:image (1200x630px)'
+        action: 'Create and add og:image (1200x630px)',
       });
     }
 
@@ -221,7 +243,7 @@ async function analyzeSite() {
         priority: 'MEDIUM',
         category: 'SEO',
         issue: 'Bing not verified',
-        action: 'Add Bing Webmaster verification code'
+        action: 'Add Bing Webmaster verification code',
       });
     }
 
@@ -230,17 +252,17 @@ async function analyzeSite() {
         priority: 'HIGH',
         category: 'Analytics',
         issue: 'Google Analytics not detected',
-        action: 'Add Google Analytics tracking code'
+        action: 'Add Google Analytics tracking code',
       });
     }
 
-    const imagesWithoutAlt = analysis.seo.images.filter(img => !img.hasAlt);
+    const imagesWithoutAlt = analysis.seo.images.filter((img) => !img.hasAlt);
     if (imagesWithoutAlt.length > 0) {
       analysis.recommendations.push({
         priority: 'MEDIUM',
         category: 'Accessibility',
         issue: `${imagesWithoutAlt.length} images missing alt text`,
-        action: 'Add descriptive alt text to all images'
+        action: 'Add descriptive alt text to all images',
       });
     }
 
@@ -248,7 +270,7 @@ async function analyzeSite() {
     // 7. GENERATE DURABLE SETUP INSTRUCTIONS
     // ============================================
     console.log('\n📋 Generating Durable setup instructions...');
-    
+
     analysis.durableInstructions = [
       {
         step: 1,
@@ -256,8 +278,8 @@ async function analyzeSite() {
         instructions: [
           'Log in to Durable Technologies at https://durable.co/',
           'Navigate to your site: www.elevateforhumanity.org',
-          'Go to Settings or Site Configuration'
-        ]
+          'Go to Settings or Site Configuration',
+        ],
       },
       {
         step: 2,
@@ -266,8 +288,8 @@ async function analyzeSite() {
           'Go to Settings → SEO',
           'Add Site Title: "Elevate for Humanity | Workforce Training & Career Development"',
           'Add Meta Description: "Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding in Indianapolis, Indiana."',
-          'Add Keywords: "workforce training, career development, WIOA, job training, Indianapolis"'
-        ]
+          'Add Keywords: "workforce training, career development, WIOA, job training, Indianapolis"',
+        ],
       },
       {
         step: 3,
@@ -277,8 +299,8 @@ async function analyzeSite() {
           'Find "Google Analytics" section',
           'Enter Measurement ID: G-XXXXXXXXXX (get from analytics.google.com)',
           'Save changes',
-          'Verify tracking in Google Analytics Realtime report'
-        ]
+          'Verify tracking in Google Analytics Realtime report',
+        ],
       },
       {
         step: 4,
@@ -288,8 +310,8 @@ async function analyzeSite() {
           'Find "Header Code" or "Custom Meta Tags" section',
           'Add: <meta name="msvalidate.01" content="YOUR_BING_CODE">',
           'Get code from bing.com/webmasters',
-          'Save and verify in Bing Webmaster Tools'
-        ]
+          'Save and verify in Bing Webmaster Tools',
+        ],
       },
       {
         step: 5,
@@ -299,8 +321,8 @@ async function analyzeSite() {
           'If not, go to Settings → Files or File Manager',
           'Upload sitemap.xml (use template from MARKETING_SITE_SEO_GUIDE.md)',
           'Upload robots.txt',
-          'Verify files are accessible'
-        ]
+          'Verify files are accessible',
+        ],
       },
       {
         step: 6,
@@ -311,8 +333,8 @@ async function analyzeSite() {
           'Add LinkedIn company URL',
           'Add Twitter/X profile URL',
           'Add Instagram profile URL',
-          'Enable social sharing buttons on pages'
-        ]
+          'Enable social sharing buttons on pages',
+        ],
       },
       {
         step: 7,
@@ -322,8 +344,8 @@ async function analyzeSite() {
           'Add social media icon widget',
           'Link icons to your social profiles',
           'Style icons to match brand colors (#2563EB)',
-          'Test all links work correctly'
-        ]
+          'Test all links work correctly',
+        ],
       },
       {
         step: 8,
@@ -334,8 +356,8 @@ async function analyzeSite() {
           'Go to Settings → SEO → Social Sharing',
           'Set default Open Graph image',
           'Set Twitter Card image (1200x600px)',
-          'Test with Facebook Sharing Debugger'
-        ]
+          'Test with Facebook Sharing Debugger',
+        ],
       },
       {
         step: 9,
@@ -345,8 +367,8 @@ async function analyzeSite() {
           'Find "Footer Code" or "Before </body>" section',
           'Add Organization schema (JSON-LD)',
           'Copy code from MARKETING_SITE_SEO_GUIDE.md',
-          'Save and test with Google Rich Results Test'
-        ]
+          'Save and test with Google Rich Results Test',
+        ],
       },
       {
         step: 10,
@@ -357,16 +379,16 @@ async function analyzeSite() {
           'Link to: https://elevateconnectsdirectory.org/signup',
           'Add "Student Login" button',
           'Link to: https://elevateconnectsdirectory.org/login',
-          'Add to navigation menu: "Student Portal"'
-        ]
-      }
+          'Add to navigation menu: "Student Portal"',
+        ],
+      },
     ];
 
     // ============================================
     // 8. GENERATE CANVA ANIMATION RECOMMENDATIONS
     // ============================================
     console.log('\n🎨 Generating Canva animation recommendations...');
-    
+
     analysis.canvaAnimations = [
       {
         type: 'Social Media Post - Facebook/LinkedIn',
@@ -378,17 +400,17 @@ async function analyzeSite() {
           'Subtext: "WIOA Funded Programs"',
           'List 3-4 programs (HVAC, CNA, Barber, etc.)',
           'CTA: "Apply Today" with website URL',
-          'Brand colors: #2563EB (blue), white, accent colors'
+          'Brand colors: #2563EB (blue), white, accent colors',
         ],
         animation: [
           'Fade in logo (0-0.5s)',
           'Slide in headline from left (0.5-1s)',
           'Pop in program icons one by one (1-2.5s)',
           'Pulse CTA button (2.5-3s)',
-          'Hold final frame (3-5s)'
+          'Hold final frame (3-5s)',
         ],
         canvaTemplate: 'Search: "Education Promo" or "Training Program"',
-        exportSettings: 'MP4 video, 5 seconds, 1080x1080px'
+        exportSettings: 'MP4 video, 5 seconds, 1080x1080px',
       },
       {
         type: 'Instagram Story/Reel',
@@ -400,17 +422,17 @@ async function analyzeSite() {
           'Large text: Program name',
           'Key benefits (3 bullet points)',
           'Swipe up CTA or link sticker',
-          'Duration indicator dots'
+          'Duration indicator dots',
         ],
         animation: [
           'Zoom in background (0-1s)',
           'Fade in program name (1-1.5s)',
           'Slide in benefits one by one (1.5-3s)',
           'Bounce CTA (3-3.5s)',
-          'Hold (3.5-5s)'
+          'Hold (3.5-5s)',
         ],
         canvaTemplate: 'Search: "Instagram Story Education"',
-        exportSettings: 'MP4 video, 5-15 seconds, 1080x1920px'
+        exportSettings: 'MP4 video, 5-15 seconds, 1080x1920px',
       },
       {
         type: 'Twitter/X Post',
@@ -422,17 +444,17 @@ async function analyzeSite() {
           'Headline: "Now Enrolling"',
           'Program name and brief description',
           'Enrollment deadline',
-          'Website URL'
+          'Website URL',
         ],
         animation: [
           'Fade in background (0-0.5s)',
           'Slide in headline (0.5-1s)',
           'Typewriter effect for program name (1-2s)',
           'Fade in details (2-2.5s)',
-          'Pulse URL (2.5-3s)'
+          'Pulse URL (2.5-3s)',
         ],
         canvaTemplate: 'Search: "Twitter Post Education"',
-        exportSettings: 'MP4 video, 3-5 seconds, 1200x675px'
+        exportSettings: 'MP4 video, 3-5 seconds, 1200x675px',
       },
       {
         type: 'YouTube Intro/Outro',
@@ -443,17 +465,17 @@ async function analyzeSite() {
           'Tagline: "Elevating Communities Through Education"',
           'Subscribe button animation',
           'Social media icons',
-          'Website URL'
+          'Website URL',
         ],
         animation: [
           'Logo builds from pieces (0-1.5s)',
           'Glow effect on logo (1.5-2s)',
           'Tagline fades in (2-2.5s)',
           'Icons slide in from sides (2.5-3s)',
-          'All elements pulse (3-5s)'
+          'All elements pulse (3-5s)',
         ],
         canvaTemplate: 'Search: "YouTube Intro Education"',
-        exportSettings: 'MP4 video, 5 seconds, 1920x1080px, 30fps'
+        exportSettings: 'MP4 video, 5 seconds, 1920x1080px, 30fps',
       },
       {
         type: 'Website Hero Banner',
@@ -465,17 +487,17 @@ async function analyzeSite() {
           'Large headline: "Transform Your Career"',
           'Subheadline: "Free Training Programs"',
           'CTA button: "Explore Programs"',
-          'Trust indicators: "WIOA Approved" badge'
+          'Trust indicators: "WIOA Approved" badge',
         ],
         animation: [
           'Ken Burns effect on background (slow zoom)',
           'Fade in headline from bottom (0-1s)',
           'Fade in subheadline (1-1.5s)',
           'Slide in CTA button (1.5-2s)',
-          'Continuous subtle movement'
+          'Continuous subtle movement',
         ],
         canvaTemplate: 'Search: "Website Banner Education"',
-        exportSettings: 'MP4 video, 10-15 seconds loop, 1920x600px'
+        exportSettings: 'MP4 video, 10-15 seconds loop, 1920x600px',
       },
       {
         type: 'Email Header Animation',
@@ -485,16 +507,16 @@ async function analyzeSite() {
           'Logo',
           'Newsletter title: "Elevate Updates"',
           'Month/Year',
-          'Decorative elements (lines, shapes)'
+          'Decorative elements (lines, shapes)',
         ],
         animation: [
           'Logo fades in (0-0.5s)',
           'Title slides in (0.5-1s)',
           'Decorative elements draw in (1-1.5s)',
-          'Subtle pulse (continuous)'
+          'Subtle pulse (continuous)',
         ],
         canvaTemplate: 'Search: "Email Header"',
-        exportSettings: 'GIF or MP4, 2-3 seconds, 600x200px'
+        exportSettings: 'GIF or MP4, 2-3 seconds, 600x200px',
       },
       {
         type: 'Success Story Highlight',
@@ -506,25 +528,25 @@ async function analyzeSite() {
           'Name and program completed',
           'Before/After stats (if applicable)',
           'Logo watermark',
-          'CTA: "Read More Stories"'
+          'CTA: "Read More Stories"',
         ],
         animation: [
           'Photo zooms in and settles (0-1s)',
           'Quote bubble pops in (1-1.5s)',
           'Text types out (1.5-3s)',
           'Stats count up (3-4s)',
-          'CTA pulses (4-5s)'
+          'CTA pulses (4-5s)',
         ],
         canvaTemplate: 'Search: "Testimonial Post"',
-        exportSettings: 'MP4 video, 5 seconds, 1080x1080px'
-      }
+        exportSettings: 'MP4 video, 5 seconds, 1080x1080px',
+      },
     ];
 
     // ============================================
     // 9. SAVE ANALYSIS REPORT
     // ============================================
     console.log('\n💾 Saving analysis report...');
-    
+
     const reportPath = path.join(OUTPUT_DIR, 'marketing-site-analysis.json');
     await fs.writeFile(reportPath, JSON.stringify(analysis, null, 2));
 
@@ -536,8 +558,9 @@ async function analyzeSite() {
     console.log('\n✅ Analysis complete!');
     console.log(`📄 JSON Report: ${reportPath}`);
     console.log(`📄 Markdown Report: ${mdPath}`);
-    console.log(`📸 Screenshot: ${path.join(OUTPUT_DIR, 'homepage-screenshot.png')}`);
-
+    console.log(
+      `📸 Screenshot: ${path.join(OUTPUT_DIR, 'homepage-screenshot.png')}`
+    );
   } catch (error) {
     console.error('\n❌ Error during analysis:', error.message);
     analysis.error = error.message;
@@ -607,9 +630,9 @@ function generateMarkdownReport(analysis) {
 
   md += `---\n\n## 📋 Durable Setup Instructions\n\n`;
 
-  analysis.durableInstructions.forEach(instruction => {
+  analysis.durableInstructions.forEach((instruction) => {
     md += `### Step ${instruction.step}: ${instruction.title}\n\n`;
-    instruction.instructions.forEach(inst => {
+    instruction.instructions.forEach((inst) => {
       md += `- ${inst}\n`;
     });
     md += `\n`;
@@ -622,9 +645,9 @@ function generateMarkdownReport(analysis) {
     md += `**Dimensions**: ${anim.dimensions}\n`;
     md += `**Purpose**: ${anim.purpose}\n\n`;
     md += `**Elements to Include**:\n`;
-    anim.elements.forEach(el => md += `- ${el}\n`);
+    anim.elements.forEach((el) => (md += `- ${el}\n`));
     md += `\n**Animation Sequence**:\n`;
-    anim.animation.forEach(step => md += `- ${step}\n`);
+    anim.animation.forEach((step) => (md += `- ${step}\n`));
     md += `\n**Canva Template**: ${anim.canvaTemplate}\n`;
     md += `**Export Settings**: ${anim.exportSettings}\n\n`;
     md += `---\n\n`;

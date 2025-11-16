@@ -3,6 +3,7 @@
 ## 🎨 Tailwind CSS + shadcn/ui
 
 ### Installed:
+
 - ✅ tailwindcss ^3.4.18
 - ✅ postcss ^8.5.6
 - ✅ autoprefixer ^10.4.21
@@ -12,18 +13,21 @@
 - ✅ @radix-ui/react-slot
 
 ### Configured:
+
 - ✅ tailwind.config.js (App Router paths, dark mode, custom colors)
 - ✅ app/globals.css (Tailwind directives, CSS variables, themes)
 - ✅ components.json (shadcn/ui config)
 - ✅ lib/utils.ts (cn() helper function)
 
 ### Components Created:
+
 - ✅ components/ui/button.tsx (variants: default, destructive, outline, secondary, ghost, link)
 - ✅ components/ui/card.tsx (Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter)
 - ✅ components/ui/input.tsx (styled input with focus states)
 - ✅ components/ui/badge.tsx (variants: default, secondary, destructive, outline)
 
 ### Pages Updated:
+
 - ✅ app/page.tsx (Homepage with Button, Card, Badge components)
 - ✅ All buttons now use shadcn/ui Button component
 - ✅ Program cards use shadcn/ui Card component
@@ -34,14 +38,17 @@
 ## ☁️ Cloudflare Pages Adapter
 
 ### Installed:
+
 - ✅ @cloudflare/next-on-pages ^1.13.16
 - ✅ wrangler (latest)
 
 ### Configured:
+
 - ✅ wrangler.toml (Cloudflare Workers config)
 - ✅ .dev.vars.example (environment variables template)
 
 ### Scripts Added:
+
 ```json
 "pages:build": "npx @cloudflare/next-on-pages"
 "pages:deploy": "npm run pages:build && wrangler pages deploy"
@@ -50,6 +57,7 @@
 ```
 
 ### Usage:
+
 ```bash
 # Build for Cloudflare Pages
 pnpm pages:build
@@ -66,25 +74,30 @@ pnpm pages:dev
 ## 🔒 Middleware for Auth Protection
 
 ### Created:
+
 - ✅ middleware.ts (route protection + security headers)
 
 ### Protected Routes:
+
 - `/student-portal` - Requires authentication
 - `/lms/dashboard` - Requires authentication
 - `/lms/courses` - Requires authentication
 - `/certificates` - Requires authentication
 
 ### Admin Routes:
+
 - `/admin` - Requires admin role
 - `/admin/dashboard` - Requires admin role
 
 ### Security Headers Added:
+
 - ✅ X-Frame-Options: DENY
 - ✅ X-Content-Type-Options: nosniff
 - ✅ Referrer-Policy: strict-origin-when-cross-origin
 - ✅ Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 ### Features:
+
 - Redirects to /login with return URL
 - Checks auth token from cookies
 - Validates user role for admin routes
@@ -95,10 +108,12 @@ pnpm pages:dev
 ## 🔄 ISR (Incremental Static Regeneration)
 
 ### Implemented:
+
 - ✅ app/programs/[slug]/page.tsx - `revalidate: 60` (1 minute)
 - ✅ app/blog/page.tsx - `revalidate: 300` (5 minutes)
 
 ### How It Works:
+
 ```typescript
 // Revalidate every 60 seconds
 export const revalidate = 60;
@@ -109,6 +124,7 @@ export const revalidate = 60;
 ```
 
 ### Benefits:
+
 - Static performance with dynamic content
 - Automatic background updates
 - No manual rebuilds needed
@@ -121,24 +137,31 @@ export const revalidate = 60;
 ### Created:
 
 #### 1. Auth Callback
+
 **File:** `app/api/auth/callback/route.ts`
+
 - OAuth callback handler
 - Exchanges code for session
 - Redirects to original destination
 
 #### 2. Stripe Webhooks
+
 **File:** `app/api/webhooks/stripe/route.ts`
+
 - Handles Stripe webhook events
 - Signature verification
 - Events: checkout.session.completed, payment_intent.succeeded, payment_intent.payment_failed
 
 #### 3. Health Check
+
 **File:** `app/api/health/route.ts`
+
 - Returns service health status
 - Includes timestamp, version, environment
 - Useful for monitoring
 
 ### Environment Variables Needed:
+
 ```bash
 STRIPE_SECRET_KEY=sk_...
 STRIPE_WEBHOOK_SECRET=whsec_...
@@ -149,6 +172,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ## 🚀 Netlify Configuration
 
 ### Updated:
+
 - ✅ Installed @netlify/plugin-nextjs
 - ✅ Updated netlify.toml:
   - Changed publish from "out" to ".next"
@@ -156,6 +180,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
   - Enabled Next.js SSR support
 
 ### Configuration:
+
 ```toml
 [build]
   command = "npm run build"
@@ -166,6 +191,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
 ### Features Enabled:
+
 - ✅ Server-Side Rendering (SSR)
 - ✅ API Routes
 - ✅ Middleware
@@ -178,6 +204,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ## 📊 Build Results
 
 ### Pages Generated:
+
 ```
 Route (app)                  Revalidate  Expire
 ┌ ○ /                        -           -
@@ -196,6 +223,7 @@ Route (app)                  Revalidate  Expire
 ```
 
 ### API Routes:
+
 ```
 ├ ƒ /api/auth/callback       (Dynamic)
 ├ ƒ /api/health              (Dynamic)
@@ -204,11 +232,13 @@ Route (app)                  Revalidate  Expire
 ```
 
 ### Middleware:
+
 ```
 ƒ Proxy (Middleware)         (All routes)
 ```
 
 ### Legend:
+
 - ○ (Static) - Pre-rendered as static content
 - ● (SSG) - Pre-rendered with generateStaticParams
 - ƒ (Dynamic) - Server-rendered on demand
@@ -218,6 +248,7 @@ Route (app)                  Revalidate  Expire
 ## 📦 Package Updates
 
 ### New Dependencies:
+
 ```json
 {
   "@radix-ui/react-slot": "1.2.4",
@@ -228,6 +259,7 @@ Route (app)                  Revalidate  Expire
 ```
 
 ### New Dev Dependencies:
+
 ```json
 {
   "@cloudflare/next-on-pages": "1.13.16",
@@ -244,6 +276,7 @@ Route (app)                  Revalidate  Expire
 ## 🎯 What's Different Now
 
 ### Before:
+
 - ❌ Plain CSS styling
 - ❌ No component library
 - ❌ Static export only
@@ -253,6 +286,7 @@ Route (app)                  Revalidate  Expire
 - ❌ Manual rebuilds needed
 
 ### After:
+
 - ✅ Tailwind CSS + shadcn/ui
 - ✅ Professional UI components
 - ✅ SSR + SSG + ISR
@@ -266,18 +300,21 @@ Route (app)                  Revalidate  Expire
 ## 🚀 Deployment Options
 
 ### Option 1: Netlify (Current)
+
 ```bash
 git push origin main
 # Automatic deployment with @netlify/plugin-nextjs
 ```
 
 ### Option 2: Cloudflare Pages
+
 ```bash
 pnpm pages:build
 pnpm pages:deploy
 ```
 
 ### Option 3: Vercel (Zero Config)
+
 ```bash
 vercel deploy
 ```
@@ -287,6 +324,7 @@ vercel deploy
 ## 📝 Next Steps (If Needed)
 
 ### Additional shadcn/ui Components:
+
 ```bash
 # Add more components as needed
 npx shadcn-ui@latest add dialog
@@ -297,17 +335,19 @@ npx shadcn-ui@latest add toast
 ```
 
 ### Supabase Auth Integration:
+
 ```typescript
 // lib/supabase-client.ts
-import { createBrowserClient } from '@supabase/ssr'
+import { createBrowserClient } from '@supabase/ssr';
 
 export const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+);
 ```
 
 ### More Middleware Features:
+
 - Rate limiting
 - A/B testing
 - Geolocation redirects

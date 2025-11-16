@@ -187,7 +187,6 @@ export class SocialMediaAutomation {
    */
   async publishPost(post: SocialMediaPost): Promise<void> {
     try {
-
       // Call appropriate API based on platform
       switch (post.platform) {
         case 'facebook':
@@ -341,9 +340,7 @@ export class SocialMediaAutomation {
           action: 'sync_to_durable_blog',
         }),
       });
-
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   /**

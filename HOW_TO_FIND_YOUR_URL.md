@@ -8,6 +8,7 @@
 4. Look at the top of the page - you'll see your site URL
 
 It will look like one of these:
+
 - `https://random-name-123.netlify.app`
 - `https://fix2.netlify.app`
 - `https://elevate-lms.netlify.app`
@@ -31,6 +32,7 @@ Check your email for "Deploy succeeded" from Netlify.
 Example: "My URL is https://elevate-lms.netlify.app"
 
 Then I'll give you links like:
+
 - https://elevate-lms.netlify.app/lms/dashboard
 - https://elevate-lms.netlify.app/admin/program-holders
 - https://elevate-lms.netlify.app/program-holder/dashboard
@@ -46,5 +48,5 @@ If you can't find your Netlify URL, you can also:
 
 ---
 
-**What's your Netlify site URL?** 
+**What's your Netlify site URL?**
 Share it with me and I'll create all the clickable links immediately!

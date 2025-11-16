@@ -54,6 +54,7 @@ You mentioned earlier that both domains were "correct now", but the custom domai
 ### Step 4: Verify
 
 Once SSL is provisioned:
+
 ```bash
 curl -I https://www.elevateconnectsdirectory.org
 # Should show: HTTP/2 200
@@ -83,6 +84,7 @@ This certificate is for *.netlify.app, NOT elevateconnectsdirectory.org
 ## What Will Happen After Adding Domain
 
 ### Before (Current):
+
 ```
 User visits: elevateconnectsdirectory.org
 DNS resolves: 75.2.60.5 (Netlify)
@@ -92,6 +94,7 @@ Browser: ❌ Certificate mismatch error
 ```
 
 ### After (Fixed):
+
 ```
 User visits: elevateconnectsdirectory.org
 DNS resolves: 75.2.60.5 (Netlify)
@@ -117,12 +120,14 @@ This works perfectly with SSL because it uses the `*.netlify.app` certificate.
 ## Verification Commands
 
 ### Check DNS (Already Correct)
+
 ```bash
 dig elevateconnectsdirectory.org +short
 # Result: 75.2.60.5 ✅
 ```
 
 ### Check SSL Certificate
+
 ```bash
 curl -vI https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 # Current: CN=*.netlify.app ❌
@@ -130,6 +135,7 @@ curl -vI https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 ```
 
 ### Check Site Loads
+
 ```bash
 curl -I https://www.elevateconnectsdirectory.org
 # Current: SSL error ❌
@@ -139,6 +145,7 @@ curl -I https://www.elevateconnectsdirectory.org
 ## Important Notes
 
 ### This is NOT a Code Issue
+
 - ✅ Code is deployed correctly
 - ✅ Build is successful
 - ✅ CSS variables are fixed
@@ -147,10 +154,13 @@ curl -I https://www.elevateconnectsdirectory.org
 - ❌ Domain not added to Netlify
 
 ### This is a Configuration Issue
+
 The domain needs to be added in the Netlify dashboard. This is a **manual step** that cannot be automated via code.
 
 ### Previous Confusion
+
 Earlier you said "They are both correct now", but this meant:
+
 - ✅ DNS was configured
 - ❌ Domain was NOT added to Netlify
 
@@ -159,16 +169,19 @@ The DNS configuration alone is not enough. Netlify needs to know about the domai
 ## Step-by-Step Guide
 
 ### 1. Open Netlify Dashboard
+
 ```
 URL: https://app.netlify.com/sites/elevateproduction
 ```
 
 ### 2. Navigate to Domain Settings
+
 ```
 Left sidebar → "Domain settings"
 ```
 
 ### 3. Add Custom Domain
+
 ```
 Click: "Add custom domain"
 Enter: elevateconnectsdirectory.org
@@ -177,6 +190,7 @@ Click: "Add domain"
 ```
 
 ### 4. Wait for SSL
+
 ```
 Status will show: "Certificate provisioning in progress..."
 Wait: 2-10 minutes
@@ -184,6 +198,7 @@ Status will change to: "HTTPS enabled ✓"
 ```
 
 ### 5. Test
+
 ```
 Visit: https://www.elevateconnectsdirectory.org
 Should load without SSL errors
@@ -199,6 +214,7 @@ dig elevateconnectsdirectory.org NS +short
 ```
 
 If using Cloudflare:
+
 1. Cloudflare should be in "DNS only" mode (gray cloud)
 2. NOT "Proxied" mode (orange cloud)
 3. Because Netlify handles SSL and CDN
@@ -211,10 +227,12 @@ If using Cloudflare:
 **Action Required**: Manual step in Netlify dashboard
 
 **Current Status**:
+
 - ❌ elevateconnectsdirectory.org - SSL error
 - ✅ elevateproduction.netlify.app - Works perfectly
 
 **After Fix**:
+
 - ✅ elevateconnectsdirectory.org - Works perfectly
 - ✅ elevateproduction.netlify.app - Works perfectly
 

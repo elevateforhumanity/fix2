@@ -81,7 +81,6 @@ export default function AchievementsPage() {
               </p>
             </div>
           </div>
-
           {/* Progress Bar */}
           <div className="bg-white/20 rounded-full h-3 overflow-hidden">
             <div
@@ -91,25 +90,29 @@ export default function AchievementsPage() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 py-6">
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{unlockedCount}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {unlockedCount}
+            </div>
             <div className="text-xs text-gray-600">Unlocked</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{totalCount - unlockedCount}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {totalCount - unlockedCount}
+            </div>
             <div className="text-xs text-gray-600">In Progress</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <div className="text-2xl font-bold text-gray-900">{Math.round(progressPercent)}%</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {Math.round(progressPercent)}%
+            </div>
             <div className="text-xs text-gray-600">Complete</div>
           </div>
         </div>
-
         {/* Unlocked Achievements */}
         <div className="mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-3">
@@ -123,7 +126,6 @@ export default function AchievementsPage() {
               ))}
           </div>
         </div>
-
         {/* Locked Achievements */}
         <div>
           <h2 className="text-lg font-semibold text-gray-900 mb-3">

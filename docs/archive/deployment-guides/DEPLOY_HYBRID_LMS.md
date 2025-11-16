@@ -3,6 +3,7 @@
 ## Perfect Fit for Your Hybrid Courses!
 
 Your courses are hybrid (online + in-person), and so is this architecture:
+
 - **Hybrid Courses** = Online learning + On-the-job training
 - **Hybrid LMS** = Database flexibility + Rich metadata
 
@@ -26,6 +27,7 @@ Your courses are hybrid (online + in-person), and so is this architecture:
    - Paste and Run
 
 **Expected Output:**
+
 ```
 ✅ Enhanced LMS schema applied successfully!
 
@@ -54,6 +56,7 @@ New features:
 [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/auth/users)
 
 **Run in SQL Editor:**
+
 ```sql
 -- Replace YOUR_USER_ID with your actual ID
 INSERT INTO public.user_roles (user_id, role)
@@ -104,12 +107,14 @@ git push origin main
 ### For Your Hybrid Courses
 
 **Example: Barber Apprenticeship**
+
 - **Online Component:** LMS tracks lessons, quizzes, progress
 - **In-Person Component:** Track hours, attendance, practical skills
 - **Certification:** Auto-issue upon completion
 - **Format:** Clearly marked as "Hybrid - On-the-job + Classroom"
 
 **Example: Milady RISE**
+
 - **Online Component:** External Milady platform
 - **Tracking:** Database records enrollment and completion
 - **Certification:** Dual certificates (Milady + EFH)
@@ -235,8 +240,8 @@ const courses = [
     modules: [
       { title: 'Patient Care Basics', hours: 40 },
       { title: 'Clinical Skills', hours: 60 },
-      { title: 'Clinical Rotation', hours: 60 }
-    ]
+      { title: 'Clinical Rotation', hours: 60 },
+    ],
   },
   // ... more courses
 ];
@@ -261,12 +266,14 @@ const courses = [
 ## 📞 Support
 
 ### Documentation
+
 - **Quick Start:** `MILADY_IMPLEMENTATION_COMPLETE.md`
 - **Architecture:** `docs/LMS_ARCHITECTURE_ANALYSIS.md`
 - **Integration:** `docs/MILADY_INTEGRATION_STATUS.md`
 - **Quick Reference:** `QUICK_REFERENCE.md`
 
 ### Admin Dashboards
+
 - **Supabase:** [https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)
 - **Netlify:** [https://app.netlify.com/sites/elevateforhumanityfix](https://app.netlify.com/sites/elevateforhumanityfix)
 - **GitHub:** [https://github.com/elevateforhumanity/fix2](https://github.com/elevateforhumanity/fix2)
@@ -294,6 +301,7 @@ const courses = [
 ## 🎉 You're Ready!
 
 Your hybrid LMS is perfect for your hybrid courses:
+
 - ✅ Tracks online learning
 - ✅ Tracks in-person training
 - ✅ Issues certificates

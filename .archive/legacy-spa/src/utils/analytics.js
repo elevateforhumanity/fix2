@@ -33,7 +33,6 @@ export const initGA = () => {
     send_page_view: false, // We'll send manually
     anonymize_ip: true, // GDPR compliance
   });
-
 };
 
 // Track page view

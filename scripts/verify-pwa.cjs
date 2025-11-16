@@ -56,11 +56,7 @@ console.log('\n🔍 Verifying PWA Configuration...\n');
 console.log('📁 Checking Required Files:');
 REQUIRED_FILES.forEach((file) => {
   const filePath = path.join(process.cwd(), file);
-  check(
-    file,
-    fs.existsSync(filePath),
-    `File not found: ${file}`
-  );
+  check(file, fs.existsSync(filePath), `File not found: ${file}`);
 });
 
 // Check manifest.json
@@ -90,7 +86,8 @@ if (fs.existsSync(manifestPath)) {
 
     check(
       'Manifest has display mode',
-      manifest.display && ['standalone', 'fullscreen', 'minimal-ui'].includes(manifest.display),
+      manifest.display &&
+        ['standalone', 'fullscreen', 'minimal-ui'].includes(manifest.display),
       'Manifest missing or invalid "display" field'
     );
 
@@ -126,8 +123,8 @@ if (fs.existsSync(manifestPath)) {
       });
 
       // Check for maskable icons
-      const hasMaskable = manifest.icons.some((icon) =>
-        icon.purpose && icon.purpose.includes('maskable')
+      const hasMaskable = manifest.icons.some(
+        (icon) => icon.purpose && icon.purpose.includes('maskable')
       );
       check(
         'Maskable icons',
@@ -200,7 +197,8 @@ if (fs.existsSync(layoutPath)) {
 
   check(
     'Manifest linked in metadata',
-    layoutContent.includes('manifest:') || layoutContent.includes('manifest.json'),
+    layoutContent.includes('manifest:') ||
+      layoutContent.includes('manifest.json'),
     'Manifest not linked in layout metadata'
   );
 

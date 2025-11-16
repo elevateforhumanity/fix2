@@ -3,20 +3,20 @@ export interface AttendanceRecord {
   userId: string;
   courseId: string;
   sessionId?: string;
-  
+
   attendanceDate: Date;
   clockIn: Date;
   clockOut?: Date;
   totalMinutes: number;
-  
+
   status: 'present' | 'absent' | 'tardy' | 'excused';
   excuseReason?: string;
   excuseDocumentUrl?: string;
-  
+
   ipAddress?: string;
   location?: string;
   verifiedBy?: string;
-  
+
   createdAt: Date;
   updatedAt: Date;
 }

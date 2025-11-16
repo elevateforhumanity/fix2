@@ -11,9 +11,11 @@ You're seeing: **"Your connection is not private - net::ERR_CERT_COMMON_NAME_INV
 ## ⚡ QUICK FIX (2 Minutes)
 
 ### Step 1: Click This Link
+
 **https://app.netlify.com/sites/elevateproduction/settings/domain#custom-domains**
 
 ### Step 2: Add Domain
+
 1. You'll see a section called "Custom domains"
 2. Click the **"Add domain alias"** or **"Add custom domain"** button
 3. Type: `elevateconnectsdirectory.org`
@@ -21,12 +23,14 @@ You're seeing: **"Your connection is not private - net::ERR_CERT_COMMON_NAME_INV
 5. Click **"Yes, add domain"** or **"Add domain"**
 
 ### Step 3: Wait for SSL
+
 - You'll see: "HTTPS: Certificate provisioning in progress..."
 - Wait **2-10 minutes** (usually 3-5 minutes)
 - Refresh the page to check status
 - When ready: "HTTPS: Secured ✓"
 
 ### Step 4: Test
+
 - Visit: https://www.elevateconnectsdirectory.org
 - Should load without SSL errors
 - Clear browser cache if needed (Ctrl+Shift+R)
@@ -38,6 +42,7 @@ You're seeing: **"Your connection is not private - net::ERR_CERT_COMMON_NAME_INV
 ### What You'll See:
 
 **Before:**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -45,6 +50,7 @@ Custom domains
 ```
 
 **After Adding:**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -53,6 +59,7 @@ Custom domains
 ```
 
 **After SSL Provisions (2-10 min):**
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -94,16 +101,19 @@ Custom domains
 ## 🆘 Troubleshooting
 
 ### "Domain already in use"
+
 - Domain might be on another Netlify site
 - Check your other Netlify sites
 - Remove from other site first
 
 ### "DNS not configured"
+
 - Wait 5 minutes and try again
 - DNS is correct (75.2.60.5)
 - Just needs time to propagate
 
 ### SSL taking too long (>15 min)
+
 - Check domain spelling is correct
 - Verify DNS points to 75.2.60.5
 - Contact Netlify support (instant chat)
@@ -130,6 +140,7 @@ While waiting for SSL, use the Netlify subdomain:
 **https://elevateproduction.netlify.app**
 
 This URL works perfectly right now with:
+
 - ✅ Valid SSL certificate
 - ✅ All styling
 - ✅ All images
@@ -166,15 +177,16 @@ Once you see "HTTPS: Secured ✓":
 
 **DNS**: ✅ Configured correctly (75.2.60.5)  
 **Domain**: ❌ Not added to Netlify  
-**SSL**: ❌ Wrong certificate (*.netlify.app)  
+**SSL**: ❌ Wrong certificate (\*.netlify.app)  
 **Action**: Add domain in Netlify dashboard  
-**Time**: 2 minutes + 2-10 min SSL provisioning  
+**Time**: 2 minutes + 2-10 min SSL provisioning
 
 ---
 
 ## 🎯 Bottom Line
 
 **The fix is simple:**
+
 1. Click: https://app.netlify.com/sites/elevateproduction/settings/domain#custom-domains
 2. Add domain: `elevateconnectsdirectory.org`
 3. Wait 2-10 minutes for SSL

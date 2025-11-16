@@ -4,15 +4,28 @@
  */
 
 import express, { Request, Response } from 'express';
-import { generateVideo, VideoGenerationRequest, VideoGenerationResponse, processTimeline } from './video-generator-v2';
+import {
+  generateVideo,
+  VideoGenerationRequest,
+  VideoGenerationResponse,
+  processTimeline,
+} from './video-generator-v2';
 import { generateTextToSpeech } from './tts-service';
-import { defaultStorage, getVideoFileSize, VideoMetadata } from './video-storage';
+import {
+  defaultStorage,
+  getVideoFileSize,
+  VideoMetadata,
+} from './video-storage';
 
 const router = express.Router();
 
 // Health check
 router.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok', service: 'video-api', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    service: 'video-api',
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Generate video from scenes
@@ -24,7 +37,7 @@ router.post('/generate', async (req: Request, res: Response) => {
     if (!videoRequest.scenes || videoRequest.scenes.length === 0) {
       return res.status(400).json({
         error: 'Invalid request',
-        message: 'At least one scene is required'
+        message: 'At least one scene is required',
       });
     }
 
@@ -34,7 +47,7 @@ router.post('/generate', async (req: Request, res: Response) => {
       return res.status(400).json({
         error: 'Invalid timeline',
         message: 'Timeline validation failed',
-        errors: timelineValidation.errors
+        errors: timelineValidation.errors,
       });
     }
 
@@ -52,7 +65,7 @@ router.post('/generate', async (req: Request, res: Response) => {
         resolution: videoRequest.settings.resolution,
         fileSize,
         createdAt: new Date(),
-        userId: videoRequest.userId
+        userId: videoRequest.userId,
       };
 
       await defaultStorage.saveVideo(result.videoPath, result.jobId, metadata);
@@ -63,7 +76,7 @@ router.post('/generate', async (req: Request, res: Response) => {
     console.error('Video generation error:', error);
     res.status(500).json({
       error: 'Video generation failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -76,7 +89,7 @@ router.post('/tts', async (req: Request, res: Response) => {
     if (!text) {
       return res.status(400).json({
         error: 'Invalid request',
-        message: 'Text is required'
+        message: 'Text is required',
       });
     }
 
@@ -85,7 +98,7 @@ router.post('/tts', async (req: Request, res: Response) => {
     res.set({
       'Content-Type': 'audio/mpeg',
       'Content-Length': audioBuffer.length,
-      'Content-Disposition': 'attachment; filename="speech.mp3"'
+      'Content-Disposition': 'attachment; filename="speech.mp3"',
     });
 
     res.send(audioBuffer);
@@ -93,7 +106,7 @@ router.post('/tts', async (req: Request, res: Response) => {
     console.error('TTS generation error:', error);
     res.status(500).json({
       error: 'TTS generation failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -111,13 +124,13 @@ router.get('/status/:jobId', async (req: Request, res: Response) => {
       progress: 100,
       videoUrl: `/api/video/download/${jobId}`,
       createdAt: new Date().toISOString(),
-      completedAt: new Date().toISOString()
+      completedAt: new Date().toISOString(),
     });
   } catch (error) {
     console.error('Status check error:', error);
     res.status(500).json({
       error: 'Status check failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -131,16 +144,18 @@ router.get('/download/:jobId', async (req: Request, res: Response) => {
     if (!videoStream) {
       return res.status(404).json({
         error: 'Video not found',
-        message: 'Video does not exist or has been deleted'
+        message: 'Video does not exist or has been deleted',
       });
     }
 
     const metadata = await defaultStorage.getVideoMetadata(jobId);
-    const fileName = metadata ? `${metadata.title.replace(/[^a-z0-9]/gi, '-')}.mp4` : `${jobId}.mp4`;
+    const fileName = metadata
+      ? `${metadata.title.replace(/[^a-z0-9]/gi, '-')}.mp4`
+      : `${jobId}.mp4`;
 
     res.set({
       'Content-Type': 'video/mp4',
-      'Content-Disposition': `attachment; filename="${fileName}"`
+      'Content-Disposition': `attachment; filename="${fileName}"`,
     });
 
     videoStream.pipe(res);
@@ -148,7 +163,7 @@ router.get('/download/:jobId', async (req: Request, res: Response) => {
     console.error('Download error:', error);
     res.status(500).json({
       error: 'Download failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -159,7 +174,7 @@ router.get('/videos', async (req: Request, res: Response) => {
     const { userId, page = 1, pageSize = 10 } = req.query;
 
     const allVideos = await defaultStorage.listVideos(userId as string);
-    
+
     // Pagination
     const startIndex = (Number(page) - 1) * Number(pageSize);
     const endIndex = startIndex + Number(pageSize);
@@ -170,13 +185,13 @@ router.get('/videos', async (req: Request, res: Response) => {
       total: allVideos.length,
       page: Number(page),
       pageSize: Number(pageSize),
-      totalPages: Math.ceil(allVideos.length / Number(pageSize))
+      totalPages: Math.ceil(allVideos.length / Number(pageSize)),
     });
   } catch (error) {
     console.error('Video listing error:', error);
     res.status(500).json({
       error: 'Video listing failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -190,13 +205,13 @@ router.delete('/videos/:jobId', async (req: Request, res: Response) => {
     res.json({
       success: true,
       message: 'Video deleted successfully',
-      jobId
+      jobId,
     });
   } catch (error) {
     console.error('Video deletion error:', error);
     res.status(500).json({
       error: 'Video deletion failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });

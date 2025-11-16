@@ -1,4 +1,5 @@
 # REVERT elevateforhumanity.org DNS - DO THIS NOW
+
 **Action Required:** Change DNS back to Durable
 **Reason:** Keep marketing site on Durable, LMS on Netlify
 
@@ -7,6 +8,7 @@
 ## 🎯 CORRECT SETUP
 
 ### elevateforhumanity.org (Durable Marketing Site)
+
 ```
 Purpose: Marketing website
 Hosted by: Durable.co
@@ -15,6 +17,7 @@ Status: REVERT DNS NOW
 ```
 
 ### elevateconnectsdirectory.org (Netlify LMS)
+
 ```
 Purpose: Student portal / LMS
 Hosted by: Netlify
@@ -35,6 +38,7 @@ Status: CORRECT - Leave alone
 ### Step 2: Remove Netlify DNS Records
 
 **Delete these records:**
+
 ```
 ❌ DELETE: A      @    75.2.60.5
 ❌ DELETE: CNAME  www  elevateproduction.netlify.app
@@ -43,6 +47,7 @@ Status: CORRECT - Leave alone
 ### Step 3: Let Durable Manage DNS
 
 **Option A: Use Durable's Default DNS**
+
 - Just delete the records you added
 - Durable will automatically use its default settings
 - Site will point back to Durable
@@ -50,12 +55,14 @@ Status: CORRECT - Leave alone
 **Option B: Add Durable's DNS (if needed)**
 
 If Durable doesn't auto-configure, add:
+
 ```
 A      @    172.66.0.42  (or Durable's IP)
 CNAME  www  elevateforhumanity.org
 ```
 
 **Keep these records:**
+
 ```
 ✅ KEEP: MX   @  SMTP.GOOGLE.COM  (email)
 ✅ KEEP: TXT  @  google-site-verification...
@@ -70,6 +77,7 @@ Click **Save** or **Update DNS**
 ## ✅ CORRECT FINAL DNS
 
 ### elevateforhumanity.org (Durable):
+
 ```
 A      @    [Durable IP - managed by Durable]
 CNAME  www  [Durable domain - managed by Durable]
@@ -78,6 +86,7 @@ TXT    @    google-site-verification...  ✅
 ```
 
 ### elevateconnectsdirectory.org (Netlify):
+
 ```
 A      @    75.2.60.5  ✅
 CNAME  www  elevateproduction.netlify.app  ✅
@@ -98,10 +107,12 @@ CNAME  www  elevateproduction.netlify.app  ✅
 ### Step 2: Verify Sites
 
 **elevateforhumanity.org:**
+
 - Should show: Durable marketing site
 - Should NOT show: Netlify LMS
 
 **elevateconnectsdirectory.org:**
+
 - Should show: Netlify LMS (with styling now!)
 - Should have: SSL certificate
 
@@ -110,6 +121,7 @@ CNAME  www  elevateproduction.netlify.app  ✅
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Add domain:**
+
 1. Click "Add custom domain"
 2. Enter: `elevateconnectsdirectory.org`
 3. Click "Verify"
@@ -122,6 +134,7 @@ CNAME  www  elevateproduction.netlify.app  ✅
 ## 📊 WHAT EACH DOMAIN DOES
 
 ### elevateforhumanity.org:
+
 ```
 ✅ Marketing website
 ✅ Public information
@@ -132,6 +145,7 @@ CNAME  www  elevateproduction.netlify.app  ✅
 ```
 
 ### elevateconnectsdirectory.org:
+
 ```
 ✅ Student portal
 ✅ LMS courses
@@ -148,9 +162,9 @@ CNAME  www  elevateproduction.netlify.app  ✅
 ### On Durable Site (elevateforhumanity.org):
 
 Add a button/link:
+
 ```html
-<a href="https://www.elevateconnectsdirectory.org" 
-   class="button">
+<a href="https://www.elevateconnectsdirectory.org" class="button">
   Access Student Portal
 </a>
 ```
@@ -176,6 +190,7 @@ Total:      ~20-30 minutes
 ## ✅ VERIFICATION CHECKLIST
 
 ### After Reverting:
+
 - [ ] Removed A record (75.2.60.5) from elevateforhumanity.org
 - [ ] Removed CNAME (elevateproduction.netlify.app) from elevateforhumanity.org
 - [ ] Kept MX and TXT records
@@ -193,14 +208,17 @@ Total:      ~20-30 minutes
 ### Finding Durable's Default IP:
 
 **Option 1: Check Durable Documentation**
+
 - Look for default DNS settings
 - Usually provided in domain settings
 
 **Option 2: Contact Durable Support**
+
 - Ask: "What IP should my domain point to?"
 - They'll provide the correct A record
 
 **Option 3: Let Durable Auto-Configure**
+
 - Just delete your custom records
 - Durable should auto-configure
 - Wait 10-15 minutes
@@ -210,16 +228,19 @@ Total:      ~20-30 minutes
 ## 📞 QUICK REFERENCE
 
 ### Durable Login:
+
 ```
 https://durable.co/login
 ```
 
 ### DNS Checker:
+
 ```
 https://dnschecker.org
 ```
 
 ### Netlify Domain Settings:
+
 ```
 https://app.netlify.com/sites/elevateproduction/settings/domain
 ```
@@ -250,10 +271,10 @@ https://app.netlify.com/sites/elevateproduction/settings/domain
 **SUMMARY:**
 
 **elevateforhumanity.org** = Durable marketing (revert DNS now)  
-**elevateconnectsdirectory.org** = Netlify LMS (keep DNS, add to Netlify)  
+**elevateconnectsdirectory.org** = Netlify LMS (keep DNS, add to Netlify)
 
 **Two separate domains, two separate purposes!**
 
 ---
 
-*Revert the DNS now so your Durable marketing site works again!*
+_Revert the DNS now so your Durable marketing site works again!_

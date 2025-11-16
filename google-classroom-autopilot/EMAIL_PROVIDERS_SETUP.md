@@ -4,16 +4,17 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 
 ## Supported Providers
 
-| Provider | Best For | Pricing | Setup Time |
-|----------|----------|---------|------------|
-| **Resend** | Modern apps, great DX | Free: 3k/month, $20/100k | 5 min |
-| **Postmark** | Transactional emails | $15/10k emails | 10 min |
-| **AWS SES** | High volume, AWS users | $0.10/1k emails | 15 min |
-| **SMTP** | Any provider, fallback | Varies | 5 min |
+| Provider     | Best For               | Pricing                  | Setup Time |
+| ------------ | ---------------------- | ------------------------ | ---------- |
+| **Resend**   | Modern apps, great DX  | Free: 3k/month, $20/100k | 5 min      |
+| **Postmark** | Transactional emails   | $15/10k emails           | 10 min     |
+| **AWS SES**  | High volume, AWS users | $0.10/1k emails          | 15 min     |
+| **SMTP**     | Any provider, fallback | Varies                   | 5 min      |
 
 ## 1. Resend (Recommended)
 
 **Why Resend?**
+
 - Modern API
 - Excellent deliverability
 - Great developer experience
@@ -25,6 +26,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 1. **Sign up**: [resend.com](https://resend.com)
 
 2. **Verify your domain**:
+
    ```
    Go to Domains → Add Domain
    Add DNS records:
@@ -33,12 +35,14 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 3. **Create API key**:
+
    ```
    Go to API Keys → Create API Key
    Copy the key (starts with re_...)
    ```
 
 4. **Set environment variables**:
+
    ```bash
    RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    EMAIL_FROM=noreply@yourdomain.com
@@ -59,6 +63,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 ### Resend Features
+
 - ✅ Email analytics
 - ✅ Webhook events
 - ✅ Email templates
@@ -68,6 +73,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 ## 2. Postmark
 
 **Why Postmark?**
+
 - Excellent deliverability (99%+)
 - Fast delivery (< 1 second)
 - Detailed analytics
@@ -78,6 +84,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 1. **Sign up**: [postmarkapp.com](https://postmarkapp.com)
 
 2. **Verify sender signature**:
+
    ```
    Go to Sender Signatures → Add Sender Signature
    Enter your email domain
@@ -85,6 +92,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 3. **Create server**:
+
    ```
    Go to Servers → Create Server
    Name it "Classroom Autopilot"
@@ -92,6 +100,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 4. **Set environment variables**:
+
    ```bash
    POSTMARK_SERVER_TOKEN=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    EMAIL_FROM=noreply@yourdomain.com
@@ -112,6 +121,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 ### Postmark Features
+
 - ✅ Bounce tracking
 - ✅ Spam complaint tracking
 - ✅ Open/click tracking
@@ -121,6 +131,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 ## 3. AWS SES
 
 **Why AWS SES?**
+
 - Extremely low cost ($0.10 per 1,000 emails)
 - Highly scalable
 - Integrates with AWS ecosystem
@@ -131,6 +142,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 1. **Sign up for AWS**: [aws.amazon.com](https://aws.amazon.com)
 
 2. **Verify domain in SES**:
+
    ```
    Go to SES Console → Verified Identities
    Click "Create Identity" → Domain
@@ -138,6 +150,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 3. **Request production access**:
+
    ```
    By default, SES is in sandbox mode (limited to verified emails)
    Go to Account Dashboard → Request Production Access
@@ -145,6 +158,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 4. **Create IAM user**:
+
    ```
    Go to IAM → Users → Create User
    Attach policy: AmazonSESFullAccess
@@ -152,6 +166,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 5. **Set environment variables**:
+
    ```bash
    AWS_SES_REGION=us-east-1
    AWS_ACCESS_KEY_ID=AKIAxxxxxxxxxxxxx
@@ -160,6 +175,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 6. **Install AWS SDK**:
+
    ```bash
    npm install @aws-sdk/client-ses
    ```
@@ -171,6 +187,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 ### AWS SES Features
+
 - ✅ Extremely scalable
 - ✅ Low cost
 - ✅ Bounce/complaint handling
@@ -180,6 +197,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 ## 4. SMTP (Fallback)
 
 **Why SMTP?**
+
 - Works with any email provider
 - Simple setup
 - Good fallback option
@@ -189,6 +207,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
 1. **Get SMTP credentials** from your email provider:
 
    **Gmail**:
+
    ```
    1. Enable 2FA on your Google account
    2. Go to Security → App Passwords
@@ -197,6 +216,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
    **Outlook**:
+
    ```
    Use: smtp-mail.outlook.com:587
    Username: your-email@outlook.com
@@ -204,6 +224,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
    **SendGrid**:
+
    ```
    Use: smtp.sendgrid.net:587
    Username: apikey
@@ -211,6 +232,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 2. **Set environment variables**:
+
    ```bash
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
@@ -220,6 +242,7 @@ The Google Classroom Autopilot supports multiple email providers. Choose the one
    ```
 
 3. **Install nodemailer** (if using SMTP):
+
    ```bash
    npm install nodemailer @types/nodemailer
    ```
@@ -241,41 +264,49 @@ The system automatically selects a provider in this order:
 
 ## Comparison
 
-| Feature | Resend | Postmark | AWS SES | SMTP |
-|---------|--------|----------|---------|------|
-| **Free Tier** | 3k/month | 100/month | 62k/month* | Varies |
-| **Cost** | $20/100k | $15/10k | $0.10/1k | Varies |
-| **Setup Time** | 5 min | 10 min | 15 min | 5 min |
-| **Deliverability** | Excellent | Excellent | Good | Varies |
-| **Analytics** | ✅ | ✅ | ✅ | ❌ |
-| **Webhooks** | ✅ | ✅ | ✅ | ❌ |
-| **Templates** | ✅ | ✅ | ❌ | ❌ |
-| **Batch Sending** | ✅ | ✅ | ✅ | ✅ |
+| Feature            | Resend    | Postmark  | AWS SES     | SMTP   |
+| ------------------ | --------- | --------- | ----------- | ------ |
+| **Free Tier**      | 3k/month  | 100/month | 62k/month\* | Varies |
+| **Cost**           | $20/100k  | $15/10k   | $0.10/1k    | Varies |
+| **Setup Time**     | 5 min     | 10 min    | 15 min      | 5 min  |
+| **Deliverability** | Excellent | Excellent | Good        | Varies |
+| **Analytics**      | ✅        | ✅        | ✅          | ❌     |
+| **Webhooks**       | ✅        | ✅        | ✅          | ❌     |
+| **Templates**      | ✅        | ✅        | ❌          | ❌     |
+| **Batch Sending**  | ✅        | ✅        | ✅          | ✅     |
 
-*AWS SES free tier: 62,000 emails/month when sending from EC2
+\*AWS SES free tier: 62,000 emails/month when sending from EC2
 
 ## Recommendations
 
 ### For Startups/Small Schools
+
 **Use Resend**
+
 - Free tier covers most needs
 - Easy setup
 - Great developer experience
 
 ### For Medium Schools
+
 **Use Postmark**
+
 - Excellent deliverability
 - Detailed analytics
 - Reasonable pricing
 
 ### For Large Districts
+
 **Use AWS SES**
+
 - Lowest cost at scale
 - Highly reliable
 - Integrates with AWS infrastructure
 
 ### For Quick Setup
+
 **Use SMTP with Gmail**
+
 - Works immediately
 - No signup required
 - Good for testing
@@ -321,6 +352,7 @@ npx tsx src/alerts.ts test
 ### Emails Not Sending
 
 **Check**:
+
 1. Environment variables are set correctly
 2. API key/credentials are valid
 3. Domain is verified (for Resend/Postmark/SES)
@@ -328,6 +360,7 @@ npx tsx src/alerts.ts test
 5. Rate limits not exceeded
 
 **Debug**:
+
 ```bash
 # Enable debug logging
 DEBUG=email npx tsx src/missing-assignments-email.ts
@@ -336,6 +369,7 @@ DEBUG=email npx tsx src/missing-assignments-email.ts
 ### Emails Going to Spam
 
 **Solutions**:
+
 1. Verify your domain (add DKIM, SPF, DMARC records)
 2. Use a dedicated sending domain
 3. Warm up your IP (gradually increase volume)
@@ -354,18 +388,21 @@ DEBUG=email npx tsx src/missing-assignments-email.ts
 ## Best Practices
 
 ### 1. Use Separate Domains
+
 ```
 Transactional: noreply@mail.yourdomain.com
 Marketing: news@mail.yourdomain.com
 ```
 
 ### 2. Monitor Metrics
+
 - Open rates
 - Click rates
 - Bounce rates
 - Complaint rates
 
 ### 3. Handle Bounces
+
 ```typescript
 // Implement bounce handling
 if (result.error?.includes('bounce')) {
@@ -374,6 +411,7 @@ if (result.error?.includes('bounce')) {
 ```
 
 ### 4. Respect Opt-Outs
+
 ```typescript
 // Always check preferences
 const shouldSend = await shouldSendToGuardian(email);
@@ -381,6 +419,7 @@ if (!shouldSend) return;
 ```
 
 ### 5. Test Before Production
+
 ```bash
 # Send to test email first
 EMAIL_FROM=test@yourdomain.com \
@@ -393,6 +432,7 @@ npx tsx src/missing-assignments-email.ts
 **Questions?** Contact: info@elevateforhumanity.org
 
 **Provider Issues?**
+
 - Resend: support@resend.com
 - Postmark: support@postmarkapp.com
 - AWS SES: AWS Support Console

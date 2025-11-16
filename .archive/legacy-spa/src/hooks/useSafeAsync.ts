@@ -21,13 +21,13 @@ export function useSafeAsync<T>(
     loading: true,
     error: null,
   });
-  
+
   // Use ref to track cancellation - prevents race condition
   const cancelledRef = useRef(false);
 
   const execute = useCallback(async () => {
     cancelledRef.current = false;
-    setState(prev => ({ ...prev, loading: true, error: null }));
+    setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
       const result = await asyncFn();
@@ -44,7 +44,7 @@ export function useSafeAsync<T>(
 
   useEffect(() => {
     execute();
-    
+
     return () => {
       cancelledRef.current = true;
     };
@@ -59,7 +59,7 @@ export function useSafeAsync<T>(
 
 /**
  * Example usage:
- * 
+ *
  * const { data, loading, error, retry } = useSafeAsync(
  *   async () => {
  *     const res = await fetch('/api/programs');
@@ -69,7 +69,7 @@ export function useSafeAsync<T>(
  *   [],
  *   [] // default empty array
  * );
- * 
+ *
  * if (loading) return <Skeleton />;
  * if (error) return <ErrorState onRetry={retry} />;
  * if (!data || data.length === 0) return <EmptyState />;

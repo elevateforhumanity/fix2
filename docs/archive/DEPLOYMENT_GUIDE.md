@@ -1,4 +1,5 @@
 # Deployment Guide
+
 ## Elevate for Humanity LMS Platform
 
 **Last Updated:** November 12, 2025  
@@ -21,12 +22,14 @@
 ## Prerequisites
 
 ### Required Software
+
 - Node.js >= 20.11.1 < 23
 - pnpm 9.7.0 or higher
 - Git
 - Netlify CLI (optional, for local testing)
 
 ### Required Accounts
+
 - GitHub account with repository access
 - Netlify account
 - Supabase project
@@ -114,6 +117,7 @@ pnpm preview
 ### Automatic Deployment (Recommended)
 
 1. **Push to Main Branch**
+
    ```bash
    git push origin main
    ```
@@ -211,6 +215,7 @@ npx lighthouse https://www.elevateconnectsdirectory.org --view
 ```
 
 **Target Scores:**
+
 - Performance: 90+
 - Accessibility: 95+
 - Best Practices: 95+
@@ -267,7 +272,7 @@ pnpm install
 [build]
   command = "npm run build"
   publish = "dist"
-  
+
 [build.processing]
   skip_processing = false
 ```
@@ -347,11 +352,13 @@ netlify rollback
 ### Uptime Monitoring
 
 **Tools:**
+
 - Netlify Analytics (built-in)
 - UptimeRobot (external)
 - Pingdom (external)
 
 **Setup:**
+
 1. Create account at uptimerobot.com
 2. Add monitor for https://www.elevateconnectsdirectory.org
 3. Set check interval: 5 minutes
@@ -378,6 +385,7 @@ Sentry.init({
 ### Performance Monitoring
 
 **Tools:**
+
 - Google Analytics (Core Web Vitals)
 - Netlify Analytics
 - Lighthouse CI

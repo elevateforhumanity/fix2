@@ -23,7 +23,11 @@ export interface DownloadJob {
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
 
@@ -40,40 +44,49 @@ export default {
     try {
       // Health check
       if (path === '/health') {
-        return new Response(JSON.stringify({ 
-          status: 'ok',
-          service: 'media-download-worker',
-          timestamp: new Date().toISOString()
-        }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        });
+        return new Response(
+          JSON.stringify({
+            status: 'ok',
+            service: 'media-download-worker',
+            timestamp: new Date().toISOString(),
+          }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
       }
 
       // Download all media
       if (path === '/download-all' && request.method === 'POST') {
         const stats = await downloadAllMedia(env);
-        
-        return new Response(JSON.stringify({
-          success: true,
-          ...stats,
-          message: 'Media download queued'
-        }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        });
+
+        return new Response(
+          JSON.stringify({
+            success: true,
+            ...stats,
+            message: 'Media download queued',
+          }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
       }
 
       // Get media from R2
       if (path.startsWith('/media/') && request.method === 'GET') {
         const filename = path.substring(7); // Remove '/media/'
         const object = await env.MEDIA_R2.get(filename);
-        
+
         if (!object) {
-          return new Response(JSON.stringify({
-            error: 'Media not found'
-          }), {
-            status: 404,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-          });
+          return new Response(
+            JSON.stringify({
+              error: 'Media not found',
+            }),
+            {
+              status: 404,
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            }
+          );
         }
 
         const headers = new Headers(corsHeaders);
@@ -88,46 +101,54 @@ export default {
       if (path === '/media' && request.method === 'GET') {
         const prefix = url.searchParams.get('prefix') || '';
         const limit = parseInt(url.searchParams.get('limit') || '100');
-        
+
         const list = await env.MEDIA_R2.list({ prefix, limit });
-        
-        return new Response(JSON.stringify({
-          objects: list.objects.map(obj => ({
-            key: obj.key,
-            size: obj.size,
-            uploaded: obj.uploaded
-          })),
-          truncated: list.truncated,
-          total: list.objects.length
-        }), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        });
+
+        return new Response(
+          JSON.stringify({
+            objects: list.objects.map((obj) => ({
+              key: obj.key,
+              size: obj.size,
+              uploaded: obj.uploaded,
+            })),
+            truncated: list.truncated,
+            total: list.objects.length,
+          }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
       }
 
       // Get download stats
       if (path === '/stats' && request.method === 'GET') {
         const stats = await getDownloadStats(env);
-        
+
         return new Response(JSON.stringify(stats), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
 
-      return new Response(JSON.stringify({
-        error: 'Not found'
-      }), {
-        status: 404,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      });
-
+      return new Response(
+        JSON.stringify({
+          error: 'Not found',
+        }),
+        {
+          status: 404,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     } catch (error) {
-      return new Response(JSON.stringify({
-        error: 'Internal server error',
-        message: error instanceof Error ? error.message : 'Unknown error'
-      }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      });
+      return new Response(
+        JSON.stringify({
+          error: 'Internal server error',
+          message: error instanceof Error ? error.message : 'Unknown error',
+        }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
   },
 
@@ -135,10 +156,10 @@ export default {
     // Process media download jobs
     for (const message of batch.messages) {
       const job = message.body;
-      
+
       try {
         console.log(`Downloading: ${job.filename}`);
-        
+
         // Check if already exists
         const existing = await env.MEDIA_R2.head(job.filename);
         if (existing) {
@@ -149,30 +170,30 @@ export default {
 
         // Download from source
         const response = await fetch(job.url);
-        
+
         if (!response.ok) {
           throw new Error(`Download failed: ${response.statusText}`);
         }
 
-        const contentType = response.headers.get('content-type') || 'application/octet-stream';
+        const contentType =
+          response.headers.get('content-type') || 'application/octet-stream';
         const body = await response.arrayBuffer();
 
         // Upload to R2
         await env.MEDIA_R2.put(job.filename, body, {
           httpMetadata: {
-            contentType: contentType
+            contentType: contentType,
           },
           customMetadata: {
             source: job.metadata.source,
             creator: job.metadata.creator,
             category: job.metadata.category,
-            downloadedAt: new Date().toISOString()
-          }
+            downloadedAt: new Date().toISOString(),
+          },
         });
 
         console.log(`Downloaded: ${job.filename} (${body.byteLength} bytes)`);
         message.ack();
-        
       } catch (error) {
         console.error(`Download failed: ${job.filename}`, error);
         message.retry();
@@ -180,17 +201,21 @@ export default {
     }
   },
 
-  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
+  async scheduled(
+    event: ScheduledEvent,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<void> {
     // Download all media monthly
     console.log('Running scheduled media download');
-    
+
     try {
       await downloadAllMedia(env);
       console.log('Scheduled download complete');
     } catch (error) {
       console.error('Scheduled download failed:', error);
     }
-  }
+  },
 };
 
 /**
@@ -222,8 +247,8 @@ async function downloadAllMedia(env: Env): Promise<{
         metadata: {
           source: image.source,
           creator: image.photographer,
-          category: image.category
-        }
+          category: image.category,
+        },
       };
       await env.DOWNLOAD_QUEUE.send(job);
       imagesQueued++;
@@ -242,8 +267,8 @@ async function downloadAllMedia(env: Env): Promise<{
         metadata: {
           source: video.source,
           creator: video.creator,
-          category: video.category
-        }
+          category: video.category,
+        },
       };
       await env.DOWNLOAD_QUEUE.send(job);
       videosQueued++;
@@ -262,8 +287,8 @@ async function downloadAllMedia(env: Env): Promise<{
         metadata: {
           source: 'Free Music Archive',
           creator: track.artist,
-          category: track.genre
-        }
+          category: track.genre,
+        },
       };
       await env.DOWNLOAD_QUEUE.send(job);
       musicQueued++;
@@ -281,27 +306,31 @@ async function getDownloadStats(env: Env): Promise<any> {
   const videos = await env.MEDIA_R2.list({ prefix: 'videos/', limit: 1000 });
   const music = await env.MEDIA_R2.list({ prefix: 'music/', limit: 1000 });
 
-  const totalSize = [...images.objects, ...videos.objects, ...music.objects]
-    .reduce((sum, obj) => sum + obj.size, 0);
+  const totalSize = [
+    ...images.objects,
+    ...videos.objects,
+    ...music.objects,
+  ].reduce((sum, obj) => sum + obj.size, 0);
 
   return {
     images: {
       count: images.objects.length,
-      size: images.objects.reduce((sum, obj) => sum + obj.size, 0)
+      size: images.objects.reduce((sum, obj) => sum + obj.size, 0),
     },
     videos: {
       count: videos.objects.length,
-      size: videos.objects.reduce((sum, obj) => sum + obj.size, 0)
+      size: videos.objects.reduce((sum, obj) => sum + obj.size, 0),
     },
     music: {
       count: music.objects.length,
-      size: music.objects.reduce((sum, obj) => sum + obj.size, 0)
+      size: music.objects.reduce((sum, obj) => sum + obj.size, 0),
     },
     total: {
-      count: images.objects.length + videos.objects.length + music.objects.length,
+      count:
+        images.objects.length + videos.objects.length + music.objects.length,
       size: totalSize,
-      sizeFormatted: formatBytes(totalSize)
-    }
+      sizeFormatted: formatBytes(totalSize),
+    },
   };
 }
 

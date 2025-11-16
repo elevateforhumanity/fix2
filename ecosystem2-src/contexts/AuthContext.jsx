@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const validateToken = async () => {
       const token = localStorage.getItem('token');
-      
+
       if (!token) {
         setIsLoading(false);
         return;
@@ -23,8 +23,8 @@ export function AuthProvider({ children }) {
       try {
         const response = await fetch('/api/auth/me', {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (response.ok) {
@@ -56,9 +56,9 @@ export function AuthProvider({ children }) {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -84,30 +84,33 @@ export function AuthProvider({ children }) {
    * @param {string} role - User role (optional, defaults to 'student')
    * @returns {Promise<{success: boolean, error?: string}>}
    */
-  const register = useCallback(async (email, password, name, role = 'student') => {
-    try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password, name, role })
-      });
+  const register = useCallback(
+    async (email, password, name, role = 'student') => {
+      try {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password, name, role }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (response.ok && data.token) {
-        localStorage.setItem('token', data.token);
-        setUser(data.user);
-        return { success: true };
-      } else {
-        return { success: false, error: data.error || 'Registration failed' };
+        if (response.ok && data.token) {
+          localStorage.setItem('token', data.token);
+          setUser(data.user);
+          return { success: true };
+        } else {
+          return { success: false, error: data.error || 'Registration failed' };
+        }
+      } catch (error) {
+        console.error('Registration error:', error);
+        return { success: false, error: 'Network error' };
       }
-    } catch (error) {
-      console.error('Registration error:', error);
-      return { success: false, error: 'Network error' };
-    }
-  }, []);
+    },
+    []
+  );
 
   /**
    * Logout function
@@ -123,7 +126,7 @@ export function AuthProvider({ children }) {
    */
   const getAuthHeaders = useCallback(() => {
     const token = localStorage.getItem('token');
-    return token ? { 'Authorization': `Bearer ${token}` } : {};
+    return token ? { Authorization: `Bearer ${token}` } : {};
   }, []);
 
   const value = {
@@ -133,12 +136,8 @@ export function AuthProvider({ children }) {
     login,
     register,
     logout,
-    getAuthHeaders
+    getAuthHeaders,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

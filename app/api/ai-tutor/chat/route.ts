@@ -3,7 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -17,9 +19,13 @@ export async function POST(request: NextRequest) {
 
   const openaiKey = process.env.OPENAI_API_KEY;
   if (!openaiKey) {
-    return NextResponse.json({ 
-      error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.' 
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        error:
+          'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.',
+      },
+      { status: 500 }
+    );
   }
 
   try {
@@ -41,13 +47,16 @@ export async function POST(request: NextRequest) {
     // Add system prompt based on mode
     const systemPrompts = {
       chat: 'You are a helpful AI tutor. Provide clear, educational responses to help students learn.',
-      essay: 'You are an essay writing assistant. Help students improve their writing with constructive feedback and suggestions.',
-      'study-guide': 'You are a study guide creator. Help students create comprehensive study materials and summaries.',
+      essay:
+        'You are an essay writing assistant. Help students improve their writing with constructive feedback and suggestions.',
+      'study-guide':
+        'You are a study guide creator. Help students create comprehensive study materials and summaries.',
     };
 
     const systemMessage = {
       role: 'system',
-      content: systemPrompts[mode as keyof typeof systemPrompts] || systemPrompts.chat,
+      content:
+        systemPrompts[mode as keyof typeof systemPrompts] || systemPrompts.chat,
     };
 
     // Add user message
@@ -58,7 +67,7 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${openaiKey}`,
+        Authorization: `Bearer ${openaiKey}`,
       },
       body: JSON.stringify({
         model: 'gpt-4-turbo-preview',
@@ -70,7 +79,10 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const error = await response.json();
-      return NextResponse.json({ error: error.error?.message || 'OpenAI API error' }, { status: 500 });
+      return NextResponse.json(
+        { error: error.error?.message || 'OpenAI API error' },
+        { status: 500 }
+      );
     }
 
     const data = await response.json();
@@ -108,6 +120,9 @@ export async function POST(request: NextRequest) {
     });
   } catch (error: any) {
     console.error('AI Tutor error:', error);
-    return NextResponse.json({ error: error.message || 'Failed to process request' }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message || 'Failed to process request' },
+      { status: 500 }
+    );
   }
 }

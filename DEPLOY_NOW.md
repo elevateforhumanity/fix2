@@ -9,6 +9,7 @@
 ## 🚀 Quick Deploy Steps
 
 ### Vercel (Easiest):
+
 1. Go to: https://vercel.com/dashboard
 2. Find project or click "Add New Project"
 3. Import: `elevateforhumanity/fix2`
@@ -16,6 +17,7 @@
 5. Wait 3-5 minutes
 
 ### Netlify:
+
 1. Go to: https://app.netlify.com
 2. Find site or click "Add new site"
 3. Import: `elevateforhumanity/fix2`
@@ -27,11 +29,13 @@
 ## ✅ What's New
 
 **3 Programs (DOL/ETPL Approved):**
+
 1. Barber Apprenticeship - DOL Registered
 2. CDL Truck Driving - DOL Approved
 3. HVAC Technician - ETPL Approved
 
 **Design Updates:**
+
 - Gradient hero (blue → purple)
 - Static stats (100%, 10+, 85%, $45K+)
 - Hover effects on cards
@@ -42,6 +46,7 @@
 ## 📋 After Deploy
 
 **Run this SQL in Supabase:**
+
 ```sql
 DELETE FROM programs;
 INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bullets, cta, cover_url) VALUES
@@ -51,6 +56,7 @@ INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bull
 ```
 
 **Test:**
+
 - Visit: www.elevateconnectsdirectory.org
 - Check 3 programs show
 - Verify gradient hero

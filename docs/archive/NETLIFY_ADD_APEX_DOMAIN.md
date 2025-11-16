@@ -3,11 +3,13 @@
 ## Current Status
 
 **DNS Configuration:** ✅ CORRECT
+
 - elevateconnectsdirectory.org → A Record → 75.2.60.5 (Netlify)
 
 **Netlify Configuration:** ❌ NOT ADDED
+
 - Domain not added to Netlify dashboard
-- Using wrong SSL certificate (*.netlify.app)
+- Using wrong SSL certificate (\*.netlify.app)
 - **This is why you see the SSL error**
 
 ---
@@ -21,9 +23,11 @@ Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in
 ## MANUAL SETUP (2 Minutes)
 
 ### Step 1: Open Netlify Dashboard
+
 **Click this link:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 ### Step 2: Add Domain Alias
+
 1. Look for "Domain aliases" section
 2. Click **"Add domain alias"** button
 3. Type exactly: `elevateconnectsdirectory.org`
@@ -32,12 +36,14 @@ Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in
 6. Click **"Add domain"**
 
 ### Step 3: Wait for SSL Certificate
+
 - You'll see: "HTTPS: Certificate provisioning in progress..."
 - Wait **2-10 minutes** (usually 3-5 minutes)
 - Refresh the page occasionally
 - When ready: "HTTPS: Secured ✅"
 
 ### Step 4: Test
+
 1. Clear browser cache: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
 2. Visit: https://www.elevateconnectsdirectory.org
 3. Should load without SSL errors
@@ -58,6 +64,7 @@ bash scripts/netlify-add-apex-domain.sh
 ```
 
 To get a token:
+
 1. Go to: https://app.netlify.com/user/applications
 2. Click "New access token"
 3. Copy the token
@@ -67,6 +74,7 @@ To get a token:
 ## Why This Fixes the SSL Error
 
 ### Current Problem:
+
 ```
 Browser → elevateconnectsdirectory.org
        → DNS: 75.2.60.5 (Netlify)
@@ -76,6 +84,7 @@ Browser → elevateconnectsdirectory.org
 ```
 
 ### After Adding Domain:
+
 ```
 Browser → elevateconnectsdirectory.org
        → DNS: 75.2.60.5 (Netlify)
@@ -118,6 +127,7 @@ curl -I https://www.elevateconnectsdirectory.org
 ## What You'll See in Netlify
 
 ### Before:
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -125,6 +135,7 @@ Custom domains
 ```
 
 ### After Adding:
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -134,6 +145,7 @@ Custom domains
 ```
 
 ### After SSL Provisions:
+
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
@@ -147,16 +159,19 @@ Custom domains
 ## Troubleshooting
 
 ### "Domain already in use"
+
 - Check if it's on another Netlify site
 - Go to: https://app.netlify.com/teams
 - Remove from other site first
 
 ### "DNS not configured"
+
 - DNS is correct (I verified: 75.2.60.5)
 - Wait 5 minutes and try again
 - Sometimes takes time to propagate
 
 ### SSL taking too long (>15 min)
+
 - Verify domain spelling: `elevateconnectsdirectory.org`
 - Check DNS still points to 75.2.60.5
 - Contact Netlify support (instant chat)

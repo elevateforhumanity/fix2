@@ -10,11 +10,13 @@ export async function GET(req: NextRequest) {
 
     let query = supabase
       .from('live_classes')
-      .select(`
+      .select(
+        `
         *,
         instructor:profiles!instructor_id(full_name, email),
         course:courses(title)
-      `)
+      `
+      )
       .order('scheduled_at', { ascending: true });
 
     if (courseId) {
@@ -32,14 +34,19 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ classes: data });
   } catch (error) {
     console.error('Error fetching live classes:', error);
-    return NextResponse.json({ error: 'Failed to fetch live classes' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch live classes' },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createServerSupabaseClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -57,10 +64,21 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { course_id, title, description, scheduled_at, duration_minutes, provider, meeting_url } = body;
+    const {
+      course_id,
+      title,
+      description,
+      scheduled_at,
+      duration_minutes,
+      provider,
+      meeting_url,
+    } = body;
 
     if (!course_id || !title || !scheduled_at) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const { data, error } = await supabase
@@ -83,6 +101,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ class: data }, { status: 201 });
   } catch (error) {
     console.error('Error creating live class:', error);
-    return NextResponse.json({ error: 'Failed to create live class' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to create live class' },
+      { status: 500 }
+    );
   }
 }

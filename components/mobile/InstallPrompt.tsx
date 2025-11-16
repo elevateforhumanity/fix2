@@ -26,13 +26,11 @@ export default function InstallPrompt() {
           <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
             <Download size={20} />
           </div>
-
           <div className="flex-1">
             <h3 className="font-semibold mb-1">Install Elevate App</h3>
             <p className="text-sm text-white/90 mb-3">
               Get quick access and work offline
             </p>
-
             <div className="flex items-center gap-2">
               <button
                 onClick={handleInstall}
@@ -48,7 +46,6 @@ export default function InstallPrompt() {
               </button>
             </div>
           </div>
-
           <button
             onClick={() => setDismissed(true)}
             className="flex-shrink-0 p-1 hover:bg-white/20 rounded"

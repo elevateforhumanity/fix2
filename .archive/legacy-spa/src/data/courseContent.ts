@@ -81,8 +81,10 @@ export const cnaTrainingCourse: Course = {
   id: 'cna-training-2025',
   title: 'Certified Nursing Assistant (CNA) Training',
   slug: 'cna-training',
-  description: 'Comprehensive CNA training program with state certification preparation',
-  longDescription: 'Become a Certified Nursing Assistant with our comprehensive training program. Learn essential patient care skills, medical terminology, infection control, and vital signs monitoring. Includes hands-on clinical experience and state exam preparation.',
+  description:
+    'Comprehensive CNA training program with state certification preparation',
+  longDescription:
+    'Become a Certified Nursing Assistant with our comprehensive training program. Learn essential patient care skills, medical terminology, infection control, and vital signs monitoring. Includes hands-on clinical experience and state exam preparation.',
   category: 'Healthcare',
   level: 'beginner',
   duration: 120, // hours
@@ -120,7 +122,8 @@ export const cnaTrainingCourse: Course = {
     {
       id: 'cna-lesson-01',
       title: 'Introduction to Healthcare and the CNA Role',
-      description: 'Overview of healthcare settings, CNA responsibilities, and professional standards',
+      description:
+        'Overview of healthcare settings, CNA responsibilities, and professional standards',
       duration: 120,
       content: `
 # Introduction to Healthcare and the CNA Role
@@ -225,12 +228,14 @@ Let's get started on this exciting journey!
               'Performing surgical procedures',
             ],
             correctAnswer: 1,
-            explanation: 'CNAs provide basic patient care under the supervision of licensed nurses. They do not diagnose, prescribe, or perform surgical procedures.',
+            explanation:
+              'CNAs provide basic patient care under the supervision of licensed nurses. They do not diagnose, prescribe, or perform surgical procedures.',
           },
           {
             id: 'q2',
             type: 'multiple-choice',
-            question: 'Which of the following is within a CNA\'s scope of practice?',
+            question:
+              "Which of the following is within a CNA's scope of practice?",
             options: [
               'Starting IV medications',
               'Taking vital signs',
@@ -238,28 +243,33 @@ Let's get started on this exciting journey!
               'Changing wound dressings',
             ],
             correctAnswer: 1,
-            explanation: 'Taking vital signs is a core CNA responsibility. Starting IVs, interpreting labs, and changing wound dressings require additional licensure.',
+            explanation:
+              'Taking vital signs is a core CNA responsibility. Starting IVs, interpreting labs, and changing wound dressings require additional licensure.',
           },
           {
             id: 'q3',
             type: 'true-false',
-            question: 'CNAs must maintain patient confidentiality according to HIPAA regulations.',
+            question:
+              'CNAs must maintain patient confidentiality according to HIPAA regulations.',
             options: ['True', 'False'],
             correctAnswer: 0,
-            explanation: 'True. All healthcare workers, including CNAs, must comply with HIPAA regulations to protect patient privacy.',
+            explanation:
+              'True. All healthcare workers, including CNAs, must comply with HIPAA regulations to protect patient privacy.',
           },
           {
             id: 'q4',
             type: 'multiple-choice',
-            question: 'What should a CNA do if they observe a change in a patient\'s condition?',
+            question:
+              "What should a CNA do if they observe a change in a patient's condition?",
             options: [
               'Wait until the end of shift to report it',
               'Report it immediately to the supervising nurse',
-              'Document it but don\'t report it',
-              'Tell the patient\'s family first',
+              "Document it but don't report it",
+              "Tell the patient's family first",
             ],
             correctAnswer: 1,
-            explanation: 'CNAs should report any changes in patient condition immediately to the supervising nurse for prompt assessment and intervention.',
+            explanation:
+              'CNAs should report any changes in patient condition immediately to the supervising nurse for prompt assessment and intervention.',
           },
           {
             id: 'q5',
@@ -269,10 +279,11 @@ Let's get started on this exciting journey!
               'Only hospitals',
               'Only nursing homes',
               'Various settings including hospitals, nursing homes, and home health',
-              'Only doctor\'s offices',
+              "Only doctor's offices",
             ],
             correctAnswer: 2,
-            explanation: 'CNAs work in diverse healthcare settings including hospitals, nursing homes, assisted living facilities, home health agencies, and rehabilitation centers.',
+            explanation:
+              'CNAs work in diverse healthcare settings including hospitals, nursing homes, assisted living facilities, home health agencies, and rehabilitation centers.',
           },
         ],
       },
@@ -283,7 +294,8 @@ Let's get started on this exciting journey!
     id: 'cert-cna-001',
     name: 'Certified Nursing Assistant Certificate',
     issuer: 'Elevate for Humanity',
-    description: 'Official CNA training completion certificate recognized by state nursing boards',
+    description:
+      'Official CNA training completion certificate recognized by state nursing boards',
     requirements: [
       'Complete all 120 hours of training',
       'Pass all module quizzes with 80% or higher',
@@ -292,7 +304,13 @@ Let's get started on this exciting journey!
       'Demonstrate proficiency in all required skills',
     ],
   },
-  tags: ['healthcare', 'nursing', 'patient-care', 'certification', 'entry-level'],
+  tags: [
+    'healthcare',
+    'nursing',
+    'patient-care',
+    'certification',
+    'entry-level',
+  ],
 };
 
 // ============================================
@@ -303,8 +321,10 @@ export const barberTrainingCourse: Course = {
   id: 'barber-training-2025',
   title: 'Professional Barber Training & Licensure',
   slug: 'barber-training',
-  description: 'Complete barber training program with Milady curriculum and state licensure preparation',
-  longDescription: 'Master the art of barbering with our comprehensive training program. Learn cutting techniques, styling, shaving, sanitation, and business management. Includes hands-on practice and state board exam preparation.',
+  description:
+    'Complete barber training program with Milady curriculum and state licensure preparation',
+  longDescription:
+    'Master the art of barbering with our comprehensive training program. Learn cutting techniques, styling, shaving, sanitation, and business management. Includes hands-on practice and state board exam preparation.',
   category: 'Skilled Trades',
   level: 'beginner',
   duration: 1500, // hours (state requirement)
@@ -314,7 +334,7 @@ export const barberTrainingCourse: Course = {
     id: 'instructor-002',
     name: 'Marcus Williams',
     title: 'Master Barber & Educator',
-    bio: 'Marcus has been a licensed barber for 15 years and owns three successful barbershops. He\'s passionate about teaching the next generation of barbers both technical skills and business acumen.',
+    bio: "Marcus has been a licensed barber for 15 years and owns three successful barbershops. He's passionate about teaching the next generation of barbers both technical skills and business acumen.",
     photo: '/images/instructors/marcus-williams.jpg',
     credentials: [
       'Master Barber License',
@@ -341,7 +361,8 @@ export const barberTrainingCourse: Course = {
     {
       id: 'barber-lesson-01',
       title: 'History of Barbering and Professional Image',
-      description: 'Explore the rich history of barbering and develop your professional image',
+      description:
+        'Explore the rich history of barbering and develop your professional image',
       duration: 90,
       content: `
 # History of Barbering and Professional Image
@@ -447,7 +468,8 @@ Let's begin your journey to becoming a professional barber!
           {
             id: 'q1',
             type: 'multiple-choice',
-            question: 'What do the red and white stripes on a barber pole traditionally represent?',
+            question:
+              'What do the red and white stripes on a barber pole traditionally represent?',
             options: [
               'The colors of the American flag',
               'Blood and bandages from barber-surgeon era',
@@ -455,20 +477,24 @@ Let's begin your journey to becoming a professional barber!
               'Just decorative colors',
             ],
             correctAnswer: 1,
-            explanation: 'The red and white stripes represent blood and bandages from when barbers also performed surgical procedures.',
+            explanation:
+              'The red and white stripes represent blood and bandages from when barbers also performed surgical procedures.',
           },
           {
             id: 'q2',
             type: 'true-false',
-            question: 'Professional appearance is important for building client trust and credibility.',
+            question:
+              'Professional appearance is important for building client trust and credibility.',
             options: ['True', 'False'],
             correctAnswer: 0,
-            explanation: 'True. A professional appearance helps establish credibility and makes clients feel confident in your services.',
+            explanation:
+              'True. A professional appearance helps establish credibility and makes clients feel confident in your services.',
           },
           {
             id: 'q3',
             type: 'multiple-choice',
-            question: 'Which of the following is NOT a typical career path for barbers?',
+            question:
+              'Which of the following is NOT a typical career path for barbers?',
             options: [
               'Shop owner',
               'Booth rental',
@@ -476,7 +502,8 @@ Let's begin your journey to becoming a professional barber!
               'Barber educator',
             ],
             correctAnswer: 2,
-            explanation: 'While barbers historically performed surgery, modern barbers focus on hair care and styling, not medical procedures.',
+            explanation:
+              'While barbers historically performed surgery, modern barbers focus on hair care and styling, not medical procedures.',
           },
         ],
       },
@@ -486,7 +513,8 @@ Let's begin your journey to becoming a professional barber!
     id: 'cert-barber-001',
     name: 'Professional Barber Certificate',
     issuer: 'Elevate for Humanity',
-    description: 'Official barber training completion certificate meeting state board requirements',
+    description:
+      'Official barber training completion certificate meeting state board requirements',
     requirements: [
       'Complete all 1500 hours of training',
       'Pass all practical skill assessments',
@@ -495,7 +523,13 @@ Let's begin your journey to becoming a professional barber!
       'Demonstrate sanitation and safety competency',
     ],
   },
-  tags: ['barbering', 'cosmetology', 'skilled-trade', 'licensure', 'entrepreneurship'],
+  tags: [
+    'barbering',
+    'cosmetology',
+    'skilled-trade',
+    'licensure',
+    'entrepreneurship',
+  ],
 };
 
 // Export all courses

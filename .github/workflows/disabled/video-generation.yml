@@ -25,7 +25,7 @@ on:
 jobs:
   generate-videos:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -88,10 +88,10 @@ jobs:
           name: Sample Videos ${{ github.run_number }}
           body: |
             Automatically generated sample videos from templates.
-            
+
             Generated: ${{ github.event.head_commit.timestamp }}
             Commit: ${{ github.sha }}
-            
+
             Videos are also uploaded to Cloudflare Stream.
           files: samples/*.mp4
         env:

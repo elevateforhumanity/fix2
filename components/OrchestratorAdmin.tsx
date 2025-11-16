@@ -129,7 +129,6 @@ export default function OrchestratorAdmin() {
           Master controller for all AI systems
         </p>
       </div>
-
       {/* Diagnostics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         <div className="bg-white rounded-lg shadow-md p-6">
@@ -145,7 +144,6 @@ export default function OrchestratorAdmin() {
               {loading ? 'Checking...' : 'Refresh'}
             </button>
           </div>
-
           {diagnose ? (
             <div className="space-y-4">
               {/* Token Status */}
@@ -163,7 +161,6 @@ export default function OrchestratorAdmin() {
                   )}
                 </div>
               </div>
-
               {/* KV Namespaces */}
               <div>
                 <h3 className="font-semibold text-brand-text mb-2">
@@ -187,7 +184,6 @@ export default function OrchestratorAdmin() {
                   )}
                 </div>
               </div>
-
               {/* R2 Buckets */}
               <div>
                 <h3 className="font-semibold text-brand-text mb-2">
@@ -211,7 +207,6 @@ export default function OrchestratorAdmin() {
                   )}
                 </div>
               </div>
-
               {/* Workers */}
               <div>
                 <h3 className="font-semibold text-brand-text mb-2">Workers</h3>
@@ -233,7 +228,6 @@ export default function OrchestratorAdmin() {
                   )}
                 </div>
               </div>
-
               <button
                 onClick={ensureInfra}
                 disabled={loading}
@@ -248,13 +242,11 @@ export default function OrchestratorAdmin() {
             </div>
           )}
         </div>
-
         {/* Task Runner */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-semibold text-brand-text mb-4">
             Run Task
           </h2>
-
           <div className="mb-4">
             <label className="block text-sm font-medium text-brand-text mb-2">
               Select Task
@@ -274,7 +266,6 @@ export default function OrchestratorAdmin() {
               <option value="run_payout_batch">Run Payout Batch</option>
             </select>
           </div>
-
           <button
             onClick={runTask}
             disabled={loading}
@@ -282,7 +273,6 @@ export default function OrchestratorAdmin() {
           >
             {loading ? 'Running...' : 'Run Task'}
           </button>
-
           {taskResult && (
             <div className="bg-brand-surface rounded-lg p-4 overflow-auto max-h-64">
               <pre className="text-xs">
@@ -292,7 +282,6 @@ export default function OrchestratorAdmin() {
           )}
         </div>
       </div>
-
       {/* Registered Autopilots */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="flex items-center justify-between mb-4">
@@ -306,7 +295,6 @@ export default function OrchestratorAdmin() {
             Refresh
           </button>
         </div>
-
         {autopilots.length === 0 ? (
           <div className="text-center text-brand-text-light py-8">
             No autopilots registered yet. Run the registration script to add
@@ -325,7 +313,6 @@ export default function OrchestratorAdmin() {
                 <p className="text-xs text-brand-text-muted mb-3 truncate">
                   {ap.endpoint}
                 </p>
-
                 <div className="mb-3">
                   <h4 className="text-xs font-medium text-brand-text mb-1">
                     Capabilities:
@@ -341,7 +328,6 @@ export default function OrchestratorAdmin() {
                     ))}
                   </div>
                 </div>
-
                 {(ap.needs.kvNamespaces?.length ||
                   ap.needs.r2Buckets?.length) && (
                   <div>

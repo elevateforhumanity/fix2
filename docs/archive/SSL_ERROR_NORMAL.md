@@ -1,4 +1,5 @@
 # SSL ERROR - THIS IS NORMAL ✅
+
 **Error:** net::ERR_CERT_COMMON_NAME_INVALID
 **Status:** Expected - SSL not provisioned yet
 **Action:** Add domain in Netlify first
@@ -8,12 +9,14 @@
 ## 🔍 WHAT'S HAPPENING
 
 ### The Error:
+
 ```
 Your connection is not private
 net::ERR_CERT_COMMON_NAME_INVALID
 ```
 
 ### Why You're Seeing This:
+
 1. ✅ DNS is pointing to Netlify (correct)
 2. ✅ Browser connects to Netlify (correct)
 3. ❌ Netlify doesn't have SSL certificate yet (expected)
@@ -76,6 +79,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 ## 📋 CORRECT ORDER
 
 ### ❌ WRONG ORDER (What you did):
+
 ```
 1. Configure DNS in Durable ✅
 2. Visit site immediately ❌
@@ -83,6 +87,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 ```
 
 ### ✅ CORRECT ORDER (Do this):
+
 ```
 1. Configure DNS in Durable ✅
 2. Wait for DNS propagation (10-15 min)
@@ -109,6 +114,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 ### Step 2: Wait for SSL
 
 **Netlify will show:**
+
 ```
 ⏳ Provisioning SSL certificate...
 ```
@@ -116,6 +122,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 **Wait 5-10 minutes**
 
 **Then it will show:**
+
 ```
 ✅ SSL certificate active
 ```
@@ -149,6 +156,7 @@ Total:         ~10-15 minutes
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Look for your domain:**
+
 ```
 elevateforhumanity.org
 
@@ -158,6 +166,7 @@ Status: SSL certificate active ✅
 ```
 
 **When it says "Active":**
+
 - ✅ SSL is ready
 - ✅ Visit your site
 - ✅ Should work with HTTPS
@@ -193,12 +202,14 @@ Status: SSL certificate active ✅
 ### You'll Know SSL is Working When:
 
 **In Netlify:**
+
 ```
 Domain: elevateforhumanity.org
 Status: ✅ SSL certificate active
 ```
 
 **In Browser:**
+
 ```
 Visit: https://elevateforhumanity.org
 Shows: 🔒 Secure
@@ -260,7 +271,7 @@ Site loads correctly
 **Cause:** Domain not added in Netlify yet  
 **Fix:** Add domain in Netlify  
 **Time:** 5-10 minutes for SSL  
-**Result:** HTTPS works perfectly  
+**Result:** HTTPS works perfectly
 
 ---
 
@@ -270,4 +281,4 @@ Just add the domain in Netlify and wait for SSL to provision.
 
 ---
 
-*The error means DNS is working! Now just add domain in Netlify for SSL.*
+_The error means DNS is working! Now just add domain in Netlify for SSL._

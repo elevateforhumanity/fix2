@@ -69,7 +69,6 @@ export class ZapierSocialAutomation {
     };
 
     try {
-
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -85,14 +84,12 @@ export class ZapierSocialAutomation {
 
       const data = await response.json();
 
-
       return {
         success: true,
         zapId: data.id || data.zapId,
         message: `Posted to ${platform} successfully`,
       };
     } catch (error) {
-
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error',
@@ -121,7 +118,6 @@ export class ZapierSocialAutomation {
     const allPlatformsWebhook = this.webhookUrls.get('all');
 
     if (allPlatformsWebhook) {
-
       const payload = {
         platforms: platforms,
         content,
@@ -159,7 +155,6 @@ export class ZapierSocialAutomation {
           {}
         );
       } catch (error) {
-
         // Return error for all platforms
         return platforms.reduce(
           (acc, platform) => ({

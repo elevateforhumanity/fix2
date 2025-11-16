@@ -8,7 +8,8 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers':
+    'authorization, x-client-info, apikey, content-type',
 };
 
 serve(async (req) => {
@@ -49,17 +50,22 @@ serve(async (req) => {
     const totalLessons = lessons.length;
 
     // Get completed lessons for this user
-    const { data: completedLessons, error: progressError } = await supabaseClient
-      .from('lesson_progress')
-      .select('lesson_id')
-      .eq('user_id', userId)
-      .eq('completed', true)
-      .in('lesson_id', lessons.map(l => l.id));
+    const { data: completedLessons, error: progressError } =
+      await supabaseClient
+        .from('lesson_progress')
+        .select('lesson_id')
+        .eq('user_id', userId)
+        .eq('completed', true)
+        .in(
+          'lesson_id',
+          lessons.map((l) => l.id)
+        );
 
     if (progressError) throw progressError;
 
     const completedCount = completedLessons.length;
-    const completionPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+    const completionPercent =
+      totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
 
     // Check if course is complete
     const isComplete = completionPercent === 100;
@@ -69,7 +75,7 @@ serve(async (req) => {
       .from('enrollments')
       .update({
         status: isComplete ? 'completed' : 'active',
-        completed_at: isComplete ? new Date().toISOString() : null
+        completed_at: isComplete ? new Date().toISOString() : null,
       })
       .eq('user_id', userId)
       .eq('course_id', courseId);
@@ -85,21 +91,25 @@ serve(async (req) => {
 
       if (!existingCert) {
         // Generate verification code
-        const verifyCode = Math.random().toString(36).substring(2, 10).toUpperCase();
+        const verifyCode = Math.random()
+          .toString(36)
+          .substring(2, 10)
+          .toUpperCase();
 
         // Issue certificate
-        await supabaseClient
-          .from('certifications')
-          .insert({
-            user_id: userId,
-            course_id: courseId,
-            certification_name: course.certification_name,
-            certification_issuer: course.certification_issuer || 'Elevate for Humanity',
-            verify_code: verifyCode,
-            issued_at: new Date().toISOString()
-          });
+        await supabaseClient.from('certifications').insert({
+          user_id: userId,
+          course_id: courseId,
+          certification_name: course.certification_name,
+          certification_issuer:
+            course.certification_issuer || 'Elevate for Humanity',
+          verify_code: verifyCode,
+          issued_at: new Date().toISOString(),
+        });
 
-        console.log(`Certificate issued for user ${userId}, course ${courseId}`);
+        console.log(
+          `Certificate issued for user ${userId}, course ${courseId}`
+        );
       }
     }
 
@@ -109,7 +119,7 @@ serve(async (req) => {
         completionPercent,
         isComplete,
         completedLessons: completedCount,
-        totalLessons
+        totalLessons,
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -117,12 +127,9 @@ serve(async (req) => {
       }
     );
   } catch (error) {
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 400,
-      }
-    );
+    return new Response(JSON.stringify({ error: error.message }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      status: 400,
+    });
   }
 });

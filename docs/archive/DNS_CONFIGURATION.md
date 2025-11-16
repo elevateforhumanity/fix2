@@ -24,6 +24,7 @@ whois elevateforhumanity.org | grep -i "registrar"
 ```
 
 **Common providers:**
+
 - Cloudflare
 - GoDaddy
 - Namecheap
@@ -155,6 +156,7 @@ Choose your provider below:
 ### Wait for Propagation
 
 **DNS changes take time to propagate:**
+
 - Minimum: 5-10 minutes
 - Typical: 1-2 hours
 - Maximum: 24-48 hours
@@ -162,6 +164,7 @@ Choose your provider below:
 ### Check DNS Status
 
 **Using command line:**
+
 ```bash
 # Check if CNAME is set
 dig portal.elevateforhumanity.org
@@ -171,6 +174,7 @@ dig portal.elevateforhumanity.org
 ```
 
 **Using online tools:**
+
 1. Visit: https://dnschecker.org
 2. Enter: `portal.elevateforhumanity.org`
 3. Select: `CNAME`
@@ -178,6 +182,7 @@ dig portal.elevateforhumanity.org
 5. Check: Green checkmarks globally
 
 **Using nslookup:**
+
 ```bash
 nslookup portal.elevateforhumanity.org
 ```
@@ -199,17 +204,19 @@ nslookup portal.elevateforhumanity.org
 **Problem:** `dig portal.elevateforhumanity.org` returns no results
 
 **Solutions:**
+
 1. Wait longer (DNS can take 24-48 hours)
 2. Check record was saved in DNS provider
 3. Verify spelling: `portal` (not `www.portal` or `portal.`)
 4. Clear local DNS cache:
+
    ```bash
    # macOS
    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-   
+
    # Linux
    sudo systemd-resolve --flush-caches
-   
+
    # Windows
    ipconfig /flushdns
    ```
@@ -219,6 +226,7 @@ nslookup portal.elevateforhumanity.org
 **Problem:** CNAME points to old value or wrong Netlify site
 
 **Solutions:**
+
 1. Update CNAME value to: `elevateforhumanityfix.netlify.app`
 2. Remove any trailing dots
 3. Make sure it's CNAME, not A record
@@ -229,6 +237,7 @@ nslookup portal.elevateforhumanity.org
 **Problem:** Orange cloud icon in Cloudflare
 
 **Solutions:**
+
 1. Click the orange cloud to turn it gray
 2. Must be "DNS only" for Netlify to work
 3. Save changes
@@ -239,6 +248,7 @@ nslookup portal.elevateforhumanity.org
 **Problem:** Multiple `portal` records exist
 
 **Solutions:**
+
 1. Delete all `portal` CNAME records
 2. Add only one CNAME record
 3. Value: `elevateforhumanityfix.netlify.app`
@@ -292,6 +302,7 @@ After DNS is configured:
 - **Netlify Docs:** https://docs.netlify.com/domains-https/custom-domains/
 
 **Common issues:**
+
 - DNS not propagating → Wait 24-48 hours
 - SSL not working → Verify DNS first, then provision certificate
 - Site not loading → Check DNS with dig command

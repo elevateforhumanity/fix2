@@ -1,6 +1,7 @@
 # Thinkific vs EFH LMS Design Comparison
 
 ## Executive Summary
+
 **Current Status**: 75% polished - Good foundation but missing key professional touches
 **Gap**: Thinkific-level polish requires enhanced typography, spacing, animations, and component refinement
 
@@ -9,6 +10,7 @@
 ## 1. TYPOGRAPHY & FONT SYSTEM
 
 ### Thinkific Standard
+
 - **Font Stack**: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
 - **Font Weights**: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 - **Line Heights**: 1.2 (headings), 1.5 (body), 1.6 (large text)
@@ -16,13 +18,23 @@
 - **Font Sizes**: Consistent scale (12, 14, 16, 18, 20, 24, 32, 40, 48, 64px)
 
 ### EFH Current
+
 ```css
 body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 ```
 
 ### ❌ Missing
+
 - No defined font weight scale
 - No line-height system
 - No letter-spacing adjustments
@@ -30,6 +42,7 @@ body {
 - No font-size scale documented
 
 ### ✅ Fix Required
+
 ```css
 :root {
   /* Font Weights */
@@ -37,30 +50,35 @@ body {
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Font Sizes */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 2rem;      /* 32px */
-  --text-4xl: 2.5rem;    /* 40px */
-  --text-5xl: 3rem;      /* 48px */
-  
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 2rem; /* 32px */
+  --text-4xl: 2.5rem; /* 40px */
+  --text-5xl: 3rem; /* 48px */
+
   /* Line Heights */
   --leading-tight: 1.2;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
-  
+
   /* Letter Spacing */
   --tracking-tight: -0.02em;
   --tracking-normal: 0;
   --tracking-wide: 0.025em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
@@ -78,25 +96,28 @@ body {
 ## 2. COLOR SYSTEM & CONTRAST
 
 ### Thinkific Standard
+
 - **Primary**: Multiple shades (50, 100, 200...900)
 - **Semantic Colors**: Success, warning, error, info (with shades)
 - **Neutral Grays**: 10 shades from white to black
 - **Contrast Ratios**: WCAG AAA (7:1 for text, 4.5:1 for large text)
 
 ### EFH Current
+
 ```css
 :root {
-  --efh-red: #E41E26;
-  --efh-orange: #F97316;
-  --efh-blue: #2563EB;
-  --efh-bg: #0B0B0D;
+  --efh-red: #e41e26;
+  --efh-orange: #f97316;
+  --efh-blue: #2563eb;
+  --efh-bg: #0b0b0d;
   --efh-surface: #121318;
-  --efh-text: #F8FAFC;
-  --efh-muted: #94A3B8;
+  --efh-text: #f8fafc;
+  --efh-muted: #94a3b8;
 }
 ```
 
 ### ❌ Missing
+
 - No color shades (50-900 scale)
 - No semantic colors (success, warning, error)
 - No hover/active states defined
@@ -104,47 +125,48 @@ body {
 - No opacity variants
 
 ### ✅ Fix Required
+
 ```css
 :root {
   /* Primary - Red */
-  --red-50: #FEF2F2;
-  --red-100: #FEE2E2;
-  --red-200: #FECACA;
-  --red-300: #FCA5A5;
-  --red-400: #F87171;
-  --red-500: #E41E26;  /* Brand */
-  --red-600: #DC2626;
-  --red-700: #B91C1C;
-  --red-800: #991B1B;
-  --red-900: #7F1D1D;
-  
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #e41e26; /* Brand */
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+
   /* Semantic Colors */
-  --success: #10B981;
-  --success-light: #D1FAE5;
-  --success-dark: #065F46;
-  
-  --warning: #F59E0B;
-  --warning-light: #FEF3C7;
-  --warning-dark: #92400E;
-  
-  --error: #EF4444;
-  --error-light: #FEE2E2;
-  --error-dark: #991B1B;
-  
-  --info: #3B82F6;
-  --info-light: #DBEAFE;
-  --info-dark: #1E40AF;
-  
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --success-dark: #065f46;
+
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --warning-dark: #92400e;
+
+  --error: #ef4444;
+  --error-light: #fee2e2;
+  --error-dark: #991b1b;
+
+  --info: #3b82f6;
+  --info-light: #dbeafe;
+  --info-dark: #1e40af;
+
   /* Neutral Grays */
-  --gray-50: #F9FAFB;
-  --gray-100: #F3F4F6;
-  --gray-200: #E5E7EB;
-  --gray-300: #D1D5DB;
-  --gray-400: #9CA3AF;
-  --gray-500: #6B7280;
-  --gray-600: #4B5563;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
   --gray-700: #374151;
-  --gray-800: #1F2937;
+  --gray-800: #1f2937;
   --gray-900: #111827;
 }
 ```
@@ -154,35 +176,39 @@ body {
 ## 3. SPACING SYSTEM
 
 ### Thinkific Standard
+
 - **Scale**: 4px base unit (4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96px)
 - **Consistent Padding**: Components use scale consistently
 - **Vertical Rhythm**: Consistent spacing between sections
 
 ### EFH Current
+
 - Inconsistent spacing
 - No documented scale
 - Mixed px/rem units
 
 ### ❌ Missing
+
 - No spacing scale defined
 - Inconsistent component padding
 - No vertical rhythm system
 
 ### ✅ Fix Required
+
 ```css
 :root {
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
 }
 
 .section {
@@ -205,6 +231,7 @@ body {
 ## 4. COMPONENT DESIGN
 
 ### Thinkific Standard
+
 - **Buttons**: Multiple variants (primary, secondary, outline, ghost)
 - **Cards**: Consistent shadows, borders, hover states
 - **Forms**: Proper focus states, error states, helper text
@@ -212,13 +239,14 @@ body {
 - **Tooltips**: Subtle, well-positioned
 
 ### EFH Current
+
 ```css
 .button {
   display: inline-flex;
-  gap: .5rem;
+  gap: 0.5rem;
   align-items: center;
   font-weight: 600;
-  padding: .8rem 1.1rem;
+  padding: 0.8rem 1.1rem;
   border-radius: var(--radius);
   background: var(--efh-red);
   color: #fff;
@@ -233,6 +261,7 @@ body {
 ```
 
 ### ❌ Missing
+
 - No button variants (secondary, outline, ghost, link)
 - No button sizes (sm, md, lg)
 - No disabled states
@@ -243,6 +272,7 @@ body {
 - No card variants
 
 ### ✅ Fix Required
+
 ```css
 /* Button Base */
 .button {
@@ -342,7 +372,9 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Card Variants */
@@ -373,6 +405,7 @@ body {
 ## 5. ANIMATIONS & TRANSITIONS
 
 ### Thinkific Standard
+
 - **Smooth Transitions**: 200-300ms ease
 - **Micro-interactions**: Hover, focus, active states
 - **Page Transitions**: Fade in/out
@@ -380,12 +413,14 @@ body {
 - **Scroll Animations**: Fade in on scroll
 
 ### EFH Current
+
 - Minimal animations
 - No transition system
 - No loading states
 - No scroll animations
 
 ### ❌ Missing
+
 - No animation system
 - No transition timing functions
 - No loading skeletons
@@ -393,6 +428,7 @@ body {
 - No page transitions
 
 ### ✅ Fix Required
+
 ```css
 :root {
   --transition-fast: 150ms;
@@ -404,7 +440,10 @@ body {
 }
 
 /* Smooth Transitions */
-a, button, .card, .button {
+a,
+button,
+.card,
+.button {
   transition: all var(--transition-base) var(--ease-in-out);
 }
 
@@ -464,23 +503,27 @@ a, button, .card, .button {
 ## 6. RESPONSIVE DESIGN
 
 ### Thinkific Standard
+
 - **Breakpoints**: 640px, 768px, 1024px, 1280px, 1536px
 - **Mobile-First**: Design scales up
 - **Touch Targets**: 44px minimum
 - **Responsive Typography**: Fluid scaling
 
 ### EFH Current
+
 - Basic responsive layout
 - No documented breakpoints
 - Inconsistent mobile experience
 
 ### ❌ Missing
+
 - No breakpoint system
 - No responsive typography scale
 - Touch targets too small
 - No mobile navigation optimization
 
 ### ✅ Fix Required
+
 ```css
 :root {
   --breakpoint-sm: 640px;
@@ -508,13 +551,18 @@ html {
 }
 
 /* Touch Targets */
-button, a, input, select, textarea {
+button,
+a,
+input,
+select,
+textarea {
   min-height: 44px;
   min-width: 44px;
 }
 
 @media (min-width: 1024px) {
-  button, a {
+  button,
+  a {
     min-height: 40px;
     min-width: 40px;
   }
@@ -546,6 +594,7 @@ button, a, input, select, textarea {
 ## 7. FORMS & INPUTS
 
 ### Thinkific Standard
+
 - **Input States**: Default, focus, error, disabled, success
 - **Labels**: Always visible, proper association
 - **Helper Text**: Below inputs
@@ -553,11 +602,13 @@ button, a, input, select, textarea {
 - **Validation**: Real-time feedback
 
 ### EFH Current
+
 - Basic form styling
 - No consistent input states
 - Limited error handling
 
 ### ❌ Missing
+
 - No input variants
 - No focus states
 - No error states
@@ -565,6 +616,7 @@ button, a, input, select, textarea {
 - No validation feedback
 
 ### ✅ Fix Required
+
 ```css
 /* Input Base */
 .input {
@@ -648,6 +700,7 @@ button, a, input, select, textarea {
 ## 8. NAVIGATION & HEADER
 
 ### Thinkific Standard
+
 - **Sticky Header**: Smooth scroll behavior
 - **Dropdown Menus**: Animated, accessible
 - **Mobile Menu**: Slide-in drawer
@@ -655,11 +708,13 @@ button, a, input, select, textarea {
 - **User Menu**: Avatar, dropdown
 
 ### EFH Current
+
 - Basic navigation
 - Limited mobile optimization
 - No search functionality
 
 ### ❌ Missing
+
 - No smooth scroll
 - No animated dropdowns
 - Mobile menu needs polish
@@ -667,6 +722,7 @@ button, a, input, select, textarea {
 - No user avatar/menu
 
 ### ✅ Fix Required
+
 ```css
 /* Sticky Header */
 .header {
@@ -750,23 +806,27 @@ button, a, input, select, textarea {
 ## 9. SHADOWS & DEPTH
 
 ### Thinkific Standard
+
 - **Shadow Scale**: 5 levels (xs, sm, md, lg, xl)
 - **Elevation**: Consistent depth hierarchy
 - **Hover States**: Increased shadow on hover
 
 ### EFH Current
+
 ```css
 .shadow-soft {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 ```
 
 ### ❌ Missing
+
 - No shadow scale
 - No elevation system
 - Inconsistent shadow usage
 
 ### ✅ Fix Required
+
 ```css
 :root {
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -803,6 +863,7 @@ button, a, input, select, textarea {
 ## 10. ACCESSIBILITY
 
 ### Thinkific Standard
+
 - **Focus Indicators**: Visible, consistent
 - **ARIA Labels**: Comprehensive
 - **Keyboard Navigation**: Full support
@@ -810,11 +871,13 @@ button, a, input, select, textarea {
 - **Color Contrast**: WCAG AAA
 
 ### EFH Current
+
 - Basic accessibility
 - Some ARIA labels
 - Limited keyboard support
 
 ### ❌ Missing
+
 - Inconsistent focus indicators
 - Missing ARIA labels
 - Limited keyboard shortcuts
@@ -822,6 +885,7 @@ button, a, input, select, textarea {
 - Some contrast issues
 
 ### ✅ Fix Required
+
 ```css
 /* Focus Indicators */
 *:focus-visible {
@@ -865,7 +929,7 @@ button, a, input, select, textarea {
     --gray-300: #999;
     --gray-700: #333;
   }
-  
+
   .button {
     border: 2px solid currentColor;
   }
@@ -888,46 +952,54 @@ button, a, input, select, textarea {
 ## PRIORITY FIXES (High Impact)
 
 ### 1. Typography System (2 hours)
+
 - Define font scale
 - Add line-height system
 - Implement letter-spacing
 - Create heading styles
 
 ### 2. Button Variants (1 hour)
+
 - Add secondary, outline, ghost variants
 - Add sizes (sm, md, lg)
 - Add disabled/loading states
 - Add hover animations
 
 ### 3. Color System (1 hour)
+
 - Create shade scales (50-900)
 - Add semantic colors
 - Define hover/active states
 - Ensure WCAG AAA contrast
 
 ### 4. Spacing System (30 minutes)
+
 - Define spacing scale
 - Apply consistently
 - Update components
 
 ### 5. Animations (1 hour)
+
 - Add transitions
 - Create loading states
 - Add scroll reveals
 - Implement micro-interactions
 
 ### 6. Form Inputs (1 hour)
+
 - Style all states
 - Add error/success feedback
 - Improve focus indicators
 - Add helper text
 
 ### 7. Shadows & Depth (30 minutes)
+
 - Create shadow scale
 - Apply elevation system
 - Add hover effects
 
 ### 8. Responsive Polish (1 hour)
+
 - Fix mobile navigation
 - Improve touch targets
 - Add responsive typography
@@ -948,6 +1020,7 @@ button, a, input, select, textarea {
 ## CURRENT SCORE: 75/100
 
 ### Breakdown
+
 - ✅ **Foundation**: 90/100 (Good base structure)
 - ⚠️ **Typography**: 60/100 (Missing scale and refinement)
 - ⚠️ **Colors**: 70/100 (Limited palette)

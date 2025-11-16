@@ -1,4 +1,5 @@
 # COMPLETE REPOSITORY INVENTORY
+
 **Generated:** $(date)
 **Purpose:** Line-by-line cleanup of ALL old builds, caches, styling, configs
 
@@ -7,6 +8,7 @@
 ## 🎯 CLEANUP TARGETS
 
 ### 1. STYLING FILES (7 files found)
+
 ```
 ./docs/jsdoc/styles/jsdoc-default.css          [DOCS - KEEP]
 ./docs/jsdoc/styles/prettify-jsdoc.css         [DOCS - KEEP]
@@ -18,6 +20,7 @@
 ```
 
 ### 2. CONFIGURATION FILES (29 files found)
+
 ```
 ./.github/ISSUE_TEMPLATE/bug_report.yml        [KEEP]
 ./.github/dependabot.yml                       [KEEP]
@@ -50,6 +53,7 @@
 ```
 
 ### 3. BUILD ARTIFACTS & CACHES
+
 ```
 ./dist/                                        [BUILD OUTPUT - REGENERATE]
 ./node_modules/                                [DEPENDENCIES - KEEP]
@@ -63,20 +67,25 @@
 ```
 
 ### 4. OLD DOCUMENTATION FILES (100+ MD files)
+
 **Status:** MASSIVE CLEANUP NEEDED
+
 - Multiple deployment guides
 - Duplicate completion reports
 - Old migration plans
 - Conflicting instructions
 
 ### 5. OLD SCRIPTS (50+ shell scripts)
+
 **Status:** NEEDS AUDIT
+
 - Autopilot scripts
 - Fix scripts
 - Deployment scripts
 - Setup scripts
 
 ### 6. DURABLE.CO REMNANTS
+
 ```
 ./durable                                      [⚠️ REMOVE]
 ./durable-ai-autopilot.js                      [⚠️ REMOVE]
@@ -89,11 +98,13 @@
 ```
 
 ### 7. NEXT.JS REMNANTS
+
 **Status:** CHECKING...
 
 ---
 
 ## 📋 NEXT STEPS
+
 1. Check each CSS file for actual usage
 2. Identify duplicate configurations
 3. Remove ALL Durable.co files

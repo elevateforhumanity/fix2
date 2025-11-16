@@ -11,15 +11,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { 
-  LayoutDashboard, 
-  BookOpen, 
-  Award, 
-  TrendingUp, 
-  User, 
+import {
+  LayoutDashboard,
+  BookOpen,
+  Award,
+  TrendingUp,
+  User,
   LogOut,
   Menu,
-  Bell
+  Bell,
 } from 'lucide-react';
 
 const navItems = [
@@ -62,17 +62,20 @@ export default function LMSNav() {
           {/* Logo */}
           <Link href="/lms/dashboard" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">E</span>
+              <span className="text-primary-foreground font-bold text-lg">
+                E
+              </span>
             </div>
-            <span className="font-bold text-lg hidden sm:inline">Elevate LMS</span>
+            <span className="font-bold text-lg hidden sm:inline">
+              Elevate LMS
+            </span>
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.href);
-              
+
               return (
                 <Link key={item.href} href={item.href}>
                   <Button
@@ -86,7 +89,6 @@ export default function LMSNav() {
               );
             })}
           </div>
-
           {/* Right Side Actions */}
           <div className="flex items-center gap-2">
             {/* Notifications */}
@@ -94,7 +96,6 @@ export default function LMSNav() {
               <Bell className="h-5 w-5" />
               <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full" />
             </Button>
-
             {/* User Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -106,7 +107,9 @@ export default function LMSNav() {
                 <DropdownMenuLabel>
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium">John Doe</p>
-                    <p className="text-xs text-muted-foreground">john.doe@example.com</p>
+                    <p className="text-xs text-muted-foreground">
+                      john.doe@example.com
+                    </p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
@@ -129,7 +132,6 @@ export default function LMSNav() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
             {/* Mobile Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="md:hidden">

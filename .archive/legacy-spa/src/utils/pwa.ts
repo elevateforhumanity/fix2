@@ -20,7 +20,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
       scope: '/',
     });
 
-
     // Check for updates periodically
     setInterval(
       () => {
@@ -283,7 +282,6 @@ export async function clearAllCaches(): Promise<void> {
 
   const cacheNames = await caches.keys();
   await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
-
 }
 
 /**

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       auto_commit:
-        description: "Automatically commit generated schema stubs"
+        description: 'Automatically commit generated schema stubs'
         required: false
         type: boolean
         default: false
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -31,7 +31,7 @@ jobs:
           echo "# 🤖 Supabase Schema Guardian" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Scanning codebase for Supabase table and RPC usage..." >> "$GITHUB_STEP_SUMMARY"
-          
+
           node scripts/autopilot-supabase-schema.mjs
 
       - name: Check for generated files
@@ -59,11 +59,11 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "## 📊 Schema Analysis" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          
+
           # Count tables and RPCs
           TABLES=$(grep -h "CREATE TABLE" supabase/autopilot-migrations/*.sql 2>/dev/null | wc -l || echo "0")
           RPCS=$(grep -h "Detected RPC function" supabase/autopilot-migrations/*.sql 2>/dev/null | wc -l || echo "0")
-          
+
           echo "- **Tables detected**: $TABLES" >> "$GITHUB_STEP_SUMMARY"
           echo "- **RPC functions detected**: $RPCS" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
@@ -86,12 +86,12 @@ jobs:
         if: inputs.auto_commit == true && steps.check-files.outputs.has_files == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Autopilot: Generate Supabase schema stubs from code usage"
+          commit_message: '🤖 Autopilot: Generate Supabase schema stubs from code usage'
           branch: main
-          commit_user_name: "Elevate Autopilot"
-          commit_user_email: "autopilot@elevateforhumanity.org"
-          commit_author: "Elevate Autopilot <autopilot@elevateforhumanity.org>"
-          file_pattern: "supabase/autopilot-migrations/*.sql"
+          commit_user_name: 'Elevate Autopilot'
+          commit_user_email: 'autopilot@elevateforhumanity.org'
+          commit_author: 'Elevate Autopilot <autopilot@elevateforhumanity.org>'
+          file_pattern: 'supabase/autopilot-migrations/*.sql'
 
       - name: Summary
         if: always()
@@ -99,7 +99,7 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "---" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          
+
           if [ "${{ steps.check-files.outputs.has_files }}" == "true" ]; then
             echo "✅ **Status**: Schema stubs generated successfully" >> "$GITHUB_STEP_SUMMARY"
             
@@ -113,6 +113,6 @@ jobs:
           else
             echo "✅ **Status**: No schema gaps detected" >> "$GITHUB_STEP_SUMMARY"
           fi
-          
+
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "🤖 *Schema Guardian completed at $(date -u +"%Y-%m-%d %H:%M:%S UTC")*" >> "$GITHUB_STEP_SUMMARY"

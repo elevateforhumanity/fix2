@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 import { useEffect, useState } from 'react';
@@ -46,7 +46,9 @@ export default function CaseloadPage() {
     }
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    load();
+  }, []);
 
   const csvUrl = () => {
     const params = new URLSearchParams();
@@ -63,16 +65,16 @@ export default function CaseloadPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Button variant="ghost" asChild className="mb-4">
-            <Link href="/admin/reports">
-              ← Back to Reports
-            </Link>
+            <Link href="/admin/reports">← Back to Reports</Link>
           </Button>
-          <h1 className="text-3xl font-bold mb-2">Caseload Management Report</h1>
+          <h1 className="text-3xl font-bold mb-2">
+            Caseload Management Report
+          </h1>
           <p className="text-muted-foreground">
-            Filter participants by case status and funding program for targeted intervention and outreach
+            Filter participants by case status and funding program for targeted
+            intervention and outreach
           </p>
         </div>
-
         {/* Filters */}
         <Card className="mb-8">
           <CardHeader>
@@ -82,7 +84,7 @@ export default function CaseloadPage() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <select
                 value={program}
-                onChange={e => setProgram(e.target.value)}
+                onChange={(e) => setProgram(e.target.value)}
                 className="border rounded px-3 py-2"
                 disabled={loading}
               >
@@ -95,7 +97,7 @@ export default function CaseloadPage() {
               </select>
               <select
                 value={status}
-                onChange={e => setStatus(e.target.value)}
+                onChange={(e) => setStatus(e.target.value)}
                 className="border rounded px-3 py-2"
                 disabled={loading}
               >
@@ -107,7 +109,7 @@ export default function CaseloadPage() {
               <input
                 type="date"
                 value={from}
-                onChange={e => setFrom(e.target.value)}
+                onChange={(e) => setFrom(e.target.value)}
                 className="border rounded px-3 py-2"
                 placeholder="From date"
                 disabled={loading}
@@ -115,13 +117,15 @@ export default function CaseloadPage() {
               <input
                 type="date"
                 value={to}
-                onChange={e => setTo(e.target.value)}
+                onChange={(e) => setTo(e.target.value)}
                 className="border rounded px-3 py-2"
                 placeholder="To date"
                 disabled={loading}
               />
               <Button onClick={load} disabled={loading}>
-                <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                <RefreshCw
+                  className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`}
+                />
                 Refresh
               </Button>
               <Button variant="outline" asChild>
@@ -133,7 +137,6 @@ export default function CaseloadPage() {
             </div>
           </CardContent>
         </Card>
-
         {/* Results */}
         <Card>
           <CardHeader>
@@ -151,8 +154,12 @@ export default function CaseloadPage() {
                     <th className="py-3 px-4 font-semibold">Funding Program</th>
                     <th className="py-3 px-4 font-semibold">Training Status</th>
                     <th className="py-3 px-4 font-semibold">Case Status</th>
-                    <th className="py-3 px-4 font-semibold">Most Recent Case Note</th>
-                    <th className="py-3 px-4 font-semibold">Training Provider</th>
+                    <th className="py-3 px-4 font-semibold">
+                      Most Recent Case Note
+                    </th>
+                    <th className="py-3 px-4 font-semibold">
+                      Training Provider
+                    </th>
                     <th className="py-3 px-4 font-semibold">Actions</th>
                   </tr>
                 </thead>
@@ -163,7 +170,9 @@ export default function CaseloadPage() {
                         <td className="py-3 px-4">
                           <div>
                             <div className="font-medium">{r.learner}</div>
-                            <div className="text-xs text-muted-foreground">{r.email}</div>
+                            <div className="text-xs text-muted-foreground">
+                              {r.email}
+                            </div>
                           </div>
                         </td>
                         <td className="py-3 px-4">{r.course}</td>
@@ -173,29 +182,46 @@ export default function CaseloadPage() {
                           </span>
                         </td>
                         <td className="py-3 px-4">
-                          <span className={`inline-block px-2 py-1 rounded text-xs ${
-                            r.enroll_status === 'completed' ? 'bg-green-100 text-green-800' :
-                            r.enroll_status === 'active' ? 'bg-blue-100 text-blue-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {r.enroll_status === 'completed' ? 'Completed' :
-                             r.enroll_status === 'active' ? 'Active' :
-                             r.enroll_status === 'dropped' ? 'Withdrawn' : r.enroll_status}
+                          <span
+                            className={`inline-block px-2 py-1 rounded text-xs ${
+                              r.enroll_status === 'completed'
+                                ? 'bg-green-100 text-green-800'
+                                : r.enroll_status === 'active'
+                                  ? 'bg-blue-100 text-blue-800'
+                                  : 'bg-gray-100 text-gray-800'
+                            }`}
+                          >
+                            {r.enroll_status === 'completed'
+                              ? 'Completed'
+                              : r.enroll_status === 'active'
+                                ? 'Active'
+                                : r.enroll_status === 'dropped'
+                                  ? 'Withdrawn'
+                                  : r.enroll_status}
                           </span>
                         </td>
                         <td className="py-3 px-4">
                           {r.case_status ? (
-                            <span className={`inline-block px-2 py-1 rounded text-xs ${
-                              r.case_status === 'On Track' ? 'bg-green-100 text-green-800' :
-                              r.case_status === 'Behind' ? 'bg-yellow-100 text-yellow-800' :
-                              r.case_status === 'Dropped' ? 'bg-red-100 text-red-800' :
-                              'bg-gray-100 text-gray-800'
-                            }`}>
-                              {r.case_status === 'Behind' ? 'At Risk' :
-                               r.case_status === 'Dropped' ? 'Not Engaged' :
-                               r.case_status}
+                            <span
+                              className={`inline-block px-2 py-1 rounded text-xs ${
+                                r.case_status === 'On Track'
+                                  ? 'bg-green-100 text-green-800'
+                                  : r.case_status === 'Behind'
+                                    ? 'bg-yellow-100 text-yellow-800'
+                                    : r.case_status === 'Dropped'
+                                      ? 'bg-red-100 text-red-800'
+                                      : 'bg-gray-100 text-gray-800'
+                              }`}
+                            >
+                              {r.case_status === 'Behind'
+                                ? 'At Risk'
+                                : r.case_status === 'Dropped'
+                                  ? 'Not Engaged'
+                                  : r.case_status}
                             </span>
-                          ) : '—'}
+                          ) : (
+                            '—'
+                          )}
                         </td>
                         <td className="py-3 px-4 max-w-xs">
                           {r.case_note ? (
@@ -203,7 +229,9 @@ export default function CaseloadPage() {
                               {r.case_note.slice(0, 80)}
                               {r.case_note.length > 80 ? '…' : ''}
                             </span>
-                          ) : '—'}
+                          ) : (
+                            '—'
+                          )}
                         </td>
                         <td className="py-3 px-4">{r.program_holder || '—'}</td>
                         <td className="py-3 px-4">
@@ -219,8 +247,13 @@ export default function CaseloadPage() {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={8} className="py-12 text-center text-muted-foreground">
-                        {loading ? 'Loading...' : 'No participants found matching filters'}
+                      <td
+                        colSpan={8}
+                        className="py-12 text-center text-muted-foreground"
+                      >
+                        {loading
+                          ? 'Loading...'
+                          : 'No participants found matching filters'}
                       </td>
                     </tr>
                   )}

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -114,27 +114,40 @@ export default function FileManagerPage() {
             </label>
           </div>
         </div>
-
         {/* Files */}
         {files.length === 0 ? (
           <div className="bg-white rounded-lg p-12 text-center">
-            <p className="text-gray-500 text-lg">No files yet. Upload your first file!</p>
+            <p className="text-gray-500 text-lg">
+              No files yet. Upload your first file!
+            </p>
           </div>
         ) : view === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {files.map((file) => (
-              <div key={file.id} className="bg-white rounded-lg p-4 shadow hover:shadow-lg transition">
+              <div
+                key={file.id}
+                className="bg-white rounded-lg p-4 shadow hover:shadow-lg transition"
+              >
                 <div className="flex items-center justify-center h-32 bg-gray-100 rounded mb-3">
                   {file.type.startsWith('image/') ? (
-                    <img src={file.url} alt={file.name} className="max-h-full max-w-full object-contain" />
+                    <img
+                      src={file.url}
+                      alt={file.name}
+                      className="max-h-full max-w-full object-contain"
+                    />
                   ) : (
                     <span className="text-4xl">📄</span>
                   )}
                 </div>
-                <h3 className="font-medium text-gray-900 truncate" title={file.name}>
+                <h3
+                  className="font-medium text-gray-900 truncate"
+                  title={file.name}
+                >
                   {file.name}
                 </h3>
-                <p className="text-sm text-gray-500">{formatFileSize(file.size)}</p>
+                <p className="text-sm text-gray-500">
+                  {formatFileSize(file.size)}
+                </p>
                 <div className="flex gap-2 mt-3">
                   <a
                     href={file.url}
@@ -158,24 +171,45 @@ export default function FileManagerPage() {
             <table className="w-full">
               <thead className="bg-gray-50 border-b">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Size</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Size
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Type
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y">
                 {files.map((file) => (
                   <tr key={file.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm text-gray-900">{file.name}</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">{formatFileSize(file.size)}</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">{file.type}</td>
+                    <td className="px-6 py-4 text-sm text-gray-900">
+                      {file.name}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-500">
+                      {formatFileSize(file.size)}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-500">
+                      {file.type}
+                    </td>
                     <td className="px-6 py-4 text-sm">
                       <div className="flex gap-2">
-                        <a href={file.url} download className="text-blue-600 hover:text-blue-800">
+                        <a
+                          href={file.url}
+                          download
+                          className="text-blue-600 hover:text-blue-800"
+                        >
                           Download
                         </a>
-                        <button onClick={() => deleteFile(file.id)} className="text-red-600 hover:text-red-800">
+                        <button
+                          onClick={() => deleteFile(file.id)}
+                          className="text-red-600 hover:text-red-800"
+                        >
                           Delete
                         </button>
                       </div>

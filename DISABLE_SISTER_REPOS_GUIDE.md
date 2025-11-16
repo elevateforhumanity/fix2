@@ -16,6 +16,7 @@ Disable scheduled autopilot workflows in all sister repositories to prevent auto
 ## ✅ Status: fix2 Repository
 
 **Already Complete!** All scheduled workflows in the `fix2` repository have been disabled:
+
 - Workflows moved to `.github/workflows/disabled/` folder
 - No active cron jobs running
 - Manual workflows still available if needed
@@ -67,6 +68,7 @@ The default `GITHUB_TOKEN` only has access to the current repository. To access 
 6. Monitor the workflow execution in the Actions tab
 
 **Pros:**
+
 - ✅ Automated - no manual work needed
 - ✅ Runs in GitHub's infrastructure
 - ✅ Creates proper commits with co-author attribution
@@ -74,6 +76,7 @@ The default `GITHUB_TOKEN` only has access to the current repository. To access 
 - ✅ Works across all organization repositories
 
 **Cons:**
+
 - ⚠️ Requires creating and storing a PAT
 - ⚠️ PAT needs to be refreshed when it expires
 - ⚠️ Requires GitHub Actions to be enabled
@@ -85,11 +88,13 @@ The default `GITHUB_TOKEN` only has access to the current repository. To access 
 **For users with local access to all repositories**
 
 1. Ensure you have GitHub CLI installed and authenticated:
+
    ```bash
    gh auth login
    ```
 
 2. Run the provided script:
+
    ```bash
    cd /workspaces/fix2
    ./disable-autopilot-all-repos.sh
@@ -105,11 +110,13 @@ The default `GITHUB_TOKEN` only has access to the current repository. To access 
 4. Review and push changes when prompted
 
 **Pros:**
+
 - ✅ Full control over each step
 - ✅ Can review changes before pushing
 - ✅ Works offline (except for clone/push)
 
 **Cons:**
+
 - ⚠️ Requires local setup and authentication
 - ⚠️ More manual work
 - ⚠️ Need to handle each repo individually
@@ -123,28 +130,33 @@ The default `GITHUB_TOKEN` only has access to the current repository. To access 
 For each repository:
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/elevateforhumanity/REPO_NAME.git
    cd REPO_NAME
    ```
 
 2. **Check for scheduled workflows:**
+
    ```bash
    grep -r "schedule:" .github/workflows/*.yml
    ```
 
 3. **Create disabled directory:**
+
    ```bash
    mkdir -p .github/workflows/disabled
    ```
 
 4. **Move scheduled workflows:**
+
    ```bash
    # For each workflow with a schedule trigger:
    git mv .github/workflows/WORKFLOW_NAME.yml .github/workflows/disabled/
    ```
 
 5. **Commit changes:**
+
    ```bash
    git add .github/workflows/
    git commit -m "DISABLE scheduled workflows: Stop autopilot cron jobs
@@ -152,11 +164,12 @@ For each repository:
    - Moved scheduled workflows to disabled/ folder
    - Prevents automated runs during manual deployment work
    - Focus on fix2 repository deployment
-   
+
    Co-authored-by: Ona <no-reply@ona.com>"
    ```
 
 6. **Push changes:**
+
    ```bash
    git push origin main
    ```
@@ -164,11 +177,13 @@ For each repository:
 7. **Repeat for each repository**
 
 **Pros:**
+
 - ✅ Maximum control
 - ✅ Can verify each change
 - ✅ No automation dependencies
 
 **Cons:**
+
 - ⚠️ Most time-consuming
 - ⚠️ Easy to miss a repository
 - ⚠️ Repetitive work
@@ -180,10 +195,11 @@ For each repository:
 ### Workflows with `schedule:` triggers
 
 Example:
+
 ```yaml
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
+    - cron: '0 */6 * * *' # Every 6 hours
 ```
 
 These workflows run automatically on a schedule and should be disabled.
@@ -209,6 +225,7 @@ After disabling workflows in a repository:
    - Check that disabled workflows are in the disabled folder
 
 2. **Verify file structure:**
+
    ```bash
    ls -la .github/workflows/
    ls -la .github/workflows/disabled/
@@ -262,11 +279,13 @@ After disabling workflows in a repository:
 If you need to re-enable workflows in the future:
 
 1. **Move workflows back:**
+
    ```bash
    git mv .github/workflows/disabled/WORKFLOW_NAME.yml .github/workflows/
    ```
 
 2. **Commit and push:**
+
    ```bash
    git add .github/workflows/
    git commit -m "Re-enable WORKFLOW_NAME"
@@ -279,15 +298,15 @@ If you need to re-enable workflows in the future:
 
 ## 📊 Current Status Summary
 
-| Repository | Status | Action Needed |
-|------------|--------|---------------|
-| fix2 | ✅ Complete | None - already disabled |
-| ecosystem2 | ⏳ Pending | Run one of the three options |
-| ecosystem3 | ⏳ Pending | Run one of the three options |
-| ecosystem-5 | ⏳ Pending | Run one of the three options |
-| new-ecosysstem | ⏳ Pending | Run one of the three options |
-| new2 | ⏳ Pending | Run one of the three options |
-| tiny-new | ⏳ Pending | Run one of the three options |
+| Repository     | Status      | Action Needed                |
+| -------------- | ----------- | ---------------------------- |
+| fix2           | ✅ Complete | None - already disabled      |
+| ecosystem2     | ⏳ Pending  | Run one of the three options |
+| ecosystem3     | ⏳ Pending  | Run one of the three options |
+| ecosystem-5    | ⏳ Pending  | Run one of the three options |
+| new-ecosysstem | ⏳ Pending  | Run one of the three options |
+| new2           | ⏳ Pending  | Run one of the three options |
+| tiny-new       | ⏳ Pending  | Run one of the three options |
 
 ---
 
@@ -298,6 +317,7 @@ If you need to re-enable workflows in the future:
 **Problem:** Can't push to repository
 
 **Solution:**
+
 - Verify you have write access to the repository
 - Check GitHub authentication: `gh auth status`
 - Try re-authenticating: `gh auth login`
@@ -307,6 +327,7 @@ If you need to re-enable workflows in the future:
 **Problem:** Can't clone repository
 
 **Solution:**
+
 - Verify repository exists: `gh repo view elevateforhumanity/REPO_NAME`
 - Check repository name spelling
 - Verify you have access to the organization
@@ -316,6 +337,7 @@ If you need to re-enable workflows in the future:
 **Problem:** Repository has no workflows
 
 **Solution:**
+
 - This is fine! Not all repositories have workflows
 - Skip to the next repository
 - Mark as complete in the status table
@@ -325,6 +347,7 @@ If you need to re-enable workflows in the future:
 **Problem:** Scheduled workflow triggered before disabling
 
 **Solution:**
+
 - Wait for the current run to complete
 - Cancel the run manually in GitHub Actions tab
 - Verify the workflow file is in the disabled/ folder

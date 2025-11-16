@@ -9,10 +9,7 @@ export const createCourseValidator = [
     .trim()
     .isLength({ min: 20, max: 5000 })
     .withMessage('Description must be between 20 and 5000 characters'),
-  body('category')
-    .trim()
-    .notEmpty()
-    .withMessage('Category is required'),
+  body('category').trim().notEmpty().withMessage('Category is required'),
   body('level')
     .isIn(['beginner', 'intermediate', 'advanced'])
     .withMessage('Level must be beginner, intermediate, or advanced'),
@@ -30,9 +27,7 @@ export const createCourseValidator = [
 ];
 
 export const updateCourseValidator = [
-  param('id')
-    .isUUID()
-    .withMessage('Invalid course ID'),
+  param('id').isUUID().withMessage('Invalid course ID'),
   body('title')
     .optional()
     .trim()
@@ -67,9 +62,7 @@ export const updateCourseValidator = [
 ];
 
 export const courseIdValidator = [
-  param('id')
-    .isUUID()
-    .withMessage('Invalid course ID'),
+  param('id').isUUID().withMessage('Invalid course ID'),
 ];
 
 export const courseQueryValidator = [
@@ -98,9 +91,7 @@ export const courseQueryValidator = [
 ];
 
 export const createLessonValidator = [
-  param('courseId')
-    .isUUID()
-    .withMessage('Invalid course ID'),
+  param('courseId').isUUID().withMessage('Invalid course ID'),
   body('title')
     .trim()
     .isLength({ min: 3, max: 200 })
@@ -123,9 +114,7 @@ export const createLessonValidator = [
 ];
 
 export const reviewValidator = [
-  param('courseId')
-    .isUUID()
-    .withMessage('Invalid course ID'),
+  param('courseId').isUUID().withMessage('Invalid course ID'),
   body('rating')
     .isInt({ min: 1, max: 5 })
     .withMessage('Rating must be between 1 and 5'),

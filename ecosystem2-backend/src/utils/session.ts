@@ -9,7 +9,11 @@ export class SessionService {
     return `${this.prefix}${sessionId}`;
   }
 
-  async create(sessionId: string, data: any, ttl: number = this.defaultTTL): Promise<boolean> {
+  async create(
+    sessionId: string,
+    data: any,
+    ttl: number = this.defaultTTL
+  ): Promise<boolean> {
     try {
       const key = this.getKey(sessionId);
       await redis.setex(key, ttl, JSON.stringify(data));
@@ -32,11 +36,15 @@ export class SessionService {
     }
   }
 
-  async update(sessionId: string, data: any, ttl: number = this.defaultTTL): Promise<boolean> {
+  async update(
+    sessionId: string,
+    data: any,
+    ttl: number = this.defaultTTL
+  ): Promise<boolean> {
     try {
       const key = this.getKey(sessionId);
       const existing = await this.get(sessionId);
-      
+
       if (!existing) {
         return false;
       }
@@ -74,7 +82,10 @@ export class SessionService {
     }
   }
 
-  async extend(sessionId: string, ttl: number = this.defaultTTL): Promise<boolean> {
+  async extend(
+    sessionId: string,
+    ttl: number = this.defaultTTL
+  ): Promise<boolean> {
     try {
       const key = this.getKey(sessionId);
       await redis.expire(key, ttl);
@@ -90,13 +101,13 @@ export class SessionService {
     try {
       const pattern = `${this.prefix}*:${userId}`;
       const keys = await redis.keys(pattern);
-      
+
       if (keys.length > 0) {
         const deleted = await redis.del(...keys);
         logger.info('All user sessions destroyed', { userId, count: deleted });
         return deleted;
       }
-      
+
       return 0;
     } catch (error) {
       logger.error('Session destroy all error', { userId, error });

@@ -218,7 +218,6 @@ export class ComplianceAutomation {
    * Automatically fix compliance issues
    */
   private async autoFixRule(rule: ComplianceRule): Promise<void> {
-
     switch (rule.id) {
       case 'wcag-aa':
         await this.fixAccessibilityIssues();
@@ -329,17 +328,21 @@ export class ComplianceAutomation {
 
     const banner = document.createElement('div');
     banner.className = 'cookie-consent';
-    banner.style.cssText = 'position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;';
+    banner.style.cssText =
+      'position: fixed; bottom: 0; left: 0; right: 0; background: var(--brand-text); color: white; padding: 1rem; z-index: 9999;';
 
     const container = document.createElement('div');
-    container.style.cssText = 'max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem;';
+    container.style.cssText =
+      'max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem;';
 
     const text = document.createElement('p');
-    text.textContent = 'We use cookies to improve your experience and comply with FERPA, GDPR, and CCPA regulations.';
+    text.textContent =
+      'We use cookies to improve your experience and comply with FERPA, GDPR, and CCPA regulations.';
 
     const button = document.createElement('button');
     button.textContent = 'Accept';
-    button.style.cssText = 'background: var(--brand-info); color: white; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; cursor: pointer;';
+    button.style.cssText =
+      'background: var(--brand-info); color: white; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; cursor: pointer;';
     button.onclick = () => {
       banner.remove();
       try {
@@ -380,8 +383,7 @@ export class ComplianceAutomation {
     for (const source of this.dataSources) {
       try {
         await this.fetchFromSource(source);
-      } catch (error) {
-      }
+      } catch (error) {}
     }
   }
 
@@ -389,7 +391,6 @@ export class ComplianceAutomation {
    * Fetch from individual data source
    */
   private async fetchFromSource(source: ComplianceDataSource): Promise<void> {
-
     // In production, implement actual API calls
     // For now, simulate
     switch (source.type) {

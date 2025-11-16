@@ -1,6 +1,6 @@
 # 🎓 Inject Enrollment Programs - MANUAL STEPS
 
-The Puppeteer automation is failing because  changed their login page.
+The Puppeteer automation is failing because changed their login page.
 
 ## What You'll See After Injection
 

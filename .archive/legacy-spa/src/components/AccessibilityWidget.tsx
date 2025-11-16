@@ -18,12 +18,14 @@ export default function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [settings, setSettings] = useState<AccessibilitySettings>(() => {
     const saved = localStorage.getItem('accessibility-settings');
-    return saved ? JSON.parse(saved) : {
-      fontSize: 'normal',
-      contrast: 'normal',
-      reducedMotion: false,
-      keyboardNav: true,
-    };
+    return saved
+      ? JSON.parse(saved)
+      : {
+          fontSize: 'normal',
+          contrast: 'normal',
+          reducedMotion: false,
+          keyboardNav: true,
+        };
   });
 
   const updateSettings = (newSettings: Partial<AccessibilitySettings>) => {
@@ -35,17 +37,17 @@ export default function AccessibilityWidget() {
 
   const applySettings = (settings: AccessibilitySettings) => {
     const root = document.documentElement;
-    
+
     // Font size
     root.classList.remove('text-normal', 'text-large', 'text-xlarge');
     root.classList.add(`text-${settings.fontSize}`);
-    
+
     // Contrast
     root.classList.toggle('high-contrast', settings.contrast === 'high');
-    
+
     // Reduced motion
     root.classList.toggle('reduce-motion', settings.reducedMotion);
-    
+
     // Keyboard navigation
     root.classList.toggle('keyboard-nav', settings.keyboardNav);
   };
@@ -61,7 +63,6 @@ export default function AccessibilityWidget() {
       >
         <Settings className="w-6 h-6" aria-hidden="true" />
       </button>
-
       {/* Accessibility Panel */}
       {isOpen && (
         <div
@@ -81,7 +82,6 @@ export default function AccessibilityWidget() {
               ✕
             </button>
           </div>
-
           <div className="space-y-4">
             {/* Font Size */}
             <div>
@@ -106,7 +106,6 @@ export default function AccessibilityWidget() {
                 ))}
               </div>
             </div>
-
             {/* Contrast */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
@@ -130,7 +129,6 @@ export default function AccessibilityWidget() {
                 ))}
               </div>
             </div>
-
             {/* Reduced Motion */}
             <div>
               <label className="flex items-center justify-between">
@@ -139,7 +137,9 @@ export default function AccessibilityWidget() {
                   Reduce Motion
                 </span>
                 <button
-                  onClick={() => updateSettings({ reducedMotion: !settings.reducedMotion })}
+                  onClick={() =>
+                    updateSettings({ reducedMotion: !settings.reducedMotion })
+                  }
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     settings.reducedMotion ? 'bg-blue-600' : 'bg-gray-300'
                   }`}
@@ -158,7 +158,6 @@ export default function AccessibilityWidget() {
                 Reduces animations and transitions
               </p>
             </div>
-
             {/* Keyboard Navigation */}
             <div>
               <label className="flex items-center justify-between">
@@ -167,7 +166,9 @@ export default function AccessibilityWidget() {
                   Keyboard Navigation
                 </span>
                 <button
-                  onClick={() => updateSettings({ keyboardNav: !settings.keyboardNav })}
+                  onClick={() =>
+                    updateSettings({ keyboardNav: !settings.keyboardNav })
+                  }
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     settings.keyboardNav ? 'bg-blue-600' : 'bg-gray-300'
                   }`}
@@ -187,7 +188,6 @@ export default function AccessibilityWidget() {
               </p>
             </div>
           </div>
-
           {/* Reset Button */}
           <button
             onClick={() => {
@@ -205,7 +205,6 @@ export default function AccessibilityWidget() {
           </button>
         </div>
       )}
-
       {/* Backdrop */}
       {isOpen && (
         <div

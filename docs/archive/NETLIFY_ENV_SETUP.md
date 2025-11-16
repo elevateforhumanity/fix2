@@ -26,7 +26,6 @@ The following environment variables must be added to Netlify for the build to su
    - **Project URL**: Copy the URL shown under "Project URL" section
      - Format: `https://[project-ref].supabase.co`
      - This will be the value for `NEXT_PUBLIC_SUPABASE_URL`
-   
    - **anon/public key**: Copy the key shown under "Project API keys" → "anon public"
      - This is a long string starting with `eyJ...`
      - This will be the value for `NEXT_PUBLIC_SUPABASE_ANON_KEY`
@@ -51,7 +50,6 @@ The following environment variables must be added to Netlify for the build to su
      - Value: [paste the Project URL from Supabase]
      - Scopes: Select "All" or "Production" and "Deploy previews"
    - Click "Create variable"
-   
    - For the second variable:
      - Key: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
      - Value: [paste the anon public key from Supabase]
@@ -66,6 +64,7 @@ The following environment variables must be added to Netlify for the build to su
 ### Verification
 
 After adding the variables and triggering a new deploy:
+
 - The build should complete successfully
 - Check the deploy logs to confirm no Supabase client errors
 - The site should be able to connect to Supabase at runtime
@@ -79,6 +78,7 @@ After adding the variables and triggering a new deploy:
 ### Troubleshooting
 
 If the build still fails after adding variables:
+
 1. Verify the variable names are exactly: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 2. Check that there are no extra spaces in the values
 3. Ensure the variables are set for the correct scopes (Production + Deploy previews)

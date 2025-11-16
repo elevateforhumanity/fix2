@@ -16,7 +16,11 @@ class EmailService {
   }
 
   private initialize() {
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASSWORD
+    ) {
       logger.warn('Email service not configured. Emails will not be sent.');
       return;
     }
@@ -36,7 +40,9 @@ class EmailService {
 
   async send(options: EmailOptions): Promise<boolean> {
     if (!this.transporter) {
-      logger.warn('Email service not configured. Email not sent.', { to: options.to });
+      logger.warn('Email service not configured. Email not sent.', {
+        to: options.to,
+      });
       return false;
     }
 
@@ -49,7 +55,10 @@ class EmailService {
         text: options.text,
       });
 
-      logger.info('Email sent successfully', { to: options.to, subject: options.subject });
+      logger.info('Email sent successfully', {
+        to: options.to,
+        subject: options.subject,
+      });
       return true;
     } catch (error) {
       logger.error('Email send error', { to: options.to, error });
@@ -108,9 +117,13 @@ class EmailService {
     });
   }
 
-  async sendPasswordResetEmail(to: string, name: string, resetToken: string): Promise<boolean> {
+  async sendPasswordResetEmail(
+    to: string,
+    name: string,
+    resetToken: string
+  ): Promise<boolean> {
     const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
-    
+
     const html = `
       <!DOCTYPE html>
       <html>
@@ -154,7 +167,11 @@ class EmailService {
     });
   }
 
-  async sendCourseEnrollmentEmail(to: string, name: string, courseTitle: string): Promise<boolean> {
+  async sendCourseEnrollmentEmail(
+    to: string,
+    name: string,
+    courseTitle: string
+  ): Promise<boolean> {
     const html = `
       <!DOCTYPE html>
       <html>
@@ -194,7 +211,12 @@ class EmailService {
     });
   }
 
-  async sendCertificateEmail(to: string, name: string, courseTitle: string, certificateUrl: string): Promise<boolean> {
+  async sendCertificateEmail(
+    to: string,
+    name: string,
+    courseTitle: string,
+    certificateUrl: string
+  ): Promise<boolean> {
     const html = `
       <!DOCTYPE html>
       <html>

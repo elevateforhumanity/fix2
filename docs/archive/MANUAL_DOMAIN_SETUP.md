@@ -1,4 +1,5 @@
 # MANUAL DOMAIN SETUP - KEEP SEPARATE
+
 **Status:** Ready for you to add domain manually
 **Approach:** Keep everything separate and independent
 
@@ -7,6 +8,7 @@
 ## ✅ CURRENT STATUS
 
 ### What's Done:
+
 - ✅ Repository cleaned (200+ files removed)
 - ✅ Tailwind CSS fixed and working
 - ✅ New build deployed to Netlify
@@ -14,6 +16,7 @@
 - ✅ elevateconnectsdirectory.org DNS pointing to Netlify
 
 ### What's Left:
+
 - ⏳ Add elevateconnectsdirectory.org to Netlify (manual)
 - ⏳ Wait for SSL certificate
 - ⏳ Test the site
@@ -33,6 +36,7 @@
 **Click:** "Verify"
 
 **Netlify will:**
+
 - Check DNS records
 - Confirm they're correct
 - Show "DNS configured correctly" ✅
@@ -42,17 +46,20 @@
 ### Step 2: Wait for SSL (5-10 minutes)
 
 **Netlify will automatically:**
+
 - Request SSL certificate from Let's Encrypt
 - Verify domain ownership
 - Install certificate
 - Enable HTTPS
 
 **You'll see:**
+
 ```
 ⏳ Provisioning SSL certificate...
 ```
 
 **Then:**
+
 ```
 ✅ SSL certificate active
 ```
@@ -66,12 +73,14 @@
 **Visit:** https://www.elevateconnectsdirectory.org
 
 **Should show:**
+
 - ✅ Your LMS
 - ✅ Fully styled (Tailwind CSS)
 - ✅ SSL padlock (🔒)
 - ✅ All features working
 
 **Also test:**
+
 - https://www.elevateconnectsdirectory.org
 - Should redirect to apex domain
 
@@ -103,6 +112,7 @@ CONNECTION
 ## 📊 TWO SEPARATE SYSTEMS
 
 ### elevateforhumanity.org:
+
 ```
 Registrar: Durable.co
 DNS: Managed by Durable
@@ -112,6 +122,7 @@ Control: Durable dashboard
 ```
 
 ### elevateconnectsdirectory.org:
+
 ```
 Registrar: Durable.co (domain only)
 DNS: Points to Netlify
@@ -141,10 +152,12 @@ Total:      ~10-15 minutes
 **Go to:** https://dnschecker.org
 
 **Check elevateforhumanity.org:**
+
 - Should show: Durable IP (NOT 75.2.60.5)
 - Status: Points to Durable ✅
 
 **Check elevateconnectsdirectory.org:**
+
 - Should show: 75.2.60.5 (Netlify)
 - Status: Points to Netlify ✅
 
@@ -155,17 +168,20 @@ Total:      ~10-15 minutes
 ### You'll know it's working when:
 
 **elevateforhumanity.org:**
+
 - ✅ Shows Durable marketing site
 - ✅ Has SSL (🔒)
 - ✅ Completely independent
 
 **elevateconnectsdirectory.org:**
+
 - ✅ Shows Netlify LMS
 - ✅ Fully styled with Tailwind
 - ✅ Has SSL (🔒)
 - ✅ Completely independent
 
 **Both:**
+
 - ✅ Work independently
 - ✅ No dependencies
 - ✅ Can be updated separately
@@ -196,10 +212,9 @@ https://durable.co/login
 **On Durable site (elevateforhumanity.org):**
 
 Add a button or link:
+
 ```html
-<a href="https://www.elevateconnectsdirectory.org">
-  Access Student Portal
-</a>
+<a href="https://www.elevateconnectsdirectory.org"> Access Student Portal </a>
 ```
 
 **That's it!** Simple link, no technical connection needed.
@@ -209,6 +224,7 @@ Add a button or link:
 ## 🎉 WHAT YOU'VE ACCOMPLISHED
 
 ### Repository:
+
 - ✅ 200+ files cleaned
 - ✅ All old platforms removed
 - ✅ Single deployment platform (Netlify)
@@ -216,12 +232,14 @@ Add a button or link:
 - ✅ Production ready
 
 ### Domains:
+
 - ✅ elevateforhumanity.org on Durable (separate)
 - ✅ elevateconnectsdirectory.org ready for Netlify
 - ✅ DNS configured correctly
 - ✅ No confusion
 
 ### Deployment:
+
 - ✅ Clean build deployed
 - ✅ Styling fixed
 - ✅ SSL ready to provision
@@ -257,8 +275,8 @@ Add a button or link:
 
 **STATUS:** ✅ Ready for you to add domain manually  
 **TIME:** ~10-15 minutes total  
-**RESULT:** Two independent sites, zero confusion  
+**RESULT:** Two independent sites, zero confusion
 
 ---
 
-*Everything is ready. Just add the domain in Netlify and you're done!*
+_Everything is ready. Just add the domain in Netlify and you're done!_

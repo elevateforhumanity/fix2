@@ -32,20 +32,22 @@ export async function uploadVideo(file: File, metadata: Partial<Video>) {
   if (uploadError) throw uploadError;
 
   // Get public URL
-  const { data: { publicUrl } } = supabase.storage
-    .from('videos')
-    .getPublicUrl(filePath);
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from('videos').getPublicUrl(filePath);
 
   // Create video record
   const { data, error } = await supabase
     .from('videos')
-    .insert([{
-      ...metadata,
-      filename: fileName,
-      url: publicUrl,
-      size_bytes: file.size,
-      status: 'processing'
-    }])
+    .insert([
+      {
+        ...metadata,
+        filename: fileName,
+        url: publicUrl,
+        size_bytes: file.size,
+        status: 'processing',
+      },
+    ])
     .select()
     .single();
 
@@ -53,14 +55,19 @@ export async function uploadVideo(file: File, metadata: Partial<Video>) {
   return data;
 }
 
-export async function createVideoFromURL(url: string, metadata: Partial<Video>) {
+export async function createVideoFromURL(
+  url: string,
+  metadata: Partial<Video>
+) {
   const { data, error } = await supabase
     .from('videos')
-    .insert([{
-      ...metadata,
-      url,
-      status: 'ready'
-    }])
+    .insert([
+      {
+        ...metadata,
+        url,
+        status: 'ready',
+      },
+    ])
     .select()
     .single();
 
@@ -104,24 +111,21 @@ export async function updateVideo(id: string, updates: Partial<Video>) {
 export async function deleteVideo(id: string) {
   // Get video to find file path
   const video = await getVideo(id);
-  
+
   // Delete file from storage if it exists
   if (video.filename) {
-    await supabase.storage
-      .from('videos')
-      .remove([`videos/${video.filename}`]);
+    await supabase.storage.from('videos').remove([`videos/${video.filename}`]);
   }
 
   // Delete record
-  const { error } = await supabase
-    .from('videos')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('videos').delete().eq('id', id);
 
   if (error) throw error;
 }
 
 export async function incrementVideoViews(id: string) {
-  const { error } = await supabase.rpc('increment_video_views', { video_id: id });
+  const { error } = await supabase.rpc('increment_video_views', {
+    video_id: id,
+  });
   if (error) console.error('Error incrementing views:', error);
 }

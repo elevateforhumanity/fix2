@@ -1,11 +1,23 @@
-"use client"
+'use client';
 
 'use client';
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, Clock, FileText, Download, AlertCircle } from 'lucide-react';
+import {
+  CheckCircle2,
+  Clock,
+  FileText,
+  Download,
+  AlertCircle,
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { MOUStatusBadge, MOUStatusAlert } from '@/components/MOUStatusBadge';
 
@@ -44,7 +56,10 @@ export default function ProgramHolderDashboard() {
   const getStatusBadge = (status: string) => {
     const variants: Record<string, { className: string; icon: any }> = {
       pending: { className: 'elevate-pill elevate-pill--warning', icon: Clock },
-      approved: { className: 'elevate-pill elevate-pill--success', icon: CheckCircle2 },
+      approved: {
+        className: 'elevate-pill elevate-pill--success',
+        icon: CheckCircle2,
+      },
       inactive: { className: 'elevate-pill', icon: AlertCircle },
     };
     const variant = variants[status] || variants.pending;
@@ -64,9 +79,12 @@ export default function ProgramHolderDashboard() {
       signed: 'bg-green-100 text-green-800',
     };
     return (
-      <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm ${colors[mouStatus] || colors.not_sent}`}>
+      <span
+        className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm ${colors[mouStatus] || colors.not_sent}`}
+      >
         <FileText className="h-4 w-4" />
-        {mouStatus.replace('_', ' ').charAt(0).toUpperCase() + mouStatus.replace('_', ' ').slice(1)}
+        {mouStatus.replace('_', ' ').charAt(0).toUpperCase() +
+          mouStatus.replace('_', ' ').slice(1)}
       </span>
     );
   };
@@ -75,7 +93,7 @@ export default function ProgramHolderDashboard() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4" />
           <p className="text-muted-foreground">Loading your dashboard...</p>
         </div>
       </div>
@@ -111,10 +129,30 @@ export default function ProgramHolderDashboard() {
           <span>Elevate for Humanity</span>
         </div>
         <nav className="flex gap-6 items-center">
-          <a href="/program-holder/dashboard" className="text-red-600 font-semibold">Dashboard</a>
-          <a href="/program-holder/cases" className="text-gray-700 hover:text-red-600 font-medium">Cases</a>
-          <a href="/program-holder/mou" className="text-gray-700 hover:text-red-600 font-medium">MOU</a>
-          <a href="/program-holder/reports" className="text-gray-700 hover:text-red-600 font-medium">Reports</a>
+          <a
+            href="/program-holder/dashboard"
+            className="text-red-600 font-semibold"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/program-holder/cases"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
+            Cases
+          </a>
+          <a
+            href="/program-holder/mou"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
+            MOU
+          </a>
+          <a
+            href="/program-holder/reports"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
+            Reports
+          </a>
         </nav>
         <div className="flex gap-3 items-center">
           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold">
@@ -122,20 +160,20 @@ export default function ProgramHolderDashboard() {
           </div>
         </div>
       </header>
-
       {/* Hero Section */}
       <section className="elevate-hero">
         <div className="elevate-hero-content">
           <div className="elevate-hero-kicker">Training Provider Portal</div>
-          <h1 className="elevate-hero-title">Welcome back, {data.contact_name || 'Training Provider'}</h1>
+          <h1 className="elevate-hero-title">
+            Welcome back, {data.contact_name || 'Training Provider'}
+          </h1>
           <p className="elevate-hero-subtitle">
-            Manage your training programs and track your partnership with Elevate for Humanity
+            Manage your training programs and track your partnership with
+            Elevate for Humanity
           </p>
         </div>
       </section>
-
       <main className="elevate-container py-8">
-
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-5">
           {/* Status Card */}
           <div className="elevate-card">
@@ -153,7 +191,6 @@ export default function ProgramHolderDashboard() {
               </div>
             </div>
           </div>
-
           {/* Revenue Share Card */}
           <div className="elevate-card">
             <div className="elevate-card-header">
@@ -171,7 +208,6 @@ export default function ProgramHolderDashboard() {
               </p>
             </div>
           </div>
-
           {/* MOU Status Card */}
           <div className="elevate-card">
             <div className="elevate-card-header">
@@ -189,7 +225,7 @@ export default function ProgramHolderDashboard() {
                     {new Date(data.mou_signed_at).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
-                      day: 'numeric'
+                      day: 'numeric',
                     })}
                   </p>
                 </div>
@@ -197,12 +233,13 @@ export default function ProgramHolderDashboard() {
             </div>
           </div>
         </div>
-
         {/* MOU Action Card */}
         <div className="elevate-card">
           <div className="elevate-card-header mb-3">
             <div>
-              <h2 className="elevate-card-title">Memorandum of Understanding (MOU)</h2>
+              <h2 className="elevate-card-title">
+                Memorandum of Understanding (MOU)
+              </h2>
               <p className="elevate-card-subtitle mt-1">
                 Your legal agreement with Elevate for Humanity
               </p>
@@ -211,26 +248,46 @@ export default function ProgramHolderDashboard() {
           <div>
             {data.mou_status === 'fully_executed' ? (
               <div className="space-y-4">
-                <MOUStatusAlert status={data.mou_status} programHolderName={data.program_holder_name} />
+                <MOUStatusAlert
+                  status={data.mou_status}
+                  programHolderName={data.program_holder_name}
+                />
                 <div className="flex gap-3">
-                  <a href="/api/program-holder/mou/download" target="_blank" className="elevate-btn-secondary">
+                  <a
+                    href="/api/program-holder/mou/download"
+                    target="_blank"
+                    className="elevate-btn-secondary"
+                  >
                     <Download className="h-4 w-4" />
                     Download Signed MOU
                   </a>
-                  <button onClick={() => router.push('/program-holder/cases')} className="elevate-btn-primary">
+                  <button
+                    onClick={() => router.push('/program-holder/cases')}
+                    className="elevate-btn-primary"
+                  >
                     View Participant Cases
                   </button>
                 </div>
               </div>
             ) : (
               <div className="space-y-4">
-                <MOUStatusAlert status={data.mou_status} programHolderName={data.program_holder_name} />
+                <MOUStatusAlert
+                  status={data.mou_status}
+                  programHolderName={data.program_holder_name}
+                />
                 <div className="flex gap-3">
-                  <a href="/api/program-holder/mou-pdf" target="_blank" className="elevate-btn-secondary">
+                  <a
+                    href="/api/program-holder/mou-pdf"
+                    target="_blank"
+                    className="elevate-btn-secondary"
+                  >
                     <Download className="h-4 w-4" />
                     Download MOU (Preview)
                   </a>
-                  <button onClick={() => router.push('/program-holder/mou')} className="elevate-btn-primary">
+                  <button
+                    onClick={() => router.push('/program-holder/mou')}
+                    className="elevate-btn-primary"
+                  >
                     <FileText className="h-4 w-4" />
                     Sign MOU Now
                   </button>
@@ -239,34 +296,48 @@ export default function ProgramHolderDashboard() {
             )}
           </div>
         </div>
-
         {/* Quick Links */}
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <div className="elevate-card hover:border-orange-500/50 transition-all cursor-pointer" onClick={() => router.push('/program-holder/cases')}>
+          <div
+            className="elevate-card hover:border-orange-500/50 transition-all cursor-pointer"
+            onClick={() => router.push('/program-holder/cases')}
+          >
             <div className="text-center">
               <FileText className="h-7 w-7 mx-auto mb-2 text-orange-500" />
               <p className="font-medium">Participant Cases</p>
-              <p className="text-xs text-slate-400 mt-1">Manage training cases</p>
+              <p className="text-xs text-slate-400 mt-1">
+                Manage training cases
+              </p>
             </div>
           </div>
-
-          <div className="elevate-card hover:border-green-500/50 transition-all cursor-pointer" onClick={() => router.push('/program-holder/certificates')}>
+          <div
+            className="elevate-card hover:border-green-500/50 transition-all cursor-pointer"
+            onClick={() => router.push('/program-holder/certificates')}
+          >
             <div className="text-center">
               <CheckCircle2 className="h-7 w-7 mx-auto mb-2 text-green-500" />
               <p className="font-medium">Certificates</p>
-              <p className="text-xs text-slate-400 mt-1">Issue completion certificates</p>
+              <p className="text-xs text-slate-400 mt-1">
+                Issue completion certificates
+              </p>
             </div>
           </div>
-
-          <div className="elevate-card hover:border-blue-500/50 transition-all cursor-pointer" onClick={() => router.push('/program-holder/reports')}>
+          <div
+            className="elevate-card hover:border-blue-500/50 transition-all cursor-pointer"
+            onClick={() => router.push('/program-holder/reports')}
+          >
             <div className="text-center">
               <FileText className="h-7 w-7 mx-auto mb-2 text-blue-500" />
               <p className="font-medium">Reports</p>
-                <p className="text-xs text-slate-400 mt-1">View performance reports</p>
+              <p className="text-xs text-slate-400 mt-1">
+                View performance reports
+              </p>
             </div>
           </div>
-
-          <div className="elevate-card hover:border-purple-500/50 transition-all cursor-pointer" onClick={() => router.push('/program-holder/settings')}>
+          <div
+            className="elevate-card hover:border-purple-500/50 transition-all cursor-pointer"
+            onClick={() => router.push('/program-holder/settings')}
+          >
             <div className="text-center">
               <AlertCircle className="h-7 w-7 mx-auto mb-2 text-purple-500" />
               <p className="font-medium">Settings</p>

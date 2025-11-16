@@ -5,6 +5,7 @@ This directory contains load testing scripts using k6 for performance testing.
 ## Prerequisites
 
 Install k6:
+
 ```bash
 # macOS
 brew install k6
@@ -23,53 +24,65 @@ choco install k6
 ## Test Scripts
 
 ### 1. Basic Load Test (`basic-load.js`)
+
 Tests normal user load with gradual ramp-up.
 
 **Run:**
+
 ```bash
 k6 run tests/load/basic-load.js
 ```
 
 **Configuration:**
+
 - Ramps up to 50 concurrent users
 - Tests homepage, programs, and about pages
 - Thresholds: 95% requests < 500ms, <10% error rate
 
 ### 2. API Load Test (`api-load.js`)
+
 Tests API endpoints under load.
 
 **Run:**
+
 ```bash
 k6 run tests/load/api-load.js
 ```
 
 **Configuration:**
+
 - Ramps up to 100 concurrent users
 - Tests authentication, course listing, and profile endpoints
 - Thresholds: 99% requests < 1s, <5% error rate
 
 ### 3. Stress Test (`stress-test.js`)
+
 Pushes system to limits to find breaking point.
 
 **Run:**
+
 ```bash
 k6 run tests/load/stress-test.js
 ```
 
 **Configuration:**
+
 - Ramps up to 300 concurrent users
 - Tests all major pages
 - Thresholds: 99% requests < 2s, <20% error rate
 
 ### 4. Spike Test (`spike-test.js`)
+
 Tests sudden traffic surge handling.
 
 **Run:**
+
 ```bash
 k6 run tests/load/spike-test.js
 ```
 
 **Configuration:**
+
 - Sudden spike from 10 to 500 users
 - Tests homepage resilience
 - Thresholds: 95% requests < 3s, <30% error rate
@@ -77,11 +90,13 @@ k6 run tests/load/spike-test.js
 ## Custom Configuration
 
 Set custom base URL:
+
 ```bash
 k6 run -e BASE_URL=https://elevateforhumanity.org tests/load/basic-load.js
 ```
 
 Set custom API URL:
+
 ```bash
 k6 run -e API_URL=https://api.elevateforhumanity.org tests/load/api-load.js
 ```
@@ -89,6 +104,7 @@ k6 run -e API_URL=https://api.elevateforhumanity.org tests/load/api-load.js
 ## Results
 
 Test results are saved to:
+
 - `load-test-results.json` - Basic load test
 - `api-load-test-results.json` - API load test
 - `api-load-test-results.html` - API load test HTML report
@@ -115,17 +131,20 @@ Test results are saved to:
 ### Success Criteria
 
 ✅ **Production Ready:**
+
 - p(95) < 500ms for page loads
 - p(99) < 1s for API calls
 - Error rate < 5%
 - Handles 100+ concurrent users
 
 ⚠️ **Needs Optimization:**
+
 - p(95) > 1s
 - Error rate 5-10%
 - Struggles with 50+ concurrent users
 
 ❌ **Not Ready:**
+
 - p(95) > 2s
 - Error rate > 10%
 - Fails with < 50 concurrent users
@@ -133,6 +152,7 @@ Test results are saved to:
 ## CI/CD Integration
 
 Add to GitHub Actions:
+
 ```yaml
 - name: Run Load Tests
   run: |
@@ -143,6 +163,7 @@ Add to GitHub Actions:
 ## Monitoring
 
 During load tests, monitor:
+
 - CPU usage
 - Memory usage
 - Network bandwidth
@@ -162,17 +183,20 @@ During load tests, monitor:
 ## Troubleshooting
 
 **High Error Rates:**
+
 - Check server logs
 - Verify API endpoints are accessible
 - Ensure database can handle connections
 
 **Slow Response Times:**
+
 - Check database query performance
 - Review API endpoint efficiency
 - Consider caching strategies
 - Optimize frontend bundle size
 
 **Connection Timeouts:**
+
 - Increase timeout thresholds
 - Check network configuration
 - Verify server capacity

@@ -77,7 +77,13 @@
       "instruction": "Compare environment variables across all projects to identify differences",
       "details": {
         "create_comparison_table": {
-          "columns": ["Variable Name", "fix2-1c7w", "fix2-8mig", "fix2-i3z8", "Other Projects"],
+          "columns": [
+            "Variable Name",
+            "fix2-1c7w",
+            "fix2-8mig",
+            "fix2-i3z8",
+            "Other Projects"
+          ],
           "rows": "One row per unique variable found",
           "mark_differences": "Highlight where values differ or variables are missing"
         },
@@ -326,9 +332,7 @@
       "Document the deletion in the plan",
       "Double-check it's not the correct project"
     ],
-    "never_delete": [
-      "fix2-1c7w - This is the correct project"
-    ]
+    "never_delete": ["fix2-1c7w - This is the correct project"]
   },
   "expected_deletions": [
     "fix2-8mig - Deploying old code with deprecation warnings",

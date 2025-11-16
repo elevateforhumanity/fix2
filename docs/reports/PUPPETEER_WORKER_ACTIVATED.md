@@ -14,7 +14,7 @@ Your Puppeteer worker will now **AUTOMATICALLY** integrate the bridge with !
 
 I've created a **Puppeteer automation worker** that will:
 
-1. ✅ Log into your  account automatically
+1. ✅ Log into your account automatically
 2. ✅ Navigate to site settings
 3. ✅ Find the Custom Code section
 4. ✅ Add the bridge script to the head section
@@ -33,7 +33,7 @@ I've created a **Puppeteer automation worker** that will:
 
 The Puppeteer worker is a headless browser automation that:
 
-- **Logs in** to  using your credentials
+- **Logs in** to using your credentials
 - **Navigates** through the Durable dashboard
 - **Finds** the Custom Code section
 - **Adds** the bridge script automatically
@@ -71,13 +71,13 @@ DURABLE_PASSWORD=your-durable-password
 ### Step 2: Add DURABLE_EMAIL
 
 - **Name:** `DURABLE_EMAIL`
-- **Value:** Your  email address
+- **Value:** Your email address
 - Click "Add secret"
 
 ### Step 3: Add DURABLE_PASSWORD
 
 - **Name:** `DURABLE_PASSWORD`
-- **Value:** Your  password
+- **Value:** Your password
 - Click "Add secret"
 
 ### Step 4: Done!
@@ -152,7 +152,7 @@ Master Orchestrator
   └─ Triggers Puppeteer Durable Worker ⭐ NEW
       ↓
 Puppeteer Worker (Every 6 hours)
-  ├─ Logs into 
+  ├─ Logs into
   ├─ Navigates to settings
   ├─ Adds bridge script
   ├─ Saves changes
@@ -172,7 +172,7 @@ Bridge is integrated automatically!
 ### Immediate (Within 6 hours)
 
 1. ✅ Puppeteer worker runs automatically
-2. ✅ Logs into your  account
+2. ✅ Logs into your account
 3. ✅ Adds bridge script to head section
 4. ✅ Saves changes
 5. ✅ Verifies integration
@@ -206,7 +206,7 @@ Bridge is integrated automatically!
 
 This is the automation script that:
 
-- Logs into 
+- Logs into
 - Navigates the dashboard
 - Adds bridge code
 - Verifies integration
@@ -409,7 +409,7 @@ Contains the exact code to copy-paste.
 
 The Puppeteer worker uses a headless Chrome browser to:
 
-1. **Navigate** to  like a human would
+1. **Navigate** to like a human would
 2. **Fill in** login form with your credentials
 3. **Click** through the dashboard
 4. **Find** the Custom Code section

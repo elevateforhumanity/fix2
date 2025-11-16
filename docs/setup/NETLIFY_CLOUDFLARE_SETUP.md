@@ -388,7 +388,7 @@ export async function handler(event) {
 
 ### Step 1: Point Domain to Cloudflare
 
-**In  DNS:**
+**In DNS:**
 
 ```
 Change nameservers to Cloudflare:

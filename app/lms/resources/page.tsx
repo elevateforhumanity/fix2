@@ -1,16 +1,22 @@
-"use client"
+'use client';
 
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import LMSNav from '@/components/lms/LMSNav';
-import { 
+import {
   FileText,
   Download,
   Search,
@@ -19,7 +25,7 @@ import {
   Image,
   Archive,
   BookOpen,
-  ExternalLink
+  ExternalLink,
 } from 'lucide-react';
 
 // Mock resources data
@@ -38,7 +44,8 @@ const resources = [
   {
     id: 2,
     title: 'Hair Cutting Techniques Video Tutorial',
-    description: 'Step-by-step video demonstrations of advanced cutting techniques',
+    description:
+      'Step-by-step video demonstrations of advanced cutting techniques',
     type: 'video',
     size: '156 MB',
     course: 'Barber Fundamentals',
@@ -147,9 +154,12 @@ const getFileTypeBadge = (type: string) => {
     image: 'bg-blue-100 text-blue-700 border-blue-200',
     zip: 'bg-yellow-100 text-yellow-700 border-yellow-200',
   };
-  
+
   return (
-    <Badge variant="outline" className={colors[type] || 'bg-gray-100 text-gray-700 border-gray-200'}>
+    <Badge
+      variant="outline"
+      className={colors[type] || 'bg-gray-100 text-gray-700 border-gray-200'}
+    >
       {type.toUpperCase()}
     </Badge>
   );
@@ -159,16 +169,17 @@ export default function ResourcesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourse, setSelectedCourse] = useState<string>('all');
 
-  const courses = Array.from(new Set(resources.map(r => r.course)));
+  const courses = Array.from(new Set(resources.map((r) => r.course)));
 
-  const filteredResources = resources.filter(resource => {
-    const matchesSearch = 
+  const filteredResources = resources.filter((resource) => {
+    const matchesSearch =
       resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       resource.course.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesCourse = selectedCourse === 'all' || resource.course === selectedCourse;
-    
+
+    const matchesCourse =
+      selectedCourse === 'all' || resource.course === selectedCourse;
+
     return matchesSearch && matchesCourse;
   });
 
@@ -179,21 +190,22 @@ export default function ResourcesPage() {
   return (
     <div className="min-h-screen bg-background">
       <LMSNav />
-
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Course Resources</h1>
           <p className="text-muted-foreground">
-            Access and download course materials, handbooks, and supplementary resources
+            Access and download course materials, handbooks, and supplementary
+            resources
           </p>
         </div>
-
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-3 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Resources</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Total Resources
+              </CardTitle>
               <BookOpen className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -203,22 +215,20 @@ export default function ResourcesPage() {
               </p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Total Downloads
+              </CardTitle>
               <Download className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {resources.reduce((sum, r) => sum + r.downloads, 0)}
               </div>
-              <p className="text-xs text-muted-foreground">
-                By all students
-              </p>
+              <p className="text-xs text-muted-foreground">By all students</p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">File Types</CardTitle>
@@ -226,15 +236,12 @@ export default function ResourcesPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {new Set(resources.map(r => r.type)).size}
+                {new Set(resources.map((r) => r.type)).size}
               </div>
-              <p className="text-xs text-muted-foreground">
-                Different formats
-              </p>
+              <p className="text-xs text-muted-foreground">Different formats</p>
             </CardContent>
           </Card>
         </div>
-
         {/* Search and Filter */}
         <div className="mb-6 space-y-4">
           <div className="relative">
@@ -246,11 +253,10 @@ export default function ResourcesPage() {
               className="pl-10"
             />
           </div>
-
           <Tabs value={selectedCourse} onValueChange={setSelectedCourse}>
             <TabsList>
               <TabsTrigger value="all">All Courses</TabsTrigger>
-              {courses.map(course => (
+              {courses.map((course) => (
                 <TabsTrigger key={course} value={course}>
                   {course}
                 </TabsTrigger>
@@ -258,12 +264,14 @@ export default function ResourcesPage() {
             </TabsList>
           </Tabs>
         </div>
-
         {/* Resources Grid */}
         {filteredResources.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredResources.map((resource) => (
-              <Card key={resource.id} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={resource.id}
+                className="hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-3">
                     <div className="p-3 bg-secondary rounded-lg">
@@ -278,7 +286,7 @@ export default function ResourcesPage() {
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center justify-between">
                       <span>Course:</span>
-                      <Link 
+                      <Link
                         href={`/lms/courses/${resource.courseId}`}
                         className="text-primary hover:underline"
                       >
@@ -295,11 +303,12 @@ export default function ResourcesPage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Uploaded:</span>
-                      <span>{new Date(resource.uploadedDate).toLocaleDateString()}</span>
+                      <span>
+                        {new Date(resource.uploadedDate).toLocaleDateString()}
+                      </span>
                     </div>
                   </div>
-
-                  <Button 
+                  <Button
                     onClick={() => handleDownload(resource.id)}
                     className="w-full"
                   >
@@ -316,14 +325,13 @@ export default function ResourcesPage() {
               <FileText className="h-16 w-16 mx-auto mb-4 text-muted-foreground opacity-50" />
               <h3 className="text-lg font-semibold mb-2">No resources found</h3>
               <p className="text-muted-foreground">
-                {searchQuery 
+                {searchQuery
                   ? 'Try adjusting your search terms'
                   : 'No resources available for this course yet'}
               </p>
             </CardContent>
           </Card>
         )}
-
         {/* Help Section */}
         <Card className="mt-8">
           <CardHeader>
@@ -331,7 +339,8 @@ export default function ResourcesPage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground mb-4">
-              If you're having trouble accessing or downloading resources, please contact your instructor or visit our help center.
+              If you're having trouble accessing or downloading resources,
+              please contact your instructor or visit our help center.
             </p>
             <div className="flex gap-3">
               <Button variant="outline" asChild>
@@ -341,9 +350,7 @@ export default function ResourcesPage() {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/lms/support">
-                  Contact Support
-                </Link>
+                <Link href="/lms/support">Contact Support</Link>
               </Button>
             </div>
           </CardContent>

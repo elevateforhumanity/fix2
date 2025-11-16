@@ -5,19 +5,15 @@
 - [x] Ship finished HTML with SSR/SSG (no endless skeletons)
   - ✅ Using Next.js static export with generateStaticParams
   - ✅ 18 pages pre-rendered at build time
-  
 - [x] Strong SEO for state/funding keywords
   - ✅ Metadata in app/layout.tsx
   - ✅ Per-page metadata in each page.tsx
-  
 - [x] Clean repo: no SPA remnants, no duplicate configs
   - ✅ All Vite configs removed
   - ✅ All SPA pages deleted
-  
 - [x] Gradual TypeScript adoption
   - ✅ allowJs: true in tsconfig.json
   - ✅ Can convert page-by-page
-  
 - [x] First-class adapters for Netlify + Cloudflare + Supabase + Stripe
   - ✅ Netlify config updated
   - ⚠️ Supabase server client - NOT YET CREATED
@@ -42,7 +38,8 @@ git checkout -b chore/next-migration
 ### Files to check:
 
 **SPA Files Check:**
-- [x] vite.config.* - DELETED ✅
+
+- [x] vite.config.\* - DELETED ✅
 - [x] vite-env.d.ts - DELETED ✅
 - [x] index.html (root) - DELETED ✅
 - [x] service-worker.js - NOT FOUND ✅
@@ -70,6 +67,7 @@ git checkout -b chore/next-migration
 **Check package.json scripts:**
 
 **Core scripts check:**
+
 - [x] "dev": "next dev" ✅
 - [x] "build": "next build" ✅
 - [x] "start": "next start" - ⚠️ MISSING

@@ -11,7 +11,9 @@ const AccessibilityContext = createContext();
 export const useAccessibility = () => {
   const context = useContext(AccessibilityContext);
   if (!context) {
-    throw new Error('useAccessibility must be used within an AccessibilityProvider');
+    throw new Error(
+      'useAccessibility must be used within an AccessibilityProvider'
+    );
   }
   return context;
 };
@@ -23,7 +25,7 @@ export const AccessibilityProvider = ({ children }) => {
     reducedMotion: false,
     screenReaderMode: false,
     keyboardNavigation: true,
-    focusVisible: true
+    focusVisible: true,
   });
 
   const [announcements, setAnnouncements] = useState([]);
@@ -40,14 +42,18 @@ export const AccessibilityProvider = ({ children }) => {
     }
 
     // Detect user preferences
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const prefersHighContrast = window.matchMedia('(prefers-contrast: high)').matches;
-    
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+    const prefersHighContrast = window.matchMedia(
+      '(prefers-contrast: high)'
+    ).matches;
+
     if (prefersReducedMotion || prefersHighContrast) {
-      setSettings(prev => ({
+      setSettings((prev) => ({
         ...prev,
         reducedMotion: prefersReducedMotion,
-        highContrast: prefersHighContrast
+        highContrast: prefersHighContrast,
       }));
     }
   }, []);
@@ -58,7 +64,7 @@ export const AccessibilityProvider = ({ children }) => {
 
     // Apply CSS classes based on settings
     const body = document.body;
-    
+
     if (settings.highContrast) {
       body.classList.add('high-contrast');
     } else {
@@ -85,26 +91,27 @@ export const AccessibilityProvider = ({ children }) => {
   }, [settings]);
 
   const updateSetting = (key, value) => {
-    setSettings(prev => ({
+    setSettings((prev) => ({
       ...prev,
-      [key]: value
+      [key]: value,
     }));
   };
 
   const announce = (message, priority = 'polite') => {
     const id = Date.now();
     const announcement = { id, message, priority };
-    
-    setAnnouncements(prev => [...prev, announcement]);
-    
+
+    setAnnouncements((prev) => [...prev, announcement]);
+
     // Remove announcement after it's been read
     setTimeout(() => {
-      setAnnouncements(prev => prev.filter(a => a.id !== id));
+      setAnnouncements((prev) => prev.filter((a) => a.id !== id));
     }, 3000);
   };
 
   const skipToContent = () => {
-    const mainContent = document.getElementById('main-content') || document.querySelector('main');
+    const mainContent =
+      document.getElementById('main-content') || document.querySelector('main');
     if (mainContent) {
       mainContent.focus();
       mainContent.scrollIntoView();
@@ -116,50 +123,47 @@ export const AccessibilityProvider = ({ children }) => {
     updateSetting,
     announce,
     skipToContent,
-    announcements
+    announcements,
   };
 
   return (
     <AccessibilityContext.Provider value={value}>
       {children}
-      
       {/* Screen reader announcements */}
-      <div 
-        aria-live="polite" 
-        aria-atomic="true" 
-        style={{ 
-          position: 'absolute', 
-          left: '-10000px', 
-          width: '1px', 
-          height: '1px', 
-          overflow: 'hidden' 
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        style={{
+          position: 'absolute',
+          left: '-10000px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
         }}
       >
         {announcements
-          .filter(a => a.priority === 'polite')
-          .map(a => (
+          .filter((a) => a.priority === 'polite')
+          .map((a) => (
             <div key={a.id}>{a.message}</div>
           ))}
       </div>
-      
-      <div 
-        aria-live="assertive" 
-        aria-atomic="true" 
-        style={{ 
-          position: 'absolute', 
-          left: '-10000px', 
-          width: '1px', 
-          height: '1px', 
-          overflow: 'hidden' 
+      <div
+        aria-live="assertive"
+        aria-atomic="true"
+        style={{
+          position: 'absolute',
+          left: '-10000px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
         }}
       >
         {announcements
-          .filter(a => a.priority === 'assertive')
-          .map(a => (
+          .filter((a) => a.priority === 'assertive')
+          .map((a) => (
             <div key={a.id}>{a.message}</div>
           ))}
       </div>
-
       {/* Skip to content link */}
       <a
         href="#main-content"
@@ -179,7 +183,7 @@ export const AccessibilityProvider = ({ children }) => {
           borderRadius: '4px',
           fontSize: '14px',
           fontWeight: 'bold',
-          transition: 'top 0.3s'
+          transition: 'top 0.3s',
         }}
         onFocus={(e) => {
           e.target.style.top = '6px';

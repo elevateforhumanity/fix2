@@ -9,13 +9,13 @@ interface EmptyStateProps {
   icon?: ReactNode;
 }
 
-export default function EmptyState({ 
+export default function EmptyState({
   title = 'Nothing to show',
   message = "We couldn't load this content. Try again in a moment.",
   actionLabel = 'Reload',
   onAction,
   href,
-  icon
+  icon,
 }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center text-center rounded-2xl border border-slate-200 bg-slate-50 p-10 my-6">

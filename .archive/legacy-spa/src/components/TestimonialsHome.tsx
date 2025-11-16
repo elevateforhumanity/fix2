@@ -9,17 +9,20 @@ interface Testimonial {
 
 const FALLBACK_TESTIMONIALS: Testimonial[] = [
   {
-    quote: 'I started earning within two weeks. The team matched me to a shop and helped with my hours and license steps.',
+    quote:
+      'I started earning within two weeks. The team matched me to a shop and helped with my hours and license steps.',
     name: 'Marcus T.',
     role: 'Barber Apprentice',
   },
   {
-    quote: 'They aligned funding through WorkOne and placed me with a facilities team—hands-on, paid, and supportive.',
+    quote:
+      'They aligned funding through WorkOne and placed me with a facilities team—hands-on, paid, and supportive.',
     name: 'Alicia R.',
     role: 'Building Tech Trainee',
   },
   {
-    quote: 'I finished CNA quickly and got help with interviews. Clear steps, real outcomes.',
+    quote:
+      'I finished CNA quickly and got help with interviews. Clear steps, real outcomes.',
     name: 'Devon P.',
     role: 'CNA Graduate',
   },
@@ -33,13 +36,16 @@ export default function TestimonialsHome() {
 
   useEffect(() => {
     if (!HAS_API) return;
-    
+
     (async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_PUBLIC_API}/testimonials?limit=3`, { mode: 'cors' });
+        const res = await fetch(
+          `${import.meta.env.VITE_PUBLIC_API}/testimonials?limit=3`,
+          { mode: 'cors' }
+        );
         if (!res.ok) throw new Error('Bad status ' + res.status);
         const data = await res.json();
-        
+
         if (Array.isArray(data) && data.length) {
           setItems(data.slice(0, 3));
         } else {
@@ -61,13 +67,11 @@ export default function TestimonialsHome() {
     <section aria-label="Student testimonials" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 lg:px-6 py-16 lg:py-24">
         <h2 className="text-3xl font-bold text-slate-900">What learners say</h2>
-
         {showShimmer && (
           <div className="mt-8">
             <ShimmerGrid items={3} columns="md:grid-cols-3" />
           </div>
         )}
-
         {!showShimmer && items && items.length > 0 && (
           <>
             {apiFailed && HAS_API && (
@@ -83,7 +87,9 @@ export default function TestimonialsHome() {
                       <p>"{testimonial.quote}"</p>
                     </blockquote>
                     <figcaption className="mt-4 text-sm text-slate-600">
-                      <span className="font-semibold text-slate-900">{testimonial.name}</span>
+                      <span className="font-semibold text-slate-900">
+                        {testimonial.name}
+                      </span>
                       {testimonial.role && ` — ${testimonial.role}`}
                     </figcaption>
                   </figure>
@@ -92,7 +98,6 @@ export default function TestimonialsHome() {
             </div>
           </>
         )}
-
         {!showShimmer && (!items || items.length === 0) && (
           <div className="mt-8">
             <EmptyState

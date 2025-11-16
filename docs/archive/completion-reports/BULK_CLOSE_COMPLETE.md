@@ -8,6 +8,7 @@
 ## 🎯 What This Does
 
 This will **bulk close ALL open issues** with these labels:
+
 - `autopilot`
 - `auto-heal-failed`
 - `auto-heal`
@@ -20,6 +21,7 @@ This will **bulk close ALL open issues** with these labels:
 ## ✅ Workflows Already Disabled
 
 ### Active Workflows (Safe - Don't Create Issues)
+
 ```
 .github/workflows/
 ├── ci.yml ✅ (Build & Test only)
@@ -27,6 +29,7 @@ This will **bulk close ALL open issues** with these labels:
 ```
 
 ### Archived Workflows (Issue Creators - Disabled)
+
 ```
 .github/workflows/archive/
 ├── autopilot-phase3-selfheal.yml 📦 (DISABLED)
@@ -85,10 +88,11 @@ gh issue list --label auto-heal-failed --state open --json number --jq '.[].numb
 5. **Reports progress** showing how many issues were closed
 
 ### Comment Added to Each Issue:
+
 ```
 ✅ **Autopilot Issue Creation Disabled**
 
-This issue has been automatically closed as part of disabling 
+This issue has been automatically closed as part of disabling
 the autopilot self-heal workflow.
 
 **What changed:**
@@ -199,22 +203,26 @@ grep -r "schedule:" .github/workflows/*.yml
 ## 🚨 Troubleshooting
 
 ### Error: "Bad credentials"
+
 - Token is invalid or expired
 - Generate a new token: https://github.com/settings/tokens
 - Ensure `repo` scope is selected
 
 ### Error: "Not Found"
+
 - Repository name might be wrong
 - Check: `REPO="elevateforhumanity/fix2"` in script
 - Verify you have access to the repository
 
 ### Script Hangs
+
 - Large number of issues (100+)
 - Script is working, just takes time
 - Each issue takes ~1-2 seconds to close
 - 100 issues = ~2-3 minutes
 
 ### Some Issues Not Closed
+
 - Check if they have the exact label
 - Labels are case-sensitive
 - Run script again (it's safe to re-run)
@@ -258,6 +266,7 @@ gh issue list --label auto-heal-failed --state open --limit 1000 --json number -
 ## 🎯 Summary
 
 ### What's Done ✅
+
 - ✅ All autopilot workflows archived
 - ✅ No scheduled workflows active
 - ✅ No issue-creating workflows active
@@ -265,11 +274,13 @@ gh issue list --label auto-heal-failed --state open --limit 1000 --json number -
 - ✅ Documentation complete
 
 ### What's Next ⏳
+
 - ⏳ Run bulk close script with your GitHub token
 - ⏳ Verify all issues closed
 - ⏳ Confirm no new issues created
 
 ### What's Working ✅
+
 - ✅ CI/CD (ci.yml)
 - ✅ Netlify deployment (deploy-to-netlify.yml)
 - ✅ Site is live and operational

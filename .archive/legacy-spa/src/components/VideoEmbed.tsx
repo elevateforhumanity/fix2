@@ -26,14 +26,14 @@ export default function VideoEmbed({
       const videoId = videoUrl.includes('youtu.be')
         ? videoUrl.split('youtu.be/')[1]?.split('?')[0]
         : new URLSearchParams(new URL(videoUrl).search).get('v');
-      
+
       const params = new URLSearchParams({
         autoplay: autoplay ? '1' : '0',
         controls: controls ? '1' : '0',
         rel: '0',
         modestbranding: '1',
       });
-      
+
       return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
     }
 
@@ -46,7 +46,7 @@ export default function VideoEmbed({
         byline: '0',
         portrait: '0',
       });
-      
+
       return `https://player.vimeo.com/video/${videoId}?${params.toString()}`;
     }
 
@@ -55,7 +55,8 @@ export default function VideoEmbed({
   };
 
   const embedUrl = getEmbedUrl(url);
-  const isDirectVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg');
+  const isDirectVideo =
+    url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg');
 
   if (isDirectVideo) {
     return (

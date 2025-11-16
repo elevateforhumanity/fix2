@@ -10,17 +10,20 @@ const TESTIMONIALS: Testimonial[] = [
   {
     name: 'Marcus T.',
     role: 'Barber Apprentice',
-    quote: 'I started earning within two weeks. The team matched me to a shop and helped with my hours and license steps.',
+    quote:
+      'I started earning within two weeks. The team matched me to a shop and helped with my hours and license steps.',
   },
   {
     name: 'Alicia R.',
     role: 'Building Tech Trainee',
-    quote: 'They aligned funding through WorkOne and placed me with a facilities team—hands-on, paid, and supportive.',
+    quote:
+      'They aligned funding through WorkOne and placed me with a facilities team—hands-on, paid, and supportive.',
   },
   {
     name: 'Devon P.',
     role: 'CNA Graduate',
-    quote: 'I finished CNA quickly and got help with interviews. Clear steps, real outcomes.',
+    quote:
+      'I finished CNA quickly and got help with interviews. Clear steps, real outcomes.',
   },
 ];
 
@@ -37,7 +40,9 @@ export default function Testimonials() {
                   <p>"{testimonial.quote}"</p>
                 </blockquote>
                 <figcaption className="mt-4 text-sm text-slate-600">
-                  <span className="font-semibold text-slate-900">{testimonial.name}</span>
+                  <span className="font-semibold text-slate-900">
+                    {testimonial.name}
+                  </span>
                   {' — '}
                   {testimonial.role}
                 </figcaption>

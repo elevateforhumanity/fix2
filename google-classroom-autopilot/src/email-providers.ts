@@ -1,6 +1,6 @@
 /**
  * Email Provider Abstraction Layer
- * 
+ *
  * Supports multiple email providers:
  * - Resend (default, recommended)
  * - Postmark (transactional)
@@ -28,7 +28,9 @@ interface EmailMessage {
 
 interface EmailProvider {
   name: string;
-  send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }>;
+  send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }>;
 }
 
 /**
@@ -40,17 +42,22 @@ class ResendProvider implements EmailProvider {
   private apiKey: string;
   private fromEmail: string;
 
-  constructor(apiKey: string, fromEmail: string = 'noreply@elevateforhumanity.org') {
+  constructor(
+    apiKey: string,
+    fromEmail: string = 'noreply@elevateforhumanity.org'
+  ) {
     this.apiKey = apiKey;
     this.fromEmail = fromEmail;
   }
 
-  async send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  async send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }> {
     try {
       const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
+          Authorization: `Bearer ${this.apiKey}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -95,12 +102,17 @@ class PostmarkProvider implements EmailProvider {
   private serverToken: string;
   private fromEmail: string;
 
-  constructor(serverToken: string, fromEmail: string = 'noreply@elevateforhumanity.org') {
+  constructor(
+    serverToken: string,
+    fromEmail: string = 'noreply@elevateforhumanity.org'
+  ) {
     this.serverToken = serverToken;
     this.fromEmail = fromEmail;
   }
 
-  async send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  async send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }> {
     try {
       const response = await fetch('https://api.postmarkapp.com/email', {
         method: 'POST',
@@ -166,20 +178,22 @@ class SESProvider implements EmailProvider {
     this.fromEmail = fromEmail;
   }
 
-  async send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  async send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }> {
     try {
       // Note: This is a simplified implementation
       // For production, use AWS SDK: @aws-sdk/client-ses
-      
+
       console.log('AWS SES: Would send email via AWS SDK');
       console.log('To:', message.to);
       console.log('Subject:', message.subject);
-      
+
       // TODO: Implement actual AWS SES sending
       // const client = new SESClient({ region: this.region, credentials: {...} });
       // const command = new SendEmailCommand({...});
       // const response = await client.send(command);
-      
+
       return {
         success: true,
         messageId: 'ses-' + Date.now(),
@@ -218,19 +232,21 @@ class SMTPProvider implements EmailProvider {
     this.fromEmail = fromEmail;
   }
 
-  async send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  async send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }> {
     try {
       // Note: This requires nodemailer package
       // For production: npm install nodemailer @types/nodemailer
-      
+
       console.log('SMTP: Would send email via nodemailer');
       console.log('To:', message.to);
       console.log('Subject:', message.subject);
-      
+
       // TODO: Implement actual SMTP sending
       // const transporter = nodemailer.createTransport(this.config);
       // const info = await transporter.sendMail({...});
-      
+
       return {
         success: true,
         messageId: 'smtp-' + Date.now(),
@@ -264,7 +280,7 @@ export class EmailService {
 
   private selectProvider(): EmailProvider {
     // Priority: Resend > Postmark > SES > SMTP
-    
+
     if (process.env.RESEND_API_KEY) {
       console.log('📧 Using Resend email provider');
       return new ResendProvider(
@@ -281,7 +297,11 @@ export class EmailService {
       );
     }
 
-    if (process.env.AWS_SES_REGION && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
+    if (
+      process.env.AWS_SES_REGION &&
+      process.env.AWS_ACCESS_KEY_ID &&
+      process.env.AWS_SECRET_ACCESS_KEY
+    ) {
       console.log('📧 Using AWS SES email provider');
       return new SESProvider(
         process.env.AWS_SES_REGION,
@@ -291,7 +311,11 @@ export class EmailService {
       );
     }
 
-    if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    if (
+      process.env.SMTP_HOST &&
+      process.env.SMTP_USER &&
+      process.env.SMTP_PASS
+    ) {
       console.log('📧 Using SMTP email provider');
       return new SMTPProvider(
         process.env.SMTP_HOST,
@@ -302,10 +326,14 @@ export class EmailService {
       );
     }
 
-    throw new Error('No email provider configured. Set RESEND_API_KEY, POSTMARK_SERVER_TOKEN, AWS SES credentials, or SMTP credentials.');
+    throw new Error(
+      'No email provider configured. Set RESEND_API_KEY, POSTMARK_SERVER_TOKEN, AWS SES credentials, or SMTP credentials.'
+    );
   }
 
-  async send(message: EmailMessage): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  async send(
+    message: EmailMessage
+  ): Promise<{ success: boolean; messageId?: string; error?: string }> {
     console.log(`📧 Sending email via ${this.provider.name}...`);
     console.log(`   To: ${message.to.join(', ')}`);
     if (message.cc?.length) console.log(`   CC: ${message.cc.join(', ')}`);

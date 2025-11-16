@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 
@@ -6,34 +6,44 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
-import { Download, FileText, Calendar, ArrowLeft, CheckCircle } from 'lucide-react';
+import {
+  Download,
+  FileText,
+  Calendar,
+  ArrowLeft,
+  CheckCircle,
+} from 'lucide-react';
 
 const REPORT_TYPES = [
   {
     id: 'attendance',
     name: 'Attendance & Contact Hours',
-    description: 'Detailed attendance logs and weekly contact hours for all students',
+    description:
+      'Detailed attendance logs and weekly contact hours for all students',
     format: ['CSV', 'PDF'],
     icon: '📊',
   },
   {
     id: 'progress',
     name: 'Student Progress Report',
-    description: 'Course progress, completion rates, and grades for each student',
+    description:
+      'Course progress, completion rates, and grades for each student',
     format: ['CSV', 'PDF'],
     icon: '📈',
   },
   {
     id: 'compliance',
     name: 'WRG/WIOA Compliance Report',
-    description: 'Funding eligibility, enrollment status, and compliance metrics',
+    description:
+      'Funding eligibility, enrollment status, and compliance metrics',
     format: ['PDF'],
     icon: '✅',
   },
   {
     id: 'summary',
     name: 'Caseload Summary',
-    description: 'Overview of all students with key metrics and at-risk indicators',
+    description:
+      'Overview of all students with key metrics and at-risk indicators',
     format: ['CSV', 'PDF'],
     icon: '📋',
   },
@@ -44,7 +54,9 @@ export default function ExportReportsPage() {
   const [selectedReport, setSelectedReport] = useState('');
   const [selectedFormat, setSelectedFormat] = useState('');
   const [dateRange, setDateRange] = useState({
-    startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0],
     endDate: new Date().toISOString().split('T')[0],
   });
   const [loading, setLoading] = useState(false);
@@ -60,13 +72,16 @@ export default function ExportReportsPage() {
     setLoading(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) throw new Error('Not authenticated');
 
       // Get students assigned to this delegate
       const { data: students } = await supabase
         .from('students')
-        .select(`
+        .select(
+          `
           id,
           wioa_eligible,
           funding_type,
@@ -87,14 +102,17 @@ export default function ExportReportsPage() {
               duration_weeks
             )
           )
-        `)
-        .or(`case_manager_email.eq.${user.email},case_manager_name.ilike.%${user.user_metadata?.full_name || ''}%`);
+        `
+        )
+        .or(
+          `case_manager_email.eq.${user.email},case_manager_name.ilike.%${user.user_metadata?.full_name || ''}%`
+        );
 
       if (!students || students.length === 0) {
         throw new Error('No students found in your caseload');
       }
 
-      const studentIds = students.map(s => s.id);
+      const studentIds = students.map((s) => s.id);
 
       // Fetch data based on report type
       let reportData: any = {};
@@ -119,7 +137,8 @@ export default function ExportReportsPage() {
       } else if (selectedReport === 'progress') {
         const { data: progress } = await supabase
           .from('lesson_progress')
-          .select(`
+          .select(
+            `
             *,
             lessons (
               title,
@@ -130,7 +149,8 @@ export default function ExportReportsPage() {
                 )
               )
             )
-          `)
+          `
+          )
           .in('student_id', studentIds);
 
         const { data: grades } = await supabase
@@ -158,7 +178,12 @@ export default function ExportReportsPage() {
           .from('contact_hours')
           .select('*')
           .in('student_id', studentIds)
-          .gte('week_start', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+          .gte(
+            'week_start',
+            new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+              .toISOString()
+              .split('T')[0]
+          );
 
         reportData = { students, lastLogins, recentHours };
       }
@@ -186,8 +211,9 @@ export default function ExportReportsPage() {
 
     if (reportType === 'attendance') {
       filename = `attendance_report_${dateRange.startDate}_to_${dateRange.endDate}.csv`;
-      csv = 'Student Name,Email,Course,Login Time,Logout Time,Duration (minutes),Activity Type\n';
-      
+      csv =
+        'Student Name,Email,Course,Login Time,Logout Time,Duration (minutes),Activity Type\n';
+
       data.attendance?.forEach((log: any) => {
         const student = data.students.find((s: any) => s.id === log.student_id);
         const enrollment = student?.enrollments?.[0];
@@ -195,8 +221,9 @@ export default function ExportReportsPage() {
       });
     } else if (reportType === 'progress') {
       filename = `progress_report_${dateRange.startDate}_to_${dateRange.endDate}.csv`;
-      csv = 'Student Name,Email,Course,Progress %,Status,Enrolled Date,Completion Date\n';
-      
+      csv =
+        'Student Name,Email,Course,Progress %,Status,Enrolled Date,Completion Date\n';
+
       data.students?.forEach((student: any) => {
         student.enrollments?.forEach((enrollment: any) => {
           csv += `"${student.profiles?.full_name || 'Unknown'}","${student.profiles?.email || ''}","${enrollment.courses?.title || 'N/A'}","${enrollment.progress || 0}","${enrollment.status}","${enrollment.enrolled_at}","${enrollment.completed_at || 'N/A'}"\n`;
@@ -204,14 +231,19 @@ export default function ExportReportsPage() {
       });
     } else if (reportType === 'summary') {
       filename = `caseload_summary_${new Date().toISOString().split('T')[0]}.csv`;
-      csv = 'Student Name,Email,Phone,County,Funding Type,Course,Progress %,Status,Last Login,Recent Hours (30 days)\n';
-      
+      csv =
+        'Student Name,Email,Phone,County,Funding Type,Course,Progress %,Status,Last Login,Recent Hours (30 days)\n';
+
       data.students?.forEach((student: any) => {
-        const lastLogin = data.lastLogins?.find((l: any) => l.student_id === student.id);
-        const recentHours = data.recentHours?.filter((h: any) => h.student_id === student.id)
-          .reduce((sum: number, h: any) => sum + h.total_hours, 0) || 0;
+        const lastLogin = data.lastLogins?.find(
+          (l: any) => l.student_id === student.id
+        );
+        const recentHours =
+          data.recentHours
+            ?.filter((h: any) => h.student_id === student.id)
+            .reduce((sum: number, h: any) => sum + h.total_hours, 0) || 0;
         const enrollment = student.enrollments?.[0];
-        
+
         csv += `"${student.profiles?.full_name || 'Unknown'}","${student.profiles?.email || ''}","${student.profiles?.phone || ''}","${student.county || ''}","${student.funding_type || ''}","${enrollment?.courses?.title || 'N/A'}","${enrollment?.progress || 0}","${enrollment?.status || 'not_enrolled'}","${lastLogin?.login_time || 'Never'}","${recentHours}"\n`;
       });
     }
@@ -228,7 +260,7 @@ export default function ExportReportsPage() {
     window.URL.revokeObjectURL(url);
   };
 
-  const selectedReportType = REPORT_TYPES.find(r => r.id === selectedReport);
+  const selectedReportType = REPORT_TYPES.find((r) => r.id === selectedReport);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -238,28 +270,33 @@ export default function ExportReportsPage() {
           <div className="elevate-logo-mark">E</div>
           <span>Elevate for Humanity</span>
         </div>
-        <Link href="/delegate/dashboard" className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2">
+        <Link
+          href="/delegate/dashboard"
+          className="text-gray-700 hover:text-red-600 font-medium flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Dashboard
         </Link>
       </header>
-
       <main className="elevate-container py-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Export Reports</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Export Reports
+            </h1>
             <p className="text-gray-600">
-              Generate compliance reports for DWD, WorkOne, EmployIndy, or internal tracking
+              Generate compliance reports for DWD, WorkOne, EmployIndy, or
+              internal tracking
             </p>
           </div>
-
           {success && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
               <CheckCircle className="h-5 w-5 text-green-600" />
-              <p className="text-green-800 font-medium">Report downloaded successfully!</p>
+              <p className="text-green-800 font-medium">
+                Report downloaded successfully!
+              </p>
             </div>
           )}
-
           <form onSubmit={handleExport} className="space-y-6">
             {/* Report Type Selection */}
             <div className="elevate-card">
@@ -284,8 +321,12 @@ export default function ExportReportsPage() {
                     <div className="flex items-start gap-3">
                       <span className="text-2xl">{report.icon}</span>
                       <div className="flex-1">
-                        <h3 className="font-bold text-gray-900 mb-1">{report.name}</h3>
-                        <p className="text-sm text-gray-600">{report.description}</p>
+                        <h3 className="font-bold text-gray-900 mb-1">
+                          {report.name}
+                        </h3>
+                        <p className="text-sm text-gray-600">
+                          {report.description}
+                        </p>
                       </div>
                       {selectedReport === report.id && (
                         <CheckCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
@@ -295,7 +336,6 @@ export default function ExportReportsPage() {
                 ))}
               </div>
             </div>
-
             {/* Format Selection */}
             {selectedReport && (
               <div className="elevate-card">
@@ -326,7 +366,6 @@ export default function ExportReportsPage() {
                 </div>
               </div>
             )}
-
             {/* Date Range */}
             {selectedFormat && (
               <div className="elevate-card">
@@ -335,21 +374,32 @@ export default function ExportReportsPage() {
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium mb-1">Start Date</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Start Date
+                    </label>
                     <input
                       type="date"
                       value={dateRange.startDate}
-                      onChange={(e) => setDateRange({ ...dateRange, startDate: e.target.value })}
+                      onChange={(e) =>
+                        setDateRange({
+                          ...dateRange,
+                          startDate: e.target.value,
+                        })
+                      }
                       className="elevate-input w-full"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">End Date</label>
+                    <label className="block text-sm font-medium mb-1">
+                      End Date
+                    </label>
                     <input
                       type="date"
                       value={dateRange.endDate}
-                      onChange={(e) => setDateRange({ ...dateRange, endDate: e.target.value })}
+                      onChange={(e) =>
+                        setDateRange({ ...dateRange, endDate: e.target.value })
+                      }
                       className="elevate-input w-full"
                       required
                     />
@@ -357,11 +407,13 @@ export default function ExportReportsPage() {
                 </div>
               </div>
             )}
-
             {/* Submit */}
             {selectedFormat && (
               <div className="flex justify-end gap-3">
-                <Link href="/delegate/dashboard" className="elevate-btn-secondary">
+                <Link
+                  href="/delegate/dashboard"
+                  className="elevate-btn-secondary"
+                >
                   Cancel
                 </Link>
                 <button

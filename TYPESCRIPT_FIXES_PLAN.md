@@ -1,6 +1,7 @@
 # TypeScript Fixes Plan
 
 ## Summary
+
 - **Total Errors:** 196
 - **Primary Issue:** `createServerSupabaseClient()` returns Promise but used without await
 - **Secondary Issue:** `cookies()` returns Promise but used without await
@@ -8,6 +9,7 @@
 ## Files to Fix
 
 ### Category 1: Missing await on createServerSupabaseClient()
+
 1. app/admin/certificates/page.tsx
 2. app/admin/dashboard/page.tsx (11 instances)
 3. app/delegate/dashboard/page.tsx (4 instances)
@@ -18,12 +20,14 @@
 8. app/lms/quizzes/[quizId]/results/[attemptId]/page.tsx
 
 ### Category 2: Missing await on cookies()
+
 1. app/api/certificates/generate/route.ts
 2. app/api/emails/certificate/route.ts
 3. app/api/emails/welcome/route.ts
 4. app/cert/verify/[code]/page.tsx
 
 ### Category 3: Array access issues (data is array, accessing as object)
+
 1. app/api/certificates/generate/route.ts
 2. app/api/cron/inactivity-reminders/route.ts
 3. app/api/emails/certificate/route.ts
@@ -31,6 +35,7 @@
 5. app/lms/courses/[id]/lessons/[lessonId]/page.tsx
 
 ### Category 4: Other type issues
+
 1. app/admin/dashboard/page.tsx (arithmetic operation)
 2. app/api/admin/program-holders/mou/route.ts (missing property)
 3. app/api/cert/pdf/route.tsx (ReadableStream type)

@@ -7,7 +7,7 @@ Do you want to go live RIGHT NOW (2 minutes)?
 │
 ├─ YES → Download support-bundle.tar.gz
 │         Open QUICK_START.md
-│         Copy/paste code to 
+│         Copy/paste code to
 │         DONE! ✅
 │
 └─ NO, I want automation first (5 minutes)

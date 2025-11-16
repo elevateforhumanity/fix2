@@ -1,6 +1,7 @@
 # Workforce Development Terminology Guide
 
 ## Overview
+
 This guide documents the standardized terminology used across Elevate for Humanity LMS to align with workforce development program requirements (WRG, WIOA, JRI, EmployIndy, DOL).
 
 ---
@@ -9,45 +10,45 @@ This guide documents the standardized terminology used across Elevate for Humani
 
 ### People
 
-| Generic LMS Term | Workforce Term | Usage Context |
-|-----------------|----------------|---------------|
-| Student / Learner | **Participant** | All references to people in training |
-| Teacher | **Trainer** | Person delivering instruction |
-| Instructor | **Instructor** | Formal training role |
-| Program Holder | **Training Provider** | Organization delivering training |
-| Partner | **Worksite Partner** | Employer or training site |
-| Case Manager | **Career Coach** | Primary support contact |
-| Navigator / PO | **Case Manager** | Workforce program staff |
+| Generic LMS Term  | Workforce Term        | Usage Context                        |
+| ----------------- | --------------------- | ------------------------------------ |
+| Student / Learner | **Participant**       | All references to people in training |
+| Teacher           | **Trainer**           | Person delivering instruction        |
+| Instructor        | **Instructor**        | Formal training role                 |
+| Program Holder    | **Training Provider** | Organization delivering training     |
+| Partner           | **Worksite Partner**  | Employer or training site            |
+| Case Manager      | **Career Coach**      | Primary support contact              |
+| Navigator / PO    | **Case Manager**      | Workforce program staff              |
 
 ### Training & Education
 
-| Generic LMS Term | Workforce Term | Usage Context |
-|-----------------|----------------|---------------|
-| Course | **Training Track** | Complete training program |
-| Class | **Training Session** | Individual meeting/lesson |
-| Class Time | **Training Hours** | Time spent in training |
-| Lesson | **Module** | Unit of instruction |
-| Coursework | **Training Activities** | All learning tasks |
+| Generic LMS Term | Workforce Term          | Usage Context             |
+| ---------------- | ----------------------- | ------------------------- |
+| Course           | **Training Track**      | Complete training program |
+| Class            | **Training Session**    | Individual meeting/lesson |
+| Class Time       | **Training Hours**      | Time spent in training    |
+| Lesson           | **Module**              | Unit of instruction       |
+| Coursework       | **Training Activities** | All learning tasks        |
 
 ### Status & Progress
 
-| Generic LMS Term | Workforce Term | Usage Context |
-|-----------------|----------------|---------------|
-| Enrolled | **Active** | Currently participating |
-| Completed | **Completed** | Successfully finished |
-| Dropped | **Withdrawn** | No longer participating |
-| Behind | **At Risk** | Falling behind schedule |
-| Not Engaged | **Not Engaged** | No recent activity |
-| On Track | **On Track** | Meeting expectations |
+| Generic LMS Term | Workforce Term  | Usage Context           |
+| ---------------- | --------------- | ----------------------- |
+| Enrolled         | **Active**      | Currently participating |
+| Completed        | **Completed**   | Successfully finished   |
+| Dropped          | **Withdrawn**   | No longer participating |
+| Behind           | **At Risk**     | Falling behind schedule |
+| Not Engaged      | **Not Engaged** | No recent activity      |
+| On Track         | **On Track**    | Meeting expectations    |
 
 ### Documentation
 
-| Generic LMS Term | Workforce Term | Usage Context |
-|-----------------|----------------|---------------|
-| Notes | **Case Notes** | Progress documentation |
-| Progress Note | **Service Contact** | Documented interaction |
-| Follow-Up | **Follow-Up Date** | Scheduled contact |
-| Report | **Compliance Report** | Funder documentation |
+| Generic LMS Term | Workforce Term        | Usage Context          |
+| ---------------- | --------------------- | ---------------------- |
+| Notes            | **Case Notes**        | Progress documentation |
+| Progress Note    | **Service Contact**   | Documented interaction |
+| Follow-Up        | **Follow-Up Date**    | Scheduled contact      |
+| Report           | **Compliance Report** | Funder documentation   |
 
 ---
 
@@ -58,6 +59,7 @@ This guide documents the standardized terminology used across Elevate for Humani
 **Subject:** Reminder: Log in to your Elevate training this week
 
 **Body:**
+
 ```
 Hi [First Name],
 
@@ -79,6 +81,7 @@ Elevate for Humanity Support Team
 **Subject:** We noticed a pause in your Elevate training
 
 **Body:**
+
 ```
 Hi [First Name],
 
@@ -100,6 +103,7 @@ Elevate for Humanity – Training & Support
 **Subject:** Weekly Caseload Summary – [Program Holder Name]
 
 **Body:**
+
 ```
 Hello [Program Holder / Worksite Partner Name],
 
@@ -141,6 +145,7 @@ Elevate for Humanity – Workforce Training & Case Management
 **Subject:** Participant Approved for Training – [Program Code]
 
 **Body:**
+
 ```
 Hello [Case Manager / Program Holder Name],
 
@@ -165,27 +170,29 @@ Elevate for Humanity – Funding & Enrollment
 
 ### Admin Usage Report
 
-| Old Header | New Header | Description |
-|-----------|------------|-------------|
-| Learner | **Participant** | Participant name/email |
-| Course | **Training Track** | Training program name |
-| Program | **Funding Program** | WRG, WIOA, JRI, etc. |
-| Enroll Status | **Training Status** | Active, Completed, Withdrawn |
-| Case Status | **Case Status** | On Track, At Risk, Not Engaged |
-| Last Note | **Most Recent Case Note** | Latest case documentation |
-| Last Login | **Last LMS Login** | Most recent portal access |
-| Minutes | **Training Minutes** | Documented training time |
-| Percent | **Course Progress %** | Completion percentage |
-| Program Holder | **Training Provider** | Organization name |
+| Old Header     | New Header                | Description                    |
+| -------------- | ------------------------- | ------------------------------ |
+| Learner        | **Participant**           | Participant name/email         |
+| Course         | **Training Track**        | Training program name          |
+| Program        | **Funding Program**       | WRG, WIOA, JRI, etc.           |
+| Enroll Status  | **Training Status**       | Active, Completed, Withdrawn   |
+| Case Status    | **Case Status**           | On Track, At Risk, Not Engaged |
+| Last Note      | **Most Recent Case Note** | Latest case documentation      |
+| Last Login     | **Last LMS Login**        | Most recent portal access      |
+| Minutes        | **Training Minutes**      | Documented training time       |
+| Percent        | **Course Progress %**     | Completion percentage          |
+| Program Holder | **Training Provider**     | Organization name              |
 
 ### CSV Export Headers
 
 **Usage Report:**
+
 ```
 participant_email,training_track,start_date,training_minutes,course_progress_percent,training_status,last_lms_login,training_provider,case_status,most_recent_case_note
 ```
 
 **Caseload Report:**
+
 ```
 participant_email,training_track,funding_program,training_status,case_status,most_recent_case_note,last_note_at,training_provider
 ```
@@ -211,6 +218,7 @@ All participation, case notes, and follow-up actions are recorded in the Elevate
 ```
 
 **Variables to fill:**
+
 - `[X]` = Total participants served
 - `[Y]` = Number of funding programs
 - `[A]` = Active participants with LMS activity
@@ -224,42 +232,46 @@ All participation, case notes, and follow-up actions are recorded in the Elevate
 
 ### Page Titles
 
-| Page | Old Title | New Title |
-|------|-----------|-----------|
-| Admin Reports | Admin Reports | **Workforce Training Reports** |
-| Delegate Portal | Program Holder Reports | **Training Provider Portal** |
-| Learner Timeline | Learner Timeline | **Participant Case History** |
-| Caseload Report | Caseload Report | **Caseload Management Report** |
+| Page             | Old Title              | New Title                      |
+| ---------------- | ---------------------- | ------------------------------ |
+| Admin Reports    | Admin Reports          | **Workforce Training Reports** |
+| Delegate Portal  | Program Holder Reports | **Training Provider Portal**   |
+| Learner Timeline | Learner Timeline       | **Participant Case History**   |
+| Caseload Report  | Caseload Report        | **Caseload Management Report** |
 
 ### Page Descriptions
 
 **Admin Reports:**
+
 ```
 View participant activity, training progress, and case notes across all funding programs
 ```
 
 **Delegate Portal:**
+
 ```
 View your participants, track training activity, and document case notes for compliance reporting.
 ```
 
 **Caseload Report:**
+
 ```
 Filter participants by case status and funding program for targeted intervention and outreach
 ```
 
 ### Button Labels
 
-| Old Label | New Label |
-|-----------|-----------|
-| Add Note | **Add Case Note** |
-| Update Note | **Update Case Note** |
-| View Learners | **View Participants** |
+| Old Label     | New Label                    |
+| ------------- | ---------------------------- |
+| Add Note      | **Add Case Note**            |
+| Update Note   | **Update Case Note**         |
+| View Learners | **View Participants**        |
 | Export Report | **Export Compliance Report** |
 
 ### Status Badges
 
 **Training Status:**
+
 - Active (blue)
 - Completed (green)
 - Withdrawn (gray)
@@ -267,6 +279,7 @@ Filter participants by case status and funding program for targeted intervention
 - Expired (red)
 
 **Case Status:**
+
 - On Track (green)
 - At Risk (yellow)
 - Not Engaged (red)
@@ -302,24 +315,28 @@ Filter participants by case status and funding program for targeted intervention
 ### 🎯 Context-Specific Usage
 
 **In emails to participants:**
+
 - Use supportive, encouraging tone
 - Emphasize employment and wage goals
 - Mention funding requirements
 - Offer support resources
 
 **In emails to training providers:**
+
 - Use professional, compliance-focused tone
 - Emphasize documentation requirements
 - Include specific data points
 - Reference state/federal reporting
 
 **In admin interfaces:**
+
 - Use clear, actionable labels
 - Include tooltips for workforce terms
 - Provide export options
 - Show compliance-ready data
 
 **In reports/exports:**
+
 - Use standardized column headers
 - Include all required data points
 - Format dates consistently (YYYY-MM-DD)
@@ -330,30 +347,35 @@ Filter participants by case status and funding program for targeted intervention
 ## Compliance Alignment
 
 ### WRG (Workforce Ready Grant)
+
 - Emphasize employment outcomes
 - Track training hours meticulously
 - Document all participant contacts
 - Report completion rates
 
 ### WIOA (Workforce Innovation and Opportunity Act)
+
 - Use "participant" terminology
 - Document barriers to employment
 - Track credential attainment
 - Report measurable skill gains
 
 ### JRI (Justice Reinvestment Initiative)
+
 - Emphasize reentry support
 - Document case management contacts
 - Track employment placement
 - Report recidivism prevention
 
 ### EmployIndy
+
 - Local workforce board alignment
 - Employer engagement tracking
 - Industry-recognized credentials
 - Regional labor market data
 
 ### DOL Apprenticeship
+
 - Registered apprenticeship standards
 - On-the-job training hours
 - Related technical instruction
@@ -381,20 +403,21 @@ Filter participants by case status and funding program for targeted intervention
 
 ### Common Phrases
 
-| Say This | Not This |
-|----------|----------|
-| "Participant enrolled in training" | "Student signed up for course" |
-| "Training hours documented" | "Class time logged" |
-| "Case note added to file" | "Note saved" |
-| "At Risk status triggered outreach" | "Behind status sent email" |
-| "Training provider updated status" | "Program holder changed note" |
-| "Funding program requirements" | "Course prerequisites" |
+| Say This                            | Not This                       |
+| ----------------------------------- | ------------------------------ |
+| "Participant enrolled in training"  | "Student signed up for course" |
+| "Training hours documented"         | "Class time logged"            |
+| "Case note added to file"           | "Note saved"                   |
+| "At Risk status triggered outreach" | "Behind status sent email"     |
+| "Training provider updated status"  | "Program holder changed note"  |
+| "Funding program requirements"      | "Course prerequisites"         |
 
 ---
 
 ## Support & Questions
 
 For questions about workforce terminology or compliance requirements:
+
 1. Review this guide
 2. Check `/lib/workforce-terminology.ts` for code constants
 3. Consult with workforce development staff

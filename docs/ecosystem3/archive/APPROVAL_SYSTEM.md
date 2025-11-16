@@ -56,6 +56,7 @@ APPROVAL_BASE_URL=https://your-domain.com/approvals
 ```
 
 If these are not configured, the system will:
+
 - Show warnings in logs
 - Return appropriate error messages to API calls
 - Continue running without crashing the main server
@@ -63,6 +64,7 @@ If these are not configured, the system will:
 ## Usage Examples
 
 ### Request Approval
+
 ```javascript
 POST /api/approvals/request
 {
@@ -75,6 +77,7 @@ POST /api/approvals/request
 ```
 
 ### Admin Approval
+
 ```javascript
 POST /api/approvals/admin_decide
 {
@@ -84,6 +87,7 @@ POST /api/approvals/admin_decide
 ```
 
 ### Email Workflow
+
 1. Student submits approval request
 2. Case manager receives email with approve/decline links
 3. Case manager clicks link to make decision
@@ -92,6 +96,7 @@ POST /api/approvals/admin_decide
 ## Database Tables
 
 The system expects these Supabase tables:
+
 - `case_manager_approvals` - Stores approval requests and decisions
 - `app_users` - User records
 - `enrollments` - Course enrollments
@@ -108,6 +113,7 @@ The system expects these Supabase tables:
 ## Testing
 
 Run the approval integration tests:
+
 ```bash
 npm test test/approval-integration.test.js
 ```
@@ -115,16 +121,19 @@ npm test test/approval-integration.test.js
 ## Troubleshooting
 
 ### System Not Working
+
 - Check Supabase credentials are configured
 - Verify JWT_SECRET or APPROVAL_SECRET is set
 - Check server logs for integration warnings
 
 ### Email Links Not Working
+
 - Verify APPROVAL_BASE_URL matches your domain
 - Check token expiration (72 hours)
 - Ensure tokens haven't been used already
 
 ### Database Errors
+
 - Run Supabase migrations for required tables
 - Check service role key permissions
 - Verify table schemas match expected format

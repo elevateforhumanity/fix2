@@ -14,6 +14,7 @@ All issue-creating workflows have been moved to archive:
 **Location**: `.github/workflows/archive/`
 
 **Archived workflows:**
+
 - `autopilot-phase3-selfheal.yml` - Auto-heal with issue creation
 - `autopilot-workers-cron.yml` - Scheduled health checks (every 10 minutes)
 - `autopilot-auto-push.yml` - Auto-push with failure issues
@@ -26,6 +27,7 @@ These workflows were creating excessive GitHub issues automatically. The system 
 **Only 1 active workflow remains:**
 
 `.github/workflows/ci.yml` - Continuous Integration
+
 - Triggers: Push to main, Pull Requests
 - Actions: Build and test
 - **Does NOT create issues**
@@ -33,6 +35,7 @@ These workflows were creating excessive GitHub issues automatically. The system 
 ### 3. ✅ Documentation Created
 
 **`.github/workflows/README.md`**
+
 - Explains active vs archived workflows
 - Documents why workflows were archived
 - Instructions for re-enabling if needed
@@ -40,12 +43,14 @@ These workflows were creating excessive GitHub issues automatically. The system 
 ### 4. ✅ Scripts Created
 
 **`disable-autopilot-issues.sh`**
+
 - Main script to disable issue creation
 - Archives workflows
 - Closes existing issues (if GitHub CLI available)
 - Creates documentation
 
 **`close-autopilot-issues-api.sh`**
+
 - Alternative script using GitHub API
 - Closes issues without GitHub CLI
 - Requires: `GITHUB_TOKEN` environment variable
@@ -90,6 +95,7 @@ export GITHUB_TOKEN="your_github_token_here"
 ## What Changed
 
 ### Before
+
 ```
 .github/workflows/
 ├── ci.yml ✅
@@ -99,6 +105,7 @@ export GITHUB_TOKEN="your_github_token_here"
 ```
 
 ### After
+
 ```
 .github/workflows/
 ├── ci.yml ✅ (only active workflow)
@@ -114,6 +121,7 @@ export GITHUB_TOKEN="your_github_token_here"
 ## Why This Was Needed
 
 ### The Problem
+
 - Workflows were creating issues automatically
 - Scheduled to run every 10 minutes
 - Created issues on any failure
@@ -121,6 +129,7 @@ export GITHUB_TOKEN="your_github_token_here"
 - Cluttered the issue tracker
 
 ### The Solution
+
 - Archive issue-creating workflows
 - Keep only essential CI/CD (ci.yml)
 - Close all existing autopilot issues
@@ -132,6 +141,7 @@ export GITHUB_TOKEN="your_github_token_here"
 ## Impact
 
 ### ✅ Positive Changes
+
 1. **No more issue spam** - No automatic issue creation
 2. **Clean issue tracker** - All autopilot issues closed
 3. **CI/CD still works** - Build and test on every push
@@ -139,11 +149,13 @@ export GITHUB_TOKEN="your_github_token_here"
 5. **Manual control** - Can still create issues manually if needed
 
 ### ⚠️ What's Disabled
+
 1. **Automatic health checks** - No longer run every 10 minutes
 2. **Auto-heal workflows** - No automatic healing attempts
 3. **Failure notifications** - No automatic issue creation on failures
 
 ### ✅ What Still Works
+
 1. **CI/CD pipeline** - Builds and tests on every push
 2. **Manual workflows** - Can trigger workflows manually
 3. **Manual issue creation** - Can create issues manually
@@ -157,23 +169,28 @@ export GITHUB_TOKEN="your_github_token_here"
 If you want to re-enable a workflow:
 
 ### Step 1: Move from Archive
+
 ```bash
 mv .github/workflows/archive/workflow-name.yml .github/workflows/
 ```
 
 ### Step 2: Modify Issue Creation
+
 Edit the workflow and either:
+
 - Remove the issue creation step entirely
 - Add conditions to only create issues for critical failures
 - Change frequency (e.g., daily instead of every 10 minutes)
 
 ### Step 3: Test First
+
 ```bash
 # Trigger manually to test
 gh workflow run workflow-name.yml
 ```
 
 ### Step 4: Monitor
+
 Watch for a few days to ensure it's not creating excessive issues.
 
 ---
@@ -181,17 +198,20 @@ Watch for a few days to ensure it's not creating excessive issues.
 ## Current Status
 
 ### Workflows
+
 - ✅ Issue creation: **DISABLED**
 - ✅ CI/CD: **ACTIVE** (ci.yml)
 - ✅ Manual workflows: **AVAILABLE**
 - ✅ Deployments: **AUTOMATIC** (Netlify)
 
 ### Issues
+
 - ⏳ Existing issues: **Need to be closed** (see methods above)
 - ✅ New issues: **Won't be created automatically**
 - ✅ Manual issues: **Can still be created**
 
 ### System Health
+
 - ✅ Site: **LIVE** (https://elevateforhumanityfix.netlify.app)
 - ✅ Build: **WORKING**
 - ✅ Deployment: **AUTOMATIC**
@@ -202,6 +222,7 @@ Watch for a few days to ensure it's not creating excessive issues.
 ## Verification
 
 ### Check Active Workflows
+
 ```bash
 # List active workflows
 ls -la .github/workflows/*.yml
@@ -211,6 +232,7 @@ ls -la .github/workflows/*.yml
 ```
 
 ### Check Archived Workflows
+
 ```bash
 # List archived workflows
 ls -la .github/workflows/archive/*.yml
@@ -222,6 +244,7 @@ ls -la .github/workflows/archive/*.yml
 ```
 
 ### Check for Cron Jobs
+
 ```bash
 # Search for scheduled workflows
 grep -r "schedule:" .github/workflows/*.yml
@@ -236,11 +259,13 @@ grep -r "schedule:" .github/workflows/*.yml
 ### If Issues Keep Getting Created
 
 1. **Check active workflows:**
+
    ```bash
    ls .github/workflows/*.yml
    ```
 
 2. **Search for issue creation:**
+
    ```bash
    grep -r "github-script\|issue create" .github/workflows/
    ```
@@ -265,7 +290,7 @@ grep -r "schedule:" .github/workflows/*.yml
 ✅ **Documentation created**  
 ✅ **Scripts provided**  
 ✅ **CI/CD still functional**  
-✅ **System stable**  
+✅ **System stable**
 
 **Next action**: Close existing issues using one of the methods above.
 

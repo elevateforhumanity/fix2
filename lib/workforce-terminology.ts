@@ -1,6 +1,6 @@
 /**
  * Workforce Development Terminology
- * 
+ *
  * Standard terms used across Elevate for Humanity LMS
  * to align with WRG, WIOA, JRI, EmployIndy, and DOL requirements
  */
@@ -15,14 +15,14 @@ export const WORKFORCE_TERMS = {
   PARTNER: 'Worksite Partner',
   CASE_MANAGER: 'Career Coach',
   NAVIGATOR: 'Case Manager',
-  
+
   // Training
   COURSE: 'Training Track',
   CLASS: 'Training Session',
   CLASS_TIME: 'Training Hours',
   LESSON: 'Module',
   COURSEWORK: 'Training Activities',
-  
+
   // Status
   ENROLLED: 'Active',
   COMPLETED: 'Completed',
@@ -30,12 +30,12 @@ export const WORKFORCE_TERMS = {
   BEHIND: 'At Risk',
   NOT_ENGAGED: 'Not Engaged',
   ON_TRACK: 'On Track',
-  
+
   // Documentation
   NOTES: 'Case Notes',
   PROGRESS_NOTE: 'Service Contact',
   FOLLOW_UP: 'Follow-Up Date',
-  
+
   // Programs
   FUNDING_PROGRAM: 'Funding Program',
   WORKFORCE_PROGRAM: 'Workforce Development Program',
@@ -46,12 +46,12 @@ export const WORKFORCE_TERMS = {
  */
 export function formatTrainingStatus(status: string): string {
   const statusMap: Record<string, string> = {
-    'active': 'Active',
-    'completed': 'Completed',
-    'dropped': 'Withdrawn',
-    'expired': 'Expired',
-    'suspended': 'Suspended',
-    'refunded': 'Withdrawn',
+    active: 'Active',
+    completed: 'Completed',
+    dropped: 'Withdrawn',
+    expired: 'Expired',
+    suspended: 'Suspended',
+    refunded: 'Withdrawn',
   };
   return statusMap[status?.toLowerCase()] || status;
 }
@@ -62,8 +62,8 @@ export function formatTrainingStatus(status: string): string {
 export function formatCaseStatus(status: string): string {
   const statusMap: Record<string, string> = {
     'on track': 'On Track',
-    'behind': 'At Risk',
-    'dropped': 'Not Engaged',
+    behind: 'At Risk',
+    dropped: 'Not Engaged',
   };
   return statusMap[status?.toLowerCase()] || status;
 }
@@ -73,11 +73,11 @@ export function formatCaseStatus(status: string): string {
  */
 export function getTrainingStatusColor(status: string): string {
   const colorMap: Record<string, string> = {
-    'completed': 'bg-green-100 text-green-800',
-    'active': 'bg-blue-100 text-blue-800',
-    'withdrawn': 'bg-gray-100 text-gray-800',
-    'expired': 'bg-red-100 text-red-800',
-    'suspended': 'bg-yellow-100 text-yellow-800',
+    completed: 'bg-green-100 text-green-800',
+    active: 'bg-blue-100 text-blue-800',
+    withdrawn: 'bg-gray-100 text-gray-800',
+    expired: 'bg-red-100 text-red-800',
+    suspended: 'bg-yellow-100 text-yellow-800',
   };
   const formatted = formatTrainingStatus(status).toLowerCase();
   return colorMap[formatted] || 'bg-gray-100 text-gray-800';
@@ -129,7 +129,8 @@ export const CSV_HEADERS = {
  */
 export const EMAIL_TEMPLATES = {
   LOGIN_REMINDER_SUBJECT: 'Reminder: Log in to your Elevate training this week',
-  WEEKLY_CASELOAD_SUBJECT: (programName: string) => `Weekly Caseload Summary – ${programName}`,
+  WEEKLY_CASELOAD_SUBJECT: (programName: string) =>
+    `Weekly Caseload Summary – ${programName}`,
   AT_RISK_SUBJECT: 'We noticed a pause in your Elevate training',
 } as const;
 

@@ -9,7 +9,7 @@ export default function LoginTracker() {
         await fetch('/api/events/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ source: 'LMS_DASHBOARD' })
+          body: JSON.stringify({ source: 'LMS_DASHBOARD' }),
         });
       } catch (error) {
         // Silently fail - don't disrupt user experience

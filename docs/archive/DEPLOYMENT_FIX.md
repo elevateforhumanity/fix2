@@ -1,13 +1,16 @@
 # Deployment Fix Applied
 
 ## Issue
+
 Netlify deployment was failing with error:
+
 ```
-ERR_PNPM_OUTDATED_LOCKFILE  Cannot install with "frozen-lockfile" 
+ERR_PNPM_OUTDATED_LOCKFILE  Cannot install with "frozen-lockfile"
 because pnpm-lock.yaml is not up to date with package.json
 ```
 
 ## Root Cause
+
 - Project was configured to use `pnpm` via `packageManager` field in package.json
 - The `pnpm-lock.yaml` was out of sync with `package.json` after adding new dependencies
 - Netlify's CI environment uses frozen lockfile by default
@@ -31,12 +34,15 @@ because pnpm-lock.yaml is not up to date with package.json
 ## Verification Steps
 
 ### 1. Check Netlify Build Logs
+
 Visit your Netlify dashboard and look for:
+
 - ✅ "Installing npm packages using npm" (not pnpm)
 - ✅ Successful dependency installation
 - ✅ Build completes without errors
 
 ### 2. Expected Build Output
+
 ```
 Installing npm packages using npm version X.X.X
 added XXX packages in XXs
@@ -44,6 +50,7 @@ Build command from netlify.toml: "npm run build"
 ```
 
 ### 3. Monitor Deployment
+
 1. Go to Netlify dashboard
 2. Navigate to Deploys tab
 3. Watch the latest deploy (commit `72d572d6`)
@@ -52,14 +59,18 @@ Build command from netlify.toml: "npm run build"
 ## If Deployment Still Fails
 
 ### Option 1: Clear Build Cache
+
 In Netlify dashboard:
+
 1. Go to Site settings
 2. Build & deploy → Environment
 3. Click "Clear build cache"
 4. Trigger new deploy
 
 ### Option 2: Manual Dependency Install
+
 If npm install fails, you may need to:
+
 ```bash
 # Locally
 rm -rf node_modules package-lock.json
@@ -70,7 +81,9 @@ git push
 ```
 
 ### Option 3: Update Build Command
+
 In `netlify.toml`, change:
+
 ```toml
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
@@ -81,16 +94,19 @@ In `netlify.toml`, change:
 Ensure these are set in Netlify:
 
 ### Required
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
 
 ### For MOU Features
+
 - `RESEND_API_KEY`
 - `EMAIL_FROM`
 - `MOU_ARCHIVE_EMAIL`
 
 ### Optional
+
 - `NEXT_PUBLIC_APP_URL`
 
 ## Post-Deployment Checklist
@@ -138,6 +154,7 @@ git push origin main
 ## Success Indicators
 
 Deployment is successful when you see:
+
 1. ✅ Green checkmark in Netlify dashboard
 2. ✅ Site is live at your Netlify URL
 3. ✅ All pages load without 404 errors
@@ -156,6 +173,7 @@ Deployment is successful when you see:
 ## Support
 
 If issues persist:
+
 - Check Netlify build logs for specific errors
 - Review Next.js build output
 - Verify all environment variables are set

@@ -4,9 +4,9 @@ import { loadStripe } from '@stripe/stripe-js';
 describe('Stripe Integration', () => {
   it('should load Stripe SDK', async () => {
     const stripeKey = process.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_mock';
-    
+
     const stripe = await loadStripe(stripeKey);
-    
+
     // Should load or fail gracefully
     if (stripeKey.startsWith('pk_test_') || stripeKey.startsWith('pk_live_')) {
       expect(stripe).toBeDefined();
@@ -15,7 +15,7 @@ describe('Stripe Integration', () => {
 
   it('should handle invalid Stripe key', async () => {
     const stripe = await loadStripe('invalid_key');
-    
+
     expect(stripe).toBeNull();
   });
 
@@ -126,9 +126,15 @@ describe('Subscription Management', () => {
   });
 
   it('should validate subscription status', () => {
-    const validStatuses = ['active', 'past_due', 'canceled', 'incomplete', 'trialing'];
-    
-    validStatuses.forEach(status => {
+    const validStatuses = [
+      'active',
+      'past_due',
+      'canceled',
+      'incomplete',
+      'trialing',
+    ];
+
+    validStatuses.forEach((status) => {
       expect(validStatuses).toContain(status);
     });
   });
@@ -169,7 +175,7 @@ describe('Webhook Handling', () => {
       'customer.subscription.deleted',
     ];
 
-    eventTypes.forEach(type => {
+    eventTypes.forEach((type) => {
       expect(type).toContain('.');
       expect(type.split('.').length).toBeGreaterThanOrEqual(2);
     });

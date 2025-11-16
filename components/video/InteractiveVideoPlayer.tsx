@@ -3,7 +3,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  Settings,
+} from 'lucide-react';
 
 interface VideoNote {
   timestamp: number;
@@ -56,7 +63,7 @@ export default function InteractiveVideoPlayer({
 
       // Check for quizzes at current timestamp
       const quiz = quizzes.find(
-        q => Math.abs(q.timestamp - current) < 0.5 && !activeQuiz
+        (q) => Math.abs(q.timestamp - current) < 0.5 && !activeQuiz
       );
       if (quiz) {
         video.pause();
@@ -138,9 +145,9 @@ export default function InteractiveVideoPlayer({
     if (quizAnswer === null || !activeQuiz) return;
 
     const isCorrect = quizAnswer === activeQuiz.correctAnswer;
-    
+
     // TODO: Save quiz result to database
-    
+
     if (isCorrect) {
       setActiveQuiz(null);
       setQuizAnswer(null);
@@ -159,7 +166,7 @@ export default function InteractiveVideoPlayer({
   };
 
   const currentNotes = notes.filter(
-    note => Math.abs(note.timestamp - currentTime) < 5
+    (note) => Math.abs(note.timestamp - currentTime) < 5
   );
 
   return (
@@ -173,7 +180,6 @@ export default function InteractiveVideoPlayer({
               className="w-full aspect-video"
               onClick={togglePlay}
             />
-
             {/* Video Controls */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
               <div className="flex items-center gap-4">
@@ -183,9 +189,12 @@ export default function InteractiveVideoPlayer({
                   onClick={togglePlay}
                   className="text-white hover:bg-white/20"
                 >
-                  {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                  {isPlaying ? (
+                    <Pause className="h-5 w-5" />
+                  ) : (
+                    <Play className="h-5 w-5" />
+                  )}
                 </Button>
-
                 <div className="flex-1">
                   <input
                     type="range"
@@ -200,16 +209,18 @@ export default function InteractiveVideoPlayer({
                     <span>{formatTime(duration)}</span>
                   </div>
                 </div>
-
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={toggleMute}
                   className="text-white hover:bg-white/20"
                 >
-                  {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                  {isMuted ? (
+                    <VolumeX className="h-5 w-5" />
+                  ) : (
+                    <Volume2 className="h-5 w-5" />
+                  )}
                 </Button>
-
                 <Button
                   variant="ghost"
                   size="icon"
@@ -218,7 +229,6 @@ export default function InteractiveVideoPlayer({
                 >
                   <Settings className="h-5 w-5" />
                 </Button>
-
                 <Button
                   variant="ghost"
                   size="icon"
@@ -229,13 +239,14 @@ export default function InteractiveVideoPlayer({
                 </Button>
               </div>
             </div>
-
             {/* Quiz Overlay */}
             {activeQuiz && (
               <div className="absolute inset-0 bg-black/90 flex items-center justify-center p-8">
                 <Card className="max-w-2xl w-full">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-4">{activeQuiz.question}</h3>
+                    <h3 className="text-xl font-bold mb-4">
+                      {activeQuiz.question}
+                    </h3>
                     <div className="space-y-2 mb-4">
                       {activeQuiz.options.map((option, index) => (
                         <button
@@ -265,12 +276,13 @@ export default function InteractiveVideoPlayer({
           </div>
         </CardContent>
       </Card>
-
       {/* Notes Panel */}
       {showNotes && currentNotes.length > 0 && (
         <Card>
           <CardContent className="p-4">
-            <h3 className="font-semibold mb-2">Notes at {formatTime(currentTime)}</h3>
+            <h3 className="font-semibold mb-2">
+              Notes at {formatTime(currentTime)}
+            </h3>
             <div className="space-y-2">
               {currentNotes.map((note, index) => (
                 <div key={index} className="text-sm text-muted-foreground">
@@ -281,7 +293,6 @@ export default function InteractiveVideoPlayer({
           </CardContent>
         </Card>
       )}
-
       {/* Transcript Panel */}
       {showTranscript && transcript && (
         <Card>
@@ -293,7 +304,6 @@ export default function InteractiveVideoPlayer({
           </CardContent>
         </Card>
       )}
-
       {/* Timeline Notes */}
       {notes.length > 0 && (
         <Card>

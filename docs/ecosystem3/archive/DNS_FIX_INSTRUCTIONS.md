@@ -1,12 +1,14 @@
 # 🚨 DNS Configuration Fix for elevateforhumanity.org
 
 ## Current Problem
+
 - **Domain**: elevateforhumanity.org
 - **Error**: ERR_NAME_NOT_RESOLVED
 - **Issue**: No A records configured for the domain
 - **Nameservers**: ns1.systemdns.com, ns2.systemdns.com, ns3.systemdns.com (Active)
 
 ## Root Cause Analysis
+
 ✅ **Domain Registration**: Active and valid
 ✅ **Nameservers**: Working (systemdns.com)
 ❌ **DNS Records**: Missing A and CNAME records
@@ -14,6 +16,7 @@
 ## Required DNS Records
 
 ### For Cloudflare Pages Hosting
+
 Configure these records in Cloudflare DNS:
 
 ```
@@ -33,11 +36,13 @@ Proxy: Enabled (orange cloud)
 ## Step-by-Step Fix
 
 ### Step 1: Access DNS Management
+
 1. Log into your domain registrar/DNS provider
 2. Look for "DNS Management" or "DNS Records"
 3. Find the zone for elevateforhumanity.org
 
 ### Step 2: Add Root Domain A Record
+
 ```
 Record Type: A
 Host/Name: @ (or leave blank for root)
@@ -46,6 +51,7 @@ Proxy: Enabled (orange cloud)
 ```
 
 ### Step 3: Add WWW CNAME Record
+
 ```
 Record Type: CNAME
 Host/Name: www
@@ -54,6 +60,7 @@ Proxy: Enabled (orange cloud)
 ```
 
 ### Step 4: Configure Cloudflare Pages
+
 1. Go to Cloudflare dashboard → Pages
 2. Connect your GitHub repository
 3. Set build command: `npm run build`
@@ -69,7 +76,7 @@ After adding records, test with:
 # Test root domain
 curl -I https://elevateforhumanity.org
 
-# Test www subdomain  
+# Test www subdomain
 curl -I https://www.elevateforhumanity.org
 
 # Check DNS propagation
@@ -78,11 +85,13 @@ dig www.elevateforhumanity.org CNAME
 ```
 
 ## Expected Timeline
+
 - **DNS Propagation**: 15 minutes to 2 hours
 - **Global Propagation**: Up to 24 hours
 - **Vercel SSL**: Automatic after DNS resolves
 
 ## Verification Checklist
+
 - [ ] A record added for root domain
 - [ ] CNAME record added for www subdomain
 - [ ] Domains added to Vercel project
@@ -93,25 +102,30 @@ dig www.elevateforhumanity.org CNAME
 ## Common DNS Providers
 
 ### If using Cloudflare:
+
 1. Login to Cloudflare dashboard
 2. Select elevateforhumanity.org domain
 3. Go to DNS → Records
 4. Add the A and CNAME records above
 
 ### If using Google Domains:
+
 1. Login to Google Domains
 2. Select elevateforhumanity.org
 3. Go to DNS → Custom records
 4. Add the A and CNAME records above
 
 ### If using GoDaddy:
+
 1. Login to GoDaddy
 2. Go to My Products → DNS
 3. Select elevateforhumanity.org
 4. Add the A and CNAME records above
 
 ## Emergency Contact
+
 If you need immediate assistance:
+
 - Check your domain registrar's support documentation
 - Contact your DNS provider's support team
 - Verify you have admin access to the domain

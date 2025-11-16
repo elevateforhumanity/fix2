@@ -253,7 +253,6 @@ export default function GradingInterface() {
           Grade student submissions for your courses
         </p>
       </div>
-
       {message && (
         <div
           className={`mb-6 p-4 rounded-lg ${
@@ -265,7 +264,6 @@ export default function GradingInterface() {
           {message.text}
         </div>
       )}
-
       {/* Course Selection */}
       <div className="bg-white rounded-lg shadow p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -286,7 +284,6 @@ export default function GradingInterface() {
               ))}
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-brand-text mb-2">
               Select Assignment
@@ -307,11 +304,10 @@ export default function GradingInterface() {
           </div>
         </div>
       </div>
-
       {/* Submissions List */}
       {loading ? (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
           <p className="mt-4 text-brand-text-muted">Loading submissions...</p>
         </div>
       ) : submissions.length > 0 ? (
@@ -333,7 +329,6 @@ export default function GradingInterface() {
               Grade All Ungraded
             </button>
           </div>
-
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-brand-surface">

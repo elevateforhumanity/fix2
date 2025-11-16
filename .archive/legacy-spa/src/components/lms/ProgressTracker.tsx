@@ -1,19 +1,23 @@
-import { CheckCircle, Circle, Lock } from 'lucide-react'
+import { CheckCircle, Circle, Lock } from 'lucide-react';
 
 interface Lesson {
-  id: string
-  title: string
-  completed: boolean
-  locked: boolean
+  id: string;
+  title: string;
+  completed: boolean;
+  locked: boolean;
 }
 
 interface ProgressTrackerProps {
-  lessons: Lesson[]
-  currentLessonId: string
-  onLessonClick: (id: string) => void
+  lessons: Lesson[];
+  currentLessonId: string;
+  onLessonClick: (id: string) => void;
 }
 
-export default function ProgressTracker({ lessons, currentLessonId, onLessonClick }: ProgressTrackerProps) {
+export default function ProgressTracker({
+  lessons,
+  currentLessonId,
+  onLessonClick,
+}: ProgressTrackerProps) {
   return (
     <div className="card p-6">
       <h3 className="text-lg font-bold mb-4">Course Progress</h3>
@@ -27,8 +31,8 @@ export default function ProgressTracker({ lessons, currentLessonId, onLessonClic
               lesson.id === currentLessonId
                 ? 'bg-brand-blue text-white'
                 : lesson.locked
-                ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                : 'hover:bg-slate-50'
+                  ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                  : 'hover:bg-slate-50'
             }`}
           >
             {lesson.completed ? (
@@ -43,5 +47,5 @@ export default function ProgressTracker({ lessons, currentLessonId, onLessonClic
         ))}
       </div>
     </div>
-  )
+  );
 }

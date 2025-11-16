@@ -93,7 +93,10 @@ export class OpenLMSService {
   /**
    * Generic API call to Open LMS
    */
-  private async call<T>(wsfunction: string, params: Record<string, any> = {}): Promise<T> {
+  private async call<T>(
+    wsfunction: string,
+    params: Record<string, any> = {}
+  ): Promise<T> {
     try {
       const response = await this.client.post('', null, {
         params: {
@@ -131,7 +134,10 @@ export class OpenLMSService {
     });
   }
 
-  async getCoursesByField(field: string, value: string): Promise<MoodleCourse[]> {
+  async getCoursesByField(
+    field: string,
+    value: string
+  ): Promise<MoodleCourse[]> {
     return this.call<MoodleCourse[]>('core_course_get_courses_by_field', {
       field,
       value,
@@ -154,7 +160,9 @@ export class OpenLMSService {
     });
   }
 
-  async updateCourse(course: Partial<MoodleCourse> & { id: number }): Promise<void> {
+  async updateCourse(
+    course: Partial<MoodleCourse> & { id: number }
+  ): Promise<void> {
     return this.call('core_course_update_courses', {
       courses: [course],
     });
@@ -170,17 +178,22 @@ export class OpenLMSService {
   // USER MANAGEMENT
   // ============================================
 
-  async getUsers(criteria?: { key: string; value: string }[]): Promise<MoodleUser[]> {
+  async getUsers(
+    criteria?: { key: string; value: string }[]
+  ): Promise<MoodleUser[]> {
     return this.call<MoodleUser[]>('core_user_get_users', {
       criteria: criteria || [],
     });
   }
 
   async getUserById(userid: number): Promise<MoodleUser> {
-    const users = await this.call<MoodleUser[]>('core_user_get_users_by_field', {
-      field: 'id',
-      values: [userid],
-    });
+    const users = await this.call<MoodleUser[]>(
+      'core_user_get_users_by_field',
+      {
+        field: 'id',
+        values: [userid],
+      }
+    );
     return users[0];
   }
 
@@ -213,7 +226,11 @@ export class OpenLMSService {
   // ENROLLMENT
   // ============================================
 
-  async enrollUser(userid: number, courseid: number, roleid: number = 5): Promise<void> {
+  async enrollUser(
+    userid: number,
+    courseid: number,
+    roleid: number = 5
+  ): Promise<void> {
     // roleid 5 = Student
     return this.call('enrol_manual_enrol_users', {
       enrolments: [
@@ -253,11 +270,17 @@ export class OpenLMSService {
   // PROGRESS TRACKING
   // ============================================
 
-  async getCourseProgress(userid: number, courseid: number): Promise<CourseProgress> {
-    const completion = await this.call<any>('core_completion_get_course_completion_status', {
-      userid,
-      courseid,
-    });
+  async getCourseProgress(
+    userid: number,
+    courseid: number
+  ): Promise<CourseProgress> {
+    const completion = await this.call<any>(
+      'core_completion_get_course_completion_status',
+      {
+        userid,
+        courseid,
+      }
+    );
 
     return {
       userid,
@@ -280,10 +303,13 @@ export class OpenLMSService {
     cmid: number,
     completed: boolean
   ): Promise<void> {
-    return this.call('core_completion_update_activity_completion_status_manually', {
-      cmid,
-      completed: completed ? 1 : 0,
-    });
+    return this.call(
+      'core_completion_update_activity_completion_status_manually',
+      {
+        cmid,
+        completed: completed ? 1 : 0,
+      }
+    );
   }
 
   // ============================================
@@ -337,7 +363,11 @@ export class OpenLMSService {
     });
   }
 
-  async gradeCompetency(userid: number, competencyid: number, grade: number): Promise<void> {
+  async gradeCompetency(
+    userid: number,
+    competencyid: number,
+    grade: number
+  ): Promise<void> {
     return this.call('core_competency_grade_competency', {
       userid,
       competencyid,
@@ -436,7 +466,12 @@ export class OpenLMSService {
   // FILE MANAGEMENT
   // ============================================
 
-  async uploadFile(file: File, contextid: number, component: string, filearea: string): Promise<any> {
+  async uploadFile(
+    file: File,
+    contextid: number,
+    component: string,
+    filearea: string
+  ): Promise<any> {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('contextid', contextid.toString());
@@ -445,14 +480,18 @@ export class OpenLMSService {
     formData.append('filepath', '/');
     formData.append('filename', file.name);
 
-    const response = await axios.post(`${this.config.url}/webservice/upload.php`, formData, {
-      params: {
-        token: this.config.token,
-      },
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const response = await axios.post(
+      `${this.config.url}/webservice/upload.php`,
+      formData,
+      {
+        params: {
+          token: this.config.token,
+        },
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
 
     return response.data;
   }
@@ -461,7 +500,10 @@ export class OpenLMSService {
   // HEALTH CHECK
   // ============================================
 
-  async healthCheck(): Promise<{ status: 'healthy' | 'unhealthy'; message: string }> {
+  async healthCheck(): Promise<{
+    status: 'healthy' | 'unhealthy';
+    message: string;
+  }> {
     try {
       const siteInfo = await this.getSiteInfo();
       return {

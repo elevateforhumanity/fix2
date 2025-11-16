@@ -36,7 +36,7 @@ export default function SearchResults() {
         category: filters.category !== 'all' ? filters.category : undefined,
         sortBy: filters.sortBy,
       });
-      
+
       setResults(data.results || []);
       setStats({
         total: data.total || 0,
@@ -82,35 +82,42 @@ export default function SearchResults() {
         title={`Search Results for "${query}"`}
         description={`Search results for ${query} on Elevate for Humanity`}
       />
-
       <div style={{ marginBottom: 32 }}>
-        <h1 style={{ fontSize: 32, marginBottom: 8 }}>
-          Search Results
-        </h1>
+        <h1 style={{ fontSize: 32, marginBottom: 8 }}>Search Results</h1>
         <p style={{ fontSize: 16, color: '#6c757d' }}>
           {isLoading ? (
             'Searching...'
           ) : (
             <>
-              Found {stats.total} result{stats.total !== 1 ? 's' : ''} for "{query}"
+              Found {stats.total} result{stats.total !== 1 ? 's' : ''} for "
+              {query}"
             </>
           )}
         </p>
       </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: 32 }}>
+      <div
+        style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: 32 }}
+      >
         {/* Filters Sidebar */}
         <div>
           <div style={{ position: 'sticky', top: 20 }}>
             <h3 style={{ fontSize: 18, marginBottom: 16 }}>Filters</h3>
-
             <div style={{ marginBottom: 24 }}>
-              <label style={{ display: 'block', fontSize: 14, fontWeight: 600, marginBottom: 8 }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  marginBottom: 8,
+                }}
+              >
                 Type
               </label>
               <select
                 value={filters.type}
-                onChange={(e) => setFilters({ ...filters, type: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, type: e.target.value })
+                }
                 style={{
                   width: '100%',
                   padding: '8px 12px',
@@ -121,18 +128,28 @@ export default function SearchResults() {
               >
                 <option value="all">All Types</option>
                 <option value="course">Courses ({stats.courses})</option>
-                <option value="instructor">Instructors ({stats.instructors})</option>
+                <option value="instructor">
+                  Instructors ({stats.instructors})
+                </option>
                 <option value="page">Pages ({stats.pages})</option>
               </select>
             </div>
-
             <div style={{ marginBottom: 24 }}>
-              <label style={{ display: 'block', fontSize: 14, fontWeight: 600, marginBottom: 8 }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  marginBottom: 8,
+                }}
+              >
                 Category
               </label>
               <select
                 value={filters.category}
-                onChange={(e) => setFilters({ ...filters, category: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, category: e.target.value })
+                }
                 style={{
                   width: '100%',
                   padding: '8px 12px',
@@ -146,17 +163,27 @@ export default function SearchResults() {
                 <option value="business">Business</option>
                 <option value="design">Design</option>
                 <option value="marketing">Marketing</option>
-                <option value="personal-development">Personal Development</option>
+                <option value="personal-development">
+                  Personal Development
+                </option>
               </select>
             </div>
-
             <div style={{ marginBottom: 24 }}>
-              <label style={{ display: 'block', fontSize: 14, fontWeight: 600, marginBottom: 8 }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  marginBottom: 8,
+                }}
+              >
                 Sort By
               </label>
               <select
                 value={filters.sortBy}
-                onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, sortBy: e.target.value })
+                }
                 style={{
                   width: '100%',
                   padding: '8px 12px',
@@ -171,9 +198,14 @@ export default function SearchResults() {
                 <option value="rating">Highest Rated</option>
               </select>
             </div>
-
             <button
-              onClick={() => setFilters({ type: 'all', category: 'all', sortBy: 'relevance' })}
+              onClick={() =>
+                setFilters({
+                  type: 'all',
+                  category: 'all',
+                  sortBy: 'relevance',
+                })
+              }
               style={{
                 width: '100%',
                 padding: '8px 12px',
@@ -188,17 +220,20 @@ export default function SearchResults() {
             </button>
           </div>
         </div>
-
         {/* Results */}
         <div>
           {isLoading ? (
-            <div style={{ display: 'flex', justifyContent: 'center', padding: 60 }}>
+            <div
+              style={{ display: 'flex', justifyContent: 'center', padding: 60 }}
+            >
               <LoadingSpinner size="large" />
             </div>
           ) : results.length === 0 ? (
             <div style={{ textAlign: 'center', padding: 60, color: '#6c757d' }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
-              <h3 style={{ fontSize: 20, marginBottom: 8 }}>No results found</h3>
+              <h3 style={{ fontSize: 20, marginBottom: 8 }}>
+                No results found
+              </h3>
               <p>Try adjusting your search or filters</p>
             </div>
           ) : (
@@ -219,7 +254,8 @@ export default function SearchResults() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = '#007bff';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 123, 255, 0.1)';
+                    e.currentTarget.style.boxShadow =
+                      '0 2px 8px rgba(0, 123, 255, 0.1)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = '#ddd';
@@ -227,18 +263,43 @@ export default function SearchResults() {
                   }}
                 >
                   <div style={{ display: 'flex', gap: 16 }}>
-                    <div style={{ fontSize: 32 }}>{getResultIcon(result.type)}</div>
+                    <div style={{ fontSize: 32 }}>
+                      {getResultIcon(result.type)}
+                    </div>
                     <div style={{ flex: 1 }}>
-                      <h3 style={{ fontSize: 18, marginBottom: 8, color: '#007bff' }}>
+                      <h3
+                        style={{
+                          fontSize: 18,
+                          marginBottom: 8,
+                          color: '#007bff',
+                        }}
+                      >
                         {result.title}
                       </h3>
                       {result.description && (
-                        <p style={{ fontSize: 14, color: '#6c757d', marginBottom: 8, lineHeight: 1.5 }}>
+                        <p
+                          style={{
+                            fontSize: 14,
+                            color: '#6c757d',
+                            marginBottom: 8,
+                            lineHeight: 1.5,
+                          }}
+                        >
                           {result.description}
                         </p>
                       )}
-                      <div style={{ display: 'flex', gap: 12, fontSize: 12, color: '#999' }}>
-                        <span>{result.type.charAt(0).toUpperCase() + result.type.slice(1)}</span>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: 12,
+                          fontSize: 12,
+                          color: '#999',
+                        }}
+                      >
+                        <span>
+                          {result.type.charAt(0).toUpperCase() +
+                            result.type.slice(1)}
+                        </span>
                         {result.category && (
                           <>
                             <span>•</span>
@@ -254,7 +315,9 @@ export default function SearchResults() {
                         {result.enrollments && (
                           <>
                             <span>•</span>
-                            <span>{result.enrollments.toLocaleString()} enrolled</span>
+                            <span>
+                              {result.enrollments.toLocaleString()} enrolled
+                            </span>
                           </>
                         )}
                       </div>

@@ -81,7 +81,7 @@ export const errorHandler = (
   // Prisma error handling commented out - using raw PostgreSQL
   // if (err instanceof Prisma.PrismaClientKnownRequestError) {
   //   error = handlePrismaError(err);
-  // } else 
+  // } else
   if (err.name === 'JsonWebTokenError') {
     error = handleJWTError();
   } else if (err.name === 'TokenExpiredError') {
@@ -137,7 +137,11 @@ export const asyncHandler = (fn: Function) => {
   };
 };
 
-export const notFoundHandler = (req: Request, _res: Response, next: NextFunction) => {
+export const notFoundHandler = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   next(new NotFoundError(`Route ${req.originalUrl}`));
 };
 

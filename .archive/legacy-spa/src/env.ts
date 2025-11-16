@@ -40,5 +40,4 @@ if (
   require.main === module
 ) {
   loadEnv();
-
 }

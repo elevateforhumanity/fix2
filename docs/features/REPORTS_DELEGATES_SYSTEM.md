@@ -1,41 +1,50 @@
 # Reports & Delegates Center - Complete Documentation
 
 ## Overview
+
 Comprehensive case management system for workforce development programs (WRG, WIOA, JRI, EmployIndy, DOL) with delegate management, progress tracking, and automated reporting.
 
 ## Features Implemented
 
 ### 1. Program Holders & Delegates ✅
+
 **Purpose**: Multi-tenant system where program holders (barber schools, CNA programs, etc.) can manage their learners with delegated access control.
 
 **Database Tables:**
+
 - `program_holders` - Organizations running training programs
 - `delegates` - Staff with limited access to program holder data
 - `user_profiles.program_holder_id` - Links users to their program holder
 - `courses.program_holder_id` - Links courses to program holders
 
 **Permissions System:**
+
 - `can_view_reports` - View learner reports
 - `can_view_learners` - View learner details
 - `can_edit_courses` - Edit course content
 - `can_view_financials` - View financial data
 
 ### 2. Login Tracking ✅
+
 **Purpose**: Track learner engagement and identify at-risk students.
 
 **Database:**
+
 - `login_events` table tracks every login with timestamp and source
 - Indexed for fast queries by user and time
 
 **Implementation:**
+
 - `LoginTracker` component automatically logs dashboard visits
 - API endpoint: `/api/events/login`
 - Tracks source: `LMS_DASHBOARD`, `PORTAL`, etc.
 
 ### 3. Case Management Notes ✅
+
 **Purpose**: Program holders can log progress notes, status updates, and follow-up tasks for each learner.
 
 **Database:**
+
 - `program_holder_notes` table with:
   - `status` - On Track, Behind, Dropped, etc.
   - `note` - Free-text progress notes
@@ -45,15 +54,18 @@ Comprehensive case management system for workforce development programs (WRG, WI
   - `created_at` - Timestamp
 
 **Features:**
+
 - Full timeline view per learner
 - Latest status shown in reports
 - Follow-up tracking with overdue alerts
 - Audit trail of all updates
 
 ### 4. Admin Reports Hub ✅
+
 **Purpose**: Centralized reporting for administrators across all programs.
 
 **Features:**
+
 - Filter by funding program (WRG, WIOA, JRI, etc.)
 - Filter by date range
 - View learner activity, progress, login history
@@ -62,6 +74,7 @@ Comprehensive case management system for workforce development programs (WRG, WI
 - Link to learner timeline
 
 **Metrics Displayed:**
+
 - Learner name and email
 - Course enrollment
 - Start date
@@ -74,9 +87,11 @@ Comprehensive case management system for workforce development programs (WRG, WI
 - Latest note
 
 ### 5. Delegate Reports Portal ✅
+
 **Purpose**: Program holders and delegates view only their assigned learners.
 
 **Features:**
+
 - Filtered view of learners in their courses
 - Add/update case notes and status
 - Set follow-up dates
@@ -84,14 +99,17 @@ Comprehensive case management system for workforce development programs (WRG, WI
 - Real-time updates
 
 **Access Control:**
+
 - Checks `delegates` table for permissions
 - Validates `program_holder_id` match
 - Role-based access (partner, admin)
 
 ### 6. Learner Timeline View ✅
+
 **Purpose**: Complete history of all case management activities for a learner.
 
 **Features:**
+
 - Chronological list of all notes (newest first)
 - Shows course, program holder, status, note
 - Displays who created each note and when
@@ -101,9 +119,11 @@ Comprehensive case management system for workforce development programs (WRG, WI
 **Route:** `/admin/learner/[id]`
 
 ### 7. Caseload Report ✅
+
 **Purpose**: Targeted reporting for outreach and intervention.
 
 **Features:**
+
 - Filter by program code (WRG, WIOA, etc.)
 - Filter by case status (Behind, Dropped, On Track)
 - Filter by date range
@@ -112,6 +132,7 @@ Comprehensive case management system for workforce development programs (WRG, WI
 - Shows follow-up dates and status
 
 **Use Cases:**
+
 - "Show all Behind learners in WRG this month"
 - "Export all Dropped students for outreach"
 - "Find learners needing follow-up this week"
@@ -121,9 +142,11 @@ Comprehensive case management system for workforce development programs (WRG, WI
 ### 8. Automated Email Alerts ✅
 
 #### Daily Login Reminders
+
 **Purpose**: Re-engage learners who haven't logged in recently.
 
 **Logic:**
+
 - Runs daily via scheduled function
 - Finds active enrollments with no login in 7+ days
 - Sends reminder email to learner
@@ -132,9 +155,11 @@ Comprehensive case management system for workforce development programs (WRG, WI
 **File:** `/netlify/functions/login-reminders.ts`
 
 #### Weekly Caseload Summaries
+
 **Purpose**: Keep program holders informed of at-risk learners.
 
 **Logic:**
+
 - Runs weekly (e.g., Monday 7am)
 - For each program holder:
   - Finds learners marked Behind or Dropped
@@ -146,6 +171,7 @@ Comprehensive case management system for workforce development programs (WRG, WI
 **File:** `/netlify/functions/weekly-caseload.ts`
 
 **Email Format:**
+
 ```
 Weekly Caseload Summary for [Program Name]
 
@@ -168,20 +194,24 @@ You can update notes and statuses here: [link]
 ## API Endpoints
 
 ### Delegates Management
+
 - `GET /api/delegates/holders` - List all program holders (admin only)
 - `GET /api/delegates/list` - List all delegates with permissions (admin only)
 - `POST /api/delegates/add` - Add new delegate (admin only)
 - `POST /api/delegates/update` - Update delegate permissions (admin only)
 
 ### Login Tracking
+
 - `POST /api/events/login` - Log a login event (authenticated users)
 
 ### Case Notes
+
 - `POST /api/delegate/notes/add` - Add case note (delegates/partners)
 - `GET /api/admin/learner/notes?user_id={id}` - Get all notes for learner (admin)
 - `GET /api/admin/learner/info?user_id={id}` - Get learner basic info (admin)
 
 ### Reports
+
 - `GET /api/reports/usage` - Admin usage report with filters (admin only)
   - Query params: `code`, `from`, `to`, `format`
 - `GET /api/reports/usage/delegate` - Delegate usage report (delegates/partners)
@@ -191,12 +221,14 @@ You can update notes and statuses here: [link]
 ## Pages & Routes
 
 ### Admin Pages
+
 - `/admin/delegates` - Manage program holders and delegates
 - `/admin/reports` - Main reports hub with filters
 - `/admin/reports/caseload` - Targeted caseload report
 - `/admin/learner/[id]` - Learner timeline view
 
 ### Delegate Pages
+
 - `/delegate/reports` - Program holder reports portal
 
 ## Database Schema
@@ -268,19 +300,21 @@ create index idx_delegates_user on delegates(user_id);
 create index idx_login_user_time on login_events(user_id, at desc);
 create index idx_ph_notes_ph on program_holder_notes(program_holder_id);
 create index idx_ph_notes_user on program_holder_notes(user_id, course_id);
-create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follow_up_done) 
+create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follow_up_done)
   where follow_up_date is not null;
 ```
 
 ## Workflow Examples
 
 ### 1. Adding a New Program Holder
+
 1. Admin navigates to `/admin/delegates`
 2. Creates new program holder record in database
 3. Sets `owner_user_id` to program holder's user account
 4. Program holder can now access `/delegate/reports`
 
 ### 2. Assigning a Delegate
+
 1. Admin navigates to `/admin/delegates`
 2. Selects program holder from dropdown
 3. Enters delegate's email address
@@ -290,6 +324,7 @@ create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follo
 7. Delegate can now access `/delegate/reports` with assigned permissions
 
 ### 3. Logging a Case Note
+
 1. Delegate navigates to `/delegate/reports`
 2. Views list of assigned learners
 3. Clicks "Add Note" or "Update" button
@@ -301,6 +336,7 @@ create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follo
 6. Latest note appears in reports immediately
 
 ### 4. Running a Caseload Report
+
 1. Admin navigates to `/admin/reports/caseload`
 2. Selects filters:
    - Program: WRG
@@ -312,6 +348,7 @@ create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follo
 6. Clicks "Timeline" link to view learner history
 
 ### 5. Weekly Email Process
+
 1. Scheduled function runs Monday 7am
 2. Queries all program holders
 3. For each program holder:
@@ -326,6 +363,7 @@ create index idx_ph_notes_followup on program_holder_notes(follow_up_date, follo
 ## Configuration
 
 ### Environment Variables
+
 ```env
 # Database
 SUPABASE_DB_URL=postgresql://...
@@ -339,6 +377,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 ```
 
 ### Scheduled Functions (Netlify)
+
 ```toml
 # netlify.toml
 [[functions]]
@@ -353,6 +392,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 ## Security & Permissions
 
 ### Role Hierarchy
+
 1. **Admin** - Full access to all features
 2. **Partner** - Program holder owner, full access to their learners
 3. **Delegate** - Limited access based on permissions
@@ -360,6 +400,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 5. **Learner** - Can only view their own data
 
 ### Access Control Checks
+
 - All admin endpoints verify `role === 'admin'`
 - Delegate endpoints verify:
   - User has `program_holder_id`
@@ -368,6 +409,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 - Data filtering by `program_holder_id` prevents cross-tenant access
 
 ### Data Privacy
+
 - Learners cannot see other learners' data
 - Delegates only see learners in their program holder's courses
 - Case notes are only visible to admin and assigned program holder
@@ -376,6 +418,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 ## Reporting & Analytics
 
 ### Key Metrics Tracked
+
 - **Engagement**: Login frequency, last login date
 - **Progress**: Minutes completed, percentage complete
 - **Status**: Enrollment status, case status
@@ -383,12 +426,14 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 - **Intervention**: Follow-up dates, overdue tasks
 
 ### Export Formats
+
 - **CSV**: All reports support CSV export
 - **Columns**: Consistent across reports for easy analysis
 - **Timestamps**: ISO 8601 format for sorting
 - **Encoding**: UTF-8 with proper escaping
 
 ### Compliance Features
+
 - **Audit Trail**: All notes timestamped with creator
 - **Status History**: Full timeline preserved
 - **Follow-up Tracking**: Documented intervention attempts
@@ -398,6 +443,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 ## Future Enhancements
 
 ### Suggested Next Steps
+
 1. **Task Management**
    - Add task types (call, email, meeting)
    - Task assignment to specific staff
@@ -435,21 +481,25 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 ### Common Issues
 
 **Delegates can't see learners:**
+
 - Verify `program_holder_id` is set on user profile
 - Check delegate record exists with correct permissions
 - Ensure courses have `program_holder_id` set
 
 **Login tracking not working:**
+
 - Check `LoginTracker` component is imported
 - Verify API endpoint is accessible
 - Check browser console for errors
 
 **Emails not sending:**
+
 - Verify `RESEND_API_KEY` is set
 - Check `EMAIL_FROM` is verified domain
 - Review Netlify function logs
 
 **Reports showing no data:**
+
 - Verify enrollments have `funding_program_id` set
 - Check date range filters
 - Ensure program codes match exactly (case-sensitive)
@@ -461,7 +511,7 @@ NEXT_PUBLIC_BASE_URL=https://elevate.example.com
 select * from program_holders;
 
 -- Check delegate permissions
-select d.*, u.email, ph.name 
+select d.*, u.email, ph.name
 from delegates d
 join auth.users u on u.id = d.user_id
 join program_holders ph on ph.id = d.program_holder_id;
@@ -482,6 +532,7 @@ order by last_login desc;
 ## Support
 
 For issues or questions:
+
 1. Check this documentation
 2. Review database schema
 3. Check API endpoint responses

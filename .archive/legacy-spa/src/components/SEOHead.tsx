@@ -5,7 +5,10 @@
 
 import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
-import { injectStructuredData, removeStructuredData } from '../utils/structuredData';
+import {
+  injectStructuredData,
+  removeStructuredData,
+} from '../utils/structuredData';
 
 interface SEOHeadProps {
   title: string;
@@ -33,8 +36,8 @@ export default function SEOHead({
   const siteUrl = 'https://elevateconnectsdirectory.org';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
-  const fullTitle = title.includes('Elevate for Humanity') 
-    ? title 
+  const fullTitle = title.includes('Elevate for Humanity')
+    ? title
     : `${title} | Elevate for Humanity`;
 
   // Inject structured data
@@ -58,15 +61,12 @@ export default function SEOHead({
       {keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
-
       {/* Canonical URL */}
       {canonical && <link rel="canonical" href={canonical} />}
       {!canonical && <link rel="canonical" href={fullUrl} />}
-
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {!noindex && <meta name="robots" content="index, follow" />}
-
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={fullUrl} />
@@ -77,7 +77,6 @@ export default function SEOHead({
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="Elevate for Humanity" />
       <meta property="og:locale" content="en_US" />
-
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={fullUrl} />
@@ -86,7 +85,6 @@ export default function SEOHead({
       <meta name="twitter:image" content={fullImage} />
       <meta name="twitter:site" content="@elevate4humanity" />
       <meta name="twitter:creator" content="@elevate4humanity" />
-
       {/* Additional Meta Tags */}
       <meta name="author" content="Elevate for Humanity" />
       <meta name="publisher" content="Elevate for Humanity" />
@@ -95,17 +93,17 @@ export default function SEOHead({
       <meta name="revisit-after" content="7 days" />
       <meta name="distribution" content="global" />
       <meta name="rating" content="general" />
-
       {/* Mobile Meta Tags */}
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
       <meta name="apple-mobile-web-app-title" content="Elevate for Humanity" />
-
       {/* Theme Color */}
       <meta name="theme-color" content="#2563EB" />
       <meta name="msapplication-TileColor" content="#2563EB" />
-
       {/* Geo Tags */}
       <meta name="geo.region" content="US-IN" />
       <meta name="geo.placename" content="Indianapolis" />

@@ -10,7 +10,7 @@ interface AttendanceTrackerProps {
 
 /**
  * AttendanceTracker - Tracks student session time and activity
- * 
+ *
  * Features:
  * - Automatic session start on mount
  * - Activity detection (mouse, keyboard, scroll, touch)
@@ -19,9 +19,9 @@ interface AttendanceTrackerProps {
  * - Weekly contact hours aggregation
  * - Automatic session end on unmount
  */
-export default function AttendanceTracker({ 
-  courseId, 
-  activityType = 'learning' 
+export default function AttendanceTracker({
+  courseId,
+  activityType = 'learning',
 }: AttendanceTrackerProps) {
   const sessionIdRef = useRef<number | null>(null);
   const loginTimeRef = useRef<Date>(new Date());
@@ -37,7 +37,9 @@ export default function AttendanceTracker({
   // Start attendance session
   const startSession = useCallback(async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const { data, error } = await supabase
@@ -52,7 +54,7 @@ export default function AttendanceTracker({
         .single();
 
       if (error) throw error;
-      
+
       if (data) {
         sessionIdRef.current = data.id;
         loginTimeRef.current = new Date();
@@ -86,48 +88,49 @@ export default function AttendanceTracker({
   }, [supabase]);
 
   // Update weekly contact hours aggregate
-  const updateWeeklyHours = useCallback(async (userId: string, minutesToAdd: number) => {
-    try {
-      // Get start of current week (Sunday)
-      const now = new Date();
-      const weekStart = new Date(now);
-      weekStart.setDate(now.getDate() - now.getDay());
-      weekStart.setHours(0, 0, 0, 0);
+  const updateWeeklyHours = useCallback(
+    async (userId: string, minutesToAdd: number) => {
+      try {
+        // Get start of current week (Sunday)
+        const now = new Date();
+        const weekStart = new Date(now);
+        weekStart.setDate(now.getDate() - now.getDay());
+        weekStart.setHours(0, 0, 0, 0);
 
-      // Check if record exists for this week
-      const { data: existing } = await supabase
-        .from('contact_hours')
-        .select('*')
-        .eq('student_id', userId)
-        .eq('week_start', weekStart.toISOString().split('T')[0])
-        .single();
-
-      const hoursToAdd = Math.round(minutesToAdd / 60 * 10) / 10;
-
-      if (existing) {
-        // Update existing record
-        await supabase
+        // Check if record exists for this week
+        const { data: existing } = await supabase
           .from('contact_hours')
-          .update({
-            total_hours: existing.total_hours + hoursToAdd,
-            sessions_count: existing.sessions_count + 1,
-          })
-          .eq('id', existing.id);
-      } else {
-        // Create new record
-        await supabase
-          .from('contact_hours')
-          .insert({
+          .select('*')
+          .eq('student_id', userId)
+          .eq('week_start', weekStart.toISOString().split('T')[0])
+          .single();
+
+        const hoursToAdd = Math.round((minutesToAdd / 60) * 10) / 10;
+
+        if (existing) {
+          // Update existing record
+          await supabase
+            .from('contact_hours')
+            .update({
+              total_hours: existing.total_hours + hoursToAdd,
+              sessions_count: existing.sessions_count + 1,
+            })
+            .eq('id', existing.id);
+        } else {
+          // Create new record
+          await supabase.from('contact_hours').insert({
             student_id: userId,
             week_start: weekStart.toISOString().split('T')[0],
             total_hours: hoursToAdd,
             sessions_count: 1,
           });
+        }
+      } catch (error) {
+        console.error('Failed to update weekly hours:', error);
       }
-    } catch (error) {
-      console.error('Failed to update weekly hours:', error);
-    }
-  }, [supabase]);
+    },
+    [supabase]
+  );
 
   // End session
   const endSession = useCallback(async () => {
@@ -148,7 +151,9 @@ export default function AttendanceTracker({
         .eq('id', sessionIdRef.current);
 
       // Update weekly contact hours
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (user) {
         await updateWeeklyHours(user.id, durationMinutes);
       }
@@ -168,8 +173,9 @@ export default function AttendanceTracker({
   // Check for inactivity (5 minutes)
   const checkInactivity = useCallback(() => {
     const now = new Date();
-    const inactiveMinutes = (now.getTime() - lastActivityRef.current.getTime()) / 60000;
-    
+    const inactiveMinutes =
+      (now.getTime() - lastActivityRef.current.getTime()) / 60000;
+
     if (inactiveMinutes > 5 && isActiveRef.current) {
       isActiveRef.current = false;
       updateSession();
@@ -182,7 +188,7 @@ export default function AttendanceTracker({
 
     // Set up activity listeners
     const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
-    events.forEach(event => {
+    events.forEach((event) => {
       window.addEventListener(event, handleActivity);
     });
 
@@ -196,17 +202,23 @@ export default function AttendanceTracker({
 
     // End session on unmount
     return () => {
-      events.forEach(event => {
+      events.forEach((event) => {
         window.removeEventListener(event, handleActivity);
       });
-      
+
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
-      
+
       endSession();
     };
-  }, [startSession, handleActivity, checkInactivity, updateSession, endSession]);
+  }, [
+    startSession,
+    handleActivity,
+    checkInactivity,
+    updateSession,
+    endSession,
+  ]);
 
   // This component doesn't render anything visible
   return null;

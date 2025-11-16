@@ -1,9 +1,19 @@
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, Users, BookOpen, FileText, Award, BarChart, Settings } from 'lucide-react';
+import {
+  CheckCircle,
+  ArrowRight,
+  Users,
+  BookOpen,
+  FileText,
+  Award,
+  BarChart,
+  Settings,
+} from 'lucide-react';
 
 export const metadata = {
   title: 'How to Utilize the System | Elevate for Humanity',
-  description: 'Complete guide on how to use the Elevate platform as a program holder',
+  description:
+    'Complete guide on how to use the Elevate platform as a program holder',
 };
 
 export default function HowToUsePage() {
@@ -97,7 +107,8 @@ export default function HowToUsePage() {
   const keyFeatures = [
     {
       title: 'Student Enrollment Management',
-      description: 'Easily enroll students, verify eligibility, and track enrollment status',
+      description:
+        'Easily enroll students, verify eligibility, and track enrollment status',
       benefits: [
         'Automated eligibility verification',
         'Printable enrollment confirmations',
@@ -107,7 +118,8 @@ export default function HowToUsePage() {
     },
     {
       title: 'Course Content Management',
-      description: 'Create and manage engaging course content with video, documents, and assessments',
+      description:
+        'Create and manage engaging course content with video, documents, and assessments',
       benefits: [
         'Video player with progress tracking',
         'YouTube/Vimeo integration',
@@ -117,7 +129,8 @@ export default function HowToUsePage() {
     },
     {
       title: 'Progress Tracking',
-      description: 'Monitor student progress in real-time with detailed analytics',
+      description:
+        'Monitor student progress in real-time with detailed analytics',
       benefits: [
         'Lesson completion tracking',
         'Video watch time analytics',
@@ -196,15 +209,20 @@ export default function HowToUsePage() {
           </div>
         </div>
         <div className="flex gap-3 items-center">
-          <Link href="/program-holder/training" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/program-holder/training"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Training
           </Link>
-          <Link href="/program-holder/dashboard" className="elevate-btn-primary">
+          <Link
+            href="/program-holder/dashboard"
+            className="elevate-btn-primary"
+          >
             Dashboard
           </Link>
         </div>
       </header>
-
       {/* Hero */}
       <section className="bg-gradient-to-br from-orange-500 via-red-500 to-blue-600 text-white py-20">
         <div className="elevate-container text-center">
@@ -212,14 +230,18 @@ export default function HowToUsePage() {
             How to Utilize the System
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-            A complete guide to managing your training programs, enrolling students, tracking progress, and maintaining WIOA compliance on the Elevate platform
+            A complete guide to managing your training programs, enrolling
+            students, tracking progress, and maintaining WIOA compliance on the
+            Elevate platform
           </p>
-          <Link href="#getting-started" className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100">
+          <Link
+            href="#getting-started"
+            className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+          >
             Get Started
           </Link>
         </div>
       </section>
-
       {/* Step-by-Step Guide */}
       <section id="getting-started" className="py-16 bg-white">
         <div className="elevate-container">
@@ -231,12 +253,14 @@ export default function HowToUsePage() {
               Follow these steps to effectively manage your training programs
             </p>
           </div>
-
           <div className="max-w-5xl mx-auto space-y-8">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.number} className="elevate-card hover:shadow-xl transition-shadow">
+                <div
+                  key={step.number}
+                  className="elevate-card hover:shadow-xl transition-shadow"
+                >
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
@@ -276,7 +300,6 @@ export default function HowToUsePage() {
           </div>
         </div>
       </section>
-
       {/* Key Features */}
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="elevate-container">
@@ -288,10 +311,12 @@ export default function HowToUsePage() {
               Powerful tools to manage your training programs effectively
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {keyFeatures.map((feature, index) => (
-              <div key={index} className="elevate-card hover:shadow-xl transition-shadow">
+              <div
+                key={index}
+                className="elevate-card hover:shadow-xl transition-shadow"
+              >
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
@@ -311,7 +336,6 @@ export default function HowToUsePage() {
           </div>
         </div>
       </section>
-
       {/* Quick Tips */}
       <section className="py-16 bg-white">
         <div className="elevate-container">
@@ -323,10 +347,12 @@ export default function HowToUsePage() {
               Best practices from experienced program holders
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {quickTips.map((item, index) => (
-              <div key={index} className="elevate-card bg-gradient-to-br from-orange-50 to-red-50 border-orange-200">
+              <div
+                key={index}
+                className="elevate-card bg-gradient-to-br from-orange-50 to-red-50 border-orange-200"
+              >
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                   <span className="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
                     {index + 1}
@@ -339,7 +365,6 @@ export default function HowToUsePage() {
           </div>
         </div>
       </section>
-
       {/* Support CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="elevate-container text-center">
@@ -350,10 +375,16 @@ export default function HowToUsePage() {
             Our support team is here to help you every step of the way
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/program-holder/training" className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100">
+            <Link
+              href="/program-holder/training"
+              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+            >
               View Training Resources
             </Link>
-            <Link href="/contact" className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20">
+            <Link
+              href="/contact"
+              className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20"
+            >
               Contact Support
             </Link>
           </div>

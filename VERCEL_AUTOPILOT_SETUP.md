@@ -27,6 +27,7 @@ Your Supabase keys are ready. Just need to add Vercel credentials.
 5. Copy the ID (looks like: `team_xxxxxxxxxxxxx`)
 
 **Alternative method**:
+
 ```bash
 # If you have Vercel CLI installed locally
 vercel whoami
@@ -51,38 +52,48 @@ Go to: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new]
 ### Add These 5 Secrets:
 
 #### 1️⃣ VERCEL_TOKEN
+
 ```
 Name: VERCEL_TOKEN
 Value: [Paste token from Step 1.1]
 ```
+
 Click "Add secret" ✅
 
 #### 2️⃣ VERCEL_ORG_ID
+
 ```
 Name: VERCEL_ORG_ID
 Value: [Paste org ID from Step 1.2]
 ```
+
 Click "Add secret" ✅
 
 #### 3️⃣ VERCEL_PROJECT_ID
+
 ```
 Name: VERCEL_PROJECT_ID
 Value: [Paste project ID from Step 1.3]
 ```
+
 Click "Add secret" ✅
 
 #### 4️⃣ SUPABASE_ANON_KEY
+
 ```
 Name: SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA
 ```
+
 Click "Add secret" ✅
 
 #### 5️⃣ SUPABASE_SERVICE_ROLE_KEY
+
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE
 ```
+
 Click "Add secret" ✅
 
 ---
@@ -92,6 +103,7 @@ Click "Add secret" ✅
 Check: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions](https://github.com/elevateforhumanity/fix2/settings/secrets/actions)
 
 You should see all 5 secrets:
+
 - ✅ VERCEL_TOKEN
 - ✅ VERCEL_ORG_ID
 - ✅ VERCEL_PROJECT_ID
@@ -103,6 +115,7 @@ You should see all 5 secrets:
 ## ✅ Step 4: Run Autopilot Workflows
 
 ### 4.1 Validate Secrets
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-secrets-validator.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-secrets-validator.yml)
 
 1. Click "Run workflow"
@@ -115,6 +128,7 @@ You should see all 5 secrets:
 ---
 
 ### 4.2 Sync Environment to Vercel
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-vercel-guardian.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-vercel-guardian.yml)
 
 1. Click "Run workflow"
@@ -123,13 +137,15 @@ You should see all 5 secrets:
 4. Wait 3-5 minutes
 5. Check summary
 
-**Expected**: 
+**Expected**:
+
 - "✅ All environment variables configured"
 - "✅ Deployment triggered successfully"
 
 ---
 
 ### 4.3 Test Production Site
+
 **Link**: [https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-readiness.yml](https://github.com/elevateforhumanity/fix2/actions/workflows/autopilot-readiness.yml)
 
 1. Click "Run workflow"
@@ -145,9 +161,11 @@ You should see all 5 secrets:
 ## ✅ Step 5: Visit Your Live Site
 
 ### Open Your Site
+
 **Link**: [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
 
 ### Check These Pages:
+
 - ✅ Homepage loads
 - ✅ No "Internal Server Error"
 - ✅ Programs page works
@@ -161,14 +179,17 @@ You should see all 5 secrets:
 After completing all steps:
 
 ### GitHub Secrets
+
 - [x] All 5 secrets added
 - [x] Secrets validator passed
 
 ### Autopilot System
+
 - [x] Vercel Guardian synced environment
 - [x] Readiness Tester passed all checks
 
 ### Production Site
+
 - [x] Homepage loads without errors
 - [x] Programs pages work
 - [x] No "Internal Server Error"
@@ -180,10 +201,12 @@ After completing all steps:
 Your autopilot system now runs:
 
 ### Daily Checks
+
 - **2 AM UTC**: Secrets Validator
 - **10 AM UTC**: Readiness Tester
 
 ### On Every Push
+
 - Readiness Tester validates site
 - All checks must pass
 
@@ -192,20 +215,26 @@ Your autopilot system now runs:
 ## 🆘 Troubleshooting
 
 ### "VERCEL_TOKEN authentication failed"
+
 **Solution**:
+
 1. Verify token is correct
 2. Check token hasn't expired
 3. Generate new token if needed
 4. Update GitHub Secret
 
 ### "Cannot find project"
+
 **Solution**:
+
 1. Verify VERCEL_PROJECT_ID is correct
 2. Check you have access to the project
 3. Ensure project exists in Vercel dashboard
 
 ### "Site still shows error"
+
 **Solution**:
+
 1. Wait 5 minutes for Vercel to deploy
 2. Run Vercel Guardian again
 3. Check Vercel deployment logs
@@ -235,4 +264,4 @@ After activation:
 
 **Start with Step 1 above** and you'll be live in 10 minutes!
 
-🤖 *Vercel Autopilot - Keeping your LMS running smoothly.*
+🤖 _Vercel Autopilot - Keeping your LMS running smoothly._

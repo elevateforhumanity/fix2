@@ -1,4 +1,5 @@
 # DNS CONFIGURED ✅ - NEXT STEPS
+
 **Status:** DNS is correct in Durable.co
 **Next:** Add domain in Netlify
 
@@ -22,12 +23,14 @@ CNAME  www  elevateproduction.netlify.app ✅ PERFECT
 DNS changes need time to propagate globally.
 
 **Check propagation:**
+
 1. Go to: https://dnschecker.org
 2. Enter: `elevateconnectsdirectory.org`
 3. Select: **A Record**
 4. Should show: `75.2.60.5` ✅
 
 **Also check www:**
+
 1. Enter: `www.elevateconnectsdirectory.org`
 2. Select: **CNAME**
 3. Should show: `elevateproduction.netlify.app` ✅
@@ -50,6 +53,7 @@ Once DNS has propagated (10-15 minutes):
 4. **Click:** "Verify"
 
 5. **Netlify will check DNS and show:**
+
    ```
    ✅ DNS configured correctly
    ⏳ Provisioning SSL certificate...
@@ -68,6 +72,7 @@ After SSL is provisioned:
 3. **SSL:** Should be secure (🔒 in browser)
 
 **Also test www:**
+
 1. **Visit:** https://www.elevateconnectsdirectory.org
 2. **Should redirect to:** https://www.elevateconnectsdirectory.org
 3. **Should show:** Your LMS site
@@ -91,18 +96,21 @@ Total:         ~20-30 minutes
 ## 🔍 VERIFICATION CHECKLIST
 
 ### DNS Propagation:
+
 - [ ] Checked dnschecker.org
 - [ ] A record shows 75.2.60.5
 - [ ] CNAME shows elevateproduction.netlify.app
 - [ ] Most locations are green
 
 ### Netlify:
+
 - [ ] Added custom domain
 - [ ] DNS verified
 - [ ] SSL certificate provisioned
 - [ ] Domain shows as "Active"
 
 ### Testing:
+
 - [ ] https://www.elevateconnectsdirectory.org loads
 - [ ] SSL works (🔒)
 - [ ] www redirects to apex
@@ -113,6 +121,7 @@ Total:         ~20-30 minutes
 ## 📊 WHAT HAPPENS NEXT
 
 ### DNS Propagation (10-15 minutes):
+
 ```
 Durable DNS servers → Update globally
 Your change spreads to DNS servers worldwide
@@ -121,6 +130,7 @@ Some may take up to 24-48 hours
 ```
 
 ### Netlify Verification (instant):
+
 ```
 You add domain in Netlify
 Netlify checks DNS records
@@ -129,6 +139,7 @@ Verifies domain ownership
 ```
 
 ### SSL Certificate (5-10 minutes):
+
 ```
 Netlify requests certificate from Let's Encrypt
 Let's Encrypt verifies domain ownership
@@ -138,6 +149,7 @@ HTTPS enabled automatically
 ```
 
 ### Result:
+
 ```
 Your site is live at:
 - https://www.elevateconnectsdirectory.org ✅
@@ -153,6 +165,7 @@ Your site is live at:
 ### During DNS Propagation (10-15 minutes):
 
 You can:
+
 1. ✅ Set up environment variables in Netlify
 2. ✅ Review your site at elevateproduction.netlify.app
 3. ✅ Read documentation
@@ -164,6 +177,7 @@ You can:
 Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environment
 
 Add these:
+
 ```
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
@@ -186,10 +200,11 @@ NODE_ENV=production
    - Make sure you clicked "Save"
 
 2. **Clear your local DNS cache:**
+
    ```bash
    # Mac/Linux
    sudo dscacheutil -flushcache
-   
+
    # Windows
    ipconfig /flushdns
    ```
@@ -217,16 +232,20 @@ NODE_ENV=production
 ## 📞 SUPPORT
 
 ### DNS Propagation Checker:
+
 - https://dnschecker.org
 - https://www.whatsmydns.net
 
 ### Netlify Dashboard:
+
 - https://app.netlify.com/sites/elevateproduction
 
 ### Durable Dashboard:
+
 - https://durable.co/login
 
 ### Netlify Docs:
+
 - https://docs.netlify.com/domains-https/custom-domains/
 
 ---
@@ -255,27 +274,32 @@ NODE_ENV=production
 ## 📋 QUICK REFERENCE
 
 ### Your Domain:
+
 ```
 elevateconnectsdirectory.org
 ```
 
 ### Your DNS:
+
 ```
 A      @    75.2.60.5
 CNAME  www  elevateproduction.netlify.app
 ```
 
 ### Netlify Site:
+
 ```
 elevateproduction.netlify.app
 ```
 
 ### Add Domain URL:
+
 ```
 https://app.netlify.com/sites/elevateproduction/settings/domain
 ```
 
 ### DNS Checker:
+
 ```
 https://dnschecker.org
 ```
@@ -291,9 +315,11 @@ https://dnschecker.org
 3. Check if DNS has propagated (green checkmarks)
 
 **If propagated (50%+ green):**
+
 - Proceed to add domain in Netlify
 
 **If not propagated yet:**
+
 - Wait 10-15 minutes
 - Check again
 - Be patient - DNS takes time
@@ -303,8 +329,8 @@ https://dnschecker.org
 **CURRENT STATUS:** ✅ DNS Configured  
 **NEXT ACTION:** Wait for propagation, then add domain in Netlify  
 **ETA:** 20-30 minutes total  
-**RESULT:** Your LMS live at elevateconnectsdirectory.org  
+**RESULT:** Your LMS live at elevateconnectsdirectory.org
 
 ---
 
-*Your DNS is correct. Now just wait for propagation and add domain in Netlify!*
+_Your DNS is correct. Now just wait for propagation and add domain in Netlify!_

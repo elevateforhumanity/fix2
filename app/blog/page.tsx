@@ -58,14 +58,12 @@ export default async function BlogPage() {
           </div>
         </div>
       </header>
-
       <main className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-5xl font-bold mb-6">Blog</h1>
           <p className="text-xl text-gray-700 mb-12">
             Latest news and updates from Elevate for Humanity
           </p>
-
           <div className="space-y-8">
             {posts.map((post) => (
               <article

@@ -25,10 +25,13 @@ function App() {
         {/* Existing routes */}
         <Route path="/" element={<Home />} />
         <Route path="/programs" element={<Programs />} />
-        
+
         {/* New Classroom routes */}
         <Route path="/admin/classroom" element={<ClassroomAdminPanel />} />
-        <Route path="/instructor/create-course" element={<CourseCreationForm />} />
+        <Route
+          path="/instructor/create-course"
+          element={<CourseCreationForm />}
+        />
       </Routes>
     </BrowserRouter>
   );
@@ -62,7 +65,7 @@ function LMSDashboard() {
   return (
     <div className="dashboard">
       <h1>LMS Dashboard</h1>
-      
+
       {/* Quick Actions */}
       <div className="quick-actions">
         <Link to="/instructor/create-course" className="action-card">
@@ -70,7 +73,7 @@ function LMSDashboard() {
           <h3>Create Course</h3>
           <p>Set up a new Google Classroom course</p>
         </Link>
-        
+
         <Link to="/admin/classroom" className="action-card">
           <span className="icon">⚙️</span>
           <h3>Classroom Admin</h3>
@@ -98,19 +101,19 @@ interface RequireRoleProps {
 
 export function RequireRole({ role, children }: RequireRoleProps) {
   const { user, loading } = useAuth();
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   if (!user) {
     return <Navigate to="/login" />;
   }
-  
+
   if (user.role !== role && user.role !== 'admin') {
     return <Navigate to="/unauthorized" />;
   }
-  
+
   return <>{children}</>;
 }
 ```
@@ -118,22 +121,22 @@ export function RequireRole({ role, children }: RequireRoleProps) {
 Use it in routes:
 
 ```tsx
-<Route 
-  path="/admin/classroom" 
+<Route
+  path="/admin/classroom"
   element={
     <RequireRole role="admin">
       <ClassroomAdminPanel />
     </RequireRole>
-  } 
+  }
 />
 
-<Route 
-  path="/instructor/create-course" 
+<Route
+  path="/instructor/create-course"
   element={
     <RequireRole role="instructor">
       <CourseCreationForm />
     </RequireRole>
-  } 
+  }
 />
 ```
 
@@ -146,23 +149,27 @@ const navigationItems = [
   // Existing items
   { path: '/', icon: '🏠', label: 'Home' },
   { path: '/programs', icon: '📚', label: 'Programs' },
-  
+
   // Classroom items (conditional based on role)
-  ...(user?.role === 'admin' || user?.role === 'instructor' ? [
-    { 
-      path: '/instructor/create-course', 
-      icon: '➕', 
-      label: 'Create Course' 
-    },
-  ] : []),
-  
-  ...(user?.role === 'admin' ? [
-    { 
-      path: '/admin/classroom', 
-      icon: '⚙️', 
-      label: 'Classroom Admin' 
-    },
-  ] : []),
+  ...(user?.role === 'admin' || user?.role === 'instructor'
+    ? [
+        {
+          path: '/instructor/create-course',
+          icon: '➕',
+          label: 'Create Course',
+        },
+      ]
+    : []),
+
+  ...(user?.role === 'admin'
+    ? [
+        {
+          path: '/admin/classroom',
+          icon: '⚙️',
+          label: 'Classroom Admin',
+        },
+      ]
+    : []),
 ];
 ```
 
@@ -177,12 +184,13 @@ import { supabase } from '@/lib/supabase';
 
 export function TaskStatusMonitor() {
   const [tasks, setTasks] = useState([]);
-  
+
   useEffect(() => {
     // Subscribe to task updates
     const subscription = supabase
       .channel('tasks')
-      .on('postgres_changes', 
+      .on(
+        'postgres_changes',
         { event: '*', schema: 'public', table: 'tasks' },
         (payload) => {
           console.log('Task updated:', payload);
@@ -190,33 +198,35 @@ export function TaskStatusMonitor() {
         }
       )
       .subscribe();
-    
+
     fetchTasks();
-    
+
     return () => {
       subscription.unsubscribe();
     };
   }, []);
-  
+
   const fetchTasks = async () => {
     const { data } = await supabase
       .from('tasks')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(10);
-    
+
     setTasks(data || []);
   };
-  
+
   return (
     <div className="task-monitor">
       <h3>Recent Tasks</h3>
       <ul>
-        {tasks.map(task => (
+        {tasks.map((task) => (
           <li key={task.id} className={`status-${task.status}`}>
             <span className="kind">{task.kind}</span>
             <span className="status">{task.status}</span>
-            <span className="time">{new Date(task.created_at).toLocaleString()}</span>
+            <span className="time">
+              {new Date(task.created_at).toLocaleString()}
+            </span>
           </li>
         ))}
       </ul>
@@ -247,24 +257,26 @@ export function useTaskNotifications() {
   useEffect(() => {
     const subscription = supabase
       .channel('task-notifications')
-      .on('postgres_changes',
-        { 
-          event: 'UPDATE', 
-          schema: 'public', 
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
           table: 'tasks',
-          filter: 'status=eq.completed'
+          filter: 'status=eq.completed',
         },
         (payload) => {
           const task = payload.new;
           toast.success(`Task completed: ${task.kind}`);
         }
       )
-      .on('postgres_changes',
-        { 
-          event: 'UPDATE', 
-          schema: 'public', 
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
           table: 'tasks',
-          filter: 'status=eq.failed'
+          filter: 'status=eq.failed',
         },
         (payload) => {
           const task = payload.new;
@@ -272,7 +284,7 @@ export function useTaskNotifications() {
         }
       )
       .subscribe();
-    
+
     return () => {
       subscription.unsubscribe();
     };
@@ -285,13 +297,11 @@ Use in App:
 ```tsx
 function App() {
   useTaskNotifications();
-  
+
   return (
     <BrowserRouter>
       <Toaster position="top-right" />
-      <Routes>
-        {/* ... */}
-      </Routes>
+      <Routes>{/* ... */}</Routes>
     </BrowserRouter>
   );
 }
@@ -363,6 +373,7 @@ npx tsx src/index.ts autopilot:run:dwd
 ### Components not rendering
 
 **Check**:
+
 - Import paths are correct
 - Supabase client is initialized
 - User authentication is working
@@ -370,6 +381,7 @@ npx tsx src/index.ts autopilot:run:dwd
 ### Tasks not processing
 
 **Check**:
+
 - GitHub Actions workflow is enabled
 - Secrets are configured correctly
 - Service account has proper permissions
@@ -377,6 +389,7 @@ npx tsx src/index.ts autopilot:run:dwd
 ### Permission errors
 
 **Check**:
+
 - User roles are set correctly in database
 - RequireRole wrapper is applied
 - Navigation items respect role checks

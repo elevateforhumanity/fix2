@@ -16,71 +16,81 @@ const PRODUCTS = {
     price: 39,
     license_type: 'basic',
     download_files: ['landing-template.zip'],
-    description: 'Prebuilt Elevate-style demo template with sister sites navigation'
+    description:
+      'Prebuilt Elevate-style demo template with sister sites navigation',
   },
-  'workbooks': {
+  workbooks: {
     name: 'Workforce Workbooks Bundle',
     price: 29,
     license_type: 'digital',
     download_files: ['workforce-workbooks.zip'],
-    description: '50+ professional PDF templates for career readiness and training'
+    description:
+      '50+ professional PDF templates for career readiness and training',
   },
   'ai-course-creator': {
     name: 'AI Course Creator License',
     price: 199,
     license_type: 'annual',
     download_files: ['ai-course-creator.zip', 'api-keys.txt'],
-    description: 'Annual license for AI-powered course generation system'
+    description: 'Annual license for AI-powered course generation system',
   },
   'site-clone': {
     name: 'Site Clone Package',
     price: 399,
     license_type: 'standard',
     download_files: ['elevate-site-clone.zip', 'setup-guide.pdf'],
-    description: 'Complete source code with basic features and documentation'
+    description: 'Complete source code with basic features and documentation',
   },
   'white-label': {
     name: 'White-Label Bundle',
     price: 599,
     license_type: 'commercial',
-    download_files: ['white-label-platform.zip', 'branding-kit.zip', 'setup-guide.pdf'],
-    description: 'Full platform with custom branding capabilities'
+    download_files: [
+      'white-label-platform.zip',
+      'branding-kit.zip',
+      'setup-guide.pdf',
+    ],
+    description: 'Full platform with custom branding capabilities',
   },
-  'enterprise': {
+  enterprise: {
     name: 'Enterprise License System',
     price: 1299,
     license_type: 'enterprise',
-    download_files: ['enterprise-platform.zip', 'license-system.zip', 'docker-config.zip'],
-    description: 'Advanced features with enterprise license protection'
+    download_files: [
+      'enterprise-platform.zip',
+      'license-system.zip',
+      'docker-config.zip',
+    ],
+    description: 'Advanced features with enterprise license protection',
   },
   'done-for-you': {
     name: 'Done-for-You Setup',
     price: 1999,
     license_type: 'service',
     download_files: [], // Service-based, no immediate downloads
-    description: 'Complete setup service with 30-day support'
+    description: 'Complete setup service with 30-day support',
   },
   'license-pack': {
     name: '10 License Certificates',
     price: 149,
     license_type: 'reseller',
     download_files: ['license-certificates.zip'],
-    description: 'Pre-generated license certificates for resale'
+    description: 'Pre-generated license certificates for resale',
   },
   'theme-pack': {
     name: 'Admin UI Theme Pack',
     price: 79,
     license_type: 'addon',
     download_files: ['admin-themes.zip'],
-    description: '3 modern admin panel themes with dark mode'
+    description: '3 modern admin panel themes with dark mode',
   },
   'mobile-app': {
     name: 'Mobile App Builder',
     price: 299,
     license_type: 'addon',
     download_files: ['mobile-app-builder.zip', 'react-native-templates.zip'],
-    description: 'React Native app generator with templates'
-  }
+    description: 'React Native app generator with templates',
+  },
 };
 
 export default async function handler(req, res) {
@@ -119,8 +129,8 @@ export default async function handler(req, res) {
             description: product.description,
             metadata: {
               product_id: item.id,
-              license_type: product.license_type
-            }
+              license_type: product.license_type,
+            },
           },
           unit_amount: product.price * 100, // Stripe uses cents
         },
@@ -133,7 +143,7 @@ export default async function handler(req, res) {
         product_name: product.name,
         price: product.price,
         license_type: product.license_type,
-        download_files: product.download_files
+        download_files: product.download_files,
       });
     }
 
@@ -146,7 +156,7 @@ export default async function handler(req, res) {
       cancel_url: `${req.headers.origin}/cancel`,
       metadata: {
         order_items: JSON.stringify(orderItems),
-        total_amount: totalAmount.toString()
+        total_amount: totalAmount.toString(),
       },
       customer_email: req.body.email || undefined,
       billing_address_collection: 'required',
@@ -160,7 +170,7 @@ export default async function handler(req, res) {
         status: 'pending',
         total_amount: totalAmount,
         items: orderItems,
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       })
       .select()
       .single();
@@ -171,7 +181,6 @@ export default async function handler(req, res) {
     }
 
     res.status(200).json({ id: session.id });
-
   } catch (error) {
     console.error('Checkout error:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -218,7 +227,7 @@ async function handlePaymentSuccess(session) {
         customer_email: session.customer_details?.email,
         customer_name: session.customer_details?.name,
         billing_address: session.customer_details?.address,
-        completed_at: new Date().toISOString()
+        completed_at: new Date().toISOString(),
       })
       .eq('stripe_session_id', session.id)
       .select()
@@ -240,7 +249,6 @@ async function handlePaymentSuccess(session) {
     await sendDeliveryEmail(order, licenses);
 
     console.log(`Order ${order.id} completed successfully`);
-
   } catch (error) {
     console.error('Payment success handling error:', error);
   }
@@ -252,7 +260,7 @@ async function handlePaymentExpired(session) {
       .from('orders')
       .update({
         status: 'expired',
-        expired_at: new Date().toISOString()
+        expired_at: new Date().toISOString(),
       })
       .eq('stripe_session_id', session.id);
 
@@ -265,7 +273,7 @@ async function handlePaymentExpired(session) {
 async function generateLicense(order, item) {
   const licenseKey = generateLicenseKey();
   const expiryDate = calculateExpiryDate(item.license_type);
-  
+
   // Create license record
   const { data: license, error: licenseError } = await supabase
     .from('licenses')
@@ -279,7 +287,7 @@ async function generateLicense(order, item) {
       status: 'active',
       expires_at: expiryDate,
       download_files: item.download_files,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
     })
     .select()
     .single();
@@ -295,7 +303,7 @@ async function generateLicense(order, item) {
 function generateLicenseKey() {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const segments = [];
-  
+
   for (let i = 0; i < 4; i++) {
     let segment = '';
     for (let j = 0; j < 4; j++) {
@@ -303,13 +311,13 @@ function generateLicenseKey() {
     }
     segments.push(segment);
   }
-  
+
   return segments.join('-');
 }
 
 function calculateExpiryDate(licenseType) {
   const now = new Date();
-  
+
   switch (licenseType) {
     case 'annual':
       return new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
@@ -325,11 +333,11 @@ function calculateExpiryDate(licenseType) {
 async function sendDeliveryEmail(order, licenses) {
   // Email delivery implementation
   // Use SendGrid, AWS SES, or similar service
-  
+
   const emailData = {
     to: order.customer_email,
     subject: 'Your Elevate Platform Purchase - Download Links & Licenses',
-    html: generateDeliveryEmailHTML(order, licenses)
+    html: generateDeliveryEmailHTML(order, licenses),
   };
 
   // Send email (implement with your preferred service)
@@ -342,19 +350,27 @@ function generateDeliveryEmailHTML(order, licenses) {
     <p>Dear ${order.customer_name},</p>
     <p>Your order has been processed successfully. Here are your download links and license keys:</p>
     
-    ${licenses.map(license => `
+    ${licenses
+      .map(
+        (license) => `
       <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0;">
         <h3>${license.product_id}</h3>
         <p><strong>License Key:</strong> ${license.license_key}</p>
         <p><strong>Download Files:</strong></p>
         <ul>
-          ${license.download_files.map(file => `
+          ${license.download_files
+            .map(
+              (file) => `
             <li><a href="${process.env.DOWNLOAD_BASE_URL}/${license.license_key}/${file}">${file}</a></li>
-          `).join('')}
+          `
+            )
+            .join('')}
         </ul>
         ${license.expires_at ? `<p><strong>Expires:</strong> ${license.expires_at}</p>` : '<p><strong>License:</strong> Lifetime</p>'}
       </div>
-    `).join('')}
+    `
+      )
+      .join('')}
     
     <p>Need help? Contact support@elevateforhumanity.com</p>
     <p>Best regards,<br>The Elevate Team</p>

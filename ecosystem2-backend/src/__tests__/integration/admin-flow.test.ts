@@ -8,34 +8,28 @@ describe('Admin Flow Integration Tests', () => {
   let instructorToken: string;
 
   beforeEach(async () => {
-    const adminRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'admin@example.com',
-        password: 'password123',
-        name: 'Admin',
-        role: 'admin',
-      });
+    const adminRes = await request(app).post('/api/auth/register').send({
+      email: 'admin@example.com',
+      password: 'password123',
+      name: 'Admin',
+      role: 'admin',
+    });
     adminToken = adminRes.body.token;
 
-    const studentRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'student@example.com',
-        password: 'password123',
-        name: 'Student',
-        role: 'student',
-      });
+    const studentRes = await request(app).post('/api/auth/register').send({
+      email: 'student@example.com',
+      password: 'password123',
+      name: 'Student',
+      role: 'student',
+    });
     studentToken = studentRes.body.token;
 
-    const instructorRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'instructor@example.com',
-        password: 'password123',
-        name: 'Instructor',
-        role: 'instructor',
-      });
+    const instructorRes = await request(app).post('/api/auth/register').send({
+      email: 'instructor@example.com',
+      password: 'password123',
+      name: 'Instructor',
+      role: 'instructor',
+    });
     instructorToken = instructorRes.body.token;
   });
 

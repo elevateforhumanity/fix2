@@ -108,7 +108,7 @@ export class CloudflareStreamService {
 
       // Add metadata
       const meta: Record<string, string> = {
-        name: metadata.name
+        name: metadata.name,
       };
       if (metadata.title) meta.title = metadata.title;
       if (metadata.userId) meta.userId = metadata.userId;
@@ -124,22 +124,27 @@ export class CloudflareStreamService {
       }
 
       if (metadata.thumbnailTimestampPct !== undefined) {
-        form.append('thumbnailTimestampPct', metadata.thumbnailTimestampPct.toString());
+        form.append(
+          'thumbnailTimestampPct',
+          metadata.thumbnailTimestampPct.toString()
+        );
       }
 
       const response = await fetch(this.baseUrl, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          ...form.getHeaders()
+          Authorization: `Bearer ${this.apiToken}`,
+          ...form.getHeaders(),
         },
-        body: form
+        body: form,
       });
 
-      const data = await response.json() as StreamUploadResponse;
+      const data = (await response.json()) as StreamUploadResponse;
 
       if (!data.success) {
-        throw new Error(`Upload failed: ${data.errors.map(e => e.message).join(', ')}`);
+        throw new Error(
+          `Upload failed: ${data.errors.map((e) => e.message).join(', ')}`
+        );
       }
 
       console.log(`Video uploaded successfully: ${data.result.uid}`);
@@ -167,7 +172,7 @@ export class CloudflareStreamService {
       console.log(`Uploading video from URL to Cloudflare Stream: ${url}`);
 
       const meta: Record<string, string> = {
-        name: metadata.name
+        name: metadata.name,
       };
       if (metadata.title) meta.title = metadata.title;
       if (metadata.userId) meta.userId = metadata.userId;
@@ -175,21 +180,23 @@ export class CloudflareStreamService {
       const response = await fetch(this.baseUrl, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           url,
           meta,
           requireSignedURLs: metadata.requireSignedURLs || false,
-          allowedOrigins: metadata.allowedOrigins || []
-        })
+          allowedOrigins: metadata.allowedOrigins || [],
+        }),
       });
 
-      const data = await response.json() as StreamUploadResponse;
+      const data = (await response.json()) as StreamUploadResponse;
 
       if (!data.success) {
-        throw new Error(`Upload failed: ${data.errors.map(e => e.message).join(', ')}`);
+        throw new Error(
+          `Upload failed: ${data.errors.map((e) => e.message).join(', ')}`
+        );
       }
 
       console.log(`Video uploaded successfully: ${data.result.uid}`);
@@ -208,12 +215,12 @@ export class CloudflareStreamService {
       const response = await fetch(`${this.baseUrl}/${videoId}`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json',
+        },
       });
 
-      const data = await response.json() as StreamUploadResponse;
+      const data = (await response.json()) as StreamUploadResponse;
 
       if (!data.success) {
         return null;
@@ -247,20 +254,22 @@ export class CloudflareStreamService {
       const response = await fetch(url, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json',
+        },
       });
 
-      const data = await response.json() as StreamListResponse;
+      const data = (await response.json()) as StreamListResponse;
 
       if (!data.success) {
-        throw new Error(`List failed: ${data.errors.map(e => e.message).join(', ')}`);
+        throw new Error(
+          `List failed: ${data.errors.map((e) => e.message).join(', ')}`
+        );
       }
 
       return {
         videos: data.result,
-        total: data.total
+        total: data.total,
       };
     } catch (error) {
       console.error('Error listing videos from Cloudflare Stream:', error);
@@ -276,12 +285,12 @@ export class CloudflareStreamService {
       const response = await fetch(`${this.baseUrl}/${videoId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json',
+        },
       });
 
-      const data = await response.json() as { success: boolean };
+      const data = (await response.json()) as { success: boolean };
 
       if (!data.success) {
         console.error(`Failed to delete video ${videoId}`);
@@ -313,16 +322,18 @@ export class CloudflareStreamService {
       const response = await fetch(`${this.baseUrl}/${videoId}`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(metadata)
+        body: JSON.stringify(metadata),
       });
 
-      const data = await response.json() as StreamUploadResponse;
+      const data = (await response.json()) as StreamUploadResponse;
 
       if (!data.success) {
-        throw new Error(`Update failed: ${data.errors.map(e => e.message).join(', ')}`);
+        throw new Error(
+          `Update failed: ${data.errors.map((e) => e.message).join(', ')}`
+        );
       }
 
       return data.result;
@@ -335,13 +346,16 @@ export class CloudflareStreamService {
   /**
    * Get video embed code
    */
-  getEmbedCode(videoId: string, options?: {
-    autoplay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    preload?: 'auto' | 'metadata' | 'none';
-    controls?: boolean;
-  }): string {
+  getEmbedCode(
+    videoId: string,
+    options?: {
+      autoplay?: boolean;
+      loop?: boolean;
+      muted?: boolean;
+      preload?: 'auto' | 'metadata' | 'none';
+      controls?: boolean;
+    }
+  ): string {
     const params = new URLSearchParams();
     if (options?.autoplay) params.append('autoplay', 'true');
     if (options?.loop) params.append('loop', 'true');
@@ -358,13 +372,16 @@ export class CloudflareStreamService {
   /**
    * Get video iframe embed
    */
-  getIframeEmbed(videoId: string, options?: {
-    autoplay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    preload?: 'auto' | 'metadata' | 'none';
-    controls?: boolean;
-  }): string {
+  getIframeEmbed(
+    videoId: string,
+    options?: {
+      autoplay?: boolean;
+      loop?: boolean;
+      muted?: boolean;
+      preload?: 'auto' | 'metadata' | 'none';
+      controls?: boolean;
+    }
+  ): string {
     const params = new URLSearchParams();
     if (options?.autoplay) params.append('autoplay', 'true');
     if (options?.loop) params.append('loop', 'true');
@@ -394,12 +411,15 @@ export class CloudflareStreamService {
   /**
    * Get thumbnail URL
    */
-  getThumbnailUrl(videoId: string, options?: {
-    time?: string; // e.g., "1s", "50%"
-    width?: number;
-    height?: number;
-    fit?: 'crop' | 'clip' | 'scale';
-  }): string {
+  getThumbnailUrl(
+    videoId: string,
+    options?: {
+      time?: string; // e.g., "1s", "50%"
+      width?: number;
+      height?: number;
+      fit?: 'crop' | 'clip' | 'scale';
+    }
+  ): string {
     const params = new URLSearchParams();
     if (options?.time) params.append('time', options.time);
     if (options?.width) params.append('width', options.width.toString());
@@ -434,13 +454,13 @@ export class CloudflareStreamService {
         {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${this.apiToken}`,
-            'Content-Type': 'application/json'
-          }
+            Authorization: `Bearer ${this.apiToken}`,
+            'Content-Type': 'application/json',
+          },
         }
       );
 
-      const data = await response.json() as { result?: any };
+      const data = (await response.json()) as { result?: any };
       return data.result;
     } catch (error) {
       console.error('Error getting video analytics:', error);
@@ -468,14 +488,14 @@ export class CloudflareStreamService {
 
     while (Date.now() - startTime < maxWaitTime) {
       const isReady = await this.isVideoReady(videoId);
-      
+
       if (isReady) {
         console.log(`Video ${videoId} is ready to stream`);
         return true;
       }
 
       console.log(`Waiting for video ${videoId} to be ready...`);
-      await new Promise(resolve => setTimeout(resolve, pollInterval));
+      await new Promise((resolve) => setTimeout(resolve, pollInterval));
     }
 
     console.error(`Video ${videoId} not ready after ${maxWaitTime}ms`);
@@ -488,7 +508,8 @@ export class CloudflareStreamService {
  */
 export function createCloudflareStream(): CloudflareStreamService | null {
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const apiToken = process.env.CLOUDFLARE_STREAM_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
+  const apiToken =
+    process.env.CLOUDFLARE_STREAM_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
 
   if (!accountId || !apiToken) {
     console.warn('Cloudflare Stream credentials not configured');

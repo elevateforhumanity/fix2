@@ -161,7 +161,6 @@ export default function AssetGenerator() {
           Create social media posts, flyers, and marketing materials with AI
         </p>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Configuration Panel */}
         <div className="space-y-6">
@@ -169,7 +168,6 @@ export default function AssetGenerator() {
             <h2 className="text-2xl font-semibold text-brand-text mb-4">
               Asset Configuration
             </h2>
-
             {/* Asset Type */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-brand-text mb-2">
@@ -203,7 +201,6 @@ export default function AssetGenerator() {
                 ))}
               </div>
             </div>
-
             {/* Content */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-brand-text mb-2">
@@ -233,7 +230,6 @@ export default function AssetGenerator() {
                 </div>
               )}
             </div>
-
             {/* Generate Button */}
             <button
               onClick={generateAsset}
@@ -255,12 +251,12 @@ export default function AssetGenerator() {
                       r="10"
                       stroke="currentColor"
                       strokeWidth="4"
-                    ></circle>
+                    />
                     <path
                       className="opacity-75"
                       fill="currentColor"
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
+                    />
                   </svg>
                   Generating...
                 </span>
@@ -269,14 +265,12 @@ export default function AssetGenerator() {
               )}
             </button>
           </div>
-
           {/* Save Panel */}
           {generatedAsset && (
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-2xl font-semibold text-brand-text mb-4">
                 Save Asset
               </h2>
-
               <div className="mb-4">
                 <label className="block text-sm font-medium text-brand-text mb-2">
                   Asset Name
@@ -289,7 +283,6 @@ export default function AssetGenerator() {
                   onChange={(e) => setAssetName(e.target.value)}
                 />
               </div>
-
               <button
                 onClick={saveAsset}
                 disabled={saving}
@@ -300,7 +293,6 @@ export default function AssetGenerator() {
             </div>
           )}
         </div>
-
         {/* Preview Panel */}
         <div className="space-y-6">
           {generatedAsset ? (
@@ -309,14 +301,12 @@ export default function AssetGenerator() {
                 <h2 className="text-2xl font-semibold text-white">Preview</h2>
                 <p className="text-red-100 text-sm">{generatedAsset.summary}</p>
               </div>
-
               <div className="p-6">
                 <div className="mb-4">
                   <span className="px-3 py-1 bg-brand-surface text-brand-info rounded-full text-sm">
                     {generatedAsset.dimensions}
                   </span>
                 </div>
-
                 {/* Asset Preview */}
                 <div
                   className="border-2 border-brand-border rounded-lg overflow-hidden bg-white"
@@ -329,7 +319,6 @@ export default function AssetGenerator() {
                     dangerouslySetInnerHTML={{ __html: generatedAsset.html }}
                   />
                 </div>
-
                 {/* Copy Text */}
                 {generatedAsset.copyText && (
                   <div className="mt-4 p-4 bg-brand-surface rounded-lg">
@@ -341,7 +330,6 @@ export default function AssetGenerator() {
                     </p>
                   </div>
                 )}
-
                 {/* Download Options */}
                 <div className="mt-4 flex gap-3">
                   <button

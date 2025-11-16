@@ -97,7 +97,8 @@ export function getOrganizationSchema(): Organization {
     name: 'Elevate for Humanity',
     url: 'https://elevateconnectsdirectory.org',
     logo: 'https://elevateconnectsdirectory.org/images/Elevate_for_Humanity_logo_81bf0fab.png',
-    description: 'Free workforce training and career development programs through WIOA funding. Offering CNA, Barber, Construction, and Technology training.',
+    description:
+      'Free workforce training and career development programs through WIOA funding. Offering CNA, Barber, Construction, and Technology training.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Indianapolis',
@@ -133,7 +134,8 @@ export function getWebSiteSchema(): WebSite {
     url: 'https://elevateconnectsdirectory.org',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://elevateconnectsdirectory.org/search?q={search_term_string}',
+      target:
+        'https://elevateconnectsdirectory.org/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -166,11 +168,13 @@ export function getCourseSchema(course: {
         '@type': 'CourseInstance',
         courseMode: 'online',
         duration: `PT${course.duration}H`,
-        instructor: course.instructor ? {
-          '@type': 'Person',
-          name: course.instructor.name,
-          jobTitle: course.instructor.title,
-        } : undefined,
+        instructor: course.instructor
+          ? {
+              '@type': 'Person',
+              name: course.instructor.name,
+              jobTitle: course.instructor.title,
+            }
+          : undefined,
       },
     ],
   };
@@ -179,7 +183,9 @@ export function getCourseSchema(course: {
 /**
  * Generate breadcrumb structured data
  */
-export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>): BreadcrumbList {
+export function getBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>
+): BreadcrumbList {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -210,6 +216,8 @@ export function injectStructuredData(data: any): void {
 export function removeStructuredData(): void {
   if (typeof window === 'undefined') return;
 
-  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-  scripts.forEach(script => script.remove());
+  const scripts = document.querySelectorAll(
+    'script[type="application/ld+json"]'
+  );
+  scripts.forEach((script) => script.remove());
 }

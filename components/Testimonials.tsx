@@ -41,7 +41,6 @@ export default function Testimonials() {
             92% job placement • 1,247 trained • $2.85M in funding distributed
           </p>
         </div>
-
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="card p-6">

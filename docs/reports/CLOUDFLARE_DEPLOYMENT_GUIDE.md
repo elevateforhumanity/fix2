@@ -77,7 +77,7 @@ If the manual deployment works, but GitHub Actions still fails, the issue is wit
 Once deployed and routes are configured:
 
 1. **DNS-Level Interception**: All traffic to elevateforhumanity.org goes through the worker
-2. **Automatic Injection**: The worker fetches HTML from  and injects enrollment programs
+2. **Automatic Injection**: The worker fetches HTML from and injects enrollment programs
 3. **Zero Manual Work**: Runs autonomously on Cloudflare's edge network
 4. **Real Programs Displayed**:
    - Barber Training Program

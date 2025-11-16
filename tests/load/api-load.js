@@ -9,17 +9,17 @@ const apiResponseTime = new Trend('api_response_time');
 // Test configuration
 export const options = {
   stages: [
-    { duration: '1m', target: 20 },   // Ramp up to 20 users
-    { duration: '3m', target: 20 },   // Stay at 20 users
-    { duration: '1m', target: 100 },  // Spike to 100 users
-    { duration: '2m', target: 100 },  // Stay at 100 users
-    { duration: '1m', target: 0 },    // Ramp down
+    { duration: '1m', target: 20 }, // Ramp up to 20 users
+    { duration: '3m', target: 20 }, // Stay at 20 users
+    { duration: '1m', target: 100 }, // Spike to 100 users
+    { duration: '2m', target: 100 }, // Stay at 100 users
+    { duration: '1m', target: 0 }, // Ramp down
   ],
   thresholds: {
     http_req_duration: ['p(99)<1000'], // 99% of requests under 1s
-    http_req_failed: ['rate<0.05'],    // Less than 5% errors
+    http_req_failed: ['rate<0.05'], // Less than 5% errors
     errors: ['rate<0.05'],
-    api_response_time: ['p(95)<800'],  // 95% of API calls under 800ms
+    api_response_time: ['p(95)<800'], // 95% of API calls under 800ms
   },
 };
 
@@ -45,7 +45,7 @@ export default function () {
     'login status is 200 or 401': (r) => r.status === 200 || r.status === 401,
     'login response time <1s': (r) => r.timings.duration < 1000,
   });
-  
+
   if (!loginSuccess) errorRate.add(1);
   apiResponseTime.add(res.timings.duration);
 
@@ -74,7 +74,8 @@ export default function () {
   // Test course details
   res = http.get(`${API_URL}/api/courses/1`);
   check(res, {
-    'course details status is 200 or 404': (r) => r.status === 200 || r.status === 404,
+    'course details status is 200 or 404': (r) =>
+      r.status === 200 || r.status === 404,
     'course details response time <500ms': (r) => r.timings.duration < 500,
   }) || errorRate.add(1);
 
@@ -85,7 +86,7 @@ export default function () {
   // Test user profile
   res = http.get(`${API_URL}/api/user/profile`, {
     headers: {
-      'Authorization': 'Bearer mock-token',
+      Authorization: 'Bearer mock-token',
     },
   });
   check(res, {

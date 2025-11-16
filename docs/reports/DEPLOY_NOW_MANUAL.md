@@ -18,7 +18,7 @@ DURABLE_ENROLLMENT_CODE.html
 
 ---
 
-### 2. Login to 
+### 2. Login to
 
 Go to: https://durable.co/login
 

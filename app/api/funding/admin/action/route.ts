@@ -4,9 +4,11 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
-  
+
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }

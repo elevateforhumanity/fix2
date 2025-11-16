@@ -3,6 +3,7 @@
 ## What This Does
 
 The autopilot script **INSERTS and FIXES every single Netlify setting** via API with:
+
 - ✅ ZERO skipping
 - ✅ ZERO manual steps
 - ✅ 100% automated configuration
@@ -14,6 +15,7 @@ The autopilot script **INSERTS and FIXES every single Netlify setting** via API 
 This script configures **EVERYTHING** in Netlify:
 
 ### Build Settings (Inserted/Fixed)
+
 ```
 Build command: npm run build
 Publish directory: dist
@@ -23,6 +25,7 @@ Functions directory: (not used)
 ```
 
 ### Environment Variables (Inserted)
+
 ```
 NODE_VERSION=20.19.0
 NODE_OPTIONS=--max-old-space-size=4096
@@ -30,6 +33,7 @@ CI=true
 ```
 
 ### Deploy Settings (Configured)
+
 ```
 Auto publish: enabled
 Deploy previews: enabled
@@ -37,6 +41,7 @@ Branch deploys: main only
 ```
 
 ### Optimization (Enabled)
+
 ```
 CSS bundling: enabled
 CSS minification: enabled
@@ -46,12 +51,14 @@ Image optimization: enabled
 ```
 
 ### Security (Configured)
+
 ```
 Force HTTPS: enabled
 SSL certificate: auto-provisioned
 ```
 
 ### Build Hooks (Created)
+
 ```
 Name: Autopilot Deploy
 Branch: main
@@ -75,6 +82,7 @@ export NETLIFY_AUTH_TOKEN='your_token_here'
 ```
 
 To make it permanent in Gitpod:
+
 ```bash
 gp env NETLIFY_AUTH_TOKEN='your_token_here'
 ```
@@ -178,6 +186,7 @@ Site URL: https://elevateproduction.netlify.app
 ## What Gets Configured
 
 ### Every Build Setting
+
 - [x] Build command
 - [x] Publish directory
 - [x] Base directory
@@ -187,6 +196,7 @@ Site URL: https://elevateproduction.netlify.app
 - [x] Allowed branches
 
 ### Every Environment Variable
+
 - [x] NODE_VERSION
 - [x] NODE_OPTIONS
 - [x] CI flag
@@ -194,12 +204,14 @@ Site URL: https://elevateproduction.netlify.app
 - [x] (Optional) VITE_SUPABASE_ANON_KEY
 
 ### Every Deploy Setting
+
 - [x] Auto publish
 - [x] Deploy previews
 - [x] Branch deploys
 - [x] Deploy contexts
 
 ### Every Optimization
+
 - [x] CSS bundling
 - [x] CSS minification
 - [x] JS bundling
@@ -208,11 +220,13 @@ Site URL: https://elevateproduction.netlify.app
 - [x] Pretty URLs
 
 ### Every Security Setting
+
 - [x] Force HTTPS
 - [x] SSL certificate
 - [x] HSTS headers
 
 ### Every Build Hook
+
 - [x] Autopilot Deploy hook
 - [x] Manual trigger URL
 
@@ -275,23 +289,31 @@ After script runs, verify in Netlify dashboard:
 ## Troubleshooting
 
 ### "Unauthorized" Error
+
 Your token is invalid or expired.
+
 - Get new token: https://app.netlify.com/user/applications
 - Update: `export NETLIFY_AUTH_TOKEN='new_token'`
 
 ### "Site not found" Error
+
 Site ID is wrong or you don't have access.
+
 - Verify site ID: `12f120ab-3f63-419b-bc49-430f043415c1`
 - Check you're logged into correct account
 
 ### Settings Not Applying
+
 API may have limited permissions.
+
 - Check token has full access
 - Set manually in dashboard
 - Contact Netlify support
 
 ### Deploy Fails
+
 Build may have errors.
+
 - Check deploy logs
 - Verify build works locally: `pnpm run build`
 - Check environment variables are set
@@ -301,6 +323,7 @@ Build may have errors.
 This script fixes common issues:
 
 ❌ **Before:**
+
 - Build command not set
 - Wrong publish directory
 - Missing environment variables
@@ -309,6 +332,7 @@ This script fixes common issues:
 - No optimization
 
 ✅ **After:**
+
 - Build command: `npm run build`
 - Publish directory: `dist`
 - All env vars set
@@ -339,6 +363,6 @@ Branch: main
 ✅ **Zero skipping** - Every setting configured  
 ✅ **Complete verification** - All settings checked  
 ✅ **Auto-deploy** - Triggers build after config  
-✅ **Monitoring** - Watches deploy progress  
+✅ **Monitoring** - Watches deploy progress
 
 **Run once, everything is configured perfectly.**

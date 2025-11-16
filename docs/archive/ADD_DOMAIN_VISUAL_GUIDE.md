@@ -7,6 +7,7 @@
 ## STEP 1: Open Netlify Dashboard
 
 **Click this link:**
+
 ### 👉 https://app.netlify.com/sites/elevateproduction/settings/domain
 
 (Log in if needed)
@@ -107,6 +108,7 @@ Domain will be added:
 Refresh the page every minute. You'll see:
 
 **After 2-10 minutes:**
+
 ```
 ┌─────────────────────────────────────────────────────┐
 │ Custom domains                                       │
@@ -144,6 +146,7 @@ Refresh the page every minute. You'll see:
 ## 🎉 DONE!
 
 Your site is now live at:
+
 - ✅ https://www.elevateconnectsdirectory.org (custom domain)
 - ✅ https://elevateproduction.netlify.app (Netlify subdomain)
 
@@ -163,17 +166,20 @@ Both URLs work with valid SSL certificates!
 ## 🆘 If Something Goes Wrong
 
 ### "Domain already in use"
+
 - The domain might be on another Netlify site
 - Go to: https://app.netlify.com/teams
 - Check all your sites
 - Remove the domain from the other site first
 
 ### "DNS not configured"
+
 - Wait 5 minutes and try again
 - DNS is correct (I verified: 75.2.60.5)
 - Sometimes takes a few minutes to propagate
 
 ### SSL not provisioning after 15 minutes
+
 - Check the domain spelling is exactly: `elevateconnectsdirectory.org`
 - Verify DNS still points to 75.2.60.5
 - Contact Netlify support: https://www.netlify.com/support/
@@ -186,6 +192,7 @@ Both URLs work with valid SSL certificates!
 **https://elevateproduction.netlify.app**
 
 This URL works RIGHT NOW with:
+
 - ✅ Valid SSL
 - ✅ All styling
 - ✅ All images

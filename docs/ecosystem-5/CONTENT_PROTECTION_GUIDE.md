@@ -7,6 +7,7 @@ The Elevate for Humanity platform includes comprehensive content protection feat
 ## Features
 
 ### 🔍 Duplication Scanner
+
 - **Content Fingerprinting:** SHA-256 based unique identifiers
 - **Web Search:** DuckDuckGo (free) and Google Custom Search (optional)
 - **Similarity Detection:** Compare content versions
@@ -14,6 +15,7 @@ The Elevate for Humanity platform includes comprehensive content protection feat
 - **Risk Assessment:** Automatic risk level calculation
 
 ### 🔐 Digital Watermarking
+
 - **Invisible Watermarks:** Zero-width character encoding
 - **Visible Notices:** Copyright and legal disclaimers
 - **HMAC Signatures:** Tamper-proof verification
@@ -38,6 +40,7 @@ curl -X POST -H "x-api-key: your-admin-secret" \
 ```
 
 **Response includes:**
+
 - Watermarked content with invisible markers
 - Unique content ID
 - HMAC signature for verification
@@ -57,6 +60,7 @@ curl -X POST -H "x-api-key: your-admin-secret" \
 ```
 
 **Risk Levels:**
+
 - `none` - No matches found ✅
 - `low` - Few matches ⚠️
 - `medium` - Some matches ⚠️⚠️
@@ -77,22 +81,22 @@ curl -X POST -H "x-api-key: your-admin-secret" \
 
 ### Content Protection
 
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/security/protect/watermark` | POST | Add watermark to content |
-| `/api/security/protect/verify` | POST | Verify watermark signature |
-| `/api/security/protect/check` | POST | Check protection status |
-| `/api/security/protect/registry` | GET | View protected content |
-| `/api/security/protect/report` | GET | Protection statistics |
+| Endpoint                          | Method | Purpose                    |
+| --------------------------------- | ------ | -------------------------- |
+| `/api/security/protect/watermark` | POST   | Add watermark to content   |
+| `/api/security/protect/verify`    | POST   | Verify watermark signature |
+| `/api/security/protect/check`     | POST   | Check protection status    |
+| `/api/security/protect/registry`  | GET    | View protected content     |
+| `/api/security/protect/report`    | GET    | Protection statistics      |
 
 ### Duplication Scanner
 
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/security/scan/content` | POST | Scan for web duplicates |
-| `/api/security/scan/compare` | POST | Compare two contents |
-| `/api/security/scan/directory` | POST | Scan local directory |
-| `/api/security/scan/history` | GET | View scan history |
+| Endpoint                       | Method | Purpose                 |
+| ------------------------------ | ------ | ----------------------- |
+| `/api/security/scan/content`   | POST   | Scan for web duplicates |
+| `/api/security/scan/compare`   | POST   | Compare two contents    |
+| `/api/security/scan/directory` | POST   | Scan local directory    |
+| `/api/security/scan/history`   | GET    | View scan history       |
 
 ## How It Works
 
@@ -145,10 +149,12 @@ curl -X POST -H "x-api-key: your-admin-secret" \
 ### Invisible Watermark
 
 Encoded using zero-width Unicode characters:
+
 - `U+200B` (zero-width space) = binary 0
 - `U+200C` (zero-width non-joiner) = binary 1
 
 **Example:**
+
 ```
 Content ID: a89f02391548cbc1
 Binary: 01100001 10001001 11110000...
@@ -191,13 +197,13 @@ For licensing inquiries: legal@elevateforhumanity.org
 
 ### Similarity Scoring
 
-| Match Level | Similarity | Verdict |
-|-------------|-----------|---------|
-| 4/4 matches | 100% | duplicate |
-| 3/4 matches | 75% | similar |
-| 2/4 matches | 50% | partial |
-| 1/4 matches | 25% | unique |
-| 0/4 matches | 0% | unique |
+| Match Level | Similarity | Verdict   |
+| ----------- | ---------- | --------- |
+| 4/4 matches | 100%       | duplicate |
+| 3/4 matches | 75%        | similar   |
+| 2/4 matches | 50%        | partial   |
+| 1/4 matches | 25%        | unique    |
+| 0/4 matches | 0%         | unique    |
 
 ## Use Cases
 
@@ -265,10 +271,12 @@ curl -X POST -H "x-api-key: $ADMIN_SECRET" \
 ### Federal Law Protection
 
 **17 U.S.C. § 506 - Criminal Infringement:**
+
 - Willful copyright infringement for commercial advantage
 - Penalties: Up to 5 years imprisonment, fines
 
 **18 U.S.C. § 2319 - Criminal Infringement of Copyright:**
+
 - Reproduction or distribution of copyrighted works
 - Penalties: Up to 10 years imprisonment, fines
 
@@ -347,6 +355,7 @@ GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
 **Problem:** `extractInvisibleWatermark()` returns null
 
 **Solutions:**
+
 1. Check if content was modified after watermarking
 2. Verify zero-width characters weren't stripped
 3. Ensure content wasn't converted to plain text
@@ -357,6 +366,7 @@ GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
 **Problem:** DuckDuckGo returns no matches for known content
 
 **Solutions:**
+
 1. Content may not be indexed yet (wait 24-48 hours)
 2. Try different key phrases
 3. Use Google Custom Search for better coverage
@@ -367,6 +377,7 @@ GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
 **Problem:** Scans report duplicates for unique content
 
 **Solutions:**
+
 1. Increase `maxPhrases` for more specific searches
 2. Use longer, more unique phrases
 3. Filter common phrases before scanning
@@ -375,15 +386,18 @@ GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
 ## Support
 
 ### Documentation
+
 - Full guide: `docs/SECURITY_IMPLEMENTATION.md`
 - API reference: See endpoint documentation above
 
 ### Contact
+
 - **Security:** security@elevateforhumanity.org
 - **Legal:** legal@elevateforhumanity.org
 - **Support:** support@elevateforhumanity.org
 
 ### Reporting Infringement
+
 - Email: legal@elevateforhumanity.org
 - Include: Content ID, URL, screenshots
 - Subject: "Content Infringement Report"

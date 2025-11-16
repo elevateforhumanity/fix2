@@ -5,6 +5,7 @@ Complete email traceability system linking emails to tasks, sync runs, and conte
 ## Why Correlation Matters
 
 **Problem**: When an email bounces or a user complains, you need to know:
+
 - Which autopilot task triggered it?
 - Which sync run generated it?
 - Which course/assignment is it related to?
@@ -15,51 +16,61 @@ Complete email traceability system linking emails to tasks, sync runs, and conte
 ## Correlation Fields
 
 ### task_id
+
 Links email to the autopilot task that triggered it.
 
 **Example**: Grade notification email → `gc_grade_submission` task
 
 **Use Cases**:
+
 - Debug failed tasks
 - Track task completion
 - Measure task effectiveness
 
 ### sync_run_id
+
 Links email to the nightly sync run that generated it.
 
 **Example**: Missing assignments digest → Nightly sync run
 
 **Use Cases**:
+
 - Track sync run success
 - Measure sync impact
 - Debug sync issues
 
 ### content_id
+
 Links email to specific content (course, coursework, student, etc.).
 
 **Example**: Course announcement → `courseId`
 
 **Use Cases**:
+
 - Find all emails about a course
 - Track student communications
 - Content-specific analytics
 
 ### correlation_id
+
 Groups related emails together (e.g., all emails from one digest run).
 
 **Example**: Weekly digest → All student + guardian emails
 
 **Use Cases**:
+
 - Track batch operations
 - Measure campaign effectiveness
 - Group related communications
 
 ### parent_event_id
+
 Links reply emails to original email (for threading).
 
 **Example**: Follow-up email → Original notification
 
 **Use Cases**:
+
 - Track conversation threads
 - Measure response rates
 - Build email chains
@@ -180,7 +191,7 @@ import { getEmailThread } from './email-correlation';
 const thread = await getEmailThread(eventId);
 
 console.log(`Thread has ${thread.length} messages`);
-thread.forEach(email => {
+thread.forEach((email) => {
   console.log(`${email.created_at}: ${email.subject}`);
 });
 ```
@@ -190,7 +201,7 @@ thread.forEach(email => {
 ### Emails by Task
 
 ```sql
-SELECT 
+SELECT
   recipient,
   subject,
   status,
@@ -204,7 +215,7 @@ ORDER BY created_at DESC;
 ### Task Email Statistics
 
 ```sql
-SELECT 
+SELECT
   task_id,
   COUNT(*) as total,
   COUNT(*) FILTER (WHERE status = 'delivered') as delivered,
@@ -219,7 +230,7 @@ GROUP BY task_id;
 ### Sync Run Email Statistics
 
 ```sql
-SELECT 
+SELECT
   sync_run_id,
   COUNT(*) as total,
   COUNT(*) FILTER (WHERE status = 'delivered') as delivered,
@@ -233,7 +244,7 @@ GROUP BY sync_run_id;
 ### Content Email History
 
 ```sql
-SELECT 
+SELECT
   content_id,
   email_type,
   COUNT(*) as total,
@@ -247,7 +258,7 @@ ORDER BY last_sent DESC;
 ### Correlation Group Analysis
 
 ```sql
-SELECT 
+SELECT
   correlation_id,
   COUNT(*) as total_emails,
   COUNT(DISTINCT recipient) as unique_recipients,
@@ -269,9 +280,9 @@ WITH RECURSIVE thread AS (
   SELECT *, 0 as depth
   FROM email_events
   WHERE id = 'your-event-id'
-  
+
   UNION ALL
-  
+
   -- Get all replies
   SELECT e.*, t.depth + 1
   FROM email_events e
@@ -290,16 +301,16 @@ import { getEmailsForTask } from '@/lib/email-correlation';
 
 function TaskDetails({ taskId }) {
   const [emails, setEmails] = useState([]);
-  
+
   useEffect(() => {
     getEmailsForTask(taskId).then(setEmails);
   }, [taskId]);
-  
+
   return (
     <div>
       <h3>Emails Sent ({emails.length})</h3>
       <ul>
-        {emails.map(email => (
+        {emails.map((email) => (
           <li key={email.id}>
             {email.recipient} - {email.status}
           </li>
@@ -317,19 +328,23 @@ import { getSyncRunEmailStats } from '@/lib/email-correlation';
 
 function SyncRunStats({ syncRunId }) {
   const [stats, setStats] = useState(null);
-  
+
   useEffect(() => {
     getSyncRunEmailStats(syncRunId).then(setStats);
   }, [syncRunId]);
-  
+
   if (!stats) return <div>Loading...</div>;
-  
+
   return (
     <div>
       <h3>Email Statistics</h3>
       <p>Total: {stats.total}</p>
-      <p>Delivered: {stats.delivered} ({stats.deliveryRate}%)</p>
-      <p>Opened: {stats.opened} ({stats.openRate}%)</p>
+      <p>
+        Delivered: {stats.delivered} ({stats.deliveryRate}%)
+      </p>
+      <p>
+        Opened: {stats.opened} ({stats.openRate}%)
+      </p>
       <p>Bounced: {stats.bounced}</p>
     </div>
   );
@@ -343,17 +358,17 @@ import { getEmailsByCorrelation } from '@/lib/email-correlation';
 
 function DigestReport({ correlationId }) {
   const [emails, setEmails] = useState([]);
-  
+
   useEffect(() => {
     getEmailsByCorrelation(correlationId).then(setEmails);
   }, [correlationId]);
-  
+
   const stats = {
     total: emails.length,
-    delivered: emails.filter(e => e.status === 'delivered').length,
-    opened: emails.filter(e => e.status === 'opened').length,
+    delivered: emails.filter((e) => e.status === 'delivered').length,
+    opened: emails.filter((e) => e.status === 'opened').length,
   };
-  
+
   return (
     <div>
       <h3>Digest Report</h3>
@@ -465,7 +480,7 @@ await emailService.send({
 
 ```sql
 -- Check if fields are populated
-SELECT 
+SELECT
   COUNT(*) as total,
   COUNT(task_id) as with_task,
   COUNT(sync_run_id) as with_sync,

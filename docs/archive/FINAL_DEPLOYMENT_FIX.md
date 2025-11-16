@@ -29,6 +29,7 @@ This makes npm **always** use legacy peer dependency resolution, including durin
 ## Why This Works
 
 1. **Netlify's Build Process:**
+
    ```
    1. Checkout code
    2. Run npm install (automatic) ← Uses .npmrc settings
@@ -82,17 +83,20 @@ Netlify should now show:
 ## Why Legacy Peer Deps is Safe
 
 ### What It Does
+
 - Allows installing packages with mismatched peer dependency versions
 - Uses npm's older, more permissive resolution algorithm
 - Doesn't affect runtime behavior
 
 ### Why It's Needed
+
 - Next.js 16 is very new
 - Many packages haven't updated peer dependencies yet
 - Minor version mismatches are common during major releases
 - All packages still work correctly at runtime
 
 ### What It Doesn't Do
+
 - Doesn't install incompatible packages
 - Doesn't break functionality
 - Doesn't introduce security issues
@@ -101,22 +105,27 @@ Netlify should now show:
 ## Verification Steps
 
 ### 1. Check Build Logs
+
 Look for:
+
 ```
 npm notice using legacy peer deps resolution
 ```
 
 ### 2. Verify Install Success
+
 ```
 added XXX packages in XXs
 ```
 
 ### 3. Confirm Build Completes
+
 ```
 Build completed successfully
 ```
 
 ### 4. Test Deployed Site
+
 - Homepage loads
 - LMS pages work
 - Admin portal accessible
@@ -125,24 +134,30 @@ Build completed successfully
 ## If This Still Fails
 
 ### Option 1: Check .npmrc is Committed
+
 ```bash
 git ls-files .npmrc
 # Should show: .npmrc
 ```
 
 ### Option 2: Verify Netlify Cache
+
 - Clear build cache in Netlify settings
 - Trigger new deploy
 
 ### Option 3: Manual Override
+
 Add to `netlify.toml`:
+
 ```toml
 [build.environment]
   NPM_FLAGS = "--legacy-peer-deps"
 ```
 
 ### Option 4: Use .nvmrc
+
 Ensure Node version is correct:
+
 ```bash
 cat .nvmrc
 # Should show: 20.19.0
@@ -160,6 +175,7 @@ cat .nvmrc
 ## What Changed
 
 ### Before
+
 ```ini
 # .npmrc
 fund=false
@@ -169,6 +185,7 @@ save-exact=true
 ```
 
 ### After
+
 ```ini
 # .npmrc
 fund=false
@@ -183,12 +200,14 @@ legacy-peer-deps=true  # ← Added
 ### Peer Dependency Conflicts
 
 **canvas@3.2.0 vs canvas@^2.11.2**
+
 - `canvas@3.2.0` - Required for PDF generation
 - `jsdom@23.2.0` - Wants `canvas@^2.11.2` (optional peer)
 - Conflict: Major version mismatch (3.x vs 2.x)
 - Solution: Legacy peer deps ignores optional peer mismatches
 
 **Why Not Downgrade Canvas?**
+
 - `canvas@3.2.0` has important features we use
 - `canvas@2.x` is older and less maintained
 - jsdom's peer dependency is **optional**
@@ -225,18 +244,21 @@ Deployment succeeds when:
 Once successful:
 
 ### Immediate Testing
+
 1. Visit homepage
 2. Test LMS dashboard
 3. Check admin portal
 4. Verify API endpoints
 
 ### Database Setup
+
 1. Run migrations in Supabase
 2. Create storage buckets
 3. Set up RLS policies
 4. Test MOU workflow
 
 ### Monitoring
+
 1. Check error logs
 2. Monitor performance
 3. Test email delivery

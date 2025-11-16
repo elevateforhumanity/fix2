@@ -17,7 +17,7 @@ export default function OfflineIndicator() {
     const handleOnline = () => {
       setIsOnline(true);
       setShowBanner(true);
-      
+
       // Auto-hide banner after 3 seconds
       setTimeout(() => setShowBanner(false), 3000);
 
@@ -60,9 +60,7 @@ export default function OfflineIndicator() {
     >
       <div
         className={`px-4 py-3 text-white text-sm font-medium flex items-center justify-between ${
-          isOnline
-            ? 'bg-green-600'
-            : 'bg-orange-600'
+          isOnline ? 'bg-green-600' : 'bg-orange-600'
         }`}
       >
         <div className="flex items-center gap-2">
@@ -81,7 +79,6 @@ export default function OfflineIndicator() {
             </>
           )}
         </div>
-
         <div className="flex items-center gap-2">
           {isOnline && !syncing && (
             <button
@@ -92,9 +89,7 @@ export default function OfflineIndicator() {
               <RefreshCw size={16} />
             </button>
           )}
-          {syncing && (
-            <RefreshCw size={16} className="animate-spin" />
-          )}
+          {syncing && <RefreshCw size={16} className="animate-spin" />}
           <button
             onClick={() => setShowBanner(false)}
             className="p-1 hover:bg-white/20 rounded transition-colors"

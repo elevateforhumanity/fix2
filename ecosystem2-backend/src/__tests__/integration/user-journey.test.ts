@@ -11,14 +11,12 @@ describe('User Journey Integration Tests', () => {
     let lessonId: string;
 
     it('should complete full student journey', async () => {
-      const instructorRes = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'instructor@example.com',
-          password: 'password123',
-          name: 'Instructor',
-          role: 'instructor',
-        });
+      const instructorRes = await request(app).post('/api/auth/register').send({
+        email: 'instructor@example.com',
+        password: 'password123',
+        name: 'Instructor',
+        role: 'instructor',
+      });
       instructorToken = instructorRes.body.token;
       expect(instructorRes.status).toBe(201);
 
@@ -48,24 +46,22 @@ describe('User Journey Integration Tests', () => {
       lessonId = lessonRes.body.id;
       expect(lessonRes.status).toBe(201);
 
-      const studentRes = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'student@example.com',
-          password: 'password123',
-          name: 'Student',
-          role: 'student',
-        });
+      const studentRes = await request(app).post('/api/auth/register').send({
+        email: 'student@example.com',
+        password: 'password123',
+        name: 'Student',
+        role: 'student',
+      });
       studentToken = studentRes.body.token;
       expect(studentRes.status).toBe(201);
 
-      const searchRes = await request(app)
-        .get('/api/search?q=Full Stack');
+      const searchRes = await request(app).get('/api/search?q=Full Stack');
       expect(searchRes.status).toBe(200);
       expect(searchRes.body.results.length).toBeGreaterThan(0);
 
-      const courseDetailRes = await request(app)
-        .get(`/api/courses/${courseId}`);
+      const courseDetailRes = await request(app).get(
+        `/api/courses/${courseId}`
+      );
       expect(courseDetailRes.status).toBe(200);
       expect(courseDetailRes.body.title).toBe('Full Stack Development');
 
@@ -107,14 +103,12 @@ describe('User Journey Integration Tests', () => {
     let courseId: string;
 
     it('should complete full instructor journey', async () => {
-      const instructorRes = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'instructor@example.com',
-          password: 'password123',
-          name: 'Instructor',
-          role: 'instructor',
-        });
+      const instructorRes = await request(app).post('/api/auth/register').send({
+        email: 'instructor@example.com',
+        password: 'password123',
+        name: 'Instructor',
+        role: 'instructor',
+      });
       instructorToken = instructorRes.body.token;
       expect(instructorRes.status).toBe(201);
 
@@ -176,14 +170,12 @@ describe('User Journey Integration Tests', () => {
     let courseId: string;
 
     beforeEach(async () => {
-      const instructorRes = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'instructor@example.com',
-          password: 'password123',
-          name: 'Instructor',
-          role: 'instructor',
-        });
+      const instructorRes = await request(app).post('/api/auth/register').send({
+        email: 'instructor@example.com',
+        password: 'password123',
+        name: 'Instructor',
+        role: 'instructor',
+      });
 
       const courseRes = await request(app)
         .post('/api/courses')
@@ -198,14 +190,12 @@ describe('User Journey Integration Tests', () => {
         });
       courseId = courseRes.body.id;
 
-      const studentRes = await request(app)
-        .post('/api/auth/register')
-        .send({
-          email: 'student@example.com',
-          password: 'password123',
-          name: 'Student',
-          role: 'student',
-        });
+      const studentRes = await request(app).post('/api/auth/register').send({
+        email: 'student@example.com',
+        password: 'password123',
+        name: 'Student',
+        role: 'student',
+      });
       studentToken = studentRes.body.token;
     });
 

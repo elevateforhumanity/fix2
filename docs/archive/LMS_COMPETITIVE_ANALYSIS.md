@@ -1,4 +1,5 @@
 # Elevate Connects vs Major LMS Platforms
+
 ## Competitive Analysis: Moodle, Docebo, LearnWorlds
 
 ---
@@ -15,18 +16,18 @@ Elevate Connects is **already competitive** with major LMS platforms in core fun
 
 ### ✅ Core LMS Features (Matching the Big Players)
 
-| Feature | Status | Notes |
-|---------|--------|-------|
-| Student Dashboard | ✅ Live | Full at-a-glance view |
-| Course Catalog | ✅ Live | `/lms/courses` |
-| Learning Paths | ✅ Live | Structured program sequences |
-| Assignments | ✅ Live | Track what's due |
-| Grades & Progress | ✅ Live | Completion tracking |
-| Certificates | ✅ Live | + Public QR verification |
-| Messages & Notifications | ✅ Live | Built-in communication |
-| Calendar | ✅ Live | Deadlines and sessions |
-| Resources Library | ✅ Live | Support materials |
-| User Profiles | ✅ Live | Customizable |
+| Feature                  | Status  | Notes                        |
+| ------------------------ | ------- | ---------------------------- |
+| Student Dashboard        | ✅ Live | Full at-a-glance view        |
+| Course Catalog           | ✅ Live | `/lms/courses`               |
+| Learning Paths           | ✅ Live | Structured program sequences |
+| Assignments              | ✅ Live | Track what's due             |
+| Grades & Progress        | ✅ Live | Completion tracking          |
+| Certificates             | ✅ Live | + Public QR verification     |
+| Messages & Notifications | ✅ Live | Built-in communication       |
+| Calendar                 | ✅ Live | Deadlines and sessions       |
+| Resources Library        | ✅ Live | Support materials            |
+| User Profiles            | ✅ Live | Customizable                 |
 
 **Verdict:** You match Moodle/Docebo/LearnWorlds on all core student-facing features.
 
@@ -34,16 +35,16 @@ Elevate Connects is **already competitive** with major LMS platforms in core fun
 
 ### ✅ Admin Features (Matching or Exceeding)
 
-| Feature | Elevate | Moodle | Docebo | LearnWorlds |
-|---------|---------|--------|--------|-------------|
-| Admin Dashboard | ✅ | ✅ | ✅ | ✅ |
-| User Management | ✅ | ✅ | ✅ | ✅ |
-| Reports Hub | ✅ | ✅ | ✅ | ✅ |
-| Bulk Operations | ✅ | ✅ | ✅ | ✅ |
-| Certificate Management | ✅ | ✅ | ✅ | ✅ |
-| **Caseload Reports** | ✅ | ❌ | ❌ | ❌ |
-| **Program Holder Management** | ✅ | ❌ | ❌ | ❌ |
-| **Delegate Portal** | ✅ | ❌ | ❌ | ❌ |
+| Feature                       | Elevate | Moodle | Docebo | LearnWorlds |
+| ----------------------------- | ------- | ------ | ------ | ----------- |
+| Admin Dashboard               | ✅      | ✅     | ✅     | ✅          |
+| User Management               | ✅      | ✅     | ✅     | ✅          |
+| Reports Hub                   | ✅      | ✅     | ✅     | ✅          |
+| Bulk Operations               | ✅      | ✅     | ✅     | ✅          |
+| Certificate Management        | ✅      | ✅     | ✅     | ✅          |
+| **Caseload Reports**          | ✅      | ❌     | ❌     | ❌          |
+| **Program Holder Management** | ✅      | ❌     | ❌     | ❌          |
+| **Delegate Portal**           | ✅      | ❌     | ❌     | ❌          |
 
 **Verdict:** You have everything they have, PLUS workforce-specific features they don't.
 
@@ -93,12 +94,15 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ### 🔄 Roadmap Priority 1: Must-Show Soon
 
 #### 1. Interactive Video Player
+
 **What they have:**
+
 - LearnWorlds: Interactive video with transcripts, in-video quizzes, clickable links
 - Docebo: Built-in screen recording, video hosting, auto-transcripts
 - Moodle: Video embedding with H5P interactive elements
 
 **What you need:**
+
 - Video player with playback controls
 - Auto-generated transcripts
 - In-video quiz overlays
@@ -112,12 +116,15 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 2. SCORM/xAPI Import
+
 **What they have:**
+
 - All three support SCORM 1.2, SCORM 2004, xAPI (Tin Can)
 - Import existing course packages
 - Track completion and scores
 
 **What you need:**
+
 - SCORM package upload
 - Content extraction and hosting
 - Completion tracking
@@ -130,12 +137,15 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 3. Course Authoring Tools
+
 **What they have:**
+
 - Docebo: Built-in authoring, test engine, surveys
 - LearnWorlds: Drag-and-drop course builder, AI tools, interactive ebooks
 - Moodle: Activity modules, quiz builder, assignment creator
 
 **What you need:**
+
 - Lesson/module creator
 - Quiz builder
 - File upload and organization
@@ -148,7 +158,9 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 4. Analytics Snapshots
+
 **What they have:**
+
 - Engagement dashboards
 - Completion rates
 - Time spent
@@ -156,6 +168,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 - Learner progress
 
 **What you need:**
+
 - Visual charts (you have the data)
 - Engagement metrics
 - Completion funnels
@@ -168,13 +181,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 5. Integration with Zoom/Meet
+
 **What they have:**
+
 - One-click meeting creation
 - Automatic calendar sync
 - Recording storage
 - Attendance tracking
 
 **What you need:**
+
 - OAuth integration
 - Meeting scheduling
 - Calendar sync
@@ -189,13 +205,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ### 🔄 Roadmap Priority 2: Nice-to-Have
 
 #### 6. Gamification
+
 **What they have:**
+
 - Badges for completion
 - Points and leaderboards
 - Streaks and milestones
 - Achievement unlocks
 
 **What you need:**
+
 - Badge system
 - Points calculation
 - Leaderboard display
@@ -208,13 +227,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 7. Course Catalog with Pricing
+
 **What they have:**
+
 - Public course catalog
 - Free/Paid/Subscription tiers
 - Shopping cart
 - Checkout flow
 
 **What you need:**
+
 - Public catalog page
 - Pricing display
 - Stripe integration
@@ -227,13 +249,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 8. eCommerce
+
 **What they have:**
+
 - Stripe/PayPal integration
 - Subscription management
 - Coupon codes
 - Revenue reporting
 
 **What you need:**
+
 - Payment processing
 - Subscription logic
 - Invoice generation
@@ -246,13 +271,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 9. Community Features
+
 **What they have:**
+
 - Discussion forums
 - Group spaces
 - Announcements
 - Peer messaging
 
 **What you need:**
+
 - Forum/discussion board
 - Group creation
 - Announcement system
@@ -265,13 +293,16 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ---
 
 #### 10. Mobile App
+
 **What they have:**
+
 - iOS and Android apps
 - Offline content
 - Push notifications
 - Mobile-optimized video
 
 **What you need:**
+
 - React Native app
 - Offline sync
 - Push notification service
@@ -286,16 +317,19 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ## Feature Priority Matrix
 
 ### Build Now (Q1 2025)
+
 1. **Interactive Video Player** - Most visible, highest impact
 2. **SCORM Import** - Unlocks existing content migration
 3. **Analytics Dashboard** - Quick win, uses existing data
 
 ### Build Next (Q2 2025)
+
 4. **Course Authoring** - Enables content creation
 5. **Zoom Integration** - Critical for live sessions
 6. **Gamification** - Increases engagement
 
 ### Build Later (Q3 2025)
+
 7. **eCommerce** - Opens new revenue streams
 8. **Community Features** - Enhances cohort experience
 9. **Mobile App** - Expands accessibility
@@ -307,12 +341,15 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ### For RFPs and Sales Calls
 
 **Opening:**
+
 > "Elevate Connects has all the core LMS features you'd expect from Moodle, Docebo, or LearnWorlds — dashboards, courses, learning paths, certificates, reports — but we're purpose-built for workforce training programs."
 
 **Differentiation:**
+
 > "Where we're different is that we have program holder portals, delegate case management, and digital MOU workflows baked in from day one. The big LMS platforms would need months of custom development to support WRG, WIOA, JRI, and DOL programs the way we do."
 
 **Roadmap:**
+
 > "We're actively building interactive video, SCORM import, and course authoring tools. But even without those, we're already the only platform that gives you workforce enrollment, caseload tracking, and partner management out of the box."
 
 ---
@@ -320,9 +357,11 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ## Video Script Recommendations
 
 ### 30-Second Elevator Pitch
+
 > "Elevate Connects is a workforce-first LMS built for programs like WRG, WIOA, JRI, and DOL apprenticeships. We have everything you'd expect from Moodle or Docebo — courses, certificates, reports — plus program holder portals, case management, and digital MOUs that the big platforms don't offer. If you're running funded workforce training, Elevate is built for you."
 
 ### 60-Second Feature Overview
+
 > "Elevate Connects brings together four portals in one platform:
 >
 > **Students** see their dashboard, courses, assignments, grades, and certificates.
@@ -336,6 +375,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 > We're adding interactive video, SCORM import, and course authoring soon. But right now, we're already the only LMS purpose-built for workforce training programs."
 
 ### 90-Second Competitive Comparison
+
 > "If you've looked at Moodle, Docebo, or LearnWorlds, you know they're powerful platforms. Elevate Connects has the same core features — dashboards, courses, learning paths, certificates, reports — but we're different in three ways:
 >
 > **First**, we're built for funded workforce programs. WRG, WIOA, JRI, EmployIndy, DOL apprenticeships — we track them all.
@@ -351,6 +391,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 ## Marketing Messaging
 
 ### Homepage Hero
+
 **Headline:** "The LMS Built for Workforce Training"
 
 **Subheadline:** "Everything you need to manage WRG, WIOA, JRI, and DOL programs — student portal, admin tools, program holder onboarding, and case management — in one platform."
@@ -380,6 +421,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 **You're not behind.** You're ahead in the workforce training space.
 
 **What you have:**
+
 - ✅ All core LMS features
 - ✅ Unique workforce capabilities
 - ✅ Multi-portal architecture
@@ -387,6 +429,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 - ✅ Case management layer
 
 **What you're building:**
+
 - 🔄 Interactive video
 - 🔄 SCORM import
 - 🔄 Course authoring
@@ -394,11 +437,13 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 - 🔄 Zoom integration
 
 **Your positioning:**
+
 > "Elevate Connects: The only LMS purpose-built for workforce training programs. All the features of Moodle and Docebo, plus program holder portals, case management, and funding compliance that they don't offer."
 
 ---
 
 **Next Steps:**
+
 1. Record 30/60/90-second demo videos
 2. Update homepage with competitive messaging
 3. Build interactive video player (Q1 priority)

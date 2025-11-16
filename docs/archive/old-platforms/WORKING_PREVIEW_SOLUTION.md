@@ -3,6 +3,7 @@
 ## ✅ Problem Solved
 
 Created a custom Node.js preview server that works perfectly in Gitpod with:
+
 - ✅ All images loading correctly
 - ✅ SPA routing (client-side routes work)
 - ✅ Proper cache headers
@@ -15,6 +16,7 @@ Created a custom Node.js preview server that works perfectly in Gitpod with:
 **File**: `scripts/preview-server.cjs`
 
 A simple Node.js HTTP server that:
+
 1. Serves static files from `dist/`
 2. Falls back to `index.html` for all non-file routes (SPA support)
 3. Sets proper MIME types for all file types
@@ -58,6 +60,7 @@ PORT=9000 pnpm run preview
 ### 3. Access the Site
 
 The server will output:
+
 ```
 ✅ Preview server running!
 
@@ -68,6 +71,7 @@ Serving: /workspaces/fix2/dist
 ```
 
 In Gitpod:
+
 1. Go to the **Ports** tab (bottom panel)
 2. Find port 8080
 3. Click the **Open Browser** icon
@@ -150,6 +154,7 @@ Cache-Control: `public, max-age=0, must-revalidate`
 ### 5. CORS Support
 
 All responses include:
+
 ```
 Access-Control-Allow-Origin: *
 ```
@@ -173,11 +178,13 @@ The server recognizes and serves:
 ### Port Already in Use
 
 If you see:
+
 ```
 ❌ Port 8080 is already in use.
 ```
 
 Use a different port:
+
 ```bash
 PORT=8081 pnpm run preview
 ```
@@ -185,15 +192,17 @@ PORT=8081 pnpm run preview
 ### Images Not Loading
 
 1. Verify build completed:
+
    ```bash
    ls -la dist/images/programs/
    ```
 
 2. Check image paths in code use leading slash:
+
    ```tsx
    // ✅ Correct
    <img src="/images/hero.jpg" />
-   
+
    // ❌ Wrong
    <img src="images/hero.jpg" />
    ```
@@ -207,11 +216,13 @@ PORT=8081 pnpm run preview
 ### Routing Not Working
 
 1. Verify `_redirects` file exists:
+
    ```bash
    cat dist/_redirects
    ```
 
 2. Should contain:
+
    ```
    /*   /index.html   200
    ```
@@ -221,11 +232,13 @@ PORT=8081 pnpm run preview
 ### Server Won't Start
 
 1. Check if Node.js is installed:
+
    ```bash
    node --version
    ```
 
 2. Check if dist/ exists:
+
    ```bash
    ls -la dist/
    ```
@@ -237,14 +250,15 @@ PORT=8081 pnpm run preview
 
 ## Comparison with Other Solutions
 
-| Solution | Images | Routing | Gitpod | Speed |
-|----------|--------|---------|--------|-------|
-| **Custom Node.js** | ✅ | ✅ | ✅ | ⚡⚡⚡ |
-| `serve` package | ✅ | ⚠️ | ⚠️ | ⚡⚡ |
-| `vite preview` | ✅ | ✅ | ❌ | ⚡⚡⚡ |
-| Python HTTP | ✅ | ❌ | ✅ | ⚡ |
+| Solution           | Images | Routing | Gitpod | Speed  |
+| ------------------ | ------ | ------- | ------ | ------ |
+| **Custom Node.js** | ✅     | ✅      | ✅     | ⚡⚡⚡ |
+| `serve` package    | ✅     | ⚠️      | ⚠️     | ⚡⚡   |
+| `vite preview`     | ✅     | ✅      | ❌     | ⚡⚡⚡ |
+| Python HTTP        | ✅     | ❌      | ✅     | ⚡     |
 
 **Legend**:
+
 - ✅ Works perfectly
 - ⚠️ Works with configuration
 - ❌ Doesn't work or has issues
@@ -260,6 +274,7 @@ netlify deploy --prod
 ```
 
 Netlify automatically handles:
+
 - SPA routing via `_redirects`
 - Image optimization
 - CDN distribution
@@ -273,6 +288,7 @@ vercel --prod
 ```
 
 Vercel automatically handles:
+
 - SPA routing
 - Image optimization
 - CDN distribution
@@ -282,6 +298,7 @@ Vercel automatically handles:
 ### Other Static Hosts
 
 For other hosts, ensure they support:
+
 1. SPA routing (fallback to index.html)
 2. Proper MIME types
 3. Cache headers

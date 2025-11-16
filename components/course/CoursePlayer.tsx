@@ -1,7 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { Play, Pause, Volume2, Maximize, ChevronLeft, ChevronRight, CheckCircle, Lock } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  Maximize,
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle,
+  Lock,
+} from 'lucide-react';
 
 interface Lesson {
   id: number;
@@ -12,11 +21,41 @@ interface Lesson {
 }
 
 const lessons: Lesson[] = [
-  { id: 1, title: 'Introduction to Barbering', duration: '12:30', completed: true, locked: false },
-  { id: 2, title: 'Tools and Equipment', duration: '18:45', completed: true, locked: false },
-  { id: 3, title: 'Basic Cutting Techniques', duration: '25:15', completed: false, locked: false },
-  { id: 4, title: 'Advanced Styling', duration: '22:00', completed: false, locked: true },
-  { id: 5, title: 'Client Consultation', duration: '15:30', completed: false, locked: true },
+  {
+    id: 1,
+    title: 'Introduction to Barbering',
+    duration: '12:30',
+    completed: true,
+    locked: false,
+  },
+  {
+    id: 2,
+    title: 'Tools and Equipment',
+    duration: '18:45',
+    completed: true,
+    locked: false,
+  },
+  {
+    id: 3,
+    title: 'Basic Cutting Techniques',
+    duration: '25:15',
+    completed: false,
+    locked: false,
+  },
+  {
+    id: 4,
+    title: 'Advanced Styling',
+    duration: '22:00',
+    completed: false,
+    locked: true,
+  },
+  {
+    id: 5,
+    title: 'Client Consultation',
+    duration: '15:30',
+    completed: false,
+    locked: true,
+  },
 ];
 
 export function CoursePlayer() {
@@ -33,26 +72,39 @@ export function CoursePlayer() {
             <div className="text-white text-center">
               <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-red-700 transition-colors">
                 {isPlaying ? (
-                  <Pause className="h-10 w-10" onClick={() => setIsPlaying(false)} />
+                  <Pause
+                    className="h-10 w-10"
+                    onClick={() => setIsPlaying(false)}
+                  />
                 ) : (
-                  <Play className="h-10 w-10 ml-1" onClick={() => setIsPlaying(true)} />
+                  <Play
+                    className="h-10 w-10 ml-1"
+                    onClick={() => setIsPlaying(true)}
+                  />
                 )}
               </div>
               <p className="text-lg font-semibold">{currentLesson.title}</p>
-              <p className="text-sm text-gray-400 mt-1">{currentLesson.duration}</p>
+              <p className="text-sm text-gray-400 mt-1">
+                {currentLesson.duration}
+              </p>
             </div>
           </div>
-
           {/* Video Controls */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
             <div className="flex items-center gap-4">
               <button className="text-white hover:text-red-500 transition-colors">
-                {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                {isPlaying ? (
+                  <Pause className="h-5 w-5" />
+                ) : (
+                  <Play className="h-5 w-5" />
+                )}
               </button>
               <div className="flex-1 h-1 bg-gray-600 rounded-full">
-                <div className="h-full w-1/3 bg-red-600 rounded-full"></div>
+                <div className="h-full w-1/3 bg-red-600 rounded-full" />
               </div>
-              <span className="text-white text-sm">8:30 / {currentLesson.duration}</span>
+              <span className="text-white text-sm">
+                8:30 / {currentLesson.duration}
+              </span>
               <button className="text-white hover:text-red-500 transition-colors">
                 <Volume2 className="h-5 w-5" />
               </button>
@@ -62,15 +114,16 @@ export function CoursePlayer() {
             </div>
           </div>
         </div>
-
         {/* Lesson Info */}
         <div className="elevate-card">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{currentLesson.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            {currentLesson.title}
+          </h2>
           <p className="text-gray-600 mb-4">
-            Learn the fundamental techniques of basic cutting in this comprehensive lesson. 
-            You'll master the essential skills needed to perform professional haircuts.
+            Learn the fundamental techniques of basic cutting in this
+            comprehensive lesson. You'll master the essential skills needed to
+            perform professional haircuts.
           </p>
-          
           <div className="flex items-center gap-4 mb-6">
             <div className="elevate-pill elevate-pill--blue">
               Lesson {currentLesson.id} of {lessons.length}
@@ -79,10 +132,9 @@ export function CoursePlayer() {
               Duration: {currentLesson.duration}
             </div>
           </div>
-
           {/* Navigation Buttons */}
           <div className="flex gap-3">
-            <button 
+            <button
               className="elevate-btn-secondary flex items-center gap-2"
               disabled={currentLesson.id === 1}
             >
@@ -95,24 +147,31 @@ export function CoursePlayer() {
             </button>
           </div>
         </div>
-
         {/* Resources & Notes */}
         <div className="elevate-card">
           <h3 className="font-bold text-gray-900 mb-4">Lesson Resources</h3>
           <div className="space-y-2">
-            <a href="#" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm">
+            <a
+              href="#"
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+            >
               📄 Cutting Techniques Guide.pdf
             </a>
-            <a href="#" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm">
+            <a
+              href="#"
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+            >
               📊 Practice Worksheet.pdf
             </a>
-            <a href="#" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm">
+            <a
+              href="#"
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+            >
               🎥 Bonus: Advanced Tips Video
             </a>
           </div>
         </div>
       </div>
-
       {/* Lesson Sidebar */}
       <div className="elevate-card h-fit sticky top-4">
         <h3 className="font-bold text-gray-900 mb-4">Course Content</h3>
@@ -126,8 +185,8 @@ export function CoursePlayer() {
                 currentLesson.id === lesson.id
                   ? 'border-red-500 bg-red-50'
                   : lesson.locked
-                  ? 'border-gray-200 bg-gray-50 cursor-not-allowed opacity-60'
-                  : 'border-gray-200 hover:border-red-300 hover:bg-gray-50'
+                    ? 'border-gray-200 bg-gray-50 cursor-not-allowed opacity-60'
+                    : 'border-gray-200 hover:border-red-300 hover:bg-gray-50'
               }`}
             >
               <div className="flex items-start gap-3">
@@ -137,18 +196,21 @@ export function CoursePlayer() {
                   ) : lesson.locked ? (
                     <Lock className="h-5 w-5 text-gray-400" />
                   ) : (
-                    <div className="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300" />
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-sm text-gray-900">{lesson.title}</p>
-                  <p className="text-xs text-gray-500 mt-1">{lesson.duration}</p>
+                  <p className="font-medium text-sm text-gray-900">
+                    {lesson.title}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {lesson.duration}
+                  </p>
                 </div>
               </div>
             </button>
           ))}
         </div>
-
         {/* Progress */}
         <div className="mt-6 pt-6 border-t border-gray-200">
           <div className="flex justify-between text-sm mb-2">
@@ -156,7 +218,10 @@ export function CoursePlayer() {
             <span className="font-bold text-gray-900">40%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-red-600 h-2 rounded-full" style={{ width: '40%' }}></div>
+            <div
+              className="bg-red-600 h-2 rounded-full"
+              style={{ width: '40%' }}
+            />
           </div>
           <p className="text-xs text-gray-500 mt-2">2 of 5 lessons completed</p>
         </div>

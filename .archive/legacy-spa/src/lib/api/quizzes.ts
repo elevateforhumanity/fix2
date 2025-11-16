@@ -58,10 +58,12 @@ export async function createQuiz(quiz: Partial<Quiz>) {
 export async function getQuiz(id: string) {
   const { data, error } = await supabase
     .from('quizzes')
-    .select(`
+    .select(
+      `
       *,
       questions (*)
-    `)
+    `
+    )
     .eq('id', id)
     .single();
 
@@ -82,10 +84,7 @@ export async function updateQuiz(id: string, updates: Partial<Quiz>) {
 }
 
 export async function deleteQuiz(id: string) {
-  const { error } = await supabase
-    .from('quizzes')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('quizzes').delete().eq('id', id);
 
   if (error) throw error;
 }
@@ -116,10 +115,7 @@ export async function updateQuestion(id: string, updates: Partial<Question>) {
 }
 
 export async function deleteQuestion(id: string) {
-  const { error } = await supabase
-    .from('questions')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('questions').delete().eq('id', id);
 
   if (error) throw error;
 }
@@ -129,11 +125,13 @@ export async function deleteQuestion(id: string) {
 export async function startQuizAttempt(studentId: string, quizId: string) {
   const { data, error } = await supabase
     .from('quiz_attempts')
-    .insert([{
-      student_id: studentId,
-      quiz_id: quizId,
-      started_at: new Date().toISOString()
-    }])
+    .insert([
+      {
+        student_id: studentId,
+        quiz_id: quizId,
+        started_at: new Date().toISOString(),
+      },
+    ])
     .select()
     .single();
 
@@ -156,7 +154,7 @@ export async function submitQuizAttempt(
       score,
       total_points: totalPoints,
       percentage,
-      completed_at: new Date().toISOString()
+      completed_at: new Date().toISOString(),
     })
     .eq('id', attemptId)
     .select()
@@ -181,13 +179,15 @@ export async function getQuizAttempts(studentId: string, quizId: string) {
 export async function getQuizResults(attemptId: string) {
   const { data, error } = await supabase
     .from('quiz_attempts')
-    .select(`
+    .select(
+      `
       *,
       quizzes (
         *,
         questions (*)
       )
-    `)
+    `
+    )
     .eq('id', attemptId)
     .single();
 

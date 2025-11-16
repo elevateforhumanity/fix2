@@ -3,6 +3,7 @@
 ## Quick Setup (5 Minutes)
 
 ### 1. **Stripe Setup**
+
 ```bash
 # 1. Create Stripe account at stripe.com
 # 2. Get your keys from Dashboard > Developers > API Keys
@@ -17,6 +18,7 @@
 ### 2. **Deploy Webhook (Choose One)**
 
 #### Option A: Vercel (Recommended)
+
 ```bash
 npm install -g vercel
 vercel login
@@ -26,6 +28,7 @@ vercel --prod
 ```
 
 #### Option B: Netlify Functions
+
 ```bash
 npm install -g netlify-cli
 netlify login
@@ -35,6 +38,7 @@ netlify deploy --prod
 ```
 
 #### Option C: Railway
+
 ```bash
 npm install -g @railway/cli
 railway login
@@ -44,6 +48,7 @@ railway deploy
 ```
 
 ### 3. **Configure Webhook URL**
+
 ```bash
 # In Stripe Dashboard > Developers > Webhooks
 # Add endpoint: https://your-domain.vercel.app/api/webhook
@@ -51,10 +56,11 @@ railway deploy
 ```
 
 ### 4. **Upload Files to CDN**
+
 ```bash
 # Upload your digital products to:
 # - AWS S3
-# - Google Cloud Storage  
+# - Google Cloud Storage
 # - Cloudflare R2
 # - Or any CDN
 
@@ -64,6 +70,7 @@ railway deploy
 ---
 
 ## 📁 File Structure
+
 ```
 elevate-store/
 ├── elevate-store.html          # Main storefront
@@ -82,6 +89,7 @@ elevate-store/
 ## 🔧 Environment Variables Setup
 
 Create `.env` file:
+
 ```bash
 # Required
 STRIPE_SECRET_KEY=sk_live_your_key
@@ -99,6 +107,7 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ## 📧 Email Setup Options
 
 ### Option 1: Gmail (Easiest)
+
 ```bash
 # 1. Enable 2FA on Gmail
 # 2. Generate App Password
@@ -106,6 +115,7 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ```
 
 ### Option 2: SendGrid (Professional)
+
 ```bash
 # 1. Create SendGrid account
 # 2. Get API key
@@ -113,6 +123,7 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ```
 
 ### Option 3: AWS SES (Enterprise)
+
 ```bash
 # 1. Set up AWS SES
 # 2. Verify domain
@@ -124,6 +135,7 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ## 🎯 Testing Your Store
 
 ### 1. **Test Mode**
+
 ```bash
 # Use Stripe test keys (pk_test_...)
 # Test card: 4242 4242 4242 4242
@@ -131,12 +143,14 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ```
 
 ### 2. **Verify Webhook**
+
 ```bash
 # Check webhook logs in Stripe Dashboard
 # Test with: stripe listen --forward-to localhost:3000/webhook
 ```
 
 ### 3. **Test Email Delivery**
+
 ```bash
 # Make test purchase
 # Check email delivery
@@ -160,12 +174,14 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ## 📊 Analytics & Monitoring
 
 ### Track Key Metrics:
+
 - Conversion rates by product
 - License usage patterns
 - Customer support requests
 - Download completion rates
 
 ### Recommended Tools:
+
 - Google Analytics 4
 - Stripe Dashboard analytics
 - Mixpanel for user behavior
@@ -176,25 +192,28 @@ DOWNLOAD_BASE_URL=https://your-cdn.com/downloads
 ## 🛠️ Customization Options
 
 ### 1. **Add More Products**
+
 ```javascript
 // In webhook-license-delivery.js
 const PRODUCT_CATALOG = {
-  'price_1NewProduct': {
+  price_1NewProduct: {
     name: 'New Product Name',
     price: 99,
     files: ['download-link.zip'],
-    license_type: 'commercial'
-  }
+    license_type: 'commercial',
+  },
 };
 ```
 
 ### 2. **Custom Email Templates**
+
 ```javascript
 // Modify sendLicenseEmail() function
 // Add your branding, colors, logos
 ```
 
 ### 3. **License Validation API**
+
 ```javascript
 // Implement validateLicense() endpoint
 // Add domain restrictions
@@ -208,21 +227,25 @@ const PRODUCT_CATALOG = {
 ### Common Issues:
 
 **Webhook not receiving events:**
+
 - Check webhook URL is correct
 - Verify endpoint is publicly accessible
 - Check Stripe webhook logs
 
 **Email not sending:**
+
 - Verify email credentials
 - Check spam folder
 - Test with different email provider
 
 **Download links broken:**
+
 - Verify CDN/storage URLs
 - Check file permissions
 - Test links manually
 
 **License validation failing:**
+
 - Check license key format
 - Verify database connection
 - Test validation endpoint

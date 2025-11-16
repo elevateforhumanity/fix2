@@ -1,6 +1,6 @@
 /**
  * Auto-Sync Jobs for Google Classroom
- * 
+ *
  * Automated tasks that run on schedule:
  * - Nightly roster sync
  * - Missing assignment checks
@@ -179,7 +179,9 @@ export function getNextRunTime(schedule: string): Date {
   // Simple implementation - just add 1 day for daily jobs
   // For production, use a proper cron parser library
   const now = new Date();
-  const [minute, hour] = schedule.split(' ').map(s => (s === '*' ? 0 : parseInt(s)));
+  const [minute, hour] = schedule
+    .split(' ')
+    .map((s) => (s === '*' ? 0 : parseInt(s)));
 
   const next = new Date(now);
   next.setHours(hour, minute, 0, 0);
@@ -195,7 +197,7 @@ export function getNextRunTime(schedule: string): Date {
  * List all auto-sync jobs with their status
  */
 export function listAutoSyncJobs() {
-  return AUTO_SYNC_JOBS.map(job => ({
+  return AUTO_SYNC_JOBS.map((job) => ({
     ...job,
     nextRun: getNextRunTime(job.schedule),
   }));
@@ -208,7 +210,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   switch (command) {
     case 'list':
       console.log('📋 Auto-Sync Jobs:\n');
-      listAutoSyncJobs().forEach(job => {
+      listAutoSyncJobs().forEach((job) => {
         console.log(`${job.enabled ? '✅' : '❌'} ${job.name}`);
         console.log(`   ${job.description}`);
         console.log(`   Schedule: ${job.schedule}`);
@@ -219,13 +221,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
     case 'queue':
       queueAutoSyncJobs()
-        .then(results => {
+        .then((results) => {
           console.log('\n✅ Auto-sync jobs queued:');
-          results.forEach(r => {
+          results.forEach((r) => {
             console.log(`   ${r.job}: ${r.status}`);
           });
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('❌ Error:', error.message);
           process.exit(1);
         });
@@ -234,6 +236,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     default:
       console.log('Usage:');
       console.log('  npx tsx src/auto-sync-jobs.ts list   - List all jobs');
-      console.log('  npx tsx src/auto-sync-jobs.ts queue  - Queue jobs that should run now');
+      console.log(
+        '  npx tsx src/auto-sync-jobs.ts queue  - Queue jobs that should run now'
+      );
   }
 }

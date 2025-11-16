@@ -51,11 +51,14 @@ export function NotificationBell() {
   const [notifs, setNotifs] = useState(notifications);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const unreadCount = notifs.filter(n => n.unread).length;
+  const unreadCount = notifs.filter((n) => n.unread).length;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
@@ -64,7 +67,7 @@ export function NotificationBell() {
   }, []);
 
   const markAllRead = () => {
-    setNotifs(notifs.map(n => ({ ...n, unread: false })));
+    setNotifs(notifs.map((n) => ({ ...n, unread: false })));
   };
 
   return (
@@ -80,7 +83,6 @@ export function NotificationBell() {
           </span>
         )}
       </button>
-
       {isOpen && (
         <div className="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
           {/* Header */}
@@ -95,7 +97,6 @@ export function NotificationBell() {
               </button>
             )}
           </div>
-
           {/* Notifications List */}
           <div className="max-h-96 overflow-y-auto">
             {notifs.length === 0 ? (
@@ -118,12 +119,18 @@ export function NotificationBell() {
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-900 text-sm">{notif.title}</p>
-                        <p className="text-sm text-gray-600 mt-1">{notif.message}</p>
-                        <p className="text-xs text-gray-400 mt-1">{notif.time}</p>
+                        <p className="font-medium text-gray-900 text-sm">
+                          {notif.title}
+                        </p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {notif.message}
+                        </p>
+                        <p className="text-xs text-gray-400 mt-1">
+                          {notif.time}
+                        </p>
                       </div>
                       {notif.unread && (
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
                       )}
                     </div>
                   </div>
@@ -131,7 +138,6 @@ export function NotificationBell() {
               })
             )}
           </div>
-
           {/* Footer */}
           <div className="px-4 py-3 border-t border-gray-100 text-center">
             <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">

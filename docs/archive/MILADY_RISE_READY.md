@@ -3,6 +3,7 @@
 ## 🎉 You're an Official Milady RISE Partner!
 
 ### Your Partnership Details
+
 - **Custom Code:** `efhcti-rise295`
 - **Redemptions:** 1,000 free enrollments
 - **Scholarship:** $500 (10 recipients, Spring & Fall)
@@ -13,9 +14,11 @@
 ## 🚀 Your LMS is Ready!
 
 ### Live Enrollment Page
+
 **URL:** [https://portal.elevateforhumanity.org/lms/milady-riseenrollment](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 **Features:**
+
 - ✅ Complete course information
 - ✅ $500 scholarship details
 - ✅ Automatic promo code application
@@ -44,9 +47,11 @@ Eligible for $500 scholarship
 ## 📋 Next Steps (Partner Recommendations)
 
 ### 1. Complete It Yourself (30 min)
+
 **Why:** Leaders who complete it see higher student participation
 
 **How:**
+
 1. Go to [your enrollment page](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 2. Click "Enroll Now"
 3. Complete all 3 courses
@@ -54,18 +59,22 @@ Eligible for $500 scholarship
 5. Share with students!
 
 ### 2. Make It Required (This Week)
+
 **Why:** Optional programs have low completion rates
 
 **How:**
+
 - Add to student handbook
 - Include in orientation
 - Assign as homework
 - Integrate into curriculum
 
 ### 3. Promote Everywhere (Ongoing)
+
 **Why:** Students need to know about it
 
 **How:**
+
 - Email all 150 students
 - Post on social media
 - Announce in class
@@ -76,12 +85,14 @@ Eligible for $500 scholarship
 ## 💰 $500 Scholarship Opportunity
 
 ### Tell Your Students:
+
 - "Complete FREE certification"
 - "Apply for $500 scholarship"
 - "10 winners twice a year"
 - "Only takes 4 hours"
 
 ### Topics Covered:
+
 1. **Domestic Violence Awareness** (60 min)
 2. **Human Trafficking Awareness** (60 min)
 3. **Infection Control** (120 min)
@@ -93,8 +104,9 @@ Eligible for $500 scholarship
 ### In Supabase Dashboard
 
 **See enrollments:**
+
 ```sql
-SELECT 
+SELECT
   u.email,
   e.enrolled_at
 FROM enrollments e
@@ -138,11 +150,13 @@ Elizabeth
 ## 📞 Support
 
 ### For Students
+
 - Technical issues → Use support link from partner email
 - Enrollment help → Your staff
 - LMS access → [Your enrollment page](https://portal.elevateforhumanity.org/lms/milady-riseenrollment)
 
 ### For You
+
 - **Partner Contact:** Use links from your partner email
 - **Full Guide:** `docs/MILADY_RISE_PARTNER_GUIDE.md`
 - **LMS Admin:** [Supabase Dashboard](https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk)

@@ -8,25 +8,21 @@ describe('Course Endpoints', () => {
   let instructorId: string;
 
   beforeEach(async () => {
-    const instructorRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'instructor@example.com',
-        password: 'password123',
-        name: 'Instructor',
-        role: 'instructor',
-      });
+    const instructorRes = await request(app).post('/api/auth/register').send({
+      email: 'instructor@example.com',
+      password: 'password123',
+      name: 'Instructor',
+      role: 'instructor',
+    });
     instructorToken = instructorRes.body.token;
     instructorId = instructorRes.body.user.id;
 
-    const studentRes = await request(app)
-      .post('/api/auth/register')
-      .send({
-        email: 'student@example.com',
-        password: 'password123',
-        name: 'Student',
-        role: 'student',
-      });
+    const studentRes = await request(app).post('/api/auth/register').send({
+      email: 'student@example.com',
+      password: 'password123',
+      name: 'Student',
+      role: 'student',
+    });
     studentToken = studentRes.body.token;
   });
 
@@ -49,12 +45,10 @@ describe('Course Endpoints', () => {
     });
 
     it('should not create course without authentication', async () => {
-      const res = await request(app)
-        .post('/api/courses')
-        .send({
-          title: 'Test Course',
-          description: 'Test Description',
-        });
+      const res = await request(app).post('/api/courses').send({
+        title: 'Test Course',
+        description: 'Test Description',
+      });
 
       expect(res.status).toBe(401);
     });

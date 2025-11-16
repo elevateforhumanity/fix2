@@ -2,7 +2,13 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import seeds from '@/seeds/elevate/elevate.json';
 import { Copy, Check } from 'lucide-react';
@@ -25,14 +31,12 @@ export default function SocialMediaDashboard() {
           Ready-to-use social media posts for all platforms
         </p>
       </div>
-
       <Tabs defaultValue="facebook" className="mb-8">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="facebook">Facebook</TabsTrigger>
           <TabsTrigger value="instagram">Instagram</TabsTrigger>
           <TabsTrigger value="twitter">Twitter</TabsTrigger>
         </TabsList>
-
         <TabsContent value="facebook">
           <Card>
             <CardHeader>
@@ -50,13 +54,18 @@ export default function SocialMediaDashboard() {
                     size="sm"
                     variant="outline"
                     className="absolute top-2 right-2"
-                    onClick={() => copyToClipboard(platforms.facebook.long_post, 'fb-long')}
+                    onClick={() =>
+                      copyToClipboard(platforms.facebook.long_post, 'fb-long')
+                    }
                   >
-                    {copiedId === 'fb-long' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    {copiedId === 'fb-long' ? (
+                      <Check className="h-4 w-4" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
                   </Button>
                 </div>
               </div>
-
               <div>
                 <h3 className="font-semibold mb-2">Short Post</h3>
                 <div className="relative">
@@ -67,16 +76,21 @@ export default function SocialMediaDashboard() {
                     size="sm"
                     variant="outline"
                     className="absolute top-2 right-2"
-                    onClick={() => copyToClipboard(platforms.facebook.short_post, 'fb-short')}
+                    onClick={() =>
+                      copyToClipboard(platforms.facebook.short_post, 'fb-short')
+                    }
                   >
-                    {copiedId === 'fb-short' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    {copiedId === 'fb-short' ? (
+                      <Check className="h-4 w-4" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
                   </Button>
                 </div>
               </div>
             </CardContent>
           </Card>
         </TabsContent>
-
         <TabsContent value="instagram">
           <Card>
             <CardHeader>
@@ -92,15 +106,20 @@ export default function SocialMediaDashboard() {
                   size="sm"
                   variant="outline"
                   className="absolute top-2 right-2"
-                  onClick={() => copyToClipboard(platforms.instagram.caption, 'ig')}
+                  onClick={() =>
+                    copyToClipboard(platforms.instagram.caption, 'ig')
+                  }
                 >
-                  {copiedId === 'ig' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copiedId === 'ig' ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
                 </Button>
               </div>
             </CardContent>
           </Card>
         </TabsContent>
-
         <TabsContent value="twitter">
           <Card>
             <CardHeader>
@@ -118,14 +137,17 @@ export default function SocialMediaDashboard() {
                   className="absolute top-2 right-2"
                   onClick={() => copyToClipboard(platforms.twitter.post, 'tw')}
                 >
-                  {copiedId === 'tw' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copiedId === 'tw' ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
                 </Button>
               </div>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
-
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>Viral Campaign: 100 Shares</CardTitle>
@@ -142,16 +164,21 @@ export default function SocialMediaDashboard() {
               className="absolute top-2 right-2"
               onClick={() => copyToClipboard(viral_cta.content, 'viral')}
             >
-              {copiedId === 'viral' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copiedId === 'viral' ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
             </Button>
           </div>
         </CardContent>
       </Card>
-
       <Card>
         <CardHeader>
           <CardTitle>Hashtags</CardTitle>
-          <CardDescription>Use these hashtags for maximum reach</CardDescription>
+          <CardDescription>
+            Use these hashtags for maximum reach
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">

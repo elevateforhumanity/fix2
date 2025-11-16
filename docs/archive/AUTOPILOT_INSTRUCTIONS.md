@@ -1,4 +1,5 @@
 # AUTOPILOT SETUP INSTRUCTIONS
+
 **Purpose:** Let autopilot finish the Netlify domain setup
 **Status:** Ready to run
 
@@ -24,6 +25,7 @@ netlify login
 ```
 
 This will:
+
 - Open browser
 - Ask you to authorize Netlify CLI
 - Save credentials
@@ -37,6 +39,7 @@ This will:
 ```
 
 Autopilot will:
+
 - Add both domains
 - Set primary domain
 - Monitor SSL provisioning
@@ -60,6 +63,7 @@ Total:                         ~10-15 minutes
 ## 📋 WHAT AUTOPILOT DOES
 
 ### Phase 1: Setup (2 minutes)
+
 ```
 🔐 Check Netlify authentication
 📦 Install Netlify CLI (if needed)
@@ -69,6 +73,7 @@ Total:                         ~10-15 minutes
 ```
 
 ### Phase 2: Monitor (5-10 minutes)
+
 ```
 ⏳ Wait for SSL provisioning
 📊 Check status every 30 seconds
@@ -76,6 +81,7 @@ Total:                         ~10-15 minutes
 ```
 
 ### Phase 3: Complete
+
 ```
 ✅ Both domains configured
 ✅ SSL certificates active
@@ -89,6 +95,7 @@ Total:                         ~10-15 minutes
 ### While Autopilot Runs:
 
 You'll see updates like:
+
 ```
 Checking SSL status... (30s elapsed)
 Checking SSL status... (60s elapsed)
@@ -97,6 +104,7 @@ Checking SSL status... (90s elapsed)
 ```
 
 ### When Complete:
+
 ```
 ✅ DOMAIN SETUP COMPLETE
 
@@ -120,6 +128,7 @@ If you prefer to do it manually or autopilot has issues:
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Manually:**
+
 1. Click "Add custom domain"
 2. Enter: elevateforhumanity.org
 3. Click "Verify"
@@ -136,18 +145,21 @@ If you prefer to do it manually or autopilot has issues:
 ### After Autopilot Completes:
 
 **Test domains:**
+
 ```bash
 curl -I https://elevateforhumanity.org
 curl -I https://www.elevateconnectsdirectory.org
 ```
 
 **Should show:**
+
 ```
 HTTP/2 200
 ...
 ```
 
 **Or visit in browser:**
+
 - https://elevateforhumanity.org (should work with 🔒)
 - https://www.elevateconnectsdirectory.org (should work with 🔒)
 
@@ -156,6 +168,7 @@ HTTP/2 200
 ## 📊 EXPECTED OUTPUT
 
 ### Successful Run:
+
 ```
 🤖 AUTOPILOT: NETLIFY DOMAIN SETUP
 ====================================
@@ -242,4 +255,4 @@ netlify login
 
 ---
 
-*Autopilot will handle everything from here!*
+_Autopilot will handle everything from here!_

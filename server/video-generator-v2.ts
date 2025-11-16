@@ -6,14 +6,14 @@
 import path from 'path';
 import fs from 'fs/promises';
 import { generateTextToSpeech, estimateAudioDuration } from './tts-service';
-import { 
-  renderScene, 
-  concatenateVideos, 
+import {
+  renderScene,
+  concatenateVideos,
   addBackgroundMusic,
   cleanupTempFiles,
   getVideoDimensions,
   RenderScene,
-  RenderOptions 
+  RenderOptions,
 } from './video-renderer';
 
 export interface VideoScene {
@@ -83,8 +83,12 @@ export async function generateVideo(
       height: dimensions.height,
       fps: 30,
       format: request.settings.format,
-      quality: request.settings.resolution === '4K' ? 'ultra' : 
-               request.settings.resolution === '1080p' ? 'high' : 'medium'
+      quality:
+        request.settings.resolution === '4K'
+          ? 'ultra'
+          : request.settings.resolution === '1080p'
+            ? 'high'
+            : 'medium',
     };
 
     // Process each scene
@@ -93,13 +97,19 @@ export async function generateVideo(
 
     for (let i = 0; i < request.scenes.length; i++) {
       const scene = request.scenes[i];
-      console.log(`Processing scene ${i + 1}/${request.scenes.length}: ${scene.id}`);
+      console.log(
+        `Processing scene ${i + 1}/${request.scenes.length}: ${scene.id}`
+      );
 
       // Generate TTS audio if voice-over is enabled
       let audioPath: string | undefined;
       if (request.settings.voiceOver && scene.voiceOver && scene.script) {
         const voice = request.settings.voice || 'alloy';
-        const audioBuffer = await generateTextToSpeech(scene.script, voice, 1.0);
+        const audioBuffer = await generateTextToSpeech(
+          scene.script,
+          voice,
+          1.0
+        );
         audioPath = path.join(tempDir, `scene-${i + 1}-audio.mp3`);
         await fs.writeFile(audioPath, audioBuffer);
         console.log(`Generated TTS audio for scene ${i + 1}`);
@@ -116,7 +126,7 @@ export async function generateVideo(
         animation: scene.animation,
         audioPath: audioPath,
         imagePath: scene.image,
-        textStyle: scene.textStyle
+        textStyle: scene.textStyle,
       };
 
       // Render scene to video
@@ -139,7 +149,12 @@ export async function generateVideo(
       console.log('Adding background music...');
       finalVideoPath = path.join(outputDir, `${jobId}.mp4`);
       const musicVolume = request.settings.musicVolume || 0.3;
-      await addBackgroundMusic(concatenatedPath, request.settings.musicPath, finalVideoPath, musicVolume);
+      await addBackgroundMusic(
+        concatenatedPath,
+        request.settings.musicPath,
+        finalVideoPath,
+        musicVolume
+      );
     } else {
       // Move concatenated video to output
       finalVideoPath = path.join(outputDir, `${jobId}.mp4`);
@@ -157,7 +172,7 @@ export async function generateVideo(
       status: 'completed',
       videoPath: finalVideoPath,
       duration: totalDuration,
-      progress: 100
+      progress: 100,
     };
   } catch (error) {
     console.error(`Video generation failed for job ${jobId}:`, error);
@@ -169,7 +184,7 @@ export async function generateVideo(
       jobId,
       status: 'failed',
       error: error instanceof Error ? error.message : 'Unknown error',
-      progress: 0
+      progress: 0,
     };
   }
 }
@@ -219,7 +234,7 @@ export function processTimeline(scenes: VideoScene[]): {
   return {
     valid: errors.length === 0,
     totalDuration,
-    errors
+    errors,
   };
 }
 
@@ -250,13 +265,16 @@ export interface VideoJobStatus {
 // In-memory job tracking (in production, use Redis or database)
 const jobStatuses = new Map<string, VideoJobStatus>();
 
-export function updateJobStatus(jobId: string, status: Partial<VideoJobStatus>): void {
+export function updateJobStatus(
+  jobId: string,
+  status: Partial<VideoJobStatus>
+): void {
   const existing = jobStatuses.get(jobId) || {
     jobId,
     status: 'pending',
-    progress: 0
+    progress: 0,
   };
-  
+
   jobStatuses.set(jobId, { ...existing, ...status });
 }
 

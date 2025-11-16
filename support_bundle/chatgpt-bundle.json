@@ -22,9 +22,7 @@
       },
       "packageManager": "pnpm@9.7.0",
       "lint-staged": {
-        "*.{ts,tsx,js,jsx,css,md}": [
-          "prettier --write"
-        ]
+        "*.{ts,tsx,js,jsx,css,md}": ["prettier --write"]
       },
       "dependencies": {
         "@capacitor/app": "^7.0.2",
@@ -253,10 +251,7 @@
     }
   },
   "pages": {
-    "roots": [
-      "src/pages",
-      "public"
-    ],
+    "roots": ["src/pages", "public"],
     "fileCount": 441,
     "truncated": false,
     "note": "Increase maxFiles= to capture more.",

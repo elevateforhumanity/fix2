@@ -16,6 +16,7 @@
 ## 🔧 Manual Steps Required
 
 ### 1. Install Dependencies (5 minutes)
+
 ```bash
 cd /workspaces/fix2
 bash scripts/zinc_finish.sh
@@ -24,12 +25,14 @@ bash scripts/zinc_finish.sh
 ### 2. Add Visual Assets (30-60 minutes)
 
 #### Critical Images
+
 - [ ] **Logo**: Add `/public/logo.svg` (used in header/footer)
 - [ ] **Hero Image**: Add `/public/images/hero-training.jpg` (1200x900px)
 - [ ] **OG Image**: Add `/public/images/og-cover.jpg` (1200x630px)
 - [ ] **Favicon**: Add `/public/images/favicon.png` (64x64px)
 
 #### Partner Logos (200x80px each, WebP format)
+
 - [ ] `/public/images/partners/workone.webp`
 - [ ] `/public/images/partners/dwd.webp`
 - [ ] `/public/images/partners/nextleveljobs.webp`
@@ -37,6 +40,7 @@ bash scripts/zinc_finish.sh
 - [ ] `/public/images/partners/osha.webp`
 
 #### Placeholder
+
 - [ ] `/public/images/placeholder.webp` (for fallback)
 
 ### 3. Update Homepage to Use New Components (15 minutes)
@@ -63,6 +67,7 @@ export default function HomeProduction() {
 Replace header/footer in all pages with zinc components:
 
 **Files to update:**
+
 - `src/pages/ApplyPage.tsx`
 - `src/pages/PartnersPage.tsx`
 - `src/pages/PrivacyPage.tsx`
@@ -70,6 +75,7 @@ Replace header/footer in all pages with zinc components:
 - Any other pages with navigation/footer
 
 **Replace:**
+
 ```typescript
 // Old
 import Header from '../components/Header';
@@ -131,6 +137,7 @@ git push origin main
 ## 📊 Expected Results
 
 ### Before Zinc
+
 - ❌ Inconsistent navigation
 - ❌ Missing footer links
 - ❌ Broken image paths
@@ -139,6 +146,7 @@ git push origin main
 - ❌ No SPA redirect
 
 ### After Zinc
+
 - ✅ Standardized navigation
 - ✅ Professional footer
 - ✅ Safe image handling
@@ -149,6 +157,7 @@ git push origin main
 ## 🎯 Priority Order
 
 ### Do First (Critical)
+
 1. Run zinc script
 2. Add logo.svg
 3. Update HomeProduction to use zinc components
@@ -156,12 +165,14 @@ git push origin main
 5. Deploy
 
 ### Do Next (High Priority)
+
 1. Add hero image
 2. Add partner logos
 3. Update other pages to use zinc components
 4. Add OG image and favicon
 
 ### Do Later (Nice to Have)
+
 1. Optimize images to WebP
 2. Add more social links
 3. Create legal pages
@@ -170,41 +181,52 @@ git push origin main
 ## 🔗 Resources
 
 ### Stock Photos (Free)
+
 - [Unsplash](https://unsplash.com/s/photos/training)
 - [Pexels](https://pexels.com/search/students/)
 
 ### Image Tools
+
 - [TinyPNG](https://tinypng.com) - Compress images
 - [Squoosh](https://squoosh.app) - Convert to WebP
 - [Favicon.io](https://favicon.io) - Generate favicons
 
 ### Logo Tools
+
 - [Canva](https://canva.com) - Create simple logos
 - [LogoMakr](https://logomakr.com) - Free logo maker
 
 ## 💡 Quick Wins
 
 ### 1. Use Existing Logo (5 minutes)
+
 If you have a logo anywhere in the project:
+
 ```bash
 cp path/to/existing/logo.png public/logo.svg
 ```
 
 ### 2. Create Simple Text Logo (10 minutes)
+
 Use Canva to create a simple text-based logo:
+
 - 200x60px
 - White background
 - "Elevate for Humanity" in bold text
 - Export as SVG
 
 ### 3. Use Stock Hero Image (5 minutes)
+
 Download from Unsplash:
+
 - Search: "students training"
 - Download high-res
 - Save as `public/images/hero-training.jpg`
 
 ### 4. Create Simple Partner Logos (15 minutes)
+
 Use Canva:
+
 - Create 200x80px canvas
 - Add partner name in text
 - Export as PNG
@@ -213,18 +235,23 @@ Use Canva:
 ## 🚨 Common Issues
 
 ### Issue: Images not loading
+
 **Solution**: Ensure paths start with `/images/` not `images/`
 
 ### Issue: Navigation not showing
+
 **Solution**: Check that NavigationZinc is imported and used
 
 ### Issue: Footer links broken
+
 **Solution**: Verify routes exist in router config
 
 ### Issue: Mobile menu not working
+
 **Solution**: Check that lucide-react is installed
 
 ### Issue: Build fails
+
 **Solution**: Run `npm install` to ensure all dependencies are installed
 
 ## 📝 Summary
@@ -234,6 +261,7 @@ Use Canva:
 **Impact**: Transforms site to production-ready with standardized components
 
 **Status After Zinc**:
+
 - Technical: ✅ Production-ready
 - Visual: ⚠️ Needs images
 - Content: ✅ Structure ready

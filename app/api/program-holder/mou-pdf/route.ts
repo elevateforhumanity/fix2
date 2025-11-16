@@ -7,8 +7,10 @@ export const runtime = 'nodejs';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     return new Response('Unauthorized', { status: 401 });
   }
@@ -27,7 +29,8 @@ export async function GET() {
   // Get program holder details
   const { data: holder, error } = await supabase
     .from('program_holders')
-    .select(`
+    .select(
+      `
       id,
       name,
       payout_share,
@@ -37,7 +40,8 @@ export async function GET() {
         phone,
         site_address
       )
-    `)
+    `
+    )
     .eq('id', prof.program_holder_id)
     .single();
 
@@ -56,8 +60,8 @@ export async function GET() {
     date: new Date().toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
-    })
+      day: 'numeric',
+    }),
   });
 
   const filename = `EFH_MOU_${holder.name.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
@@ -66,7 +70,7 @@ export async function GET() {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="${filename}"`
-    }
+      'Content-Disposition': `attachment; filename="${filename}"`,
+    },
   });
 }

@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["**"]
+    branches: ['**']
   pull_request:
 
 permissions:
@@ -15,28 +15,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      
+
       - name: Enable Corepack
         run: corepack enable
-      
+
       - name: Setup pnpm
         run: corepack prepare pnpm@9.7.0 --activate
-      
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile || pnpm install
-      
+
       - name: Typecheck
         run: pnpm run typecheck || true
         continue-on-error: true
-      
+
       - name: Lint
         run: pnpm run lint --fix || true
         continue-on-error: true
-      
+
       - name: Build
         run: pnpm run build
         env:
@@ -45,11 +45,11 @@ jobs:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_SITE_URL: ${{ secrets.VITE_SITE_URL }}
           NODE_ENV: production
-      
+
       - name: Test
         run: pnpm test --if-present
         continue-on-error: true
-      
+
       - name: Upload build artifacts
         if: success()
         uses: actions/upload-artifact@v4

@@ -3,7 +3,9 @@ import { createRouteHandlerClient } from '@/lib/auth';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
 
   const { data: prof } = await supabase
@@ -31,33 +33,48 @@ export async function GET() {
   // Get enrollments for courses belonging to this program holder
   const { data: enrolls, error } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       user_id,
       course_id,
       status,
       started_at,
       user:user_id(email),
       course:course_id(title, program_holder_id)
-    `)
+    `
+    )
     .eq('course.program_holder_id', prof.program_holder_id);
 
   if (error) return new Response(error.message, { status: 500 });
 
   // Get user IDs for notes lookup
   const key = (u: string, c: string) => `${u}:${c}`;
-  const userIds = Array.from(new Set((enrolls || []).map((e: any) => e.user_id))).filter(Boolean);
+  const userIds = Array.from(
+    new Set((enrolls || []).map((e: any) => e.user_id))
+  ).filter(Boolean);
 
   // Get latest notes for these learners
-  let latestMap: Record<string, { status: string | null; note: string | null; created_at: string; follow_up_date: string | null; follow_up_done: boolean }> = {};
+  const latestMap: Record<
+    string,
+    {
+      status: string | null;
+      note: string | null;
+      created_at: string;
+      follow_up_date: string | null;
+      follow_up_done: boolean;
+    }
+  > = {};
   if (userIds.length) {
     const { data: notes } = await supabase
       .from('program_holder_notes')
-      .select('user_id, course_id, status, note, created_at, follow_up_date, follow_up_done')
+      .select(
+        'user_id, course_id, status, note, created_at, follow_up_date, follow_up_done'
+      )
       .eq('program_holder_id', prof.program_holder_id)
       .in('user_id', userIds)
       .order('created_at', { ascending: false });
 
-    for (const n of (notes || [])) {
+    for (const n of notes || []) {
       const k = key(n.user_id, n.course_id);
       if (!latestMap[k]) {
         latestMap[k] = {
@@ -65,7 +82,7 @@ export async function GET() {
           note: n.note,
           created_at: n.created_at,
           follow_up_date: n.follow_up_date,
-          follow_up_done: n.follow_up_done ?? false
+          follow_up_done: n.follow_up_done ?? false,
         };
       }
     }
@@ -87,7 +104,7 @@ export async function GET() {
       last_note: latest?.note || null,
       last_note_at: latest?.created_at || null,
       follow_up_date: latest?.follow_up_date || null,
-      follow_up_done: latest?.follow_up_done ?? false
+      follow_up_done: latest?.follow_up_done ?? false,
     };
   });
 

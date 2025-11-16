@@ -14,11 +14,23 @@ import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 
 const searchableContent = [
-  { title: 'Barber Apprenticeship', href: '/programs/barber', category: 'Program' },
-  { title: 'Building Services Technician', href: '/programs/building-tech', category: 'Program' },
+  {
+    title: 'Barber Apprenticeship',
+    href: '/programs/barber',
+    category: 'Program',
+  },
+  {
+    title: 'Building Services Technician',
+    href: '/programs/building-tech',
+    category: 'Program',
+  },
   { title: 'CNA Training', href: '/programs/cna', category: 'Program' },
   { title: 'HVAC & Welding', href: '/programs/hvac', category: 'Program' },
-  { title: 'Digital Skills Training', href: '/programs/digital-skills', category: 'Program' },
+  {
+    title: 'Digital Skills Training',
+    href: '/programs/digital-skills',
+    category: 'Program',
+  },
   { title: 'About Us', href: '/about', category: 'Page' },
   { title: 'Contact', href: '/contact', category: 'Page' },
   { title: 'Apply Now', href: '/apply', category: 'Page' },

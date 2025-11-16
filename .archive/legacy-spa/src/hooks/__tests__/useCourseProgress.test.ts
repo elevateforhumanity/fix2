@@ -93,7 +93,7 @@ describe('useCourseProgress', () => {
 
     const stored = localStorage.getItem(`course_progress_${courseId}`);
     expect(stored).toBeTruthy();
-    
+
     const parsed = JSON.parse(stored!);
     expect(parsed.lessons).toHaveLength(1);
   });

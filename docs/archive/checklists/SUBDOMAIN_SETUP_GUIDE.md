@@ -5,6 +5,7 @@
 **Goal:** Deploy the new LMS design to `portal.elevateforhumanity.org` while keeping the marketing site on `www.elevateforhumanity.org`
 
 **Architecture:**
+
 - **www.elevateforhumanity.org** → Durable.co (marketing site)
 - **portal.elevateforhumanity.org** → Netlify (LMS/student portal)
 
@@ -50,6 +51,7 @@ netlify domains:add portal.elevateforhumanity.org
 ### 2.1 Find Your DNS Provider
 
 Your domain `elevateforhumanity.org` is registered with a domain registrar. Common providers:
+
 - GoDaddy
 - Namecheap
 - Cloudflare
@@ -57,6 +59,7 @@ Your domain `elevateforhumanity.org` is registered with a domain registrar. Comm
 - AWS Route 53
 
 **To find your provider:**
+
 ```bash
 whois elevateforhumanity.org | grep -i "registrar"
 ```
@@ -75,6 +78,7 @@ TTL:   3600 (or Auto)
 **Example for different providers:**
 
 **Cloudflare:**
+
 1. Go to: https://dash.cloudflare.com
 2. Select domain: elevateforhumanity.org
 3. Go to: DNS → Records
@@ -86,6 +90,7 @@ TTL:   3600 (or Auto)
 9. Click "Save"
 
 **GoDaddy:**
+
 1. Go to: https://dcc.godaddy.com/manage/dns
 2. Select: elevateforhumanity.org
 3. Click "Add" under DNS Records
@@ -96,6 +101,7 @@ TTL:   3600 (or Auto)
 8. Click "Save"
 
 **Namecheap:**
+
 1. Go to: https://ap.www.namecheap.com/domains/list
 2. Click "Manage" next to elevateforhumanity.org
 3. Go to: Advanced DNS
@@ -119,6 +125,7 @@ dig portal.elevateforhumanity.org
 ```
 
 **Or use online tool:**
+
 - Visit: https://dnschecker.org
 - Enter: portal.elevateforhumanity.org
 - Type: CNAME
@@ -163,22 +170,26 @@ curl -I https://portal.elevateforhumanity.org
 ### Required Secrets:
 
 **1. NETLIFY_AUTH_TOKEN**
+
 - Get from: https://app.netlify.com/user/applications
 - Click "New access token"
 - Name: "GitHub Actions - Portal Deploy"
 - Copy token and add to GitHub Secrets
 
 **2. NETLIFY_SITE_ID**
+
 - Get from: https://app.netlify.com/sites/elevateforhumanityfix/settings/general
 - Copy "API ID" (under Site details)
 - Add to GitHub Secrets
 
 **3. VITE_SUPABASE_URL**
+
 - Get from: https://app.supabase.com/project/_/settings/api
 - Copy "Project URL"
 - Add to GitHub Secrets
 
 **4. VITE_SUPABASE_ANON_KEY**
+
 - Get from: https://app.supabase.com/project/_/settings/api
 - Copy "anon public" key
 - Add to GitHub Secrets
@@ -202,11 +213,13 @@ gh secret set VITE_SUPABASE_ANON_KEY --repo elevateforhumanity/fix2
 **Log in to Durable.co and update these links:**
 
 **Navigation Links:**
+
 - "Student Login" → `https://portal.elevateforhumanity.org/login`
 - "Student Portal" → `https://portal.elevateforhumanity.org`
 - "Student Dashboard" → `https://portal.elevateforhumanity.org/lms/dashboard`
 
 **Call-to-Action Buttons:**
+
 - "Apply Now" → `https://portal.elevateforhumanity.org/apply`
 - "Enroll" → `https://portal.elevateforhumanity.org/apply`
 - "Get Started" → `https://portal.elevateforhumanity.org/apply`
@@ -214,6 +227,7 @@ gh secret set VITE_SUPABASE_ANON_KEY --repo elevateforhumanity/fix2
 ### 5.2 Update Footer Links
 
 **Add to footer on www.elevateforhumanity.org:**
+
 ```
 Student Resources:
 - Student Portal: https://portal.elevateforhumanity.org
@@ -250,6 +264,7 @@ git push origin main
 **Visit:** https://portal.elevateforhumanity.org
 
 **Check:**
+
 - ✅ Homepage loads with new design
 - ✅ Navigation shows "Sign In" and "Create Account"
 - ✅ Programs page works
@@ -271,6 +286,7 @@ sed -i 's|https://elevateforhumanity.org|https://portal.elevateforhumanity.org|g
 ### 7.2 Update Environment Variables
 
 **Create `.env.production`:**
+
 ```bash
 VITE_SITE_URL=https://portal.elevateforhumanity.org
 VITE_PUBLIC_URL=https://portal.elevateforhumanity.org
@@ -286,6 +302,7 @@ VITE_SITE_NAME="Elevate for Humanity - Student Portal"
 **Issue:** portal.elevateforhumanity.org not resolving
 
 **Solutions:**
+
 1. Wait 24-48 hours for full DNS propagation
 2. Clear DNS cache: `sudo systemd-resolve --flush-caches` (Linux)
 3. Use different DNS server: `8.8.8.8` (Google DNS)
@@ -296,6 +313,7 @@ VITE_SITE_NAME="Elevate for Humanity - Student Portal"
 **Issue:** HTTPS not working
 
 **Solutions:**
+
 1. Verify DNS is fully propagated
 2. Check CNAME points to Netlify (not IP address)
 3. Wait 1-2 hours after DNS propagation
@@ -306,6 +324,7 @@ VITE_SITE_NAME="Elevate for Humanity - Student Portal"
 **Issue:** GitHub Actions workflow fails
 
 **Solutions:**
+
 1. Check all 4 GitHub Secrets are configured
 2. Verify secret names match exactly (case-sensitive)
 3. Check build logs for specific errors
@@ -316,6 +335,7 @@ VITE_SITE_NAME="Elevate for Humanity - Student Portal"
 **Issue:** Changes not visible on portal subdomain
 
 **Solutions:**
+
 1. Hard refresh: `Ctrl+Shift+R` or `Cmd+Shift+R`
 2. Clear browser cache completely
 3. Try incognito/private mode
@@ -329,12 +349,14 @@ VITE_SITE_NAME="Elevate for Humanity - Student Portal"
 ### Updating the Portal
 
 **Automatic (Recommended):**
+
 1. Make changes in GitHub repo
 2. Commit and push to `main` branch
 3. GitHub Actions automatically deploys
 4. Changes live in 2-3 minutes
 
 **Manual:**
+
 ```bash
 # Build locally
 pnpm build
@@ -346,10 +368,12 @@ netlify deploy --prod --dir=dist
 ### Monitoring
 
 **Check deployment status:**
+
 - GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 - Netlify Deploys: https://app.netlify.com/sites/elevateforhumanityfix/deploys
 
 **Check site health:**
+
 ```bash
 # Check if site is up
 curl -I https://portal.elevateforhumanity.org
@@ -376,6 +400,7 @@ echo | openssl s_client -servername portal.elevateforhumanity.org -connect porta
    - Student login, courses, certificates
 
 **Benefits:**
+
 - ✅ Separation of concerns
 - ✅ Automatic deployments
 - ✅ Professional subdomain

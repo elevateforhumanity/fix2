@@ -85,8 +85,7 @@ export default function Users() {
     try {
       const usageData = await getUsageStats();
       setUsage(usageData);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   async function inviteMember() {
@@ -212,8 +211,7 @@ export default function Users() {
         target,
         diff,
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   if (loading) {

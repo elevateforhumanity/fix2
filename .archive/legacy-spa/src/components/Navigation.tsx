@@ -7,7 +7,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { mainNavigation, authButtons, branding, type NavLink } from '../config/navigation';
+import {
+  mainNavigation,
+  authButtons,
+  branding,
+  type NavLink,
+} from '../config/navigation';
 import { useAuth } from '../contexts/AuthContext';
 
 interface NavigationProps {
@@ -55,15 +60,15 @@ export default function Navigation({
                 if (parent) {
                   const container = document.createElement('div');
                   container.className = 'flex flex-col';
-                  
+
                   const nameSpan = document.createElement('span');
                   nameSpan.className = 'text-xl font-bold text-brand';
                   nameSpan.textContent = branding.name;
-                  
+
                   const subtitleSpan = document.createElement('span');
                   subtitleSpan.className = 'text-xs text-text-secondary';
                   subtitleSpan.textContent = branding.subtitle;
-                  
+
                   container.appendChild(nameSpan);
                   container.appendChild(subtitleSpan);
                   parent.appendChild(container);
@@ -71,7 +76,6 @@ export default function Navigation({
               }}
             />
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
@@ -119,7 +123,6 @@ export default function Navigation({
               </div>
             ))}
           </div>
-
           {/* Auth Buttons / User Menu */}
           <div className="hidden lg:flex items-center gap-3">
             {user ? (
@@ -158,16 +161,12 @@ export default function Navigation({
                 >
                   {authButtons.signIn.label}
                 </Link>
-                <Link
-                  to={authButtons.signUp.to}
-                  className="btn btn-primary"
-                >
+                <Link to={authButtons.signUp.to} className="btn btn-primary">
                   {authButtons.signUp.label}
                 </Link>
               </>
             )}
           </div>
-
           {/* Mobile Menu Button */}
           <button
             type="button"
@@ -184,7 +183,6 @@ export default function Navigation({
           </button>
         </div>
       </div>
-
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
@@ -198,7 +196,9 @@ export default function Navigation({
                       className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-text-primary hover:bg-surface-elevated rounded-lg transition-colors"
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`}
+                      />
                     </button>
                     {openDropdown === link.label && (
                       <div className="pl-4 space-y-1 mt-1">

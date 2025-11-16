@@ -7,23 +7,27 @@ The Routing Guardian is an automated system that ensures all React components in
 ## Features
 
 ### 🔍 Automatic Discovery
+
 - Scans `src/pages` directory for all `.jsx` and `.tsx` files
 - Converts component names to route paths automatically
 - Detects missing imports and routes
 
 ### 🔧 Auto-Fix Capabilities
+
 - Adds missing imports to `App.jsx`
 - Generates route elements automatically
 - Updates `routes.config.mjs` with new routes
 - Creates backups before making changes
 
 ### 📊 Validation & Reporting
+
 - Comprehensive validation reports
 - JSON output for automation
 - Detailed issue tracking
 - Build verification
 
 ### 🛡️ Compatibility Checks
+
 - Node.js version validation (requires v20)
 - Package manager detection (pnpm/npm/yarn)
 - Lockfile conflict resolution
@@ -64,6 +68,7 @@ npm run routes:guardian:dry
 Validates routing configuration and reports issues.
 
 **Output:**
+
 ```
 🔍 Checking routing configuration...
 
@@ -87,6 +92,7 @@ Validates routing configuration and reports issues.
 ```
 
 **Exit Codes:**
+
 - `0` - No issues found
 - `1` - Issues found
 
@@ -95,6 +101,7 @@ Validates routing configuration and reports issues.
 Automatically fixes routing issues.
 
 **What it does:**
+
 1. Scans for missing imports and routes
 2. Backs up `App.jsx` and `routes.config.mjs`
 3. Adds missing imports (lazy-loaded)
@@ -102,6 +109,7 @@ Automatically fixes routing issues.
 5. Updates routes configuration
 
 **Output:**
+
 ```
 🔧 Auto-fixing routing issues...
 
@@ -123,6 +131,7 @@ Automatically fixes routing issues.
 Lists all pages with their routing status.
 
 **Output:**
+
 ```
 📋 Listing all pages and routes...
 
@@ -148,8 +157,9 @@ Found 108 page components:
 ```
 
 **Status Icons:**
+
 - ✅ - Fully configured (imported and routed)
-- ⚠️  - Partially configured (imported but not routed, or vice versa)
+- ⚠️ - Partially configured (imported but not routed, or vice versa)
 - ❌ - Not configured (missing import and route)
 
 #### `npm run routes:scan`
@@ -157,6 +167,7 @@ Found 108 page components:
 Scans pages directory and shows organization.
 
 **Output:**
+
 ```
 🔍 Scanning pages directory...
 
@@ -179,6 +190,7 @@ Found 108 page components:
 Runs full routing guardian with build verification.
 
 **What it does:**
+
 1. Checks Node.js version and package manager
 2. Scans all pages
 3. Validates routing configuration
@@ -189,6 +201,7 @@ Runs full routing guardian with build verification.
 8. Generates comprehensive report
 
 **Output:**
+
 ```
 == Elevate Autopilot: Dynamic Routing Guardian ==
 [2025-10-03 22:00:00] Checking Node.js environment...
@@ -229,13 +242,13 @@ Sister Sites:      3
 
 The guardian automatically converts PascalCase component names to kebab-case routes:
 
-| Component Name | Route Path |
-|----------------|------------|
-| `HomePage` | `/` |
-| `About` | `/about` |
+| Component Name   | Route Path         |
+| ---------------- | ------------------ |
+| `HomePage`       | `/`                |
+| `About`          | `/about`           |
 | `AdminDashboard` | `/admin-dashboard` |
-| `AITutor` | `/a-i-tutor` |
-| `NotFound` | `*` (catch-all) |
+| `AITutor`        | `/a-i-tutor`       |
+| `NotFound`       | `*` (catch-all)    |
 
 ### Directory Structure
 
@@ -256,7 +269,7 @@ src/pages/
 For each missing component, the guardian generates a lazy import:
 
 ```javascript
-const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 ```
 
 ### Route Generation
@@ -369,6 +382,7 @@ The guardian checks your Node.js version and warns if it doesn't match:
 ### Package Managers
 
 Supports:
+
 - **pnpm** (preferred)
 - **npm**
 - **yarn**
@@ -386,6 +400,7 @@ If multiple lockfiles are detected, the guardian keeps the primary one:
 ### Module System
 
 Compatible with:
+
 - ✅ ESM modules (`"type": "module"` in package.json)
 - ✅ CommonJS modules (`.cjs` files)
 - ✅ Mixed module systems
@@ -435,6 +450,7 @@ Test files in `__tests__` directories are scanned but should not be routed. Manu
 ### 6. Use Consistent Naming
 
 Follow PascalCase for component names:
+
 - ✅ `AdminDashboard.jsx`
 - ❌ `admin-dashboard.jsx`
 - ❌ `adminDashboard.jsx`
@@ -461,6 +477,7 @@ src/pages/
 ### Issue: "Build failed"
 
 **Solution:**
+
 1. Check build log: `.data/routing/build.log`
 2. Install dependencies: `npm install`
 3. Run build manually: `npm run build`
@@ -468,6 +485,7 @@ src/pages/
 ### Issue: "Routes not updating"
 
 **Solution:**
+
 1. Clear cache: `npm run clean:fast`
 2. Reinstall: `npm install`
 3. Run guardian: `npm run routes:guardian`
@@ -475,6 +493,7 @@ src/pages/
 ### Issue: "Duplicate routes"
 
 **Solution:**
+
 1. Check for duplicate files in `src/pages`
 2. Remove duplicates
 3. Run `npm run routes:scan` to verify
@@ -482,6 +501,7 @@ src/pages/
 ### Issue: "Import path incorrect"
 
 **Solution:**
+
 1. Check component file location
 2. Verify file extension (`.jsx` or `.tsx`)
 3. Manually fix import in `App.jsx`
@@ -489,6 +509,7 @@ src/pages/
 ### Issue: "Sister site routes missing"
 
 **Solution:**
+
 1. Create landing page components:
    ```
    src/pages/landing/elevateforhumanity-org.jsx
@@ -548,12 +569,12 @@ Scans `src/pages` directory for components.
 ```javascript
 [
   {
-    name: "AdminDashboard",
-    file: "/path/to/AdminDashboard.jsx",
-    relativePath: "AdminDashboard.jsx",
-    route: "/admin-dashboard"
-  }
-]
+    name: 'AdminDashboard',
+    file: '/path/to/AdminDashboard.jsx',
+    relativePath: 'AdminDashboard.jsx',
+    route: '/admin-dashboard',
+  },
+];
 ```
 
 ##### `validate()`
@@ -579,6 +600,7 @@ Validates routing configuration.
 Auto-fixes routing issues.
 
 **Parameters:**
+
 - `validation` - Validation results from `validate()`
 
 **Returns:** `Object`
@@ -597,6 +619,7 @@ Auto-fixes routing issues.
 Runs full validation and optional auto-fix.
 
 **Parameters:**
+
 - `autoFix` - Boolean, whether to auto-fix issues
 
 **Returns:** `Object`

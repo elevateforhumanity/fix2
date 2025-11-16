@@ -5,6 +5,12 @@ import { uploadLimiter } from '../middleware/rateLimiter';
 
 const router = Router();
 
-router.post('/', authenticate, uploadLimiter, upload.single('file'), uploadFile);
+router.post(
+  '/',
+  authenticate,
+  uploadLimiter,
+  upload.single('file'),
+  uploadFile
+);
 
 export default router;

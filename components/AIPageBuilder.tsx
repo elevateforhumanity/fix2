@@ -176,7 +176,6 @@ export default function AIPageBuilder() {
           Generate branded pages with AI - powered by Workers AI
         </p>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Configuration Panel */}
         <div className="space-y-6">
@@ -184,7 +183,6 @@ export default function AIPageBuilder() {
             <h2 className="text-2xl font-semibold text-brand-text mb-4">
               Page Configuration
             </h2>
-
             {/* Page Type */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-brand-text mb-2">
@@ -207,7 +205,6 @@ export default function AIPageBuilder() {
                 </p>
               )}
             </div>
-
             {/* Description */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-brand-text mb-2">
@@ -237,7 +234,6 @@ export default function AIPageBuilder() {
                 </div>
               )}
             </div>
-
             {/* Sections */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-brand-text mb-2">
@@ -254,7 +250,6 @@ export default function AIPageBuilder() {
                 ))}
               </div>
             </div>
-
             {/* Generate Button */}
             <button
               onClick={generatePage}
@@ -276,12 +271,12 @@ export default function AIPageBuilder() {
                       r="10"
                       stroke="currentColor"
                       strokeWidth="4"
-                    ></circle>
+                    />
                     <path
                       className="opacity-75"
                       fill="currentColor"
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
+                    />
                   </svg>
                   Generating...
                 </span>
@@ -290,14 +285,12 @@ export default function AIPageBuilder() {
               )}
             </button>
           </div>
-
           {/* Save Panel */}
           {generatedPage && (
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-2xl font-semibold text-brand-text mb-4">
                 Save Page
               </h2>
-
               <div className="mb-4">
                 <label className="block text-sm font-medium text-brand-text mb-2">
                   Page Name
@@ -310,7 +303,6 @@ export default function AIPageBuilder() {
                   onChange={(e) => setPageName(e.target.value)}
                 />
               </div>
-
               <div className="mb-4">
                 <label className="block text-sm font-medium text-brand-text mb-2">
                   URL Slug
@@ -330,7 +322,6 @@ export default function AIPageBuilder() {
                   Will be accessible at: /pages/{pageSlug}
                 </p>
               </div>
-
               <div className="flex gap-3">
                 <button
                   onClick={savePage}
@@ -349,7 +340,6 @@ export default function AIPageBuilder() {
             </div>
           )}
         </div>
-
         {/* Preview Panel */}
         <div className="space-y-6">
           {generatedPage ? (
@@ -358,7 +348,6 @@ export default function AIPageBuilder() {
                 <h2 className="text-2xl font-semibold text-white">Preview</h2>
                 <p className="text-red-100 text-sm">{generatedPage.summary}</p>
               </div>
-
               <div className="p-6">
                 <div className="mb-4 flex flex-wrap gap-2">
                   {generatedPage.sections.map((section) => (
@@ -370,13 +359,11 @@ export default function AIPageBuilder() {
                     </span>
                   ))}
                 </div>
-
                 <div
                   className="border border-brand-border rounded-lg p-4 bg-brand-surface overflow-auto"
                   style={{ maxHeight: '600px' }}
                   dangerouslySetInnerHTML={{ __html: generatedPage.html }}
                 />
-
                 <div className="mt-4 text-xs text-brand-text-light">
                   Generated at:{' '}
                   {new Date(generatedPage.generatedAt).toLocaleString()}

@@ -42,6 +42,7 @@
 ### Phase 1: Environment Configuration (Day 1)
 
 #### 1.1 Copy Environment Template
+
 ```bash
 cd /workspaces/fix2
 cp .env.complete.example .env.local
@@ -133,6 +134,7 @@ REDIS_URL=redis://localhost:6379
 ```
 
 #### 1.3 Generate Secrets
+
 ```bash
 # Generate JWT secrets
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
@@ -149,6 +151,7 @@ node generate-secrets.js
 #### 2.1 Run Database Migrations
 
 **Option A: Using Supabase Dashboard**
+
 1. Go to Supabase Dashboard → SQL Editor
 2. Run these files in order:
 
@@ -164,12 +167,14 @@ supabase/schema.prisma
 ```
 
 **Option B: Using Migration Script**
+
 ```bash
 cd /workspaces/fix2
 npm run db:migrate
 ```
 
 #### 2.2 Verify Database Setup
+
 ```bash
 # Run verification script
 cd /workspaces/fix2/ecosystem3-scripts
@@ -177,6 +182,7 @@ node verify-database-setup.js
 ```
 
 #### 2.3 Seed Initial Data (Optional)
+
 ```bash
 npm run db:seed
 ```
@@ -195,10 +201,10 @@ npm run db:seed
   --brand-primary: #your-primary-color;
   --brand-secondary: #your-secondary-color;
   --brand-accent: #your-accent-color;
-  
+
   /* Logo */
   --logo-url: url('/your-logo.svg');
-  
+
   /* Fonts */
   --font-heading: 'Your Heading Font', sans-serif;
   --font-body: 'Your Body Font', sans-serif;
@@ -206,6 +212,7 @@ npm run db:seed
 ```
 
 #### 3.2 Replace Logo
+
 ```bash
 # Add your logo files
 cp your-logo.svg /workspaces/fix2/public/logo.svg
@@ -227,6 +234,7 @@ export const metadata: Metadata = {
 ```
 
 #### 3.4 Scrub Old Brand Mentions
+
 ```bash
 cd /workspaces/fix2
 node scripts/scrub-brand-mentions.js --old="Elevate" --new="YourBrand"
@@ -249,7 +257,7 @@ export const wioaConfig = {
     veteranPriority: true,
     youthAgeRange: [16, 24],
   },
-  
+
   // Support services limits
   supportServices: {
     childcare: {
@@ -264,12 +272,12 @@ export const wioaConfig = {
       maxOneTime: 500,
     },
   },
-  
+
   // Performance measures
   performance: {
-    placementRate: 0.70, // 70% target
-    retentionRate: 0.80, // 80% target
-    credentialRate: 0.60, // 60% target
+    placementRate: 0.7, // 70% target
+    retentionRate: 0.8, // 80% target
+    credentialRate: 0.6, // 60% target
   },
 };
 ```
@@ -279,6 +287,7 @@ export const wioaConfig = {
 **File**: `lib/email-templates/`
 
 Create templates for:
+
 - Welcome email
 - Certificate email
 - Assignment notifications
@@ -307,13 +316,13 @@ export const workflows = {
     approvers: ['admin', 'case_manager'],
     autoEnrollAfterDays: 3,
   },
-  
+
   supportServices: {
     requiresApproval: true,
     approvers: ['admin', 'case_manager'],
     urgentThreshold: 'high',
   },
-  
+
   iep: {
     requiresApproval: true,
     reviewCycle: 90, // days
@@ -327,6 +336,7 @@ export const workflows = {
 ### Phase 5: Testing (Day 4-5)
 
 #### 5.1 Run Automated Tests
+
 ```bash
 cd /workspaces/fix2
 
@@ -343,6 +353,7 @@ npm run test:integration
 #### 5.2 Manual Testing Checklist
 
 **Core LMS:**
+
 - [ ] Student can register
 - [ ] Student can enroll in course
 - [ ] Student can take quiz
@@ -351,6 +362,7 @@ npm run test:integration
 - [ ] Progress tracking works
 
 **WIOA Compliance:**
+
 - [ ] Eligibility determination works
 - [ ] IEP creation works
 - [ ] Case management works
@@ -359,12 +371,14 @@ npm run test:integration
 - [ ] Reports generate correctly
 
 **Google Classroom:**
+
 - [ ] Student sync works
 - [ ] Assignment sync works
 - [ ] Grade sync works
 - [ ] Email correlation works
 
 **Productivity Tools:**
+
 - [ ] Video conferencing works
 - [ ] File upload/download works
 - [ ] Calendar events work
@@ -372,11 +386,13 @@ npm run test:integration
 - [ ] Email sending works
 
 **AI Features:**
+
 - [ ] AI Tutor responds
 - [ ] Page builder generates pages
 - [ ] Asset generator creates assets
 
 #### 5.3 Performance Testing
+
 ```bash
 # Run performance tests
 cd /workspaces/fix2/tests
@@ -387,6 +403,7 @@ npm run lighthouse
 ```
 
 #### 5.4 Security Audit
+
 ```bash
 # Run security scan
 npm audit
@@ -404,6 +421,7 @@ node security-scan.js
 ### Phase 6: Deployment (Day 5-7)
 
 #### 6.1 Build for Production
+
 ```bash
 cd /workspaces/fix2
 npm run build
@@ -416,6 +434,7 @@ cd ecosystem5-scripts/deploy
 #### 6.2 Deploy to Netlify
 
 **Option A: Netlify Dashboard**
+
 1. Connect GitHub repository
 2. Set build command: `npm run build`
 3. Set publish directory: `.next`
@@ -423,6 +442,7 @@ cd ecosystem5-scripts/deploy
 5. Deploy
 
 **Option B: Netlify CLI**
+
 ```bash
 # Install Netlify CLI
 npm install -g netlify-cli
@@ -435,6 +455,7 @@ netlify deploy --prod
 ```
 
 #### 6.3 Configure Domain
+
 ```bash
 # In Netlify Dashboard:
 1. Add custom domain
@@ -444,6 +465,7 @@ netlify deploy --prod
 ```
 
 #### 6.4 Post-Deployment Verification
+
 ```bash
 # Run post-deployment checks
 cd /workspaces/fix2/ecosystem5-scripts/deploy
@@ -455,6 +477,7 @@ cd /workspaces/fix2/ecosystem5-scripts/deploy
 ### Phase 7: Staff Training (Day 7)
 
 #### 7.1 Admin Training
+
 - [ ] Dashboard overview
 - [ ] Student management
 - [ ] WIOA compliance workflows
@@ -462,6 +485,7 @@ cd /workspaces/fix2/ecosystem5-scripts/deploy
 - [ ] Support services approval
 
 #### 7.2 Case Manager Training
+
 - [ ] Case management system
 - [ ] Eligibility determination
 - [ ] IEP creation
@@ -469,6 +493,7 @@ cd /workspaces/fix2/ecosystem5-scripts/deploy
 - [ ] Support services
 
 #### 7.3 Instructor Training
+
 - [ ] Course creation
 - [ ] Assignment management
 - [ ] Grading
@@ -476,6 +501,7 @@ cd /workspaces/fix2/ecosystem5-scripts/deploy
 - [ ] Google Classroom integration
 
 #### 7.4 Documentation
+
 ```bash
 # Generate documentation
 cd /workspaces/fix2
@@ -498,6 +524,7 @@ npm run docs:generate
 6. **export_everything.sh** - Export all data
 
 ### Usage:
+
 ```bash
 cd /workspaces/fix2/ecosystem5-scripts/deploy
 
@@ -550,6 +577,7 @@ echo "3. Deploy to Netlify"
 ```
 
 Make it executable:
+
 ```bash
 chmod +x setup-quick.sh
 ./setup-quick.sh
@@ -560,6 +588,7 @@ chmod +x setup-quick.sh
 ## Checklist: 95% → 100%
 
 ### Environment Configuration ✅
+
 - [ ] Copy .env.example to .env.local
 - [ ] Fill in all required variables
 - [ ] Generate JWT secrets
@@ -570,6 +599,7 @@ chmod +x setup-quick.sh
 - [ ] Configure file storage
 
 ### Database Setup ✅
+
 - [ ] Run complete-lms-schema.sql
 - [ ] Run wioa-schema.sql
 - [ ] Run additional migrations
@@ -578,6 +608,7 @@ chmod +x setup-quick.sh
 - [ ] Test database connections
 
 ### Branding ✅
+
 - [ ] Update theme colors
 - [ ] Replace logo files
 - [ ] Update site metadata
@@ -586,6 +617,7 @@ chmod +x setup-quick.sh
 - [ ] Customize landing pages
 
 ### Business Rules ✅
+
 - [ ] Configure WIOA settings
 - [ ] Set up email templates
 - [ ] Configure workflows
@@ -593,6 +625,7 @@ chmod +x setup-quick.sh
 - [ ] Configure notifications
 
 ### Testing ✅
+
 - [ ] Run automated tests
 - [ ] Manual testing (all features)
 - [ ] Performance testing
@@ -600,6 +633,7 @@ chmod +x setup-quick.sh
 - [ ] Fix all bugs
 
 ### Deployment ✅
+
 - [ ] Build for production
 - [ ] Deploy to Netlify
 - [ ] Configure domain
@@ -608,6 +642,7 @@ chmod +x setup-quick.sh
 - [ ] Monitor errors
 
 ### Training ✅
+
 - [ ] Train admins
 - [ ] Train case managers
 - [ ] Train instructors
@@ -618,16 +653,16 @@ chmod +x setup-quick.sh
 
 ## Timeline Summary
 
-| Phase | Duration | Tasks |
-|-------|----------|-------|
-| **Environment** | 1 day | Configure all variables |
-| **Database** | 1-2 days | Migrations, verification |
-| **Branding** | 1-2 days | Colors, logo, templates |
-| **Business Rules** | 1-2 days | WIOA, workflows, emails |
-| **Testing** | 1-2 days | Automated + manual |
-| **Deployment** | 1-2 days | Build, deploy, verify |
-| **Training** | 1 day | Staff training |
-| **TOTAL** | **7-10 days** | **To 100%** |
+| Phase              | Duration      | Tasks                    |
+| ------------------ | ------------- | ------------------------ |
+| **Environment**    | 1 day         | Configure all variables  |
+| **Database**       | 1-2 days      | Migrations, verification |
+| **Branding**       | 1-2 days      | Colors, logo, templates  |
+| **Business Rules** | 1-2 days      | WIOA, workflows, emails  |
+| **Testing**        | 1-2 days      | Automated + manual       |
+| **Deployment**     | 1-2 days      | Build, deploy, verify    |
+| **Training**       | 1 day         | Staff training           |
+| **TOTAL**          | **7-10 days** | **To 100%**              |
 
 ---
 
@@ -645,6 +680,7 @@ chmod +x setup-quick.sh
 8. **Security Tools** - Security scanning, audit tools
 
 ### Value Added:
+
 - **Saves 2-3 weeks** of setup time
 - **Automated testing** - Catch bugs early
 - **Deployment automation** - One-click deploy
@@ -660,6 +696,7 @@ chmod +x setup-quick.sh
 ### Answer: **YES! Extremely Usable!** ✅
 
 You got:
+
 - ✅ **Complete environment configuration** templates
 - ✅ **20+ automation scripts** for setup/deployment
 - ✅ **Testing suite** for quality assurance
@@ -671,6 +708,7 @@ You got:
 **These tools will get you from 95% → 100% in 7-10 days!**
 
 Everything you need to:
+
 1. Configure environment ✅
 2. Set up database ✅
 3. Add branding ✅

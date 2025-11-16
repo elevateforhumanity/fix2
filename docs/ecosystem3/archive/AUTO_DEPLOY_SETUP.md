@@ -7,6 +7,7 @@ Your site now has automatic deployment configured for every change. Here's how i
 ### 🚀 **Automatic Deployment Methods**
 
 #### 1. **Manual Auto-Deploy Script**
+
 ```bash
 # Deploy current changes immediately
 npm run deploy
@@ -16,6 +17,7 @@ npm run deploy
 ```
 
 #### 2. **File Watcher (Continuous Auto-Deploy)**
+
 ```bash
 # Watch for file changes and auto-deploy
 npm run deploy:watch
@@ -25,6 +27,7 @@ npm run deploy:watch
 ```
 
 #### 3. **GitHub Actions (Push-Triggered)**
+
 - Automatically triggers on every push to `main` branch
 - Deploys to Netlify via GitHub Actions
 - Monitors: HTML, CSS, JS, JSON, MD, XML files
@@ -40,6 +43,7 @@ npm run deploy:watch
 ### 🔧 **How It Works**
 
 #### Auto-Deploy Script Process:
+
 1. ✅ Pulls latest changes from remote
 2. ✅ Checks for uncommitted changes
 3. ✅ Adds all changes to git
@@ -48,6 +52,7 @@ npm run deploy:watch
 6. ✅ Netlify automatically deploys from GitHub
 
 #### File Watcher Process:
+
 1. 👀 Monitors file changes in real-time
 2. 🔄 Triggers auto-deploy when files are modified
 3. ⏱️ Includes 2-second debounce to batch changes
@@ -56,6 +61,7 @@ npm run deploy:watch
 ### 🌐 **Deployment Triggers**
 
 **Automatic deployment happens when:**
+
 - You run `npm run deploy`
 - You run the file watcher and save any monitored file
 - You push changes to the `main` branch (GitHub Actions)
@@ -64,6 +70,7 @@ npm run deploy:watch
 ### ⚙️ **Configuration Details**
 
 #### Netlify Configuration (`netlify.toml`):
+
 ```toml
 [build]
   publish = "."
@@ -76,6 +83,7 @@ npm run deploy:watch
 ```
 
 #### Package.json Scripts:
+
 ```json
 {
   "deploy": "./scripts/auto-deploy.sh",
@@ -89,6 +97,7 @@ npm run deploy:watch
 ### 🎯 **Usage Examples**
 
 #### One-Time Deploy:
+
 ```bash
 # Make your changes
 echo "Updated content" > index.html
@@ -98,6 +107,7 @@ npm run deploy
 ```
 
 #### Continuous Development:
+
 ```bash
 # Start file watcher in terminal
 npm run deploy:watch
@@ -107,6 +117,7 @@ npm run deploy:watch
 ```
 
 #### GitHub Integration:
+
 ```bash
 # Just push to main branch
 git add .
@@ -132,15 +143,18 @@ git push origin main
 ### 🛠️ **Troubleshooting**
 
 #### If auto-deploy fails:
+
 1. Check git status: `git status`
 2. Resolve any conflicts manually
 3. Run deploy script again: `npm run deploy`
 
 #### If file watcher stops:
+
 1. Press `Ctrl+C` to stop
 2. Restart with: `npm run deploy:watch`
 
 #### If GitHub Actions fail:
+
 1. Check workflow logs in GitHub repository
 2. Verify Netlify tokens are configured in repository secrets
 

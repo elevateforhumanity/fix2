@@ -45,13 +45,16 @@ const DEFAULT_RENDER_OPTIONS: RenderOptions = {
   height: 1080,
   fps: 30,
   format: '16:9',
-  quality: 'high'
+  quality: 'high',
 };
 
 /**
  * Get video dimensions based on format
  */
-export function getVideoDimensions(format: RenderOptions['format']): { width: number; height: number } {
+export function getVideoDimensions(format: RenderOptions['format']): {
+  width: number;
+  height: number;
+} {
   switch (format) {
     case '16:9':
       return { width: 1920, height: 1080 };
@@ -67,7 +70,10 @@ export function getVideoDimensions(format: RenderOptions['format']): { width: nu
 /**
  * Get FFmpeg quality settings
  */
-function getQualitySettings(quality: RenderOptions['quality']): { crf: number; preset: string } {
+function getQualitySettings(quality: RenderOptions['quality']): {
+  crf: number;
+  preset: string;
+} {
   switch (quality) {
     case 'low':
       return { crf: 28, preset: 'veryfast' };
@@ -121,7 +127,7 @@ export async function createTextOverlay(
   for (const word of words) {
     const testLine = currentLine + (currentLine ? ' ' : '') + word;
     const metrics = ctx.measureText(testLine);
-    
+
     if (metrics.width > maxWidth && currentLine) {
       lines.push(currentLine);
       currentLine = word;
@@ -207,12 +213,20 @@ export async function renderScene(
         backgroundPath = scene.imagePath;
       } else if (scene.background.startsWith('#')) {
         // Solid color background
-        const colorBuffer = await createColorBackground(scene.background, width, height);
+        const colorBuffer = await createColorBackground(
+          scene.background,
+          width,
+          height
+        );
         backgroundPath = path.join(tempDir, 'background.png');
         await fs.writeFile(backgroundPath, colorBuffer);
       } else {
         // Assume it's a gradient or image URL - create solid color for now
-        const colorBuffer = await createColorBackground('#000000', width, height);
+        const colorBuffer = await createColorBackground(
+          '#000000',
+          width,
+          height
+        );
         backgroundPath = path.join(tempDir, 'background.png');
         await fs.writeFile(backgroundPath, colorBuffer);
       }
@@ -223,7 +237,7 @@ export async function renderScene(
         fontSize: scene.textStyle?.fontSize || 64,
         color: scene.textStyle?.color || '#FFFFFF',
         fontWeight: scene.textStyle?.fontWeight || 'bold',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       });
       const textOverlayPath = path.join(tempDir, 'text-overlay.png');
       await fs.writeFile(textOverlayPath, textOverlay);
@@ -252,34 +266,43 @@ export async function renderScene(
           filter: 'overlay',
           options: { x: 0, y: 0 },
           inputs: ['0:v', '1:v'],
-          outputs: 'overlayed'
+          outputs: 'overlayed',
         },
         {
           filter: 'format',
           options: 'yuv420p',
           inputs: 'overlayed',
-          outputs: 'formatted'
-        }
+          outputs: 'formatted',
+        },
       ]);
 
       // Output options
       command
         .outputOptions([
-          '-map', '[formatted]',
+          '-map',
+          '[formatted]',
           ...(scene.audioPath ? ['-map', '2:a'] : []),
-          '-c:v', 'libx264',
-          '-crf', crf.toString(),
-          '-preset', preset,
-          '-r', options.fps.toString(),
-          '-t', scene.duration.toString(),
-          '-pix_fmt', 'yuv420p'
+          '-c:v',
+          'libx264',
+          '-crf',
+          crf.toString(),
+          '-preset',
+          preset,
+          '-r',
+          options.fps.toString(),
+          '-t',
+          scene.duration.toString(),
+          '-pix_fmt',
+          'yuv420p',
         ])
         .output(outputPath)
         .on('start', (commandLine) => {
           console.log('FFmpeg command:', commandLine);
         })
         .on('progress', (progress) => {
-          console.log(`Rendering scene ${scene.id}: ${progress.percent?.toFixed(2)}%`);
+          console.log(
+            `Rendering scene ${scene.id}: ${progress.percent?.toFixed(2)}%`
+          );
         })
         .on('end', () => {
           console.log(`Scene ${scene.id} rendered successfully`);
@@ -306,8 +329,11 @@ export async function concatenateVideos(
   return new Promise(async (resolve, reject) => {
     try {
       // Create concat file
-      const concatFilePath = path.join(path.dirname(outputPath), 'concat-list.txt');
-      const concatContent = videoPaths.map(p => `file '${p}'`).join('\n');
+      const concatFilePath = path.join(
+        path.dirname(outputPath),
+        'concat-list.txt'
+      );
+      const concatContent = videoPaths.map((p) => `file '${p}'`).join('\n');
       await fs.writeFile(concatFilePath, concatContent);
 
       ffmpeg()
@@ -319,7 +345,9 @@ export async function concatenateVideos(
           console.log('Concatenating videos:', commandLine);
         })
         .on('progress', (progress) => {
-          console.log(`Concatenation progress: ${progress.percent?.toFixed(2)}%`);
+          console.log(
+            `Concatenation progress: ${progress.percent?.toFixed(2)}%`
+          );
         })
         .on('end', async () => {
           // Clean up concat file
@@ -353,14 +381,19 @@ export async function addBackgroundMusic(
       .input(musicPath)
       .complexFilter([
         `[1:a]volume=${musicVolume}[music]`,
-        '[0:a][music]amix=inputs=2:duration=first[aout]'
+        '[0:a][music]amix=inputs=2:duration=first[aout]',
       ])
       .outputOptions([
-        '-map', '0:v',
-        '-map', '[aout]',
-        '-c:v', 'copy',
-        '-c:a', 'aac',
-        '-b:a', '192k'
+        '-map',
+        '0:v',
+        '-map',
+        '[aout]',
+        '-c:v',
+        'copy',
+        '-c:a',
+        'aac',
+        '-b:a',
+        '192k',
       ])
       .output(outputPath)
       .on('start', (commandLine) => {

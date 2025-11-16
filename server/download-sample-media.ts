@@ -18,7 +18,7 @@ async function downloadFile(url: string, outputPath: string): Promise<boolean> {
   try {
     console.log(`  Downloading: ${url}`);
     const response = await fetch(url);
-    
+
     if (!response.ok) {
       console.error(`  ❌ Failed: ${response.statusText}`);
       return false;
@@ -26,23 +26,25 @@ async function downloadFile(url: string, outputPath: string): Promise<boolean> {
 
     const buffer = await response.arrayBuffer();
     await fs.writeFile(outputPath, Buffer.from(buffer));
-    
+
     const stats = await fs.stat(outputPath);
     const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
     console.log(`  ✅ Downloaded: ${sizeMB} MB`);
-    
+
     return true;
   } catch (error) {
-    console.error(`  ❌ Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    console.error(
+      `  ❌ Error: ${error instanceof Error ? error.message : 'Unknown error'}`
+    );
     return false;
   }
 }
 
 async function downloadImages() {
   console.log('\n📸 Downloading Stock Images...\n');
-  
+
   await fs.mkdir(IMAGES_DIR, { recursive: true });
-  
+
   let downloaded = 0;
   let failed = 0;
 
@@ -51,10 +53,10 @@ async function downloadImages() {
     console.log(`\n[${i + 1}/${stockImages.length}] ${image.id}`);
     console.log(`  Category: ${image.category}`);
     console.log(`  Photographer: ${image.photographer}`);
-    
+
     const filename = `${image.id}.jpg`;
     const outputPath = path.join(IMAGES_DIR, filename);
-    
+
     // Check if already exists
     try {
       await fs.access(outputPath);
@@ -64,17 +66,17 @@ async function downloadImages() {
     } catch {
       // File doesn't exist, download it
     }
-    
+
     const success = await downloadFile(image.url, outputPath);
     if (success) {
       downloaded++;
     } else {
       failed++;
     }
-    
+
     // Rate limiting - wait 1 second between downloads
     if (i < stockImages.length - 1) {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 
@@ -84,9 +86,9 @@ async function downloadImages() {
 
 async function downloadVideos() {
   console.log('\n🎥 Downloading Stock Videos...\n');
-  
+
   await fs.mkdir(VIDEOS_DIR, { recursive: true });
-  
+
   let downloaded = 0;
   let failed = 0;
 
@@ -96,10 +98,10 @@ async function downloadVideos() {
     console.log(`  Category: ${video.category}`);
     console.log(`  Creator: ${video.creator}`);
     console.log(`  Duration: ${video.duration}s`);
-    
+
     const filename = `${video.id}.mp4`;
     const outputPath = path.join(VIDEOS_DIR, filename);
-    
+
     // Check if already exists
     try {
       await fs.access(outputPath);
@@ -109,17 +111,17 @@ async function downloadVideos() {
     } catch {
       // File doesn't exist, download it
     }
-    
+
     const success = await downloadFile(video.url, outputPath);
     if (success) {
       downloaded++;
     } else {
       failed++;
     }
-    
+
     // Rate limiting - wait 2 seconds between video downloads
     if (i < stockVideos.length - 1) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
 
@@ -129,10 +131,15 @@ async function downloadVideos() {
 
 async function updateMediaPaths() {
   console.log('\n📝 Updating media paths in templates...\n');
-  
+
   // Create updated stock media file with local paths
-  const updatedStockMediaPath = path.join(process.cwd(), 'src', 'data', 'stock-media-local.ts');
-  
+  const updatedStockMediaPath = path.join(
+    process.cwd(),
+    'src',
+    'data',
+    'stock-media-local.ts'
+  );
+
   const content = `/**
  * Stock Media Library - Local Paths
  * Auto-generated file with local media paths
@@ -143,7 +150,9 @@ import { StockImage, StockVideo, BackgroundMusic } from './stock-media';
 
 // Stock images with local paths
 export const localStockImages: StockImage[] = [
-${stockImages.map(img => `  {
+${stockImages
+  .map(
+    (img) => `  {
     id: '${img.id}',
     url: '/media/images/${img.id}.jpg',
     thumbnail: '/media/images/${img.id}.jpg',
@@ -152,12 +161,16 @@ ${stockImages.map(img => `  {
     source: '${img.source}',
     photographer: '${img.photographer}',
     description: '${img.description}'
-  }`).join(',\n')}
+  }`
+  )
+  .join(',\n')}
 ];
 
 // Stock videos with local paths
 export const localStockVideos: StockVideo[] = [
-${stockVideos.map(vid => `  {
+${stockVideos
+  .map(
+    (vid) => `  {
     id: '${vid.id}',
     url: '/media/videos/${vid.id}.mp4',
     thumbnail: '/media/videos/${vid.id}.mp4',
@@ -167,7 +180,9 @@ ${stockVideos.map(vid => `  {
     creator: '${vid.creator}',
     description: '${vid.description}',
     duration: ${vid.duration}
-  }`).join(',\n')}
+  }`
+  )
+  .join(',\n')}
 ];
 
 // Use local media by default, fallback to remote
@@ -176,7 +191,7 @@ export const useLocalMedia = true;
 
   await fs.writeFile(updatedStockMediaPath, content);
   console.log(`✅ Created: ${updatedStockMediaPath}`);
-  
+
   // Create README
   const readmePath = path.join(MEDIA_DIR, 'README.md');
   const readmeContent = `# Downloaded Stock Media
@@ -185,20 +200,28 @@ Downloaded: ${new Date().toISOString()}
 
 ## Images (${stockImages.length})
 
-${stockImages.map(img => `- **${img.id}** - ${img.description}
+${stockImages
+  .map(
+    (img) => `- **${img.id}** - ${img.description}
   - Category: ${img.category}
   - Photographer: ${img.photographer} (${img.source})
   - Path: \`/media/images/${img.id}.jpg\`
-`).join('\n')}
+`
+  )
+  .join('\n')}
 
 ## Videos (${stockVideos.length})
 
-${stockVideos.map(vid => `- **${vid.id}** - ${vid.description}
+${stockVideos
+  .map(
+    (vid) => `- **${vid.id}** - ${vid.description}
   - Category: ${vid.category}
   - Creator: ${vid.creator} (${vid.source})
   - Duration: ${vid.duration}s
   - Path: \`/media/videos/${vid.id}.mp4\`
-`).join('\n')}
+`
+  )
+  .join('\n')}
 
 ## Usage
 
@@ -250,39 +273,46 @@ async function downloadSampleMedia() {
   try {
     // Create directories
     await fs.mkdir(MEDIA_DIR, { recursive: true });
-    
+
     // Download images
     const imageResults = await downloadImages();
-    
+
     // Download videos
     const videoResults = await downloadVideos();
-    
+
     // Update paths
     await updateMediaPaths();
-    
+
     // Summary
     console.log('\n' + '='.repeat(60));
     console.log('DOWNLOAD COMPLETE');
     console.log('='.repeat(60));
     console.log('');
-    console.log(`📸 Images: ${imageResults.downloaded}/${stockImages.length} downloaded`);
-    console.log(`🎥 Videos: ${videoResults.downloaded}/${stockVideos.length} downloaded`);
+    console.log(
+      `📸 Images: ${imageResults.downloaded}/${stockImages.length} downloaded`
+    );
+    console.log(
+      `🎥 Videos: ${videoResults.downloaded}/${stockVideos.length} downloaded`
+    );
     console.log('');
     console.log(`📁 Media directory: ${MEDIA_DIR}`);
     console.log(`📝 Local paths: src/data/stock-media-local.ts`);
     console.log('');
-    
+
     if (imageResults.failed > 0 || videoResults.failed > 0) {
-      console.log('⚠️  Some downloads failed. You can re-run this script to retry.');
+      console.log(
+        '⚠️  Some downloads failed. You can re-run this script to retry.'
+      );
       console.log('');
     }
-    
+
     console.log('✅ All media downloaded and ready to use!');
     console.log('');
     console.log('To use local media in templates:');
-    console.log('  import { localStockImages, localStockVideos } from "./stock-media-local"');
+    console.log(
+      '  import { localStockImages, localStockVideos } from "./stock-media-local"'
+    );
     console.log('');
-    
   } catch (error) {
     console.error('\n❌ Download failed:', error);
     throw error;

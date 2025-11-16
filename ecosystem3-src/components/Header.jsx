@@ -3,8 +3,8 @@
   Commercial License. No resale, sublicensing, or redistribution allowed.
   See LICENSE file for details.
 */
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -20,16 +20,28 @@ export default function Header() {
             <Link to="/programs" className="text-gray-500 hover:text-gray-900">
               Programs
             </Link>
-            <Link to="/student-hub" className="text-gray-500 hover:text-gray-900">
+            <Link
+              to="/student-hub"
+              className="text-gray-500 hover:text-gray-900"
+            >
               Students
             </Link>
-            <Link to="/business-hub" className="text-gray-500 hover:text-gray-900">
+            <Link
+              to="/business-hub"
+              className="text-gray-500 hover:text-gray-900"
+            >
               Business
             </Link>
-            <Link to="/educator-hub" className="text-gray-500 hover:text-gray-900">
+            <Link
+              to="/educator-hub"
+              className="text-gray-500 hover:text-gray-900"
+            >
               Educators
             </Link>
-            <Link to="/community-hub" className="text-gray-500 hover:text-gray-900">
+            <Link
+              to="/community-hub"
+              className="text-gray-500 hover:text-gray-900"
+            >
               Community
             </Link>
             <Link to="/connect" className="text-gray-500 hover:text-gray-900">

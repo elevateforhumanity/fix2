@@ -2,18 +2,24 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import LMSNav from '@/components/lms/LMSNav';
-import { 
+import {
   TrendingUp,
   TrendingDown,
   Award,
   FileText,
   CheckCircle,
   Clock,
-  BarChart3
+  BarChart3,
 } from 'lucide-react';
 
 // Mock grades data
@@ -30,11 +36,41 @@ const gradesData = {
       letterGrade: 'A',
       credits: 4,
       assignments: [
-        { name: 'Module 1 Quiz', score: 95, maxScore: 100, weight: 10, date: '2024-09-15' },
-        { name: 'Practical Exam 1', score: 88, maxScore: 100, weight: 20, date: '2024-09-22' },
-        { name: 'Module 2 Quiz', score: 92, maxScore: 100, weight: 10, date: '2024-10-01' },
-        { name: 'Mid-term Exam', score: 90, maxScore: 100, weight: 25, date: '2024-10-15' },
-        { name: 'Final Practical', score: 94, maxScore: 100, weight: 35, date: '2024-11-01' },
+        {
+          name: 'Module 1 Quiz',
+          score: 95,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-09-15',
+        },
+        {
+          name: 'Practical Exam 1',
+          score: 88,
+          maxScore: 100,
+          weight: 20,
+          date: '2024-09-22',
+        },
+        {
+          name: 'Module 2 Quiz',
+          score: 92,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-10-01',
+        },
+        {
+          name: 'Mid-term Exam',
+          score: 90,
+          maxScore: 100,
+          weight: 25,
+          date: '2024-10-15',
+        },
+        {
+          name: 'Final Practical',
+          score: 94,
+          maxScore: 100,
+          weight: 35,
+          date: '2024-11-01',
+        },
       ],
     },
     {
@@ -45,11 +81,43 @@ const gradesData = {
       letterGrade: 'B',
       credits: 5,
       assignments: [
-        { name: 'Module 1 Quiz', score: 90, maxScore: 100, weight: 10, date: '2024-10-20' },
-        { name: 'Patient Care Assignment', score: 88, maxScore: 100, weight: 15, date: '2024-10-27' },
-        { name: 'Module 2 Quiz', score: 82, maxScore: 100, weight: 10, date: '2024-11-05' },
-        { name: 'Module 3 Quiz', score: null, maxScore: 100, weight: 10, date: '2024-11-15', status: 'pending' },
-        { name: 'Final Exam', score: null, maxScore: 100, weight: 40, date: '2024-12-01', status: 'upcoming' },
+        {
+          name: 'Module 1 Quiz',
+          score: 90,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-10-20',
+        },
+        {
+          name: 'Patient Care Assignment',
+          score: 88,
+          maxScore: 100,
+          weight: 15,
+          date: '2024-10-27',
+        },
+        {
+          name: 'Module 2 Quiz',
+          score: 82,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-11-05',
+        },
+        {
+          name: 'Module 3 Quiz',
+          score: null,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-11-15',
+          status: 'pending',
+        },
+        {
+          name: 'Final Exam',
+          score: null,
+          maxScore: 100,
+          weight: 40,
+          date: '2024-12-01',
+          status: 'upcoming',
+        },
       ],
     },
     {
@@ -60,9 +128,28 @@ const gradesData = {
       letterGrade: 'B+',
       credits: 4,
       assignments: [
-        { name: 'Safety Quiz', score: 95, maxScore: 100, weight: 10, date: '2024-11-05' },
-        { name: 'Module 1 Practical', score: 85, maxScore: 100, weight: 20, date: '2024-11-10' },
-        { name: 'Safety Assessment', score: null, maxScore: 100, weight: 15, date: '2024-11-18', status: 'pending' },
+        {
+          name: 'Safety Quiz',
+          score: 95,
+          maxScore: 100,
+          weight: 10,
+          date: '2024-11-05',
+        },
+        {
+          name: 'Module 1 Practical',
+          score: 85,
+          maxScore: 100,
+          weight: 20,
+          date: '2024-11-10',
+        },
+        {
+          name: 'Safety Assessment',
+          score: null,
+          maxScore: 100,
+          weight: 15,
+          date: '2024-11-18',
+          status: 'pending',
+        },
       ],
     },
   ],
@@ -88,7 +175,6 @@ export default function GradesPage() {
   return (
     <div className="min-h-screen bg-background">
       <LMSNav />
-
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -97,16 +183,19 @@ export default function GradesPage() {
             Track your academic performance across all courses
           </p>
         </div>
-
         {/* Overall Stats */}
         <div className="grid gap-6 md:grid-cols-3 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Overall Average</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Overall Average
+              </CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className={`text-3xl font-bold ${getGradeColor(overallPercentage)}`}>
+              <div
+                className={`text-3xl font-bold ${getGradeColor(overallPercentage)}`}
+              >
                 {overallPercentage}%
               </div>
               <div className="flex items-center gap-2 mt-2">
@@ -121,7 +210,6 @@ export default function GradesPage() {
               </div>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">GPA</CardTitle>
@@ -134,7 +222,6 @@ export default function GradesPage() {
               </p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Courses</CardTitle>
@@ -143,12 +230,14 @@ export default function GradesPage() {
             <CardContent>
               <div className="text-3xl font-bold">{courses.length}</div>
               <p className="text-xs text-muted-foreground mt-2">
-                {courses.filter(c => c.status === 'completed').length} completed, {courses.filter(c => c.status === 'in-progress').length} in progress
+                {courses.filter((c) => c.status === 'completed').length}{' '}
+                completed,{' '}
+                {courses.filter((c) => c.status === 'in-progress').length} in
+                progress
               </p>
             </CardContent>
           </Card>
         </div>
-
         {/* Course Grades */}
         <div className="space-y-6">
           {courses.map((course) => (
@@ -158,25 +247,39 @@ export default function GradesPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <CardTitle>{course.name}</CardTitle>
-                      <Badge 
+                      <Badge
                         className={getLetterGradeColor(course.letterGrade)}
                       >
                         {course.letterGrade}
                       </Badge>
                       {course.status === 'completed' && (
-                        <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                        <Badge
+                          variant="outline"
+                          className="bg-green-50 text-green-700 border-green-200"
+                        >
                           <CheckCircle className="h-3 w-3 mr-1" />
                           Completed
                         </Badge>
                       )}
                     </div>
                     <CardDescription>
-                      {course.credits} credits • {course.status === 'completed' ? 'Final' : 'Current'} Grade: {course.status === 'completed' ? course.finalGrade : course.currentGrade}%
+                      {course.credits} credits •{' '}
+                      {course.status === 'completed' ? 'Final' : 'Current'}{' '}
+                      Grade:{' '}
+                      {course.status === 'completed'
+                        ? course.finalGrade
+                        : course.currentGrade}
+                      %
                     </CardDescription>
                   </div>
                   <div className="text-right">
-                    <div className={`text-3xl font-bold ${getGradeColor(course.status === 'completed' ? course.finalGrade! : course.currentGrade!)}`}>
-                      {course.status === 'completed' ? course.finalGrade : course.currentGrade}%
+                    <div
+                      className={`text-3xl font-bold ${getGradeColor(course.status === 'completed' ? course.finalGrade! : course.currentGrade!)}`}
+                    >
+                      {course.status === 'completed'
+                        ? course.finalGrade
+                        : course.currentGrade}
+                      %
                     </div>
                   </div>
                 </div>
@@ -185,21 +288,33 @@ export default function GradesPage() {
                 {/* Progress Bar */}
                 <div className="mb-6">
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-muted-foreground">Course Progress</span>
+                    <span className="text-muted-foreground">
+                      Course Progress
+                    </span>
                     <span className="font-medium">
-                      {course.assignments.filter(a => a.score !== null).length}/{course.assignments.length} assignments graded
+                      {
+                        course.assignments.filter((a) => a.score !== null)
+                          .length
+                      }
+                      /{course.assignments.length} assignments graded
                     </span>
                   </div>
-                  <Progress 
-                    value={(course.assignments.filter(a => a.score !== null).length / course.assignments.length) * 100} 
+                  <Progress
+                    value={
+                      (course.assignments.filter((a) => a.score !== null)
+                        .length /
+                        course.assignments.length) *
+                      100
+                    }
                   />
                 </div>
-
                 {/* Assignments */}
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-sm">Assignments & Assessments</h4>
+                  <h4 className="font-semibold text-sm">
+                    Assignments & Assessments
+                  </h4>
                   {course.assignments.map((assignment, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="flex items-center justify-between p-3 rounded-lg border"
                     >
@@ -214,34 +329,40 @@ export default function GradesPage() {
                         <div className="flex-1">
                           <p className="font-medium">{assignment.name}</p>
                           <p className="text-xs text-muted-foreground">
-                            Weight: {assignment.weight}% • Due: {new Date(assignment.date).toLocaleDateString()}
+                            Weight: {assignment.weight}% • Due:{' '}
+                            {new Date(assignment.date).toLocaleDateString()}
                           </p>
                         </div>
                       </div>
                       <div className="text-right">
                         {assignment.score !== null ? (
                           <div>
-                            <div className={`text-lg font-bold ${getGradeColor((assignment.score / assignment.maxScore) * 100)}`}>
+                            <div
+                              className={`text-lg font-bold ${getGradeColor((assignment.score / assignment.maxScore) * 100)}`}
+                            >
                               {assignment.score}/{assignment.maxScore}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              {Math.round((assignment.score / assignment.maxScore) * 100)}%
+                              {Math.round(
+                                (assignment.score / assignment.maxScore) * 100
+                              )}
+                              %
                             </div>
                           </div>
                         ) : assignment.status === 'pending' ? (
-                          <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
+                          <Badge
+                            variant="outline"
+                            className="bg-yellow-50 text-yellow-700 border-yellow-200"
+                          >
                             Pending
                           </Badge>
                         ) : (
-                          <Badge variant="outline">
-                            Not Submitted
-                          </Badge>
+                          <Badge variant="outline">Not Submitted</Badge>
                         )}
                       </div>
                     </div>
                   ))}
                 </div>
-
                 {/* View Course Button */}
                 <div className="mt-6">
                   <Button variant="outline" className="w-full" asChild>
@@ -254,7 +375,6 @@ export default function GradesPage() {
             </Card>
           ))}
         </div>
-
         {/* Grade Scale Reference */}
         <Card className="mt-8">
           <CardHeader>

@@ -4,7 +4,9 @@ import { getUserByEmail, getUserById } from '@/lib/supabase-admin';
 describe('Supabase Admin Client', () => {
   // These tests require a valid Supabase setup with service role key
   // Skip if environment variables are not set
-  const skipTests = !process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const skipTests =
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   describe('getUserByEmail', () => {
     it('should return null for non-existent email', async () => {

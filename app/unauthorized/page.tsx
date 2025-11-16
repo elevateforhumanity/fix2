@@ -15,26 +15,16 @@ export default function UnauthorizedPage() {
             <ShieldAlert className="h-10 w-10 text-red-600" />
           </div>
         </div>
-        
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Access Denied
-        </h1>
-        
+        <h1 className="text-3xl font-bold text-gray-900 mb-3">Access Denied</h1>
         <p className="text-gray-600 mb-8">
-          You don't have permission to access this page. Please contact your administrator if you believe this is an error.
+          You don't have permission to access this page. Please contact your
+          administrator if you believe this is an error.
         </p>
-        
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link 
-            href="/"
-            className="elevate-btn-primary"
-          >
+          <Link href="/" className="elevate-btn-primary">
             Go to Homepage
           </Link>
-          <Link 
-            href="/lms/dashboard"
-            className="elevate-btn-secondary"
-          >
+          <Link href="/lms/dashboard" className="elevate-btn-secondary">
             Go to Dashboard
           </Link>
         </div>

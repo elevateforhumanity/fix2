@@ -9,17 +9,20 @@ Created comprehensive database schema and API routes for messages and assignment
 ### 1. Database Migration (`migrations/001_add_messages_and_assignments.sql`)
 
 **Messages Table:**
+
 - `id`, `sender_id`, `recipient_id`, `subject`, `body`, `read`, `created_at`, `updated_at`
 - Indexes for performance (recipient, sender, unread)
 - Row Level Security (RLS) policies
 - Users can read/send their own messages
 
 **Assignments Table:**
+
 - `id`, `course_id`, `title`, `description`, `instructions`, `due_date`, `points_possible`, `submission_type`
 - Indexes for course and due date
 - RLS policies for enrolled students and instructors
 
 **Assignment Submissions Table:**
+
 - `id`, `assignment_id`, `student_id`, `submission_text`, `submission_url`, `file_path`
 - `submitted_at`, `graded_at`, `score`, `feedback`, `status`
 - RLS policies for students and instructors
@@ -27,22 +30,26 @@ Created comprehensive database schema and API routes for messages and assignment
 ### 2. API Routes for Messages
 
 **`/api/messages` (GET, POST)**
+
 - GET: Fetch inbox or sent messages
 - POST: Send new message
 - Query params: `?type=inbox` or `?type=sent`
 
 **`/api/messages/[id]` (PATCH, DELETE)**
+
 - PATCH: Mark message as read
 - DELETE: Delete message
 
 ### 3. API Routes for Assignments
 
 **`/api/assignments` (GET, POST)**
+
 - GET: Fetch assignments for enrolled courses
 - POST: Create new assignment (admin/instructor only)
 - Query params: `?courseId=xxx` to filter by course
 
 **`/api/assignments/[id]/submit` (POST)**
+
 - POST: Submit assignment (create or update submission)
 - Supports text, URL, and file submissions
 
@@ -58,6 +65,7 @@ Created comprehensive database schema and API routes for messages and assignment
 ### Step 2: Update Pages to Use APIs
 
 **Messages Page (`app/lms/messages/page.tsx`):**
+
 ```typescript
 // Replace mock data with:
 const response = await fetch('/api/messages?type=inbox');
@@ -65,6 +73,7 @@ const { messages } = await response.json();
 ```
 
 **Assignments Page (`app/lms/assignments/page.tsx`):**
+
 ```typescript
 // Replace mock data with:
 const response = await fetch('/api/assignments');
@@ -72,6 +81,7 @@ const { assignments } = await response.json();
 ```
 
 **Assignment Detail Page (`app/lms/assignments/[id]/page.tsx`):**
+
 ```typescript
 // Submit assignment:
 await fetch(`/api/assignments/${id}/submit`, {
@@ -83,15 +93,18 @@ await fetch(`/api/assignments/${id}/submit`, {
 ## Pages That Need Updating
 
 ### High Priority (Core Features)
+
 1. **`app/lms/messages/page.tsx`** - Replace mock messages with API calls
 2. **`app/lms/assignments/page.tsx`** - Replace mock assignments with API calls
 3. **`app/lms/assignments/[id]/page.tsx`** - Connect submission form to API
 
 ### Medium Priority (Nice to Have)
+
 4. **`app/lms/courses/page.tsx`** - Fetch courses from database
 5. **`app/lms/enroll/page.tsx`** - Fetch available courses from database
 
 ### Low Priority (Demo Data OK)
+
 6. **`app/lms/notifications/page.tsx`** - Can use mock data for now
 7. **`app/lms/calendar/page.tsx`** - Can use mock data for now
 8. **`app/lms/resources/page.tsx`** - Can use mock data for now
@@ -101,6 +114,7 @@ await fetch(`/api/assignments/${id}/submit`, {
 ## Example: Update Messages Page
 
 **Before (Mock Data):**
+
 ```typescript
 const messages = [
   { id: 1, from: 'Instructor', subject: 'Welcome', ... },
@@ -109,6 +123,7 @@ const messages = [
 ```
 
 **After (Real Data):**
+
 ```typescript
 'use client';
 import { useEffect, useState } from 'react';
@@ -145,6 +160,7 @@ export default function MessagesPage() {
 ## Testing the APIs
 
 ### Test Messages API:
+
 ```bash
 # Get inbox
 curl -X GET http://localhost:3000/api/messages?type=inbox \
@@ -166,6 +182,7 @@ curl -X PATCH http://localhost:3000/api/messages/message-uuid \
 ```
 
 ### Test Assignments API:
+
 ```bash
 # Get assignments
 curl -X GET http://localhost:3000/api/assignments \
@@ -198,18 +215,21 @@ curl -X POST http://localhost:3000/api/assignments/assignment-uuid/submit \
 ## Next Steps
 
 ### Immediate (Required for Production):
+
 1. Run migration in Supabase
 2. Update messages page to use API
 3. Update assignments page to use API
 4. Test end-to-end flows
 
 ### Short Term (1-2 weeks):
+
 1. Add pagination to messages/assignments
 2. Add search/filter functionality
 3. Add real-time updates (Supabase Realtime)
 4. Add email notifications for new messages
 
 ### Long Term (Post-Launch):
+
 1. Add file upload for assignments
 2. Add rich text editor for messages
 3. Add message threading/replies
@@ -239,7 +259,8 @@ app/api/
 
 The database schema and API infrastructure is production-ready. The remaining work is updating the frontend pages to consume the APIs instead of using mock data. This is straightforward React/Next.js work that can be done incrementally.
 
-**Recommendation:** 
+**Recommendation:**
+
 1. Deploy the migration to Supabase
 2. Update messages and assignments pages (highest priority)
 3. Test thoroughly

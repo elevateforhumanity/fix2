@@ -55,7 +55,7 @@ export function DoceboHeader() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header 
+    <header
       className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
       role="banner"
     >
@@ -68,9 +68,12 @@ export function DoceboHeader() {
             </div>
             <span className="text-xl font-bold">Elevate for Humanity</span>
           </Link>
-
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden md:flex" role="navigation" aria-label="Main navigation">
+          <NavigationMenu
+            className="hidden md:flex"
+            role="navigation"
+            aria-label="Main navigation"
+          >
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Programs</NavigationMenuTrigger>
@@ -111,7 +114,6 @@ export function DoceboHeader() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-2">
             <SearchDialog />
@@ -122,7 +124,6 @@ export function DoceboHeader() {
               <Link href="/apply">Apply Now</Link>
             </Button>
           </div>
-
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -135,7 +136,10 @@ export function DoceboHeader() {
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4 mt-8" aria-label="Mobile navigation">
+              <nav
+                className="flex flex-col gap-4 mt-8"
+                aria-label="Mobile navigation"
+              >
                 <div className="flex flex-col gap-2">
                   <h3 className="font-semibold text-sm text-muted-foreground mb-2">
                     Programs

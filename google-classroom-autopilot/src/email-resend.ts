@@ -1,6 +1,6 @@
 /**
  * Email Resend System with Safety Checks
- * 
+ *
  * Safely resend failed/bounced emails with duplicate prevention
  */
 
@@ -44,13 +44,16 @@ async function canResendEmail(
     .select('*')
     .eq('recipient', recipient)
     .eq('email_type', emailType)
-    .gte('created_at', new Date(Date.now() - minHours * 60 * 60 * 1000).toISOString())
+    .gte(
+      'created_at',
+      new Date(Date.now() - minHours * 60 * 60 * 1000).toISOString()
+    )
     .order('created_at', { ascending: false })
     .limit(1);
 
   if (recentEmails && recentEmails.length > 0) {
     const lastEmail = recentEmails[0];
-    
+
     // Don't resend if last email was successful
     if (['delivered', 'opened', 'clicked'].includes(lastEmail.status)) {
       return {
@@ -74,7 +77,9 @@ async function canResendEmail(
 /**
  * Check if recipient is on Do Not Contact list
  */
-async function isRecipientBlocked(recipient: string): Promise<{ blocked: boolean; reason?: string }> {
+async function isRecipientBlocked(
+  recipient: string
+): Promise<{ blocked: boolean; reason?: string }> {
   const { data } = await supabase
     .from('do_not_contact')
     .select('*')
@@ -90,9 +95,9 @@ async function isRecipientBlocked(recipient: string): Promise<{ blocked: boolean
     return { blocked: false };
   }
 
-  return { 
-    blocked: true, 
-    reason: `On Do Not Contact list (${data.reason})` 
+  return {
+    blocked: true,
+    reason: `On Do Not Contact list (${data.reason})`,
   };
 }
 
@@ -103,7 +108,7 @@ async function isUserAdmin(userId?: string): Promise<boolean> {
   if (!userId) return false;
 
   const { data, error } = await supabase.rpc('is_admin', { p_user_id: userId });
-  
+
   if (error) {
     console.error('Error checking admin status:', error);
     return false;
@@ -115,7 +120,10 @@ async function isUserAdmin(userId?: string): Promise<boolean> {
 /**
  * Resend a failed/bounced email with safety checks and RBAC
  */
-export async function resendEmail(eventId: string, userId?: string): Promise<ResendResult> {
+export async function resendEmail(
+  eventId: string,
+  userId?: string
+): Promise<ResendResult> {
   // RBAC Check: Only admins can resend emails
   const isAdmin = await isUserAdmin(userId);
   if (!isAdmin) {
@@ -142,10 +150,13 @@ export async function resendEmail(eventId: string, userId?: string): Promise<Res
   }
 
   // Use database function for comprehensive checks
-  const { data: canResendData, error: canResendError } = await supabase.rpc('can_resend_email', {
-    p_event_id: eventId,
-    p_user_id: userId,
-  });
+  const { data: canResendData, error: canResendError } = await supabase.rpc(
+    'can_resend_email',
+    {
+      p_event_id: eventId,
+      p_user_id: userId,
+    }
+  );
 
   if (canResendError) {
     return {
@@ -157,7 +168,7 @@ export async function resendEmail(eventId: string, userId?: string): Promise<Res
 
   // canResendData is an array of rows with can_resend and reason columns
   const checkResult = canResendData?.[0];
-  
+
   if (!checkResult?.can_resend) {
     return {
       success: false,
@@ -171,9 +182,11 @@ export async function resendEmail(eventId: string, userId?: string): Promise<Res
   // Get original email content
   // Note: We need to reconstruct the email from metadata or stored content
   // For now, we'll create a simple retry notification
-  
+
   const subject = originalEvent.subject || 'Retry: Email Notification';
-  const html = originalEvent.metadata?.html || `
+  const html =
+    originalEvent.metadata?.html ||
+    `
     <p>This is a retry of a previous email that failed to deliver.</p>
     <p>If you continue to have issues, please contact support.</p>
   `;
@@ -276,7 +289,7 @@ export async function resendEmailBatch(
     }
 
     // Rate limiting: wait 100ms between sends
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
   }
 
   return {
@@ -311,7 +324,7 @@ export async function resendTaskEmails(
     };
   }
 
-  const eventIds = failedEmails.map(e => e.id);
+  const eventIds = failedEmails.map((e) => e.id);
   return resendEmailBatch(eventIds, userId);
 }
 
@@ -338,7 +351,7 @@ export async function resendSyncRunEmails(
     };
   }
 
-  const eventIds = failedEmails.map(e => e.id);
+  const eventIds = failedEmails.map((e) => e.id);
   return resendEmailBatch(eventIds, userId);
 }
 
@@ -356,14 +369,20 @@ export async function getResendRecommendations(): Promise<{
     .from('email_events')
     .select('*', { count: 'exact', head: true })
     .eq('status', 'failed')
-    .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString());
+    .gte(
+      'created_at',
+      new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+    );
 
   // Count bounced emails in last 24 hours
   const { count: bouncedCount } = await supabase
     .from('email_events')
     .select('*', { count: 'exact', head: true })
     .eq('status', 'bounced')
-    .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString());
+    .gte(
+      'created_at',
+      new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+    );
 
   // Count blocked recipients (Do Not Contact)
   const { count: blockedCount } = await supabase
@@ -395,42 +414,48 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   switch (command) {
     case 'resend':
       if (!id) {
-        console.error('Usage: npx tsx src/email-resend.ts resend <event-id> [user-id]');
+        console.error(
+          'Usage: npx tsx src/email-resend.ts resend <event-id> [user-id]'
+        );
         process.exit(1);
       }
-      resendEmail(id, process.argv[4]).then(result => {
+      resendEmail(id, process.argv[4]).then((result) => {
         console.log('Result:', result);
       });
       break;
 
     case 'resend-task':
       if (!id) {
-        console.error('Usage: npx tsx src/email-resend.ts resend-task <task-id>');
+        console.error(
+          'Usage: npx tsx src/email-resend.ts resend-task <task-id>'
+        );
         process.exit(1);
       }
-      resendTaskEmails(id).then(result => {
+      resendTaskEmails(id).then((result) => {
         console.log('Batch result:', result);
       });
       break;
 
     case 'resend-sync':
       if (!id) {
-        console.error('Usage: npx tsx src/email-resend.ts resend-sync <sync-run-id>');
+        console.error(
+          'Usage: npx tsx src/email-resend.ts resend-sync <sync-run-id>'
+        );
         process.exit(1);
       }
-      resendSyncRunEmails(id).then(result => {
+      resendSyncRunEmails(id).then((result) => {
         console.log('Batch result:', result);
       });
       break;
 
     case 'recommendations':
-      getResendRecommendations().then(recs => {
+      getResendRecommendations().then((recs) => {
         console.log('Resend Recommendations:');
         console.log(`  Failed emails (24h): ${recs.failedEmails}`);
         console.log(`  Bounced emails (24h): ${recs.bouncedEmails}`);
         console.log(`  Blocked recipients (DNC): ${recs.blockedRecipients}`);
         console.log(`\nRecent failures:`);
-        recs.recentFailures.forEach(f => {
+        recs.recentFailures.forEach((f) => {
           console.log(`  ${f.recipient} - ${f.subject} (${f.error_message})`);
         });
       });

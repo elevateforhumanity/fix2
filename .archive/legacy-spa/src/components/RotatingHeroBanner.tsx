@@ -26,7 +26,8 @@ const heroSlides: HeroSlide[] = [
     id: 'workforce-training',
     title: 'Transform Your Career',
     subtitle: '100% Free Workforce Training',
-    description: 'Get certified in high-demand careers. No cost to you - fully funded through WIOA grants.',
+    description:
+      'Get certified in high-demand careers. No cost to you - fully funded through WIOA grants.',
     image: '/images/hero-training.jpg',
     ctaText: 'Start Learning',
     ctaLink: '/apply',
@@ -38,7 +39,8 @@ const heroSlides: HeroSlide[] = [
     id: 'healthcare',
     title: 'Healthcare Careers',
     subtitle: 'CNA & Medical Assistant Training',
-    description: 'Launch your healthcare career with industry-recognized certifications and hands-on training.',
+    description:
+      'Launch your healthcare career with industry-recognized certifications and hands-on training.',
     image: '/images/efh-cna-hero.jpg',
     ctaText: 'Explore Healthcare',
     ctaLink: '/programs/healthcare',
@@ -50,7 +52,8 @@ const heroSlides: HeroSlide[] = [
     id: 'skilled-trades',
     title: 'Skilled Trades',
     subtitle: 'Building Technology & Construction',
-    description: 'Master in-demand trade skills with NCCER certification and apprenticeship opportunities.',
+    description:
+      'Master in-demand trade skills with NCCER certification and apprenticeship opportunities.',
     image: '/images/efh-building-tech-card.jpg',
     ctaText: 'Learn a Trade',
     ctaLink: '/programs/building-tech',
@@ -62,7 +65,8 @@ const heroSlides: HeroSlide[] = [
     id: 'barber',
     title: 'Barber & Cosmetology',
     subtitle: 'Licensed Professional Training',
-    description: 'Get your barber license with Milady curriculum and start your own business.',
+    description:
+      'Get your barber license with Milady curriculum and start your own business.',
     image: '/images/efh-barber-card.jpg',
     ctaText: 'Start Your Journey',
     ctaLink: '/programs/barber',
@@ -101,16 +105,21 @@ export default function RotatingHeroBanner({
   const prevSlide = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
+    );
     setTimeout(() => setIsAnimating(false), 600);
   }, [isAnimating]);
 
-  const goToSlide = useCallback((index: number) => {
-    if (isAnimating || index === currentSlide) return;
-    setIsAnimating(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsAnimating(false), 600);
-  }, [isAnimating, currentSlide]);
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (isAnimating || index === currentSlide) return;
+      setIsAnimating(true);
+      setCurrentSlide(index);
+      setTimeout(() => setIsAnimating(false), 600);
+    },
+    [isAnimating, currentSlide]
+  );
 
   // Auto-rotation
   useEffect(() => {
@@ -149,7 +158,6 @@ export default function RotatingHeroBanner({
           <div className={`absolute inset-0 bg-gradient-to-r ${s.gradient}`} />
         </div>
       ))}
-
       {/* Content */}
       <div className="relative h-full container mx-auto px-4 flex items-center">
         <div className="max-w-3xl">
@@ -168,17 +176,14 @@ export default function RotatingHeroBanner({
                 {slide.subtitle}
               </span>
             </div>
-
             {/* Title */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up animation-delay-100">
               {slide.title}
             </h1>
-
             {/* Description */}
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
               {slide.description}
             </p>
-
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-300">
               <Link
@@ -188,7 +193,6 @@ export default function RotatingHeroBanner({
                 {slide.ctaText}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-
               {slide.secondaryCtaText && slide.secondaryCtaLink && (
                 <Link
                   to={slide.secondaryCtaLink}
@@ -201,7 +205,6 @@ export default function RotatingHeroBanner({
           </div>
         </div>
       </div>
-
       {/* Navigation Controls */}
       {showControls && (
         <>
@@ -213,7 +216,6 @@ export default function RotatingHeroBanner({
           >
             <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
           </button>
-
           <button
             onClick={nextSlide}
             disabled={isAnimating}
@@ -224,7 +226,6 @@ export default function RotatingHeroBanner({
           </button>
         </>
       )}
-
       {/* Slide Indicators */}
       {showIndicators && (
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
@@ -253,7 +254,6 @@ export default function RotatingHeroBanner({
           ))}
         </div>
       )}
-
       {/* Pause Indicator */}
       {isPaused && autoRotate && (
         <div className="absolute top-4 right-4 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm border border-white/20">

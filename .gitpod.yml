@@ -78,17 +78,24 @@ tasks:
       echo ""
       echo "🚀 Starting dev server..."
       npm run dev || bash scripts/dev.sh || echo "Start server with: npm run dev"
-  
-  - name: Elevate Fix
+
+  - name: Elevate Autopilot
     init: |
-      chmod +x gp-fix.sh || true
-      ./gp-fix.sh || true
+      chmod +x elevate-one-shot.sh || true
+      chmod +x scripts/elevate-autopilot.sh || true
+      chmod +x scripts/fix-everything-now.sh || true
     command: |
-      echo "Gitpod is ready. If the build above failed, scroll up to see why."
-      echo "To re-run the helper script manually, use:"
-      echo "  ./gp-fix.sh"
+      echo "🚀 Elevate Autopilot Ready"
+      echo ""
+      echo "Run complete implementation:"
+      echo "  ./elevate-one-shot.sh"
+      echo ""
+      echo "Or run specific fixes:"
+      echo "  ./scripts/fix-everything-now.sh"
+      echo "  ./scripts/elevate-autopilot.sh"
+      echo ""
       gp sync-done vercel-check
-  
+
   - name: Backend (Optional)
     command: |
       gp sync-await vercel-check
@@ -110,19 +117,19 @@ vscode:
     - esbenp.prettier-vscode
     - dbaeumer.vscode-eslint
     - bradlc.vscode-tailwindcss
-    
+
     # TypeScript & React
     - ms-vscode.vscode-typescript-next
     - dsznajder.es7-react-js-snippets
-    
+
     # Utilities
     - christian-kohler.path-intellisense
     - formulahendry.auto-rename-tag
     - naumovs.color-highlight
-    
+
     # Git
     - eamodio.gitlens
-    
+
     # Optional but helpful
     - usernamehw.errorlens
     - streetsidesoftware.code-spell-checker

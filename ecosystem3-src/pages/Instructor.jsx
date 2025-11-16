@@ -16,7 +16,7 @@
   See LICENSE file for details.
 */
 
-import React from "react";
+import React from 'react';
 export default function Instructor() {
   return <h2>Instructor Page</h2>;
 }

@@ -17,14 +17,14 @@ Instead of a one-sided "course website," Elevate brings together:
 ## 🌱 Student / Learner Portal
 
 - **Dashboard** – at-a-glance view of active training
-- **Courses & Learning Paths** – structured programs instead of random standalone lessons  
-- **Assignments & Grades** – track what's due and what's completed  
-- **My Progress** – see training hours and completion percentages  
-- **Workforce Enrollment** – specialized flows for funded programs (WRG, WIOA, JRI, etc.)  
-- **My Certificates** – view, download, and share credentials  
-- **Messages & Notifications** – built-in communication with admins, providers, and coaches  
-- **Calendar & Resources** – upcoming sessions, deadlines, and support resources  
-- **Profile** – update contact info and preferences  
+- **Courses & Learning Paths** – structured programs instead of random standalone lessons
+- **Assignments & Grades** – track what's due and what's completed
+- **My Progress** – see training hours and completion percentages
+- **Workforce Enrollment** – specialized flows for funded programs (WRG, WIOA, JRI, etc.)
+- **My Certificates** – view, download, and share credentials
+- **Messages & Notifications** – built-in communication with admins, providers, and coaches
+- **Calendar & Resources** – upcoming sessions, deadlines, and support resources
+- **Profile** – update contact info and preferences
 
 ---
 
@@ -43,9 +43,9 @@ Instead of a one-sided "course website," Elevate brings together:
 
 For barbers, CNA owners, HVAC/Construction partners, and other training sites:
 
-- **Provider Dashboard** – overview of learners, caseload, and payouts  
-- **Self-Service Application** – become a training provider inside the platform  
-- **Digital MOU Signing** – sign Elevate's revenue-share agreement online  
+- **Provider Dashboard** – overview of learners, caseload, and payouts
+- **Self-Service Application** – become a training provider inside the platform
+- **Digital MOU Signing** – sign Elevate's revenue-share agreement online
 
 Program holders can see their participants, track progress, add case notes, and eventually receive payout reports tied to funded enrollments.
 
@@ -55,7 +55,7 @@ Program holders can see their participants, track progress, add case notes, and 
 
 For workforce staff and case managers:
 
-- **Delegate Reports** – view learner progress, case notes, and follow-up dates per provider and program  
+- **Delegate Reports** – view learner progress, case notes, and follow-up dates per provider and program
 
 This turns Elevate into a **lightweight case management layer** on top of the LMS.
 
@@ -97,23 +97,23 @@ Built from day one for **funded workforce programs**:
 
 ### Feature Comparison Table
 
-| Feature | Moodle | Docebo | LearnWorlds | Elevate Connects |
-|---------|--------|--------|-------------|------------------|
-| Student Portal | ✅ | ✅ | ✅ | ✅ |
-| Admin Portal | ✅ | ✅ | ✅ | ✅ |
-| Courses & Learning Paths | ✅ | ✅ | ✅ | ✅ |
-| Certificates | ✅ | ✅ | ✅ | ✅ + Public Verification |
-| Reports & Analytics | ✅ | ✅ | ✅ | ✅ + Caseload Tracking |
-| **Workforce Program Support** | ❌ | ❌ | ❌ | ✅ |
-| **Program Holder Portal** | ❌ | ❌ | ❌ | ✅ |
-| **Delegate/Case Manager Portal** | ❌ | ❌ | ❌ | ✅ |
-| **Digital MOU Signing** | ❌ | ❌ | ❌ | ✅ |
-| **WRG/WIOA/JRI Integration** | ❌ | ❌ | ❌ | ✅ |
-| Interactive Video | ✅ | ✅ | ✅ | 🔄 Roadmap |
-| SCORM/xAPI | ✅ | ✅ | ✅ | 🔄 Roadmap |
-| Course Authoring | ✅ | ✅ | ✅ | 🔄 Roadmap |
-| eCommerce | ✅ | ✅ | ✅ | 🔄 Roadmap |
-| Gamification | ✅ | ✅ | ✅ | 🔄 Roadmap |
+| Feature                          | Moodle | Docebo | LearnWorlds | Elevate Connects         |
+| -------------------------------- | ------ | ------ | ----------- | ------------------------ |
+| Student Portal                   | ✅     | ✅     | ✅          | ✅                       |
+| Admin Portal                     | ✅     | ✅     | ✅          | ✅                       |
+| Courses & Learning Paths         | ✅     | ✅     | ✅          | ✅                       |
+| Certificates                     | ✅     | ✅     | ✅          | ✅ + Public Verification |
+| Reports & Analytics              | ✅     | ✅     | ✅          | ✅ + Caseload Tracking   |
+| **Workforce Program Support**    | ❌     | ❌     | ❌          | ✅                       |
+| **Program Holder Portal**        | ❌     | ❌     | ❌          | ✅                       |
+| **Delegate/Case Manager Portal** | ❌     | ❌     | ❌          | ✅                       |
+| **Digital MOU Signing**          | ❌     | ❌     | ❌          | ✅                       |
+| **WRG/WIOA/JRI Integration**     | ❌     | ❌     | ❌          | ✅                       |
+| Interactive Video                | ✅     | ✅     | ✅          | 🔄 Roadmap               |
+| SCORM/xAPI                       | ✅     | ✅     | ✅          | 🔄 Roadmap               |
+| Course Authoring                 | ✅     | ✅     | ✅          | 🔄 Roadmap               |
+| eCommerce                        | ✅     | ✅     | ✅          | 🔄 Roadmap               |
+| Gamification                     | ✅     | ✅     | ✅          | 🔄 Roadmap               |
 
 ---
 
@@ -122,6 +122,7 @@ Built from day one for **funded workforce programs**:
 To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 
 ### Phase 2 (Q1 2025)
+
 - **Interactive Video Player**
   - Auto-generated transcripts
   - In-video quizzes
@@ -140,6 +141,7 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
   - Module organization
 
 ### Phase 3 (Q2 2025)
+
 - **Gamification**
   - Badges for completion
   - Streak tracking
@@ -159,6 +161,7 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
   - Revenue reporting
 
 ### Phase 4 (Q3 2025)
+
 - **Community Features**
   - Cohort discussion spaces
   - Announcements
@@ -189,6 +192,7 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 20.x or higher
 - pnpm, npm, or yarn
 - Supabase account
@@ -197,22 +201,26 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 ### Local Development
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/elevateforhumanity/fix2.git
    cd fix2
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    cp .env.example .env.local
    ```
 
    Edit `.env.local` with your credentials:
+
    ```env
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
@@ -227,6 +235,7 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
    - Run migrations from `supabase/migrations/`
 
 5. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -242,6 +251,7 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 **Vercel is the ONLY recommended platform for this Next.js 16 application.**
 
 Vercel is built by the Next.js team and provides:
+
 - ✅ Zero-configuration deployment
 - ✅ Automatic optimization for Next.js 16 + Turbopack
 - ✅ Native App Router support
@@ -278,6 +288,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ### ⚠️ Why Not Netlify?
 
 Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll encounter:
+
 - ❌ Build failures with TypeScript
 - ❌ Runtime errors with serverless functions
 - ❌ Slower builds and deployments
@@ -335,9 +346,10 @@ Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll en
 
 ## 🤝 Contributing
 
-This is a private repository for Elevate for Humanity's workforce training platform. 
+This is a private repository for Elevate for Humanity's workforce training platform.
 
 For questions or partnership inquiries:
+
 - **Email:** elevateforhumanity@gmail.com
 - **Website:** [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
 
@@ -352,6 +364,7 @@ Copyright © 2024-2025 Elevate for Humanity. All rights reserved.
 ## 🙏 Acknowledgments
 
 Built with:
+
 - [Next.js](https://nextjs.org/)
 - [Supabase](https://supabase.com/)
 - [Tailwind CSS](https://tailwindcss.com/)

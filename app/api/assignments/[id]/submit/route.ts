@@ -44,7 +44,7 @@ export async function POST(
         .eq('id', existing.id)
         .select()
         .single();
-      
+
       submission = result.data;
       error = result.error;
     } else {
@@ -62,19 +62,25 @@ export async function POST(
         })
         .select()
         .single();
-      
+
       submission = result.data;
       error = result.error;
     }
 
     if (error) {
       console.error('Error submitting assignment:', error);
-      return NextResponse.json({ error: 'Failed to submit assignment' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to submit assignment' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ submission }, { status: 201 });
   } catch (error) {
     console.error('Error in POST /api/assignments/[id]/submit:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

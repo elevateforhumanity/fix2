@@ -13,7 +13,7 @@ export interface MOUData {
 
 export function generateMOUText(data: MOUData): string {
   const payoutPercent = (data.payoutShare * 100).toFixed(1);
-  
+
   return `ELEVATE FOR HUMANITY CAREER & TECHNICAL INSTITUTE
 PROGRAM HOLDER / TRAINING PROVIDER
 MEMORANDUM OF UNDERSTANDING (MOU)

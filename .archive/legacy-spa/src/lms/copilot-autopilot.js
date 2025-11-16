@@ -269,8 +269,7 @@ class AdvancedLMSCopilot {
         gaps_found: contentGaps.length,
         content_generated: contentGaps.length,
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   /**
@@ -372,8 +371,7 @@ class AdvancedLMSCopilot {
         lessons_improved: lowEngagementLessons.length,
         messages_sent: engagement.strugglingStudents,
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   /**
@@ -464,8 +462,7 @@ class AdvancedLMSCopilot {
       await this.logAutopilotAction(courseId, 'performance_optimization', {
         optimizations_applied: optimizations.length,
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   /**

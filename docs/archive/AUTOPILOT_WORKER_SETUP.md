@@ -3,6 +3,7 @@
 ## What This Will Do
 
 The autopilot worker will:
+
 1. ✅ Add `elevateconnectsdirectory.org` to Netlify automatically
 2. ✅ Provision SSL certificate
 3. ✅ Trigger cache-clearing rebuild
@@ -20,11 +21,13 @@ wrangler login
 ```
 
 This will:
+
 - Open a browser window
 - Ask you to authorize Wrangler
 - Save your credentials
 
 **If browser doesn't open:**
+
 - Copy the URL from terminal
 - Paste in browser
 - Authorize
@@ -39,11 +42,13 @@ wrangler deploy
 ```
 
 This will:
+
 - Build the worker
 - Deploy to Cloudflare
 - Give you a worker URL
 
 **Expected output:**
+
 ```
 ✨ Built successfully
 🌎 Deploying...
@@ -70,27 +75,35 @@ This will:
 Now set the secrets the worker needs:
 
 ### 4a. Netlify Token
+
 ```bash
 wrangler secret put NETLIFY_TOKEN
 ```
+
 Paste the token from Step 3
 
 ### 4b. Netlify Site ID
+
 ```bash
 wrangler secret put NETLIFY_SITE_ID
 ```
+
 Enter: `12f120ab-3f63-419b-bc49-430f043415c1`
 
 ### 4c. Autopilot Token
+
 ```bash
 wrangler secret put AUTOPILOT_TOKEN
 ```
+
 Enter a secure token (make one up, like: `autopilot-secure-token-12345`)
 
 ### 4d. Supabase URL
+
 ```bash
 wrangler secret put SUPABASE_URL
 ```
+
 Enter: `https://cuxzzpsyufcewtmicszk.supabase.co`
 
 ---
@@ -106,6 +119,7 @@ bash scripts/trigger-autopilot-worker.sh
 ```
 
 **Expected output:**
+
 ```
 🤖 TRIGGERING AUTOPILOT WORKER
 ================================
@@ -157,6 +171,7 @@ bash scripts/autopilot-check-ssl.sh
 ```
 
 **When SSL is ready, you'll see:**
+
 ```
 ✅ Valid SSL for elevateconnectsdirectory.org
 ```
@@ -180,26 +195,34 @@ Once SSL is ready:
 ## TROUBLESHOOTING
 
 ### "You are not authenticated"
+
 ```bash
 wrangler login
 ```
+
 Follow the browser prompts
 
 ### "Failed to add domain"
+
 Check the error message. Common issues:
+
 - Domain already added (that's OK!)
 - Invalid Netlify token
 - Wrong site ID
 
 ### "Worker not found"
+
 Make sure you deployed:
+
 ```bash
 cd /workspaces/fix2/workers
 wrangler deploy
 ```
 
 ### "Unauthorized"
+
 Check your AUTOPILOT_TOKEN matches what you set:
+
 ```bash
 export AUTOPILOT_TOKEN='your-token-here'
 ```
@@ -235,17 +258,20 @@ All automatic! 🎉
 ## VERIFICATION COMMANDS
 
 ### Check worker is deployed:
+
 ```bash
 curl https://autopilot-deploy.YOUR_SUBDOMAIN.workers.dev
 ```
 
 ### Check domain was added:
+
 ```bash
 curl -H "Authorization: Bearer YOUR_NETLIFY_TOKEN" \
   https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1
 ```
 
 ### Check SSL certificate:
+
 ```bash
 curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 ```
@@ -255,6 +281,7 @@ curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 ## SUMMARY
 
 **Setup Steps:**
+
 1. ✅ Login to Cloudflare (`wrangler login`)
 2. ✅ Deploy worker (`wrangler deploy`)
 3. ✅ Get Netlify token
@@ -264,11 +291,13 @@ curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 7. ✅ Test site
 
 **Total Time:**
+
 - Setup: 10-15 minutes (one time)
 - SSL wait: 2-10 minutes
 - Total: 15-25 minutes
 
 **Result:**
+
 - ✅ Domain added to Netlify
 - ✅ SSL certificate provisioned
 - ✅ Site accessible at https://www.elevateconnectsdirectory.org

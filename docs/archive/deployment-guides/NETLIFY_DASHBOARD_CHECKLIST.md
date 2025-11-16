@@ -3,6 +3,7 @@
 ## ✅ Your Local Configuration is Perfect
 
 All configuration files are correct:
+
 - ✅ netlify.toml configured properly
 - ✅ Build command: `npm run build`
 - ✅ Publish directory: `dist`
@@ -36,6 +37,7 @@ Publish directory: dist
 ```
 
 **If ANY of these are wrong:**
+
 1. Click **Edit settings**
 2. Update to match above
 3. Click **Save**
@@ -47,17 +49,20 @@ Publish directory: dist
 3. Click **Edit variables**
 
 **Required variable:**
+
 ```
 Key: NODE_VERSION
 Value: 20.19.0
 ```
 
 **If missing:**
+
 1. Click **Add variable**
 2. Enter key and value
 3. Click **Save**
 
 **Optional variables (if using Supabase):**
+
 ```
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
@@ -69,11 +74,13 @@ VITE_SUPABASE_ANON_KEY=your_anon_key
 2. Look at **Production deploys** section
 
 **What you should see:**
+
 - Latest deploy with green checkmark ✅
 - Status: "Published"
 - Time: Recent (within last hour if you just pushed)
 
 **If you see:**
+
 - ❌ Red X = Build failed (click to see logs)
 - ⏳ Building = Wait for it to complete
 - 🔴 No deploys = Site not connected to GitHub
@@ -97,6 +104,7 @@ Deploy previews: Any pull request
 3. You can create a webhook to trigger builds manually
 
 **To create:**
+
 1. Click **Add build hook**
 2. Name: "Manual Deploy"
 3. Branch: main
@@ -109,6 +117,7 @@ Deploy previews: Any pull request
 2. Check **Custom domains** section
 
 **Current setup:**
+
 - Primary: elevateproduction.netlify.app ✅
 - Custom: (none - this is correct for your use case)
 
@@ -121,6 +130,7 @@ Deploy previews: Any pull request
 3. Click **Deploy log**
 
 **Look for these lines:**
+
 ```
 ✓ Building production bundle
 ✓ Build succeeded
@@ -129,6 +139,7 @@ Deploy previews: Any pull request
 ```
 
 **If you see errors:**
+
 - Read the error message
 - Common issues:
   - Missing dependencies
@@ -171,6 +182,7 @@ If you want to trigger a fresh deploy:
 ### Issue: Build Fails with "Command not found: pnpm"
 
 **Fix:**
+
 1. Go to **Site settings** → **Build & deploy** → **Build settings**
 2. Change build command to:
    ```
@@ -181,6 +193,7 @@ If you want to trigger a fresh deploy:
 ### Issue: Build Succeeds but Site Returns 404
 
 **Fix:**
+
 1. Check **Publish directory** is set to `dist`
 2. Check deploy logs show "Deploying dist directory"
 3. If wrong, update and redeploy
@@ -188,6 +201,7 @@ If you want to trigger a fresh deploy:
 ### Issue: Images Not Loading
 
 **Fix:**
+
 1. Check `dist/images/` exists in deploy logs
 2. Verify `public/images/` exists in your repo
 3. Check `_headers` file is being deployed
@@ -195,6 +209,7 @@ If you want to trigger a fresh deploy:
 ### Issue: Routing Not Working
 
 **Fix:**
+
 1. Check `_redirects` file exists in `dist/`
 2. Verify it contains: `/*   /index.html   200`
 3. Check netlify.toml has SPA redirect rule
@@ -202,6 +217,7 @@ If you want to trigger a fresh deploy:
 ### Issue: Old Version Showing
 
 **Fix:**
+
 1. Clear cache: **Trigger deploy** → **Clear cache and deploy site**
 2. Hard refresh browser: Ctrl+F5 (Windows) or Cmd+Shift+R (Mac)
 3. Try incognito mode
@@ -223,6 +239,7 @@ Quick access links:
 Your Netlify dashboard should match these settings exactly:
 
 ### Build Settings
+
 ```
 Repository: elevateforhumanity/fix2
 Branch: main
@@ -232,11 +249,13 @@ Publish directory: dist
 ```
 
 ### Environment Variables
+
 ```
 NODE_VERSION=20.19.0
 ```
 
 ### Deploy Contexts
+
 ```
 Production branch: main
 Branch deploys: All
@@ -244,6 +263,7 @@ Deploy previews: Any pull request against your production branch
 ```
 
 ### Build Hooks
+
 ```
 (Optional - for manual triggers)
 ```
@@ -287,7 +307,7 @@ If all settings match and site still doesn't work:
 
 ✅ **Your local configuration is perfect**  
 ✅ **All files are correct**  
-✅ **Build works locally**  
+✅ **Build works locally**
 
 **Next step:** Verify Netlify dashboard matches the settings above.
 

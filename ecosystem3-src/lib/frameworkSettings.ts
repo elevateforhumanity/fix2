@@ -58,7 +58,14 @@ class FrameworkSettings {
   }
 
   private validateConfig(): void {
-    const required = ['meta', 'build', 'frontend', 'styling', 'typescript', 'testing'];
+    const required = [
+      'meta',
+      'build',
+      'frontend',
+      'styling',
+      'typescript',
+      'testing',
+    ];
     for (const section of required) {
       if (!this.config[section as keyof FrameworkConfig]) {
         throw new Error(`Missing required configuration section: ${section}`);
@@ -115,31 +122,37 @@ class FrameworkSettings {
       typescript: this.config.typescript.enabled ? '5.9.2' : 'disabled',
       tailwind: this.config.styling.version,
       vite: 'Latest',
-      vitest: this.config.testing.framework === 'vitest' ? '1.6.0' : 'Not used'
+      vitest: this.config.testing.framework === 'vitest' ? '1.6.0' : 'Not used',
     };
   }
 
   // Development settings
   getDevelopmentConfig() {
-    return this.config.development || {
-      server: { host: true, port: 3000, open: false }
-    };
+    return (
+      this.config.development || {
+        server: { host: true, port: 3000, open: false },
+      }
+    );
   }
 
   // Performance settings
   getPerformanceConfig() {
-    return this.config.performance || {
-      bundleAnalysis: { enabled: true },
-      lighthouse: { enabled: true }
-    };
+    return (
+      this.config.performance || {
+        bundleAnalysis: { enabled: true },
+        lighthouse: { enabled: true },
+      }
+    );
   }
 
   // Security settings
   getSecurityConfig() {
-    return this.config.security || {
-      helmet: { enabled: true },
-      rateLimit: { enabled: true }
-    };
+    return (
+      this.config.security || {
+        helmet: { enabled: true },
+        rateLimit: { enabled: true },
+      }
+    );
   }
 
   // Update configuration (for settings UI)
@@ -164,12 +177,19 @@ class FrameworkSettings {
     // Check React version compatibility
     const reactVersion = this.config.frontend.version;
     if (reactVersion < '18.0.0') {
-      errors.push('React version should be 18.0.0 or higher for optimal performance');
+      errors.push(
+        'React version should be 18.0.0 or higher for optimal performance'
+      );
     }
 
     // Check TypeScript configuration
-    if (this.config.typescript.enabled && this.config.typescript.target < 'ES2022') {
-      warnings.push('Consider upgrading TypeScript target to ES2022 for better performance');
+    if (
+      this.config.typescript.enabled &&
+      this.config.typescript.target < 'ES2022'
+    ) {
+      warnings.push(
+        'Consider upgrading TypeScript target to ES2022 for better performance'
+      );
     }
 
     // Check if testing is properly configured
@@ -178,14 +198,18 @@ class FrameworkSettings {
     }
 
     // Check ecosystem configuration for multi-site
-    if (this.config.ecosystem.multiSite && (!this.config.ecosystem.sisterSites || this.config.ecosystem.sisterSites.length === 0)) {
+    if (
+      this.config.ecosystem.multiSite &&
+      (!this.config.ecosystem.sisterSites ||
+        this.config.ecosystem.sisterSites.length === 0)
+    ) {
       errors.push('Multi-site enabled but no sister sites configured');
     }
 
     return {
       isValid: errors.length === 0,
       errors,
-      warnings
+      warnings,
     };
   }
 }

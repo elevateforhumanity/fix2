@@ -66,6 +66,7 @@ npm run seo:meta:all
 ### 🎯 Ready-to-Use Sitemap
 
 The comprehensive sitemap includes:
+
 - Homepage (priority 1.0)
 - Core program pages (priority 0.9)
 - Training and education pages (priority 0.8)
@@ -77,6 +78,7 @@ The comprehensive sitemap includes:
 ### ✅ Verification
 
 All canonical URLs verified:
+
 - 33 canonical URLs in sitemap pointing to www.elevateforhumanity.org
 - 5 canonical references in each main HTML page
 - Robots.txt correctly references canonical domain

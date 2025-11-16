@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 'use client';
 import { useState } from 'react';
@@ -15,27 +15,27 @@ export default function ProgramHolderApply() {
     site_address: '',
     training_focus: '',
     funding_sources: 'WRG, WIOA, JRI, EmployIndy',
-    agree: false
+    agree: false,
   });
   const [status, setStatus] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const update = (field: string, value: any) =>
-    setForm(f => ({ ...f, [field]: value }));
+    setForm((f) => ({ ...f, [field]: value }));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setStatus('Submitting your application...');
-    
+
     try {
       const res = await fetch('/api/program-holder/apply', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
       });
-      
+
       if (res.ok) {
         setSubmitted(true);
         setStatus(null);
@@ -62,15 +62,17 @@ export default function ProgramHolderApply() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              Thank you for applying to become an Elevate for Humanity Training Provider. 
-              Your application has been submitted and is under review.
+              Thank you for applying to become an Elevate for Humanity Training
+              Provider. Your application has been submitted and is under review.
             </p>
             <p>
-              An Elevate team member will review your application and contact you at{' '}
-              <strong>{form.contact_email}</strong> within 2-3 business days.
+              An Elevate team member will review your application and contact
+              you at <strong>{form.contact_email}</strong> within 2-3 business
+              days.
             </p>
             <p className="text-sm text-muted-foreground">
-              Once approved, you'll receive access to your Training Provider Portal where you can:
+              Once approved, you'll receive access to your Training Provider
+              Portal where you can:
             </p>
             <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
               <li>View and track your participants</li>
@@ -97,8 +99,9 @@ export default function ProgramHolderApply() {
             <CardHeader>
               <CardTitle>Become an Elevate Training Provider</CardTitle>
               <p className="text-sm text-muted-foreground mt-2">
-                Complete this form to apply as a Program Holder / Worksite Partner. Once approved, 
-                you'll receive access to your delegate portal to track participants, case notes, and payouts.
+                Complete this form to apply as a Program Holder / Worksite
+                Partner. Once approved, you'll receive access to your delegate
+                portal to track participants, case notes, and payouts.
               </p>
             </CardHeader>
             <CardContent>
@@ -111,11 +114,10 @@ export default function ProgramHolderApply() {
                     className="border rounded px-3 py-2 w-full"
                     placeholder="e.g., ABC Barber Academy"
                     value={form.org_name}
-                    onChange={e => update('org_name', e.target.value)}
+                    onChange={(e) => update('org_name', e.target.value)}
                     required
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Primary Contact Name *
@@ -124,11 +126,10 @@ export default function ProgramHolderApply() {
                     className="border rounded px-3 py-2 w-full"
                     placeholder="Your full name"
                     value={form.contact_name}
-                    onChange={e => update('contact_name', e.target.value)}
+                    onChange={(e) => update('contact_name', e.target.value)}
                     required
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Primary Contact Email *
@@ -138,11 +139,10 @@ export default function ProgramHolderApply() {
                     className="border rounded px-3 py-2 w-full"
                     placeholder="your@email.com"
                     value={form.contact_email}
-                    onChange={e => update('contact_email', e.target.value)}
+                    onChange={(e) => update('contact_email', e.target.value)}
                     required
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Phone Number
@@ -152,10 +152,9 @@ export default function ProgramHolderApply() {
                     className="border rounded px-3 py-2 w-full"
                     placeholder="(555) 123-4567"
                     value={form.phone}
-                    onChange={e => update('phone', e.target.value)}
+                    onChange={(e) => update('phone', e.target.value)}
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Site Address (where training happens)
@@ -165,10 +164,9 @@ export default function ProgramHolderApply() {
                     rows={3}
                     placeholder="Street address, city, state, zip"
                     value={form.site_address}
-                    onChange={e => update('site_address', e.target.value)}
+                    onChange={(e) => update('site_address', e.target.value)}
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Training Focus
@@ -178,10 +176,9 @@ export default function ProgramHolderApply() {
                     rows={3}
                     placeholder="e.g., Barber Apprenticeship, CNA, HVAC, Construction, etc."
                     value={form.training_focus}
-                    onChange={e => update('training_focus', e.target.value)}
+                    onChange={(e) => update('training_focus', e.target.value)}
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Funding Sources You Work With
@@ -190,33 +187,30 @@ export default function ProgramHolderApply() {
                     className="border rounded px-3 py-2 w-full"
                     placeholder="WRG, WIOA, JRI, EmployIndy, etc."
                     value={form.funding_sources}
-                    onChange={e => update('funding_sources', e.target.value)}
+                    onChange={(e) => update('funding_sources', e.target.value)}
                   />
                 </div>
-
                 <div className="border-t pt-4">
                   <label className="flex items-start gap-2 text-sm">
                     <input
                       type="checkbox"
                       checked={form.agree}
-                      onChange={e => update('agree', e.target.checked)}
+                      onChange={(e) => update('agree', e.target.checked)}
                       required
                       className="mt-1"
                     />
                     <span>
-                      I understand Elevate for Humanity is the system of record and all payouts 
-                      follow our written MOU. I agree to the terms and conditions of the Training 
-                      Provider partnership.
+                      I understand Elevate for Humanity is the system of record
+                      and all payouts follow our written MOU. I agree to the
+                      terms and conditions of the Training Provider partnership.
                     </span>
                   </label>
                 </div>
-
                 {status && (
                   <div className="bg-yellow-50 border border-yellow-200 rounded p-3 text-sm text-yellow-800">
                     {status}
                   </div>
                 )}
-
                 <Button
                   type="submit"
                   disabled={!form.agree || loading}

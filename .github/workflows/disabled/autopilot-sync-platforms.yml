@@ -7,7 +7,7 @@ on:
         description: 'Trigger production deploys on both platforms'
         type: boolean
         default: false
-  
+
   # Optional: Auto-sync when secrets are updated
   # schedule:
   #   - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
@@ -40,10 +40,10 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
           # Application URLs
-          APP_URL: "https://elevateconnectsdirectory.org"
+          APP_URL: 'https://elevateconnectsdirectory.org'
 
           # Supabase
-          SUPABASE_URL: "https://cuxzzpsyufcewtmicszk.supabase.co"
+          SUPABASE_URL: 'https://cuxzzpsyufcewtmicszk.supabase.co'
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 

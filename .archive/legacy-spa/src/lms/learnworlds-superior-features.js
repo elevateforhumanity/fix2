@@ -801,7 +801,6 @@ class LearnWorldsSuperiorFeatures {
    */
   async initializeCompleteLMS(schoolConfig) {
     try {
-
       // Create all core components
       const website = await this.createAIWebsiteBuilder(schoolConfig);
       const mobileApp = await this.createMobileAppBuilder(

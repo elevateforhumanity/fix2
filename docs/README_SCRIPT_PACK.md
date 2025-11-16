@@ -3,6 +3,7 @@
 ## 🎯 What This Is
 
 The **Elevate Script Pack** is a comprehensive collection of ready-to-use scripts for:
+
 - Student onboarding
 - Partner recruitment
 - Employer engagement
@@ -41,6 +42,7 @@ cat docs/Elevate_Script_Pack.md
 ## 📋 What's Included
 
 ### 1. Student Onboarding (9 Scripts)
+
 - Awareness script
 - Enrollment script
 - Account creation
@@ -52,6 +54,7 @@ cat docs/Elevate_Script_Pack.md
 - Job placement support
 
 ### 2. Partner Onboarding (7 Scripts)
+
 - Outreach script
 - Application script
 - Approval script
@@ -61,6 +64,7 @@ cat docs/Elevate_Script_Pack.md
 - Compliance script
 
 ### 3. Employer Onboarding (5 Scripts)
+
 - Initial outreach
 - Agreement script
 - Referral flow
@@ -68,6 +72,7 @@ cat docs/Elevate_Script_Pack.md
 - Follow-up script
 
 ### 4. Admin Operations (6 Scripts)
+
 - Admin login
 - Review applications
 - Progress monitoring
@@ -76,54 +81,67 @@ cat docs/Elevate_Script_Pack.md
 - Reporting
 
 ### 5. Phone Call Scripts (4 Scripts)
+
 - Greeting
 - Enrollment response
 - Free training explanation
 - Program selection help
 
 ### 6. SMS Text Scripts (3 Scripts)
+
 - Initial outreach text
 - YES response
 - Post-enrollment confirmation
 
 ### 7. Email Scripts (1 Template)
+
 - Acceptance email with next steps
 
 ### 8. Orientation Script (1 Script)
+
 - Welcome and program overview
 
 ### 9. Certificate Issue Script (1 Script)
+
 - Congratulations and verification info
 
 ### 10. Troubleshooting Scripts (3 Scripts)
+
 - Login issues
 - Blank dashboard
 - Certificate not showing
 
 ### 11. Referral Script (1 Script)
+
 - Share with friends
 
 ### 12. Viral CTA Script (1 Script)
+
 - 100-share campaign
 
 ### 13. Program Pitch Scripts (4 Scripts)
+
 - CNA
 - Barber Apprenticeship
 - HVAC
 - Building Tech
 
 ### 14. Quick Link Directory
+
 - All student, partner, admin, and public links
 
 ### 15. Social Media Scripts (3 Scripts)
+
 - Facebook post
 - Instagram caption
 - Twitter/X post
 
 ### 16. Voicemail Script (1 Script)
+
 - Professional voicemail greeting
 
 ### 17. Follow-Up Scripts (3 Scripts)
+
 - 24-hour follow-up
 - 7-day follow-up
 - Post-enrollment check-in
@@ -133,6 +151,7 @@ cat docs/Elevate_Script_Pack.md
 ## 🎯 Use Cases
 
 ### For Team Training
+
 ```bash
 # Print the script pack
 cat docs/Elevate_Script_Pack.md
@@ -142,18 +161,23 @@ code docs/Elevate_Script_Pack.md
 ```
 
 ### For Website Content
+
 Copy sections directly into your CMS or website pages.
 
 ### For Partner Distribution
+
 Send `docs/Elevate_Script_Pack.md` to partners as a reference guide.
 
 ### For LMS Content Seeding
+
 Use scripts as templates for automated messages and notifications.
 
 ### For Call Center Training
+
 Print and distribute to phone support staff.
 
 ### For Social Media Team
+
 Copy social media scripts for consistent messaging.
 
 ---
@@ -169,6 +193,7 @@ Copy social media scripts for consistent messaging.
 ## 🔗 Quick Links
 
 ### Students
+
 - Homepage: https://www.elevateconnectsdirectory.org
 - HVAC: https://www.elevateconnectsdirectory.org/programs/hvac
 - Barber: https://www.elevateconnectsdirectory.org/programs/barber
@@ -176,10 +201,12 @@ Copy social media scripts for consistent messaging.
 - Portal: https://www.elevateconnectsdirectory.org/lms/dashboard
 
 ### Partners
+
 - Apply: https://www.elevateconnectsdirectory.org/program-holder/apply
 - Dashboard: https://www.elevateconnectsdirectory.org/program-holder/dashboard
 
 ### Admins
+
 - Dashboard: https://www.elevateconnectsdirectory.org/admin/dashboard
 - Certificates: https://www.elevateconnectsdirectory.org/admin/certificates/issue
 
@@ -190,6 +217,7 @@ Copy social media scripts for consistent messaging.
 To customize the scripts:
 
 1. **Edit the bootstrap script**:
+
    ```bash
    nano scripts/bootstrap-elevate-scripts.sh
    ```
@@ -197,6 +225,7 @@ To customize the scripts:
 2. **Modify the content** between the `cat << 'EOF'` and `EOF` markers
 
 3. **Regenerate the pack**:
+
    ```bash
    bash scripts/bootstrap-elevate-scripts.sh
    ```
@@ -222,18 +251,21 @@ To customize the scripts:
 ## 🎓 Training Recommendations
 
 ### For New Staff
+
 1. Read entire script pack
 2. Practice phone scripts with role-play
 3. Memorize key talking points
 4. Bookmark quick links
 
 ### For Partners
+
 1. Review partner onboarding section
 2. Understand student flow
 3. Know certificate process
 4. Save support phone number
 
 ### For Admins
+
 1. Master admin operations scripts
 2. Understand reporting requirements
 3. Know certificate issuance process
@@ -312,6 +344,6 @@ Before using the script pack:
 
 ---
 
-*Last Updated: 2025-11-13*  
-*Version: 1.0*  
-*Maintained by: Elevate for Humanity Team*
+_Last Updated: 2025-11-13_  
+_Version: 1.0_  
+_Maintained by: Elevate for Humanity Team_

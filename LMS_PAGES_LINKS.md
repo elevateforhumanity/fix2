@@ -5,6 +5,7 @@ Replace `YOUR-SITE-URL` with your actual Netlify deployment URL (e.g., `elevate-
 ## 🎓 Student/Learner Portal (LMS)
 
 ### Main Pages
+
 ```
 https://YOUR-SITE-URL/lms/dashboard
 https://YOUR-SITE-URL/lms/courses
@@ -13,18 +14,21 @@ https://YOUR-SITE-URL/lms/progress
 ```
 
 ### Assignments & Grades
+
 ```
 https://YOUR-SITE-URL/lms/assignments
 https://YOUR-SITE-URL/lms/grades
 ```
 
 ### Enrollment
+
 ```
 https://YOUR-SITE-URL/lms/enroll
 https://YOUR-SITE-URL/lms/enroll-workforce
 ```
 
 ### Communication
+
 ```
 https://YOUR-SITE-URL/lms/messages
 https://YOUR-SITE-URL/lms/notifications
@@ -32,6 +36,7 @@ https://YOUR-SITE-URL/lms/calendar
 ```
 
 ### Resources & Profile
+
 ```
 https://YOUR-SITE-URL/lms/resources
 https://YOUR-SITE-URL/lms/certificates
@@ -41,12 +46,14 @@ https://YOUR-SITE-URL/lms/profile
 ## 👨‍💼 Admin Portal
 
 ### Program Holder Management
+
 ```
 https://YOUR-SITE-URL/admin/program-holders
 https://YOUR-SITE-URL/admin/applications
 ```
 
 ### Delegates & Reports
+
 ```
 https://YOUR-SITE-URL/admin/delegates
 https://YOUR-SITE-URL/admin/reports
@@ -54,6 +61,7 @@ https://YOUR-SITE-URL/admin/reports/caseload
 ```
 
 ### Certifications
+
 ```
 https://YOUR-SITE-URL/admin/certifications/bulk
 ```

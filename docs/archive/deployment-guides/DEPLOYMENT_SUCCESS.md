@@ -9,11 +9,12 @@
 ✅ **Site loads:** HTTP 200  
 ✅ **Images work:** `/images/programs/efh-barber-hero.jpg` → HTTP 200  
 ✅ **Routing works:** `/programs/barber` → HTTP 200  
-✅ **Latest build deployed:** Bundle hash matches local build  
+✅ **Latest build deployed:** Bundle hash matches local build
 
 ## What's Deployed
 
 Your latest commit with all the improvements:
+
 - ✅ Enhanced asset handling
 - ✅ Improved image caching (1 year cache)
 - ✅ SPA routing configured
@@ -49,10 +50,10 @@ Your latest commit with all the improvements:
 Add this to your Durable.co page:
 
 ```html
-<iframe 
-  src="https://elevateproduction.netlify.app" 
-  width="100%" 
-  height="100%" 
+<iframe
+  src="https://elevateproduction.netlify.app"
+  width="100%"
+  height="100%"
   frameborder="0"
   style="
     border: none; 
@@ -61,7 +62,8 @@ Add this to your Durable.co page:
     left: 0;
     width: 100vw;
     height: 100vh;
-  ">
+  "
+>
 </iframe>
 ```
 
@@ -71,12 +73,13 @@ Embed in a specific section:
 
 ```html
 <div style="width: 100%; min-height: 800px;">
-  <iframe 
-    src="https://elevateproduction.netlify.app" 
-    width="100%" 
-    height="800px" 
+  <iframe
+    src="https://elevateproduction.netlify.app"
+    width="100%"
+    height="800px"
     frameborder="0"
-    style="border: none;">
+    style="border: none;"
+  >
   </iframe>
 </div>
 ```
@@ -86,8 +89,8 @@ Embed in a specific section:
 Add a button that opens the app:
 
 ```html
-<a 
-  href="https://elevateproduction.netlify.app" 
+<a
+  href="https://elevateproduction.netlify.app"
   target="_blank"
   style="
     display: inline-block;
@@ -97,7 +100,8 @@ Add a button that opens the app:
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-  ">
+  "
+>
   Launch LMS Platform
 </a>
 ```
@@ -108,9 +112,7 @@ Link to specific pages:
 
 ```html
 <!-- Programs page -->
-<a href="https://elevateproduction.netlify.app/programs">
-  View Programs
-</a>
+<a href="https://elevateproduction.netlify.app/programs"> View Programs </a>
 
 <!-- LMS Dashboard -->
 <a href="https://elevateproduction.netlify.app/lms/dashboard">
@@ -118,9 +120,7 @@ Link to specific pages:
 </a>
 
 <!-- Apply page -->
-<a href="https://elevateproduction.netlify.app/apply">
-  Apply Now
-</a>
+<a href="https://elevateproduction.netlify.app/apply"> Apply Now </a>
 ```
 
 ## Test Your Site
@@ -128,27 +128,32 @@ Link to specific pages:
 Visit these URLs to verify everything works:
 
 ### Main Pages
+
 - **Home:** https://elevateproduction.netlify.app/
 - **Programs:** https://elevateproduction.netlify.app/programs
 - **About:** https://elevateproduction.netlify.app/about
 - **Apply:** https://elevateproduction.netlify.app/apply
 
 ### Program Pages
+
 - **Barber:** https://elevateproduction.netlify.app/programs/barber
 - **Building Tech:** https://elevateproduction.netlify.app/programs/building-tech
 - **Healthcare:** https://elevateproduction.netlify.app/programs/healthcare
 
 ### LMS Pages
+
 - **Dashboard:** https://elevateproduction.netlify.app/lms/dashboard
 - **Courses:** https://elevateproduction.netlify.app/lms/courses
 
 ### Images
+
 - **Hero:** https://elevateproduction.netlify.app/images/hero-banner.jpg
 - **Programs:** https://elevateproduction.netlify.app/images/programs/efh-barber-hero.jpg
 
 ## Automatic Deployments
 
 Every time you push to GitHub `main` branch:
+
 1. ✅ Netlify detects the push
 2. ✅ Runs `npm run build`
 3. ✅ Deploys to `elevateproduction.netlify.app`
@@ -165,6 +170,7 @@ Every time you push to GitHub `main` branch:
 ## Netlify Dashboard
 
 Access your site settings:
+
 - **Dashboard:** https://app.netlify.com/sites/elevateproduction
 - **Deploys:** https://app.netlify.com/sites/elevateproduction/deploys
 - **Settings:** https://app.netlify.com/sites/elevateproduction/settings
@@ -172,6 +178,7 @@ Access your site settings:
 ## Performance
 
 Your site is optimized:
+
 - ✅ **Images:** Cached for 1 year
 - ✅ **Assets:** Code-split and minified
 - ✅ **CDN:** Served from Netlify's global CDN
@@ -181,6 +188,7 @@ Your site is optimized:
 ## What Changed
 
 From your latest commit:
+
 - ✅ Fixed port forwarding in devcontainer
 - ✅ Enhanced Vite asset handling
 - ✅ Improved image caching headers
@@ -201,13 +209,14 @@ From your latest commit:
 ✅ **Latest changes deployed:** All improvements are live  
 ✅ **Images working:** All assets load correctly  
 ✅ **Routing working:** SPA navigation works  
-✅ **Auto-deploy enabled:** Push to GitHub = automatic deployment  
+✅ **Auto-deploy enabled:** Push to GitHub = automatic deployment
 
 **You have full control over the design via this GitHub repo!**
 
 ## Support
 
 If you need to make changes:
+
 1. Edit files in this repo
 2. Commit and push to GitHub
 3. Netlify automatically deploys

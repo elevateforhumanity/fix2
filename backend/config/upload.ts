@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const ext = path.extname(file.originalname);
     const name = path.basename(file.originalname, ext);
     cb(null, `${name}-${uniqueSuffix}${ext}`);
@@ -36,9 +36,13 @@ const memoryStorage = multer.memoryStorage();
 /**
  * File filter for images
  */
-const imageFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
+const imageFilter = (
+  req: any,
+  file: Express.Multer.File,
+  cb: multer.FileFilterCallback
+) => {
   const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-  
+
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
@@ -49,7 +53,11 @@ const imageFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterC
 /**
  * File filter for documents
  */
-const documentFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
+const documentFilter = (
+  req: any,
+  file: Express.Multer.File,
+  cb: multer.FileFilterCallback
+) => {
   const allowedTypes = [
     'application/pdf',
     'application/msword',
@@ -57,20 +65,31 @@ const documentFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilt
     'application/vnd.ms-excel',
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   ];
-  
+
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Only document files are allowed (PDF, DOC, DOCX, XLS, XLSX)'));
+    cb(
+      new Error('Only document files are allowed (PDF, DOC, DOCX, XLS, XLSX)')
+    );
   }
 };
 
 /**
  * File filter for videos
  */
-const videoFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
-  const allowedTypes = ['video/mp4', 'video/mpeg', 'video/quicktime', 'video/webm'];
-  
+const videoFilter = (
+  req: any,
+  file: Express.Multer.File,
+  cb: multer.FileFilterCallback
+) => {
+  const allowedTypes = [
+    'video/mp4',
+    'video/mpeg',
+    'video/quicktime',
+    'video/webm',
+  ];
+
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
@@ -90,7 +109,7 @@ export const uploadConfig = {
       fileSize: 5 * 1024 * 1024, // 5MB
     },
   }).single('image'),
-  
+
   // Multiple images upload (max 10 files, 5MB each)
   multipleImages: multer({
     storage,
@@ -100,7 +119,7 @@ export const uploadConfig = {
       files: 10,
     },
   }).array('images', 10),
-  
+
   // Single document upload (max 10MB)
   singleDocument: multer({
     storage,
@@ -109,7 +128,7 @@ export const uploadConfig = {
       fileSize: 10 * 1024 * 1024, // 10MB
     },
   }).single('document'),
-  
+
   // Single video upload (max 100MB)
   singleVideo: multer({
     storage,
@@ -118,7 +137,7 @@ export const uploadConfig = {
       fileSize: 100 * 1024 * 1024, // 100MB
     },
   }).single('video'),
-  
+
   // Avatar upload (max 2MB)
   avatar: multer({
     storage,
@@ -127,7 +146,7 @@ export const uploadConfig = {
       fileSize: 2 * 1024 * 1024, // 2MB
     },
   }).single('avatar'),
-  
+
   // Any file upload (max 50MB)
   anyFile: multer({
     storage,
@@ -135,7 +154,7 @@ export const uploadConfig = {
       fileSize: 50 * 1024 * 1024, // 50MB
     },
   }).single('file'),
-  
+
   // Memory storage for cloud upload
   memory: multer({
     storage: memoryStorage,

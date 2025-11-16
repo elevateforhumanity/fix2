@@ -109,8 +109,7 @@ export default function VideoInterview() {
 
       if (response.ok) {
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const nextQuestion = () => {

@@ -5,6 +5,7 @@
 **Vercel is the ONLY recommended platform for this Next.js 16 application.**
 
 ### Why Vercel Wins:
+
 - ✅ **Built by the Next.js team** - Vercel created Next.js
 - ✅ **Native App Router support** - Optimized for Next.js 16 with Turbopack
 - ✅ **Zero configuration** - Automatically detects Next.js settings
@@ -13,6 +14,7 @@
 - ✅ **Automatic optimization** - Image optimization, caching, CDN
 
 ### Why Netlify Fails:
+
 - ❌ Not optimized for Next.js 16 with Turbopack
 - ❌ Serverless functions have different runtime than Vercel Edge
 - ❌ Build process doesn't handle App Router as well
@@ -24,6 +26,7 @@
 ### Option 1: Deploy from GitHub (Recommended)
 
 1. **Push your code to GitHub** (if not already done):
+
    ```bash
    git add .
    git commit -m "Ready for Vercel deployment"
@@ -37,6 +40,7 @@
 
 3. **Configure Environment Variables**:
    Add these in Vercel dashboard under Settings → Environment Variables:
+
    ```
    NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
@@ -77,6 +81,7 @@ vercel --prod
 Vercel automatically detects Next.js projects. No configuration needed!
 
 The following files are already configured:
+
 - ✅ `next.config.ts` - Next.js configuration
 - ✅ `package.json` - Build scripts
 - ✅ `tsconfig.json` - TypeScript configuration
@@ -84,6 +89,7 @@ The following files are already configured:
 ## Environment Variables
 
 ### Required Variables:
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
@@ -91,6 +97,7 @@ SUPABASE_SERVICE_ROLE_KEY=
 ```
 
 ### Optional but Recommended:
+
 ```env
 RESEND_API_KEY=
 EMAIL_FROM=
@@ -112,6 +119,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ## Continuous Deployment
 
 Once connected to GitHub:
+
 - ✅ Every push to `main` automatically deploys to production
 - ✅ Pull requests get preview deployments
 - ✅ Automatic rollback if build fails
@@ -120,6 +128,7 @@ Once connected to GitHub:
 ## Monitoring and Analytics
 
 Vercel provides built-in:
+
 - 📊 Real-time analytics
 - 🚀 Performance metrics
 - 🐛 Error tracking
@@ -130,16 +139,19 @@ Access at: `https://vercel.com/[your-username]/[project-name]/analytics`
 ## Troubleshooting
 
 ### Build Fails
+
 1. Check build logs in Vercel dashboard
 2. Verify all environment variables are set
 3. Test build locally: `pnpm build`
 
 ### Environment Variables Not Working
+
 - Make sure to redeploy after adding/changing variables
 - Check variable names match exactly (case-sensitive)
 - Verify `NEXT_PUBLIC_` prefix for client-side variables
 
 ### Database Connection Issues
+
 - Verify Supabase URL and keys are correct
 - Check Supabase project is not paused
 - Ensure service role key has proper permissions

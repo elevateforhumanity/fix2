@@ -1,10 +1,17 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 export const metadata = {
   title: 'Barber Apprenticeship | Elevate for Humanity',
-  description: 'State-approved barber apprenticeship program leading to Indiana barber license.',
+  description:
+    'State-approved barber apprenticeship program leading to Indiana barber license.',
 };
 
 export default function BarberProgramPage() {
@@ -17,11 +24,11 @@ export default function BarberProgramPage() {
           </p>
           <h1 className="text-4xl font-bold">Barber Apprenticeship Program</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            Master the craft of barbering through a state-approved apprenticeship. 
-            Learn cutting, styling, and business skills in a real barbershop environment.
+            Master the craft of barbering through a state-approved
+            apprenticeship. Learn cutting, styling, and business skills in a
+            real barbershop environment.
           </p>
         </header>
-
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-6">
             <Card>
@@ -30,8 +37,13 @@ export default function BarberProgramPage() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 list-disc list-inside">
-                  <li>State-approved curriculum aligned with Indiana licensing requirements</li>
-                  <li>1,500 hours of hands-on training in a working barbershop</li>
+                  <li>
+                    State-approved curriculum aligned with Indiana licensing
+                    requirements
+                  </li>
+                  <li>
+                    1,500 hours of hands-on training in a working barbershop
+                  </li>
                   <li>Learn classic and modern cutting techniques</li>
                   <li>Business management and customer service skills</li>
                   <li>Preparation for state licensing exam</li>
@@ -39,7 +51,6 @@ export default function BarberProgramPage() {
                 </ul>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>What You'll Master</CardTitle>
@@ -69,7 +80,6 @@ export default function BarberProgramPage() {
                 </div>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Apprenticeship Pathway</CardTitle>
@@ -86,7 +96,6 @@ export default function BarberProgramPage() {
               </CardContent>
             </Card>
           </div>
-
           <aside className="space-y-6">
             <Card>
               <CardHeader>
@@ -95,23 +104,30 @@ export default function BarberProgramPage() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold mb-2">Duration</h4>
-                  <p className="text-sm text-muted-foreground">12-18 months (1,500 hours)</p>
+                  <p className="text-sm text-muted-foreground">
+                    12-18 months (1,500 hours)
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Format</h4>
-                  <p className="text-sm text-muted-foreground">In-shop apprenticeship with online coursework</p>
+                  <p className="text-sm text-muted-foreground">
+                    In-shop apprenticeship with online coursework
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Funding</h4>
-                  <p className="text-sm text-muted-foreground">WIOA and apprenticeship funding available</p>
+                  <p className="text-sm text-muted-foreground">
+                    WIOA and apprenticeship funding available
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Outcome</h4>
-                  <p className="text-sm text-muted-foreground">Indiana State Barber License</p>
+                  <p className="text-sm text-muted-foreground">
+                    Indiana State Barber License
+                  </p>
                 </div>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Start Your Journey</CardTitle>

@@ -20,9 +20,9 @@ supabase db push
 ### 2. Verify Tables
 
 ```sql
-SELECT table_name 
-FROM information_schema.tables 
-WHERE table_schema = 'public' 
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema = 'public'
 ORDER BY table_name;
 ```
 
@@ -74,7 +74,12 @@ ORDER BY table_name;
 
 ```typescript
 // Roles
-type UserRole = 'student' | 'admin' | 'program_holder' | 'delegate' | 'instructor';
+type UserRole =
+  | 'student'
+  | 'admin'
+  | 'program_holder'
+  | 'delegate'
+  | 'instructor';
 
 // Students see their own data
 // Delegates see their assigned caseload
@@ -84,7 +89,13 @@ type UserRole = 'student' | 'admin' | 'program_holder' | 'delegate' | 'instructo
 ### 2. Funding Type Tracking
 
 ```typescript
-type FundingType = 'wrg' | 'wioa' | 'jri' | 'employindy' | 'self_pay' | 'employer_sponsored';
+type FundingType =
+  | 'wrg'
+  | 'wioa'
+  | 'jri'
+  | 'employindy'
+  | 'self_pay'
+  | 'employer_sponsored';
 
 // Stored in enrollments table
 // Used for reporting and compliance
@@ -93,7 +104,11 @@ type FundingType = 'wrg' | 'wioa' | 'jri' | 'employindy' | 'self_pay' | 'employe
 ### 3. Attendance Tracking
 
 ```typescript
-type AttendanceType = 'login' | 'lesson_complete' | 'quiz_attempt' | 'live_session';
+type AttendanceType =
+  | 'login'
+  | 'lesson_complete'
+  | 'quiz_attempt'
+  | 'live_session';
 
 // Every student action logged
 // Aggregated weekly in contact_hours table
@@ -103,7 +118,12 @@ type AttendanceType = 'login' | 'lesson_complete' | 'quiz_attempt' | 'live_sessi
 ### 4. MOU Workflow
 
 ```typescript
-type MouStatus = 'not_sent' | 'pending' | 'sent' | 'signed_by_holder' | 'fully_executed';
+type MouStatus =
+  | 'not_sent'
+  | 'pending'
+  | 'sent'
+  | 'signed_by_holder'
+  | 'fully_executed';
 
 // Two-step signing process
 // Stores both signatures
@@ -115,7 +135,7 @@ type MouStatus = 'not_sent' | 'pending' | 'sent' | 'signed_by_holder' | 'fully_e
 ### Get Student's Active Enrollments
 
 ```sql
-SELECT 
+SELECT
   e.*,
   p.name as program_name,
   p.total_hours,
@@ -131,7 +151,7 @@ GROUP BY e.id, p.id;
 ### Get Delegate's Caseload
 
 ```sql
-SELECT 
+SELECT
   e.*,
   s.first_name || ' ' || s.last_name as student_name,
   p.name as program_name,
@@ -139,7 +159,7 @@ SELECT
 FROM enrollments e
 JOIN students s ON e.student_id = s.id
 JOIN programs p ON e.program_id = p.id
-LEFT JOIN contact_hours ch ON ch.enrollment_id = e.id 
+LEFT JOIN contact_hours ch ON ch.enrollment_id = e.id
   AND ch.week_start_date = date_trunc('week', CURRENT_DATE)
 WHERE e.delegate_id = 'delegate-uuid'
   AND e.status IN ('active', 'pending')
@@ -149,12 +169,12 @@ ORDER BY s.last_name;
 ### Get Program Holder's Students
 
 ```sql
-SELECT 
+SELECT
   e.*,
   s.first_name || ' ' || s.last_name as student_name,
   p.name as program_name,
   e.funding_type,
-  CASE 
+  CASE
     WHEN e.completed_at IS NOT NULL THEN 'Completed'
     WHEN e.started_at IS NOT NULL THEN 'In Progress'
     ELSE 'Not Started'
@@ -169,7 +189,7 @@ ORDER BY e.enrolled_at DESC;
 ### Weekly Attendance Report
 
 ```sql
-SELECT 
+SELECT
   s.first_name || ' ' || s.last_name as student_name,
   p.name as program_name,
   ch.week_start_date,
@@ -187,7 +207,7 @@ ORDER BY ch.week_start_date DESC, s.last_name;
 ### Certificate Verification
 
 ```sql
-SELECT 
+SELECT
   c.*,
   s.first_name || ' ' || s.last_name as student_name,
   p.name as program_name,
@@ -202,6 +222,7 @@ WHERE c.verification_code = 'ABC123XYZ456'
 ## Indexes
 
 All critical queries are indexed:
+
 - User lookups by email and role
 - Enrollment lookups by student, program, delegate
 - Attendance logs by student and date
@@ -239,5 +260,6 @@ import type { Student, Enrollment, Certificate } from '@/types/database';
 ## Support
 
 For questions about this schema, see:
+
 - Supabase docs: https://supabase.com/docs
 - PostgreSQL docs: https://www.postgresql.org/docs/

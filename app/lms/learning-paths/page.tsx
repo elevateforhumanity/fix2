@@ -2,17 +2,23 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import LMSNav from '@/components/lms/LMSNav';
-import { 
+import {
   BookOpen,
   Award,
   Clock,
   CheckCircle,
   Lock,
-  TrendingUp
+  TrendingUp,
 } from 'lucide-react';
 
 // Mock learning paths data
@@ -20,9 +26,15 @@ const learningPaths = [
   {
     id: 1,
     title: 'Healthcare Professional Track',
-    description: 'Complete pathway to becoming a certified healthcare professional',
+    description:
+      'Complete pathway to becoming a certified healthcare professional',
     courses: [
-      { id: 2, title: 'CNA Certification Prep', status: 'in-progress', progress: 65 },
+      {
+        id: 2,
+        title: 'CNA Certification Prep',
+        status: 'in-progress',
+        progress: 65,
+      },
       { id: 4, title: 'Medical Terminology', status: 'locked', progress: 0 },
       { id: 5, title: 'Patient Care Advanced', status: 'locked', progress: 0 },
     ],
@@ -37,7 +49,12 @@ const learningPaths = [
     title: 'Skilled Trades Mastery',
     description: 'Master essential skills for a career in skilled trades',
     courses: [
-      { id: 3, title: 'HVAC Technician Training', status: 'in-progress', progress: 23 },
+      {
+        id: 3,
+        title: 'HVAC Technician Training',
+        status: 'in-progress',
+        progress: 23,
+      },
       { id: 6, title: 'Electrical Basics', status: 'locked', progress: 0 },
       { id: 7, title: 'Plumbing Fundamentals', status: 'locked', progress: 0 },
       { id: 8, title: 'Building Maintenance', status: 'locked', progress: 0 },
@@ -53,8 +70,18 @@ const learningPaths = [
     title: 'Beauty & Wellness Professional',
     description: 'Complete training for beauty and wellness careers',
     courses: [
-      { id: 1, title: 'Barber Fundamentals', status: 'completed', progress: 100 },
-      { id: 9, title: 'Advanced Styling Techniques', status: 'available', progress: 0 },
+      {
+        id: 1,
+        title: 'Barber Fundamentals',
+        status: 'completed',
+        progress: 100,
+      },
+      {
+        id: 9,
+        title: 'Advanced Styling Techniques',
+        status: 'available',
+        progress: 0,
+      },
       { id: 10, title: 'Salon Management', status: 'locked', progress: 0 },
     ],
     totalCourses: 3,
@@ -68,8 +95,18 @@ const learningPaths = [
     title: 'Business & Entrepreneurship',
     description: 'Build skills to start and grow your own business',
     courses: [
-      { id: 11, title: 'Small Business Basics', status: 'available', progress: 0 },
-      { id: 12, title: 'Marketing Fundamentals', status: 'locked', progress: 0 },
+      {
+        id: 11,
+        title: 'Small Business Basics',
+        status: 'available',
+        progress: 0,
+      },
+      {
+        id: 12,
+        title: 'Marketing Fundamentals',
+        status: 'locked',
+        progress: 0,
+      },
       { id: 13, title: 'Financial Management', status: 'locked', progress: 0 },
     ],
     totalCourses: 3,
@@ -111,13 +148,12 @@ const getStatusIcon = (status: string) => {
 };
 
 export default function LearningPathsPage() {
-  const enrolledPaths = learningPaths.filter(p => p.enrolled);
-  const availablePaths = learningPaths.filter(p => !p.enrolled);
+  const enrolledPaths = learningPaths.filter((p) => p.enrolled);
+  const availablePaths = learningPaths.filter((p) => !p.enrolled);
 
   return (
     <div className="min-h-screen bg-background">
       <LMSNav />
-
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -126,12 +162,13 @@ export default function LearningPathsPage() {
             Follow structured learning journeys to achieve your career goals
           </p>
         </div>
-
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-3 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Enrolled Paths</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Enrolled Paths
+              </CardTitle>
               <BookOpen className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -141,38 +178,35 @@ export default function LearningPathsPage() {
               </p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Completed Courses</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Completed Courses
+              </CardTitle>
               <CheckCircle className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {enrolledPaths.reduce((sum, p) => sum + p.completedCourses, 0)}
               </div>
-              <p className="text-xs text-muted-foreground">
-                Across all paths
-              </p>
+              <p className="text-xs text-muted-foreground">Across all paths</p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Certificates Available</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Certificates Available
+              </CardTitle>
               <Award className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {enrolledPaths.filter(p => p.certificate).length}
+                {enrolledPaths.filter((p) => p.certificate).length}
               </div>
-              <p className="text-xs text-muted-foreground">
-                Upon completion
-              </p>
+              <p className="text-xs text-muted-foreground">Upon completion</p>
             </CardContent>
           </Card>
         </div>
-
         {/* Enrolled Paths */}
         {enrolledPaths.length > 0 && (
           <section className="mb-12">
@@ -184,14 +218,22 @@ export default function LearningPathsPage() {
                 );
 
                 return (
-                  <Card key={path.id} className="hover:shadow-lg transition-shadow">
+                  <Card
+                    key={path.id}
+                    className="hover:shadow-lg transition-shadow"
+                  >
                     <CardHeader>
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <CardTitle className="text-xl">{path.title}</CardTitle>
+                            <CardTitle className="text-xl">
+                              {path.title}
+                            </CardTitle>
                             {path.certificate && (
-                              <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
+                              <Badge
+                                variant="outline"
+                                className="bg-yellow-50 text-yellow-700 border-yellow-200"
+                              >
                                 <Award className="h-3 w-3 mr-1" />
                                 Certificate
                               </Badge>
@@ -210,14 +252,16 @@ export default function LearningPathsPage() {
                       {/* Overall Progress */}
                       <div>
                         <div className="flex justify-between text-sm mb-2">
-                          <span className="text-muted-foreground">Overall Progress</span>
+                          <span className="text-muted-foreground">
+                            Overall Progress
+                          </span>
                           <span className="font-medium">
-                            {path.completedCourses}/{path.totalCourses} courses completed
+                            {path.completedCourses}/{path.totalCourses} courses
+                            completed
                           </span>
                         </div>
                         <Progress value={overallProgress} className="h-3" />
                       </div>
-
                       {/* Course List */}
                       <div className="space-y-3">
                         {path.courses.map((course, index) => (
@@ -237,7 +281,10 @@ export default function LearningPathsPage() {
                               </div>
                               {course.status === 'in-progress' && (
                                 <div className="mt-2">
-                                  <Progress value={course.progress} className="h-1.5" />
+                                  <Progress
+                                    value={course.progress}
+                                    className="h-1.5"
+                                  />
                                   <p className="text-xs text-muted-foreground mt-1">
                                     {course.progress}% complete
                                   </p>
@@ -246,19 +293,24 @@ export default function LearningPathsPage() {
                             </div>
                             {course.status !== 'locked' && (
                               <Button
-                                variant={course.status === 'completed' ? 'outline' : 'default'}
+                                variant={
+                                  course.status === 'completed'
+                                    ? 'outline'
+                                    : 'default'
+                                }
                                 size="sm"
                                 asChild
                               >
                                 <Link href={`/lms/courses/${course.id}`}>
-                                  {course.status === 'completed' ? 'Review' : 'Continue'}
+                                  {course.status === 'completed'
+                                    ? 'Review'
+                                    : 'Continue'}
                                 </Link>
                               </Button>
                             )}
                           </div>
                         ))}
                       </div>
-
                       {/* Path Info */}
                       <div className="flex items-center gap-6 text-sm text-muted-foreground pt-4 border-t">
                         <span className="flex items-center gap-1">
@@ -283,19 +335,24 @@ export default function LearningPathsPage() {
             </div>
           </section>
         )}
-
         {/* Available Paths */}
         {availablePaths.length > 0 && (
           <section>
             <h2 className="text-2xl font-bold mb-6">Explore More Paths</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {availablePaths.map((path) => (
-                <Card key={path.id} className="hover:shadow-lg transition-shadow">
+                <Card
+                  key={path.id}
+                  className="hover:shadow-lg transition-shadow"
+                >
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
                       <CardTitle className="text-lg">{path.title}</CardTitle>
                       {path.certificate && (
-                        <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
+                        <Badge
+                          variant="outline"
+                          className="bg-yellow-50 text-yellow-700 border-yellow-200"
+                        >
                           <Award className="h-3 w-3 mr-1" />
                           Certificate
                         </Badge>
@@ -314,7 +371,6 @@ export default function LearningPathsPage() {
                         ))}
                       </ul>
                     </div>
-
                     <div className="flex items-center gap-6 text-sm text-muted-foreground pt-4 border-t">
                       <span className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
@@ -325,7 +381,6 @@ export default function LearningPathsPage() {
                         {path.totalCourses} courses
                       </span>
                     </div>
-
                     <Button className="w-full" asChild>
                       <Link href={`/lms/learning-paths/${path.id}`}>
                         View Details

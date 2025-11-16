@@ -24,6 +24,7 @@ Everything here was built to feel simple, supportive, and job-focused."
 
 **Duration:** 45-60 seconds  
 **Key Pages to Show:**
+
 - `/lms/dashboard`
 - `/lms/courses`
 - `/lms/progress`
@@ -50,6 +51,7 @@ Most LMS systems focus on course content. We focus on education + workforce comp
 
 **Duration:** 30-40 seconds  
 **Key Pages to Show:**
+
 - `/lms/enroll-workforce`
 - Form fields and document upload
 - Program selection
@@ -73,6 +75,7 @@ Our credential system also supports revocations, replacements, and compliance tr
 
 **Duration:** 30-40 seconds  
 **Key Pages to Show:**
+
 - `/lms/certificates` - Student view
 - `/cert/verify/SAMPLE123` - Public verification
 - QR code scanning demo
@@ -97,6 +100,7 @@ They also have access to revenue-share details and training documentation."
 
 **Duration:** 30-40 seconds  
 **Key Pages to Show:**
+
 - `/program-holder/dashboard`
 - Participant list
 - Revenue share section
@@ -121,6 +125,7 @@ This keeps every partner compliant before onboarding their students."
 
 **Duration:** 30-40 seconds  
 **Key Pages to Show:**
+
 - `/program-holder/mou`
 - MOU text
 - Signature pad
@@ -144,6 +149,7 @@ This portal is critical for WRG, WIOA, JRI, and EmployIndy partnerships — beca
 
 **Duration:** 30-40 seconds  
 **Key Pages to Show:**
+
 - `/delegate/reports`
 - Caseload view
 - Status indicators (On Track / At Risk / Not Engaged)
@@ -172,6 +178,7 @@ This is something most LMS systems do not support — a true multi-layer workfor
 
 **Duration:** 45-60 seconds  
 **Key Pages to Show:**
+
 - `/admin/program-holders`
 - `/admin/applications`
 - `/admin/reports`
@@ -194,6 +201,7 @@ This makes the entire platform trustworthy and transparent, especially for workf
 
 **Duration:** 20-30 seconds  
 **Key Pages to Show:**
+
 - `/enroll/sample-program`
 - `/cert/verify/SAMPLE123`
 
@@ -221,23 +229,27 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ## 🎬 Recording Tips
 
 ### Equipment
+
 - **Camera:** Phone camera (1080p minimum)
 - **Mic:** Phone mic or lapel mic
 - **Screen Recording:** OBS Studio, Loom, or built-in screen recorder
 
 ### Setup
+
 1. **Clean your screen** - Close unnecessary tabs
 2. **Zoom to 125%** - Makes text more readable
 3. **Slow mouse movements** - Easier to follow
 4. **Pause between sections** - Easier to edit
 
 ### Delivery
+
 - **Speak slowly** - 20% slower than normal conversation
 - **Smile** - It comes through in your voice
 - **Pause for emphasis** - After key points
 - **Re-record if needed** - Don't settle for "good enough"
 
 ### Editing
+
 - **Add captions** - 85% of videos watched without sound
 - **Add arrows/highlights** - Point to key features
 - **Add music** - Subtle background track
@@ -248,6 +260,7 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ## 📱 Social Media Versions
 
 ### 30-Second Clips (TikTok/Instagram Reels)
+
 1. Student Portal Overview (30s)
 2. Workforce Enrollment (30s)
 3. Certificate Verification (30s)
@@ -258,6 +271,7 @@ If you're training people for careers — not just clicks — Elevate is the pla
 8. Elevator Pitch (30s)
 
 ### 60-Second Clips (YouTube Shorts/LinkedIn)
+
 1. Student + Workforce Enrollment (60s)
 2. Certificates + Verification (60s)
 3. Program Holder + MOU (60s)
@@ -265,6 +279,7 @@ If you're training people for careers — not just clicks — Elevate is the pla
 5. Full Platform Overview (60s)
 
 ### 3-5 Minute Full Tour (YouTube/Website)
+
 - Combine all sections
 - Add intro and outro
 - Include call-to-action
@@ -275,15 +290,19 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ## 🎯 Call-to-Action Options
 
 **For Website:**
+
 > "Ready to see Elevate in action? Schedule a demo at elevateconnectsdirectory.org"
 
 **For Social Media:**
+
 > "Link in bio to learn more 👆"
 
 **For Sales:**
+
 > "Contact us at elevateforhumanity@gmail.com to get started"
 
 **For Investors:**
+
 > "Building the future of workforce training. Let's talk."
 
 ---
@@ -291,12 +310,14 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ## 📊 Video Performance Tracking
 
 ### Metrics to Watch
+
 - **View duration** - Are people watching to the end?
 - **Click-through rate** - Are they visiting your site?
 - **Engagement** - Likes, comments, shares
 - **Conversion** - Demo requests, signups
 
 ### A/B Testing Ideas
+
 - Different opening hooks
 - Various background music
 - With/without captions
@@ -308,18 +329,21 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ## 🚀 Distribution Strategy
 
 ### Week 1: Launch
+
 - Post full tour on YouTube
 - Share on LinkedIn
 - Email to partners
 - Add to website
 
 ### Week 2-4: Social Media Blitz
+
 - Post one 30s clip per day
 - Rotate platforms (TikTok, IG, LinkedIn)
 - Engage with comments
 - Track performance
 
 ### Ongoing
+
 - Update quarterly with new features
 - Create case study videos
 - Interview successful learners
@@ -328,6 +352,7 @@ If you're training people for careers — not just clicks — Elevate is the pla
 ---
 
 **Next Steps:**
+
 1. Record all sections
 2. Edit into multiple formats
 3. Create thumbnails

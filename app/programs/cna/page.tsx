@@ -1,10 +1,17 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 export const metadata = {
   title: 'CNA Certification | Elevate for Humanity',
-  description: 'Certified Nursing Assistant training program with clinical experience and state certification.',
+  description:
+    'Certified Nursing Assistant training program with clinical experience and state certification.',
 };
 
 export default function CNAProgramPage() {
@@ -15,13 +22,15 @@ export default function CNAProgramPage() {
           <p className="text-sm text-muted-foreground uppercase tracking-wide">
             Healthcare Career Training
           </p>
-          <h1 className="text-4xl font-bold">Certified Nursing Assistant (CNA)</h1>
+          <h1 className="text-4xl font-bold">
+            Certified Nursing Assistant (CNA)
+          </h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            Start your healthcare career with CNA certification. Gain the skills and credentials 
-            needed to provide essential patient care in hospitals, nursing homes, and home health settings.
+            Start your healthcare career with CNA certification. Gain the skills
+            and credentials needed to provide essential patient care in
+            hospitals, nursing homes, and home health settings.
           </p>
         </header>
-
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-6">
             <Card>
@@ -31,7 +40,9 @@ export default function CNAProgramPage() {
               <CardContent>
                 <ul className="space-y-2 list-disc list-inside">
                   <li>State-approved CNA training program</li>
-                  <li>75+ hours of classroom instruction and clinical practice</li>
+                  <li>
+                    75+ hours of classroom instruction and clinical practice
+                  </li>
                   <li>Hands-on experience in real healthcare settings</li>
                   <li>Preparation for state certification exam</li>
                   <li>Job placement assistance upon completion</li>
@@ -39,7 +50,6 @@ export default function CNAProgramPage() {
                 </ul>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Skills You'll Develop</CardTitle>
@@ -69,7 +79,6 @@ export default function CNAProgramPage() {
                 </div>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Training Pathway</CardTitle>
@@ -85,7 +94,6 @@ export default function CNAProgramPage() {
               </CardContent>
             </Card>
           </div>
-
           <aside className="space-y-6">
             <Card>
               <CardHeader>
@@ -94,28 +102,36 @@ export default function CNAProgramPage() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold mb-2">Duration</h4>
-                  <p className="text-sm text-muted-foreground">4-6 weeks (75+ hours)</p>
+                  <p className="text-sm text-muted-foreground">
+                    4-6 weeks (75+ hours)
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Schedule</h4>
-                  <p className="text-sm text-muted-foreground">Day and evening classes available</p>
+                  <p className="text-sm text-muted-foreground">
+                    Day and evening classes available
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Requirements</h4>
-                  <p className="text-sm text-muted-foreground">High school diploma/GED, background check</p>
+                  <p className="text-sm text-muted-foreground">
+                    High school diploma/GED, background check
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Funding</h4>
-                  <p className="text-sm text-muted-foreground">Workforce grants and payment plans available</p>
+                  <p className="text-sm text-muted-foreground">
+                    Workforce grants and payment plans available
+                  </p>
                 </div>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Begin Your Healthcare Career</CardTitle>
                 <CardDescription>
-                  High demand, stable employment, and opportunities for advancement.
+                  High demand, stable employment, and opportunities for
+                  advancement.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">

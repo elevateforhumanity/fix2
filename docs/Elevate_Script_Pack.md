@@ -153,6 +153,7 @@ Just enter the serial number on the certificate."
 ### Reporting
 
 "Use the 'Reports' section to see:
+
 - Completion rates
 - Partner performance
 - Active vs. inactive students
@@ -182,6 +183,7 @@ If you'd like, I can text or email you the link right now."
 ### If they're unsure which program
 
 "We offer multiple pathways:
+
 - CNA
 - Barber Apprenticeship
 - HVAC
@@ -225,6 +227,7 @@ You can log into your Student Dashboard anytime here:
 https://www.elevateconnectsdirectory.org/lms/dashboard
 
 ### Next Steps
+
 1. Complete your online orientation.
 2. Upload your ID for verification.
 3. Watch for your training provider assignment.
@@ -236,7 +239,7 @@ If you have any questions, call or text us at **317-314-3757**.
 
 With gratitude,  
 Elevate for Humanity  
-https://www.elevateconnectsdirectory.org  
+https://www.elevateconnectsdirectory.org
 
 ---
 
@@ -247,11 +250,13 @@ https://www.elevateconnectsdirectory.org
 You are taking an important step toward a new chapter in your life. This orientation will walk you through how your training works, what's expected of you, and what support you have along the way.
 
 Our programs are designed to be:
+
 - Credentialed and recognized statewide
 - Focused on real-world skills
 - Connected to employers and workforce partners
 
 Inside your Student Dashboard, you'll see:
+
 - Your program details
 - Messages from staff
 - Required tasks and lessons
@@ -266,6 +271,7 @@ Take your time, ask questions, and don't be afraid to ask for support. We are he
 "Congratulations on completing your program with Elevate for Humanity!
 
 You are now eligible to receive your official certificate. Your certificate includes:
+
 - Your name
 - The program you completed
 - Your completion date
@@ -283,6 +289,7 @@ Share your certificate with employers, apprenticeship sponsors, and licensing ag
 ### Login Issues
 
 "If you can't log in, try:
+
 1. Resetting your password.
 2. Logging in with the phone number you used to sign up.
 3. Using a different browser or device."
@@ -290,6 +297,7 @@ Share your certificate with employers, apprenticeship sponsors, and licensing ag
 ### Blank Dashboard
 
 "If your dashboard looks blank, try:
+
 1. Logging out.
 2. Refreshing the page.
 3. Logging back in.
@@ -299,6 +307,7 @@ If it still looks blank, contact support."
 ### Certificate Not Showing
 
 "If you don't see your certificate:
+
 1. Confirm all program requirements show as completed.
 2. Check if your provider has marked you 'Completed.'
 3. Wait up to 24 hours for admin review.
@@ -327,10 +336,10 @@ Every share brings someone closer to FREE credentialed training in CNA, HVAC, Bu
 If you believe in second chances, fresh starts, and real opportunities:
 
 👉 Share this post  
-👉 Tag someone who needs this  
+👉 Tag someone who needs this
 
 📞 Call or Text: **317-314-3757**  
-🌐 Enroll: https://www.elevateconnectsdirectory.org  
+🌐 Enroll: https://www.elevateconnectsdirectory.org
 
 #ElevateYourFuture #ElevateForHumanity #FreeCredentialedTraining #LevelUpWithElevate"
 
@@ -359,6 +368,7 @@ If you believe in second chances, fresh starts, and real opportunities:
 ## 14. Quick Link Directory (For Reference)
 
 ### Students
+
 - **Homepage**: https://www.elevateconnectsdirectory.org
 - **HVAC Program**: https://www.elevateconnectsdirectory.org/programs/hvac
 - **Barber Program**: https://www.elevateconnectsdirectory.org/programs/barber
@@ -366,20 +376,24 @@ If you believe in second chances, fresh starts, and real opportunities:
 - **Student Portal**: https://www.elevateconnectsdirectory.org/lms/dashboard
 
 ### Partners
+
 - **Apply as Partner**: https://www.elevateconnectsdirectory.org/program-holder/apply
 - **Partner Dashboard**: https://www.elevateconnectsdirectory.org/program-holder/dashboard
 - **Delegate Portal**: https://www.elevateconnectsdirectory.org/delegate/dashboard
 
 ### Admins
+
 - **Admin Dashboard**: https://www.elevateconnectsdirectory.org/admin/dashboard
 - **Issue Certificates**: https://www.elevateconnectsdirectory.org/admin/certificates/issue
 - **View Reports**: https://www.elevateconnectsdirectory.org/admin/reports
 
 ### Public
+
 - **Verify Certificate**: https://www.elevateconnectsdirectory.org/cert/verify/[serial]
 - **Contact**: https://www.elevateconnectsdirectory.org/contact
 
 ### Support
+
 - **Phone**: 317-314-3757
 - **Text**: 317-314-3757
 - **Email**: support@elevateconnectsdirectory.org
@@ -468,4 +482,4 @@ Thank you!"
 
 ---
 
-*This document is maintained by the Elevate for Humanity team and auto-generated in Gitpod environments.*
+_This document is maintained by the Elevate for Humanity team and auto-generated in Gitpod environments._

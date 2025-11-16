@@ -3,6 +3,7 @@
 ## Overview
 
 Successfully migrated from single-step to two-step MOU signing workflow where:
+
 1. Program holder signs the MOU with digital signature
 2. Admin countersigns the MOU
 3. System generates final PDF with both signatures
@@ -12,6 +13,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ### Migration: `20240114_mou_two_step_signing.sql`
 
 **New Fields in `program_holders` table:**
+
 - `mou_holder_signed_at` - Timestamp when program holder signed
 - `mou_holder_name` - Full name of program holder signatory
 - `mou_holder_sig_url` - Storage path to holder's signature PNG
@@ -21,21 +23,25 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 - `mou_final_pdf_url` - Storage path to final signed PDF
 
 **Removed Fields:**
+
 - `signed_mou_url` (replaced by `mou_final_pdf_url`)
 
 **MOU Status Values:**
+
 - `not_sent` - MOU not yet sent to program holder
 - `pending` - MOU sent, awaiting holder signature
 - `signed_by_holder` - Holder signed, awaiting admin countersignature
 - `fully_executed` - Both parties signed, final PDF generated
 
 **Storage Bucket:**
+
 - Created `agreements` bucket for signatures and final PDFs
 - RLS policies for program holders and admins
 
 ## Dependencies
 
 **Added:**
+
 - `react-signature-canvas` - Signature pad component
 - `@types/react-signature-canvas` - TypeScript types
 
@@ -44,6 +50,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ### Pages
 
 **`/app/program-holder/mou/page.tsx`**
+
 - Displays full MOU text in scrollable container
 - Shows organization name and revenue share percentage
 - Signature pad for drawing signature
@@ -54,10 +61,12 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ### API Endpoints
 
 **`/api/program-holder/me`** (GET)
+
 - Returns current program holder info including MOU status
 - Used by MOU signing page to load data
 
 **`/api/program-holder/mou/sign`** (POST)
+
 - Accepts: `{ name, signatureDataUrl }`
 - Decodes base64 signature image
 - Uploads PNG to `agreements/program_holders/{id}/holder_signature.png`
@@ -65,6 +74,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 - Sets `mou_status` to `signed_by_holder`
 
 **`/api/program-holder/mou/download`** (GET)
+
 - Downloads final signed PDF (only available after fully executed)
 - Returns PDF with proper filename
 
@@ -73,6 +83,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ### Pages
 
 **`/admin/program-holders/[id]/countersign-mou/page.tsx`**
+
 - Shows program holder's signature and details
 - Displays MOU summary
 - Signature pad for admin to countersign
@@ -80,6 +91,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 - Automatically generates final PDF after countersigning
 
 **`/admin/program-holders/page.tsx`** (Updated)
+
 - Shows MOU status badges with new workflow states
 - "Countersign MOU" button for `signed_by_holder` status
 - "Download Final MOU" button for `fully_executed` status
@@ -88,16 +100,19 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ### API Endpoints
 
 **`/api/admin/program-holders/[id]`** (GET)
+
 - Returns single program holder with all MOU fields
 - Used by countersigning page
 
 **`/api/admin/program-holders/mou/countersign`** (POST)
+
 - Accepts: `{ programHolderId, name, signatureDataUrl }`
 - Uploads admin signature PNG to storage
 - Updates program_holders table with admin signature info
 - Sets `mou_status` to `fully_executed`
 
 **`/api/admin/program-holders/mou/generate-pdf`** (POST)
+
 - Accepts: `{ programHolderId }`
 - Downloads both signature images from storage
 - Generates PDF with MOU text using pdf-lib
@@ -106,6 +121,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 - Updates `mou_final_pdf_url` in database
 
 **`/api/admin/storage/signature`** (GET)
+
 - Downloads signature images from storage
 - Used by countersigning page to display holder's signature
 - Query param: `?path={storage_path}`
@@ -113,6 +129,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ## Updated Components
 
 **`/app/program-holder/dashboard/page.tsx`**
+
 - Updated to show different states:
   - `signed_by_holder` - Orange badge, awaiting countersignature message
   - `fully_executed` - Green badge, download link to final PDF
@@ -121,6 +138,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 ## Workflow Summary
 
 ### Program Holder Side:
+
 1. Navigate to `/program-holder/mou`
 2. Read MOU agreement text
 3. Enter full legal name
@@ -130,6 +148,7 @@ Successfully migrated from single-step to two-step MOU signing workflow where:
 7. Wait for admin countersignature
 
 ### Admin Side:
+
 1. View program holders list at `/admin/program-holders`
 2. See "Countersign MOU" button for holders with `signed_by_holder` status
 3. Click button to navigate to `/admin/program-holders/{id}/countersign-mou`

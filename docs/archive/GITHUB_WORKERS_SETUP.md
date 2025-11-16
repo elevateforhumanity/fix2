@@ -3,6 +3,7 @@
 ## Overview
 
 Automated video generation system with:
+
 - ✅ GitHub Actions for CI/CD
 - ✅ Cloudflare Workers for serverless processing
 - ✅ Automatic media downloads
@@ -18,6 +19,7 @@ Automated video generation system with:
 Go to your repository → Settings → Secrets and variables → Actions
 
 **Required Secrets:**
+
 ```
 OPENAI_API_KEY=sk-your-openai-key
 CLOUDFLARE_ACCOUNT_ID=your-account-id
@@ -25,6 +27,7 @@ CLOUDFLARE_STREAM_API_TOKEN=your-stream-token
 ```
 
 **How to add:**
+
 1. Click "New repository secret"
 2. Name: `OPENAI_API_KEY`
 3. Value: Your OpenAI API key
@@ -34,12 +37,15 @@ CLOUDFLARE_STREAM_API_TOKEN=your-stream-token
 ### 2. GitHub Workflows Created
 
 #### **Video Generation Workflow** (`.github/workflows/video-generation.yml`)
+
 **Triggers:**
+
 - Manual: Click "Run workflow" in Actions tab
 - Schedule: Weekly on Sundays at 2 AM UTC
 - Push: When templates are updated
 
 **What it does:**
+
 1. Downloads stock media
 2. Generates videos from all templates
 3. Uploads to Cloudflare Stream
@@ -47,6 +53,7 @@ CLOUDFLARE_STREAM_API_TOKEN=your-stream-token
 5. Stores artifacts for 30 days
 
 **Run manually:**
+
 1. Go to Actions tab
 2. Select "Video Generation Worker"
 3. Click "Run workflow"
@@ -55,23 +62,29 @@ CLOUDFLARE_STREAM_API_TOKEN=your-stream-token
    - Template ID: (optional, specific template)
 
 #### **Download Media Workflow** (`.github/workflows/download-media.yml`)
+
 **Triggers:**
+
 - Manual: Click "Run workflow"
 - Schedule: Monthly on the 1st at 3 AM UTC
 
 **What it does:**
+
 1. Downloads all stock images and videos
 2. Commits to repository
 3. Updates local media paths
 4. Stores artifacts for 90 days
 
 #### **Test Video System Workflow** (`.github/workflows/test-video-system.yml`)
+
 **Triggers:**
+
 - Push to main/develop
 - Pull requests
 - Manual
 
 **What it does:**
+
 1. Runs TypeScript checks
 2. Runs linter
 3. Builds project
@@ -206,6 +219,7 @@ curl https://your-worker-url/api/video/jobs?userId=USER_ID
 ### Automatic Video Generation
 
 **When templates are updated:**
+
 1. Push changes to `src/data/video-templates.ts`
 2. GitHub Action automatically triggers
 3. Downloads latest stock media
@@ -214,6 +228,7 @@ curl https://your-worker-url/api/video/jobs?userId=USER_ID
 6. Creates release with videos
 
 **Weekly scheduled generation:**
+
 1. Every Sunday at 2 AM UTC
 2. Regenerates all template videos
 3. Ensures fresh content
@@ -222,6 +237,7 @@ curl https://your-worker-url/api/video/jobs?userId=USER_ID
 ### Manual Triggers
 
 **Generate specific template:**
+
 ```bash
 # Via GitHub CLI
 gh workflow run video-generation.yml \
@@ -233,12 +249,14 @@ gh workflow run video-generation.yml \
 ```
 
 **Generate all templates:**
+
 ```bash
 gh workflow run video-generation.yml \
   -f generate_all=true
 ```
 
 **Download media only:**
+
 ```bash
 gh workflow run download-media.yml
 ```
@@ -279,17 +297,20 @@ wrangler kv:key get --binding=VIDEO_KV "job:JOB_ID"
 ## 💰 Cost Estimates
 
 ### GitHub Actions
+
 - **Free tier:** 2,000 minutes/month
 - **Video generation:** ~30-60 min/run
 - **Estimated:** 30-60 runs/month free
 
 ### Cloudflare Workers
+
 - **Free tier:** 100,000 requests/day
 - **KV:** 100,000 reads/day, 1,000 writes/day
 - **Queues:** 1,000,000 operations/month
 - **Estimated:** Free for most use cases
 
 ### Total Monthly Cost
+
 - **Small usage:** $0 (within free tiers)
 - **Medium usage:** $5-10 (OpenAI TTS)
 - **Large usage:** $20-50 (OpenAI + Cloudflare)
@@ -301,6 +322,7 @@ wrangler kv:key get --binding=VIDEO_KV "job:JOB_ID"
 ### Environment Variables
 
 **GitHub Actions:**
+
 ```yaml
 env:
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -310,6 +332,7 @@ env:
 ```
 
 **Cloudflare Worker:**
+
 ```toml
 [vars]
 ENVIRONMENT = "production"
@@ -319,18 +342,21 @@ STORAGE_TYPE = "cloudflare-stream"
 ### Cron Schedules
 
 **Video Generation (Weekly):**
+
 ```yaml
 schedule:
-  - cron: '0 2 * * 0'  # Sundays at 2 AM UTC
+  - cron: '0 2 * * 0' # Sundays at 2 AM UTC
 ```
 
 **Media Download (Monthly):**
+
 ```yaml
 schedule:
-  - cron: '0 3 1 * *'  # 1st of month at 3 AM UTC
+  - cron: '0 3 1 * *' # 1st of month at 3 AM UTC
 ```
 
 **Custom schedules:**
+
 ```
 '0 0 * * *'    # Daily at midnight
 '0 */6 * * *'  # Every 6 hours
@@ -345,16 +371,19 @@ schedule:
 ### GitHub Actions Fails
 
 **"OpenAI API key not configured"**
+
 - Check secrets are set correctly
 - Verify secret name matches workflow
 - Ensure no extra spaces in secret value
 
 **"FFmpeg not found"**
+
 - Already installed in workflow
 - Check Ubuntu version compatibility
 - Verify installation step runs
 
 **"Out of memory"**
+
 - Reduce video resolution in workflow
 - Generate fewer videos at once
 - Use GitHub's larger runners (paid)
@@ -362,16 +391,19 @@ schedule:
 ### Cloudflare Worker Issues
 
 **"KV namespace not found"**
+
 - Create KV namespace: `wrangler kv:namespace create VIDEO_KV`
 - Update ID in wrangler-video.toml
 - Redeploy worker
 
 **"Queue not found"**
+
 - Create queue: `wrangler queues create video-generation-queue`
 - Update wrangler-video.toml
 - Redeploy worker
 
 **"Secrets not set"**
+
 - Set secrets: `wrangler secret put SECRET_NAME`
 - Verify in Cloudflare dashboard
 - Redeploy worker
@@ -394,17 +426,20 @@ wrangler deployments list --config wrangler-video.toml
 ## 📚 Additional Resources
 
 ### GitHub Actions
+
 - [GitHub Actions Docs](https://docs.github.com/en/actions)
 - [Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - [GitHub CLI](https://cli.github.com/)
 
 ### Cloudflare Workers
+
 - [Workers Docs](https://developers.cloudflare.com/workers/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
 - [KV Storage](https://developers.cloudflare.com/workers/runtime-apis/kv/)
 - [Queues](https://developers.cloudflare.com/queues/)
 
 ### Video Generation
+
 - [OpenAI TTS](https://platform.openai.com/docs/guides/text-to-speech)
 - [Cloudflare Stream](https://developers.cloudflare.com/stream/)
 - [FFmpeg](https://ffmpeg.org/documentation.html)

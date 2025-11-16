@@ -12,7 +12,12 @@ interface EmailOptions {
 const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org';
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-export async function sendEmail({ to, subject, html, from = FROM_EMAIL }: EmailOptions) {
+export async function sendEmail({
+  to,
+  subject,
+  html,
+  from = FROM_EMAIL,
+}: EmailOptions) {
   // If no API key, log to console (development mode)
   if (!RESEND_API_KEY) {
     console.log('📧 Email (dev mode):', { to, subject, from });
@@ -24,7 +29,7 @@ export async function sendEmail({ to, subject, html, from = FROM_EMAIL }: EmailO
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        Authorization: `Bearer ${RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -127,7 +132,12 @@ export const emailTemplates = {
     </html>
   `,
 
-  inactivityReminder: (studentName: string, courseName: string, daysSinceLogin: number, loginUrl: string) => `
+  inactivityReminder: (
+    studentName: string,
+    courseName: string,
+    daysSinceLogin: number,
+    loginUrl: string
+  ) => `
     <!DOCTYPE html>
     <html>
     <head>
@@ -199,7 +209,12 @@ export const emailTemplates = {
     </html>
   `,
 
-  courseCompletion: (studentName: string, courseName: string, certificateUrl: string, dashboardUrl: string) => `
+  courseCompletion: (
+    studentName: string,
+    courseName: string,
+    certificateUrl: string,
+    dashboardUrl: string
+  ) => `
     <!DOCTYPE html>
     <html>
     <head>
@@ -282,7 +297,12 @@ export const emailTemplates = {
     </html>
   `,
 
-  certificateIssued: (studentName: string, courseName: string, certificateNumber: string, verificationUrl: string) => `
+  certificateIssued: (
+    studentName: string,
+    courseName: string,
+    certificateNumber: string,
+    verificationUrl: string
+  ) => `
     <!DOCTYPE html>
     <html>
     <head>
@@ -360,7 +380,13 @@ export const emailTemplates = {
     </html>
   `,
 
-  quizReminder: (studentName: string, courseName: string, quizTitle: string, dueDate: string, quizUrl: string) => `
+  quizReminder: (
+    studentName: string,
+    courseName: string,
+    quizTitle: string,
+    dueDate: string,
+    quizUrl: string
+  ) => `
     <!DOCTYPE html>
     <html>
     <head>
