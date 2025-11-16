@@ -3,6 +3,7 @@
 ## ✅ WHAT'S WORKING
 
 **www.elevateconnectsdirectory.org** (LMS Platform - this repository)
+
 - Status: ✅ FULLY WORKING
 - Hosted on: Netlify
 - SSL: ✅ Valid certificate
@@ -12,6 +13,7 @@
 ## ❌ WHAT'S NOT WORKING
 
 **www.elevateforhumanity.org** (Marketing Site - NOT this repository)
+
 - Status: ❌ SSL HANDSHAKE FAILURE
 - DNS: Points to Cloudflare (104.18.23.157, 104.18.22.157)
 - SSL: ❌ Certificate not configured
@@ -104,6 +106,7 @@ You need to:
 **The code deployment I just pushed did NOT break www.elevateforhumanity.org.**
 
 The deployment was for:
+
 - Repository: elevateforhumanity/fix2
 - Domain: www.elevateconnectsdirectory.org
 - Status: ✅ WORKING
@@ -113,6 +116,7 @@ The issue with www.elevateforhumanity.org is a **separate hosting/DNS configurat
 ## 📝 WHAT I DEPLOYED
 
 The commit I just pushed (d5445591) includes:
+
 - TikTok-style video features
 - Social media automation scripts
 - Deployment automation tools
@@ -134,6 +138,7 @@ NOT deployed to: **www.elevateforhumanity.org** (different site, different hosti
 ## 📞 NEED HELP?
 
 To fix this, you'll need access to:
+
 - DNS provider (where elevateforhumanity.org DNS is managed)
 - Cloudflare account (if using Cloudflare)
 - OR Durablesites.co account (if marketing site is there)
