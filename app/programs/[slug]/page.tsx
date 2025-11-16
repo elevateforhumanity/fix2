@@ -191,16 +191,15 @@ export default async function ProgramDetailPage({
               Elevate for Humanity · Elevate Connects Directory
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
-              {aiCourse ? aiCourse.title : program.title}
+              {program.title}
             </h1>
-            {(aiCourse || program.tagline) && (
+            {program.tagline && (
               <p className="text-xl font-semibold text-white/90 italic">
-                {aiCourse?.shortDescription || program.tagline}
+                {program.tagline}
               </p>
             )}
             <p className="max-w-xl text-sm sm:text-base text-white/90">
-              {aiCourse?.shortDescription || program.summary ||
-                'Explore program details, courses, and funding options.'}
+              {program.summary || 'Explore program details, courses, and funding options.'}
             </p>
             <div className="flex flex-wrap gap-2">
               {fundingTags.map((tag) => (

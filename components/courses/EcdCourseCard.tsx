@@ -3,22 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { EcdCourse } from "@/content/courses/ecdCatalog";
-
-// Import manifest dynamically to avoid build issues
-const getManifest = () => {
-  try {
-    return require("@/../public/generated-images/manifest.json");
-  } catch {
-    return {};
-  }
-};
+import manifest from "@/public/generated-images/manifest.json";
 
 type Props = {
   course: EcdCourse;
 };
 
 export function EcdCourseCard({ course }: Props) {
-  const manifest = getManifest();
   const coverSrc =
     (manifest as Record<string, string>)[course.coverImageKey] ??
     "/placeholder-course-cover.svg";
