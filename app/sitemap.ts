@@ -29,23 +29,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const supabase = createBuildTimeSupabaseClient();
 
-    // Get dynamic program pages
+    // Get dynamic program pages - use created_at instead of updated_at
     const { data: programs, error: programsError } = await supabase
       .from('programs')
-      .select('slug, updated_at')
+      .select('slug, created_at')
       .eq('status', 'active');
 
-    // Get dynamic course pages
-    const { data: courses, error: coursesError } = await supabase
-      .from('courses')
-      .select('id, updated_at')
-      .eq('published', true);
+    // Skip courses table if it doesn't exist
+    let courses = null;
 
-    if (programsError || coursesError) {
-      console.error('Sitemap generation error:', {
-        programsError,
-        coursesError,
-      });
+    if (programsError) {
+      console.error('Sitemap generation error:', { programsError });
       return staticSitemap;
     }
 
@@ -55,17 +49,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Program pages
       ...(programs || []).map((program) => ({
         url: `${baseUrl}/programs/${program.slug}`,
-        lastModified: new Date(program.updated_at),
+        lastModified: program.created_at ? new Date(program.created_at) : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
-      })),
-
-      // Course pages
-      ...(courses || []).map((course) => ({
-        url: `${baseUrl}/lms/courses/${course.id}`,
-        lastModified: new Date(course.updated_at),
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
       })),
     ];
 
