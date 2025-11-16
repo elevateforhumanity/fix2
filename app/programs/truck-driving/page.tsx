@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
+import { VideoShell } from '@/components/VideoShell';
 
 export const metadata = {
   title: 'CDL Truck Driving | Elevate for Humanity',
@@ -68,17 +69,12 @@ export default function TruckDrivingPage() {
               </div>
             </div>
             <div className="elevate-card bg-white">
-              <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-700 font-semibold">Program Video</p>
-                  <p className="text-gray-500 text-sm mt-2">Coming Soon</p>
-                </div>
-              </div>
+              <VideoShell
+                src="https://player.vimeo.com/video/273947191"
+                title="CDL Truck Driving Program"
+                caption="Professional truck driver training leading to Class A CDL"
+                layout="horizontal"
+              />
             </div>
           </div>
         </div>

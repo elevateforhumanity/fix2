@@ -102,29 +102,13 @@ export default function HomePage() {
                     
                     Replace this placeholder with actual video URL when ready.
                 */}
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-2 border-gray-300">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-efh-red/10 border-2 border-efh-red/20 flex items-center justify-center">
-                      <svg className="w-10 h-10 text-efh-red" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                    <p className="text-gray-900 text-sm font-semibold">Innovate. Elevate. Reset.</p>
-                    <p className="text-gray-600 text-xs mt-2">25 sec hero video</p>
-                    <p className="text-gray-500 text-xs mt-1">Video placeholder</p>
-                  </div>
-                </div>
-                {/* Uncomment when video is ready:
-                <video 
-                  className="w-full h-full object-cover"
-                  poster="/videos/hero-poster.jpg"
-                  controls
-                  preload="metadata"
-                >
-                  <source src="/videos/hero-innovate-elevate-reset.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                */}
+                <VideoShell
+                  src="https://player.vimeo.com/video/273947191"
+                  title="Innovate. Elevate. Reset."
+                  caption="A workforce & wellness ecosystem for real people"
+                  layout="horizontal"
+                  autoPlay={true}
+                />
               </div>
               
               {/* Floating Stats */}
@@ -563,29 +547,12 @@ export default function HomePage() {
                   
                   Replace this placeholder with actual video URL when ready.
               */}
-              <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p className="text-white text-lg font-semibold mb-2">Enroll. Learn. Elevate.</p>
-                  <p className="text-white/60 text-sm">18 sec student portal video</p>
-                  <p className="text-white/40 text-xs mt-2">Upload video to replace placeholder</p>
-                </div>
-              </div>
-              {/* Uncomment when video is ready:
-              <video 
-                className="w-full h-full object-cover"
-                poster="/videos/student-portal-poster.jpg"
-                controls
-                preload="metadata"
-              >
-                <source src="/videos/student-portal-enroll-learn-elevate.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              */}
+              <VideoShell
+                src="https://player.vimeo.com/video/115783408"
+                title="Your Student Portal"
+                caption="Enroll. Learn. Elevate."
+                layout="horizontal"
+              />
             </div>
           </div>
         </div>
@@ -619,29 +586,12 @@ export default function HomePage() {
                   
                   Replace this placeholder with actual video URL when ready.
               */}
-              <div className="aspect-video bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p className="text-white text-lg font-semibold mb-2">Build Boss-Energy Programs</p>
-                  <p className="text-white/60 text-sm">15 sec partner video</p>
-                  <p className="text-white/40 text-xs mt-2">Upload video to replace placeholder</p>
-                </div>
-              </div>
-              {/* Uncomment when video is ready:
-              <video 
-                className="w-full h-full object-cover"
-                poster="/videos/partner-poster.jpg"
-                controls
-                preload="metadata"
-              >
-                <source src="/videos/partner-boss-energy.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              */}
+              <VideoShell
+                src="https://player.vimeo.com/video/169599296"
+                title="Build Boss-Energy Programs"
+                caption="Partner with Elevate for Humanity"
+                layout="horizontal"
+              />
             </div>
           </div>
         </div>

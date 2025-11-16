@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
+import { VideoShell } from '@/components/VideoShell';
 
 export const metadata = {
   title: 'HVAC Technician | Elevate for Humanity',
@@ -68,17 +69,12 @@ export default function HVACTechPage() {
               </div>
             </div>
             <div className="elevate-card bg-white">
-              <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-700 font-semibold">Program Video</p>
-                  <p className="text-gray-500 text-sm mt-2">Coming Soon</p>
-                </div>
-              </div>
+              <VideoShell
+                src="https://player.vimeo.com/video/273947191"
+                title="HVAC Technician Program"
+                caption="Master heating, ventilation, and air conditioning systems"
+                layout="horizontal"
+              />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createServerSupabaseClient } from "@/lib/auth";
+import { VideoShell } from "@/components/VideoShell";
 
 type Program = {
   id: string;
@@ -117,18 +118,12 @@ export default async function ProgramDetailPage({
           </div>
 
           <div className="flex-1">
-            <div className="elevate-card relative aspect-video w-full overflow-hidden bg-white">
-              <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-gray-700">
-                <div>
-                  <p className="text-efh-orange font-semibold mb-2">
-                    Program Video Placeholder
-                  </p>
-                  <p className="text-xs">
-                    Add program-specific video here
-                  </p>
-                </div>
-              </div>
-            </div>
+            <VideoShell
+              src="https://player.vimeo.com/video/273947191"
+              title={`${program.title} Program Overview`}
+              caption="Learn about this workforce training program"
+              layout="horizontal"
+            />
           </div>
         </div>
       </section>
