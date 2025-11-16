@@ -11,6 +11,7 @@ import NotificationPrompt from '@/components/NotificationPrompt';
 import { VoiceAssistant } from '@/components/VoiceAssistant';
 import ChatAssistant from '@/components/ChatAssistant';
 
+// Cache bust: 2025-11-16-05:36
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description:
