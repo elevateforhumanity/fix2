@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { FormEvent, useState } from "react";
-import Link from "next/link";
+import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 
 type ChatMessage = {
-  role: "user" | "assistant";
+  role: 'user' | 'assistant';
   content: string;
 };
 
 export default function AIChatPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      role: "assistant",
+      role: 'assistant',
       content:
-        "Hey boss 👋 I'm your Elevate AI Helper. Ask me about programs, apprenticeships, WRG, JRI, WIOA, or anything you're building."
-    }
+        "Hey boss 👋 I'm your Elevate AI Helper. Ask me about programs, apprenticeships, WRG, JRI, WIOA, or anything you're building.",
+    },
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -24,41 +24,41 @@ export default function AIChatPage() {
     if (!input.trim() || loading) return;
 
     const newMessage: ChatMessage = {
-      role: "user",
-      content: input.trim()
+      role: 'user',
+      content: input.trim(),
     };
 
     const nextMessages = [...messages, newMessage];
     setMessages(nextMessages);
-    setInput("");
+    setInput('');
     setLoading(true);
 
     try {
-      const res = await fetch("/api/ai-chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages })
+      const res = await fetch('/api/ai-chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: nextMessages }),
       });
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || "Request failed");
+        throw new Error(err.error || 'Request failed');
       }
 
       const data = await res.json();
       const reply: ChatMessage = {
-        role: "assistant",
-        content: data.reply
+        role: 'assistant',
+        content: data.reply,
       };
-      setMessages(prev => [...prev, reply]);
+      setMessages((prev) => [...prev, reply]);
     } catch (error) {
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
         {
-          role: "assistant",
+          role: 'assistant',
           content:
-            "I hit an error talking to the AI engine. Check your API key, then try again."
-        }
+            'I hit an error talking to the AI engine. Check your API key, then try again.',
+        },
       ]);
     } finally {
       setLoading(false);
@@ -113,16 +113,16 @@ export default function AIChatPage() {
                 <div
                   key={i}
                   className={`flex ${
-                    m.role === "user" ? "justify-end" : "justify-start"
+                    m.role === 'user' ? 'justify-end' : 'justify-start'
                   }`}
                 >
                   <div
                     className={[
-                      "max-w-[80%] rounded-2xl px-3 py-2 shadow-sm",
-                      m.role === "user"
-                        ? "bg-gradient-to-br from-efh-orange to-efh-red text-white"
-                        : "bg-slate-100 text-slate-900"
-                    ].join(" ")}
+                      'max-w-[80%] rounded-2xl px-3 py-2 shadow-sm',
+                      m.role === 'user'
+                        ? 'bg-gradient-to-br from-efh-orange to-efh-red text-white'
+                        : 'bg-slate-100 text-slate-900',
+                    ].join(' ')}
                   >
                     {m.content}
                   </div>
@@ -145,7 +145,7 @@ export default function AIChatPage() {
                 <textarea
                   rows={1}
                   value={input}
-                  onChange={e => setInput(e.target.value)}
+                  onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your question about Elevate, WRG, JRI, WIOA, apprenticeships…"
                   className="flex-1 resize-none rounded-2xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-efh-orange/60 focus:border-transparent"
                   onKeyDown={(e) => {
@@ -160,7 +160,7 @@ export default function AIChatPage() {
                   disabled={loading || !input.trim()}
                   className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-efh-orange via-red-500 to-efh-red shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 transition-transform"
                 >
-                  {loading ? "Sending…" : "Send"}
+                  {loading ? 'Sending…' : 'Send'}
                 </button>
               </div>
             </form>
@@ -172,20 +172,24 @@ export default function AIChatPage() {
               Try asking me:
             </h2>
             <ul className="space-y-2 text-slate-600">
-              <li>• Draft a WRG / WIOA friendly program description for HVAC.</li>
+              <li>
+                • Draft a WRG / WIOA friendly program description for HVAC.
+              </li>
               <li>• Explain ETPL + JRI + apprenticeships like I'm a funder.</li>
               <li>• Rewrite this grant paragraph to sound more polished.</li>
-              <li>• What are the requirements for truck driving certification?</li>
+              <li>
+                • What are the requirements for truck driving certification?
+              </li>
               <li>• Help me write a student success story.</li>
             </ul>
             <div className="mt-2 rounded-2xl bg-gradient-to-br from-efh-orange/10 to-efh-red/10 p-3 text-[11px] text-slate-700">
               Pro tip: Paste in text from partner sites (WorkOne, EmployIndy,
               WRG, JRI) and ask me to "translate" it into Elevate language.
             </div>
-            
+
             <div className="mt-auto pt-4 border-t border-slate-200">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="block text-center px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-sm font-medium text-slate-700 transition-colors"
               >
                 ← Back to Home

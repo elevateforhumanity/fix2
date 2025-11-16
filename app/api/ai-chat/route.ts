@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
-const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
+const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
     if (!apiKey) {
       return NextResponse.json(
-        { error: "OPENAI_API_KEY is not set on the server" },
+        { error: 'OPENAI_API_KEY is not set on the server' },
         { status: 500 }
       );
     }
@@ -17,15 +17,15 @@ export async function POST(req: NextRequest) {
 
     if (!body || !Array.isArray(body.messages)) {
       return NextResponse.json(
-        { error: "Missing messages array" },
+        { error: 'Missing messages array' },
         { status: 400 }
       );
     }
 
     // Safety: only keep role/content
     const messages = body.messages.map((m: any) => ({
-      role: m.role === "user" ? "user" : "assistant",
-      content: String(m.content || "")
+      role: m.role === 'user' ? 'user' : 'assistant',
+      content: String(m.content || ''),
     }));
 
     const systemPrompt = `
@@ -42,29 +42,26 @@ If user asks anything unsafe, redirect them to safe, legal, positive options.
     `.trim();
 
     const payload = {
-      model: "gpt-4o-mini", // Using gpt-4o-mini instead of gpt-5.1-mini
-      messages: [
-        { role: "system", content: systemPrompt },
-        ...messages
-      ],
+      model: 'gpt-4o-mini', // Using gpt-4o-mini instead of gpt-5.1-mini
+      messages: [{ role: 'system', content: systemPrompt }, ...messages],
       temperature: 0.7,
-      max_tokens: 1000
+      max_tokens: 1000,
     };
 
     const res = await fetch(OPENAI_API_URL, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      console.error("OpenAI error:", err);
+      console.error('OpenAI error:', err);
       return NextResponse.json(
-        { error: "OpenAI request failed", details: err },
+        { error: 'OpenAI request failed', details: err },
         { status: 500 }
       );
     }
@@ -76,9 +73,9 @@ If user asks anything unsafe, redirect them to safe, legal, positive options.
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Chat API error:", error);
+    console.error('Chat API error:', error);
     return NextResponse.json(
-      { error: "Unexpected server error" },
+      { error: 'Unexpected server error' },
       { status: 500 }
     );
   }
