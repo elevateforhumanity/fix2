@@ -9,95 +9,102 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                E
-              </div>
-              <span className="text-xl font-bold">Elevate for Humanity</span>
-            </Link>
-            <nav className="hidden md:flex gap-6">
-              <Link href="/programs" className="hover:text-blue-600">
-                Programs
-              </Link>
-              <Link href="/about" className="hover:text-blue-600">
-                About
-              </Link>
-              <Link href="/contact" className="text-blue-600 font-medium">
-                Contact
-              </Link>
-            </nav>
+      <header className="elevate-nav">
+        <div className="elevate-logo">
+          <div className="elevate-logo-mark">E</div>
+          <div className="flex flex-col">
+            <span className="font-bold text-lg">Elevate for Humanity</span>
+            <span className="text-xs text-gray-600">
+              Elevate Connects Directory
+            </span>
           </div>
         </div>
+        <nav className="flex gap-3 items-center">
+          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
+            Programs
+          </Link>
+          <Link href="/about" className="text-gray-700 hover:text-red-600 font-medium">
+            About
+          </Link>
+          <Link href="/contact" className="text-efh-red font-bold">
+            Contact
+          </Link>
+          <Link href="/login" className="elevate-btn-secondary">
+            Sign In
+          </Link>
+          <Link href="/signup" className="elevate-btn-primary">
+            Get Started Free
+          </Link>
+        </nav>
       </header>
-      <main className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl text-gray-700 mb-12">
-            Have questions? We're here to help you get started on your career
-            journey.
-          </p>
+      <main className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="elevate-container max-w-4xl">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Contact Us</h1>
+            <p className="text-xl text-gray-700 mb-12 leading-relaxed">
+              Have questions? We're here to help you get started on your career
+              journey.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
+            <div className="elevate-card p-8 animate-fade-in-left">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Get in Touch</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold mb-2">Phone</h3>
+                  <h3 className="font-bold mb-2 text-efh-red">Phone</h3>
                   <p className="text-gray-700">(317) 314-3757</p>
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">Location</h3>
+                  <h3 className="font-bold mb-2 text-efh-red">Location</h3>
                   <p className="text-gray-700">Indianapolis, IN</p>
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">Hours</h3>
+                  <h3 className="font-bold mb-2 text-efh-red">Hours</h3>
                   <p className="text-gray-700">Monday - Friday: 9am - 5pm</p>
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 p-8 rounded-lg">
-              <h2 className="text-2xl font-bold mb-4">Quick Links</h2>
+            <div className="elevate-card bg-gradient-to-br from-efh-orange/10 to-efh-red/10 border-2 border-efh-orange/20 p-8 animate-fade-in-right">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Quick Links</h2>
               <div className="space-y-3">
                 <Link
-                  href="/apply"
-                  className="block text-blue-600 hover:underline font-medium"
+                  href="/enroll"
+                  className="block text-efh-red hover:text-efh-orange font-medium transition-colors"
                 >
-                  → Apply for Training
+                  → Check Your Eligibility
                 </Link>
                 <Link
                   href="/programs"
-                  className="block text-blue-600 hover:underline font-medium"
+                  className="block text-efh-red hover:text-efh-orange font-medium transition-colors"
                 >
                   → Browse Programs
                 </Link>
                 <Link
                   href="/faq"
-                  className="block text-blue-600 hover:underline font-medium"
+                  className="block text-efh-red hover:text-efh-orange font-medium transition-colors"
                 >
                   → Frequently Asked Questions
                 </Link>
                 <Link
-                  href="/student-portal"
-                  className="block text-blue-600 hover:underline font-medium"
+                  href="/login"
+                  className="block text-efh-red hover:text-efh-orange font-medium transition-colors"
                 >
                   → Student Portal
                 </Link>
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-8 rounded-lg">
+          <div className="elevate-gradient-red-orange text-white p-8 rounded-xl shadow-xl animate-scale-in">
             <h2 className="text-2xl font-bold mb-4">Ready to Start?</h2>
-            <p className="mb-6">
+            <p className="mb-6 text-white/90">
               Don't wait to transform your career. Our programs are 100% funded
               and ready for you.
             </p>
             <Link
-              href="/apply"
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 inline-block"
+              href="/enroll"
+              className="elevate-btn-secondary inline-block"
             >
-              Apply Now
+              Check Your Eligibility
             </Link>
           </div>
         </div>

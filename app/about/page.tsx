@@ -9,80 +9,90 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                E
-              </div>
-              <span className="text-xl font-bold">Elevate for Humanity</span>
-            </Link>
-            <nav className="hidden md:flex gap-6">
-              <Link href="/programs" className="hover:text-blue-600">
-                Programs
-              </Link>
-              <Link href="/about" className="text-blue-600 font-medium">
-                About
-              </Link>
-              <Link href="/contact" className="hover:text-blue-600">
-                Contact
-              </Link>
-            </nav>
+      <header className="elevate-nav">
+        <div className="elevate-logo">
+          <div className="elevate-logo-mark">E</div>
+          <div className="flex flex-col">
+            <span className="font-bold text-lg">Elevate for Humanity</span>
+            <span className="text-xs text-gray-600">
+              Elevate Connects Directory
+            </span>
           </div>
         </div>
+        <nav className="flex gap-3 items-center">
+          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
+            Programs
+          </Link>
+          <Link href="/about" className="text-efh-red font-bold">
+            About
+          </Link>
+          <Link href="/contact" className="text-gray-700 hover:text-red-600 font-medium">
+            Contact
+          </Link>
+          <Link href="/login" className="elevate-btn-secondary">
+            Sign In
+          </Link>
+          <Link href="/signup" className="elevate-btn-primary">
+            Get Started Free
+          </Link>
+        </nav>
       </header>
-      <main className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-5xl font-bold mb-6">
-            About Elevate for Humanity
-          </h1>
+      <main className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="elevate-container max-w-4xl">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+              About Elevate for Humanity
+            </h1>
+            <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
+              Innovate. Elevate. Reset.
+            </p>
+          </div>
           <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed animate-fade-in-up animate-delay-100">
               We provide free workforce training and career development programs
               to help individuals transform their lives through education and
               skill-building.
             </p>
-            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-            <p className="text-gray-700 mb-6">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 animate-fade-in-up animate-delay-200">Our Mission</h2>
+            <p className="text-gray-700 mb-6 leading-relaxed animate-fade-in-up animate-delay-300">
               To elevate communities by providing accessible, high-quality
               career and technical training that leads to meaningful employment
               and economic opportunity.
             </p>
-            <h2 className="text-3xl font-bold mb-4">What We Offer</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 animate-fade-in-up animate-delay-400">What We Offer</h2>
             <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 text-xl">✓</span>
+              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-500">
+                <span className="text-efh-teal text-xl">✓</span>
                 <span>100% funded training programs through WIOA and WRG</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 text-xl">✓</span>
+              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-600">
+                <span className="text-efh-teal text-xl">✓</span>
                 <span>Industry-recognized certifications</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 text-xl">✓</span>
+              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-700">
+                <span className="text-efh-teal text-xl">✓</span>
                 <span>Hands-on training with experienced instructors</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 text-xl">✓</span>
+              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-800">
+                <span className="text-efh-teal text-xl">✓</span>
                 <span>Job placement assistance</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 text-xl">✓</span>
+              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-900">
+                <span className="text-efh-teal text-xl">✓</span>
                 <span>Ongoing career support</span>
               </li>
             </ul>
-            <div className="bg-blue-50 p-8 rounded-lg mb-8">
-              <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-              <p className="text-gray-700 mb-6">
+            <div className="elevate-card bg-gradient-to-br from-efh-red/10 to-efh-orange/10 border-2 border-efh-red/20 p-8 mb-8 animate-scale-in">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Ready to Get Started?</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
                 Join thousands of students who have transformed their careers
                 through our programs.
               </p>
               <Link
-                href="/apply"
-                className="px-8 py-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 inline-block"
+                href="/enroll"
+                className="elevate-btn-primary inline-block"
               >
-                Apply Now
+                Check Your Eligibility
               </Link>
             </div>
           </div>
