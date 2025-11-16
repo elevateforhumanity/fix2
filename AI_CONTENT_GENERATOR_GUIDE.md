@@ -3,6 +3,7 @@
 **YES! You have AI generators built-in!** 🎉
 
 Your application includes powerful AI tools to generate:
+
 - ✅ Images (DALL-E 3)
 - ✅ Video scripts
 - ✅ Video thumbnails
@@ -15,36 +16,44 @@ Your application includes powerful AI tools to generate:
 ## 🎯 WHAT YOU HAVE
 
 ### 1. AI Asset Generator API
+
 **Location:** `/api/ai/generate-asset`
 
 **Capabilities:**
+
 - Generate images with DALL-E 3
 - Generate content with GPT-4
 - Professional, modern styling
 - 1024x1024 high-quality images
 
 ### 2. AI Page Builder API
+
 **Location:** `/api/ai/generate-page`
 
 **Capabilities:**
+
 - Generate React components
 - TypeScript + Tailwind CSS
 - Responsive designs
 - Semantic HTML
 
 ### 3. Video Generator
+
 **Location:** `ecosystem5-scripts/utilities/video-generator.js`
 
 **Capabilities:**
+
 - Generate video scripts
 - Create thumbnails
 - Estimate duration
 - Educational content focus
 
 ### 4. AI Page Builder UI
+
 **Location:** `components/AIPageBuilder.tsx`
 
 **Capabilities:**
+
 - Visual page builder
 - Template selection
 - Section customization
@@ -78,10 +87,10 @@ async function generateProgramImage(programTitle: string) {
     body: JSON.stringify({
       type: 'image',
       prompt: `Professional ${programTitle} training program, modern educational setting`,
-      style: 'professional, modern, educational'
-    })
+      style: 'professional, modern, educational',
+    }),
   });
-  
+
   const data = await response.json();
   return data.url; // DALL-E generated image URL
 }
@@ -127,24 +136,22 @@ const metadata = generator.createVideoMetadata(
 ```javascript
 async function createVideoLesson(lessonTitle, topic) {
   const generator = new VideoGenerator();
-  
+
   // Generate script
   const scriptResult = await generator.generateScript(topic, 300);
-  
+
   // Generate thumbnail
   const thumbnailResult = await generator.generateThumbnail(lessonTitle);
-  
+
   // Save to database
-  const { data, error } = await supabase
-    .from('lessons')
-    .insert({
-      title: lessonTitle,
-      content: scriptResult.script,
-      content_type: 'video',
-      thumbnail_url: thumbnailResult.thumbnailUrl,
-      duration_minutes: Math.ceil(scriptResult.duration / 60)
-    });
-  
+  const { data, error } = await supabase.from('lessons').insert({
+    title: lessonTitle,
+    content: scriptResult.script,
+    content_type: 'video',
+    thumbnail_url: thumbnailResult.thumbnailUrl,
+    duration_minutes: Math.ceil(scriptResult.duration / 60),
+  });
+
   return data;
 }
 
@@ -174,10 +181,10 @@ async function generateLessonContent(topic: string) {
         - Step-by-step instructions
         - Practice exercises
         - Summary
-        Format as educational content for workforce training.`
-    })
+        Format as educational content for workforce training.`,
+    }),
   });
-  
+
   const data = await response.json();
   return data.content;
 }
@@ -212,37 +219,40 @@ async function generateAllProgramImages() {
     .from('programs')
     .select('id, slug, title')
     .is('image_url', null);
-  
+
   for (const program of programs || []) {
     console.log(`Generating image for ${program.title}...`);
-    
+
     // Generate image
-    const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'image',
-        prompt: `Professional ${program.title} training program, modern educational setting, diverse students learning`,
-        style: 'professional, modern, educational, diverse'
-      })
-    });
-    
+    const response = await fetch(
+      'http://localhost:3000/api/ai/generate-asset',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'image',
+          prompt: `Professional ${program.title} training program, modern educational setting, diverse students learning`,
+          style: 'professional, modern, educational, diverse',
+        }),
+      }
+    );
+
     const data = await response.json();
-    
+
     if (data.url) {
       // Update program with image
       await supabase
         .from('programs')
         .update({ image_url: data.url })
         .eq('id', program.id);
-      
+
       console.log(`✅ Generated image for ${program.title}`);
     }
-    
+
     // Wait 1 second between requests (rate limiting)
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  
+
   console.log('✅ All program images generated!');
 }
 
@@ -250,6 +260,7 @@ generateAllProgramImages();
 ```
 
 **Run it:**
+
 ```bash
 npx tsx scripts/generate-program-images.ts
 ```
@@ -274,41 +285,44 @@ async function generateVideoLessons() {
     .select('id, title, description')
     .eq('content_type', 'video')
     .is('content', null);
-  
+
   for (const lesson of lessons || []) {
     console.log(`Generating video script for ${lesson.title}...`);
-    
+
     // Generate script
-    const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'content',
-        prompt: `Create a 5-minute video script for: ${lesson.title}. 
+    const response = await fetch(
+      'http://localhost:3000/api/ai/generate-asset',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'content',
+          prompt: `Create a 5-minute video script for: ${lesson.title}. 
                  Description: ${lesson.description}
                  Format as a professional educational video script with:
                  - Opening hook
                  - Main content sections
                  - Visual cues
-                 - Closing summary`
-      })
-    });
-    
+                 - Closing summary`,
+        }),
+      }
+    );
+
     const data = await response.json();
-    
+
     if (data.content) {
       // Update lesson with script
       await supabase
         .from('lessons')
         .update({ content: data.content })
         .eq('id', lesson.id);
-      
+
       console.log(`✅ Generated script for ${lesson.title}`);
     }
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  
+
   console.log('✅ All video scripts generated!');
 }
 
@@ -324,7 +338,7 @@ generateVideoLessons();
 ```typescript
 async function generateCompleteCourse(courseTitle: string, topics: string[]) {
   console.log(`🎓 Generating course: ${courseTitle}`);
-  
+
   // 1. Generate course image
   const courseImageResponse = await fetch('/api/ai/generate-asset', {
     method: 'POST',
@@ -332,26 +346,26 @@ async function generateCompleteCourse(courseTitle: string, topics: string[]) {
     body: JSON.stringify({
       type: 'image',
       prompt: `Professional course cover for ${courseTitle}, modern educational design`,
-      style: 'professional, modern, educational'
-    })
+      style: 'professional, modern, educational',
+    }),
   });
   const courseImage = await courseImageResponse.json();
-  
+
   // 2. Create course in database
   const { data: course } = await supabase
     .from('courses')
     .insert({
       title: courseTitle,
       thumbnail_url: courseImage.url,
-      image_url: courseImage.url
+      image_url: courseImage.url,
     })
     .select()
     .single();
-  
+
   // 3. Generate lessons for each topic
   for (const topic of topics) {
     console.log(`  📝 Generating lesson: ${topic}`);
-    
+
     // Generate lesson content
     const contentResponse = await fetch('/api/ai/generate-asset', {
       method: 'POST',
@@ -359,11 +373,11 @@ async function generateCompleteCourse(courseTitle: string, topics: string[]) {
       body: JSON.stringify({
         type: 'content',
         prompt: `Create a comprehensive lesson about ${topic} for ${courseTitle}. 
-                 Include introduction, key concepts, examples, and exercises.`
-      })
+                 Include introduction, key concepts, examples, and exercises.`,
+      }),
     });
     const content = await contentResponse.json();
-    
+
     // Generate lesson thumbnail
     const thumbnailResponse = await fetch('/api/ai/generate-asset', {
       method: 'POST',
@@ -371,27 +385,25 @@ async function generateCompleteCourse(courseTitle: string, topics: string[]) {
       body: JSON.stringify({
         type: 'image',
         prompt: `Educational illustration for ${topic}, simple, clear, professional`,
-        style: 'educational, simple, clear'
-      })
+        style: 'educational, simple, clear',
+      }),
     });
     const thumbnail = await thumbnailResponse.json();
-    
+
     // Save lesson
-    await supabase
-      .from('lessons')
-      .insert({
-        course_id: course.id,
-        title: topic,
-        content: content.content,
-        content_type: 'text',
-        thumbnail_url: thumbnail.url
-      });
-    
+    await supabase.from('lessons').insert({
+      course_id: course.id,
+      title: topic,
+      content: content.content,
+      content_type: 'text',
+      thumbnail_url: thumbnail.url,
+    });
+
     console.log(`  ✅ Lesson created: ${topic}`);
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  
+
   console.log(`✅ Course complete: ${courseTitle}`);
 }
 
@@ -401,7 +413,7 @@ await generateCompleteCourse('CDL Training Fundamentals', [
   'Vehicle Inspection Basics',
   'Safe Driving Techniques',
   'Hours of Service Regulations',
-  'Emergency Procedures'
+  'Emergency Procedures',
 ]);
 ```
 
@@ -419,6 +431,7 @@ OPENAI_API_KEY=sk-your-api-key-here
 ```
 
 **Get your API key:**
+
 1. Go to [platform.openai.com](https://platform.openai.com)
 2. Sign up / Log in
 3. Go to API Keys
@@ -446,14 +459,17 @@ curl -X POST http://localhost:3000/api/ai/generate-asset \
 ### OpenAI Pricing (as of 2024):
 
 **DALL-E 3:**
+
 - Standard quality: $0.040 per image
 - HD quality: $0.080 per image
 
 **GPT-4 Turbo:**
+
 - Input: $0.01 per 1K tokens
 - Output: $0.03 per 1K tokens
 
 **Example Costs:**
+
 - Generate 50 program images: ~$2.00
 - Generate 100 lesson scripts: ~$5.00
 - Generate complete 10-lesson course: ~$1.50
@@ -465,21 +481,25 @@ curl -X POST http://localhost:3000/api/ai/generate-asset \
 ## 🎯 RECOMMENDED WORKFLOW
 
 ### Step 1: Generate Program Images (10 minutes)
+
 ```bash
 npx tsx scripts/generate-program-images.ts
 ```
 
 ### Step 2: Generate Course Content (30 minutes)
+
 ```bash
 npx tsx scripts/generate-course-content.ts
 ```
 
 ### Step 3: Generate Video Scripts (20 minutes)
+
 ```bash
 npx tsx scripts/generate-video-lessons.ts
 ```
 
 ### Step 4: Review and Refine
+
 - Check generated content
 - Edit as needed
 - Add real videos where available
@@ -489,11 +509,13 @@ npx tsx scripts/generate-video-lessons.ts
 ## ✅ QUICK START
 
 **1. Set up OpenAI API key:**
+
 ```bash
 echo "OPENAI_API_KEY=sk-your-key" >> .env.local
 ```
 
 **2. Test generation:**
+
 ```bash
 curl -X POST http://localhost:3000/api/ai/generate-asset \
   -H "Content-Type: application/json" \
@@ -504,6 +526,7 @@ curl -X POST http://localhost:3000/api/ai/generate-asset \
 ```
 
 **3. Generate all content:**
+
 ```bash
 # Create the scripts above and run them
 npx tsx scripts/generate-all-content.ts
@@ -518,6 +541,7 @@ npx tsx scripts/generate-all-content.ts
 **You have everything you need!**
 
 Your application includes:
+
 - ✅ AI image generator (DALL-E 3)
 - ✅ AI content generator (GPT-4)
 - ✅ Video script generator
@@ -533,6 +557,7 @@ Your application includes:
 ---
 
 **See also:**
+
 - `VIDEO_IMAGE_FIX_GUIDE.md` - Why content isn't showing
 - `DEPLOYMENT_INSTRUCTIONS.md` - How to deploy
 
