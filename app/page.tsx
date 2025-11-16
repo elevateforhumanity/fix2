@@ -103,9 +103,9 @@ export default function HomePage() {
             {/* Right: Hero Video */}
             <div className="relative">
               <VideoShell
-                videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="Elevate for Humanity - Innovate. Elevate. Reset."
-                description="A workforce & wellness ecosystem for real people"
+                caption="A workforce & wellness ecosystem for real people"
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
               />
               {/* Floating Stats */}

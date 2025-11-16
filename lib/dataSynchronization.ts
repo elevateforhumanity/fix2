@@ -4,8 +4,15 @@
  * Handles Supabase real-time updates, conflict resolution, and offline sync
  */
 
-import { createClient } from '@/lib/supabase/client';
+import { createBrowserClient } from '@supabase/ssr';
 import type { RealtimeChannel } from '@supabase/supabase-js';
+
+function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
 
 interface SyncConfig {
   table: string;
@@ -274,8 +281,8 @@ class DataSynchronizationManager {
   /**
    * Monitor online/offline status
    */
-  monitorConnectivity(table: string): void {
-    if (typeof window === 'undefined') return;
+  monitorConnectivity(table: string): () => void {
+    if (typeof window === 'undefined') return () => {};
 
     const handleOnline = () => {
       console.log('[Sync] Connection restored');
