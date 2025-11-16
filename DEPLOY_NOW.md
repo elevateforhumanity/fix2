@@ -17,12 +17,14 @@ Your perfect application is now in Git and ready to deploy!
 ### Step 1: Choose Platform
 
 **Vercel (Recommended for Next.js):**
+
 ```bash
 npm i -g vercel
 vercel --prod
 ```
 
 **Netlify:**
+
 ```bash
 npm i -g netlify-cli
 netlify deploy --prod
@@ -31,6 +33,7 @@ netlify deploy --prod
 ### Step 2: Set Environment Variables
 
 In your deployment platform dashboard, add:
+
 ```
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
@@ -49,6 +52,7 @@ Run the deploy command and your site will be live!
 ## 📊 WHAT YOU'RE DEPLOYING
 
 **Perfect 100/100 Application:**
+
 - ✅ Zero ESLint errors
 - ✅ Zero TypeScript errors
 - ✅ Image optimization enabled
