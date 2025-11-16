@@ -53,7 +53,8 @@ html {
 
 /* Pulse animation (TikTok heart effect) */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -73,7 +74,8 @@ html {
 
 /* Bounce animation */
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -226,7 +228,7 @@ html {
 
 /* Neon glow effect */
 .neon-glow {
-  text-shadow: 
+  text-shadow:
     0 0 5px rgba(255, 255, 255, 0.5),
     0 0 10px rgba(255, 255, 255, 0.5),
     0 0 20px rgba(255, 0, 255, 0.5),
@@ -240,7 +242,7 @@ html {
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04),
     0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -257,7 +259,8 @@ html {
 
 /* Floating animation */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -324,7 +327,8 @@ html {
 
 /* Gradient border animation */
 @keyframes borderGradient {
-  0%, 100% {
+  0%,
+  100% {
     border-image-source: linear-gradient(135deg, #667eea, #764ba2);
   }
   50% {
