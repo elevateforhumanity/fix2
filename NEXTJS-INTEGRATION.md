@@ -56,7 +56,8 @@ export const courseMediaMap: Record<string, CourseMedia> = {
     id: 'healthcare',
     name: 'CNA & Healthcare Careers',
     coverImage: '/images/courses/cna-cover.jpg',
-    videoScript: '/content/video-scripts/courses/healthcare-cna-program-video.md',
+    videoScript:
+      '/content/video-scripts/courses/healthcare-cna-program-video.md',
     videoUrl: '/videos/courses/healthcare-cna-program.mp4',
   },
   cdl: {
@@ -70,7 +71,8 @@ export const courseMediaMap: Record<string, CourseMedia> = {
     id: 'building-tech',
     name: 'Building Technician & Skilled Trades',
     coverImage: '/images/courses/building-tech-cover.jpg',
-    videoScript: '/content/video-scripts/courses/building-tech-program-video.md',
+    videoScript:
+      '/content/video-scripts/courses/building-tech-program-video.md',
     videoUrl: '/videos/courses/building-tech-program.mp4',
   },
 };
@@ -103,17 +105,17 @@ interface CourseCardProps {
   href: string;
 }
 
-export function CourseCard({ 
-  courseId, 
-  title, 
-  description, 
+export function CourseCard({
+  courseId,
+  title,
+  description,
   duration,
-  href 
+  href,
 }: CourseCardProps) {
   const media = getCourseMedia(courseId);
-  
+
   return (
-    <Link 
+    <Link
       href={href}
       className="group block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md"
     >
@@ -141,13 +143,21 @@ export function CourseCard({
         <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600">
           {title}
         </h3>
-        <p className="mt-2 text-sm text-gray-600 line-clamp-2">
-          {description}
-        </p>
+        <p className="mt-2 text-sm text-gray-600 line-clamp-2">{description}</p>
         {duration && (
           <div className="mt-3 flex items-center text-xs text-gray-500">
-            <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="mr-1 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             {duration}
           </div>
@@ -176,10 +186,10 @@ interface CourseVideoPlayerProps {
   showScript?: boolean;
 }
 
-export function CourseVideoPlayer({ 
-  courseId, 
+export function CourseVideoPlayer({
+  courseId,
   autoplay = false,
-  showScript = false 
+  showScript = false,
 }: CourseVideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const media = getCourseMedia(courseId);
@@ -217,7 +227,11 @@ export function CourseVideoPlayer({
           <div className="flex h-full items-center justify-center">
             <div className="text-center">
               <div className="mb-4 inline-block rounded-full bg-blue-600 p-4">
-                <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="h-8 w-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                 </svg>
               </div>
@@ -239,7 +253,8 @@ export function CourseVideoPlayer({
           <div className="mt-3 text-sm text-gray-600">
             <p className="italic">Script location: {media.videoScript}</p>
             <p className="mt-2">
-              Use this script with HeyGen, Synthesia, or D-ID to generate the video.
+              Use this script with HeyGen, Synthesia, or D-ID to generate the
+              video.
             </p>
           </div>
         </details>
@@ -301,9 +316,9 @@ export default function HomePage() {
                   controls
                   poster="/images/video-poster.jpg"
                 >
-                  <source 
-                    src="/videos/courses/about-elevate-for-humanity.mp4" 
-                    type="video/mp4" 
+                  <source
+                    src="/videos/courses/about-elevate-for-humanity.mp4"
+                    type="video/mp4"
                   />
                   <track
                     kind="captions"
@@ -406,8 +421,8 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <h2 className="mb-4 text-2xl font-bold text-gray-900">
                   Program Overview
                 </h2>
-                <CourseVideoPlayer 
-                  courseId={params.courseId} 
+                <CourseVideoPlayer
+                  courseId={params.courseId}
                   showScript={true}
                 />
               </div>
@@ -419,26 +434,58 @@ export default function CoursePage({ params }: CoursePageProps) {
                 </h3>
                 <ul className="mt-4 space-y-2 text-gray-600">
                   <li className="flex items-start">
-                    <svg className="mr-2 mt-1 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="mr-2 mt-1 h-5 w-5 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     Industry-recognized certifications
                   </li>
                   <li className="flex items-start">
-                    <svg className="mr-2 mt-1 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="mr-2 mt-1 h-5 w-5 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     Hands-on training with real equipment
                   </li>
                   <li className="flex items-start">
-                    <svg className="mr-2 mt-1 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="mr-2 mt-1 h-5 w-5 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     Job placement assistance
                   </li>
                   <li className="flex items-start">
-                    <svg className="mr-2 mt-1 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="mr-2 mt-1 h-5 w-5 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     WIOA funding support available
                   </li>
@@ -473,7 +520,9 @@ export default function CoursePage({ params }: CoursePageProps) {
                     </div>
                     <div>
                       <dt className="font-medium text-gray-500">Format</dt>
-                      <dd className="text-gray-900">Hybrid (Online + In-person)</dd>
+                      <dd className="text-gray-900">
+                        Hybrid (Online + In-person)
+                      </dd>
                     </div>
                     <div>
                       <dt className="font-medium text-gray-500">Cost</dt>
@@ -498,12 +547,14 @@ export default function CoursePage({ params }: CoursePageProps) {
 ### Generate Course Cover Images
 
 **Option 1: OpenAI API (Automated)**
+
 ```bash
 export OPENAI_API_KEY="your-key"
 node scripts/generate-images.mjs
 ```
 
 **Option 2: Manual (Copy prompts)**
+
 ```bash
 # Copy prompt
 cat content/image-prompts/courses/hvac-course-cover.md
@@ -520,6 +571,7 @@ cat content/image-prompts/courses/hvac-course-cover.md
 ### Generate Course Videos
 
 **Using HeyGen:**
+
 1. Go to https://heygen.com
 2. Create new video
 3. Copy script from `content/video-scripts/courses/hvac-program-video.md`
@@ -528,6 +580,7 @@ cat content/image-prompts/courses/hvac-course-cover.md
 6. Save to: `public/videos/courses/hvac-program.mp4`
 
 **Using D-ID (Free Tier):**
+
 1. Go to https://d-id.com
 2. Create new video
 3. Copy script from video-scripts
@@ -560,6 +613,7 @@ cat content/image-prompts/courses/hvac-course-cover.md
    - Use scripts to create videos
 
 2. **Organize Files:**
+
    ```
    public/
    ├── images/courses/

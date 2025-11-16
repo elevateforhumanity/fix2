@@ -23,7 +23,7 @@ export const courses: Course[] = ecdCoursesData.map((ecdCourse) => ({
   path: `/programs/${ecdCourse.slug}`,
   coverImageKey: `${ecdCourse.slug}-cover`,
   videoScriptFile: `content/video-scripts/ecd-courses/${ecdCourse.slug}-video.md`,
-  aiVideoUrl: "", // add URL once video is generated
+  aiVideoUrl: '', // add URL once video is generated
 }));
 
 export function getCourseBySlug(slug: string): Course | undefined {

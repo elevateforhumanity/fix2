@@ -5,6 +5,7 @@
 ### 📸 Images (10 total)
 
 **Root Directory Images (5):**
+
 - ✅ course-barber-cover.png
 - ✅ course-building-cover.png
 - ✅ course-cdl-cover.png
@@ -12,6 +13,7 @@
 - ✅ course-hvac-cover.png
 
 **Course-Specific Images (5):**
+
 - ✅ barber-course-cover.png
 - ✅ building-tech-course-cover.png
 - ✅ cdl-course-cover.png
@@ -23,6 +25,7 @@
 **Status:** ⚠️ Currently placeholder SVG images (gradient backgrounds with text)
 
 **To generate real AI images:**
+
 ```bash
 export OPENAI_API_KEY="your-openai-api-key"
 node scripts/generate-images.mjs
@@ -33,10 +36,12 @@ node scripts/generate-images.mjs
 ### 🎬 Video Job Queue (25 videos)
 
 **High Priority (Homepage) - 2 videos:**
+
 1. About Elevate for Humanity (90s) - HeyGen
 2. Homepage Hero (40s) - HeyGen
 
 **Medium Priority (Courses) - 6 videos:**
+
 1. HVAC Technician Program (45s) - HeyGen
 2. Barber Apprenticeship Program (45s) - HeyGen
 3. Healthcare/CNA Program (45s) - HeyGen
@@ -45,6 +50,7 @@ node scripts/generate-images.mjs
 6. About Elevate (duplicate, 90s) - HeyGen
 
 **Low Priority (Other) - 17 videos:**
+
 - Program overview videos (11)
 - Application videos (1)
 - Support videos (1)
@@ -55,6 +61,7 @@ node scripts/generate-images.mjs
 **Estimated Cost:** $28.20 total
 
 **Recommended Providers:**
+
 - HeyGen: 8 videos (best for instructor/course content)
 - Synthesia: 11 videos (good for educational content)
 - D-ID: 6 videos (budget-friendly for shorter content)
@@ -175,6 +182,7 @@ node scripts/generate-images.mjs
 **Video Generation Services:**
 
 **HeyGen** (Recommended for quality)
+
 - URL: https://heygen.com
 - Cost: $30/month (20 credits)
 - Best for: Professional instructor videos
@@ -188,12 +196,14 @@ node scripts/generate-images.mjs
   7. Save to `public/videos/courses/[course-name].mp4`
 
 **Synthesia** (Good alternative)
+
 - URL: https://synthesia.io
 - Cost: $30/month
 - Best for: Educational content
 - Similar workflow to HeyGen
 
 **D-ID** (Budget option)
+
 - URL: https://d-id.com
 - Cost: Free tier (5 min/month), then $5.90/month
 - Best for: Testing or budget projects
@@ -204,6 +214,7 @@ node scripts/generate-images.mjs
 ### Step 3: Organize Generated Assets
 
 **Images:**
+
 ```bash
 public/
 └── images/
@@ -216,6 +227,7 @@ public/
 ```
 
 **Videos:**
+
 ```bash
 public/
 └── videos/
@@ -229,6 +241,7 @@ public/
 ```
 
 **Captions (for accessibility):**
+
 ```bash
 public/
 └── videos/
@@ -258,6 +271,7 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 5. Create individual course pages with videos
 
 **Example Course Card:**
+
 ```tsx
 <CourseCard
   courseId="hvac"
@@ -274,22 +288,23 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 
 ### Images (10 total)
 
-| Method | Cost | Quality | Time |
-|--------|------|---------|------|
-| OpenAI API | $0.40 | ⭐⭐⭐⭐⭐ | 5 min |
+| Method       | Cost   | Quality    | Time   |
+| ------------ | ------ | ---------- | ------ |
+| OpenAI API   | $0.40  | ⭐⭐⭐⭐⭐ | 5 min  |
 | ChatGPT Plus | $20/mo | ⭐⭐⭐⭐⭐ | 15 min |
-| Leonardo.ai | Free | ⭐⭐⭐⭐ | 20 min |
-| Midjourney | $10/mo | ⭐⭐⭐⭐⭐ | 15 min |
+| Leonardo.ai  | Free   | ⭐⭐⭐⭐   | 20 min |
+| Midjourney   | $10/mo | ⭐⭐⭐⭐⭐ | 15 min |
 
 ### Videos (Priority: 6 videos)
 
-| Service | Videos | Cost | Quality |
-|---------|--------|------|---------|
-| HeyGen | 6 | $30/mo | ⭐⭐⭐⭐⭐ |
-| Synthesia | 6 | $30/mo | ⭐⭐⭐⭐⭐ |
-| D-ID | 6 | $6/mo | ⭐⭐⭐ |
+| Service   | Videos | Cost   | Quality    |
+| --------- | ------ | ------ | ---------- |
+| HeyGen    | 6      | $30/mo | ⭐⭐⭐⭐⭐ |
+| Synthesia | 6      | $30/mo | ⭐⭐⭐⭐⭐ |
+| D-ID      | 6      | $6/mo  | ⭐⭐⭐     |
 
 **Recommended Budget:**
+
 - Images: $0.40 (OpenAI API) or Free (Leonardo.ai)
 - Videos: $30/mo (HeyGen for 6 priority videos)
 - **Total: $30.40 one-time**
@@ -299,6 +314,7 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 ## 📋 Checklist
 
 ### Images
+
 - [ ] Set OPENAI_API_KEY or choose manual tool
 - [ ] Generate 10 course cover images
 - [ ] Review and select best variations
@@ -307,6 +323,7 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 - [ ] Update course-media.ts with paths
 
 ### Videos
+
 - [ ] Sign up for HeyGen/Synthesia/D-ID
 - [ ] Generate master "About Elevate" video (90s)
 - [ ] Generate 5 course videos (45s each)
@@ -316,6 +333,7 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 - [ ] Test video playback
 
 ### Integration
+
 - [ ] Create lib/course-media.ts
 - [ ] Create CourseCard component
 - [ ] Create CourseVideoPlayer component
@@ -326,6 +344,7 @@ See `NEXTJS-INTEGRATION.md` for complete code examples.
 - [ ] Optimize for mobile
 
 ### Deployment
+
 - [ ] Test locally
 - [ ] Verify all assets load
 - [ ] Check video playback on different devices
@@ -375,19 +394,23 @@ cat public/generated-images/manifest.json
 ## 🆘 Troubleshooting
 
 **Images are placeholders:**
+
 - Set OPENAI_API_KEY and re-run `node scripts/generate-images.mjs`
 - Or manually generate using prompts in `content/image-prompts/courses/`
 
 **Video scripts not found:**
+
 - Run `./setup-course-covers-and-scripts.sh` to regenerate
 - Check `content/video-scripts/courses/` directory exists
 
 **Video generation fails:**
+
 - Verify account has credits
 - Check script length (should be under 90 seconds)
 - Try different provider (HeyGen vs Synthesia vs D-ID)
 
 **Integration issues:**
+
 - Check file paths in course-media.ts
 - Verify images exist in public/ directory
 - Test video URLs in browser directly
@@ -406,12 +429,14 @@ Once complete, you'll have:
 ✅ Professional, scalable content system
 
 **Estimated Time to Complete:**
+
 - Images: 30 minutes
 - Videos: 2 hours
 - Integration: 3 hours
 - **Total: ~5.5 hours**
 
 **Estimated Cost:**
+
 - Images: $0.40 - $20
 - Videos: $6 - $30
 - **Total: $6.40 - $50**

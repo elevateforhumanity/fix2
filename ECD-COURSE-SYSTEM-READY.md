@@ -3,9 +3,11 @@
 ## What You Have Now
 
 ### 📋 Course Catalog
+
 **File:** `content/courses/ecd-courses.json`
 
 **7 Courses Configured:**
+
 1. HVAC Technician Training
 2. Barber Apprenticeship
 3. CNA & Healthcare Careers
@@ -15,9 +17,11 @@
 7. Beauty & Career Educator Training
 
 ### 📸 Image Prompts (7 files)
+
 **Location:** `content/image-prompts/ecd-courses/`
 
 Ready for AI image generation:
+
 - `hvac-technician-cover.md`
 - `barber-apprenticeship-cover.md`
 - `cna-healthcare-cover.md`
@@ -27,15 +31,18 @@ Ready for AI image generation:
 - `beauty-career-educator-cover.md`
 
 ### 🎬 Video Scripts (8 files)
+
 **Location:** `content/video-scripts/ecd-courses/`
 
 **Homepage Master Video:**
+
 - `about-elevate-for-humanity-main.md` (90 seconds)
   - Explains ECD platform
   - Covers WIOA, Workforce Ready Grants, Job Ready Indy
   - Perfect for homepage hero section
 
 **Course Videos (45-60 seconds each):**
+
 - `hvac-technician-video.md`
 - `barber-apprenticeship-video.md`
 - `cna-healthcare-video.md`
@@ -51,13 +58,16 @@ Ready for AI image generation:
 ### Step 1: Generate Course Cover Images
 
 **Option A: Automated (OpenAI DALL-E 3)**
+
 ```bash
 export OPENAI_API_KEY="your-key"
 node scripts/generate-images.mjs
 ```
+
 Cost: ~$0.28 for 7 images
 
 **Option B: Manual (Any AI Tool)**
+
 1. Copy prompts from `content/image-prompts/ecd-courses/*.md`
 2. Use ChatGPT Plus, Leonardo.ai, or Midjourney
 3. Save images to `public/generated-images/ecd-courses/`
@@ -65,6 +75,7 @@ Cost: ~$0.28 for 7 images
 ### Step 2: Generate AI Instructor Videos
 
 **Recommended: HeyGen ($30/mo)**
+
 1. Sign up at https://heygen.com
 2. Copy scripts from `content/video-scripts/ecd-courses/*.md`
 3. Choose professional avatar and voice
@@ -72,6 +83,7 @@ Cost: ~$0.28 for 7 images
 5. Save to `public/videos/ecd-courses/`
 
 **Budget: D-ID (Free tier)**
+
 - 5 minutes free per month
 - Good for testing
 
@@ -83,14 +95,14 @@ Update the course catalog to use ECD courses:
 // content/courses/catalog.ts
 import ecdCourses from './ecd-courses.json';
 
-export const courses: Course[] = ecdCourses.map(course => ({
+export const courses: Course[] = ecdCourses.map((course) => ({
   slug: course.slug,
   title: course.title,
   shortDescription: course.shortDescription,
   path: `/programs/${course.slug}`,
   coverImageKey: `${course.slug}-cover`,
   videoScriptFile: `content/video-scripts/ecd-courses/${course.slug}-video.md`,
-  aiVideoUrl: "", // Add after generating videos
+  aiVideoUrl: '', // Add after generating videos
 }));
 ```
 
@@ -122,11 +134,13 @@ fix2/
 ## 🔧 How to Add More Courses
 
 1. **Edit the JSON:**
+
    ```bash
    nano content/courses/ecd-courses.json
    ```
 
 2. **Add a new course:**
+
    ```json
    {
      "slug": "welding-fabrication",
@@ -137,6 +151,7 @@ fix2/
    ```
 
 3. **Regenerate assets:**
+
    ```bash
    node scripts/build-ecd-course-assets.mjs
    ```
@@ -151,7 +166,9 @@ fix2/
 ## 💡 Key Features
 
 ### Smart Category-Based Prompts
+
 The builder automatically generates appropriate prompts based on category:
+
 - **Healthcare** → Clinical lab setting, scrubs, medical equipment
 - **Skilled Trades** → Workshop, tools, safety gear
 - **Beauty** → Salon setting, styling tools, mirrors
@@ -159,7 +176,9 @@ The builder automatically generates appropriate prompts based on category:
 - **Transportation** → Training yard, commercial vehicles
 
 ### Funding Messaging Built-In
+
 Every video script includes:
+
 - WIOA (Workforce Innovation & Opportunity Act)
 - Workforce Ready Grants
 - Job Ready Indy
@@ -167,7 +186,9 @@ Every video script includes:
 - Job placement assistance
 
 ### Consistent Branding
+
 All content references:
+
 - Elevate Connects Directory
 - Elevate for Humanity
 - ElevateConnectsDirectory.org
@@ -176,25 +197,27 @@ All content references:
 
 ## 📊 Content Summary
 
-| Item | Count | Status |
-|------|-------|--------|
-| Courses | 7 | ✅ Configured |
-| Image Prompts | 7 | ✅ Generated |
-| Video Scripts | 8 | ✅ Generated |
-| Homepage Script | 1 | ✅ Generated |
-| Total Assets | 15 | ✅ Ready |
+| Item            | Count | Status        |
+| --------------- | ----- | ------------- |
+| Courses         | 7     | ✅ Configured |
+| Image Prompts   | 7     | ✅ Generated  |
+| Video Scripts   | 8     | ✅ Generated  |
+| Homepage Script | 1     | ✅ Generated  |
+| Total Assets    | 15    | ✅ Ready      |
 
 ---
 
 ## 🎯 What This Replaces
 
 **Before:**
+
 - 5 hardcoded courses in TypeScript
 - Manual prompt creation
 - Placeholder SVG images
 - Generic video scripts
 
 **After:**
+
 - 7 JSON-driven courses (easily expandable)
 - Automated prompt generation
 - Category-specific image prompts
@@ -206,17 +229,20 @@ All content references:
 ## 💰 Cost Estimates
 
 ### Images (7 covers)
+
 - OpenAI API: $0.28
 - ChatGPT Plus: $20/mo (includes DALL-E 3)
 - Leonardo.ai: Free tier
 - Midjourney: $10/mo
 
 ### Videos (8 total)
+
 - HeyGen: $30/mo (20 credits)
 - Synthesia: $30/mo
 - D-ID: Free tier (5 min/mo) or $5.90/mo
 
 **Recommended Budget:** $30.28 one-time
+
 - Images: $0.28 (OpenAI API)
 - Videos: $30/mo (HeyGen for 8 videos)
 

@@ -22,29 +22,31 @@ ls -la public/generated-images/courses/
 ## 📁 Key Files to Edit
 
 ### Add/Edit Courses
+
 ```typescript
 // content/courses/catalog.ts
 export const courses: Course[] = [
   {
-    slug: "hvac",
-    title: "HVAC Technician Training",
-    shortDescription: "...",
-    path: "/programs/hvac",
-    coverImageKey: "hvac-course-cover",
-    videoScriptFile: "content/video-scripts/courses/hvac-program-video.md",
-    aiVideoUrl: "", // Add video URL here
+    slug: 'hvac',
+    title: 'HVAC Technician Training',
+    shortDescription: '...',
+    path: '/programs/hvac',
+    coverImageKey: 'hvac-course-cover',
+    videoScriptFile: 'content/video-scripts/courses/hvac-program-video.md',
+    aiVideoUrl: '', // Add video URL here
   },
   // ... more courses
 ];
 ```
 
 ### Update AI Instructor Video
+
 ```typescript
 // content/homepage/aiInstructor.ts
 export const aiInstructorVideo = {
-  title: "Meet Elevate for Humanity",
-  scriptFile: "content/video-scripts/courses/about-elevate-for-humanity.md",
-  videoUrl: "", // Add video URL here
+  title: 'Meet Elevate for Humanity',
+  scriptFile: 'content/video-scripts/courses/about-elevate-for-humanity.md',
+  videoUrl: '', // Add video URL here
 };
 ```
 
@@ -55,6 +57,7 @@ export const aiInstructorVideo = {
 **Manifest:** `public/generated-images/manifest.json`
 
 **Keys:**
+
 - `hvac-course-cover`
 - `barber-course-cover`
 - `cna-course-cover`
@@ -66,6 +69,7 @@ export const aiInstructorVideo = {
 **Location:** `content/video-scripts/courses/`
 
 **Files:**
+
 - `about-elevate-for-humanity.md` (90s) - Homepage
 - `hvac-program-video.md` (45s)
 - `barber-program-video.md` (45s)
@@ -76,13 +80,16 @@ export const aiInstructorVideo = {
 ## 🔗 Live URLs
 
 **Homepage:** `/`
+
 - AI Instructor section
 
 **Programs:** `/programs`
+
 - Featured courses section
 - Database programs section
 
 **Course Pages:**
+
 - `/programs/hvac`
 - `/programs/barber`
 - `/programs/healthcare`
@@ -94,16 +101,19 @@ export const aiInstructorVideo = {
 ### Add a New Course
 
 1. Create image prompt:
+
    ```bash
    touch content/image-prompts/courses/new-course-cover.md
    ```
 
 2. Create video script:
+
    ```bash
    touch content/video-scripts/courses/new-course-program-video.md
    ```
 
 3. Add to catalog:
+
    ```typescript
    // content/courses/catalog.ts
    {
@@ -145,18 +155,21 @@ export function CourseCard({ course }: Props) {
 ## 💡 Tips
 
 **Images:**
+
 - Placeholders work fine for launch
 - Generate real images when budget allows
 - Use 1:1 aspect ratio (square)
 - Optimize for web (compress)
 
 **Videos:**
+
 - Start with homepage master video
 - Add course videos gradually
 - Use captions for accessibility
 - Host on CDN for performance
 
 **Performance:**
+
 - Images are lazy-loaded
 - Videos load on demand
 - Manifest cached by browser
@@ -165,6 +178,7 @@ export function CourseCard({ course }: Props) {
 ## 🐛 Troubleshooting
 
 **Build fails:**
+
 ```bash
 # Check for syntax errors
 npm run build
@@ -174,6 +188,7 @@ cat public/generated-images/manifest.json
 ```
 
 **Images not loading:**
+
 ```bash
 # Regenerate manifest
 node scripts/generate-images.mjs
@@ -183,6 +198,7 @@ ls -la public/generated-images/courses/
 ```
 
 **Videos not playing:**
+
 - Check `aiVideoUrl` is set
 - Verify video file exists
 - Test video URL in browser
@@ -205,20 +221,24 @@ grep -c "slug:" content/courses/catalog.ts
 ## 🎯 Next Actions
 
 **Immediate (Free):**
+
 - [x] Site is live with placeholders
 - [x] All pages working
 - [x] Build passing
 
 **Short-term ($0.40):**
+
 - [ ] Generate real course covers
 - [ ] Update manifest
 
 **Medium-term ($30):**
+
 - [ ] Generate master AI video
 - [ ] Generate top 3 course videos
 - [ ] Update video URLs
 
 **Long-term:**
+
 - [ ] Generate all 6 videos
 - [ ] Add video captions
 - [ ] A/B test different covers
@@ -227,6 +247,7 @@ grep -c "slug:" content/courses/catalog.ts
 ---
 
 **Need help?** Check:
+
 - `INTEGRATION-COMPLETE.md` - Full guide
 - `HOW-TO-USE-AI-TOOLS.md` - Tool tutorials
 - `CONTENT-GENERATION-COMPLETE.md` - Content details

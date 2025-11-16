@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import type { Course } from "@/content/courses/catalog";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Course } from '@/content/courses/catalog';
 
 // Import manifest dynamically to avoid build issues
 const getManifest = () => {
   try {
-    return require("@/../public/generated-images/manifest.json");
+    return require('@/../public/generated-images/manifest.json');
   } catch {
     return {};
   }
@@ -21,7 +21,7 @@ export function CourseCard({ course }: Props) {
   const manifest = getManifest();
   const coverSrc =
     (manifest as Record<string, string>)[course.coverImageKey] ??
-    "/placeholder-course-cover.svg";
+    '/placeholder-course-cover.svg';
 
   return (
     <Link

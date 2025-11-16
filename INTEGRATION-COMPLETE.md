@@ -5,18 +5,22 @@
 ### 📁 New Files Created
 
 **Course Catalog System:**
+
 - `content/courses/catalog.ts` - Course definitions and metadata
 - `content/homepage/aiInstructor.ts` - AI instructor video config
 
 **Components:**
+
 - `components/courses/CourseCard.tsx` - Reusable course card with AI-generated covers
 
 **Pages:**
+
 - `app/programs/page.tsx` - Updated with featured courses section
 - `app/programs/[slug]/page.tsx` - Enhanced with AI course support
 - `app/page.tsx` - Added AI instructor section
 
 **Assets:**
+
 - `public/placeholder-course-cover.svg` - Fallback for missing covers
 - `public/generated-images/manifest.json` - Image path mappings
 - `public/generated-images/*.png` - 10 placeholder course covers (SVG format)
@@ -27,20 +31,26 @@
 ## 🎨 What's Live Now
 
 ### Homepage (/)
+
 ✅ New AI Instructor section explaining Elevate for Humanity
+
 - Video placeholder ready for AI-generated content
 - Links to programs and about pages
 - Professional design matching existing brand
 
 ### Programs Page (/programs)
+
 ✅ Featured courses section with AI-generated covers
+
 - 5 course cards with placeholder images
 - Hover effects and smooth transitions
 - Links to individual course pages
-✅ Existing database-driven programs section preserved
+  ✅ Existing database-driven programs section preserved
 
 ### Individual Course Pages (/programs/[slug])
+
 ✅ Enhanced to support AI courses
+
 - Shows AI-generated cover images
 - Video player ready for AI instructor videos
 - Falls back to database content if not an AI course
@@ -93,6 +103,7 @@ node scripts/generate-images.mjs
 ```
 
 **Alternative (Manual):**
+
 1. Copy prompts from `content/image-prompts/courses/*.md`
 2. Use ChatGPT Plus, Leonardo.ai, or Midjourney
 3. Save images to `public/generated-images/courses/`
@@ -115,15 +126,18 @@ node scripts/generate-images.mjs
    - Shows on: Individual course pages
 
 **Recommended Service:** HeyGen ($30/mo)
+
 - Best quality for instructor videos
 - Natural voice synthesis
 - Professional avatars
 
 **Budget Alternative:** D-ID (Free tier: 5 min/month)
+
 - Good for testing
 - Lower quality but functional
 
 **Steps:**
+
 1. Sign up for video generation service
 2. Copy script from markdown file
 3. Choose professional avatar and voice
@@ -142,12 +156,13 @@ import CourseCard from '@/components/courses/CourseCard';
 import { courses } from '@/content/courses/catalog';
 
 // Use in any page
-{courses.map((course) => (
-  <CourseCard key={course.slug} course={course} />
-))}
+{
+  courses.map((course) => <CourseCard key={course.slug} course={course} />);
+}
 ```
 
 **Features:**
+
 - Automatically loads cover image from manifest
 - Falls back to placeholder if image missing
 - Hover effects and smooth transitions
@@ -158,13 +173,15 @@ import { courses } from '@/content/courses/catalog';
 **URL Pattern:** `/programs/[slug]`
 
 **Supported Slugs:**
+
 - `hvac` - HVAC Technician Training
-- `barber` - Barber Apprenticeship  
+- `barber` - Barber Apprenticeship
 - `healthcare` - CNA & Healthcare (note: slug is "healthcare" but course ID is "cna")
 - `cdl` - CDL & Transportation
 - `building-tech` - Building Technician & Skilled Trades
 
 **Features:**
+
 - Shows AI-generated cover image
 - Displays AI instructor video (when available)
 - Falls back to database content
@@ -175,6 +192,7 @@ import { courses } from '@/content/courses/catalog';
 **Location:** After hero section, before stats
 
 **Features:**
+
 - Explains Elevate for Humanity mission
 - Shows master AI instructor video (when available)
 - Links to programs and about pages
@@ -244,6 +262,7 @@ fix2/
 **Current Status:** ✅ Ready to deploy with placeholders
 
 **Before Production:**
+
 1. Generate real course cover images (or keep placeholders)
 2. Generate AI instructor videos (optional - placeholders work)
 3. Update `videoUrl` fields in config files
@@ -269,6 +288,7 @@ No new environment variables required. Uses existing Next.js and Supabase config
 ### Customizing Course Cards
 
 Edit `components/courses/CourseCard.tsx`:
+
 - Change card layout
 - Adjust hover effects
 - Modify text display
@@ -277,6 +297,7 @@ Edit `components/courses/CourseCard.tsx`:
 ### Updating AI Instructor
 
 Edit `content/homepage/aiInstructor.ts`:
+
 - Change video URL
 - Update script file path
 - Modify title
@@ -286,17 +307,20 @@ Edit `content/homepage/aiInstructor.ts`:
 ## 📞 Support
 
 **Documentation:**
+
 - `CONTENT-GENERATION-COMPLETE.md` - Content generation guide
 - `QUICK-START.md` - Quick reference
 - `HOW-TO-USE-AI-TOOLS.md` - AI tool tutorials
 - `NEXTJS-INTEGRATION.md` - Integration examples
 
 **Generated Content:**
+
 - 10 course cover images (placeholders)
 - 6 video scripts (ready to use)
 - 25 video jobs in queue (see `content/video-jobs.json`)
 
 **Cost Estimates:**
+
 - Images: $0.40 (OpenAI API) or Free (Leonardo.ai)
 - Videos: $30/mo (HeyGen) or Free (D-ID limited)
 
@@ -305,12 +329,14 @@ Edit `content/homepage/aiInstructor.ts`:
 ## ✨ What's Different
 
 **Before:**
+
 - Static program listings from database
 - No course cover images
 - No AI instructor content
 - Generic program pages
 
 **After:**
+
 - ✅ Featured courses with AI-generated covers
 - ✅ AI instructor section on homepage
 - ✅ Course-specific video placeholders
@@ -336,6 +362,7 @@ Your Elevate for Humanity platform now has:
 ---
 
 **Questions?** Check the documentation files or review the code in:
+
 - `components/courses/CourseCard.tsx`
 - `content/courses/catalog.ts`
 - `app/programs/page.tsx`

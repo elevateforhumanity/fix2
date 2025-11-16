@@ -3,6 +3,7 @@
 ## 🎯 What You Have
 
 **11 Ready-to-Use Files:**
+
 - 5 image prompts (course covers)
 - 6 video scripts (1 master + 5 courses)
 
@@ -16,6 +17,7 @@ HVAC • Barber • Healthcare/CNA • CDL • Building Tech
 ### 1. Generate Images (2 minutes)
 
 **Free Option - Leonardo.ai:**
+
 ```
 1. Go to https://leonardo.ai
 2. Sign up (free)
@@ -27,6 +29,7 @@ HVAC • Barber • Healthcare/CNA • CDL • Building Tech
 ```
 
 **Paid Option - OpenAI API ($0.20 total):**
+
 ```bash
 export OPENAI_API_KEY="your-key"
 node scripts/generate-images.mjs
@@ -38,6 +41,7 @@ node scripts/generate-images.mjs
 ### 2. Generate Videos (30 minutes)
 
 **Free Option - D-ID (5 min free/month):**
+
 ```
 1. Go to https://d-id.com
 2. Sign up (free tier)
@@ -49,6 +53,7 @@ node scripts/generate-images.mjs
 ```
 
 **Paid Option - HeyGen ($30/month):**
+
 ```
 1. Go to https://heygen.com
 2. Sign up ($30/mo)
@@ -113,11 +118,11 @@ node scripts/prepare-video-jobs.mjs
 
 ## 💰 Cost Summary
 
-| Option | Images | Videos | Total | Time |
-|--------|--------|--------|-------|------|
-| **Free** | Leonardo.ai | D-ID | $0 | 2-3 hrs |
-| **Budget** | OpenAI API | HeyGen | $30 | 1 hr |
-| **Premium** | Midjourney | Synthesia | $40/mo | 2 hrs |
+| Option      | Images      | Videos    | Total  | Time    |
+| ----------- | ----------- | --------- | ------ | ------- |
+| **Free**    | Leonardo.ai | D-ID      | $0     | 2-3 hrs |
+| **Budget**  | OpenAI API  | HeyGen    | $30    | 1 hr    |
+| **Premium** | Midjourney  | Synthesia | $40/mo | 2 hrs   |
 
 ---
 
@@ -145,15 +150,18 @@ node scripts/prepare-video-jobs.mjs
 ## 🎯 Priority Order
 
 **If you only have 30 minutes:**
+
 1. Generate master "About Elevate" video (most important)
 2. Generate HVAC course cover image (most popular program)
 
 **If you have 1 hour:**
+
 1. Generate all 5 course cover images
 2. Generate master "About Elevate" video
 3. Generate 1-2 course videos
 
 **If you have 2 hours:**
+
 1. Generate all 5 course cover images
 2. Generate all 6 videos
 3. Add captions to videos

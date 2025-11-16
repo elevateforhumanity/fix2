@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import type { EcdCourse } from "@/content/courses/ecdCatalog";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { EcdCourse } from '@/content/courses/ecdCatalog';
 
 // Import manifest dynamically to avoid build issues
 const getManifest = () => {
   try {
-    return require("@/../public/generated-images/manifest.json");
+    return require('@/../public/generated-images/manifest.json');
   } catch {
     return {};
   }
@@ -21,7 +21,7 @@ export function EcdCourseCard({ course }: Props) {
   const manifest = getManifest();
   const coverSrc =
     (manifest as Record<string, string>)[course.coverImageKey] ??
-    "/placeholder-course-cover.svg";
+    '/placeholder-course-cover.svg';
 
   return (
     <Link

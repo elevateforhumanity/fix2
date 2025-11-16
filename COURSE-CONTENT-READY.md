@@ -3,6 +3,7 @@
 ## ✅ What's Been Created
 
 ### 📁 Image Prompts (5 Course Covers)
+
 Location: `content/image-prompts/`
 
 1. **course-hvac-cover.md** - HVAC Technician Training
@@ -12,6 +13,7 @@ Location: `content/image-prompts/`
 5. **course-building-cover.md** - Building Technician & Skilled Trades
 
 Each prompt is optimized for:
+
 - Square (1:1) aspect ratio for course covers
 - Professional, realistic photo style
 - Diverse representation
@@ -19,14 +21,17 @@ Each prompt is optimized for:
 - No logos or text (clean design)
 
 ### 🎬 Video Scripts (6 Total)
+
 Location: `content/video-scripts/`
 
 **Master Video:**
+
 - **about-elevate-master.md** - Main "About Elevate for Humanity" video (~90 seconds)
   - Explains the platform, funding partnerships (WIOA), and all programs
   - Perfect for homepage hero or about page
 
 **Course-Specific Videos:**
+
 1. **course-hvac-program.md** - HVAC Technician Career Pathway (~45 sec)
 2. **course-barber-program.md** - Barber Apprenticeship (~45 sec)
 3. **course-healthcare-program.md** - Healthcare & CNA Careers (~45 sec)
@@ -34,6 +39,7 @@ Location: `content/video-scripts/`
 5. **course-building-program.md** - Building Tech & Skilled Trades (~45 sec)
 
 Each script includes:
+
 - Clear value proposition
 - Funding/tuition support messaging (WIOA)
 - Skills and outcomes
@@ -46,11 +52,13 @@ Each script includes:
 ### Option 1: Using OpenAI DALL-E (Automated)
 
 1. **Set your OpenAI API key:**
+
    ```bash
    export OPENAI_API_KEY="your-key-here"
    ```
 
 2. **Run the image generation script:**
+
    ```bash
    node scripts/generate-images.mjs
    ```
@@ -63,6 +71,7 @@ Each script includes:
 ### Option 2: Manual Generation (Any AI Tool)
 
 You can copy the prompts from `content/image-prompts/*.md` and paste them into:
+
 - **DALL-E 3** (via ChatGPT Plus or API)
 - **Midjourney** (Discord bot)
 - **Stable Diffusion** (local or online)
@@ -80,21 +89,25 @@ Just copy the entire prompt text and generate!
 Copy the scripts from `content/video-scripts/*.md` into:
 
 **HeyGen** (https://heygen.com)
+
 - Best for realistic AI avatars
 - Upload script, choose avatar, generate
 - ~$30/month for basic plan
 
 **Synthesia** (https://synthesia.io)
+
 - Professional AI presenters
 - Multi-language support
 - ~$30/month for personal plan
 
 **D-ID** (https://d-id.com)
+
 - Quick talking head videos
 - Free tier available
 - Good for testing
 
 **Elai.io** (https://elai.io)
+
 - Course-focused platform
 - Template library
 - ~$29/month
@@ -102,6 +115,7 @@ Copy the scripts from `content/video-scripts/*.md` into:
 ### Option 2: Prepare Video Jobs (Automated Queue)
 
 1. **Run the video job preparation script:**
+
    ```bash
    node scripts/prepare-video-jobs.mjs
    ```
@@ -142,14 +156,18 @@ cat content/video-jobs.json
 ## 🎨 Customization
 
 ### Modify Image Prompts
+
 Edit files in `content/image-prompts/` to adjust:
+
 - Color palettes
 - Scene composition
 - Mood and style
 - Aspect ratios
 
 ### Modify Video Scripts
+
 Edit files in `content/video-scripts/` to adjust:
+
 - Tone and voice
 - Length and pacing
 - Messaging and CTAs
@@ -165,8 +183,8 @@ After editing, re-run the generation scripts.
 
 ```jsx
 // In your course card component
-<img 
-  src="/generated-images/course-hvac-cover.png" 
+<img
+  src="/generated-images/course-hvac-cover.png"
   alt="HVAC Technician Training"
   className="course-cover"
 />
@@ -176,24 +194,21 @@ After editing, re-run the generation scripts.
 
 ```jsx
 // In your video player component
-import videoScript from '@/content/video-scripts/about-elevate-master.md'
+import videoScript from '@/content/video-scripts/about-elevate-master.md';
 
-<VideoPlayer 
-  script={videoScript}
-  videoUrl="/videos/about-elevate.mp4"
-/>
+<VideoPlayer script={videoScript} videoUrl="/videos/about-elevate.mp4" />;
 ```
 
 ### Using Video Jobs JSON
 
 ```javascript
 // Batch process videos
-import videoJobs from '@/content/video-jobs.json'
+import videoJobs from '@/content/video-jobs.json';
 
-videoJobs.forEach(job => {
+videoJobs.forEach((job) => {
   // Send to HeyGen, Synthesia, etc.
-  generateVideo(job.script, job.outputPath)
-})
+  generateVideo(job.script, job.outputPath);
+});
 ```
 
 ---

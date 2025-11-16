@@ -72,10 +72,14 @@ export default async function ProgramsPage() {
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">Training & Apprenticeship Programs</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              Training & Apprenticeship Programs
+            </h2>
             <p className="mt-2 max-w-2xl text-sm text-gray-600">
-              Explore hands-on programs in HVAC, barbering, healthcare, CDL, building trades, IT support, and more. 
-              Many learners qualify for federal and state workforce funding, including WIOA and state workforce grants.
+              Explore hands-on programs in HVAC, barbering, healthcare, CDL,
+              building trades, IT support, and more. Many learners qualify for
+              federal and state workforce funding, including WIOA and state
+              workforce grants.
             </p>
           </div>
         </div>
@@ -100,8 +104,8 @@ export default async function ProgramsPage() {
         {safePrograms.length === 0 ? (
           <div className="elevate-card p-8 text-center">
             <p className="text-sm text-gray-600 mb-4">
-              No additional programs configured yet. Run the Supabase seed migrations to
-              populate programs.
+              No additional programs configured yet. Run the Supabase seed
+              migrations to populate programs.
             </p>
           </div>
         ) : (
