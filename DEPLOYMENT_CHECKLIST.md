@@ -24,9 +24,11 @@ supabase db push
 **Run these in Supabase SQL Editor:**
 
 #### 1. Add All Programs (MOST IMPORTANT)
+
 **File:** `supabase/migrations/20241115_add_all_etpl_programs.sql`
 
 This adds all 16 programs:
+
 - Barber Apprenticeship
 - HVAC Technician
 - CNA Certification
@@ -47,21 +49,25 @@ This adds all 16 programs:
 **Without this, NO PROGRAMS WILL SHOW on your site!**
 
 #### 2. Add CIP/SOC Codes
+
 **File:** `supabase/migrations/20240116_add_cip_soc_codes.sql`
 
 Adds workforce alignment codes to programs table
 
 #### 3. Seed CIP/SOC Data
+
 **File:** `supabase/migrations/20240116_seed_cip_soc_codes.sql`
 
 Populates CIP/SOC codes for all 16 programs
 
 #### 4. Lesson Progress Table
+
 **File:** `supabase/migrations/20251116020545_lesson_progress.sql`
 
 Creates table for tracking student video progress
 
 #### 5. Course Completion View
+
 **File:** `supabase/migrations/20251116020748_course_completion_view.sql`
 
 Creates view for certificate generation
@@ -94,30 +100,36 @@ This runs all migrations automatically.
 ## 🎯 What Happens After Running Migrations
 
 ### Immediately Fixed:
+
 ✅ Programs page shows all 16 programs  
 ✅ Program cards display with images  
 ✅ CIP/SOC codes appear on workforce page  
 ✅ Progress tracking starts working  
-✅ Certificate generation becomes available  
+✅ Certificate generation becomes available
 
 ### Still Need (Content):
+
 ⏳ Video URLs (you have scripts, need to record/source)  
-⏳ Real course cover photos (SVG placeholders work for now)  
+⏳ Real course cover photos (SVG placeholders work for now)
 
 ---
 
 ## 🔍 How to Verify Migrations Worked
 
 ### Test 1: Check Programs Page
+
 Visit: https://www.elevateconnectsdirectory.org/programs
 
 **Before migrations:**
+
 > "No programs configured yet"
 
 **After migrations:**
+
 > Shows 16 program cards with titles, descriptions, images
 
 ### Test 2: Check Database
+
 In Supabase SQL Editor, run:
 
 ```sql
@@ -133,6 +145,7 @@ SELECT title FROM programs ORDER BY title;
 **Should show:** All 16 program titles
 
 ### Test 3: Check Workforce Page
+
 Visit: https://www.elevateconnectsdirectory.org/partners/workforce
 
 **Should show:** All programs with CIP/SOC codes
@@ -141,31 +154,35 @@ Visit: https://www.elevateconnectsdirectory.org/partners/workforce
 
 ## 📊 Migration Files Summary
 
-| File | Purpose | Status | Priority |
-|------|---------|--------|----------|
-| `20241115_add_all_etpl_programs.sql` | Add 16 programs | ❌ Not run | 🔴 CRITICAL |
-| `20240116_add_cip_soc_codes.sql` | Add code columns | ❌ Not run | 🟡 High |
-| `20240116_seed_cip_soc_codes.sql` | Populate codes | ❌ Not run | 🟡 High |
-| `20251116020545_lesson_progress.sql` | Progress tracking | ❌ Not run | 🟡 High |
-| `20251116020748_course_completion_view.sql` | Completion view | ❌ Not run | 🟡 High |
+| File                                        | Purpose           | Status     | Priority    |
+| ------------------------------------------- | ----------------- | ---------- | ----------- |
+| `20241115_add_all_etpl_programs.sql`        | Add 16 programs   | ❌ Not run | 🔴 CRITICAL |
+| `20240116_add_cip_soc_codes.sql`            | Add code columns  | ❌ Not run | 🟡 High     |
+| `20240116_seed_cip_soc_codes.sql`           | Populate codes    | ❌ Not run | 🟡 High     |
+| `20251116020545_lesson_progress.sql`        | Progress tracking | ❌ Not run | 🟡 High     |
+| `20251116020748_course_completion_view.sql` | Completion view   | ❌ Not run | 🟡 High     |
 
 ---
 
 ## 🚀 After Migrations: Next Steps
 
 ### 1. Verify Programs Show (1 min)
+
 - Visit /programs
 - Should see 16 program cards
 - Click on any program
 - Should see full details
 
 ### 2. Add Video URLs (5 min)
+
 You provided video scripts. Now you need:
+
 - Record videos OR use stock videos
 - Get YouTube/Vimeo URLs
 - Update homepage code
 
 **Quick fix:** Use free stock videos:
+
 ```tsx
 // Homepage hero
 <VideoShell
@@ -176,11 +193,13 @@ You provided video scripts. Now you need:
 ```
 
 ### 3. Test Voice Assistant (1 min)
+
 - Look for floating microphone button (bottom-right)
 - Click and say "go to dashboard"
 - Should navigate automatically
 
 ### 4. Test Certificate Generation (2 min)
+
 - Enroll in a course
 - Complete lessons
 - Click "Generate Certificate"
@@ -191,18 +210,22 @@ You provided video scripts. Now you need:
 ## ⚠️ Common Issues
 
 ### Issue: "No programs configured yet"
+
 **Cause:** Migrations not run  
 **Fix:** Run `20241115_add_all_etpl_programs.sql`
 
 ### Issue: Programs show but no CIP/SOC codes
+
 **Cause:** CIP/SOC migrations not run  
 **Fix:** Run both CIP/SOC migration files
 
 ### Issue: Certificate button doesn't work
+
 **Cause:** Completion view not created  
 **Fix:** Run `20251116020748_course_completion_view.sql`
 
 ### Issue: Progress not tracking
+
 **Cause:** lesson_progress table doesn't exist  
 **Fix:** Run `20251116020545_lesson_progress.sql`
 
@@ -211,12 +234,14 @@ You provided video scripts. Now you need:
 ## 📞 Need Help?
 
 ### If migrations fail:
+
 1. Check Supabase connection
 2. Verify you have admin access
 3. Check for SQL syntax errors in output
 4. Try running one file at a time
 
 ### If programs still don't show:
+
 1. Clear browser cache
 2. Check Supabase logs
 3. Verify migrations ran successfully
@@ -242,12 +267,14 @@ Before considering deployment complete:
 ## 🎉 Summary
 
 **Current Status:**
+
 - ✅ Code deployed to GitHub
 - ✅ Site is live
 - ✅ All pages working
 - ❌ Database empty (migrations not run)
 
 **To Fix:**
+
 1. Run migrations (5 minutes)
 2. Programs will appear
 3. All features will work
