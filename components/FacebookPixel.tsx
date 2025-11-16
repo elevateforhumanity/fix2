@@ -24,9 +24,7 @@ function FacebookPixelContent() {
       (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
         if (f.fbq) return;
         n = f.fbq = function (...args: any[]) {
-          n.callMethod
-            ? n.callMethod(...args)
-            : n.queue.push(...args);
+          n.callMethod ? n.callMethod(...args) : n.queue.push(...args);
         };
         /* eslint-enable @typescript-eslint/no-unused-expressions */
         if (!f._fbq) f._fbq = n;

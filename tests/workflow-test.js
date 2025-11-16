@@ -364,7 +364,7 @@ class WorkflowTester {
       console.log(
         `   - Partner certificate: ${certificates.partner_certificate.id}`
       );
-      console.log(`   - Verification records created`);
+      console.log('   - Verification records created');
 
       this.recordTest('Certificate Generation', true);
     } catch (error) {
@@ -442,7 +442,7 @@ class WorkflowTester {
     console.log('📊 WORKFLOW TEST REPORT');
     console.log('='.repeat(60));
 
-    console.log(`\n🎯 SUMMARY:`);
+    console.log('\n🎯 SUMMARY:');
     console.log(`   Total Tests: ${this.testResults.tests.length}`);
     console.log(`   Passed: ${this.testResults.passed} ✅`);
     console.log(`   Failed: ${this.testResults.failed} ❌`);
@@ -450,7 +450,7 @@ class WorkflowTester {
       `   Success Rate: ${Math.round((this.testResults.passed / this.testResults.tests.length) * 100)}%`
     );
 
-    console.log(`\n📋 DETAILED RESULTS:`);
+    console.log('\n📋 DETAILED RESULTS:');
     this.testResults.tests.forEach((test, index) => {
       const status = test.passed ? '✅' : '❌';
       console.log(`   ${index + 1}. ${status} ${test.name}`);
@@ -459,15 +459,15 @@ class WorkflowTester {
       }
     });
 
-    console.log(`\n🎓 SYSTEM CAPABILITIES VERIFIED:`);
-    console.log(`   ✅ 20 partner programs across 6 organizations`);
-    console.log(`   ✅ $9,570 total revenue potential`);
-    console.log(`   ✅ Automated 50/50 revenue splitting`);
-    console.log(`   ✅ Seamless partner platform integration`);
-    console.log(`   ✅ Dual certificate generation and delivery`);
-    console.log(`   ✅ Complete enrollment workflow automation`);
+    console.log('\n🎓 SYSTEM CAPABILITIES VERIFIED:');
+    console.log('   ✅ 20 partner programs across 6 organizations');
+    console.log('   ✅ $9,570 total revenue potential');
+    console.log('   ✅ Automated 50/50 revenue splitting');
+    console.log('   ✅ Seamless partner platform integration');
+    console.log('   ✅ Dual certificate generation and delivery');
+    console.log('   ✅ Complete enrollment workflow automation');
 
-    console.log(`\n🚀 READY FOR PRODUCTION DEPLOYMENT`);
+    console.log('\n🚀 READY FOR PRODUCTION DEPLOYMENT');
     console.log('='.repeat(60));
   }
 }
