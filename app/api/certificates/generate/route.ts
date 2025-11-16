@@ -1,18 +1,18 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
   try {
     const supabase = await createClient();
-    
+
     // Get authenticated user
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
     if (authError || !user) {
-      return NextResponse.json(
-        { error: "Not authenticated" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }
 
     const body = await request.json().catch(() => ({}));
@@ -26,14 +26,14 @@ export async function POST(request: Request) {
 
     if (!enrollmentId && !courseId) {
       return NextResponse.json(
-        { error: "Missing enrollmentId or courseId" },
+        { error: 'Missing enrollmentId or courseId' },
         { status: 400 }
       );
     }
 
     // 1) Load enrollment + course + program
     const { data: enrollment, error: enrollmentError } = await supabase
-      .from("enrollments")
+      .from('enrollments')
       .select(
         `
         id,
@@ -53,14 +53,14 @@ export async function POST(request: Request) {
         )
       `
       )
-      .eq(enrollmentId ? "id" : "course_id", enrollmentId ?? courseId)
-      .eq("user_id", user.id)
+      .eq(enrollmentId ? 'id' : 'course_id', enrollmentId ?? courseId)
+      .eq('user_id', user.id)
       .single();
 
     if (enrollmentError || !enrollment) {
-      console.error("Enrollment error:", enrollmentError);
+      console.error('Enrollment error:', enrollmentError);
       return NextResponse.json(
-        { error: "Enrollment not found" },
+        { error: 'Enrollment not found' },
         { status: 404 }
       );
     }
@@ -78,14 +78,14 @@ export async function POST(request: Request) {
 
     if (!course_id) {
       return NextResponse.json(
-        { error: "Course missing on enrollment" },
+        { error: 'Course missing on enrollment' },
         { status: 400 }
       );
     }
 
     // 2) Check course completion via view
     const { data: completionRow, error: completionError } = await supabase
-      .from("course_completion_status")
+      .from('course_completion_status')
       .select(
         `
         student_id,
@@ -95,12 +95,12 @@ export async function POST(request: Request) {
         completed_required_lessons
       `
       )
-      .eq("student_id", enrollment.user_id)
-      .eq("course_id", course_id)
+      .eq('student_id', enrollment.user_id)
+      .eq('course_id', course_id)
       .maybeSingle();
 
     if (completionError) {
-      console.error("Error reading course_completion_status:", completionError);
+      console.error('Error reading course_completion_status:', completionError);
     }
 
     const isCompletedByLessons = completionRow?.is_course_completed ?? false;
@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     if (!isCompletedByLessons) {
       return NextResponse.json(
         {
-          error: "Course not fully completed",
+          error: 'Course not fully completed',
           message: `You have completed ${completionRow?.completed_required_lessons || 0} of ${completionRow?.total_required_lessons || 0} required lessons.`,
           details: completionRow ?? null,
         },
@@ -118,25 +118,25 @@ export async function POST(request: Request) {
 
     // 3) Check if certificate already exists
     const { data: existingCert } = await supabase
-      .from("certificates")
-      .select("id, certificate_number, verification_code")
-      .eq("student_id", enrollment.user_id)
-      .eq("course_id", course_id)
+      .from('certificates')
+      .select('id, certificate_number, verification_code')
+      .eq('student_id', enrollment.user_id)
+      .eq('course_id', course_id)
       .maybeSingle();
 
     if (existingCert) {
       return NextResponse.json({
         ok: true,
         certificate: existingCert,
-        message: "Certificate already exists",
+        message: 'Certificate already exists',
       });
     }
 
     // 4) Load student profile
     const { data: profile } = await supabase
-      .from("user_profiles")
-      .select("full_name, email")
-      .eq("user_id", enrollment.user_id)
+      .from('user_profiles')
+      .select('full_name, email')
+      .eq('user_id', enrollment.user_id)
       .maybeSingle();
 
     // 5) Generate certificate metadata
@@ -146,7 +146,7 @@ export async function POST(request: Request) {
 
     // 6) Insert certificate
     const { data: cert, error: certError } = await supabase
-      .from("certificates")
+      .from('certificates')
       .insert({
         student_id: enrollment.user_id,
         course_id,
@@ -154,43 +154,40 @@ export async function POST(request: Request) {
         certificate_number: certificateNumber,
         verification_code: verificationCode,
         issued_date: new Date().toISOString(),
-        student_name: profile?.full_name || profile?.email || "Student",
+        student_name: profile?.full_name || profile?.email || 'Student',
         course_title: course?.title,
         program_name: program?.title ?? null,
         hours_completed: totalHours,
         issued_by: user.id,
       })
-      .select("*")
+      .select('*')
       .single();
 
     if (certError || !cert) {
-      console.error("Error inserting certificate:", certError);
+      console.error('Error inserting certificate:', certError);
       return NextResponse.json(
-        { error: "Failed to create certificate" },
+        { error: 'Failed to create certificate' },
         { status: 500 }
       );
     }
 
     // 7) Update enrollment status to completed
     await supabase
-      .from("enrollments")
+      .from('enrollments')
       .update({
-        status: "completed",
+        status: 'completed',
         completed_at: new Date().toISOString(),
       })
-      .eq("id", enrollment.id);
+      .eq('id', enrollment.id);
 
     return NextResponse.json({
       ok: true,
       certificate: cert,
-      message: "Certificate generated successfully",
+      message: 'Certificate generated successfully',
     });
   } catch (error) {
-    console.error("Error in /api/certificates/generate:", error);
-    return NextResponse.json(
-      { error: "Internal error" },
-      { status: 500 }
-    );
+    console.error('Error in /api/certificates/generate:', error);
+    return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
 }
 
