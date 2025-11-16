@@ -38,31 +38,31 @@ export default function HomePage() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-16 px-4 md:px-8 bg-slate-50">
+        <section className="py-20 px-4 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold mb-4">
-                  WIOA-Funded Training
+                <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-6">
+                  WIOA-Funded Training Programs
                 </div>
-                <h1 className="text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                  Free Career Training Funded by WIOA & State Grants
+                <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                  Career Training at No Cost to You
                 </h1>
-                <p className="text-xl text-slate-700 mb-8">
-                  Explore approved training programs, apprenticeships, and workforce opportunities available at no cost to eligible Indiana residents.
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  Access state-approved workforce training programs, registered apprenticeships, and career pathways funded through WIOA and Indiana DWD partnerships.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
                     href="/apply" 
-                    className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-bold text-lg hover:shadow-xl transition text-center"
+                    className="px-8 py-3.5 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition text-center"
                   >
-                    Apply for Training
+                    Check Eligibility
                   </Link>
                   <Link 
                     href="/programs" 
-                    className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-300 rounded-lg font-bold text-lg hover:border-slate-400 transition text-center"
+                    className="px-8 py-3.5 bg-white text-slate-700 border border-slate-300 font-semibold hover:bg-slate-50 transition text-center"
                   >
-                    Browse Programs
+                    View Programs
                   </Link>
                 </div>
                 <div className="mt-8 flex items-center gap-6 text-sm text-slate-600">
@@ -86,7 +86,7 @@ export default function HomePage() {
                   alt="Students in training"
                   width={800}
                   height={600}
-                  className="rounded-2xl shadow-xl"
+                  className="w-full h-auto"
                   priority
                 />
               </div>
@@ -95,38 +95,38 @@ export default function HomePage() {
         </section>
 
         {/* How It Works */}
-        <section className="py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
+        <section className="py-20 px-4 md:px-8 bg-slate-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
-              <p className="text-xl text-slate-600">Three simple steps to start your career training</p>
+              <p className="text-lg text-slate-600">Three steps to access funded training</p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-red-600">1</span>
+              <div className="bg-white p-8">
+                <div className="w-12 h-12 bg-blue-600 text-white flex items-center justify-center font-bold text-xl mb-6">
+                  1
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Explore Programs</h3>
-                <p className="text-slate-600">
-                  Browse WIOA-approved training programs in high-demand fields like healthcare, trades, and technology.
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Explore Programs</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Browse state-approved training programs in healthcare, skilled trades, and technology sectors.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-orange-600">2</span>
+              <div className="bg-white p-8">
+                <div className="w-12 h-12 bg-blue-600 text-white flex items-center justify-center font-bold text-xl mb-6">
+                  2
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Check Eligibility</h3>
-                <p className="text-slate-600">
-                  Complete a quick eligibility check to see if you qualify for 100% funded training through WIOA.
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Verify Eligibility</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Complete eligibility screening to determine qualification for WIOA-funded training.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">3</span>
+              <div className="bg-white p-8">
+                <div className="w-12 h-12 bg-blue-600 text-white flex items-center justify-center font-bold text-xl mb-6">
+                  3
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Start Training Free</h3>
-                <p className="text-slate-600">
-                  Enroll in your chosen program and begin your career journey with full financial support.
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Begin Training</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Enroll in your selected program with full tuition coverage and support services.
                 </p>
               </div>
             </div>
@@ -134,11 +134,11 @@ export default function HomePage() {
         </section>
 
         {/* Featured Programs */}
-        <section className="py-16 px-4 md:px-8 bg-slate-50">
+        <section className="py-20 px-4 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">Featured Training Programs</h2>
-              <p className="text-xl text-slate-600">High-demand careers with strong job placement rates</p>
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">Training Programs</h2>
+              <p className="text-lg text-slate-600">State-approved programs in high-demand industries</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Barber */}

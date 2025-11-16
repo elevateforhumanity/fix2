@@ -17,32 +17,32 @@ console.log('========================\n');
 const videos = [
   {
     name: 'homepage-hero',
-    prompt: 'Professional diverse group of adult students in modern training facility learning technical skills, bright classroom, hopeful atmosphere, photorealistic, 16:9 landscape',
+    prompt: 'Professional photograph of diverse adult students in modern training facility, realistic lighting, sharp focus, high-end corporate photography style, Canon EOS R5, 50mm lens, natural lighting, professional composition, real people, documentary style',
     output: 'public/media/homepage-hero.jpg'
   },
   {
     name: 'program-barber',
-    prompt: 'Professional barber cutting hair in modern barbershop, apprentice learning, diverse professionals, clean environment, 16:9 landscape, photorealistic',
+    prompt: 'Professional photograph of barber cutting client hair in upscale barbershop, realistic lighting, sharp focus, professional photography, Canon EOS, natural colors, real people, documentary style, modern interior',
     output: 'public/media/program-barber.jpg'
   },
   {
     name: 'program-hvac',
-    prompt: 'HVAC technician working on heating system, professional training environment, modern equipment, safety gear, 16:9 landscape, photorealistic',
+    prompt: 'Professional photograph of HVAC technician working on commercial HVAC unit, realistic lighting, sharp focus, industrial photography, safety equipment, real workplace, documentary style, professional composition',
     output: 'public/media/program-hvac.jpg'
   },
   {
     name: 'program-cdl',
-    prompt: 'Professional truck driver in modern semi truck, CDL training, highway background, diverse professional, 16:9 landscape, photorealistic',
+    prompt: 'Professional photograph of truck driver in modern semi truck cab, realistic lighting, sharp focus, automotive photography, professional driver, real vehicle interior, documentary style',
     output: 'public/media/program-cdl.jpg'
   },
   {
     name: 'program-cna',
-    prompt: 'Healthcare worker in scrubs helping patient in modern medical facility, caring atmosphere, professional medical setting, 16:9 landscape, photorealistic',
+    prompt: 'Professional photograph of healthcare worker in scrubs in modern hospital, realistic lighting, sharp focus, medical photography, real medical facility, professional composition, documentary style',
     output: 'public/media/program-cna.jpg'
   },
   {
     name: 'efh-about',
-    prompt: 'Modern workforce development center, diverse group of professionals and students, collaborative learning environment, Elevate for Humanity branding, 16:9 landscape, photorealistic',
+    prompt: 'Professional photograph of modern workforce training center, realistic lighting, sharp focus, architectural photography, real facility, professional composition, natural lighting, documentary style',
     output: 'public/media/efh-about.jpg'
   }
 ];

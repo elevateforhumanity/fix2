@@ -1,156 +1,129 @@
-// app/programs/page.tsx
 import Link from 'next/link';
-import { createServerSupabaseClient } from '@/lib/auth';
+import Image from 'next/image';
 import { ecdCourses } from '@/content/courses/ecdCatalog';
-import EcdCourseCard from '@/components/courses/EcdCourseCard';
 
-type Program = {
-  id: string;
-  slug: string;
-  title: string;
-  tagline?: string | null;
-  summary?: string | null;
-  funding?: string[] | null;
-};
-
-export const dynamic = 'force-dynamic';
-
-export default async function ProgramsPage() {
-  const supabase = await createServerSupabaseClient();
-
-  const { data: programs, error } = await supabase
-    .from('programs')
-    .select('id, slug, title, tagline, summary, funding')
-    .order('title', { ascending: true });
-
-  if (error) {
-    console.error('Error loading programs:', error);
-  }
-
-  const safePrograms: Program[] = programs || [];
+export default function ProgramsPage() {
+  const categories = [
+    { name: 'All Programs', slug: 'all' },
+    { name: 'Healthcare', slug: 'healthcare' },
+    { name: 'Skilled Trades', slug: 'trades' },
+    { name: 'Technology', slug: 'technology' },
+    { name: 'Business', slug: 'business' },
+  ];
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="elevate-gradient-red-orange border-b border-white/10">
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-20">
-          <div className="flex-1 space-y-4">
-            <p className="text-sm font-semibold text-white/90 uppercase tracking-wide">
-              Elevate for Humanity · Elevate Connects Directory
-            </p>
-            <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
-              Explore Workforce & Apprenticeship Programs
+      <section className="bg-slate-900 text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="text-sm font-semibold text-blue-400 uppercase tracking-wide mb-4">
+              Training Programs
+            </div>
+            <h1 className="text-5xl font-bold mb-6">
+              Explore Career Training Programs
             </h1>
-            <p className="max-w-xl text-sm sm:text-base text-white/90">
-              Find WIOA-aligned training, Workforce Ready Grant programs, Job
-              Ready Indy pathways, and Registered Apprenticeships — all in one
-              directory.
+            <p className="text-xl text-slate-300 mb-8">
+              Browse WIOA-funded training programs, registered apprenticeships, and workforce development opportunities across Indiana.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wider text-white/90">
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full">
-                WIOA · WRG · JRI · Apprenticeship
-              </span>
+            <div className="flex flex-wrap gap-3">
+              {categories.map((cat) => (
+                <button
+                  key={cat.slug}
+                  className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition"
+                >
+                  {cat.name}
+                </button>
+              ))}
             </div>
           </div>
-          <div className="flex-1">
-            <div className="elevate-card relative aspect-video w-full overflow-hidden bg-white">
-              <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-gray-700">
-                <div>
-                  <p className="text-efh-orange font-semibold mb-2">
-                    Program Highlight Video
-                  </p>
-                  <p className="text-xs">
-                    WIOA / WRG / JRI / Apprenticeship overview video placeholder
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* ECD Training Programs with AI-Generated Covers */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between mb-8">
-          <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">Training & Apprenticeship Programs</h2>
-            <p className="mt-2 max-w-2xl text-sm text-gray-600">
-              Explore hands-on programs in HVAC, barbering, healthcare, CDL, building trades, IT support, and more. 
-              Many learners qualify for federal and state workforce funding, including WIOA and state workforce grants.
-            </p>
-          </div>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-12">
-          {ecdCourses.map((course) => (
-            <EcdCourseCard key={course.slug} course={course} />
-          ))}
         </div>
       </section>
 
-      {/* All Programs from Database */}
-      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between mb-8">
-          <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">All Programs</h2>
-            <p className="mt-2 max-w-2xl text-sm text-gray-600">
-              Connected to Elevate for Humanity's ecosystem of workforce
-              partners, case managers, and employer networks.
+      {/* Programs Grid */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              All Training Programs ({ecdCourses.length})
+            </h2>
+            <p className="text-lg text-slate-600">
+              State-approved programs with full or partial WIOA funding
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ecdCourses.map((course) => (
+              <Link
+                key={course.slug}
+                href={`/programs/${course.slug}`}
+                className="group"
+              >
+                <div className="bg-white border border-slate-200 overflow-hidden hover:border-blue-600 transition">
+                  <div className="relative h-48">
+                    <Image
+                      src={`/generated-images/ecd-courses/${course.coverImageKey}.png`}
+                      alt={course.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded">
+                        {course.category}
+                      </span>
+                      <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded">
+                        WIOA Eligible
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">
+                      {course.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                      {course.shortDescription}
+                    </p>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-slate-500">
+                        {course.duration || '12-24 weeks'}
+                      </span>
+                      <span className="text-blue-600 font-semibold group-hover:underline">
+                        Learn More →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
-        {safePrograms.length === 0 ? (
-          <div className="elevate-card p-8 text-center">
-            <p className="text-sm text-gray-600 mb-4">
-              No additional programs configured yet. Run the Supabase seed migrations to
-              populate programs.
-            </p>
-          </div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2">
-            {safePrograms.map((program) => {
-              const fundingLabels = program.funding || [];
-              return (
-                <Link
-                  key={program.id}
-                  href={`/programs/${program.slug}`}
-                  className="elevate-card hover:shadow-xl transition-all"
-                >
-                  <div className="flex flex-1 flex-col gap-3 p-5">
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {program.title}
-                      </h3>
-                      {fundingLabels.length > 0 && (
-                        <div className="flex flex-wrap gap-1">
-                          {fundingLabels.map((tag) => (
-                            <span
-                              key={tag}
-                              className="elevate-badge elevate-badge-red"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    {program.tagline && (
-                      <p className="text-sm text-efh-orange font-medium">
-                        {program.tagline}
-                      </p>
-                    )}
-                    <p className="text-sm text-gray-600 line-clamp-3">
-                      {program.summary ||
-                        'Click to view program details, courses, and funding options.'}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between border-t border-gray-200 px-5 py-3 text-xs text-gray-500">
-                    <span>View Details →</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        )}
       </section>
-    </main>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            Ready to Start Your Training?
+          </h2>
+          <p className="text-lg text-slate-600 mb-8">
+            Check your eligibility for WIOA-funded training programs
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="px-8 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            >
+              Check Eligibility
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-3 bg-white text-slate-700 border border-slate-300 font-semibold hover:bg-slate-50 transition"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
