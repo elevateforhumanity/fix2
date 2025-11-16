@@ -186,7 +186,7 @@ export default function ChatAssistant({
         style={{
           position: 'fixed',
           bottom: '24px',
-          right: '24px',
+          right: '100px',
           width: '60px',
           height: '60px',
           borderRadius: '50%',
@@ -224,7 +224,7 @@ export default function ChatAssistant({
       style={{
         position: 'fixed',
         bottom: '24px',
-        right: '24px',
+        right: '100px',
         width: isMinimized ? '320px' : '400px',
         height: isMinimized ? '60px' : '600px',
         backgroundColor: 'white',

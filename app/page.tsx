@@ -45,191 +45,164 @@ export default function HomePage() {
           </Link>
         </div>
       </header>
-      {/* Hero Section with Video */}
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 2px 2px, #E63946 1px, transparent 0)',
-              backgroundSize: '40px 40px',
-            }}
-          />
-        </div>
-        <div className="elevate-container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
-            {/* Left: Content */}
-            <div>
-              <div className="inline-block px-4 py-2 bg-efh-red/10 border border-efh-red/20 rounded-full text-sm font-semibold mb-6 text-efh-red">
-                ✓ WIOA-Funded Training • 100% Free for Eligible Participants
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900">
-                Transform Your Future with FREE Workforce Training
-              </h1>
-              <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
-                Innovate. Elevate. Reset.
-              </p>
-              <p className="text-xl mb-8 text-gray-700 leading-relaxed">
-                A workforce & wellness ecosystem for real people. Access
-                high-quality career training programs funded by WIOA. Get the
-                skills employers need—at no cost to you.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <Link href="/enroll" className="elevate-btn-primary">
-                  Check Your Eligibility
-                </Link>
-                <Link href="/programs" className="elevate-btn-secondary">
-                  Browse Programs
-                </Link>
-              </div>
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 text-sm text-gray-700">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>WIOA Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>Industry-Recognized Credentials</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>Job Placement Support</span>
-                </div>
-              </div>
+      {/* Simple Hero - Clear Message */}
+      <section className="bg-white py-16">
+        <div className="elevate-container max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            Free Career Training in Indianapolis
+          </h1>
+          
+          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+            Learn a skilled trade, get certified, and start a career that pays well. 
+            All training is 100% free if you qualify for WIOA funding.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Link 
+              href="/enroll" 
+              className="px-8 py-4 bg-efh-red text-white rounded-lg text-lg font-semibold hover:bg-efh-orange transition-colors"
+            >
+              Check If You Qualify
+            </Link>
+            <Link 
+              href="/programs" 
+              className="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg text-lg font-semibold hover:border-efh-red hover:text-efh-red transition-colors"
+            >
+              Browse Programs
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-efh-teal" />
+              <span>No cost if you qualify</span>
             </div>
-            {/* Right: Hero Video */}
-            <div className="relative">
-              <VideoShell
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Elevate for Humanity - Innovate. Elevate. Reset."
-                caption="A workforce & wellness ecosystem for real people"
-                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-              />
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-purple-600">100%</div>
-                <div className="text-sm text-gray-600">Free Training</div>
-              </div>
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-teal-600">85%</div>
-                <div className="text-sm text-gray-600">Job Placement</div>
-              </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-efh-teal" />
+              <span>Industry certifications</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-efh-teal" />
+              <span>Job placement help</span>
             </div>
           </div>
         </div>
       </section>
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="elevate-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-purple-600 mb-2">
-                100%
+      {/* How It Works - Simple & Clear */}
+      <section className="py-24 bg-white">
+        <div className="elevate-container max-w-5xl">
+          <h2 className="text-5xl font-black text-center mb-4 text-gray-900">
+            It's Really This Simple
+          </h2>
+          <p className="text-xl text-center text-gray-600 mb-16">
+            No complicated forms. No hidden fees. Just 3 easy steps.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center animate-fade-in-up">
+              <div className="w-24 h-24 bg-gradient-to-br from-efh-red to-efh-orange rounded-full flex items-center justify-center text-white text-4xl font-black mx-auto mb-6 shadow-xl">
+                1
               </div>
-              <div className="text-gray-700 font-semibold">Free Training</div>
-              <div className="text-sm text-gray-500 mt-1">WIOA-Funded</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Pick Your Path</h3>
+              <p className="text-lg text-gray-600">
+                Choose from truck driving, HVAC, barbering, CNA, and more
+              </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-orange-600 mb-2">10+</div>
-              <div className="text-gray-700 font-semibold">Career Programs</div>
-              <div className="text-sm text-gray-500 mt-1">
-                High-Demand Fields
+
+            <div className="text-center animate-fade-in-up animate-delay-100">
+              <div className="w-24 h-24 bg-gradient-to-br from-efh-orange to-yellow-400 rounded-full flex items-center justify-center text-white text-4xl font-black mx-auto mb-6 shadow-xl">
+                2
               </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Get Trained</h3>
+              <p className="text-lg text-gray-600">
+                Learn from pros. Hands-on training. Industry certifications.
+              </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-teal-600 mb-2">85%</div>
-              <div className="text-gray-700 font-semibold">Job Placement</div>
-              <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-blue-600 mb-2">$45K+</div>
-              <div className="text-gray-700 font-semibold">
-                Avg. Starting Salary
+
+            <div className="text-center animate-fade-in-up animate-delay-200">
+              <div className="w-24 h-24 bg-gradient-to-br from-efh-teal to-green-400 rounded-full flex items-center justify-center text-white text-4xl font-black mx-auto mb-6 shadow-xl">
+                3
               </div>
-              <div className="text-sm text-gray-500 mt-1">For Graduates</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Start Working</h3>
+              <p className="text-lg text-gray-600">
+                We help you land the job. 85% of grads get hired within 6 months.
+              </p>
             </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <Link 
+              href="/enroll" 
+              className="inline-block px-12 py-6 bg-gradient-to-r from-efh-red to-efh-orange text-white rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-2xl"
+            >
+              Let's Go! →
+            </Link>
           </div>
         </div>
       </section>
-      {/* Employer-Led Apprenticeship & WIOA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Programs - Visual & Engaging */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="elevate-container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Empowering Employers. Advancing Apprenticeships. Transforming
-              Tomorrow.
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-black mb-6">
+              What Do You Want To Do?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Through Elevate Connects Directory, employers across Indiana are
-              linking with high-quality, WIOA-eligible apprenticeship and
-              training programs to build a skilled workforce.
+            <p className="text-2xl text-gray-300">
+              Pick a career that actually pays the bills
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-blue-600" />
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/programs/truck-driving" className="group">
+              <div className="bg-gradient-to-br from-efh-red to-efh-orange p-8 rounded-2xl hover:scale-105 transition-transform shadow-2xl">
+                <div className="text-6xl mb-4">🚛</div>
+                <h3 className="text-3xl font-bold mb-3">Truck Driving</h3>
+                <p className="text-lg mb-4 opacity-90">
+                  Get your CDL. Start at $50K+/year.
+                </p>
+                <div className="text-yellow-300 font-bold group-hover:translate-x-2 transition-transform inline-block">
+                  Learn More →
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Employer-Led Registered Apprenticeships
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Provide paid work experience + classroom instruction.
-                Apprentices earn while they learn.
-              </p>
-              <a
-                href="https://www.in.gov/dwd/apprenticeship-indiana/home/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-2"
-              >
-                Learn More →
-              </a>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
-                <Award className="h-8 w-8 text-purple-600" />
+            </Link>
+
+            <Link href="/programs/hvac-tech" className="group">
+              <div className="bg-gradient-to-br from-efh-teal to-green-500 p-8 rounded-2xl hover:scale-105 transition-transform shadow-2xl">
+                <div className="text-6xl mb-4">❄️</div>
+                <h3 className="text-3xl font-bold mb-3">HVAC Tech</h3>
+                <p className="text-lg mb-4 opacity-90">
+                  Fix AC, make bank. $45K+ starting.
+                </p>
+                <div className="text-yellow-300 font-bold group-hover:translate-x-2 transition-transform inline-block">
+                  Learn More →
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                WIOA-Eligible Training
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Eligible jobseekers access training at little or no cost through
-                Workforce Innovation and Opportunity Act funding.
-              </p>
-              <a
-                href="https://www.dol.gov/agencies/eta/wioa/programs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-600 hover:text-purple-700 font-semibold inline-flex items-center gap-2"
-              >
-                Learn More →
-              </a>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
-                <TrendingUp className="h-8 w-8 text-orange-600" />
+            </Link>
+
+            <Link href="/programs/barber" className="group">
+              <div className="bg-gradient-to-br from-purple-600 to-pink-500 p-8 rounded-2xl hover:scale-105 transition-transform shadow-2xl">
+                <div className="text-6xl mb-4">✂️</div>
+                <h3 className="text-3xl font-bold mb-3">Barbering</h3>
+                <p className="text-lg mb-4 opacity-90">
+                  Be your own boss. Build your clientele.
+                </p>
+                <div className="text-yellow-300 font-bold group-hover:translate-x-2 transition-transform inline-block">
+                  Learn More →
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Local Partnership Initiatives
-              </h3>
-              <p className="text-gray-600 mb-4">
-                EmployIndy's Modern Apprenticeship and Indiana Plan's readiness
-                programs create pathways into in-demand industries.
-              </p>
-              <a
-                href="https://employindy.org/modern-apprenticeship/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-orange-600 hover:text-orange-700 font-semibold inline-flex items-center gap-2"
-              >
-                Learn More →
-              </a>
-            </div>
+            </Link>
           </div>
+
+          <div className="text-center mt-12">
+            <Link 
+              href="/programs" 
+              className="inline-block px-10 py-4 bg-white text-gray-900 rounded-full text-xl font-bold hover:scale-105 transition-transform"
+            >
+              See All Programs
+            </Link>
+          </div>
+        </div>
+      </section>
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
