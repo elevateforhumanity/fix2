@@ -3,11 +3,13 @@
 ## 🎯 CORRECT ARCHITECTURE
 
 ### Marketing Site - www.elevateforhumanity.org
+
 - **Platform**: Durable (durablesites.co)
 - **Purpose**: Public marketing, lead generation, program information
 - **DNS**: Should point to Durable, NOT Cloudflare or Vercel
 
 ### LMS Platform - Vercel Project
+
 - **Platform**: Vercel (fix2-gpql)
 - **Repository**: elevateforhumanity/fix2
 - **URL**: https://vercel.com/elevate-48e460c9/fix2-gpql
@@ -22,6 +24,7 @@
 ## ❌ CURRENT PROBLEM
 
 **www.elevateforhumanity.org** is pointing to Cloudflare (104.18.x.x) but:
+
 1. It's NOT configured in Cloudflare properly
 2. It SHOULD be pointing to Durable instead
 3. This causes SSL handshake failure
@@ -43,6 +46,7 @@ node scripts/workers/remove-elevateforhumanity-from-cloudflare.mjs
 ```
 
 **What it does:**
+
 - Finds elevateforhumanity.org zone in Cloudflare
 - Updates DNS records to point to Durable
 - Disables Cloudflare proxy
@@ -197,6 +201,7 @@ node scripts/workers/remove-elevateforhumanity-from-cloudflare.mjs
 After setup, test:
 
 ### Marketing Site (Durable):
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # Should return: HTTP/2 200
@@ -204,6 +209,7 @@ curl -I https://www.elevateforhumanity.org
 ```
 
 ### LMS Platform (Vercel):
+
 ```bash
 curl -I https://lms.elevateforhumanity.org
 # Should return: HTTP/2 200

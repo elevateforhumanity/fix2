@@ -3,6 +3,7 @@
 ## 🎯 CORRECT DEPLOYMENT TARGET
 
 **Vercel Project**: fix2-gpql (or fix2-i3z8)
+
 - Organization: elevate-48e460c9
 - Project URL: https://vercel.com/elevate-48e460c9/fix2-gpql
 - Repository: elevateforhumanity/fix2
@@ -12,6 +13,7 @@
 This repository (`fix2`) should deploy to Vercel and serve **www.elevateforhumanity.org**.
 
 ### Issue:
+
 The domain www.elevateforhumanity.org is NOT configured in the Vercel project, causing the SSL handshake failure.
 
 ## ✅ HOW TO FIX
@@ -58,11 +60,13 @@ If you want www.elevateforhumanity.org to be the primary domain:
 If the domain is currently pointing to Cloudflare but not configured:
 
 ### Current DNS (Cloudflare):
+
 ```
 www.elevateforhumanity.org → 104.18.23.157 (Cloudflare)
 ```
 
 ### Change to Vercel:
+
 ```
 Type   Name   Target
 CNAME  www    cname.vercel-dns.com
@@ -83,6 +87,7 @@ Based on `.vercel-autopilot-config.json`:
 ```
 
 **Note**: The config shows `fix2-i3z8` but you mentioned `fix2-gpql`. These might be:
+
 - Different projects
 - Same project with different names
 - Old vs new project

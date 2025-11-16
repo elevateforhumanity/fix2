@@ -2,10 +2,10 @@
 
 /**
  * Cloudflare Autopilot Worker: Remove www.elevateforhumanity.org from Cloudflare
- * 
+ *
  * This script removes the Cloudflare configuration for www.elevateforhumanity.org
  * so it can be properly hosted on Durable (durablesites.co).
- * 
+ *
  * What it does:
  * 1. Lists all zones in Cloudflare account
  * 2. Finds elevateforhumanity.org zone
@@ -41,14 +41,16 @@ function makeRequest(options, data = null) {
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
       let body = '';
-      res.on('data', (chunk) => body += chunk);
+      res.on('data', (chunk) => (body += chunk));
       res.on('end', () => {
         try {
           const parsed = JSON.parse(body);
           if (parsed.success) {
             resolve(parsed.result);
           } else {
-            reject(new Error(parsed.errors?.[0]?.message || 'API request failed'));
+            reject(
+              new Error(parsed.errors?.[0]?.message || 'API request failed')
+            );
           }
         } catch (e) {
           reject(new Error(`Failed to parse response: ${body}`));
@@ -57,30 +59,30 @@ function makeRequest(options, data = null) {
     });
 
     req.on('error', reject);
-    
+
     if (data) {
       req.write(JSON.stringify(data));
     }
-    
+
     req.end();
   });
 }
 
 async function findZone() {
   log('\n🔍 Finding Cloudflare zone for elevateforhumanity.org...', 'cyan');
-  
+
   const options = {
     hostname: 'api.cloudflare.com',
     path: '/client/v4/zones?name=' + DOMAIN,
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${CLOUDFLARE_API_TOKEN}`,
+      Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
   };
 
   const zones = await makeRequest(options);
-  
+
   if (zones.length === 0) {
     throw new Error(`Zone ${DOMAIN} not found in Cloudflare account`);
   }
@@ -92,27 +94,30 @@ async function findZone() {
 
 async function listDNSRecords(zoneId) {
   log('\n📋 Listing DNS records for www subdomain...', 'cyan');
-  
+
   const options = {
     hostname: 'api.cloudflare.com',
     path: `/client/v4/zones/${zoneId}/dns_records?name=${SUBDOMAIN}.${DOMAIN}`,
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${CLOUDFLARE_API_TOKEN}`,
+      Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
   };
 
   const records = await makeRequest(options);
-  
+
   if (records.length === 0) {
     log('ℹ️  No DNS records found for www subdomain', 'yellow');
     return [];
   }
 
   log(`Found ${records.length} DNS record(s):`, 'blue');
-  records.forEach(record => {
-    log(`  - ${record.type} ${record.name} → ${record.content} (Proxied: ${record.proxied})`, 'blue');
+  records.forEach((record) => {
+    log(
+      `  - ${record.type} ${record.name} → ${record.content} (Proxied: ${record.proxied})`,
+      'blue'
+    );
   });
 
   return records;
@@ -120,13 +125,13 @@ async function listDNSRecords(zoneId) {
 
 async function updateDNSRecord(zoneId, recordId, recordData) {
   log(`\n🔧 Updating DNS record ${recordId}...`, 'cyan');
-  
+
   const options = {
     hostname: 'api.cloudflare.com',
     path: `/client/v4/zones/${zoneId}/dns_records/${recordId}`,
     method: 'PUT',
     headers: {
-      'Authorization': `Bearer ${CLOUDFLARE_API_TOKEN}`,
+      Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
   };
@@ -138,13 +143,13 @@ async function updateDNSRecord(zoneId, recordId, recordData) {
 
 async function deleteDNSRecord(zoneId, recordId) {
   log(`\n🗑️  Deleting DNS record ${recordId}...`, 'cyan');
-  
+
   const options = {
     hostname: 'api.cloudflare.com',
     path: `/client/v4/zones/${zoneId}/dns_records/${recordId}`,
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${CLOUDFLARE_API_TOKEN}`,
+      Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
   };
@@ -164,14 +169,17 @@ async function main() {
     log('\nTo fix this:', 'yellow');
     log('1. Go to: https://dash.cloudflare.com/profile/api-tokens', 'yellow');
     log('2. Create a token with "Zone.DNS" edit permissions', 'yellow');
-    log('3. Export it: export CLOUDFLARE_API_TOKEN="your-token-here"', 'yellow');
+    log(
+      '3. Export it: export CLOUDFLARE_API_TOKEN="your-token-here"',
+      'yellow'
+    );
     log('4. Run this script again', 'yellow');
     process.exit(1);
   }
 
   try {
     // Step 1: Find the zone
-    const zoneId = CLOUDFLARE_ZONE_ID || await findZone();
+    const zoneId = CLOUDFLARE_ZONE_ID || (await findZone());
 
     // Step 2: List DNS records
     const records = await listDNSRecords(zoneId);
@@ -191,7 +199,10 @@ async function main() {
     // Step 3: Process each record
     log('\n🎯 Action Plan:', 'cyan');
     log('Option 1: Update records to point to Durable', 'yellow');
-    log('Option 2: Delete records (you\'ll add them manually in DNS provider)', 'yellow');
+    log(
+      "Option 2: Delete records (you'll add them manually in DNS provider)",
+      'yellow'
+    );
 
     // For automation, we'll update CNAME records to point to Durable
     for (const record of records) {
@@ -210,7 +221,10 @@ async function main() {
       }
     }
 
-    log('\n═══════════════════════════════════════════════════════════', 'green');
+    log(
+      '\n═══════════════════════════════════════════════════════════',
+      'green'
+    );
     log('  ✅ Cloudflare cleanup complete!', 'green');
     log('═══════════════════════════════════════════════════════════', 'green');
 
@@ -228,14 +242,19 @@ async function main() {
     log('5. Test: https://www.elevateforhumanity.org', 'yellow');
 
     log('\n⏱️  DNS propagation may take 5-15 minutes', 'blue');
-    log('Check status: https://dnschecker.org/#CNAME/www.elevateforhumanity.org', 'blue');
-
+    log(
+      'Check status: https://dnschecker.org/#CNAME/www.elevateforhumanity.org',
+      'blue'
+    );
   } catch (error) {
     log('\n❌ ERROR: ' + error.message, 'red');
     log('\nTroubleshooting:', 'yellow');
     log('1. Verify CLOUDFLARE_API_TOKEN is correct', 'yellow');
     log('2. Ensure token has "Zone.DNS" edit permissions', 'yellow');
-    log('3. Check that elevateforhumanity.org is in your Cloudflare account', 'yellow');
+    log(
+      '3. Check that elevateforhumanity.org is in your Cloudflare account',
+      'yellow'
+    );
     process.exit(1);
   }
 }

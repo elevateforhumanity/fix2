@@ -27,6 +27,7 @@ export CLOUDFLARE_API_TOKEN="your-cloudflare-api-token"
 ```
 
 This will:
+
 - Remove Cloudflare configuration for www.elevateforhumanity.org
 - Update DNS to point to Durable
 - Disable Cloudflare proxy
@@ -115,7 +116,8 @@ Type   Name   Target                    TTL    Proxy
 CNAME  www    sites.durablesites.co     Auto   No
 ```
 
-**Important**: 
+**Important**:
+
 - Proxy must be DISABLED (DNS only)
 - If using Cloudflare, the cloud icon should be GRAY, not orange
 
@@ -136,6 +138,7 @@ curl -I https://www.elevateforhumanity.org
 ```
 
 Should return:
+
 ```
 HTTP/2 200
 server: [Durable server]
@@ -146,6 +149,7 @@ server: [Durable server]
 Open: https://www.elevateforhumanity.org
 
 Should show:
+
 - Your marketing site content
 - Valid SSL certificate (green padlock)
 - No errors
@@ -159,6 +163,7 @@ Should show:
 **Cause**: DNS not pointing to Durable correctly
 
 **Fix**:
+
 1. Verify DNS CNAME points to Durable target
 2. Ensure Cloudflare proxy is disabled
 3. Wait 15 minutes for DNS propagation
@@ -169,6 +174,7 @@ Should show:
 **Cause**: DNS not propagated yet
 
 **Fix**:
+
 1. Wait 15-30 minutes
 2. Check DNS propagation: https://dnschecker.org
 3. Try "Verify" button again in Durable
@@ -179,6 +185,7 @@ Should show:
 **Cause**: DNS not configured or propagated
 
 **Fix**:
+
 1. Verify DNS record exists
 2. Check DNS propagation
 3. Wait up to 48 hours (usually 15 minutes)
@@ -189,6 +196,7 @@ Should show:
 **Cause**: Browser cache or DNS cache
 
 **Fix**:
+
 1. Clear browser cache
 2. Try incognito/private mode
 3. Flush DNS cache:
@@ -214,22 +222,26 @@ Depending on your Durable plan, the CNAME might be:
 ## ⚡ Quick Reference
 
 ### Cloudflare Cleanup Command:
+
 ```bash
 export CLOUDFLARE_API_TOKEN="your-token"
 ./scripts/workers/cleanup-cloudflare-elevateforhumanity.sh
 ```
 
 ### DNS Configuration:
+
 ```
 CNAME  www  sites.durablesites.co  (DNS only, no proxy)
 ```
 
 ### Verification:
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 ```
 
 ### DNS Checker:
+
 https://dnschecker.org/#CNAME/www.elevateforhumanity.org
 
 ---
@@ -251,11 +263,13 @@ https://dnschecker.org/#CNAME/www.elevateforhumanity.org
 ## 📞 Support
 
 ### Durable Support:
+
 - Website: https://durablesites.co/support
 - Email: support@durablesites.co
 - Documentation: https://durablesites.co/docs
 
 ### DNS Provider Support:
+
 - Cloudflare: https://support.cloudflare.com
 - GoDaddy: https://www.godaddy.com/help
 - Namecheap: https://www.namecheap.com/support

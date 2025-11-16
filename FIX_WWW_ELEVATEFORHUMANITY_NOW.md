@@ -5,6 +5,7 @@
 **www.elevateforhumanity.org is NOT working** because the DNS is pointing to the wrong place.
 
 ### Current INCORRECT Configuration:
+
 ```
 CNAME  www  elevateproduction.netlify.app  ❌ WRONG
 ```
@@ -12,6 +13,7 @@ CNAME  www  elevateproduction.netlify.app  ❌ WRONG
 This points to the **LMS** (Learning Management System), not the **marketing site**.
 
 ### What SHOULD Be Configured:
+
 ```
 CNAME  www  [Durablesites.co domain]  ✅ CORRECT
 ```
@@ -38,12 +40,14 @@ You need to change the DNS for **www.elevateforhumanity.org** to point to **Dura
 Go to your DNS provider (where you manage elevateforhumanity.org DNS) and update:
 
 **CHANGE THIS:**
+
 ```
 Type   Name   Target
 CNAME  www    elevateproduction.netlify.app  ❌ DELETE THIS
 ```
 
 **TO THIS:**
+
 ```
 Type   Name   Target
 CNAME  www    [durablesites-target-from-step-1]  ✅ ADD THIS
@@ -62,12 +66,14 @@ CNAME  www    [durablesites-target-from-step-1]  ✅ ADD THIS
 After the fix, your domains should be:
 
 ### Marketing Site (Durablesites.co)
+
 ```
 www.elevateforhumanity.org  →  Durablesites.co  ✅
 elevateforhumanity.org      →  Redirect to www  ✅
 ```
 
 ### LMS Platform (Netlify - this repo)
+
 ```
 www.elevateconnectsdirectory.org  →  elevateproduction.netlify.app  ✅
 elevateconnectsdirectory.org      →  Redirect to www                ✅
@@ -80,6 +86,7 @@ elevateconnectsdirectory.org      →  Redirect to www                ✅
 Someone previously changed the DNS to point **both domains** to Netlify:
 
 From `BOTH_DOMAINS_CONFIGURED.md`:
+
 ```
 ### elevateforhumanity.org:
 CNAME  www  elevateproduction.netlify.app ✅ CORRECT  ← THIS IS WRONG!
@@ -107,6 +114,7 @@ This was incorrect. The marketing site should stay on Durablesites.co.
 **DO NOT** point www.elevateforhumanity.org to Netlify. That's for the LMS only.
 
 **Correct Setup:**
+
 - Marketing site = Durablesites.co = www.elevateforhumanity.org
 - LMS Platform = Netlify = www.elevateconnectsdirectory.org
 
@@ -119,6 +127,7 @@ If you don't have access to Durablesites.co or don't have a marketing site there
 ### Option A: Use This Repo for Marketing Site Too
 
 Point www.elevateforhumanity.org to Netlify and create marketing pages in this repo:
+
 1. Keep DNS pointing to `elevateproduction.netlify.app`
 2. Add www.elevateforhumanity.org as a custom domain in Netlify
 3. Create marketing pages in `/app/` directory
