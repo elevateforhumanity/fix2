@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { VoiceInput } from "./VoiceInput";
-import { MessageCircle, X, Mic } from "lucide-react";
+import { useState } from 'react';
+import { VoiceInput } from './VoiceInput';
+import { MessageCircle, X, Mic } from 'lucide-react';
 
 export function VoiceAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean }>>([
+  const [messages, setMessages] = useState<
+    Array<{ text: string; isUser: boolean }>
+  >([
     {
       text: "Hi! I'm your voice assistant. Click the microphone and say commands like 'go to dashboard' or 'show my courses'. Say 'help' to see all commands.",
       isUser: false,
@@ -17,20 +19,20 @@ export function VoiceAssistant() {
     setMessages((prev) => [
       ...prev,
       { text: command, isUser: true },
-      { text: "Processing your command...", isUser: false },
+      { text: 'Processing your command...', isUser: false },
     ]);
   };
 
   const voiceCommands = [
-    { command: "go to dashboard", description: "Open your dashboard" },
-    { command: "show my courses", description: "View your enrolled courses" },
-    { command: "show programs", description: "Browse available programs" },
-    { command: "my certificates", description: "View your certificates" },
-    { command: "my progress", description: "Check your progress" },
-    { command: "show messages", description: "Open messages" },
-    { command: "my profile", description: "View your profile" },
-    { command: "enroll now", description: "Start enrollment" },
-    { command: "help", description: "Show available commands" },
+    { command: 'go to dashboard', description: 'Open your dashboard' },
+    { command: 'show my courses', description: 'View your enrolled courses' },
+    { command: 'show programs', description: 'Browse available programs' },
+    { command: 'my certificates', description: 'View your certificates' },
+    { command: 'my progress', description: 'Check your progress' },
+    { command: 'show messages', description: 'Open messages' },
+    { command: 'my profile', description: 'View your profile' },
+    { command: 'enroll now', description: 'Start enrollment' },
+    { command: 'help', description: 'Show available commands' },
   ];
 
   return (
@@ -72,13 +74,13 @@ export function VoiceAssistant() {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
+                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                     message.isUser
-                      ? "bg-blue-600 text-white"
-                      : "bg-white text-gray-800 border border-gray-200"
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white text-gray-800 border border-gray-200'
                   }`}
                 >
                   <p className="text-sm">{message.text}</p>
