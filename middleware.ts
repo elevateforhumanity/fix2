@@ -41,35 +41,41 @@ const requestCounts = new Map<string, { count: number; resetTime: number }>();
 export function middleware(request: NextRequest) {
   const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
-  
+
   // Check if it's an allowed bot
-  const isAllowedBot = ALLOWED_BOTS.some(bot => userAgent.includes(bot));
-  
+  const isAllowedBot = ALLOWED_BOTS.some((bot) => userAgent.includes(bot));
+
   if (isAllowedBot) {
     return NextResponse.next();
   }
-  
+
   // Check if it's a blocked bot/scraper
-  const isBlockedBot = BLOCKED_USER_AGENTS.some(bot => userAgent.includes(bot));
-  
+  const isBlockedBot = BLOCKED_USER_AGENTS.some((bot) =>
+    userAgent.includes(bot)
+  );
+
   if (isBlockedBot) {
-    console.log(`Blocked scraper attempt from IP: ${ip}, User-Agent: ${userAgent}`);
+    console.log(
+      `Blocked scraper attempt from IP: ${ip}, User-Agent: ${userAgent}`
+    );
     return new NextResponse('Forbidden', { status: 403 });
   }
-  
+
   // Rate limiting
   const now = Date.now();
   const clientKey = `${ip}-${userAgent}`;
   const clientData = requestCounts.get(clientKey);
-  
+
   if (clientData) {
     if (now < clientData.resetTime) {
       if (clientData.count >= MAX_REQUESTS_PER_WINDOW) {
         console.log(`Rate limit exceeded for IP: ${ip}`);
-        return new NextResponse('Too Many Requests', { 
+        return new NextResponse('Too Many Requests', {
           status: 429,
           headers: {
-            'Retry-After': String(Math.ceil((clientData.resetTime - now) / 1000)),
+            'Retry-After': String(
+              Math.ceil((clientData.resetTime - now) / 1000)
+            ),
           },
         });
       }
@@ -85,7 +91,7 @@ export function middleware(request: NextRequest) {
       resetTime: now + RATE_LIMIT_WINDOW,
     });
   }
-  
+
   // Clean up old entries (every 1000 requests)
   if (requestCounts.size > 1000) {
     for (const [key, data] of requestCounts.entries()) {
@@ -94,28 +100,28 @@ export function middleware(request: NextRequest) {
       }
     }
   }
-  
+
   // Add security headers
   const response = NextResponse.next();
-  
+
   // Prevent clickjacking
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-  
+
   // Prevent MIME type sniffing
   response.headers.set('X-Content-Type-Options', 'nosniff');
-  
+
   // Enable XSS protection
   response.headers.set('X-XSS-Protection', '1; mode=block');
-  
+
   // Referrer policy
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  
+
   // Content Security Policy
   response.headers.set(
     'Content-Security-Policy',
     "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
   );
-  
+
   return response;
 }
 
