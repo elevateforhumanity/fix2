@@ -280,16 +280,15 @@ export default function TikTokStyleVideoPlayer({
         className="w-full h-full object-contain"
         onClick={togglePlay}
       >
-        {captions && <track kind="captions" src={captions} srcLang="en" label="English" />}
+        {captions && <track kind="captions" src={captions} srcLang="en"
+label="English" />}
       </video>
-
       {/* Loading Spinner */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/50">
           <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin" />
         </div>
       )}
-
       {/* Error State */}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-white p-4 text-center">
@@ -299,7 +298,6 @@ export default function TikTokStyleVideoPlayer({
           </div>
         </div>
       )}
-
       {/* Center Play Button */}
       {!isPlaying && !isLoading && (
         <button
@@ -311,14 +309,12 @@ export default function TikTokStyleVideoPlayer({
           </div>
         </button>
       )}
-
       {/* Title Overlay */}
       {title && (
         <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/60 to-transparent">
           <h3 className="text-white font-semibold text-lg">{title}</h3>
         </div>
       )}
-
       {/* Engagement Buttons (TikTok-style right sidebar) */}
       {showEngagement && (
         <div className="absolute right-4 bottom-24 flex flex-col gap-4">
@@ -327,13 +323,14 @@ export default function TikTokStyleVideoPlayer({
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
           >
             <div className={`w-12 h-12 rounded-full ${isLiked ? 'bg-red-500' : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}>
-              <svg className="w-6 h-6" fill={isLiked ? 'white' : 'none'} stroke="white" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              <svg className="w-6 h-6" fill={isLiked ? 'white' : 'none'} stroke="white"
+viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
             <span className="text-xs font-semibold">{likes}</span>
           </button>
-
           <button
             onClick={onComment}
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
@@ -343,7 +340,6 @@ export default function TikTokStyleVideoPlayer({
             </div>
             <span className="text-xs font-semibold">{comments}</span>
           </button>
-
           <button
             onClick={onBookmark}
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
@@ -352,7 +348,6 @@ export default function TikTokStyleVideoPlayer({
               <Bookmark className="w-6 h-6" fill={isBookmarked ? 'white' : 'none'} />
             </div>
           </button>
-
           <button
             onClick={onShare}
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
@@ -363,7 +358,6 @@ export default function TikTokStyleVideoPlayer({
           </button>
         </div>
       )}
-
       {/* Controls Overlay */}
       <div
         className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 transition-opacity duration-300 ${
@@ -388,7 +382,6 @@ export default function TikTokStyleVideoPlayer({
           >
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity" />
           </div>
-
           {/* Chapter Markers */}
           {chapters.map((chapter, i) => (
             <div
@@ -399,7 +392,6 @@ export default function TikTokStyleVideoPlayer({
             />
           ))}
         </div>
-
         {/* Control Buttons */}
         <div className="flex items-center justify-between text-white">
           <div className="flex items-center gap-2">
@@ -411,7 +403,6 @@ export default function TikTokStyleVideoPlayer({
             >
               {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
             </Button>
-
             <Button
               variant="ghost"
               size="icon"
@@ -420,7 +411,6 @@ export default function TikTokStyleVideoPlayer({
             >
               <SkipBack className="w-5 h-5" />
             </Button>
-
             <Button
               variant="ghost"
               size="icon"
@@ -429,7 +419,6 @@ export default function TikTokStyleVideoPlayer({
             >
               <SkipForward className="w-5 h-5" />
             </Button>
-
             <Button
               variant="ghost"
               size="icon"
@@ -438,12 +427,10 @@ export default function TikTokStyleVideoPlayer({
             >
               {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
             </Button>
-
             <span className="text-sm font-medium">
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
           </div>
-
           <div className="flex items-center gap-2">
             {captions && (
               <Button
@@ -455,7 +442,6 @@ export default function TikTokStyleVideoPlayer({
                 <Subtitles className="w-5 h-5" />
               </Button>
             )}
-
             <div className="relative">
               <Button
                 variant="ghost"
@@ -465,7 +451,6 @@ export default function TikTokStyleVideoPlayer({
               >
                 <Settings className="w-5 h-5" />
               </Button>
-
               {showSettings && (
                 <div className="absolute bottom-full right-0 mb-2 bg-black/90 backdrop-blur-sm rounded-lg p-2 min-w-[150px]">
                   <div className="text-sm font-semibold mb-2 px-2">Playback Speed</div>
@@ -483,7 +468,6 @@ export default function TikTokStyleVideoPlayer({
                 </div>
               )}
             </div>
-
             <Button
               variant="ghost"
               size="icon"

@@ -16,6 +16,8 @@
   See LICENSE file for details.
 */
 
+/* eslint-disable @typescript-eslint/no-require-imports */
+// Legacy test file using CommonJS
 const stripe = require('stripe')(
   process.env.STRIPE_SECRET_KEY || 'sk_test_dummy'
 );

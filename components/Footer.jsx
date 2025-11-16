@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -11,29 +11,29 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Quick Links</h4>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact</Link>
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/contact">Contact</Link>
         </div>
         <div className="footer-section">
           <h4>Connect</h4>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >
             Facebook
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/elevate-for-humanity"
             target="_blank"
             rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@elevateforhumanity"
             target="_blank"
             rel="noopener noreferrer"
           >

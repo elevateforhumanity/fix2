@@ -127,7 +127,6 @@ export default function AIChatPage() {
           </span>
         </div>
       </header>
-
       {/* Main Chat Area */}
       <main className="mx-auto max-w-7xl px-4 py-6">
         <div className="grid gap-4 md:grid-cols-[minmax(0,2.3fr)_minmax(0,1fr)] h-[calc(100vh-140px)]">
@@ -147,7 +146,6 @@ export default function AIChatPage() {
                   ● Online
                 </span>
               </div>
-
               {/* Preset prompts */}
               <div className="flex flex-wrap gap-2">
                 {PRESET_PROMPTS.map(preset => (
@@ -163,7 +161,6 @@ export default function AIChatPage() {
                 ))}
               </div>
             </div>
-
             <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-sm">
               {messages.map((m, i) => (
                 <div
@@ -192,7 +189,6 @@ export default function AIChatPage() {
                 </div>
               )}
             </div>
-
             <form
               onSubmit={handleSubmit}
               className="border-t border-slate-200 px-4 py-3 bg-white"
@@ -221,7 +217,6 @@ export default function AIChatPage() {
               </div>
             </form>
           </section>
-
           {/* Right panel – strategy ideas */}
           <aside className="hidden md:flex flex-col bg-white/80 rounded-3xl border border-slate-200 shadow-sm p-4 space-y-4 text-xs">
             <h2 className="text-sm font-semibold text-slate-900">
@@ -239,7 +234,6 @@ export default function AIChatPage() {
               "Rewrite this in Elevate for Humanity voice for students, partners,
               or funders."
             </div>
-            
             <div className="mt-auto pt-4 border-t border-slate-200">
               <Link 
                 href="/" 

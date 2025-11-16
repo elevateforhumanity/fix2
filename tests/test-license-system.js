@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+// Legacy test file using CommonJS
 const { generateLicense, validateLicense } = require('./license-generator');
 
 console.log('🔐 ELEVATE LICENSE SYSTEM TEST\n');

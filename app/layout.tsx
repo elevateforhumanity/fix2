@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
@@ -11,6 +12,14 @@ import NotificationPrompt from '@/components/NotificationPrompt';
 import { VoiceAssistant } from '@/components/VoiceAssistant';
 import ChatAssistant from '@/components/ChatAssistant';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
+import CookieConsent from '@/components/CookieConsent';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter',
+});
 
 // Cache bust: 2025-11-16-05:36
 export const metadata: Metadata = {
@@ -82,13 +91,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/assets/logo-efh.svg" />
         <meta name="theme-color" content="#2563EB" />
         <StructuredData />
       </head>
-      <body className="antialiased">
+      <body className={`${inter.className} antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <GoogleAnalytics />
         <FacebookPixel />
         <ServiceWorkerRegistration />
@@ -97,7 +112,8 @@ export default function RootLayout({
         <VoiceAssistant />
         <ChatAssistant />
         <ElevateChatWidget />
-        {children}
+        <CookieConsent />
+        <main id="main-content">{children}</main>
       </body>
     </html>
   );

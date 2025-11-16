@@ -172,13 +172,14 @@ function main() {
   lines.push('-- ============================================');
   lines.push('');
 
+  const sortedTables = Array.from(allTables).sort();
+  
   if (allTables.size > 0) {
     lines.push('-- ============================================');
     lines.push('-- TABLE DEFINITIONS');
     lines.push('-- ============================================');
     lines.push('');
 
-    const sortedTables = Array.from(allTables).sort();
     for (const table of sortedTables) {
       const usedIn = tableUsage.get(table) || [];
       lines.push(

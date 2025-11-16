@@ -3,6 +3,8 @@
  * End-to-end testing of the partner program enrollment system
  */
 
+/* eslint-disable @typescript-eslint/no-require-imports */
+// Legacy test file using CommonJS
 const StripePartnerProductsManager = require('./stripe-partner-products-setup');
 const RevenueSplitSystem = require('./revenue-split-system');
 const AutomatedEnrollmentSystem = require('./automated-enrollment-system');

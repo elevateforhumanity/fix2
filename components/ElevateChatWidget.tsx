@@ -18,7 +18,6 @@ export function ElevateChatWidget() {
         <MessageCircle size={20} />
         <span className="hidden sm:inline">Chat with AI</span>
       </button>
-
       {/* Modal overlay */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">

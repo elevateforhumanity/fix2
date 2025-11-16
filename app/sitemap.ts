@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .eq('status', 'active');
 
     // Skip courses table if it doesn't exist
-    let courses = null;
+    const courses = null;
 
     if (programsError) {
       console.error('Sitemap generation error:', { programsError });

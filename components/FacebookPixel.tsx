@@ -20,13 +20,15 @@ function FacebookPixelContent() {
 
     // Initialize Facebook Pixel
     if (!window.fbq) {
+      /* eslint-disable @typescript-eslint/no-unused-expressions */
       (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
         if (f.fbq) return;
-        n = f.fbq = function () {
+        n = f.fbq = function (...args: any[]) {
           n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
+            ? n.callMethod(...args)
+            : n.queue.push(...args);
         };
+        /* eslint-enable @typescript-eslint/no-unused-expressions */
         if (!f._fbq) f._fbq = n;
         n.push = n;
         n.loaded = true;

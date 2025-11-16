@@ -187,14 +187,16 @@ export class ContentAutomation {
         case 'json':
           data = await response.json();
           break;
-        case 'xml':
+        case 'xml': {
           const text = await response.text();
           data = this.parseXML(text);
           break;
-        case 'rss':
+        }
+        case 'rss': {
           const rssText = await response.text();
           data = this.parseRSS(rssText);
           break;
+        }
         default:
           data = await response.json();
       }

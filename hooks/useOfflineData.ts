@@ -85,7 +85,10 @@ export function useOfflineData<T>(
           console.warn('[useOfflineData] Cache write failed:', cacheError);
         }
       } catch (err) {
-        throw err;
+        if (mounted) {
+          setError(err as Error);
+          setLoading(false);
+        }
       }
     }
 

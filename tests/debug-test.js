@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+// Legacy test file using CommonJS
 const request = require('supertest');
 const app = require('./simple-server.cjs');
 
