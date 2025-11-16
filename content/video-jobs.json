@@ -15,7 +15,7 @@
     "captionsPath": "public/videos/about-elevate-master.vtt",
     "status": "pending",
     "priority": "high",
-    "createdAt": "2025-11-16T13:58:41.886Z",
+    "createdAt": "2025-11-16T15:57:15.029Z",
     "estimatedCost": 1.5
   },
   {
@@ -34,7 +34,7 @@
     "captionsPath": "public/videos/homepage-hero.vtt",
     "status": "pending",
     "priority": "high",
-    "createdAt": "2025-11-16T13:58:41.888Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 1.5
   },
   {
@@ -53,7 +53,7 @@
     "captionsPath": "public/videos/ecd-courses/about-elevate-for-humanity-main.vtt",
     "status": "pending",
     "priority": "high",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
     "estimatedCost": 1.5
   },
   {
@@ -72,7 +72,7 @@
     "captionsPath": "public/videos/courses/about-elevate-for-humanity.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.890Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -91,7 +91,7 @@
     "captionsPath": "public/videos/courses/barber-program-video.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.890Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -110,7 +110,7 @@
     "captionsPath": "public/videos/courses/building-tech-program-video.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.890Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -129,7 +129,7 @@
     "captionsPath": "public/videos/courses/cdl-program-video.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -148,7 +148,7 @@
     "captionsPath": "public/videos/courses/healthcare-cna-program-video.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -167,7 +167,7 @@
     "captionsPath": "public/videos/courses/hvac-program-video.vtt",
     "status": "pending",
     "priority": "medium",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.033Z",
     "estimatedCost": 1.5
   },
   {
@@ -186,7 +186,7 @@
     "captionsPath": "public/videos/README.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.886Z",
+    "createdAt": "2025-11-16T15:57:15.028Z",
     "estimatedCost": 0.5
   },
   {
@@ -205,7 +205,7 @@
     "captionsPath": "public/videos/apply-now.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.886Z",
+    "createdAt": "2025-11-16T15:57:15.029Z",
     "estimatedCost": 0.5
   },
   {
@@ -224,7 +224,7 @@
     "captionsPath": "public/videos/contact-support.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.886Z",
+    "createdAt": "2025-11-16T15:57:15.029Z",
     "estimatedCost": 0.5
   },
   {
@@ -243,7 +243,7 @@
     "captionsPath": "public/videos/course-barber-program.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.887Z",
+    "createdAt": "2025-11-16T15:57:15.029Z",
     "estimatedCost": 1.2
   },
   {
@@ -262,7 +262,7 @@
     "captionsPath": "public/videos/course-building-program.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.887Z",
+    "createdAt": "2025-11-16T15:57:15.030Z",
     "estimatedCost": 1.2
   },
   {
@@ -281,7 +281,7 @@
     "captionsPath": "public/videos/course-cdl-program.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.887Z",
+    "createdAt": "2025-11-16T15:57:15.030Z",
     "estimatedCost": 1.2
   },
   {
@@ -300,7 +300,7 @@
     "captionsPath": "public/videos/course-healthcare-program.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.887Z",
+    "createdAt": "2025-11-16T15:57:15.030Z",
     "estimatedCost": 1.2
   },
   {
@@ -319,7 +319,7 @@
     "captionsPath": "public/videos/course-hvac-program.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.887Z",
+    "createdAt": "2025-11-16T15:57:15.030Z",
     "estimatedCost": 1.2
   },
   {
@@ -338,7 +338,7 @@
     "captionsPath": "public/videos/delegate-instructor-portal.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.888Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 0.5
   },
   {
@@ -357,7 +357,7 @@
     "captionsPath": "public/videos/employers-partners.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.888Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 0.5
   },
   {
@@ -376,7 +376,7 @@
     "captionsPath": "public/videos/how-it-works-student-portal.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.888Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 0.5
   },
   {
@@ -395,7 +395,7 @@
     "captionsPath": "public/videos/program-barber-apprenticeship.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.888Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 1.2
   },
   {
@@ -414,7 +414,7 @@
     "captionsPath": "public/videos/program-building-tech-trades.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.889Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 1.2
   },
   {
@@ -433,7 +433,7 @@
     "captionsPath": "public/videos/program-cdl-logistics.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.889Z",
+    "createdAt": "2025-11-16T15:57:15.031Z",
     "estimatedCost": 1.2
   },
   {
@@ -452,7 +452,7 @@
     "captionsPath": "public/videos/program-healthcare-cna.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.889Z",
+    "createdAt": "2025-11-16T15:57:15.032Z",
     "estimatedCost": 1.2
   },
   {
@@ -471,7 +471,7 @@
     "captionsPath": "public/videos/program-holder-admin-portal.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.890Z",
+    "createdAt": "2025-11-16T15:57:15.032Z",
     "estimatedCost": 1.2
   },
   {
@@ -490,7 +490,7 @@
     "captionsPath": "public/videos/program-hvac.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.890Z",
+    "createdAt": "2025-11-16T15:57:15.032Z",
     "estimatedCost": 1.2
   },
   {
@@ -509,7 +509,7 @@
     "captionsPath": "public/videos/ecd-courses/barber-apprenticeship-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
     "estimatedCost": 0.5
   },
   {
@@ -528,7 +528,7 @@
     "captionsPath": "public/videos/ecd-courses/beauty-career-educator-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
     "estimatedCost": 0.5
   },
   {
@@ -547,7 +547,7 @@
     "captionsPath": "public/videos/ecd-courses/building-technician-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.891Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
     "estimatedCost": 0.5
   },
   {
@@ -566,7 +566,7 @@
     "captionsPath": "public/videos/ecd-courses/cdl-transportation-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.892Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
     "estimatedCost": 0.5
   },
   {
@@ -585,7 +585,45 @@
     "captionsPath": "public/videos/ecd-courses/cna-healthcare-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.892Z",
+    "createdAt": "2025-11-16T15:57:15.034Z",
+    "estimatedCost": 0.5
+  },
+  {
+    "id": "ecd-courses-culinary-arts-video",
+    "title": "Culinary Arts & Food Service – AI Video Script (~45–60 seconds)",
+    "category": "general",
+    "sourceFile": "content/video-scripts/ecd-courses/culinary-arts-video.md",
+    "script": "# Culinary Arts & Food Service – AI Video Script (~45–60 seconds)\n\nWelcome to the Culinary Arts & Food Service program, listed in the Elevate Connects Directory.\n\nMaster professional cooking techniques and food service management for restaurant and hospitality careers.\n\nYou'll learn through a mix of instructor-led sessions, hands-on practice, and real-world scenarios so you graduate with both knowledge and confidence.\n\nThanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.\n\nIf you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.",
+    "targetProvider": "d-id",
+    "targetModel": "d-id-basic",
+    "durationSeconds": 40,
+    "aspectRatio": "16:9",
+    "voice": "professional-neutral",
+    "avatar": "default",
+    "outputPath": "public/videos/ecd-courses/culinary-arts-video.mp4",
+    "captionsPath": "public/videos/ecd-courses/culinary-arts-video.vtt",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2025-11-16T15:57:15.035Z",
+    "estimatedCost": 0.5
+  },
+  {
+    "id": "ecd-courses-electrical-apprenticeship-video",
+    "title": "Electrical Apprenticeship – AI Video Script (~45–60 seconds)",
+    "category": "general",
+    "sourceFile": "content/video-scripts/ecd-courses/electrical-apprenticeship-video.md",
+    "script": "# Electrical Apprenticeship – AI Video Script (~45–60 seconds)\n\nWelcome to the Electrical Apprenticeship program, listed in the Elevate Connects Directory.\n\nTrain as a licensed electrician through registered apprenticeship, learning residential and commercial electrical systems.\n\nYou'll learn through a mix of classroom instruction, hands-on labs, and on-the-job apprenticeship hours so you graduate with both knowledge and real experience.\n\nThanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.\n\nIf you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.",
+    "targetProvider": "d-id",
+    "targetModel": "d-id-basic",
+    "durationSeconds": 40,
+    "aspectRatio": "16:9",
+    "voice": "professional-neutral",
+    "avatar": "default",
+    "outputPath": "public/videos/ecd-courses/electrical-apprenticeship-video.mp4",
+    "captionsPath": "public/videos/ecd-courses/electrical-apprenticeship-video.vtt",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2025-11-16T15:57:15.036Z",
     "estimatedCost": 0.5
   },
   {
@@ -604,7 +642,7 @@
     "captionsPath": "public/videos/ecd-courses/hvac-technician-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.892Z",
+    "createdAt": "2025-11-16T15:57:15.036Z",
     "estimatedCost": 0.5
   },
   {
@@ -623,7 +661,64 @@
     "captionsPath": "public/videos/ecd-courses/it-support-apprenticeship-video.vtt",
     "status": "pending",
     "priority": "low",
-    "createdAt": "2025-11-16T13:58:41.893Z",
+    "createdAt": "2025-11-16T15:57:15.036Z",
+    "estimatedCost": 0.5
+  },
+  {
+    "id": "ecd-courses-medical-assistant-video",
+    "title": "Medical Assistant – AI Video Script (~45–60 seconds)",
+    "category": "general",
+    "sourceFile": "content/video-scripts/ecd-courses/medical-assistant-video.md",
+    "script": "# Medical Assistant – AI Video Script (~45–60 seconds)\n\nIf you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate Connects Directory is designed for you.\n\nSupport physicians and nurses in clinical settings, performing both administrative and basic clinical tasks.\n\nYou'll learn through a mix of instructor-led sessions, hands-on practice, and real-world scenarios so you graduate with both knowledge and confidence.\n\nThanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.\n\nIf you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.",
+    "targetProvider": "d-id",
+    "targetModel": "d-id-basic",
+    "durationSeconds": 40,
+    "aspectRatio": "16:9",
+    "voice": "professional-neutral",
+    "avatar": "default",
+    "outputPath": "public/videos/ecd-courses/medical-assistant-video.mp4",
+    "captionsPath": "public/videos/ecd-courses/medical-assistant-video.vtt",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2025-11-16T15:57:15.036Z",
+    "estimatedCost": 0.5
+  },
+  {
+    "id": "ecd-courses-plumbing-apprenticeship-video",
+    "title": "Plumbing Apprenticeship – AI Video Script (~45–60 seconds)",
+    "category": "general",
+    "sourceFile": "content/video-scripts/ecd-courses/plumbing-apprenticeship-video.md",
+    "script": "# Plumbing Apprenticeship – AI Video Script (~45–60 seconds)\n\nWelcome to the Plumbing Apprenticeship program, listed in the Elevate Connects Directory.\n\nBecome a licensed plumber through hands-on apprenticeship training in residential and commercial plumbing systems.\n\nYou'll learn through a mix of classroom instruction, hands-on labs, and on-the-job apprenticeship hours so you graduate with both knowledge and real experience.\n\nThanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.\n\nIf you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.",
+    "targetProvider": "d-id",
+    "targetModel": "d-id-basic",
+    "durationSeconds": 40,
+    "aspectRatio": "16:9",
+    "voice": "professional-neutral",
+    "avatar": "default",
+    "outputPath": "public/videos/ecd-courses/plumbing-apprenticeship-video.mp4",
+    "captionsPath": "public/videos/ecd-courses/plumbing-apprenticeship-video.vtt",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2025-11-16T15:57:15.036Z",
+    "estimatedCost": 0.5
+  },
+  {
+    "id": "ecd-courses-welding-fabrication-video",
+    "title": "Welding & Metal Fabrication – AI Video Script (~45–60 seconds)",
+    "category": "general",
+    "sourceFile": "content/video-scripts/ecd-courses/welding-fabrication-video.md",
+    "script": "# Welding & Metal Fabrication – AI Video Script (~45–60 seconds)\n\nWelcome to the Welding & Metal Fabrication program, listed in the Elevate Connects Directory.\n\nLearn welding techniques and metal fabrication skills for manufacturing, construction, and industrial careers.\n\nYou'll learn through a mix of classroom instruction, hands-on labs, and on-the-job apprenticeship hours so you graduate with both knowledge and real experience.\n\nThanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.\n\nIf you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.",
+    "targetProvider": "d-id",
+    "targetModel": "d-id-basic",
+    "durationSeconds": 40,
+    "aspectRatio": "16:9",
+    "voice": "professional-neutral",
+    "avatar": "default",
+    "outputPath": "public/videos/ecd-courses/welding-fabrication-video.mp4",
+    "captionsPath": "public/videos/ecd-courses/welding-fabrication-video.vtt",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2025-11-16T15:57:15.036Z",
     "estimatedCost": 0.5
   }
 ]

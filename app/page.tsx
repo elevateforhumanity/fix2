@@ -128,7 +128,7 @@ export default function HomePage() {
       {/* AI Narrator Section - ECD Specific */}
       <AiNarratorSection />
 
-      {/* AI Instructor Section - Legacy */}
+      {/* Stats Section */}
       <section className="py-20 bg-white border-t border-gray-200">
         <div className="elevate-container">
           <div className="grid gap-12 md:grid-cols-[3fr,2fr] items-center">
