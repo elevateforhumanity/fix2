@@ -1,4 +1,5 @@
 # ELEVATE FOR HUMANITY
+
 ## Workforce & Apprenticeship-Aligned Training Provider
 
 **Serving:** Youth · Adults · Dislocated Workers · Reentry · TANF · SNAP · WIOA
@@ -16,6 +17,7 @@ Our programs align with **WIOA, WRG-style funding, Job Ready Indy, JRI, WorkOne,
 ## 🚀 Approved & Aligned Pathways
 
 All programs include:
+
 - ✓ Career exploration
 - ✓ Employability skills
 - ✓ Digital literacy
@@ -30,6 +32,7 @@ All programs include:
 ## 📊 CIP/SOC WORKFORCE CROSSWALK
 
 ### 1. Barber Apprenticeship (DOL-Registered)
+
 **CIP Code:** 12.0402 – Barbering  
 **SOC Code:** 39-5011 – Barbers  
 **Funding Fit:** WIOA, Apprenticeship, SEAL, WRG-style  
@@ -38,6 +41,7 @@ All programs include:
 ---
 
 ### 2. HVAC Technician
+
 **CIP Code:** 47.0201 – Heating, Air Conditioning, Ventilation  
 **SOC Code:** 49-9021 – HVAC Mechanics & Installers  
 **Funding Fit:** WIOA, WRG-style, Youth, Reentry  
@@ -46,6 +50,7 @@ All programs include:
 ---
 
 ### 3. CNA / Direct Support Professional
+
 **CIP Code:** 51.2602 – Home Health / Health Services  
 **SOC Code:** 31-1131 – Nursing Assistants  
 **Funding Fit:** WIOA, SNAP/TANF, WRG-style, JRI  
@@ -54,6 +59,7 @@ All programs include:
 ---
 
 ### 4. Emergency Health & Safety Technician
+
 **CIP Code:** 43.9999 – Public Safety / Security  
 **SOC Code:** 29-2040 – EMTs & Responders  
 **Funding Fit:** JRI, Reentry, WIOA, Local EDRC boards  
@@ -62,6 +68,7 @@ All programs include:
 ---
 
 ### 5. Tax Preparation & Financial Services
+
 **CIP Code:** 52.0301 – Accounting Technology  
 **SOC Code:** 13-2082 – Tax Preparers  
 **Funding Fit:** WIOA, WRG-style, Youth, Reentry  
@@ -70,6 +77,7 @@ All programs include:
 ---
 
 ### 6. Business Start-Up & Marketing
+
 **CIP Code:** 52.0703 – Entrepreneurship / Small Business  
 **SOC Code:** 11-1021 – General Managers  
 **Funding Fit:** WIOA Youth, Reentry, TANF  
@@ -78,6 +86,7 @@ All programs include:
 ---
 
 ### 7. Beauty & Career Educator / Esthetics
+
 **CIP Code:** 12.0401 – Cosmetology  
 **SOC Code:** 39-5094 – Skincare Specialists  
 **Funding Fit:** WIOA, WRG-style, Apprenticeship-bridge  
@@ -86,6 +95,7 @@ All programs include:
 ---
 
 ### 8. Professional Esthetician
+
 **CIP Code:** 12.0409 – Aesthetician/Esthetician  
 **SOC Code:** 39-5094 – Skincare Specialists  
 **Funding Fit:** WIOA, WRG-style  
@@ -94,6 +104,7 @@ All programs include:
 ---
 
 ### 9. Public Safety Reentry Specialist
+
 **CIP Code:** 43.9999 – Security / Public Safety  
 **SOC Code:** 21-1099 – Community & Social Service Specialists  
 **Funding Fit:** JRI, WIOA, Reentry grants, EDRC  
@@ -102,6 +113,7 @@ All programs include:
 ---
 
 ### 10. Medical Assistant (MA)
+
 **CIP Code:** 51.0801 – Medical Assisting  
 **SOC Code:** 31-9092 – Medical Assistants  
 **Funding Fit:** WIOA, WRG-style, Youth, Reentry  
@@ -110,6 +122,7 @@ All programs include:
 ---
 
 ### 11. Phlebotomy Technician
+
 **CIP Code:** 51.1009 – Phlebotomy Technician  
 **SOC Code:** 31-9097 – Phlebotomists  
 **Funding Fit:** WIOA, WRG-style, Healthcare pathways  
@@ -118,6 +131,7 @@ All programs include:
 ---
 
 ### 12. EKG Technician
+
 **CIP Code:** 51.0901 – Cardiovascular Technology  
 **SOC Code:** 29-2031 – Cardiovascular Technologists  
 **Funding Fit:** WIOA, WRG-style, Healthcare pathways  
@@ -126,6 +140,7 @@ All programs include:
 ---
 
 ### 13. Patient Care Technician (PCT)
+
 **CIP Code:** 51.0808 – Veterinary/Animal Health Technology  
 **SOC Code:** 31-9099 – Healthcare Support Workers  
 **Funding Fit:** WIOA, SNAP/TANF, WRG-style  
@@ -134,6 +149,7 @@ All programs include:
 ---
 
 ### 14. Pharmacy Technician
+
 **CIP Code:** 51.0805 – Pharmacy Technician  
 **SOC Code:** 29-2052 – Pharmacy Technicians  
 **Funding Fit:** WIOA, WRG-style, Healthcare pathways  
@@ -142,6 +158,7 @@ All programs include:
 ---
 
 ### 15. Clinical Medical Assistant
+
 **CIP Code:** 51.0801 – Medical Assisting  
 **SOC Code:** 31-9092 – Medical Assistants  
 **Funding Fit:** WIOA, WRG-style, Youth, Reentry  
@@ -150,6 +167,7 @@ All programs include:
 ---
 
 ### 16. Administrative Medical Assistant
+
 **CIP Code:** 51.0716 – Medical Administrative Assistant  
 **SOC Code:** 43-6013 – Medical Secretaries  
 **Funding Fit:** WIOA, WRG-style, Youth, Reentry  
@@ -190,7 +208,7 @@ All programs include:
 🌐 elevateforhumanity.org  
 📍 Indianapolis, IN
 
-*For partnership inquiries, please use the contact form on our website.*
+_For partnership inquiries, please use the contact form on our website._
 
 ---
 

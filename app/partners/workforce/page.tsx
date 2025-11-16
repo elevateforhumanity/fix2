@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Workforce Partners | Elevate for Humanity',
-  description: 'WIOA, WRG, JRI, Apprenticeship, and SEAL-aligned training programs for workforce development partners.',
+  description:
+    'WIOA, WRG, JRI, Apprenticeship, and SEAL-aligned training programs for workforce development partners.',
 };
 
 const fundingTypes = [
@@ -40,7 +41,7 @@ const deliverables = [
 
 export default async function WorkforcePartnersPage() {
   const supabase = await createClient();
-  
+
   // Fetch all published programs with CIP/SOC codes
   const { data: programs } = await supabase
     .from('programs')
@@ -58,7 +59,8 @@ export default async function WorkforcePartnersPage() {
               Workforce & Apprenticeship-Aligned Training Provider
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Serving Youth · Adults · Dislocated Workers · Reentry · TANF · SNAP · WIOA
+              Serving Youth · Adults · Dislocated Workers · Reentry · TANF ·
+              SNAP · WIOA
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {fundingTypes.map((type) => (
@@ -78,12 +80,16 @@ export default async function WorkforcePartnersPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-[#0f0f14] mb-6">Our Mission</h2>
+            <h2 className="text-3xl font-bold text-[#0f0f14] mb-6">
+              Our Mission
+            </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Elevate for Humanity provides accessible, high-impact career training programs that 
-              accelerate employability, support community uplift, and meet the needs of employers 
-              across Indiana and the United States. Our programs align with WIOA, WRG-style funding, 
-              Job Ready Indy, JRI, WorkOne, EmployIndy, Reentry, Apprenticeship, and SEAL pathways.
+              Elevate for Humanity provides accessible, high-impact career
+              training programs that accelerate employability, support community
+              uplift, and meet the needs of employers across Indiana and the
+              United States. Our programs align with WIOA, WRG-style funding,
+              Job Ready Indy, JRI, WorkOne, EmployIndy, Reentry, Apprenticeship,
+              and SEAL pathways.
             </p>
           </div>
         </div>
@@ -125,7 +131,8 @@ export default async function WorkforcePartnersPage() {
               CIP/SOC Workforce Crosswalk
             </h2>
             <p className="text-lg text-gray-600">
-              All {programs?.length || 16} programs are ETPL-approved with official CIP and SOC codes
+              All {programs?.length || 16} programs are ETPL-approved with
+              official CIP and SOC codes
             </p>
           </div>
 
@@ -138,18 +145,26 @@ export default async function WorkforcePartnersPage() {
                 <h3 className="text-xl font-bold text-[#0f0f14] mb-3">
                   {program.title}
                 </h3>
-                
+
                 {program.cip_code && (
                   <div className="mb-2">
-                    <span className="text-sm font-semibold text-[#004B8D]">CIP Code:</span>{' '}
-                    <span className="text-sm text-gray-700">{program.cip_code}</span>
+                    <span className="text-sm font-semibold text-[#004B8D]">
+                      CIP Code:
+                    </span>{' '}
+                    <span className="text-sm text-gray-700">
+                      {program.cip_code}
+                    </span>
                   </div>
                 )}
-                
+
                 {program.soc_code && (
                   <div className="mb-3">
-                    <span className="text-sm font-semibold text-[#004B8D]">SOC Code:</span>{' '}
-                    <span className="text-sm text-gray-700">{program.soc_code}</span>
+                    <span className="text-sm font-semibold text-[#004B8D]">
+                      SOC Code:
+                    </span>{' '}
+                    <span className="text-sm text-gray-700">
+                      {program.soc_code}
+                    </span>
                   </div>
                 )}
 
@@ -179,9 +194,14 @@ export default async function WorkforcePartnersPage() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {alignments.map((alignment) => (
-              <div key={alignment} className="flex items-center bg-white p-4 rounded-lg shadow-sm">
+              <div
+                key={alignment}
+                className="flex items-center bg-white p-4 rounded-lg shadow-sm"
+              >
                 <span className="text-[#ef7c2a] text-xl mr-3">✓</span>
-                <span className="text-gray-800 text-sm font-medium">{alignment}</span>
+                <span className="text-gray-800 text-sm font-medium">
+                  {alignment}
+                </span>
               </div>
             ))}
           </div>
@@ -196,7 +216,10 @@ export default async function WorkforcePartnersPage() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {deliverables.map((item) => (
-              <div key={item} className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div
+                key={item}
+                className="bg-white p-6 rounded-lg shadow-sm text-center"
+              >
                 <span className="text-[#004B8D] font-semibold">{item}</span>
               </div>
             ))}
@@ -211,8 +234,8 @@ export default async function WorkforcePartnersPage() {
             Download Partner Packet
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Get the complete workforce partner packet with all program details, CIP/SOC codes, 
-            and funding alignment information.
+            Get the complete workforce partner packet with all program details,
+            CIP/SOC codes, and funding alignment information.
           </p>
           <a
             href="/workforce-partner-packet.md"
