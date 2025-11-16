@@ -46,22 +46,20 @@ class DataSynchronizationManager {
     });
 
     // Create channel
-    const channel = supabase
-      .channel(channelName)
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: table,
-          filter: filter ? this.buildFilter(filter) : undefined,
-        },
-        (payload) => {
-          console.log(`[Sync] UPDATE on ${table}:`, payload);
-          onUpdate(payload);
-          this.updateSyncState(table);
-        }
-      );
+    const channel = supabase.channel(channelName).on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: table,
+        filter: filter ? this.buildFilter(filter) : undefined,
+      },
+      (payload) => {
+        console.log(`[Sync] UPDATE on ${table}:`, payload);
+        onUpdate(payload);
+        this.updateSyncState(table);
+      }
+    );
 
     if (onInsert) {
       channel.on(
@@ -144,10 +142,7 @@ class DataSynchronizationManager {
           result = await supabase.from(table).insert(data);
           break;
         case 'update':
-          result = await supabase
-            .from(table)
-            .update(data)
-            .eq('id', data.id);
+          result = await supabase.from(table).update(data).eq('id', data.id);
           break;
         case 'delete':
           result = await supabase.from(table).delete().eq('id', data.id);
@@ -180,9 +175,7 @@ class DataSynchronizationManager {
     attempt: number = 1
   ): Promise<void> {
     if (attempt > this.maxRetries) {
-      console.error(
-        `[Sync] Max retries reached for ${operation} on ${table}`
-      );
+      console.error(`[Sync] Max retries reached for ${operation} on ${table}`);
       this.queueChange(table, { data, operation });
       return;
     }
@@ -214,7 +207,9 @@ class DataSynchronizationManager {
       state.pendingChanges = queue;
     }
 
-    console.log(`[Sync] Queued change for ${table}. Queue size: ${queue.length}`);
+    console.log(
+      `[Sync] Queued change for ${table}. Queue size: ${queue.length}`
+    );
   }
 
   /**
@@ -226,14 +221,12 @@ class DataSynchronizationManager {
       return;
     }
 
-    console.log(`[Sync] Processing ${queue.length} queued changes for ${table}`);
+    console.log(
+      `[Sync] Processing ${queue.length} queued changes for ${table}`
+    );
 
     for (const change of queue) {
-      const success = await this.syncData(
-        table,
-        change.data,
-        change.operation
-      );
+      const success = await this.syncData(table, change.data, change.operation);
 
       if (success) {
         // Remove from queue

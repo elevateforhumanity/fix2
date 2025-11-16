@@ -210,10 +210,10 @@ dataSyncManager.monitorConnectivity('courses');
 
 ```typescript
 interface SyncState {
-  lastSync: Date;           // Last successful sync timestamp
-  pendingChanges: any[];    // Queued changes (offline)
-  isOnline: boolean;        // Connection status
-  syncInProgress: boolean;  // Currently syncing
+  lastSync: Date; // Last successful sync timestamp
+  pendingChanges: any[]; // Queued changes (offline)
+  isOnline: boolean; // Connection status
+  syncInProgress: boolean; // Currently syncing
 }
 ```
 
@@ -394,6 +394,7 @@ describe('DataSynchronizationManager', () => {
 ### Issue: Subscriptions not receiving updates
 
 **Solution:**
+
 1. Check Supabase Realtime is enabled for the table
 2. Verify RLS policies allow SELECT
 3. Ensure user is authenticated
@@ -401,6 +402,7 @@ describe('DataSynchronizationManager', () => {
 ### Issue: Changes not syncing
 
 **Solution:**
+
 1. Check network connection
 2. Verify Supabase credentials
 3. Check browser console for errors
@@ -410,6 +412,7 @@ describe('DataSynchronizationManager', () => {
 
 **Solution:**
 Always call cleanup function:
+
 ```typescript
 useEffect(() => {
   const cleanup = useDataSync(config);
@@ -426,6 +429,7 @@ useEffect(() => {
 Subscribe to real-time updates.
 
 **Parameters:**
+
 - `config.table` (string) - Table name
 - `config.onUpdate` (function) - Update callback
 - `config.onInsert` (function, optional) - Insert callback
@@ -439,6 +443,7 @@ Subscribe to real-time updates.
 Sync data with retry logic.
 
 **Parameters:**
+
 - `table` (string) - Table name
 - `data` (object) - Data to sync
 - `operation` ('insert' | 'update' | 'delete') - Operation type
@@ -468,6 +473,7 @@ Unsubscribe from all channels and clear state.
 **Status:** ✅ RESOLVED
 
 **Implementation:**
+
 - ✅ Created `/lib/dataSynchronization.ts`
 - ✅ Real-time Supabase subscriptions
 - ✅ Conflict resolution strategies
@@ -478,12 +484,14 @@ Unsubscribe from all channels and clear state.
 - ✅ Comprehensive documentation
 
 **Testing:**
+
 - ✅ Unit tests for core functionality
 - ✅ Integration tests with Supabase
 - ✅ Offline/online scenarios
 - ✅ Conflict resolution scenarios
 
 **Performance:**
+
 - ✅ Optimized subscriptions with filters
 - ✅ Exponential backoff for retries
 - ✅ Automatic cleanup
