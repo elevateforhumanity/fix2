@@ -5,6 +5,7 @@
 ### CORE PAGES (Must Have)
 
 #### 1. Homepage (/)
+
 - Hero with search bar
 - Category browse (Healthcare, Trades, Technology, Business)
 - Featured programs (8-12 cards)
@@ -15,6 +16,7 @@
 - CTA section
 
 #### 2. Programs Catalog (/programs)
+
 - Filter sidebar (Category, Duration, Location, Funding Type)
 - Search bar with autocomplete
 - Sort options (Popular, Newest, A-Z)
@@ -24,6 +26,7 @@
 - Breadcrumbs
 
 #### 3. Individual Program Pages (/programs/[slug])
+
 - Hero with program image
 - Program title, provider, duration
 - "Apply Now" CTA (sticky)
@@ -38,6 +41,7 @@
 - Career outcomes
 
 #### 4. Browse by Category (/browse/[category])
+
 - Healthcare
 - Skilled Trades
 - Technology
@@ -45,6 +49,7 @@
 - Each with filtered program list
 
 #### 5. About (/about)
+
 - Mission & Vision
 - Our Story
 - Team (with photos and bios)
@@ -54,6 +59,7 @@
 - Values
 
 #### 6. Contact (/contact)
+
 - Contact form (with validation)
 - Phone, email, address
 - Office hours
@@ -62,6 +68,7 @@
 - Live chat widget
 
 #### 7. FAQ (/faq)
+
 - Searchable
 - Categories (Eligibility, Application, Programs, Funding, Support)
 - Expandable questions
@@ -70,6 +77,7 @@
 ### USER PORTALS
 
 #### 8. Student Portal (/student)
+
 - Dashboard
   - My Programs
   - Progress tracking
@@ -86,6 +94,7 @@
   - Status tracking
 
 #### 9. Employer Portal (/employer)
+
 - Dashboard
   - Posted jobs
   - Candidate pipeline
@@ -95,6 +104,7 @@
 - Reports
 
 #### 10. Program Holder Portal (/program-holder)
+
 - Dashboard
 - Student roster
 - Reporting
@@ -103,6 +113,7 @@
 ### APPLICATION FLOW
 
 #### 11. Apply (/apply)
+
 - Step 1: Eligibility Check
   - Quick questions
   - Instant results
@@ -128,17 +139,20 @@
 ### AUTHENTICATION
 
 #### 12. Login (/login)
+
 - Email/password
 - Social login (Google, Facebook)
 - "Forgot password" link
 - "Create account" link
 
 #### 13. Signup (/signup)
+
 - Account type selection (Student, Employer, Program Holder)
 - Registration form
 - Email verification
 
 #### 14. Password Reset (/reset-password)
+
 - Email input
 - Verification code
 - New password
@@ -146,24 +160,28 @@
 ### CONTENT PAGES
 
 #### 15. Blog/Resources (/blog)
+
 - Article list
 - Categories
 - Search
 - Featured articles
 
 #### 16. Success Stories (/success-stories)
+
 - Student testimonials
 - Before/after stories
 - Video interviews
 - Filter by program
 
 #### 17. Partners (/partners)
+
 - Training providers
 - Employer partners
 - Government agencies
 - Become a partner CTA
 
 #### 18. Careers (/careers)
+
 - Job board
 - Filter by category, location
 - Job detail pages
@@ -172,14 +190,19 @@
 ### LEGAL & SUPPORT
 
 #### 19. Privacy Policy (/privacy)
+
 #### 20. Terms of Service (/terms)
+
 #### 21. Accessibility (/accessibility)
+
 #### 22. Sitemap (/sitemap)
 
 ### ERROR PAGES
 
 #### 23. 404 Not Found
+
 #### 24. 500 Server Error
+
 #### 25. Maintenance Mode
 
 ---
@@ -187,6 +210,7 @@
 ## COMPONENT LIBRARY
 
 ### Navigation
+
 - Header (sticky)
   - Logo
   - Main nav
@@ -200,6 +224,7 @@
   - Copyright
 
 ### Cards
+
 - Program Card
   - Image
   - Category badge
@@ -218,6 +243,7 @@
 - Blog Card
 
 ### Forms
+
 - Input fields
 - Select dropdowns
 - Checkboxes
@@ -228,6 +254,7 @@
 - Success messages
 
 ### Buttons
+
 - Primary (blue)
 - Secondary (outline)
 - Tertiary (text)
@@ -235,12 +262,14 @@
 - Loading state
 
 ### Modals
+
 - Login modal
 - Video modal
 - Confirmation modal
 - Alert modal
 
 ### Other
+
 - Breadcrumbs
 - Pagination
 - Loading spinner
@@ -259,29 +288,35 @@
 ## DESIGN SYSTEM
 
 ### Colors
+
 ```css
 /* Primary */
---blue-600: #0056D2;
---blue-700: #004BB8;
+--blue-600: #0056d2;
+--blue-700: #004bb8;
 
 /* Neutrals */
---slate-50: #F8FAFC;
---slate-100: #F1F5F9;
---slate-200: #E2E8F0;
+--slate-50: #f8fafc;
+--slate-100: #f1f5f9;
+--slate-200: #e2e8f0;
 --slate-600: #475569;
 --slate-700: #334155;
---slate-900: #0F172A;
+--slate-900: #0f172a;
 
 /* Semantic */
---success: #10B981;
---warning: #F59E0B;
---error: #EF4444;
+--success: #10b981;
+--warning: #f59e0b;
+--error: #ef4444;
 ```
 
 ### Typography
+
 ```css
 /* Font Family */
-font-family: Inter, system-ui, -apple-system, sans-serif;
+font-family:
+  Inter,
+  system-ui,
+  -apple-system,
+  sans-serif;
 
 /* Scale */
 --text-xs: 12px;
@@ -302,6 +337,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 ```
 
 ### Spacing
+
 ```css
 --space-1: 4px;
 --space-2: 8px;
@@ -315,6 +351,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 ```
 
 ### Breakpoints
+
 ```css
 --mobile: 640px;
 --tablet: 768px;
@@ -327,6 +364,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 ## FEATURES TO IMPLEMENT
 
 ### Search
+
 - Global search in header
 - Autocomplete suggestions
 - Recent searches
@@ -334,6 +372,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Filter by type (Programs, Articles, FAQs)
 
 ### Filters
+
 - Category
 - Duration
 - Location
@@ -342,12 +381,14 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Difficulty level
 
 ### Personalization
+
 - Recommended programs
 - Continue where you left off
 - Recently viewed
 - Saved programs
 
 ### Social Proof
+
 - Student count
 - Job placement rate
 - Partner count
@@ -356,6 +397,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Success stories
 
 ### Trust Signals
+
 - Partner logos (DWD, WorkOne, DOL)
 - Certifications
 - Awards
@@ -363,6 +405,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Security badges
 
 ### Performance
+
 - Image optimization (WebP, lazy loading)
 - Code splitting
 - CDN for static assets
@@ -370,6 +413,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Preloading critical resources
 
 ### SEO
+
 - Meta tags (title, description, OG)
 - Structured data (JSON-LD)
 - Sitemap.xml
@@ -378,6 +422,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - Alt text for images
 
 ### Analytics
+
 - Google Analytics
 - Event tracking
 - Conversion tracking
@@ -385,6 +430,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 - User recordings
 
 ### Accessibility
+
 - WCAG 2.1 AA compliance
 - Keyboard navigation
 - Screen reader support
@@ -398,6 +444,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 ## PRIORITY ORDER
 
 ### Phase 1: Core Pages (Week 1)
+
 1. Homepage (complete redesign)
 2. Programs catalog
 3. Individual program pages
@@ -405,12 +452,14 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 5. Contact
 
 ### Phase 2: User Features (Week 2)
+
 6. Authentication (login/signup)
 7. Student portal
 8. Application flow
 9. Search functionality
 
 ### Phase 3: Content & Polish (Week 3)
+
 10. FAQ
 11. Success stories
 12. Blog/Resources
@@ -418,6 +467,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 14. Design system documentation
 
 ### Phase 4: Advanced Features (Week 4)
+
 15. Employer portal
 16. Program holder portal
 17. Advanced search/filters
@@ -425,6 +475,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 19. Analytics integration
 
 ### Phase 5: Optimization & Launch (Week 5)
+
 20. Performance optimization
 21. SEO implementation
 22. Accessibility audit

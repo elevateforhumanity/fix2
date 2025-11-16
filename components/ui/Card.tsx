@@ -10,10 +10,18 @@ export interface CardProps {
   hover?: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ children, className = '', hover = false }) => {
-  const hoverStyles = hover ? 'hover:border-blue-600 hover:-translate-y-1 hover:shadow-lg' : '';
+export const Card: React.FC<CardProps> = ({
+  children,
+  className = '',
+  hover = false,
+}) => {
+  const hoverStyles = hover
+    ? 'hover:border-blue-600 hover:-translate-y-1 hover:shadow-lg'
+    : '';
   return (
-    <div className={`bg-white border border-slate-200 transition-all duration-200 ${hoverStyles} ${className}`}>
+    <div
+      className={`bg-white border border-slate-200 transition-all duration-200 ${hoverStyles} ${className}`}
+    >
       {children}
     </div>
   );
@@ -71,7 +79,9 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
           {provider && (
             <p className="text-sm text-slate-600 mb-3">{provider}</p>
           )}
-          <p className="text-sm text-slate-600 mb-4 line-clamp-2">{description}</p>
+          <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+            {description}
+          </p>
           <div className="flex items-center gap-4 text-sm text-slate-500">
             {duration && (
               <div className="flex items-center gap-1">
@@ -112,12 +122,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <Card className="p-6">
       <div className="flex items-start gap-4 mb-4">
         <div className="relative h-16 w-16 rounded-full overflow-hidden flex-shrink-0">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover"
-          />
+          <Image src={image} alt={name} fill className="object-cover" />
         </div>
         <div>
           <h4 className="font-bold text-slate-900">{name}</h4>
@@ -128,7 +133,9 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 <Star
                   key={i}
                   className={`h-4 w-4 ${
-                    i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300'
+                    i < rating
+                      ? 'fill-yellow-400 text-yellow-400'
+                      : 'text-slate-300'
                   }`}
                 />
               ))}
@@ -211,15 +218,15 @@ export const StatCard: React.FC<StatCardProps> = ({
 }) => {
   return (
     <Card className="p-6 text-center">
-      {icon && (
-        <div className="flex justify-center mb-4">
-          {icon}
-        </div>
-      )}
+      {icon && <div className="flex justify-center mb-4">{icon}</div>}
       <div className="text-4xl font-bold text-blue-600 mb-2">{number}</div>
-      <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">{label}</div>
+      <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+        {label}
+      </div>
       {trend && (
-        <div className={`text-xs mt-2 ${trend.direction === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+        <div
+          className={`text-xs mt-2 ${trend.direction === 'up' ? 'text-green-600' : 'text-red-600'}`}
+        >
           {trend.direction === 'up' ? '↑' : '↓'} {trend.value}
         </div>
       )}
