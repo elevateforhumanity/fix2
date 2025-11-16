@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { useState } from 'react';
+import { MessageCircle, X } from 'lucide-react';
 
 export function ElevateChatWidget() {
   const [open, setOpen] = useState(false);
@@ -27,12 +27,8 @@ export function ElevateChatWidget() {
               <div className="flex items-center gap-3">
                 <MessageCircle size={24} />
                 <div>
-                  <div className="text-sm font-semibold">
-                    Elevate AI Helper
-                  </div>
-                  <div className="text-xs opacity-90">
-                    Powered by OpenAI
-                  </div>
+                  <div className="text-sm font-semibold">Elevate AI Helper</div>
+                  <div className="text-xs opacity-90">Powered by OpenAI</div>
                 </div>
               </div>
               <button
