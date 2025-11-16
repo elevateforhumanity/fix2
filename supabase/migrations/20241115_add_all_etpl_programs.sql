@@ -57,25 +57,29 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
   '/images/emergency-health-safety.jpg'
 ),
 
--- 3. HVAC Technician / 2Exclusive Apprenticeship
+-- 3. HVAC Technician
 (
-  'hvac-2exclusive-apprenticeship',
-  'HVAC Technician / 2Exclusive Apprenticeship',
+  'hvac-technician',
+  'HVAC Technician',
   'Specialized sanitation and HVAC training for high-risk environments',
-  'The 2Exclusive Apprenticeship Program is a specialized training initiative focused on equipping participants with the advanced skills required for sanitation and infection control in high-risk environments such as hospitals, military bases, and government facilities. This program offers hands-on experience and in-depth training in areas such as OSHA compliance, holistic wellness cleaning, hazardous waste management, and infection control protocols. Apprentices will gain expertise in safely handling hazardous materials, implementing eco-friendly cleaning practices, and ensuring regulatory compliance, all while promoting healthier and safer environments.',
+  'The HVAC Technician program (2Exclusive) is a specialized training initiative focused on equipping participants with the advanced skills required for sanitation and infection control in high-risk environments such as hospitals, military bases, and government facilities. This program offers hands-on experience and in-depth training in areas such as OSHA compliance, holistic wellness cleaning, hazardous waste management, and infection control protocols. Apprentices will gain expertise in safely handling hazardous materials, implementing eco-friendly cleaning practices, and ensuring regulatory compliance, all while promoting healthier and safer environments.',
   'Advanced sanitation, infection control, and HVAC skills for critical sectors.',
   ARRAY[
-    '60-day apprenticeship program',
+    '60-day program',
     '125 instructional hours (12 hours/week)',
+    '10% instructor-led, 5% lab/field, 85% self-study',
+    '30% available online',
+    'Day, evening, weekend, and online options',
     'OSHA 10/30 certification track',
     'HAZMAT and infection control protocols',
     'Holistic wellness cleaning practices',
     'Eco-friendly and regulatory compliance',
-    '30% online, 85% self-study, 5% lab work',
-    'Background check required'
+    'No prerequisites',
+    '100% admission rate',
+    'Career counseling and job placement included'
   ],
   ARRAY['WIOA', 'WRG', 'Apprenticeship'],
-  '/images/hvac-2exclusive.jpg'
+  '/images/hvac-technician.jpg'
 ),
 
 -- 4. Direct Support Professional (DSP)

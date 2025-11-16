@@ -152,8 +152,8 @@ INSERT INTO courses (
   slug, title, subtitle, description, level, duration_hours,
   status, is_free, metadata
 ) VALUES (
-  'hvac-2exclusive-apprenticeship',
-  'HVAC Technician / 2Exclusive Apprenticeship',
+  'hvac-technician',
+  'HVAC Technician',
   'Specialized sanitation and HVAC training for high-risk environments',
   'Advanced sanitation, infection control, and HVAC skills for critical sectors including hospitals, military bases, and government facilities.',
   'beginner',
@@ -165,19 +165,36 @@ INSERT INTO courses (
     'funding', ARRAY['WIOA', 'WRG', 'Apprenticeship'],
     'cip_code', '15.0501 - Heating, Ventilation, Air Conditioning and Refrigeration Engineering Technology/Technician',
     'days', 60,
+    'total_hours', 125,
     'hours_per_week', 12,
-    'format', '30% Online, 10% Instructor-Led, 5% Lab, 85% Self-Study',
+    'online_available_percent', 30,
+    'instructor_led_percent', 10,
+    'lab_field_percent', 5,
+    'self_study_percent', 85,
+    'format', 'Hybrid - 10% Instructor-Led, 5% Lab/Field, 85% Self-Study (30% available online)',
+    'schedule', ARRAY['Day', 'Evening', 'Weekend', 'Online'],
     'credentials', ARRAY['OSHA 10/30 Certification', 'HAZMAT Certification', 'Certificate of Completion'],
+    'prerequisites', 'None',
+    'admission_rate', 100,
+    'career_counseling', true,
+    'job_placement', true,
+    'placement_assistance', true,
+    'part_time_allowed', true,
+    'general_public', true,
+    'industry_collaboration', true,
     'live_instruction_placeholder', true,
-    'hands_on_placeholder', true
+    'hands_on_placeholder', true,
+    'location', '8888 Keystone Crossing, Indianapolis, IN 46240'
   )
 ) ON CONFLICT (slug) DO UPDATE SET
   title = EXCLUDED.title,
+  description = EXCLUDED.description,
+  metadata = EXCLUDED.metadata,
   updated_at = NOW();
 
--- Modules for HVAC/2Exclusive
+-- Modules for HVAC Technician
 WITH course_ref AS (
-  SELECT id FROM courses WHERE slug = 'hvac-2exclusive-apprenticeship'
+  SELECT id FROM courses WHERE slug = 'hvac-technician'
 )
 INSERT INTO modules (course_id, title, description, order_index, is_published)
 SELECT 
