@@ -32,6 +32,7 @@
 **Your code is perfect. The database needs content!**
 
 The video players and image components work correctly, but they're receiving:
+
 - Empty/NULL video URLs from the database
 - No image paths configured in program records
 - Placeholder content instead of real media
@@ -97,11 +98,13 @@ WHERE title LIKE '%CDL%' OR title LIKE '%Truck%';
 **Free Video Resources:**
 
 1. **YouTube Embed Examples:**
+
    ```
    https://www.youtube.com/watch?v=dQw4w9WgXcQ
    ```
 
 2. **Vimeo Examples:**
+
    ```
    https://vimeo.com/148751763
    ```
@@ -139,6 +142,7 @@ WHERE content IS NULL OR content = '';
    - Paste into lesson content
 
 3. **Supabase Storage (Your current setup)**
+
    ```bash
    # Upload video to Supabase Storage
    # Then get public URL and add to database
@@ -154,12 +158,14 @@ WHERE content IS NULL OR content = '';
 ## 📊 CURRENT STATE
 
 ### What's Working:
+
 - ✅ Video player components (3 types supported)
 - ✅ Image assets in `/public` folder
 - ✅ Database schema (tables exist)
 - ✅ UI components (cards, grids, layouts)
 
 ### What's Missing:
+
 - ❌ Video URLs in `lessons.content` field
 - ❌ Image URLs in `programs.image_url` field
 - ❌ Thumbnail URLs in `courses.thumbnail_url` field
@@ -173,12 +179,12 @@ WHERE content IS NULL OR content = '';
 ```sql
 -- 1. Add sample videos to lessons
 UPDATE lessons
-SET 
-  content = CASE 
+SET
+  content = CASE
     WHEN content_type = 'video' THEN 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     ELSE content
   END
-WHERE (content IS NULL OR content = '') 
+WHERE (content IS NULL OR content = '')
   AND content_type = 'video';
 
 -- 2. Add program images
@@ -203,17 +209,20 @@ SELECT id, title, image_url FROM programs LIMIT 5;
 Your video players support:
 
 ### YouTube Videos
+
 ```
 https://www.youtube.com/watch?v=VIDEO_ID
 https://youtu.be/VIDEO_ID
 ```
 
 ### Vimeo Videos
+
 ```
 https://vimeo.com/VIDEO_ID
 ```
 
 ### Direct Video Files
+
 ```
 https://your-cdn.com/video.mp4
 https://your-cdn.com/video.webm
@@ -221,6 +230,7 @@ https://your-cdn.com/video.ogg
 ```
 
 ### Features:
+
 - ✅ Auto-play on scroll (TikTok-style)
 - ✅ Progress tracking
 - ✅ Completion detection
@@ -235,6 +245,7 @@ https://your-cdn.com/video.ogg
 ### Available Images:
 
 **Programs:**
+
 - `/programs/cdl.jpg` - Truck driving
 - `/programs/welding.jpg` - Welding
 - `/programs/cna.jpg` - CNA/Healthcare
@@ -243,11 +254,13 @@ https://your-cdn.com/video.ogg
 - `/programs/office.jpg` - Office skills
 
 **People:**
+
 - `/people/marcus.jpg`
 - `/people/sharon.jpg`
 - `/people/alicia.jpg`
 
 **Hero:**
+
 - `/hero/efh-hero.jpg`
 - `/hero/temp-hero.jpg`
 
@@ -261,8 +274,8 @@ https://your-cdn.com/video.ogg
 2. **Open SQL Editor**
 3. **Run this query:**
    ```sql
-   SELECT id, title, content, content_type 
-   FROM lessons 
+   SELECT id, title, content, content_type
+   FROM lessons
    WHERE content_type = 'video';
    ```
 4. **For each lesson, update with real video URL:**
@@ -277,11 +290,12 @@ https://your-cdn.com/video.ogg
 1. **Go to Supabase Dashboard**
 2. **Open SQL Editor**
 3. **Run this query:**
+
    ```sql
    UPDATE programs
    SET image_url = '/programs/cdl.jpg'
    WHERE slug = 'truck-driving';
-   
+
    -- Repeat for each program
    ```
 
@@ -292,12 +306,14 @@ https://your-cdn.com/video.ogg
 After adding content, verify it works:
 
 ### Test Videos:
+
 1. Go to `/lms/courses/[course-id]/lessons/[lesson-id]`
 2. Video should load and play
 3. Progress should track
 4. Completion should mark
 
 ### Test Images:
+
 1. Go to `/programs`
 2. Program cards should show images
 3. Images should be responsive
@@ -337,12 +353,14 @@ After adding content, verify it works:
 ### Video Not Playing?
 
 **Check:**
+
 1. Is `content` field populated in database?
 2. Is URL format correct (YouTube/Vimeo/direct)?
 3. Is video publicly accessible?
 4. Check browser console for errors
 
 **Fix:**
+
 ```sql
 -- Check lesson content
 SELECT id, title, content, content_type FROM lessons WHERE id = 'YOUR_LESSON_ID';
@@ -354,11 +372,13 @@ UPDATE lessons SET content = 'https://youtube.com/watch?v=...' WHERE id = 'YOUR_
 ### Image Not Showing?
 
 **Check:**
+
 1. Does file exist in `/public/programs/`?
 2. Is `image_url` field populated?
 3. Is path correct (starts with `/`)?
 
 **Fix:**
+
 ```sql
 -- Check program image
 SELECT id, title, image_url FROM programs WHERE slug = 'YOUR_SLUG';
@@ -374,12 +394,14 @@ UPDATE programs SET image_url = '/programs/cdl.jpg' WHERE slug = 'YOUR_SLUG';
 **The code is perfect. You just need to add content!**
 
 ### What to Do:
+
 1. ✅ Add video URLs to lessons table
 2. ✅ Add image URLs to programs table
 3. ✅ Test that content loads
 4. ✅ Deploy and enjoy!
 
 ### Quick Fix:
+
 ```sql
 -- Run this in Supabase SQL Editor
 UPDATE lessons
