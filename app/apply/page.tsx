@@ -22,12 +22,16 @@ export default function ApplyPage() {
       </header>
       <main className="py-20">
         <div className="container mx-auto px-4 max-w-2xl">
-          <h1 className="text-5xl font-bold mb-6 text-slate-900">Apply for Training</h1>
+          <h1 className="text-5xl font-bold mb-6 text-slate-900">
+            Apply for Training
+          </h1>
           <p className="text-xl text-slate-700 mb-12">
             Start your application for 100% funded workforce training programs.
           </p>
           <div className="bg-orange-50 border border-orange-100 p-8 rounded-lg mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-slate-900">Application Process</h2>
+            <h2 className="text-2xl font-bold mb-4 text-slate-900">
+              Application Process
+            </h2>
             <ol className="space-y-4 text-slate-700">
               <li className="flex gap-3">
                 <span className="font-bold text-orange-600">1.</span>
