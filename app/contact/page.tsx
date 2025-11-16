@@ -20,10 +20,16 @@ export default function ContactPage() {
           </div>
         </div>
         <nav className="flex gap-3 items-center">
-          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/programs"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Programs
           </Link>
-          <Link href="/about" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/about"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             About
           </Link>
           <Link href="/contact" className="text-efh-red font-bold">
@@ -40,7 +46,9 @@ export default function ContactPage() {
       <main className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="elevate-container max-w-4xl">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Contact Us</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+              Contact Us
+            </h1>
             <p className="text-xl text-gray-700 mb-12 leading-relaxed">
               Have questions? We're here to help you get started on your career
               journey.
@@ -48,7 +56,9 @@ export default function ContactPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="elevate-card p-8 animate-fade-in-left">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">Get in Touch</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">
+                Get in Touch
+              </h2>
               <div className="space-y-4">
                 <div>
                   <h3 className="font-bold mb-2 text-efh-red">Phone</h3>
@@ -65,7 +75,9 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="elevate-card bg-gradient-to-br from-efh-orange/10 to-efh-red/10 border-2 border-efh-orange/20 p-8 animate-fade-in-right">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">Quick Links</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">
+                Quick Links
+              </h2>
               <div className="space-y-3">
                 <Link
                   href="/enroll"
@@ -100,10 +112,7 @@ export default function ContactPage() {
               Don't wait to transform your career. Our programs are 100% funded
               and ready for you.
             </p>
-            <Link
-              href="/enroll"
-              className="elevate-btn-secondary inline-block"
-            >
+            <Link href="/enroll" className="elevate-btn-secondary inline-block">
               Check Your Eligibility
             </Link>
           </div>
