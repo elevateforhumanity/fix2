@@ -3,6 +3,7 @@
 ## Why Videos Aren't Showing
 
 Videos require **actual video files or URLs** - I cannot create real video content, but I can:
+
 1. Show you where to add video URLs
 2. Provide free stock video sources
 3. Give you exact code to update
@@ -14,21 +15,27 @@ Videos require **actual video files or URLs** - I cannot create real video conte
 ### Option 1: Use These Free Videos (Copy URLs)
 
 **Homepage Hero Video (25 sec):**
+
 ```
 https://player.vimeo.com/video/273947191
 ```
+
 Free stock video of diverse professionals working
 
 **Student Portal Video (18 sec):**
+
 ```
 https://player.vimeo.com/video/115783408
 ```
+
 Free stock video of students learning
 
 **Partner Video (15 sec):**
+
 ```
 https://player.vimeo.com/video/169599296
 ```
+
 Free stock video of business meeting
 
 ---
@@ -40,6 +47,7 @@ Free stock video of business meeting
 **File:** `app/page.tsx`
 
 **Find this (around line 105):**
+
 ```tsx
 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
   <div className="text-center p-8">
@@ -50,6 +58,7 @@ Free stock video of business meeting
 ```
 
 **Replace with:**
+
 ```tsx
 <iframe
   className="w-full h-full rounded-lg"
@@ -72,7 +81,7 @@ import { VideoShell } from '@/components/VideoShell';
   caption="See how Elevate for Humanity transforms careers"
   layout="horizontal"
   autoPlay={true}
-/>
+/>;
 ```
 
 ---
@@ -80,21 +89,25 @@ import { VideoShell } from '@/components/VideoShell';
 ## Free Video Sources
 
 ### 1. Pexels Videos (Free, No Attribution)
+
 - https://www.pexels.com/videos/
 - Search: "training", "education", "workplace", "students"
 - Download MP4 or get embed code
 
 ### 2. Pixabay Videos (Free, No Attribution)
+
 - https://pixabay.com/videos/
 - Search: "learning", "career", "professional"
 - Download and upload to your site
 
 ### 3. Coverr (Free Stock Videos)
+
 - https://coverr.co/
 - Categories: Business, People, Technology
 - Direct download links
 
 ### 4. Videvo (Free HD Stock)
+
 - https://www.videvo.net/
 - Free HD videos
 - Some require attribution
@@ -104,32 +117,38 @@ import { VideoShell } from '@/components/VideoShell';
 ## Where to Upload Your Own Videos
 
 ### Option A: YouTube (Recommended)
+
 1. Upload video to YouTube
 2. Get video URL: `https://www.youtube.com/watch?v=VIDEO_ID`
 3. Use in VideoShell component
 
 **Pros:**
+
 - Free hosting
 - Fast streaming
 - Mobile optimized
 - Analytics included
 
 ### Option B: Vimeo
+
 1. Upload to Vimeo
 2. Get URL: `https://vimeo.com/VIDEO_ID`
 3. Use in VideoShell component
 
 **Pros:**
+
 - Professional appearance
 - No ads
 - Better quality
 
 ### Option C: Direct Upload to Your Site
+
 1. Upload MP4 to `/public/videos/`
 2. Use path: `/videos/filename.mp4`
 3. Use in VideoShell component
 
 **Cons:**
+
 - Uses your bandwidth
 - Slower loading
 - Larger file sizes
@@ -143,10 +162,13 @@ import { VideoShell } from '@/components/VideoShell';
 **File:** `app/page.tsx` (line ~105)
 
 **Current:**
+
 ```tsx
 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
   <div className="text-center p-8">
-    <p className="text-gray-600 font-semibold mb-2">Innovate. Elevate. Reset.</p>
+    <p className="text-gray-600 font-semibold mb-2">
+      Innovate. Elevate. Reset.
+    </p>
     <p className="text-sm text-gray-500">25 sec hero video</p>
     <p className="text-xs text-gray-400 mt-2">Video placeholder</p>
   </div>
@@ -154,6 +176,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```
 
 **Replace with:**
+
 ```tsx
 <VideoShell
   src="https://player.vimeo.com/video/273947191"
@@ -165,6 +188,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```
 
 **Don't forget to add import at top:**
+
 ```tsx
 import { VideoShell } from '@/components/VideoShell';
 ```
@@ -174,6 +198,7 @@ import { VideoShell } from '@/components/VideoShell';
 **File:** `app/page.tsx` (line ~400)
 
 **Find:**
+
 ```tsx
 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
   <p>18 sec student portal video</p>
@@ -182,6 +207,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```
 
 **Replace with:**
+
 ```tsx
 <VideoShell
   src="https://player.vimeo.com/video/115783408"
@@ -196,6 +222,7 @@ import { VideoShell } from '@/components/VideoShell';
 **File:** `app/page.tsx` (line ~450)
 
 **Find:**
+
 ```tsx
 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
   <p>15 sec partner video</p>
@@ -204,6 +231,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```
 
 **Replace with:**
+
 ```tsx
 <VideoShell
   src="https://player.vimeo.com/video/169599296"
@@ -224,6 +252,7 @@ import { VideoShell } from '@/components/VideoShell';
 **File:** `app/programs/barber/page.tsx`
 
 **Find:**
+
 ```tsx
 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
   <p>Program Video</p>
@@ -232,6 +261,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```
 
 **Replace with:**
+
 ```tsx
 <VideoShell
   src="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
@@ -252,14 +282,15 @@ import { VideoShell } from '@/components/VideoShell';
 **In Supabase, update lessons table:**
 
 ```sql
-UPDATE lessons 
-SET 
+UPDATE lessons
+SET
   content = 'https://www.youtube.com/watch?v=VIDEO_ID',
   content_type = 'video'
 WHERE id = 1;
 ```
 
 **The VideoShell component will automatically:**
+
 - Play the video
 - Track progress
 - Mark complete at 80% watched
@@ -277,6 +308,7 @@ WHERE id = 1;
    - File hosting
 
 **What I CAN do:**
+
 - ✅ Provide free stock video URLs
 - ✅ Write the code to display videos
 - ✅ Create video player components
@@ -284,6 +316,7 @@ WHERE id = 1;
 - ✅ Give you exact instructions
 
 **What YOU need to do:**
+
 - 📹 Record videos OR use stock videos
 - 🔗 Get video URLs (YouTube/Vimeo)
 - 📝 Update the code with URLs
@@ -302,33 +335,40 @@ import { VideoShell } from '@/components/VideoShell';
 
 // In your JSX, replace the placeholder divs with:
 
-{/* Hero Video */}
+{
+  /* Hero Video */
+}
 <VideoShell
   src="https://player.vimeo.com/video/273947191"
   title="Innovate. Elevate. Reset."
   caption="Transform your future with FREE workforce training"
   layout="horizontal"
   autoPlay={true}
-/>
+/>;
 
-{/* Student Portal Video */}
+{
+  /* Student Portal Video */
+}
 <VideoShell
   src="https://player.vimeo.com/video/115783408"
   title="Your Learning Journey"
   caption="Enroll. Learn. Elevate."
   layout="horizontal"
-/>
+/>;
 
-{/* Partner Video */}
+{
+  /* Partner Video */
+}
 <VideoShell
   src="https://player.vimeo.com/video/169599296"
   title="Partner With Us"
   caption="Build workforce-ready programs"
   layout="horizontal"
-/>
+/>;
 ```
 
 2. **Commit and push:**
+
 ```bash
 git add app/page.tsx
 git commit -m "Add video content to homepage"
@@ -342,16 +382,19 @@ git push origin main
 ## Need Custom Videos?
 
 ### Hire a Videographer:
+
 - **Fiverr:** $50-$200 per video
 - **Upwork:** $500-$2000 for professional
 - **Local videographer:** $100-$500/day
 
 ### DIY Video Creation:
+
 - **Phone camera:** Record with smartphone
 - **Free editing:** DaVinci Resolve, iMovie
 - **Upload to YouTube:** Free hosting
 
 ### AI Video Generation:
+
 - **Synthesia:** AI avatars ($30/month)
 - **Pictory:** Text to video ($19/month)
 - **Lumen5:** Auto video creation ($19/month)
@@ -361,16 +404,19 @@ git push origin main
 ## Summary
 
 **Why no videos:**
+
 - I can't create actual video files
 - Videos need to be recorded or sourced
 
 **What you can do:**
+
 1. Use free stock videos (URLs provided above)
 2. Record your own videos
 3. Hire someone to create videos
 4. Use AI video tools
 
 **What I've provided:**
+
 - ✅ Video player component (VideoShell)
 - ✅ Free stock video URLs
 - ✅ Exact code to add videos
