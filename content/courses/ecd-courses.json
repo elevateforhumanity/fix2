@@ -40,5 +40,35 @@
     "title": "Beauty & Career Educator Training",
     "category": "Beauty & Education",
     "shortDescription": "Hybrid program that prepares experienced beauty professionals to become educators and trainers."
+  },
+  {
+    "slug": "electrical-apprenticeship",
+    "title": "Electrical Apprenticeship",
+    "category": "Skilled Trades",
+    "shortDescription": "Train as a licensed electrician through registered apprenticeship, learning residential and commercial electrical systems."
+  },
+  {
+    "slug": "plumbing-apprenticeship",
+    "title": "Plumbing Apprenticeship",
+    "category": "Skilled Trades",
+    "shortDescription": "Become a licensed plumber through hands-on apprenticeship training in residential and commercial plumbing systems."
+  },
+  {
+    "slug": "medical-assistant",
+    "title": "Medical Assistant",
+    "category": "Healthcare",
+    "shortDescription": "Support physicians and nurses in clinical settings, performing both administrative and basic clinical tasks."
+  },
+  {
+    "slug": "welding-fabrication",
+    "title": "Welding & Metal Fabrication",
+    "category": "Skilled Trades",
+    "shortDescription": "Learn welding techniques and metal fabrication skills for manufacturing, construction, and industrial careers."
+  },
+  {
+    "slug": "culinary-arts",
+    "title": "Culinary Arts & Food Service",
+    "category": "Hospitality",
+    "shortDescription": "Master professional cooking techniques and food service management for restaurant and hospitality careers."
   }
 ]
