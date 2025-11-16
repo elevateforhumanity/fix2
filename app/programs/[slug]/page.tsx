@@ -1,136 +1,363 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { DoceboHeader } from '@/components/DoceboHeader';
-import { createServerSupabaseClient, createBuildTimeSupabaseClient } from '@/lib/auth';
+// app/programs/[slug]/page.tsx
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { createServerSupabaseClient } from "@/lib/auth";
 
-// ISR: Revalidate every 60 seconds
-export const revalidate = 60;
+type Program = {
+  id: string;
+  slug: string;
+  title: string;
+  tagline?: string | null;
+  summary?: string | null;
+  description?: string | null;
+  bullets?: string[] | null;
+  funding?: string[] | null;
+  hero_image?: string | null;
+  cip_code?: string | null;
+  soc_code?: string | null;
+  funding_eligibility?: string[] | null;
+};
 
-export async function generateStaticParams() {
-  // Skip static generation if env vars not available (e.g., during local build)
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    console.log('Skipping generateStaticParams: Supabase env vars not set');
-    return [];
-  }
+type Course = {
+  id: string;
+  slug?: string | null;
+  title: string;
+  subtitle?: string | null;
+  description?: string | null;
+  duration_hours?: number | null;
+  metadata?: any;
+};
 
-  try {
-    const supabase = createBuildTimeSupabaseClient();
-    const { data: programs, error } = await supabase.from('programs').select('slug');
-    
-    if (error) {
-      console.error('generateStaticParams error:', error);
-      return [];
-    }
-    
-    return programs?.map((program) => ({
-      slug: program.slug,
-    })) || [];
-  } catch (err) {
-    console.error('generateStaticParams failed:', err);
-    return [];
-  }
-}
+export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export default async function ProgramDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const supabase = await createServerSupabaseClient();
-  const { data: program } = await supabase
-    .from('programs')
-    .select('*')
-    .eq('slug', params.slug)
-    .single();
-    
-  if (!program) return {};
 
-  return {
-    title: `${program.title} | Elevate for Humanity`,
-    description: program.summary,
-  };
-}
-
-export default async function ProgramPage({ params }: { params: { slug: string } }) {
-  const supabase = await createServerSupabaseClient();
-  const { data: program } = await supabase
-    .from('programs')
-    .select('*')
-    .eq('slug', params.slug)
+  // Load program by slug
+  const { data: program, error: programError } = await supabase
+    .from("programs")
+    .select("id, slug, title, tagline, summary, description, bullets, funding, hero_image, cip_code, soc_code, funding_eligibility")
+    .eq("slug", params.slug)
     .single();
 
-  if (!program) {
+  if (programError || !program) {
+    console.error("Program not found:", programError);
     notFound();
   }
 
-  return (
-    <div className="min-h-screen bg-white">
-      <DoceboHeader />
+  // Load courses - try to match by program slug in metadata
+  const { data: coursesData, error: coursesError } = await supabase
+    .from("courses")
+    .select("id, slug, title, subtitle, description, duration_hours, metadata")
+    .eq("status", "published");
 
-      <main>
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-20">
-          <div className="container mx-auto px-4">
-            <Link href="/programs" className="text-white/80 hover:text-white mb-4 inline-block">
-              ← Back to Programs
-            </Link>
-            <h1 className="text-5xl font-bold mb-4">{program.title}</h1>
-            <p className="text-2xl opacity-90 mb-6">{program.tagline}</p>
-            <div className="flex flex-wrap gap-3">
-              {program.funding?.map((fund: string) => (
-                <span key={fund} className="px-4 py-2 bg-white/20 backdrop-blur rounded-full font-semibold border-2 border-white/30">
-                  {fund}
+  if (coursesError) {
+    console.error("Error fetching courses:", coursesError);
+  }
+
+  // Filter courses that match this program (basic matching by slug similarity)
+  const courses: Course[] = (coursesData || []).filter((c) => 
+    c.slug?.includes(program.slug) || 
+    c.metadata?.program_slug === program.slug
+  );
+
+  const internalCourses = courses.filter((c) => !c.metadata?.external_url);
+  const externalCourses = courses.filter((c) => !!c.metadata?.external_url);
+
+  const fundingTags = program.funding || [];
+
+  return (
+    <main className="min-h-screen bg-white text-gray-900">
+      {/* Hero */}
+      <section className="elevate-gradient-red-orange border-b border-white/10">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-20">
+          <div className="flex-1 space-y-4">
+            <p className="text-sm font-semibold text-white/90 uppercase tracking-wide">
+              Elevate for Humanity · Elevate Connects Directory
+            </p>
+            <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
+              {program.title}
+            </h1>
+            {program.tagline && (
+              <p className="text-xl font-semibold text-white/90 italic">
+                {program.tagline}
+              </p>
+            )}
+            <p className="max-w-xl text-sm sm:text-base text-white/90">
+              {program.summary || "Explore program details, courses, and funding options."}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {fundingTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide text-white"
+                >
+                  {tag}
                 </span>
               ))}
             </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={`/enroll?program=${program.slug}`}
+                className="elevate-btn-primary"
+              >
+                Start Enrollment Inquiry
+              </Link>
+              <Link
+                href="/programs"
+                className="elevate-btn-secondary bg-white/10 border-white text-white hover:bg-white/20"
+              >
+                Back to All Programs
+              </Link>
+            </div>
           </div>
-        </section>
 
-        {/* Content */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
-              <p className="text-xl text-gray-700 mb-8">{program.summary}</p>
-
-              <h3 className="text-2xl font-bold mb-4">Program Highlights</h3>
-              <ul className="space-y-3 mb-8">
-                {program.bullets?.map((bullet: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-blue-600 text-xl">✓</span>
-                    <span className="text-gray-700">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {program.description && (
-                <>
-                  <h3 className="text-2xl font-bold mb-4">Full Description</h3>
-                  <p className="text-gray-700 mb-8 whitespace-pre-line">{program.description}</p>
-                </>
-              )}
-
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-8">
-                <h3 className="text-xl font-bold mb-2">Funding Available</h3>
-                <p className="text-gray-700">
-                  This program is 100% funded through: {program.funding?.join(', ')}
-                </p>
-              </div>
-
-              {program.cta && (
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <p className="text-gray-700 font-medium">{program.cta}</p>
+          <div className="flex-1">
+            <div className="elevate-card relative aspect-video w-full overflow-hidden bg-white">
+              <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-gray-700">
+                <div>
+                  <p className="text-efh-orange font-semibold mb-2">
+                    Program Video Placeholder
+                  </p>
+                  <p className="text-xs">
+                    Add program-specific video here
+                  </p>
                 </div>
-              )}
-
-              <div className="mt-12 flex gap-4">
-                <Link href="/apply" className="px-8 py-4 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700">
-                  Apply Now
-                </Link>
-                <Link href="/contact" className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg font-bold text-lg hover:bg-blue-50">
-                  Contact Us
-                </Link>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+
+      {/* Body */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)]">
+          {/* Left column */}
+          <div>
+            <h2 className="mb-4 text-2xl font-bold">Program Overview</h2>
+            <p className="mb-6 text-sm sm:text-base text-gray-700">
+              {program.description || program.summary || "This program is part of Elevate for Humanity's workforce ecosystem."}
+            </p>
+
+            {program.bullets && program.bullets.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-xl font-bold mb-3">Program Highlights</h3>
+                <ul className="space-y-2">
+                  {program.bullets.map((bullet, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-efh-teal text-xl">✓</span>
+                      <span className="text-sm text-gray-700">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Internal Courses */}
+            <div className="mt-8">
+              <h3 className="text-xl font-bold">Courses in This Program</h3>
+              {internalCourses.length === 0 ? (
+                <p className="mt-3 text-sm text-gray-600">
+                  Courses for this program will appear here once database migrations are complete.
+                </p>
+              ) : (
+                <div className="mt-4 space-y-4">
+                  {internalCourses.map((course) => (
+                    <div
+                      key={course.id}
+                      className="elevate-card p-4"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h4 className="text-sm font-semibold text-gray-900">
+                          {course.title}
+                        </h4>
+                        {course.duration_hours && (
+                          <span className="elevate-badge elevate-badge-blue">
+                            {course.duration_hours} hours
+                          </span>
+                        )}
+                      </div>
+                      {course.subtitle && (
+                        <p className="mt-2 text-xs sm:text-sm text-efh-orange font-medium">
+                          {course.subtitle}
+                        </p>
+                      )}
+                      {course.description && (
+                        <p className="mt-2 text-xs sm:text-sm text-gray-600">
+                          {course.description}
+                        </p>
+                      )}
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <Link
+                          href={`/lms/courses/${course.id}`}
+                          className="elevate-btn-primary text-xs"
+                        >
+                          View in LMS
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* External Courses */}
+            {externalCourses.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-xl font-bold">
+                  External Certifications & Partner Platforms
+                </h3>
+                <p className="mt-2 text-sm text-gray-600">
+                  These modules are delivered on external platforms (JRI, NRF RISE Up, Milady RISE).
+                </p>
+                <div className="mt-4 space-y-4">
+                  {externalCourses.map((course) => (
+                    <div
+                      key={course.id}
+                      className="elevate-card elevate-card-blue p-4"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h4 className="text-sm font-semibold text-gray-900">
+                          {course.title}
+                        </h4>
+                        {course.metadata?.external_platform && (
+                          <span className="elevate-badge elevate-badge-purple">
+                            {course.metadata.external_platform}
+                          </span>
+                        )}
+                      </div>
+                      {course.description && (
+                        <p className="mt-2 text-xs sm:text-sm text-gray-600">
+                          {course.description}
+                        </p>
+                      )}
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {course.metadata?.external_url && (
+                          <a
+                            href={course.metadata.external_url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="elevate-btn-secondary text-xs"
+                          >
+                            Go to External Platform
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Right column */}
+          <aside className="space-y-5">
+            {/* Workforce Codes */}
+            {(program.cip_code || program.soc_code) && (
+              <div className="elevate-card p-5 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200">
+                <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                  Workforce Alignment Codes
+                </h3>
+                <div className="space-y-3">
+                  {program.cip_code && (
+                    <div>
+                      <dt className="text-xs font-semibold text-blue-900 uppercase tracking-wide">
+                        CIP Code
+                      </dt>
+                      <dd className="mt-1 text-sm font-medium text-gray-800">
+                        {program.cip_code}
+                      </dd>
+                    </div>
+                  )}
+                  {program.soc_code && (
+                    <div>
+                      <dt className="text-xs font-semibold text-blue-900 uppercase tracking-wide">
+                        SOC Code
+                      </dt>
+                      <dd className="mt-1 text-sm font-medium text-gray-800">
+                        {program.soc_code}
+                      </dd>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Funding Eligibility Badges */}
+            {program.funding_eligibility && program.funding_eligibility.length > 0 && (
+              <div className="elevate-card p-5">
+                <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                  Eligible Funding Types
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {program.funding_eligibility.map((funding) => {
+                    const colorMap: Record<string, string> = {
+                      'WIOA': 'bg-blue-600',
+                      'WRG-style': 'bg-orange-600',
+                      'JRI': 'bg-green-600',
+                      'Apprenticeship': 'bg-purple-600',
+                      'SEAL': 'bg-indigo-600',
+                      'Reentry': 'bg-teal-600',
+                      'Youth': 'bg-pink-600',
+                      'SNAP/TANF': 'bg-yellow-600',
+                      'Healthcare': 'bg-red-600',
+                    };
+                    const bgColor = colorMap[funding] || 'bg-gray-600';
+                    return (
+                      <span
+                        key={funding}
+                        className={`${bgColor} text-white px-3 py-1 rounded-full text-xs font-semibold`}
+                      >
+                        {funding}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            <div className="elevate-card p-5">
+              <h3 className="text-sm font-semibold text-gray-900">Quick Facts</h3>
+              <dl className="mt-3 space-y-2 text-sm text-gray-700">
+                <div className="flex justify-between gap-4">
+                  <dt className="text-gray-500">Program</dt>
+                  <dd className="text-right font-medium">{program.title}</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="elevate-card p-5">
+              <h3 className="text-sm font-semibold text-gray-900">
+                Funding & Support Options
+              </h3>
+              <ul className="mt-3 space-y-1.5 text-xs sm:text-sm text-gray-700">
+                <li>• WIOA training funds (where eligible)</li>
+                <li>• Workforce Ready Grant / Next Level Jobs</li>
+                <li>• Job Ready Indy for youth skills</li>
+                <li>• Registered Apprenticeship pathways</li>
+              </ul>
+              <p className="mt-3 text-xs text-gray-500">
+                Eligibility depends on location, age, income, and partner agency rules.
+              </p>
+            </div>
+
+            <div className="elevate-card p-5">
+              <h3 className="text-sm font-semibold text-gray-900">Need Help?</h3>
+              <p className="mt-2 text-xs sm:text-sm text-gray-700">
+                Contact{" "}
+                <Link href="/contact" className="text-efh-red underline">
+                  Elevate for Humanity
+                </Link>{" "}
+                for assistance.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
   );
 }
