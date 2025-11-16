@@ -109,14 +109,14 @@ export default function HomePage() {
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="Elevate for Humanity - Innovate. Elevate. Reset."
                 caption="A workforce & wellness ecosystem for real people"
-                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                className="rounded-2xl overflow-hidden border border-gray-200 border-4 border-gray-200"
               />
               {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl border border-gray-200 p-4 transform hover:scale-105 transition-transform">
                 <div className="text-3xl font-bold text-purple-600">100%</div>
                 <div className="text-sm text-gray-600">Free Training</div>
               </div>
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl border border-gray-200 p-4 transform hover:scale-105 transition-transform">
                 <div className="text-3xl font-bold text-teal-600">85%</div>
                 <div className="text-sm text-gray-600">Job Placement</div>
               </div>
@@ -176,7 +176,7 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              <div className="elevate-card overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200">
+              <div className="elevate-card overflow-hidden bg-white border-2 border-blue-200">
                 {aiInstructorVideo.videoUrl ? (
                   <video
                     src={aiInstructorVideo.videoUrl}
@@ -224,26 +224,26 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="elevate-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="text-5xl font-bold text-purple-600 mb-2">
                 100%
               </div>
               <div className="text-gray-700 font-semibold">Free Training</div>
               <div className="text-sm text-gray-500 mt-1">WIOA-Funded</div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="text-5xl font-bold text-orange-600 mb-2">10+</div>
               <div className="text-gray-700 font-semibold">Career Programs</div>
               <div className="text-sm text-gray-500 mt-1">
                 High-Demand Fields
               </div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="text-5xl font-bold text-teal-600 mb-2">85%</div>
               <div className="text-gray-700 font-semibold">Job Placement</div>
               <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="text-5xl font-bold text-blue-600 mb-2">$45K+</div>
               <div className="text-gray-700 font-semibold">
                 Avg. Starting Salary
@@ -268,7 +268,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
@@ -288,7 +288,7 @@ export default function HomePage() {
                 Learn More →
               </a>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
                 <Award className="h-8 w-8 text-purple-600" />
               </div>
@@ -308,7 +308,7 @@ export default function HomePage() {
                 Learn More →
               </a>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border border-gray-200 transition-shadow">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
                 <TrendingUp className="h-8 w-8 text-orange-600" />
               </div>
@@ -330,7 +330,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 For Employers
               </h3>
@@ -360,7 +360,7 @@ export default function HomePage() {
                 List Your Program
               </Link>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 For Applicants
               </h3>
@@ -470,7 +470,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="elevate-card elevate-card-red group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div className="elevate-card elevate-card-red group hover:border border-gray-200 hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
                   src="/course-covers/barber-apprenticeship/cover.svg"
@@ -506,7 +506,7 @@ export default function HomePage() {
                 Learn More
               </Link>
             </div>
-            <div className="elevate-card elevate-card-blue group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div className="elevate-card elevate-card-blue group hover:border border-gray-200 hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
                   src="/course-covers/truck-driving/cover.svg"
@@ -542,7 +542,7 @@ export default function HomePage() {
                 Learn More
               </Link>
             </div>
-            <div className="elevate-card elevate-card-orange group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div className="elevate-card elevate-card-orange group hover:border border-gray-200 hover:-translate-y-2 transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
                   src="/course-covers/hvac-tech/cover.svg"
@@ -702,7 +702,7 @@ export default function HomePage() {
               </h2>
               <p className="text-xl text-gray-600">Enroll. Learn. Elevate.</p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl overflow-hidden border border-gray-200">
               {/* VIDEO SCRIPT 2: Student Portal Focus (18 seconds)
                   
                   Shots:
@@ -721,7 +721,7 @@ export default function HomePage() {
                   
                   Replace this placeholder with actual video URL when ready.
               */}
-              <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+              <div className="aspect-video bg-slate-800 flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                     <svg
@@ -759,7 +759,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Partner / Provider Video Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+      <section className="py-20 bg-gray-50">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -770,7 +770,7 @@ export default function HomePage() {
                 Build Boss-Energy Programs
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl overflow-hidden border border-gray-200">
               {/* VIDEO SCRIPT 3: Partner / Provider "Boss Energy" (15 seconds)
                   
                   Shots:
@@ -789,7 +789,7 @@ export default function HomePage() {
                   
                   Replace this placeholder with actual video URL when ready.
               */}
-              <div className="aspect-video bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
+              <div className="aspect-video bg-slate-800 flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                     <svg
@@ -919,7 +919,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-red-600 via-orange-600 to-blue-600 text-white">
+      <section className="py-20 bg-slate-900 text-white">
         <div className="elevate-container text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Transform Your Future?
