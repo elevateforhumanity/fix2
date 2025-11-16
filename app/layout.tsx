@@ -9,8 +9,6 @@ import StructuredData from '@/components/StructuredData';
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
-import { VoiceAssistant } from '@/components/VoiceAssistant';
-import ChatAssistant from '@/components/ChatAssistant';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import CookieConsent from '@/components/CookieConsent';
 
@@ -109,8 +107,6 @@ export default function RootLayout({
         <ServiceWorkerRegistration />
         <OfflineIndicator />
         <NotificationPrompt />
-        <VoiceAssistant />
-        <ChatAssistant />
         <ElevateChatWidget />
         <CookieConsent />
         <main id="main-content">{children}</main>
