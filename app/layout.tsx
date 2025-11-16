@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '@/branding/brand.css';
+import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
@@ -8,6 +9,7 @@ import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
 import { VoiceAssistant } from '@/components/VoiceAssistant';
+import ChatAssistant from '@/components/ChatAssistant';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
@@ -80,6 +82,7 @@ export default function RootLayout({
         <OfflineIndicator />
         <NotificationPrompt />
         <VoiceAssistant />
+        <ChatAssistant />
         {children}
       </body>
     </html>
