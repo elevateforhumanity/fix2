@@ -1,4 +1,10 @@
 {
+  "course-barber-cover": "/generated-images/course-barber-cover.png",
+  "course-building-cover": "/generated-images/course-building-cover.png",
+  "course-cdl-cover": "/generated-images/course-cdl-cover.png",
+  "course-healthcare-cover": "/generated-images/course-healthcare-cover.png",
+  "course-hvac-cover": "/generated-images/course-hvac-cover.png",
+  "barber-course-cover": "/generated-images/courses/barber-course-cover.png",
   "building-tech-course-cover": "/generated-images/courses/building-tech-course-cover.png",
   "cdl-course-cover": "/generated-images/courses/cdl-course-cover.png",
   "cna-course-cover": "/generated-images/courses/cna-course-cover.png",
@@ -8,6 +14,11 @@
   "building-technician-cover": "/generated-images/ecd-courses/building-technician-cover.png",
   "cdl-transportation-cover": "/generated-images/ecd-courses/cdl-transportation-cover.png",
   "cna-healthcare-cover": "/generated-images/ecd-courses/cna-healthcare-cover.png",
+  "culinary-arts-cover": "/generated-images/ecd-courses/culinary-arts-cover.png",
+  "electrical-apprenticeship-cover": "/generated-images/ecd-courses/electrical-apprenticeship-cover.png",
   "hvac-technician-cover": "/generated-images/ecd-courses/hvac-technician-cover.png",
-  "it-support-apprenticeship-cover": "/generated-images/ecd-courses/it-support-apprenticeship-cover.png"
+  "it-support-apprenticeship-cover": "/generated-images/ecd-courses/it-support-apprenticeship-cover.png",
+  "medical-assistant-cover": "/generated-images/ecd-courses/medical-assistant-cover.png",
+  "plumbing-apprenticeship-cover": "/generated-images/ecd-courses/plumbing-apprenticeship-cover.png",
+  "welding-fabrication-cover": "/generated-images/ecd-courses/welding-fabrication-cover.png"
 }
