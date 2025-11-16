@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function useAutoPlayOnVisible(
   ref: React.RefObject<HTMLVideoElement>,
@@ -17,11 +17,9 @@ export function useAutoPlayOnVisible(
           if (!video) return;
 
           if (entry.isIntersecting) {
-            video
-              .play()
-              .catch(() => {
-                // some browsers block autoplay, ignore
-              });
+            video.play().catch(() => {
+              // some browsers block autoplay, ignore
+            });
           } else {
             video.pause();
           }
