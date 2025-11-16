@@ -337,15 +337,16 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
   '/images/community-healthcare-worker.jpg'
 ),
 
--- 14. Rise Up Certificate
+-- 14. Rise Up Certificate (with JRI)
 (
   'rise-up-certificate',
   'Rise Up Certificate',
-  'Foundational skills for career success',
-  'The Rise Up Certificate program provides foundational skills for individuals entering or re-entering the workforce. This program covers digital literacy, professional communication, workplace readiness, financial literacy, and personal wellness. Rise Up is designed to prepare participants for further training, apprenticeships, or direct employment. This nationally recognized credential is included in the Beauty & Career Educator Training Program and can also be earned as a standalone certificate.',
-  'Build foundational skills for career success and personal growth.',
+  'Foundational skills for career success with Job Ready Indy',
+  'The Rise Up Certificate program provides foundational skills for individuals entering or re-entering the workforce. This program covers digital literacy, professional communication, workplace readiness, financial literacy, and personal wellness. Students also complete the Job Ready Indy (JRI) 6-badge series through EmployIndy, earning a nationally recognized workforce readiness credential. Rise Up is designed to prepare participants for further training, apprenticeships, or direct employment. This nationally recognized credential is included in the Beauty & Career Educator Training Program and can also be earned as a standalone certificate.',
+  'Build foundational skills and earn Job Ready Indy credential.',
   ARRAY[
     'Nationally recognized certificate',
+    'Includes Job Ready Indy (JRI) 6-badge series',
     'Foundational workforce readiness',
     'Digital literacy and computer skills',
     'Professional communication',
@@ -354,7 +355,8 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
     'Pathway to further training or employment',
     'Flexible online format',
     'Open to all ages and backgrounds',
-    'Included in Beauty & Career Educator program'
+    'Included in Beauty & Career Educator program',
+    'EmployIndy JRI Facilitator: Elevate for Humanity'
   ],
   ARRAY['WIOA', 'JRI'],
   '/images/rise-up.jpg'
