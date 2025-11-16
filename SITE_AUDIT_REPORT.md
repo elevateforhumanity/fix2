@@ -1,4 +1,5 @@
 # Site Audit Report - Elevate for Humanity
+
 **Date:** November 16, 2024  
 **Status:** Issues Found - Action Required
 
@@ -9,24 +10,32 @@
 ### 1. Missing Pages (404 Errors)
 
 #### A. `/programs/truck-driving` - DOES NOT EXIST
+
 **Referenced on:** Homepage (line 234)
+
 ```tsx
 <Link href="/programs/truck-driving">CDL Truck Driving</Link>
 ```
+
 **Fix:** Create `/app/programs/truck-driving/page.tsx` OR change link to use slug system
 
-#### B. `/programs/hvac-tech` - DOES NOT EXIST  
+#### B. `/programs/hvac-tech` - DOES NOT EXIST
+
 **Referenced on:** Homepage (line 237)
+
 ```tsx
 <Link href="/programs/hvac-tech">HVAC Technician</Link>
 ```
+
 **Fix:** Create `/app/programs/hvac-tech/page.tsx` OR change to `/programs/hvac`
 
 #### C. `/faq` - DOES NOT EXIST
+
 **Referenced on:** Homepage footer
 **Fix:** Create `/app/faq/page.tsx`
 
 #### D. `/terms-of-service` - DOES NOT EXIST
+
 **Referenced on:** Homepage footer
 **Fix:** Create `/app/terms-of-service/page.tsx` OR rename from `/terms`
 
@@ -35,7 +44,9 @@
 ### 2. Favicon Issues
 
 #### Current Status:
+
 ✅ Favicon files exist in `/public/`:
+
 - `favicon.svg`
 - `favicon.png`
 - `icon-192.png`
@@ -45,7 +56,9 @@
 ❌ **Not configured in layout.tsx**
 
 #### Fix Required:
+
 Add to `/app/layout.tsx` metadata:
+
 ```tsx
 export const metadata: Metadata = {
   // ... existing metadata
@@ -56,7 +69,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
-}
+};
 ```
 
 ---
@@ -64,7 +77,9 @@ export const metadata: Metadata = {
 ### 3. Course Cover Images - All Placeholders
 
 #### Current State:
+
 All course covers are SVG placeholders:
+
 ```
 /course-covers/barber-apprenticeship/cover.svg
 /course-covers/truck-driving/cover.svg
@@ -79,11 +94,13 @@ All course covers are SVG placeholders:
 ```
 
 #### Impact:
+
 - Unprofessional appearance
 - Low engagement
 - Poor SEO (no alt text on real images)
 
 #### Fix:
+
 Replace with real JPG/PNG images (see CONTENT_UPLOAD_GUIDE.md)
 
 ---
@@ -93,16 +110,18 @@ Replace with real JPG/PNG images (see CONTENT_UPLOAD_GUIDE.md)
 ### 4. Broken Navigation Links
 
 #### Homepage Navigation Issues:
+
 ```tsx
 // These pages exist but may have issues:
 /about          ✅ EXISTS
-/contact        ✅ EXISTS  
+/contact        ✅ EXISTS
 /blog           ✅ EXISTS (but likely empty)
 /apply          ✅ EXISTS
 /privacy-policy ✅ EXISTS
 ```
 
 #### Missing from navigation but referenced:
+
 - `/faq` - Does not exist
 - `/terms-of-service` - Does not exist
 
@@ -111,11 +130,14 @@ Replace with real JPG/PNG images (see CONTENT_UPLOAD_GUIDE.md)
 ### 5. Program Slug Inconsistencies
 
 #### Issue:
+
 Homepage uses hardcoded paths that don't match slug system:
+
 - `/programs/truck-driving` → Should be `/programs/[slug]` with slug="truck-driving"
 - `/programs/hvac-tech` → Should be `/programs/hvac` (existing) or slug="hvac-tech"
 
 #### Current Working Programs:
+
 - `/programs/barber` ✅
 - `/programs/cna` ✅
 - `/programs/hvac` ✅
@@ -134,24 +156,30 @@ Homepage uses hardcoded paths that don't match slug system:
 #### Potential Issues Found:
 
 **A. Enrollment Buttons**
+
 ```tsx
 <Link href="/enroll">Check Your Eligibility</Link>
 ```
+
 - Page exists at `/app/enroll/page.tsx` ✅
 - May need testing for form submission
 
 **B. Program Holder Apply Button**
+
 ```tsx
 <Link href="/program-holder/apply">List Your Program</Link>
 ```
+
 - Page exists at `/app/program-holder/apply/page.tsx` ✅
 - Needs testing
 
 **C. Sign In / Sign Up Buttons**
+
 ```tsx
 <Link href="/login">Sign In</Link>
 <Link href="/signup">Get Started Free</Link>
 ```
+
 - `/login` exists ✅
 - `/signup` exists ✅
 - Auth functionality needs testing
@@ -163,7 +191,9 @@ Homepage uses hardcoded paths that don't match slug system:
 ### 7. Missing Content Templates
 
 #### A. Video Placeholders
+
 **Locations:**
+
 - Homepage hero video (line 105)
 - Student portal video (line ~400)
 - Partner video (line ~450)
@@ -172,6 +202,7 @@ Homepage uses hardcoded paths that don't match slug system:
 **Fix:** Upload real videos (see CONTENT_UPLOAD_GUIDE.md)
 
 #### B. Testimonial Placeholders
+
 **Location:** Homepage testimonials section
 **Status:** Hardcoded placeholder testimonials
 **Fix:** Replace with real testimonials or connect to database
@@ -181,6 +212,7 @@ Homepage uses hardcoded paths that don't match slug system:
 ### 8. External Link Issues
 
 #### Links to External Sites:
+
 ```tsx
 // These should open in new tabs with rel="noopener noreferrer"
 https://www.in.gov/dwd/apprenticeship-indiana/home/
@@ -197,11 +229,13 @@ https://employindy.org/modern-apprenticeship/
 ### 9. SEO & Metadata
 
 #### Issues:
+
 - OG image path may not exist: `/assets/og-image.jpg`
 - Some pages missing individual metadata
 - Sitemap may need updating
 
 #### Check:
+
 ```bash
 ls -la public/assets/og-image.jpg
 ```
@@ -211,6 +245,7 @@ ls -la public/assets/og-image.jpg
 ### 10. Accessibility Issues
 
 #### Potential Issues:
+
 - Video placeholders need proper ARIA labels
 - Some buttons may need better focus states
 - Color contrast needs verification
@@ -271,6 +306,7 @@ ls -la public/assets/og-image.jpg
 **File:** `/app/layout.tsx`
 
 **Add after line 45:**
+
 ```tsx
   icons: {
     icon: [
@@ -310,35 +346,43 @@ export default function FAQPage() {
 
       <main className="elevate-container py-16">
         <h1 className="text-4xl font-bold mb-8">Frequently Asked Questions</h1>
-        
+
         <div className="space-y-6 max-w-3xl">
           <div className="elevate-card">
             <h2 className="text-xl font-bold mb-2">What is WIOA?</h2>
             <p className="text-gray-700">
-              The Workforce Innovation and Opportunity Act (WIOA) provides FREE training 
-              to help Americans get high-quality jobs in high-demand industries.
+              The Workforce Innovation and Opportunity Act (WIOA) provides FREE
+              training to help Americans get high-quality jobs in high-demand
+              industries.
             </p>
           </div>
 
           <div className="elevate-card">
-            <h2 className="text-xl font-bold mb-2">Who qualifies for WIOA funding?</h2>
+            <h2 className="text-xl font-bold mb-2">
+              Who qualifies for WIOA funding?
+            </h2>
             <p className="text-gray-700">
-              Adults seeking career advancement, dislocated workers needing retraining, 
-              youth ages 16-24, and individuals with barriers to employment may qualify.
+              Adults seeking career advancement, dislocated workers needing
+              retraining, youth ages 16-24, and individuals with barriers to
+              employment may qualify.
             </p>
           </div>
 
           <div className="elevate-card">
             <h2 className="text-xl font-bold mb-2">How do I enroll?</h2>
             <p className="text-gray-700">
-              Click "Check Your Eligibility" on our homepage to start the enrollment process.
+              Click "Check Your Eligibility" on our homepage to start the
+              enrollment process.
             </p>
           </div>
 
           <div className="elevate-card">
-            <h2 className="text-xl font-bold mb-2">Are the programs really free?</h2>
+            <h2 className="text-xl font-bold mb-2">
+              Are the programs really free?
+            </h2>
             <p className="text-gray-700">
-              Yes! WIOA covers 100% of tuition and training materials for eligible participants.
+              Yes! WIOA covers 100% of tuition and training materials for
+              eligible participants.
             </p>
           </div>
         </div>
@@ -377,37 +421,39 @@ export default function TermsPage() {
 
       <main className="elevate-container py-16">
         <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
-        
+
         <div className="prose max-w-3xl">
           <p className="text-gray-600 mb-6">Last updated: November 2024</p>
 
           <h2>1. Acceptance of Terms</h2>
           <p>
-            By accessing and using Elevate for Humanity services, you accept and agree 
-            to be bound by these Terms of Service.
+            By accessing and using Elevate for Humanity services, you accept and
+            agree to be bound by these Terms of Service.
           </p>
 
           <h2>2. Use of Services</h2>
           <p>
-            Our services are provided for educational and workforce development purposes. 
-            You agree to use them responsibly and in accordance with all applicable laws.
+            Our services are provided for educational and workforce development
+            purposes. You agree to use them responsibly and in accordance with
+            all applicable laws.
           </p>
 
           <h2>3. User Accounts</h2>
           <p>
-            You are responsible for maintaining the confidentiality of your account 
-            credentials and for all activities under your account.
+            You are responsible for maintaining the confidentiality of your
+            account credentials and for all activities under your account.
           </p>
 
           <h2>4. WIOA Eligibility</h2>
           <p>
-            Participation in WIOA-funded programs requires meeting eligibility criteria 
-            as determined by local workforce boards.
+            Participation in WIOA-funded programs requires meeting eligibility
+            criteria as determined by local workforce boards.
           </p>
 
           <h2>5. Contact</h2>
           <p>
-            For questions about these terms, please contact us through our website.
+            For questions about these terms, please contact us through our
+            website.
           </p>
         </div>
       </main>
@@ -423,6 +469,7 @@ export default function TermsPage() {
 **File:** `/app/page.tsx`
 
 **Find and replace:**
+
 ```tsx
 // OLD:
 <Link href="/programs/truck-driving">
@@ -444,18 +491,21 @@ export default function TermsPage() {
 ## 📊 SUMMARY
 
 ### Total Issues Found: 10
+
 - 🔴 Critical: 3
 - 🟡 High Priority: 3
 - 🟢 Medium Priority: 2
 - 🔵 Low Priority: 2
 
 ### Estimated Fix Time:
+
 - **Immediate fixes:** 2 hours
 - **High priority:** 8 hours
 - **Medium priority:** 16 hours
 - **Total:** 26 hours (3-4 days)
 
 ### Next Steps:
+
 1. Fix 404 errors (create missing pages)
 2. Add favicon configuration
 3. Test all buttons and forms
@@ -467,6 +517,7 @@ export default function TermsPage() {
 ## ✅ READY TO FIX?
 
 I can implement all the immediate fixes right now. Just say:
+
 - "Fix all 404 errors"
 - "Add favicon configuration"
 - "Create missing pages"
