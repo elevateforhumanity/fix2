@@ -10,6 +10,7 @@ import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
 import { VoiceAssistant } from '@/components/VoiceAssistant';
 import ChatAssistant from '@/components/ChatAssistant';
+import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 
 // Cache bust: 2025-11-16-05:36
 export const metadata: Metadata = {
@@ -95,6 +96,7 @@ export default function RootLayout({
         <NotificationPrompt />
         <VoiceAssistant />
         <ChatAssistant />
+        <ElevateChatWidget />
         {children}
       </body>
     </html>
