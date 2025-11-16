@@ -140,19 +140,23 @@ export default function HomePage() {
                 Let our AI guide explain Elevate for Humanity
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our virtual guide walks learners and partners through how Elevate
-                for Humanity connects training programs to federal and state
-                funding streams like WIOA, so tuition isn't a barrier to
+                Our virtual guide walks learners and partners through how
+                Elevate for Humanity connects training programs to federal and
+                state funding streams like WIOA, so tuition isn't a barrier to
                 opportunity.
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
-                  <span>Overview of Elevate for Humanity's mission and programs</span>
+                  <span>
+                    Overview of Elevate for Humanity's mission and programs
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
-                  <span>How our programs link to WIOA and state workforce grants</span>
+                  <span>
+                    How our programs link to WIOA and state workforce grants
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
@@ -160,16 +164,10 @@ export default function HomePage() {
                 </li>
               </ul>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/programs"
-                  className="elevate-btn-primary"
-                >
+                <Link href="/programs" className="elevate-btn-primary">
                   Explore Training Programs
                 </Link>
-                <Link
-                  href="/about"
-                  className="elevate-btn-secondary"
-                >
+                <Link href="/about" className="elevate-btn-secondary">
                   Learn More About Us
                 </Link>
               </div>
@@ -195,7 +193,11 @@ export default function HomePage() {
                   <div className="aspect-video w-full flex items-center justify-center p-8 text-center">
                     <div className="space-y-3">
                       <div className="w-16 h-16 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                         </svg>
                       </div>
@@ -203,7 +205,8 @@ export default function HomePage() {
                         AI Instructor Video
                       </p>
                       <p className="text-sm text-gray-600">
-                        Coming soon - Generate using script at:<br />
+                        Coming soon - Generate using script at:
+                        <br />
                         <code className="text-xs bg-white px-2 py-1 rounded mt-1 inline-block">
                           {aiInstructorVideo.scriptFile}
                         </code>
