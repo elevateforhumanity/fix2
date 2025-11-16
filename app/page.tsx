@@ -100,61 +100,14 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            {/* Right: Video Placeholder */}
+            {/* Right: Hero Video */}
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200 bg-white">
-                {/* VIDEO SCRIPT 1: Homepage Hero (25 seconds)
-                    Cinematic video for Elevate for Humanity
-                    
-                    Scene 1 (0-6s): Close-ups of diverse people (barber, HVAC tech, CNA, CDL student) 
-                    getting ready for work. Overlay: "Innovate."
-                    
-                    Scene 2 (6-12s): Students using laptops/phones, dashboard with progress bars, 
-                    enroll buttons, certificates. Overlay: "Elevate."
-                    
-                    Scene 3 (12-18s): Wellness montage - journaling, tea/coffee, stretching, breathing. 
-                    Overlay: "Reset."
-                    
-                    Scene 4 (18-25s): Wide shot of city/neighborhood, lights connecting like network map.
-                    Final text: "Elevate for Humanity - Innovate. Elevate. Reset."
-                    "A workforce & wellness ecosystem for real people."
-                    
-                    Replace this placeholder with actual video URL when ready.
-                */}
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-2 border-gray-300">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-efh-red/10 border-2 border-efh-red/20 flex items-center justify-center">
-                      <svg
-                        className="w-10 h-10 text-efh-red"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="text-gray-900 text-sm font-semibold">
-                      Innovate. Elevate. Reset.
-                    </p>
-                    <p className="text-gray-600 text-xs mt-2">
-                      25 sec hero video
-                    </p>
-                    <p className="text-gray-500 text-xs mt-1">
-                      Video placeholder
-                    </p>
-                  </div>
-                </div>
-                {/* Uncomment when video is ready:
-                <video 
-                  className="w-full h-full object-cover"
-                  poster="/videos/hero-poster.jpg"
-                  controls
-                  preload="metadata"
-                >
-                  <source src="/videos/hero-innovate-elevate-reset.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                */}
-              </div>
+              <VideoShell
+                videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Elevate for Humanity - Innovate. Elevate. Reset."
+                description="A workforce & wellness ecosystem for real people"
+                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+              />
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
                 <div className="text-3xl font-bold text-purple-600">100%</div>
