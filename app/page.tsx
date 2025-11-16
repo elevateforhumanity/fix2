@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import VideoPlaceholder from '@/components/VideoPlaceholder';
 import { Button } from '@/components/ui/button';
 import {
   Card,

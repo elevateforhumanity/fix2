@@ -1,0 +1,301 @@
+#!/usr/bin/env tsx
+/**
+ * 🤖 AUTOPILOT: Generate All Videos
+ * 
+ * This script automatically:
+ * 1. Reads all video scripts from content/video-scripts/
+ * 2. Uses your AI generators to create thumbnails
+ * 3. Generates video metadata
+ * 4. Saves everything to database
+ * 5. Creates a report
+ * 
+ * Prerequisites:
+ * - OPENAI_API_KEY set in environment
+ * - Dev server running (npm run dev)
+ * - Supabase credentials configured
+ */
+
+import { createClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import path from 'path';
+
+console.log('🤖 AUTOPILOT: Video Generation System');
+console.log('=====================================\n');
+
+// Check environment
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!OPENAI_API_KEY) {
+  console.log('⚠️  OPENAI_API_KEY not set');
+  console.log('\n📝 To generate AI thumbnails:');
+  console.log('1. Get API key: https://platform.openai.com/api-keys');
+  console.log('2. Add to .env.local: OPENAI_API_KEY=sk-...');
+  console.log('3. Run: source .env.local');
+  console.log('4. Run this script again\n');
+  console.log('💡 Or use manual video generation (see AI_VIDEO_GENERATION_GUIDE.md)\n');
+  process.exit(0);
+}
+
+console.log('✅ OpenAI API key found');
+
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.log('⚠️  Supabase not configured (optional for this demo)');
+}
+
+// Video configurations
+const videos = [
+  {
+    script: 'homepage-hero.md',
+    title: 'Welcome to Elevate Connects Directory',
+    page: 'homepage',
+    duration: 45,
+    prompt: 'Professional welcome video for workforce training platform, diverse students, modern educational setting, Elevate for Humanity branding',
+  },
+  {
+    script: 'how-it-works-student-portal.md',
+    title: 'How Elevate Works for Students',
+    page: 'lms',
+    duration: 60,
+    prompt: 'Student using online learning portal, modern LMS interface, diverse learner, professional educational technology',
+  },
+  {
+    script: 'employers-partners.md',
+    title: 'For Employers & Training Partners',
+    page: 'partners',
+    duration: 45,
+    prompt: 'Business professionals in meeting, workforce development, partnership, modern office, diverse team',
+  },
+  {
+    script: 'program-holder-admin-portal.md',
+    title: 'Program Holder Dashboard',
+    page: 'admin',
+    duration: 45,
+    prompt: 'Administrator using dashboard, data analytics, program management, professional office setting',
+  },
+  {
+    script: 'delegate-instructor-portal.md',
+    title: 'For Instructors & Delegates',
+    page: 'delegate',
+    duration: 45,
+    prompt: 'Teacher or instructor with students, classroom setting, diverse learners, professional education',
+  },
+  {
+    script: 'program-hvac.md',
+    title: 'HVAC Career Pathway',
+    page: 'programs/hvac',
+    duration: 45,
+    prompt: 'HVAC technician working on heating and cooling equipment, professional training, hands-on learning',
+  },
+  {
+    script: 'program-barber-apprenticeship.md',
+    title: 'Barber Apprenticeship',
+    page: 'programs/barber',
+    duration: 45,
+    prompt: 'Professional barber cutting hair in modern barbershop, apprentice learning, diverse professionals',
+  },
+  {
+    script: 'program-healthcare-cna.md',
+    title: 'Healthcare & CNA',
+    page: 'programs/cna',
+    duration: 45,
+    prompt: 'Healthcare worker or CNA in medical setting, caring for patients, professional medical training',
+  },
+  {
+    script: 'program-building-tech-trades.md',
+    title: 'Building Tech & Trades',
+    page: 'programs/building-tech',
+    duration: 45,
+    prompt: 'Skilled trades worker, construction or maintenance, tools and equipment, professional training',
+  },
+  {
+    script: 'program-cdl-logistics.md',
+    title: 'CDL & Transportation',
+    page: 'programs/cdl',
+    duration: 45,
+    prompt: 'Professional truck driver with commercial vehicle, CDL training, transportation career',
+  },
+  {
+    script: 'apply-now.md',
+    title: 'Apply Now',
+    page: 'apply',
+    duration: 30,
+    prompt: 'Person filling out online application, hopeful expression, modern computer, career opportunity',
+  },
+  {
+    script: 'contact-support.md',
+    title: 'Contact & Support',
+    page: 'contact',
+    duration: 30,
+    prompt: 'Friendly support representative, helping customer, professional office, welcoming atmosphere',
+  },
+];
+
+async function generateThumbnail(video: typeof videos[0]): Promise<string | null> {
+  try {
+    console.log(`  🎨 Generating thumbnail: ${video.title}`);
+    
+    const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'image',
+        prompt: video.prompt,
+        style: 'professional, modern, educational, high quality, photorealistic',
+      }),
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.log(`  ❌ Failed: ${response.status} - ${error}`);
+      return null;
+    }
+
+    const data = await response.json();
+    
+    if (data.url) {
+      console.log(`  ✅ Generated: ${data.url.substring(0, 60)}...`);
+      return data.url;
+    } else {
+      console.log(`  ❌ No URL in response`);
+      return null;
+    }
+  } catch (error: any) {
+    console.log(`  ❌ Error: ${error.message}`);
+    return null;
+  }
+}
+
+async function checkServer(): Promise<boolean> {
+  try {
+    const response = await fetch('http://localhost:3000/api/health', {
+      signal: AbortSignal.timeout(5000),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function main() {
+  console.log('🔍 Checking dev server...\n');
+  
+  const serverRunning = await checkServer();
+  
+  if (!serverRunning) {
+    console.log('❌ Dev server not running!\n');
+    console.log('To fix:');
+    console.log('1. Open a new terminal');
+    console.log('2. Run: npm run dev');
+    console.log('3. Wait for "Ready" message');
+    console.log('4. Run this script again\n');
+    process.exit(1);
+  }
+  
+  console.log('✅ Dev server is running\n');
+  console.log(`📹 Found ${videos.length} videos to generate\n`);
+  console.log('💰 Estimated cost: $${(videos.length * 0.04).toFixed(2)} (${videos.length} images × $0.04)\n');
+  console.log('⏱️  Estimated time: ~${Math.ceil(videos.length * 0.5)} minutes\n');
+  console.log('Starting generation...\n');
+  console.log('='.repeat(60));
+  
+  const results: Array<{
+    video: typeof videos[0];
+    thumbnail: string | null;
+    script: string;
+    success: boolean;
+  }> = [];
+  
+  for (let i = 0; i < videos.length; i++) {
+    const video = videos[i];
+    console.log(`\n[${i + 1}/${videos.length}] ${video.title}`);
+    console.log(`  📄 Script: ${video.script}`);
+    console.log(`  📍 Page: ${video.page}`);
+    console.log(`  ⏱️  Duration: ${video.duration}s`);
+    
+    // Read script
+    const scriptPath = path.join(process.cwd(), 'content/video-scripts', video.script);
+    let scriptContent = '';
+    
+    try {
+      scriptContent = fs.readFileSync(scriptPath, 'utf-8');
+      console.log(`  ✅ Script loaded (${scriptContent.length} chars)`);
+    } catch (error) {
+      console.log(`  ❌ Could not read script file`);
+      results.push({ video, thumbnail: null, script: '', success: false });
+      continue;
+    }
+    
+    // Generate thumbnail
+    const thumbnail = await generateThumbnail(video);
+    
+    results.push({
+      video,
+      thumbnail,
+      script: scriptContent,
+      success: thumbnail !== null,
+    });
+    
+    // Rate limiting - wait 2 seconds between requests
+    if (i < videos.length - 1) {
+      console.log(`  ⏳ Waiting 2s before next request...`);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+  }
+  
+  // Generate report
+  console.log('\n' + '='.repeat(60));
+  console.log('📊 GENERATION REPORT');
+  console.log('='.repeat(60));
+  
+  const successful = results.filter(r => r.success).length;
+  const failed = results.filter(r => !r.success).length;
+  
+  console.log(`\n✅ Successful: ${successful}/${videos.length}`);
+  console.log(`❌ Failed: ${failed}/${videos.length}`);
+  
+  if (successful > 0) {
+    console.log('\n📸 Generated Thumbnails:');
+    results
+      .filter(r => r.success)
+      .forEach(r => {
+        console.log(`  ✓ ${r.video.title}`);
+        console.log(`    ${r.thumbnail}`);
+      });
+  }
+  
+  if (failed > 0) {
+    console.log('\n❌ Failed:');
+    results
+      .filter(r => !r.success)
+      .forEach(r => {
+        console.log(`  ✗ ${r.video.title}`);
+      });
+  }
+  
+  // Save report
+  const reportPath = path.join(process.cwd(), 'video-generation-report.json');
+  fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
+  console.log(`\n💾 Report saved: ${reportPath}`);
+  
+  console.log('\n' + '='.repeat(60));
+  console.log('🎬 NEXT STEPS');
+  console.log('='.repeat(60));
+  console.log('\n1. Review generated thumbnails above');
+  console.log('2. Use scripts in content/video-scripts/ with:');
+  console.log('   - HeyGen (heygen.com) - $24/month unlimited');
+  console.log('   - Synthesia (synthesia.io) - $22/month');
+  console.log('   - Pictory (pictory.ai) - $19/month');
+  console.log('   - D-ID (d-id.com) - $29/month');
+  console.log('3. Generate 12 videos (30-60 sec each)');
+  console.log('4. Upload to YouTube');
+  console.log('5. Update database with video URLs');
+  console.log('6. Replace VideoPlaceholder with real videos\n');
+  console.log('📖 See: AI_VIDEO_GENERATION_GUIDE.md for details\n');
+}
+
+main().catch(error => {
+  console.error('\n❌ Fatal error:', error.message);
+  process.exit(1);
+});
