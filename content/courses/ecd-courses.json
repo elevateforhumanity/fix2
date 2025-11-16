@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "hvac-technician",
+    "title": "HVAC Technician Training",
+    "category": "Skilled Trades",
+    "shortDescription": "Hands-on training to install, maintain, and repair heating and cooling systems for residential and commercial buildings."
+  },
+  {
+    "slug": "barber-apprenticeship",
+    "title": "Barber Apprenticeship",
+    "category": "Beauty & Grooming",
+    "shortDescription": "Earn-while-you-learn apprenticeship in a real barbershop, building hours toward state barber licensure."
+  },
+  {
+    "slug": "cna-healthcare",
+    "title": "CNA & Healthcare Careers",
+    "category": "Healthcare",
+    "shortDescription": "Entry-level healthcare training focused on CNA skills, patient care, and pathways into medical careers."
+  },
+  {
+    "slug": "cdl-transportation",
+    "title": "CDL & Transportation Training",
+    "category": "Transportation",
+    "shortDescription": "Commercial driver training for high-earning transportation and logistics careers."
+  },
+  {
+    "slug": "building-technician",
+    "title": "Building Technician & Skilled Trades",
+    "category": "Skilled Trades",
+    "shortDescription": "Maintenance, basic electrical, plumbing, and systems skills for stable building and facilities roles."
+  },
+  {
+    "slug": "it-support-apprenticeship",
+    "title": "IT Support & Help Desk Apprenticeship",
+    "category": "Technology",
+    "shortDescription": "Foundational IT support training with apprenticeships in help desk, troubleshooting, and user support."
+  },
+  {
+    "slug": "beauty-career-educator",
+    "title": "Beauty & Career Educator Training",
+    "category": "Beauty & Education",
+    "shortDescription": "Hybrid program that prepares experienced beauty professionals to become educators and trainers."
+  }
+]

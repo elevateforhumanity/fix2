@@ -10,6 +10,8 @@ import {
 } from '@/components/ui/card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
 import { VideoShell } from '@/components/VideoShell';
+import { aiInstructorVideo } from '@/content/homepage/aiInstructor';
+import AiNarratorSection from '@/components/homepage/AiNarratorSection';
 
 export default function HomePage() {
   return (
@@ -122,6 +124,102 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* AI Narrator Section - ECD Specific */}
+      <AiNarratorSection />
+
+      {/* AI Instructor Section - Legacy */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="elevate-container">
+          <div className="grid gap-12 md:grid-cols-[3fr,2fr] items-center">
+            <div className="space-y-6">
+              <div className="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-semibold text-blue-700">
+                🤖 AI Instructor
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Let our AI guide explain Elevate for Humanity
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Our virtual guide walks learners and partners through how Elevate
+                for Humanity connects training programs to federal and state
+                funding streams like WIOA, so tuition isn't a barrier to
+                opportunity.
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
+                  <span>Overview of Elevate for Humanity's mission and programs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
+                  <span>How our programs link to WIOA and state workforce grants</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-efh-teal flex-shrink-0 mt-0.5" />
+                  <span>What students, partners, and employers can expect</span>
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/programs"
+                  className="elevate-btn-primary"
+                >
+                  Explore Training Programs
+                </Link>
+                <Link
+                  href="/about"
+                  className="elevate-btn-secondary"
+                >
+                  Learn More About Us
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="elevate-card overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200">
+                {aiInstructorVideo.videoUrl ? (
+                  <video
+                    src={aiInstructorVideo.videoUrl}
+                    className="w-full aspect-video object-cover"
+                    controls
+                    poster="/images/ai-instructor-poster.jpg"
+                  >
+                    <track
+                      kind="captions"
+                      src={aiInstructorVideo.videoUrl.replace('.mp4', '.vtt')}
+                      srcLang="en"
+                      label="English"
+                    />
+                  </video>
+                ) : (
+                  <div className="aspect-video w-full flex items-center justify-center p-8 text-center">
+                    <div className="space-y-3">
+                      <div className="w-16 h-16 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                        </svg>
+                      </div>
+                      <p className="font-semibold text-gray-900">
+                        AI Instructor Video
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Coming soon - Generate using script at:<br />
+                        <code className="text-xs bg-white px-2 py-1 rounded mt-1 inline-block">
+                          {aiInstructorVideo.scriptFile}
+                        </code>
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <p className="mt-4 text-center text-sm text-gray-600">
+                Meet your AI instructor and learn about our programs
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="elevate-container">

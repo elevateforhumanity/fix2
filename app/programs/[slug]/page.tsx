@@ -1,7 +1,23 @@
 // app/programs/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { getEcdCourseBySlug, ecdCourses } from '@/content/courses/ecdCatalog';
+
+// Import manifest safely
+const getManifest = () => {
+  try {
+    return require('@/../public/generated-images/manifest.json');
+  } catch {
+    return {};
+  }
+};
+
+// Generate static params for ECD courses
+export function generateStaticParams() {
+  return ecdCourses.map((c) => ({ slug: c.slug }));
+}
 
 type Program = {
   id: string;
@@ -37,7 +53,95 @@ export default async function ProgramDetailPage({
 }) {
   const supabase = await createServerSupabaseClient();
 
-  // Load program by slug
+  // Check if this is one of our ECD courses
+  const ecdCourse = getEcdCourseBySlug(params.slug);
+  
+  // If it's an ECD course, render the ECD template
+  if (ecdCourse) {
+    const manifest = getManifest();
+    const coverSrc = (manifest as Record<string, string>)[ecdCourse.coverImageKey] ?? '/placeholder-course-cover.svg';
+    
+    return (
+      <main className="mx-auto max-w-5xl px-4 py-10 space-y-8">
+        <div className="grid gap-8 md:grid-cols-[2fr,3fr] items-start">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+            <Image
+              src={coverSrc}
+              alt={ecdCourse.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <header className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+              Elevate Connects Program
+            </p>
+            <h1 className="text-3xl font-bold text-slate-900">
+              {ecdCourse.title}
+            </h1>
+            <p className="text-sm text-slate-600">{ecdCourse.shortDescription}</p>
+
+            <div className="rounded-xl bg-blue-50 p-4 text-xs text-blue-900">
+              Many learners may qualify for tuition support through WIOA and
+              other state workforce grants. After you apply, our team and
+              partners will help you review funding options and enrollment
+              steps.
+            </div>
+            
+            <div className="flex gap-3">
+              <Link
+                href="/apply"
+                className="elevate-btn-primary"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/contact"
+                className="elevate-btn-secondary"
+              >
+                Learn More
+              </Link>
+            </div>
+          </header>
+        </div>
+
+        {ecdCourse.aiVideoUrl && (
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-slate-900">
+              Program overview with AI instructor
+            </h2>
+            <div className="aspect-video w-full overflow-hidden rounded-2xl border border-slate-200 bg-black">
+              <video
+                src={ecdCourse.aiVideoUrl}
+                className="h-full w-full"
+                controls
+              >
+                <track
+                  kind="captions"
+                  src={ecdCourse.aiVideoUrl.replace('.mp4', '.vtt')}
+                  srcLang="en"
+                  label="English"
+                />
+              </video>
+            </div>
+          </section>
+        )}
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-slate-900">Program Details</h2>
+          <div className="prose prose-slate max-w-none">
+            <p>
+              This program is part of the Elevate Connects Directory, connecting learners 
+              with high-demand training and workforce funding opportunities.
+            </p>
+          </div>
+        </section>
+      </main>
+    );
+  }
+  
+  // Otherwise, load from database (existing programs)
   const { data: program, error: programError } = await supabase
     .from('programs')
     .select(
@@ -46,10 +150,14 @@ export default async function ProgramDetailPage({
     .eq('slug', params.slug)
     .single();
 
-  if (programError || !program) {
+  // If not in database and not an ECD course, 404
+  if (programError) {
     console.error('Program not found:', programError);
     notFound();
   }
+  
+  const manifest = getManifest();
+  const coverSrc = null;
 
   // Load courses - try to match by program slug in metadata
   const { data: coursesData, error: coursesError } = await supabase
@@ -83,15 +191,15 @@ export default async function ProgramDetailPage({
               Elevate for Humanity · Elevate Connects Directory
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
-              {program.title}
+              {aiCourse ? aiCourse.title : program.title}
             </h1>
-            {program.tagline && (
+            {(aiCourse || program.tagline) && (
               <p className="text-xl font-semibold text-white/90 italic">
-                {program.tagline}
+                {aiCourse?.shortDescription || program.tagline}
               </p>
             )}
             <p className="max-w-xl text-sm sm:text-base text-white/90">
-              {program.summary ||
+              {aiCourse?.shortDescription || program.summary ||
                 'Explore program details, courses, and funding options.'}
             </p>
             <div className="flex flex-wrap gap-2">
