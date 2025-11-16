@@ -13,20 +13,31 @@ export default function HomePage() {
               <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
                 E
               </div>
-              <span className="text-xl font-bold text-slate-900">Elevate Connects Directory</span>
+              <span className="text-xl font-bold text-slate-900">
+                Elevate Connects Directory
+              </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6">
-              <Link href="/programs" className="text-slate-700 hover:text-slate-900 font-medium">
+              <Link
+                href="/programs"
+                className="text-slate-700 hover:text-slate-900 font-medium"
+              >
                 Programs
               </Link>
-              <Link href="/about" className="text-slate-700 hover:text-slate-900 font-medium">
+              <Link
+                href="/about"
+                className="text-slate-700 hover:text-slate-900 font-medium"
+              >
                 About
               </Link>
-              <Link href="/login" className="text-slate-700 hover:text-slate-900 font-medium">
+              <Link
+                href="/login"
+                className="text-slate-700 hover:text-slate-900 font-medium"
+              >
                 Sign In
               </Link>
-              <Link 
-                href="/apply" 
+              <Link
+                href="/apply"
                 className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-semibold hover:shadow-lg transition"
               >
                 Apply Now
@@ -49,17 +60,19 @@ export default function HomePage() {
                   Free Career Training Funded by WIOA & State Grants
                 </h1>
                 <p className="text-xl text-slate-700 mb-8">
-                  Explore approved training programs, apprenticeships, and workforce opportunities available at no cost to eligible Indiana residents.
+                  Explore approved training programs, apprenticeships, and
+                  workforce opportunities available at no cost to eligible
+                  Indiana residents.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link 
-                    href="/apply" 
+                  <Link
+                    href="/apply"
                     className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-bold text-lg hover:shadow-xl transition text-center"
                   >
                     Apply for Training
                   </Link>
-                  <Link 
-                    href="/programs" 
+                  <Link
+                    href="/programs"
                     className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-300 rounded-lg font-bold text-lg hover:border-slate-400 transition text-center"
                   >
                     Browse Programs
@@ -98,35 +111,48 @@ export default function HomePage() {
         <section className="py-16 px-4 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
-              <p className="text-xl text-slate-600">Three simple steps to start your career training</p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                How It Works
+              </h2>
+              <p className="text-xl text-slate-600">
+                Three simple steps to start your career training
+              </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-red-600">1</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Explore Programs</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Explore Programs
+                </h3>
                 <p className="text-slate-600">
-                  Browse WIOA-approved training programs in high-demand fields like healthcare, trades, and technology.
+                  Browse WIOA-approved training programs in high-demand fields
+                  like healthcare, trades, and technology.
                 </p>
               </div>
               <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-orange-600">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Check Eligibility</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Check Eligibility
+                </h3>
                 <p className="text-slate-600">
-                  Complete a quick eligibility check to see if you qualify for 100% funded training through WIOA.
+                  Complete a quick eligibility check to see if you qualify for
+                  100% funded training through WIOA.
                 </p>
               </div>
               <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">3</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Start Training Free</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Start Training Free
+                </h3>
                 <p className="text-slate-600">
-                  Enroll in your chosen program and begin your career journey with full financial support.
+                  Enroll in your chosen program and begin your career journey
+                  with full financial support.
                 </p>
               </div>
             </div>
@@ -137,8 +163,12 @@ export default function HomePage() {
         <section className="py-16 px-4 md:px-8 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">Featured Training Programs</h2>
-              <p className="text-xl text-slate-600">High-demand careers with strong job placement rates</p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Featured Training Programs
+              </h2>
+              <p className="text-xl text-slate-600">
+                High-demand careers with strong job placement rates
+              </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Barber */}
@@ -157,9 +187,12 @@ export default function HomePage() {
                       Barber Apprenticeship
                     </h3>
                     <p className="text-sm text-slate-600 mb-4">
-                      Earn while you learn with a DOL-registered apprenticeship program.
+                      Earn while you learn with a DOL-registered apprenticeship
+                      program.
                     </p>
-                    <span className="text-red-600 font-semibold text-sm">View Program →</span>
+                    <span className="text-red-600 font-semibold text-sm">
+                      View Program →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -180,9 +213,12 @@ export default function HomePage() {
                       HVAC Technician
                     </h3>
                     <p className="text-sm text-slate-600 mb-4">
-                      Train as an HVAC tech and step into a high-demand trade career.
+                      Train as an HVAC tech and step into a high-demand trade
+                      career.
                     </p>
-                    <span className="text-red-600 font-semibold text-sm">View Program →</span>
+                    <span className="text-red-600 font-semibold text-sm">
+                      View Program →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -203,9 +239,12 @@ export default function HomePage() {
                       CDL Truck Driving
                     </h3>
                     <p className="text-sm text-slate-600 mb-4">
-                      Get your commercial driver's license and start earning immediately.
+                      Get your commercial driver's license and start earning
+                      immediately.
                     </p>
-                    <span className="text-red-600 font-semibold text-sm">View Program →</span>
+                    <span className="text-red-600 font-semibold text-sm">
+                      View Program →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -226,16 +265,19 @@ export default function HomePage() {
                       CNA Healthcare
                     </h3>
                     <p className="text-sm text-slate-600 mb-4">
-                      Start your healthcare career with certified nursing assistant training.
+                      Start your healthcare career with certified nursing
+                      assistant training.
                     </p>
-                    <span className="text-red-600 font-semibold text-sm">View Program →</span>
+                    <span className="text-red-600 font-semibold text-sm">
+                      View Program →
+                    </span>
                   </div>
                 </div>
               </Link>
             </div>
             <div className="text-center mt-8">
-              <Link 
-                href="/programs" 
+              <Link
+                href="/programs"
                 className="inline-block px-8 py-3 bg-white text-slate-900 border-2 border-slate-300 rounded-lg font-bold hover:border-slate-400 transition"
               >
                 View All Programs
@@ -249,16 +291,21 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Elevate for Humanity</h2>
+                <h2 className="text-4xl font-bold text-slate-900 mb-6">
+                  Why Elevate for Humanity
+                </h2>
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <Award className="h-8 w-8 text-red-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">State-Approved Programs</h3>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">
+                        State-Approved Programs
+                      </h3>
                       <p className="text-slate-600">
-                        All training programs are approved by Indiana DWD and meet WIOA eligibility requirements.
+                        All training programs are approved by Indiana DWD and
+                        meet WIOA eligibility requirements.
                       </p>
                     </div>
                   </div>
@@ -267,9 +314,12 @@ export default function HomePage() {
                       <Users className="h-8 w-8 text-orange-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">Registered Apprenticeship Sponsor</h3>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">
+                        Registered Apprenticeship Sponsor
+                      </h3>
                       <p className="text-slate-600">
-                        We sponsor DOL-registered apprenticeships that combine on-the-job training with classroom instruction.
+                        We sponsor DOL-registered apprenticeships that combine
+                        on-the-job training with classroom instruction.
                       </p>
                     </div>
                   </div>
@@ -278,9 +328,12 @@ export default function HomePage() {
                       <TrendingUp className="h-8 w-8 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">Digital Credentials & Case Management</h3>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">
+                        Digital Credentials & Case Management
+                      </h3>
                       <p className="text-slate-600">
-                        Track your progress, earn digital badges, and get personalized support throughout your training journey.
+                        Track your progress, earn digital badges, and get
+                        personalized support throughout your training journey.
                       </p>
                     </div>
                   </div>
@@ -302,19 +355,22 @@ export default function HomePage() {
         {/* Final CTA */}
         <section className="py-16 px-4 md:px-8 bg-slate-900 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Transform Your Career?
+            </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join thousands of Indiana residents who have advanced their careers through WIOA-funded training.
+              Join thousands of Indiana residents who have advanced their
+              careers through WIOA-funded training.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/apply" 
+              <Link
+                href="/apply"
                 className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-bold text-lg hover:shadow-xl transition"
               >
                 Check Your Eligibility
               </Link>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="px-8 py-4 bg-white text-slate-900 rounded-lg font-bold text-lg hover:bg-slate-100 transition"
               >
                 Schedule a Call
@@ -329,33 +385,72 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-white font-bold mb-4">Elevate for Humanity</h3>
+              <h3 className="text-white font-bold mb-4">
+                Elevate for Humanity
+              </h3>
               <p className="text-sm">
-                Connecting Indiana residents with free workforce training and career opportunities.
+                Connecting Indiana residents with free workforce training and
+                career opportunities.
               </p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Programs</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/programs" className="hover:text-white">All Programs</Link></li>
-                <li><Link href="/programs/barber" className="hover:text-white">Barber</Link></li>
-                <li><Link href="/programs/hvac" className="hover:text-white">HVAC</Link></li>
-                <li><Link href="/programs/cna" className="hover:text-white">Healthcare</Link></li>
+                <li>
+                  <Link href="/programs" className="hover:text-white">
+                    All Programs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs/barber" className="hover:text-white">
+                    Barber
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs/hvac" className="hover:text-white">
+                    HVAC
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/programs/cna" className="hover:text-white">
+                    Healthcare
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-                <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+                <li>
+                  <Link href="/about" className="hover:text-white">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-white">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="hover:text-white">
+                    FAQ
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link></li>
+                <li>
+                  <Link href="/privacy" className="hover:text-white">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-of-service" className="hover:text-white">
+                    Terms of Service
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
