@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, RefObject } from "react";
+import { useEffect, RefObject } from 'react';
 
 type UseVideoProgressOptions = {
   lessonId?: string | number;
@@ -26,9 +26,9 @@ export function useVideoProgress(
         hasReportedComplete = true;
 
         // Fire-and-forget call to your Next.js API route
-        fetch("/api/progress", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        fetch('/api/progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lessonId,
             duration: video.duration,
@@ -41,10 +41,10 @@ export function useVideoProgress(
       }
     };
 
-    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener('timeupdate', handleTimeUpdate);
 
     return () => {
-      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, [ref, lessonId, threshold]);
 }
