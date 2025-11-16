@@ -70,6 +70,12 @@ export default function HomePage() {
             >
               Browse Programs
             </Link>
+            <Link 
+              href="/ai-chat" 
+              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg text-lg font-semibold hover:scale-105 transition-transform shadow-lg"
+            >
+              💬 Chat with AI Helper
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-6 text-sm text-gray-600">
