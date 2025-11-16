@@ -1,4 +1,5 @@
 # 🗄️ Database Migrations Guide
+
 **Run These in Supabase SQL Editor**
 
 ---
@@ -30,10 +31,12 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241115_add_all_etpl_programs.sql`
 
 **What it does:**
+
 - Creates/updates 16 programs in the programs table
 - Includes all ETPL data, funding sources, descriptions
 
 **Programs added:**
+
 1. Business Start-Up & Marketing
 2. Emergency Health & Safety Technician
 3. HVAC Technician
@@ -52,12 +55,14 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 16. Medical Assistant
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241115_add_all_etpl_programs.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Successfully added/updated 16 ETPL programs and certifications
 ```
@@ -69,18 +74,21 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_create_lms_courses_part1.sql`
 
 **What it does:**
+
 - Creates Business Start-Up & Marketing course
 - Creates Emergency Health & Safety Technician course
 - Creates Direct Support Professional course
 - Adds modules for each course
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_create_lms_courses_part1.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Part 1 Complete: Created 3 LMS courses
 ```
@@ -92,18 +100,21 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_create_lms_courses_part2.sql`
 
 **What it does:**
+
 - Creates Beauty & Career Educator course
 - Creates Professional Esthetician course
 - Creates Tax Preparation & Financial Services course
 - Adds modules for each course
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_create_lms_courses_part2.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Part 2 Complete: Created 3 more LMS courses
 ```
@@ -115,18 +126,21 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_create_lms_courses_part3.sql`
 
 **What it does:**
+
 - Creates Barber Apprenticeship course
 - Creates Public Safety Reentry Specialist course
 - Creates HVAC Technician course
 - Adds modules for each course
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_create_lms_courses_part3.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Part 3 Complete: Created 3 more LMS courses
 ```
@@ -138,6 +152,7 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_create_lms_courses_part4.sql`
 
 **What it does:**
+
 - Creates CPR Certification course
 - Creates OSHA 10 Certification course
 - Creates Rise Up Certificate course
@@ -147,12 +162,14 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 - Adds modules for each course
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_create_lms_courses_part4.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Part 4 Complete: Created 6 certification courses
 ```
@@ -164,17 +181,20 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_create_medical_assistant_course.sql`
 
 **What it does:**
+
 - Creates Medical Assistant course
 - Adds to programs table
 - Adds modules
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_create_medical_assistant_course.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Medical Assistant course and program created successfully
 ```
@@ -186,17 +206,20 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_add_jri_courses.sql`
 
 **What it does:**
+
 - Creates 6 JRI badge courses
 - Creates JRI Complete Series course
 - Links to EmployIndy platform
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_add_jri_courses.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Added 7 Job Ready Indy (JRI) courses to LMS
 ```
@@ -208,17 +231,20 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 **File:** `supabase/migrations/20241116_add_nrf_rise_up_courses.sql`
 
 **What it does:**
+
 - Creates 5 NRF RISE Up courses
 - Creates NRF RISE Up Complete Series
 - Links to Kaleido Learning platform
 
 **Run this:**
+
 ```sql
 -- Copy entire contents of supabase/migrations/20241116_add_nrf_rise_up_courses.sql
 -- Paste here and click Run
 ```
 
 **Expected output:**
+
 ```
 ✅ Added 6 NRF Foundation RISE Up courses to LMS
 ```
@@ -230,24 +256,27 @@ Copy and paste each file's contents into the SQL Editor and click **"Run"**.
 After running all migrations, verify the data:
 
 ### **Check Programs:**
+
 ```sql
-SELECT slug, title, array_length(funding, 1) as funding_count 
-FROM programs 
+SELECT slug, title, array_length(funding, 1) as funding_count
+FROM programs
 ORDER BY title;
 ```
 
 **Expected:** 16 rows
 
 ### **Check Courses:**
+
 ```sql
-SELECT slug, title, duration_hours 
-FROM courses 
+SELECT slug, title, duration_hours
+FROM courses
 ORDER BY title;
 ```
 
 **Expected:** 29 rows
 
 ### **Check Modules:**
+
 ```sql
 SELECT c.title as course, COUNT(m.id) as module_count
 FROM courses c
@@ -332,11 +361,11 @@ CREATE TABLE IF NOT EXISTS public.modules (
 
 After all migrations:
 
-| Table | Count | Description |
-|-------|-------|-------------|
-| **programs** | 16 | All ETPL programs |
-| **courses** | 29 | All LMS courses |
-| **modules** | 100+ | Course modules/lessons |
+| Table        | Count | Description            |
+| ------------ | ----- | ---------------------- |
+| **programs** | 16    | All ETPL programs      |
+| **courses**  | 29    | All LMS courses        |
+| **modules**  | 100+  | Course modules/lessons |
 
 ---
 
