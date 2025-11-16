@@ -1,4 +1,5 @@
 # NRF Foundation RISE Up Credentials
+
 **Organization:** Elevate for Humanity Career and Training Center  
 **Status:** ✅ APPROVED  
 **Platform:** Kaleido Learning
@@ -10,9 +11,11 @@
 **RISE Up:** Retail Industry Skills & Education
 
 ### **Mission:**
+
 Provide foundational employability skills to help students land jobs and get promoted in retail and beyond.
 
 ### **Industry Backing:**
+
 - National Retail Federation (NRF) Foundation
 - Retail industry-recognized credentials
 - Accepted by major retailers nationwide
@@ -26,6 +29,7 @@ Provide foundational employability skills to help students land jobs and get pro
 
 **Username:** Your email address  
 **Password Setup:**
+
 1. Visit login page
 2. Click "Forgot password?"
 3. Follow password reset process
@@ -36,6 +40,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 📧 Email Whitelist
 
 **Ensure IT allows emails from:**
+
 - kaleidolearning.com
 - riseup@kaleidolearning.com
 - riseupsupport@kaleidolearning.com
@@ -48,30 +53,35 @@ Provide foundational employability skills to help students land jobs and get pro
 ### **Foundational Employability Skills:**
 
 **1. Customer Service Excellence**
+
 - Customer engagement
 - Problem resolution
 - Communication skills
 - Service recovery
 
 **2. Retail Operations**
+
 - Store operations
 - Inventory management
 - Point of sale systems
 - Loss prevention basics
 
 **3. Professional Skills**
+
 - Workplace professionalism
 - Time management
 - Teamwork and collaboration
 - Work ethic
 
 **4. Sales & Product Knowledge**
+
 - Sales techniques
 - Product knowledge
 - Upselling and cross-selling
 - Customer needs assessment
 
 **5. Digital Retail Skills**
+
 - E-commerce basics
 - Omnichannel retail
 - Social media for retail
@@ -82,10 +92,12 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 🎯 Programs Offering NRF RISE Up
 
 ### **Currently Offering:**
+
 1. ✅ **Business Start-Up & Marketing** - Already includes retail certifications
 2. ✅ **Beauty & Career Educator Training** - Includes retail skills
 
 ### **Should Add NRF RISE Up:**
+
 3. **Professional Esthetician** - Spa/salon retail
 4. **Direct Support Professional** - Customer service skills
 5. **Medical Assistant** - Patient service skills
@@ -95,6 +107,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 🎖️ Credentials Earned
 
 **Upon Completion:**
+
 - NRF Foundation RISE Up Certificate
 - Industry-recognized credential
 - Accepted by major retailers:
@@ -110,21 +123,27 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 📊 Integration with Existing Programs
 
 ### **Business Start-Up & Marketing (32 hours)**
+
 **Already includes:**
+
 - Retail Industry Fundamentals Specialist
 - Business of Retail Certified Specialist
 
 **Add NRF RISE Up:**
+
 - Customer Service Excellence
 - Sales & Product Knowledge
 - Digital Retail Skills
 
 ### **Beauty & Career Educator (144 hours)**
+
 **Already includes:**
+
 - Customer Service and Sales Certified Specialist
 - Business of Retail Certified Specialist
 
 **Add NRF RISE Up:**
+
 - Retail Operations (for salon/spa)
 - Professional Skills
 - Customer Service Excellence
@@ -134,18 +153,21 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 🚀 Getting Started
 
 ### **Step 1: Introductory Webinar**
+
 - Sign up for personalized introduction
 - Learn platform navigation
 - Understand credentialing process
 - Q&A with RISE Up team
 
 ### **Step 2: Platform Setup**
+
 1. Reset password and log in
 2. Complete organization profile
 3. Add instructors/facilitators
 4. Review available courses
 
 ### **Step 3: Student Enrollment**
+
 1. Create student accounts
 2. Assign courses
 3. Track progress
@@ -158,10 +180,12 @@ Provide foundational employability skills to help students land jobs and get pro
 **Help Center:** https://support.kaleidoscopelearning.zendesk.com
 
 **Customer Service:**
+
 - Email: riseupsupport@kaleidolearning.com
 - Platform: riseup@kaleidolearning.com
 
 **Available Resources:**
+
 - Common questions FAQ
 - W-9 form
 - Training materials
@@ -172,6 +196,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 💼 Career Pathways
 
 **Retail Careers:**
+
 - Sales Associate
 - Customer Service Representative
 - Store Manager
@@ -180,6 +205,7 @@ Provide foundational employability skills to help students land jobs and get pro
 - Retail Buyer
 
 **Beyond Retail:**
+
 - Customer service (any industry)
 - Sales roles
 - Hospitality
@@ -193,16 +219,19 @@ Provide foundational employability skills to help students land jobs and get pro
 ### **Stackable Credentials:**
 
 **NRF RISE Up + Job Ready Indy (JRI)**
+
 - Comprehensive workforce readiness
 - Retail-specific + general employability
 - Maximum employer appeal
 
 **NRF RISE Up + Rise Up Credential**
+
 - Foundational + industry-specific
 - Digital literacy + retail skills
 - Career advancement pathway
 
 **NRF RISE Up + Business Certifications**
+
 - Retail Industry Fundamentals
 - Business of Retail
 - Entrepreneurship skills
@@ -212,6 +241,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 📈 Tracking & Reporting
 
 ### **Platform Dashboard:**
+
 - Student enrollment
 - Course progress
 - Completion rates
@@ -219,6 +249,7 @@ Provide foundational employability skills to help students land jobs and get pro
 - Time to completion
 
 ### **Reporting:**
+
 - Export student data
 - WIOA reporting integration
 - Employer verification
@@ -229,6 +260,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 🎯 Implementation Plan
 
 ### **Week 1:**
+
 - [x] Organization approved (COMPLETE)
 - [ ] Reset password and access platform
 - [ ] Attend introductory webinar
@@ -236,18 +268,21 @@ Provide foundational employability skills to help students land jobs and get pro
 - [ ] Whitelist email domains with IT
 
 ### **Week 2:**
+
 - [ ] Set up organization profile
 - [ ] Add instructors as facilitators
 - [ ] Create student enrollment process
 - [ ] Integrate with Business Start-Up program
 
 ### **Week 3:**
+
 - [ ] Enroll first cohort of students
 - [ ] Assign courses
 - [ ] Monitor progress
 - [ ] Provide support
 
 ### **Month 1:**
+
 - [ ] Track completion rates
 - [ ] Issue first credentials
 - [ ] Gather student feedback
@@ -258,6 +293,7 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 🏆 Benefits
 
 **For Students:**
+
 - Industry-recognized credentials
 - Job placement advantage
 - Career advancement opportunities
@@ -265,6 +301,7 @@ Provide foundational employability skills to help students land jobs and get pro
 - Transferable skills
 
 **For Organization:**
+
 - NRF Foundation partnership
 - Enhanced program offerings
 - Employer connections
@@ -272,6 +309,7 @@ Provide foundational employability skills to help students land jobs and get pro
 - Industry credibility
 
 **For Employers:**
+
 - Pre-screened candidates
 - Verified skills
 - Reduced training costs
@@ -283,24 +321,28 @@ Provide foundational employability skills to help students land jobs and get pro
 ## 📋 Checklist
 
 ### **Platform Access:**
+
 - [ ] Password reset completed
 - [ ] Platform login successful
 - [ ] Organization profile set up
 - [ ] Email whitelist confirmed
 
 ### **Training:**
+
 - [ ] Attended introductory webinar
 - [ ] Reviewed Help Center
 - [ ] Completed platform orientation
 - [ ] Tested student enrollment process
 
 ### **Integration:**
+
 - [ ] Added to Business Start-Up program
 - [ ] Added to Beauty & Career Educator
 - [ ] Created enrollment workflow
 - [ ] Set up progress tracking
 
 ### **Launch:**
+
 - [ ] First students enrolled
 - [ ] Courses assigned
 - [ ] Support process established
