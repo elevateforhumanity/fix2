@@ -89,7 +89,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
               <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
               <p className="text-xl text-gray-700 mb-8">{program.summary}</p>
 
-              <h3 className="text-2xl font-bold mb-4">What You'll Learn</h3>
+              <h3 className="text-2xl font-bold mb-4">Program Highlights</h3>
               <ul className="space-y-3 mb-8">
                 {program.bullets?.map((bullet: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
@@ -98,6 +98,13 @@ export default async function ProgramPage({ params }: { params: { slug: string }
                   </li>
                 ))}
               </ul>
+
+              {program.description && (
+                <>
+                  <h3 className="text-2xl font-bold mb-4">Full Description</h3>
+                  <p className="text-gray-700 mb-8 whitespace-pre-line">{program.description}</p>
+                </>
+              )}
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-8">
                 <h3 className="text-xl font-bold mb-2">Funding Available</h3>
