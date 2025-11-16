@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import fs from "fs";
-import path from "path";
-import OpenAI from "openai";
+import fs from 'fs';
+import path from 'path';
+import OpenAI from 'openai';
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -29,47 +29,51 @@ ${blogText}
 `;
 
   const response = await client.chat.completions.create({
-    model: "gpt-4",
-    messages: [{ role: "user", content: prompt }],
+    model: 'gpt-4',
+    messages: [{ role: 'user', content: prompt }],
   });
 
   return response.choices[0].message.content;
 }
 
 async function main() {
-  const blogDir = path.join(process.cwd(), "content", "blog");
-  
+  const blogDir = path.join(process.cwd(), 'content', 'blog');
+
   if (!fs.existsSync(blogDir)) {
-    console.error("❌ Blog directory not found. Create a blog post first.");
+    console.error('❌ Blog directory not found. Create a blog post first.');
     process.exit(1);
   }
 
-  const files = fs.readdirSync(blogDir).filter(f => f.endsWith(".md")).sort().reverse();
-  
+  const files = fs
+    .readdirSync(blogDir)
+    .filter((f) => f.endsWith('.md'))
+    .sort()
+    .reverse();
+
   if (files.length === 0) {
-    console.error("❌ No blog posts found. Create a blog post first.");
+    console.error('❌ No blog posts found. Create a blog post first.');
     process.exit(1);
   }
 
   const latest = files[0];
   console.log(`\n🎬 Converting blog to reel: ${latest}`);
 
-  const blogText = fs.readFileSync(path.join(blogDir, latest), "utf8");
+  const blogText = fs.readFileSync(path.join(blogDir, latest), 'utf8');
   const reelScript = await generateReel(blogText);
 
-  const outputDir = path.join(process.cwd(), "content", "reels");
+  const outputDir = path.join(process.cwd(), 'content', 'reels');
   fs.mkdirSync(outputDir, { recursive: true });
 
-  const outPath = path.join(outputDir, latest.replace(".md", "-reel.md"));
+  const outPath = path.join(outputDir, latest.replace('.md', '-reel.md'));
   fs.writeFileSync(outPath, reelScript);
 
-  console.log("✅ Viral reel script created:", outPath);
-  console.log("\n" + "=".repeat(60));
-  console.log("🎥 Ready for HeyGen, Synthesia, or D-ID!");
-  console.log("=".repeat(60));
+  console.log('✅ Viral reel script created:', outPath);
+  console.log('\n' + '='.repeat(60));
+  console.log('🎥 Ready for HeyGen, Synthesia, or D-ID!');
+  console.log('='.repeat(60));
 }
 
-main().catch(err => {
-  console.error("Error:", err.message);
+main().catch((err) => {
+  console.error('Error:', err.message);
   process.exit(1);
 });
