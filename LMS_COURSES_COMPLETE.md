@@ -1,4 +1,5 @@
 # LMS Courses Complete - Elevate for Humanity
+
 **Date:** November 16, 2024  
 **Status:** ✅ Ready for Deployment
 
@@ -7,6 +8,7 @@
 ## 📚 16 Complete Courses Created
 
 All courses include:
+
 - ✅ Week-by-week modules with learning objectives
 - ✅ Placeholders for LIVE INSTRUCTION sessions
 - ✅ Placeholders for HANDS-ON TRAINING (where applicable)
@@ -20,6 +22,7 @@ All courses include:
 ## 🎓 Course Catalog
 
 ### 1. **Business Start-Up & Marketing Program**
+
 - **Duration:** 5 weeks, 32 hours (8 hours/week)
 - **Format:** 100% Online - 25% Instructor-Led, 75% Self-Study
 - **CIP Code:** 52.0701 - Entrepreneurship/Entrepreneurial Studies
@@ -29,6 +32,7 @@ All courses include:
 - **Admission Rate:** 100%
 
 ### 2. **CPR & Health Safety Technician**
+
 - **Duration:** 4 weeks, 80 hours (20 hours/week)
 - **Format:** 60% Online, 40% Lab/Field Work
 - **Credentials:** CPR/AED Certification, First Aid Certification, OSHA Safety Certificate
@@ -36,6 +40,7 @@ All courses include:
 - **Prerequisites:** High School Diploma or GED
 
 ### 3. **Direct Support Professional (DSP)**
+
 - **Duration:** Rolling enrollment, 120 hours
 - **Format:** Hybrid - Online + Hands-on
 - **Credentials:** DSP Certificate, CDSP Pathway
@@ -43,6 +48,7 @@ All courses include:
 - **Prerequisites:** None
 
 ### 4. **Beauty & Career Educator Training Program**
+
 - **Duration:** 12 weeks (84 days), 144 hours (12 hours/week)
 - **Format:** Hybrid - 50% Instructor-Led, 40% Lab/Field, 10% Self-Study (40% available online)
 - **CIP Code:** 13.1319 - Technical Teacher Education
@@ -54,6 +60,7 @@ All courses include:
 - **Location:** 8888 Keystone Crossing, Indianapolis, IN 46240
 
 ### 5. **Professional Esthetician & Client Services**
+
 - **Duration:** 5 weeks, 60 hours (15 hours/week)
 - **Format:** 60% Online, 30% Instructor-Led, 10% Lab Work
 - **CIP Code:** 12.0409 - Aesthetician/Esthetician and Skin Care Specialist
@@ -61,6 +68,7 @@ All courses include:
 - **Funding:** WIOA, WRG
 
 ### 6. **Tax Preparation & Financial Services**
+
 - **Duration:** 10 weeks, 150 hours (15 hours/week)
 - **Format:** 50% Online, 50% Instructor-Led, 25% Lab Work
 - **CIP Code:** 52.0302 - Accounting Technology/Technician and Bookkeeping
@@ -68,6 +76,7 @@ All courses include:
 - **Funding:** WIOA, WRG
 
 ### 7. **Barber Apprenticeship Program**
+
 - **Duration:** 15 weeks, 2,000 hours (40 hours/week)
 - **Format:** Hybrid - 30% Instructor-Led, 30% Lab/Field, 40% Self-Study (40% available online)
 - **CIP Code:** 12.0402 - Barbering/Barber
@@ -80,16 +89,18 @@ All courses include:
 - **Location:** 8888 Keystone Crossing, Indianapolis, IN 46240
 
 ### 8. **Public Safety Reentry Specialist**
+
 - **Duration:** 45 days, 180 hours (15 hours/week)
 - **Format:** 100% Online with Tutoring Support
 - **CIP Code:** 43.0112 - Securities Services Administration/Management
-- **O*NET Code:** 21-1093.00 - Social and Human Service Assistants
+- **O\*NET Code:** 21-1093.00 - Social and Human Service Assistants
 - **Credentials:** Certified Peer Recovery Specialist (CPRS), Certificate of Completion
 - **Funding:** WIOA, JRI
 - **Prerequisites:** None
 - **Admission Rate:** 100%
 
 ### 9. **HVAC Technician / 2Exclusive Apprenticeship**
+
 - **Duration:** 60 days, 125 hours (12 hours/week)
 - **Format:** 30% Online, 10% Instructor-Led, 5% Lab, 85% Self-Study
 - **CIP Code:** 15.0501 - HVAC Engineering Technology/Technician
@@ -97,42 +108,49 @@ All courses include:
 - **Funding:** WIOA, WRG, Apprenticeship
 
 ### 10. **CPR Certification (Standalone)**
+
 - **Duration:** 4 hours (1 day)
 - **Format:** In-Person Hands-On Training
 - **Credentials:** CPR/AED Certification (2-year validity)
 - **Funding:** WIOA, WRG
 
 ### 11. **OSHA 10 Certification**
+
 - **Duration:** 10 hours
 - **Format:** Online or In-Person
 - **Credentials:** OSHA 10-Hour Card
 - **Funding:** WIOA, WRG
 
 ### 12. **Rise Up Certificate**
+
 - **Duration:** 40 hours
 - **Format:** Flexible Online
 - **Credentials:** Rise Up Credential (Nationally Recognized)
 - **Funding:** WIOA, JRI
 
 ### 13. **Certified Peer Support Professional**
+
 - **Duration:** 75 hours
 - **Format:** Hybrid - Online and In-Person
 - **Credentials:** Certified Peer Support Professional
 - **Funding:** WIOA, WRG
 
 ### 14. **Certified Peer Recovery Coach (CPRC)**
+
 - **Duration:** 80 hours
 - **Format:** Hybrid - Online and In-Person
 - **Credentials:** Certified Peer Recovery Coach (CPRC)
 - **Funding:** WIOA, WRG
 
 ### 15. **Certified Community Healthcare Worker (CCHW)**
+
 - **Duration:** 100 hours
 - **Format:** Hybrid - Online and In-Person
 - **Credentials:** Certified Community Healthcare Worker (CCHW)
 - **Funding:** WIOA, WRG
 
 ### 16. **Medical Assistant**
+
 - **Duration:** 21 weeks, 120 hours (30 hours/week)
 - **Format:** 100% Online - 100% Live Instructor-Led
 - **CIP Code:** 51.0801 - Medical/Clinical Assistant
@@ -149,6 +167,7 @@ All courses include:
 Created comprehensive email templates for:
 
 ### 1. **Course Enrollment Confirmation**
+
 - Sent immediately upon enrollment
 - Includes course details, credentials, format
 - Live session and hands-on training info
@@ -156,12 +175,14 @@ Created comprehensive email templates for:
 - CTA buttons to dashboard and course
 
 ### 2. **Course Start Reminder**
+
 - Sent 1-2 days before start date
 - Preparation checklist
 - Live session schedule
 - Technical requirements
 
 ### 3. **Live Session Reminder**
+
 - Sent 24 hours before each live session
 - Session details (date, time, link)
 - Join instructions
@@ -174,11 +195,13 @@ Created comprehensive email templates for:
 ## 📁 Database Migration Files
 
 ### Programs Table
+
 - `supabase/migrations/20241115_add_all_etpl_programs.sql`
   - All 15 programs with complete ETPL data
   - Funding sources, bullets, descriptions
 
 ### Courses Table (LMS)
+
 1. `supabase/migrations/20241116_create_lms_courses_part1.sql`
    - Business Start-Up & Marketing
    - CPR & Health Safety Technician
@@ -232,8 +255,8 @@ In Supabase SQL Editor, execute in order:
 SELECT slug, title, funding FROM programs ORDER BY title;
 
 -- Check courses
-SELECT slug, title, duration_hours, metadata->>'format' as format 
-FROM courses 
+SELECT slug, title, duration_hours, metadata->>'format' as format
+FROM courses
 ORDER BY title;
 
 -- Check modules
@@ -246,6 +269,7 @@ ORDER BY c.title, m.order_index;
 ### Step 3: Test Email System
 
 Set environment variables:
+
 ```bash
 RESEND_API_KEY=your_resend_api_key
 EMAIL_FROM=noreply@elevateforhumanity.org

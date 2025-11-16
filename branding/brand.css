@@ -3,31 +3,32 @@
 
 :root {
   /* Primary Brand Colors */
-  --efh-red: #E63946;
-  --efh-orange: #F77F00;
-  --efh-teal: #06A77D;
-  --efh-purple: #7209B7;
-  --efh-blue: #3A86FF;
-  
+  --efh-red: #e63946;
+  --efh-orange: #f77f00;
+  --efh-teal: #06a77d;
+  --efh-purple: #7209b7;
+  --efh-blue: #3a86ff;
+
   /* Neutral Palette */
-  --efh-gray-50: #F8F9FA;
-  --efh-gray-100: #E9ECEF;
-  --efh-gray-200: #DEE2E6;
-  --efh-gray-300: #CED4DA;
-  --efh-gray-600: #6C757D;
+  --efh-gray-50: #f8f9fa;
+  --efh-gray-100: #e9ecef;
+  --efh-gray-200: #dee2e6;
+  --efh-gray-300: #ced4da;
+  --efh-gray-600: #6c757d;
   --efh-gray-700: #495057;
   --efh-gray-900: #212529;
-  
+
   /* Semantic Colors */
-  --efh-success: #06A77D;
-  --efh-warning: #F77F00;
-  --efh-error: #E63946;
-  --efh-info: #3A86FF;
-  
+  --efh-success: #06a77d;
+  --efh-warning: #f77f00;
+  --efh-error: #e63946;
+  --efh-info: #3a86ff;
+
   /* Typography */
-  --efh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --efh-font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --efh-font-display: 'Inter', sans-serif;
-  
+
   /* Spacing Scale */
   --efh-space-xs: 0.25rem;
   --efh-space-sm: 0.5rem;
@@ -36,14 +37,14 @@
   --efh-space-xl: 2rem;
   --efh-space-2xl: 3rem;
   --efh-space-3xl: 4rem;
-  
+
   /* Border Radius */
   --efh-radius-sm: 0.375rem;
   --efh-radius-md: 0.5rem;
   --efh-radius-lg: 0.75rem;
   --efh-radius-xl: 1rem;
   --efh-radius-full: 9999px;
-  
+
   /* Shadows */
   --efh-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --efh-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -251,14 +252,34 @@
 }
 
 /* Utility Classes */
-.elevate-text-red { color: var(--efh-red); }
-.elevate-text-orange { color: var(--efh-orange); }
-.elevate-text-teal { color: var(--efh-teal); }
-.elevate-text-purple { color: var(--efh-purple); }
-.elevate-text-blue { color: var(--efh-blue); }
+.elevate-text-red {
+  color: var(--efh-red);
+}
+.elevate-text-orange {
+  color: var(--efh-orange);
+}
+.elevate-text-teal {
+  color: var(--efh-teal);
+}
+.elevate-text-purple {
+  color: var(--efh-purple);
+}
+.elevate-text-blue {
+  color: var(--efh-blue);
+}
 
-.elevate-bg-red { background-color: var(--efh-red); }
-.elevate-bg-orange { background-color: var(--efh-orange); }
-.elevate-bg-teal { background-color: var(--efh-teal); }
-.elevate-bg-purple { background-color: var(--efh-purple); }
-.elevate-bg-blue { background-color: var(--efh-blue); }
+.elevate-bg-red {
+  background-color: var(--efh-red);
+}
+.elevate-bg-orange {
+  background-color: var(--efh-orange);
+}
+.elevate-bg-teal {
+  background-color: var(--efh-teal);
+}
+.elevate-bg-purple {
+  background-color: var(--efh-purple);
+}
+.elevate-bg-blue {
+  background-color: var(--efh-blue);
+}

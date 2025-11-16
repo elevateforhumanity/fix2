@@ -3,7 +3,8 @@
 
 import { sendEmail } from './email';
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://elevateforhumanity.org';
+const APP_URL =
+  process.env.NEXT_PUBLIC_APP_URL || 'https://elevateforhumanity.org';
 const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org';
 
 interface CourseEnrollmentData {
@@ -82,12 +83,16 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                         <td style="color: #6b7280; font-size: 14px;">Format:</td>
                         <td style="color: #111827; font-size: 14px; font-weight: 600;">${format}</td>
                       </tr>
-                      ${startDate ? `
+                      ${
+                        startDate
+                          ? `
                       <tr>
                         <td style="color: #6b7280; font-size: 14px;">Start Date:</td>
                         <td style="color: #111827; font-size: 14px; font-weight: 600;">${startDate}</td>
                       </tr>
-                      ` : ''}
+                      `
+                          : ''
+                      }
                       <tr>
                         <td style="color: #6b7280; font-size: 14px;">Credentials:</td>
                         <td style="color: #111827; font-size: 14px; font-weight: 600;">${credentials.join(', ')}</td>
@@ -95,21 +100,29 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                     </table>
                   </div>
                   
-                  ${liveSessionInfo ? `
+                  ${
+                    liveSessionInfo
+                      ? `
                   <!-- Live Instruction Info -->
                   <div style="margin: 20px 0; padding: 20px; background-color: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #1e40af; font-size: 16px;">📹 Live Instruction Sessions</h3>
                     <p style="margin: 0; color: #1e3a8a; font-size: 14px; line-height: 1.6;">${liveSessionInfo}</p>
                   </div>
-                  ` : ''}
+                  `
+                      : ''
+                  }
                   
-                  ${handsOnInfo ? `
+                  ${
+                    handsOnInfo
+                      ? `
                   <!-- Hands-On Training Info -->
                   <div style="margin: 20px 0; padding: 20px; background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #92400e; font-size: 16px;">🛠️ Hands-On Training</h3>
                     <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">${handsOnInfo}</p>
                   </div>
-                  ` : ''}
+                  `
+                      : ''
+                  }
                   
                   <!-- Next Steps -->
                   <div style="margin: 30px 0; padding: 20px; background-color: #f0fdf4; border-left: 4px solid #10b981; border-radius: 4px;">
@@ -225,12 +238,16 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                     </ul>
                   </div>
                   
-                  ${liveSessionInfo ? `
+                  ${
+                    liveSessionInfo
+                      ? `
                   <div style="margin: 20px 0; padding: 20px; background-color: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #1e40af; font-size: 16px;">📹 Live Sessions</h3>
                     <p style="margin: 0; color: #1e3a8a; font-size: 14px; line-height: 1.6;">${liveSessionInfo}</p>
                   </div>
-                  ` : ''}
+                  `
+                      : ''
+                  }
                   
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
@@ -288,7 +305,15 @@ export async function sendLiveSessionReminderEmail(data: {
   sessionTime: string;
   sessionLink?: string;
 }) {
-  const { studentName, studentEmail, courseName, sessionTitle, sessionDate, sessionTime, sessionLink } = data;
+  const {
+    studentName,
+    studentEmail,
+    courseName,
+    sessionTitle,
+    sessionDate,
+    sessionTime,
+    sessionLink,
+  } = data;
 
   const html = `
     <!DOCTYPE html>
@@ -333,7 +358,9 @@ export async function sendLiveSessionReminderEmail(data: {
                     </table>
                   </div>
                   
-                  ${sessionLink ? `
+                  ${
+                    sessionLink
+                      ? `
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
                       <td align="center">
@@ -343,7 +370,9 @@ export async function sendLiveSessionReminderEmail(data: {
                       </td>
                     </tr>
                   </table>
-                  ` : ''}
+                  `
+                      : ''
+                  }
                   
                   <p style="margin: 20px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     <strong>Tip:</strong> Join a few minutes early to test your audio and video. See you there!

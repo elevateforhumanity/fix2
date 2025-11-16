@@ -23,7 +23,7 @@ module.exports = {
         'efh-teal': '#06A77D',
         'efh-purple': '#7209B7',
         'efh-blue': '#3A86FF',
-        
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -80,4 +80,4 @@ module.exports = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-}
+};
