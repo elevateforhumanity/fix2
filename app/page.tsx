@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
+import { VideoShell } from '@/components/VideoShell';
 
 export default function HomePage() {
   return (
@@ -32,49 +33,49 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section with Video */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, #E63946 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
         </div>
         
         <div className="elevate-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
             {/* Left: Content */}
             <div>
-              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
+              <div className="inline-block px-4 py-2 bg-efh-red/10 border border-efh-red/20 rounded-full text-sm font-semibold mb-6 text-efh-red">
                 ✓ WIOA-Funded Training • 100% Free for Eligible Participants
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900">
                 Transform Your Future with FREE Workforce Training
               </h1>
-              <p className="text-2xl font-semibold mb-6 text-orange-300">
+              <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
                 Innovate. Elevate. Reset.
               </p>
-              <p className="text-xl mb-8 text-white/90 leading-relaxed">
+              <p className="text-xl mb-8 text-gray-700 leading-relaxed">
                 A workforce & wellness ecosystem for real people. Access high-quality career training programs funded by WIOA. Get the skills employers need—at no cost to you.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <Link href="/enroll" className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                <Link href="/enroll" className="elevate-btn-primary">
                   Check Your Eligibility
                 </Link>
-                <Link href="/programs" className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                <Link href="/programs" className="elevate-btn-secondary">
                   Browse Programs
                 </Link>
               </div>
               
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 text-sm">
+              <div className="flex flex-wrap gap-6 text-sm text-gray-700">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5" />
+                  <CheckCircle className="h-5 w-5 text-efh-teal" />
                   <span>WIOA Certified</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5" />
+                  <CheckCircle className="h-5 w-5 text-efh-teal" />
                   <span>Industry-Recognized Credentials</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5" />
+                  <CheckCircle className="h-5 w-5 text-efh-teal" />
                   <span>Job Placement Support</span>
                 </div>
               </div>
@@ -82,7 +83,7 @@ export default function HomePage() {
             
             {/* Right: Video Placeholder */}
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200 bg-white">
                 {/* VIDEO SCRIPT 1: Homepage Hero (25 seconds)
                     Cinematic video for Elevate for Humanity
                     
@@ -101,16 +102,16 @@ export default function HomePage() {
                     
                     Replace this placeholder with actual video URL when ready.
                 */}
-                <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-2 border-gray-300">
                   <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-efh-red/10 border-2 border-efh-red/20 flex items-center justify-center">
+                      <svg className="w-10 h-10 text-efh-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
-                    <p className="text-white/80 text-sm font-semibold">Innovate. Elevate. Reset.</p>
-                    <p className="text-white/60 text-xs mt-2">25 sec hero video</p>
-                    <p className="text-white/40 text-xs mt-1">Upload video to replace placeholder</p>
+                    <p className="text-gray-900 text-sm font-semibold">Innovate. Elevate. Reset.</p>
+                    <p className="text-gray-600 text-xs mt-2">25 sec hero video</p>
+                    <p className="text-gray-500 text-xs mt-1">Video placeholder</p>
                   </div>
                 </div>
                 {/* Uncomment when video is ready:

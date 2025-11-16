@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
 import { ArrowLeft, ArrowRight, CheckCircle, Clock, FileText, Video, BookOpen } from 'lucide-react';
 import AttendanceTracker from '@/components/lms/AttendanceTracker';
-import VideoPlayer from '@/components/lms/VideoPlayer';
+import { VideoShell } from '@/components/VideoShell';
 
 interface Props {
   params: {
@@ -291,17 +291,14 @@ export default function LessonPage({ params }: Props) {
             <div className="prose max-w-none">
               {lesson.content_type === 'video' && lesson.content && (
                 <div className="mb-6">
-                  <VideoPlayer 
-                    url={lesson.content}
+                  <VideoShell
+                    src={lesson.content}
                     title={lesson.title}
-                    onProgress={(percent) => {
-                      // Track video progress
-                      if (percent > 90 && !progress?.completed) {
-                        // Auto-mark complete when 90% watched
-                        markComplete();
-                      }
-                    }}
-                    onComplete={() => {
+                    caption={lesson.description || ''}
+                    lessonId={params.lessonId}
+                    layout="horizontal"
+                    autoPlay={false}
+                    onEnded={() => {
                       if (!progress?.completed) {
                         markComplete();
                       }
