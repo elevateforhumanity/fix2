@@ -7,9 +7,11 @@
 ## ✅ WHAT WAS CREATED
 
 ### 1. Video Scripts (12 scripts)
+
 **Location:** `content/video-scripts/`
 
 All ready-to-use scripts for:
+
 - Homepage hero
 - How it works
 - Employers/Partners
@@ -24,6 +26,7 @@ All ready-to-use scripts for:
 - Contact/Support
 
 ### 2. VideoPlaceholder Component
+
 **Location:** `components/VideoPlaceholder.tsx`
 
 Beautiful placeholder component you can use anywhere!
@@ -55,22 +58,26 @@ export default function HomePage() {
 ### Option 2: Generate AI Thumbnails (Requires OpenAI Key)
 
 **Step 1: Add OpenAI API Key**
+
 ```bash
 # Get key from https://platform.openai.com/api-keys
 echo "OPENAI_API_KEY=sk-your-key-here" >> .env.local
 ```
 
 **Step 2: Start Dev Server**
+
 ```bash
 npm run dev
 ```
 
 **Step 3: Generate Thumbnails**
+
 ```bash
 npx tsx generate-all-video-content.ts
 ```
 
 This will:
+
 - Generate professional thumbnails for each video
 - Cost: ~$0.50 total (12 images × $0.04 each)
 - Time: ~2 minutes
@@ -98,6 +105,7 @@ This will:
 ## 📍 WHERE TO ADD VIDEOS
 
 ### Homepage (`app/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="Welcome to Elevate Connects Directory"
@@ -105,12 +113,15 @@ This will:
   durationLabel="30–45 sec"
 />
 ```
+
 **Script:** `content/video-scripts/homepage-hero.md`
 
 ### Programs Page (`app/programs/page.tsx`)
+
 Add to each program card or detail page
 
 **Scripts:**
+
 - `program-hvac.md`
 - `program-barber-apprenticeship.md`
 - `program-healthcare-cna.md`
@@ -118,6 +129,7 @@ Add to each program card or detail page
 - `program-cdl-logistics.md`
 
 ### LMS Dashboard (`app/lms/dashboard/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="How Elevate Works for Students"
@@ -125,9 +137,11 @@ Add to each program card or detail page
   durationLabel="45–60 sec"
 />
 ```
+
 **Script:** `content/video-scripts/how-it-works-student-portal.md`
 
 ### Program Holder Portal (`app/program-holder/dashboard/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="Program Holder Dashboard Overview"
@@ -135,9 +149,11 @@ Add to each program card or detail page
   durationLabel="30–45 sec"
 />
 ```
+
 **Script:** `content/video-scripts/program-holder-admin-portal.md`
 
 ### Delegate Portal (`app/delegate/dashboard/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="For Instructors & Delegates"
@@ -145,9 +161,11 @@ Add to each program card or detail page
   durationLabel="30–45 sec"
 />
 ```
+
 **Script:** `content/video-scripts/delegate-instructor-portal.md`
 
 ### Partners Page (`app/partners/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="For Employers & Training Partners"
@@ -155,9 +173,11 @@ Add to each program card or detail page
   durationLabel="45 sec"
 />
 ```
+
 **Script:** `content/video-scripts/employers-partners.md`
 
 ### Apply Page (`app/apply/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="You're Ready—Here's Your Next Step"
@@ -165,9 +185,11 @@ Add to each program card or detail page
   durationLabel="30 sec"
 />
 ```
+
 **Script:** `content/video-scripts/apply-now.md`
 
 ### Contact Page (`app/contact/page.tsx`)
+
 ```tsx
 <VideoPlaceholder
   title="Need Help? We're Here"
@@ -175,6 +197,7 @@ Add to each program card or detail page
   durationLabel="20–30 sec"
 />
 ```
+
 **Script:** `content/video-scripts/contact-support.md`
 
 ---
@@ -185,10 +208,10 @@ The `VideoPlaceholder` component accepts:
 
 ```tsx
 type VideoPlaceholderProps = {
-  title: string;              // Required
-  description?: string;       // Optional
-  durationLabel?: string;     // Optional (default: "Video coming soon")
-  page?: string;             // Optional (for analytics)
+  title: string; // Required
+  description?: string; // Optional
+  durationLabel?: string; // Optional (default: "Video coming soon")
+  page?: string; // Optional (for analytics)
 };
 ```
 
@@ -218,16 +241,19 @@ type VideoPlaceholderProps = {
 ## 💰 COST TO GENERATE EVERYTHING
 
 ### With AI (OpenAI):
+
 - **Thumbnails:** 12 images × $0.04 = $0.48
 - **Video scripts:** Already written (free!)
 - **Total:** ~$0.50
 
 ### With AI Video Tools:
+
 - **HeyGen:** $24/month (unlimited videos)
 - **Synthesia:** $22/month (10 videos)
 - **Pictory:** $19/month (30 videos)
 
 ### DIY Recording:
+
 - **Free!** Just use your phone/webcam
 - Use scripts from `content/video-scripts/`
 
@@ -236,16 +262,19 @@ type VideoPlaceholderProps = {
 ## 🎯 RECOMMENDED WORKFLOW
 
 ### Phase 1: Immediate (Use Placeholders)
+
 1. ✅ Add `VideoPlaceholder` to all pages
 2. ✅ Deploy with placeholders
 3. ✅ Launch and get feedback
 
 ### Phase 2: AI Thumbnails (Optional)
+
 1. Add OpenAI API key
 2. Run `npx tsx generate-all-video-content.ts`
 3. Get professional thumbnails
 
 ### Phase 3: Real Videos (When Ready)
+
 1. Pick video creation tool
 2. Use scripts from `content/video-scripts/`
 3. Generate 12 videos (30-60 sec each)
@@ -268,11 +297,13 @@ type VideoPlaceholderProps = {
 ## 🚀 NEXT STEPS
 
 ### Immediate:
+
 1. Add `VideoPlaceholder` to your pages
 2. Commit and deploy
 3. Videos show as "coming soon"
 
 ### When Ready:
+
 1. Get OpenAI API key (optional)
 2. Generate thumbnails
 3. Record real videos

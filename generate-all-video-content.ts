@@ -1,12 +1,12 @@
 #!/usr/bin/env tsx
 /**
  * Generate All Video Content
- * 
+ *
  * This script uses your AI generators to create:
  * - Video thumbnails for each script
  * - Sample video URLs (YouTube placeholders)
  * - Saves everything to the database
- * 
+ *
  * Prerequisites:
  * 1. Set OPENAI_API_KEY in .env.local
  * 2. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY
@@ -122,19 +122,24 @@ const videoScripts = [
 async function generateThumbnail(title: string): Promise<string | null> {
   try {
     console.log(`  🎨 Generating thumbnail for: ${title}`);
-    
-    const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'image',
-        prompt: `Professional video thumbnail for "${title}", modern educational design, Elevate for Humanity branding, clean and professional`,
-        style: 'professional, modern, educational, clean',
-      }),
-    });
+
+    const response = await fetch(
+      'http://localhost:3000/api/ai/generate-asset',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'image',
+          prompt: `Professional video thumbnail for "${title}", modern educational design, Elevate for Humanity branding, clean and professional`,
+          style: 'professional, modern, educational, clean',
+        }),
+      }
+    );
 
     if (!response.ok) {
-      console.error(`  ❌ Failed to generate thumbnail: ${response.statusText}`);
+      console.error(
+        `  ❌ Failed to generate thumbnail: ${response.statusText}`
+      );
       return null;
     }
 
@@ -176,14 +181,20 @@ async function main() {
     console.log(`   Page: ${script.page}`);
 
     // Read script content
-    const scriptPath = path.join(process.cwd(), 'content/video-scripts', script.file);
+    const scriptPath = path.join(
+      process.cwd(),
+      'content/video-scripts',
+      script.file
+    );
     const scriptContent = fs.readFileSync(scriptPath, 'utf-8');
 
     // Generate thumbnail
     const thumbnailUrl = await generateThumbnail(script.title);
 
     if (!thumbnailUrl) {
-      console.log(`  ⚠️  Skipping ${script.title} - thumbnail generation failed`);
+      console.log(
+        `  ⚠️  Skipping ${script.title} - thumbnail generation failed`
+      );
       failCount++;
       continue;
     }
@@ -198,11 +209,11 @@ async function main() {
     console.log(`  🎨 Thumbnail: ${thumbnailUrl}`);
     console.log(`  🎥 Video URL: ${videoUrl}`);
     console.log(`  ⏱️  Duration: ${script.duration}s`);
-    
+
     successCount++;
 
     // Rate limiting - wait 2 seconds between requests
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   }
 
   console.log('\n' + '='.repeat(60));
@@ -213,7 +224,9 @@ async function main() {
   console.log(`📁 Total: ${videoScripts.length}`);
   console.log('\n💡 Next Steps:');
   console.log('1. Review generated thumbnails');
-  console.log('2. Record actual videos using the scripts in content/video-scripts/');
+  console.log(
+    '2. Record actual videos using the scripts in content/video-scripts/'
+  );
   console.log('3. Upload videos to YouTube/Vimeo');
   console.log('4. Update database with real video URLs');
   console.log('5. Use VideoPlaceholder component until videos are ready\n');
