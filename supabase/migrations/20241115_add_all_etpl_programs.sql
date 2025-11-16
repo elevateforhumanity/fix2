@@ -26,25 +26,29 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
   '/images/business-startup.jpg'
 ),
 
--- 2. CPR & Health and Safety Technician
+-- 2. Emergency Health & Safety Technician
 (
-  'cpr-health-safety-tech',
-  'CPR & Health and Safety Technician',
+  'emergency-health-safety-tech',
+  'Emergency Health & Safety Technician',
   'Life-saving skills for healthcare and public safety careers',
-  'The CPR & Health and Safety Technician Registered Apprenticeship program prepares individuals for life-saving response roles in schools, workplaces and emergency settings. This hybrid training includes CPR/AED, First Aid, OSHA-aligned safety education, and public health emergency awareness. Students graduate with nationally recognized certifications and are equipped for careers in healthcare, public safety, community response, and entry-level emergency technician pathways.',
+  'The Emergency Health & Safety Technician program prepares individuals for life-saving response roles in schools, workplaces and emergency settings. This hybrid training includes CPR/AED, First Aid, OSHA-aligned safety education, and public health emergency awareness. Students graduate with nationally recognized certifications and are equipped for careers in healthcare, public safety, community response, and entry-level emergency technician pathways.',
   'Earn CPR/AED, First Aid, and OSHA certifications in a 4-week hybrid program.',
   ARRAY[
     '4-week hybrid program',
     '80 instructional hours (20 hours/week)',
+    '20% instructor-led, 40% lab/field, 40% self-study',
+    '60% available online',
+    'Day, evening, weekend, and online options',
     'CPR/AED certification (AHA or Red Cross)',
     'First Aid certification',
     'OSHA-aligned safety education',
     'Public health emergency awareness',
-    '60% online, 40% lab/field work',
-    'High school diploma or GED required'
+    'High school diploma or GED required',
+    '100% admission rate',
+    'Career counseling and job placement included'
   ],
   ARRAY['WIOA', 'WRG', 'Apprenticeship'],
-  '/images/cpr-health-safety.jpg'
+  '/images/emergency-health-safety.jpg'
 ),
 
 -- 3. HVAC Technician / 2Exclusive Apprenticeship

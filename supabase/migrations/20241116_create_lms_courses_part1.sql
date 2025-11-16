@@ -78,8 +78,8 @@ INSERT INTO courses (
   slug, title, subtitle, description, level, duration_hours,
   status, is_free, metadata
 ) VALUES (
-  'cpr-health-safety-tech',
-  'CPR & Health and Safety Technician',
+  'emergency-health-safety-tech',
+  'Emergency Health & Safety Technician',
   'Life-saving skills for healthcare and public safety careers',
   'Earn CPR/AED, First Aid, and OSHA certifications in a 4-week hybrid program.',
   'beginner',
@@ -87,22 +87,40 @@ INSERT INTO courses (
   'published',
   true,
   jsonb_build_object(
-    'provider', 'American Heart Association / Red Cross',
+    'provider', 'American Heart Association / Red Cross / Elevate for Humanity',
     'funding', ARRAY['WIOA', 'WRG', 'Apprenticeship'],
+    'cip_code', '51.0999 - Allied Health Diagnostic, Intervention, and Treatment Professions, Other',
     'weeks', 4,
+    'total_hours', 80,
     'hours_per_week', 20,
-    'format', '60% Online, 40% Lab/Field Work',
+    'online_available_percent', 60,
+    'instructor_led_percent', 20,
+    'lab_field_percent', 40,
+    'self_study_percent', 40,
+    'format', 'Hybrid - 20% Instructor-Led, 40% Lab/Field, 40% Self-Study (60% available online)',
+    'schedule', ARRAY['Day', 'Evening', 'Weekend', 'Online'],
     'credentials', ARRAY['CPR/AED Certification', 'First Aid Certification', 'OSHA Safety Certificate'],
+    'prerequisites', 'High School Diploma or Equivalent',
+    'admission_rate', 100,
+    'career_counseling', true,
+    'job_placement', true,
+    'placement_assistance', true,
+    'part_time_allowed', true,
+    'general_public', true,
+    'industry_collaboration', true,
     'live_instruction_placeholder', true,
-    'hands_on_placeholder', true
+    'hands_on_placeholder', true,
+    'location', '8888 Keystone Crossing, Indianapolis, IN 46240'
   )
 ) ON CONFLICT (slug) DO UPDATE SET
   title = EXCLUDED.title,
+  description = EXCLUDED.description,
+  metadata = EXCLUDED.metadata,
   updated_at = NOW();
 
--- Modules for CPR/Health Safety
+-- Modules for Emergency Health & Safety
 WITH course_ref AS (
-  SELECT id FROM courses WHERE slug = 'cpr-health-safety-tech'
+  SELECT id FROM courses WHERE slug = 'emergency-health-safety-tech'
 )
 INSERT INTO modules (course_id, title, description, order_index, is_published)
 SELECT 
@@ -116,7 +134,9 @@ FROM course_ref,
   (1, 'Week 1: CPR & AED Fundamentals', 'Adult, child, and infant CPR techniques'),
   (2, 'Week 2: First Aid & Emergency Response', 'Wound care, choking, bleeding control'),
   (3, 'Week 3: OSHA Safety Standards', 'Workplace safety, hazard recognition, PPE'),
-  (4, 'Week 4: Public Health & Certification', 'Emergency preparedness and final assessments')
+  (4, 'Week 4: Public Health & Certification', 'Emergency preparedness and final assessments'),
+  (5, 'LIVE INSTRUCTION SESSIONS', 'Scheduled instructor-led training sessions (20% of program)'),
+  (6, 'HANDS-ON LAB TRAINING', 'Practical CPR, First Aid, and safety skills training (40% of program)')
 ) AS module_data(order_index, title, description)
 ON CONFLICT (course_id, order_index) DO NOTHING;
 
