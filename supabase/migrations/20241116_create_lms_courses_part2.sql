@@ -168,24 +168,32 @@ INSERT INTO courses (
   'tax-prep-financial-services',
   'Tax Preparation & Financial Services Certificate',
   'IRS VITA/TCE certification and bookkeeping skills',
-  'Earn IRS VITA/TCE certification and launch a career in tax preparation and bookkeeping. 10-week comprehensive program with supervised practicum.',
+  'Earn IRS VITA/TCE certification and launch a career in tax preparation and bookkeeping. 10-week State Certified Earn and Learn program with supervised practicum.',
   'beginner',
   150,
   'published',
   true,
   jsonb_build_object(
-    'provider', 'IRS VITA/TCE Program',
-    'funding', ARRAY['WIOA', 'WRG'],
+    'provider', 'Elevate for Humanity / IRS VITA/TCE',
+    'funding', ARRAY['WIOA', 'WRG', 'Earn and Learn'],
     'cip_code', '52.0302 - Accounting Technology/Technician and Bookkeeping',
+    'earn_and_learn_type', 'State Certified Earn and Learn',
+    'earn_and_learn_certification_date', '2025-10-01',
+    'instruction_method', 'In-person, Online, E-learning or Distance Learning',
+    'instruction_weeks', 10,
     'weeks', 10,
+    'total_hours', 150,
     'hours_per_week', 15,
-    'format', '50% Online, 50% Instructor-Led, 25% Lab Work',
-    'credentials', ARRAY['IRS VITA/TCE Certification', 'Certificate of Completion'],
+    'format', 'State Certified Earn and Learn - 50% Online, 50% Instructor-Led, 25% Lab Work',
+    'credentials', ARRAY['Certificate of Completion', 'QuickBooks Pro Advisor', 'Microsoft 365 Fundamentals', 'Rise Up Credential', 'IRS VITA/TCE Certification'],
+    'state_certified', true,
     'live_instruction_placeholder', true,
     'hands_on_placeholder', true
   )
 ) ON CONFLICT (slug) DO UPDATE SET
   title = EXCLUDED.title,
+  description = EXCLUDED.description,
+  metadata = EXCLUDED.metadata,
   updated_at = NOW();
 
 -- Modules for Tax Prep

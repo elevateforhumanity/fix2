@@ -123,16 +123,21 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
   '/images/esthetician.jpg'
 ),
 
--- 6. Tax Preparation & Financial Services
+-- 6. Tax Preparation & Financial Services (State Certified Earn and Learn)
 (
   'tax-prep-financial-services',
   'Tax Preparation & Financial Services Certificate',
-  'IRS VITA/TCE certification and bookkeeping skills',
-  'The Tax Preparation & Financial Services Certificate prepares individuals to understand federal and state taxation concepts and apply them in real-world settings. Participants complete training in tax law, return preparation, bookkeeping, and financial literacy, culminating in the IRS VITA/TCE certification. The program combines classroom instruction, online modules, and supervised practicum hours at an IRS-approved VITA site. Graduates gain the skills required for employment as Tax Preparers, Bookkeeping Assistants, and Financial Service Specialists in both private and community-based environments.',
-  'Earn IRS VITA/TCE certification and launch a career in tax preparation and bookkeeping.',
+  'State Certified Earn and Learn program with IRS VITA/TCE certification',
+  'The Tax Preparation & Financial Services Certificate is a State Certified Earn and Learn program (certified 2025-10-01) that prepares individuals to understand federal and state taxation concepts and apply them in real-world settings. Participants complete training in tax law, return preparation, bookkeeping, and financial literacy, culminating in the IRS VITA/TCE certification. The program combines classroom instruction, online modules, and supervised practicum hours at an IRS-approved VITA site. Students earn QuickBooks Pro Advisor and Microsoft 365 Fundamentals certifications, plus the Rise Up Credential. Graduates gain the skills required for employment as Tax Preparers, Bookkeeping Assistants, and Financial Service Specialists in both private and community-based environments.',
+  'Earn IRS VITA/TCE, QuickBooks, Microsoft 365, and Rise Up certifications in State Certified Earn and Learn program.',
   ARRAY[
+    'State Certified Earn and Learn (certified 2025-10-01)',
     '10-week comprehensive program',
     '150 instructional hours (15 hours/week)',
+    'In-person, online, e-learning, and distance learning',
+    'Earn QuickBooks Pro Advisor certification',
+    'Earn Microsoft 365 Fundamentals certification',
+    'Earn Rise Up Credential',
     'IRS VITA/TCE certification included',
     'Federal and state tax law training',
     'Bookkeeping and financial literacy',
@@ -140,7 +145,7 @@ INSERT INTO public.programs (slug, title, tagline, description, summary, bullets
     '50% online, 50% instructor-led, 25% lab work',
     'High school diploma or GED required'
   ],
-  ARRAY['WIOA', 'WRG'],
+  ARRAY['WIOA', 'WRG', 'Earn and Learn'],
   '/images/tax-prep.jpg'
 ),
 
