@@ -22,7 +22,9 @@ export default function PostJobPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-3xl font-bold text-slate-900">Post a Job</h1>
-          <p className="text-slate-600 mt-1">Create a new job posting to attract qualified candidates</p>
+          <p className="text-slate-600 mt-1">
+            Create a new job posting to attract qualified candidates
+          </p>
         </div>
       </div>
 
@@ -43,7 +45,9 @@ export default function PostJobPage() {
                 <Input
                   placeholder="e.g., HVAC Technician"
                   value={formData.title}
-                  onChange={(e) => setFormData({...formData, title: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                 />
               </div>
 
@@ -55,7 +59,9 @@ export default function PostJobPage() {
                   <Input
                     placeholder="e.g., Milwaukee, WI"
                     value={formData.location}
-                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
                   />
                 </div>
                 <div>
@@ -65,7 +71,9 @@ export default function PostJobPage() {
                   <select
                     className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.type}
-                    onChange={(e) => setFormData({...formData, type: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, type: e.target.value })
+                    }
                   >
                     <option value="full-time">Full-time</option>
                     <option value="part-time">Part-time</option>
@@ -82,7 +90,9 @@ export default function PostJobPage() {
                 <Input
                   placeholder="e.g., $45,000 - $55,000"
                   value={formData.salary}
-                  onChange={(e) => setFormData({...formData, salary: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, salary: e.target.value })
+                  }
                 />
               </div>
 
@@ -95,7 +105,9 @@ export default function PostJobPage() {
                   className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Describe the role, responsibilities, and what makes this opportunity great..."
                   value={formData.description}
-                  onChange={(e) => setFormData({...formData, description: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                 />
               </div>
 
@@ -108,7 +120,9 @@ export default function PostJobPage() {
                   className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="List required skills, certifications, and experience..."
                   value={formData.requirements}
-                  onChange={(e) => setFormData({...formData, requirements: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, requirements: e.target.value })
+                  }
                 />
               </div>
 
@@ -121,7 +135,9 @@ export default function PostJobPage() {
                   className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Health insurance, 401(k), paid time off, etc..."
                   value={formData.benefits}
-                  onChange={(e) => setFormData({...formData, benefits: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, benefits: e.target.value })
+                  }
                 />
               </div>
 

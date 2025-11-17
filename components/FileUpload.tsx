@@ -11,7 +11,12 @@ interface FileUploadProps {
   onUpload?: (file: File) => void;
 }
 
-export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: FileUploadProps) {
+export function FileUpload({
+  label,
+  accept = '*',
+  maxSize = 10,
+  onUpload,
+}: FileUploadProps) {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploaded, setUploaded] = useState(false);
@@ -50,14 +55,17 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
 
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-slate-700">{label}</label>
-      
+      <label className="block text-sm font-medium text-slate-700">
+        {label}
+      </label>
+
       {!file ? (
         <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-500 hover:bg-blue-50 transition-colors">
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
             <Upload className="h-8 w-8 text-slate-400 mb-2" />
             <p className="text-sm text-slate-600">
-              <span className="font-semibold">Click to upload</span> or drag and drop
+              <span className="font-semibold">Click to upload</span> or drag and
+              drop
             </p>
             <p className="text-xs text-slate-500 mt-1">
               Max file size: {maxSize}MB
@@ -85,9 +93,7 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
             {uploading && (
               <div className="text-sm text-red-600">Uploading...</div>
             )}
-            {uploaded && (
-              <CheckCircle className="h-5 w-5 text-green-600" />
-            )}
+            {uploaded && <CheckCircle className="h-5 w-5 text-green-600" />}
             <Button
               variant="ghost"
               size="sm"
@@ -100,9 +106,7 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
         </div>
       )}
 
-      {error && (
-        <p className="text-sm text-red-600">{error}</p>
-      )}
+      {error && <p className="text-sm text-red-600">{error}</p>}
     </div>
   );
 }

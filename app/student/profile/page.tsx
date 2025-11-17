@@ -31,9 +31,11 @@ export default function StudentProfilePage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-slate-900">My Profile</h1>
-              <p className="text-slate-600 mt-1">Manage your personal information</p>
+              <p className="text-slate-600 mt-1">
+                Manage your personal information
+              </p>
             </div>
-            <Button 
+            <Button
               variant={editing ? 'primary' : 'outline'}
               onClick={() => setEditing(!editing)}
             >
@@ -66,7 +68,9 @@ export default function StudentProfilePage() {
                   {profile.firstName} {profile.lastName}
                 </h2>
                 <p className="text-slate-600 mb-4">{profile.program}</p>
-                <Badge variant="success" className="mb-4">Active Student</Badge>
+                <Badge variant="success" className="mb-4">
+                  Active Student
+                </Badge>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex items-center justify-center gap-2">
                     <Calendar className="h-4 w-4" />
@@ -96,7 +100,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.firstName}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, firstName: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, firstName: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -106,7 +112,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.lastName}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, lastName: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, lastName: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -117,7 +125,9 @@ export default function StudentProfilePage() {
                       type="email"
                       value={profile.email}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, email: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, email: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -128,7 +138,9 @@ export default function StudentProfilePage() {
                       type="tel"
                       value={profile.phone}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, phone: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, phone: e.target.value })
+                      }
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -139,7 +151,9 @@ export default function StudentProfilePage() {
                       type="date"
                       value={profile.dateOfBirth}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, dateOfBirth: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, dateOfBirth: e.target.value })
+                      }
                     />
                   </div>
                 </div>
@@ -159,7 +173,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.address}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, address: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, address: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -169,7 +185,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.city}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, city: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, city: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -179,7 +197,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.state}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, state: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, state: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -189,7 +209,9 @@ export default function StudentProfilePage() {
                     <Input
                       value={profile.zip}
                       disabled={!editing}
-                      onChange={(e) => setProfile({...profile, zip: e.target.value})}
+                      onChange={(e) =>
+                        setProfile({ ...profile, zip: e.target.value })
+                      }
                     />
                   </div>
                 </div>

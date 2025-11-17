@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface SelectContextValue {
@@ -27,9 +33,16 @@ interface SelectProps {
   defaultValue?: string;
 }
 
-export const SelectRoot: React.FC<SelectProps> = ({ value, onValueChange, children, defaultValue }) => {
+export const SelectRoot: React.FC<SelectProps> = ({
+  value,
+  onValueChange,
+  children,
+  defaultValue,
+}) => {
   const [open, setOpen] = useState(false);
-  const [internalValue, setInternalValue] = useState(defaultValue || value || '');
+  const [internalValue, setInternalValue] = useState(
+    defaultValue || value || ''
+  );
 
   const handleValueChange = (newValue: string) => {
     setInternalValue(newValue);
@@ -38,10 +51,15 @@ export const SelectRoot: React.FC<SelectProps> = ({ value, onValueChange, childr
   };
 
   return (
-    <SelectContext.Provider value={{ value: value || internalValue, onValueChange: handleValueChange, open, setOpen }}>
-      <div className="relative">
-        {children}
-      </div>
+    <SelectContext.Provider
+      value={{
+        value: value || internalValue,
+        onValueChange: handleValueChange,
+        open,
+        setOpen,
+      }}
+    >
+      <div className="relative">{children}</div>
     </SelectContext.Provider>
   );
 };
@@ -51,44 +69,53 @@ interface SelectTriggerProps {
   className?: string;
 }
 
-export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ children, className = '' }, ref) => {
-    const { open, setOpen } = useSelectContext();
-    const triggerRef = useRef<HTMLButtonElement>(null);
+export const SelectTrigger = React.forwardRef<
+  HTMLButtonElement,
+  SelectTriggerProps
+>(({ children, className = '' }, ref) => {
+  const { open, setOpen } = useSelectContext();
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (triggerRef.current && !triggerRef.current.contains(event.target as Node)) {
-          setOpen(false);
-        }
-      };
-
-      if (open) {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        triggerRef.current &&
+        !triggerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
       }
-    }, [open, setOpen]);
+    };
 
-    return (
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={() => setOpen(!open)}
-        className={`flex items-center justify-between w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
-      >
-        {children}
-        <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
-    );
-  }
-);
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () =>
+        document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [open, setOpen]);
+
+  return (
+    <button
+      ref={triggerRef}
+      type="button"
+      onClick={() => setOpen(!open)}
+      className={`flex items-center justify-between w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+    >
+      {children}
+      <ChevronDown
+        className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
+      />
+    </button>
+  );
+});
 SelectTrigger.displayName = 'SelectTrigger';
 
 interface SelectValueProps {
   placeholder?: string;
 }
 
-export const SelectValue: React.FC<SelectValueProps> = ({ placeholder = 'Select...' }) => {
+export const SelectValue: React.FC<SelectValueProps> = ({
+  placeholder = 'Select...',
+}) => {
   const { value } = useSelectContext();
   return <span>{value || placeholder}</span>;
 };
@@ -98,16 +125,19 @@ interface SelectContentProps {
   className?: string;
 }
 
-export const SelectContent: React.FC<SelectContentProps> = ({ children, className = '' }) => {
+export const SelectContent: React.FC<SelectContentProps> = ({
+  children,
+  className = '',
+}) => {
   const { open } = useSelectContext();
 
   if (!open) return null;
 
   return (
-    <div className={`absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-60 overflow-auto ${className}`}>
-      <div className="py-1">
-        {children}
-      </div>
+    <div
+      className={`absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-60 overflow-auto ${className}`}
+    >
+      <div className="py-1">{children}</div>
     </div>
   );
 };
@@ -118,7 +148,11 @@ interface SelectItemProps {
   disabled?: boolean;
 }
 
-export const SelectItem: React.FC<SelectItemProps> = ({ value, children, disabled = false }) => {
+export const SelectItem: React.FC<SelectItemProps> = ({
+  value,
+  children,
+  disabled = false,
+}) => {
   const { value: selectedValue, onValueChange } = useSelectContext();
   const isSelected = selectedValue === value;
 

@@ -4,15 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Progress } from '@/components/ui/Progress';
-import { 
-  BookOpen, 
-  Calendar, 
-  CheckCircle, 
-  Clock, 
-  FileText, 
+import {
+  BookOpen,
+  Calendar,
+  CheckCircle,
+  Clock,
+  FileText,
   TrendingUp,
   Award,
-  Bell
+  Bell,
 } from 'lucide-react';
 
 export default function StudentDashboardPage() {
@@ -27,21 +27,61 @@ export default function StudentDashboardPage() {
   };
 
   const upcomingAssignments = [
-    { id: 1, title: 'Refrigeration Quiz', dueDate: '2024-02-18', course: 'HVAC Systems II' },
-    { id: 2, title: 'Safety Procedures Essay', dueDate: '2024-02-22', course: 'Workplace Safety' },
-    { id: 3, title: 'System Diagram Project', dueDate: '2024-02-25', course: 'HVAC Systems II' },
+    {
+      id: 1,
+      title: 'Refrigeration Quiz',
+      dueDate: '2024-02-18',
+      course: 'HVAC Systems II',
+    },
+    {
+      id: 2,
+      title: 'Safety Procedures Essay',
+      dueDate: '2024-02-22',
+      course: 'Workplace Safety',
+    },
+    {
+      id: 3,
+      title: 'System Diagram Project',
+      dueDate: '2024-02-25',
+      course: 'HVAC Systems II',
+    },
   ];
 
   const recentGrades = [
-    { id: 1, assignment: 'Midterm Exam', grade: 92, course: 'HVAC Fundamentals' },
-    { id: 2, assignment: 'Lab Practical', grade: 88, course: 'Electrical Systems' },
+    {
+      id: 1,
+      assignment: 'Midterm Exam',
+      grade: 92,
+      course: 'HVAC Fundamentals',
+    },
+    {
+      id: 2,
+      assignment: 'Lab Practical',
+      grade: 88,
+      course: 'Electrical Systems',
+    },
     { id: 3, assignment: 'Safety Quiz', grade: 95, course: 'Workplace Safety' },
   ];
 
   const announcements = [
-    { id: 1, title: 'Career Fair Next Week', date: '2024-02-15', type: 'event' },
-    { id: 2, title: 'New Job Postings Available', date: '2024-02-14', type: 'jobs' },
-    { id: 3, title: 'Schedule Change for Lab', date: '2024-02-13', type: 'important' },
+    {
+      id: 1,
+      title: 'Career Fair Next Week',
+      date: '2024-02-15',
+      type: 'event',
+    },
+    {
+      id: 2,
+      title: 'New Job Postings Available',
+      date: '2024-02-14',
+      type: 'jobs',
+    },
+    {
+      id: 3,
+      title: 'Schedule Change for Lab',
+      date: '2024-02-13',
+      type: 'important',
+    },
   ];
 
   return (
@@ -51,7 +91,9 @@ export default function StudentDashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-slate-900">Welcome back, {student.name}!</h1>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Welcome back, {student.name}!
+              </h1>
               <p className="text-slate-600 mt-1">{student.program}</p>
             </div>
             <Button variant="primary">
@@ -98,7 +140,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Current GPA</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">3.8</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    3.8
+                  </div>
                 </div>
                 <Award className="h-8 w-8 text-green-600" />
               </div>
@@ -110,7 +154,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Attendance</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">98%</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    98%
+                  </div>
                 </div>
                 <CheckCircle className="h-8 w-8 text-purple-600" />
               </div>
@@ -164,21 +210,34 @@ export default function StudentDashboardPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-slate-700">Overall Completion</span>
+                      <span className="text-sm font-medium text-slate-700">
+                        Overall Completion
+                      </span>
                       <span className="text-sm font-semibold text-red-600">
                         {student.completionProgress}%
                       </span>
                     </div>
-                    <Progress value={student.completionProgress} className="h-3" />
+                    <Progress
+                      value={student.completionProgress}
+                      className="h-3"
+                    />
                   </div>
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
                     <div>
-                      <div className="text-sm text-slate-600">Courses Completed</div>
-                      <div className="text-lg font-semibold text-slate-900">8 / 12</div>
+                      <div className="text-sm text-slate-600">
+                        Courses Completed
+                      </div>
+                      <div className="text-lg font-semibold text-slate-900">
+                        8 / 12
+                      </div>
                     </div>
                     <div>
-                      <div className="text-sm text-slate-600">Estimated Completion</div>
-                      <div className="text-lg font-semibold text-slate-900">May 2024</div>
+                      <div className="text-sm text-slate-600">
+                        Estimated Completion
+                      </div>
+                      <div className="text-lg font-semibold text-slate-900">
+                        May 2024
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -193,7 +252,9 @@ export default function StudentDashboardPage() {
                     <FileText className="h-5 w-5" />
                     Upcoming Assignments
                   </span>
-                  <Button variant="ghost" size="sm">View All</Button>
+                  <Button variant="ghost" size="sm">
+                    View All
+                  </Button>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -204,14 +265,20 @@ export default function StudentDashboardPage() {
                       className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-slate-900">{assignment.title}</div>
-                        <div className="text-sm text-slate-600">{assignment.course}</div>
+                        <div className="font-semibold text-slate-900">
+                          {assignment.title}
+                        </div>
+                        <div className="text-sm text-slate-600">
+                          {assignment.course}
+                        </div>
                       </div>
                       <div className="text-right">
                         <div className="text-sm font-medium text-slate-900">
                           Due {assignment.dueDate}
                         </div>
-                        <Badge variant="warning" size="sm">Pending</Badge>
+                        <Badge variant="warning" size="sm">
+                          Pending
+                        </Badge>
                       </div>
                     </div>
                   ))}
@@ -227,7 +294,9 @@ export default function StudentDashboardPage() {
                     <Award className="h-5 w-5" />
                     Recent Grades
                   </span>
-                  <Button variant="ghost" size="sm">View All</Button>
+                  <Button variant="ghost" size="sm">
+                    View All
+                  </Button>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -238,10 +307,16 @@ export default function StudentDashboardPage() {
                       className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"
                     >
                       <div>
-                        <div className="font-semibold text-slate-900">{grade.assignment}</div>
-                        <div className="text-sm text-slate-600">{grade.course}</div>
+                        <div className="font-semibold text-slate-900">
+                          {grade.assignment}
+                        </div>
+                        <div className="text-sm text-slate-600">
+                          {grade.course}
+                        </div>
                       </div>
-                      <div className="text-2xl font-bold text-green-600">{grade.grade}%</div>
+                      <div className="text-2xl font-bold text-green-600">
+                        {grade.grade}%
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -289,16 +364,25 @@ export default function StudentDashboardPage() {
               <CardContent>
                 <div className="space-y-4">
                   {announcements.map((announcement) => (
-                    <div key={announcement.id} className="pb-4 border-b border-slate-200 last:border-0 last:pb-0">
+                    <div
+                      key={announcement.id}
+                      className="pb-4 border-b border-slate-200 last:border-0 last:pb-0"
+                    >
                       <div className="flex items-start gap-3">
                         <div className="flex-1">
                           <div className="font-semibold text-slate-900 text-sm">
                             {announcement.title}
                           </div>
-                          <div className="text-xs text-slate-500 mt-1">{announcement.date}</div>
+                          <div className="text-xs text-slate-500 mt-1">
+                            {announcement.date}
+                          </div>
                         </div>
-                        <Badge 
-                          variant={announcement.type === 'important' ? 'error' : 'primary'} 
+                        <Badge
+                          variant={
+                            announcement.type === 'important'
+                              ? 'error'
+                              : 'primary'
+                          }
                           size="sm"
                         >
                           {announcement.type}

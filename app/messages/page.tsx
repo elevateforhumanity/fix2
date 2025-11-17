@@ -67,7 +67,9 @@ export default function MessagesPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-3xl font-bold text-slate-900">Messages</h1>
-          <p className="text-slate-600 mt-1">Connect with instructors, counselors, and support staff</p>
+          <p className="text-slate-600 mt-1">
+            Connect with instructors, counselors, and support staff
+          </p>
         </div>
       </div>
 
@@ -79,10 +81,7 @@ export default function MessagesPage() {
               <div className="p-4 border-b border-slate-200">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                  <Input
-                    placeholder="Search messages..."
-                    className="pl-10"
-                  />
+                  <Input placeholder="Search messages..." className="pl-10" />
                 </div>
               </div>
               <div>
@@ -104,13 +103,17 @@ export default function MessagesPage() {
                             {conv.name}
                           </div>
                           {conv.unread > 0 && (
-                            <Badge variant="primary" size="sm">{conv.unread}</Badge>
+                            <Badge variant="primary" size="sm">
+                              {conv.unread}
+                            </Badge>
                           )}
                         </div>
                         <div className="text-sm text-slate-600 truncate">
                           {conv.lastMessage}
                         </div>
-                        <div className="text-xs text-slate-500 mt-1">{conv.time}</div>
+                        <div className="text-xs text-slate-500 mt-1">
+                          {conv.time}
+                        </div>
                       </div>
                     </div>
                   </button>
@@ -127,8 +130,12 @@ export default function MessagesPage() {
                     SW
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900">Sarah Williams</div>
-                    <div className="text-sm text-slate-600">Career Counselor</div>
+                    <div className="font-semibold text-slate-900">
+                      Sarah Williams
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Career Counselor
+                    </div>
                   </div>
                 </div>
                 <Button variant="ghost" size="sm">

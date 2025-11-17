@@ -1,7 +1,8 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface CheckboxProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
   error?: string;
   helperText?: string;
@@ -9,8 +10,21 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, error, helperText, className = '', id, onCheckedChange, onChange, ...props }, ref) => {
-    const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+  (
+    {
+      label,
+      error,
+      helperText,
+      className = '',
+      id,
+      onCheckedChange,
+      onChange,
+      ...props
+    },
+    ref
+  ) => {
+    const checkboxId =
+      id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e);
@@ -57,9 +71,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {helperText && !error && (
               <p className="text-sm text-slate-500 mt-1">{helperText}</p>
             )}
-            {error && (
-              <p className="text-sm text-red-600 mt-1">{error}</p>
-            )}
+            {error && <p className="text-sm text-red-600 mt-1">{error}</p>}
           </div>
         )}
       </div>

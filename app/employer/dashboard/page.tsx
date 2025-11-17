@@ -3,14 +3,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { 
-  Briefcase, 
-  Users, 
-  TrendingUp, 
+import {
+  Briefcase,
+  Users,
+  TrendingUp,
   FileText,
   Plus,
   Eye,
-  CheckCircle
+  CheckCircle,
 } from 'lucide-react';
 
 export default function EmployerDashboardPage() {
@@ -78,8 +78,12 @@ export default function EmployerDashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-slate-900">Employer Dashboard</h1>
-              <p className="text-slate-600 mt-1">Manage your job postings and candidates</p>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Employer Dashboard
+              </h1>
+              <p className="text-slate-600 mt-1">
+                Manage your job postings and candidates
+              </p>
             </div>
             <Button variant="primary">
               <Plus className="h-4 w-4 mr-2" />
@@ -97,7 +101,9 @@ export default function EmployerDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Active Jobs</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">{stats.activeJobs}</div>
+                  <div className="text-3xl font-bold text-slate-900 mt-1">
+                    {stats.activeJobs}
+                  </div>
                 </div>
                 <Briefcase className="h-8 w-8 text-red-600" />
               </div>
@@ -108,8 +114,12 @@ export default function EmployerDashboardPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600">Total Applications</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">{stats.totalApplications}</div>
+                  <div className="text-sm text-slate-600">
+                    Total Applications
+                  </div>
+                  <div className="text-3xl font-bold text-slate-900 mt-1">
+                    {stats.totalApplications}
+                  </div>
                 </div>
                 <FileText className="h-8 w-8 text-purple-600" />
               </div>
@@ -121,7 +131,9 @@ export default function EmployerDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">New Applications</div>
-                  <div className="text-3xl font-bold text-orange-600 mt-1">{stats.newApplications}</div>
+                  <div className="text-3xl font-bold text-orange-600 mt-1">
+                    {stats.newApplications}
+                  </div>
                 </div>
                 <TrendingUp className="h-8 w-8 text-orange-600" />
               </div>
@@ -133,7 +145,9 @@ export default function EmployerDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Hired</div>
-                  <div className="text-3xl font-bold text-green-600 mt-1">{stats.hiredCandidates}</div>
+                  <div className="text-3xl font-bold text-green-600 mt-1">
+                    {stats.hiredCandidates}
+                  </div>
                 </div>
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
@@ -147,7 +161,9 @@ export default function EmployerDashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span>Active Job Postings</span>
-                <Button variant="ghost" size="sm">View All</Button>
+                <Button variant="ghost" size="sm">
+                  View All
+                </Button>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -159,13 +175,17 @@ export default function EmployerDashboardPage() {
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="font-semibold text-slate-900">{job.title}</h3>
+                        <h3 className="font-semibold text-slate-900">
+                          {job.title}
+                        </h3>
                         <p className="text-sm text-slate-600">{job.location}</p>
                       </div>
                       <Badge variant="success">Active</Badge>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">Posted: {job.posted}</span>
+                      <span className="text-slate-600">
+                        Posted: {job.posted}
+                      </span>
                       <div className="flex items-center gap-4">
                         <span className="text-slate-900 font-medium">
                           {job.applications} applications
@@ -187,7 +207,9 @@ export default function EmployerDashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span>Recent Applications</span>
-                <Button variant="ghost" size="sm">View All</Button>
+                <Button variant="ghost" size="sm">
+                  View All
+                </Button>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -199,15 +221,21 @@ export default function EmployerDashboardPage() {
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="font-semibold text-slate-900">{app.candidateName}</h3>
+                        <h3 className="font-semibold text-slate-900">
+                          {app.candidateName}
+                        </h3>
                         <p className="text-sm text-slate-600">{app.position}</p>
                       </div>
-                      <Badge variant={app.status === 'new' ? 'warning' : 'primary'}>
+                      <Badge
+                        variant={app.status === 'new' ? 'warning' : 'primary'}
+                      >
                         {app.status === 'new' ? 'New' : 'Reviewed'}
                       </Badge>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">Applied: {app.appliedDate}</span>
+                      <span className="text-slate-600">
+                        Applied: {app.appliedDate}
+                      </span>
                       <Button variant="outline" size="sm">
                         Review
                       </Button>

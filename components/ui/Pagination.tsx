@@ -57,7 +57,10 @@ export const Pagination: React.FC<PaginationProps> = ({
       {getPageNumbers().map((page, index) => {
         if (page === '...') {
           return (
-            <span key={`ellipsis-${index}`} className="px-3 py-2 text-slate-400">
+            <span
+              key={`ellipsis-${index}`}
+              className="px-3 py-2 text-slate-400"
+            >
               ...
             </span>
           );

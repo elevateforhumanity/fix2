@@ -3,13 +3,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  Users, 
-  GraduationCap, 
+import {
+  TrendingUp,
+  TrendingDown,
+  Users,
+  GraduationCap,
   Briefcase,
-  Download
+  Download,
 } from 'lucide-react';
 
 export default function ReportsPage() {
@@ -45,10 +45,34 @@ export default function ReportsPage() {
   ];
 
   const programPerformance = [
-    { program: 'HVAC Technician', enrolled: 450, completed: 414, placed: 364, rate: 88 },
-    { program: 'CNA Training', enrolled: 380, completed: 334, placed: 307, rate: 92 },
-    { program: 'Web Development', enrolled: 320, completed: 272, placed: 231, rate: 85 },
-    { program: 'Electrical Systems', enrolled: 290, completed: 261, placed: 227, rate: 87 },
+    {
+      program: 'HVAC Technician',
+      enrolled: 450,
+      completed: 414,
+      placed: 364,
+      rate: 88,
+    },
+    {
+      program: 'CNA Training',
+      enrolled: 380,
+      completed: 334,
+      placed: 307,
+      rate: 92,
+    },
+    {
+      program: 'Web Development',
+      enrolled: 320,
+      completed: 272,
+      placed: 231,
+      rate: 85,
+    },
+    {
+      program: 'Electrical Systems',
+      enrolled: 290,
+      completed: 261,
+      placed: 227,
+      rate: 87,
+    },
   ];
 
   return (
@@ -57,8 +81,12 @@ export default function ReportsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-slate-900">Reports & Analytics</h1>
-              <p className="text-slate-600 mt-1">Track performance and outcomes</p>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Reports & Analytics
+              </h1>
+              <p className="text-slate-600 mt-1">
+                Track performance and outcomes
+              </p>
             </div>
             <Button variant="primary">
               <Download className="h-4 w-4 mr-2" />
@@ -86,10 +114,15 @@ export default function ReportsPage() {
                   {metric.value}
                 </div>
                 <div className="flex items-center gap-2">
-                  <Badge variant={metric.trend === 'up' ? 'success' : 'error'} size="sm">
+                  <Badge
+                    variant={metric.trend === 'up' ? 'success' : 'error'}
+                    size="sm"
+                  >
                     {metric.change}
                   </Badge>
-                  <span className="text-xs text-slate-500">{metric.period}</span>
+                  <span className="text-xs text-slate-500">
+                    {metric.period}
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -126,10 +159,18 @@ export default function ReportsPage() {
                 <tbody className="divide-y divide-slate-200">
                   {programPerformance.map((prog) => (
                     <tr key={prog.program} className="hover:bg-slate-50">
-                      <td className="px-4 py-3 font-medium text-slate-900">{prog.program}</td>
-                      <td className="px-4 py-3 text-slate-600">{prog.enrolled}</td>
-                      <td className="px-4 py-3 text-slate-600">{prog.completed}</td>
-                      <td className="px-4 py-3 text-slate-600">{prog.placed}</td>
+                      <td className="px-4 py-3 font-medium text-slate-900">
+                        {prog.program}
+                      </td>
+                      <td className="px-4 py-3 text-slate-600">
+                        {prog.enrolled}
+                      </td>
+                      <td className="px-4 py-3 text-slate-600">
+                        {prog.completed}
+                      </td>
+                      <td className="px-4 py-3 text-slate-600">
+                        {prog.placed}
+                      </td>
                       <td className="px-4 py-3">
                         <Badge variant="success">{prog.rate}%</Badge>
                       </td>
@@ -147,7 +188,9 @@ export default function ReportsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600 mb-1">Active Students</div>
+                  <div className="text-sm text-slate-600 mb-1">
+                    Active Students
+                  </div>
                   <div className="text-2xl font-bold text-slate-900">1,847</div>
                 </div>
                 <Users className="h-8 w-8 text-red-600" />
@@ -159,7 +202,9 @@ export default function ReportsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600 mb-1">Graduates (YTD)</div>
+                  <div className="text-sm text-slate-600 mb-1">
+                    Graduates (YTD)
+                  </div>
                   <div className="text-2xl font-bold text-slate-900">1,281</div>
                 </div>
                 <GraduationCap className="h-8 w-8 text-green-600" />
@@ -171,7 +216,9 @@ export default function ReportsPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600 mb-1">Employer Partners</div>
+                  <div className="text-sm text-slate-600 mb-1">
+                    Employer Partners
+                  </div>
                   <div className="text-2xl font-bold text-slate-900">52</div>
                 </div>
                 <Briefcase className="h-8 w-8 text-orange-600" />

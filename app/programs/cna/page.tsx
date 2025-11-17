@@ -37,7 +37,8 @@ export default function CNAProgramPage() {
               Certified Nursing Assistant (CNA)
             </h1>
             <p className="text-xl text-gray-100">
-              Start your healthcare career with CNA certification. Gain the skills and credentials needed to provide essential patient care.
+              Start your healthcare career with CNA certification. Gain the
+              skills and credentials needed to provide essential patient care.
             </p>
           </div>
         </div>
@@ -151,7 +152,11 @@ export default function CNAProgramPage() {
                 <Button asChild className="w-full bg-red-600 hover:bg-red-700">
                   <Link href="/apply">Apply for CNA Training</Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full border-orange-500 text-orange-700 hover:bg-orange-50">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-orange-500 text-orange-700 hover:bg-orange-50"
+                >
                   <Link href="/contact">Learn More</Link>
                 </Button>
               </CardContent>

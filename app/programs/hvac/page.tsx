@@ -33,9 +33,13 @@ export default function HVACProgramPage() {
             <p className="text-sm uppercase tracking-wide mb-4 text-orange-200">
               Workforce Training Program
             </p>
-            <h1 className="text-5xl font-bold mb-4">HVAC Technician Career Pathway</h1>
+            <h1 className="text-5xl font-bold mb-4">
+              HVAC Technician Career Pathway
+            </h1>
             <p className="text-xl text-gray-100">
-              Hands-on, workforce-focused HVAC training built for working adults, career changers, and young people who want a skilled trade with real demand.
+              Hands-on, workforce-focused HVAC training built for working
+              adults, career changers, and young people who want a skilled trade
+              with real demand.
             </p>
           </div>
         </div>
@@ -160,7 +164,11 @@ export default function HVACProgramPage() {
                 <Button asChild className="w-full bg-red-600 hover:bg-red-700">
                   <Link href="/apply">Start HVAC Interest Form</Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full border-orange-500 text-orange-700 hover:bg-orange-50">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-orange-500 text-orange-700 hover:bg-orange-50"
+                >
                   <Link href="/contact">Talk with the Elevate Team</Link>
                 </Button>
               </CardContent>

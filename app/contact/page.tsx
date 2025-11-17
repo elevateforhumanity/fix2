@@ -26,7 +26,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-slate-300 max-w-2xl">
-            Have questions about our programs? We're here to help you find the right training path.
+            Have questions about our programs? We're here to help you find the
+            right training path.
           </p>
         </div>
       </section>
@@ -38,24 +39,39 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Get in Touch</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  Get in Touch
+                </h2>
                 <div className="space-y-4">
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Phone</div>
-                    <a href="tel:317-555-0100" className="text-red-600 hover:underline">
+                    <div className="font-semibold text-slate-900 mb-1">
+                      Phone
+                    </div>
+                    <a
+                      href="tel:317-555-0100"
+                      className="text-red-600 hover:underline"
+                    >
                       (317) 555-0100
                     </a>
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Email</div>
-                    <a href="mailto:info@elevateforhumanity.org" className="text-red-600 hover:underline">
+                    <div className="font-semibold text-slate-900 mb-1">
+                      Email
+                    </div>
+                    <a
+                      href="mailto:info@elevateforhumanity.org"
+                      className="text-red-600 hover:underline"
+                    >
                       info@elevateforhumanity.org
                     </a>
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Address</div>
+                    <div className="font-semibold text-slate-900 mb-1">
+                      Address
+                    </div>
                     <p className="text-slate-600">
-                      123 Workforce Way<br />
+                      123 Workforce Way
+                      <br />
                       Indianapolis, IN 46204
                     </p>
                   </div>
@@ -63,7 +79,9 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Office Hours</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  Office Hours
+                </h3>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
@@ -81,12 +99,20 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Quick Links</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  Quick Links
+                </h3>
                 <div className="space-y-2">
-                  <a href="/apply" className="block text-red-600 hover:underline">
+                  <a
+                    href="/apply"
+                    className="block text-red-600 hover:underline"
+                  >
                     Apply for Training
                   </a>
-                  <a href="/programs" className="block text-red-600 hover:underline">
+                  <a
+                    href="/programs"
+                    className="block text-red-600 hover:underline"
+                  >
                     Browse Programs
                   </a>
                   <a href="/faq" className="block text-red-600 hover:underline">
@@ -99,8 +125,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white border border-slate-200 p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h2>
-                
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  Send Us a Message
+                </h2>
+
                 {submitted && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-800 rounded">
                     Thank you! We'll get back to you within 24 hours.
@@ -110,7 +138,10 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-semibold text-slate-900 mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -118,12 +149,17 @@ export default function ContactPage() {
                         id="name"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-slate-900 mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -131,7 +167,9 @@ export default function ContactPage() {
                         id="email"
                         required
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
@@ -139,32 +177,44 @@ export default function ContactPage() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold text-slate-900 mb-2"
+                      >
                         Phone Number
                       </label>
                       <input
                         type="tel"
                         id="phone"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-semibold text-slate-900 mb-2"
+                      >
                         Subject *
                       </label>
                       <select
                         id="subject"
                         required
                         value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       >
                         <option value="">Select a subject</option>
                         <option value="general">General Inquiry</option>
                         <option value="programs">Program Information</option>
-                        <option value="eligibility">Eligibility Questions</option>
+                        <option value="eligibility">
+                          Eligibility Questions
+                        </option>
                         <option value="application">Application Help</option>
                         <option value="employer">Employer Partnership</option>
                       </select>
@@ -172,7 +222,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-slate-900 mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -180,7 +233,9 @@ export default function ContactPage() {
                       required
                       rows={6}
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                     />
                   </div>

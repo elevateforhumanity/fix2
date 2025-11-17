@@ -38,8 +38,10 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      
-      <div className={`flex ${direction === 'vertical' ? 'flex-col space-y-3' : 'flex-row flex-wrap gap-4'}`}>
+
+      <div
+        className={`flex ${direction === 'vertical' ? 'flex-col space-y-3' : 'flex-row flex-wrap gap-4'}`}
+      >
         {options.map((option) => (
           <Radio
             key={option.value}
@@ -53,15 +55,14 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
           />
         ))}
       </div>
-      
-      {error && (
-        <p className="mt-2 text-sm text-red-600">{error}</p>
-      )}
+
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
     </div>
   );
 };
 
-export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface RadioProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
   helperText?: string;
 }

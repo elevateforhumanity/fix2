@@ -33,9 +33,13 @@ export default function BarberProgramPage() {
             <p className="text-sm uppercase tracking-wide mb-4 text-orange-200">
               State-Approved Apprenticeship
             </p>
-            <h1 className="text-5xl font-bold mb-4">Barber Apprenticeship Program</h1>
+            <h1 className="text-5xl font-bold mb-4">
+              Barber Apprenticeship Program
+            </h1>
             <p className="text-xl text-gray-100">
-              Master the craft of barbering through a state-approved apprenticeship. Learn cutting, styling, and business skills in a real barbershop environment.
+              Master the craft of barbering through a state-approved
+              apprenticeship. Learn cutting, styling, and business skills in a
+              real barbershop environment.
             </p>
           </div>
         </div>
@@ -152,7 +156,11 @@ export default function BarberProgramPage() {
                 <Button asChild className="w-full bg-red-600 hover:bg-red-700">
                   <Link href="/apply">Apply for Barber Apprenticeship</Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full border-orange-500 text-orange-700 hover:bg-orange-50">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-orange-500 text-orange-700 hover:bg-orange-50"
+                >
                   <Link href="/contact">Schedule a Visit</Link>
                 </Button>
               </CardContent>

@@ -52,12 +52,15 @@ export default function WIOAEligibilityPage() {
         {/* Hero Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-green-50 to-white">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="success" className="mb-4">WIOA Eligibility</Badge>
+            <Badge variant="success" className="mb-4">
+              WIOA Eligibility
+            </Badge>
             <h1 className="text-5xl font-bold text-slate-900 mb-6">
               Am I Eligible for WIOA?
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              Find out if you qualify for free workforce training through the Workforce Innovation and Opportunity Act
+              Find out if you qualify for free workforce training through the
+              Workforce Innovation and Opportunity Act
             </p>
             <Button size="lg" variant="primary">
               Check Your Eligibility
@@ -68,13 +71,21 @@ export default function WIOAEligibilityPage() {
         {/* What is WIOA */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">What is WIOA?</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              What is WIOA?
+            </h2>
             <div className="prose prose-lg max-w-none text-slate-600">
               <p>
-                The Workforce Innovation and Opportunity Act (WIOA) is a federal program that provides funding for job training and education to help Americans find good jobs and build careers. WIOA is administered by the U.S. Department of Labor and implemented at the state and local level.
+                The Workforce Innovation and Opportunity Act (WIOA) is a federal
+                program that provides funding for job training and education to
+                help Americans find good jobs and build careers. WIOA is
+                administered by the U.S. Department of Labor and implemented at
+                the state and local level.
               </p>
               <p>
-                If you're eligible, WIOA can cover the full cost of training programs, including tuition, books, supplies, and support services like transportation and childcare.
+                If you're eligible, WIOA can cover the full cost of training
+                programs, including tuition, books, supplies, and support
+                services like transportation and childcare.
               </p>
             </div>
           </div>
@@ -84,7 +95,9 @@ export default function WIOAEligibilityPage() {
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">Eligibility Requirements</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Eligibility Requirements
+              </h2>
               <p className="text-xl text-slate-600">
                 WIOA serves three main populations
               </p>
@@ -114,9 +127,13 @@ export default function WIOAEligibilityPage() {
         {/* Income Limits */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Income Guidelines</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              Income Guidelines
+            </h2>
             <p className="text-lg text-slate-600 mb-8">
-              For adults and youth, "low income" is defined as income at or below the poverty line. Here are the 2024 federal poverty guidelines:
+              For adults and youth, "low income" is defined as income at or
+              below the poverty line. Here are the 2024 federal poverty
+              guidelines:
             </p>
             <Card>
               <CardContent className="p-0">
@@ -134,8 +151,12 @@ export default function WIOAEligibilityPage() {
                   <tbody className="divide-y divide-slate-200">
                     {incomeLimits.map((row) => (
                       <tr key={row.familySize}>
-                        <td className="px-6 py-4 text-slate-900">{row.familySize}</td>
-                        <td className="px-6 py-4 text-slate-900 font-semibold">{row.limit}</td>
+                        <td className="px-6 py-4 text-slate-900">
+                          {row.familySize}
+                        </td>
+                        <td className="px-6 py-4 text-slate-900 font-semibold">
+                          {row.limit}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -151,14 +172,18 @@ export default function WIOAEligibilityPage() {
         {/* Documentation */}
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Required Documentation</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              Required Documentation
+            </h2>
             <p className="text-lg text-slate-600 mb-8">
               To apply for WIOA, you'll need to provide:
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 mb-4">Identity & Eligibility</h3>
+                  <h3 className="font-semibold text-slate-900 mb-4">
+                    Identity & Eligibility
+                  </h3>
                   <ul className="space-y-2 text-sm text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
@@ -181,7 +206,9 @@ export default function WIOAEligibilityPage() {
               </Card>
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 mb-4">Income & Employment</h3>
+                  <h3 className="font-semibold text-slate-900 mb-4">
+                    Income & Employment
+                  </h3>
                   <ul className="space-y-2 text-sm text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
@@ -209,7 +236,9 @@ export default function WIOAEligibilityPage() {
         {/* FAQ */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-slate-900 mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-12">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-6">
               <Card>
                 <CardContent className="p-6">
@@ -220,7 +249,9 @@ export default function WIOAEligibilityPage() {
                         What if I'm not sure if I qualify?
                       </h3>
                       <p className="text-slate-600">
-                        Apply anyway! Our eligibility specialists will review your situation and help determine if you qualify. There are many pathways to eligibility.
+                        Apply anyway! Our eligibility specialists will review
+                        your situation and help determine if you qualify. There
+                        are many pathways to eligibility.
                       </p>
                     </div>
                   </div>
@@ -235,7 +266,8 @@ export default function WIOAEligibilityPage() {
                         How long does the application process take?
                       </h3>
                       <p className="text-slate-600">
-                        Most applications are processed within 2-3 weeks. Once approved, you can start training right away.
+                        Most applications are processed within 2-3 weeks. Once
+                        approved, you can start training right away.
                       </p>
                     </div>
                   </div>
@@ -250,7 +282,9 @@ export default function WIOAEligibilityPage() {
                         Can I work while in training?
                       </h3>
                       <p className="text-slate-600">
-                        Yes! Many of our students work part-time while completing their training. We offer flexible schedules to accommodate your needs.
+                        Yes! Many of our students work part-time while
+                        completing their training. We offer flexible schedules
+                        to accommodate your needs.
                       </p>
                     </div>
                   </div>
@@ -265,13 +299,18 @@ export default function WIOAEligibilityPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-xl mb-8 text-green-100">
-              Check your eligibility and start your journey to a better career today
+              Check your eligibility and start your journey to a better career
+              today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary">
                 Apply Now
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-green-700">
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-white text-white hover:bg-green-700"
+              >
                 Contact Us
               </Button>
             </div>

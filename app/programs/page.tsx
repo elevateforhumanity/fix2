@@ -24,7 +24,8 @@ export default function ProgramsPage() {
               Explore Career Training Programs
             </h1>
             <p className="text-xl text-slate-300 mb-8">
-              Browse WIOA-funded training programs, registered apprenticeships, and workforce development opportunities across Indiana.
+              Browse WIOA-funded training programs, registered apprenticeships,
+              and workforce development opportunities across Indiana.
             </p>
             <div className="flex flex-wrap gap-3">
               {categories.map((cat) => (
