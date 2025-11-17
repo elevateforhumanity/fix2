@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
  * Generate InVideo AI Prompts for Program Videos
- * 
+ *
  * This script reads your video scripts and creates ready-to-use
  * prompts for InVideo AI's text-to-video generator.
- * 
+ *
  * Usage: node generate-invideo-prompts.js
  */
 
@@ -18,7 +18,8 @@ const __dirname = path.dirname(__filename);
 const programs = [
   {
     name: 'Barber Apprenticeship',
-    scriptFile: 'content/video-scripts/ecd-courses/barber-apprenticeship-video.md',
+    scriptFile:
+      'content/video-scripts/ecd-courses/barber-apprenticeship-video.md',
     duration: '45-60 seconds',
     style: 'professional, modern barbershop, diverse professionals',
   },
@@ -47,7 +48,7 @@ programs.forEach((program, index) => {
   // Read script
   const scriptPath = path.join(__dirname, program.scriptFile);
   let script = '';
-  
+
   try {
     script = fs.readFileSync(scriptPath, 'utf8');
     // Remove markdown headers and clean up
@@ -68,7 +69,7 @@ programs.forEach((program, index) => {
 
   console.log('\n🎨 INVIDEO AI PROMPT:');
   console.log('-'.repeat(60));
-  
+
   const prompt = `Create a ${program.duration} professional video about ${program.name} for workforce training.
 
 Style: ${program.style}, modern, educational, high-quality

@@ -5,6 +5,7 @@
 Your video scripts are ready and prompts are generated!
 
 **Run this to see all prompts:**
+
 ```bash
 node generate-invideo-prompts.mjs
 ```
@@ -14,6 +15,7 @@ node generate-invideo-prompts.mjs
 ## 🚀 Quick Start (15 minutes total)
 
 ### Step 1: Go to InVideo AI
+
 1. Visit: **https://ai.invideo.io**
 2. Sign up or log in
 3. Free tier: 4 videos/month
@@ -49,6 +51,7 @@ Include:
 ```
 
 **In InVideo AI:**
+
 1. Click "Create AI Video"
 2. Paste the prompt above
 3. Select workflow: "YouTube Explainer" or "Professional"
@@ -127,6 +130,7 @@ Repeat the same steps as Video 1.
 ## 📝 After Creating All 3 Videos
 
 You should now have 3 URLs like:
+
 - `https://ai.invideo.io/watch/ABC123` (Barber)
 - `https://ai.invideo.io/watch/DEF456` (Medical)
 - `https://ai.invideo.io/watch/GHI789` (HVAC)
@@ -163,6 +167,7 @@ git push origin main
 ## 🎨 InVideo AI Tips
 
 ### Best Practices:
+
 1. **Voice Selection**: Choose a professional, clear voice
 2. **Template**: Use "YouTube Explainer" or "Professional" workflow
 3. **Music**: Select upbeat but not distracting background music
@@ -170,6 +175,7 @@ git push origin main
 5. **Captions**: Enable auto-captions for accessibility
 
 ### Editing After Generation:
+
 - Click "Edit" to modify scenes
 - Adjust timing if needed
 - Change music or voiceover
@@ -177,6 +183,7 @@ git push origin main
 - Customize colors to match your brand
 
 ### Export Settings:
+
 - Quality: 1080p (Full HD)
 - Format: MP4
 - Aspect Ratio: 16:9 (landscape)
@@ -187,12 +194,14 @@ git push origin main
 ## 💰 Pricing
 
 ### Free Tier:
+
 - 4 videos per month
 - 1080p quality
 - InVideo watermark
 - All features
 
 ### Paid Plan ($20/month):
+
 - Unlimited videos
 - No watermark
 - Priority generation
@@ -216,22 +225,26 @@ git push origin main
 ## ❓ Troubleshooting
 
 ### Video won't embed?
+
 - Make sure you're using the share URL, not the editor URL
 - Check if video is set to "Public" in InVideo settings
 - Try the embed URL format: `https://ai.invideo.io/embed/VIDEO_ID`
 
 ### Video quality is low?
+
 - Export in 1080p (Full HD)
 - Check your InVideo plan (free tier has limits)
 - Re-generate with "high quality" option
 
 ### Wrong footage or voice?
+
 - Click "Edit" in InVideo
 - Regenerate specific scenes
 - Change voice in settings
 - Adjust script if needed
 
 ### Need different videos?
+
 - Edit the scripts in `content/video-scripts/ecd-courses/`
 - Run `node generate-invideo-prompts.mjs` again
 - Create new videos with updated prompts

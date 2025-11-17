@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * Update Homepage with InVideo AI Video URLs
- * 
+ *
  * Usage: node update-homepage-videos.mjs [barber-url] [medical-url] [hvac-url]
- * 
+ *
  * Example:
  * node update-homepage-videos.mjs \
  *   https://ai.invideo.io/watch/ABC123 \
@@ -23,7 +23,9 @@ const args = process.argv.slice(2);
 if (args.length !== 3) {
   console.log('❌ Error: Need 3 video URLs\n');
   console.log('Usage:');
-  console.log('  node update-homepage-videos.mjs [barber-url] [medical-url] [hvac-url]\n');
+  console.log(
+    '  node update-homepage-videos.mjs [barber-url] [medical-url] [hvac-url]\n'
+  );
   console.log('Example:');
   console.log('  node update-homepage-videos.mjs \\');
   console.log('    https://ai.invideo.io/watch/ABC123 \\');
@@ -102,14 +104,18 @@ const newVideoSection = `          <div className="grid grid-cols-1 sm:grid-cols
           </div>`;
 
 // Find and replace the video grid section
-const videoGridRegex = /          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">[\s\S]*?<\/div>\s*<\/div>/;
+const videoGridRegex =
+  / {10}<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">[\s\S]*?<\/div>\s*<\/div>/;
 
 if (videoGridRegex.test(content)) {
-  content = content.replace(videoGridRegex, newVideoSection + '\n        </div>');
-  
+  content = content.replace(
+    videoGridRegex,
+    newVideoSection + '\n        </div>'
+  );
+
   // Write updated content
   fs.writeFileSync(homepagePath, content, 'utf8');
-  
+
   console.log('✅ Homepage updated successfully!\n');
   console.log('📝 Changes made:');
   console.log('  - Replaced static images with video iframes');
@@ -118,7 +124,9 @@ if (videoGridRegex.test(content)) {
   console.log('🚀 Next steps:');
   console.log('  1. Review changes: git diff app/page.tsx');
   console.log('  2. Test locally: npm run dev');
-  console.log('  3. Commit: git add app/page.tsx && git commit -m "Add InVideo AI videos"');
+  console.log(
+    '  3. Commit: git add app/page.tsx && git commit -m "Add InVideo AI videos"'
+  );
   console.log('  4. Deploy: git push origin main\n');
 } else {
   console.log('❌ Could not find video grid section in homepage');
