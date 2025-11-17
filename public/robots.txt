@@ -1,4 +1,4 @@
-# Robots.txt for https://elevateconnectsdirectory.org
+# Robots.txt for https://elevateforhumanity.org
 # Anti-scraping protection enabled
 
 # Allow legitimate search engines
@@ -42,4 +42,4 @@ Disallow: /.netlify/
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
+Sitemap: https://elevateforhumanity.org/sitemap.xml
