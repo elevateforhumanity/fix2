@@ -121,29 +121,44 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
-                  Get Certified.<br/>
-                  Get Hired.<br/>
-                  Get Paid.
+                  DOL-Registered Apprenticeships.<br/>
+                  <span className="text-blue-600">100% Free Training</span>.<br/>
+                  Real Jobs Waiting.
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                  From unemployed to employed in 4-12 weeks. Free training for most students through WIOA. Real jobs waiting.
+                  <strong>WIOA, WRG, JRI, and OJT funding available</strong>. DOL-registered apprenticeships. ETPL-approved training. WorkOne and EmployIndy referrals accepted. <strong>Most students pay $0</strong>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <Link 
                     href="/apply"
-                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all"
+                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 text-lg"
                   >
-                    Check If You Qualify for Free Training
-                    <ArrowRight className="w-5 h-5" />
+                    Apply Now - Classes Start Feb 5th
+                    <ArrowRight className="w-6 h-6" />
                   </Link>
                   <Link 
                     href="/programs"
-                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-semibold px-8 py-4 rounded-lg border-2 border-slate-200 transition-all"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold px-10 py-5 rounded-lg border-2 border-slate-300 transition-all text-lg"
                   >
-                    View All Programs
+                    See Programs & Salaries
                   </Link>
+                </div>
+
+                <div className="flex items-center gap-4 text-sm text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <span>No application fee</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <span>Apply in 5 minutes</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <span>Start earning fast</span>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200">
@@ -572,20 +587,274 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Workforce Funding & Compliance - The Main Focus */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+                Free Training Through Workforce Development Programs
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                We accept WIOA, WRG, JRI, OJT, and WEX funding. WorkOne and EmployIndy referrals welcome. DOL-registered apprenticeships available.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6 mb-12">
+              {/* WIOA */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-100">
+                <div className="text-4xl mb-3">📋</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">WIOA Eligible</h3>
+                <p className="text-sm text-slate-600">Workforce Innovation and Opportunity Act funding covers full tuition for eligible students</p>
+              </div>
+
+              {/* WRG */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-green-100">
+                <div className="text-4xl mb-3">💰</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">WRG Approved</h3>
+                <p className="text-sm text-slate-600">Workforce Ready Grant through Indiana DWD - up to $5,000 per student</p>
+              </div>
+
+              {/* JRI */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-purple-100">
+                <div className="text-4xl mb-3">🎯</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">JRI Eligible</h3>
+                <p className="text-sm text-slate-600">Job Ready Indiana funding for high-demand careers and apprenticeships</p>
+              </div>
+
+              {/* OJT/WEX */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-orange-100">
+                <div className="text-4xl mb-3">🤝</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">OJT & WEX</h3>
+                <p className="text-sm text-slate-600">On-the-Job Training and Work Experience programs with employer wage reimbursement</p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-white">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4">DOL-Registered Apprenticeships</h3>
+                  <p className="text-blue-100 mb-6 text-lg">
+                    Our Barber Apprenticeship is registered with the U.S. Department of Labor. Earn while you learn with structured on-the-job training and related instruction.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Nationally recognized credential</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Paid training from day one</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Progressive wage increases</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>No student debt</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                  <div className="text-center mb-6">
+                    <div className="text-6xl mb-4">🇺🇸</div>
+                    <div className="text-2xl font-bold mb-2">U.S. Department of Labor</div>
+                    <div className="text-blue-100">Registered Apprenticeship Program</div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-blue-100">Program:</span>
+                      <span className="font-semibold">Barber Apprenticeship</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-100">Duration:</span>
+                      <span className="font-semibold">12-18 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-100">Hours:</span>
+                      <span className="font-semibold">1,500+ OJT hours</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-100">Status:</span>
+                      <span className="font-semibold text-green-300">Active & Accepting</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link 
+                href="/agencies"
+                className="inline-flex items-center gap-2 bg-slate-900 text-white font-bold px-8 py-4 rounded-lg hover:bg-slate-800 transition-all shadow-xl text-lg"
+              >
+                WorkOne & EmployIndy Partners - Refer Clients Here
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Training Facilities - Real Images */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Train in Real Facilities with Real Equipment
+              </h2>
+              <p className="text-xl text-slate-600">
+                No simulations. No fake scenarios. Just real-world training that employers value.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="group">
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src="/images/programs/efh-cna-hero.jpg"
+                    alt="CNA training in real hospital"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Real Hospital Settings</h3>
+                <p className="text-slate-600">CNA students train in actual medical facilities with licensed nurses</p>
+              </div>
+
+              <div className="group">
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src="/media/programs/trades-1.jpg"
+                    alt="HVAC training with real systems"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Professional HVAC Labs</h3>
+                <p className="text-slate-600">Work on actual heating and cooling systems, not just textbooks</p>
+              </div>
+
+              <div className="group">
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src="/media/programs/barber-hero.jpg"
+                    alt="Barber training in real shop"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Active Barbershops</h3>
+                <p className="text-slate-600">Apprentices work with real clients while earning and learning</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Jobs Waiting - Specific Employers & Roles */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Real Jobs. Real Employers. Hiring Now.
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Our employer partners are actively hiring graduates. These aren't "potential" jobs - they're open positions waiting for trained candidates.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* Healthcare Jobs */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100">
+                <div className="text-4xl mb-4">🏥</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Healthcare</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">Certified Nursing Assistant</div>
+                    <div className="text-sm text-slate-600 mb-2">IU Health, Community Health Network, Ascension</div>
+                    <div className="text-lg font-bold text-blue-600">$32,000 - $38,000/yr</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">Patient Care Technician</div>
+                    <div className="text-sm text-slate-600 mb-2">Eskenazi Health, St. Vincent</div>
+                    <div className="text-lg font-bold text-blue-600">$34,000 - $40,000/yr</div>
+                  </div>
+                </div>
+                <Link href="/programs/cna" className="block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-all">
+                  Apply for CNA Program →
+                </Link>
+              </div>
+
+              {/* Trades Jobs */}
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-100">
+                <div className="text-4xl mb-4">🔧</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Skilled Trades</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">HVAC Technician</div>
+                    <div className="text-sm text-slate-600 mb-2">Carrier, Trane, Local HVAC Companies</div>
+                    <div className="text-lg font-bold text-orange-600">$45,000 - $65,000/yr</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">CDL Truck Driver</div>
+                    <div className="text-sm text-slate-600 mb-2">Schneider, Werner, Local Fleets</div>
+                    <div className="text-lg font-bold text-orange-600">$50,000 - $70,000/yr</div>
+                  </div>
+                </div>
+                <Link href="/programs/hvac" className="block w-full text-center bg-orange-600 text-white font-bold py-3 rounded-lg hover:bg-orange-700 transition-all">
+                  Apply for HVAC Program →
+                </Link>
+              </div>
+
+              {/* Apprenticeship Jobs */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-100">
+                <div className="text-4xl mb-4">✂️</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Apprenticeships</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">Barber Apprentice</div>
+                    <div className="text-sm text-slate-600 mb-2">Kenny's Barber Academy, Local Shops</div>
+                    <div className="text-lg font-bold text-purple-600">$15-$25/hr + Tips</div>
+                    <div className="text-xs text-green-600 font-semibold mt-1">✓ Earn while you learn</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <div className="font-bold text-slate-900 mb-1">Building Maintenance Tech</div>
+                    <div className="text-sm text-slate-600 mb-2">Property Management Companies</div>
+                    <div className="text-lg font-bold text-purple-600">$35,000 - $45,000/yr</div>
+                  </div>
+                </div>
+                <Link href="/programs/barber" className="block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition-all">
+                  Apply for Apprenticeship →
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-slate-900 rounded-2xl p-8 md:p-12 text-white text-center">
+              <h3 className="text-3xl font-bold mb-4">Don't See Your Dream Job?</h3>
+              <p className="text-xl text-slate-300 mb-6 max-w-2xl mx-auto">
+                We're adding new programs every month based on employer demand. Tell us what you want to do and we'll help you get there.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-slate-100 transition-all">
+                Request a New Program
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Urgency Banner */}
-        <section className="bg-slate-900 text-white py-4">
+        <section className="bg-red-600 text-white py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6" />
-                <span className="font-bold text-lg">Next Classes Starting Soon</span>
+                <span className="font-bold text-lg">⚡ Next Classes Starting Soon - Limited Spots!</span>
               </div>
-              <div className="flex items-center gap-6 text-sm">
-                <span>CNA: Feb 5th</span>
+              <div className="flex items-center gap-6 text-sm font-semibold">
+                <span>CNA: Feb 5th (8 spots left)</span>
                 <span>HVAC: Feb 12th</span>
                 <span>CDL: Feb 1st</span>
-                <Link href="/apply" className="bg-white text-red-600 px-6 py-2 rounded-lg font-bold hover:bg-slate-100 transition-colors">
-                  Apply Now
+                <Link href="/apply" className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors shadow-lg">
+                  Apply Now →
                 </Link>
               </div>
             </div>
