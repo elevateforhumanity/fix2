@@ -1,168 +1,136 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Play } from "lucide-react";
 
-const bullets = [
-  "Milady-powered barbering curriculum for theory, safety, and technique.",
-  "Shop-based experience where learners can observe, assist, and grow into the chair.",
-  "Elevate LMS tracking for attendance, milestones, and apprenticeship hours.",
-  "Live Q&A spaces so learners can ask real questions and stay encouraged.",
-  "A clear path toward state barber licensing support and long-term careers.",
-];
-
-const fits = [
-  "Young adults who want a trade that lets them create and connect with people.",
-  "Helpers already in the shop who are ready for structured growth and licensing.",
-  "Career changers coming from retail, warehouse, or gig work.",
-  "Learners referred by WorkOne, EmployIndy, churches, and local partners.",
-];
-
-export default function BarberProgramPage() {
+export default function BarberPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10 ring-1 ring-emerald-400/40">
-              <span className="text-sm font-bold text-emerald-300">EFH</span>
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-sm font-semibold text-slate-50">
-                Elevate for Humanity
-              </span>
-              <span className="text-[0.7rem] text-slate-400">
-                Elevate Connects Directory
-              </span>
-            </div>
-          </Link>
-
-          <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 md:flex">
-            <Link href="/programs" className="hover:text-emerald-300">
-              Programs
-            </Link>
-            <Link href="/#how-it-works" className="hover:text-emerald-300">
-              How Elevate Works
-            </Link>
-            <Link href="/partners" className="hover:text-emerald-300">
-              For Agencies & Partners
-            </Link>
-            <Link href="/about" className="hover:text-emerald-300">
-              About
-            </Link>
-            <Link
-              href="/login"
-              className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[0.7rem] text-slate-100 hover:border-emerald-400 hover:text-emerald-200"
-            >
-              Login
-            </Link>
-          </nav>
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* HERO WITH VIDEO */}
+      <section className="relative h-[60vh] w-full overflow-hidden">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/program-barber-apprenticeship.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/70 to-black/40" />
+        <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-10 md:px-12 lg:px-24 max-w-5xl">
+          <p className="mb-2 text-xs font-semibold tracking-[0.25em] uppercase text-orange-300">
+            Elevate For Humanity™ • State-Approved Apprenticeship
+          </p>
+          <h1 className="mb-3 text-3xl md:text-4xl font-bold">
+            Barber Apprenticeship Program
+          </h1>
+          <p className="max-w-2xl text-sm md:text-base text-slate-100">
+            Earn while you learn in a real barbershop. Build hours toward your
+            state barber license through hands-on apprenticeship training.
+          </p>
         </div>
-      </header>
-      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-        <div className="mx-auto max-w-6xl px-4 pb-12 pt-16 lg:px-6 lg:pb-16 lg:pt-20">
-          <div className="max-w-3xl space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
-              Barber apprenticeship · Milady-powered
+      </section>
+
+      {/* PROGRAM DETAILS */}
+      <section className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-12 space-y-8">
+        <div>
+          <h2 className="text-xl md:text-2xl font-bold mb-3">Program Overview</h2>
+          <p className="text-sm md:text-base text-slate-200">
+            This is a DOL-approved apprenticeship program. You'll work in a real
+            barbershop, learning from licensed barbers while earning income and
+            building the hours required for state licensure.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-orange-300">
+              Duration
+            </h3>
+            <p className="text-sm text-slate-200">12–18 Months</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-orange-300">
+              Format
+            </h3>
+            <p className="text-sm text-slate-200">
+              On-the-Job Training + Classroom Instruction
             </p>
-            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.8rem]">
-              Barber Apprenticeship Pathway
-            </h1>
-            <p className="text-sm text-slate-300">
-              Elevate's barber apprenticeship pathway combines Milady's trusted curriculum,
-              real barbershop experience, and LMS tracking so learners, shops, and agencies
-              can move together toward licensing—not guess their way through it.
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-orange-300">
+              Funding
+            </h3>
+            <p className="text-sm text-slate-200">
+              DOL Apprenticeship • WIOA • Earn While You Learn
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/apply/barber"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
-              >
-                Apply for the barber pathway
-              </Link>
-              <Link
-                href="/partners"
-                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
-              >
-                Host apprentices or refer learners
-              </Link>
-            </div>
           </div>
+        </div>
 
-          {/* Video Hero */}
-          <div className="mt-10 mb-10">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96 group cursor-pointer">
-              <Image
-                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80"
-                alt="Barber training in professional shop"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
-              
-              {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-slate-900 ml-1" fill="currentColor" />
-                </div>
-              </div>
+        <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
+          <h2 className="text-xl font-bold mb-3">Who This Is For</h2>
+          <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
+            <li>Young adults who want a creative, people-focused trade</li>
+            <li>Career changers looking for a stable, licensed profession</li>
+            <li>Shop helpers ready to formalize their training</li>
+            <li>Anyone passionate about barbering and community connection</li>
+          </ul>
+        </div>
 
-              <div className="absolute bottom-8 left-8 text-white">
-                <p className="text-sm font-semibold mb-2">Watch: Real barbershop training</p>
-                <p className="text-2xl font-bold">See how apprentices learn from master barbers</p>
-              </div>
-            </div>
-          </div>
+        <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
+          <h2 className="text-xl font-bold mb-3">What You'll Learn</h2>
+          <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
+            <li>Hair cutting, styling, and grooming techniques</li>
+            <li>Sanitation, safety, and state board requirements</li>
+            <li>Customer service and shop management</li>
+            <li>Business skills for future shop ownership</li>
+            <li>Milady curriculum and state licensing preparation</li>
+          </ul>
+        </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr,0.9fr] md:items-start">
-            <div className="space-y-3 text-sm text-slate-200">
-              <h2 className="text-[1.1rem] font-semibold text-slate-50">
-                What this pathway is designed to do.
-              </h2>
-              <p className="text-slate-300">
-                This pathway is built so shops can do what they do best—build barbers—while
-                Elevate and Milady provide structure, content, and documentation.
-              </p>
-              <ul className="mt-3 space-y-2">
-                {bullets.map((b) => (
-                  <li key={b}>• {b}</li>
-                ))}
-              </ul>
-            </div>
+        <div className="rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/20 to-slate-900 p-6">
+          <h2 className="text-xl font-bold mb-3">Apprenticeship Benefits</h2>
+          <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1 mb-4">
+            <li><strong>Earn While You Learn</strong> - Get paid as you train</li>
+            <li><strong>State-Approved</strong> - DOL registered apprenticeship</li>
+            <li><strong>Real Experience</strong> - Work in actual barbershops</li>
+            <li><strong>License Track</strong> - Build hours toward state licensure</li>
+            <li><strong>Support Services</strong> - Coaching and case management</li>
+          </ul>
+        </div>
 
-            <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.75)]">
-              <h3 className="text-[0.95rem] font-semibold text-slate-50">
-                Who this is a good fit for.
-              </h3>
-              <ul className="mt-3 space-y-2">
-                {fits.map((f) => (
-                  <li key={f}>• {f}</li>
-                ))}
-              </ul>
-              <p className="mt-4 text-[0.75rem] text-slate-400">
-                Exact licensing rules and apprenticeship requirements vary by state. Elevate
-                helps learners understand the path and stay organized alongside shop owners
-                and agencies.
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/apply"
+            className="rounded-full bg-orange-500 px-6 py-3 text-sm md:text-base font-semibold shadow-lg shadow-orange-500/40 hover:bg-orange-400 transition"
+          >
+            Apply Now
+          </Link>
+          <Link
+            href="/programs"
+            className="rounded-full border border-white/40 px-6 py-3 text-sm md:text-base font-semibold hover:bg-white/10 transition"
+          >
+            View All Programs
+          </Link>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/terms" className="hover:text-emerald-300">
-              Terms
-            </Link>
-            <Link href="/privacy" className="hover:text-emerald-300">
-              Privacy
-            </Link>
-            <Link href="/contact" className="hover:text-emerald-300">
-              Contact
-            </Link>
+      <footer className="border-t border-white/10 bg-black py-8 mt-12">
+        <div className="mx-auto max-w-6xl px-6 md:px-12">
+          <div className="flex flex-col gap-6 md:flex-row md:justify-between">
+            <div>
+              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="text-xs text-slate-400">
+                Workforce training, apprenticeships, and career pathways.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-6 text-xs text-slate-400">
+              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
+              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
+              <Link href="/about" className="hover:text-orange-300">About</Link>
+              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
+            </div>
+          </div>
+          <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
+            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
           </div>
         </div>
       </footer>
