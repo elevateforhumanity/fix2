@@ -2,21 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Play } from "lucide-react";
 
-const stats = [
-  {
-    label: "Built for workforce systems",
-    value: "All in one front door",
-  },
-  {
-    label: "Pathways you can trust",
-    value: "Barber · Healthcare · Trades",
-  },
-  {
-    label: "Designed for real people",
-    value: "Learners · Agencies · Employers",
-  },
-];
-
 const steps = [
   {
     title: "1 · One clear starting point",
@@ -124,136 +109,58 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
         <div className="pointer-events-none absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-sky-500/15 blur-3xl" />
 
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 pb-16 pt-16 md:flex-row md:items-center lg:px-6 lg:pb-20 lg:pt-20">
-          {/* LEFT: MAIN COPY */}
-          <div className="relative z-10 max-w-xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.16em] text-emerald-200">
-              Workforce pathways · LMS · Apprenticeships
+        <div className="mx-auto max-w-5xl px-4 pb-16 pt-16 text-center lg:px-6 lg:pb-24 lg:pt-24">
+          {/* MAIN COPY */}
+          <div className="relative z-10 mx-auto max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-medium uppercase tracking-wider text-emerald-200">
+              Workforce Training Platform
             </div>
 
-            <h1 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-[2.75rem]">
+            <h1 className="text-balance text-4xl font-bold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
               The digital front door for{" "}
               <span className="bg-gradient-to-r from-emerald-300 via-sky-300 to-amber-300 bg-clip-text text-transparent">
                 community-powered careers.
               </span>
             </h1>
 
-            <p className="text-sm leading-relaxed text-slate-300 sm:text-[0.96rem]">
-              Elevate for Humanity gives cities, boards, and community partners one modern
-              place to send people for{" "}
-              <span className="font-semibold text-emerald-200">
-                barber, healthcare, and skilled trades pathways
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              Connect learners to career training in{" "}
+              <span className="font-semibold text-emerald-300">
+                Barber, Healthcare, and Skilled Trades
               </span>
-              . Partners provide the curriculum and licensing. Elevate organizes the journey so
-              learners don&apos;t get lost and agencies can see what&apos;s working.
+              . One platform for enrollment, tracking, and workforce compliance.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-emerald-500/30 transition-all hover:bg-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/40"
               >
-                Explore Elevate Programs
+                View Programs
               </Link>
               <Link
                 href="/partners"
-                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
+                className="inline-flex items-center justify-center rounded-full border-2 border-slate-700 bg-transparent px-8 py-4 text-base font-semibold text-slate-100 transition-all hover:border-emerald-400 hover:bg-emerald-400/10"
               >
-                For Workforce & Referral Partners
+                For Partners
               </Link>
             </div>
 
-            <div className="grid gap-3 pt-2 text-xs text-slate-300 sm:grid-cols-3 sm:text-[0.78rem]">
+            {/* Simple Stats */}
+            <div className="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-8 text-center">
               <div>
-                <p className="font-semibold text-slate-100">
-                  Designed for Indiana and beyond.
-                </p>
-                <p className="text-slate-400">
-                  Built with WorkOne, EmployIndy, WRG, JRI, and similar boards in mind.
-                </p>
+                <div className="text-3xl font-bold text-emerald-400">3</div>
+                <div className="mt-1 text-sm text-slate-400">Career Pathways</div>
               </div>
               <div>
-                <p className="font-semibold text-slate-100">Partner-powered, not siloed.</p>
-                <p className="text-slate-400">
-                  Milady, MA partners, and HVAC schools keep teaching. Elevate connects it.
-                </p>
+                <div className="text-3xl font-bold text-emerald-400">100%</div>
+                <div className="mt-1 text-sm text-slate-400">WIOA Eligible</div>
               </div>
               <div>
-                <p className="font-semibold text-slate-100">
-                  Stories everyone can understand.
-                </p>
-                <p className="text-slate-400">
-                  Pages written for learners, parents, and case managers—not just funders.
-                </p>
+                <div className="text-3xl font-bold text-emerald-400">$0</div>
+                <div className="mt-1 text-sm text-slate-400">Upfront Cost</div>
               </div>
             </div>
-          </div>
-
-          {/* RIGHT: VISUAL PANEL */}
-          <div className="relative z-10 mx-auto w-full max-w-md flex-1">
-            <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-950/80 shadow-[0_0_80px_rgba(0,0,0,0.85)]">
-              <div className="border-b border-slate-800 bg-slate-900/80 px-4 py-3 text-xs text-slate-300 flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <span className="flex h-2.5 w-2.5 items-center justify-center rounded-full bg-emerald-400/90" />
-                  Elevate Cohort View
-                </span>
-                <span className="text-[0.7rem] text-slate-500">
-                  Barber · MA · HVAC
-                </span>
-              </div>
-              <div className="space-y-4 px-4 py-4">
-                <div className="rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 to-slate-950 px-4 py-3">
-                  <p className="text-[0.7rem] uppercase tracking-wide text-emerald-300">
-                    Live snapshot
-                  </p>
-                  <p className="mt-1 text-xs text-slate-300">
-                    Who&apos;s enrolled, where they are in the journey, and which partner
-                    they&apos;re with—on one simple screen.
-                  </p>
-                  <div className="mt-3 grid grid-cols-3 gap-3 text-center text-[0.7rem]">
-                    <div className="rounded-xl bg-slate-900/80 p-2">
-                      <p className="text-[0.65rem] text-slate-400">Barber</p>
-                      <p className="text-sm font-semibold text-emerald-300">In Progress</p>
-                    </div>
-                    <div className="rounded-xl bg-slate-900/80 p-2">
-                      <p className="text-[0.65rem] text-slate-400">Medical Assist.</p>
-                      <p className="text-sm font-semibold text-sky-300">Cohort Ready</p>
-                    </div>
-                    <div className="rounded-xl bg-slate-900/80 p-2">
-                      <p className="text-[0.65rem] text-slate-400">HVAC</p>
-                      <p className="text-sm font-semibold text-amber-300">Partner Sync</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-[0.78rem] text-slate-200">
-                  <p className="font-semibold text-slate-100">
-                    "When in doubt, send them to Elevate."
-                  </p>
-                  <p className="mt-1 text-slate-400">
-                    The goal is simple: make Elevate the sentence people say when someone is
-                    ready for a program, a pathway, or a second chance.
-                  </p>
-                </div>
-
-                <div className="grid gap-3 text-[0.7rem] text-slate-300 sm:grid-cols-2">
-                  {stats.map((item) => (
-                    <div
-                      key={item.label}
-                      className="rounded-2xl border border-slate-800 bg-slate-900/80 px-3 py-3"
-                    >
-                      <p className="text-[0.65rem] uppercase tracking-wide text-slate-400">
-                        {item.label}
-                      </p>
-                      <p className="mt-1 text-[0.8rem] font-semibold text-emerald-200">
-                        {item.value}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
