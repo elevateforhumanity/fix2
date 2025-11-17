@@ -128,6 +128,108 @@ export default function CNAProgramPage() {
         </div>
       </section>
 
+      {/* Compliance Alignment - Section 4.2 from LMS UX Plan */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50 border-y border-purple-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Workforce Compliance & Approvals
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              This program is fully aligned with federal and state workforce development standards.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">ETPL-Approved</h3>
+              <p className="text-sm text-slate-600">
+                Listed on Indiana's Eligible Training Provider List for WIOA funding.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">WRG Eligible</h3>
+              <p className="text-sm text-slate-600">
+                Qualifies for Workforce Ready Grant funding through DWD.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">WorkOne Referral Ready</h3>
+              <p className="text-sm text-slate-600">
+                Accepts referrals from WorkOne centers statewide.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">Hours Tracking</h3>
+              <p className="text-sm text-slate-600">
+                Automated attendance and hours logging for compliance reporting.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-white rounded-2xl p-8 shadow-xl">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">Program Details for Workforce Partners</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="font-bold text-slate-900 mb-4">Program Information</h4>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">Program Code:</span>
+                    <span className="font-semibold text-slate-900">CNA-001</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">CIP Code:</span>
+                    <span className="font-semibold text-slate-900">51.3902</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">Total Hours:</span>
+                    <span className="font-semibold text-slate-900">120 hours</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">Modality:</span>
+                    <span className="font-semibold text-slate-900">Hybrid (Classroom + Clinical)</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-slate-900 mb-4">Credentials & Partners</h4>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">Credential Issued:</span>
+                    <span className="font-semibold text-slate-900">State CNA Certification</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">Partner School:</span>
+                    <span className="font-semibold text-slate-900">Choice Medical Institute</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-slate-600">ETPL Link:</span>
+                    <Link href="/compliance/etpl" className="font-semibold text-blue-600 hover:text-blue-700">
+                      View Listing
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Schedule */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
