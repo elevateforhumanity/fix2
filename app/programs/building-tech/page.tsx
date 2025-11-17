@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function BuildingTechPage() {
   return (
@@ -78,9 +78,7 @@ export default function BuildingTechPage() {
             </ul>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-            <h2 className="text-lg font-bold mb-3">
-              What You&apos;ll Learn
-            </h2>
+            <h2 className="text-lg font-bold mb-3">What You&apos;ll Learn</h2>
             <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
               <li>Basic electrical, plumbing, and HVAC systems</li>
               <li>Carpentry, drywall, painting, and general repairs</li>
@@ -114,10 +112,21 @@ export default function BuildingTechPage() {
             technicians are in constant demand.
           </p>
           <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
-            <li><strong>Stable Employment:</strong> Essential services that can't be outsourced</li>
-            <li><strong>Career Growth:</strong> Advance to supervisor or facility manager roles</li>
-            <li><strong>Diverse Skills:</strong> Learn multiple trades in one program</li>
-            <li><strong>Good Pay:</strong> Competitive wages with benefits</li>
+            <li>
+              <strong>Stable Employment:</strong> Essential services that can't
+              be outsourced
+            </li>
+            <li>
+              <strong>Career Growth:</strong> Advance to supervisor or facility
+              manager roles
+            </li>
+            <li>
+              <strong>Diverse Skills:</strong> Learn multiple trades in one
+              program
+            </li>
+            <li>
+              <strong>Good Pay:</strong> Competitive wages with benefits
+            </li>
           </ul>
         </div>
 
@@ -142,20 +151,31 @@ export default function BuildingTechPage() {
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="mb-2 text-sm font-semibold text-white">
+                Elevate For Humanity™
+              </p>
               <p className="text-xs text-slate-400">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
+              <Link href="/programs" className="hover:text-orange-300">
+                Programs
+              </Link>
+              <Link href="/partners" className="hover:text-orange-300">
+                Partners
+              </Link>
+              <Link href="/about" className="hover:text-orange-300">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-orange-300">
+                Contact
+              </Link>
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate For Humanity. All rights
+            reserved.
           </div>
         </div>
       </footer>

@@ -13,6 +13,7 @@ However, I can help you **streamline the process** to make it as fast as possibl
 ### Step 1: Prepare All Scripts (Already Done!)
 
 All your scripts are ready in:
+
 - `content/video-scripts/ecd-courses/`
 - `INVIDEO_REEL_SCRIPTS.md`
 
@@ -23,32 +24,38 @@ All your scripts are ready in:
 **Create videos in this order:**
 
 #### 1. Hero Video (5 min)
+
 - Search: "business promo cinematic website hero"
 - Paste script from `INVIDEO_COMPLETE_SETUP.md`
 - Customize: Elevate For Humanity branding
 - Export: `hero-elevate-home.mp4`
 
 #### 2. Medical Assistant (5 min)
+
 - Search: "nursing promo video"
 - Paste script from `content/video-scripts/ecd-courses/medical-assistant-video.md`
 - Export: `program-medical-assistant.mp4`
 
 #### 3. Barber Apprenticeship (5 min)
+
 - Search: "barber shop promo"
 - Paste script from `content/video-scripts/ecd-courses/barber-apprenticeship-video.md`
 - Export: `program-barber-apprenticeship.mp4`
 
 #### 4. HVAC Technician (5 min)
+
 - Search: "trade school promo"
 - Paste script from `content/video-scripts/ecd-courses/hvac-technician-video.md`
 - Export: `program-hvac.mp4`
 
 #### 5. Workforce Readiness (5 min)
+
 - Search: "job training program promo"
 - Paste script (create from program page content)
 - Export: `program-workforce-readiness.mp4`
 
 #### 6. Building Tech (5 min)
+
 - Search: "facility management promo"
 - Paste script (create from program page content)
 - Export: `program-building-tech.mp4`
@@ -96,11 +103,13 @@ git push
 ### Option C: Use Cloud Storage (Recommended for production)
 
 **Cloudflare Stream** (Best for video):
+
 - Upload videos to Cloudflare Stream
 - Get embed URLs
 - Update video src in code
 
 **YouTube (Free alternative):**
+
 - Upload as "Unlisted"
 - Get embed URLs
 - Update video src to YouTube embed format
@@ -132,16 +141,19 @@ While you create InVideo videos, use placeholder videos:
 Since InVideo doesn't have an API, here's the fastest manual workflow:
 
 ### 1. Open Multiple Tabs
+
 - Open 5 tabs in InVideo AI
 - Start all 5 videos at once
 - While one generates, work on the next
 
 ### 2. Use Templates
+
 - Save your first video as a template
 - Reuse the same style/voice for consistency
 - Only change the script and visuals
 
 ### 3. Batch Export
+
 - Queue all videos for export
 - Download all at once
 - Organize in one batch
@@ -217,17 +229,20 @@ git push origin main
 ## ❓ Need Help?
 
 **Videos not showing?**
+
 - Check file names match exactly
 - Check files are in `public/videos/` folder
 - Clear browser cache
 - Check browser console for errors
 
 **Videos too large?**
+
 - Use HandBrake to compress
 - Target: 10-20MB per video
 - Or use video hosting (YouTube, Cloudflare Stream)
 
 **Can't access InVideo?**
+
 - Free tier: 4 videos/month
 - Paid: $20/month unlimited
 - Alternative: Use Canva Video (also has AI features)
