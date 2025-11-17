@@ -1,27 +1,27 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const programs = [
   {
-    slug: "/programs/barber",
-    name: "Barber Apprenticeship (Milady-Powered)",
-    tag: "Apprenticeship · License Track",
+    slug: '/programs/barber',
+    name: 'Barber Apprenticeship (Milady-Powered)',
+    tag: 'Apprenticeship · License Track',
     summary:
-      "Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.",
+      'Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.',
   },
   {
-    slug: "/programs/medical-assistant",
-    name: "Medical Assistant Pathway",
-    tag: "Healthcare · Partner Program",
+    slug: '/programs/medical-assistant',
+    name: 'Medical Assistant Pathway',
+    tag: 'Healthcare · Partner Program',
     summary:
-      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.",
+      'Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.',
   },
   {
-    slug: "/programs/hvac",
-    name: "HVAC Technician (Partner School)",
-    tag: "Skilled Trades · External School",
+    slug: '/programs/hvac',
+    name: 'HVAC Technician (Partner School)',
+    tag: 'Skilled Trades · External School',
     summary:
-      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
+      'Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.',
   },
 ];
 
@@ -77,9 +77,9 @@ export default function ProgramsPage() {
               Programs that speak the same language as your community.
             </h1>
             <p className="text-sm text-slate-300">
-              Every pathway is designed so a learner, a parent, a pastor, and a case manager
-              can read it and instantly understand what it is, who it is for, and how it leads
-              to work.
+              Every pathway is designed so a learner, a parent, a pastor, and a
+              case manager can read it and instantly understand what it is, who
+              it is for, and how it leads to work.
             </p>
           </div>
 
@@ -102,7 +102,9 @@ export default function ProgramsPage() {
                     Barber Apprenticeship (Milady-Powered)
                   </h2>
                   <p className="text-[0.84rem] text-slate-300">
-                    Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.
+                    Milady curriculum, shop-based experience, and Elevate
+                    tracking for learners moving toward real barber careers and
+                    licensing support.
                   </p>
                   <div className="pt-2 font-semibold text-emerald-300 hover:text-emerald-200">
                     View this pathway →
@@ -129,7 +131,9 @@ export default function ProgramsPage() {
                     Medical Assistant Pathway
                   </h2>
                   <p className="text-[0.84rem] text-slate-300">
-                    Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.
+                    Partner medical assistant training wrapped in Elevate
+                    onboarding, reminders, and reporting for agencies and
+                    healthcare employers.
                   </p>
                   <div className="pt-2 font-semibold text-sky-300 hover:text-sky-200">
                     View this pathway →
@@ -156,7 +160,8 @@ export default function ProgramsPage() {
                     HVAC Technician (Partner School)
                   </h2>
                   <p className="text-[0.84rem] text-slate-300">
-                    Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.
+                    Elevate as the front door and connector to a trusted HVAC
+                    school, with visibility for case managers and employers.
                   </p>
                   <div className="pt-2 font-semibold text-emerald-300 hover:text-emerald-200">
                     View this pathway →
@@ -171,7 +176,10 @@ export default function ProgramsPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms
