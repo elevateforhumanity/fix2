@@ -1,21 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Play } from "lucide-react";
-
-const steps = [
-  {
-    title: "1 · One clear starting point",
-    body: "Learners, parents, case managers, and employers all start in the same place: Elevate. No more sending people to five different sites and hoping they find the right link.",
-  },
-  {
-    title: "2 · Partner-powered training",
-    body: "Credentialing partners handle instruction and licensing. Elevate orchestrates the LMS, live support, reminders, documents, and progress tracking across programs.",
-  },
-  {
-    title: "3 · Outcomes you can see",
-    body: "Completions, credentials, hours, and next steps are organized where agencies and employers can actually see them, export them, and tell a clear story to funders.",
-  },
-];
 
 const programs = [
   {
@@ -167,35 +150,54 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className="border-b border-slate-800 bg-slate-950"
+        className="border-b border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900"
       >
-        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
-          <div className="max-w-3xl space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
-              How Elevate works
-            </p>
-            <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
-              One platform to connect learners, partners, and workforce systems.
+        <div className="mx-auto max-w-5xl px-4 py-16 lg:px-6 lg:py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl mb-3">
+              How It Works
             </h2>
-            <p className="text-sm text-slate-300">
-              Elevate doesn&apos;t try to be everything. It&apos;s the front door, the glue, and the
-              story-teller between the people who need training, the organizations who teach,
-              and the systems that fund it.
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Simple steps from enrollment to employment
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-            {steps.map((step) => (
-              <div
-                key={step.title}
-                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-              >
-                <h3 className="text-sm font-semibold text-emerald-200">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-[0.82rem] text-slate-300">{step.body}</p>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <span className="text-2xl font-bold">1</span>
               </div>
-            ))}
+              <h3 className="text-lg font-bold text-slate-50 mb-2">
+                Choose Your Path
+              </h3>
+              <p className="text-sm text-slate-400">
+                Browse programs, check eligibility, and apply online in minutes.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-sky-500/20 text-sky-400">
+                <span className="text-2xl font-bold">2</span>
+              </div>
+              <h3 className="text-lg font-bold text-slate-50 mb-2">
+                Get Training
+              </h3>
+              <p className="text-sm text-slate-400">
+                Learn from expert partners with hands-on experience and support.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/20 text-amber-400">
+                <span className="text-2xl font-bold">3</span>
+              </div>
+              <h3 className="text-lg font-bold text-slate-50 mb-2">
+                Start Your Career
+              </h3>
+              <p className="text-sm text-slate-400">
+                Graduate with credentials and connections to employers hiring now.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -259,76 +261,91 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAM HIGHLIGHTS SECTION */}
+      {/* PROGRAMS SECTION */}
       <section className="border-b border-slate-800 bg-slate-950">
-        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-2">
-              Explore our programs
-            </p>
-            <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
-              Real students, real training, real careers.
+        <div className="mx-auto max-w-6xl px-4 py-16 lg:px-6 lg:py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl mb-3">
+              Career Training Programs
             </h2>
+            <p className="text-slate-400 text-lg">
+              Choose your path to a new career
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Barber Program */}
-            <Link href="/programs/barber" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
-              <Image
-                src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
-                alt="Barber apprenticeship"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+            <Link 
+              href="/programs/barber" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
-              </div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-sm font-bold">Barber Apprenticeship</p>
-                <p className="text-xs text-slate-200">Learn more →</p>
+                <h3 className="text-xl font-bold text-slate-50 mb-2">Barber Apprenticeship</h3>
+                <p className="text-sm text-slate-400 mb-4">
+                  Earn while you learn. Get licensed through hands-on apprenticeship.
+                </p>
+                <div className="flex items-center text-emerald-400 text-sm font-semibold group-hover:text-emerald-300">
+                  Learn more 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </Link>
 
             {/* Medical Assistant Program */}
-            <Link href="/programs/medical-assistant" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
-              <Image
-                src="/generated-images/ecd-courses/medical-assistant-cover.png"
-                alt="Medical assistant training"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+            <Link 
+              href="/programs/medical-assistant" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-sky-500 hover:shadow-2xl hover:shadow-sky-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl group-hover:bg-sky-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
                 </div>
-              </div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-sm font-bold">Medical Assistant</p>
-                <p className="text-xs text-slate-200">Learn more →</p>
+                <h3 className="text-xl font-bold text-slate-50 mb-2">Medical Assistant</h3>
+                <p className="text-sm text-slate-400 mb-4">
+                  Start your healthcare career. Support doctors and patients.
+                </p>
+                <div className="flex items-center text-sky-400 text-sm font-semibold group-hover:text-sky-300">
+                  Learn more 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </Link>
 
             {/* HVAC Program */}
-            <Link href="/programs/hvac" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
-              <Image
-                src="/generated-images/ecd-courses/hvac-technician-cover.png"
-                alt="HVAC training"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+            <Link 
+              href="/programs/hvac" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-amber-500 hover:shadow-2xl hover:shadow-amber-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
-              </div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-sm font-bold">HVAC Technician</p>
-                <p className="text-xs text-slate-200">Learn more →</p>
+                <h3 className="text-xl font-bold text-slate-50 mb-2">HVAC Technician</h3>
+                <p className="text-sm text-slate-400 mb-4">
+                  Master heating and cooling systems. High-demand skilled trade.
+                </p>
+                <div className="flex items-center text-amber-400 text-sm font-semibold group-hover:text-amber-300">
+                  Learn more 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </Link>
           </div>
