@@ -8,7 +8,7 @@ const partnerTypes = [
   },
   {
     title: "Schools, churches, and community hubs",
-    body: "Turn everyday conversations into clear next steps. When someone is ready, you can confidently say, "Go to Elevate" and know what happens next.",
+    body: "Turn everyday conversations into clear next steps. When someone is ready, you can confidently say, 'Go to Elevate' and know what happens next.",
   },
   {
     title: "Credentialing partners & training providers",
