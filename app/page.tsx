@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CheckCircle, ArrowRight, Play } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { CheckCircle, ArrowRight, Play } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -30,12 +30,12 @@ export default function Home() {
                 <br />
                 <span className="block mt-2">with Elevate℠ Programs</span>
               </h1>
-              
+
               <p className="text-lg text-gray-600 mb-8">
                 Get certified and employed in weeks, not years
               </p>
-              
-              <Link 
+
+              <Link
                 href="/programs"
                 className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-all text-lg"
               >
@@ -44,7 +44,9 @@ export default function Home() {
 
               <div className="mt-12">
                 <div className="text-4xl font-bold text-gray-900">2,547</div>
-                <div className="text-gray-600">People are enrolled in Elevate programs</div>
+                <div className="text-gray-600">
+                  People are enrolled in Elevate programs
+                </div>
               </div>
             </div>
           </div>
@@ -76,7 +78,10 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                   <button className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all">
-                    <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
+                    <Play
+                      className="w-8 h-8 text-gray-900 ml-1"
+                      fill="currentColor"
+                    />
                   </button>
                 </div>
               </div>
@@ -103,9 +108,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Designed for quick completion</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      Designed for quick completion
+                    </h4>
                     <p className="text-gray-600">
-                      Complete your certification in just 6-8 weeks with hands-on training in real medical facilities.
+                      Complete your certification in just 6-8 weeks with
+                      hands-on training in real medical facilities.
                     </p>
                   </div>
                 </div>
@@ -121,9 +129,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">$0 cost for most students</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      $0 cost for most students
+                    </h4>
                     <p className="text-gray-600">
-                      Most students qualify for 100% free training through WIOA, WRG, or JRI funding programs.
+                      Most students qualify for 100% free training through WIOA,
+                      WRG, or JRI funding programs.
                     </p>
                   </div>
                 </div>
@@ -139,9 +150,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Job placement guaranteed</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      Job placement guaranteed
+                    </h4>
                     <p className="text-gray-600">
-                      Hospitals and nursing homes hiring immediately after graduation. We guarantee job placement assistance.
+                      Hospitals and nursing homes hiring immediately after
+                      graduation. We guarantee job placement assistance.
                     </p>
                   </div>
                 </div>
@@ -157,16 +171,19 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">State certification included</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      State certification included
+                    </h4>
                     <p className="text-gray-600">
-                      State exam prep and testing included. IDOH licensed program with 95% pass rate.
+                      State exam prep and testing included. IDOH licensed
+                      program with 95% pass rate.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8">
-                <Link 
+                <Link
                   href="/programs/cna"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-all"
                 >
@@ -192,7 +209,10 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Link href="/programs/hvac" className="group relative rounded-3xl overflow-hidden shadow-xl">
+            <Link
+              href="/programs/hvac"
+              className="group relative rounded-3xl overflow-hidden shadow-xl"
+            >
               <div className="relative h-96">
                 <Image
                   src="/media/programs/hvac.jpg"
@@ -202,14 +222,19 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="text-sm font-semibold mb-2">12 weeks • $48K+ starting</div>
+                  <div className="text-sm font-semibold mb-2">
+                    12 weeks • $48K+ starting
+                  </div>
                   <h3 className="text-3xl font-bold mb-2">HVAC Technician</h3>
                   <p className="text-blue-200">Join the waitlist →</p>
                 </div>
               </div>
             </Link>
 
-            <Link href="/programs/barber" className="group relative rounded-3xl overflow-hidden shadow-xl">
+            <Link
+              href="/programs/barber"
+              className="group relative rounded-3xl overflow-hidden shadow-xl"
+            >
               <div className="relative h-96">
                 <Image
                   src="/media/programs/barber.jpg"
@@ -219,8 +244,12 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="text-sm font-semibold mb-2">12-18 months • DOL-Registered</div>
-                  <h3 className="text-3xl font-bold mb-2">Barber Apprenticeship</h3>
+                  <div className="text-sm font-semibold mb-2">
+                    12-18 months • DOL-Registered
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">
+                    Barber Apprenticeship
+                  </h3>
                   <p className="text-blue-200">Join the waitlist →</p>
                 </div>
               </div>
@@ -243,19 +272,34 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Advanced training system</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Advanced training system
+              </h3>
               <div className="space-y-4 text-gray-300">
                 <div>
-                  <h4 className="font-bold text-white mb-2">Partner-Powered Content</h4>
-                  <p className="text-sm">Credentialing partners like Milady deliver curriculum and credentials. Elevate orchestrates the journey.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    Partner-Powered Content
+                  </h4>
+                  <p className="text-sm">
+                    Credentialing partners like Milady deliver curriculum and
+                    credentials. Elevate orchestrates the journey.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-white mb-2">Real-World Experience</h4>
-                  <p className="text-sm">Train in actual hospitals, barbershops, and facilities—not just classrooms.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    Real-World Experience
+                  </h4>
+                  <p className="text-sm">
+                    Train in actual hospitals, barbershops, and facilities—not
+                    just classrooms.
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-white mb-2">Key Benefit</h4>
-                  <p className="text-sm">Hands-on training improves job readiness and helps you get hired faster.</p>
+                  <p className="text-sm">
+                    Hands-on training improves job readiness and helps you get
+                    hired faster.
+                  </p>
                 </div>
               </div>
             </div>
@@ -264,12 +308,22 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4">Efficient by design</h3>
               <div className="space-y-4 text-gray-300">
                 <div>
-                  <h4 className="font-bold text-white mb-2">Fast-Track Programs</h4>
-                  <p className="text-sm">Complete certifications in weeks, not years. Get to work faster.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    Fast-Track Programs
+                  </h4>
+                  <p className="text-sm">
+                    Complete certifications in weeks, not years. Get to work
+                    faster.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-white mb-2">Job Placement Support</h4>
-                  <p className="text-sm">Direct connections to employers. Many students get offers before graduation.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    Job Placement Support
+                  </h4>
+                  <p className="text-sm">
+                    Direct connections to employers. Many students get offers
+                    before graduation.
+                  </p>
                 </div>
               </div>
             </div>
@@ -278,16 +332,27 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4">Reduced cost burden</h3>
               <div className="space-y-4 text-gray-300">
                 <div>
-                  <h4 className="font-bold text-white mb-2">$0 for Most Students</h4>
-                  <p className="text-sm">WIOA, WRG, and JRI funding covers full tuition for eligible students.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    $0 for Most Students
+                  </h4>
+                  <p className="text-sm">
+                    WIOA, WRG, and JRI funding covers full tuition for eligible
+                    students.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-white mb-2">Compliance Built-In</h4>
-                  <p className="text-sm">ETPL-approved, DOL-registered, WorkOne and EmployIndy ready.</p>
+                  <h4 className="font-bold text-white mb-2">
+                    Compliance Built-In
+                  </h4>
+                  <p className="text-sm">
+                    ETPL-approved, DOL-registered, WorkOne and EmployIndy ready.
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-white mb-2">Key Benefit</h4>
-                  <p className="text-sm">No student debt. Start earning immediately after graduation.</p>
+                  <p className="text-sm">
+                    No student debt. Start earning immediately after graduation.
+                  </p>
                 </div>
               </div>
             </div>
@@ -308,30 +373,40 @@ export default function Home() {
             <div className="text-center">
               <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">DOL-Registered</h3>
-              <p className="text-sm text-gray-600">Barber apprenticeship registered with U.S. Department of Labor</p>
+              <p className="text-sm text-gray-600">
+                Barber apprenticeship registered with U.S. Department of Labor
+              </p>
             </div>
 
             <div className="text-center">
               <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">ETPL-Approved</h3>
-              <p className="text-sm text-gray-600">Eligible Training Provider List approved for WIOA funding</p>
+              <p className="text-sm text-gray-600">
+                Eligible Training Provider List approved for WIOA funding
+              </p>
             </div>
 
             <div className="text-center">
               <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">WRG & JRI Eligible</h3>
-              <p className="text-sm text-gray-600">Workforce Ready Grant and Job Ready Indiana approved</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                WRG & JRI Eligible
+              </h3>
+              <p className="text-sm text-gray-600">
+                Workforce Ready Grant and Job Ready Indiana approved
+              </p>
             </div>
 
             <div className="text-center">
               <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">State Licensed</h3>
-              <p className="text-sm text-gray-600">CNA program licensed by Indiana Department of Health</p>
+              <p className="text-sm text-gray-600">
+                CNA program licensed by Indiana Department of Health
+              </p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Link 
+            <Link
               href="/about"
               className="text-blue-600 font-semibold hover:text-blue-700"
             >
@@ -347,19 +422,27 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-12 text-center">
             <div>
               <div className="text-2xl font-bold text-gray-900">⚡</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">100% Online Process</div>
+              <div className="text-sm font-semibold text-gray-700 mt-2">
+                100% Online Process
+              </div>
             </div>
             <div>
               <div className="text-2xl font-bold text-gray-900">🚚</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">Fast Enrollment</div>
+              <div className="text-sm font-semibold text-gray-700 mt-2">
+                Fast Enrollment
+              </div>
             </div>
             <div>
               <div className="text-2xl font-bold text-gray-900">⭐</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">Trained in the U.S.A.</div>
+              <div className="text-sm font-semibold text-gray-700 mt-2">
+                Trained in the U.S.A.
+              </div>
             </div>
             <div>
               <div className="text-2xl font-bold text-gray-900">🇺🇸</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">DOL-Regulated Programs</div>
+              <div className="text-sm font-semibold text-gray-700 mt-2">
+                DOL-Regulated Programs
+              </div>
             </div>
           </div>
         </div>
