@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Play } from "lucide-react";
 
 const bullets = [
   "Milady-powered barbering curriculum for theory, safety, and technique.",
@@ -49,19 +50,27 @@ export default function BarberProgramPage() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Video Hero */}
           <div className="mt-10 mb-10">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96 group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80"
                 alt="Barber training in professional shop"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
+              
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Play className="w-8 h-8 text-slate-900 ml-1" fill="currentColor" />
+                </div>
+              </div>
+
               <div className="absolute bottom-8 left-8 text-white">
-                <p className="text-sm font-semibold mb-2">Real barbershop training</p>
-                <p className="text-2xl font-bold">Learn from master barbers in working shops</p>
+                <p className="text-sm font-semibold mb-2">Watch: Real barbershop training</p>
+                <p className="text-2xl font-bold">See how apprentices learn from master barbers</p>
               </div>
             </div>
           </div>

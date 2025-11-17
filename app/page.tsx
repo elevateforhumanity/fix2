@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Play } from "lucide-react";
 
 const stats = [
   {
@@ -341,6 +343,82 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION */}
+      <section className="border-b border-slate-800 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-2">
+              See Elevate in action
+            </p>
+            <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
+              Real students, real training, real careers.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Barber Video */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+              <Image
+                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                alt="Barber apprenticeship"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-sm font-bold">Barber Apprenticeship</p>
+                <p className="text-xs text-slate-200">2:30 min</p>
+              </div>
+            </div>
+
+            {/* Medical Assistant Video */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+              <Image
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                alt="Medical assistant training"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-sm font-bold">Medical Assistant</p>
+                <p className="text-xs text-slate-200">3:15 min</p>
+              </div>
+            </div>
+
+            {/* HVAC Video */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+              <Image
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                alt="HVAC training"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-sm font-bold">HVAC Technician</p>
+                <p className="text-xs text-slate-200">2:45 min</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
