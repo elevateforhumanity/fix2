@@ -17,11 +17,12 @@ Your site is now fully configured with:
 
 Follow: `INVIDEO_COMPLETE_SETUP.md`
 
-You need 4 videos:
+You need 5 videos:
 1. `hero-elevate-home.mp4` - Homepage hero
 2. `program-medical-assistant.mp4` - Medical Assistant page
 3. `program-barber-apprenticeship.mp4` - Barber page
 4. `program-hvac.mp4` - HVAC page
+5. `program-workforce-readiness.mp4` - Workforce Readiness page
 
 ### Step 2: Upload Videos
 
@@ -93,15 +94,19 @@ fix2/
 │   │   │   └── page.tsx                  ← NEW: With video
 │   │   ├── barber/
 │   │   │   └── page.tsx                  ← NEW: With video
-│   │   └── hvac/
+│   │   ├── hvac/
+│   │   │   └── page.tsx                  ← NEW: With video
+│   │   └── workforce-readiness/
 │   │       └── page.tsx                  ← NEW: With video
 ├── public/
 │   └── videos/
 │       ├── hero-elevate-home.mp4         ← YOU ADD THIS
 │       ├── program-medical-assistant.mp4 ← YOU ADD THIS
 │       ├── program-barber-apprenticeship.mp4 ← YOU ADD THIS
-│       └── program-hvac.mp4              ← YOU ADD THIS
+│       ├── program-hvac.mp4              ← YOU ADD THIS
+│       └── program-workforce-readiness.mp4 ← YOU ADD THIS
 ├── INVIDEO_COMPLETE_SETUP.md             ← Video creation guide
+├── INVIDEO_REEL_SCRIPTS.md               ← Social media reel scripts
 └── ONE_SHOT_DEPLOY.md                    ← This file
 ```
 

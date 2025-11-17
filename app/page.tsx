@@ -22,6 +22,13 @@ const programs = [
     funding: "Workforce Grants • Employer Sponsors",
     duration: "4–9 Months • Lab + Field",
   },
+  {
+    slug: "workforce-readiness",
+    name: "Workforce Readiness & Re-Entry",
+    blurb: "Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.",
+    funding: "Support Services • Referrals",
+    duration: "4–12 Weeks • Coaching + Workshops",
+  },
 ];
 
 export default function HomePage() {
