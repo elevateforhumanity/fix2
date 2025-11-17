@@ -165,7 +165,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="relative rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/generated-images/ecd-courses/cna-healthcare-cover.png"
+                      src="/media/programs/cna.jpg"
                       alt="CNA Healthcare Training"
                       width={300}
                       height={300}
@@ -175,7 +175,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/generated-images/ecd-courses/hvac-technician-cover.png"
+                      src="/media/programs/hvac.jpg"
                       alt="HVAC Training"
                       width={300}
                       height={300}
@@ -184,7 +184,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
+                      src="/media/programs/barber.jpg"
                       alt="Barber Apprenticeship"
                       width={300}
                       height={300}
@@ -193,7 +193,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/generated-images/ecd-courses/cdl-transportation-cover.png"
+                      src="/media/programs/cdl.jpg"
                       alt="CDL Training"
                       width={300}
                       height={300}
@@ -384,7 +384,7 @@ export default function HomePage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
                 <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/generated-images/ecd-courses/cna-healthcare-cover.png"
+                    src="/media/testimonials/student1.jpg"
                     alt="CNA Graduate Success Story"
                     fill
                     className="object-cover"
@@ -414,7 +414,7 @@ export default function HomePage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
                 <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
+                    src="/media/programs/barber.jpg"
                     alt="Barber Apprentice Success Story"
                     fill
                     className="object-cover"
@@ -444,7 +444,7 @@ export default function HomePage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
                 <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/generated-images/ecd-courses/hvac-technician-cover.png"
+                    src="/media/testimonials/student3.jpg"
                     alt="HVAC Graduate Success Story"
                     fill
                     className="object-cover"
@@ -674,7 +674,7 @@ export default function HomePage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/generated-images/courses/cna-course-cover.png"
+                    src="/media/programs/cna.jpg"
                     alt="CNA Training Program"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -704,7 +704,7 @@ export default function HomePage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/generated-images/courses/hvac-course-cover.png"
+                    src="/media/programs/hvac.jpg"
                     alt="HVAC Training Program"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -734,7 +734,7 @@ export default function HomePage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/generated-images/courses/barber-course-cover.png"
+                    src="/media/programs/barber.jpg"
                     alt="Barber Apprenticeship Program"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -764,7 +764,7 @@ export default function HomePage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/generated-images/courses/cdl-course-cover.png"
+                    src="/media/programs/cdl.jpg"
                     alt="CDL Training Program"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
