@@ -1,4 +1,5 @@
 # Final Pathway Assessment Quiz Banks
+
 ### Barber & CNA Final Assessments
 
 ---
@@ -12,11 +13,13 @@
 ---
 
 ### Question 1
+
 **Question:** When using a straight razor, what is the safest angle of the blade to the skin?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Flat against the skin
 - B. 5–15 degrees ✓
 - C. 45 degrees
@@ -29,11 +32,13 @@
 ---
 
 ### Question 2
+
 **Question:** Which of the following is the BEST example of proper sanitation?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Wiping tools on a towel between clients
 - B. Rinsing tools in warm water
 - C. Immersing tools in EPA-registered disinfectant for the recommended time ✓
@@ -46,11 +51,13 @@
 ---
 
 ### Question 3
+
 **Question:** If a client is cut and bleeding, what is your first action?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Keep cutting to finish quickly
 - B. Apply powder to stop the bleeding
 - C. Stop service, put on gloves, and follow blood exposure procedures ✓
@@ -63,11 +70,13 @@
 ---
 
 ### Question 4
+
 **Question:** Which haircutting guideline helps maintain consistent length through the cut?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Traveling guideline ✓
 - B. Random sectioning
 - C. Perimeter guessing
@@ -80,11 +89,13 @@
 ---
 
 ### Question 5
+
 **Question:** Which of the following is a sign of a scalp disorder that should be referred to a physician?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Mild dry scalp
 - B. Temporary dandruff
 - C. Open sores or unexplained lesions ✓
@@ -97,11 +108,13 @@
 ---
 
 ### Question 6
+
 **Question:** In most states, using a razor on a client requires:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. No special rules
 - B. Only permission from the shop owner
 - C. Following state board and infection control rules ✓
@@ -114,11 +127,13 @@
 ---
 
 ### Question 7
+
 **Question:** Professional communication in the barbershop includes:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Gossiping about other clients
 - B. Listening carefully and repeating back what the client wants ✓
 - C. Ignoring the client's ideas
@@ -131,11 +146,13 @@
 ---
 
 ### Question 8
+
 **Question:** The purpose of a consultation before a haircut is to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Talk about your personal life
 - B. Decide how much to charge
 - C. Understand the client's goals and expectations ✓
@@ -148,11 +165,13 @@
 ---
 
 ### Question 9
+
 **Question:** Why is keeping accurate apprenticeship or training hours important?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Only for shop advertising
 - B. It's optional and not used
 - C. It is often required for licensing and audits ✓
@@ -165,11 +184,13 @@
 ---
 
 ### Question 10
+
 **Question:** When mixing or using chemical products, you should always:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Guess the proportions
 - B. Ignore the instructions if you have experience
 - C. Follow the manufacturer's directions and safety data sheets ✓
@@ -182,11 +203,13 @@
 ---
 
 ### Question 11
+
 **Question:** A client arrives smelling strongly of alcohol and acting impaired. The safest choice is to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Provide the service anyway
 - B. Offer them more to drink
 - C. Refuse service politely for their safety and yours ✓
@@ -199,11 +222,13 @@
 ---
 
 ### Question 12
+
 **Question:** Which behavior builds long-term client loyalty?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Remembering their preferred cut and checking in on satisfaction ✓
 - B. Rushing every service
 - C. Answering your phone during services
@@ -216,11 +241,13 @@
 ---
 
 ### Question 13
+
 **Question:** In an apprenticeship, your responsibilities include:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Showing up when you feel like it
 - B. Learning, following shop rules, and communicating with your mentor ✓
 - C. Only sweeping and never cutting
@@ -233,11 +260,13 @@
 ---
 
 ### Question 14
+
 **Question:** Which statement about infection control is true?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Disinfection kills all forms of microbial life including spores
 - B. Sterilization and disinfection are the same
 - C. Disinfection greatly reduces microorganisms on nonporous surfaces ✓
@@ -250,11 +279,13 @@
 ---
 
 ### Question 15
+
 **Question:** After completing the Elevate Barber Pathway, your next focus should be to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Stop learning
 - B. Avoid the state exam
 - C. Schedule and prepare for your state barber exam and build your client base ✓
@@ -275,11 +306,13 @@
 ---
 
 ### Question 1
+
 **Question:** Which of the following is a standard precaution for all residents?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Gloves only for known infections
 - B. Hand hygiene before and after resident contact ✓
 - C. PPE only during emergencies
@@ -292,11 +325,13 @@
 ---
 
 ### Question 2
+
 **Question:** A resident suddenly becomes short of breath and very anxious. Your FIRST action is to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Leave to find the nurse and say nothing to the resident
 - B. Raise the head of the bed and stay with the resident while calling the nurse ✓
 - C. Ask the resident to walk it off
@@ -309,11 +344,13 @@
 ---
 
 ### Question 3
+
 **Question:** When assisting with a transfer using a gait belt, you should:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Place the belt over bare skin
 - B. Keep your feet close together
 - C. Bend your knees and use a wide base of support ✓
@@ -326,11 +363,13 @@
 ---
 
 ### Question 4
+
 **Question:** Which statement about confidentiality is correct?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. It is okay to discuss residents on social media if you don't use names
 - B. You may discuss resident information in public as long as no one seems to be listening
 - C. Resident information is private and should be shared only with the care team ✓
@@ -343,11 +382,13 @@
 ---
 
 ### Question 5
+
 **Question:** A resident with dementia keeps asking the same question. The best response is to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Get irritated and ignore them
 - B. Gently repeat the answer and offer reassurance ✓
 - C. Tell them to stop asking
@@ -360,11 +401,13 @@
 ---
 
 ### Question 6
+
 **Question:** Proper body mechanics help:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Only the resident
 - B. Prevent injury to both staff and residents ✓
 - C. Slow you down
@@ -377,11 +420,13 @@
 ---
 
 ### Question 7
+
 **Question:** A resident refuses a bath. What is the best first step?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Force the bath anyway
 - B. Report them immediately as "noncompliant"
 - C. Ask why, listen, and try again later if appropriate ✓
@@ -394,11 +439,13 @@
 ---
 
 ### Question 8
+
 **Question:** When measuring a resident's pulse, you should:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Count for at least 15 seconds and multiply by 4
 - B. Count irregular pulses for a full 60 seconds ✓
 - C. Guess if you know them well
@@ -411,11 +458,13 @@
 ---
 
 ### Question 9
+
 **Question:** You find a resident on the floor. What should you do FIRST?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Help them get up quickly
 - B. Leave them and go chart it
 - C. Stay with them, call for help, and follow facility fall protocol ✓
@@ -428,11 +477,13 @@
 ---
 
 ### Question 10
+
 **Question:** Which of the following helps prevent pressure injuries?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Leaving the resident in one position all day
 - B. Keeping skin clean and dry and repositioning regularly ✓
 - C. Only turning residents once a week
@@ -445,11 +496,13 @@
 ---
 
 ### Question 11
+
 **Question:** A resident is NPO before surgery. This means:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. They can only drink water
 - B. They can have crackers and clear liquids
 - C. They should have extra snacks
@@ -462,11 +515,13 @@
 ---
 
 ### Question 12
+
 **Question:** What is the best way to support a resident's dignity during personal care?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Expose them for convenience
 - B. Provide privacy, explain what you are doing, and cover as much as possible ✓
 - C. Rush and avoid conversation
@@ -479,11 +534,13 @@
 ---
 
 ### Question 13
+
 **Question:** Washing your hands with soap and water is especially important:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Only once per shift
 - B. After restroom use, before meals, and when visibly soiled ✓
 - C. Only when a supervisor is watching
@@ -496,11 +553,13 @@
 ---
 
 ### Question 14
+
 **Question:** When charting, entries should be:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Opinion-based and emotional
 - B. Late and written from memory
 - C. Factual, timely, and clear ✓
@@ -513,11 +572,13 @@
 ---
 
 ### Question 15
+
 **Question:** After completing the Elevate CNA Pathway, your key next step is to:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Forget skills and move on
 - B. Avoid taking the state exam
 - C. Schedule and prepare for your state CNA exam and explore job opportunities ✓
@@ -534,6 +595,7 @@
 ### For Developers:
 
 1. **Import Format:** These questions can be imported as JSON:
+
 ```json
 {
   "quiz_id": "barber_final_assessment_001",

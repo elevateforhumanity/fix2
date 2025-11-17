@@ -1,4 +1,5 @@
 # SMS Templates for Twilio
+
 ### Production-Ready Text Message Templates
 
 ---
@@ -111,6 +112,7 @@ Amazing job, {{first_name}}! 🎉 You've completed the Elevate CNA Pathway. Chec
 ## SMS Variables
 
 All templates support these variables:
+
 - `{{first_name}}` - Student's first name
 - `{{dashboard_link}}` - Short link to student dashboard
 - `{{session_time}}` - Formatted time for live sessions
@@ -118,27 +120,34 @@ All templates support these variables:
 ## Implementation Notes
 
 ### Twilio Integration:
+
 ```javascript
 // Example Twilio send function
 async function sendSMS(to, templateId, variables) {
   const template = SMS_TEMPLATES[templateId];
-  const message = template.replace(/\{\{(\w+)\}\}/g, (match, key) => variables[key] || match);
-  
+  const message = template.replace(
+    /\{\{(\w+)\}\}/g,
+    (match, key) => variables[key] || match
+  );
+
   await twilioClient.messages.create({
     body: message,
     from: process.env.TWILIO_PHONE_NUMBER,
-    to: to
+    to: to,
   });
 }
 ```
 
 ### Character Limits:
+
 - All templates are under 160 characters where possible
 - Longer messages will be sent as multiple segments
 - Links are shortened using your URL shortener
 
 ### Opt-Out Compliance:
+
 Add to all SMS campaigns:
+
 ```
 Reply STOP to unsubscribe
 ```
