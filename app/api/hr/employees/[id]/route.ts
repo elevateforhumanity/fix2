@@ -4,10 +4,11 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET /api/hr/employees/[id] - Get single employee
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient();
+    const { id } = await params;
     
     const { data: employee, error } = await supabase
       .from('employees')
@@ -36,7 +37,7 @@ export async function GET(
           approved_by_profile:profiles!approved_by(full_name)
         )
       `)
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
     
     if (error) throw error;
@@ -61,19 +62,20 @@ export async function GET(
 // PATCH /api/hr/employees/[id] - Update employee
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient();
+    const { id } = await params;
     const body = await request.json();
     
     // Don't allow updating certain fields directly
-    const { id, profile_id, employee_number, created_at, ...updateFields } = body;
+    const { id: bodyId, profile_id, employee_number, created_at, ...updateFields } = body;
     
     const { data: employee, error } = await supabase
       .from('employees')
       .update(updateFields)
-      .eq('id', params.id)
+      .eq('id', id)
       .select(`
         *,
         profile:profiles(*),
@@ -97,10 +99,11 @@ export async function PATCH(
 // DELETE /api/hr/employees/[id] - Soft delete (terminate) employee
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient();
+    const { id } = await params;
     const searchParams = request.nextUrl.searchParams;
     const terminationDate = searchParams.get('termination_date') || new Date().toISOString().split('T')[0];
     
@@ -111,7 +114,7 @@ export async function DELETE(
         termination_date: terminationDate,
         is_active: false
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -124,7 +127,7 @@ export async function DELETE(
         status: 'terminated',
         termination_date: terminationDate
       })
-      .eq('employee_id', params.id)
+      .eq('employee_id', id)
       .eq('status', 'active');
     
     return NextResponse.json({ 
