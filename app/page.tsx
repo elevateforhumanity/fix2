@@ -40,7 +40,7 @@ const programs = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-white">
       {/* HERO SECTION */}
       <section className="relative h-[85vh] w-full overflow-hidden">
         {/* Background Image */}
@@ -50,7 +50,7 @@ export default function HomePage() {
             backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')"
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-800/60 to-transparent" />
 
         <div className="relative z-10 flex h-full flex-col justify-center px-6 md:px-12 lg:px-24 max-w-6xl">
           <p className="mb-3 text-sm font-semibold tracking-[0.25em] uppercase text-orange-300">
@@ -105,25 +105,25 @@ export default function HomePage() {
       </section>
 
       {/* TRUST / STATS STRIP */}
-      <section className="bg-black border-y border-white/10">
+      <section className="bg-gradient-to-r from-blue-50 to-orange-50 border-y border-blue-100">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 md:px-12">
           <div className="text-sm md:text-base">
-            <p className="text-slate-300">Serving Indiana & beyond</p>
-            <p className="font-semibold text-white">
+            <p className="text-blue-700">Serving Indiana & beyond</p>
+            <p className="font-semibold text-gray-900">
               Workforce training aligned with real employers.
             </p>
           </div>
-          <div className="flex flex-wrap gap-6 text-xs md:text-sm text-slate-200">
+          <div className="flex flex-wrap gap-6 text-xs md:text-sm text-gray-700">
             <div>
-              <p className="font-bold text-white">State-Approved</p>
+              <p className="font-bold text-blue-700">State-Approved</p>
               <p>Barber Apprenticeship • Workforce Partner</p>
             </div>
             <div>
-              <p className="font-bold text-white">Pathways</p>
+              <p className="font-bold text-blue-700">Pathways</p>
               <p>Medical • Trades • Transportation • Re-Entry</p>
             </div>
             <div>
-              <p className="font-bold text-white">Support</p>
+              <p className="font-bold text-blue-700">Support</p>
               <p>Coaching • Case Management • Referrals</p>
             </div>
           </div>
@@ -133,22 +133,22 @@ export default function HomePage() {
       {/* PROGRAMS GRID */}
       <section
         id="programs"
-        className="bg-slate-950 py-12 md:py-16"
+        className="bg-white py-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Training & Apprenticeship Programs
               </h2>
-              <p className="mt-2 max-w-xl text-sm md:text-base text-slate-200">
+              <p className="mt-2 max-w-xl text-sm md:text-base text-gray-600">
                 Choose a pathway that matches your goals. Many programs accept{" "}
                 workforce funding, apprenticeships, or employer sponsorships.
               </p>
             </div>
             <Link
               href="/programs"
-              className="text-sm font-semibold text-orange-400 hover:text-orange-300"
+              className="text-sm font-semibold text-orange-600 hover:text-orange-700"
             >
               View all programs →
             </Link>
@@ -159,21 +159,21 @@ export default function HomePage() {
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
-                className="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-950 p-5 shadow-lg shadow-black/50 hover:border-orange-400/70 hover:shadow-orange-500/20 transition"
+                className="group flex flex-col rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-white to-blue-50 p-6 shadow-lg hover:border-orange-400 hover:shadow-xl transition"
               >
-                <h3 className="mb-1 text-lg font-semibold text-white group-hover:text-orange-300">
+                <h3 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-orange-600">
                   {program.name}
                 </h3>
-                <p className="mb-3 text-xs uppercase tracking-[0.15em] text-orange-300">
+                <p className="mb-3 text-xs uppercase tracking-[0.15em] text-orange-600 font-semibold">
                   {program.duration}
                 </p>
-                <p className="mb-3 text-sm text-slate-200">
+                <p className="mb-3 text-sm text-gray-700">
                   {program.blurb}
                 </p>
-                <p className="mb-4 text-xs font-semibold text-slate-300">
+                <p className="mb-4 text-xs font-semibold text-gray-600">
                   Funding: {program.funding}
                 </p>
-                <span className="mt-auto text-xs font-semibold text-orange-400 group-hover:text-orange-200">
+                <span className="mt-auto text-xs font-semibold text-orange-600 group-hover:text-orange-700">
                   Learn more →
                 </span>
               </Link>
@@ -183,51 +183,51 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-black py-12 md:py-16">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               How Elevate For Humanity Works
             </h2>
-            <p className="mt-2 text-sm md:text-base text-slate-200 max-w-2xl mx-auto">
+            <p className="mt-2 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
               We make the process simple. Our team walks with you from interest
               to enrollment to employment.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-slate-950 p-5">
-              <div className="mb-2 text-xs font-semibold text-orange-300">
+            <div className="rounded-2xl border-2 border-blue-200 bg-white p-6 shadow-lg hover:shadow-xl transition">
+              <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-bold text-blue-700">
                 STEP 1
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Connect & Explore
               </h3>
-              <p className="text-sm text-slate-200">
+              <p className="text-sm text-gray-700">
                 Complete a short interest form. Our team reviews funding options,
                 program fit, and support services with you.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950 p-5">
-              <div className="mb-2 text-xs font-semibold text-orange-300">
+            <div className="rounded-2xl border-2 border-orange-200 bg-white p-6 shadow-lg hover:shadow-xl transition">
+              <div className="mb-3 inline-block rounded-full bg-orange-100 px-4 py-1 text-xs font-bold text-orange-700">
                 STEP 2
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Enroll & Train
               </h3>
-              <p className="text-sm text-slate-200">
+              <p className="text-sm text-gray-700">
                 Enroll with our training partners. You&apos;ll receive coaching,
                 case management, and help navigating life barriers.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950 p-5">
-              <div className="mb-2 text-xs font-semibold text-orange-300">
+            <div className="rounded-2xl border-2 border-green-200 bg-white p-6 shadow-lg hover:shadow-xl transition">
+              <div className="mb-3 inline-block rounded-full bg-green-100 px-4 py-1 text-xs font-bold text-green-700">
                 STEP 3
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Elevate & Advance
               </h3>
-              <p className="text-sm text-slate-200">
+              <p className="text-sm text-gray-700">
                 Transition into jobs, apprenticeships, or next-level credentials
                 with ongoing support from our network.
               </p>
@@ -237,13 +237,13 @@ export default function HomePage() {
       </section>
 
       {/* PROGRAM HIGHLIGHTS WITH IMAGES */}
-      <section className="bg-slate-950 py-12 md:py-16">
+      <section className="bg-gradient-to-br from-white via-blue-50 to-white py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Program Highlights
             </h2>
-            <p className="mt-2 text-sm md:text-base text-slate-200 max-w-2xl mx-auto">
+            <p className="mt-2 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
               Real training, real credentials, real careers
             </p>
           </div>
@@ -359,25 +359,25 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-black py-8">
+      <footer className="border-t border-gray-200 bg-gradient-to-br from-gray-50 to-blue-50 py-8">
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
-              <p className="text-xs text-slate-400">
+              <p className="mb-2 text-sm font-semibold text-gray-900">Elevate For Humanity™</p>
+              <p className="text-xs text-gray-600">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
-            <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
-              <Link href="/privacy" className="hover:text-orange-300">Privacy</Link>
-              <Link href="/terms" className="hover:text-orange-300">Terms</Link>
+            <div className="flex flex-wrap gap-6 text-xs text-gray-600">
+              <Link href="/programs" className="hover:text-orange-600 font-medium">Programs</Link>
+              <Link href="/partners" className="hover:text-orange-600 font-medium">Partners</Link>
+              <Link href="/about" className="hover:text-orange-600 font-medium">About</Link>
+              <Link href="/contact" className="hover:text-orange-600 font-medium">Contact</Link>
+              <Link href="/privacy" className="hover:text-orange-600 font-medium">Privacy</Link>
+              <Link href="/terms" className="hover:text-orange-600 font-medium">Terms</Link>
             </div>
           </div>
-          <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
+          <div className="mt-6 border-t border-gray-200 pt-6 text-center text-xs text-gray-500">
             © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
           </div>
         </div>
