@@ -1,0 +1,154 @@
+{
+  "id": "cna-career-pathway-v1",
+  "title": "CNA Career Pathway – Elevate for Humanity",
+  "description": "A unified CNA training pathway that combines our credentialing partner's CNA program with Elevate live support, quizzes, and workforce compliance steps.",
+  "totalHours": 120,
+  "tags": ["CNA", "WRG", "ETPL", "WorkOne", "EmployIndy"],
+  "blocks": [
+    {
+      "id": "intro-welcome-video",
+      "type": "free_online",
+      "displayTitle": "Welcome from Elevate – How This CNA Pathway Works",
+      "description": "Video from Elevate explaining how to use the partner course, complete quizzes, and how certificates/credentials will be issued.",
+      "required": true,
+      "expectedHours": 0.5,
+      "sourceType": "video",
+      "launchUrl": "https://your-video-host.com/elevate/cna-welcome",
+      "attachedQuizId": "quiz-cna-orientation"
+    },
+    {
+      "id": "admin-intake-forms",
+      "type": "admin_task",
+      "displayTitle": "Complete Intake & Eligibility Forms",
+      "description": "Complete WIOA/WRG intake forms and upload any required documents for funding and agency partners.",
+      "required": true,
+      "expectedHours": 1,
+      "taskKind": "form_completion",
+      "requiredDocumentType": "INTAKE_FORMS"
+    },
+    {
+      "id": "admin-id-upload",
+      "type": "admin_task",
+      "displayTitle": "Upload ID & Required Documents",
+      "description": "Upload government-issued ID and any required background/health documentation.",
+      "required": true,
+      "expectedHours": 0.5,
+      "taskKind": "document_upload",
+      "requiredDocumentType": "ID_AND_HEALTH_DOCS"
+    },
+    {
+      "id": "partner-cna-theory",
+      "type": "partner_course",
+      "displayTitle": "CNA Theory Curriculum (Credentialing Partner)",
+      "description": "Complete all online theory modules with our CNA credentialing partner.",
+      "required": true,
+      "expectedHours": 60,
+      "partnerId": "choice_medical_institute",
+      "partnerCourseId": "cna_theory_online",
+      "launchUrl": "https://partner.choice-medical-example.com/courses/cna-theory",
+      "completionProofType": "certificate_upload",
+      "attachedQuizId": "quiz-cna-theory-check"
+    },
+    {
+      "id": "partner-cna-skills-lab",
+      "type": "partner_course",
+      "displayTitle": "CNA Skills Lab & Clinicals (Credentialing Partner)",
+      "description": "Hands-on clinical skills and lab practice delivered by the CNA partner.",
+      "required": true,
+      "expectedHours": 40,
+      "partnerId": "choice_medical_institute",
+      "partnerCourseId": "cna_clinical_skills",
+      "launchUrl": "https://partner.choice-medical-example.com/courses/cna-clinical-skills",
+      "completionProofType": "certificate_upload"
+    },
+    {
+      "id": "free-patient-safety-module",
+      "type": "free_online",
+      "displayTitle": "Patient Safety & Infection Control (Supplemental)",
+      "description": "Short supplemental module on patient safety, infection control, and communication.",
+      "required": false,
+      "expectedHours": 4,
+      "sourceType": "web",
+      "launchUrl": "https://some-free-resource-or-your-own-microcourse.com/patient-safety",
+      "attachedQuizId": "quiz-patient-safety"
+    },
+    {
+      "id": "live-weekly-qna",
+      "type": "live_session",
+      "displayTitle": "Weekly Live Q&A with Elevate CNA Instructor",
+      "description": "Join our live sessions to ask questions, review skills, and prepare for clinicals and the state exam.",
+      "required": true,
+      "expectedHours": 10,
+      "meetingLink": "https://zoom.us/j/your-cna-qna-link",
+      "scheduleType": "recurring",
+      "recurringRule": "RRULE:FREQ=WEEKLY;BYDAY=TU;BYHOUR=18;BYMINUTE=0;BYSECOND=0"
+    },
+    {
+      "id": "quiz-cna-orientation",
+      "type": "quiz",
+      "displayTitle": "Orientation Check – Understanding the CNA Pathway",
+      "description": "Quick quiz to confirm you understand how the pathway works and what is required.",
+      "required": true,
+      "expectedHours": 0.5,
+      "quizId": "cna_orientation_001",
+      "passingScore": 70
+    },
+    {
+      "id": "quiz-cna-theory-check",
+      "type": "quiz",
+      "displayTitle": "CNA Theory Knowledge Check",
+      "description": "Short quiz based on the partner's theory content to verify understanding.",
+      "required": true,
+      "expectedHours": 1,
+      "quizId": "cna_theory_check_001",
+      "passingScore": 75
+    },
+    {
+      "id": "quiz-patient-safety",
+      "type": "quiz",
+      "displayTitle": "Patient Safety & Infection Control Quiz",
+      "description": "Reinforces core safety practices for CNAs.",
+      "required": false,
+      "expectedHours": 0.5,
+      "quizId": "cna_patient_safety_001",
+      "passingScore": 75
+    },
+    {
+      "id": "quiz-cna-final",
+      "type": "quiz",
+      "displayTitle": "Final CNA Pathway Assessment (Elevate)",
+      "description": "Final assessment covering core CNA theory, safety, professionalism, and workflow.",
+      "required": true,
+      "expectedHours": 1,
+      "quizId": "cna_final_assessment_001",
+      "passingScore": 80
+    },
+    {
+      "id": "admin-exam-proof-upload",
+      "type": "admin_task",
+      "displayTitle": "Upload Proof of State CNA Exam & Credential",
+      "description": "Upload proof that you have scheduled or completed your state CNA exam and any credentialing documents issued by the partner.",
+      "required": true,
+      "expectedHours": 0.5,
+      "taskKind": "document_upload",
+      "requiredDocumentType": "CNA_CREDENTIAL"
+    }
+  ],
+  "completionRules": {
+    "requireAllRequiredBlocks": true,
+    "minimumQuizAverage": 75,
+    "minimumLiveSessionsAttended": 4
+  },
+  "emailAutomation": {
+    "onEnrollTemplateId": "email_cna_welcome",
+    "onCompletionTemplateId": "email_cna_completion_congrats",
+    "onInactiveTemplateId": "email_cna_inactive_nudge",
+    "onInactiveDays": 7,
+    "beforeLiveSessionTemplateId": "email_cna_live_session_reminder",
+    "beforeLiveSessionHours": 24
+  },
+  "ownerOrgId": "elevate_for_humanity",
+  "ownerUserId": "admin_elevate_root",
+  "createdAt": "2025-11-17T00:00:00.000Z",
+  "updatedAt": "2025-11-17T00:00:00.000Z"
+}
