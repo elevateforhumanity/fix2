@@ -150,18 +150,28 @@ export default function HomePage() {
                   <div>
                     <div className="text-3xl font-bold text-slate-900 mb-1">4-12</div>
                     <div className="text-sm text-slate-600">Weeks to Complete</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">$0</div>
+                    <div className="text-sm text-slate-600">For Most Students</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">$35K+</div>
+                    <div className="text-sm text-slate-600">Starting Salaries</div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-400 mb-1">$0</div>
-                  <div className="text-sm text-slate-400">For Most Students</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-400 mb-1">$35K-$55K</div>
-                  <div className="text-sm text-slate-400">Starting Salaries</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-400 mb-1">100%</div>
-                  <div className="text-sm text-slate-400">Job Assistance</div>
+              </div>
+
+              {/* Right Column - Visual */}
+              <div className="relative hidden lg:block">
+                <div className="relative bg-white rounded-2xl shadow-2xl p-8">
+                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl flex items-center justify-center">
+                    <div className="text-center">
+                      <Users className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                      <p className="text-lg font-semibold text-slate-900">Real Training</p>
+                      <p className="text-sm text-slate-600">Real Jobs</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
