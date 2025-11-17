@@ -37,7 +37,8 @@ export function CourseCatalog() {
       students: 1245,
       instructor: 'Dr. Sarah Chen',
       thumbnail: '💻',
-      description: 'Master modern web development with React, Node.js, and MongoDB',
+      description:
+        'Master modern web development with React, Node.js, and MongoDB',
       skills: ['React', 'Node.js', 'MongoDB', 'Express'],
     },
     {
@@ -112,14 +113,20 @@ export function CourseCatalog() {
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(courses.map(c => c.category)))];
+  const categories = [
+    'all',
+    ...Array.from(new Set(courses.map((c) => c.category))),
+  ];
   const levels = ['all', 'beginner', 'intermediate', 'advanced'];
 
-  let filteredCourses = courses.filter(course => {
-    const matchesCategory = selectedCategory === 'all' || course.category === selectedCategory;
-    const matchesLevel = selectedLevel === 'all' || course.level === selectedLevel;
-    const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         course.description.toLowerCase().includes(searchQuery.toLowerCase());
+  let filteredCourses = courses.filter((course) => {
+    const matchesCategory =
+      selectedCategory === 'all' || course.category === selectedCategory;
+    const matchesLevel =
+      selectedLevel === 'all' || course.level === selectedLevel;
+    const matchesSearch =
+      course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesLevel && matchesSearch;
   });
 
@@ -138,7 +145,9 @@ export function CourseCatalog() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Course Catalog</h1>
-          <p className="text-red-100">Explore our comprehensive training programs</p>
+          <p className="text-red-100">
+            Explore our comprehensive training programs
+          </p>
         </div>
       </div>
 
@@ -160,7 +169,7 @@ export function CourseCatalog() {
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="px-4 py-2 border rounded-lg"
             >
-              {categories.map(cat => (
+              {categories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat === 'all' ? 'All Categories' : cat}
                 </option>
@@ -171,9 +180,11 @@ export function CourseCatalog() {
               onChange={(e) => setSelectedLevel(e.target.value)}
               className="px-4 py-2 border rounded-lg"
             >
-              {levels.map(level => (
+              {levels.map((level) => (
                 <option key={level} value={level}>
-                  {level === 'all' ? 'All Levels' : level.charAt(0).toUpperCase() + level.slice(1)}
+                  {level === 'all'
+                    ? 'All Levels'
+                    : level.charAt(0).toUpperCase() + level.slice(1)}
                 </option>
               ))}
             </select>
@@ -183,7 +194,9 @@ export function CourseCatalog() {
         {/* Results Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <p className="text-gray-600">
-            Showing <span className="font-semibold">{filteredCourses.length}</span> courses
+            Showing{' '}
+            <span className="font-semibold">{filteredCourses.length}</span>{' '}
+            courses
           </p>
           <select
             value={sortBy}
@@ -199,8 +212,11 @@ export function CourseCatalog() {
 
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map(course => (
-            <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-shadow">
+          {filteredCourses.map((course) => (
+            <Card
+              key={course.id}
+              className="overflow-hidden hover:shadow-xl transition-shadow"
+            >
               <div className="bg-gradient-to-br from-red-100 to-orange-100 h-48 flex items-center justify-center text-7xl">
                 {course.thumbnail}
               </div>
@@ -209,17 +225,23 @@ export function CourseCatalog() {
                   <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">
                     {course.category}
                   </span>
-                  <span className={`px-2 py-1 text-xs rounded ${
-                    course.level === 'beginner' ? 'bg-blue-100 text-blue-700' :
-                    course.level === 'intermediate' ? 'bg-purple-100 text-purple-700' :
-                    'bg-red-100 text-red-700'
-                  }`}>
+                  <span
+                    className={`px-2 py-1 text-xs rounded ${
+                      course.level === 'beginner'
+                        ? 'bg-blue-100 text-blue-700'
+                        : course.level === 'intermediate'
+                          ? 'bg-purple-100 text-purple-700'
+                          : 'bg-red-100 text-red-700'
+                    }`}
+                  >
                     {course.level}
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold mb-2">{course.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{course.description}</p>
+                <p className="text-sm text-gray-600 mb-3">
+                  {course.description}
+                </p>
 
                 <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
                   <div className="flex items-center gap-1">
@@ -231,14 +253,20 @@ export function CourseCatalog() {
                 </div>
 
                 <p className="text-sm text-gray-600 mb-3">
-                  Instructor: <span className="font-semibold">{course.instructor}</span>
+                  Instructor:{' '}
+                  <span className="font-semibold">{course.instructor}</span>
                 </p>
 
                 <div className="mb-4">
-                  <p className="text-xs font-semibold text-gray-700 mb-2">Skills:</p>
+                  <p className="text-xs font-semibold text-gray-700 mb-2">
+                    Skills:
+                  </p>
                   <div className="flex flex-wrap gap-1">
-                    {course.skills.slice(0, 3).map(skill => (
-                      <span key={skill} className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded">
+                    {course.skills.slice(0, 3).map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded"
+                      >
                         {skill}
                       </span>
                     ))}
@@ -247,7 +275,9 @@ export function CourseCatalog() {
 
                 <div className="flex items-center justify-between pt-4 border-t">
                   <div>
-                    <p className="text-2xl font-bold text-red-600">${course.price}</p>
+                    <p className="text-2xl font-bold text-red-600">
+                      ${course.price}
+                    </p>
                   </div>
                   <Button size="sm">Enroll Now</Button>
                 </div>
@@ -259,7 +289,9 @@ export function CourseCatalog() {
         {filteredCourses.length === 0 && (
           <Card className="p-12 text-center">
             <p className="text-xl text-gray-600 mb-2">No courses found</p>
-            <p className="text-gray-500">Try adjusting your filters or search query</p>
+            <p className="text-gray-500">
+              Try adjusting your filters or search query
+            </p>
           </Card>
         )}
       </div>

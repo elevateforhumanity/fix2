@@ -45,7 +45,7 @@ export function QuizBuilder() {
   };
 
   const removeQuestion = (id: string) => {
-    setQuestions(questions.filter(q => q.id !== id));
+    setQuestions(questions.filter((q) => q.id !== id));
   };
 
   const updateOption = (index: number, value: string) => {
@@ -61,7 +61,9 @@ export function QuizBuilder() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Quiz Builder</h1>
-          <p className="text-red-100">Create interactive assessments for your courses</p>
+          <p className="text-red-100">
+            Create interactive assessments for your courses
+          </p>
         </div>
       </div>
 
@@ -73,7 +75,9 @@ export function QuizBuilder() {
               <h2 className="text-2xl font-bold mb-4">Quiz Details</h2>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Quiz Title</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Quiz Title
+                  </label>
                   <input
                     type="text"
                     value={quizTitle}
@@ -89,10 +93,17 @@ export function QuizBuilder() {
               <h2 className="text-2xl font-bold mb-4">Add Question</h2>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Question Type</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Question Type
+                  </label>
                   <select
                     value={currentQuestion.type}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, type: e.target.value as Question['type'] })}
+                    onChange={(e) =>
+                      setCurrentQuestion({
+                        ...currentQuestion,
+                        type: e.target.value as Question['type'],
+                      })
+                    }
                     className="w-full px-4 py-2 border rounded-lg"
                   >
                     <option value="multiple-choice">Multiple Choice</option>
@@ -103,10 +114,17 @@ export function QuizBuilder() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Question</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Question
+                  </label>
                   <textarea
                     value={currentQuestion.question}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, question: e.target.value })}
+                    onChange={(e) =>
+                      setCurrentQuestion({
+                        ...currentQuestion,
+                        question: e.target.value,
+                      })
+                    }
                     placeholder="Enter your question..."
                     className="w-full px-4 py-2 border rounded-lg h-24"
                   />
@@ -114,7 +132,9 @@ export function QuizBuilder() {
 
                 {currentQuestion.type === 'multiple-choice' && (
                   <div>
-                    <label className="block text-sm font-medium mb-2">Answer Options</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Answer Options
+                    </label>
                     <div className="space-y-2">
                       {currentQuestion.options?.map((option, index) => (
                         <div key={index} className="flex gap-2">
@@ -122,12 +142,19 @@ export function QuizBuilder() {
                             type="radio"
                             name="correct-answer"
                             checked={currentQuestion.correctAnswer === index}
-                            onChange={() => setCurrentQuestion({ ...currentQuestion, correctAnswer: index })}
+                            onChange={() =>
+                              setCurrentQuestion({
+                                ...currentQuestion,
+                                correctAnswer: index,
+                              })
+                            }
                           />
                           <input
                             type="text"
                             value={option}
-                            onChange={(e) => updateOption(index, e.target.value)}
+                            onChange={(e) =>
+                              updateOption(index, e.target.value)
+                            }
                             placeholder={`Option ${index + 1}`}
                             className="flex-1 px-4 py-2 border rounded-lg"
                           />
@@ -139,14 +166,21 @@ export function QuizBuilder() {
 
                 {currentQuestion.type === 'true-false' && (
                   <div>
-                    <label className="block text-sm font-medium mb-2">Correct Answer</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Correct Answer
+                    </label>
                     <div className="flex gap-4">
                       <label className="flex items-center gap-2">
                         <input
                           type="radio"
                           name="tf-answer"
                           checked={currentQuestion.correctAnswer === 'true'}
-                          onChange={() => setCurrentQuestion({ ...currentQuestion, correctAnswer: 'true' })}
+                          onChange={() =>
+                            setCurrentQuestion({
+                              ...currentQuestion,
+                              correctAnswer: 'true',
+                            })
+                          }
                         />
                         <span>True</span>
                       </label>
@@ -155,7 +189,12 @@ export function QuizBuilder() {
                           type="radio"
                           name="tf-answer"
                           checked={currentQuestion.correctAnswer === 'false'}
-                          onChange={() => setCurrentQuestion({ ...currentQuestion, correctAnswer: 'false' })}
+                          onChange={() =>
+                            setCurrentQuestion({
+                              ...currentQuestion,
+                              correctAnswer: 'false',
+                            })
+                          }
                         />
                         <span>False</span>
                       </label>
@@ -164,11 +203,18 @@ export function QuizBuilder() {
                 )}
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Points</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Points
+                  </label>
                   <input
                     type="number"
                     value={currentQuestion.points}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, points: parseInt(e.target.value) || 1 })}
+                    onChange={(e) =>
+                      setCurrentQuestion({
+                        ...currentQuestion,
+                        points: parseInt(e.target.value) || 1,
+                      })
+                    }
                     min="1"
                     className="w-full px-4 py-2 border rounded-lg"
                   />
@@ -183,7 +229,9 @@ export function QuizBuilder() {
             {/* Questions List */}
             {questions.length > 0 && (
               <Card className="p-6">
-                <h2 className="text-2xl font-bold mb-4">Questions ({questions.length})</h2>
+                <h2 className="text-2xl font-bold mb-4">
+                  Questions ({questions.length})
+                </h2>
                 <div className="space-y-4">
                   {questions.map((q, index) => (
                     <div key={q.id} className="p-4 bg-gray-50 rounded-lg">
@@ -202,8 +250,12 @@ export function QuizBuilder() {
                           {q.options && (
                             <ul className="space-y-1 text-sm">
                               {q.options.map((opt, i) => (
-                                <li key={i} className={`${q.correctAnswer === i ? 'text-green-600 font-semibold' : 'text-gray-600'}`}>
-                                  {q.correctAnswer === i && '✓ '}{opt}
+                                <li
+                                  key={i}
+                                  className={`${q.correctAnswer === i ? 'text-green-600 font-semibold' : 'text-gray-600'}`}
+                                >
+                                  {q.correctAnswer === i && '✓ '}
+                                  {opt}
                                 </li>
                               ))}
                             </ul>
@@ -239,25 +291,28 @@ export function QuizBuilder() {
                 <div className="flex justify-between">
                   <span className="text-gray-600">Multiple Choice:</span>
                   <span className="font-semibold">
-                    {questions.filter(q => q.type === 'multiple-choice').length}
+                    {
+                      questions.filter((q) => q.type === 'multiple-choice')
+                        .length
+                    }
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">True/False:</span>
                   <span className="font-semibold">
-                    {questions.filter(q => q.type === 'true-false').length}
+                    {questions.filter((q) => q.type === 'true-false').length}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Short Answer:</span>
                   <span className="font-semibold">
-                    {questions.filter(q => q.type === 'short-answer').length}
+                    {questions.filter((q) => q.type === 'short-answer').length}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Essay:</span>
                   <span className="font-semibold">
-                    {questions.filter(q => q.type === 'essay').length}
+                    {questions.filter((q) => q.type === 'essay').length}
                   </span>
                 </div>
               </div>
