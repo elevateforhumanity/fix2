@@ -160,17 +160,46 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Column - Hero Image */}
+              {/* Right Column - Hero Image Grid */}
               <div className="relative hidden lg:block">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/media/hero/homepage.jpg"
-                    alt="Students in training"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/generated-images/ecd-courses/cna-healthcare-cover.png"
+                      alt="CNA Healthcare Training"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/generated-images/ecd-courses/hvac-technician-cover.png"
+                      alt="HVAC Training"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
+                      alt="Barber Apprenticeship"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/generated-images/ecd-courses/cdl-transportation-cover.png"
+                      alt="CDL Training"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -279,28 +308,40 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center mb-12">
-              <div className="text-center">
-                <div className="text-5xl mb-2">🇺🇸</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                  <Award className="w-8 h-8 text-blue-600" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">U.S. DOL</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-2">🏛️</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
+                  <Award className="w-8 h-8 text-indigo-600" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">DWD Indiana</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-2">💼</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
+                  <Briefcase className="w-8 h-8 text-purple-600" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">WorkOne</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-2">🤝</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
+                  <Users className="w-8 h-8 text-orange-600" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">EmployIndy</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-2">🎓</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                  <CheckCircle className="w-8 h-8 text-green-600" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">ETPL Provider</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-2">⚙️</div>
+              <div className="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+                <div className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mb-3">
+                  <Award className="w-8 h-8 text-slate-700" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">Apprenticeships</p>
               </div>
             </div>
@@ -326,79 +367,106 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Video Highlights Section */}
-        <section className="py-16 bg-slate-50">
+        {/* Success Stories & Training Highlights */}
+        <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                See Our Programs in Action
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4">
+                Real Students, Real Success
               </h2>
-              <p className="text-lg text-slate-600">
-                Real students, real training, real results.
+              <p className="text-xl text-slate-300">
+                See what our graduates are saying about their training experience
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* Video Snippet 1 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div className="relative aspect-video bg-slate-200">
+              {/* Success Story 1 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
+                <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/images/programs/efh-cna-hero.jpg"
-                    alt="CNA Training"
+                    src="/generated-images/ecd-courses/cna-healthcare-cover.png"
+                    alt="CNA Graduate Success Story"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <div>
+                      <div className="text-sm font-semibold text-blue-400 mb-1">CNA Graduate</div>
+                      <h3 className="font-bold text-white text-lg">From Unemployed to Healthcare Hero</h3>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">CNA Training</h3>
-                  <p className="text-sm text-slate-600">Watch how our students train in real medical facilities</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    "I went from no job to working at a hospital in just 8 weeks. The training was hands-on and the job placement team got me interviews before I even graduated."
+                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  </div>
                 </div>
               </div>
 
-              {/* Video Snippet 2 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div className="relative aspect-video bg-slate-200">
+              {/* Success Story 2 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
+                <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/media/programs/barber-hero.jpg"
-                    alt="Barber Training"
+                    src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
+                    alt="Barber Apprentice Success Story"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <div>
+                      <div className="text-sm font-semibold text-purple-400 mb-1">Barber Apprentice</div>
+                      <h3 className="font-bold text-white text-lg">Building My Own Business</h3>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">Barber Apprenticeship</h3>
-                  <p className="text-sm text-slate-600">See apprentices earning while they learn</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    "I'm earning money while I learn. My mentor taught me the business side too. Now I'm planning to open my own shop next year."
+                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  </div>
                 </div>
               </div>
 
-              {/* Video Snippet 3 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div className="relative aspect-video bg-slate-200">
+              {/* Success Story 3 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-all">
+                <div className="relative aspect-video bg-slate-700">
                   <Image
-                    src="/media/programs/trades-1.jpg"
-                    alt="HVAC Training"
+                    src="/generated-images/ecd-courses/hvac-technician-cover.png"
+                    alt="HVAC Graduate Success Story"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <div>
+                      <div className="text-sm font-semibold text-orange-400 mb-1">HVAC Graduate</div>
+                      <h3 className="font-bold text-white text-lg">Career Change at 35</h3>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">HVAC Technician</h3>
-                  <p className="text-sm text-slate-600">Hands-on training with real equipment</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    "Best decision I ever made. I doubled my income and have job security. Companies are constantly calling me with opportunities."
+                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -508,7 +576,233 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How Elevate Works - 3-Step Process */}
+        {/* Workforce Funding Section */}
+        <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-6">
+                  Free Training Through Workforce Funding
+                </h2>
+                <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                  Most students pay $0 for training through WIOA, WRG, and JRI programs. We handle all the paperwork.
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">WIOA Funding</h3>
+                      <p className="text-blue-100 text-sm">Covers full tuition for eligible students</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Workforce Ready Grant (WRG)</h3>
+                      <p className="text-blue-100 text-sm">Up to $5,000 for high-demand careers</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Job Ready Indiana (JRI)</h3>
+                      <p className="text-blue-100 text-sm">State-funded training for career advancement</p>
+                    </div>
+                  </div>
+                </div>
+
+                <Link 
+                  href="/apply"
+                  className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-lg transition-all"
+                >
+                  Check Your Eligibility
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                      <div className="text-4xl font-bold mb-2">$0</div>
+                      <div className="text-sm text-blue-100">Average Cost for Students</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                      <div className="text-4xl font-bold mb-2">$5K</div>
+                      <div className="text-sm text-blue-100">Max WRG Grant</div>
+                    </div>
+                  </div>
+                  <div className="space-y-4 mt-8">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                      <div className="text-4xl font-bold mb-2">100%</div>
+                      <div className="text-sm text-blue-100">WIOA Coverage</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                      <div className="text-4xl font-bold mb-2">2 min</div>
+                      <div className="text-sm text-blue-100">Application Time</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Programs Showcase */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Our Training Programs
+              </h2>
+              <p className="text-xl text-slate-600">
+                Fast-track your career with hands-on training in high-demand fields
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* CNA Program */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/generated-images/courses/cna-course-cover.png"
+                    alt="CNA Training Program"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-blue-600 mb-2">Healthcare</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Certified Nursing Assistant</h3>
+                  <div className="flex items-center gap-4 text-sm text-slate-600 mb-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      6-8 weeks
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <DollarSign className="w-4 h-4" />
+                      $32K+ starting
+                    </span>
+                  </div>
+                  <Link href="/programs/cna" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* HVAC Program */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/generated-images/courses/hvac-course-cover.png"
+                    alt="HVAC Training Program"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-orange-600 mb-2">Skilled Trades</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">HVAC Technician</h3>
+                  <div className="flex items-center gap-4 text-sm text-slate-600 mb-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      12 weeks
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <DollarSign className="w-4 h-4" />
+                      $48K+ starting
+                    </span>
+                  </div>
+                  <Link href="/programs/hvac" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Barber Program */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/generated-images/courses/barber-course-cover.png"
+                    alt="Barber Apprenticeship Program"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-purple-600 mb-2">Skilled Trades</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Barber Apprenticeship</h3>
+                  <div className="flex items-center gap-4 text-sm text-slate-600 mb-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      12-18 months
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <DollarSign className="w-4 h-4" />
+                      $35K+ starting
+                    </span>
+                  </div>
+                  <Link href="/programs/barber" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* CDL Program */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/generated-images/courses/cdl-course-cover.png"
+                    alt="CDL Training Program"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-green-600 mb-2">Transportation</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Commercial Truck Driving</h3>
+                  <div className="flex items-center gap-4 text-sm text-slate-600 mb-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      4 weeks
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <DollarSign className="w-4 h-4" />
+                      $55K+ starting
+                    </span>
+                  </div>
+                  <Link href="/programs/truck-driving" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link 
+                href="/programs"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-lg transition-all"
+              >
+                View All Programs
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
