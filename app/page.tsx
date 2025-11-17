@@ -23,6 +23,13 @@ const programs = [
     duration: "4–9 Months • Lab + Field",
   },
   {
+    slug: "building-tech",
+    name: "Building Maintenance Technician",
+    blurb: "Training for building systems, repairs, and facility maintenance to keep properties safe and functional.",
+    funding: "Workforce Grants • Apprenticeship",
+    duration: "4–9 Months • Hands-On",
+  },
+  {
     slug: "workforce-readiness",
     name: "Workforce Readiness & Re-Entry",
     blurb: "Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.",
