@@ -3,7 +3,16 @@
 import { useState, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Upload, File, X, CheckCircle, AlertCircle, FileText, Image as ImageIcon, Video } from 'lucide-react';
+import {
+  Upload,
+  File,
+  X,
+  CheckCircle,
+  AlertCircle,
+  FileText,
+  Image as ImageIcon,
+  Video,
+} from 'lucide-react';
 
 interface UploadedFile {
   id: string;
@@ -39,11 +48,13 @@ export function AssignmentSubmission({
     if (!selectedFiles) return;
 
     const newFiles: UploadedFile[] = [];
-    
+
     Array.from(selectedFiles).forEach((file) => {
       // Validate file size
       if (file.size > maxFileSize * 1024 * 1024) {
-        alert(`File ${file.name} is too large. Maximum size is ${maxFileSize}MB`);
+        alert(
+          `File ${file.name} is too large. Maximum size is ${maxFileSize}MB`
+        );
         return;
       }
 
@@ -92,8 +103,10 @@ export function AssignmentSubmission({
   };
 
   const getFileIcon = (type: string) => {
-    if (type.startsWith('image/')) return <ImageIcon size={20} className="text-blue-600" />;
-    if (type.startsWith('video/')) return <Video size={20} className="text-purple-600" />;
+    if (type.startsWith('image/'))
+      return <ImageIcon size={20} className="text-blue-600" />;
+    if (type.startsWith('video/'))
+      return <Video size={20} className="text-purple-600" />;
     return <FileText size={20} className="text-gray-600" />;
   };
 
@@ -121,7 +134,8 @@ export function AssignmentSubmission({
           </div>
           <h2 className="text-3xl font-bold mb-4">Assignment Submitted!</h2>
           <p className="text-gray-600 mb-6">
-            Your submission has been received. You&apos;ll be notified when it&apos;s graded.
+            Your submission has been received. You&apos;ll be notified when
+            it&apos;s graded.
           </p>
           <div className="space-y-2 text-sm text-gray-600">
             <div>Submitted: {new Date().toLocaleString()}</div>
@@ -189,7 +203,9 @@ export function AssignmentSubmission({
           {/* Uploaded Files */}
           {files.length > 0 && (
             <div className="space-y-2">
-              <div className="font-semibold">Uploaded Files ({files.length})</div>
+              <div className="font-semibold">
+                Uploaded Files ({files.length})
+              </div>
               {files.map((file) => (
                 <div
                   key={file.id}
