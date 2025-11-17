@@ -42,7 +42,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
 
   const handleSearch = () => {
     onSearch?.(query, filters);
-    
+
     // Mock search results
     const mockResults: SearchResult[] = [
       {
@@ -85,11 +85,11 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
 
   const toggleFilter = (filterType: keyof SearchFilters, value: string) => {
     setFilters((prev) => {
-      const currentValues = prev[filterType] as string[] || [];
+      const currentValues = (prev[filterType] as string[]) || [];
       const newValues = currentValues.includes(value)
         ? currentValues.filter((v) => v !== value)
         : [...currentValues, value];
-      
+
       return {
         ...prev,
         [filterType]: newValues.length > 0 ? newValues : undefined,
@@ -110,7 +110,10 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
       {/* Search Bar */}
       <div className="flex gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+          <Search
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={20}
+          />
           <input
             type="text"
             value={query}
@@ -157,7 +160,10 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                 <h4 className="font-semibold mb-3">Category</h4>
                 <div className="space-y-2">
                   {categories.map((category) => (
-                    <label key={category} className="flex items-center gap-2 cursor-pointer">
+                    <label
+                      key={category}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <input
                         type="checkbox"
                         checked={filters.category?.includes(category)}
@@ -175,7 +181,10 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                 <h4 className="font-semibold mb-3">Duration</h4>
                 <div className="space-y-2">
                   {durations.map((duration) => (
-                    <label key={duration} className="flex items-center gap-2 cursor-pointer">
+                    <label
+                      key={duration}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <input
                         type="checkbox"
                         checked={filters.duration?.includes(duration)}
@@ -193,7 +202,10 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                 <h4 className="font-semibold mb-3">Level</h4>
                 <div className="space-y-2">
                   {levels.map((level) => (
-                    <label key={level} className="flex items-center gap-2 cursor-pointer">
+                    <label
+                      key={level}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <input
                         type="checkbox"
                         checked={filters.level?.includes(level)}
@@ -211,7 +223,10 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                 <h4 className="font-semibold mb-3">Price</h4>
                 <div className="space-y-2">
                   {priceRanges.map((range) => (
-                    <label key={range} className="flex items-center gap-2 cursor-pointer">
+                    <label
+                      key={range}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <input
                         type="checkbox"
                         checked={filters.price?.includes(range)}
@@ -232,8 +247,9 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap gap-2">
           {Object.entries(filters).map(([key, values]) => {
-            if (!values || (Array.isArray(values) && values.length === 0)) return null;
-            
+            if (!values || (Array.isArray(values) && values.length === 0))
+              return null;
+
             const filterValues = Array.isArray(values) ? values : [values];
             return filterValues.map((value) => (
               <div
@@ -242,7 +258,9 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
               >
                 <span>{value}</span>
                 <button
-                  onClick={() => toggleFilter(key as keyof SearchFilters, value.toString())}
+                  onClick={() =>
+                    toggleFilter(key as keyof SearchFilters, value.toString())
+                  }
                   className="hover:text-red-900"
                 >
                   <X size={14} />
@@ -292,7 +310,9 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                     <div className="flex items-center gap-1">
                       <span className="text-orange-500">★</span>
                       <span className="font-semibold">{result.rating}</span>
-                      <span className="text-sm text-gray-600">({result.students})</span>
+                      <span className="text-sm text-gray-600">
+                        ({result.students})
+                      </span>
                     </div>
                     <div className="font-bold text-green-600">
                       {result.price === 0 ? 'FREE' : `$${result.price}`}
