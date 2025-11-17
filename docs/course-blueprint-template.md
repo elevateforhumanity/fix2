@@ -1,19 +1,20 @@
 # Elevate Course Blueprint Template
+
 _(Use this template for every new program: HVAC, CNA, Barber Apprenticeship, CDL, etc.)_
 
 ---
 
 ## 1. Course Snapshot
 
-- **Program Name:**  
-- **Course Title:**  
-- **Version / Revision Date:**  
-- **CIP Code:**  
-- **Credential(s) Earned:** (License, Certificate, Apprenticeship Completion, etc.)  
-- **Total Hours:** (Classroom / Lab / On-the-Job broken out)  
-- **Modality:** (In-person, Hybrid, Online)  
-- **Target Learners:** (Adults, Dislocated workers, youth, etc.)  
-- **Funding / Referrals:** (WRG, WIOA, JRI, WorkOne, EmployIndy, etc.)  
+- **Program Name:**
+- **Course Title:**
+- **Version / Revision Date:**
+- **CIP Code:**
+- **Credential(s) Earned:** (License, Certificate, Apprenticeship Completion, etc.)
+- **Total Hours:** (Classroom / Lab / On-the-Job broken out)
+- **Modality:** (In-person, Hybrid, Online)
+- **Target Learners:** (Adults, Dislocated workers, youth, etc.)
+- **Funding / Referrals:** (WRG, WIOA, JRI, WorkOne, EmployIndy, etc.)
 
 ---
 
@@ -44,11 +45,11 @@ Write 5–10 clear, measurable outcomes:
 
 By the end of this course, learners will be able to:
 
-1.  
-2.  
-3.  
-4.  
-5.  
+1.
+2.
+3.
+4.
+5.
 
 ---
 
@@ -60,13 +61,13 @@ List your units like this:
 
 - **Unit 1 – [Title]**  
   Focus:  
-  Hours:  
+  Hours:
 - **Unit 2 – [Title]**  
   Focus:  
-  Hours:  
+  Hours:
 - **Unit 3 – [Title]**  
   Focus:  
-  Hours:  
+  Hours:
 - (Add more units as needed)
 
 ### 4.2 Detailed Unit Breakdown
@@ -74,18 +75,17 @@ List your units like this:
 #### Unit 1 – [Title]
 
 - **Hours:** (Classroom / Lab / OJT)
-- **Objectives:**
-  -  
-  -  
+- ## **Objectives:**
+  -
 - **Lessons in this unit:**
-  1. Lesson 1.1 – [Name]  
-     - Content type: (video, reading, demo, checklist)  
-     - Activities:  
-     - Assessment: (quiz, skill check, reflection)  
-  2. Lesson 1.2 – [Name]  
-     - Content type:  
-     - Activities:  
-     - Assessment:  
+  1. Lesson 1.1 – [Name]
+     - Content type: (video, reading, demo, checklist)
+     - Activities:
+     - Assessment: (quiz, skill check, reflection)
+  2. Lesson 1.2 – [Name]
+     - Content type:
+     - Activities:
+     - Assessment:
 
 (Repeat this pattern for each unit.)
 
@@ -119,16 +119,16 @@ List your units like this:
 
 Break down the hours so it's workforce-board friendly:
 
-- **Total Hours:**  
-- **Classroom / Theory:**  
-- **Lab / Hands-On:**  
-- **On-the-Job (Apprenticeship / OJT / WEX):**  
+- **Total Hours:**
+- **Classroom / Theory:**
+- **Lab / Hands-On:**
+- **On-the-Job (Apprenticeship / OJT / WEX):**
 
 Weekly example:
 
-- Week 1–4: Orientation + Core Theory  
-- Week 5–8: Lab + Practice  
-- Week 9–12: OJT / Apprenticeship hours  
+- Week 1–4: Orientation + Core Theory
+- Week 5–8: Lab + Practice
+- Week 9–12: OJT / Apprenticeship hours
 
 ---
 
@@ -157,8 +157,8 @@ Weekly example:
 
 Describe how this course lives inside Elevate's LMS:
 
-- **Course Code in LMS:**  
-- **Estimated duration in LMS (weeks):**  
+- **Course Code in LMS:**
+- **Estimated duration in LMS (weeks):**
 - **Modules mapping:**
   - Unit 1 → LMS Module 1
   - Unit 2 → LMS Module 2
@@ -173,11 +173,9 @@ Describe how this course lives inside Elevate's LMS:
 
 ## 9. Job Outcomes & Pathways
 
-- **Job Titles:**
-  -  
-  -  
-- **Employers / Partner Sites:**
-  -  
+- ## **Job Titles:**
+  -
+- ## **Employers / Partner Sites:**
 - **Stackable Pathways:**
   - This course → next course or advanced credential
 
@@ -185,7 +183,7 @@ Describe how this course lives inside Elevate's LMS:
 
 ## 10. Sign-offs
 
-- Curriculum developed by:  
-- Reviewed by (Compliance):  
-- Approved by (Program Director):  
+- Curriculum developed by:
+- Reviewed by (Compliance):
+- Approved by (Program Director):
 - Effective date:

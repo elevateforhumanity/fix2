@@ -3,12 +3,14 @@
 ## What Coursera Does Well (That We Should Adopt):
 
 ### 1. **Clear Value Proposition Above the Fold**
+
 - **Coursera**: "Learn without limits" + immediate discount offer ($160 off)
 - **Our Current**: "Stop Waiting. Start Earning." (Good, but needs more specificity)
 - **Action**: Add specific value prop with numbers
 
 ### 2. **Multiple Entry Points for Different Audiences**
-- **Coursera**: 
+
+- **Coursera**:
   - For Individuals
   - For Businesses
   - For Universities
@@ -17,31 +19,37 @@
 - **Action**: Add "For Employers" and "For Career Changers" tabs
 
 ### 3. **Social Proof Through Logos**
+
 - **Coursera**: Shows 350+ universities (Google, Stanford, IBM, Microsoft)
 - **Our Current**: Missing partner logos
 - **Action**: Add employer partner logos (hospitals, HVAC companies, trucking firms)
 
 ### 4. **Specific Course Cards with Images**
+
 - **Coursera**: Shows actual course thumbnails, instructor names, ratings
 - **Our Current**: Generic program descriptions
 - **Action**: Add real instructor photos, student testimonials, actual training photos
 
 ### 5. **Category Navigation**
+
 - **Coursera**: Browse by category (Business, AI, Data Science, etc.)
 - **Our Current**: Only 4 programs shown
 - **Action**: Add "Browse by Industry" section
 
 ### 6. **Testimonials with Photos**
+
 - **Coursera**: Real student photos and quotes with names
 - **Our Current**: Missing real testimonials
 - **Action**: Add actual student success stories with photos
 
 ### 7. **Urgency Through Promotions**
+
 - **Coursera**: "$160 off" banner, "Save 40% off team training"
 - **Our Current**: "Next class starts Feb 5th" (Good!)
 - **Action**: Keep urgency, add limited-time offers
 
 ### 8. **Trust Indicators**
+
 - **Coursera**: "4,500+ teams worldwide", "350+ universities"
 - **Our Current**: Removed fake stats (Good!)
 - **Action**: Add real metrics when available
@@ -49,22 +57,26 @@
 ## What We Do BETTER Than Coursera:
 
 ### 1. **Direct Career Focus**
+
 ✅ We focus on immediate employment, not just learning
 ✅ Specific salary ranges ($35K-$55K)
 ✅ Job placement emphasis
 ✅ Clear timeline (4-12 weeks vs years)
 
 ### 2. **Financial Accessibility**
+
 ✅ "$0 for most students" is clearer than Coursera's pricing
 ✅ WIOA funding explanation
 ✅ No hidden costs
 
 ### 3. **Urgency and Action**
+
 ✅ "Next class starts Feb 5th - Only 8 spots left"
 ✅ Multiple "Apply Now" CTAs
 ✅ Clear enrollment path
 
 ### 4. **Real-World Benefits**
+
 ✅ "Work 3 days/week, earn full-time pay"
 ✅ "Start your own business after 2 years"
 ✅ Specific job outcomes
@@ -74,18 +86,21 @@
 ### CRITICAL ADDITIONS:
 
 1. **Partner Employer Logos Section**
+
 ```
 "Our Hiring Partners"
 [Hospital Logo] [HVAC Company Logo] [Trucking Company Logo] [Barbershop Chain Logo]
 ```
 
 2. **Real Student Success Stories**
+
 ```
 Photo + Name + Quote + Outcome
 "I went from unemployed to earning $48K in 12 weeks" - Marcus J., HVAC Graduate
 ```
 
 3. **Video Testimonials** (Replace broken videos)
+
 ```
 - 30-second student testimonial
 - Instructor explaining program
@@ -93,6 +108,7 @@ Photo + Name + Quote + Outcome
 ```
 
 4. **Interactive Program Selector**
+
 ```
 "What's your goal?"
 [ ] Get a job fast (4-8 weeks)
@@ -102,6 +118,7 @@ Photo + Name + Quote + Outcome
 ```
 
 5. **Live Stats** (When Real)
+
 ```
 "🔴 LIVE: 3 students enrolled today"
 "📊 This week: 12 job offers received"
@@ -109,6 +126,7 @@ Photo + Name + Quote + Outcome
 ```
 
 6. **Comparison Table**
+
 ```
 Traditional College vs Elevate Connects
 Time: 4 years vs 4-12 weeks
@@ -117,6 +135,7 @@ Outcome: Degree vs Job + Certification
 ```
 
 7. **FAQ Section**
+
 ```
 "How do I qualify for free training?"
 "When do classes start?"
@@ -125,6 +144,7 @@ Outcome: Degree vs Job + Certification
 ```
 
 8. **Trust Badges**
+
 ```
 [State Licensed] [WIOA Approved] [EPA Certified] [DOT Approved]
 ```
@@ -132,6 +152,7 @@ Outcome: Degree vs Job + Certification
 ## IMMEDIATE ACTION ITEMS:
 
 ### Priority 1 (Do Now):
+
 1. ✅ Remove fake statistics (DONE)
 2. ✅ Add real urgency (class dates) (DONE)
 3. ✅ Specific salary ranges (DONE)
@@ -140,12 +161,14 @@ Outcome: Degree vs Job + Certification
 6. ⚠️ Fix/remove broken video embeds
 
 ### Priority 2 (This Week):
+
 7. Add "Browse by Industry" section
 8. Add interactive program selector
 9. Add FAQ accordion
 10. Add comparison table (us vs traditional college)
 
 ### Priority 3 (Next Week):
+
 11. Record real video testimonials
 12. Add live enrollment counter (if real)
 13. Add trust badges/certifications
@@ -154,6 +177,7 @@ Outcome: Degree vs Job + Certification
 ## Design Improvements Needed:
 
 ### From Coursera's Design:
+
 1. **Cleaner card layouts** - More whitespace, better typography
 2. **Better imagery** - Professional photos, not stock images
 3. **Consistent color scheme** - Stick to red/orange brand
@@ -161,6 +185,7 @@ Outcome: Degree vs Job + Certification
 5. **Loading speed** - Optimize images, lazy load
 
 ### Our Unique Style:
+
 1. **Keep the urgency** - Coursera is too calm, we need action
 2. **Keep the directness** - "Stop Waiting. Start Earning." is powerful
 3. **Keep the honesty** - No fake stats, real outcomes
@@ -177,16 +202,19 @@ Outcome: Degree vs Job + Certification
 ## A/B Testing Ideas:
 
 ### Test 1: Hero Headline
+
 - A: "Stop Waiting. Start Earning."
 - B: "Get Certified. Get Hired. Get Paid."
 - C: "From Unemployed to Employed in 4-12 Weeks"
 
 ### Test 2: CTA Button Text
+
 - A: "Check If You Qualify for Free Training"
 - B: "Apply for Free Training Now"
 - C: "See If You're Eligible - Takes 2 Minutes"
 
 ### Test 3: Program Display
+
 - A: All 4 programs on homepage (current)
 - B: Featured program + "View All" button
 - C: Interactive quiz to recommend program
@@ -212,6 +240,7 @@ Outcome: Degree vs Job + Certification
 **Our Weakness**: Less brand recognition, need more social proof
 
 **Our Competitive Advantage**:
+
 - Faster (weeks vs years)
 - Cheaper (free vs thousands)
 - More direct (job vs degree)

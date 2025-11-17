@@ -13,20 +13,23 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const navigation = [
-    { 
-      name: 'Programs', 
+    {
+      name: 'Programs',
       href: '/programs',
       dropdown: [
         { name: 'HVAC Technician', href: '/programs/hvac' },
         { name: 'Barber Apprenticeship', href: '/programs/barber' },
         { name: 'Certified Nursing Assistant (CNA)', href: '/programs/cna' },
         { name: 'Commercial Truck Driving (CDL)', href: '/programs/cdl' },
-        { name: 'Building Maintenance', href: '/programs/building-maintenance' },
+        {
+          name: 'Building Maintenance',
+          href: '/programs/building-maintenance',
+        },
         { name: 'All Programs', href: '/programs' },
-      ]
+      ],
     },
-    { 
-      name: 'For Agencies', 
+    {
+      name: 'For Agencies',
       href: '/agencies',
       dropdown: [
         { name: 'WorkOne Partnership', href: '/agencies/workone' },
@@ -34,20 +37,23 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'ETPL & WRG Compliance', href: '/agencies/compliance' },
         { name: 'Employer OJT/WEX Portal', href: '/agencies/ojt-wex' },
         { name: 'Apprenticeship Logs', href: '/agencies/apprenticeships' },
-      ]
+      ],
     },
-    { 
-      name: 'For Employers', 
+    {
+      name: 'For Employers',
       href: '/employers',
       dropdown: [
         { name: 'Host Apprentices', href: '/employers/apprenticeships' },
         { name: 'OJT/WEX Programs', href: '/employers/ojt-wex' },
-        { name: 'Talent Pipeline Services', href: '/employers/talent-pipeline' },
+        {
+          name: 'Talent Pipeline Services',
+          href: '/employers/talent-pipeline',
+        },
         { name: 'Employer Portal', href: '/employer/dashboard' },
-      ]
+      ],
     },
-    { 
-      name: 'About', 
+    {
+      name: 'About',
       href: '/about',
       dropdown: [
         { name: 'Approvals & Certifications', href: '/about/approvals' },
@@ -55,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'Leadership Team', href: '/about/team' },
         { name: 'Success Stories', href: '/success-stories' },
         { name: 'Contact Us', href: '/contact' },
-      ]
+      ],
     },
   ];
 
@@ -73,9 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                 <span className="text-xl font-bold text-slate-900">
                   Elevate Connects
                 </span>
-                <span className="block text-xs text-slate-600">
-                  Directory
-                </span>
+                <span className="block text-xs text-slate-600">Directory</span>
               </div>
             </Link>
           </div>

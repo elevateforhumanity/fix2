@@ -1,6 +1,7 @@
 # LMS Benchmark Checklist (Absorb / Docebo / TalentLMS → Elevate)
 
 Goal: Use the best parts of leading LMS platforms to refine **Elevate** so it feels:
+
 - Enterprise-grade and visually polished
 - Easy for adult learners and partners
 - Clearly aligned with **DOL, DWD, WorkOne, EmployIndy** and other workforce boards
@@ -11,21 +12,24 @@ Goal: Use the best parts of leading LMS platforms to refine **Elevate** so it fe
 ## 1. Reference LMS Platforms & URLs
 
 ### 1.1 Absorb LMS
-- **Home / Product**:  
-  - https://www.absorblms.com/  
+
+- **Home / Product**:
+  - https://www.absorblms.com/
   - https://www.absorblms.com/products/learning-management-system
 - Focus: AI-powered, enterprise LMS with strong integrations and compliance training positioning.
 
 ### 1.2 Docebo
-- **Home / Platform**:  
-  - https://www.docebo.com/  
+
+- **Home / Platform**:
+  - https://www.docebo.com/
   - https://www.docebo.com/learning-platform/
 - Focus: AI-first learning platform for employees, partners, customers; heavy on automation, impact, and compliance.
 
 ### 1.3 TalentLMS
-- **Home / Platform**:  
-  - https://www.talentlms.com/  
-  - https://www.talentlms.com/platform  
+
+- **Home / Platform**:
+  - https://www.talentlms.com/
+  - https://www.talentlms.com/platform
   - https://www.talentlms.com/features
 - Focus: Simple, cloud LMS; fast setup; strong for compliance, blended learning, and mobile.
 
@@ -36,6 +40,7 @@ Goal: Use the best parts of leading LMS platforms to refine **Elevate** so it fe
 ## 2. What to Compare Visually (Design & Layout)
 
 ### 2.1 Hero section (top of homepage)
+
 For each vendor, capture:
 
 - **Headline style** (short, benefit-driven, not technical)
@@ -45,6 +50,7 @@ For each vendor, capture:
 
 > ✏️ **Action for Elevate:**  
 > Rewrite Elevate's hero to:
+>
 > - State clearly: "Workforce training & apprenticeships for [city/region]."
 > - Call out: DOL-registered apprenticeships, ETPL/WRG/WorkOne alignment.
 > - Include 1–2 CTAs: "Apply as a Student" and "Partner With Elevate".
@@ -60,6 +66,7 @@ Document how each LMS structures the top menu:
 - How they highlight **demo / trial / contact** links
 
 > ✏️ **Action for Elevate:**
+>
 > - Create or refine top-nav groups such as:
 >   - **Programs** (HVAC, Barber, CNA, Apprenticeships, etc.)
 >   - **For Agencies** (WorkOne, EmployIndy, DWD partners)
@@ -78,6 +85,7 @@ For each vendor, note:
 - Consistency in spacing, fonts, and color usage
 
 > ✏️ **Action for Elevate:**
+>
 > - Rebuild long walls of text into:
 >   - 3-column benefit sections
 >   - Feature cards with icons
@@ -86,7 +94,7 @@ For each vendor, note:
 
 ---
 
-## 3. Functional Positioning (What They Say Their LMS *Does*)
+## 3. Functional Positioning (What They Say Their LMS _Does_)
 
 ### 3.1 Key feature themes to copy/adapt
 
@@ -101,6 +109,7 @@ From Absorb / Docebo / TalentLMS, list phrases and ideas around:
 
 > ✏️ **Action for Elevate:**
 > Create a "What Elevate Delivers" section that maps to your reality:
+>
 > - **Workforce-ready programs**: HVAC, Barber, CNA, Building Tech, CDL, etc.
 > - **Compliance & reporting**:
 >   - Aligned to **DOL, DWD, WorkOne, EmployIndy**
@@ -123,6 +132,7 @@ Study how these platforms talk about:
 - Industry-specific compliance (e.g., financial, healthcare)
 
 > ✏️ **Action for Elevate (rewrite ideas):**
+>
 > - Add a dedicated **"Compliance & Workforce Partners"** page/section:
 >   - Explain alignment with:
 >     - **U.S. Department of Labor (DOL)**
@@ -150,6 +160,7 @@ For each LMS, quickly walk through:
 
 > ✏️ **Action for Elevate:**  
 > Make wireframe notes (even simple bullets) for:
+>
 > - **Student Journey**:
 >   - Discover program → Eligibility check → Apply → Orientation → Training → Certification → Job placement
 > - **Agency / WorkOne Journey**:
@@ -173,4 +184,3 @@ When you're done reviewing Absorb, Docebo, and TalentLMS:
    - **P0**: Must fix before onboarding partners & students
    - **P1**: Important, but can launch without them
    - **P2**: Nice futures (animations, extra dashboards, etc.)
-

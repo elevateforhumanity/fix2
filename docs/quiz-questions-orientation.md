@@ -1,4 +1,5 @@
 # Orientation Quiz Questions
+
 ### For Course Orchestrator System
 
 ---
@@ -12,11 +13,13 @@
 ---
 
 ### Question 1
+
 **Question:** Who provides the official barbering curriculum in this pathway?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate
 - B. Milady ✓
 - C. WorkOne
@@ -29,11 +32,13 @@
 ---
 
 ### Question 2
+
 **Question:** Who issues your Barber License?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate
 - B. Your instructor
 - C. The State Board ✓
@@ -46,11 +51,13 @@
 ---
 
 ### Question 3
+
 **Question:** What certificate does Elevate issue?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Barber License
 - B. Milady Diploma
 - C. Elevate Certificate of Completion ✓
@@ -63,11 +70,13 @@
 ---
 
 ### Question 4
+
 **Question:** What must you upload to verify Milady completion?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Haircut video
 - B. Certificate from Milady ✓
 - C. Pay stub
@@ -80,11 +89,13 @@
 ---
 
 ### Question 5
+
 **Question:** Are weekly Q&A sessions required?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Yes ✓
 - B. No
 
@@ -95,11 +106,13 @@
 ---
 
 ### Question 6
+
 **Question:** If you miss a live Q&A, what can you watch?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. TikTok
 - B. Shop camera
 - C. Recording in the LMS ✓
@@ -112,11 +125,13 @@
 ---
 
 ### Question 7
+
 **Question:** Who verifies your completion?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate staff ✓
 - B. Milady
 - C. Your employer
@@ -129,11 +144,13 @@
 ---
 
 ### Question 8
+
 **Question:** Where do you take theory modules?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate LMS
 - B. Milady platform ✓
 - C. WorkOne site
@@ -146,11 +163,13 @@
 ---
 
 ### Question 9
+
 **Question:** Uploading ID and intake forms is:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Optional
 - B. Required ✓
 
@@ -161,11 +180,13 @@
 ---
 
 ### Question 10
+
 **Question:** To finish the pathway, you must:
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Complete all required blocks
 - B. Pass Elevate quizzes
 - C. Attend live sessions
@@ -186,11 +207,13 @@
 ---
 
 ### Question 1
+
 **Question:** Who delivers the official CNA curriculum?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate
 - B. Choice Medical Institute ✓
 - C. WorkOne
@@ -203,11 +226,13 @@
 ---
 
 ### Question 2
+
 **Question:** Who issues your CNA credential?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate
 - B. Choice Medical
 - C. The State after passing your exam ✓
@@ -220,11 +245,13 @@
 ---
 
 ### Question 3
+
 **Question:** What certificate does Elevate issue?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. CNA License
 - B. Choice Medical Diploma
 - C. Elevate Certificate of Completion ✓
@@ -237,11 +264,13 @@
 ---
 
 ### Question 4
+
 **Question:** Where do you complete CNA theory modules?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Elevate LMS only
 - B. Partner platform (Choice Medical) ✓
 - C. WorkOne site
@@ -254,11 +283,13 @@
 ---
 
 ### Question 5
+
 **Question:** Where do you complete live Q&A?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Choice Medical campus
 - B. Elevate live sessions ✓
 - C. Hospital
@@ -271,11 +302,13 @@
 ---
 
 ### Question 6
+
 **Question:** What documents must be uploaded before beginning?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Nothing
 - B. ID and intake documents ✓
 - C. High school diploma only
@@ -288,11 +321,13 @@
 ---
 
 ### Question 7
+
 **Question:** Is attending Elevate live CNA sessions required?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Yes ✓
 - B. No
 
@@ -303,11 +338,13 @@
 ---
 
 ### Question 8
+
 **Question:** What is the final assessment?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. State CNA exam
 - B. Choice Medical final
 - C. Elevate final CNA quiz ✓
@@ -320,11 +357,13 @@
 ---
 
 ### Question 9
+
 **Question:** How do you prove partner completion?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Email from instructor
 - B. Upload your CNA theory/clinical certificates ✓
 - C. Verbal confirmation
@@ -337,11 +376,13 @@
 ---
 
 ### Question 10
+
 **Question:** After Elevate completion, what's your next step?
 
 **Type:** Multiple Choice
 
 **Options:**
+
 - A. Apply for jobs
 - B. Schedule the state CNA exam ✓
 - C. Take a vacation

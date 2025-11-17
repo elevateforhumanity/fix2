@@ -1,4 +1,5 @@
 # Student Journey Email Templates
+
 ### For Course Orchestrator System
 
 ---
@@ -127,6 +128,7 @@ We noticed you haven't logged into your {{program_name}} pathway in a few days.
 Life gets busy — we get it. But your future is waiting, and we're here to help you get back on track.
 
 **Quick Reminder:**
+
 - Your next step: {{next_block_title}}
 - Time to complete: {{expected_hours}} hours
 - Live session coming up: {{next_live_session_date}}
@@ -197,12 +199,14 @@ This confirms you completed the full Elevate pathway.
 **Your Next Steps**
 
 {{#if_barber}}
+
 - **Barber:** Schedule your state barber licensing exam
-{{/if_barber}}
+  {{/if_barber}}
 
 {{#if_cna}}
+
 - **CNA:** Schedule your state CNA exam
-{{/if_cna}}
+  {{/if_cna}}
 
 If already scheduled → upload your results as soon as available
 
