@@ -85,7 +85,9 @@ export function ShoppingCart() {
               {cartItems.length === 0 ? (
                 <div className="text-center py-12">
                   <CartIcon className="mx-auto text-gray-400 mb-4" size={64} />
-                  <h3 className="text-xl font-semibold mb-2">Your cart is empty</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Your cart is empty
+                  </h3>
                   <p className="text-gray-600 mb-6">
                     Browse our courses and add them to your cart
                   </p>

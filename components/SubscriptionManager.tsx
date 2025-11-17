@@ -4,7 +4,13 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { CheckCircle, X, CreditCard, Calendar, AlertCircle } from 'lucide-react';
+import {
+  CheckCircle,
+  X,
+  CreditCard,
+  Calendar,
+  AlertCircle,
+} from 'lucide-react';
 
 interface Plan {
   id: string;
@@ -101,7 +107,9 @@ export function SubscriptionManager() {
       case 'canceled':
         return <Badge className="bg-red-100 text-red-800">Canceled</Badge>;
       case 'past_due':
-        return <Badge className="bg-orange-100 text-orange-800">Past Due</Badge>;
+        return (
+          <Badge className="bg-orange-100 text-orange-800">Past Due</Badge>
+        );
       default:
         return <Badge>Unknown</Badge>;
     }
@@ -121,7 +129,9 @@ export function SubscriptionManager() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-2xl font-bold">{currentSubscription.planName}</div>
+                <div className="text-2xl font-bold">
+                  {currentSubscription.planName}
+                </div>
                 <div className="text-gray-600">
                   ${(currentSubscription.price / 100).toFixed(2)}/month
                 </div>
@@ -139,15 +149,18 @@ export function SubscriptionManager() {
 
             {currentSubscription.cancelAtPeriodEnd && (
               <div className="flex items-start gap-3 p-4 bg-orange-50 border border-orange-200 rounded-lg">
-                <AlertCircle className="text-orange-600 flex-shrink-0 mt-0.5" size={20} />
+                <AlertCircle
+                  className="text-orange-600 flex-shrink-0 mt-0.5"
+                  size={20}
+                />
                 <div className="flex-1">
                   <div className="font-semibold text-orange-900 mb-1">
                     Subscription Ending
                   </div>
                   <div className="text-sm text-orange-800">
                     Your subscription will end on{' '}
-                    {currentSubscription.currentPeriodEnd.toLocaleDateString()}. You&apos;ll
-                    still have access until then.
+                    {currentSubscription.currentPeriodEnd.toLocaleDateString()}.
+                    You&apos;ll still have access until then.
                   </div>
                 </div>
               </div>
@@ -208,7 +221,10 @@ export function SubscriptionManager() {
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="text-green-600 flex-shrink-0 mt-0.5" size={18} />
+                      <CheckCircle
+                        className="text-green-600 flex-shrink-0 mt-0.5"
+                        size={18}
+                      />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
