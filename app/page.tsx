@@ -763,34 +763,38 @@ export default function HomePage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* CNA Training */}
+              {/* Medical Assistant Training */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100">
                 <div className="text-4xl mb-4">🏥</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">CNA Training</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Medical Assistant</h3>
+                <div className="bg-blue-100 rounded-lg p-4 mb-4">
+                  <p className="text-sm font-bold text-blue-900 mb-1">💡 Work in clinics, hospitals, or start your own practice</p>
+                  <p className="text-xs text-blue-700">Clinical + administrative skills. Path to office management or nursing.</p>
+                </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">6-8 week program</span>
+                    <span className="text-slate-700">8-12 week program</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Clinical training in real hospitals</span>
+                    <span className="text-slate-700">Clinical + administrative training</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">State certification exam prep</span>
+                    <span className="text-slate-700">National certification exam prep</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Job placement assistance</span>
+                    <span className="text-slate-700">Career advancement pathway</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-slate-700">WIOA & WRG eligible</span>
                   </div>
                 </div>
-                <Link href="/programs/cna" className="block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-all">
-                  Learn About CNA Program →
+                <Link href="/programs/medical-assistant" className="block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-all">
+                  Start Your Healthcare Career →
                 </Link>
               </div>
 
@@ -829,6 +833,10 @@ export default function HomePage() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-100">
                 <div className="text-4xl mb-4">✂️</div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Barber Apprenticeship</h3>
+                <div className="bg-purple-100 rounded-lg p-4 mb-4">
+                  <p className="text-sm font-bold text-purple-900 mb-1">💡 Get your license <span className="underline">in</span> a barbershop</p>
+                  <p className="text-xs text-purple-700">Earn while you learn. Build your clientele. Start your own business.</p>
+                </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -836,15 +844,15 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Earn while you learn</span>
+                    <span className="text-slate-700">Get paid from day one</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Work in real barbershops</span>
+                    <span className="text-slate-700">Build your client base while training</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">State barber license pathway</span>
+                    <span className="text-slate-700">Path to business ownership</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -852,7 +860,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <Link href="/programs/barber" className="block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition-all">
-                  Learn About Apprenticeship →
+                  Start Your Barber Journey →
                 </Link>
               </div>
             </div>
