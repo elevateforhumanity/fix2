@@ -17,10 +17,15 @@ interface ProgressTrackerProps {
   overallProgress: number;
 }
 
-export function ProgressTracker({ modules, overallProgress }: ProgressTrackerProps) {
+export function ProgressTracker({
+  modules,
+  overallProgress,
+}: ProgressTrackerProps) {
   const getStatusIcon = (status: Module['status']) => {
-    if (status === 'completed') return <CheckCircle className="text-green-600" size={24} />;
-    if (status === 'in-progress') return <Clock className="text-orange-600" size={24} />;
+    if (status === 'completed')
+      return <CheckCircle className="text-green-600" size={24} />;
+    if (status === 'in-progress')
+      return <Clock className="text-orange-600" size={24} />;
     return <Circle className="text-gray-400" size={24} />;
   };
 
@@ -31,7 +36,9 @@ export function ProgressTracker({ modules, overallProgress }: ProgressTrackerPro
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
               <span className="font-semibold">Overall Progress</span>
-              <span className="text-2xl font-bold text-red-600">{overallProgress}%</span>
+              <span className="text-2xl font-bold text-red-600">
+                {overallProgress}%
+              </span>
             </div>
             <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
               <div
@@ -61,7 +68,8 @@ export function ProgressTracker({ modules, overallProgress }: ProgressTrackerPro
                   <div className="flex-1">
                     <div className="font-semibold mb-1">{module.title}</div>
                     <div className="text-sm text-gray-600 mb-2">
-                      {module.completedLessons} of {module.lessons} lessons completed
+                      {module.completedLessons} of {module.lessons} lessons
+                      completed
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div

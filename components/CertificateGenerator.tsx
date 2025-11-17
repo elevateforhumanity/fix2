@@ -34,27 +34,25 @@ export function CertificateGenerator({
           <div className="mb-8">
             <Award className="mx-auto text-red-600" size={64} />
           </div>
-          
+
           <h1 className="text-4xl font-bold mb-4 text-gray-900">
             Certificate of Completion
           </h1>
-          
-          <div className="text-lg text-gray-600 mb-8">
-            This certifies that
-          </div>
-          
+
+          <div className="text-lg text-gray-600 mb-8">This certifies that</div>
+
           <div className="text-3xl font-bold mb-8 text-red-600">
             {studentName}
           </div>
-          
+
           <div className="text-lg text-gray-600 mb-4">
             has successfully completed
           </div>
-          
+
           <div className="text-2xl font-semibold mb-8 text-gray-900">
             {courseName}
           </div>
-          
+
           <div className="flex items-center justify-center gap-12 text-sm text-gray-600 mb-8">
             <div>
               <div className="font-semibold">Date of Completion</div>
@@ -65,11 +63,9 @@ export function CertificateGenerator({
               <div>{certificateId}</div>
             </div>
           </div>
-          
+
           <div className="border-t-2 border-gray-300 pt-8">
-            <div className="text-sm text-gray-600">
-              Elevate for Humanity
-            </div>
+            <div className="text-sm text-gray-600">Elevate for Humanity</div>
             <div className="text-xs text-gray-500 mt-2">
               Workforce Development & Training
             </div>
@@ -78,11 +74,18 @@ export function CertificateGenerator({
       </Card>
 
       <div className="flex gap-4 justify-center">
-        <Button onClick={handleDownload} className="bg-red-600 hover:bg-red-700">
+        <Button
+          onClick={handleDownload}
+          className="bg-red-600 hover:bg-red-700"
+        >
           <Download size={16} className="mr-2" />
           Download PDF
         </Button>
-        <Button onClick={handleShare} variant="outline" className="border-orange-500 text-orange-700 hover:bg-orange-50">
+        <Button
+          onClick={handleShare}
+          variant="outline"
+          className="border-orange-500 text-orange-700 hover:bg-orange-50"
+        >
           <Share2 size={16} className="mr-2" />
           Share on LinkedIn
         </Button>

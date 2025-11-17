@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { FileText, Video, Download, ExternalLink, BookOpen, FileCheck } from 'lucide-react';
+import {
+  FileText,
+  Video,
+  Download,
+  ExternalLink,
+  BookOpen,
+  FileCheck,
+} from 'lucide-react';
 
 export const metadata = {
   title: 'Resources | Elevate for Humanity',
@@ -23,8 +30,16 @@ const resources = [
     icon: Video,
     items: [
       { title: 'Patient Care Basics', type: 'Video', duration: '15:30' },
-      { title: 'HVAC System Troubleshooting', type: 'Video', duration: '22:45' },
-      { title: 'Clipper Techniques Masterclass', type: 'Video', duration: '18:20' },
+      {
+        title: 'HVAC System Troubleshooting',
+        type: 'Video',
+        duration: '22:45',
+      },
+      {
+        title: 'Clipper Techniques Masterclass',
+        type: 'Video',
+        duration: '18:20',
+      },
     ],
   },
   {
@@ -55,7 +70,8 @@ export default function ResourcesPage() {
           <div className="max-w-3xl text-white">
             <h1 className="text-5xl font-bold mb-4">Student Resources</h1>
             <p className="text-xl text-gray-100">
-              Access study guides, video tutorials, forms, and career resources to support your training journey.
+              Access study guides, video tutorials, forms, and career resources
+              to support your training journey.
             </p>
           </div>
         </div>

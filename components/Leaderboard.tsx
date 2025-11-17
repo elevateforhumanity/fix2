@@ -38,7 +38,13 @@ export function Leaderboard({ entries, timeframe = 'week' }: LeaderboardProps) {
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Leaderboard</CardTitle>
-          <Badge variant="outline">{timeframe === 'week' ? 'This Week' : timeframe === 'month' ? 'This Month' : 'All Time'}</Badge>
+          <Badge variant="outline">
+            {timeframe === 'week'
+              ? 'This Week'
+              : timeframe === 'month'
+                ? 'This Month'
+                : 'All Time'}
+          </Badge>
         </div>
       </CardHeader>
       <CardContent>
@@ -52,25 +58,29 @@ export function Leaderboard({ entries, timeframe = 'week' }: LeaderboardProps) {
                   : 'border-gray-200 hover:bg-gray-50'
               } transition`}
             >
-              <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${getRankBadge(entry.rank)}`}>
+              <div
+                className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${getRankBadge(entry.rank)}`}
+              >
                 {getRankIcon(entry.rank) || (
                   <span className="font-bold">{entry.rank}</span>
                 )}
               </div>
-              
+
               <img
                 src={entry.avatar}
                 alt={entry.name}
                 className="w-12 h-12 rounded-full"
               />
-              
+
               <div className="flex-1">
                 <div className="font-semibold">{entry.name}</div>
                 <div className="text-sm text-gray-600">Level {entry.level}</div>
               </div>
-              
+
               <div className="text-right">
-                <div className="font-bold text-red-600">{entry.points.toLocaleString()}</div>
+                <div className="font-bold text-red-600">
+                  {entry.points.toLocaleString()}
+                </div>
                 <div className="text-xs text-gray-500">points</div>
               </div>
             </div>

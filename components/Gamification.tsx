@@ -21,7 +21,12 @@ interface GamificationProps {
   streak: number;
 }
 
-export function Gamification({ points, level, achievements, streak }: GamificationProps) {
+export function Gamification({
+  points,
+  level,
+  achievements,
+  streak,
+}: GamificationProps) {
   const nextLevelPoints = level * 1000;
   const progressToNextLevel = (points % 1000) / 10;
 
@@ -36,8 +41,12 @@ export function Gamification({ points, level, achievements, streak }: Gamificati
               <div className="text-sm text-gray-600">Total Points</div>
             </div>
             <div className="text-right">
-              <div className="text-3xl font-bold text-orange-600">Level {level}</div>
-              <div className="text-sm text-gray-600">{nextLevelPoints - points} to next level</div>
+              <div className="text-3xl font-bold text-orange-600">
+                Level {level}
+              </div>
+              <div className="text-sm text-gray-600">
+                {nextLevelPoints - points} to next level
+              </div>
             </div>
           </div>
           <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -58,7 +67,9 @@ export function Gamification({ points, level, achievements, streak }: Gamificati
             </div>
             <div>
               <div className="text-2xl font-bold">{streak} Day Streak</div>
-              <div className="text-sm text-gray-600">Keep learning every day!</div>
+              <div className="text-sm text-gray-600">
+                Keep learning every day!
+              </div>
             </div>
           </div>
         </CardContent>
@@ -83,12 +94,18 @@ export function Gamification({ points, level, achievements, streak }: Gamificati
                   }`}
                 >
                   <div className="flex justify-center mb-2">
-                    <div className={`p-3 rounded-full ${achievement.earned ? 'bg-red-600' : 'bg-gray-400'}`}>
+                    <div
+                      className={`p-3 rounded-full ${achievement.earned ? 'bg-red-600' : 'bg-gray-400'}`}
+                    >
                       <Icon className="text-white" size={24} />
                     </div>
                   </div>
-                  <div className="font-semibold text-sm mb-1">{achievement.title}</div>
-                  <div className="text-xs text-gray-600">{achievement.description}</div>
+                  <div className="font-semibold text-sm mb-1">
+                    {achievement.title}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {achievement.description}
+                  </div>
                   {achievement.progress !== undefined && (
                     <div className="mt-2 text-xs text-gray-500">
                       {achievement.progress}/{achievement.total}
