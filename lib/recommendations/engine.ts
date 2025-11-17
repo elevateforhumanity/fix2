@@ -55,28 +55,38 @@ export class RecommendationEngine {
       const reasons: string[] = [];
 
       // Interest matching (40% weight)
-      const interestMatch = this.calculateInterestMatch(user.interests, course.topics);
+      const interestMatch = this.calculateInterestMatch(
+        user.interests,
+        course.topics
+      );
       score += interestMatch * 0.4;
       if (interestMatch > 0.7) {
         reasons.push('Matches your interests');
       }
 
       // Skill level matching (30% weight)
-      const skillMatch = this.calculateSkillMatch(user.skillLevel, course.level);
+      const skillMatch = this.calculateSkillMatch(
+        user.skillLevel,
+        course.level
+      );
       score += skillMatch * 0.3;
       if (skillMatch > 0.8) {
         reasons.push('Perfect for your skill level');
       }
 
       // Prerequisites met (20% weight)
-      const prereqMet = this.checkPrerequisites(user.completedCourses, course.prerequisites);
+      const prereqMet = this.checkPrerequisites(
+        user.completedCourses,
+        course.prerequisites
+      );
       score += prereqMet * 0.2;
       if (prereqMet === 1 && course.prerequisites.length > 0) {
         reasons.push('You meet all prerequisites');
       }
 
       // Popularity and rating (10% weight)
-      const popularityScore = (course.rating / 5) * 0.5 + (course.popularity / 1000) * 0.5;
+      const popularityScore =
+        (course.rating / 5) * 0.5 + (course.popularity / 1000) * 0.5;
       score += popularityScore * 0.1;
       if (course.rating >= 4.5) {
         reasons.push('Highly rated by students');
@@ -90,21 +100,23 @@ export class RecommendationEngine {
     }
 
     // Sort by score and return top N
-    return recommendations
-      .sort((a, b) => b.score - a.score)
-      .slice(0, limit);
+    return recommendations.sort((a, b) => b.score - a.score).slice(0, limit);
   }
 
   // Calculate interest match score
-  private calculateInterestMatch(userInterests: string[], courseTopics: string[]): number {
+  private calculateInterestMatch(
+    userInterests: string[],
+    courseTopics: string[]
+  ): number {
     if (userInterests.length === 0 || courseTopics.length === 0) {
       return 0;
     }
 
     const matches = userInterests.filter((interest) =>
-      courseTopics.some((topic) =>
-        topic.toLowerCase().includes(interest.toLowerCase()) ||
-        interest.toLowerCase().includes(topic.toLowerCase())
+      courseTopics.some(
+        (topic) =>
+          topic.toLowerCase().includes(interest.toLowerCase()) ||
+          interest.toLowerCase().includes(topic.toLowerCase())
       )
     );
 
@@ -112,7 +124,10 @@ export class RecommendationEngine {
   }
 
   // Calculate skill level match
-  private calculateSkillMatch(userSkillLevel: number, courseLevel: string): number {
+  private calculateSkillMatch(
+    userSkillLevel: number,
+    courseLevel: string
+  ): number {
     const levelMap = {
       beginner: 30,
       intermediate: 60,
@@ -133,7 +148,10 @@ export class RecommendationEngine {
   }
 
   // Check if prerequisites are met
-  private checkPrerequisites(completedCourses: string[], prerequisites: string[]): number {
+  private checkPrerequisites(
+    completedCourses: string[],
+    prerequisites: string[]
+  ): number {
     if (prerequisites.length === 0) {
       return 1; // No prerequisites required
     }
@@ -146,7 +164,11 @@ export class RecommendationEngine {
   }
 
   // Get similar courses (collaborative filtering)
-  getSimilarCourses(courseId: string, allCourses: Course[], limit: number = 3): Course[] {
+  getSimilarCourses(
+    courseId: string,
+    allCourses: Course[],
+    limit: number = 3
+  ): Course[] {
     const targetCourse = allCourses.find((c) => c.id === courseId);
     if (!targetCourse) return [];
 
@@ -168,7 +190,10 @@ export class RecommendationEngine {
       }
 
       // Topic overlap (30%)
-      const topicOverlap = this.calculateInterestMatch(targetCourse.topics, course.topics);
+      const topicOverlap = this.calculateInterestMatch(
+        targetCourse.topics,
+        course.topics
+      );
       score += topicOverlap * 0.3;
 
       similarities.push({ course, score });
@@ -195,19 +220,32 @@ export class RecommendationEngine {
   // Get courses for career path
   getCareerPathCourses(careerGoal: string, allCourses: Course[]): Course[] {
     const careerPaths: Record<string, string[]> = {
-      'healthcare': ['CNA', 'Medical Assistant', 'Phlebotomy', 'EMT'],
+      healthcare: ['CNA', 'Medical Assistant', 'Phlebotomy', 'EMT'],
       'skilled-trades': ['HVAC', 'Electrical', 'Plumbing', 'Welding'],
-      'technology': ['Web Development', 'Data Analysis', 'Cybersecurity', 'Cloud Computing'],
-      'business': ['Project Management', 'Digital Marketing', 'Accounting', 'HR Management'],
+      technology: [
+        'Web Development',
+        'Data Analysis',
+        'Cybersecurity',
+        'Cloud Computing',
+      ],
+      business: [
+        'Project Management',
+        'Digital Marketing',
+        'Accounting',
+        'HR Management',
+      ],
     };
 
     const relevantTopics = careerPaths[careerGoal.toLowerCase()] || [];
-    
+
     return allCourses
       .filter((course) =>
-        relevantTopics.some((topic) =>
-          course.title.toLowerCase().includes(topic.toLowerCase()) ||
-          course.topics.some((t) => t.toLowerCase().includes(topic.toLowerCase()))
+        relevantTopics.some(
+          (topic) =>
+            course.title.toLowerCase().includes(topic.toLowerCase()) ||
+            course.topics.some((t) =>
+              t.toLowerCase().includes(topic.toLowerCase())
+            )
         )
       )
       .sort((a, b) => {
