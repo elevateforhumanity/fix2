@@ -109,45 +109,47 @@ export default function HomePage() {
       <Header />
 
       <main>
-        {/* Hero Section - Powerful and Direct */}
-        <section className="relative bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 text-white overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-          
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 rounded-full px-4 py-2 mb-6">
-                <TrendingUp className="w-4 h-4 text-red-400" />
-                <span className="text-sm font-medium text-red-300">High-Demand Careers • Start in Weeks</span>
-              </div>
+        {/* Hero Section - Clean and Professional like Coursera */}
+        <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 bg-blue-100 rounded-full px-4 py-2 mb-6">
+                  <TrendingUp className="w-4 h-4 text-blue-600" />
+                  <span className="text-sm font-semibold text-blue-900">High-Demand Careers • Start in Weeks</span>
+                </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                Workforce Training & Apprenticeships That Transform Communities
-              </h1>
+                <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
+                  Get Certified.<br/>
+                  Get Hired.<br/>
+                  <span className="text-blue-600">Get Paid.</span>
+                </h1>
 
-              <p className="text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
-                DOL & DWD-aligned training for students, employers, and workforce partners.
-              </p>
+                <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+                  From unemployed to employed in 4-12 weeks. Free training for most students through WIOA. Real jobs waiting.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link 
-                  href="/apply"
-                  className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-xl"
-                >
-                  Apply as a Student
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link 
-                  href="/agencies"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg border-2 border-white/30 transition-all"
-                >
-                  Become a Workforce Partner
-                </Link>
-              </div>
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Link 
+                    href="/apply"
+                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg hover:shadow-xl"
+                  >
+                    Check If You Qualify for Free Training
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link 
+                    href="/programs"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-semibold px-8 py-4 rounded-lg border-2 border-slate-200 transition-all"
+                  >
+                    View All Programs
+                  </Link>
+                </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-400 mb-1">4-12</div>
-                  <div className="text-sm text-slate-400">Weeks to Complete</div>
+                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">4-12</div>
+                    <div className="text-sm text-slate-600">Weeks to Complete</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-red-400 mb-1">$0</div>
