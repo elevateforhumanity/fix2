@@ -76,7 +76,9 @@ export async function getStudentCourses(userId: string): Promise<Course[]> {
   ];
 }
 
-export async function getStudentAssignments(userId: string): Promise<Assignment[]> {
+export async function getStudentAssignments(
+  userId: string
+): Promise<Assignment[]> {
   // TODO: Replace with actual Supabase query
   return [
     {

@@ -57,9 +57,14 @@ interface TabsListProps {
   className?: string;
 }
 
-export const TabsList: React.FC<TabsListProps> = ({ children, className = '' }) => {
+export const TabsList: React.FC<TabsListProps> = ({
+  children,
+  className = '',
+}) => {
   return (
-    <div className={`inline-flex h-10 items-center justify-center rounded-md bg-slate-100 p-1 text-slate-500 ${className}`}>
+    <div
+      className={`inline-flex h-10 items-center justify-center rounded-md bg-slate-100 p-1 text-slate-500 ${className}`}
+    >
       {children}
     </div>
   );
@@ -72,7 +77,11 @@ interface TabsTriggerProps {
   className?: string;
 }
 
-export const TabsTrigger: React.FC<TabsTriggerProps> = ({ value, children, className = '' }) => {
+export const TabsTrigger: React.FC<TabsTriggerProps> = ({
+  value,
+  children,
+  className = '',
+}) => {
   const { value: selectedValue, onValueChange } = useTabsContext();
   const isActive = selectedValue === value;
 
@@ -98,7 +107,11 @@ interface TabsContentProps {
   className?: string;
 }
 
-export const TabsContent: React.FC<TabsContentProps> = ({ value, children, className = '' }) => {
+export const TabsContent: React.FC<TabsContentProps> = ({
+  value,
+  children,
+  className = '',
+}) => {
   const { value: selectedValue } = useTabsContext();
 
   if (selectedValue !== value) {

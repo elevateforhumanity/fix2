@@ -134,7 +134,11 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                           name={group.id}
                           checked={isChecked}
                           onChange={(e) =>
-                            onFilterChange(group.id, option.id, e.target.checked)
+                            onFilterChange(
+                              group.id,
+                              option.id,
+                              e.target.checked
+                            )
                           }
                           className="h-4 w-4 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer"
                         />

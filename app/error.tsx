@@ -24,7 +24,8 @@ export default function Error({
             Something Went Wrong
           </h1>
           <p className="text-xl text-slate-600 mb-4">
-            We encountered an unexpected error. Don't worry, our team has been notified.
+            We encountered an unexpected error. Don't worry, our team has been
+            notified.
           </p>
           {error.message && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
@@ -52,7 +53,10 @@ export default function Error({
 
         <div className="text-sm text-slate-500">
           <p>If this problem persists, please contact support at:</p>
-          <a href="mailto:support@elevateconnects.org" className="text-blue-600 hover:underline">
+          <a
+            href="mailto:support@elevateconnects.org"
+            className="text-blue-600 hover:underline"
+          >
             support@elevateconnects.org
           </a>
         </div>

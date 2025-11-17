@@ -9,11 +9,11 @@ interface LazyLoadProps {
   placeholder?: React.ReactNode;
 }
 
-export function LazyLoad({ 
-  children, 
-  threshold = 0.1, 
+export function LazyLoad({
+  children,
+  threshold = 0.1,
   rootMargin = '50px',
-  placeholder 
+  placeholder,
 }: LazyLoadProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ export function LazyLoad({
 
   return (
     <div ref={ref}>
-      {isVisible ? children : (placeholder || <div className="min-h-[200px]" />)}
+      {isVisible ? children : placeholder || <div className="min-h-[200px]" />}
     </div>
   );
 }

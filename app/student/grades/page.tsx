@@ -59,14 +59,23 @@ export default function StudentGradesPage() {
   ];
 
   const calculateGPA = () => {
-    const completed = courses.filter(c => c.status === 'completed');
+    const completed = courses.filter((c) => c.status === 'completed');
     if (completed.length === 0) return 0;
-    
+
     const totalPoints = completed.reduce((sum, c) => {
-      const gradePoint = c.grade >= 90 ? 4.0 : c.grade >= 80 ? 3.0 : c.grade >= 70 ? 2.0 : c.grade >= 60 ? 1.0 : 0;
-      return sum + (gradePoint * c.credits);
+      const gradePoint =
+        c.grade >= 90
+          ? 4.0
+          : c.grade >= 80
+            ? 3.0
+            : c.grade >= 70
+              ? 2.0
+              : c.grade >= 60
+                ? 1.0
+                : 0;
+      return sum + gradePoint * c.credits;
     }, 0);
-    
+
     const totalCredits = completed.reduce((sum, c) => sum + c.credits, 0);
     return (totalPoints / totalCredits).toFixed(2);
   };
@@ -103,7 +112,9 @@ export default function StudentGradesPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Current GPA</div>
-                  <div className="text-3xl font-bold text-green-600 mt-1">{calculateGPA()}</div>
+                  <div className="text-3xl font-bold text-green-600 mt-1">
+                    {calculateGPA()}
+                  </div>
                 </div>
                 <Award className="h-8 w-8 text-green-600" />
               </div>
@@ -115,7 +126,9 @@ export default function StudentGradesPage() {
                 <div>
                   <div className="text-sm text-slate-600">Credits Earned</div>
                   <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {courses.filter(c => c.status === 'completed').reduce((sum, c) => sum + c.credits, 0)}
+                    {courses
+                      .filter((c) => c.status === 'completed')
+                      .reduce((sum, c) => sum + c.credits, 0)}
                   </div>
                 </div>
                 <TrendingUp className="h-8 w-8 text-blue-600" />
@@ -126,9 +139,11 @@ export default function StudentGradesPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600">Courses Completed</div>
+                  <div className="text-sm text-slate-600">
+                    Courses Completed
+                  </div>
                   <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {courses.filter(c => c.status === 'completed').length}
+                    {courses.filter((c) => c.status === 'completed').length}
                   </div>
                 </div>
                 <Award className="h-8 w-8 text-purple-600" />
@@ -141,7 +156,11 @@ export default function StudentGradesPage() {
                 <div>
                   <div className="text-sm text-slate-600">Average Grade</div>
                   <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {Math.round(courses.reduce((sum, c) => sum + c.grade, 0) / courses.length)}%
+                    {Math.round(
+                      courses.reduce((sum, c) => sum + c.grade, 0) /
+                        courses.length
+                    )}
+                    %
                   </div>
                 </div>
                 <TrendingUp className="h-8 w-8 text-green-600" />
@@ -158,11 +177,19 @@ export default function StudentGradesPage() {
                 <div className="flex items-center justify-between">
                   <CardTitle>{course.name}</CardTitle>
                   <div className="flex items-center gap-4">
-                    <Badge variant={course.status === 'completed' ? 'success' : 'primary'}>
-                      {course.status === 'completed' ? 'Completed' : 'In Progress'}
+                    <Badge
+                      variant={
+                        course.status === 'completed' ? 'success' : 'primary'
+                      }
+                    >
+                      {course.status === 'completed'
+                        ? 'Completed'
+                        : 'In Progress'}
                     </Badge>
                     <div className="text-right">
-                      <div className={`text-3xl font-bold ${getGradeColor(course.grade)}`}>
+                      <div
+                        className={`text-3xl font-bold ${getGradeColor(course.grade)}`}
+                      >
                         {course.grade}%
                       </div>
                       <div className="text-sm text-slate-600">
@@ -176,25 +203,40 @@ export default function StudentGradesPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-slate-600">Overall Progress</span>
-                      <span className="text-sm font-semibold text-slate-900">{course.grade}%</span>
+                      <span className="text-sm text-slate-600">
+                        Overall Progress
+                      </span>
+                      <span className="text-sm font-semibold text-slate-900">
+                        {course.grade}%
+                      </span>
                     </div>
                     <Progress value={course.grade} />
                   </div>
 
                   <div className="border-t border-slate-200 pt-4">
-                    <h4 className="font-semibold text-slate-900 mb-3">Assignment Breakdown</h4>
+                    <h4 className="font-semibold text-slate-900 mb-3">
+                      Assignment Breakdown
+                    </h4>
                     <div className="space-y-3">
                       {course.assignments.map((assignment, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between p-3 bg-slate-50 rounded-lg"
+                        >
                           <div className="flex-1">
-                            <div className="font-medium text-slate-900">{assignment.name}</div>
-                            <div className="text-sm text-slate-600">Weight: {assignment.weight}%</div>
+                            <div className="font-medium text-slate-900">
+                              {assignment.name}
+                            </div>
+                            <div className="text-sm text-slate-600">
+                              Weight: {assignment.weight}%
+                            </div>
                           </div>
                           <div className="text-right">
                             {assignment.grade !== null ? (
                               <>
-                                <div className={`text-xl font-bold ${getGradeColor(assignment.grade)}`}>
+                                <div
+                                  className={`text-xl font-bold ${getGradeColor(assignment.grade)}`}
+                                >
                                   {assignment.grade}%
                                 </div>
                                 <div className="text-sm text-slate-600">
@@ -215,7 +257,11 @@ export default function StudentGradesPage() {
                       Credits: {course.credits}
                     </div>
                     <div className="text-sm text-slate-600">
-                      {course.assignments.filter(a => a.grade !== null).length} of {course.assignments.length} assignments graded
+                      {
+                        course.assignments.filter((a) => a.grade !== null)
+                          .length
+                      }{' '}
+                      of {course.assignments.length} assignments graded
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,13 @@ import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
-import { FileText, Clock, CheckCircle, AlertCircle, Upload } from 'lucide-react';
+import {
+  FileText,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Upload,
+} from 'lucide-react';
 
 export default function StudentAssignmentsPage() {
   const assignments = [
@@ -57,9 +63,9 @@ export default function StudentAssignmentsPage() {
     },
   ];
 
-  const pending = assignments.filter(a => a.status === 'pending');
-  const submitted = assignments.filter(a => a.status === 'submitted');
-  const graded = assignments.filter(a => a.status === 'graded');
+  const pending = assignments.filter((a) => a.status === 'pending');
+  const submitted = assignments.filter((a) => a.status === 'submitted');
+  const graded = assignments.filter((a) => a.status === 'graded');
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -98,7 +104,9 @@ export default function StudentAssignmentsPage() {
             <div className="flex-1">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">{assignment.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {assignment.title}
+                  </h3>
                   <p className="text-sm text-slate-600">{assignment.course}</p>
                 </div>
                 {getStatusBadge(assignment.status)}
@@ -169,7 +177,9 @@ export default function StudentAssignmentsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Pending</div>
-                  <div className="text-3xl font-bold text-orange-600 mt-1">{pending.length}</div>
+                  <div className="text-3xl font-bold text-orange-600 mt-1">
+                    {pending.length}
+                  </div>
                 </div>
                 <Clock className="h-8 w-8 text-orange-600" />
               </div>
@@ -180,7 +190,9 @@ export default function StudentAssignmentsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Submitted</div>
-                  <div className="text-3xl font-bold text-blue-600 mt-1">{submitted.length}</div>
+                  <div className="text-3xl font-bold text-blue-600 mt-1">
+                    {submitted.length}
+                  </div>
                 </div>
                 <Upload className="h-8 w-8 text-blue-600" />
               </div>
@@ -191,7 +203,9 @@ export default function StudentAssignmentsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Graded</div>
-                  <div className="text-3xl font-bold text-green-600 mt-1">{graded.length}</div>
+                  <div className="text-3xl font-bold text-green-600 mt-1">
+                    {graded.length}
+                  </div>
                 </div>
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
@@ -208,9 +222,7 @@ export default function StudentAssignmentsPage() {
             <TabsTrigger value="submitted">
               Submitted ({submitted.length})
             </TabsTrigger>
-            <TabsTrigger value="graded">
-              Graded ({graded.length})
-            </TabsTrigger>
+            <TabsTrigger value="graded">Graded ({graded.length})</TabsTrigger>
           </TabsList>
 
           <TabsContent value="pending">
@@ -222,11 +234,13 @@ export default function StudentAssignmentsPage() {
                     <h3 className="text-xl font-semibold text-slate-900 mb-2">
                       All caught up!
                     </h3>
-                    <p className="text-slate-600">You have no pending assignments</p>
+                    <p className="text-slate-600">
+                      You have no pending assignments
+                    </p>
                   </CardContent>
                 </Card>
               ) : (
-                pending.map(assignment => (
+                pending.map((assignment) => (
                   <AssignmentCard key={assignment.id} assignment={assignment} />
                 ))
               )}
@@ -242,11 +256,13 @@ export default function StudentAssignmentsPage() {
                     <h3 className="text-xl font-semibold text-slate-900 mb-2">
                       No submitted assignments
                     </h3>
-                    <p className="text-slate-600">Assignments awaiting grading will appear here</p>
+                    <p className="text-slate-600">
+                      Assignments awaiting grading will appear here
+                    </p>
                   </CardContent>
                 </Card>
               ) : (
-                submitted.map(assignment => (
+                submitted.map((assignment) => (
                   <AssignmentCard key={assignment.id} assignment={assignment} />
                 ))
               )}
@@ -255,7 +271,7 @@ export default function StudentAssignmentsPage() {
 
           <TabsContent value="graded">
             <div className="space-y-4">
-              {graded.map(assignment => (
+              {graded.map((assignment) => (
                 <AssignmentCard key={assignment.id} assignment={assignment} />
               ))}
             </div>

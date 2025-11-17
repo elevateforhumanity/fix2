@@ -49,12 +49,14 @@ export default async function ProgramDetailPage({
 
   // Check if this is one of our ECD courses
   const ecdCourse = getEcdCourseBySlug(params.slug);
-  
+
   // If it's an ECD course, render the ECD template
   if (ecdCourse) {
     const manifest = getManifest();
-    const coverSrc = (manifest as Record<string, string>)[ecdCourse.coverImageKey] ?? '/placeholder-course-cover.svg';
-    
+    const coverSrc =
+      (manifest as Record<string, string>)[ecdCourse.coverImageKey] ??
+      '/placeholder-course-cover.svg';
+
     return (
       <main className="mx-auto max-w-5xl px-4 py-10 space-y-8">
         <div className="grid gap-8 md:grid-cols-[2fr,3fr] items-start">
@@ -74,7 +76,9 @@ export default async function ProgramDetailPage({
             <h1 className="text-3xl font-bold text-slate-900">
               {ecdCourse.title}
             </h1>
-            <p className="text-sm text-slate-600">{ecdCourse.shortDescription}</p>
+            <p className="text-sm text-slate-600">
+              {ecdCourse.shortDescription}
+            </p>
 
             <div className="rounded-xl bg-blue-50 p-4 text-xs text-blue-900">
               Many learners may qualify for tuition support through WIOA and
@@ -82,18 +86,12 @@ export default async function ProgramDetailPage({
               partners will help you review funding options and enrollment
               steps.
             </div>
-            
+
             <div className="flex gap-3">
-              <Link
-                href="/apply"
-                className="elevate-btn-primary"
-              >
+              <Link href="/apply" className="elevate-btn-primary">
                 Apply Now
               </Link>
-              <Link
-                href="/contact"
-                className="elevate-btn-secondary"
-              >
+              <Link href="/contact" className="elevate-btn-secondary">
                 Learn More
               </Link>
             </div>
@@ -126,15 +124,16 @@ export default async function ProgramDetailPage({
           <h2 className="text-2xl font-bold text-slate-900">Program Details</h2>
           <div className="prose prose-slate max-w-none">
             <p>
-              This program is part of the Elevate Connects Directory, connecting learners 
-              with high-demand training and workforce funding opportunities.
+              This program is part of the Elevate Connects Directory, connecting
+              learners with high-demand training and workforce funding
+              opportunities.
             </p>
           </div>
         </section>
       </main>
     );
   }
-  
+
   // Otherwise, load from database (existing programs)
   const { data: program, error: programError } = await supabase
     .from('programs')
@@ -149,7 +148,7 @@ export default async function ProgramDetailPage({
     console.error('Program not found:', programError);
     notFound();
   }
-  
+
   const manifest = getManifest();
   const coverSrc = null;
 
@@ -193,7 +192,8 @@ export default async function ProgramDetailPage({
               </p>
             )}
             <p className="max-w-xl text-sm sm:text-base text-white/90">
-              {program.summary || 'Explore program details, courses, and funding options.'}
+              {program.summary ||
+                'Explore program details, courses, and funding options.'}
             </p>
             <div className="flex flex-wrap gap-2">
               {fundingTags.map((tag) => (

@@ -34,9 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                 <span className="text-xl font-bold text-slate-900">
                   Elevate Connects
                 </span>
-                <span className="block text-xs text-slate-600">
-                  Directory
-                </span>
+                <span className="block text-xs text-slate-600">Directory</span>
               </div>
             </Link>
           </div>

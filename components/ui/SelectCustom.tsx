@@ -42,21 +42,24 @@ export const Select: React.FC<SelectProps> = ({
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
-  
+
   const filteredOptions = searchable
-    ? options.filter(option =>
+    ? options.filter((option) =>
         option.label.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : options;
 
   const selectedLabels = options
-    .filter(opt => selectedValues.includes(opt.value))
-    .map(opt => opt.label)
+    .filter((opt) => selectedValues.includes(opt.value))
+    .map((opt) => opt.label)
     .join(', ');
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
         setSearchQuery('');
       }
@@ -81,7 +84,7 @@ export const Select: React.FC<SelectProps> = ({
   const handleSelect = (optionValue: string) => {
     if (multiple) {
       const newValue = selectedValues.includes(optionValue)
-        ? selectedValues.filter(v => v !== optionValue)
+        ? selectedValues.filter((v) => v !== optionValue)
         : [...selectedValues, optionValue];
       onChange(newValue);
     } else {
@@ -119,7 +122,13 @@ export const Select: React.FC<SelectProps> = ({
           `}
         >
           <div className="flex items-center justify-between">
-            <span className={selectedValues.length === 0 ? 'text-slate-400' : 'text-slate-900'}>
+            <span
+              className={
+                selectedValues.length === 0
+                  ? 'text-slate-400'
+                  : 'text-slate-900'
+              }
+            >
               {selectedValues.length === 0 ? placeholder : selectedLabels}
             </span>
             <div className="flex items-center gap-2">
@@ -156,7 +165,9 @@ export const Select: React.FC<SelectProps> = ({
 
             <div className="py-1">
               {filteredOptions.length === 0 ? (
-                <div className="px-4 py-2 text-sm text-slate-500">No options found</div>
+                <div className="px-4 py-2 text-sm text-slate-500">
+                  No options found
+                </div>
               ) : (
                 filteredOptions.map((option) => {
                   const isSelected = selectedValues.includes(option.value);
@@ -164,7 +175,9 @@ export const Select: React.FC<SelectProps> = ({
                     <button
                       key={option.value}
                       type="button"
-                      onClick={() => !option.disabled && handleSelect(option.value)}
+                      onClick={() =>
+                        !option.disabled && handleSelect(option.value)
+                      }
                       disabled={option.disabled}
                       className={`
                         w-full px-4 py-2 text-left text-sm transition-colors
@@ -185,11 +198,7 @@ export const Select: React.FC<SelectProps> = ({
         )}
       </div>
 
-      {error && (
-        <p className="mt-2 text-sm text-red-600">{error}</p>
-      )}
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
     </div>
   );
 };
-
-

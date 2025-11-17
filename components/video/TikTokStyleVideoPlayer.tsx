@@ -194,22 +194,31 @@ export default function TikTokStyleVideoPlayer({
     setIsFullscreen(!isFullscreen);
   }, [isFullscreen]);
 
-  const handleSeek = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const video = videoRef.current;
-    const progressBar = progressBarRef.current;
-    if (!video || !progressBar) return;
+  const handleSeek = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const video = videoRef.current;
+      const progressBar = progressBarRef.current;
+      if (!video || !progressBar) return;
 
-    const rect = progressBar.getBoundingClientRect();
-    const pos = (e.clientX - rect.left) / rect.width;
-    video.currentTime = pos * duration;
-  }, [duration]);
+      const rect = progressBar.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      video.currentTime = pos * duration;
+    },
+    [duration]
+  );
 
-  const skip = useCallback((seconds: number) => {
-    const video = videoRef.current;
-    if (!video) return;
+  const skip = useCallback(
+    (seconds: number) => {
+      const video = videoRef.current;
+      if (!video) return;
 
-    video.currentTime = Math.max(0, Math.min(duration, video.currentTime + seconds));
-  }, [duration]);
+      video.currentTime = Math.max(
+        0,
+        Math.min(duration, video.currentTime + seconds)
+      );
+    },
+    [duration]
+  );
 
   const changePlaybackRate = useCallback((rate: number) => {
     const video = videoRef.current;
@@ -280,8 +289,9 @@ export default function TikTokStyleVideoPlayer({
         className="w-full h-full object-contain"
         onClick={togglePlay}
       >
-        {captions && <track kind="captions" src={captions} srcLang="en"
-label="English" />}
+        {captions && (
+          <track kind="captions" src={captions} srcLang="en" label="English" />
+        )}
       </video>
       {/* Loading Spinner */}
       {isLoading && (
@@ -322,11 +332,21 @@ label="English" />}
             onClick={onLike}
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
           >
-            <div className={`w-12 h-12 rounded-full ${isLiked ? 'bg-red-500' : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}>
-              <svg className="w-6 h-6" fill={isLiked ? 'white' : 'none'} stroke="white"
-viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            <div
+              className={`w-12 h-12 rounded-full ${isLiked ? 'bg-red-500' : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}
+            >
+              <svg
+                className="w-6 h-6"
+                fill={isLiked ? 'white' : 'none'}
+                stroke="white"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
               </svg>
             </div>
             <span className="text-xs font-semibold">{likes}</span>
@@ -344,8 +364,13 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
             onClick={onBookmark}
             className="flex flex-col items-center gap-1 text-white hover:scale-110 transition-transform"
           >
-            <div className={`w-12 h-12 rounded-full ${isBookmarked ? 'bg-yellow-500' : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}>
-              <Bookmark className="w-6 h-6" fill={isBookmarked ? 'white' : 'none'} />
+            <div
+              className={`w-12 h-12 rounded-full ${isBookmarked ? 'bg-yellow-500' : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}
+            >
+              <Bookmark
+                className="w-6 h-6"
+                fill={isBookmarked ? 'white' : 'none'}
+              />
             </div>
           </button>
           <button
@@ -401,7 +426,11 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
               onClick={togglePlay}
               className="text-white hover:bg-white/20"
             >
-              {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              {isPlaying ? (
+                <Pause className="w-5 h-5" />
+              ) : (
+                <Play className="w-5 h-5" />
+              )}
             </Button>
             <Button
               variant="ghost"
@@ -425,7 +454,11 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
               onClick={toggleMute}
               className="text-white hover:bg-white/20"
             >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              {isMuted ? (
+                <VolumeX className="w-5 h-5" />
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
             </Button>
             <span className="text-sm font-medium">
               {formatTime(currentTime)} / {formatTime(duration)}
@@ -453,7 +486,9 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
               </Button>
               {showSettings && (
                 <div className="absolute bottom-full right-0 mb-2 bg-black/90 backdrop-blur-sm rounded-lg p-2 min-w-[150px]">
-                  <div className="text-sm font-semibold mb-2 px-2">Playback Speed</div>
+                  <div className="text-sm font-semibold mb-2 px-2">
+                    Playback Speed
+                  </div>
                   {[0.5, 0.75, 1, 1.25, 1.5, 2].map((rate) => (
                     <button
                       key={rate}
@@ -474,7 +509,11 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
               onClick={toggleFullscreen}
               className="text-white hover:bg-white/20"
             >
-              {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
+              {isFullscreen ? (
+                <Minimize className="w-5 h-5" />
+              ) : (
+                <Maximize className="w-5 h-5" />
+              )}
             </Button>
           </div>
         </div>

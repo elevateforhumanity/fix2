@@ -10,19 +10,34 @@ export default function FinancialAidPage() {
       icon: DollarSign,
       title: 'WIOA Funding',
       description: 'Full tuition coverage for eligible participants',
-      coverage: ['Tuition & fees', 'Books & supplies', 'Certification exams', 'Support services'],
+      coverage: [
+        'Tuition & fees',
+        'Books & supplies',
+        'Certification exams',
+        'Support services',
+      ],
     },
     {
       icon: Book,
       title: 'Pell Grants',
       description: 'Federal grants for low-income students',
-      coverage: ['Up to $7,395/year', 'No repayment required', 'Based on financial need', 'Apply via FAFSA'],
+      coverage: [
+        'Up to $7,395/year',
+        'No repayment required',
+        'Based on financial need',
+        'Apply via FAFSA',
+      ],
     },
     {
       icon: Home,
       title: 'State Grants',
       description: 'Wisconsin-specific financial aid programs',
-      coverage: ['Wisconsin Grant', 'Talent Incentive Program', 'Indian Student Assistance', 'Minority Retention Grant'],
+      coverage: [
+        'Wisconsin Grant',
+        'Talent Incentive Program',
+        'Indian Student Assistance',
+        'Minority Retention Grant',
+      ],
     },
   ];
 
@@ -52,7 +67,9 @@ export default function FinancialAidPage() {
         {/* Hero Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-green-50 to-white">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="success" className="mb-4">Financial Aid</Badge>
+            <Badge variant="success" className="mb-4">
+              Financial Aid
+            </Badge>
             <h1 className="text-5xl font-bold text-slate-900 mb-6">
               Training at No Cost to You
             </h1>
@@ -66,7 +83,9 @@ export default function FinancialAidPage() {
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">Funding Options</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Funding Options
+              </h2>
               <p className="text-xl text-slate-600">
                 We'll help you find the right funding for your situation
               </p>
@@ -80,13 +99,19 @@ export default function FinancialAidPage() {
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
                         <Icon className="h-6 w-6 text-green-600" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{option.title}</h3>
-                      <p className="text-slate-600 mb-4">{option.description}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        {option.title}
+                      </h3>
+                      <p className="text-slate-600 mb-4">
+                        {option.description}
+                      </p>
                       <div className="space-y-2">
                         {option.coverage.map((item) => (
                           <div key={item} className="flex items-start gap-2">
                             <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-slate-700">{item}</span>
+                            <span className="text-sm text-slate-700">
+                              {item}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -102,7 +127,9 @@ export default function FinancialAidPage() {
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-900 mb-4">Support Services</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Support Services
+              </h2>
               <p className="text-xl text-slate-600">
                 Additional assistance to help you succeed
               </p>
@@ -144,7 +171,9 @@ export default function FinancialAidPage() {
                     Complete WIOA Application
                   </h3>
                   <p className="text-slate-600">
-                    Fill out our online application to determine your eligibility for WIOA funding. This is the primary funding source for most students.
+                    Fill out our online application to determine your
+                    eligibility for WIOA funding. This is the primary funding
+                    source for most students.
                   </p>
                 </div>
               </div>
@@ -157,7 +186,9 @@ export default function FinancialAidPage() {
                     Submit FAFSA (Optional)
                   </h3>
                   <p className="text-slate-600">
-                    If you're interested in Pell Grants or other federal aid, complete the Free Application for Federal Student Aid (FAFSA) at fafsa.gov.
+                    If you're interested in Pell Grants or other federal aid,
+                    complete the Free Application for Federal Student Aid
+                    (FAFSA) at fafsa.gov.
                   </p>
                 </div>
               </div>
@@ -170,7 +201,9 @@ export default function FinancialAidPage() {
                     Meet with Financial Aid Advisor
                   </h3>
                   <p className="text-slate-600">
-                    Our advisors will review your options and help you maximize your funding. We'll create a personalized financial aid package.
+                    Our advisors will review your options and help you maximize
+                    your funding. We'll create a personalized financial aid
+                    package.
                   </p>
                 </div>
               </div>
@@ -183,7 +216,8 @@ export default function FinancialAidPage() {
                     Start Training
                   </h3>
                   <p className="text-slate-600">
-                    Once your funding is approved, you can begin your training program immediately. All costs are covered upfront.
+                    Once your funding is approved, you can begin your training
+                    program immediately. All costs are covered upfront.
                   </p>
                 </div>
               </div>
@@ -195,9 +229,12 @@ export default function FinancialAidPage() {
         <section className="py-20 px-4 bg-green-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <DollarSign className="h-16 w-16 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold mb-6">Don't Let Cost Hold You Back</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              Don't Let Cost Hold You Back
+            </h2>
             <p className="text-xl mb-8 text-green-100">
-              With WIOA and other funding options, you can get the training you need at no cost
+              With WIOA and other funding options, you can get the training you
+              need at no cost
             </p>
             <a
               href="/apply"

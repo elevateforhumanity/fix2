@@ -44,18 +44,22 @@ export default function ApplicationsPage() {
   const [statusFilter, setStatusFilter] = useState<string>('all');
 
   const handleApprove = (id: string) => {
-    setApplications(apps =>
-      apps.map(app => (app.id === id ? { ...app, status: 'approved' as const } : app))
+    setApplications((apps) =>
+      apps.map((app) =>
+        app.id === id ? { ...app, status: 'approved' as const } : app
+      )
     );
   };
 
   const handleDeny = (id: string) => {
-    setApplications(apps =>
-      apps.map(app => (app.id === id ? { ...app, status: 'denied' as const } : app))
+    setApplications((apps) =>
+      apps.map((app) =>
+        app.id === id ? { ...app, status: 'denied' as const } : app
+      )
     );
   };
 
-  const filteredApplications = applications.filter(app => {
+  const filteredApplications = applications.filter((app) => {
     const matchesSearch =
       app.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.program.toLowerCase().includes(searchQuery.toLowerCase());
@@ -156,17 +160,28 @@ export default function ApplicationsPage() {
                 <tbody className="divide-y divide-slate-200">
                   {filteredApplications.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="px-4 py-8 text-center text-slate-500">
+                      <td
+                        colSpan={5}
+                        className="px-4 py-8 text-center text-slate-500"
+                      >
                         No applications found
                       </td>
                     </tr>
                   ) : (
                     filteredApplications.map((app) => (
                       <tr key={app.id} className="hover:bg-slate-50">
-                        <td className="px-4 py-3 text-sm text-slate-900">{app.email}</td>
-                        <td className="px-4 py-3 text-sm text-slate-900">{app.program}</td>
-                        <td className="px-4 py-3">{getStatusBadge(app.status)}</td>
-                        <td className="px-4 py-3 text-sm text-slate-600">{app.submittedAt}</td>
+                        <td className="px-4 py-3 text-sm text-slate-900">
+                          {app.email}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-900">
+                          {app.program}
+                        </td>
+                        <td className="px-4 py-3">
+                          {getStatusBadge(app.status)}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {app.submittedAt}
+                        </td>
                         <td className="px-4 py-3">
                           <div className="flex gap-2">
                             {app.status === 'pending' && (
@@ -190,7 +205,9 @@ export default function ApplicationsPage() {
                               </>
                             )}
                             {app.status !== 'pending' && (
-                              <span className="text-sm text-slate-500">No actions</span>
+                              <span className="text-sm text-slate-500">
+                                No actions
+                              </span>
                             )}
                           </div>
                         </td>
@@ -204,21 +221,27 @@ export default function ApplicationsPage() {
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-blue-900">Total Applications</div>
+                <div className="text-sm font-medium text-blue-900">
+                  Total Applications
+                </div>
                 <div className="text-2xl font-bold text-blue-600 mt-1">
                   {applications.length}
                 </div>
               </div>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-yellow-900">Pending Review</div>
+                <div className="text-sm font-medium text-yellow-900">
+                  Pending Review
+                </div>
                 <div className="text-2xl font-bold text-yellow-600 mt-1">
-                  {applications.filter(a => a.status === 'pending').length}
+                  {applications.filter((a) => a.status === 'pending').length}
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-green-900">Approved</div>
+                <div className="text-sm font-medium text-green-900">
+                  Approved
+                </div>
                 <div className="text-2xl font-bold text-green-600 mt-1">
-                  {applications.filter(a => a.status === 'approved').length}
+                  {applications.filter((a) => a.status === 'approved').length}
                 </div>
               </div>
             </div>

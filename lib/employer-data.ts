@@ -35,7 +35,9 @@ export interface EmployerProfile {
   description: string;
 }
 
-export async function getEmployerProfile(employerId: string): Promise<EmployerProfile> {
+export async function getEmployerProfile(
+  employerId: string
+): Promise<EmployerProfile> {
   // TODO: Replace with actual Supabase query
   return {
     id: employerId,
@@ -48,7 +50,9 @@ export async function getEmployerProfile(employerId: string): Promise<EmployerPr
   };
 }
 
-export async function getEmployerJobs(employerId: string): Promise<JobPosting[]> {
+export async function getEmployerJobs(
+  employerId: string
+): Promise<JobPosting[]> {
   // TODO: Replace with actual Supabase query
   return [
     {
@@ -67,7 +71,9 @@ export async function getEmployerJobs(employerId: string): Promise<JobPosting[]>
   ];
 }
 
-export async function getJobApplications(jobId: string): Promise<JobApplication[]> {
+export async function getJobApplications(
+  jobId: string
+): Promise<JobApplication[]> {
   // TODO: Replace with actual Supabase query
   return [
     {

@@ -1,6 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail } from 'lucide-react';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Mail,
+} from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -42,11 +49,31 @@ export const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/elevateconnects' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/elevateconnects' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/elevateconnects' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/elevateconnects' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@elevateconnects' },
+    {
+      name: 'Facebook',
+      icon: Facebook,
+      href: 'https://facebook.com/elevateconnects',
+    },
+    {
+      name: 'Twitter',
+      icon: Twitter,
+      href: 'https://twitter.com/elevateconnects',
+    },
+    {
+      name: 'Instagram',
+      icon: Instagram,
+      href: 'https://instagram.com/elevateconnects',
+    },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      href: 'https://linkedin.com/company/elevateconnects',
+    },
+    {
+      name: 'YouTube',
+      icon: Youtube,
+      href: 'https://youtube.com/@elevateconnects',
+    },
   ];
 
   return (
@@ -60,7 +87,8 @@ export const Footer: React.FC = () => {
                 Stay Connected
               </h3>
               <p className="text-slate-400">
-                Get updates on new programs, success stories, and career opportunities.
+                Get updates on new programs, success stories, and career
+                opportunities.
               </p>
             </div>
             <div className="mt-6 lg:mt-0 lg:ml-8">
@@ -194,11 +222,13 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm text-slate-400">
-                Empowering Wisconsin's workforce through WIOA-funded training programs.
-                Building careers, strengthening communities.
+                Empowering Wisconsin's workforce through WIOA-funded training
+                programs. Building careers, strengthening communities.
               </p>
               <p className="text-sm text-slate-500 mt-2">
-                An Equal Opportunity Employer/Program. Auxiliary aids and services available upon request to individuals with disabilities.
+                An Equal Opportunity Employer/Program. Auxiliary aids and
+                services available upon request to individuals with
+                disabilities.
               </p>
             </div>
 
@@ -230,9 +260,7 @@ export const Footer: React.FC = () => {
                   info@elevateconnects.org
                 </a>
               </div>
-              <p className="text-sm text-slate-400 mt-2">
-                (608) 555-0100
-              </p>
+              <p className="text-sm text-slate-400 mt-2">(608) 555-0100</p>
             </div>
           </div>
 

@@ -70,11 +70,15 @@ export function ApplicationForm() {
             Application Submitted!
           </h2>
           <p className="text-lg text-slate-600 mb-8">
-            Thank you for applying. We'll review your application and contact you within 2-3 business days.
+            Thank you for applying. We'll review your application and contact
+            you within 2-3 business days.
           </p>
           <div className="space-y-4">
             <p className="text-sm text-slate-600">
-              Application ID: <span className="font-mono font-semibold">APP-2024-{Math.floor(Math.random() * 10000)}</span>
+              Application ID:{' '}
+              <span className="font-mono font-semibold">
+                APP-2024-{Math.floor(Math.random() * 10000)}
+              </span>
             </p>
             <Button variant="primary" size="lg">
               Return to Homepage
@@ -90,7 +94,9 @@ export function ApplicationForm() {
       <CardHeader>
         <div className="flex items-center justify-between mb-4">
           <CardTitle>WIOA Application</CardTitle>
-          <Badge variant="primary">Step {step} of {totalSteps}</Badge>
+          <Badge variant="primary">
+            Step {step} of {totalSteps}
+          </Badge>
         </div>
         <Progress value={progress} />
       </CardHeader>
@@ -98,7 +104,9 @@ export function ApplicationForm() {
         {/* Step 1: Personal Information */}
         {step === 1 && (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-900">Personal Information</h3>
+            <h3 className="text-xl font-semibold text-slate-900">
+              Personal Information
+            </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -106,7 +114,9 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.firstName}
-                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
                   placeholder="John"
                 />
               </div>
@@ -116,7 +126,9 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.lastName}
-                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastName: e.target.value })
+                  }
                   placeholder="Doe"
                 />
               </div>
@@ -127,7 +139,9 @@ export function ApplicationForm() {
                 <Input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="john.doe@example.com"
                 />
               </div>
@@ -138,7 +152,9 @@ export function ApplicationForm() {
                 <Input
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -149,7 +165,9 @@ export function ApplicationForm() {
                 <Input
                   type="date"
                   value={formData.dateOfBirth}
-                  onChange={(e) => setFormData({...formData, dateOfBirth: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, dateOfBirth: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -167,7 +185,9 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.address}
-                  onChange={(e) => setFormData({...formData, address: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, address: e.target.value })
+                  }
                   placeholder="123 Main St"
                 />
               </div>
@@ -178,7 +198,9 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.city}
-                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, city: e.target.value })
+                    }
                     placeholder="Milwaukee"
                   />
                 </div>
@@ -188,7 +210,9 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.state}
-                    onChange={(e) => setFormData({...formData, state: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, state: e.target.value })
+                    }
                     placeholder="WI"
                   />
                 </div>
@@ -198,7 +222,9 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.zip}
-                    onChange={(e) => setFormData({...formData, zip: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, zip: e.target.value })
+                    }
                     placeholder="53202"
                   />
                 </div>
@@ -210,7 +236,9 @@ export function ApplicationForm() {
         {/* Step 3: Program Selection */}
         {step === 3 && (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-900">Program Selection</h3>
+            <h3 className="text-xl font-semibold text-slate-900">
+              Program Selection
+            </h3>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
                 Which program are you interested in? *
@@ -218,11 +246,15 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.program}
-                onChange={(e) => setFormData({...formData, program: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, program: e.target.value })
+                }
               >
                 <option value="">Select a program...</option>
                 {programs.map((program) => (
-                  <option key={program} value={program}>{program}</option>
+                  <option key={program} value={program}>
+                    {program}
+                  </option>
                 ))}
               </select>
             </div>
@@ -233,7 +265,9 @@ export function ApplicationForm() {
               <Input
                 type="date"
                 value={formData.startDate}
-                onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, startDate: e.target.value })
+                }
               />
             </div>
           </div>
@@ -242,7 +276,9 @@ export function ApplicationForm() {
         {/* Step 4: Eligibility */}
         {step === 4 && (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-900">Eligibility Information</h3>
+            <h3 className="text-xl font-semibold text-slate-900">
+              Eligibility Information
+            </h3>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
                 Current Employment Status *
@@ -250,7 +286,9 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.employmentStatus}
-                onChange={(e) => setFormData({...formData, employmentStatus: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, employmentStatus: e.target.value })
+                }
               >
                 <option value="">Select...</option>
                 <option value="unemployed">Unemployed</option>
@@ -265,7 +303,9 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.householdIncome}
-                onChange={(e) => setFormData({...formData, householdIncome: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, householdIncome: e.target.value })
+                }
               >
                 <option value="">Select...</option>
                 <option value="0-15000">$0 - $15,000</option>
@@ -282,7 +322,9 @@ export function ApplicationForm() {
                 type="number"
                 min="1"
                 value={formData.householdSize}
-                onChange={(e) => setFormData({...formData, householdSize: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, householdSize: e.target.value })
+                }
                 placeholder="Number of people in household"
               />
             </div>
@@ -292,7 +334,9 @@ export function ApplicationForm() {
         {/* Step 5: Documents */}
         {step === 5 && (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-slate-900">Required Documents</h3>
+            <h3 className="text-xl font-semibold text-slate-900">
+              Required Documents
+            </h3>
             <p className="text-slate-600">
               Please confirm you have the following documents ready to upload:
             </p>
@@ -301,36 +345,55 @@ export function ApplicationForm() {
                 <input
                   type="checkbox"
                   checked={formData.hasSSN}
-                  onChange={(e) => setFormData({...formData, hasSSN: e.target.checked})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, hasSSN: e.target.checked })
+                  }
                   className="h-5 w-5"
                 />
                 <div>
-                  <div className="font-medium text-slate-900">Social Security Card</div>
-                  <div className="text-sm text-slate-600">Copy of your Social Security card</div>
+                  <div className="font-medium text-slate-900">
+                    Social Security Card
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Copy of your Social Security card
+                  </div>
                 </div>
               </label>
               <label className="flex items-center gap-3 p-4 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input
                   type="checkbox"
                   checked={formData.hasID}
-                  onChange={(e) => setFormData({...formData, hasID: e.target.checked})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, hasID: e.target.checked })
+                  }
                   className="h-5 w-5"
                 />
                 <div>
                   <div className="font-medium text-slate-900">Photo ID</div>
-                  <div className="text-sm text-slate-600">Driver's license or state ID</div>
+                  <div className="text-sm text-slate-600">
+                    Driver's license or state ID
+                  </div>
                 </div>
               </label>
               <label className="flex items-center gap-3 p-4 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input
                   type="checkbox"
                   checked={formData.hasProofOfIncome}
-                  onChange={(e) => setFormData({...formData, hasProofOfIncome: e.target.checked})}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      hasProofOfIncome: e.target.checked,
+                    })
+                  }
                   className="h-5 w-5"
                 />
                 <div>
-                  <div className="font-medium text-slate-900">Proof of Income</div>
-                  <div className="text-sm text-slate-600">Recent pay stubs or tax returns</div>
+                  <div className="font-medium text-slate-900">
+                    Proof of Income
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    Recent pay stubs or tax returns
+                  </div>
                 </div>
               </label>
             </div>
@@ -339,11 +402,7 @@ export function ApplicationForm() {
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-8 pt-6 border-t border-slate-200">
-          <Button
-            variant="outline"
-            onClick={handleBack}
-            disabled={step === 1}
-          >
+          <Button variant="outline" onClick={handleBack} disabled={step === 1}>
             Back
           </Button>
           {step < totalSteps ? (

@@ -27,9 +27,9 @@ export function SEO({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={fullCanonical} />
-      
+
       {noindex && <meta name="robots" content="noindex,nofollow" />}
-      
+
       {/* Open Graph */}
       <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={fullTitle} />
@@ -38,13 +38,13 @@ export function SEO({
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={`${siteUrl}${ogImage}`} />
       <meta property="og:locale" content="en_US" />
-      
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
-      
+
       {/* Additional SEO */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#0F4C81" />

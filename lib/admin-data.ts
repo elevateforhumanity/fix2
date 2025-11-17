@@ -42,7 +42,12 @@ export async function getProgramStats(): Promise<ProgramStats[]> {
     { name: 'HVAC Technician', students: 450, completion: 92, placement: 88 },
     { name: 'CNA Training', students: 380, completion: 88, placement: 92 },
     { name: 'Web Development', students: 320, completion: 85, placement: 85 },
-    { name: 'Electrical Systems', students: 290, completion: 90, placement: 87 },
+    {
+      name: 'Electrical Systems',
+      students: 290,
+      completion: 90,
+      placement: 87,
+    },
   ];
 }
 

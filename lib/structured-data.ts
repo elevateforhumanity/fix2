@@ -77,15 +77,17 @@ export function generateJobPostingSchema(job: {
         addressLocality: job.location,
       },
     },
-    baseSalary: job.salary ? {
-      '@type': 'MonetaryAmount',
-      currency: 'USD',
-      value: {
-        '@type': 'QuantitativeValue',
-        value: job.salary,
-        unitText: 'YEAR',
-      },
-    } : undefined,
+    baseSalary: job.salary
+      ? {
+          '@type': 'MonetaryAmount',
+          currency: 'USD',
+          value: {
+            '@type': 'QuantitativeValue',
+            value: job.salary,
+            unitText: 'YEAR',
+          },
+        }
+      : undefined,
     hiringOrganization: {
       '@type': 'Organization',
       name: 'Elevate Connects Directory',
