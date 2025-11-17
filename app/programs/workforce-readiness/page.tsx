@@ -1,143 +1,179 @@
 // app/programs/workforce-readiness/page.tsx
 import Link from "next/link";
 
-export default function WorkforceReadinessPage() {
+export default function WorkforceReadinessProgramPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
-      <section className="relative h-[60vh] w-full overflow-hidden">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/program-workforce-readiness.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/75 to-black/40" />
-        <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-10 md:px-12 lg:px-24 max-w-5xl">
-          <p className="mb-2 text-xs font-semibold tracking-[0.25em] uppercase text-orange-300">
-            Elevate For Humanity™ • Workforce &amp; Re-Entry Pathway
+      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
+          <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+            Readiness & Re-Entry Pathway
           </p>
-          <h1 className="mb-3 text-3xl md:text-4xl font-bold">
-            Workforce Readiness &amp; Re-Entry Support
+          <h1 className="mt-2 text-3xl font-bold md:text-4xl">
+            Workforce Readiness & Re-Entry Program
           </h1>
-          <p className="max-w-2xl text-sm md:text-base text-slate-100">
-            A guided pathway that helps you rebuild, reset, and re-enter the
-            workforce with confidence through coaching, skills training, and
-            real employment connections.
+          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
+            A short-term coaching and workshop series that helps adults and
+            re-entry talent reset, rebuild, and prepare for training or direct
+            employment with real support.
           </p>
-        </div>
-      </section>
-
-      {/* BODY */}
-      <section className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-12 space-y-8">
-        <div>
-          <h2 className="text-xl md:text-2xl font-bold mb-3">
-            Program Overview
-          </h2>
-          <p className="text-sm md:text-base text-slate-200">
-            This pathway is built for adults and youth who need a fresh start,
-            a second chance, or a clearer roadmap into stable work. We blend
-            soft skills, digital skills, career exploration, and barrier
-            navigation so you don&apos;t have to figure it all out alone.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
-            <h3 className="mb-2 text-sm font-semibold text-orange-300">
-              Typical Duration
-            </h3>
-            <p className="text-sm text-slate-200">
-              4–12 Weeks • Coaching + Workshops
-            </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">
+            <span className="rounded-full border border-white/15 px-3 py-1">
+              4–12 weeks · Cohorts & 1:1 coaching
+            </span>
+            <span className="rounded-full border border-white/15 px-3 py-1">
+              Re-entry friendly · Barrier-focused
+            </span>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
-            <h3 className="mb-2 text-sm font-semibold text-orange-300">
-              Format
-            </h3>
-            <p className="text-sm text-slate-200">
-              Small groups, 1:1 coaching, and online tools — built around real
-              life, not just classrooms.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-slate-900 p-4">
-            <h3 className="mb-2 text-sm font-semibold text-orange-300">
-              Support &amp; Referrals
-            </h3>
-            <p className="text-sm text-slate-200">
-              Connections to training, apprenticeships, employers, and
-              supportive services where available.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-            <h2 className="text-lg font-bold mb-3">Who This Is For</h2>
-            <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
-              <li>Re-entry citizens rebuilding after justice involvement</li>
-              <li>Adults who have been out of work or underemployed</li>
-              <li>Young adults unsure of their next step after high school</li>
-              <li>Caregivers, single parents, or anyone starting over</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-            <h2 className="text-lg font-bold mb-3">
-              What You&apos;ll Work On
-            </h2>
-            <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
-              <li>Resumes, applications, and interview prep</li>
-              <li>Soft skills, communication, and workplace expectations</li>
-              <li>Digital basics, email, online forms, portals</li>
-              <li>
-                A personal plan linking you to training, employment, or
-                apprenticeships
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-          <h2 className="text-lg font-bold mb-3">We Understand Barriers</h2>
-          <p className="text-sm md:text-base text-slate-200 mb-3">
-            Many of our learners face real-life challenges: childcare,
-            transportation, housing, past charges, or gaps in work history. Our
-            role is to help you navigate what you can, connect you to partners
-            where possible, and keep you moving toward a real opportunity.
-          </p>
-          <p className="text-sm md:text-base text-slate-200">
-            We don&apos;t promise overnight fixes — we promise honest support,
-            clear next steps, and a community that believes you deserve a path
-            forward.
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-orange-400/40 bg-gradient-to-r from-slate-900 to-slate-950 p-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="text-lg md:text-xl font-bold mb-1">
-              Need a Fresh Start in Work or Training?
-            </h2>
-            <p className="text-sm md:text-base text-slate-200">
-              Share where you&apos;re starting from. We&apos;ll help map out
-              realistic next steps into training, apprenticeships, or
-              employment — one step at a time.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/enroll?program=workforce-readiness"
-              className="rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-orange-500/40 hover:bg-orange-400 transition"
+              href="/apply"
+              className="rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-400 transition"
             >
               Start My Application
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold hover:bg-white/10 transition"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:border-white hover:bg-white/5 transition"
             >
               Talk With Our Team
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO & WHAT */}
+      <section className="border-b border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
+          <div className="grid gap-8 md:grid-cols-[1.6fr,1.3fr] items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+                Who this is for
+              </p>
+              <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+                Designed for people who are "ready for a change" but not sure where to start.
+              </h2>
+              <p className="mt-2 text-sm text-slate-300">
+                This pathway is especially helpful if you:
+              </p>
+              <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
+                <li>• Are re-entering after incarceration or a justice-involved situation</li>
+                <li>• Are restarting after a setback or long gap in work</li>
+                <li>• Need help organizing your next steps</li>
+                <li>• Want a safe space to be honest about barriers without being judged</li>
+              </ul>
+              <p className="mt-3 text-sm text-slate-300">
+                We focus on dignity, accountability, and real resources—not shame.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300 mb-2">
+                What the program includes
+              </p>
+              <ul className="space-y-1.5">
+                <li>• Group sessions focused on mindset, planning, and accountability</li>
+                <li>• 1:1 coaching check-ins with Elevate staff</li>
+                <li>• Support navigating barriers (transportation, ID, etc.)</li>
+                <li>• A concrete next-step plan: training, employment, or both</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="border-b border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+              What you'll work on
+            </p>
+            <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+              Real-life readiness: personal, professional, and practical.
+            </h2>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3 text-sm text-slate-200">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+              <h3 className="text-sm font-semibold text-slate-50 mb-2">
+                Personal Reset
+              </h3>
+              <ul className="space-y-1.5">
+                <li>• Mindset & identity after setbacks</li>
+                <li>• Rebuilding confidence</li>
+                <li>• Creating realistic short-term goals</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+              <h3 className="text-sm font-semibold text-slate-50 mb-2">
+                Professional Readiness
+              </h3>
+              <ul className="space-y-1.5">
+                <li>• How to talk about gaps or records professionally</li>
+                <li>• Workplace expectations & soft skills</li>
+                <li>• Choosing realistic training or jobs</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+              <h3 className="text-sm font-semibold text-slate-50 mb-2">
+                Practical Barriers
+              </h3>
+              <ul className="space-y-1.5">
+                <li>• Connecting with community resources</li>
+                <li>• Building a schedule that supports success</li>
+                <li>• Planning transportation & childcare around steps</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNER & CTA */}
+      <section className="bg-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
+          <div className="grid gap-8 md:grid-cols-[1.6fr,1.3fr] items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+                For agencies & re-entry partners
+              </p>
+              <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+                A soft landing and a clear next step for your participants.
+              </h2>
+              <p className="mt-2 text-sm text-slate-300">
+                Elevate&apos;s Workforce Readiness program gives people time and
+                structure to stabilize, reflect, and decide on the right path
+                without losing connection to your agency.
+              </p>
+              <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
+                <li>• Short-term engagement instead of long-term "wait and see"</li>
+                <li>• Documented progress and participation</li>
+                <li>• A program that can sit before training, employment, or both</li>
+              </ul>
+              <Link
+                href="/partners"
+                className="mt-3 inline-block text-xs font-semibold text-orange-300 hover:text-orange-200"
+              >
+                View partner options →
+              </Link>
+            </div>
+
+            <div className="rounded-3xl border border-orange-400/50 bg-gradient-to-r from-orange-600/20 via-slate-900 to-slate-950 p-5 text-sm text-slate-100">
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-200 mb-2">
+                Next step
+              </p>
+              <p className="mb-3">
+                If you&apos;re not sure where to begin, this program may be your
+                first stop. We can help you reset, then move into training or work.
+              </p>
+              <Link
+                href="/apply"
+                className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-slate-100 transition"
+              >
+                Start My Application
+              </Link>
+            </div>
           </div>
         </div>
       </section>

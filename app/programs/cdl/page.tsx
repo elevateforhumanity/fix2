@@ -1,32 +1,31 @@
-// app/programs/building-tech/page.tsx
+// app/programs/cdl/page.tsx
 import Link from "next/link";
 
-export default function BuildingMaintenanceProgramPage() {
+export default function CdlProgramPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
       <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
           <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
-            Facilities & Property Pathway
+            Transportation Pathway
           </p>
           <h1 className="mt-2 text-3xl font-bold md:text-4xl">
-            Building Maintenance Technician Pathway
+            CDL & Transportation Pathways
           </h1>
           <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
-            A practical training pathway for people who like to fix things,
-            solve problems, and keep buildings safe and running—backed by
-            Elevate&apos;s support and employer connections.
+            Elevate connects learners with CDL training partners and transportation
+            employers, while helping coordinate funding, readiness, and job placement.
           </p>
           <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">
             <span className="rounded-full border border-white/15 px-3 py-1">
-              4–9 months · On-site & skills-based
+              Length varies · Range + Road
             </span>
             <span className="rounded-full border border-white/15 px-3 py-1">
-              Partner-led instruction · Elevate coordination
+              Partner CDL schools · Elevate coordination
             </span>
             <span className="rounded-full border border-white/15 px-3 py-1">
-              Workforce funding & apprenticeship aligned
+              Workforce funding & employer sponsorship aligned
             </span>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -52,21 +51,24 @@ export default function BuildingMaintenanceProgramPage() {
           <div className="grid gap-8 md:grid-cols-[1.6fr,1.3fr] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
-                Who this pathway is for
+                Who this is for
               </p>
               <h2 className="mt-2 text-xl font-semibold md:text-2xl">
-                Ideal for people who like variety, movement, and solving problems.
+                For people who want to be on the move and earn while they drive.
               </h2>
               <p className="mt-2 text-sm text-slate-300">
-                This pathway is a strong fit if you:
+                CDL & transportation pathways can be a fit if you:
               </p>
               <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
-                <li>• Enjoy learning how systems work</li>
-                <li>• Don&apos;t want to sit in the same spot all day</li>
-                <li>• Like fixing, maintaining, and improving spaces</li>
-                <li>• Want a trade that can grow over time</li>
-                <li>• Are comfortable learning multiple skills (basic HVAC, plumbing, electrical, etc.)</li>
+                <li>• Enjoy driving and traveling</li>
+                <li>• Want a career with clear, measurable steps</li>
+                <li>• Are comfortable with safety rules and regulations</li>
+                <li>• Are interested in regional or local routes (depending on the employer)</li>
               </ul>
+              <p className="mt-3 text-sm text-slate-300">
+                Elevate does not operate trucks or run the training range—instead,
+                we coordinate with trusted CDL programs and employers.
+              </p>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-5 text-sm text-slate-200">
@@ -74,96 +76,47 @@ export default function BuildingMaintenanceProgramPage() {
                 Program snapshot
               </p>
               <ul className="space-y-1.5">
-                <li>• <span className="font-semibold">Length:</span> 4–9 months (varies by partner)</li>
-                <li>• <span className="font-semibold">Format:</span> Hands-on tasks + guided instruction</li>
-                <li>• <span className="font-semibold">Location:</span> Partner training sites and/or real properties</li>
-                <li>• <span className="font-semibold">Support:</span> Elevate coaching, reminders, and employer connections</li>
+                <li>• <span className="font-semibold">Length:</span> Typically a few weeks to a few months</li>
+                <li>• <span className="font-semibold">Format:</span> Classroom, yard/range practice, and road time</li>
+                <li>• <span className="font-semibold">Location:</span> Partner CDL schools</li>
+                <li>• <span className="font-semibold">Support:</span> Elevate onboarding, paperwork help, and employment connections</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section className="border-b border-white/10 bg-slate-950">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
-              What you'll learn
-            </p>
-            <h2 className="mt-2 text-xl font-semibold md:text-2xl">
-              A mix of skills that keep properties safe and functional.
-            </h2>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-3 text-sm text-slate-200">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
-              <h3 className="text-sm font-semibold text-slate-50 mb-2">
-                Practical Maintenance Skills
-              </h3>
-              <ul className="space-y-1.5">
-                <li>• Basic HVAC & filter changes</li>
-                <li>• Light plumbing (leaks, clogs, fixtures)</li>
-                <li>• Basic electrical (switches, outlets, lighting)</li>
-                <li>• General repairs & safety checks</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
-              <h3 className="text-sm font-semibold text-slate-50 mb-2">
-                Building Systems Awareness
-              </h3>
-              <ul className="space-y-1.5">
-                <li>• Reading basic work orders</li>
-                <li>• Understanding building layouts</li>
-                <li>• Coordinating with vendors</li>
-                <li>• Preventive maintenance basics</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
-              <h3 className="text-sm font-semibold text-slate-50 mb-2">
-                Workplace & Career Skills
-              </h3>
-              <ul className="space-y-1.5">
-                <li>• Communication with tenants/teams</li>
-                <li>• Documentation of work completed</li>
-                <li>• Safety practices and checklists</li>
-                <li>• Planning advancement in the trade</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FUNDING + CTA */}
+      {/* ROLES & FUNDING (short) */}
       <section className="border-b border-white/10 bg-slate-950">
         <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
           <div className="grid gap-8 md:grid-cols-[1.5fr,1.3fr] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
-                Funding & employer connections
+                How Elevate fits
               </p>
               <h2 className="mt-2 text-xl font-semibold md:text-2xl">
-                Training that points directly toward real building maintenance jobs.
+                Elevate is the connector between you, training, and employers.
               </h2>
               <p className="mt-2 text-sm text-slate-300">
-                Elevate works with property management companies, facilities
-                teams, and maintenance employers to create real opportunities
-                after training.
+                We help you sort through options, funding, and employer expectations:
               </p>
+              <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
+                <li>• Explore if CDL is truly a good fit for your life</li>
+                <li>• Connect with training providers and funding where available</li>
+                <li>• Coordinate with employers who hire new drivers</li>
+              </ul>
               <p className="mt-3 text-sm text-slate-300">
-                Many learners may qualify for workforce funding, supportive services,
-                or apprenticeship-style placements. Exact details are reviewed
-                individually.
+                Licensing, testing, and final hiring decisions always follow state and employer requirements.
               </p>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-5 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-wide text-orange-300 mb-2">
-                Take the next step
+                Funding & next steps
               </p>
               <p className="mb-3">
-                Share a bit about your background, and we&apos;ll explore if Building
-                Maintenance is available and the right fit for you.
+                CDL pathways may be supported through workforce funding, employer
+                sponsorship, or direct pay options. We review what fits your situation.
               </p>
               <Link
                 href="/apply"
@@ -172,13 +125,13 @@ export default function BuildingMaintenanceProgramPage() {
                 Start My Application
               </Link>
               <p className="mt-3 text-xs text-slate-400">
-                Employers interested in building a maintenance talent pipeline can also contact us.
+                Case managers can contact us to coordinate referrals and expectations up front.
               </p>
               <Link
-                href="/employers"
+                href="/partners"
                 className="mt-2 inline-block text-xs font-semibold text-orange-300 hover:text-orange-200"
               >
-                Build a talent pipeline →
+                Partner with Elevate →
               </Link>
             </div>
           </div>
@@ -191,11 +144,11 @@ export default function BuildingMaintenanceProgramPage() {
           <div className="rounded-3xl border border-orange-400/50 bg-gradient-to-r from-orange-600/30 via-slate-900 to-slate-950 px-6 py-10 md:px-10 md:py-12">
             <div className="max-w-2xl">
               <h2 className="text-2xl font-bold md:text-3xl">
-                Ready to explore Building Maintenance?
+                Ready to talk about CDL or transportation?
               </h2>
               <p className="mt-3 text-sm text-slate-100">
-                We&apos;ll help you see if this pathway fits your strengths, your
-                goals, and your life right now.
+                We&apos;ll help you see if driving is a realistic and sustainable
+                option for your life, and if so, what your next step should be.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">

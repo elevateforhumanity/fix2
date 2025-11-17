@@ -1,284 +1,279 @@
-# DEPLOYMENT CHECKLIST - CRITICAL
+# 🚀 Deployment Checklist - Elevate For Humanity
 
-## ⚠️ WHY PROGRAMS AREN'T SHOWING
+## ✅ Pre-Deployment Completed
 
-**Problem:** Database is empty - migrations haven't been run  
-**Solution:** Run Supabase migrations (5 minutes)
+### Core Pages
+- [x] Homepage with hero, programs, testimonials
+- [x] Programs overview page
+- [x] Individual program pages (Medical Assistant, Barber, HVAC, Building Tech, Workforce Readiness, CDL)
+- [x] About page
+- [x] Contact page
+- [x] Partners page
+- [x] Onboarding page
+
+### Forms & Functionality
+- [x] Contact form
+- [x] Program application forms
+- [x] Email templates (contact, application confirmation)
+- [x] Form validation
+
+### SEO & Discovery
+- [x] Meta tags in layout.tsx
+- [x] Sitemap.xml
+- [x] Robots.txt
+- [x] OpenGraph tags
+- [x] Twitter card tags
+
+### Error Handling
+- [x] 404 page (not-found.tsx)
+- [x] Error page (error.tsx)
+
+### Legal & Compliance
+- [x] Privacy Policy page
+- [x] Terms of Service page
+
+### Marketing Assets
+- [x] Social media reel scripts (5 complete scripts)
+- [x] Google Analytics setup (lib/analytics.ts)
+
+### Build & Performance
+- [x] Production build successful
+- [x] All pages rendering correctly
+- [x] No TypeScript errors
+- [x] Preview server running
 
 ---
 
-## 🚨 REQUIRED: Run These Migrations NOW
+## 🔧 Environment Variables Needed
 
-### Step 1: Connect to Supabase
+Add these to your Vercel/hosting platform:
 
-```bash
-# If you have Supabase CLI installed:
-supabase db push
+```env
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 
-# OR manually in Supabase Dashboard:
-# Go to: https://supabase.com/dashboard/project/YOUR_PROJECT/sql
+# Supabase (if using database features)
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+# Stripe (if using payments)
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_key
+STRIPE_SECRET_KEY=your_stripe_secret
+
+# Email Service (choose one)
+RESEND_API_KEY=your_resend_key
+# OR
+SENDGRID_API_KEY=your_sendgrid_key
+
+# Google Analytics
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
-### Step 2: Run These SQL Files IN ORDER
+---
 
-**Run these in Supabase SQL Editor:**
+## 📋 Post-Deployment Tasks
 
-#### 1. Add All Programs (MOST IMPORTANT)
+### Immediate (Day 1)
+- [ ] Verify all pages load correctly
+- [ ] Test contact form submission
+- [ ] Test program application forms
+- [ ] Check mobile responsiveness
+- [ ] Verify SEO meta tags (view source)
+- [ ] Submit sitemap to Google Search Console
+- [ ] Set up Google Analytics property
+- [ ] Test 404 and error pages
 
-**File:** `supabase/migrations/20241115_add_all_etpl_programs.sql`
+### Week 1
+- [ ] Set up email service (Resend or SendGrid)
+- [ ] Configure form submission notifications
+- [ ] Test email templates
+- [ ] Set up domain email forwarding
+- [ ] Create social media accounts
+- [ ] Post first social media reel
+- [ ] Set up Google My Business
+- [ ] Add site to Bing Webmaster Tools
 
-This adds all 16 programs:
+### Week 2
+- [ ] Monitor form submissions
+- [ ] Review analytics data
+- [ ] A/B test CTA buttons
+- [ ] Gather user feedback
+- [ ] Create content calendar
+- [ ] Schedule social media posts
+- [ ] Set up automated email sequences
 
-- Barber Apprenticeship
-- HVAC Technician
-- CNA Certification
-- CDL Truck Driving
-- Medical Assistant
-- Phlebotomy Technician
-- EKG Technician
-- Patient Care Technician
-- Pharmacy Technician
-- Clinical Medical Assistant
-- Administrative Medical Assistant
-- Tax Preparation
-- Business Start-Up
-- Professional Esthetician
-- Beauty & Career Educator
-- Public Safety Reentry Specialist
-
-**Without this, NO PROGRAMS WILL SHOW on your site!**
-
-#### 2. Add CIP/SOC Codes
-
-**File:** `supabase/migrations/20240116_add_cip_soc_codes.sql`
-
-Adds workforce alignment codes to programs table
-
-#### 3. Seed CIP/SOC Data
-
-**File:** `supabase/migrations/20240116_seed_cip_soc_codes.sql`
-
-Populates CIP/SOC codes for all 16 programs
-
-#### 4. Lesson Progress Table
-
-**File:** `supabase/migrations/20251116020545_lesson_progress.sql`
-
-Creates table for tracking student video progress
-
-#### 5. Course Completion View
-
-**File:** `supabase/migrations/20251116020748_course_completion_view.sql`
-
-Creates view for certificate generation
+### Ongoing
+- [ ] Weekly analytics review
+- [ ] Monthly SEO audit
+- [ ] Update program information as needed
+- [ ] Add success stories/testimonials
+- [ ] Create blog content
+- [ ] Optimize conversion rates
+- [ ] Monitor site performance
 
 ---
 
-## 📋 Quick Copy/Paste Instructions
+## 🎯 Marketing Launch Plan
 
-### Option A: Using Supabase CLI (Fastest)
+### Social Media
+1. Create accounts on:
+   - Instagram (@elevateforhumanity)
+   - Facebook (Elevate For Humanity)
+   - LinkedIn (Elevate For Humanity)
+   - TikTok (@elevateforhumanity)
+   - YouTube (Elevate For Humanity)
 
-```bash
-cd /workspaces/fix2
-supabase db push
-```
+2. Post schedule (Week 1):
+   - Day 1: General enrollment CTA reel
+   - Day 2: Barber apprenticeship reel
+   - Day 3: HVAC quick win reel
+   - Day 4: Medical assistant reel
+   - Day 5: Re-entry success story reel
 
-This runs all migrations automatically.
+3. Use InVideo AI to create reels from scripts in `INVIDEO_SOCIAL_REELS_COMPLETE.md`
 
-### Option B: Manual in Supabase Dashboard
+### Paid Advertising
+- [ ] Set up Google Ads account
+- [ ] Create search campaigns for each program
+- [ ] Set up Facebook/Instagram ads
+- [ ] Target local area (adjust in ad settings)
+- [ ] Budget: Start with $500/month, scale based on results
 
-1. Go to: https://supabase.com/dashboard
-2. Select your project
-3. Click "SQL Editor" in left menu
-4. Click "New Query"
-5. Copy contents of each migration file
-6. Paste and click "Run"
-7. Repeat for all 5 files
-
----
-
-## 🎯 What Happens After Running Migrations
-
-### Immediately Fixed:
-
-✅ Programs page shows all 16 programs  
-✅ Program cards display with images  
-✅ CIP/SOC codes appear on workforce page  
-✅ Progress tracking starts working  
-✅ Certificate generation becomes available
-
-### Still Need (Content):
-
-⏳ Video URLs (you have scripts, need to record/source)  
-⏳ Real course cover photos (SVG placeholders work for now)
+### Community Outreach
+- [ ] Contact local workforce development boards
+- [ ] Partner with community organizations
+- [ ] Reach out to re-entry programs
+- [ ] Connect with local employers
+- [ ] Attend job fairs and community events
 
 ---
 
-## 🔍 How to Verify Migrations Worked
+## 🔍 SEO Optimization
 
-### Test 1: Check Programs Page
+### Google Search Console
+1. Add property: https://elevateforhumanity.org
+2. Verify ownership (HTML tag method)
+3. Submit sitemap: https://elevateforhumanity.org/sitemap.xml
+4. Monitor indexing status
+5. Check for crawl errors
 
-Visit: https://www.elevateconnectsdirectory.org/programs
+### Keywords to Target
+- "free workforce training [city]"
+- "medical assistant training near me"
+- "barber apprenticeship [city]"
+- "HVAC training programs"
+- "CDL training free"
+- "re-entry job training"
+- "second chance employment"
 
-**Before migrations:**
-
-> "No programs configured yet"
-
-**After migrations:**
-
-> Shows 16 program cards with titles, descriptions, images
-
-### Test 2: Check Database
-
-In Supabase SQL Editor, run:
-
-```sql
-SELECT COUNT(*) FROM programs;
-```
-
-**Should return:** 16
-
-```sql
-SELECT title FROM programs ORDER BY title;
-```
-
-**Should show:** All 16 program titles
-
-### Test 3: Check Workforce Page
-
-Visit: https://www.elevateconnectsdirectory.org/partners/workforce
-
-**Should show:** All programs with CIP/SOC codes
+### Local SEO
+- [ ] Create Google My Business listing
+- [ ] Add business to local directories
+- [ ] Get listed on workforce development sites
+- [ ] Partner with local organizations for backlinks
 
 ---
 
-## 📊 Migration Files Summary
+## 📊 Analytics & Tracking
 
-| File                                        | Purpose           | Status     | Priority    |
-| ------------------------------------------- | ----------------- | ---------- | ----------- |
-| `20241115_add_all_etpl_programs.sql`        | Add 16 programs   | ❌ Not run | 🔴 CRITICAL |
-| `20240116_add_cip_soc_codes.sql`            | Add code columns  | ❌ Not run | 🟡 High     |
-| `20240116_seed_cip_soc_codes.sql`           | Populate codes    | ❌ Not run | 🟡 High     |
-| `20251116020545_lesson_progress.sql`        | Progress tracking | ❌ Not run | 🟡 High     |
-| `20251116020748_course_completion_view.sql` | Completion view   | ❌ Not run | 🟡 High     |
+### Key Metrics to Monitor
+- Page views (especially program pages)
+- Form submissions (contact + applications)
+- Bounce rate (aim for <60%)
+- Average session duration (aim for >2 minutes)
+- Mobile vs desktop traffic
+- Traffic sources (organic, social, direct, referral)
+- Conversion rate (visitors → applications)
 
----
-
-## 🚀 After Migrations: Next Steps
-
-### 1. Verify Programs Show (1 min)
-
-- Visit /programs
-- Should see 16 program cards
-- Click on any program
-- Should see full details
-
-### 2. Add Video URLs (5 min)
-
-You provided video scripts. Now you need:
-
-- Record videos OR use stock videos
-- Get YouTube/Vimeo URLs
-- Update homepage code
-
-**Quick fix:** Use free stock videos:
-
-```tsx
-// Homepage hero
-<VideoShell
-  src="https://player.vimeo.com/video/273947191"
-  title="Innovate. Elevate. Reset."
-  layout="horizontal"
-/>
-```
-
-### 3. Test Voice Assistant (1 min)
-
-- Look for floating microphone button (bottom-right)
-- Click and say "go to dashboard"
-- Should navigate automatically
-
-### 4. Test Certificate Generation (2 min)
-
-- Enroll in a course
-- Complete lessons
-- Click "Generate Certificate"
-- Should create certificate
+### Goals to Set Up in GA4
+1. Contact form submission
+2. Program application started
+3. Program application completed
+4. Phone number click
+5. Email click
+6. Social media link click
 
 ---
 
-## ⚠️ Common Issues
+## 🚨 Monitoring & Maintenance
 
-### Issue: "No programs configured yet"
+### Weekly
+- Check form submissions
+- Review analytics
+- Monitor site uptime
+- Check for broken links
+- Review error logs
 
-**Cause:** Migrations not run  
-**Fix:** Run `20241115_add_all_etpl_programs.sql`
+### Monthly
+- Update program information
+- Add new testimonials
+- Review and optimize SEO
+- Analyze conversion funnel
+- Update social media content
 
-### Issue: Programs show but no CIP/SOC codes
-
-**Cause:** CIP/SOC migrations not run  
-**Fix:** Run both CIP/SOC migration files
-
-### Issue: Certificate button doesn't work
-
-**Cause:** Completion view not created  
-**Fix:** Run `20251116020748_course_completion_view.sql`
-
-### Issue: Progress not tracking
-
-**Cause:** lesson_progress table doesn't exist  
-**Fix:** Run `20251116020545_lesson_progress.sql`
-
----
-
-## 📞 Need Help?
-
-### If migrations fail:
-
-1. Check Supabase connection
-2. Verify you have admin access
-3. Check for SQL syntax errors in output
-4. Try running one file at a time
-
-### If programs still don't show:
-
-1. Clear browser cache
-2. Check Supabase logs
-3. Verify migrations ran successfully
-4. Check database has data: `SELECT * FROM programs;`
+### Quarterly
+- Comprehensive site audit
+- Performance optimization
+- Security updates
+- Content refresh
+- User experience improvements
 
 ---
 
-## ✅ Final Checklist
+## 📞 Support Contacts
 
-Before considering deployment complete:
+### Technical Issues
+- Hosting: Vercel Support
+- Domain: Your registrar support
+- Email: Resend/SendGrid support
 
-- [ ] Run all 5 migration files
-- [ ] Verify programs page shows 16 programs
-- [ ] Check workforce page shows CIP/SOC codes
-- [ ] Test voice assistant button appears
-- [ ] Add at least 1 video URL to homepage
-- [ ] Test enrollment flow
-- [ ] Test progress tracking
-- [ ] Test certificate generation
+### Content Updates
+- Update program pages in `/app/programs/[slug]/page.tsx`
+- Update homepage in `/app/page.tsx`
+- Update contact info in footer components
 
 ---
 
-## 🎉 Summary
+## 🎉 Launch Announcement Template
 
-**Current Status:**
+**Email/Social Media:**
 
-- ✅ Code deployed to GitHub
-- ✅ Site is live
-- ✅ All pages working
-- ❌ Database empty (migrations not run)
+> 🚀 We're LIVE! Elevate For Humanity is now accepting applications for FREE workforce training programs!
+> 
+> ✅ Medical Assistant
+> ✅ Barber Apprenticeship
+> ✅ HVAC Technician
+> ✅ CDL Driver
+> ✅ Building Maintenance
+> ✅ Workforce Readiness
+> 
+> No cost. No barriers. Real careers.
+> 
+> Apply now: https://elevateforhumanity.org
+> 
+> #WorkforceTraining #FreeTraining #CareerChange #SecondChances
 
-**To Fix:**
+---
 
-1. Run migrations (5 minutes)
-2. Programs will appear
-3. All features will work
+## ✅ Final Verification
 
-**The ONLY thing blocking your site from being 100% functional is running the database migrations!**
+Before announcing launch:
+- [ ] All pages load without errors
+- [ ] Forms submit successfully
+- [ ] Email notifications working
+- [ ] Mobile experience is smooth
+- [ ] All links work correctly
+- [ ] Contact information is accurate
+- [ ] Social media links are correct
+- [ ] Analytics is tracking
+- [ ] SSL certificate is active
+- [ ] Domain is properly configured
 
-Run them now and everything will work perfectly.
+---
+
+**Status: READY FOR DEPLOYMENT** 🚀
+
+Preview URL: https://3000--019a8b7c-630b-7688-869d-a3018f721fda.us-east-1-01.gitpod.dev
+
+Next step: Deploy to Vercel or your hosting platform of choice.

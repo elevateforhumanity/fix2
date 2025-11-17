@@ -1,208 +1,203 @@
+// app/programs/page.tsx
 import Link from "next/link";
 
 const programs = [
   {
-    slug: "/programs/barber",
-    name: "Barber Apprenticeship (Milady-Powered)",
-    tag: "Apprenticeship · License Track",
-    summary:
-      "Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.",
-  },
-  {
-    slug: "/programs/medical-assistant",
+    slug: "medical-assistant",
     name: "Medical Assistant Pathway",
-    tag: "Healthcare · Partner Program",
-    summary:
-      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.",
+    category: "Healthcare",
+    length: "4–6 months · Hybrid",
+    funding: "WRG · WIOA · Workforce Grants",
+    blurb:
+      "Hands-on clinical and front-office skills for entry-level roles in clinics, hospitals, and specialty practices. Built with partner schools and Elevate support.",
   },
   {
-    slug: "/programs/hvac",
-    name: "HVAC Technician (Partner School)",
-    tag: "Skilled Trades · External School",
-    summary:
-      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
+    slug: "barber",
+    name: "Barber Apprenticeship",
+    category: "Apprenticeship · License Track",
+    length: "12–18 months · Shop + Classroom",
+    funding: "Apprenticeship · WIOA",
+    blurb:
+      "State-approved barber apprenticeship that mixes Milady-based theory with real shop experience, coaching, and licensing support.",
+  },
+  {
+    slug: "hvac",
+    name: "HVAC Technician",
+    category: "Skilled Trades",
+    length: "4–9 months · Lab + Field",
+    funding: "Workforce Grants · Employer Sponsors",
+    blurb:
+      "Partner-led technical training in heating, ventilation, and air conditioning with Elevate as the front door, tracker, and connector.",
+  },
+  {
+    slug: "building-tech",
+    name: "Building Maintenance Technician",
+    category: "Facilities & Property",
+    length: "4–9 months · On-site",
+    funding: "Workforce Grants · Apprenticeship",
+    blurb:
+      "Training for core skills in building systems, repairs, and property maintenance for residential, commercial, or institutional sites.",
+  },
+  {
+    slug: "cdl",
+    name: "CDL / Transportation Pathways",
+    category: "Transportation",
+    length: "Varies · Range + Road",
+    funding: "Workforce Grants · Employer Sponsors",
+    blurb:
+      "Connections to CDL programs and transportation employers, with Elevate support for readiness, paperwork, and employer alignment.",
+  },
+  {
+    slug: "workforce-readiness",
+    name: "Workforce Readiness & Re-Entry",
+    category: "Readiness & Soft Skills",
+    length: "4–12 weeks · Workshops + Coaching",
+    funding: "Support Services · Referrals",
+    blurb:
+      "Coaching, soft skills, and barrier support for adults and re-entry talent preparing to step back into training or employment.",
   },
 ];
 
 export default function ProgramsPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10 ring-1 ring-emerald-400/40">
-              <span className="text-sm font-bold text-emerald-300">EFH</span>
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-sm font-semibold text-slate-50">
-                Elevate for Humanity
-              </span>
-              <span className="text-[0.7rem] text-slate-400">
-                Elevate Connects Directory
-              </span>
-            </div>
-          </Link>
-
-          <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 md:flex">
-            <Link href="/programs" className="text-emerald-300">
-              Programs
-            </Link>
-            <Link href="/#how-it-works" className="hover:text-emerald-300">
-              How Elevate Works
-            </Link>
-            <Link href="/partners" className="hover:text-emerald-300">
-              For Agencies & Partners
-            </Link>
-            <Link href="/about" className="hover:text-emerald-300">
-              About
-            </Link>
-            <Link
-              href="/login"
-              className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[0.7rem] text-slate-100 hover:border-emerald-400 hover:text-emerald-200"
-            >
-              Login
-            </Link>
-          </nav>
-        </div>
-      </header>
-      <section className="relative border-b border-emerald-500/20 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950 overflow-hidden">
-        {/* Canva-style background */}
-        <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-gradient-to-br from-emerald-500/15 to-transparent blur-3xl" />
-        <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-gradient-to-tl from-sky-500/15 to-transparent blur-3xl" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
-        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-6 lg:py-16">
-          <div className="max-w-3xl space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
-              Elevate programs
-            </p>
-            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.7rem]">
-              Programs that speak the same language as your community.
-            </h1>
-            <p className="text-sm text-slate-300">
-              Every pathway is designed so a learner, a parent, a pastor, and a case manager
-              can read it and instantly understand what it is, who it is for, and how it leads
-              to work.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {/* Barber Program */}
-            <Link 
-              href="/programs/barber" 
-              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/20"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all" />
-              <div className="relative">
-                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="mb-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                    Apprenticeship · License Track
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-slate-50 mb-3">
-                  Barber Apprenticeship
-                </h2>
-                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-                  Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.
-                </p>
-                <div className="flex items-center text-emerald-400 text-sm font-semibold group-hover:text-emerald-300">
-                  View Program 
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Medical Assistant Program */}
-            <Link 
-              href="/programs/medical-assistant" 
-              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-sky-500 hover:shadow-2xl hover:shadow-sky-500/20"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl group-hover:bg-sky-500/20 transition-all" />
-              <div className="relative">
-                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <div className="mb-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-sky-400">
-                    Healthcare · Partner Program
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-slate-50 mb-3">
-                  Medical Assistant Pathway
-                </h2>
-                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-                  Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.
-                </p>
-                <div className="flex items-center text-sky-400 text-sm font-semibold group-hover:text-sky-300">
-                  View Program 
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* HVAC Program */}
-            <Link 
-              href="/programs/hvac" 
-              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-amber-500 hover:shadow-2xl hover:shadow-amber-500/20"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all" />
-              <div className="relative">
-                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-amber-500/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-all">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div className="mb-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
-                    Skilled Trades · External School
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-slate-50 mb-3">
-                  HVAC Technician
-                </h2>
-                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-                  Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.
-                </p>
-                <div className="flex items-center text-amber-400 text-sm font-semibold group-hover:text-amber-300">
-                  View Program 
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* Header */}
+      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
+          <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+            Elevate For Humanity™ Programs
+          </p>
+          <h1 className="mt-2 text-3xl font-bold md:text-4xl">
+            High-impact training and apprenticeship pathways.
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
+            Each pathway is built in partnership with credentialed schools and
+            employers. Elevate handles onboarding, support, and reporting so
+            learners and agencies see a clear, step-by-step plan.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">
+            <span className="rounded-full border border-white/15 px-3 py-1">
+              Indiana Workforce · WRG · WIOA-Aligned
+            </span>
+            <span className="rounded-full border border-white/15 px-3 py-1">
+              Re-entry friendly options available
+            </span>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/terms" className="hover:text-emerald-300">
-              Terms
-            </Link>
-            <Link href="/privacy" className="hover:text-emerald-300">
-              Privacy
-            </Link>
-            <Link href="/contact" className="hover:text-emerald-300">
-              Contact
+      {/* Program grid */}
+      <section className="border-b border-white/10 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
+          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-xl font-semibold md:text-2xl">
+                Explore current Elevate pathways.
+              </h2>
+              <p className="mt-1 text-sm text-slate-300 max-w-xl">
+                This catalog continues to grow as we add new credentialing
+                partners, apprenticeship sponsors, and employer-aligned options.
+              </p>
+            </div>
+            <Link
+              href="/apply"
+              className="inline-flex items-center rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-400 transition"
+            >
+              Start My Application
             </Link>
           </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {programs.map((program) => (
+              <Link
+                key={program.slug}
+                href={`/programs/${program.slug}`}
+                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900/80 p-4 hover:border-orange-400/80 hover:bg-slate-900 transition"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-300">
+                  {program.category}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold">{program.name}</h3>
+                <p className="mt-1 text-xs text-slate-300">{program.length}</p>
+                <p className="mt-3 flex-1 text-sm text-slate-200">
+                  {program.blurb}
+                </p>
+                <p className="mt-3 text-xs text-slate-400">
+                  Funding: {program.funding}
+                </p>
+                <p className="mt-2 text-xs font-semibold text-orange-300 group-hover:translate-x-0.5 transition">
+                  View program details →
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
-      </footer>
+      </section>
+
+      {/* Help choosing section */}
+      <section className="bg-slate-950">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
+          <div className="grid gap-8 md:grid-cols-[2fr,1.3fr] items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+                Not sure where to start?
+              </p>
+              <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+                We help you match your story to the right pathway.
+              </h2>
+              <p className="mt-2 text-sm text-slate-300">
+                You don&apos;t have to figure this out alone. We listen to your
+                situation, barriers, and goals, then help you choose a starting
+                point that makes sense for your life right now.
+              </p>
+              <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
+                <li>• Unsure which program fits? We'll walk through it.</li>
+                <li>• Re-entry or justice-involved? We have options.</li>
+                <li>
+                  • Already working but want a career change? We can build a
+                  plan.
+                </li>
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/apply"
+                  className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-slate-100 transition"
+                >
+                  Start My Application
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:border-white hover:bg-white/5 transition"
+                >
+                  Talk With Our Team
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300 mb-2">
+                For case managers & partners
+              </p>
+              <p className="mb-2">
+                Elevate simplifies referrals by turning this catalog into{" "}
+                <span className="font-semibold">
+                  real, trackable plans with status updates you can see.
+                </span>
+              </p>
+              <p className="mb-2">
+                You refer once. We coordinate with training providers, follow up
+                with the learner, and keep you in the loop.
+              </p>
+              <Link
+                href="/partners"
+                className="mt-2 inline-block text-xs font-semibold text-orange-300 hover:text-orange-200"
+              >
+                Learn about partnering with Elevate →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
