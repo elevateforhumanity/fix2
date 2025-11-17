@@ -109,21 +109,21 @@ export default function HomePage() {
       <Header />
 
       <main>
-        {/* Hero Section - Clean and Professional like Coursera */}
-        <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+        {/* Hero Section - Mostly White, Clean Design */}
+        <section className="relative bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Content */}
               <div>
-                <div className="inline-flex items-center gap-2 bg-blue-100 rounded-full px-4 py-2 mb-6">
-                  <TrendingUp className="w-4 h-4 text-blue-600" />
-                  <span className="text-sm font-semibold text-blue-900">High-Demand Careers • Start in Weeks</span>
+                <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2 mb-6">
+                  <TrendingUp className="w-4 h-4 text-slate-600" />
+                  <span className="text-sm font-medium text-slate-700">High-Demand Careers • Start in Weeks</span>
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
                   Get Certified.<br/>
                   Get Hired.<br/>
-                  <span className="text-blue-600">Get Paid.</span>
+                  Get Paid.
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
@@ -133,7 +133,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <Link 
                     href="/apply"
-                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-all shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all"
                   >
                     Check If You Qualify for Free Training
                     <ArrowRight className="w-5 h-5" />
@@ -164,10 +164,10 @@ export default function HomePage() {
 
               {/* Right Column - Visual */}
               <div className="relative hidden lg:block">
-                <div className="relative bg-white rounded-2xl shadow-2xl p-8">
-                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl flex items-center justify-center">
+                <div className="relative bg-slate-50 rounded-2xl p-8 border border-slate-200">
+                  <div className="aspect-video bg-white rounded-xl flex items-center justify-center border border-slate-200">
                     <div className="text-center">
-                      <Users className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                      <Users className="w-16 h-16 text-slate-400 mx-auto mb-4" />
                       <p className="text-lg font-semibold text-slate-900">Real Training</p>
                       <p className="text-sm text-slate-600">Real Jobs</p>
                     </div>
