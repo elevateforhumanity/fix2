@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import SignatureCanvas from 'signature_pad';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
 interface SignaturePadProps {
   onSave: (dataUrl: string) => void;

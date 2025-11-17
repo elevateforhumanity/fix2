@@ -5,14 +5,8 @@ import Image from 'next/image';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { getEcdCourseBySlug, ecdCourses } from '@/content/courses/ecdCatalog';
 
-// Import manifest safely
-const getManifest = () => {
-  try {
-    return require('@/../public/generated-images/manifest.json');
-  } catch {
-    return {};
-  }
-};
+// Manifest not needed for static generation
+const getManifest = () => ({});
 
 // Generate static params for ECD courses
 export function generateStaticParams() {

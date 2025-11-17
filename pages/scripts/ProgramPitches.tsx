@@ -6,8 +6,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import seeds from '@/seeds/elevate/elevate.json';
 
 export default function ProgramPitchesPage() {

@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import VideoPlaceholder from '@/components/VideoPlaceholder';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { BookOpen, Award, Users, TrendingUp, CheckCircle } from 'lucide-react';
 import { VideoShell } from '@/components/VideoShell';
 import { aiInstructorVideo } from '@/content/homepage/aiInstructor';

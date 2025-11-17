@@ -25,8 +25,8 @@ const templates: PageTemplate[] = [
     filePath: 'app/programs/hvac/page.tsx',
     description: 'HVAC career pathway page',
     content: `import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 
 export const metadata = {
   title: 'HVAC Technician Pathway | Elevate for Humanity',
@@ -149,8 +149,8 @@ export default function HVACProgramPage() {
     filePath: 'app/programs/barber/page.tsx',
     description: 'Barber apprenticeship page',
     content: `import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 
 export const metadata = {
   title: 'Barber Apprenticeship | Elevate for Humanity',
@@ -291,8 +291,8 @@ export default function BarberProgramPage() {
     filePath: 'app/programs/cna/page.tsx',
     description: 'CNA certification page',
     content: `import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 
 export const metadata = {
   title: 'CNA Certification | Elevate for Humanity',

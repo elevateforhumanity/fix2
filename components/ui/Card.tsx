@@ -4,20 +4,63 @@ import Link from 'next/link';
 import { Clock, MapPin, DollarSign, Star } from 'lucide-react';
 
 // Base Card Component
-export interface CardProps {
-  children: React.ReactNode;
-  className?: string;
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
   hover?: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ children, className = '', hover = false }) => {
-  const hoverStyles = hover ? 'hover:border-blue-600 hover:-translate-y-1 hover:shadow-lg' : '';
-  return (
-    <div className={`bg-white border border-slate-200 transition-all duration-200 ${hoverStyles} ${className}`}>
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ children, className = '', hover = false, ...props }, ref) => {
+    const hoverStyles = hover ? 'hover:border-blue-600 hover:-translate-y-1 hover:shadow-lg' : '';
+    return (
+      <div 
+        ref={ref}
+        className={`bg-white border border-slate-200 rounded-lg transition-all duration-200 ${hoverStyles} ${className}`}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+Card.displayName = 'Card';
+
+// Card Sub-components
+export const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className = '', ...props }, ref) => (
+    <div ref={ref} className={`p-6 ${className}`} {...props}>
       {children}
     </div>
-  );
-};
+  )
+);
+CardHeader.displayName = 'CardHeader';
+
+export const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ children, className = '', ...props }, ref) => (
+    <h3 ref={ref} className={`text-xl font-semibold text-slate-900 ${className}`} {...props}>
+      {children}
+    </h3>
+  )
+);
+CardTitle.displayName = 'CardTitle';
+
+export const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className = '', ...props }, ref) => (
+    <div ref={ref} className={`p-6 pt-0 ${className}`} {...props}>
+      {children}
+    </div>
+  )
+);
+CardContent.displayName = 'CardContent';
+
+export const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+  ({ children, className = '', ...props }, ref) => (
+    <p ref={ref} className={`text-sm text-slate-600 ${className}`} {...props}>
+      {children}
+    </p>
+  )
+);
+CardDescription.displayName = 'CardDescription';
 
 // Program Card Component
 export interface ProgramCardProps {

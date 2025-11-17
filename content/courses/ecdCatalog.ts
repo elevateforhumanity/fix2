@@ -4,6 +4,13 @@ export type EcdCourse = {
   slug: string;
   title: string;
   shortDescription: string;
+  category?: string;
+  duration?: string;
+  cost?: string;
+  placementRate?: number;
+  avgSalary?: string;
+  certifications?: string[];
+  prerequisites?: string[];
   path: string;           // route for the program page
   coverImageKey: string;  // key in generated-images/manifest.json
   aiVideoUrl?: string;    // fill in when you have AI videos
@@ -15,9 +22,16 @@ export const ecdCourses: EcdCourse[] = [
     title: "HVAC Technician Training",
     shortDescription:
       "Hands-on training to install, maintain, and repair heating and cooling systems for homes and businesses.",
+    category: "Skilled Trades",
+    duration: "12 weeks",
+    cost: "WIOA Funded",
+    placementRate: 88,
+    avgSalary: "$45,000 - $65,000",
+    certifications: ["EPA 608 Certification", "OSHA 10", "HVAC Excellence"],
+    prerequisites: ["High school diploma or GED", "Valid driver's license", "Pass background check"],
     path: "/programs/hvac-technician",
     coverImageKey: "hvac-technician-cover",
-    aiVideoUrl: "", // add URL to AI video later
+    aiVideoUrl: "",
   },
   {
     slug: "barber-apprenticeship",
@@ -33,6 +47,13 @@ export const ecdCourses: EcdCourse[] = [
     title: "CNA & Healthcare Careers",
     shortDescription:
       "Entry-level healthcare training focused on CNA skills, patient care, and healthcare pathways.",
+    category: "Healthcare",
+    duration: "6-8 weeks",
+    cost: "WIOA Funded",
+    placementRate: 92,
+    avgSalary: "$32,000 - $42,000",
+    certifications: ["Certified Nursing Assistant (CNA)", "CPR/First Aid", "HIPAA Training"],
+    prerequisites: ["High school diploma or GED", "Pass background check", "TB test and immunizations"],
     path: "/programs/cna-healthcare",
     coverImageKey: "cna-healthcare-cover",
     aiVideoUrl: "",
@@ -42,6 +63,13 @@ export const ecdCourses: EcdCourse[] = [
     title: "CDL & Transportation Training",
     shortDescription:
       "Commercial driver training for high-earning transportation and logistics careers.",
+    category: "Transportation",
+    duration: "4-6 weeks",
+    cost: "WIOA Funded",
+    placementRate: 90,
+    avgSalary: "$50,000 - $70,000",
+    certifications: ["Class A CDL", "Hazmat Endorsement", "Air Brakes Certification"],
+    prerequisites: ["Valid driver's license", "Clean driving record", "Pass DOT physical"],
     path: "/programs/cdl-transportation",
     coverImageKey: "cdl-transportation-cover",
     aiVideoUrl: "",

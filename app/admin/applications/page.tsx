@@ -1,98 +1,83 @@
 'use client';
 
-'use client';
+import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Badge } from '@/components/ui/Badge';
+import { CheckCircle, XCircle, RefreshCw, Search } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Badge } from '@/components/ui/badge';
-import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
-
-type AppRow = {
+type Application = {
   id: string;
-  program_code: string;
-  course_title: string;
-  learner_email: string;
-  status: string;
-  submitted_at: string;
+  email: string;
+  program: string;
+  status: 'pending' | 'approved' | 'denied';
+  submittedAt: string;
 };
 
-export default function AdminApplications() {
-  const [rows, setRows] = useState<AppRow[]>([]);
-  const [program, setProgram] = useState<string>('ALL');
+export default function ApplicationsPage() {
+  const [applications, setApplications] = useState<Application[]>([
+    {
+      id: '1',
+      email: 'john.doe@example.com',
+      program: 'WIOA',
+      status: 'pending',
+      submittedAt: '2024-01-15',
+    },
+    {
+      id: '2',
+      email: 'jane.smith@example.com',
+      program: 'WRG',
+      status: 'approved',
+      submittedAt: '2024-01-14',
+    },
+    {
+      id: '3',
+      email: 'bob.johnson@example.com',
+      program: 'JRI',
+      status: 'pending',
+      submittedAt: '2024-01-13',
+    },
+  ]);
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [statusFilter, setStatusFilter] = useState<string>('all');
 
-  const load = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `/api/funding/admin/list?program=${program}&q=${encodeURIComponent(searchQuery)}`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setRows(data);
-      }
-    } catch (error) {
-      console.error('Failed to load applications:', error);
-    } finally {
-      setLoading(false);
-    }
+  const handleApprove = (id: string) => {
+    setApplications(apps =>
+      apps.map(app => (app.id === id ? { ...app, status: 'approved' as const } : app))
+    );
   };
 
-  useEffect(() => {
-    load();
-  }, [program]);
-
-  const handleAction = async (id: string, action: 'approve' | 'deny') => {
-    try {
-      const response = await fetch('/api/funding/admin/action', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, action }),
-      });
-
-      if (response.ok) {
-        await load();
-      } else {
-        alert('Failed to process action');
-      }
-    } catch (error) {
-      console.error('Action failed:', error);
-      alert('Failed to process action');
-    }
+  const handleDeny = (id: string) => {
+    setApplications(apps =>
+      apps.map(app => (app.id === id ? { ...app, status: 'denied' as const } : app))
+    );
   };
+
+  const filteredApplications = applications.filter(app => {
+    const matchesSearch =
+      app.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      app.program.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'approved':
-        return <Badge className="bg-green-600">Approved</Badge>;
+        return <Badge variant="success">Approved</Badge>;
       case 'denied':
         return <Badge variant="destructive">Denied</Badge>;
-      case 'submitted':
-        return (
-          <Badge
-            variant="outline"
-            className="bg-yellow-50 text-yellow-700 border-yellow-200"
-          >
-            Pending
-          </Badge>
-        );
+      case 'pending':
+        return <Badge variant="warning">Pending</Badge>;
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       <div className="container mx-auto px-4 py-8">
         <Card>
           <CardHeader>
@@ -101,96 +86,95 @@ export default function AdminApplications() {
           <CardContent className="space-y-6">
             {/* Filters */}
             <div className="flex gap-3 flex-wrap">
-              <Select value={program} onValueChange={setProgram}>
-                <SelectTrigger className="w-48">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="ALL">All Programs</SelectItem>
-                  <SelectItem value="WRG">WRG</SelectItem>
-                  <SelectItem value="WIOA">WIOA</SelectItem>
-                  <SelectItem value="JRI">JRI</SelectItem>
-                  <SelectItem value="EMPLOYINDY">EmployIndy</SelectItem>
-                  <SelectItem value="DOL">DOL</SelectItem>
-                </SelectContent>
-              </Select>
-              <Input
-                placeholder="Search email or course..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 max-w-md"
-              />
-              <Button onClick={load} disabled={loading}>
-                <RefreshCw
-                  className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`}
+              <div className="relative flex-1 min-w-[200px]">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Input
+                  placeholder="Search email or program..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
                 />
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant={statusFilter === 'all' ? 'primary' : 'outline'}
+                  size="sm"
+                  onClick={() => setStatusFilter('all')}
+                >
+                  All
+                </Button>
+                <Button
+                  variant={statusFilter === 'pending' ? 'primary' : 'outline'}
+                  size="sm"
+                  onClick={() => setStatusFilter('pending')}
+                >
+                  Pending
+                </Button>
+                <Button
+                  variant={statusFilter === 'approved' ? 'primary' : 'outline'}
+                  size="sm"
+                  onClick={() => setStatusFilter('approved')}
+                >
+                  Approved
+                </Button>
+                <Button
+                  variant={statusFilter === 'denied' ? 'primary' : 'outline'}
+                  size="sm"
+                  onClick={() => setStatusFilter('denied')}
+                >
+                  Denied
+                </Button>
+              </div>
+              <Button variant="ghost" size="sm">
+                <RefreshCw className="h-4 w-4 mr-2" />
                 Refresh
               </Button>
             </div>
+
             {/* Applications Table */}
-            <div className="border rounded-lg overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-secondary">
+            <div className="border border-slate-200 rounded-lg overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-slate-100">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                      Email
+                    </th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                      Program
+                    </th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                      Status
+                    </th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                      Submitted
+                    </th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200">
+                  {filteredApplications.length === 0 ? (
                     <tr>
-                      <th className="text-left py-3 px-4 font-semibold">
-                        Program
-                      </th>
-                      <th className="text-left py-3 px-4 font-semibold">
-                        Learner
-                      </th>
-                      <th className="text-left py-3 px-4 font-semibold">
-                        Course
-                      </th>
-                      <th className="text-left py-3 px-4 font-semibold">
-                        Status
-                      </th>
-                      <th className="text-left py-3 px-4 font-semibold">
-                        Submitted
-                      </th>
-                      <th className="text-right py-3 px-4 font-semibold">
-                        Actions
-                      </th>
+                      <td colSpan={5} className="px-4 py-8 text-center text-slate-500">
+                        No applications found
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {rows.length > 0 ? (
-                      rows.map((row) => (
-                        <tr
-                          key={row.id}
-                          className="border-t hover:bg-secondary/50"
-                        >
-                          <td className="py-3 px-4">
-                            <Badge variant="outline">{row.program_code}</Badge>
-                          </td>
-                          <td className="py-3 px-4">{row.learner_email}</td>
-                          <td className="py-3 px-4">
-                            {row.course_title || '—'}
-                          </td>
-                          <td className="py-3 px-4">
-                            {getStatusBadge(row.status)}
-                          </td>
-                          <td className="py-3 px-4">
-                            {new Date(row.submitted_at).toLocaleDateString(
-                              'en-US',
-                              {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric',
-                                hour: 'numeric',
-                                minute: '2-digit',
-                              }
-                            )}
-                          </td>
-                          <td className="py-3 px-4 text-right">
-                            {row.status === 'submitted' && (
-                              <div className="flex gap-2 justify-end">
+                  ) : (
+                    filteredApplications.map((app) => (
+                      <tr key={app.id} className="hover:bg-slate-50">
+                        <td className="px-4 py-3 text-sm text-slate-900">{app.email}</td>
+                        <td className="px-4 py-3 text-sm text-slate-900">{app.program}</td>
+                        <td className="px-4 py-3">{getStatusBadge(app.status)}</td>
+                        <td className="px-4 py-3 text-sm text-slate-600">{app.submittedAt}</td>
+                        <td className="px-4 py-3">
+                          <div className="flex gap-2">
+                            {app.status === 'pending' && (
+                              <>
                                 <Button
                                   size="sm"
-                                  onClick={() =>
-                                    handleAction(row.id, 'approve')
-                                  }
-                                  className="bg-green-600 hover:bg-green-700"
+                                  variant="primary"
+                                  onClick={() => handleApprove(app.id)}
                                 >
                                   <CheckCircle className="h-4 w-4 mr-1" />
                                   Approve
@@ -198,66 +182,45 @@ export default function AdminApplications() {
                                 <Button
                                   size="sm"
                                   variant="destructive"
-                                  onClick={() => handleAction(row.id, 'deny')}
+                                  onClick={() => handleDeny(app.id)}
                                 >
                                   <XCircle className="h-4 w-4 mr-1" />
                                   Deny
                                 </Button>
-                              </div>
+                              </>
                             )}
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td
-                          colSpan={6}
-                          className="py-12 text-center text-muted-foreground"
-                        >
-                          {loading ? 'Loading...' : 'No applications found'}
+                            {app.status !== 'pending' && (
+                              <span className="text-sm text-slate-500">No actions</span>
+                            )}
+                          </div>
                         </td>
                       </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
-            {/* Summary */}
-            <div className="grid gap-4 md:grid-cols-4">
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold">{rows.length}</div>
-                  <div className="text-sm text-muted-foreground">
-                    Total Applications
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold">
-                    {rows.filter((r) => r.status === 'submitted').length}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Pending Review
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold">
-                    {rows.filter((r) => r.status === 'approved').length}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Approved</div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold">
-                    {rows.filter((r) => r.status === 'denied').length}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Denied</div>
-                </CardContent>
-              </Card>
+
+            {/* Summary Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="text-sm font-medium text-blue-900">Total Applications</div>
+                <div className="text-2xl font-bold text-blue-600 mt-1">
+                  {applications.length}
+                </div>
+              </div>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <div className="text-sm font-medium text-yellow-900">Pending Review</div>
+                <div className="text-2xl font-bold text-yellow-600 mt-1">
+                  {applications.filter(a => a.status === 'pending').length}
+                </div>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="text-sm font-medium text-green-900">Approved</div>
+                <div className="text-2xl font-bold text-green-600 mt-1">
+                  {applications.filter(a => a.status === 'approved').length}
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
