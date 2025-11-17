@@ -26,7 +26,9 @@ export function AdaptiveLearning({
   completedTopics,
 }: AdaptiveLearningProps) {
   const [recommendations, setRecommendations] = useState<LearningPath[]>([]);
-  const [learningStyle, setLearningStyle] = useState<'visual' | 'auditory' | 'kinesthetic'>('visual');
+  const [learningStyle, setLearningStyle] = useState<
+    'visual' | 'auditory' | 'kinesthetic'
+  >('visual');
 
   useEffect(() => {
     // AI-powered recommendations based on user performance
@@ -37,7 +39,11 @@ export function AdaptiveLearning({
           title: 'Advanced Patient Care Techniques',
           difficulty: 'advanced',
           estimatedTime: '2 hours',
-          topics: ['Critical Care', 'Emergency Response', 'Advanced Monitoring'],
+          topics: [
+            'Critical Care',
+            'Emergency Response',
+            'Advanced Monitoring',
+          ],
           recommended: currentSkillLevel >= 70,
         },
         {
@@ -45,7 +51,11 @@ export function AdaptiveLearning({
           title: 'Communication Skills Mastery',
           difficulty: 'intermediate',
           estimatedTime: '1.5 hours',
-          topics: ['Patient Communication', 'Family Interaction', 'Documentation'],
+          topics: [
+            'Patient Communication',
+            'Family Interaction',
+            'Documentation',
+          ],
           recommended: currentSkillLevel >= 50,
         },
         {
@@ -58,7 +68,7 @@ export function AdaptiveLearning({
         },
       ];
 
-      setRecommendations(paths.filter(p => p.recommended));
+      setRecommendations(paths.filter((p) => p.recommended));
     };
 
     generateRecommendations();
@@ -92,16 +102,24 @@ export function AdaptiveLearning({
         <CardContent>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">{currentSkillLevel}%</div>
+              <div className="text-3xl font-bold text-red-600">
+                {currentSkillLevel}%
+              </div>
               <div className="text-sm text-gray-600">Skill Level</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600">{completedTopics.length}</div>
+              <div className="text-3xl font-bold text-orange-600">
+                {completedTopics.length}
+              </div>
               <div className="text-sm text-gray-600">Topics Mastered</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-600">
-                {learningStyle === 'visual' ? '👁️' : learningStyle === 'auditory' ? '👂' : '✋'}
+                {learningStyle === 'visual'
+                  ? '👁️'
+                  : learningStyle === 'auditory'
+                    ? '👂'
+                    : '✋'}
               </div>
               <div className="text-sm text-gray-600">Learning Style</div>
             </div>
@@ -128,17 +146,23 @@ export function AdaptiveLearning({
                   <div>
                     <h3 className="font-semibold text-lg mb-1">{path.title}</h3>
                     <div className="flex items-center gap-2">
-                      <span className={`px-2 py-1 rounded text-xs font-semibold ${getDifficultyColor(path.difficulty)}`}>
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-semibold ${getDifficultyColor(path.difficulty)}`}
+                      >
                         {path.difficulty}
                       </span>
-                      <span className="text-sm text-gray-600">{path.estimatedTime}</span>
+                      <span className="text-sm text-gray-600">
+                        {path.estimatedTime}
+                      </span>
                     </div>
                   </div>
                   <Target className="text-red-600" size={20} />
                 </div>
-                
+
                 <div className="mb-4">
-                  <div className="text-sm text-gray-600 mb-2">Topics covered:</div>
+                  <div className="text-sm text-gray-600 mb-2">
+                    Topics covered:
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {path.topics.map((topic, index) => (
                       <span
@@ -150,7 +174,7 @@ export function AdaptiveLearning({
                     ))}
                   </div>
                 </div>
-                
+
                 <Button className="w-full bg-red-600 hover:bg-red-700">
                   Start Learning Path
                 </Button>
@@ -179,17 +203,22 @@ export function AdaptiveLearning({
                 <div className="h-full bg-green-600" style={{ width: '85%' }} />
               </div>
             </div>
-            
+
             <div>
               <div className="flex justify-between mb-2">
-                <span className="text-sm font-semibold">Assignment Completion</span>
+                <span className="text-sm font-semibold">
+                  Assignment Completion
+                </span>
                 <span className="text-sm text-green-600">↑ 8%</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div className="h-full bg-orange-600" style={{ width: '92%' }} />
+                <div
+                  className="h-full bg-orange-600"
+                  style={{ width: '92%' }}
+                />
               </div>
             </div>
-            
+
             <div>
               <div className="flex justify-between mb-2">
                 <span className="text-sm font-semibold">Study Consistency</span>

@@ -23,7 +23,9 @@ export function RealTimeCollaboration({
   currentUser,
 }: RealTimeCollaborationProps) {
   const [activeUsers, setActiveUsers] = useState<CollaborationUser[]>([]);
-  const [messages, setMessages] = useState<Array<{ user: string; text: string; time: string }>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ user: string; text: string; time: string }>
+  >([]);
   const [newMessage, setNewMessage] = useState('');
 
   useEffect(() => {
@@ -114,7 +116,9 @@ export function RealTimeCollaboration({
                 <div className="flex-1">
                   <div className="font-semibold">{user.name}</div>
                   {user.currentPage && (
-                    <div className="text-xs text-gray-600">{user.currentPage}</div>
+                    <div className="text-xs text-gray-600">
+                      {user.currentPage}
+                    </div>
                   )}
                 </div>
                 <Button variant="outline" size="sm">
@@ -147,10 +151,16 @@ export function RealTimeCollaboration({
                   <div key={index} className="flex gap-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-semibold text-sm">{msg.user}</span>
-                        <span className="text-xs text-gray-500">{msg.time}</span>
+                        <span className="font-semibold text-sm">
+                          {msg.user}
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          {msg.time}
+                        </span>
                       </div>
-                      <div className="bg-white p-2 rounded text-sm">{msg.text}</div>
+                      <div className="bg-white p-2 rounded text-sm">
+                        {msg.text}
+                      </div>
                     </div>
                   </div>
                 ))
@@ -167,7 +177,10 @@ export function RealTimeCollaboration({
                 placeholder="Type a message..."
                 className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
               />
-              <Button onClick={sendMessage} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={sendMessage}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 Send
               </Button>
             </div>
@@ -186,7 +199,9 @@ export function RealTimeCollaboration({
         <CardContent>
           <div className="text-center py-8">
             <Share2 className="mx-auto text-gray-400 mb-4" size={48} />
-            <p className="text-gray-600 mb-4">Share your screen with the study group</p>
+            <p className="text-gray-600 mb-4">
+              Share your screen with the study group
+            </p>
             <Button className="bg-green-600 hover:bg-green-700">
               Start Screen Share
             </Button>

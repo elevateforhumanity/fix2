@@ -1,7 +1,17 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipForward, SkipBack, Subtitles } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  Settings,
+  SkipForward,
+  SkipBack,
+  Subtitles,
+} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 interface Chapter {
@@ -103,7 +113,7 @@ export function AdvancedVideoPlayer({
       const current = videoRef.current.currentTime;
       const total = videoRef.current.duration;
       const progressPercent = (current / total) * 100;
-      
+
       setCurrentTime(current);
       setProgress(progressPercent);
       onProgress?.(progressPercent);
@@ -154,7 +164,7 @@ export function AdvancedVideoPlayer({
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={() => onComplete?.()}
       />
-      
+
       {/* Subtitles */}
       {showSubtitles && currentSubtitle && (
         <div className="absolute bottom-20 left-0 right-0 text-center">
@@ -163,7 +173,7 @@ export function AdvancedVideoPlayer({
           </div>
         </div>
       )}
-      
+
       {/* Controls */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
         {/* Progress Bar */}
@@ -179,13 +189,16 @@ export function AdvancedVideoPlayer({
             <div
               key={index}
               className="absolute h-3 w-1 bg-white rounded-full cursor-pointer hover:bg-red-500"
-              style={{ left: `${(chapter.time / duration) * 100}%`, top: '-4px' }}
+              style={{
+                left: `${(chapter.time / duration) * 100}%`,
+                top: '-4px',
+              }}
               onClick={() => jumpToChapter(chapter.time)}
               title={chapter.title}
             />
           ))}
         </div>
-        
+
         <div className="flex items-center gap-4">
           {/* Play/Pause */}
           <button
@@ -194,7 +207,7 @@ export function AdvancedVideoPlayer({
           >
             {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
-          
+
           {/* Skip Backward */}
           <button
             onClick={skipBackward}
@@ -202,7 +215,7 @@ export function AdvancedVideoPlayer({
           >
             <SkipBack size={20} />
           </button>
-          
+
           {/* Skip Forward */}
           <button
             onClick={skipForward}
@@ -210,7 +223,7 @@ export function AdvancedVideoPlayer({
           >
             <SkipForward size={20} />
           </button>
-          
+
           {/* Volume */}
           <div className="flex items-center gap-2">
             <button
@@ -229,14 +242,14 @@ export function AdvancedVideoPlayer({
               className="w-20"
             />
           </div>
-          
+
           {/* Time */}
           <span className="text-white text-sm">
             {formatTime(currentTime)} / {formatTime(duration)}
           </span>
-          
+
           <div className="flex-1" />
-          
+
           {/* Subtitles Toggle */}
           <button
             onClick={() => setShowSubtitles(!showSubtitles)}
@@ -244,7 +257,7 @@ export function AdvancedVideoPlayer({
           >
             <Subtitles size={20} />
           </button>
-          
+
           {/* Settings */}
           <div className="relative">
             <button
@@ -253,10 +266,12 @@ export function AdvancedVideoPlayer({
             >
               <Settings size={20} />
             </button>
-            
+
             {showSettings && (
               <div className="absolute bottom-full right-0 mb-2 bg-gray-900 rounded-lg p-2 min-w-[150px]">
-                <div className="text-white text-sm font-semibold mb-2">Playback Speed</div>
+                <div className="text-white text-sm font-semibold mb-2">
+                  Playback Speed
+                </div>
                 {playbackRates.map((rate) => (
                   <button
                     key={rate}
@@ -271,7 +286,7 @@ export function AdvancedVideoPlayer({
               </div>
             )}
           </div>
-          
+
           {/* Fullscreen */}
           <button
             onClick={toggleFullscreen}
@@ -281,7 +296,7 @@ export function AdvancedVideoPlayer({
           </button>
         </div>
       </div>
-      
+
       {/* Chapters Sidebar */}
       {chapters.length > 0 && (
         <div className="absolute right-0 top-0 bottom-0 w-64 bg-black/90 p-4 overflow-y-auto">
@@ -294,7 +309,9 @@ export function AdvancedVideoPlayer({
                 className="w-full text-left p-2 rounded hover:bg-gray-800 transition"
               >
                 <div className="text-white text-sm">{chapter.title}</div>
-                <div className="text-gray-400 text-xs">{formatTime(chapter.time)}</div>
+                <div className="text-gray-400 text-xs">
+                  {formatTime(chapter.time)}
+                </div>
               </button>
             ))}
           </div>

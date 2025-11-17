@@ -1,7 +1,16 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { TrendingUp, Users, BookOpen, Award, Clock, Target, DollarSign, CheckCircle } from 'lucide-react';
+import {
+  TrendingUp,
+  Users,
+  BookOpen,
+  Award,
+  Clock,
+  Target,
+  DollarSign,
+  CheckCircle,
+} from 'lucide-react';
 
 interface AnalyticsData {
   totalStudents: number;
@@ -19,7 +28,10 @@ interface AnalyticsDashboardProps {
   timeframe?: 'week' | 'month' | 'year';
 }
 
-export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashboardProps) {
+export function AnalyticsDashboard({
+  data,
+  timeframe = 'month',
+}: AnalyticsDashboardProps) {
   const stats = [
     {
       title: 'Total Students',
@@ -96,11 +108,31 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
   ];
 
   const recentActivity = [
-    { user: 'Sarah Johnson', action: 'Completed CNA Module 5', time: '2 minutes ago' },
-    { user: 'Michael Chen', action: 'Earned "Quiz Master" badge', time: '15 minutes ago' },
-    { user: 'Emily Rodriguez', action: 'Started HVAC Course', time: '1 hour ago' },
-    { user: 'David Kim', action: 'Submitted Assignment 3', time: '2 hours ago' },
-    { user: 'Lisa Williams', action: 'Achieved 7-day streak', time: '3 hours ago' },
+    {
+      user: 'Sarah Johnson',
+      action: 'Completed CNA Module 5',
+      time: '2 minutes ago',
+    },
+    {
+      user: 'Michael Chen',
+      action: 'Earned "Quiz Master" badge',
+      time: '15 minutes ago',
+    },
+    {
+      user: 'Emily Rodriguez',
+      action: 'Started HVAC Course',
+      time: '1 hour ago',
+    },
+    {
+      user: 'David Kim',
+      action: 'Submitted Assignment 3',
+      time: '2 hours ago',
+    },
+    {
+      user: 'Lisa Williams',
+      action: 'Achieved 7-day streak',
+      time: '3 hours ago',
+    },
   ];
 
   return (
@@ -116,7 +148,9 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
                   <div className={`p-3 rounded-lg ${stat.bgColor}`}>
                     <Icon className={stat.color} size={24} />
                   </div>
-                  <span className="text-sm font-semibold text-green-600">{stat.change}</span>
+                  <span className="text-sm font-semibold text-green-600">
+                    {stat.change}
+                  </span>
                 </div>
                 <div className="text-2xl font-bold mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-600">{stat.title}</div>
@@ -139,10 +173,14 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
                   <div className="flex items-center justify-between mb-2">
                     <div>
                       <div className="font-semibold">{course.name}</div>
-                      <div className="text-sm text-gray-600">{course.students} students</div>
+                      <div className="text-sm text-gray-600">
+                        {course.students} students
+                      </div>
                     </div>
                     <div className="text-right">
-                      <div className="font-semibold text-green-600">{course.completion}%</div>
+                      <div className="font-semibold text-green-600">
+                        {course.completion}%
+                      </div>
                       <div className="text-xs text-gray-500">completion</div>
                     </div>
                   </div>
@@ -170,7 +208,9 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
                   <div className="w-2 h-2 bg-red-600 rounded-full mt-2" />
                   <div className="flex-1">
                     <div className="font-semibold text-sm">{activity.user}</div>
-                    <div className="text-sm text-gray-600">{activity.action}</div>
+                    <div className="text-sm text-gray-600">
+                      {activity.action}
+                    </div>
                     <div className="text-xs text-gray-500">{activity.time}</div>
                   </div>
                 </div>
@@ -187,17 +227,34 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
         </CardHeader>
         <CardContent>
           <div className="h-64 flex items-end justify-between gap-2">
-            {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map((value, index) => (
-              <div key={index} className="flex-1 flex flex-col items-center">
-                <div
-                  className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t"
-                  style={{ height: `${(value / 115) * 100}%` }}
-                />
-                <div className="text-xs text-gray-600 mt-2">
-                  {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][index]}
+            {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map(
+              (value, index) => (
+                <div key={index} className="flex-1 flex flex-col items-center">
+                  <div
+                    className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t"
+                    style={{ height: `${(value / 115) * 100}%` }}
+                  />
+                  <div className="text-xs text-gray-600 mt-2">
+                    {
+                      [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
+                      ][index]
+                    }
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </CardContent>
       </Card>
