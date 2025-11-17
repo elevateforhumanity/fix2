@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * 🤖 AUTOPILOT VIDEO GENERATION
- * 
+ *
  * This script uses your AI toolkit to generate all program videos automatically.
- * 
+ *
  * Usage: node generate-videos-autopilot.mjs
  */
 
@@ -31,7 +31,8 @@ State-Approved Barber Apprenticeship
 Medical Assistant • HVAC • Building Tech
 
 Apply Today at ElevateForHumanity.org`,
-    style: 'cinematic, professional, inspiring, diverse people, modern office, training facilities',
+    style:
+      'cinematic, professional, inspiring, diverse people, modern office, training facilities',
     aspectRatio: '16:9',
   },
   {
@@ -39,15 +40,18 @@ Apply Today at ElevateForHumanity.org`,
     title: 'Medical Assistant Program',
     duration: 45,
     scriptFile: 'content/video-scripts/ecd-courses/medical-assistant-video.md',
-    style: 'healthcare, medical setting, professional, caring, clinical environment',
+    style:
+      'healthcare, medical setting, professional, caring, clinical environment',
     aspectRatio: '16:9',
   },
   {
     filename: 'program-barber-apprenticeship.mp4',
     title: 'Barber Apprenticeship Program',
     duration: 45,
-    scriptFile: 'content/video-scripts/ecd-courses/barber-apprenticeship-video.md',
-    style: 'barbershop, professional grooming, diverse barbers, modern shop, clippers',
+    scriptFile:
+      'content/video-scripts/ecd-courses/barber-apprenticeship-video.md',
+    style:
+      'barbershop, professional grooming, diverse barbers, modern shop, clippers',
     aspectRatio: '16:9',
   },
   {
@@ -55,7 +59,8 @@ Apply Today at ElevateForHumanity.org`,
     title: 'HVAC Technician Program',
     duration: 45,
     scriptFile: 'content/video-scripts/ecd-courses/hvac-technician-video.md',
-    style: 'skilled trades, HVAC equipment, technician working, tools, professional',
+    style:
+      'skilled trades, HVAC equipment, technician working, tools, professional',
     aspectRatio: '16:9',
   },
   {
@@ -69,7 +74,8 @@ Learn electrical, plumbing, HVAC basics, carpentry, and general repairs through 
 Work in property management, commercial buildings, schools, hospitals, or industrial facilities.
 
 Visit ElevateForHumanity.org to explore this pathway.`,
-    style: 'facility maintenance, building systems, tools, professional technician, diverse workers',
+    style:
+      'facility maintenance, building systems, tools, professional technician, diverse workers',
     aspectRatio: '16:9',
   },
   {
@@ -83,7 +89,8 @@ We provide coaching, skills training, and real employment connections for adults
 Whether you're starting over, changing careers, or just need support, we'll help you navigate barriers and find your path forward.
 
 Visit ElevateForHumanity.org to start your journey.`,
-    style: 'coaching, supportive, diverse people, office training, hopeful, professional',
+    style:
+      'coaching, supportive, diverse people, office training, hopeful, professional',
     aspectRatio: '16:9',
   },
   {
@@ -101,7 +108,8 @@ You don't have to figure it out alone. Our team helps you apply, choose a progra
 From interest, to training, to employment… we walk with you step by step.
 
 Ready to elevate your future? Apply at ElevateForHumanity.org`,
-    style: 'fast-paced, inspiring, diverse students, training montage, success stories',
+    style:
+      'fast-paced, inspiring, diverse students, training montage, success stories',
     aspectRatio: '9:16',
   },
   {
@@ -119,7 +127,8 @@ You'll learn cuts, fades, shaves, sanitation, and business basics so you can ear
 Spots are limited and shop seats fill fast.
 
 Apply at ElevateForHumanity.org`,
-    style: 'barbershop energy, clippers, fades, professional barbers, urban, authentic',
+    style:
+      'barbershop energy, clippers, fades, professional barbers, urban, authentic',
     aspectRatio: '9:16',
   },
 ];
@@ -128,7 +137,7 @@ console.log('🎬 AUTOPILOT VIDEO GENERATION');
 console.log('================================\n');
 
 // Read script files
-videos.forEach(video => {
+videos.forEach((video) => {
   if (video.scriptFile) {
     try {
       const scriptPath = path.join(__dirname, video.scriptFile);
@@ -157,7 +166,7 @@ const config = {
     colors: ['#f97316', '#ea580c', '#000000', '#0f172a'],
     website: 'ElevateForHumanity.org',
   },
-  videos: videos.map(v => ({
+  videos: videos.map((v) => ({
     filename: v.filename,
     title: v.title,
     duration: v.duration,
