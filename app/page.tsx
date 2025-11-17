@@ -1,369 +1,450 @@
 import Link from "next/link";
-import Image from "next/image";
-import { CheckCircle, ArrowRight, Play } from "lucide-react";
+
+const stats = [
+  {
+    label: "Built for workforce systems",
+    value: "All in one front door",
+  },
+  {
+    label: "Pathways you can trust",
+    value: "Barber · Healthcare · Trades",
+  },
+  {
+    label: "Designed for real people",
+    value: "Learners · Agencies · Employers",
+  },
+];
+
+const steps = [
+  {
+    title: "1 · One clear starting point",
+    body: "Learners, parents, case managers, and employers all start in the same place: Elevate. No more sending people to five different sites and hoping they find the right link.",
+  },
+  {
+    title: "2 · Partner-powered training",
+    body: "Credentialing partners handle instruction and licensing. Elevate orchestrates the LMS, live support, reminders, documents, and progress tracking across programs.",
+  },
+  {
+    title: "3 · Outcomes you can see",
+    body: "Completions, credentials, hours, and next steps are organized where agencies and employers can actually see them, export them, and tell a clear story to funders.",
+  },
+];
+
+const programs = [
+  {
+    name: "Barber Apprenticeship (Milady-Powered)",
+    tag: "Apprenticeship · License Track",
+    description:
+      "Milady curriculum + shop-based experience + Elevate tracking to move learners toward real barber careers and licensing support.",
+    href: "/programs/barber",
+  },
+  {
+    name: "Medical Assistant Pathway",
+    tag: "Healthcare · Partner Program",
+    description:
+      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting built for agencies and healthcare employers.",
+    href: "/programs/medical-assistant",
+  },
+  {
+    name: "HVAC Technician (Partner School)",
+    tag: "Skilled Trades · External School",
+    description:
+      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
+    href: "/programs/hvac",
+  },
+];
+
+const reasons = [
+  {
+    title: "Partner-centered, not platform-centered.",
+    body: "Elevate is built to respect the programs you already trust—Milady, medical assistant schools, HVAC providers—while giving them one shared digital home.",
+  },
+  {
+    title: "Written for humans, not just funders.",
+    body: "Every page is written so a learner, grandparent, pastor, or case manager can read it and instantly understand the opportunity.",
+  },
+  {
+    title: "Workforce compliance in mind from day one.",
+    body: "We design pathways with WIOA, WRG, JRI, WorkOne, EmployIndy, and similar boards front-of-mind, not as an afterthought.",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section - Exact ForHumanity style with animated text */}
-      <section className="relative bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Image */}
-            <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/media/hero/homepage.jpg"
-                  alt="Workforce training students"
-                  width={700}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10 ring-1 ring-emerald-400/40">
+              <span className="text-sm font-bold text-emerald-300">EFH</span>
             </div>
-
-            {/* Right side - Text content */}
-            <div className="order-1 lg:order-2">
-              <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-                Pioneering the future of workforce training
-                <br />
-                <span className="block mt-2">with Elevate℠ Programs</span>
-              </h1>
-              
-              <p className="text-lg text-gray-600 mb-8">
-                Get certified and employed in weeks, not years
-              </p>
-              
-              <Link 
-                href="/programs"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-all text-lg"
-              >
-                How It Works
-              </Link>
-
-              <div className="mt-12">
-                <div className="text-4xl font-bold text-gray-900">2,547</div>
-                <div className="text-gray-600">People are enrolled in Elevate programs</div>
-              </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-sm font-semibold text-slate-50">
+                Elevate for Humanity
+              </span>
+              <span className="text-[0.7rem] text-slate-400">
+                Elevate Connects Directory
+              </span>
             </div>
-          </div>
-        </div>
-      </section>
+          </Link>
 
-      {/* Featured Program Section - Like VigorAir */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Introducing CNA Fast Track℠
-            </h2>
-            <p className="text-xl text-gray-600">
-              The only 6-week CNA program with guaranteed job placement
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Image with play button */}
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/media/programs/cna.jpg"
-                  alt="CNA Training"
-                  width={700}
-                  height={500}
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <button className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all">
-                    <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Why choose CNA Fast Track℠
-              </h3>
-              <p className="text-gray-600 mb-8">
-                State-certified training • Real hospital experience
-              </p>
-
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/media/programs/cna.jpg"
-                      alt="Quick completion"
-                      width={80}
-                      height={80}
-                      className="rounded-2xl"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Designed for quick completion</h4>
-                    <p className="text-gray-600">
-                      Complete your certification in just 6-8 weeks with hands-on training in real medical facilities.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/media/programs/cna.jpg"
-                      alt="Zero cost"
-                      width={80}
-                      height={80}
-                      className="rounded-2xl"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">$0 cost for most students</h4>
-                    <p className="text-gray-600">
-                      Most students qualify for 100% free training through WIOA, WRG, or JRI funding programs.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/media/programs/cna.jpg"
-                      alt="Job placement"
-                      width={80}
-                      height={80}
-                      className="rounded-2xl"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Job placement guaranteed</h4>
-                    <p className="text-gray-600">
-                      Hospitals and nursing homes hiring immediately after graduation. We guarantee job placement assistance.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/media/programs/cna.jpg"
-                      alt="State certified"
-                      width={80}
-                      height={80}
-                      className="rounded-2xl"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">State certification included</h4>
-                    <p className="text-gray-600">
-                      State exam prep and testing included. IDOH licensed program with 95% pass rate.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <Link 
-                  href="/programs/cna"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-all"
-                >
-                  Get Started
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Coming Soon Programs */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Coming soon
-            </h2>
-            <p className="text-xl text-gray-600">
-              Learn about other Elevate training programs
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <Link href="/programs/hvac" className="group relative rounded-3xl overflow-hidden shadow-xl">
-              <div className="relative h-96">
-                <Image
-                  src="/media/programs/hvac.jpg"
-                  alt="HVAC Training"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="text-sm font-semibold mb-2">12 weeks • $48K+ starting</div>
-                  <h3 className="text-3xl font-bold mb-2">HVAC Technician</h3>
-                  <p className="text-blue-200">Join the waitlist →</p>
-                </div>
-              </div>
+          <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 md:flex">
+            <Link href="/programs" className="hover:text-emerald-300">
+              Programs
             </Link>
-
-            <Link href="/programs/barber" className="group relative rounded-3xl overflow-hidden shadow-xl">
-              <div className="relative h-96">
-                <Image
-                  src="/media/programs/barber.jpg"
-                  alt="Barber Apprenticeship"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="text-sm font-semibold mb-2">12-18 months • DOL-Registered</div>
-                  <h3 className="text-3xl font-bold mb-2">Barber Apprenticeship</h3>
-                  <p className="text-blue-200">Join the waitlist →</p>
-                </div>
-              </div>
+            <Link href="#how-it-works" className="hover:text-emerald-300">
+              How Elevate Works
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Proprietary Technology. Uncompromising Quality.
-            </h2>
-            <p className="text-xl text-gray-400">
-              Partner-powered training. Elevate orchestration.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Advanced training system</h3>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-bold text-white mb-2">Partner-Powered Content</h4>
-                  <p className="text-sm">Credentialing partners like Milady deliver curriculum and credentials. Elevate orchestrates the journey.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Real-World Experience</h4>
-                  <p className="text-sm">Train in actual hospitals, barbershops, and facilities—not just classrooms.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Key Benefit</h4>
-                  <p className="text-sm">Hands-on training improves job readiness and helps you get hired faster.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Efficient by design</h3>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-bold text-white mb-2">Fast-Track Programs</h4>
-                  <p className="text-sm">Complete certifications in weeks, not years. Get to work faster.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Job Placement Support</h4>
-                  <p className="text-sm">Direct connections to employers. Many students get offers before graduation.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Reduced cost burden</h3>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-bold text-white mb-2">$0 for Most Students</h4>
-                  <p className="text-sm">WIOA, WRG, and JRI funding covers full tuition for eligible students.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Compliance Built-In</h4>
-                  <p className="text-sm">ETPL-approved, DOL-registered, WorkOne and EmployIndy ready.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Key Benefit</h4>
-                  <p className="text-sm">No student debt. Start earning immediately after graduation.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Assurance */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Approved, aligned, and trusted
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">DOL-Registered</h3>
-              <p className="text-sm text-gray-600">Barber apprenticeship registered with U.S. Department of Labor</p>
-            </div>
-
-            <div className="text-center">
-              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">ETPL-Approved</h3>
-              <p className="text-sm text-gray-600">Eligible Training Provider List approved for WIOA funding</p>
-            </div>
-
-            <div className="text-center">
-              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">WRG & JRI Eligible</h3>
-              <p className="text-sm text-gray-600">Workforce Ready Grant and Job Ready Indiana approved</p>
-            </div>
-
-            <div className="text-center">
-              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">State Licensed</h3>
-              <p className="text-sm text-gray-600">CNA program licensed by Indiana Department of Health</p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              href="/about"
-              className="text-blue-600 font-semibold hover:text-blue-700"
+            <Link href="/partners" className="hover:text-emerald-300">
+              For Agencies & Partners
+            </Link>
+            <Link href="/about" className="hover:text-emerald-300">
+              About
+            </Link>
+            <Link
+              href="/login"
+              className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[0.7rem] text-slate-100 hover:border-emerald-400 hover:text-emerald-200"
             >
-              Learn more about Elevate for Humanity
+              Login
             </Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-sky-500/15 blur-3xl" />
+
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 pb-16 pt-16 md:flex-row md:items-center lg:px-6 lg:pb-20 lg:pt-20">
+          {/* LEFT: MAIN COPY */}
+          <div className="relative z-10 max-w-xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.16em] text-emerald-200">
+              Workforce pathways · LMS · Apprenticeships
+            </div>
+
+            <h1 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-[2.75rem]">
+              The digital front door for{" "}
+              <span className="bg-gradient-to-r from-emerald-300 via-sky-300 to-amber-300 bg-clip-text text-transparent">
+                community-powered careers.
+              </span>
+            </h1>
+
+            <p className="text-sm leading-relaxed text-slate-300 sm:text-[0.96rem]">
+              Elevate for Humanity gives cities, boards, and community partners one modern
+              place to send people for{" "}
+              <span className="font-semibold text-emerald-200">
+                barber, healthcare, and skilled trades pathways
+              </span>
+              . Partners provide the curriculum and licensing. Elevate organizes the journey so
+              learners don&apos;t get lost and agencies can see what&apos;s working.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
+              >
+                Explore Elevate Programs
+              </Link>
+              <Link
+                href="/partners"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
+              >
+                For Workforce & Referral Partners
+              </Link>
+            </div>
+
+            <div className="grid gap-3 pt-2 text-xs text-slate-300 sm:grid-cols-3 sm:text-[0.78rem]">
+              <div>
+                <p className="font-semibold text-slate-100">
+                  Designed for Indiana and beyond.
+                </p>
+                <p className="text-slate-400">
+                  Built with WorkOne, EmployIndy, WRG, JRI, and similar boards in mind.
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-100">Partner-powered, not siloed.</p>
+                <p className="text-slate-400">
+                  Milady, MA partners, and HVAC schools keep teaching. Elevate connects it.
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-100">
+                  Stories everyone can understand.
+                </p>
+                <p className="text-slate-400">
+                  Pages written for learners, parents, and case managers—not just funders.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: VISUAL PANEL */}
+          <div className="relative z-10 mx-auto w-full max-w-md flex-1">
+            <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-950/80 shadow-[0_0_80px_rgba(0,0,0,0.85)]">
+              <div className="border-b border-slate-800 bg-slate-900/80 px-4 py-3 text-xs text-slate-300 flex items-center justify-between">
+                <span className="flex items-center gap-2">
+                  <span className="flex h-2.5 w-2.5 items-center justify-center rounded-full bg-emerald-400/90" />
+                  Elevate Cohort View
+                </span>
+                <span className="text-[0.7rem] text-slate-500">
+                  Barber · MA · HVAC
+                </span>
+              </div>
+              <div className="space-y-4 px-4 py-4">
+                <div className="rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 to-slate-950 px-4 py-3">
+                  <p className="text-[0.7rem] uppercase tracking-wide text-emerald-300">
+                    Live snapshot
+                  </p>
+                  <p className="mt-1 text-xs text-slate-300">
+                    Who&apos;s enrolled, where they are in the journey, and which partner
+                    they&apos;re with—on one simple screen.
+                  </p>
+                  <div className="mt-3 grid grid-cols-3 gap-3 text-center text-[0.7rem]">
+                    <div className="rounded-xl bg-slate-900/80 p-2">
+                      <p className="text-[0.65rem] text-slate-400">Barber</p>
+                      <p className="text-sm font-semibold text-emerald-300">In Progress</p>
+                    </div>
+                    <div className="rounded-xl bg-slate-900/80 p-2">
+                      <p className="text-[0.65rem] text-slate-400">Medical Assist.</p>
+                      <p className="text-sm font-semibold text-sky-300">Cohort Ready</p>
+                    </div>
+                    <div className="rounded-xl bg-slate-900/80 p-2">
+                      <p className="text-[0.65rem] text-slate-400">HVAC</p>
+                      <p className="text-sm font-semibold text-amber-300">Partner Sync</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-[0.78rem] text-slate-200">
+                  <p className="font-semibold text-slate-100">
+                    "When in doubt, send them to Elevate."
+                  </p>
+                  <p className="mt-1 text-slate-400">
+                    The goal is simple: make Elevate the sentence people say when someone is
+                    ready for a program, a pathway, or a second chance.
+                  </p>
+                </div>
+
+                <div className="grid gap-3 text-[0.7rem] text-slate-300 sm:grid-cols-2">
+                  {stats.map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-slate-800 bg-slate-900/80 px-3 py-3"
+                    >
+                      <p className="text-[0.65rem] uppercase tracking-wide text-slate-400">
+                        {item.label}
+                      </p>
+                      <p className="mt-1 text-[0.8rem] font-semibold text-emerald-200">
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom Features Bar */}
-      <section className="bg-gray-50 border-y border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-12 text-center">
-            <div>
-              <div className="text-2xl font-bold text-gray-900">⚡</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">100% Online Process</div>
+      {/* HOW IT WORKS */}
+      <section
+        id="how-it-works"
+        className="border-b border-slate-800 bg-slate-950"
+      >
+        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              How Elevate works
+            </p>
+            <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
+              One platform to connect learners, partners, and workforce systems.
+            </h2>
+            <p className="text-sm text-slate-300">
+              Elevate doesn&apos;t try to be everything. It&apos;s the front door, the glue, and the
+              story-teller between the people who need training, the organizations who teach,
+              and the systems that fund it.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {steps.map((step) => (
+              <div
+                key={step.title}
+                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+              >
+                <h3 className="text-sm font-semibold text-emerald-200">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[0.82rem] text-slate-300">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROGRAM STRIP (LIKE PRODUCT ROW) */}
+      <section className="border-b border-slate-800 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Pathways you can plug in today
+              </p>
+              <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
+                Start where your community already has momentum.
+              </h2>
+              <p className="text-sm text-slate-300">
+                Elevate helps you stand up (or clean up) pathways that are already in demand:
+                barbering, medical assistant, and HVAC—with room to grow into more trades and
+                credentials over time.
+              </p>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">🚚</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">Fast Enrollment</div>
+            <Link
+              href="/programs"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400/70 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-100 hover:bg-emerald-500/20"
+            >
+              View all Elevate pathways
+            </Link>
+          </div>
+
+          <div className="mt-7 grid gap-5 md:grid-cols-3">
+            {programs.map((program) => (
+              <article
+                key={program.name}
+                className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-emerald-400/70"
+              >
+                <div className="space-y-2">
+                  <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-emerald-300">
+                    {program.tag}
+                  </p>
+                  <h3 className="text-[0.98rem] font-semibold text-slate-50">
+                    {program.name}
+                  </h3>
+                  <p className="text-[0.84rem] text-slate-300">
+                    {program.description}
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between text-[0.78rem]">
+                  <Link
+                    href={program.href}
+                    className="font-semibold text-emerald-300 hover:text-emerald-200"
+                  >
+                    View pathway →
+                  </Link>
+                  <span className="text-[0.7rem] text-slate-500">
+                    Cohorts · Referrals · Pilots
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY ELEVATE / DIFFERENTIATORS */}
+      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+              Why cities and boards choose Elevate
+            </p>
+            <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
+              Built for people, paperwork, and possibility—at the same time.
+            </h2>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {reasons.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.7)]"
+              >
+                <h3 className="text-[0.95rem] font-semibold text-slate-50">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-[0.85rem] text-slate-300">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-[1.1fr,0.9fr] md:items-center">
+            <div className="space-y-3 text-sm text-slate-300">
+              <p>
+                Elevate for Humanity was created because too many people were "referred" into
+                programs with no follow-up, no clarity, and no sense of where they actually
+                were in the journey. We&apos;re here to change that story.
+              </p>
+              <p>
+                When someone in your city is ready to move—out of survival mode, into training,
+                into work—we want "Send them to Elevate" to be the default response.
+              </p>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">⭐</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">Trained in the U.S.A.</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">🇺🇸</div>
-              <div className="text-sm font-semibold text-gray-700 mt-2">DOL-Regulated Programs</div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+              <p className="italic">
+                "Our job is to make opportunity easier to find and easier to finish—without
+                asking partners to blow up what already works."
+              </p>
+              <p className="mt-3 text-[0.78rem] text-slate-400">
+                Elevate for Humanity · Elevate Connects Directory
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-gradient-to-r from-emerald-600 via-sky-500 to-amber-400">
+        <div className="mx-auto max-w-6xl px-4 py-10 text-slate-950 lg:px-6 lg:py-12">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-xl">
+              <h2 className="text-2xl font-semibold sm:text-[1.7rem]">
+                Ready to make Elevate the front door for your city?
+              </h2>
+              <p className="mt-2 text-sm">
+                Whether you&apos;re a workforce board, agency, school, church, employer, or
+                community hub, Elevate can become the place you send people when they&apos;re
+                ready to move.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-2.5 text-sm font-semibold text-emerald-200 shadow-lg shadow-slate-900/70 hover:text-white"
+              >
+                Book a strategy conversation
+              </Link>
+              <Link
+                href="/demo"
+                className="inline-flex items-center justify-center rounded-full border border-slate-900/60 bg-white/95 px-6 py-2.5 text-sm font-semibold text-slate-900 hover:bg-white"
+              >
+                See an Elevate LMS walkthrough
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-800 bg-slate-950">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
+          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/terms" className="hover:text-emerald-300">
+              Terms
+            </Link>
+            <Link href="/privacy" className="hover:text-emerald-300">
+              Privacy
+            </Link>
+            <Link href="/contact" className="hover:text-emerald-300">
+              Contact
+            </Link>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
