@@ -43,15 +43,14 @@ export default function HomePage() {
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO SECTION */}
       <section className="relative h-[85vh] w-full overflow-hidden">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/hero-elevate-home.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 h-full w-full bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')"
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/50" />
 
         <div className="relative z-10 flex h-full flex-col justify-center px-6 md:px-12 lg:px-24 max-w-6xl">
           <p className="mb-3 text-sm font-semibold tracking-[0.25em] uppercase text-orange-300">
@@ -237,13 +236,107 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PROGRAM HIGHLIGHTS WITH IMAGES */}
+      <section className="bg-slate-950 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl px-6 md:px-12">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              Program Highlights
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-slate-200 max-w-2xl mx-auto">
+              Real training, real credentials, real careers
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Medical Assistant */}
+            <div className="group relative overflow-hidden rounded-2xl">
+              <div 
+                className="h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  backgroundImage: "url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80')"
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-xl font-bold text-white mb-2">Medical Assistant</h3>
+                <p className="text-sm text-slate-200 mb-3">
+                  Clinical training for healthcare careers
+                </p>
+                <Link
+                  href="/programs/medical-assistant"
+                  className="inline-block rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+
+            {/* HVAC */}
+            <div className="group relative overflow-hidden rounded-2xl">
+              <div 
+                className="h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80')"
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-xl font-bold text-white mb-2">HVAC Technician</h3>
+                <p className="text-sm text-slate-200 mb-3">
+                  Heating, cooling, and refrigeration systems
+                </p>
+                <Link
+                  href="/programs/hvac"
+                  className="inline-block rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+
+            {/* Barber */}
+            <div className="group relative overflow-hidden rounded-2xl">
+              <div 
+                className="h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  backgroundImage: "url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80')"
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-xl font-bold text-white mb-2">Barber Apprenticeship</h3>
+                <p className="text-sm text-slate-200 mb-3">
+                  State-approved on-the-job training
+                </p>
+                <Link
+                  href="/programs/barber"
+                  className="inline-block rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CALL TO ACTION */}
-      <section className="bg-gradient-to-r from-orange-600 to-red-600 py-10">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-3 text-2xl md:text-3xl font-bold text-white">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80')"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/95 to-red-600/95" />
+        
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+          <h2 className="mb-3 text-2xl md:text-4xl font-bold text-white">
             Ready to Elevate Your Future?
           </h2>
-          <p className="mb-6 text-sm md:text-base text-orange-50">
+          <p className="mb-8 text-base md:text-lg text-white/90 max-w-2xl mx-auto">
             Whether you&apos;re just getting started, returning to the workforce,
             or changing careers, we&apos;ll help you find the right program and
             funding options.
@@ -251,13 +344,13 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="rounded-full bg-black px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-slate-900 transition"
+              className="rounded-full bg-white px-8 py-4 text-base md:text-lg font-bold text-orange-600 hover:bg-slate-100 shadow-xl transition"
             >
               Start My Application
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-white/20 transition"
+              className="rounded-full border-2 border-white bg-transparent px-8 py-4 text-base md:text-lg font-bold text-white hover:bg-white/10 transition"
             >
               Talk With Our Team
             </Link>
