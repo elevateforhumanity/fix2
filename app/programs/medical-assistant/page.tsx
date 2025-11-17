@@ -1,19 +1,19 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const maBullets = [
-  "Credentialing-partner medical assistant curriculum for theory and skills.",
-  "Clear expectations around schedule, labs, externships, and exams.",
-  "Elevate-powered onboarding, reminders, and simple dashboards.",
-  "Room for agencies and employers to see progress, not just referrals.",
-  "Support with next steps into clinics, practices, and outpatient roles.",
+  'Credentialing-partner medical assistant curriculum for theory and skills.',
+  'Clear expectations around schedule, labs, externships, and exams.',
+  'Elevate-powered onboarding, reminders, and simple dashboards.',
+  'Room for agencies and employers to see progress, not just referrals.',
+  'Support with next steps into clinics, practices, and outpatient roles.',
 ];
 
 const maFit = [
-  "Adults and young adults who want a patient-facing healthcare role.",
-  "Career changers leaving retail, hospitality, or warehouse settings.",
-  "Parents and caregivers who need a guided, step-by-step plan.",
-  "Learners sponsored or referred by workforce boards and nonprofits.",
+  'Adults and young adults who want a patient-facing healthcare role.',
+  'Career changers leaving retail, hospitality, or warehouse settings.',
+  'Parents and caregivers who need a guided, step-by-step plan.',
+  'Learners sponsored or referred by workforce boards and nonprofits.',
 ];
 
 export default function MedicalAssistantPage() {
@@ -29,9 +29,10 @@ export default function MedicalAssistantPage() {
               Medical Assistant Pathway
             </h1>
             <p className="text-sm text-slate-300">
-              Elevate's Medical Assistant Pathway connects learners to an approved MA
-              program through a credentialing partner, while Elevate handles the digital
-              front door, reminders, light assessments, and workforce-friendly reporting.
+              Elevate's Medical Assistant Pathway connects learners to an
+              approved MA program through a credentialing partner, while Elevate
+              handles the digital front door, reminders, light assessments, and
+              workforce-friendly reporting.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -60,8 +61,12 @@ export default function MedicalAssistantPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">
-                <p className="text-sm font-semibold mb-2">Clinical healthcare training</p>
-                <p className="text-2xl font-bold">Train in real medical facilities with patients</p>
+                <p className="text-sm font-semibold mb-2">
+                  Clinical healthcare training
+                </p>
+                <p className="text-2xl font-bold">
+                  Train in real medical facilities with patients
+                </p>
               </div>
             </div>
           </div>
@@ -72,8 +77,9 @@ export default function MedicalAssistantPage() {
                 What this pathway covers.
               </h2>
               <p className="text-slate-300">
-                The exact course list, lab activities, and externship design come from the
-                MA credentialing partner. Elevate wraps that in a clear journey.
+                The exact course list, lab activities, and externship design
+                come from the MA credentialing partner. Elevate wraps that in a
+                clear journey.
               </p>
               <ul className="mt-3 space-y-2">
                 {maBullets.map((b) => (
@@ -92,8 +98,9 @@ export default function MedicalAssistantPage() {
                 ))}
               </ul>
               <p className="mt-4 text-[0.75rem] text-slate-400">
-                Eligibility, schedules, and credential options vary by partner and location.
-                Elevate makes those details easier to understand and track from the beginning.
+                Eligibility, schedules, and credential options vary by partner
+                and location. Elevate makes those details easier to understand
+                and track from the beginning.
               </p>
             </div>
           </div>
