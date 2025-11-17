@@ -5,7 +5,9 @@ import { enable2FA } from '@/lib/auth/two-factor';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -23,7 +25,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid token' }, { status: 400 });
     }
 
-    return NextResponse.json({ success: true, message: '2FA enabled successfully' });
+    return NextResponse.json({
+      success: true,
+      message: '2FA enabled successfully',
+    });
   } catch (error: any) {
     console.error('Error enabling 2FA:', error);
     return NextResponse.json(

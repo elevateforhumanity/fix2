@@ -5,20 +5,22 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     const { data: departments, error } = await supabase
       .from('departments')
-      .select(`
+      .select(
+        `
         *,
         manager:profiles!manager_id(*),
         parent:departments!parent_department_id(id, name, code),
         employee_count:employees(count)
-      `)
+      `
+      )
       .eq('is_active', true)
       .order('name');
-    
+
     if (error) throw error;
-    
+
     return NextResponse.json({ departments });
   } catch (error: any) {
     console.error('Error fetching departments:', error);
@@ -34,16 +36,24 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
     const body = await request.json();
-    
-    const { name, code, description, parent_department_id, manager_id, cost_center, budget } = body;
-    
+
+    const {
+      name,
+      code,
+      description,
+      parent_department_id,
+      manager_id,
+      cost_center,
+      budget,
+    } = body;
+
     if (!name || !code) {
       return NextResponse.json(
         { error: 'Missing required fields: name, code' },
         { status: 400 }
       );
     }
-    
+
     const { data: department, error } = await supabase
       .from('departments')
       .insert({
@@ -53,17 +63,19 @@ export async function POST(request: NextRequest) {
         parent_department_id,
         manager_id,
         cost_center,
-        budget
+        budget,
       })
-      .select(`
+      .select(
+        `
         *,
         manager:profiles!manager_id(*),
         parent:departments!parent_department_id(id, name, code)
-      `)
+      `
+      )
       .single();
-    
+
     if (error) throw error;
-    
+
     return NextResponse.json({ department }, { status: 201 });
   } catch (error: any) {
     console.error('Error creating department:', error);

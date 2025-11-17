@@ -11,22 +11,34 @@ export default function CourseraStyleFooter() {
             <h3 className="text-sm font-bold text-gray-900 mb-4">Elevate</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/about"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/programs"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   What We Offer
                 </Link>
               </li>
               <li>
-                <Link href="/partners" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/partners"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Partners
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/careers"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Careers
                 </Link>
               </li>
@@ -38,22 +50,34 @@ export default function CourseraStyleFooter() {
             <h3 className="text-sm font-bold text-gray-900 mb-4">Community</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/student/dashboard" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/student/dashboard"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Learners
                 </Link>
               </li>
               <li>
-                <Link href="/employers" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/employers"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Employers
                 </Link>
               </li>
               <li>
-                <Link href="/program-holder/dashboard" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/program-holder/dashboard"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Training Providers
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/blog"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Blog
                 </Link>
               </li>
@@ -65,22 +89,34 @@ export default function CourseraStyleFooter() {
             <h3 className="text-sm font-bold text-gray-900 mb-4">More</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/contact" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/contact"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/faq"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/financial-aid" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/financial-aid"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Financial Aid
                 </Link>
               </li>
               <li>
-                <Link href="/success-stories" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/success-stories"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Success Stories
                 </Link>
               </li>
@@ -92,22 +128,34 @@ export default function CourseraStyleFooter() {
             <h3 className="text-sm font-bold text-gray-900 mb-4">Programs</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/programs/medical-assistant" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/programs/medical-assistant"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Medical Assistant
                 </Link>
               </li>
               <li>
-                <Link href="/programs/hvac" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/programs/hvac"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   HVAC Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/barber" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/programs/barber"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   Barber Apprenticeship
                 </Link>
               </li>
               <li>
-                <Link href="/programs/truck-driving" className="text-sm text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/programs/truck-driving"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
                   CDL Training
                 </Link>
               </li>
@@ -149,19 +197,34 @@ export default function CourseraStyleFooter() {
 
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              <a href="#" className="text-gray-400 hover:text-blue-600 transition">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-600 transition">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition"
+              >
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-600 transition">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-600 transition">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-600 transition">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-blue-600 transition"
+              >
                 <Youtube className="w-5 h-5" />
               </a>
             </div>

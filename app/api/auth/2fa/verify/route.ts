@@ -5,7 +5,9 @@ import { verify2FAToken, verifyBackupCode } from '@/lib/auth/two-factor';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -20,11 +22,17 @@ export async function POST(request: NextRequest) {
     } else if (backupCode) {
       verified = await verifyBackupCode(user.id, backupCode);
     } else {
-      return NextResponse.json({ error: 'Token or backup code required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Token or backup code required' },
+        { status: 400 }
+      );
     }
 
     if (!verified) {
-      return NextResponse.json({ error: 'Invalid token or backup code' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Invalid token or backup code' },
+        { status: 400 }
+      );
     }
 
     return NextResponse.json({ success: true, verified: true });

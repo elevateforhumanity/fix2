@@ -1,8 +1,26 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
-import { Plus, GripVertical, Trash2, Edit, Eye, Save, Video, FileText, Image, Code, CheckSquare, Link as LinkIcon } from 'lucide-react';
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DropResult,
+} from 'react-beautiful-dnd';
+import {
+  Plus,
+  GripVertical,
+  Trash2,
+  Edit,
+  Eye,
+  Save,
+  Video,
+  FileText,
+  Image,
+  Code,
+  CheckSquare,
+  Link as LinkIcon,
+} from 'lucide-react';
 
 interface ContentBlock {
   id: string;
@@ -38,7 +56,7 @@ export default function CourseAuthoringTool() {
       id: `module-${Date.now()}`,
       title: 'New Module',
       description: '',
-      lessons: []
+      lessons: [],
     };
     setModules([...modules, newModule]);
     setActiveModule(newModule.id);
@@ -50,38 +68,46 @@ export default function CourseAuthoringTool() {
       id: `lesson-${Date.now()}`,
       title: 'New Lesson',
       description: '',
-      blocks: []
+      blocks: [],
     };
-    
-    setModules(modules.map(module => 
-      module.id === moduleId 
-        ? { ...module, lessons: [...module.lessons, newLesson] }
-        : module
-    ));
+
+    setModules(
+      modules.map((module) =>
+        module.id === moduleId
+          ? { ...module, lessons: [...module.lessons, newLesson] }
+          : module
+      )
+    );
     setActiveLesson(newLesson.id);
   };
 
   // Add content block to lesson
-  const addBlock = (moduleId: string, lessonId: string, blockType: ContentBlock['type']) => {
+  const addBlock = (
+    moduleId: string,
+    lessonId: string,
+    blockType: ContentBlock['type']
+  ) => {
     const newBlock: ContentBlock = {
       id: `block-${Date.now()}`,
       type: blockType,
       order: 0,
-      content: getDefaultContent(blockType)
+      content: getDefaultContent(blockType),
     };
 
-    setModules(modules.map(module => 
-      module.id === moduleId 
-        ? {
-            ...module,
-            lessons: module.lessons.map(lesson =>
-              lesson.id === lessonId
-                ? { ...lesson, blocks: [...lesson.blocks, newBlock] }
-                : lesson
-            )
-          }
-        : module
-    ));
+    setModules(
+      modules.map((module) =>
+        module.id === moduleId
+          ? {
+              ...module,
+              lessons: module.lessons.map((lesson) =>
+                lesson.id === lessonId
+                  ? { ...lesson, blocks: [...lesson.blocks, newBlock] }
+                  : lesson
+              ),
+            }
+          : module
+      )
+    );
   };
 
   // Get default content for block type
@@ -120,42 +146,48 @@ export default function CourseAuthoringTool() {
     } else if (type === 'lesson') {
       // Handle lesson reordering within modules
       const moduleId = source.droppableId.replace('lessons-', '');
-      setModules(modules.map(module => {
-        if (module.id === moduleId) {
-          const newLessons = Array.from(module.lessons);
-          const [removed] = newLessons.splice(source.index, 1);
-          newLessons.splice(destination.index, 0, removed);
-          return { ...module, lessons: newLessons };
-        }
-        return module;
-      }));
+      setModules(
+        modules.map((module) => {
+          if (module.id === moduleId) {
+            const newLessons = Array.from(module.lessons);
+            const [removed] = newLessons.splice(source.index, 1);
+            newLessons.splice(destination.index, 0, removed);
+            return { ...module, lessons: newLessons };
+          }
+          return module;
+        })
+      );
     } else if (type === 'block') {
       // Handle block reordering within lessons
-      const [moduleId, lessonId] = source.droppableId.replace('blocks-', '').split('-');
-      setModules(modules.map(module => {
-        if (module.id === moduleId) {
-          return {
-            ...module,
-            lessons: module.lessons.map(lesson => {
-              if (lesson.id === lessonId) {
-                const newBlocks = Array.from(lesson.blocks);
-                const [removed] = newBlocks.splice(source.index, 1);
-                newBlocks.splice(destination.index, 0, removed);
-                return { ...lesson, blocks: newBlocks };
-              }
-              return lesson;
-            })
-          };
-        }
-        return module;
-      }));
+      const [moduleId, lessonId] = source.droppableId
+        .replace('blocks-', '')
+        .split('-');
+      setModules(
+        modules.map((module) => {
+          if (module.id === moduleId) {
+            return {
+              ...module,
+              lessons: module.lessons.map((lesson) => {
+                if (lesson.id === lessonId) {
+                  const newBlocks = Array.from(lesson.blocks);
+                  const [removed] = newBlocks.splice(source.index, 1);
+                  newBlocks.splice(destination.index, 0, removed);
+                  return { ...lesson, blocks: newBlocks };
+                }
+                return lesson;
+              }),
+            };
+          }
+          return module;
+        })
+      );
     }
   };
 
   // Delete module
   const deleteModule = (moduleId: string) => {
     if (confirm('Are you sure you want to delete this module?')) {
-      setModules(modules.filter(m => m.id !== moduleId));
+      setModules(modules.filter((m) => m.id !== moduleId));
       if (activeModule === moduleId) setActiveModule(null);
     }
   };
@@ -163,29 +195,39 @@ export default function CourseAuthoringTool() {
   // Delete lesson
   const deleteLesson = (moduleId: string, lessonId: string) => {
     if (confirm('Are you sure you want to delete this lesson?')) {
-      setModules(modules.map(module =>
-        module.id === moduleId
-          ? { ...module, lessons: module.lessons.filter(l => l.id !== lessonId) }
-          : module
-      ));
+      setModules(
+        modules.map((module) =>
+          module.id === moduleId
+            ? {
+                ...module,
+                lessons: module.lessons.filter((l) => l.id !== lessonId),
+              }
+            : module
+        )
+      );
       if (activeLesson === lessonId) setActiveLesson(null);
     }
   };
 
   // Delete block
   const deleteBlock = (moduleId: string, lessonId: string, blockId: string) => {
-    setModules(modules.map(module =>
-      module.id === moduleId
-        ? {
-            ...module,
-            lessons: module.lessons.map(lesson =>
-              lesson.id === lessonId
-                ? { ...lesson, blocks: lesson.blocks.filter(b => b.id !== blockId) }
-                : lesson
-            )
-          }
-        : module
-    ));
+    setModules(
+      modules.map((module) =>
+        module.id === moduleId
+          ? {
+              ...module,
+              lessons: module.lessons.map((lesson) =>
+                lesson.id === lessonId
+                  ? {
+                      ...lesson,
+                      blocks: lesson.blocks.filter((b) => b.id !== blockId),
+                    }
+                  : lesson
+              ),
+            }
+          : module
+      )
+    );
   };
 
   // Save course
@@ -200,16 +242,16 @@ export default function CourseAuthoringTool() {
             order: lessonIndex,
             blocks: lesson.blocks.map((block, blockIndex) => ({
               ...block,
-              order: blockIndex
-            }))
-          }))
-        }))
+              order: blockIndex,
+            })),
+          })),
+        })),
       };
 
       const response = await fetch('/api/courses/authoring/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(courseData)
+        body: JSON.stringify(courseData),
       });
 
       if (response.ok) {
@@ -228,7 +270,7 @@ export default function CourseAuthoringTool() {
     quiz: CheckSquare,
     code: Code,
     file: FileText,
-    embed: LinkIcon
+    embed: LinkIcon,
   };
 
   return (
@@ -236,8 +278,12 @@ export default function CourseAuthoringTool() {
       {/* Header */}
       <div className="bg-white border-b px-6 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Course Authoring Tool</h1>
-          <p className="text-sm text-gray-600">Create engaging courses with drag-and-drop simplicity</p>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Course Authoring Tool
+          </h1>
+          <p className="text-sm text-gray-600">
+            Create engaging courses with drag-and-drop simplicity
+          </p>
         </div>
         <div className="flex gap-3">
           <button
@@ -273,9 +319,17 @@ export default function CourseAuthoringTool() {
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="modules" type="module">
               {(provided) => (
-                <div {...provided.droppableProps} ref={provided.innerRef} className="px-4 pb-4">
+                <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  className="px-4 pb-4"
+                >
                   {modules.map((module, moduleIndex) => (
-                    <Draggable key={module.id} draggableId={module.id} index={moduleIndex}>
+                    <Draggable
+                      key={module.id}
+                      draggableId={module.id}
+                      index={moduleIndex}
+                    >
                       {(provided) => (
                         <div
                           ref={provided.innerRef}
@@ -292,9 +346,13 @@ export default function CourseAuthoringTool() {
                                 type="text"
                                 value={module.title}
                                 onChange={(e) => {
-                                  setModules(modules.map(m =>
-                                    m.id === module.id ? { ...m, title: e.target.value } : m
-                                  ));
+                                  setModules(
+                                    modules.map((m) =>
+                                      m.id === module.id
+                                        ? { ...m, title: e.target.value }
+                                        : m
+                                    )
+                                  );
                                 }}
                                 className="w-full font-semibold bg-transparent border-none focus:outline-none"
                               />
@@ -314,17 +372,30 @@ export default function CourseAuthoringTool() {
                           </div>
 
                           {/* Lessons */}
-                          <Droppable droppableId={`lessons-${module.id}`} type="lesson">
+                          <Droppable
+                            droppableId={`lessons-${module.id}`}
+                            type="lesson"
+                          >
                             {(provided) => (
-                              <div {...provided.droppableProps} ref={provided.innerRef} className="px-3 pb-2">
+                              <div
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                                className="px-3 pb-2"
+                              >
                                 {module.lessons.map((lesson, lessonIndex) => (
-                                  <Draggable key={lesson.id} draggableId={lesson.id} index={lessonIndex}>
+                                  <Draggable
+                                    key={lesson.id}
+                                    draggableId={lesson.id}
+                                    index={lessonIndex}
+                                  >
                                     {(provided) => (
                                       <div
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         className={`mb-2 p-2 bg-white rounded border ${
-                                          activeLesson === lesson.id ? 'border-blue-500' : 'border-gray-200'
+                                          activeLesson === lesson.id
+                                            ? 'border-blue-500'
+                                            : 'border-gray-200'
                                         }`}
                                         onClick={() => {
                                           setActiveModule(module.id);
@@ -339,16 +410,26 @@ export default function CourseAuthoringTool() {
                                             type="text"
                                             value={lesson.title}
                                             onChange={(e) => {
-                                              setModules(modules.map(m =>
-                                                m.id === module.id
-                                                  ? {
-                                                      ...m,
-                                                      lessons: m.lessons.map(l =>
-                                                        l.id === lesson.id ? { ...l, title: e.target.value } : l
-                                                      )
-                                                    }
-                                                  : m
-                                              ));
+                                              setModules(
+                                                modules.map((m) =>
+                                                  m.id === module.id
+                                                    ? {
+                                                        ...m,
+                                                        lessons: m.lessons.map(
+                                                          (l) =>
+                                                            l.id === lesson.id
+                                                              ? {
+                                                                  ...l,
+                                                                  title:
+                                                                    e.target
+                                                                      .value,
+                                                                }
+                                                              : l
+                                                        ),
+                                                      }
+                                                    : m
+                                                )
+                                              );
                                             }}
                                             className="flex-1 text-sm bg-transparent border-none focus:outline-none"
                                             onClick={(e) => e.stopPropagation()}
@@ -356,7 +437,10 @@ export default function CourseAuthoringTool() {
                                           <button
                                             onClick={(e) => {
                                               e.stopPropagation();
-                                              deleteLesson(module.id, lesson.id);
+                                              deleteLesson(
+                                                module.id,
+                                                lesson.id
+                                              );
                                             }}
                                             className="p-1 hover:bg-red-100 rounded text-red-600"
                                           >
@@ -390,26 +474,39 @@ export default function CourseAuthoringTool() {
           {activeModule && activeLesson ? (
             <div className="max-w-4xl mx-auto p-8">
               {modules
-                .find(m => m.id === activeModule)
-                ?.lessons.find(l => l.id === activeLesson) && (
+                .find((m) => m.id === activeModule)
+                ?.lessons.find((l) => l.id === activeLesson) && (
                 <div>
                   <h2 className="text-3xl font-bold mb-2">
-                    {modules.find(m => m.id === activeModule)?.lessons.find(l => l.id === activeLesson)?.title}
+                    {
+                      modules
+                        .find((m) => m.id === activeModule)
+                        ?.lessons.find((l) => l.id === activeLesson)?.title
+                    }
                   </h2>
                   <textarea
                     placeholder="Lesson description..."
-                    value={modules.find(m => m.id === activeModule)?.lessons.find(l => l.id === activeLesson)?.description || ''}
+                    value={
+                      modules
+                        .find((m) => m.id === activeModule)
+                        ?.lessons.find((l) => l.id === activeLesson)
+                        ?.description || ''
+                    }
                     onChange={(e) => {
-                      setModules(modules.map(m =>
-                        m.id === activeModule
-                          ? {
-                              ...m,
-                              lessons: m.lessons.map(l =>
-                                l.id === activeLesson ? { ...l, description: e.target.value } : l
-                              )
-                            }
-                          : m
-                      ));
+                      setModules(
+                        modules.map((m) =>
+                          m.id === activeModule
+                            ? {
+                                ...m,
+                                lessons: m.lessons.map((l) =>
+                                  l.id === activeLesson
+                                    ? { ...l, description: e.target.value }
+                                    : l
+                                ),
+                              }
+                            : m
+                        )
+                      );
                     }}
                     className="w-full p-3 border rounded-lg mb-6 resize-none"
                     rows={2}
@@ -418,25 +515,42 @@ export default function CourseAuthoringTool() {
                   {/* Content Blocks */}
                   <div className="space-y-4 mb-6">
                     {modules
-                      .find(m => m.id === activeModule)
-                      ?.lessons.find(l => l.id === activeLesson)
+                      .find((m) => m.id === activeModule)
+                      ?.lessons.find((l) => l.id === activeLesson)
                       ?.blocks.map((block, index) => {
                         const Icon = blockIcons[block.type];
                         return (
-                          <div key={block.id} className="border rounded-lg p-4 bg-white">
+                          <div
+                            key={block.id}
+                            className="border rounded-lg p-4 bg-white"
+                          >
                             <div className="flex items-center gap-2 mb-3">
                               <GripVertical className="w-4 h-4 text-gray-400" />
                               <Icon className="w-4 h-4 text-gray-600" />
-                              <span className="text-sm font-medium capitalize">{block.type} Block</span>
+                              <span className="text-sm font-medium capitalize">
+                                {block.type} Block
+                              </span>
                               <div className="flex-1" />
                               <button
-                                onClick={() => deleteBlock(activeModule, activeLesson, block.id)}
+                                onClick={() =>
+                                  deleteBlock(
+                                    activeModule,
+                                    activeLesson,
+                                    block.id
+                                  )
+                                }
                                 className="p-1 hover:bg-red-100 rounded text-red-600"
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
                             </div>
-                            <BlockEditor block={block} moduleId={activeModule} lessonId={activeLesson} setModules={setModules} modules={modules} />
+                            <BlockEditor
+                              block={block}
+                              moduleId={activeModule}
+                              lessonId={activeLesson}
+                              setModules={setModules}
+                              modules={modules}
+                            />
                           </div>
                         );
                       })}
@@ -444,14 +558,28 @@ export default function CourseAuthoringTool() {
 
                   {/* Add Block Buttons */}
                   <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
-                    <p className="text-sm text-gray-600 mb-4 text-center">Add content to your lesson</p>
+                    <p className="text-sm text-gray-600 mb-4 text-center">
+                      Add content to your lesson
+                    </p>
                     <div className="grid grid-cols-4 gap-3">
-                      {(['text', 'video', 'image', 'quiz', 'code', 'file', 'embed'] as const).map((type) => {
+                      {(
+                        [
+                          'text',
+                          'video',
+                          'image',
+                          'quiz',
+                          'code',
+                          'file',
+                          'embed',
+                        ] as const
+                      ).map((type) => {
                         const Icon = blockIcons[type];
                         return (
                           <button
                             key={type}
-                            onClick={() => addBlock(activeModule, activeLesson, type)}
+                            onClick={() =>
+                              addBlock(activeModule, activeLesson, type)
+                            }
                             className="flex flex-col items-center gap-2 p-4 border rounded-lg hover:bg-gray-50 hover:border-blue-500"
                           >
                             <Icon className="w-6 h-6 text-gray-600" />
@@ -482,23 +610,25 @@ export default function CourseAuthoringTool() {
 // Block Editor Component
 function BlockEditor({ block, moduleId, lessonId, setModules, modules }: any) {
   const updateBlockContent = (content: any) => {
-    setModules(modules.map((m: Module) =>
-      m.id === moduleId
-        ? {
-            ...m,
-            lessons: m.lessons.map((l: Lesson) =>
-              l.id === lessonId
-                ? {
-                    ...l,
-                    blocks: l.blocks.map((b: ContentBlock) =>
-                      b.id === block.id ? { ...b, content } : b
-                    )
-                  }
-                : l
-            )
-          }
-        : m
-    ));
+    setModules(
+      modules.map((m: Module) =>
+        m.id === moduleId
+          ? {
+              ...m,
+              lessons: m.lessons.map((l: Lesson) =>
+                l.id === lessonId
+                  ? {
+                      ...l,
+                      blocks: l.blocks.map((b: ContentBlock) =>
+                        b.id === block.id ? { ...b, content } : b
+                      ),
+                    }
+                  : l
+              ),
+            }
+          : m
+      )
+    );
   };
 
   switch (block.type) {
@@ -512,70 +642,84 @@ function BlockEditor({ block, moduleId, lessonId, setModules, modules }: any) {
           placeholder="Enter your text content here..."
         />
       );
-    
+
     case 'video':
       return (
         <div className="space-y-3">
           <input
             type="text"
             value={block.content.url}
-            onChange={(e) => updateBlockContent({ ...block.content, url: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, url: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Video URL (YouTube, Vimeo, or direct link)"
           />
           <input
             type="text"
             value={block.content.title}
-            onChange={(e) => updateBlockContent({ ...block.content, title: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, title: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Video title"
           />
         </div>
       );
-    
+
     case 'image':
       return (
         <div className="space-y-3">
           <input
             type="text"
             value={block.content.url}
-            onChange={(e) => updateBlockContent({ ...block.content, url: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, url: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Image URL"
           />
           <input
             type="text"
             value={block.content.alt}
-            onChange={(e) => updateBlockContent({ ...block.content, alt: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, alt: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Alt text (for accessibility)"
           />
           <input
             type="text"
             value={block.content.caption}
-            onChange={(e) => updateBlockContent({ ...block.content, caption: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, caption: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Caption (optional)"
           />
         </div>
       );
-    
+
     case 'quiz':
       return (
         <div className="p-4 bg-blue-50 rounded">
-          <p className="text-sm text-blue-900">Quiz builder will open in a modal</p>
+          <p className="text-sm text-blue-900">
+            Quiz builder will open in a modal
+          </p>
           <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
             Configure Quiz
           </button>
         </div>
       );
-    
+
     case 'code':
       return (
         <div className="space-y-3">
           <select
             value={block.content.language}
-            onChange={(e) => updateBlockContent({ ...block.content, language: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, language: e.target.value })
+            }
             className="p-2 border rounded"
           >
             <option value="javascript">JavaScript</option>
@@ -586,45 +730,53 @@ function BlockEditor({ block, moduleId, lessonId, setModules, modules }: any) {
           </select>
           <textarea
             value={block.content.code}
-            onChange={(e) => updateBlockContent({ ...block.content, code: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, code: e.target.value })
+            }
             className="w-full p-3 border rounded font-mono text-sm resize-none"
             rows={10}
             placeholder="Enter your code here..."
           />
         </div>
       );
-    
+
     case 'file':
       return (
         <div className="space-y-3">
           <input
             type="text"
             value={block.content.url}
-            onChange={(e) => updateBlockContent({ ...block.content, url: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, url: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="File URL"
           />
           <input
             type="text"
             value={block.content.filename}
-            onChange={(e) => updateBlockContent({ ...block.content, filename: e.target.value })}
+            onChange={(e) =>
+              updateBlockContent({ ...block.content, filename: e.target.value })
+            }
             className="w-full p-2 border rounded"
             placeholder="Filename"
           />
         </div>
       );
-    
+
     case 'embed':
       return (
         <textarea
           value={block.content.embedCode}
-          onChange={(e) => updateBlockContent({ ...block.content, embedCode: e.target.value })}
+          onChange={(e) =>
+            updateBlockContent({ ...block.content, embedCode: e.target.value })
+          }
           className="w-full p-3 border rounded font-mono text-sm resize-none"
           rows={6}
           placeholder="Paste embed code here (iframe, etc.)"
         />
       );
-    
+
     default:
       return <div>Unknown block type</div>;
   }

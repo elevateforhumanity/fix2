@@ -28,35 +28,59 @@ export default function CourseraStyleHeader() {
                   Explore
                   <ChevronDown className="w-4 h-4" />
                 </button>
-                
+
                 {exploreOpen && (
                   <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
-                    <Link href="/programs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link
+                      href="/programs"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
                       All Programs
                     </Link>
-                    <Link href="/programs/medical-assistant" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link
+                      href="/programs/medical-assistant"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
                       Medical Assistant
                     </Link>
-                    <Link href="/programs/hvac" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link
+                      href="/programs/hvac"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
                       HVAC Technician
                     </Link>
-                    <Link href="/programs/barber" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link
+                      href="/programs/barber"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
                       Barber Apprenticeship
                     </Link>
-                    <Link href="/programs/truck-driving" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link
+                      href="/programs/truck-driving"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    >
                       CDL Training
                     </Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link
+                href="/about"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
                 About
               </Link>
-              <Link href="/partners" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link
+                href="/partners"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
                 Partners
               </Link>
-              <Link href="/employers" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link
+                href="/employers"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
                 For Employers
               </Link>
             </nav>
@@ -91,7 +115,11 @@ export default function CourseraStyleHeader() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-gray-600 hover:text-gray-900"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>

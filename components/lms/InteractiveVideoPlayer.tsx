@@ -1,7 +1,19 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings, MessageSquare, FileText, Bookmark, SkipBack, SkipForward } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  Settings,
+  MessageSquare,
+  FileText,
+  Bookmark,
+  SkipBack,
+  SkipForward,
+} from 'lucide-react';
 
 interface VideoQuiz {
   id: string;
@@ -40,7 +52,7 @@ export default function InteractiveVideoPlayer({
   quizzes = [],
   transcript = [],
   onProgress,
-  onComplete
+  onComplete,
 }: InteractiveVideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -55,16 +67,18 @@ export default function InteractiveVideoPlayer({
   const [showQuizResult, setShowQuizResult] = useState(false);
   const [notes, setNotes] = useState<VideoNote[]>([]);
   const [newNote, setNewNote] = useState('');
-  const [activeTab, setActiveTab] = useState<'transcript' | 'notes' | 'resources'>('transcript');
+  const [activeTab, setActiveTab] = useState<
+    'transcript' | 'notes' | 'resources'
+  >('transcript');
   const [showCaptions, setShowCaptions] = useState(false);
   const [currentCaption, setCurrentCaption] = useState('');
 
   // Check for quizzes at current timestamp
   useEffect(() => {
-    const quiz = quizzes.find(q => 
-      Math.abs(q.timestamp - currentTime) < 0.5 && !showQuiz
+    const quiz = quizzes.find(
+      (q) => Math.abs(q.timestamp - currentTime) < 0.5 && !showQuiz
     );
-    
+
     if (quiz && isPlaying) {
       setCurrentQuiz(quiz);
       setShowQuiz(true);
@@ -79,7 +93,7 @@ export default function InteractiveVideoPlayer({
   useEffect(() => {
     if (showCaptions && transcript.length > 0) {
       const segment = transcript.find(
-        s => currentTime >= s.start && currentTime <= s.end
+        (s) => currentTime >= s.start && currentTime <= s.end
       );
       setCurrentCaption(segment?.text || '');
     }
@@ -90,7 +104,7 @@ export default function InteractiveVideoPlayer({
     if (duration > 0 && onProgress) {
       const progress = (currentTime / duration) * 100;
       onProgress(progress);
-      
+
       // Check if video is complete (watched 95%)
       if (progress >= 95 && onComplete) {
         onComplete();
@@ -172,7 +186,7 @@ export default function InteractiveVideoPlayer({
         id: `note-${Date.now()}`,
         timestamp: currentTime,
         content: newNote,
-        createdAt: new Date()
+        createdAt: new Date(),
       };
       setNotes([...notes, note]);
       setNewNote('');
@@ -182,7 +196,7 @@ export default function InteractiveVideoPlayer({
   const submitQuizAnswer = () => {
     if (quizAnswer !== null && currentQuiz) {
       setShowQuizResult(true);
-      
+
       // Auto-continue after showing result
       setTimeout(() => {
         setShowQuiz(false);
@@ -234,7 +248,7 @@ export default function InteractiveVideoPlayer({
             <div className="bg-white rounded-lg p-8 max-w-2xl w-full">
               <h3 className="text-2xl font-bold mb-4">Quick Quiz</h3>
               <p className="text-lg mb-6">{currentQuiz.question}</p>
-              
+
               <div className="space-y-3 mb-6">
                 {currentQuiz.options.map((option, index) => (
                   <button
@@ -246,18 +260,24 @@ export default function InteractiveVideoPlayer({
                         ? index === currentQuiz.correctAnswer
                           ? 'border-green-500 bg-green-50'
                           : index === quizAnswer
-                          ? 'border-red-500 bg-red-50'
-                          : 'border-gray-200'
+                            ? 'border-red-500 bg-red-50'
+                            : 'border-gray-200'
                         : quizAnswer === index
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-blue-300'
+                          ? 'border-blue-500 bg-blue-50'
+                          : 'border-gray-200 hover:border-blue-300'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                        quizAnswer === index ? 'border-blue-500 bg-blue-500' : 'border-gray-300'
-                      }`}>
-                        {quizAnswer === index && <div className="w-3 h-3 bg-white rounded-full" />}
+                      <div
+                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                          quizAnswer === index
+                            ? 'border-blue-500 bg-blue-500'
+                            : 'border-gray-300'
+                        }`}
+                      >
+                        {quizAnswer === index && (
+                          <div className="w-3 h-3 bg-white rounded-full" />
+                        )}
                       </div>
                       <span>{option}</span>
                     </div>
@@ -266,13 +286,21 @@ export default function InteractiveVideoPlayer({
               </div>
 
               {showQuizResult && (
-                <div className={`p-4 rounded-lg mb-4 ${
-                  quizAnswer === currentQuiz.correctAnswer ? 'bg-green-50 text-green-900' : 'bg-red-50 text-red-900'
-                }`}>
+                <div
+                  className={`p-4 rounded-lg mb-4 ${
+                    quizAnswer === currentQuiz.correctAnswer
+                      ? 'bg-green-50 text-green-900'
+                      : 'bg-red-50 text-red-900'
+                  }`}
+                >
                   <p className="font-semibold mb-2">
-                    {quizAnswer === currentQuiz.correctAnswer ? '✓ Correct!' : '✗ Incorrect'}
+                    {quizAnswer === currentQuiz.correctAnswer
+                      ? '✓ Correct!'
+                      : '✗ Incorrect'}
                   </p>
-                  {currentQuiz.explanation && <p className="text-sm">{currentQuiz.explanation}</p>}
+                  {currentQuiz.explanation && (
+                    <p className="text-sm">{currentQuiz.explanation}</p>
+                  )}
                 </div>
               )}
 
@@ -301,12 +329,12 @@ export default function InteractiveVideoPlayer({
               onChange={(e) => handleSeek(parseFloat(e.target.value))}
               className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(currentTime / duration) * 100}%, #4b5563 ${(currentTime / duration) * 100}%, #4b5563 100%)`
+                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(currentTime / duration) * 100}%, #4b5563 ${(currentTime / duration) * 100}%, #4b5563 100%)`,
               }}
             />
             {/* Quiz markers */}
             <div className="relative h-2">
-              {quizzes.map(quiz => (
+              {quizzes.map((quiz) => (
                 <div
                   key={quiz.id}
                   className="absolute w-2 h-2 bg-yellow-400 rounded-full -mt-1"
@@ -321,20 +349,28 @@ export default function InteractiveVideoPlayer({
           <div className="flex items-center justify-between text-white">
             <div className="flex items-center gap-4">
               <button onClick={togglePlay} className="hover:text-blue-400">
-                {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+                {isPlaying ? (
+                  <Pause className="w-6 h-6" />
+                ) : (
+                  <Play className="w-6 h-6" />
+                )}
               </button>
-              
+
               <button onClick={() => skip(-10)} className="hover:text-blue-400">
                 <SkipBack className="w-5 h-5" />
               </button>
-              
+
               <button onClick={() => skip(10)} className="hover:text-blue-400">
                 <SkipForward className="w-5 h-5" />
               </button>
 
               <div className="flex items-center gap-2">
                 <button onClick={toggleMute} className="hover:text-blue-400">
-                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                  {isMuted ? (
+                    <VolumeX className="w-5 h-5" />
+                  ) : (
+                    <Volume2 className="w-5 h-5" />
+                  )}
                 </button>
                 <input
                   type="range"
@@ -342,7 +378,9 @@ export default function InteractiveVideoPlayer({
                   max="1"
                   step="0.1"
                   value={volume}
-                  onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    handleVolumeChange(parseFloat(e.target.value))
+                  }
                   className="w-20 h-1"
                 />
               </div>
@@ -373,7 +411,10 @@ export default function InteractiveVideoPlayer({
                 <MessageSquare className="w-5 h-5" />
               </button>
 
-              <button onClick={toggleFullscreen} className="hover:text-blue-400">
+              <button
+                onClick={toggleFullscreen}
+                className="hover:text-blue-400"
+              >
                 <Maximize className="w-5 h-5" />
               </button>
             </div>
@@ -387,7 +428,9 @@ export default function InteractiveVideoPlayer({
           <button
             onClick={() => setActiveTab('transcript')}
             className={`flex items-center gap-2 px-6 py-3 ${
-              activeTab === 'transcript' ? 'border-b-2 border-blue-500 text-blue-400' : 'text-gray-400'
+              activeTab === 'transcript'
+                ? 'border-b-2 border-blue-500 text-blue-400'
+                : 'text-gray-400'
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -396,7 +439,9 @@ export default function InteractiveVideoPlayer({
           <button
             onClick={() => setActiveTab('notes')}
             className={`flex items-center gap-2 px-6 py-3 ${
-              activeTab === 'notes' ? 'border-b-2 border-blue-500 text-blue-400' : 'text-gray-400'
+              activeTab === 'notes'
+                ? 'border-b-2 border-blue-500 text-blue-400'
+                : 'text-gray-400'
             }`}
           >
             <Bookmark className="w-4 h-4" />
@@ -412,11 +457,15 @@ export default function InteractiveVideoPlayer({
                   <div
                     key={index}
                     className={`p-3 rounded cursor-pointer hover:bg-gray-800 ${
-                      currentTime >= segment.start && currentTime <= segment.end ? 'bg-gray-800' : ''
+                      currentTime >= segment.start && currentTime <= segment.end
+                        ? 'bg-gray-800'
+                        : ''
                     }`}
                     onClick={() => handleSeek(segment.start)}
                   >
-                    <span className="text-blue-400 text-sm mr-3">{formatTime(segment.start)}</span>
+                    <span className="text-blue-400 text-sm mr-3">
+                      {formatTime(segment.start)}
+                    </span>
                     <span className="text-gray-300">{segment.text}</span>
                   </div>
                 ))
@@ -446,7 +495,7 @@ export default function InteractiveVideoPlayer({
               </div>
 
               <div className="space-y-3">
-                {notes.map(note => (
+                {notes.map((note) => (
                   <div key={note.id} className="p-4 bg-gray-800 rounded">
                     <div className="flex items-center justify-between mb-2">
                       <button
@@ -463,7 +512,9 @@ export default function InteractiveVideoPlayer({
                   </div>
                 ))}
                 {notes.length === 0 && (
-                  <p className="text-gray-500 text-center py-8">No notes yet. Add your first note!</p>
+                  <p className="text-gray-500 text-center py-8">
+                    No notes yet. Add your first note!
+                  </p>
                 )}
               </div>
             </div>

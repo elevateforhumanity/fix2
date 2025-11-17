@@ -9,10 +9,11 @@ export async function GET(
   try {
     const supabase = await createClient();
     const { id } = await params;
-    
+
     const { data: employee, error } = await supabase
       .from('employees')
-      .select(`
+      .select(
+        `
         *,
         profile:profiles(*),
         department:departments(*),
@@ -36,19 +37,20 @@ export async function GET(
           *,
           approved_by_profile:profiles!approved_by(full_name)
         )
-      `)
+      `
+      )
       .eq('id', id)
       .single();
-    
+
     if (error) throw error;
-    
+
     if (!employee) {
       return NextResponse.json(
         { error: 'Employee not found' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({ employee });
   } catch (error: any) {
     console.error('Error fetching employee:', error);
@@ -68,24 +70,32 @@ export async function PATCH(
     const supabase = await createClient();
     const { id } = await params;
     const body = await request.json();
-    
+
     // Don't allow updating certain fields directly
-    const { id: bodyId, profile_id, employee_number, created_at, ...updateFields } = body;
-    
+    const {
+      id: bodyId,
+      profile_id,
+      employee_number,
+      created_at,
+      ...updateFields
+    } = body;
+
     const { data: employee, error } = await supabase
       .from('employees')
       .update(updateFields)
       .eq('id', id)
-      .select(`
+      .select(
+        `
         *,
         profile:profiles(*),
         department:departments(*),
         position:positions(*)
-      `)
+      `
+      )
       .single();
-    
+
     if (error) throw error;
-    
+
     return NextResponse.json({ employee });
   } catch (error: any) {
     console.error('Error updating employee:', error);
@@ -105,34 +115,36 @@ export async function DELETE(
     const supabase = await createClient();
     const { id } = await params;
     const searchParams = request.nextUrl.searchParams;
-    const terminationDate = searchParams.get('termination_date') || new Date().toISOString().split('T')[0];
-    
+    const terminationDate =
+      searchParams.get('termination_date') ||
+      new Date().toISOString().split('T')[0];
+
     const { data: employee, error } = await supabase
       .from('employees')
       .update({
         employment_status: 'terminated',
         termination_date: terminationDate,
-        is_active: false
+        is_active: false,
       })
       .eq('id', id)
       .select()
       .single();
-    
+
     if (error) throw error;
-    
+
     // Terminate active benefits
     await supabase
       .from('benefits_enrollments')
       .update({
         status: 'terminated',
-        termination_date: terminationDate
+        termination_date: terminationDate,
       })
       .eq('employee_id', id)
       .eq('status', 'active');
-    
-    return NextResponse.json({ 
+
+    return NextResponse.json({
       message: 'Employee terminated successfully',
-      employee 
+      employee,
     });
   } catch (error: any) {
     console.error('Error terminating employee:', error);

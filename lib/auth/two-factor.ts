@@ -10,12 +10,15 @@ export interface TwoFactorSecret {
 }
 
 // Generate 2FA secret and QR code
-export async function generate2FASecret(userId: string, email: string): Promise<TwoFactorSecret> {
+export async function generate2FASecret(
+  userId: string,
+  email: string
+): Promise<TwoFactorSecret> {
   // Generate secret
   const secret = speakeasy.generateSecret({
     name: `Elevate LMS (${email})`,
     issuer: 'Elevate LMS',
-    length: 32
+    length: 32,
   });
 
   // Generate QR code
@@ -26,27 +29,28 @@ export async function generate2FASecret(userId: string, email: string): Promise<
 
   // Store secret in database
   const supabase = await createClient();
-  await supabase
-    .from('two_factor_auth')
-    .upsert({
-      user_id: userId,
-      secret: secret.base32,
-      backup_codes: backupCodes,
-      enabled: false,
-      created_at: new Date().toISOString()
-    });
+  await supabase.from('two_factor_auth').upsert({
+    user_id: userId,
+    secret: secret.base32,
+    backup_codes: backupCodes,
+    enabled: false,
+    created_at: new Date().toISOString(),
+  });
 
   return {
     secret: secret.base32,
     qrCode,
-    backupCodes
+    backupCodes,
   };
 }
 
 // Verify 2FA token
-export async function verify2FAToken(userId: string, token: string): Promise<boolean> {
+export async function verify2FAToken(
+  userId: string,
+  token: string
+): Promise<boolean> {
   const supabase = await createClient();
-  
+
   // Get user's 2FA secret
   const { data: twoFactor } = await supabase
     .from('two_factor_auth')
@@ -63,17 +67,20 @@ export async function verify2FAToken(userId: string, token: string): Promise<boo
     secret: twoFactor.secret,
     encoding: 'base32',
     token,
-    window: 2 // Allow 2 time steps before/after
+    window: 2, // Allow 2 time steps before/after
   });
 
   return verified;
 }
 
 // Enable 2FA for user
-export async function enable2FA(userId: string, token: string): Promise<boolean> {
+export async function enable2FA(
+  userId: string,
+  token: string
+): Promise<boolean> {
   // First verify the token
   const supabase = await createClient();
-  
+
   const { data: twoFactor } = await supabase
     .from('two_factor_auth')
     .select('secret')
@@ -88,7 +95,7 @@ export async function enable2FA(userId: string, token: string): Promise<boolean>
     secret: twoFactor.secret,
     encoding: 'base32',
     token,
-    window: 2
+    window: 2,
   });
 
   if (!verified) {
@@ -105,10 +112,13 @@ export async function enable2FA(userId: string, token: string): Promise<boolean>
 }
 
 // Disable 2FA for user
-export async function disable2FA(userId: string, password: string): Promise<boolean> {
+export async function disable2FA(
+  userId: string,
+  password: string
+): Promise<boolean> {
   // Verify password first
   const supabase = await createClient();
-  
+
   // In production, verify password against user's actual password
   // For now, just disable
   await supabase
@@ -120,9 +130,12 @@ export async function disable2FA(userId: string, password: string): Promise<bool
 }
 
 // Verify backup code
-export async function verifyBackupCode(userId: string, code: string): Promise<boolean> {
+export async function verifyBackupCode(
+  userId: string,
+  code: string
+): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { data: twoFactor } = await supabase
     .from('two_factor_auth')
     .select('backup_codes')
@@ -163,7 +176,7 @@ function generateBackupCodes(count: number): string[] {
 // Check if user has 2FA enabled
 export async function is2FAEnabled(userId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { data: twoFactor } = await supabase
     .from('two_factor_auth')
     .select('enabled')

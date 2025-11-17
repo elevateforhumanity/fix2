@@ -1,40 +1,45 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const programs = [
   {
-    slug: "medical-assistant",
-    name: "Medical Assistant",
-    blurb: "Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.",
-    funding: "WRG • WIOA • Workforce Grants",
-    duration: "4–6 Months • Hybrid",
+    slug: 'medical-assistant',
+    name: 'Medical Assistant',
+    blurb:
+      'Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.',
+    funding: 'WRG • WIOA • Workforce Grants',
+    duration: '4–6 Months • Hybrid',
   },
   {
-    slug: "barber",
-    name: "Barber Apprenticeship",
-    blurb: "State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.",
-    funding: "DOL Apprenticeship • WIOA",
-    duration: "12–18 Months • On-the-Job + Classroom",
+    slug: 'barber',
+    name: 'Barber Apprenticeship',
+    blurb:
+      'State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.',
+    funding: 'DOL Apprenticeship • WIOA',
+    duration: '12–18 Months • On-the-Job + Classroom',
   },
   {
-    slug: "hvac",
-    name: "HVAC Technician",
-    blurb: "Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.",
-    funding: "Workforce Grants • Employer Sponsors",
-    duration: "4–9 Months • Lab + Field",
+    slug: 'hvac',
+    name: 'HVAC Technician',
+    blurb:
+      'Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.',
+    funding: 'Workforce Grants • Employer Sponsors',
+    duration: '4–9 Months • Lab + Field',
   },
   {
-    slug: "building-tech",
-    name: "Building Maintenance Technician",
-    blurb: "Training for building systems, repairs, and facility maintenance to keep properties safe and functional.",
-    funding: "Workforce Grants • Apprenticeship",
-    duration: "4–9 Months • Hands-On",
+    slug: 'building-tech',
+    name: 'Building Maintenance Technician',
+    blurb:
+      'Training for building systems, repairs, and facility maintenance to keep properties safe and functional.',
+    funding: 'Workforce Grants • Apprenticeship',
+    duration: '4–9 Months • Hands-On',
   },
   {
-    slug: "workforce-readiness",
-    name: "Workforce Readiness & Re-Entry",
-    blurb: "Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.",
-    funding: "Support Services • Referrals",
-    duration: "4–12 Weeks • Coaching + Workshops",
+    slug: 'workforce-readiness',
+    name: 'Workforce Readiness & Re-Entry',
+    blurb:
+      'Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.',
+    funding: 'Support Services • Referrals',
+    duration: '4–12 Weeks • Coaching + Workshops',
   },
 ];
 
@@ -51,9 +56,10 @@ export default function HomePage() {
                 Learn without limits
               </h1>
               <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
-                Start, switch, or advance your career with free & funded workforce training, apprenticeships, and real job connections.
+                Start, switch, or advance your career with free & funded
+                workforce training, apprenticeships, and real job connections.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link
                   href="/apply"
@@ -71,20 +77,44 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-3 text-sm text-blue-100">
                 <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   State-Approved Programs
                 </span>
                 <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   WRG • WIOA Funding
                 </span>
                 <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   Real Job Connections
                 </span>
@@ -138,7 +168,8 @@ export default function HomePage() {
               Explore our catalog
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Choose from state-approved training programs with workforce funding available
+              Choose from state-approved training programs with workforce
+              funding available
             </p>
           </div>
 
@@ -167,7 +198,7 @@ export default function HomePage() {
                   <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                     {program.blurb}
                   </p>
-                  
+
                   <div className="flex items-center justify-between text-xs text-gray-500">
                     <span>Funding: {program.funding}</span>
                     <span className="text-blue-600 font-semibold group-hover:underline">
@@ -198,7 +229,8 @@ export default function HomePage() {
               How it works
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We make the process simple. Our team walks with you from interest to employment.
+              We make the process simple. Our team walks with you from interest
+              to employment.
             </p>
           </div>
 
@@ -211,7 +243,8 @@ export default function HomePage() {
                 Connect & Explore
               </h3>
               <p className="text-gray-600">
-                Complete a short interest form. Our team reviews funding options and program fit with you.
+                Complete a short interest form. Our team reviews funding options
+                and program fit with you.
               </p>
             </div>
             <div className="text-center">
@@ -222,7 +255,8 @@ export default function HomePage() {
                 Enroll & Train
               </h3>
               <p className="text-gray-600">
-                Enroll with our training partners. Receive coaching, case management, and support.
+                Enroll with our training partners. Receive coaching, case
+                management, and support.
               </p>
             </div>
             <div className="text-center">
@@ -233,14 +267,13 @@ export default function HomePage() {
                 Elevate & Advance
               </h3>
               <p className="text-gray-600">
-                Transition into jobs, apprenticeships, or next-level credentials with ongoing support.
+                Transition into jobs, apprenticeships, or next-level credentials
+                with ongoing support.
               </p>
             </div>
           </div>
         </div>
       </section>
-
-
 
       {/* CALL TO ACTION - Coursera Style */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 md:py-20">
@@ -249,7 +282,8 @@ export default function HomePage() {
             Ready to get started?
           </h2>
           <p className="mb-8 text-lg text-blue-100 max-w-2xl mx-auto">
-            Join thousands of learners who are advancing their careers with free, funded training programs.
+            Join thousands of learners who are advancing their careers with
+            free, funded training programs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

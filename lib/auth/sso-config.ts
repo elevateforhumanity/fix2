@@ -13,12 +13,14 @@ export interface SSOConfig {
 export const samlConfig = {
   entryPoint: process.env.SAML_ENTRY_POINT || '',
   issuer: process.env.SAML_ISSUER || 'elevate-lms',
-  callbackUrl: process.env.SAML_CALLBACK_URL || `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/saml/callback`,
+  callbackUrl:
+    process.env.SAML_CALLBACK_URL ||
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/saml/callback`,
   cert: process.env.SAML_CERT || '',
   identifierFormat: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
   wantAssertionsSigned: true,
   wantAuthnResponseSigned: true,
-  signatureAlgorithm: 'sha256'
+  signatureAlgorithm: 'sha256',
 };
 
 // Google OAuth Configuration
@@ -26,7 +28,7 @@ export const googleOAuthConfig = {
   clientID: process.env.GOOGLE_CLIENT_ID || '',
   clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
   callbackURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/google/callback`,
-  scope: ['profile', 'email']
+  scope: ['profile', 'email'],
 };
 
 // Azure AD Configuration
@@ -38,7 +40,7 @@ export const azureADConfig = {
   allowHttpForRedirectUrl: process.env.NODE_ENV === 'development',
   responseType: 'code',
   responseMode: 'form_post',
-  scope: ['profile', 'email', 'openid']
+  scope: ['profile', 'email', 'openid'],
 };
 
 // LDAP Configuration
@@ -48,11 +50,13 @@ export const ldapConfig = {
   bindCredentials: process.env.LDAP_BIND_PASSWORD || '',
   searchBase: process.env.LDAP_SEARCH_BASE || 'dc=example,dc=com',
   searchFilter: process.env.LDAP_SEARCH_FILTER || '(uid={{username}})',
-  searchAttributes: ['uid', 'mail', 'givenName', 'sn', 'cn']
+  searchAttributes: ['uid', 'mail', 'givenName', 'sn', 'cn'],
 };
 
 // Get SSO providers for tenant
-export async function getTenantSSOProviders(tenantId: string): Promise<SSOConfig[]> {
+export async function getTenantSSOProviders(
+  tenantId: string
+): Promise<SSOConfig[]> {
   // This would fetch from database
   // For now, return configured providers
   const providers: SSOConfig[] = [];
@@ -61,7 +65,7 @@ export async function getTenantSSOProviders(tenantId: string): Promise<SSOConfig
     providers.push({
       provider: 'saml',
       enabled: true,
-      config: samlConfig
+      config: samlConfig,
     });
   }
 
@@ -69,7 +73,7 @@ export async function getTenantSSOProviders(tenantId: string): Promise<SSOConfig
     providers.push({
       provider: 'google',
       enabled: true,
-      config: googleOAuthConfig
+      config: googleOAuthConfig,
     });
   }
 
@@ -77,7 +81,7 @@ export async function getTenantSSOProviders(tenantId: string): Promise<SSOConfig
     providers.push({
       provider: 'azure_ad',
       enabled: true,
-      config: azureADConfig
+      config: azureADConfig,
     });
   }
 
@@ -85,7 +89,7 @@ export async function getTenantSSOProviders(tenantId: string): Promise<SSOConfig
     providers.push({
       provider: 'ldap',
       enabled: true,
-      config: ldapConfig
+      config: ldapConfig,
     });
   }
 

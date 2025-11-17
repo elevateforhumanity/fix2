@@ -4,8 +4,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
         show_correct_answers: quiz.showCorrectAnswers,
         allow_retakes: quiz.allowRetakes,
         max_attempts: quiz.maxAttempts,
-        created_by: user.id
+        created_by: user.id,
       })
       .select()
       .single();
@@ -35,10 +37,7 @@ export async function POST(request: NextRequest) {
 
     // Delete existing questions
     if (quiz.id) {
-      await supabase
-        .from('quiz_questions')
-        .delete()
-        .eq('quiz_id', quizData.id);
+      await supabase.from('quiz_questions').delete().eq('quiz_id', quizData.id);
     }
 
     // Save questions
@@ -54,7 +53,7 @@ export async function POST(request: NextRequest) {
         explanation: q.explanation,
         image_url: q.imageUrl,
         code_language: q.codeLanguage,
-        matching_pairs: q.matchingPairs || null
+        matching_pairs: q.matchingPairs || null,
       }));
 
       const { error: questionsError } = await supabase
@@ -64,10 +63,10 @@ export async function POST(request: NextRequest) {
       if (questionsError) throw questionsError;
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       quizId: quizData.id,
-      message: 'Quiz saved successfully' 
+      message: 'Quiz saved successfully',
     });
   } catch (error: any) {
     console.error('Error saving quiz:', error);

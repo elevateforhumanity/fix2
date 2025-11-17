@@ -1,13 +1,36 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Search, Filter, Upload, Folder, File, Video, Image as ImageIcon, FileText, Code, Download, Trash2, Edit, Copy, Star, Tag } from 'lucide-react';
+import {
+  Search,
+  Filter,
+  Upload,
+  Folder,
+  File,
+  Video,
+  Image as ImageIcon,
+  FileText,
+  Code,
+  Download,
+  Trash2,
+  Edit,
+  Copy,
+  Star,
+  Tag,
+} from 'lucide-react';
 
 interface ContentItem {
   id: string;
   title: string;
   description: string;
-  content_type: 'video' | 'document' | 'image' | 'audio' | 'scorm' | 'interactive' | 'quiz';
+  content_type:
+    | 'video'
+    | 'document'
+    | 'image'
+    | 'audio'
+    | 'scorm'
+    | 'interactive'
+    | 'quiz';
   file_url: string;
   file_size: number;
   mime_type: string;
@@ -53,19 +76,22 @@ export default function ContentLibrary() {
     let filtered = items;
 
     if (searchQuery) {
-      filtered = filtered.filter(item =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      filtered = filtered.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.tags.some((tag) =>
+            tag.toLowerCase().includes(searchQuery.toLowerCase())
+          )
       );
     }
 
     if (selectedType !== 'all') {
-      filtered = filtered.filter(item => item.content_type === selectedType);
+      filtered = filtered.filter((item) => item.content_type === selectedType);
     }
 
     if (selectedCategory !== 'all') {
-      filtered = filtered.filter(item => item.category === selectedCategory);
+      filtered = filtered.filter((item) => item.category === selectedCategory);
     }
 
     setFilteredItems(filtered);
@@ -73,14 +99,14 @@ export default function ContentLibrary() {
 
   const handleUpload = async (files: FileList) => {
     const formData = new FormData();
-    Array.from(files).forEach(file => {
+    Array.from(files).forEach((file) => {
       formData.append('files', file);
     });
 
     try {
       const response = await fetch('/api/content-library/upload', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
 
       if (response.ok) {
@@ -114,19 +140,26 @@ export default function ContentLibrary() {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'video': return Video;
-      case 'image': return ImageIcon;
-      case 'document': return FileText;
-      case 'audio': return File;
-      case 'code': return Code;
-      default: return File;
+      case 'video':
+        return Video;
+      case 'image':
+        return ImageIcon;
+      case 'document':
+        return FileText;
+      case 'audio':
+        return File;
+      case 'code':
+        return Code;
+      default:
+        return File;
     }
   };
 
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + ' B';
     if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-    if (bytes < 1024 * 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    if (bytes < 1024 * 1024 * 1024)
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
     return (bytes / (1024 * 1024 * 1024)).toFixed(1) + ' GB';
   };
 
@@ -143,7 +176,9 @@ export default function ContentLibrary() {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-2xl font-bold">Content Library</h1>
-            <p className="text-sm text-gray-600">Manage and reuse your learning content</p>
+            <p className="text-sm text-gray-600">
+              Manage and reuse your learning content
+            </p>
           </div>
           <div className="flex gap-3">
             <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer">
@@ -224,7 +259,7 @@ export default function ContentLibrary() {
       <div className="flex-1 overflow-y-auto p-6">
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredItems.map(item => {
+            {filteredItems.map((item) => {
               const Icon = getIcon(item.content_type);
               return (
                 <div
@@ -237,9 +272,16 @@ export default function ContentLibrary() {
                   {/* Thumbnail */}
                   <div className="aspect-video bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
                     {item.content_type === 'image' ? (
-                      <img src={item.file_url} alt={item.title} className="w-full h-full object-cover rounded-lg" />
+                      <img
+                        src={item.file_url}
+                        alt={item.title}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
                     ) : item.content_type === 'video' ? (
-                      <video src={item.file_url} className="w-full h-full object-cover rounded-lg" />
+                      <video
+                        src={item.file_url}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
                     ) : (
                       <Icon className="w-12 h-12 text-gray-400" />
                     )}
@@ -248,12 +290,17 @@ export default function ContentLibrary() {
                   {/* Info */}
                   <div className="space-y-2">
                     <h3 className="font-semibold truncate">{item.title}</h3>
-                    <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
-                    
+                    <p className="text-sm text-gray-600 line-clamp-2">
+                      {item.description}
+                    </p>
+
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1">
-                      {item.tags.slice(0, 3).map(tag => (
-                        <span key={tag} className="text-xs px-2 py-1 bg-gray-100 rounded">
+                      {item.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2 py-1 bg-gray-100 rounded"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -262,7 +309,9 @@ export default function ContentLibrary() {
                     {/* Meta */}
                     <div className="flex items-center justify-between text-xs text-gray-500">
                       <span>{formatFileSize(item.file_size)}</span>
-                      {item.duration_seconds && <span>{formatDuration(item.duration_seconds)}</span>}
+                      {item.duration_seconds && (
+                        <span>{formatDuration(item.duration_seconds)}</span>
+                      )}
                       <span>{item.usage_count} uses</span>
                     </div>
 
@@ -320,7 +369,7 @@ export default function ContentLibrary() {
                 </tr>
               </thead>
               <tbody>
-                {filteredItems.map(item => {
+                {filteredItems.map((item) => {
                   const Icon = getIcon(item.content_type);
                   return (
                     <tr key={item.id} className="border-b hover:bg-gray-50">
@@ -337,7 +386,9 @@ export default function ContentLibrary() {
                           <Icon className="w-5 h-5 text-gray-400" />
                           <div>
                             <div className="font-medium">{item.title}</div>
-                            <div className="text-sm text-gray-500">{item.description}</div>
+                            <div className="text-sm text-gray-500">
+                              {item.description}
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -346,9 +397,15 @@ export default function ContentLibrary() {
                           {item.content_type}
                         </span>
                       </td>
-                      <td className="p-4 text-sm text-gray-600">{item.category}</td>
-                      <td className="p-4 text-sm text-gray-600">{formatFileSize(item.file_size)}</td>
-                      <td className="p-4 text-sm text-gray-600">{item.usage_count}</td>
+                      <td className="p-4 text-sm text-gray-600">
+                        {item.category}
+                      </td>
+                      <td className="p-4 text-sm text-gray-600">
+                        {formatFileSize(item.file_size)}
+                      </td>
+                      <td className="p-4 text-sm text-gray-600">
+                        {item.usage_count}
+                      </td>
                       <td className="p-4 text-sm text-gray-600">
                         {new Date(item.created_at).toLocaleDateString()}
                       </td>

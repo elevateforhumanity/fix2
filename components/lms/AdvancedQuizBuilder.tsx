@@ -1,9 +1,29 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, Trash2, GripVertical, Save, Eye, Copy, CheckCircle, Circle, Square, Type, Image as ImageIcon, Code } from 'lucide-react';
+import {
+  Plus,
+  Trash2,
+  GripVertical,
+  Save,
+  Eye,
+  Copy,
+  CheckCircle,
+  Circle,
+  Square,
+  Type,
+  Image as ImageIcon,
+  Code,
+} from 'lucide-react';
 
-type QuestionType = 'multiple_choice' | 'true_false' | 'short_answer' | 'essay' | 'matching' | 'fill_blank' | 'code';
+type QuestionType =
+  | 'multiple_choice'
+  | 'true_false'
+  | 'short_answer'
+  | 'essay'
+  | 'matching'
+  | 'fill_blank'
+  | 'code';
 
 interface Question {
   id: string;
@@ -41,7 +61,7 @@ export default function AdvancedQuizBuilder() {
     shuffleAnswers: false,
     showCorrectAnswers: true,
     allowRetakes: true,
-    questions: []
+    questions: [],
   });
 
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
@@ -54,7 +74,7 @@ export default function AdvancedQuizBuilder() {
     { type: 'essay', label: 'Essay', icon: Type },
     { type: 'matching', label: 'Matching', icon: Square },
     { type: 'fill_blank', label: 'Fill in the Blank', icon: Type },
-    { type: 'code', label: 'Code Question', icon: Code }
+    { type: 'code', label: 'Code Question', icon: Code },
   ];
 
   const addQuestion = (type: QuestionType) => {
@@ -63,10 +83,13 @@ export default function AdvancedQuizBuilder() {
       type,
       question: '',
       points: 1,
-      ...(type === 'multiple_choice' && { options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'], correctAnswer: 0 }),
+      ...(type === 'multiple_choice' && {
+        options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+        correctAnswer: 0,
+      }),
       ...(type === 'true_false' && { correctAnswer: true }),
       ...(type === 'matching' && { matchingPairs: [{ left: '', right: '' }] }),
-      ...(type === 'code' && { codeLanguage: 'javascript' })
+      ...(type === 'code' && { codeLanguage: 'javascript' }),
     };
 
     setQuiz({ ...quiz, questions: [...quiz.questions, newQuestion] });
@@ -76,7 +99,9 @@ export default function AdvancedQuizBuilder() {
   const updateQuestion = (id: string, updates: Partial<Question>) => {
     setQuiz({
       ...quiz,
-      questions: quiz.questions.map(q => q.id === id ? { ...q, ...updates } : q)
+      questions: quiz.questions.map((q) =>
+        q.id === id ? { ...q, ...updates } : q
+      ),
     });
   };
 
@@ -84,14 +109,14 @@ export default function AdvancedQuizBuilder() {
     if (confirm('Delete this question?')) {
       setQuiz({
         ...quiz,
-        questions: quiz.questions.filter(q => q.id !== id)
+        questions: quiz.questions.filter((q) => q.id !== id),
       });
       if (selectedQuestion === id) setSelectedQuestion(null);
     }
   };
 
   const duplicateQuestion = (id: string) => {
-    const question = quiz.questions.find(q => q.id === id);
+    const question = quiz.questions.find((q) => q.id === id);
     if (question) {
       const newQuestion = { ...question, id: `q-${Date.now()}` };
       setQuiz({ ...quiz, questions: [...quiz.questions, newQuestion] });
@@ -103,7 +128,7 @@ export default function AdvancedQuizBuilder() {
       const response = await fetch('/api/quizzes/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(quiz)
+        body: JSON.stringify(quiz),
       });
 
       if (response.ok) {
@@ -133,7 +158,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="text"
               value={quiz.description}
-              onChange={(e) => setQuiz({ ...quiz, description: e.target.value })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, description: e.target.value })
+              }
               className="text-sm text-gray-600 border-none focus:outline-none w-full mt-1"
               placeholder="Quiz description..."
             />
@@ -163,7 +190,12 @@ export default function AdvancedQuizBuilder() {
             <input
               type="number"
               value={quiz.timeLimit || ''}
-              onChange={(e) => setQuiz({ ...quiz, timeLimit: parseInt(e.target.value) || undefined })}
+              onChange={(e) =>
+                setQuiz({
+                  ...quiz,
+                  timeLimit: parseInt(e.target.value) || undefined,
+                })
+              }
               className="w-20 px-2 py-1 border rounded"
               placeholder="None"
             />
@@ -174,7 +206,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="number"
               value={quiz.passingScore}
-              onChange={(e) => setQuiz({ ...quiz, passingScore: parseInt(e.target.value) })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, passingScore: parseInt(e.target.value) })
+              }
               className="w-20 px-2 py-1 border rounded"
               min="0"
               max="100"
@@ -192,7 +226,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="checkbox"
               checked={quiz.shuffleQuestions}
-              onChange={(e) => setQuiz({ ...quiz, shuffleQuestions: e.target.checked })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, shuffleQuestions: e.target.checked })
+              }
               className="rounded"
             />
             Shuffle Questions
@@ -201,7 +237,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="checkbox"
               checked={quiz.shuffleAnswers}
-              onChange={(e) => setQuiz({ ...quiz, shuffleAnswers: e.target.checked })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, shuffleAnswers: e.target.checked })
+              }
               className="rounded"
             />
             Shuffle Answers
@@ -210,7 +248,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="checkbox"
               checked={quiz.showCorrectAnswers}
-              onChange={(e) => setQuiz({ ...quiz, showCorrectAnswers: e.target.checked })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, showCorrectAnswers: e.target.checked })
+              }
               className="rounded"
             />
             Show Correct Answers
@@ -219,7 +259,9 @@ export default function AdvancedQuizBuilder() {
             <input
               type="checkbox"
               checked={quiz.allowRetakes}
-              onChange={(e) => setQuiz({ ...quiz, allowRetakes: e.target.checked })}
+              onChange={(e) =>
+                setQuiz({ ...quiz, allowRetakes: e.target.checked })
+              }
               className="rounded"
             />
             Allow Retakes
@@ -247,13 +289,17 @@ export default function AdvancedQuizBuilder() {
           </div>
 
           <div className="border-t p-4">
-            <h3 className="font-semibold mb-3">Questions ({quiz.questions.length})</h3>
+            <h3 className="font-semibold mb-3">
+              Questions ({quiz.questions.length})
+            </h3>
             <div className="space-y-2">
               {quiz.questions.map((question, index) => (
                 <div
                   key={question.id}
                   className={`p-3 border rounded-lg cursor-pointer ${
-                    selectedQuestion === question.id ? 'border-blue-500 bg-blue-50' : 'hover:bg-gray-50'
+                    selectedQuestion === question.id
+                      ? 'border-blue-500 bg-blue-50'
+                      : 'hover:bg-gray-50'
                   }`}
                   onClick={() => setSelectedQuestion(question.id)}
                 >
@@ -261,11 +307,19 @@ export default function AdvancedQuizBuilder() {
                     <GripVertical className="w-4 h-4 text-gray-400 mt-1" />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-semibold text-gray-500">Q{index + 1}</span>
-                        <span className="text-xs px-2 py-0.5 bg-gray-100 rounded">{question.type.replace('_', ' ')}</span>
-                        <span className="text-xs text-gray-500">{question.points}pts</span>
+                        <span className="text-xs font-semibold text-gray-500">
+                          Q{index + 1}
+                        </span>
+                        <span className="text-xs px-2 py-0.5 bg-gray-100 rounded">
+                          {question.type.replace('_', ' ')}
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          {question.points}pts
+                        </span>
                       </div>
-                      <p className="text-sm truncate">{question.question || 'Untitled question'}</p>
+                      <p className="text-sm truncate">
+                        {question.question || 'Untitled question'}
+                      </p>
                     </div>
                     <div className="flex gap-1">
                       <button
@@ -298,7 +352,7 @@ export default function AdvancedQuizBuilder() {
         <div className="flex-1 overflow-y-auto p-8">
           {selectedQuestion ? (
             <QuestionEditor
-              question={quiz.questions.find(q => q.id === selectedQuestion)!}
+              question={quiz.questions.find((q) => q.id === selectedQuestion)!}
               onUpdate={(updates) => updateQuestion(selectedQuestion, updates)}
             />
           ) : (
@@ -317,7 +371,13 @@ export default function AdvancedQuizBuilder() {
 }
 
 // Question Editor Component
-function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: (updates: Partial<Question>) => void }) {
+function QuestionEditor({
+  question,
+  onUpdate,
+}: {
+  question: Question;
+  onUpdate: (updates: Partial<Question>) => void;
+}) {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="bg-white rounded-lg border p-6 space-y-6">
@@ -340,13 +400,17 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
             <input
               type="number"
               value={question.points}
-              onChange={(e) => onUpdate({ points: parseInt(e.target.value) || 1 })}
+              onChange={(e) =>
+                onUpdate({ points: parseInt(e.target.value) || 1 })
+              }
               className="w-full p-2 border rounded"
               min="1"
             />
           </div>
           <div className="flex-1">
-            <label className="block text-sm font-medium mb-2">Image URL (optional)</label>
+            <label className="block text-sm font-medium mb-2">
+              Image URL (optional)
+            </label>
             <input
               type="text"
               value={question.imageUrl || ''}
@@ -360,7 +424,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
         {/* Question Type Specific Fields */}
         {question.type === 'multiple_choice' && (
           <div>
-            <label className="block text-sm font-medium mb-2">Answer Options</label>
+            <label className="block text-sm font-medium mb-2">
+              Answer Options
+            </label>
             <div className="space-y-2">
               {question.options?.map((option, index) => (
                 <div key={index} className="flex gap-2">
@@ -383,7 +449,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
                   />
                   <button
                     onClick={() => {
-                      const newOptions = question.options?.filter((_, i) => i !== index);
+                      const newOptions = question.options?.filter(
+                        (_, i) => i !== index
+                      );
                       onUpdate({ options: newOptions });
                     }}
                     className="p-2 text-red-600 hover:bg-red-50 rounded"
@@ -394,7 +462,14 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
               ))}
             </div>
             <button
-              onClick={() => onUpdate({ options: [...(question.options || []), `Option ${(question.options?.length || 0) + 1}`] })}
+              onClick={() =>
+                onUpdate({
+                  options: [
+                    ...(question.options || []),
+                    `Option ${(question.options?.length || 0) + 1}`,
+                  ],
+                })
+              }
               className="mt-2 flex items-center gap-2 px-3 py-2 text-sm border rounded hover:bg-gray-50"
             >
               <Plus className="w-4 h-4" />
@@ -405,7 +480,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
 
         {question.type === 'true_false' && (
           <div>
-            <label className="block text-sm font-medium mb-2">Correct Answer</label>
+            <label className="block text-sm font-medium mb-2">
+              Correct Answer
+            </label>
             <div className="flex gap-4">
               <label className="flex items-center gap-2">
                 <input
@@ -429,7 +506,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
 
         {question.type === 'short_answer' && (
           <div>
-            <label className="block text-sm font-medium mb-2">Correct Answer(s)</label>
+            <label className="block text-sm font-medium mb-2">
+              Correct Answer(s)
+            </label>
             <input
               type="text"
               value={question.correctAnswer || ''}
@@ -437,13 +516,17 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
               className="w-full p-2 border rounded"
               placeholder="Enter correct answer (case-insensitive)"
             />
-            <p className="text-xs text-gray-500 mt-1">Separate multiple acceptable answers with commas</p>
+            <p className="text-xs text-gray-500 mt-1">
+              Separate multiple acceptable answers with commas
+            </p>
           </div>
         )}
 
         {question.type === 'matching' && (
           <div>
-            <label className="block text-sm font-medium mb-2">Matching Pairs</label>
+            <label className="block text-sm font-medium mb-2">
+              Matching Pairs
+            </label>
             <div className="space-y-2">
               {question.matchingPairs?.map((pair, index) => (
                 <div key={index} className="flex gap-2">
@@ -472,7 +555,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
                   />
                   <button
                     onClick={() => {
-                      const newPairs = question.matchingPairs?.filter((_, i) => i !== index);
+                      const newPairs = question.matchingPairs?.filter(
+                        (_, i) => i !== index
+                      );
                       onUpdate({ matchingPairs: newPairs });
                     }}
                     className="p-2 text-red-600 hover:bg-red-50 rounded"
@@ -483,7 +568,14 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
               ))}
             </div>
             <button
-              onClick={() => onUpdate({ matchingPairs: [...(question.matchingPairs || []), { left: '', right: '' }] })}
+              onClick={() =>
+                onUpdate({
+                  matchingPairs: [
+                    ...(question.matchingPairs || []),
+                    { left: '', right: '' },
+                  ],
+                })
+              }
               className="mt-2 flex items-center gap-2 px-3 py-2 text-sm border rounded hover:bg-gray-50"
             >
               <Plus className="w-4 h-4" />
@@ -494,7 +586,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
 
         {question.type === 'code' && (
           <div>
-            <label className="block text-sm font-medium mb-2">Programming Language</label>
+            <label className="block text-sm font-medium mb-2">
+              Programming Language
+            </label>
             <select
               value={question.codeLanguage}
               onChange={(e) => onUpdate({ codeLanguage: e.target.value })}
@@ -506,7 +600,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
               <option value="cpp">C++</option>
               <option value="csharp">C#</option>
             </select>
-            <label className="block text-sm font-medium mb-2">Expected Output/Solution</label>
+            <label className="block text-sm font-medium mb-2">
+              Expected Output/Solution
+            </label>
             <textarea
               value={question.correctAnswer || ''}
               onChange={(e) => onUpdate({ correctAnswer: e.target.value })}
@@ -519,7 +615,9 @@ function QuestionEditor({ question, onUpdate }: { question: Question; onUpdate: 
 
         {/* Explanation */}
         <div>
-          <label className="block text-sm font-medium mb-2">Explanation (shown after answer)</label>
+          <label className="block text-sm font-medium mb-2">
+            Explanation (shown after answer)
+          </label>
           <textarea
             value={question.explanation || ''}
             onChange={(e) => onUpdate({ explanation: e.target.value })}

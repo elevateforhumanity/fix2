@@ -26,9 +26,12 @@ export interface APIResponse<T = any> {
 }
 
 // Verify API Key
-export async function verifyAPIKey(apiKey: string, apiSecret: string): Promise<APIKey | null> {
+export async function verifyAPIKey(
+  apiKey: string,
+  apiSecret: string
+): Promise<APIKey | null> {
   const supabase = await createClient();
-  
+
   const { data: key } = await supabase
     .from('api_keys')
     .select('*')
@@ -39,7 +42,10 @@ export async function verifyAPIKey(apiKey: string, apiSecret: string): Promise<A
   if (!key) return null;
 
   // Verify secret
-  const secretHash = crypto.createHash('sha256').update(apiSecret).digest('hex');
+  const secretHash = crypto
+    .createHash('sha256')
+    .update(apiSecret)
+    .digest('hex');
   if (key.api_secret !== secretHash) return null;
 
   // Check expiration
@@ -50,9 +56,9 @@ export async function verifyAPIKey(apiKey: string, apiSecret: string): Promise<A
   // Update last used
   await supabase
     .from('api_keys')
-    .update({ 
+    .update({
       last_used_at: new Date().toISOString(),
-      request_count: key.request_count + 1
+      request_count: key.request_count + 1,
     })
     .eq('id', key.id);
 
@@ -63,16 +69,19 @@ export async function verifyAPIKey(apiKey: string, apiSecret: string): Promise<A
     userId: key.user_id,
     tenantId: key.tenant_id,
     scopes: key.scopes || [],
-    rateLimit: key.rate_limit || 1000
+    rateLimit: key.rate_limit || 1000,
   };
 }
 
 // Check Rate Limit
-export async function checkRateLimit(apiKeyId: string, limit: number): Promise<boolean> {
+export async function checkRateLimit(
+  apiKeyId: string,
+  limit: number
+): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-  
+
   const { count } = await supabase
     .from('api_request_logs')
     .select('*', { count: 'exact', head: true })
@@ -94,19 +103,17 @@ export async function logAPIRequest(
   error?: string
 ) {
   const supabase = await createClient();
-  
-  await supabase
-    .from('api_request_logs')
-    .insert({
-      api_key_id: apiKeyId,
-      method,
-      endpoint,
-      status_code: statusCode,
-      response_time_ms: responseTime,
-      ip_address: ipAddress,
-      user_agent: userAgent,
-      error_message: error
-    });
+
+  await supabase.from('api_request_logs').insert({
+    api_key_id: apiKeyId,
+    method,
+    endpoint,
+    status_code: statusCode,
+    response_time_ms: responseTime,
+    ip_address: ipAddress,
+    user_agent: userAgent,
+    error_message: error,
+  });
 }
 
 // Check API Scope Permission
@@ -124,26 +131,27 @@ export async function generateAPIKey(
 ): Promise<{ apiKey: string; apiSecret: string }> {
   const apiKey = `elk_${crypto.randomBytes(24).toString('hex')}`;
   const apiSecret = crypto.randomBytes(32).toString('hex');
-  const secretHash = crypto.createHash('sha256').update(apiSecret).digest('hex');
+  const secretHash = crypto
+    .createHash('sha256')
+    .update(apiSecret)
+    .digest('hex');
 
-  const expiresAt = expiresInDays 
+  const expiresAt = expiresInDays
     ? new Date(Date.now() + expiresInDays * 24 * 60 * 60 * 1000).toISOString()
     : null;
 
   const supabase = await createClient();
-  
-  await supabase
-    .from('api_keys')
-    .insert({
-      user_id: userId,
-      tenant_id: tenantId,
-      key_name: keyName,
-      api_key: apiKey,
-      api_secret: secretHash,
-      scopes,
-      expires_at: expiresAt,
-      created_by: userId
-    });
+
+  await supabase.from('api_keys').insert({
+    user_id: userId,
+    tenant_id: tenantId,
+    key_name: keyName,
+    api_key: apiKey,
+    api_secret: secretHash,
+    scopes,
+    expires_at: expiresAt,
+    created_by: userId,
+  });
 
   return { apiKey, apiSecret };
 }
@@ -161,15 +169,17 @@ export function apiResponse<T>(
     error,
     meta: {
       ...meta,
-      timestamp: new Date().toISOString()
-    }
+      timestamp: new Date().toISOString(),
+    },
   };
 }
 
 // Extract API Credentials from Request
-export function extractAPICredentials(request: NextRequest): { apiKey: string; apiSecret: string } | null {
+export function extractAPICredentials(
+  request: NextRequest
+): { apiKey: string; apiSecret: string } | null {
   const authHeader = request.headers.get('authorization');
-  
+
   if (!authHeader) return null;
 
   // Support both "Bearer" and "ApiKey" schemes
@@ -189,18 +199,20 @@ export function extractAPICredentials(request: NextRequest): { apiKey: string; a
 }
 
 // Middleware for API Authentication
-export async function authenticateAPI(request: NextRequest): Promise<APIKey | null> {
+export async function authenticateAPI(
+  request: NextRequest
+): Promise<APIKey | null> {
   const credentials = extractAPICredentials(request);
-  
+
   if (!credentials) return null;
 
   const apiKey = await verifyAPIKey(credentials.apiKey, credentials.apiSecret);
-  
+
   if (!apiKey) return null;
 
   // Check rate limit
   const withinLimit = await checkRateLimit(apiKey.id, apiKey.rateLimit);
-  
+
   if (!withinLimit) return null;
 
   return apiKey;

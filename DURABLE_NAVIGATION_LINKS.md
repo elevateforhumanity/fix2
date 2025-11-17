@@ -130,6 +130,7 @@ https://www.elevateconnectsdirectory.org/pricing
 ## 🏢 FOOTER LINKS
 
 ### Column 1: About
+
 ```
 About Us
 https://www.elevateconnectsdirectory.org/about
@@ -145,6 +146,7 @@ https://www.elevateconnectsdirectory.org/careers
 ```
 
 ### Column 2: Community
+
 ```
 For Learners
 https://www.elevateconnectsdirectory.org/student/dashboard
@@ -160,6 +162,7 @@ https://www.elevateconnectsdirectory.org/blog
 ```
 
 ### Column 3: Support
+
 ```
 Contact
 https://www.elevateconnectsdirectory.org/contact
@@ -175,6 +178,7 @@ https://www.elevateconnectsdirectory.org/success-stories
 ```
 
 ### Column 4: Legal
+
 ```
 Privacy Policy
 https://www.elevateconnectsdirectory.org/privacy-policy
@@ -230,6 +234,7 @@ https://youtube.com/@elevateforhumanity
 ## 🔧 HOW TO ADD TO DURABLE
 
 ### For Navigation Menu:
+
 1. Go to Durable website editor
 2. Click on Navigation/Menu
 3. Add "Link" element
@@ -237,12 +242,14 @@ https://youtube.com/@elevateforhumanity
 5. Add link text (e.g., "Programs", "About", etc.)
 
 ### For Buttons:
+
 1. Add a Button element
 2. Click "Link" or "URL"
 3. Paste the URL (e.g., `/apply`)
 4. Style the button
 
 ### For Dropdown Menus:
+
 1. Create parent menu item (e.g., "Programs")
 2. Add child items underneath
 3. Link each child to specific program page
@@ -308,22 +315,35 @@ Footer:
 ## ⚡ QUICK COPY BLOCKS
 
 ### Hero Section CTA:
+
 ```html
 <a href="https://www.elevateconnectsdirectory.org/apply">Join for Free</a>
 <a href="https://www.elevateconnectsdirectory.org/programs">Explore Programs</a>
 ```
 
 ### Program Cards:
+
 ```html
-<a href="https://www.elevateconnectsdirectory.org/programs/medical-assistant">Learn More →</a>
-<a href="https://www.elevateconnectsdirectory.org/programs/hvac">Learn More →</a>
-<a href="https://www.elevateconnectsdirectory.org/programs/barber">Learn More →</a>
+<a href="https://www.elevateconnectsdirectory.org/programs/medical-assistant"
+  >Learn More →</a
+>
+<a href="https://www.elevateconnectsdirectory.org/programs/hvac"
+  >Learn More →</a
+>
+<a href="https://www.elevateconnectsdirectory.org/programs/barber"
+  >Learn More →</a
+>
 ```
 
 ### Footer CTA:
+
 ```html
-<a href="https://www.elevateconnectsdirectory.org/apply">Start My Application</a>
-<a href="https://www.elevateconnectsdirectory.org/contact">Talk to an Advisor</a>
+<a href="https://www.elevateconnectsdirectory.org/apply"
+  >Start My Application</a
+>
+<a href="https://www.elevateconnectsdirectory.org/contact"
+  >Talk to an Advisor</a
+>
 ```
 
 ---
@@ -331,6 +351,7 @@ Footer:
 ## 🔍 TESTING CHECKLIST
 
 After adding links to Durable, test:
+
 - ✅ All navigation links work
 - ✅ Dropdown menus expand
 - ✅ CTA buttons link correctly

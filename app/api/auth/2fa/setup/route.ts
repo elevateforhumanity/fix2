@@ -5,7 +5,9 @@ import { generate2FASecret } from '@/lib/auth/two-factor';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -17,7 +19,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       secret: twoFactorData.secret,
       qrCode: twoFactorData.qrCode,
-      backupCodes: twoFactorData.backupCodes
+      backupCodes: twoFactorData.backupCodes,
     });
   } catch (error: any) {
     console.error('Error setting up 2FA:', error);

@@ -1,6 +1,11 @@
 // Public REST API - Courses Endpoint
 import { NextRequest, NextResponse } from 'next/server';
-import { authenticateAPI, apiResponse, hasScope, logAPIRequest } from '@/lib/api/rest-api';
+import {
+  authenticateAPI,
+  apiResponse,
+  hasScope,
+  logAPIRequest,
+} from '@/lib/api/rest-api';
 import { createClient } from '@/lib/supabase/server';
 
 // GET /api/v1/courses - List all courses
@@ -12,7 +17,7 @@ export async function GET(request: NextRequest) {
   try {
     // Authenticate API request
     const apiKey = await authenticateAPI(request);
-    
+
     if (!apiKey) {
       statusCode = 401;
       return NextResponse.json(
@@ -45,7 +50,8 @@ export async function GET(request: NextRequest) {
 
     let query = supabase
       .from('courses')
-      .select(`
+      .select(
+        `
         id,
         title,
         description,
@@ -60,7 +66,9 @@ export async function GET(request: NextRequest) {
         updated_at,
         instructor:profiles!instructor_id(id, full_name, email),
         enrollments:enrollments(count)
-      `, { count: 'exact' })
+      `,
+        { count: 'exact' }
+      )
       .eq('status', status)
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1);
@@ -95,17 +103,14 @@ export async function GET(request: NextRequest) {
         page,
         limit,
         total: count,
-        totalPages: Math.ceil((count || 0) / limit)
+        totalPages: Math.ceil((count || 0) / limit),
       })
     );
   } catch (err: any) {
     error = err.message;
     statusCode = 500;
     console.error('API Error:', err);
-    return NextResponse.json(
-      apiResponse(false, null, error),
-      { status: 500 }
-    );
+    return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }
 }
 
@@ -117,7 +122,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const apiKey = await authenticateAPI(request);
-    
+
     if (!apiKey) {
       statusCode = 401;
       return NextResponse.json(
@@ -149,7 +154,7 @@ export async function POST(request: NextRequest) {
         currency: body.currency || 'USD',
         thumbnail_url: body.thumbnail_url,
         instructor_id: apiKey.userId,
-        status: 'draft'
+        status: 'draft',
       })
       .select()
       .single();
@@ -168,17 +173,11 @@ export async function POST(request: NextRequest) {
       request.headers.get('user-agent') || undefined
     );
 
-    return NextResponse.json(
-      apiResponse(true, course),
-      { status: 201 }
-    );
+    return NextResponse.json(apiResponse(true, course), { status: 201 });
   } catch (err: any) {
     error = err.message;
     statusCode = 500;
     console.error('API Error:', err);
-    return NextResponse.json(
-      apiResponse(false, null, error),
-      { status: 500 }
-    );
+    return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }
 }

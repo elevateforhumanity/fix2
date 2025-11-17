@@ -1,6 +1,11 @@
 // Public REST API - Users Endpoint
 import { NextRequest, NextResponse } from 'next/server';
-import { authenticateAPI, apiResponse, hasScope, logAPIRequest } from '@/lib/api/rest-api';
+import {
+  authenticateAPI,
+  apiResponse,
+  hasScope,
+  logAPIRequest,
+} from '@/lib/api/rest-api';
 import { createClient } from '@/lib/supabase/server';
 
 // GET /api/v1/users - List users
@@ -10,7 +15,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const apiKey = await authenticateAPI(request);
-    
+
     if (!apiKey) {
       statusCode = 401;
       return NextResponse.json(
@@ -34,7 +39,11 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '50');
     const offset = (page - 1) * limit;
 
-    const { data: users, error: queryError, count } = await supabase
+    const {
+      data: users,
+      error: queryError,
+      count,
+    } = await supabase
       .from('profiles')
       .select('id, full_name, email, role, created_at', { count: 'exact' })
       .order('created_at', { ascending: false })
@@ -59,16 +68,15 @@ export async function GET(request: NextRequest) {
         page,
         limit,
         total: count,
-        totalPages: Math.ceil((count || 0) / limit)
+        totalPages: Math.ceil((count || 0) / limit),
       })
     );
   } catch (err: any) {
     statusCode = 500;
     console.error('API Error:', err);
-    return NextResponse.json(
-      apiResponse(false, null, err.message),
-      { status: 500 }
-    );
+    return NextResponse.json(apiResponse(false, null, err.message), {
+      status: 500,
+    });
   }
 }
 
@@ -79,7 +87,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const apiKey = await authenticateAPI(request);
-    
+
     if (!apiKey) {
       statusCode = 401;
       return NextResponse.json(
@@ -100,14 +108,15 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
 
     // Create auth user
-    const { data: authData, error: authError } = await supabase.auth.admin.createUser({
-      email: body.email,
-      password: body.password,
-      email_confirm: true,
-      user_metadata: {
-        full_name: body.full_name
-      }
-    });
+    const { data: authData, error: authError } =
+      await supabase.auth.admin.createUser({
+        email: body.email,
+        password: body.password,
+        email_confirm: true,
+        user_metadata: {
+          full_name: body.full_name,
+        },
+      });
 
     if (authError) throw authError;
 
@@ -118,7 +127,7 @@ export async function POST(request: NextRequest) {
         id: authData.user.id,
         full_name: body.full_name,
         email: body.email,
-        role: body.role || 'student'
+        role: body.role || 'student',
       })
       .select()
       .single();
@@ -137,16 +146,12 @@ export async function POST(request: NextRequest) {
       request.headers.get('user-agent') || undefined
     );
 
-    return NextResponse.json(
-      apiResponse(true, profile),
-      { status: 201 }
-    );
+    return NextResponse.json(apiResponse(true, profile), { status: 201 });
   } catch (err: any) {
     statusCode = 500;
     console.error('API Error:', err);
-    return NextResponse.json(
-      apiResponse(false, null, err.message),
-      { status: 500 }
-    );
+    return NextResponse.json(apiResponse(false, null, err.message), {
+      status: 500,
+    });
   }
 }

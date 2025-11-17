@@ -4,8 +4,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -23,7 +25,7 @@ export async function POST(request: NextRequest) {
           course_id: courseId,
           title: module.title,
           description: module.description,
-          order: module.order
+          order: module.order,
         })
         .select()
         .single();
@@ -39,7 +41,7 @@ export async function POST(request: NextRequest) {
             module_id: moduleData.id,
             title: lesson.title,
             description: lesson.description,
-            order: lesson.order
+            order: lesson.order,
           })
           .select()
           .single();
@@ -59,7 +61,7 @@ export async function POST(request: NextRequest) {
             block_type: block.type,
             block_order: block.order,
             content: block.content,
-            settings: block.settings || {}
+            settings: block.settings || {},
           }));
 
           const { error: blocksError } = await supabase
@@ -71,9 +73,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
-      message: 'Course saved successfully' 
+      message: 'Course saved successfully',
     });
   } catch (error: any) {
     console.error('Error saving course:', error);
