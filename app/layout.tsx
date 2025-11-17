@@ -12,6 +12,8 @@ import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import CookieConsent from '@/components/CookieConsent';
+import CourseraStyleHeader from '@/components/CourseraStyleHeader';
+import CourseraStyleFooter from '@/components/CourseraStyleFooter';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -96,10 +98,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563EB" />
         <StructuredData />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-white`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-red-600 focus:text-white focus:rounded-md focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg"
         >
           Skip to main content
         </a>
@@ -108,9 +110,11 @@ export default function RootLayout({
         <ServiceWorkerRegistration />
         <OfflineIndicator />
         <NotificationPrompt />
+        <CourseraStyleHeader />
+        <main id="main-content">{children}</main>
+        <CourseraStyleFooter />
         <ElevateChatWidget />
         <CookieConsent />
-        <main id="main-content">{children}</main>
       </body>
     </html>
   );
