@@ -22,7 +22,8 @@ export async function GET() {
       rating: 4.7,
       students: 256,
       image: '/media/programs/trades-1.jpg',
-      description: 'Comprehensive HVAC training for residential and commercial systems',
+      description:
+        'Comprehensive HVAC training for residential and commercial systems',
     },
     {
       id: '3',
@@ -42,7 +43,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const body = await request.json();
-  
+
   // Validate course data
   if (!body.title || !body.category) {
     return NextResponse.json(

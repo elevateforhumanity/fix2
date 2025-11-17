@@ -48,7 +48,7 @@ export async function GET(request: Request) {
     totalPoints: 1250,
     level: 5,
     streak: 12,
-    totalAchievements: achievements.filter(a => a.earned).length,
+    totalAchievements: achievements.filter((a) => a.earned).length,
   };
 
   return NextResponse.json({ achievements, stats });
