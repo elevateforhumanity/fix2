@@ -121,18 +121,11 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                Stop Waiting.
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
-                  Start Earning.
-                </span>
+                Workforce Training & Apprenticeships That Transform Communities
               </h1>
 
               <p className="text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
-                No 4-year degree required. No massive debt. Just real skills, real training, and real jobs waiting for you.
-                <span className="block mt-4 text-red-400 font-semibold">
-                  Most students qualify for 100% free training through WIOA.
-                </span>
+                DOL & DWD-aligned training for students, employers, and workforce partners.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -140,14 +133,14 @@ export default function HomePage() {
                   href="/apply"
                   className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-xl"
                 >
-                  Check If You Qualify for Free Training
+                  Apply as a Student
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link 
-                  href="/programs"
+                  href="/agencies"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg border-2 border-white/30 transition-all"
                 >
-                  View All Programs
+                  Become a Workforce Partner
                 </Link>
               </div>
 
