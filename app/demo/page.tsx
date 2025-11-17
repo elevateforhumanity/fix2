@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function DemoPage() {
   return (
@@ -51,11 +51,13 @@ export default function DemoPage() {
             See how Elevate becomes your front door.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            In a demo, we'll walk through the learner view, partner view, and how reporting can
-            line up with the boards, funders, and stories that matter to you.
+            In a demo, we'll walk through the learner view, partner view, and
+            how reporting can line up with the boards, funders, and stories that
+            matter to you.
           </p>
           <p className="mt-3 text-sm text-slate-300">
-            Use the contact page to request a time that works. We can include your local partners in the conversation.
+            Use the contact page to request a time that works. We can include
+            your local partners in the conversation.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">
@@ -72,7 +74,10 @@ export default function DemoPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms

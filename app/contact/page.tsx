@@ -49,9 +49,9 @@ export default function ContactPage() {
             Let's talk about the people you're trying to move.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            Share a little about who you serve, the programs or pathways you&apos;re
-            interested in, and what success would look like. Elevate will follow up with you
-            to schedule a conversation.
+            Share a little about who you serve, the programs or pathways
+            you&apos;re interested in, and what success would look like. Elevate
+            will follow up with you to schedule a conversation.
           </p>
 
           <form className="mt-8 space-y-4 text-sm">
@@ -99,7 +99,8 @@ export default function ContactPage() {
               Send message (demo only)
             </button>
             <p className="mt-2 text-[0.75rem] text-slate-500">
-              This form is a visual demo. Your dev team can wire it to email or your CRM.
+              This form is a visual demo. Your dev team can wire it to email or
+              your CRM.
             </p>
           </form>
         </div>
@@ -108,7 +109,10 @@ export default function ContactPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms

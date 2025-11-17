@@ -1,20 +1,20 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Play } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { Play } from 'lucide-react';
 
 const bullets = [
-  "State-certified CNA curriculum with theory and clinical skills.",
-  "Train in real hospitals and nursing homes with actual patients.",
-  "75 hours classroom instruction + 100 hours hands-on clinical.",
-  "State certification exam prep and testing included.",
-  "Job placement assistance with healthcare employers.",
+  'State-certified CNA curriculum with theory and clinical skills.',
+  'Train in real hospitals and nursing homes with actual patients.',
+  '75 hours classroom instruction + 100 hours hands-on clinical.',
+  'State certification exam prep and testing included.',
+  'Job placement assistance with healthcare employers.',
 ];
 
 const fits = [
-  "Adults who want a patient-facing healthcare career.",
-  "Career changers from retail, hospitality, or warehouse work.",
-  "Parents and caregivers looking for stable healthcare jobs.",
-  "Learners referred by WorkOne, EmployIndy, and workforce boards.",
+  'Adults who want a patient-facing healthcare career.',
+  'Career changers from retail, hospitality, or warehouse work.',
+  'Parents and caregivers looking for stable healthcare jobs.',
+  'Learners referred by WorkOne, EmployIndy, and workforce boards.',
 ];
 
 export default function CNAProgramPage() {
@@ -70,7 +70,9 @@ export default function CNAProgramPage() {
               Certified Nursing Assistant (CNA)
             </h1>
             <p className="text-sm text-slate-300">
-              Get your CNA certification in 6-8 weeks. Train in real hospitals and nursing homes. State exam included. Most students pay $0 through WIOA/WRG funding.
+              Get your CNA certification in 6-8 weeks. Train in real hospitals
+              and nursing homes. State exam included. Most students pay $0
+              through WIOA/WRG funding.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -98,17 +100,24 @@ export default function CNAProgramPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
-              
+
               {/* Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-slate-900 ml-1" fill="currentColor" />
+                  <Play
+                    className="w-8 h-8 text-slate-900 ml-1"
+                    fill="currentColor"
+                  />
                 </div>
               </div>
 
               <div className="absolute bottom-8 left-8 text-white">
-                <p className="text-sm font-semibold mb-2">Watch: CNA training in action</p>
-                <p className="text-2xl font-bold">See students training in real medical facilities</p>
+                <p className="text-sm font-semibold mb-2">
+                  Watch: CNA training in action
+                </p>
+                <p className="text-2xl font-bold">
+                  See students training in real medical facilities
+                </p>
               </div>
             </div>
           </div>
@@ -119,7 +128,8 @@ export default function CNAProgramPage() {
                 What this program covers.
               </h2>
               <p className="text-slate-300">
-                This CNA program is IDOH-licensed and designed to get you certified and working in healthcare in just 6-8 weeks.
+                This CNA program is IDOH-licensed and designed to get you
+                certified and working in healthcare in just 6-8 weeks.
               </p>
               <ul className="mt-3 space-y-2">
                 {bullets.map((b) => (
@@ -138,7 +148,8 @@ export default function CNAProgramPage() {
                 ))}
               </ul>
               <p className="mt-4 text-[0.75rem] text-slate-400">
-                This program is ETPL-approved and WIOA-eligible. Most students qualify for $0 cost through workforce funding programs.
+                This program is ETPL-approved and WIOA-eligible. Most students
+                qualify for $0 cost through workforce funding programs.
               </p>
             </div>
           </div>
@@ -148,7 +159,10 @@ export default function CNAProgramPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms
