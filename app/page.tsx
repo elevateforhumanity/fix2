@@ -41,11 +41,11 @@ const programs = [
     href: "/programs/barber",
   },
   {
-    name: "Certified Nursing Assistant (CNA)",
-    tag: "Healthcare · State Certified",
+    name: "Medical Assistant Pathway",
+    tag: "Healthcare · Partner Program",
     description:
-      "Get your CNA certification in 6-8 weeks. Train in real hospitals and nursing homes. State exam included. Most students pay $0 through WIOA/WRG.",
-    href: "/programs/cna",
+      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting built for agencies and healthcare employers.",
+    href: "/programs/medical-assistant",
   },
   {
     name: "HVAC Technician (Partner School)",
@@ -380,11 +380,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CNA Video */}
+            {/* Medical Assistant Video */}
             <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
-                alt="CNA training"
+                alt="Medical assistant training"
                 fill
                 className="object-cover"
               />
@@ -395,7 +395,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-sm font-bold">Certified Nursing Assistant</p>
+                <p className="text-sm font-bold">Medical Assistant</p>
                 <p className="text-xs text-slate-200">3:15 min</p>
               </div>
             </div>

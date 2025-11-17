@@ -10,11 +10,11 @@ const programs = [
       "Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.",
   },
   {
-    slug: "/programs/cna",
-    name: "Certified Nursing Assistant (CNA)",
-    tag: "Healthcare · State Certified",
+    slug: "/programs/medical-assistant",
+    name: "Medical Assistant Pathway",
+    tag: "Healthcare · Partner Program",
     summary:
-      "Get your CNA certification in 6-8 weeks. Train in real hospitals and nursing homes. State exam included. Most students pay $0 through WIOA/WRG.",
+      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.",
   },
   {
     slug: "/programs/hvac",
@@ -111,25 +111,25 @@ export default function ProgramsPage() {
               </article>
             </Link>
 
-            <Link href="/programs/cna" className="group">
+            <Link href="/programs/medical-assistant" className="group">
               <article className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-sky-400/70 transition-all">
                 <div className="relative h-48">
                   <Image
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
-                    alt="CNA training"
+                    alt="Medical assistant training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-5 space-y-2">
                   <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-sky-300">
-                    Healthcare · State Certified
+                    Healthcare · Partner Program
                   </p>
                   <h2 className="text-[0.98rem] font-semibold text-slate-50">
-                    Certified Nursing Assistant (CNA)
+                    Medical Assistant Pathway
                   </h2>
                   <p className="text-[0.84rem] text-slate-300">
-                    Get your CNA certification in 6-8 weeks. Train in real hospitals and nursing homes. State exam included. Most students pay $0 through WIOA/WRG.
+                    Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.
                   </p>
                   <div className="pt-2 font-semibold text-sky-300 hover:text-sky-200">
                     View this pathway →
