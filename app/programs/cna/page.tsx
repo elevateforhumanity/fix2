@@ -1,10 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Clock, DollarSign, MapPin, Calendar, Users, ArrowRight } from 'lucide-react';
+import {
+  CheckCircle,
+  Clock,
+  DollarSign,
+  MapPin,
+  Calendar,
+  Users,
+  ArrowRight,
+} from 'lucide-react';
 
 export const metadata = {
   title: 'CNA Training Program | Elevate Connects',
-  description: 'Become a Certified Nursing Assistant in 6-8 weeks. State certification included. Most students qualify for free training through WIOA.',
+  description:
+    'Become a Certified Nursing Assistant in 6-8 weeks. State certification included. Most students qualify for free training through WIOA.',
 };
 
 export default function CNAProgramPage() {
@@ -21,7 +30,8 @@ export default function CNAProgramPage() {
               Certified Nursing Assistant (CNA)
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Start your healthcare career in 6-8 weeks. Get hands-on training in real medical facilities. State certification exam included.
+              Start your healthcare career in 6-8 weeks. Get hands-on training
+              in real medical facilities. State certification exam included.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -73,11 +83,15 @@ export default function CNAProgramPage() {
       {/* What You'll Learn */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12">What You'll Learn</h2>
-          
+          <h2 className="text-4xl font-bold text-slate-900 mb-12">
+            What You'll Learn
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Clinical Skills</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                Clinical Skills
+              </h3>
               <ul className="space-y-4">
                 {[
                   'Taking and recording vital signs (blood pressure, temperature, pulse)',
@@ -86,7 +100,7 @@ export default function CNAProgramPage() {
                   'Maintaining patient hygiene and comfort',
                   'Recognizing and reporting changes in patient condition',
                   'Following infection control procedures',
-                  'Documenting care in medical records'
+                  'Documenting care in medical records',
                 ].map((skill, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
@@ -97,11 +111,17 @@ export default function CNAProgramPage() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Where You'll Train</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                Where You'll Train
+              </h3>
               <div className="bg-blue-50 rounded-xl p-6 mb-6">
-                <h4 className="font-bold text-blue-900 mb-3">Real Healthcare Facilities</h4>
+                <h4 className="font-bold text-blue-900 mb-3">
+                  Real Healthcare Facilities
+                </h4>
                 <p className="text-blue-800 mb-4">
-                  You'll complete your clinical hours in actual hospitals, nursing homes, and assisted living facilities - not just a classroom.
+                  You'll complete your clinical hours in actual hospitals,
+                  nursing homes, and assisted living facilities - not just a
+                  classroom.
                 </p>
                 <ul className="space-y-2 text-sm text-blue-900">
                   <li>• 40 hours classroom instruction</li>
@@ -111,10 +131,13 @@ export default function CNAProgramPage() {
                 </ul>
               </div>
 
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">State Certification</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                State Certification
+              </h3>
               <div className="bg-green-50 rounded-xl p-6">
                 <p className="text-green-900 mb-4">
-                  Upon completing the program, you'll be prepared to take your state's CNA certification exam. We include:
+                  Upon completing the program, you'll be prepared to take your
+                  state's CNA certification exam. We include:
                 </p>
                 <ul className="space-y-2 text-sm text-green-900">
                   <li>• Exam preparation and practice tests</li>
@@ -136,7 +159,8 @@ export default function CNAProgramPage() {
               Workforce Compliance & Approvals
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              This program is fully aligned with federal and state workforce development standards.
+              This program is fully aligned with federal and state workforce
+              development standards.
             </p>
           </div>
 
@@ -147,7 +171,8 @@ export default function CNAProgramPage() {
               </div>
               <h3 className="font-bold text-slate-900 mb-2">ETPL-Approved</h3>
               <p className="text-sm text-slate-600">
-                Listed on Indiana's Eligible Training Provider List for WIOA funding.
+                Listed on Indiana's Eligible Training Provider List for WIOA
+                funding.
               </p>
             </div>
 
@@ -165,7 +190,9 @@ export default function CNAProgramPage() {
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">WorkOne Referral Ready</h3>
+              <h3 className="font-bold text-slate-900 mb-2">
+                WorkOne Referral Ready
+              </h3>
               <p className="text-sm text-slate-600">
                 Accepts referrals from WorkOne centers statewide.
               </p>
@@ -183,43 +210,64 @@ export default function CNAProgramPage() {
           </div>
 
           <div className="mt-12 bg-white rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Program Details for Workforce Partners</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              Program Details for Workforce Partners
+            </h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="font-bold text-slate-900 mb-4">Program Information</h4>
+                <h4 className="font-bold text-slate-900 mb-4">
+                  Program Information
+                </h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex justify-between">
                     <span className="text-slate-600">Program Code:</span>
-                    <span className="font-semibold text-slate-900">CNA-001</span>
+                    <span className="font-semibold text-slate-900">
+                      CNA-001
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-slate-600">CIP Code:</span>
-                    <span className="font-semibold text-slate-900">51.3902</span>
+                    <span className="font-semibold text-slate-900">
+                      51.3902
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-slate-600">Total Hours:</span>
-                    <span className="font-semibold text-slate-900">120 hours</span>
+                    <span className="font-semibold text-slate-900">
+                      120 hours
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-slate-600">Modality:</span>
-                    <span className="font-semibold text-slate-900">Hybrid (Classroom + Clinical)</span>
+                    <span className="font-semibold text-slate-900">
+                      Hybrid (Classroom + Clinical)
+                    </span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-slate-900 mb-4">Credentials & Partners</h4>
+                <h4 className="font-bold text-slate-900 mb-4">
+                  Credentials & Partners
+                </h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex justify-between">
                     <span className="text-slate-600">Credential Issued:</span>
-                    <span className="font-semibold text-slate-900">State CNA Certification</span>
+                    <span className="font-semibold text-slate-900">
+                      State CNA Certification
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-slate-600">Partner School:</span>
-                    <span className="font-semibold text-slate-900">Choice Medical Institute</span>
+                    <span className="font-semibold text-slate-900">
+                      Choice Medical Institute
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-slate-600">ETPL Link:</span>
-                    <Link href="/compliance/etpl" className="font-semibold text-blue-600 hover:text-blue-700">
+                    <Link
+                      href="/compliance/etpl"
+                      className="font-semibold text-blue-600 hover:text-blue-700"
+                    >
                       View Listing
                     </Link>
                   </li>
@@ -233,59 +281,85 @@ export default function CNAProgramPage() {
       {/* Schedule */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12">Program Schedule</h2>
-          
+          <h2 className="text-4xl font-bold text-slate-900 mb-12">
+            Program Schedule
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Class Schedule Options</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                Class Schedule Options
+              </h3>
               <div className="space-y-6">
                 <div>
                   <h4 className="font-bold text-slate-900 mb-2">Day Program</h4>
-                  <p className="text-slate-600 mb-2">Monday - Friday, 9:00 AM - 3:00 PM</p>
+                  <p className="text-slate-600 mb-2">
+                    Monday - Friday, 9:00 AM - 3:00 PM
+                  </p>
                   <p className="text-sm text-slate-500">6 weeks total</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-2">Evening Program</h4>
-                  <p className="text-slate-600 mb-2">Monday - Thursday, 5:30 PM - 9:30 PM</p>
+                  <h4 className="font-bold text-slate-900 mb-2">
+                    Evening Program
+                  </h4>
+                  <p className="text-slate-600 mb-2">
+                    Monday - Thursday, 5:30 PM - 9:30 PM
+                  </p>
                   <p className="text-sm text-slate-500">8 weeks total</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-2">Weekend Program</h4>
-                  <p className="text-slate-600 mb-2">Saturday & Sunday, 8:00 AM - 4:00 PM</p>
+                  <h4 className="font-bold text-slate-900 mb-2">
+                    Weekend Program
+                  </h4>
+                  <p className="text-slate-600 mb-2">
+                    Saturday & Sunday, 8:00 AM - 4:00 PM
+                  </p>
                   <p className="text-sm text-slate-500">8 weeks total</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Requirements</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                Requirements
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-slate-900">Age</p>
-                    <p className="text-sm text-slate-600">Must be 18 years or older</p>
+                    <p className="text-sm text-slate-600">
+                      Must be 18 years or older
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-slate-900">Education</p>
-                    <p className="text-sm text-slate-600">High school diploma or GED</p>
+                    <p className="text-sm text-slate-600">
+                      High school diploma or GED
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-slate-900">Background Check</p>
-                    <p className="text-sm text-slate-600">Required for clinical placement</p>
+                    <p className="font-semibold text-slate-900">
+                      Background Check
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Required for clinical placement
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-slate-900">Physical</p>
-                    <p className="text-sm text-slate-600">Health screening and immunizations</p>
+                    <p className="text-sm text-slate-600">
+                      Health screening and immunizations
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -297,11 +371,15 @@ export default function CNAProgramPage() {
       {/* Career Outlook */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12">After Graduation</h2>
-          
+          <h2 className="text-4xl font-bold text-slate-900 mb-12">
+            After Graduation
+          </h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Where CNAs Work</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Where CNAs Work
+              </h3>
               <ul className="space-y-3 text-slate-700">
                 <li>• Hospitals</li>
                 <li>• Nursing homes</li>
@@ -313,7 +391,9 @@ export default function CNAProgramPage() {
             </div>
 
             <div className="bg-slate-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Typical Schedule</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Typical Schedule
+              </h3>
               <ul className="space-y-3 text-slate-700">
                 <li>• Full-time or part-time</li>
                 <li>• Day, evening, or night shifts</li>
@@ -324,7 +404,9 @@ export default function CNAProgramPage() {
             </div>
 
             <div className="bg-slate-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Career Growth</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Career Growth
+              </h3>
               <ul className="space-y-3 text-slate-700">
                 <li>• Advance to LPN/LVN</li>
                 <li>• Pursue RN degree</li>
