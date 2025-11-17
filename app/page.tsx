@@ -1,73 +1,73 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Play } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { Play } from 'lucide-react';
 
 const stats = [
   {
-    label: "Built for workforce systems",
-    value: "All in one front door",
+    label: 'Built for workforce systems',
+    value: 'All in one front door',
   },
   {
-    label: "Pathways you can trust",
-    value: "Barber · Healthcare · Trades",
+    label: 'Pathways you can trust',
+    value: 'Barber · Healthcare · Trades',
   },
   {
-    label: "Designed for real people",
-    value: "Learners · Agencies · Employers",
+    label: 'Designed for real people',
+    value: 'Learners · Agencies · Employers',
   },
 ];
 
 const steps = [
   {
-    title: "1 · One clear starting point",
-    body: "Learners, parents, case managers, and employers all start in the same place: Elevate. No more sending people to five different sites and hoping they find the right link.",
+    title: '1 · One clear starting point',
+    body: 'Learners, parents, case managers, and employers all start in the same place: Elevate. No more sending people to five different sites and hoping they find the right link.',
   },
   {
-    title: "2 · Partner-powered training",
-    body: "Credentialing partners handle instruction and licensing. Elevate orchestrates the LMS, live support, reminders, documents, and progress tracking across programs.",
+    title: '2 · Partner-powered training',
+    body: 'Credentialing partners handle instruction and licensing. Elevate orchestrates the LMS, live support, reminders, documents, and progress tracking across programs.',
   },
   {
-    title: "3 · Outcomes you can see",
-    body: "Completions, credentials, hours, and next steps are organized where agencies and employers can actually see them, export them, and tell a clear story to funders.",
+    title: '3 · Outcomes you can see',
+    body: 'Completions, credentials, hours, and next steps are organized where agencies and employers can actually see them, export them, and tell a clear story to funders.',
   },
 ];
 
 const programs = [
   {
-    name: "Barber Apprenticeship (Milady-Powered)",
-    tag: "Apprenticeship · License Track",
+    name: 'Barber Apprenticeship (Milady-Powered)',
+    tag: 'Apprenticeship · License Track',
     description:
-      "Milady curriculum + shop-based experience + Elevate tracking to move learners toward real barber careers and licensing support.",
-    href: "/programs/barber",
+      'Milady curriculum + shop-based experience + Elevate tracking to move learners toward real barber careers and licensing support.',
+    href: '/programs/barber',
   },
   {
-    name: "Medical Assistant Pathway",
-    tag: "Healthcare · Partner Program",
+    name: 'Medical Assistant Pathway',
+    tag: 'Healthcare · Partner Program',
     description:
-      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting built for agencies and healthcare employers.",
-    href: "/programs/medical-assistant",
+      'Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting built for agencies and healthcare employers.',
+    href: '/programs/medical-assistant',
   },
   {
-    name: "HVAC Technician (Partner School)",
-    tag: "Skilled Trades · External School",
+    name: 'HVAC Technician (Partner School)',
+    tag: 'Skilled Trades · External School',
     description:
-      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
-    href: "/programs/hvac",
+      'Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.',
+    href: '/programs/hvac',
   },
 ];
 
 const reasons = [
   {
-    title: "Partner-centered, not platform-centered.",
-    body: "Elevate is built to respect the programs you already trust—Milady, medical assistant schools, HVAC providers—while giving them one shared digital home.",
+    title: 'Partner-centered, not platform-centered.',
+    body: 'Elevate is built to respect the programs you already trust—Milady, medical assistant schools, HVAC providers—while giving them one shared digital home.',
   },
   {
-    title: "Written for humans, not just funders.",
-    body: "Every page is written so a learner, grandparent, pastor, or case manager can read it and instantly understand the opportunity.",
+    title: 'Written for humans, not just funders.',
+    body: 'Every page is written so a learner, grandparent, pastor, or case manager can read it and instantly understand the opportunity.',
   },
   {
-    title: "Workforce compliance in mind from day one.",
-    body: "We design pathways with WIOA, WRG, JRI, WorkOne, EmployIndy, and similar boards front-of-mind, not as an afterthought.",
+    title: 'Workforce compliance in mind from day one.',
+    body: 'We design pathways with WIOA, WRG, JRI, WorkOne, EmployIndy, and similar boards front-of-mind, not as an afterthought.',
   },
 ];
 
@@ -127,20 +127,21 @@ export default function Home() {
             </div>
 
             <h1 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-[2.75rem]">
-              The digital front door for{" "}
+              The digital front door for{' '}
               <span className="bg-gradient-to-r from-emerald-300 via-sky-300 to-amber-300 bg-clip-text text-transparent">
                 community-powered careers.
               </span>
             </h1>
 
             <p className="text-sm leading-relaxed text-slate-300 sm:text-[0.96rem]">
-              Elevate for Humanity gives cities, boards, and community partners one modern
-              place to send people for{" "}
+              Elevate for Humanity gives cities, boards, and community partners
+              one modern place to send people for{' '}
               <span className="font-semibold text-emerald-200">
                 barber, healthcare, and skilled trades pathways
               </span>
-              . Partners provide the curriculum and licensing. Elevate organizes the journey so
-              learners don&apos;t get lost and agencies can see what&apos;s working.
+              . Partners provide the curriculum and licensing. Elevate organizes
+              the journey so learners don&apos;t get lost and agencies can see
+              what&apos;s working.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -164,13 +165,17 @@ export default function Home() {
                   Designed for Indiana and beyond.
                 </p>
                 <p className="text-slate-400">
-                  Built with WorkOne, EmployIndy, WRG, JRI, and similar boards in mind.
+                  Built with WorkOne, EmployIndy, WRG, JRI, and similar boards
+                  in mind.
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-slate-100">Partner-powered, not siloed.</p>
+                <p className="font-semibold text-slate-100">
+                  Partner-powered, not siloed.
+                </p>
                 <p className="text-slate-400">
-                  Milady, MA partners, and HVAC schools keep teaching. Elevate connects it.
+                  Milady, MA partners, and HVAC schools keep teaching. Elevate
+                  connects it.
                 </p>
               </div>
               <div>
@@ -178,7 +183,8 @@ export default function Home() {
                   Stories everyone can understand.
                 </p>
                 <p className="text-slate-400">
-                  Pages written for learners, parents, and case managers—not just funders.
+                  Pages written for learners, parents, and case managers—not
+                  just funders.
                 </p>
               </div>
             </div>
@@ -202,21 +208,29 @@ export default function Home() {
                     Live snapshot
                   </p>
                   <p className="mt-1 text-xs text-slate-300">
-                    Who&apos;s enrolled, where they are in the journey, and which partner
-                    they&apos;re with—on one simple screen.
+                    Who&apos;s enrolled, where they are in the journey, and
+                    which partner they&apos;re with—on one simple screen.
                   </p>
                   <div className="mt-3 grid grid-cols-3 gap-3 text-center text-[0.7rem]">
                     <div className="rounded-xl bg-slate-900/80 p-2">
                       <p className="text-[0.65rem] text-slate-400">Barber</p>
-                      <p className="text-sm font-semibold text-emerald-300">In Progress</p>
+                      <p className="text-sm font-semibold text-emerald-300">
+                        In Progress
+                      </p>
                     </div>
                     <div className="rounded-xl bg-slate-900/80 p-2">
-                      <p className="text-[0.65rem] text-slate-400">Medical Assist.</p>
-                      <p className="text-sm font-semibold text-sky-300">Cohort Ready</p>
+                      <p className="text-[0.65rem] text-slate-400">
+                        Medical Assist.
+                      </p>
+                      <p className="text-sm font-semibold text-sky-300">
+                        Cohort Ready
+                      </p>
                     </div>
                     <div className="rounded-xl bg-slate-900/80 p-2">
                       <p className="text-[0.65rem] text-slate-400">HVAC</p>
-                      <p className="text-sm font-semibold text-amber-300">Partner Sync</p>
+                      <p className="text-sm font-semibold text-amber-300">
+                        Partner Sync
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -226,8 +240,9 @@ export default function Home() {
                     "When in doubt, send them to Elevate."
                   </p>
                   <p className="mt-1 text-slate-400">
-                    The goal is simple: make Elevate the sentence people say when someone is
-                    ready for a program, a pathway, or a second chance.
+                    The goal is simple: make Elevate the sentence people say
+                    when someone is ready for a program, a pathway, or a second
+                    chance.
                   </p>
                 </div>
 
@@ -266,9 +281,10 @@ export default function Home() {
               One platform to connect learners, partners, and workforce systems.
             </h2>
             <p className="text-sm text-slate-300">
-              Elevate doesn&apos;t try to be everything. It&apos;s the front door, the glue, and the
-              story-teller between the people who need training, the organizations who teach,
-              and the systems that fund it.
+              Elevate doesn&apos;t try to be everything. It&apos;s the front
+              door, the glue, and the story-teller between the people who need
+              training, the organizations who teach, and the systems that fund
+              it.
             </p>
           </div>
 
@@ -281,7 +297,9 @@ export default function Home() {
                 <h3 className="text-sm font-semibold text-emerald-200">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-[0.82rem] text-slate-300">{step.body}</p>
+                <p className="mt-2 text-[0.82rem] text-slate-300">
+                  {step.body}
+                </p>
               </div>
             ))}
           </div>
@@ -300,9 +318,9 @@ export default function Home() {
                 Start where your community already has momentum.
               </h2>
               <p className="text-sm text-slate-300">
-                Elevate helps you stand up (or clean up) pathways that are already in demand:
-                barbering, medical assistant, and HVAC—with room to grow into more trades and
-                credentials over time.
+                Elevate helps you stand up (or clean up) pathways that are
+                already in demand: barbering, medical assistant, and HVAC—with
+                room to grow into more trades and credentials over time.
               </p>
             </div>
             <Link
@@ -371,7 +389,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                  <Play
+                    className="w-6 h-6 text-slate-900 ml-1"
+                    fill="currentColor"
+                  />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
@@ -391,7 +412,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                  <Play
+                    className="w-6 h-6 text-slate-900 ml-1"
+                    fill="currentColor"
+                  />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
@@ -411,7 +435,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
+                  <Play
+                    className="w-6 h-6 text-slate-900 ml-1"
+                    fill="currentColor"
+                  />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
@@ -444,7 +471,9 @@ export default function Home() {
                 <h3 className="text-[0.95rem] font-semibold text-slate-50">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[0.85rem] text-slate-300">{item.body}</p>
+                <p className="mt-2 text-[0.85rem] text-slate-300">
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
@@ -452,19 +481,21 @@ export default function Home() {
           <div className="mt-10 grid gap-6 md:grid-cols-[1.1fr,0.9fr] md:items-center">
             <div className="space-y-3 text-sm text-slate-300">
               <p>
-                Elevate for Humanity was created because too many people were "referred" into
-                programs with no follow-up, no clarity, and no sense of where they actually
-                were in the journey. We&apos;re here to change that story.
+                Elevate for Humanity was created because too many people were
+                "referred" into programs with no follow-up, no clarity, and no
+                sense of where they actually were in the journey. We&apos;re
+                here to change that story.
               </p>
               <p>
-                When someone in your city is ready to move—out of survival mode, into training,
-                into work—we want "Send them to Elevate" to be the default response.
+                When someone in your city is ready to move—out of survival mode,
+                into training, into work—we want "Send them to Elevate" to be
+                the default response.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
               <p className="italic">
-                "Our job is to make opportunity easier to find and easier to finish—without
-                asking partners to blow up what already works."
+                "Our job is to make opportunity easier to find and easier to
+                finish—without asking partners to blow up what already works."
               </p>
               <p className="mt-3 text-[0.78rem] text-slate-400">
                 Elevate for Humanity · Elevate Connects Directory
@@ -483,9 +514,9 @@ export default function Home() {
                 Ready to make Elevate the front door for your city?
               </h2>
               <p className="mt-2 text-sm">
-                Whether you&apos;re a workforce board, agency, school, church, employer, or
-                community hub, Elevate can become the place you send people when they&apos;re
-                ready to move.
+                Whether you&apos;re a workforce board, agency, school, church,
+                employer, or community hub, Elevate can become the place you
+                send people when they&apos;re ready to move.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -509,7 +540,10 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms
