@@ -1,19 +1,30 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Handbook() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <header className="border-b border-white/10 bg-black">
         <div className="mx-auto max-w-4xl px-6 py-6">
-          <Link href="/onboarding" className="text-orange-400 hover:text-orange-300 text-sm">← Back</Link>
-          <h1 className="mt-4 text-3xl font-bold">Universal Responsibilities & Expectations Handbook</h1>
+          <Link
+            href="/onboarding"
+            className="text-orange-400 hover:text-orange-300 text-sm"
+          >
+            ← Back
+          </Link>
+          <h1 className="mt-4 text-3xl font-bold">
+            Universal Responsibilities & Expectations Handbook
+          </h1>
           <p className="mt-2 text-lg text-slate-300">Elevate For Humanity™</p>
         </div>
       </header>
       <section className="mx-auto max-w-4xl px-6 py-12 prose prose-invert prose-orange max-w-none">
         <h2>1. Mission & Purpose</h2>
-        <p>Elevate For Humanity™ exists to Innovate, Elevate, and Reset lives through access to training, workforce pathways, apprenticeships, supportive services, and partnerships with employers and schools.</p>
-        
+        <p>
+          Elevate For Humanity™ exists to Innovate, Elevate, and Reset lives
+          through access to training, workforce pathways, apprenticeships,
+          supportive services, and partnerships with employers and schools.
+        </p>
+
         <h2>2. Who This Handbook Applies To</h2>
         <ul>
           <li>Elevate Staff & Independent Contractors</li>
@@ -53,7 +64,9 @@ export default function Handbook() {
         <h2>5. Training Provider / Program Site Responsibilities</h2>
         <ul>
           <li>Maintain clean, safe, appropriate learning environments</li>
-          <li>Provide Elevate with updated schedules, calendars, and requirements</li>
+          <li>
+            Provide Elevate with updated schedules, calendars, and requirements
+          </li>
           <li>Notify Elevate of attendance issues promptly</li>
           <li>Follow state, training provider, and Elevate guidelines</li>
           <li>Allow Elevate staff to conduct check-ins or site visits</li>
@@ -66,22 +79,31 @@ export default function Handbook() {
           <li>Provide safe, legally compliant workplaces</li>
           <li>Treat Elevate learners fairly and without bias</li>
           <li>Communicate job expectations clearly</li>
-          <li>Notify Elevate when a learner is hired, leaves, or has performance concerns</li>
+          <li>
+            Notify Elevate when a learner is hired, leaves, or has performance
+            concerns
+          </li>
           <li>Offer honest performance feedback</li>
           <li>Follow workplace harassment and safety policies</li>
-          <li>Provide required personal protective equipment (PPE) where needed</li>
+          <li>
+            Provide required personal protective equipment (PPE) where needed
+          </li>
         </ul>
 
         <h2>7. Participant / Learner Responsibilities</h2>
         <ul>
-          <li>Attend scheduled classes, labs, coaching sessions, and interviews</li>
+          <li>
+            Attend scheduled classes, labs, coaching sessions, and interviews
+          </li>
           <li>Communicate absences in advance</li>
           <li>Complete training assignments and requirements</li>
           <li>Follow site rules at training and work locations</li>
           <li>Treat staff, peers, instructors, and employers respectfully</li>
           <li>Ask for help early when challenges arise</li>
           <li>Participate in check-ins and progress reviews</li>
-          <li>Represent themselves professionally during employer interactions</li>
+          <li>
+            Represent themselves professionally during employer interactions
+          </li>
         </ul>
 
         <h2>8. Safety Standards</h2>
@@ -89,7 +111,10 @@ export default function Handbook() {
         <ul>
           <li>Safe learning and work environments</li>
           <li>Zero tolerance for harassment or violence</li>
-          <li>Reporting of unsafe conditions, injuries, threats, violence, discrimination, and major behavioral incidents</li>
+          <li>
+            Reporting of unsafe conditions, injuries, threats, violence,
+            discrimination, and major behavioral incidents
+          </li>
           <li>Immediate communication for emergencies</li>
         </ul>
 
@@ -115,7 +140,10 @@ export default function Handbook() {
 
         <div className="mt-12 p-6 rounded-2xl border border-orange-400/40 bg-slate-900">
           <h3 className="text-xl font-bold mb-4">Acknowledgment</h3>
-          <p>By completing onboarding, you acknowledge that you have read, understood, and agree to follow this handbook.</p>
+          <p>
+            By completing onboarding, you acknowledge that you have read,
+            understood, and agree to follow this handbook.
+          </p>
         </div>
       </section>
     </main>
