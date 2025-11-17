@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const partnerTypes = [
   {
@@ -49,6 +50,23 @@ export default function PartnersPage() {
               >
                 See how the LMS works
               </Link>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="mt-10 mb-10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96">
+              <Image
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+                alt="Partners collaborating on workforce development"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <p className="text-sm font-semibold mb-2">Partnership opportunities</p>
+                <p className="text-2xl font-bold">Work together to move people into careers</p>
+              </div>
             </div>
           </div>
 

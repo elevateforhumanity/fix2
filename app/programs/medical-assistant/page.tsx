@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const maBullets = [
   "Credentialing-partner medical assistant curriculum for theory and skills.",
@@ -45,6 +46,23 @@ export default function MedicalAssistantPage() {
               >
                 Sponsor seats or refer learners
               </Link>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="mt-10 mb-10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96">
+              <Image
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80"
+                alt="Medical assistant training in clinical setting"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <p className="text-sm font-semibold mb-2">Clinical healthcare training</p>
+                <p className="text-2xl font-bold">Train in real medical facilities with patients</p>
+              </div>
             </div>
           </div>
 

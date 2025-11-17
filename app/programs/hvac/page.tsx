@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const hvacBullets = [
   "Orientation to HVAC work, expectations, and career paths.",
@@ -45,6 +46,23 @@ export default function HvacProgramPage() {
               >
                 Explore HVAC cohorts and partners
               </Link>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="mt-10 mb-10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-96">
+              <Image
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80"
+                alt="HVAC technician training with equipment"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <p className="text-sm font-semibold mb-2">Hands-on HVAC training</p>
+                <p className="text-2xl font-bold">Work with real systems and equipment</p>
+              </div>
             </div>
           </div>
 
