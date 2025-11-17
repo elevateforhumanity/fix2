@@ -69,30 +69,43 @@ export function VideoConferencingIntegration() {
             <Card key={meeting.id} className="p-6">
               <div className="flex justify-between items-start mb-3">
                 <h3 className="text-xl font-bold">{meeting.title}</h3>
-                <span className={`px-3 py-1 rounded text-xs font-medium ${
-                  meeting.status === 'live' ? 'bg-red-100 text-red-700' :
-                  meeting.status === 'upcoming' ? 'bg-blue-100 text-blue-700' :
-                  'bg-gray-100 text-gray-700'
-                }`}>
-                  {meeting.status === 'live' && '🔴 '}{meeting.status.toUpperCase()}
+                <span
+                  className={`px-3 py-1 rounded text-xs font-medium ${
+                    meeting.status === 'live'
+                      ? 'bg-red-100 text-red-700'
+                      : meeting.status === 'upcoming'
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'bg-gray-100 text-gray-700'
+                  }`}
+                >
+                  {meeting.status === 'live' && '🔴 '}
+                  {meeting.status.toUpperCase()}
                 </span>
               </div>
 
               <div className="space-y-2 text-sm text-gray-600 mb-4">
                 <p>👤 Host: {meeting.host}</p>
-                <p>📅 {meeting.date} at {meeting.time}</p>
+                <p>
+                  📅 {meeting.date} at {meeting.time}
+                </p>
                 <p>⏱️ Duration: {meeting.duration}</p>
                 <p>👥 {meeting.participants} participants</p>
               </div>
 
               {meeting.status === 'live' && (
-                <Button className="w-full bg-red-600 hover:bg-red-700">Join Now</Button>
+                <Button className="w-full bg-red-600 hover:bg-red-700">
+                  Join Now
+                </Button>
               )}
               {meeting.status === 'upcoming' && (
-                <Button className="w-full" variant="secondary">Add to Calendar</Button>
+                <Button className="w-full" variant="secondary">
+                  Add to Calendar
+                </Button>
               )}
               {meeting.status === 'ended' && (
-                <Button className="w-full" variant="secondary">View Recording</Button>
+                <Button className="w-full" variant="secondary">
+                  View Recording
+                </Button>
               )}
             </Card>
           ))}
@@ -102,7 +115,9 @@ export function VideoConferencingIntegration() {
           <h3 className="text-xl font-bold mb-4">Quick Start a Meeting</h3>
           <div className="flex gap-4">
             <Button className="flex-1">Start Instant Meeting</Button>
-            <Button variant="secondary" className="flex-1">Schedule for Later</Button>
+            <Button variant="secondary" className="flex-1">
+              Schedule for Later
+            </Button>
           </div>
         </Card>
       </div>

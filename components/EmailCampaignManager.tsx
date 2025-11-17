@@ -76,13 +76,23 @@ export function EmailCampaignManager() {
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Open Rate</h3>
             <p className="text-3xl font-bold text-orange-500">
-              {Math.round((campaigns.reduce((sum, c) => sum + c.opened, 0) / campaigns.reduce((sum, c) => sum + c.sent, 0)) * 100) || 0}%
+              {Math.round(
+                (campaigns.reduce((sum, c) => sum + c.opened, 0) /
+                  campaigns.reduce((sum, c) => sum + c.sent, 0)) *
+                  100
+              ) || 0}
+              %
             </p>
           </Card>
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Click Rate</h3>
             <p className="text-3xl font-bold text-green-600">
-              {Math.round((campaigns.reduce((sum, c) => sum + c.clicked, 0) / campaigns.reduce((sum, c) => sum + c.sent, 0)) * 100) || 0}%
+              {Math.round(
+                (campaigns.reduce((sum, c) => sum + c.clicked, 0) /
+                  campaigns.reduce((sum, c) => sum + c.sent, 0)) *
+                  100
+              ) || 0}
+              %
             </p>
           </Card>
         </div>
@@ -94,11 +104,15 @@ export function EmailCampaignManager() {
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold">{campaign.name}</h3>
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${
-                      campaign.status === 'sent' ? 'bg-green-100 text-green-700' :
-                      campaign.status === 'scheduled' ? 'bg-blue-100 text-blue-700' :
-                      'bg-gray-100 text-gray-700'
-                    }`}>
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-medium ${
+                        campaign.status === 'sent'
+                          ? 'bg-green-100 text-green-700'
+                          : campaign.status === 'scheduled'
+                            ? 'bg-blue-100 text-blue-700'
+                            : 'bg-gray-100 text-gray-700'
+                      }`}
+                    >
                       {campaign.status.toUpperCase()}
                     </span>
                   </div>
@@ -113,11 +127,15 @@ export function EmailCampaignManager() {
                   {campaign.status === 'draft' && (
                     <>
                       <Button size="sm">Edit</Button>
-                      <Button size="sm" variant="secondary">Send</Button>
+                      <Button size="sm" variant="secondary">
+                        Send
+                      </Button>
                     </>
                   )}
                   {campaign.status === 'sent' && (
-                    <Button size="sm" variant="secondary">View Report</Button>
+                    <Button size="sm" variant="secondary">
+                      View Report
+                    </Button>
                   )}
                 </div>
               </div>
@@ -126,22 +144,28 @@ export function EmailCampaignManager() {
                 <div className="grid grid-cols-4 gap-4 text-sm">
                   <div>
                     <p className="text-gray-600">Recipients</p>
-                    <p className="font-bold">{campaign.recipients.toLocaleString()}</p>
+                    <p className="font-bold">
+                      {campaign.recipients.toLocaleString()}
+                    </p>
                   </div>
                   <div>
                     <p className="text-gray-600">Sent</p>
-                    <p className="font-bold">{campaign.sent.toLocaleString()}</p>
+                    <p className="font-bold">
+                      {campaign.sent.toLocaleString()}
+                    </p>
                   </div>
                   <div>
                     <p className="text-gray-600">Opened</p>
                     <p className="font-bold text-orange-600">
-                      {campaign.opened.toLocaleString()} ({Math.round((campaign.opened / campaign.sent) * 100)}%)
+                      {campaign.opened.toLocaleString()} (
+                      {Math.round((campaign.opened / campaign.sent) * 100)}%)
                     </p>
                   </div>
                   <div>
                     <p className="text-gray-600">Clicked</p>
                     <p className="font-bold text-green-600">
-                      {campaign.clicked.toLocaleString()} ({Math.round((campaign.clicked / campaign.sent) * 100)}%)
+                      {campaign.clicked.toLocaleString()} (
+                      {Math.round((campaign.clicked / campaign.sent) * 100)}%)
                     </p>
                   </div>
                 </div>

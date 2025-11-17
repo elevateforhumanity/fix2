@@ -64,27 +64,34 @@ export function NotificationCenter() {
     },
   ];
 
-  const filteredNotifications = filter === 'unread' 
-    ? notifications.filter(n => !n.read)
-    : notifications;
+  const filteredNotifications =
+    filter === 'unread' ? notifications.filter((n) => !n.read) : notifications;
 
-  const unreadCount = notifications.filter(n => !n.read).length;
+  const unreadCount = notifications.filter((n) => !n.read).length;
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'success': return '✓';
-      case 'warning': return '⚠️';
-      case 'error': return '✕';
-      default: return 'ℹ️';
+      case 'success':
+        return '✓';
+      case 'warning':
+        return '⚠️';
+      case 'error':
+        return '✕';
+      default:
+        return 'ℹ️';
     }
   };
 
   const getColor = (type: string) => {
     switch (type) {
-      case 'success': return 'bg-green-100 text-green-700 border-green-200';
-      case 'warning': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-      case 'error': return 'bg-red-100 text-red-700 border-red-200';
-      default: return 'bg-blue-100 text-blue-700 border-blue-200';
+      case 'success':
+        return 'bg-green-100 text-green-700 border-green-200';
+      case 'warning':
+        return 'bg-yellow-100 text-yellow-700 border-yellow-200';
+      case 'error':
+        return 'bg-red-100 text-red-700 border-red-200';
+      default:
+        return 'bg-blue-100 text-blue-700 border-blue-200';
     }
   };
 
@@ -103,7 +110,9 @@ export function NotificationCenter() {
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'all' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'
+                filter === 'all'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-white text-gray-700 border'
               }`}
             >
               All ({notifications.length})
@@ -111,20 +120,27 @@ export function NotificationCenter() {
             <button
               onClick={() => setFilter('unread')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'unread' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'
+                filter === 'unread'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-white text-gray-700 border'
               }`}
             >
               Unread ({unreadCount})
             </button>
           </div>
-          <Button variant="secondary" size="sm">Mark All as Read</Button>
+          <Button variant="secondary" size="sm">
+            Mark All as Read
+          </Button>
         </div>
 
         <div className="space-y-3">
           {filteredNotifications.map((notification) => (
-            <Card key={notification.id} className={`p-4 border-l-4 ${
-              !notification.read ? 'bg-blue-50' : ''
-            } ${getColor(notification.type)}`}>
+            <Card
+              key={notification.id}
+              className={`p-4 border-l-4 ${
+                !notification.read ? 'bg-blue-50' : ''
+              } ${getColor(notification.type)}`}
+            >
               <div className="flex gap-4">
                 <div className="text-2xl">{getIcon(notification.type)}</div>
                 <div className="flex-1">
@@ -134,11 +150,17 @@ export function NotificationCenter() {
                       <span className="w-2 h-2 bg-red-600 rounded-full"></span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-700 mb-2">{notification.message}</p>
+                  <p className="text-sm text-gray-700 mb-2">
+                    {notification.message}
+                  </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-500">{notification.timestamp}</span>
+                    <span className="text-xs text-gray-500">
+                      {notification.timestamp}
+                    </span>
                     {notification.actionUrl && (
-                      <Button size="sm" variant="secondary">View</Button>
+                      <Button size="sm" variant="secondary">
+                        View
+                      </Button>
                     )}
                   </div>
                 </div>

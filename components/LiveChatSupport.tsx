@@ -44,7 +44,7 @@ export function LiveChatSupport() {
         text: 'Thank you for your message. An agent will respond shortly.',
         timestamp: new Date().toLocaleTimeString(),
       };
-      setMessages(prev => [...prev, agentResponse]);
+      setMessages((prev) => [...prev, agentResponse]);
     }, 1000);
   };
 
@@ -66,19 +66,31 @@ export function LiveChatSupport() {
           <h3 className="font-bold">Live Support</h3>
           <p className="text-xs text-red-100">● Online</p>
         </div>
-        <button onClick={() => setIsOpen(false)} className="text-2xl hover:opacity-80">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="text-2xl hover:opacity-80"
+        >
           ✕
         </button>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.map((msg) => (
-          <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] rounded-lg p-3 ${
-              msg.sender === 'user' ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-900'
-            }`}>
+          <div
+            key={msg.id}
+            className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-[80%] rounded-lg p-3 ${
+                msg.sender === 'user'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-100 text-gray-900'
+              }`}
+            >
               <p className="text-sm">{msg.text}</p>
-              <p className={`text-xs mt-1 ${msg.sender === 'user' ? 'text-red-200' : 'text-gray-500'}`}>
+              <p
+                className={`text-xs mt-1 ${msg.sender === 'user' ? 'text-red-200' : 'text-gray-500'}`}
+              >
                 {msg.timestamp}
               </p>
             </div>

@@ -45,10 +45,14 @@ export function CalendarIntegration() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'class': return 'bg-blue-100 text-blue-700';
-      case 'meeting': return 'bg-green-100 text-green-700';
-      case 'deadline': return 'bg-red-100 text-red-700';
-      default: return 'bg-purple-100 text-purple-700';
+      case 'class':
+        return 'bg-blue-100 text-blue-700';
+      case 'meeting':
+        return 'bg-green-100 text-green-700';
+      case 'deadline':
+        return 'bg-red-100 text-red-700';
+      default:
+        return 'bg-purple-100 text-purple-700';
     }
   };
 
@@ -68,23 +72,34 @@ export function CalendarIntegration() {
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">February 2024</h2>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="secondary">← Prev</Button>
-                  <Button size="sm" variant="secondary">Next →</Button>
+                  <Button size="sm" variant="secondary">
+                    ← Prev
+                  </Button>
+                  <Button size="sm" variant="secondary">
+                    Next →
+                  </Button>
                 </div>
               </div>
 
               <div className="grid grid-cols-7 gap-2 mb-2">
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="text-center font-semibold text-sm text-gray-600">
-                    {day}
-                  </div>
-                ))}
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(
+                  (day) => (
+                    <div
+                      key={day}
+                      className="text-center font-semibold text-sm text-gray-600"
+                    >
+                      {day}
+                    </div>
+                  )
+                )}
               </div>
 
               <div className="grid grid-cols-7 gap-2">
                 {Array.from({ length: 35 }, (_, i) => {
                   const day = i - 2;
-                  const hasEvent = events.some(e => new Date(e.date).getDate() === day);
+                  const hasEvent = events.some(
+                    (e) => new Date(e.date).getDate() === day
+                  );
                   return (
                     <div
                       key={i}
@@ -111,9 +126,13 @@ export function CalendarIntegration() {
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <h4 className="font-bold">{event.title}</h4>
-                        <p className="text-sm text-gray-600">{event.description}</p>
+                        <p className="text-sm text-gray-600">
+                          {event.description}
+                        </p>
                       </div>
-                      <span className={`px-2 py-1 rounded text-xs font-medium ${getTypeColor(event.type)}`}>
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-medium ${getTypeColor(event.type)}`}
+                      >
                         {event.type}
                       </span>
                     </div>
@@ -131,8 +150,12 @@ export function CalendarIntegration() {
               <h3 className="font-bold mb-4">Quick Actions</h3>
               <div className="space-y-2">
                 <Button className="w-full">Add Event</Button>
-                <Button variant="secondary" className="w-full">Sync with Google</Button>
-                <Button variant="secondary" className="w-full">Export Calendar</Button>
+                <Button variant="secondary" className="w-full">
+                  Sync with Google
+                </Button>
+                <Button variant="secondary" className="w-full">
+                  Export Calendar
+                </Button>
               </div>
             </Card>
 

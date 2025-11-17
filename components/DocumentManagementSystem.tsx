@@ -65,7 +65,9 @@ export function DocumentManagementSystem() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Document Management</h1>
-          <p className="text-red-100">Organize and version control your files</p>
+          <p className="text-red-100">
+            Organize and version control your files
+          </p>
         </div>
       </div>
 
@@ -84,7 +86,9 @@ export function DocumentManagementSystem() {
                     key={doc.id}
                     onClick={() => setSelectedDoc(doc)}
                     className={`p-4 rounded-lg cursor-pointer transition-colors ${
-                      selectedDoc?.id === doc.id ? 'bg-red-50 border-2 border-red-600' : 'bg-gray-50 hover:bg-gray-100'
+                      selectedDoc?.id === doc.id
+                        ? 'bg-red-50 border-2 border-red-600'
+                        : 'bg-gray-50 hover:bg-gray-100'
                     }`}
                   >
                     <div className="flex items-start justify-between">
@@ -100,7 +104,9 @@ export function DocumentManagementSystem() {
                           </p>
                         </div>
                       </div>
-                      <Button size="sm" variant="secondary">Download</Button>
+                      <Button size="sm" variant="secondary">
+                        Download
+                      </Button>
                     </div>
                   </div>
                 ))}
@@ -114,13 +120,20 @@ export function DocumentManagementSystem() {
                 <h3 className="font-bold mb-4">Version History</h3>
                 <div className="space-y-3">
                   {selectedDoc.versions.map((version) => (
-                    <div key={version.version} className="p-3 bg-gray-50 rounded">
+                    <div
+                      key={version.version}
+                      className="p-3 bg-gray-50 rounded"
+                    >
                       <div className="flex justify-between items-start mb-1">
                         <span className="font-semibold">{version.version}</span>
-                        <Button size="sm" variant="secondary">Restore</Button>
+                        <Button size="sm" variant="secondary">
+                          Restore
+                        </Button>
                       </div>
                       <p className="text-xs text-gray-600">{version.date}</p>
-                      <p className="text-xs text-gray-500">by {version.author}</p>
+                      <p className="text-xs text-gray-500">
+                        by {version.author}
+                      </p>
                     </div>
                   ))}
                 </div>

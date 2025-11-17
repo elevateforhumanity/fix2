@@ -62,22 +62,32 @@ export function ResourceLibrary() {
     },
   ];
 
-  const allTags = ['all', ...Array.from(new Set(resources.flatMap(r => r.tags)))];
+  const allTags = [
+    'all',
+    ...Array.from(new Set(resources.flatMap((r) => r.tags))),
+  ];
 
-  const filteredResources = resources.filter(resource => {
-    const matchesSearch = resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         resource.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesTag = selectedTag === 'all' || resource.tags.includes(selectedTag);
+  const filteredResources = resources.filter((resource) => {
+    const matchesSearch =
+      resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      resource.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesTag =
+      selectedTag === 'all' || resource.tags.includes(selectedTag);
     return matchesSearch && matchesTag;
   });
 
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'video': return '🎥';
-      case 'article': return '📄';
-      case 'ebook': return '📚';
-      case 'code': return '💻';
-      default: return '📁';
+      case 'video':
+        return '🎥';
+      case 'article':
+        return '📄';
+      case 'ebook':
+        return '📚';
+      case 'code':
+        return '💻';
+      default:
+        return '📁';
     }
   };
 
@@ -86,7 +96,9 @@ export function ResourceLibrary() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Resource Library</h1>
-          <p className="text-red-100">Access learning materials and resources</p>
+          <p className="text-red-100">
+            Access learning materials and resources
+          </p>
         </div>
       </div>
 
@@ -110,7 +122,9 @@ export function ResourceLibrary() {
               key={tag}
               onClick={() => setSelectedTag(tag)}
               className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                selectedTag === tag ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'
+                selectedTag === tag
+                  ? 'bg-red-600 text-white'
+                  : 'bg-white text-gray-700 border'
               }`}
             >
               {tag}
@@ -120,7 +134,10 @@ export function ResourceLibrary() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredResources.map((resource) => (
-            <Card key={resource.id} className="p-6 hover:shadow-lg transition-shadow">
+            <Card
+              key={resource.id}
+              className="p-6 hover:shadow-lg transition-shadow"
+            >
               <div className="flex items-start gap-3 mb-3">
                 <div className="text-4xl">{getTypeIcon(resource.type)}</div>
                 <div className="flex-1">
@@ -131,12 +148,17 @@ export function ResourceLibrary() {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600 mb-3">{resource.description}</p>
+              <p className="text-sm text-gray-600 mb-3">
+                {resource.description}
+              </p>
 
               <div className="mb-3">
                 <div className="flex flex-wrap gap-1">
                   {resource.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded">
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -145,10 +167,14 @@ export function ResourceLibrary() {
 
               <div className="text-xs text-gray-500 mb-3">
                 <p>By {resource.author}</p>
-                <p>{resource.date} • {resource.downloads} downloads</p>
+                <p>
+                  {resource.date} • {resource.downloads} downloads
+                </p>
               </div>
 
-              <Button size="sm" className="w-full">Download</Button>
+              <Button size="sm" className="w-full">
+                Download
+              </Button>
             </Card>
           ))}
         </div>
@@ -156,7 +182,9 @@ export function ResourceLibrary() {
         {filteredResources.length === 0 && (
           <Card className="p-12 text-center">
             <p className="text-xl text-gray-600 mb-2">No resources found</p>
-            <p className="text-gray-500">Try adjusting your search or filters</p>
+            <p className="text-gray-500">
+              Try adjusting your search or filters
+            </p>
           </Card>
         )}
       </div>

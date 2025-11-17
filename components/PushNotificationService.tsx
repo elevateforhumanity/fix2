@@ -8,9 +8,24 @@ export function PushNotificationService() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   const notifications = [
-    { id: '1', title: 'New Assignment', body: 'JavaScript project has been posted', time: '5 min ago' },
-    { id: '2', title: 'Class Reminder', body: 'React workshop starts in 30 minutes', time: '25 min ago' },
-    { id: '3', title: 'Grade Posted', body: 'Your assignment has been graded', time: '2 hours ago' },
+    {
+      id: '1',
+      title: 'New Assignment',
+      body: 'JavaScript project has been posted',
+      time: '5 min ago',
+    },
+    {
+      id: '2',
+      title: 'Class Reminder',
+      body: 'React workshop starts in 30 minutes',
+      time: '25 min ago',
+    },
+    {
+      id: '3',
+      title: 'Grade Posted',
+      body: 'Your assignment has been graded',
+      time: '2 hours ago',
+    },
   ];
 
   return (
@@ -26,8 +41,12 @@ export function PushNotificationService() {
         <Card className="p-6 mb-6">
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-xl font-bold mb-1">Enable Push Notifications</h2>
-              <p className="text-sm text-gray-600">Get instant updates on your device</p>
+              <h2 className="text-xl font-bold mb-1">
+                Enable Push Notifications
+              </h2>
+              <p className="text-sm text-gray-600">
+                Get instant updates on your device
+              </p>
             </div>
             <button
               onClick={() => setIsEnabled(!isEnabled)}
@@ -35,9 +54,11 @@ export function PushNotificationService() {
                 isEnabled ? 'bg-green-500' : 'bg-gray-300'
               }`}
             >
-              <div className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform ${
-                isEnabled ? 'transform translate-x-6' : ''
-              }`} />
+              <div
+                className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform ${
+                  isEnabled ? 'transform translate-x-6' : ''
+                }`}
+              />
             </button>
           </div>
         </Card>
@@ -67,9 +88,16 @@ export function PushNotificationService() {
               { label: 'Course Announcements', enabled: false },
               { label: 'Marketing Messages', enabled: false },
             ].map((pref, idx) => (
-              <div key={idx} className="flex justify-between items-center p-3 bg-gray-50 rounded">
+              <div
+                key={idx}
+                className="flex justify-between items-center p-3 bg-gray-50 rounded"
+              >
                 <span className="font-medium">{pref.label}</span>
-                <input type="checkbox" defaultChecked={pref.enabled} className="w-5 h-5" />
+                <input
+                  type="checkbox"
+                  defaultChecked={pref.enabled}
+                  className="w-5 h-5"
+                />
               </div>
             ))}
           </div>

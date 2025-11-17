@@ -19,7 +19,8 @@ export function SMSNotificationSystem() {
     {
       id: '1',
       name: 'Assignment Reminder',
-      message: 'Hi {name}, your assignment is due in 24 hours. Complete it at {link}',
+      message:
+        'Hi {name}, your assignment is due in 24 hours. Complete it at {link}',
       type: 'reminder',
     },
     {
@@ -31,7 +32,8 @@ export function SMSNotificationSystem() {
     {
       id: '3',
       name: 'Certificate Ready',
-      message: 'Congratulations! Your certificate is ready. Download it here: {link}',
+      message:
+        'Congratulations! Your certificate is ready. Download it here: {link}',
       type: 'notification',
     },
   ];
@@ -52,7 +54,9 @@ export function SMSNotificationSystem() {
               <h2 className="text-2xl font-bold mb-4">Send SMS</h2>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     value={phoneNumber}
@@ -63,7 +67,9 @@ export function SMSNotificationSystem() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -85,11 +91,15 @@ export function SMSNotificationSystem() {
               <div className="space-y-3">
                 <div className="p-3 bg-gray-50 rounded">
                   <p className="text-sm font-semibold">Assignment Reminder</p>
-                  <p className="text-xs text-gray-600">Sent to 245 students • 2 hours ago</p>
+                  <p className="text-xs text-gray-600">
+                    Sent to 245 students • 2 hours ago
+                  </p>
                 </div>
                 <div className="p-3 bg-gray-50 rounded">
                   <p className="text-sm font-semibold">Class Starting Soon</p>
-                  <p className="text-xs text-gray-600">Sent to 89 students • 1 day ago</p>
+                  <p className="text-xs text-gray-600">
+                    Sent to 89 students • 1 day ago
+                  </p>
                 </div>
               </div>
             </Card>
@@ -106,7 +116,9 @@ export function SMSNotificationSystem() {
                     className="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded transition-colors"
                   >
                     <p className="font-semibold text-sm">{template.name}</p>
-                    <p className="text-xs text-gray-600 truncate">{template.message}</p>
+                    <p className="text-xs text-gray-600 truncate">
+                      {template.message}
+                    </p>
                   </button>
                 ))}
               </div>
