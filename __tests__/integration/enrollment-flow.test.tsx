@@ -4,7 +4,7 @@ describe('Enrollment Flow', () => {
   it('completes full enrollment process', async () => {
     // This would test the complete user journey
     // from course selection to enrollment confirmation
-    
+
     // Mock implementation
     expect(true).toBe(true);
   });

@@ -17,9 +17,7 @@ describe('Card Component', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <Card className="custom-class">Content</Card>
-    );
+    const { container } = render(<Card className="custom-class">Content</Card>);
     expect(container.firstChild).toHaveClass('custom-class');
   });
 });
