@@ -32,7 +32,9 @@ interface Certificate {
 }
 
 export function StudentPortfolio() {
-  const [activeTab, setActiveTab] = useState<'projects' | 'skills' | 'certificates' | 'about'>('projects');
+  const [activeTab, setActiveTab] = useState<
+    'projects' | 'skills' | 'certificates' | 'about'
+  >('projects');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const student = {
@@ -52,33 +54,53 @@ export function StudentPortfolio() {
     {
       id: '1',
       title: 'E-Commerce Platform',
-      description: 'Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.',
+      description:
+        'Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
+      imageUrl:
+        'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
       completedDate: '2024-01',
       githubUrl: 'https://github.com/example/ecommerce',
       liveUrl: 'https://demo-ecommerce.example.com',
-      achievements: ['Processed 1000+ transactions', 'Achieved 99.9% uptime', 'Reduced load time by 40%'],
+      achievements: [
+        'Processed 1000+ transactions',
+        'Achieved 99.9% uptime',
+        'Reduced load time by 40%',
+      ],
     },
     {
       id: '2',
       title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates, team chat, and analytics.',
+      description:
+        'Collaborative project management tool with real-time updates, team chat, and analytics.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
+      imageUrl:
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'Socket.io',
+        'Prisma',
+      ],
       completedDate: '2023-11',
       githubUrl: 'https://github.com/example/taskmanager',
       liveUrl: 'https://tasks.example.com',
-      achievements: ['500+ active users', 'Real-time collaboration', 'Mobile responsive'],
+      achievements: [
+        '500+ active users',
+        'Real-time collaboration',
+        'Mobile responsive',
+      ],
     },
     {
       id: '3',
       title: 'Weather Forecast Dashboard',
-      description: 'Interactive weather application with 7-day forecasts, maps, and severe weather alerts.',
+      description:
+        'Interactive weather application with 7-day forecasts, maps, and severe weather alerts.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop',
+      imageUrl:
+        'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop',
       technologies: ['React Native', 'OpenWeather API', 'Redux', 'Expo'],
       completedDate: '2023-09',
       githubUrl: 'https://github.com/example/weather',
@@ -87,20 +109,28 @@ export function StudentPortfolio() {
     {
       id: '4',
       title: 'AI Chatbot Assistant',
-      description: 'Intelligent chatbot using natural language processing for customer support automation.',
+      description:
+        'Intelligent chatbot using natural language processing for customer support automation.',
       category: 'AI/ML',
-      imageUrl: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop',
+      imageUrl:
+        'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop',
       technologies: ['Python', 'TensorFlow', 'Flask', 'OpenAI API', 'Docker'],
       completedDate: '2023-12',
       githubUrl: 'https://github.com/example/chatbot',
-      achievements: ['90% accuracy rate', 'Handles 1000+ queries/day', 'Multi-language support'],
+      achievements: [
+        '90% accuracy rate',
+        'Handles 1000+ queries/day',
+        'Multi-language support',
+      ],
     },
     {
       id: '5',
       title: 'Portfolio Website Builder',
-      description: 'Drag-and-drop website builder for creating professional portfolios without coding.',
+      description:
+        'Drag-and-drop website builder for creating professional portfolios without coding.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+      imageUrl:
+        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
       technologies: ['Vue.js', 'Firebase', 'Vuetify', 'Netlify'],
       completedDate: '2023-08',
       liveUrl: 'https://portfolio-builder.example.com',
@@ -109,13 +139,19 @@ export function StudentPortfolio() {
     {
       id: '6',
       title: 'Fitness Tracking App',
-      description: 'Mobile app for tracking workouts, nutrition, and health metrics with social features.',
+      description:
+        'Mobile app for tracking workouts, nutrition, and health metrics with social features.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
+      imageUrl:
+        'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
       technologies: ['Flutter', 'Dart', 'Firebase', 'HealthKit'],
       completedDate: '2023-10',
       githubUrl: 'https://github.com/example/fitness',
-      achievements: ['5K+ active users', 'Apple Watch integration', 'Social challenges'],
+      achievements: [
+        '5K+ active users',
+        'Apple Watch integration',
+        'Social challenges',
+      ],
     },
   ];
 
@@ -167,12 +203,16 @@ export function StudentPortfolio() {
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(projects.map(p => p.category)))];
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects.filter(p => p.category === selectedCategory);
+  const categories = [
+    'all',
+    ...Array.from(new Set(projects.map((p) => p.category))),
+  ];
+  const filteredProjects =
+    selectedCategory === 'all'
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
 
-  const skillCategories = Array.from(new Set(skills.map(s => s.category)));
+  const skillCategories = Array.from(new Set(skills.map((s) => s.category)));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -190,28 +230,55 @@ export function StudentPortfolio() {
               <p className="text-xl text-red-100 mb-4">{student.title}</p>
               <p className="text-red-50 max-w-2xl mb-6">{student.bio}</p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <a href={`mailto:${student.email}`} className="text-white hover:text-red-100 transition-colors">
+                <a
+                  href={`mailto:${student.email}`}
+                  className="text-white hover:text-red-100 transition-colors"
+                >
                   📧 Email
                 </a>
-                <a href={`tel:${student.phone}`} className="text-white hover:text-red-100 transition-colors">
+                <a
+                  href={`tel:${student.phone}`}
+                  className="text-white hover:text-red-100 transition-colors"
+                >
                   📱 {student.phone}
                 </a>
-                <a href={`https://${student.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a
+                  href={`https://${student.linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-red-100 transition-colors"
+                >
                   💼 LinkedIn
                 </a>
-                <a href={`https://${student.github}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a
+                  href={`https://${student.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-red-100 transition-colors"
+                >
                   🔗 GitHub
                 </a>
-                <a href={`https://${student.portfolio}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a
+                  href={`https://${student.portfolio}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-red-100 transition-colors"
+                >
                   🌐 Portfolio
                 </a>
               </div>
             </div>
             <div className="flex gap-3">
-              <Button variant="secondary" className="bg-white text-red-600 hover:bg-red-50">
+              <Button
+                variant="secondary"
+                className="bg-white text-red-600 hover:bg-red-50"
+              >
                 Download Resume
               </Button>
-              <Button variant="secondary" className="bg-red-700 text-white hover:bg-red-800">
+              <Button
+                variant="secondary"
+                className="bg-red-700 text-white hover:bg-red-800"
+              >
                 Contact Me
               </Button>
             </div>
@@ -223,19 +290,21 @@ export function StudentPortfolio() {
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-8">
-            {(['projects', 'skills', 'certificates', 'about'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                  activeTab === tab
-                    ? 'border-red-600 text-red-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
+            {(['projects', 'skills', 'certificates', 'about'] as const).map(
+              (tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                    activeTab === tab
+                      ? 'border-red-600 text-red-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  }`}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
@@ -247,8 +316,12 @@ export function StudentPortfolio() {
           <div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900">Project Gallery</h2>
-                <p className="text-gray-600 mt-1">Showcasing {projects.length} completed projects</p>
+                <h2 className="text-3xl font-bold text-gray-900">
+                  Project Gallery
+                </h2>
+                <p className="text-gray-600 mt-1">
+                  Showcasing {projects.length} completed projects
+                </p>
               </div>
               <div className="flex gap-2 flex-wrap">
                 {categories.map((category) => (
@@ -269,7 +342,10 @@ export function StudentPortfolio() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map((project) => (
-                <Card key={project.id} className="overflow-hidden hover:shadow-xl transition-shadow">
+                <Card
+                  key={project.id}
+                  className="overflow-hidden hover:shadow-xl transition-shadow"
+                >
                   <img
                     src={project.imageUrl}
                     alt={project.title}
@@ -277,18 +353,27 @@ export function StudentPortfolio() {
                   />
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {project.title}
+                      </h3>
                       <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded">
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-gray-600 text-sm mb-4">{project.description}</p>
-                    
+                    <p className="text-gray-600 text-sm mb-4">
+                      {project.description}
+                    </p>
+
                     <div className="mb-4">
-                      <p className="text-xs font-semibold text-gray-700 mb-2">Technologies:</p>
+                      <p className="text-xs font-semibold text-gray-700 mb-2">
+                        Technologies:
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
-                          <span key={tech} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                          >
                             {tech}
                           </span>
                         ))}
@@ -296,10 +381,15 @@ export function StudentPortfolio() {
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-xs font-semibold text-gray-700 mb-2">Key Achievements:</p>
+                      <p className="text-xs font-semibold text-gray-700 mb-2">
+                        Key Achievements:
+                      </p>
                       <ul className="space-y-1">
                         {project.achievements.map((achievement, idx) => (
-                          <li key={idx} className="text-xs text-gray-600 flex items-start">
+                          <li
+                            key={idx}
+                            className="text-xs text-gray-600 flex items-start"
+                          >
                             <span className="text-green-500 mr-1">✓</span>
                             {achievement}
                           </li>
@@ -331,7 +421,11 @@ export function StudentPortfolio() {
                     </div>
 
                     <p className="text-xs text-gray-500 mt-3">
-                      Completed: {new Date(project.completedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                      Completed:{' '}
+                      {new Date(project.completedDate).toLocaleDateString(
+                        'en-US',
+                        { month: 'long', year: 'numeric' }
+                      )}
                     </p>
                   </div>
                 </Card>
@@ -344,22 +438,32 @@ export function StudentPortfolio() {
         {activeTab === 'skills' && (
           <div>
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Technical Skills</h2>
-              <p className="text-gray-600 mt-1">Proficiency levels across various technologies</p>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Technical Skills
+              </h2>
+              <p className="text-gray-600 mt-1">
+                Proficiency levels across various technologies
+              </p>
             </div>
 
             <div className="space-y-8">
               {skillCategories.map((category) => (
                 <Card key={category} className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{category}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    {category}
+                  </h3>
                   <div className="space-y-4">
                     {skills
                       .filter((skill) => skill.category === category)
                       .map((skill) => (
                         <div key={skill.name}>
                           <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                            <span className="text-sm font-semibold text-red-600">{skill.level}%</span>
+                            <span className="text-sm font-medium text-gray-700">
+                              {skill.name}
+                            </span>
+                            <span className="text-sm font-semibold text-red-600">
+                              {skill.level}%
+                            </span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2.5">
                             <div
@@ -380,22 +484,37 @@ export function StudentPortfolio() {
         {activeTab === 'certificates' && (
           <div>
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Certifications & Credentials</h2>
-              <p className="text-gray-600 mt-1">Professional certifications and achievements</p>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Certifications & Credentials
+              </h2>
+              <p className="text-gray-600 mt-1">
+                Professional certifications and achievements
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {certificates.map((cert) => (
-                <Card key={cert.id} className="p-6 hover:shadow-lg transition-shadow">
+                <Card
+                  key={cert.id}
+                  className="p-6 hover:shadow-lg transition-shadow"
+                >
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-3xl">🏆</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">{cert.title}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{cert.issuer}</p>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        {cert.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {cert.issuer}
+                      </p>
                       <p className="text-xs text-gray-500 mb-3">
-                        Issued: {new Date(cert.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                        Issued:{' '}
+                        {new Date(cert.date).toLocaleDateString('en-US', {
+                          month: 'long',
+                          year: 'numeric',
+                        })}
                       </p>
                       <a
                         href={cert.credentialUrl}
@@ -416,43 +535,63 @@ export function StudentPortfolio() {
           <div>
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-gray-900">About Me</h2>
-              <p className="text-gray-600 mt-1">Background, experience, and career goals</p>
+              <p className="text-gray-600 mt-1">
+                Background, experience, and career goals
+              </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <Card className="p-6 lg:col-span-2">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Summary</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Professional Summary
+                </h3>
                 <div className="prose prose-sm max-w-none text-gray-600 space-y-4">
                   <p>
-                    I'm a passionate full-stack developer with over 3 years of experience building web and mobile applications. 
-                    My journey in tech started with a curiosity about how websites work, which led me to pursue formal education 
-                    through Elevate Connects' comprehensive programs.
+                    I'm a passionate full-stack developer with over 3 years of
+                    experience building web and mobile applications. My journey
+                    in tech started with a curiosity about how websites work,
+                    which led me to pursue formal education through Elevate
+                    Connects' comprehensive programs.
                   </p>
                   <p>
-                    I specialize in modern JavaScript frameworks, particularly React and Next.js, and have extensive experience 
-                    with backend technologies like Node.js and Python. I'm particularly interested in creating intuitive user 
+                    I specialize in modern JavaScript frameworks, particularly
+                    React and Next.js, and have extensive experience with
+                    backend technologies like Node.js and Python. I'm
+                    particularly interested in creating intuitive user
                     experiences and building scalable, performant applications.
                   </p>
                   <p>
-                    Currently, I'm expanding my expertise in cloud computing and DevOps practices, with a focus on AWS services 
-                    and containerization. I'm also exploring machine learning and AI integration in web applications.
+                    Currently, I'm expanding my expertise in cloud computing and
+                    DevOps practices, with a focus on AWS services and
+                    containerization. I'm also exploring machine learning and AI
+                    integration in web applications.
                   </p>
                   <p>
-                    When I'm not coding, I enjoy contributing to open-source projects, mentoring junior developers, and staying 
-                    up-to-date with the latest industry trends through conferences and online communities.
+                    When I'm not coding, I enjoy contributing to open-source
+                    projects, mentoring junior developers, and staying
+                    up-to-date with the latest industry trends through
+                    conferences and online communities.
                   </p>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="text-lg font-bold text-gray-900 mb-3">Career Goals</h4>
+                  <h4 className="text-lg font-bold text-gray-900 mb-3">
+                    Career Goals
+                  </h4>
                   <ul className="space-y-2">
                     <li className="flex items-start text-gray-600">
                       <span className="text-red-600 mr-2">▸</span>
-                      <span>Lead development teams on large-scale enterprise projects</span>
+                      <span>
+                        Lead development teams on large-scale enterprise
+                        projects
+                      </span>
                     </li>
                     <li className="flex items-start text-gray-600">
                       <span className="text-red-600 mr-2">▸</span>
-                      <span>Contribute to open-source projects that make a social impact</span>
+                      <span>
+                        Contribute to open-source projects that make a social
+                        impact
+                      </span>
                     </li>
                     <li className="flex items-start text-gray-600">
                       <span className="text-red-600 mr-2">▸</span>
@@ -460,7 +599,9 @@ export function StudentPortfolio() {
                     </li>
                     <li className="flex items-start text-gray-600">
                       <span className="text-red-600 mr-2">▸</span>
-                      <span>Mentor aspiring developers through Elevate Connects</span>
+                      <span>
+                        Mentor aspiring developers through Elevate Connects
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -468,18 +609,28 @@ export function StudentPortfolio() {
 
               <div className="space-y-6">
                 <Card className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Stats</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Quick Stats
+                  </h3>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-3xl font-bold text-red-600">{projects.length}</p>
-                      <p className="text-sm text-gray-600">Completed Projects</p>
+                      <p className="text-3xl font-bold text-red-600">
+                        {projects.length}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Completed Projects
+                      </p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-orange-500">{certificates.length}</p>
+                      <p className="text-3xl font-bold text-orange-500">
+                        {certificates.length}
+                      </p>
                       <p className="text-sm text-gray-600">Certifications</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-red-600">{skills.length}</p>
+                      <p className="text-3xl font-bold text-red-600">
+                        {skills.length}
+                      </p>
                       <p className="text-sm text-gray-600">Technical Skills</p>
                     </div>
                     <div>
@@ -490,10 +641,24 @@ export function StudentPortfolio() {
                 </Card>
 
                 <Card className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Interests</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Interests
+                  </h3>
                   <div className="flex flex-wrap gap-2">
-                    {['Web Development', 'Mobile Apps', 'Cloud Computing', 'AI/ML', 'Open Source', 'UI/UX Design', 'DevOps', 'Mentoring'].map((interest) => (
-                      <span key={interest} className="px-3 py-1 bg-gradient-to-r from-red-100 to-orange-100 text-red-700 text-sm rounded-full">
+                    {[
+                      'Web Development',
+                      'Mobile Apps',
+                      'Cloud Computing',
+                      'AI/ML',
+                      'Open Source',
+                      'UI/UX Design',
+                      'DevOps',
+                      'Mentoring',
+                    ].map((interest) => (
+                      <span
+                        key={interest}
+                        className="px-3 py-1 bg-gradient-to-r from-red-100 to-orange-100 text-red-700 text-sm rounded-full"
+                      >
                         {interest}
                       </span>
                     ))}
@@ -503,9 +668,13 @@ export function StudentPortfolio() {
                 <Card className="p-6 bg-gradient-to-br from-red-600 to-orange-500 text-white">
                   <h3 className="text-xl font-bold mb-3">Let's Connect!</h3>
                   <p className="text-red-50 text-sm mb-4">
-                    I'm always open to discussing new opportunities, collaborations, or just chatting about tech.
+                    I'm always open to discussing new opportunities,
+                    collaborations, or just chatting about tech.
                   </p>
-                  <Button variant="secondary" className="w-full bg-white text-red-600 hover:bg-red-50">
+                  <Button
+                    variant="secondary"
+                    className="w-full bg-white text-red-600 hover:bg-red-50"
+                  >
                     Schedule a Call
                   </Button>
                 </Card>
