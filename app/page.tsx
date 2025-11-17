@@ -121,44 +121,27 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
-                  Free Training.<br/>
-                  <span className="text-blue-600">Job Advancement</span>.<br/>
-                  Real Careers.
+                  Workforce Training & Apprenticeships That Transform Communities
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                  <strong>100% free training</strong> through WIOA, WRG, and JRI funding. Hybrid model with credentialing partners + Elevate support. DOL-registered apprenticeships. <strong>From unemployed to employed in weeks</strong>.
+                  DOL & DWD-aligned training for students, employers, and workforce partners.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <Link 
                     href="/apply"
-                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 text-lg"
+                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-lg transition-all"
                   >
-                    Apply Now - Classes Start Feb 5th
-                    <ArrowRight className="w-6 h-6" />
+                    Apply as a Student
+                    <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link 
-                    href="/programs"
-                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold px-10 py-5 rounded-lg border-2 border-slate-300 transition-all text-lg"
+                    href="/agencies"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-semibold px-8 py-4 rounded-lg border-2 border-slate-200 transition-all"
                   >
-                    See Programs & Salaries
+                    Become a Workforce Partner
                   </Link>
-                </div>
-
-                <div className="flex items-center gap-4 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <span>No application fee</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <span>Apply in 5 minutes</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <span>Start earning fast</span>
-                  </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200">
@@ -189,6 +172,155 @@ export default function HomePage() {
                     priority
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who We Help Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Who We Help
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Students */}
+              <div className="bg-white rounded-xl p-8 border-2 border-slate-200 hover:border-blue-300 transition-all">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <Users className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Students</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Hands-on job training, certifications, apprenticeships
+                </p>
+              </div>
+
+              {/* Employers */}
+              <div className="bg-white rounded-xl p-8 border-2 border-slate-200 hover:border-orange-300 transition-all">
+                <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                  <Briefcase className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Employers</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Skilled talent pipeline, subsidized training
+                </p>
+              </div>
+
+              {/* Agencies */}
+              <div className="bg-white rounded-xl p-8 border-2 border-slate-200 hover:border-purple-300 transition-all">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <Award className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Agencies</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  ETPL, WRG, WIOA, JRI, and Apprenticeship compliance
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How Elevate Works */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                How Elevate Works
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-12">
+              {/* Step 1 */}
+              <div className="text-center">
+                <div className="w-24 h-24 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-4xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Enroll</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Apply and get matched to the right program for your goals
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center">
+                <div className="w-24 h-24 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-4xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Train</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Complete hands-on training with industry partners
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center">
+                <div className="w-24 h-24 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-4xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Get Certified & Employed</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Earn your credential and start your new career
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Approved & Aligned Section */}
+        <section className="py-16 bg-white border-y border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Approved & Aligned
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center mb-12">
+              <div className="text-center">
+                <div className="text-5xl mb-2">🇺🇸</div>
+                <p className="text-sm font-semibold text-slate-700">U.S. DOL</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🏛️</div>
+                <p className="text-sm font-semibold text-slate-700">DWD Indiana</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">💼</div>
+                <p className="text-sm font-semibold text-slate-700">WorkOne</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🤝</div>
+                <p className="text-sm font-semibold text-slate-700">EmployIndy</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🎓</div>
+                <p className="text-sm font-semibold text-slate-700">ETPL Provider</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">⚙️</div>
+                <p className="text-sm font-semibold text-slate-700">Apprenticeships</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">ETPL-Approved</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">DOL-Registered Barber Apprenticeship</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">WRG & JRI Eligible</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">CNA Licensed by IDOH</p>
               </div>
             </div>
           </div>
