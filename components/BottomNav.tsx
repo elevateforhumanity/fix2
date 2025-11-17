@@ -21,15 +21,13 @@ export function BottomNav() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
-          
+
           return (
             <Link
               key={item.href}
               href={item.href}
               className={`flex flex-col items-center gap-1 py-2 px-3 transition ${
-                isActive
-                  ? 'text-red-600'
-                  : 'text-gray-600 hover:text-red-600'
+                isActive ? 'text-red-600' : 'text-gray-600 hover:text-red-600'
               }`}
             >
               <Icon size={24} />

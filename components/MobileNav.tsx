@@ -2,7 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home, BookOpen, Users, Award, Settings, LogOut, User } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Home,
+  BookOpen,
+  Users,
+  Award,
+  Settings,
+  LogOut,
+  User,
+} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 export function MobileNav() {

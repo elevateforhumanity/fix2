@@ -1,6 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Users, Award, ArrowRight, Clock, DollarSign, Briefcase, Star, Play, Quote } from 'lucide-react';
+import {
+  CheckCircle,
+  Users,
+  Award,
+  ArrowRight,
+  Clock,
+  DollarSign,
+  Briefcase,
+  Star,
+  Play,
+  Quote,
+} from 'lucide-react';
 import { Header } from '@/components/ui/Header';
 import { Footer } from '@/components/ui/Footer';
 import { Badge } from '@/components/ui/Badge';
@@ -16,8 +27,13 @@ export default function HomePage() {
       salary: '$32,000/year',
       students: 342,
       rating: 4.8,
-      description: 'Launch your healthcare career with state-approved CNA training. Learn patient care, vital signs, and clinical skills in real healthcare settings.',
-      highlights: ['State Certification', 'Clinical Experience', 'Job Placement Guaranteed'],
+      description:
+        'Launch your healthcare career with state-approved CNA training. Learn patient care, vital signs, and clinical skills in real healthcare settings.',
+      highlights: [
+        'State Certification',
+        'Clinical Experience',
+        'Job Placement Guaranteed',
+      ],
       image: '/media/programs/healthcare-1.jpg',
       slug: 'cna',
     },
@@ -30,8 +46,13 @@ export default function HomePage() {
       salary: '$48,000/year',
       students: 256,
       rating: 4.7,
-      description: 'Master heating, cooling, and ventilation systems. Hands-on training with industry-standard equipment and EPA certification prep.',
-      highlights: ['EPA Certification', 'Tool Kit Included', 'Apprenticeship Ready'],
+      description:
+        'Master heating, cooling, and ventilation systems. Hands-on training with industry-standard equipment and EPA certification prep.',
+      highlights: [
+        'EPA Certification',
+        'Tool Kit Included',
+        'Apprenticeship Ready',
+      ],
       image: '/media/programs/trades-1.jpg',
       slug: 'hvac',
     },
@@ -44,8 +65,13 @@ export default function HomePage() {
       salary: '$35,000/year',
       students: 189,
       rating: 4.9,
-      description: 'State-approved apprenticeship program. Learn cutting, styling, and business skills while earning in a real barbershop.',
-      highlights: ['Earn While Learning', 'State License', '1,500 Hours Training'],
+      description:
+        'State-approved apprenticeship program. Learn cutting, styling, and business skills while earning in a real barbershop.',
+      highlights: [
+        'Earn While Learning',
+        'State License',
+        '1,500 Hours Training',
+      ],
       image: '/media/programs/barber-hero.jpg',
       slug: 'barber',
     },
@@ -58,7 +84,8 @@ export default function HomePage() {
       salary: '$55,000/year',
       students: 198,
       rating: 4.6,
-      description: 'Get your Class A CDL and start a high-paying career. Behind-the-wheel training with experienced instructors.',
+      description:
+        'Get your Class A CDL and start a high-paying career. Behind-the-wheel training with experienced instructors.',
       highlights: ['Class A CDL', 'Job Placement', 'High Demand'],
       image: '/media/programs/truck-driving.jpg',
       slug: 'truck-driving',
@@ -70,7 +97,8 @@ export default function HomePage() {
       name: 'Sarah Johnson',
       program: 'CNA Certification',
       image: '/media/testimonials/sarah.jpg',
-      quote: 'The CNA program changed my life. I went from unemployment to a stable healthcare career in just 8 weeks. The instructors were amazing and the job placement support was incredible.',
+      quote:
+        'The CNA program changed my life. I went from unemployment to a stable healthcare career in just 8 weeks. The instructors were amazing and the job placement support was incredible.',
       rating: 5,
       outcome: 'Now working at Aurora Medical Center',
     },
@@ -78,7 +106,8 @@ export default function HomePage() {
       name: 'Michael Rodriguez',
       program: 'HVAC Technician',
       image: '/media/testimonials/michael.jpg',
-      quote: 'Best decision I ever made. The hands-on training was exactly what I needed. Within 2 weeks of graduating, I had 3 job offers. Now I am making more than I ever thought possible.',
+      quote:
+        'Best decision I ever made. The hands-on training was exactly what I needed. Within 2 weeks of graduating, I had 3 job offers. Now I am making more than I ever thought possible.',
       rating: 5,
       outcome: 'Earning $52,000/year',
     },
@@ -86,7 +115,8 @@ export default function HomePage() {
       name: 'David Chen',
       program: 'Barber Apprenticeship',
       image: '/media/testimonials/david.jpg',
-      quote: 'I love that I could earn while learning. My mentor taught me everything about the business side too. Now I am planning to open my own shop next year.',
+      quote:
+        'I love that I could earn while learning. My mentor taught me everything about the business side too. Now I am planning to open my own shop next year.',
       rating: 5,
       outcome: 'Licensed Barber, Planning Own Business',
     },
@@ -113,20 +143,23 @@ export default function HomePage() {
                   🎓 100% WIOA-Funded Training
                 </div>
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Transform Your Life with <span className="text-red-500">Free Career Training</span>
+                  Transform Your Life with{' '}
+                  <span className="text-red-500">Free Career Training</span>
                 </h1>
                 <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Get the skills employers need through Wisconsin&apos;s premier workforce development program. 100% funded training, job placement support, and career services—all at no cost to you.
+                  Get the skills employers need through Wisconsin&apos;s premier
+                  workforce development program. 100% funded training, job
+                  placement support, and career services—all at no cost to you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Link 
-                    href="/apply" 
+                  <Link
+                    href="/apply"
                     className="px-8 py-4 bg-red-600 text-white font-semibold hover:bg-red-700 transition text-center rounded-lg text-lg shadow-lg hover:shadow-xl"
                   >
                     Check Your Eligibility →
                   </Link>
-                  <Link 
-                    href="/programs" 
+                  <Link
+                    href="/programs"
                     className="px-8 py-4 bg-white text-slate-900 font-semibold hover:bg-gray-100 transition text-center rounded-lg text-lg shadow-lg"
                   >
                     Explore Programs
@@ -160,7 +193,10 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <button className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition shadow-2xl">
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                      <Play
+                        className="w-10 h-10 text-white ml-1"
+                        fill="white"
+                      />
                     </button>
                   </div>
                 </div>
@@ -170,8 +206,12 @@ export default function HomePage() {
                       <CheckCircle className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900">2,500+ Graduates</div>
-                      <div className="text-sm text-slate-600">92% Job Placement</div>
+                      <div className="font-bold text-slate-900">
+                        2,500+ Graduates
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        92% Job Placement
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -191,7 +231,9 @@ export default function HomePage() {
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
                       <Icon className="w-8 h-8 text-red-600" />
                     </div>
-                    <div className="text-4xl font-bold text-slate-900 mb-2">{stat.number}</div>
+                    <div className="text-4xl font-bold text-slate-900 mb-2">
+                      {stat.number}
+                    </div>
                     <div className="text-slate-600">{stat.label}</div>
                   </div>
                 );
@@ -207,15 +249,21 @@ export default function HomePage() {
               <div className="inline-block px-4 py-2 bg-red-50 text-red-700 text-sm font-semibold tracking-wide uppercase mb-4 rounded-full">
                 🎯 HIGH-DEMAND CAREERS
               </div>
-              <h2 className="text-5xl font-bold text-slate-900 mb-4">Our Training Programs</h2>
+              <h2 className="text-5xl font-bold text-slate-900 mb-4">
+                Our Training Programs
+              </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Choose from career paths with guaranteed job placement. All programs are 100% funded through WIOA.
+                Choose from career paths with guaranteed job placement. All
+                programs are 100% funded through WIOA.
               </p>
             </div>
-            
+
             <div className="grid lg:grid-cols-2 gap-8">
               {programs.map((program) => (
-                <div key={program.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-transparent hover:border-red-600">
+                <div
+                  key={program.id}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-transparent hover:border-red-600"
+                >
                   <div className="relative h-72">
                     <Image
                       src={program.image}
@@ -224,17 +272,24 @@ export default function HomePage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    
+
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
-                        <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                        <Play
+                          className="w-8 h-8 text-white ml-1"
+                          fill="white"
+                        />
                       </div>
                     </div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="flex items-center gap-2 mb-3">
-                        <Badge className="bg-red-600 text-white">100% FUNDED</Badge>
-                        <Badge className="bg-white/90 text-slate-900">{program.category}</Badge>
+                        <Badge className="bg-red-600 text-white">
+                          100% FUNDED
+                        </Badge>
+                        <Badge className="bg-white/90 text-slate-900">
+                          {program.category}
+                        </Badge>
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-2">
                         {program.title}
@@ -242,7 +297,9 @@ export default function HomePage() {
                       <div className="flex items-center gap-4 text-white/90 text-sm">
                         <div className="flex items-center gap-1">
                           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          <span className="font-semibold">{program.rating}</span>
+                          <span className="font-semibold">
+                            {program.rating}
+                          </span>
                         </div>
                         <span>•</span>
                         <span>{program.students} students</span>
@@ -254,32 +311,45 @@ export default function HomePage() {
                     <p className="text-slate-700 mb-6 leading-relaxed text-lg">
                       {program.description}
                     </p>
-                    
+
                     <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b">
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600 mb-1">{program.duration}</div>
+                        <div className="text-2xl font-bold text-red-600 mb-1">
+                          {program.duration}
+                        </div>
                         <div className="text-xs text-slate-600">Duration</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-green-600 mb-1">{program.placement}</div>
-                        <div className="text-xs text-slate-600">Job Placement</div>
+                        <div className="text-2xl font-bold text-green-600 mb-1">
+                          {program.placement}
+                        </div>
+                        <div className="text-xs text-slate-600">
+                          Job Placement
+                        </div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-orange-600 mb-1">{program.salary}</div>
-                        <div className="text-xs text-slate-600">Avg. Salary</div>
+                        <div className="text-2xl font-bold text-orange-600 mb-1">
+                          {program.salary}
+                        </div>
+                        <div className="text-xs text-slate-600">
+                          Avg. Salary
+                        </div>
                       </div>
                     </div>
 
                     <div className="space-y-2 mb-6">
                       {program.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-slate-700">
+                        <div
+                          key={idx}
+                          className="flex items-center gap-2 text-slate-700"
+                        >
                           <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                           <span className="font-medium">{highlight}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Link 
+                    <Link
                       href={`/programs/${program.slug}`}
                       className="block w-full py-4 bg-red-600 text-white text-center font-semibold rounded-lg hover:bg-red-700 transition"
                     >
@@ -291,7 +361,7 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link 
+              <Link
                 href="/programs"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition text-lg"
               >
@@ -309,17 +379,23 @@ export default function HomePage() {
               <div className="inline-block px-4 py-2 bg-green-50 text-green-700 text-sm font-semibold tracking-wide uppercase mb-4 rounded-full">
                 💚 SUCCESS STORIES
               </div>
-              <h2 className="text-5xl font-bold text-slate-900 mb-4">Real Students, Real Results</h2>
+              <h2 className="text-5xl font-bold text-slate-900 mb-4">
+                Real Students, Real Results
+              </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Hear from graduates who transformed their careers through our programs
+                Hear from graduates who transformed their careers through our
+                programs
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-slate-50 rounded-2xl p-8 relative">
+                <div
+                  key={index}
+                  className="bg-slate-50 rounded-2xl p-8 relative"
+                >
                   <Quote className="absolute top-6 right-6 w-12 h-12 text-red-200" />
-                  
+
                   <div className="flex items-center gap-4 mb-6">
                     <Image
                       src={testimonial.image}
@@ -329,11 +405,18 @@ export default function HomePage() {
                       className="rounded-full"
                     />
                     <div>
-                      <div className="font-bold text-slate-900">{testimonial.name}</div>
-                      <div className="text-sm text-slate-600">{testimonial.program}</div>
+                      <div className="font-bold text-slate-900">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        {testimonial.program}
+                      </div>
                       <div className="flex gap-1 mt-1">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                          />
                         ))}
                       </div>
                     </div>
@@ -354,7 +437,7 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link 
+              <Link
                 href="/success-stories"
                 className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-lg"
               >
@@ -368,18 +451,21 @@ export default function HomePage() {
         {/* CTA Section */}
         <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-red-600 to-orange-600">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-5xl font-bold mb-6">Ready to Start Your New Career?</h2>
+            <h2 className="text-5xl font-bold mb-6">
+              Ready to Start Your New Career?
+            </h2>
             <p className="text-xl mb-8 text-white/90">
-              Check your eligibility in under 2 minutes. Most Wisconsin residents qualify for 100% funded training.
+              Check your eligibility in under 2 minutes. Most Wisconsin
+              residents qualify for 100% funded training.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+              <Link
                 href="/apply"
                 className="px-10 py-5 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition text-lg shadow-xl"
               >
                 Check Eligibility Now →
               </Link>
-              <Link 
+              <Link
                 href="/contact"
                 className="px-10 py-5 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
               >
