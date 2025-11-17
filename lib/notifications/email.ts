@@ -34,7 +34,7 @@ export class EmailService {
     try {
       // In production, integrate with SendGrid, AWS SES, or similar
       console.log('Sending email:', notification);
-      
+
       // Mock implementation
       return true;
     } catch (error) {
@@ -44,7 +44,10 @@ export class EmailService {
   }
 
   // Welcome email
-  async sendWelcomeEmail(userEmail: string, userName: string): Promise<boolean> {
+  async sendWelcomeEmail(
+    userEmail: string,
+    userName: string
+  ): Promise<boolean> {
     const template = this.getWelcomeTemplate(userName);
     return this.send({
       to: userEmail,
@@ -78,7 +81,11 @@ export class EmailService {
     assignmentName: string,
     dueDate: string
   ): Promise<boolean> {
-    const template = this.getAssignmentReminderTemplate(userName, assignmentName, dueDate);
+    const template = this.getAssignmentReminderTemplate(
+      userName,
+      assignmentName,
+      dueDate
+    );
     return this.send({
       to: userEmail,
       from: this.fromEmail,
@@ -95,7 +102,11 @@ export class EmailService {
     courseName: string,
     certificateUrl: string
   ): Promise<boolean> {
-    const template = this.getCertificateTemplate(userName, courseName, certificateUrl);
+    const template = this.getCertificateTemplate(
+      userName,
+      courseName,
+      certificateUrl
+    );
     return this.send({
       to: userEmail,
       from: this.fromEmail,
@@ -154,7 +165,10 @@ export class EmailService {
     };
   }
 
-  private getEnrollmentTemplate(userName: string, courseName: string): EmailTemplate {
+  private getEnrollmentTemplate(
+    userName: string,
+    courseName: string
+  ): EmailTemplate {
     return {
       subject: `You're enrolled in ${courseName}!`,
       html: `
@@ -250,7 +264,10 @@ export class EmailService {
     };
   }
 
-  private getAchievementTemplate(userName: string, achievementName: string): EmailTemplate {
+  private getAchievementTemplate(
+    userName: string,
+    achievementName: string
+  ): EmailTemplate {
     return {
       subject: `🏆 Achievement Unlocked: ${achievementName}`,
       html: `
