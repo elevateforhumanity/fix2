@@ -36,7 +36,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <button
             onClick={reset}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold"
           >
             <RefreshCw className="h-5 w-5" />
             Try Again
@@ -52,7 +52,7 @@ export default function Error({
 
         <div className="text-sm text-slate-500">
           <p>If this problem persists, please contact support at:</p>
-          <a href="mailto:support@elevateconnects.org" className="text-blue-600 hover:underline">
+          <a href="mailto:support@elevateconnects.org" className="text-red-600 hover:underline">
             support@elevateconnects.org
           </a>
         </div>

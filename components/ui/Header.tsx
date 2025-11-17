@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                     </Link>
                     <Link
                       href="/apply"
-                      className="block px-4 py-2 text-sm text-blue-600 hover:bg-slate-50 font-medium"
+                      className="block px-4 py-2 text-sm text-red-600 hover:bg-slate-50 font-medium"
                     >
                       Apply Now
                     </Link>

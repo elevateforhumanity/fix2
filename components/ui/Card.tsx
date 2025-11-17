@@ -108,7 +108,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
               </span>
             )}
           </div>
-          <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+          <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">
             {title}
           </h3>
           {provider && (
@@ -224,7 +224,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
               <span className="text-xs text-slate-500">{readTime}</span>
             )}
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+          <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors line-clamp-2">
             {title}
           </h3>
           <p className="text-sm text-slate-600 mb-4 line-clamp-3">{excerpt}</p>
@@ -259,7 +259,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           {icon}
         </div>
       )}
-      <div className="text-4xl font-bold text-blue-600 mb-2">{number}</div>
+      <div className="text-4xl font-bold text-red-600 mb-2">{number}</div>
       <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">{label}</div>
       {trend && (
         <div className={`text-xs mt-2 ${trend.direction === 'up' ? 'text-green-600' : 'text-red-600'}`}>

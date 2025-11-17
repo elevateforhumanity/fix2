@@ -62,7 +62,7 @@ export function Leaderboard() {
             key={user.rank}
             className={`flex items-center gap-4 p-3 rounded-lg transition-all ${
               user.isCurrentUser
-                ? 'bg-blue-50 border-2 border-blue-500'
+                ? 'bg-blue-50 border-2 border-orange-500'
                 : 'bg-gray-50 border border-gray-200 hover:border-gray-300'
             }`}
           >

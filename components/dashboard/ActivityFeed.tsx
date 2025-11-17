@@ -27,7 +27,7 @@ const activities = [
     id: 3,
     type: 'enrollment',
     icon: BookOpen,
-    color: 'text-blue-600',
+    color: 'text-red-600',
     bgColor: 'bg-blue-100',
     title: 'Enrolled in Course',
     course: 'HVAC Technician Training',

@@ -4,7 +4,7 @@ import DeviceCompatibility from '@/components/DeviceCompatibility';
 
 export default function PWATestPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">
@@ -15,7 +15,7 @@ export default function PWATestPage() {
             features.
           </p>
           <div className="space-y-4">
-            <div className="border-l-4 border-blue-500 bg-blue-50 p-4">
+            <div className="border-l-4 border-orange-500 bg-red-50 p-4">
               <h3 className="font-semibold text-blue-900 mb-2">
                 Installation Instructions
               </h3>

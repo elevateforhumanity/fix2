@@ -87,7 +87,7 @@ export default function ProgramsFullPage() {
         </div>
       </section>
       {/* Featured Workforce Pathways */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="elevate-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -100,8 +100,8 @@ export default function ProgramsFullPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* WIOA */}
             <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Award className="h-8 w-8 text-blue-600" />
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                <Award className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 WIOA-Funded Training
@@ -298,8 +298,8 @@ export default function ProgramsFullPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6">
-              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-10 w-10 text-blue-600" />
+              <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-10 w-10 text-red-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Students & Jobseekers
@@ -358,7 +358,7 @@ export default function ProgramsFullPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-6 rounded-xl shadow-lg">
-              <CheckCircle className="h-12 w-12 text-blue-600 mb-4" />
+              <CheckCircle className="h-12 w-12 text-red-600 mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 One Central Platform
               </h3>
@@ -428,7 +428,7 @@ export default function ProgramsFullPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             <Link
               href="/programs"
-              className="bg-white text-blue-600 px-6 py-4 rounded-lg font-bold text-center hover:bg-gray-100 transition-colors"
+              className="bg-white text-red-600 px-6 py-4 rounded-lg font-bold text-center hover:bg-gray-100 transition-colors"
             >
               Explore Programs
             </Link>

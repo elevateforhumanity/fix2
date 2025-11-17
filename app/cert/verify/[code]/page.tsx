@@ -60,7 +60,7 @@ export default async function VerifyCertificatePage({ params }: Props) {
   const isValid = certificate && certificate.status === 'issued';
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -215,7 +215,7 @@ export default async function VerifyCertificatePage({ params }: Props) {
                 </div>
               </div>
               {/* About Elevate */}
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="mt-6 p-4 bg-red-50 border border-blue-200 rounded-lg">
                 <h3 className="font-bold text-blue-900 mb-2">
                   About Elevate for Humanity
                 </h3>
@@ -230,19 +230,19 @@ export default async function VerifyCertificatePage({ params }: Props) {
                 <div className="flex gap-4 text-sm">
                   <Link
                     href="/"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-red-600 hover:text-red-700 font-medium"
                   >
                     Visit Website
                   </Link>
                   <Link
                     href="/programs"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-red-600 hover:text-red-700 font-medium"
                   >
                     View Programs
                   </Link>
                   <Link
                     href="/contact"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-red-600 hover:text-red-700 font-medium"
                   >
                     Contact Us
                   </Link>

@@ -57,7 +57,7 @@ export default function LearnerTimeline({
   }, [params.id]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Button variant="ghost" asChild className="mb-4">

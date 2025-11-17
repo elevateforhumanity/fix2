@@ -54,7 +54,7 @@ export default async function AdminCertificatesPage() {
     certificates?.reduce((sum, c) => sum + (c.hours_completed || 0), 0) || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -262,7 +262,7 @@ export default async function AdminCertificatesPage() {
           </Link>
           <Link
             href="/cert/verify"
-            className="elevate-card hover:border-blue-500/50 transition-all"
+            className="elevate-card hover:border-orange-500/50 transition-all"
           >
             <div className="elevate-card-header">
               <h3 className="elevate-card-title">Verify Certificate</h3>

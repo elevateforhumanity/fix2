@@ -141,7 +141,7 @@ const getStatusColor = (status: string) => {
     case 'completed':
       return 'bg-green-500';
     case 'in-progress':
-      return 'bg-blue-500';
+      return 'bg-red-500';
     default:
       return 'bg-gray-300';
   }
@@ -152,7 +152,7 @@ const getStatusBadge = (status: string) => {
     case 'completed':
       return <Badge className="bg-green-600">Completed</Badge>;
     case 'in-progress':
-      return <Badge className="bg-blue-600">In Progress</Badge>;
+      return <Badge className="bg-red-600">In Progress</Badge>;
     default:
       return <Badge variant="secondary">Not Started</Badge>;
   }
@@ -173,7 +173,7 @@ export default function ProgressPage() {
   const { overallStats, courses, recentActivity } = progressData;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
@@ -346,7 +346,7 @@ export default function ProgressPage() {
                           {module.completed === module.total ? (
                             <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
                           ) : module.completed > 0 ? (
-                            <PlayCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                            <PlayCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
                           ) : (
                             <Circle className="h-5 w-5 text-gray-300 flex-shrink-0" />
                           )}

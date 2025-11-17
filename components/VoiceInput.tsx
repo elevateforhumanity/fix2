@@ -239,7 +239,7 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
           'focus:outline-none focus:ring-2 focus:ring-offset-2',
           isListening
             ? 'bg-red-500 hover:bg-red-600 focus:ring-red-500 animate-pulse'
-            : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
+            : 'bg-red-600 hover:bg-red-700 focus:ring-blue-500',
           isSpeaking ? 'opacity-50 cursor-not-allowed' : '',
         ].join(' ')}
         title={isListening ? 'Stop listening' : 'Start voice command'}

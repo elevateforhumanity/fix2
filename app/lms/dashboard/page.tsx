@@ -132,7 +132,7 @@ export default async function LMSDashboard() {
     user.email?.split('@')[0] ||
     'Student';
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <LoginTracker />
       <AttendanceTracker activityType="dashboard" />
       {/* Navigation */}
@@ -353,9 +353,9 @@ export default async function LMSDashboard() {
             </Link>
             <Link
               href="/lms/progress"
-              className="elevate-card hover:border-blue-500/50 transition-all"
+              className="elevate-card hover:border-orange-500/50 transition-all"
             >
-              <TrendingUp className="h-7 w-7 mb-2 text-blue-500" />
+              <TrendingUp className="h-7 w-7 mb-2 text-red-500" />
               <h3 className="elevate-card-title">My Progress</h3>
               <p className="elevate-card-subtitle mt-1">
                 Track your learning achievements

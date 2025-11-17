@@ -153,19 +153,19 @@ export function CoursePlayer() {
           <div className="space-y-2">
             <a
               href="#"
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
             >
               📄 Cutting Techniques Guide.pdf
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
             >
               📊 Practice Worksheet.pdf
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm"
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
             >
               🎥 Bonus: Advanced Tips Video
             </a>

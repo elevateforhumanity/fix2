@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">{stat.number}</div>
                 <div className="text-sm text-slate-600 font-semibold">{stat.label}</div>
               </div>
             ))}
@@ -129,7 +129,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-blue-600 text-white">
+      <section className="py-16 px-4 bg-red-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8 text-blue-100">
@@ -138,13 +138,13 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="px-8 py-3 bg-white text-blue-600 font-semibold hover:bg-blue-50 transition"
+              className="px-8 py-3 bg-white text-red-600 font-semibold hover:bg-red-50 transition"
             >
               Apply Now
             </Link>
             <Link
               href="/programs"
-              className="px-8 py-3 bg-blue-700 text-white font-semibold hover:bg-blue-800 transition"
+              className="px-8 py-3 bg-red-700 text-white font-semibold hover:bg-blue-800 transition"
             >
               View Programs
             </Link>

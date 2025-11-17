@@ -114,7 +114,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
 
   if (!quiz) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <Card className="max-w-md">
           <CardHeader>
             <CardTitle>Quiz Not Found</CardTitle>
@@ -180,7 +180,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
   // Quiz Start Screen
   if (!quizStarted) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-white">
         <header className="border-b bg-card">
           <div className="container mx-auto px-4 py-6">
             <Button variant="outline" asChild>
@@ -232,7 +232,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
                     </div>
                   </div>
                 </div>
-                <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <div className="bg-red-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                   <h3 className="font-semibold mb-2 flex items-center gap-2">
                     <AlertCircle className="h-4 w-4" />
                     Instructions
@@ -272,7 +272,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
     const passed = score.percentage >= quiz.passingScore;
 
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-white">
         <header className="border-b bg-card">
           <div className="container mx-auto px-4 py-6">
             <h1 className="text-2xl font-bold">Quiz Results</h1>
@@ -407,7 +407,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
                           );
                         })}
                       </div>
-                      <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                      <div className="bg-red-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                         <h4 className="font-semibold mb-1 text-sm">
                           Explanation:
                         </h4>
@@ -430,7 +430,7 @@ export default function QuizPage({ params }: { params: { id: string } }) {
   const allAnswered = quiz.questions.every((q) => answers[q.id] !== undefined);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <header className="border-b bg-card sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-3">

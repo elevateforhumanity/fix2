@@ -484,7 +484,7 @@ export function CopilotDeployment() {
             </div>
             <div className="space-y-6">
               {selectedGuide.steps.map((step, index) => (
-                <div key={index} className="border-l-4 border-blue-500 pl-4">
+                <div key={index} className="border-l-4 border-orange-500 pl-4">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
                       {step.stepNumber}

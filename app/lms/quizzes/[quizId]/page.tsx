@@ -215,7 +215,7 @@ export default function TakeQuizPage({ params }: Props) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading quiz...</p>
@@ -226,7 +226,7 @@ export default function TakeQuizPage({ params }: Props) {
 
   if (!canTakeQuiz) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <header className="elevate-nav">
           <div className="elevate-logo">
             <div className="elevate-logo-mark">E</div>
@@ -257,7 +257,7 @@ export default function TakeQuizPage({ params }: Props) {
   const answeredCount = Object.keys(answers).length;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -269,7 +269,7 @@ export default function TakeQuizPage({ params }: Props) {
             className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
               timeRemaining < 300
                 ? 'bg-red-100 text-red-700'
-                : 'bg-blue-100 text-blue-700'
+                : 'bg-red-100 text-red-700'
             }`}
           >
             <Clock className="h-4 w-4" />

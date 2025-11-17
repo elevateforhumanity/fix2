@@ -139,7 +139,7 @@ const getFileIcon = (type: string) => {
     case 'video':
       return <Video className="h-8 w-8 text-purple-600" />;
     case 'image':
-      return <Image className="h-8 w-8 text-blue-600" />;
+      return <Image className="h-8 w-8 text-red-600" />;
     case 'zip':
       return <Archive className="h-8 w-8 text-yellow-600" />;
     default:
@@ -151,7 +151,7 @@ const getFileTypeBadge = (type: string) => {
   const colors: Record<string, string> = {
     pdf: 'bg-red-100 text-red-700 border-red-200',
     video: 'bg-purple-100 text-purple-700 border-purple-200',
-    image: 'bg-blue-100 text-blue-700 border-blue-200',
+    image: 'bg-red-100 text-red-700 border-blue-200',
     zip: 'bg-yellow-100 text-yellow-700 border-yellow-200',
   };
 
@@ -188,7 +188,7 @@ export default function ResourcesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}

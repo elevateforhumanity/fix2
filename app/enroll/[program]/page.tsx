@@ -140,7 +140,7 @@ export default function EnrollProgramPage({
 
   if (!programTitles[program]) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="min-h-screen bg-white flex items-center justify-center p-4">
         <Card className="max-w-md">
           <CardContent className="pt-6 text-center">
             <AlertCircle className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
@@ -168,7 +168,7 @@ export default function EnrollProgramPage({
               Thank you for applying to {programTitles[program]}. We'll review
               your application and contact you within 2-3 business days.
             </p>
-            <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-md mx-auto mb-6">
+            <div className="bg-red-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-md mx-auto mb-6">
               <h3 className="font-semibold mb-3">What happens next?</h3>
               <ol className="text-sm text-left space-y-2 list-decimal list-inside">
                 <li>We verify your eligibility</li>

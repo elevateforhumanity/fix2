@@ -203,9 +203,9 @@ export default function ApplicationsPage() {
 
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="bg-red-50 border border-blue-200 rounded-lg p-4">
                 <div className="text-sm font-medium text-blue-900">Total Applications</div>
-                <div className="text-2xl font-bold text-blue-600 mt-1">
+                <div className="text-2xl font-bold text-red-600 mt-1">
                   {applications.length}
                 </div>
               </div>

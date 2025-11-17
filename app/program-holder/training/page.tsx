@@ -83,7 +83,7 @@ export default function ProgramHolderTrainingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -120,7 +120,7 @@ export default function ProgramHolderTrainingPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="#video-tutorials"
-              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+              className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100"
             >
               Watch Video Tutorials
             </Link>
@@ -154,8 +154,8 @@ export default function ProgramHolderTrainingPage() {
                   className="elevate-card hover:shadow-xl transition-shadow"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-6 w-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-6 w-6 text-red-600" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -177,7 +177,7 @@ export default function ProgramHolderTrainingPage() {
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <Link
                       href={`#module-${index + 1}`}
-                      className="text-blue-600 hover:text-blue-700 font-semibold text-sm inline-flex items-center gap-2"
+                      className="text-red-600 hover:text-red-700 font-semibold text-sm inline-flex items-center gap-2"
                     >
                       Start Module
                       <span>→</span>
@@ -242,7 +242,7 @@ export default function ProgramHolderTrainingPage() {
               >
                 <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-blue-600 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-red-600 flex items-center justify-center">
                       <Video className="h-8 w-8 text-white" />
                     </div>
                     <p className="text-sm text-gray-600">Video Coming Soon</p>
@@ -256,7 +256,7 @@ export default function ProgramHolderTrainingPage() {
                   <span className="text-xs text-gray-500">
                     {video.duration}
                   </span>
-                  <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                  <button className="text-red-600 hover:text-red-700 font-semibold text-sm">
                     Watch →
                   </button>
                 </div>
@@ -293,7 +293,7 @@ export default function ProgramHolderTrainingPage() {
                     <p className="text-sm text-gray-600 mb-3">
                       {guide.description}
                     </p>
-                    <button className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                    <button className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm">
                       <Download className="h-4 w-4" />
                       Download PDF
                     </button>
@@ -316,8 +316,8 @@ export default function ProgramHolderTrainingPage() {
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="elevate-card text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <BookOpen className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <BookOpen className="h-6 w-6 text-red-600" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Documentation</h3>
                 <p className="text-sm text-gray-600 mb-3">
@@ -325,7 +325,7 @@ export default function ProgramHolderTrainingPage() {
                 </p>
                 <Link
                   href="/docs"
-                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  className="text-red-600 hover:text-red-700 font-semibold text-sm"
                 >
                   View Docs →
                 </Link>
@@ -340,7 +340,7 @@ export default function ProgramHolderTrainingPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  className="text-red-600 hover:text-red-700 font-semibold text-sm"
                 >
                   Contact Us →
                 </Link>
@@ -355,7 +355,7 @@ export default function ProgramHolderTrainingPage() {
                 </p>
                 <Link
                   href="/webinars"
-                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  className="text-red-600 hover:text-red-700 font-semibold text-sm"
                 >
                   Schedule →
                 </Link>
@@ -375,7 +375,7 @@ export default function ProgramHolderTrainingPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/program-holder/dashboard"
-              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+              className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100"
             >
               Go to Dashboard
             </Link>

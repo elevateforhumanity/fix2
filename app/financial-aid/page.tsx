@@ -113,8 +113,8 @@ export default function FinancialAidPage() {
                 return (
                   <Card key={service.title}>
                     <CardContent className="p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                        <Icon className="h-8 w-8 text-blue-600" />
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
+                        <Icon className="h-8 w-8 text-red-600" />
                       </div>
                       <h3 className="text-lg font-semibold text-slate-900 mb-2">
                         {service.title}
@@ -136,7 +136,7 @@ export default function FinancialAidPage() {
             </h2>
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   1
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function FinancialAidPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   2
                 </div>
                 <div>
@@ -162,7 +162,7 @@ export default function FinancialAidPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   3
                 </div>
                 <div>
@@ -175,7 +175,7 @@ export default function FinancialAidPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   4
                 </div>
                 <div>

@@ -4,7 +4,7 @@ import { WifiOff, RefreshCw } from 'lucide-react';
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="max-w-md w-full text-center">
         <div className="mb-6 flex justify-center">
           <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
@@ -20,12 +20,12 @@ export default function OfflinePage() {
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 active:scale-95 transition-transform"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 active:scale-95 transition-transform"
         >
           <RefreshCw size={20} />
           Try Again
         </button>
-        <div className="mt-8 p-4 bg-blue-50 rounded-lg text-left">
+        <div className="mt-8 p-4 bg-red-50 rounded-lg text-left">
           <h3 className="font-semibold text-blue-900 mb-2">
             What you can still do:
           </h3>

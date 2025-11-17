@@ -53,7 +53,7 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
       <label className="block text-sm font-medium text-slate-700">{label}</label>
       
       {!file ? (
-        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors">
+        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-500 hover:bg-blue-50 transition-colors">
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
             <Upload className="h-8 w-8 text-slate-400 mb-2" />
             <p className="text-sm text-slate-600">
@@ -73,7 +73,7 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
       ) : (
         <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg">
           <div className="flex items-center gap-3">
-            <FileText className="h-8 w-8 text-blue-600" />
+            <FileText className="h-8 w-8 text-red-600" />
             <div>
               <div className="font-medium text-slate-900">{file.name}</div>
               <div className="text-sm text-slate-600">
@@ -83,7 +83,7 @@ export function FileUpload({ label, accept = '*', maxSize = 10, onUpload }: File
           </div>
           <div className="flex items-center gap-2">
             {uploading && (
-              <div className="text-sm text-blue-600">Uploading...</div>
+              <div className="text-sm text-red-600">Uploading...</div>
             )}
             {uploaded && (
               <CheckCircle className="h-5 w-5 text-green-600" />

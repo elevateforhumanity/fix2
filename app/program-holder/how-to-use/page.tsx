@@ -198,7 +198,7 @@ export default function HowToUsePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -236,7 +236,7 @@ export default function HowToUsePage() {
           </p>
           <Link
             href="#getting-started"
-            className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+            className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100"
           >
             Get Started
           </Link>
@@ -275,7 +275,7 @@ export default function HowToUsePage() {
                           </h3>
                           <p className="text-gray-600">{step.description}</p>
                         </div>
-                        <Icon className="h-8 w-8 text-blue-600 flex-shrink-0" />
+                        <Icon className="h-8 w-8 text-red-600 flex-shrink-0" />
                       </div>
                       <ul className="space-y-2 mb-4">
                         {step.tasks.map((task, index) => (
@@ -287,7 +287,7 @@ export default function HowToUsePage() {
                       </ul>
                       <Link
                         href={step.link}
-                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+                        className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold"
                       >
                         Go to {step.title}
                         <ArrowRight className="h-4 w-4" />
@@ -377,7 +377,7 @@ export default function HowToUsePage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/program-holder/training"
-              className="elevate-btn-primary bg-white text-blue-600 hover:bg-gray-100"
+              className="elevate-btn-primary bg-white text-red-600 hover:bg-gray-100"
             >
               View Training Resources
             </Link>

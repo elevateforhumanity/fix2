@@ -51,11 +51,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-6 rounded-full">
+                <div className="inline-block px-4 py-1.5 bg-red-50 text-red-700 text-xs font-semibold tracking-wide uppercase mb-6 rounded-full">
                   WIOA-Funded Training Programs
                 </div>
                 <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                  Transform Your Career with <span className="text-blue-600">Free Training</span>
+                  Transform Your Career with <span className="text-red-600">Free Training</span>
                 </h1>
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                   Get the skills employers need through Wisconsin's premier workforce development program. 100% funded training, job placement support, and career services—all at no cost to you.
@@ -63,7 +63,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
                     href="/apply" 
-                    className="px-8 py-3.5 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition text-center"
+                    className="px-8 py-3.5 bg-red-600 text-white font-semibold hover:bg-red-700 transition text-center"
                   >
                     Check Eligibility
                   </Link>
@@ -111,7 +111,7 @@ export default function HomePage() {
               <p className="text-lg text-slate-600">Three steps to access funded training</p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-blue-500 transition-colors">
+              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-orange-500 transition-colors">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center font-bold text-2xl mb-6 rounded-lg shadow-lg">
                   1
                 </div>
@@ -120,7 +120,7 @@ export default function HomePage() {
                   Browse 12+ state-approved training programs in healthcare, skilled trades, technology, and business. All programs lead to industry-recognized certifications.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-blue-500 transition-colors">
+              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-orange-500 transition-colors">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center font-bold text-2xl mb-6 rounded-lg shadow-lg">
                   2
                 </div>
@@ -129,7 +129,7 @@ export default function HomePage() {
                   Complete a quick eligibility check to see if you qualify for WIOA funding. Most Wisconsin residents are eligible based on income or employment status.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-blue-500 transition-colors">
+              <div className="bg-white p-8 rounded-lg border border-slate-200 hover:border-orange-500 transition-colors">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center font-bold text-2xl mb-6 rounded-lg shadow-lg">
                   3
                 </div>
@@ -152,7 +152,7 @@ export default function HomePage() {
               </div>
               <Link 
                 href="/programs" 
-                className="hidden md:flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+                className="hidden md:flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold"
               >
                 View All Programs
                 <ArrowRight className="h-5 w-5" />
@@ -161,7 +161,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredPrograms.map((program) => (
                 <Link key={program.id} href={`/programs/${program.slug}`} className="group">
-                  <div className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-blue-500 hover:shadow-lg transition-all">
+                  <div className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-orange-500 hover:shadow-lg transition-all">
                     <div className="relative h-48">
                       <Image
                         src={program.image}
@@ -177,7 +177,7 @@ export default function HomePage() {
                       <div className="flex items-center gap-2 mb-3">
                         <Badge variant="primary" size="sm">{program.category}</Badge>
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition">
+                      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition">
                         {program.title}
                       </h3>
                       <div className="space-y-2 text-sm text-slate-600">
@@ -194,7 +194,7 @@ export default function HomePage() {
                           <span>{program.placement} job placement rate</span>
                         </div>
                       </div>
-                      <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                      <div className="mt-4 flex items-center gap-2 text-red-600 font-semibold group-hover:gap-3 transition-all">
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </div>
@@ -252,8 +252,8 @@ export default function HomePage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-                  <Award className="h-8 w-8 text-blue-600" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
+                  <Award className="h-8 w-8 text-red-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">State-Approved Programs</h3>
                 <p className="text-slate-600">

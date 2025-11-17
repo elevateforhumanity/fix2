@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const fundingTypes = [
-  { name: 'WIOA', color: 'bg-blue-600' },
+  { name: 'WIOA', color: 'bg-red-600' },
   { name: 'WRG-Style', color: 'bg-orange-600' },
   { name: 'JRI', color: 'bg-green-600' },
   { name: 'Apprenticeship', color: 'bg-purple-600' },

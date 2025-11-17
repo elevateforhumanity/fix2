@@ -99,7 +99,7 @@ export default function EmployerDashboardPage() {
                   <div className="text-sm text-slate-600">Active Jobs</div>
                   <div className="text-3xl font-bold text-slate-900 mt-1">{stats.activeJobs}</div>
                 </div>
-                <Briefcase className="h-8 w-8 text-blue-600" />
+                <Briefcase className="h-8 w-8 text-red-600" />
               </div>
             </CardContent>
           </Card>

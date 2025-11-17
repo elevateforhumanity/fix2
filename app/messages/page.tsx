@@ -91,11 +91,11 @@ export default function MessagesPage() {
                     key={conv.id}
                     onClick={() => setSelectedConversation(conv.id)}
                     className={`w-full p-4 border-b border-slate-200 hover:bg-slate-50 transition-colors text-left ${
-                      selectedConversation === conv.id ? 'bg-blue-50' : ''
+                      selectedConversation === conv.id ? 'bg-red-50' : ''
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+                      <div className="flex-shrink-0 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-semibold">
                         {conv.avatar}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -123,7 +123,7 @@ export default function MessagesPage() {
               {/* Header */}
               <div className="p-4 border-b border-slate-200 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+                  <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-semibold">
                     SW
                   </div>
                   <div>
@@ -146,7 +146,7 @@ export default function MessagesPage() {
                     <div
                       className={`max-w-[70%] rounded-lg p-3 ${
                         msg.isOwn
-                          ? 'bg-blue-600 text-white'
+                          ? 'bg-red-600 text-white'
                           : 'bg-slate-100 text-slate-900'
                       }`}
                     >

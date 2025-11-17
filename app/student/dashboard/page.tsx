@@ -74,7 +74,7 @@ export default function StudentDashboardPage() {
                     {student.completionProgress}%
                   </div>
                 </div>
-                <TrendingUp className="h-8 w-8 text-blue-600" />
+                <TrendingUp className="h-8 w-8 text-red-600" />
               </div>
             </CardContent>
           </Card>
@@ -130,7 +130,7 @@ export default function StudentDashboardPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="bg-red-50 border border-blue-200 rounded-lg p-6">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -165,7 +165,7 @@ export default function StudentDashboardPage() {
                   <div>
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium text-slate-700">Overall Completion</span>
-                      <span className="text-sm font-semibold text-blue-600">
+                      <span className="text-sm font-semibold text-red-600">
                         {student.completionProgress}%
                       </span>
                     </div>

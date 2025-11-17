@@ -63,7 +63,7 @@ export default function PostJobPage() {
                     Job Type *
                   </label>
                   <select
-                    className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.type}
                     onChange={(e) => setFormData({...formData, type: e.target.value})}
                   >
@@ -92,7 +92,7 @@ export default function PostJobPage() {
                 </label>
                 <textarea
                   rows={6}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Describe the role, responsibilities, and what makes this opportunity great..."
                   value={formData.description}
                   onChange={(e) => setFormData({...formData, description: e.target.value})}
@@ -105,7 +105,7 @@ export default function PostJobPage() {
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="List required skills, certifications, and experience..."
                   value={formData.requirements}
                   onChange={(e) => setFormData({...formData, requirements: e.target.value})}
@@ -118,7 +118,7 @@ export default function PostJobPage() {
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   placeholder="Health insurance, 401(k), paid time off, etc..."
                   value={formData.benefits}
                   onChange={(e) => setFormData({...formData, benefits: e.target.value})}

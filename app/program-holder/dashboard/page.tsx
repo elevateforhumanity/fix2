@@ -75,7 +75,7 @@ export default function ProgramHolderDashboard() {
   const getMouStatusBadge = (mouStatus: string) => {
     const colors: Record<string, string> = {
       not_sent: 'bg-gray-100 text-gray-800',
-      sent: 'bg-blue-100 text-blue-800',
+      sent: 'bg-red-100 text-blue-800',
       signed: 'bg-green-100 text-green-800',
     };
     return (
@@ -91,7 +91,7 @@ export default function ProgramHolderDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4" />
           <p className="text-muted-foreground">Loading your dashboard...</p>
@@ -102,7 +102,7 @@ export default function ProgramHolderDashboard() {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <Card className="max-w-md">
           <CardHeader>
             <CardTitle>No Program Holder Profile</CardTitle>
@@ -121,7 +121,7 @@ export default function ProgramHolderDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -323,11 +323,11 @@ export default function ProgramHolderDashboard() {
             </div>
           </div>
           <div
-            className="elevate-card hover:border-blue-500/50 transition-all cursor-pointer"
+            className="elevate-card hover:border-orange-500/50 transition-all cursor-pointer"
             onClick={() => router.push('/program-holder/reports')}
           >
             <div className="text-center">
-              <FileText className="h-7 w-7 mx-auto mb-2 text-blue-500" />
+              <FileText className="h-7 w-7 mx-auto mb-2 text-red-500" />
               <p className="font-medium">Reports</p>
               <p className="text-xs text-slate-400 mt-1">
                 View performance reports

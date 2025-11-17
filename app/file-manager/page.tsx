@@ -83,7 +83,7 @@ export default function FileManagerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-white p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -92,18 +92,18 @@ export default function FileManagerPage() {
             <div className="flex gap-2">
               <button
                 onClick={() => setView('grid')}
-                className={`px-4 py-2 rounded-lg ${view === 'grid' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
+                className={`px-4 py-2 rounded-lg ${view === 'grid' ? 'bg-red-600 text-white' : 'bg-white text-gray-700'}`}
               >
                 Grid
               </button>
               <button
                 onClick={() => setView('list')}
-                className={`px-4 py-2 rounded-lg ${view === 'list' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
+                className={`px-4 py-2 rounded-lg ${view === 'list' ? 'bg-red-600 text-white' : 'bg-white text-gray-700'}`}
               >
                 List
               </button>
             </div>
-            <label className="bg-blue-600 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-blue-700">
+            <label className="bg-red-600 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-red-700">
               {uploading ? 'Uploading...' : 'Upload File'}
               <input
                 type="file"
@@ -152,7 +152,7 @@ export default function FileManagerPage() {
                   <a
                     href={file.url}
                     download
-                    className="flex-1 text-center bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
+                    className="flex-1 text-center bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700"
                   >
                     Download
                   </a>
@@ -169,7 +169,7 @@ export default function FileManagerPage() {
         ) : (
           <div className="bg-white rounded-lg overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b">
+              <thead className="bg-white border-b">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                     Name
@@ -187,7 +187,7 @@ export default function FileManagerPage() {
               </thead>
               <tbody className="divide-y">
                 {files.map((file) => (
-                  <tr key={file.id} className="hover:bg-gray-50">
+                  <tr key={file.id} className="hover:bg-white">
                     <td className="px-6 py-4 text-sm text-gray-900">
                       {file.name}
                     </td>
@@ -202,7 +202,7 @@ export default function FileManagerPage() {
                         <a
                           href={file.url}
                           download
-                          className="text-blue-600 hover:text-blue-800"
+                          className="text-red-600 hover:text-blue-800"
                         >
                           Download
                         </a>

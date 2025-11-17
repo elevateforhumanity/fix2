@@ -46,7 +46,7 @@ export default function EmployersPage() {
         {/* Hero Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="success" className="mb-4 bg-white text-blue-600">For Employers</Badge>
+            <Badge variant="success" className="mb-4 bg-white text-red-600">For Employers</Badge>
             <h1 className="text-5xl font-bold mb-6">
               Hire Skilled, Job-Ready Workers
             </h1>
@@ -57,7 +57,7 @@ export default function EmployersPage() {
               <Button size="lg" variant="secondary">
                 Post a Job
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-blue-700">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-red-700">
                 Become a Partner
               </Button>
             </div>
@@ -79,8 +79,8 @@ export default function EmployersPage() {
                 return (
                   <Card key={benefit.title} className="text-center">
                     <CardContent className="p-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                        <Icon className="h-8 w-8 text-blue-600" />
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
+                        <Icon className="h-8 w-8 text-red-600" />
                       </div>
                       <h3 className="text-lg font-semibold text-slate-900 mb-2">
                         {benefit.title}
@@ -124,15 +124,15 @@ export default function EmployersPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Briefcase className="h-8 w-8 text-blue-600" />
+                      <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                        <Briefcase className="h-8 w-8 text-red-600" />
                       </div>
                       <div>
                         <div className="font-semibold text-slate-900">ABC Manufacturing</div>
                         <div className="text-sm text-slate-600">Milwaukee, WI</div>
                       </div>
                     </div>
-                    <blockquote className="text-slate-700 italic border-l-4 border-blue-600 pl-4">
+                    <blockquote className="text-slate-700 italic border-l-4 border-orange-500 pl-4">
                       "We've hired 15 graduates from the HVAC program over the past year. They come to us with hands-on experience and are productive from day one. This partnership has been invaluable for our growth."
                     </blockquote>
                     <div className="pt-4 border-t border-slate-200">
@@ -153,8 +153,8 @@ export default function EmployersPage() {
               <h2 className="text-4xl font-bold text-slate-900 mb-4">Our Impact</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center p-8 bg-blue-50 rounded-lg">
-                <div className="text-5xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-center p-8 bg-red-50 rounded-lg">
+                <div className="text-5xl font-bold text-red-600 mb-2">50+</div>
                 <div className="text-lg text-slate-700">Employer Partners</div>
               </div>
               <div className="text-center p-8 bg-green-50 rounded-lg">

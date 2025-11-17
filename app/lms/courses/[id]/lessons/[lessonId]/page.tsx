@@ -215,7 +215,7 @@ export default function LessonPage({ params }: Props) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading lesson...</p>
@@ -226,7 +226,7 @@ export default function LessonPage({ params }: Props) {
 
   if (!lesson) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
             Lesson Not Found
@@ -254,7 +254,7 @@ export default function LessonPage({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <AttendanceTracker courseId={parseInt(params.id)} activityType="lesson" />
       {/* Header */}
       <header className="elevate-nav">
@@ -338,7 +338,7 @@ export default function LessonPage({ params }: Props) {
                 </div>
               )}
               {lesson.content_type === 'document' && lesson.content && (
-                <div className="p-6 bg-gray-50 rounded-lg mb-6">
+                <div className="p-6 bg-white rounded-lg mb-6">
                   <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-center text-gray-600 mb-4">
                     Document content

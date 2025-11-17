@@ -34,7 +34,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               relative flex items-center justify-center w-5 h-5 border-2 rounded
               transition-all duration-200 cursor-pointer
               ${error ? 'border-red-500' : 'border-slate-300'}
-              peer-checked:bg-blue-600 peer-checked:border-blue-600
+              peer-checked:bg-red-600 peer-checked:border-blue-600
               peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-500
               peer-disabled:opacity-50 peer-disabled:cursor-not-allowed
               ${className}

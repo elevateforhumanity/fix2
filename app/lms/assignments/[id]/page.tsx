@@ -135,7 +135,7 @@ export default function AssignmentDetailPage({
 
   if (!assignment) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-white">
         <LMSNav />
         <main className="container mx-auto px-4 py-8">
           <Card>
@@ -183,7 +183,7 @@ export default function AssignmentDetailPage({
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -215,7 +215,7 @@ export default function AssignmentDetailPage({
                       {assignment.status === 'submitted' && (
                         <Badge
                           variant="outline"
-                          className="bg-blue-50 text-blue-700 border-blue-200"
+                          className="bg-red-50 text-red-700 border-blue-200"
                         >
                           Submitted
                         </Badge>
@@ -299,9 +299,9 @@ export default function AssignmentDetailPage({
                 {/* Submitted View */}
                 {assignment.status === 'submitted' && (
                   <div className="space-y-4">
-                    <div className="p-6 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+                    <div className="p-6 bg-red-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
                       <div className="flex items-center gap-3 mb-2">
-                        <CheckCircle className="h-6 w-6 text-blue-600" />
+                        <CheckCircle className="h-6 w-6 text-red-600" />
                         <h3 className="font-semibold text-lg">
                           Submission Received
                         </h3>

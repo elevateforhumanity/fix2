@@ -122,7 +122,7 @@ const getStatusBadge = (status: string) => {
     case 'completed':
       return <Badge className="bg-green-600">Completed</Badge>;
     case 'in-progress':
-      return <Badge className="bg-blue-600">In Progress</Badge>;
+      return <Badge className="bg-red-600">In Progress</Badge>;
     case 'available':
       return <Badge variant="outline">Available</Badge>;
     case 'locked':
@@ -137,7 +137,7 @@ const getStatusIcon = (status: string) => {
     case 'completed':
       return <CheckCircle className="h-5 w-5 text-green-600" />;
     case 'in-progress':
-      return <TrendingUp className="h-5 w-5 text-blue-600" />;
+      return <TrendingUp className="h-5 w-5 text-red-600" />;
     case 'available':
       return <BookOpen className="h-5 w-5 text-primary" />;
     case 'locked':
@@ -152,7 +152,7 @@ export default function LearningPathsPage() {
   const availablePaths = learningPaths.filter((p) => !p.enrolled);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}

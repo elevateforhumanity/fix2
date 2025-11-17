@@ -71,7 +71,7 @@ export default function EnrollPage() {
     const course = availableCourses.find((c) => c.id === selectedCourse);
 
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-white">
         <header className="border-b bg-card">
           <div className="container mx-auto px-4 py-6">
             <h1 className="text-3xl font-bold">Confirm Enrollment</h1>
@@ -164,7 +164,7 @@ export default function EnrollPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">

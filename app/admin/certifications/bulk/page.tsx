@@ -42,7 +42,7 @@ export default function BulkCerts() {
           Process CSV
         </button>
       </div>
-      <pre className="mt-4 bg-gray-50 p-3 rounded text-xs">
+      <pre className="mt-4 bg-white p-3 rounded text-xs">
         email,course_slug,issued_at,expires_at
         jane@example.com,cna-cert,2025-11-12, john@work.org,hvac-tech,,
       </pre>

@@ -88,9 +88,9 @@ export default function TruckDrivingPage() {
             <div className="elevate-card bg-white">
               <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
                 <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
                     <svg
-                      className="w-10 h-10 text-blue-600"
+                      className="w-10 h-10 text-red-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -112,7 +112,7 @@ export default function TruckDrivingPage() {
         </div>
       </section>
       {/* Program Overview */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -168,27 +168,27 @@ export default function TruckDrivingPage() {
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Long-haul trucking:</strong> Interstate freight
                     transportation
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Local delivery:</strong> Regional and city routes
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Specialized transport:</strong> Hazmat, tanker,
                     refrigerated
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Owner-operator:</strong> Start your own trucking
                     business

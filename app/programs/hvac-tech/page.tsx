@@ -87,9 +87,9 @@ export default function HVACTechPage() {
             <div className="elevate-card bg-white">
               <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
                 <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
                     <svg
-                      className="w-10 h-10 text-blue-600"
+                      className="w-10 h-10 text-red-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -111,7 +111,7 @@ export default function HVACTechPage() {
         </div>
       </section>
       {/* Program Overview */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -167,27 +167,27 @@ export default function HVACTechPage() {
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Residential HVAC:</strong> Home installation and
                     repair
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Commercial HVAC:</strong> Large building systems
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Industrial HVAC:</strong> Manufacturing and
                     facilities
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>Self-employment:</strong> Start your own HVAC
                     business
@@ -199,7 +199,7 @@ export default function HVACTechPage() {
               Certifications Earned
             </h3>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="elevate-card bg-blue-50 border-2 border-blue-200">
+              <div className="elevate-card bg-red-50 border-2 border-blue-200">
                 <h4 className="font-bold text-gray-900 mb-2">
                   EPA 608 Certification
                 </h4>

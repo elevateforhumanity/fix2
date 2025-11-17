@@ -105,7 +105,7 @@ export default async function QuizResultsPage({ params }: Props) {
     quiz && attemptNumber < quiz.max_attempts && !attempt.passed;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -152,7 +152,7 @@ export default async function QuizResultsPage({ params }: Props) {
           <div className="grid gap-4 md:grid-cols-4 mb-8">
             <div className="elevate-card">
               <div className="flex items-center gap-3">
-                <Award className="h-5 w-5 text-blue-600" />
+                <Award className="h-5 w-5 text-red-600" />
                 <div>
                   <div className="text-sm text-gray-500">Score</div>
                   <div className="text-2xl font-bold">{attempt.score}%</div>
@@ -358,7 +358,7 @@ export default async function QuizResultsPage({ params }: Props) {
                 {allAttempts.map((att, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-white rounded-lg"
                   >
                     <span className="text-sm text-gray-600">
                       Attempt {allAttempts.length - index}

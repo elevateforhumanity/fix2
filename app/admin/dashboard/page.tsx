@@ -129,7 +129,7 @@ export default async function AdminDashboardPage() {
     contactHours?.reduce((sum, h) => sum + h.total_hours, 0) || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -187,7 +187,7 @@ export default async function AdminDashboardPage() {
                   {totalStudents || 0}
                 </div>
               </div>
-              <Users className="h-6 w-6 text-blue-600" />
+              <Users className="h-6 w-6 text-red-600" />
             </div>
             <p className="text-xs text-slate-400 mt-2">Registered learners</p>
           </div>
@@ -230,7 +230,7 @@ export default async function AdminDashboardPage() {
         <div className="grid gap-4 md:grid-cols-3 mb-8">
           <div className="elevate-card">
             <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-blue-600" />
+              <Clock className="h-5 w-5 text-red-600" />
               <div>
                 <div className="text-sm text-gray-500">Total Contact Hours</div>
                 <div className="text-2xl font-bold">
@@ -289,7 +289,7 @@ export default async function AdminDashboardPage() {
                           <div
                             className={`h-full rounded-full ${
                               type === 'wioa'
-                                ? 'bg-blue-600'
+                                ? 'bg-red-600'
                                 : type === 'wrg'
                                   ? 'bg-green-600'
                                   : type === 'jri'
@@ -310,23 +310,23 @@ export default async function AdminDashboardPage() {
           <div className="elevate-card">
             <h2 className="elevate-card-title mb-4">Quick Stats</h2>
             <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">
                   Avg. Completion Time
                 </span>
                 <span className="font-bold">8 weeks</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">Avg. Quiz Score</span>
                 <span className="font-bold">82%</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">
                   Student Satisfaction
                 </span>
                 <span className="font-bold">4.6/5.0</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">
                   Job Placement Rate
                 </span>
@@ -429,9 +429,9 @@ export default async function AdminDashboardPage() {
         <div className="mt-8 grid gap-4 md:grid-cols-4">
           <Link
             href="/admin/students"
-            className="elevate-card hover:border-blue-500/50 transition-all"
+            className="elevate-card hover:border-orange-500/50 transition-all"
           >
-            <Users className="h-7 w-7 mb-2 text-blue-600" />
+            <Users className="h-7 w-7 mb-2 text-red-600" />
             <h3 className="elevate-card-title">Manage Students</h3>
             <p className="elevate-card-subtitle mt-1">
               View and manage student accounts

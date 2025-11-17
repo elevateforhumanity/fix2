@@ -77,7 +77,7 @@ export function VoiceAssistant() {
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                     message.isUser
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-red-600 text-white'
                       : 'bg-white text-gray-800 border border-gray-200'
                   }`}
                 >
@@ -106,7 +106,7 @@ export function VoiceAssistant() {
                   key={index}
                   className="text-xs text-gray-600 flex items-start gap-2"
                 >
-                  <span className="text-blue-600">•</span>
+                  <span className="text-red-600">•</span>
                   <span>
                     <strong>"{cmd.command}"</strong> - {cmd.description}
                   </span>

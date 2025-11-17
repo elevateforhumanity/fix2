@@ -62,19 +62,19 @@ export default function SuccessStoriesPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">2,500+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">2,500+</div>
                 <div className="text-slate-600">Students Trained</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">85%</div>
                 <div className="text-slate-600">Job Placement Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">$45K</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">$45K</div>
                 <div className="text-slate-600">Average Starting Salary</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
                 <div className="text-slate-600">Employer Partners</div>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function SuccessStoriesPage() {
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <Badge variant="primary" className="w-fit mb-4">{story.program}</Badge>
-                        <Quote className="h-8 w-8 text-blue-600 mb-4" />
+                        <Quote className="h-8 w-8 text-red-600 mb-4" />
                         <blockquote className="text-xl text-slate-700 mb-6 italic">
                           "{story.quote}"
                         </blockquote>
@@ -116,7 +116,7 @@ export default function SuccessStoriesPage() {
                             <div className="text-2xl text-slate-300">→</div>
                             <div>
                               <div className="text-sm text-slate-500">After</div>
-                              <div className="font-medium text-blue-600">{story.afterJob}</div>
+                              <div className="font-medium text-red-600">{story.afterJob}</div>
                             </div>
                           </div>
                           <div className="pt-4 border-t border-slate-200">
@@ -133,7 +133,7 @@ export default function SuccessStoriesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 bg-blue-600 text-white">
+        <section className="py-20 px-4 bg-red-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
             <p className="text-xl mb-8 text-blue-100">
@@ -142,13 +142,13 @@ export default function SuccessStoriesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/apply"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition"
+                className="px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition"
               >
                 Check Your Eligibility
               </a>
               <a
                 href="/programs"
-                className="px-8 py-4 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition"
+                className="px-8 py-4 bg-red-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition"
               >
                 Browse Programs
               </a>

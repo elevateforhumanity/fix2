@@ -67,7 +67,7 @@ export default async function AttendancePage() {
   const currentWeekHours = weeklyHours?.[0]?.total_hours || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -301,7 +301,7 @@ export default async function AttendancePage() {
           </div>
         </div>
         {/* Info Box */}
-        <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <div className="mt-8 p-4 bg-red-50 border border-blue-200 rounded-lg">
           <h3 className="font-bold text-blue-900 mb-2">About Contact Hours</h3>
           <p className="text-sm text-blue-800">
             Contact hours are automatically tracked when you're actively

@@ -142,7 +142,7 @@ export default function QuizQuestionsPage({ params }: Props) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading questions...</p>
@@ -152,7 +152,7 @@ export default function QuizQuestionsPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -444,7 +444,7 @@ export default function QuizQuestionsPage({ params }: Props) {
                                 className={`flex items-center gap-2 p-2 rounded ${
                                   option === question.correct_answer
                                     ? 'bg-green-50 border border-green-200'
-                                    : 'bg-gray-50'
+                                    : 'bg-white'
                                 }`}
                               >
                                 <div
@@ -517,7 +517,7 @@ export default function QuizQuestionsPage({ params }: Props) {
           </div>
           {/* Summary */}
           {questions.length > 0 && (
-            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="mt-6 p-4 bg-red-50 border border-blue-200 rounded-lg">
               <h3 className="font-bold text-blue-900 mb-2">Quiz Summary</h3>
               <div className="text-sm text-blue-800 space-y-1">
                 <p>• Total Questions: {questions.length}</p>

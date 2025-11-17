@@ -193,7 +193,7 @@ export default function MessagesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <LMSNav />
         <div className="flex items-center justify-center h-96">
           <Loader2 className="h-8 w-8 animate-spin text-red-600" />
@@ -223,7 +223,7 @@ export default function MessagesPage() {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}

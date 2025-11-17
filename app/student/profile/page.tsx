@@ -59,8 +59,8 @@ export default function StudentProfilePage() {
           <div className="lg:col-span-1">
             <Card>
               <CardContent className="p-6 text-center">
-                <div className="w-32 h-32 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <User className="h-16 w-16 text-blue-600" />
+                <div className="w-32 h-32 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <User className="h-16 w-16 text-red-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-1">
                   {profile.firstName} {profile.lastName}

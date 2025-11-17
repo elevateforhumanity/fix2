@@ -61,7 +61,7 @@ export default function CaseloadPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Button variant="ghost" asChild className="mb-4">
@@ -177,7 +177,7 @@ export default function CaseloadPage() {
                         </td>
                         <td className="py-3 px-4">{r.course}</td>
                         <td className="py-3 px-4">
-                          <span className="inline-block px-2 py-1 rounded text-xs bg-blue-100 text-blue-800">
+                          <span className="inline-block px-2 py-1 rounded text-xs bg-red-100 text-blue-800">
                             {r.program_code}
                           </span>
                         </td>
@@ -187,7 +187,7 @@ export default function CaseloadPage() {
                               r.enroll_status === 'completed'
                                 ? 'bg-green-100 text-green-800'
                                 : r.enroll_status === 'active'
-                                  ? 'bg-blue-100 text-blue-800'
+                                  ? 'bg-red-100 text-blue-800'
                                   : 'bg-gray-100 text-gray-800'
                             }`}
                           >

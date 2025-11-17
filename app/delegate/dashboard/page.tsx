@@ -149,7 +149,7 @@ export default async function DelegateDashboard() {
       : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -417,7 +417,7 @@ export default async function DelegateDashboard() {
           </Link>
           <Link
             href="/delegate/messages"
-            className="elevate-card hover:border-blue-500/50 transition-all"
+            className="elevate-card hover:border-orange-500/50 transition-all"
           >
             <div className="elevate-card-header">
               <h3 className="elevate-card-title">Send Messages</h3>

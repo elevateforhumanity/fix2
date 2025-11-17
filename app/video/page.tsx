@@ -92,7 +92,7 @@ function VideoMeetingContent() {
           <div className="space-y-6">
             <button
               onClick={createMeeting}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg"
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
             >
               Start New Meeting
             </button>

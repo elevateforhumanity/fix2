@@ -197,7 +197,7 @@ export default function CourseContentPage({ params }: Props) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading course...</p>
@@ -207,7 +207,7 @@ export default function CourseContentPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -481,7 +481,7 @@ export default function CourseContentPage({ params }: Props) {
                       module.lessons.map((lesson: any, lessonIndex: number) => (
                         <div
                           key={lesson.id}
-                          className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50"
+                          className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-white"
                         >
                           <div className="flex items-center gap-3">
                             <GripVertical className="h-4 w-4 text-gray-400" />

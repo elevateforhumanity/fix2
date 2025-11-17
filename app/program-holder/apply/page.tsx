@@ -52,7 +52,7 @@ export default function ProgramHolderApply() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="min-h-screen bg-white flex items-center justify-center p-4">
         <Card className="max-w-2xl w-full">
           <CardHeader>
             <div className="flex items-center gap-3">
@@ -92,7 +92,7 @@ export default function ProgramHolderApply() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
           <Card>

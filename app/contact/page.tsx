@@ -42,13 +42,13 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Phone</div>
-                    <a href="tel:317-555-0100" className="text-blue-600 hover:underline">
+                    <a href="tel:317-555-0100" className="text-red-600 hover:underline">
                       (317) 555-0100
                     </a>
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Email</div>
-                    <a href="mailto:info@elevateforhumanity.org" className="text-blue-600 hover:underline">
+                    <a href="mailto:info@elevateforhumanity.org" className="text-red-600 hover:underline">
                       info@elevateforhumanity.org
                     </a>
                   </div>
@@ -83,13 +83,13 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-slate-900 mb-3">Quick Links</h3>
                 <div className="space-y-2">
-                  <a href="/apply" className="block text-blue-600 hover:underline">
+                  <a href="/apply" className="block text-red-600 hover:underline">
                     Apply for Training
                   </a>
-                  <a href="/programs" className="block text-blue-600 hover:underline">
+                  <a href="/programs" className="block text-red-600 hover:underline">
                     Browse Programs
                   </a>
-                  <a href="/faq" className="block text-blue-600 hover:underline">
+                  <a href="/faq" className="block text-red-600 hover:underline">
                     Frequently Asked Questions
                   </a>
                 </div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-2 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none"
+                        className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
                     <div>
@@ -132,7 +132,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none"
+                        className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
                   </div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
                         id="phone"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none"
+                        className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       />
                     </div>
                     <div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-2 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none"
+                        className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                       >
                         <option value="">Select a subject</option>
                         <option value="general">General Inquiry</option>
@@ -181,13 +181,13 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none"
+                      className="w-full px-4 py-2 border border-slate-300 focus:border-orange-500 focus:ring-1 focus:ring-blue-600 outline-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                    className="w-full px-8 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition"
                   >
                     Send Message
                   </button>

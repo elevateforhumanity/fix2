@@ -207,7 +207,7 @@ export default function WorkforceEnrollmentPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-white flex items-center justify-center p-4">
         <div className="max-w-md w-full text-center">
           <div className="mb-6 flex justify-center">
             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
@@ -228,7 +228,7 @@ export default function WorkforceEnrollmentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">

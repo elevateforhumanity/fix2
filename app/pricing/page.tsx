@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -174,7 +174,7 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Employer Sponsored
                 </h3>
-                <div className="text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-5xl font-bold text-red-600 mb-2">
                   Custom
                 </div>
                 <p className="text-gray-600">Contact for pricing</p>

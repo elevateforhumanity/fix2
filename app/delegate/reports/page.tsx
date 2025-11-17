@@ -88,7 +88,7 @@ export default function DelegateReports() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-2">Training Provider Portal</h1>
         <p className="text-muted-foreground mb-8">
@@ -171,7 +171,7 @@ export default function DelegateReports() {
                               r.status === 'completed'
                                 ? 'bg-green-100 text-green-800'
                                 : r.status === 'active'
-                                  ? 'bg-blue-100 text-blue-800'
+                                  ? 'bg-red-100 text-blue-800'
                                   : 'bg-gray-100 text-gray-800'
                             }`}
                           >

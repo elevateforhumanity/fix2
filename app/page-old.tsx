@@ -133,7 +133,7 @@ export default function HomePage() {
         <div className="elevate-container">
           <div className="grid gap-12 md:grid-cols-[3fr,2fr] items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-semibold text-blue-700">
+              <div className="inline-block px-4 py-2 bg-red-50 border border-blue-200 rounded-full text-sm font-semibold text-red-700">
                 🤖 AI Instructor
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -194,7 +194,7 @@ export default function HomePage() {
                 ) : (
                   <div className="aspect-video w-full flex items-center justify-center p-8 text-center">
                     <div className="space-y-3">
-                      <div className="w-16 h-16 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
+                      <div className="w-16 h-16 mx-auto bg-red-600 rounded-full flex items-center justify-center">
                         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                         </svg>
@@ -244,7 +244,7 @@ export default function HomePage() {
               <div className="text-sm text-gray-500 mt-1">Within 6 Months</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-white border border-gray-200 hover:border border-gray-200 transition-shadow">
-              <div className="text-5xl font-bold text-blue-600 mb-2">$45K+</div>
+              <div className="text-5xl font-bold text-red-600 mb-2">$45K+</div>
               <div className="text-gray-700 font-semibold">
                 Avg. Starting Salary
               </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Employer-Led Apprenticeship & WIOA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -269,8 +269,8 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border border-gray-200 transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-blue-600" />
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                <Users className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Employer-Led Registered Apprenticeships
@@ -283,7 +283,7 @@ export default function HomePage() {
                 href="https://www.in.gov/dwd/apprenticeship-indiana/home/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-2"
+                className="text-red-600 hover:text-red-700 font-semibold inline-flex items-center gap-2"
               >
                 Learn More →
               </a>
@@ -341,15 +341,15 @@ export default function HomePage() {
               </p>
               <ul className="space-y-3 text-gray-700 mb-6">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                   <span>Access pre-screened, motivated candidates</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                   <span>WIOA reimbursement opportunities</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                   <span>Reporting and compliance support</span>
                 </li>
               </ul>
@@ -437,19 +437,19 @@ export default function HomePage() {
                 </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                     <span>100% free tuition and training materials</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                     <span>Industry-recognized certifications</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                     <span>Job placement and career counseling</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                     <span>Support services (childcare, transportation)</span>
                   </li>
                 </ul>
@@ -523,15 +523,15 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <CheckCircle className="h-4 w-4 text-red-600" />
                   DOL Approved • 160 hours
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <CheckCircle className="h-4 w-4 text-red-600" />
                   Class A CDL certification
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <CheckCircle className="h-4 w-4 text-red-600" />
                   $50K-$65K starting salary
                 </li>
               </ul>
@@ -591,7 +591,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Success Stories / Testimonials */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -693,7 +693,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Student Portal Video Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -759,7 +759,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* Partner / Provider Video Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="elevate-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -864,7 +864,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* How It Works Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -896,7 +896,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
               <h3 className="font-bold text-gray-900 mb-2">

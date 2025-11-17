@@ -66,7 +66,7 @@ export default function AchievementsPage() {
   const progressPercent = (unlockedCount / totalCount) * 100;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-br from-yellow-500 to-orange-600 text-white px-4 py-8 safe-area-inset-top">
         <div className="max-w-4xl mx-auto">

@@ -25,7 +25,7 @@ const programs = [
     title: 'Workforce Ready Grant (WRG)',
     description: 'Free training for Indiana residents in high-demand careers',
     icon: GraduationCap,
-    color: 'bg-blue-500',
+    color: 'bg-red-500',
     eligibility: ['Indiana resident', 'Age 18+', 'High school diploma or GED'],
     benefits: [
       '100% tuition covered',
@@ -172,7 +172,7 @@ export default function EnrollIndexPage() {
                           key={idx}
                           className="text-sm flex items-start gap-2"
                         >
-                          <CheckCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}

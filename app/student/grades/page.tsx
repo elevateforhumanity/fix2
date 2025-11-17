@@ -73,7 +73,7 @@ export default function StudentGradesPage() {
 
   const getGradeColor = (grade: number) => {
     if (grade >= 90) return 'text-green-600';
-    if (grade >= 80) return 'text-blue-600';
+    if (grade >= 80) return 'text-red-600';
     if (grade >= 70) return 'text-yellow-600';
     return 'text-red-600';
   };
@@ -118,7 +118,7 @@ export default function StudentGradesPage() {
                     {courses.filter(c => c.status === 'completed').reduce((sum, c) => sum + c.credits, 0)}
                   </div>
                 </div>
-                <TrendingUp className="h-8 w-8 text-blue-600" />
+                <TrendingUp className="h-8 w-8 text-red-600" />
               </div>
             </CardContent>
           </Card>

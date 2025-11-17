@@ -68,7 +68,7 @@ export default async function ProgramDetailPage({
           </div>
 
           <header className="space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+            <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
               Elevate Connects Program
             </p>
             <h1 className="text-3xl font-bold text-slate-900">
@@ -76,7 +76,7 @@ export default async function ProgramDetailPage({
             </h1>
             <p className="text-sm text-slate-600">{ecdCourse.shortDescription}</p>
 
-            <div className="rounded-xl bg-blue-50 p-4 text-xs text-blue-900">
+            <div className="rounded-xl bg-red-50 p-4 text-xs text-blue-900">
               Many learners may qualify for tuition support through WIOA and
               other state workforce grants. After you apply, our team and
               partners will help you review funding options and enrollment
@@ -394,7 +394,7 @@ export default async function ProgramDetailPage({
                   <div className="flex flex-wrap gap-2">
                     {program.funding_eligibility.map((funding) => {
                       const colorMap: Record<string, string> = {
-                        WIOA: 'bg-blue-600',
+                        WIOA: 'bg-red-600',
                         'WRG-style': 'bg-orange-600',
                         JRI: 'bg-green-600',
                         Apprenticeship: 'bg-purple-600',

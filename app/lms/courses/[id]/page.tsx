@@ -122,7 +122,7 @@ export default async function CoursePage({ params }: Props) {
     progressData?.reduce((sum, p) => sum + (p.time_spent_minutes || 0), 0) || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <AttendanceTracker
         courseId={parseInt(params.id)}
         activityType="course_view"
@@ -196,7 +196,7 @@ export default async function CoursePage({ params }: Props) {
               </div>
               <div className="elevate-card">
                 <div className="flex items-center gap-3">
-                  <Award className="h-5 w-5 text-blue-600" />
+                  <Award className="h-5 w-5 text-red-600" />
                   <div>
                     <div className="text-sm text-gray-500">Progress</div>
                     <div className="text-xl font-bold">
@@ -276,7 +276,7 @@ export default async function CoursePage({ params }: Props) {
                                 }
                                 className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-all ${
                                   isLocked
-                                    ? 'border-gray-200 bg-gray-50 cursor-not-allowed opacity-60'
+                                    ? 'border-gray-200 bg-white cursor-not-allowed opacity-60'
                                     : isCompleted
                                       ? 'border-green-200 bg-green-50 hover:border-green-300'
                                       : 'border-gray-200 hover:border-red-300 hover:bg-red-50'
@@ -450,7 +450,7 @@ export default async function CoursePage({ params }: Props) {
               </div>
             </div>
             {/* Help */}
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-red-50 border border-blue-200 rounded-lg">
               <h3 className="font-bold text-blue-900 mb-2">Need Help?</h3>
               <p className="text-sm text-blue-800 mb-3">
                 Having trouble with a lesson? Contact your instructor or case
@@ -458,7 +458,7 @@ export default async function CoursePage({ params }: Props) {
               </p>
               <Link
                 href="/lms/messages"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
+                className="text-red-600 hover:text-red-700 font-medium text-sm"
               >
                 Send Message →
               </Link>

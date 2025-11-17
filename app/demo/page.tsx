@@ -15,7 +15,7 @@ export default function DemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -99,8 +99,8 @@ export default function DemoPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Building className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center flex-shrink-0">
+                  <Building className="h-6 w-6 text-red-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">
@@ -264,7 +264,7 @@ export default function DemoPage() {
                     By submitting this form, you agree to our{' '}
                     <Link
                       href="/privacy-policy"
-                      className="text-blue-600 hover:underline"
+                      className="text-red-600 hover:underline"
                     >
                       Privacy Policy
                     </Link>

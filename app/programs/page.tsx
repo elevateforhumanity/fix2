@@ -59,7 +59,7 @@ export default function ProgramsPage() {
                 href={`/programs/${course.slug}`}
                 className="group"
               >
-                <div className="bg-white border border-slate-200 overflow-hidden hover:border-blue-600 transition">
+                <div className="bg-white border border-slate-200 overflow-hidden hover:border-orange-500 transition">
                   <div className="relative h-48">
                     <Image
                       src={`/generated-images/ecd-courses/${course.coverImageKey}.png`}
@@ -70,14 +70,14 @@ export default function ProgramsPage() {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded">
+                      <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded">
                         {course.category}
                       </span>
                       <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded">
                         WIOA Eligible
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition">
                       {course.title}
                     </h3>
                     <p className="text-sm text-slate-600 mb-4 line-clamp-2">
@@ -87,7 +87,7 @@ export default function ProgramsPage() {
                       <span className="text-slate-500">
                         {course.duration || '12-24 weeks'}
                       </span>
-                      <span className="text-blue-600 font-semibold group-hover:underline">
+                      <span className="text-red-600 font-semibold group-hover:underline">
                         Learn More →
                       </span>
                     </div>
@@ -111,7 +111,7 @@ export default function ProgramsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="px-8 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+              className="px-8 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition"
             >
               Check Eligibility
             </Link>

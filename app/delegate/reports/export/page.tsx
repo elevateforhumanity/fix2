@@ -263,7 +263,7 @@ export default function ExportReportsPage() {
   const selectedReportType = REPORT_TYPES.find((r) => r.id === selectedReport);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="elevate-nav">
         <div className="elevate-logo">

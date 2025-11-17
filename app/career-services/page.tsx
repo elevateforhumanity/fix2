@@ -73,8 +73,8 @@ export default function CareerServicesPage() {
                   <Card key={service.title}>
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-blue-600" />
+                        <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-red-600" />
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -111,7 +111,7 @@ export default function CareerServicesPage() {
             <div className="grid md:grid-cols-4 gap-8">
               {placementStats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-5xl font-bold text-blue-600 mb-2">{stat.value}</div>
+                  <div className="text-5xl font-bold text-red-600 mb-2">{stat.value}</div>
                   <div className="text-slate-600">{stat.label}</div>
                 </div>
               ))}
@@ -130,7 +130,7 @@ export default function CareerServicesPage() {
             </div>
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   1
                 </div>
                 <div>
@@ -143,7 +143,7 @@ export default function CareerServicesPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   2
                 </div>
                 <div>
@@ -156,7 +156,7 @@ export default function CareerServicesPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   3
                 </div>
                 <div>
@@ -169,7 +169,7 @@ export default function CareerServicesPage() {
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   4
                 </div>
                 <div>
@@ -199,21 +199,21 @@ export default function CareerServicesPage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Target className="h-6 w-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Target className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-slate-900">Exclusive Job Postings</div>
                       <div className="text-slate-600">Access jobs posted only to our students</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Target className="h-6 w-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Target className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-slate-900">On-Campus Interviews</div>
                       <div className="text-slate-600">Meet employers at our regular hiring events</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Target className="h-6 w-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Target className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-slate-900">Direct Referrals</div>
                       <div className="text-slate-600">We recommend top students directly to employers</div>
@@ -249,7 +249,7 @@ export default function CareerServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 bg-blue-600 text-white">
+        <section className="py-20 px-4 bg-red-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <Briefcase className="h-16 w-16 mx-auto mb-6" />
             <h2 className="text-4xl font-bold mb-6">Ready to Launch Your Career?</h2>
@@ -258,7 +258,7 @@ export default function CareerServicesPage() {
             </p>
             <a
               href="/apply"
-              className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition text-lg"
+              className="inline-block px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition text-lg"
             >
               Start Your Application
             </a>

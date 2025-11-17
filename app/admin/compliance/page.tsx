@@ -158,7 +158,7 @@ export default function Compliance() {
       {/* Key Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
         <div className="bg-white p-6 rounded-lg shadow text-center">
-          <div className="text-2xl font-bold text-blue-600">
+          <div className="text-2xl font-bold text-red-600">
             {complianceMetrics.totalParticipants.toLocaleString()}
           </div>
           <div className="text-gray-600 text-sm">Total Participants</div>
@@ -197,7 +197,7 @@ export default function Compliance() {
             className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-all text-left"
           >
             <div className="flex items-center justify-between mb-3">
-              <area.icon className="h-8 w-8 text-blue-600" />
+              <area.icon className="h-8 w-8 text-red-600" />
               <span
                 className={`px-2 py-1 text-xs font-semibold rounded-full ${
                   area.status === 'compliant'
@@ -223,7 +223,7 @@ export default function Compliance() {
               </div>
               <div className="bg-gray-200 rounded-full h-2">
                 <div
-                  className="bg-blue-600 rounded-full h-2"
+                  className="bg-red-600 rounded-full h-2"
                   style={{ width: `${area.completion}%` }}
                 />
               </div>
@@ -288,7 +288,7 @@ export default function Compliance() {
         <div className="p-6 border-b">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <section.icon className="h-8 w-8 text-blue-600" />
+              <section.icon className="h-8 w-8 text-red-600" />
               <div>
                 <h2 className="text-xl font-bold text-gray-900">
                   {section.title}
@@ -309,11 +309,11 @@ export default function Compliance() {
         </div>
         <div className="p-6">
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <div className="text-2xl font-bold text-blue-600">
+            <div className="bg-red-50 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-red-600">
                 {section.participants.toLocaleString()}
               </div>
-              <div className="text-blue-700 text-sm">Total Participants</div>
+              <div className="text-red-700 text-sm">Total Participants</div>
             </div>
             <div className="bg-green-50 p-4 rounded-lg">
               <div className="text-2xl font-bold text-green-600">
@@ -333,7 +333,7 @@ export default function Compliance() {
                 <h3 className="text-lg font-medium text-gray-900 mb-4">
                   Individual Employment Plan Management
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-white rounded-lg p-4">
                   <p className="text-gray-700 mb-4">
                     Complete IEP lifecycle management including assessment, goal
                     setting, service planning, and progress tracking.
@@ -370,7 +370,7 @@ export default function Compliance() {
                 <h3 className="text-lg font-medium text-gray-900 mb-4">
                   PIRL Federal Reporting
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-white rounded-lg p-4">
                   <p className="text-gray-700 mb-4">
                     Automated PIRL (Participant Individual Record Layout) data
                     collection and federal submission system.
@@ -403,10 +403,10 @@ export default function Compliance() {
               </div>
             )}
             <div className="flex space-x-4">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
                 Generate Report
               </button>
-              <button className="bg-white text-blue-600 border border-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+              <button className="bg-white text-red-600 border border-orange-500 px-6 py-2 rounded-lg hover:bg-red-50 transition-colors">
                 Export Data
               </button>
               <button className="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-200 transition-colors">
@@ -432,7 +432,7 @@ export default function Compliance() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -450,7 +450,7 @@ export default function Compliance() {
               <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                 ✅ 100% Compliant
               </div>
-              <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+              <div className="bg-red-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                 🏛️ Federal Ready
               </div>
             </div>
@@ -467,7 +467,7 @@ export default function Compliance() {
                 onClick={() => setActiveSection(section.id)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-colors ${
                   activeSection === section.id
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-red-600 text-white'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >

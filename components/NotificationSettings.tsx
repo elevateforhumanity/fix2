@@ -61,7 +61,7 @@ export default function NotificationSettings() {
             }`}
           >
             {enabled ? (
-              <Bell size={24} className="text-blue-600" />
+              <Bell size={24} className="text-red-600" />
             ) : (
               <BellOff size={24} className="text-gray-400" />
             )}
@@ -77,7 +77,7 @@ export default function NotificationSettings() {
           onClick={handleToggle}
           disabled={loading}
           className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-            enabled ? 'bg-blue-600' : 'bg-gray-300'
+            enabled ? 'bg-red-600' : 'bg-gray-300'
           } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <span

@@ -131,7 +131,7 @@ export const SelectItem: React.FC<SelectItemProps> = ({ value, children, disable
         disabled
           ? 'text-slate-400 cursor-not-allowed'
           : 'text-slate-900 hover:bg-slate-100 cursor-pointer'
-      } ${isSelected ? 'bg-blue-50 text-blue-600 font-medium' : ''}`}
+      } ${isSelected ? 'bg-blue-50 text-red-600 font-medium' : ''}`}
     >
       {children}
     </button>

@@ -106,7 +106,7 @@ export default function CareersPage() {
             </div>
             <div className="space-y-6">
               {openings.map((job) => (
-                <Card key={job.id} className="hover:border-blue-500 transition-colors">
+                <Card key={job.id} className="hover:border-orange-500 transition-colors">
                   <CardContent className="p-6">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                       <div className="flex-1">
@@ -144,7 +144,7 @@ export default function CareersPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 bg-blue-600 text-white">
+        <section className="py-20 px-4 bg-red-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <Briefcase className="h-16 w-16 mx-auto mb-6" />
             <h2 className="text-4xl font-bold mb-6">Don't See the Right Role?</h2>

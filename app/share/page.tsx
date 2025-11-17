@@ -49,13 +49,13 @@ function ShareTargetContent() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="max-w-md w-full text-center">
         {processing && (
           <>
             <div className="mb-6 flex justify-center">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center animate-pulse">
-                <Share2 size={40} className="text-blue-600" />
+              <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
+                <Share2 size={40} className="text-red-600" />
               </div>
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -91,7 +91,7 @@ function ShareTargetContent() {
             <p className="text-gray-600 mb-6">{error}</p>
             <button
               onClick={() => router.push('/lms/dashboard')}
-              className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 active:scale-95 transition-all"
+              className="px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 active:scale-95 transition-all"
             >
               Go to Dashboard
             </button>

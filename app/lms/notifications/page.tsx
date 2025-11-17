@@ -112,7 +112,7 @@ const mockNotifications: Notification[] = [
 const getNotificationIcon = (type: string) => {
   switch (type) {
     case 'assignment':
-      return <FileText className="h-5 w-5 text-blue-600" />;
+      return <FileText className="h-5 w-5 text-red-600" />;
     case 'grade':
       return <CheckCircle className="h-5 w-5 text-green-600" />;
     case 'certificate':
@@ -221,7 +221,7 @@ export default function NotificationsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <LMSNav />
         <div className="flex items-center justify-center h-96">
           <Loader2 className="h-8 w-8 animate-spin text-red-600" />
@@ -231,7 +231,7 @@ export default function NotificationsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -287,7 +287,7 @@ export default function NotificationsPage() {
                     {/* Icon */}
                     <div
                       className={`p-3 rounded-lg ${
-                        !notification.read ? 'bg-background' : 'bg-secondary'
+                        !notification.read ? 'bg-white' : 'bg-secondary'
                       }`}
                     >
                       {getNotificationIcon(notification.type)}

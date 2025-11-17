@@ -95,7 +95,7 @@ export default function StudentCoursesPage() {
           <Card>
             <CardContent className="p-6">
               <div className="text-sm text-slate-600">In Progress</div>
-              <div className="text-3xl font-bold text-blue-600 mt-1">
+              <div className="text-3xl font-bold text-red-600 mt-1">
                 {courses.filter(c => c.status === 'in-progress').length}
               </div>
             </CardContent>
@@ -121,7 +121,7 @@ export default function StudentCoursesPage() {
         {/* Courses List */}
         <div className="space-y-6">
           {courses.map((course) => (
-            <Card key={course.id} className="hover:border-blue-500 transition-colors">
+            <Card key={course.id} className="hover:border-orange-500 transition-colors">
               <CardContent className="p-6">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                   <div className="flex-1">

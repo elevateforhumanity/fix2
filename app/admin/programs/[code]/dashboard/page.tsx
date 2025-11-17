@@ -118,14 +118,14 @@ export default function ProgramDashboard({
       case 'completed':
         return <Badge className="bg-green-600">Completed</Badge>;
       case 'active':
-        return <Badge className="bg-blue-600">Active</Badge>;
+        return <Badge className="bg-red-600">Active</Badge>;
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">

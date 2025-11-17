@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ComparePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">
@@ -91,7 +91,7 @@ export default function ComparePage() {
               </thead>
               <tbody>
                 {/* Cost */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Cost (WIOA Eligible)
                   </td>
@@ -113,7 +113,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Industry Certifications */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Industry-Recognized Certifications
                   </td>
@@ -128,7 +128,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Job Placement */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Job Placement Assistance
                   </td>
@@ -147,7 +147,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Hands-on Training */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Hands-On Training
                   </td>
@@ -162,7 +162,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Support Services */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Support Services (Childcare, Transportation)
                   </td>
@@ -177,7 +177,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Career Counseling */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Career Counseling
                   </td>
@@ -192,7 +192,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Flexible Schedule */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Flexible Online Learning
                   </td>
@@ -207,7 +207,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Instructor Support */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Live Instructor Support
                   </td>
@@ -222,7 +222,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Completion Time */}
-                <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tr className="border-b border-gray-100 hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Average Completion Time
                   </td>
@@ -237,7 +237,7 @@ export default function ComparePage() {
                   </td>
                 </tr>
                 {/* Employer Recognition */}
-                <tr className="hover:bg-gray-50">
+                <tr className="hover:bg-white">
                   <td className="p-6 font-semibold text-gray-900">
                     Employer Recognition
                   </td>

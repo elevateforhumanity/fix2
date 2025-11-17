@@ -214,7 +214,7 @@ export default function WIOAEligibilityPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3">
-                    <HelpCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <HelpCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-slate-900 mb-2">
                         What if I'm not sure if I qualify?
@@ -229,7 +229,7 @@ export default function WIOAEligibilityPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3">
-                    <HelpCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <HelpCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-slate-900 mb-2">
                         How long does the application process take?
@@ -244,7 +244,7 @@ export default function WIOAEligibilityPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3">
-                    <HelpCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <HelpCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-slate-900 mb-2">
                         Can I work while in training?

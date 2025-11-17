@@ -111,7 +111,7 @@ const getPriorityColor = (priority: string) => {
     case 'medium':
       return 'border-l-yellow-500 bg-yellow-50 dark:bg-yellow-950';
     default:
-      return 'border-l-blue-500 bg-blue-50 dark:bg-blue-950';
+      return 'border-l-blue-500 bg-red-50 dark:bg-blue-950';
   }
 };
 
@@ -151,7 +151,7 @@ export default function CalendarPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -191,7 +191,7 @@ export default function CalendarPage() {
                       <CardContent className="pt-6">
                         <div className="flex items-start justify-between">
                           <div className="flex items-start gap-4 flex-1">
-                            <div className="p-2 bg-background rounded-lg">
+                            <div className="p-2 bg-white rounded-lg">
                               {getEventIcon(event.type)}
                             </div>
                             <div className="flex-1">
@@ -238,7 +238,7 @@ export default function CalendarPage() {
                     <CardContent className="pt-6">
                       <div className="flex items-start justify-between">
                         <div className="flex items-start gap-4 flex-1">
-                          <div className="p-2 bg-background rounded-lg">
+                          <div className="p-2 bg-white rounded-lg">
                             {getEventIcon(event.type)}
                           </div>
                           <div className="flex-1">
@@ -302,7 +302,7 @@ export default function CalendarPage() {
                         <CardContent className="pt-6">
                           <div className="flex items-start justify-between">
                             <div className="flex items-start gap-4 flex-1">
-                              <div className="p-2 bg-background rounded-lg">
+                              <div className="p-2 bg-white rounded-lg">
                                 {getEventIcon(event.type)}
                               </div>
                               <div className="flex-1">

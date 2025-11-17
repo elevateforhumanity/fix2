@@ -157,14 +157,14 @@ const gradesData = {
 
 const getGradeColor = (grade: number) => {
   if (grade >= 90) return 'text-green-600';
-  if (grade >= 80) return 'text-blue-600';
+  if (grade >= 80) return 'text-red-600';
   if (grade >= 70) return 'text-yellow-600';
   return 'text-red-600';
 };
 
 const getLetterGradeColor = (letter: string) => {
   if (letter.startsWith('A')) return 'bg-green-600';
-  if (letter.startsWith('B')) return 'bg-blue-600';
+  if (letter.startsWith('B')) return 'bg-red-600';
   if (letter.startsWith('C')) return 'bg-yellow-600';
   return 'bg-red-600';
 };
@@ -173,7 +173,7 @@ export default function GradesPage() {
   const { overallGPA, overallPercentage, trend, courses } = gradesData;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}

@@ -112,7 +112,7 @@ export default function AdminProgramHolders() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <header className="elevate-nav">
         <div className="elevate-logo">

@@ -137,7 +137,7 @@ const getStatusBadge = (status: string, dueDate: string) => {
       return (
         <Badge
           variant="outline"
-          className="bg-blue-50 text-blue-700 border-blue-200"
+          className="bg-red-50 text-red-700 border-blue-200"
         >
           Submitted
         </Badge>
@@ -202,7 +202,7 @@ export default function AssignmentsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <LMSNav />
         <div className="flex items-center justify-center h-96">
           <Loader2 className="h-8 w-8 animate-spin text-red-600" />
@@ -227,7 +227,7 @@ export default function AssignmentsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <LMSNav />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -378,7 +378,7 @@ export default function AssignmentsPage() {
                     <CardHeader>
                       <div className="flex items-start justify-between">
                         <div className="flex items-start gap-4 flex-1">
-                          <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                          <div className="p-2 bg-red-100 dark:bg-blue-900 rounded-lg">
                             <FileText className="h-5 w-5" />
                           </div>
                           <div className="flex-1">

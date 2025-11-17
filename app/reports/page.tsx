@@ -150,7 +150,7 @@ export default function ReportsPage() {
                   <div className="text-sm text-slate-600 mb-1">Active Students</div>
                   <div className="text-2xl font-bold text-slate-900">1,847</div>
                 </div>
-                <Users className="h-8 w-8 text-blue-600" />
+                <Users className="h-8 w-8 text-red-600" />
               </div>
             </CardContent>
           </Card>
