@@ -1,85 +1,86 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Adult learners engaged in class.",
+    src: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Adult learners engaged in class.',
   },
   {
-    src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Trainer supporting a learner on a computer.",
+    src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Trainer supporting a learner on a computer.',
   },
   {
-    src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
-    alt: "Skilled trades student working with tools.",
+    src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Skilled trades student working with tools.',
   },
 ];
 
 const programs = [
   {
-    name: "Barber Apprenticeship (Milady-Powered)",
-    slug: "/programs/barber",
-    tag: "Apprenticeship • License Track",
+    name: 'Barber Apprenticeship (Milady-Powered)',
+    slug: '/programs/barber',
+    tag: 'Apprenticeship • License Track',
     blurb:
-      "State-aligned barber pathway powered by Milady content, Elevate live support, and barbershop-based apprenticeship experience.",
+      'State-aligned barber pathway powered by Milady content, Elevate live support, and barbershop-based apprenticeship experience.',
   },
   {
-    name: "Certified Nursing Assistant (CNA)",
-    slug: "/programs/cna",
-    tag: "Healthcare • High Demand",
+    name: 'Certified Nursing Assistant (CNA)',
+    slug: '/programs/cna',
+    tag: 'Healthcare • High Demand',
     blurb:
-      "CNA career pathway with credentialing partner content, Elevate coaching, and reporting built for WorkOne, WRG, and EmployIndy.",
+      'CNA career pathway with credentialing partner content, Elevate coaching, and reporting built for WorkOne, WRG, and EmployIndy.',
   },
   {
-    name: "HVAC Technician",
-    slug: "/programs/hvac",
-    tag: "Skilled Trades • Essential Services",
+    name: 'HVAC Technician',
+    slug: '/programs/hvac',
+    tag: 'Skilled Trades • Essential Services',
     blurb:
-      "Hands-on HVAC training built with industry input, OSHA-informed safety, and job-focused skills for residential and light commercial work.",
+      'Hands-on HVAC training built with industry input, OSHA-informed safety, and job-focused skills for residential and light commercial work.',
   },
   {
-    name: "Building Maintenance & Facilities",
-    slug: "/programs/building-maintenance",
-    tag: "Facilities • Multi-Trade",
+    name: 'Building Maintenance & Facilities',
+    slug: '/programs/building-maintenance',
+    tag: 'Facilities • Multi-Trade',
     blurb:
-      "Building technician training that blends basic electrical, plumbing, carpentry, and safety for apartment, campus, and facility roles.",
+      'Building technician training that blends basic electrical, plumbing, carpentry, and safety for apartment, campus, and facility roles.',
   },
   {
-    name: "CDL & Transportation Pathways",
-    slug: "/programs/truck-driving",
-    tag: "Logistics • Mobility",
+    name: 'CDL & Transportation Pathways',
+    slug: '/programs/truck-driving',
+    tag: 'Logistics • Mobility',
     blurb:
-      "Transportation and CDL-aligned pathways designed with employer demand and workforce partners to move people into higher-wage roles.",
+      'Transportation and CDL-aligned pathways designed with employer demand and workforce partners to move people into higher-wage roles.',
   },
   {
-    name: "Online Micro-Credentials & Short Courses",
-    slug: "/programs/online",
-    tag: "Flexible • Online",
+    name: 'Online Micro-Credentials & Short Courses',
+    slug: '/programs/online',
+    tag: 'Flexible • Online',
     blurb:
       "Short, stackable online credentials that plug into Elevate's LMS and partner content so learners can upskill anytime, from anywhere.",
   },
 ];
 
 const partnerBadges = [
-  "DOL Apprenticeship Aligned",
-  "Indiana DWD & WorkOne Aware",
-  "EmployIndy & Local Boards Friendly",
-  "ETPL / WRG / JRI Ready",
-  "Built Around Credentialing Partners",
+  'DOL Apprenticeship Aligned',
+  'Indiana DWD & WorkOne Aware',
+  'EmployIndy & Local Boards Friendly',
+  'ETPL / WRG / JRI Ready',
+  'Built Around Credentialing Partners',
 ];
 
 const steps = [
   {
-    title: "1. Refer learners into a single Elevate pathway.",
-    body: "Agencies, schools, churches, and employers send learners through one simple Elevate front door instead of ten different links.",
+    title: '1. Refer learners into a single Elevate pathway.',
+    body: 'Agencies, schools, churches, and employers send learners through one simple Elevate front door instead of ten different links.',
   },
   {
-    title: "2. Elevate orchestrates partners, live support, and paperwork.",
-    body: "Learners move through credentialing partner courses, Elevate live sessions, and required forms inside one LMS experience.",
+    title: '2. Elevate orchestrates partners, live support, and paperwork.',
+    body: 'Learners move through credentialing partner courses, Elevate live sessions, and required forms inside one LMS experience.',
   },
   {
-    title: "3. Partners issue credentials, Elevate issues completion, agencies see outcomes.",
-    body: "Partners handle licenses and credentials. Elevate issues completion certificates and exports reports for WorkOne, WRG, JRI, and boards.",
+    title:
+      '3. Partners issue credentials, Elevate issues completion, agencies see outcomes.',
+    body: 'Partners handle licenses and credentials. Elevate issues completion certificates and exports reports for WorkOne, WRG, JRI, and boards.',
   },
 ];
 
@@ -96,14 +97,17 @@ export default function Home() {
             </div>
 
             <h1 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-5xl">
-              Workforce training, apprenticeships, and credentials that{" "}
+              Workforce training, apprenticeships, and credentials that{' '}
               <span className="bg-gradient-to-r from-emerald-300 via-sky-300 to-amber-300 bg-clip-text text-transparent">
                 actually move people into careers.
               </span>
             </h1>
 
             <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
-              Elevate for Humanity connects learners, agencies, and credentialing partners through one modern LMS. We blend partner courses, live instruction, and real-world apprenticeships into clear pathways that boards can trust and participants can finish.
+              Elevate for Humanity connects learners, agencies, and
+              credentialing partners through one modern LMS. We blend partner
+              courses, live instruction, and real-world apprenticeships into
+              clear pathways that boards can trust and participants can finish.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -123,21 +127,31 @@ export default function Home() {
 
             <div className="mt-4 grid gap-4 text-xs text-slate-300 sm:grid-cols-3 sm:text-[0.8rem]">
               <div>
-                <p className="font-semibold text-slate-100">Built for workforce boards.</p>
+                <p className="font-semibold text-slate-100">
+                  Built for workforce boards.
+                </p>
                 <p className="text-slate-400">
-                  WIOA, WRG, JRI, DWD, WorkOne, and EmployIndy needs are baked into how programs are designed and tracked.
+                  WIOA, WRG, JRI, DWD, WorkOne, and EmployIndy needs are baked
+                  into how programs are designed and tracked.
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-slate-100">Partner-powered content.</p>
+                <p className="font-semibold text-slate-100">
+                  Partner-powered content.
+                </p>
                 <p className="text-slate-400">
-                  Milady, CNA partners, IT providers, and online platforms deliver curriculum and credentials. Elevate orchestrates the journey.
+                  Milady, CNA partners, IT providers, and online platforms
+                  deliver curriculum and credentials. Elevate orchestrates the
+                  journey.
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-slate-100">Clear outcomes and reporting.</p>
+                <p className="font-semibold text-slate-100">
+                  Clear outcomes and reporting.
+                </p>
                 <p className="text-slate-400">
-                  Attendance, hours, completions, and job outcomes organized in one place and ready to export for reports and audits.
+                  Attendance, hours, completions, and job outcomes organized in
+                  one place and ready to export for reports and audits.
                 </p>
               </div>
             </div>
@@ -153,7 +167,7 @@ export default function Home() {
                 <div
                   key={img.src}
                   className={`overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/70 shadow-lg shadow-black/40 ${
-                    idx === 0 ? "sm:row-span-2 sm:h-72" : "h-40"
+                    idx === 0 ? 'sm:row-span-2 sm:h-72' : 'h-40'
                   }`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -175,7 +189,8 @@ export default function Home() {
                   Ready-to-onboard LMS for real students and funded cohorts.
                 </p>
                 <p className="text-[0.7rem] text-slate-400">
-                  Elevate combines credentialing partners, apprenticeships, and live support under one digital roof.
+                  Elevate combines credentialing partners, apprenticeships, and
+                  live support under one digital roof.
                 </p>
               </div>
             </div>
@@ -187,7 +202,8 @@ export default function Home() {
       <section className="border-b border-slate-800 bg-slate-950/90">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:text-[0.8rem] lg:px-6">
           <p className="font-semibold text-slate-200">
-            Designed so case managers, pastors, principals, and employers feel confident sending people here.
+            Designed so case managers, pastors, principals, and employers feel
+            confident sending people here.
           </p>
           <div className="flex flex-wrap gap-3">
             {partnerBadges.map((label) => (
@@ -211,7 +227,10 @@ export default function Home() {
                 Pathways that feel real, not theoretical.
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-300">
-                Every Elevate pathway blends partner courses, live coaching, and real-world experience. Programs are written in everyday language so learners, parents, and case managers can instantly see the opportunity.
+                Every Elevate pathway blends partner courses, live coaching, and
+                real-world experience. Programs are written in everyday language
+                so learners, parents, and case managers can instantly see the
+                opportunity.
               </p>
             </div>
             <Link
@@ -263,12 +282,16 @@ export default function Home() {
                 For learners & families
               </h2>
               <p className="text-sm text-slate-300">
-                Easy-to-understand program pages, clear steps to enroll, and a dashboard that shows what&apos;s next. No corporate jargon. Just real options and support.
+                Easy-to-understand program pages, clear steps to enroll, and a
+                dashboard that shows what&apos;s next. No corporate jargon. Just
+                real options and support.
               </p>
               <ul className="mt-2 space-y-1 text-sm text-slate-300">
                 <li>• Simple enrollment flow</li>
                 <li>• Text and email reminders</li>
-                <li>• Clear "what you will learn" and "jobs you can get" sections</li>
+                <li>
+                  • Clear "what you will learn" and "jobs you can get" sections
+                </li>
               </ul>
             </div>
 
@@ -277,7 +300,9 @@ export default function Home() {
                 For agencies & boards
               </h2>
               <p className="text-sm text-slate-300">
-                A front door you can trust. Cohorts can be tracked, hours logged, and completion reports exported without chasing paper or ten separate portals.
+                A front door you can trust. Cohorts can be tracked, hours
+                logged, and completion reports exported without chasing paper or
+                ten separate portals.
               </p>
               <ul className="mt-2 space-y-1 text-sm text-slate-300">
                 <li>• Referral-friendly landing pages</li>
@@ -291,7 +316,9 @@ export default function Home() {
                 For employers & shops
               </h2>
               <p className="text-sm text-slate-300">
-                Elevate becomes your talent farm. Barber chairs, CNA shifts, building tech roles, and HVAC trucks filled with people who have actually trained for the work.
+                Elevate becomes your talent farm. Barber chairs, CNA shifts,
+                building tech roles, and HVAC trucks filled with people who have
+                actually trained for the work.
               </p>
               <ul className="mt-2 space-y-1 text-sm text-slate-300">
                 <li>• Apprenticeship and OJT-friendly structures</li>
@@ -312,7 +339,11 @@ export default function Home() {
                 Under the hood: a serious LMS tuned to your reality.
               </h2>
               <p className="mt-3 max-w-2xl text-sm text-slate-300">
-                Elevate doesn&apos;t replace Milady, CNA schools, or online providers. It wraps around them. Your partners keep teaching and issuing their credentials. Elevate organizes the journey, the touchpoints, and the paperwork so everyone stays on the same page.
+                Elevate doesn&apos;t replace Milady, CNA schools, or online
+                providers. It wraps around them. Your partners keep teaching and
+                issuing their credentials. Elevate organizes the journey, the
+                touchpoints, and the paperwork so everyone stays on the same
+                page.
               </p>
               <div className="mt-6 space-y-4">
                 {steps.map((step) => (
@@ -334,7 +365,9 @@ export default function Home() {
                 What Elevate handles for you
               </p>
               <ul className="mt-3 space-y-2 text-sm text-slate-200">
-                <li>• Course orchestration across multiple credentialing partners</li>
+                <li>
+                  • Course orchestration across multiple credentialing partners
+                </li>
                 <li>• Automated welcome, reminder, and completion messaging</li>
                 <li>• Internal quizzes and knowledge checks</li>
                 <li>• Document collection for WIOA, WRG, and agency forms</li>
@@ -342,7 +375,9 @@ export default function Home() {
                 <li>• Exports for funders, boards, and audits</li>
               </ul>
               <p className="mt-4 text-[0.8rem] text-slate-400">
-                This is the difference between a "nice website" and a hub that can actually sit in the middle of your city&apos;s workforce system.
+                This is the difference between a "nice website" and a hub that
+                can actually sit in the middle of your city&apos;s workforce
+                system.
               </p>
             </div>
           </div>
@@ -355,18 +390,27 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-[1.1fr,1fr] md:items-center">
             <div className="space-y-3">
               <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
-                Elevate is building more than programs. It&apos;s building a pillar.
+                Elevate is building more than programs. It&apos;s building a
+                pillar.
               </h2>
               <p className="text-sm text-slate-300">
-                The Elevate Connects Directory and Elevate for Humanity ecosystem were created so Indianapolis and beyond have a consistent, trusted place to send people for training, support, and direction. Not a brochure. Not a pop-up project. A real pillar for the community.
+                The Elevate Connects Directory and Elevate for Humanity
+                ecosystem were created so Indianapolis and beyond have a
+                consistent, trusted place to send people for training, support,
+                and direction. Not a brochure. Not a pop-up project. A real
+                pillar for the community.
               </p>
               <p className="text-sm text-slate-300">
-                When someone is ready to move, we want "Go to Elevate" to be the first sentence out of a case manager&apos;s mouth. This homepage is the front door to that promise.
+                When someone is ready to move, we want "Go to Elevate" to be the
+                first sentence out of a case manager&apos;s mouth. This homepage
+                is the front door to that promise.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-200 shadow-xl shadow-black/30">
               <p className="italic">
-                "Our mission is simple: take the confusion out of training and put real opportunity back in front of people, one pathway at a time."
+                "Our mission is simple: take the confusion out of training and
+                put real opportunity back in front of people, one pathway at a
+                time."
               </p>
               <p className="mt-3 text-xs text-slate-400">
                 Elevate for Humanity · Elevate Connects Directory
@@ -385,7 +429,10 @@ export default function Home() {
                 Ready to onboard your first or next cohort?
               </h2>
               <p className="mt-2 max-w-xl text-sm">
-                Use Elevate as your front door for barber, CNA, HVAC, building tech, and more. We&apos;ll help you plug in credentialing partners, structure live instruction, and deliver the compliance and outcomes your funders expect.
+                Use Elevate as your front door for barber, CNA, HVAC, building
+                tech, and more. We&apos;ll help you plug in credentialing
+                partners, structure live instruction, and deliver the compliance
+                and outcomes your funders expect.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
