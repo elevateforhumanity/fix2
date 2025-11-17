@@ -1,44 +1,34 @@
 'use client';
 
-import { WifiOff, RefreshCw } from 'lucide-react';
+import { WifiOff } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="max-w-md w-full text-center">
-        <div className="mb-6 flex justify-center">
-          <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
-            <WifiOff size={40} className="text-gray-500" />
-          </div>
+    <div className="min-h-screen bg-white flex items-center justify-center px-4">
+      <div className="text-center max-w-md">
+        <div className="mb-8">
+          <WifiOff className="mx-auto text-gray-400" size={80} />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
-          You're Offline
-        </h1>
-        <p className="text-gray-600 mb-6">
-          It looks like you've lost your internet connection. Some features may
-          be limited until you're back online.
+        
+        <h1 className="text-3xl font-bold mb-4">You&apos;re Offline</h1>
+        
+        <p className="text-gray-600 mb-8">
+          It looks like you&apos;ve lost your internet connection. Some features may not be available until you&apos;re back online.
         </p>
-        <button
-          onClick={() => window.location.reload()}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 active:scale-95 transition-transform"
-        >
-          <RefreshCw size={20} />
-          Try Again
-        </button>
-        <div className="mt-8 p-4 bg-red-50 rounded-lg text-left">
-          <h3 className="font-semibold text-blue-900 mb-2">
-            What you can still do:
-          </h3>
-          <ul className="text-sm text-blue-800 space-y-1">
-            <li>• View previously loaded courses</li>
-            <li>• Continue watching downloaded videos</li>
-            <li>• Review your progress and achievements</li>
-            <li>• Access cached content</li>
-          </ul>
+
+        <div className="space-y-4">
+          <Button
+            onClick={() => window.location.reload()}
+            className="w-full bg-red-600 hover:bg-red-700"
+          >
+            Try Again
+          </Button>
+          
+          <p className="text-sm text-gray-500">
+            Your progress is saved locally and will sync when you&apos;re back online.
+          </p>
         </div>
-        <p className="mt-6 text-sm text-gray-500">
-          Your progress will sync automatically when you're back online.
-        </p>
       </div>
     </div>
   );

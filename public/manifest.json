@@ -1,150 +1,32 @@
 {
   "name": "Elevate for Humanity",
   "short_name": "Elevate",
-  "description": "WIOA-funded career training, apprenticeships, and certifications with 92% job placement",
+  "description": "Workforce development and training platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "theme_color": "#dc2626",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-128.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-192.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-512.png",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "categories": ["education", "productivity"],
   "screenshots": [
     {
-      "src": "/screenshot1.png",
+      "src": "/screenshot-1.png",
       "sizes": "1280x720",
       "type": "image/png"
-    }
-  ],
-  "share_target": {
-    "action": "/share",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "media",
-          "accept": ["image/*", "video/*", "audio/*", "application/pdf"]
-        }
-      ]
-    }
-  },
-  "shortcuts": [
-    {
-      "name": "My Courses",
-      "short_name": "Courses",
-      "description": "View your enrolled courses",
-      "url": "/lms/dashboard",
-      "icons": [
-        {
-          "src": "/icon-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Browse Programs",
-      "short_name": "Programs",
-      "description": "Explore available training programs",
-      "url": "/programs",
-      "icons": [
-        {
-          "src": "/icon-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Enroll Now",
-      "short_name": "Enroll",
-      "description": "Start your enrollment process",
-      "url": "/lms/enroll",
-      "icons": [
-        {
-          "src": "/icon-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "My Achievements",
-      "short_name": "Achievements",
-      "description": "View your badges and achievements",
-      "url": "/lms/achievements",
-      "icons": [
-        {
-          "src": "/icon-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
     }
   ]
 }
