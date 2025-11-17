@@ -173,6 +173,226 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Who We Help Section - Enterprise LMS Pattern */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Who We Help
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Workforce training and apprenticeships that transform communities through partner-powered pathways.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Students Card */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100 hover:border-blue-300 transition-all">
+                <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Students</h3>
+                <p className="text-slate-700 mb-6 leading-relaxed">
+                  Hands-on job training, industry certifications, and DOL-registered apprenticeships. Most students qualify for 100% free training through WIOA.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">4-12 week programs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">$0 cost for most students</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Job placement assistance</span>
+                  </li>
+                </ul>
+                <Link href="/apply" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                  Apply Now
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Employers Card */}
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-100 hover:border-orange-300 transition-all">
+                <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6">
+                  <Briefcase className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Employers</h3>
+                <p className="text-slate-700 mb-6 leading-relaxed">
+                  Skilled talent pipeline with subsidized training. Host apprentices, access OJT/WEX programs, and hire job-ready graduates.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Pre-screened candidates</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Subsidized training costs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Apprenticeship support</span>
+                  </li>
+                </ul>
+                <Link href="/employers" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                  Partner With Us
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Agencies Card */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 transition-all">
+                <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Workforce Agencies</h3>
+                <p className="text-slate-700 mb-6 leading-relaxed">
+                  ETPL-approved training with full compliance for WRG, JRI, WIOA, and DOL-registered apprenticeships. Seamless reporting for WorkOne and EmployIndy.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">ETPL & WRG eligible</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Automated reporting</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Client progress tracking</span>
+                  </li>
+                </ul>
+                <Link href="/agencies" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                  Agency Portal
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How Elevate Works - 3-Step Process */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                How Elevate Works
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                From enrollment to employment in three simple steps.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-12">
+              {/* Step 1 */}
+              <div className="text-center">
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto shadow-xl">
+                    <span className="text-4xl font-bold text-white">1</span>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 w-full h-1 bg-gradient-to-r from-blue-600 to-orange-600 transform -translate-y-1/2 hidden md:block" style={{ width: 'calc(100% + 3rem)', left: 'calc(50% + 3rem)' }}></div>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Enroll</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Apply in minutes. Check your eligibility for free training through WIOA, WRG, or JRI. Get matched to the right program for your goals.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center">
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-br from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto shadow-xl">
+                    <span className="text-4xl font-bold text-white">2</span>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 w-full h-1 bg-gradient-to-r from-orange-600 to-green-600 transform -translate-y-1/2 hidden md:block" style={{ width: 'calc(100% + 3rem)', left: 'calc(50% + 3rem)' }}></div>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Train</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Complete hands-on training with industry partners. Attend live support sessions. Pass your certifications. Track your progress every step of the way.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center">
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-xl">
+                    <span className="text-4xl font-bold text-white">3</span>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Get Certified & Employed</h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Earn your industry credential and Elevate Certificate of Completion. Get connected to hiring employers. Start your new career.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Approved & Aligned Section */}
+        <section className="py-16 bg-white border-y border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Approved & Aligned
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Fully compliant with federal and state workforce development standards.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center mb-12">
+              <div className="text-center">
+                <div className="text-5xl mb-2">🇺🇸</div>
+                <p className="text-sm font-semibold text-slate-700">U.S. DOL</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🏛️</div>
+                <p className="text-sm font-semibold text-slate-700">DWD Indiana</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">💼</div>
+                <p className="text-sm font-semibold text-slate-700">WorkOne</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🤝</div>
+                <p className="text-sm font-semibold text-slate-700">EmployIndy</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">🎓</div>
+                <p className="text-sm font-semibold text-slate-700">ETPL Provider</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl mb-2">⚙️</div>
+                <p className="text-sm font-semibold text-slate-700">Apprenticeships</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">ETPL-Approved</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">DOL-Registered Apprenticeships</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">WRG & JRI Eligible</p>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-slate-700">OJT/WEX Ready</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Urgency Banner */}
         <section className="bg-red-600 text-white py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
