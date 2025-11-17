@@ -49,7 +49,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Program pages
       ...(programs || []).map((program) => ({
         url: `${baseUrl}/programs/${program.slug}`,
-        lastModified: program.created_at ? new Date(program.created_at) : new Date(),
+        lastModified: program.created_at
+          ? new Date(program.created_at)
+          : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
       })),

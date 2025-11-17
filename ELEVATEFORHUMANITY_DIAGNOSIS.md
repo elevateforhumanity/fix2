@@ -8,9 +8,11 @@
 ## 🔴 Critical Issue Found: SSL/TLS Handshake Failure
 
 ### Problem
+
 The website **www.elevateforhumanity.org** is experiencing SSL/TLS handshake failures, making it **completely inaccessible** to browsers and search engines.
 
 ### Technical Details
+
 ```
 Error: SSL: SSLV3_ALERT_HANDSHAKE_FAILURE
 Status: Connection fails at TLS handshake stage
@@ -19,6 +21,7 @@ CNAME: websites.durablesites.com
 ```
 
 ### What This Means
+
 1. ❌ **Site is DOWN** - No one can access it (not just Google)
 2. ❌ **SSL Certificate Issue** - Certificate is invalid, expired, or misconfigured
 3. ❌ **Google Cannot Index** - Search engines can't crawl an inaccessible site
@@ -31,6 +34,7 @@ CNAME: websites.durablesites.com
 The site is configured to use Durable (durablesites.com) but the SSL/TLS certificate is not properly configured for **www.elevateforhumanity.org**.
 
 Possible causes:
+
 1. **Domain not properly added in Durable** - Custom domain not configured
 2. **SSL Certificate not provisioned** - Durable hasn't issued/installed certificate
 3. **DNS misconfiguration** - Cloudflare proxy interfering with Durable's SSL
@@ -41,26 +45,34 @@ Possible causes:
 ## ✅ Immediate Actions Required
 
 ### 1. Check Durable Dashboard
+
 Log in to [durablesites.co](https://durablesites.co) and verify:
+
 - [ ] Is **www.elevateforhumanity.org** listed as a custom domain?
 - [ ] What is the SSL certificate status?
 - [ ] Are there any error messages or warnings?
 
 ### 2. Verify Domain Configuration
+
 In Durable settings:
+
 - [ ] Domain should be: `www.elevateforhumanity.org`
 - [ ] SSL status should be: "Active" or "Provisioned"
 - [ ] If SSL is "Pending", wait 10-15 minutes for provisioning
 
 ### 3. Check Cloudflare Settings
+
 If using Cloudflare:
+
 - [ ] Go to Cloudflare dashboard for elevateforhumanity.org
 - [ ] Find the DNS record for `www`
 - [ ] **Disable Cloudflare Proxy** (click orange cloud to make it gray)
 - [ ] SSL/TLS mode should be: **Full** (not Flexible or Full Strict)
 
 ### 4. DNS Configuration
+
 Verify DNS records point correctly:
+
 ```
 www.elevateforhumanity.org → CNAME → websites.durablesites.com
 ```
@@ -144,6 +156,7 @@ dig www.elevateforhumanity.org
 ```
 
 Or use online tools:
+
 - SSL Test: https://www.ssllabs.com/ssltest/analyze.html?d=www.elevateforhumanity.org
 - DNS Check: https://dnschecker.org/#CNAME/www.elevateforhumanity.org
 
@@ -151,14 +164,14 @@ Or use online tools:
 
 ## 📊 Current Status Summary
 
-| Component | Status | Issue |
-|-----------|--------|-------|
-| DNS Resolution | ✅ Working | Points to Cloudflare/Durable |
-| SSL Certificate | ❌ FAILED | Handshake failure |
-| Site Accessibility | ❌ DOWN | Cannot connect |
-| Google Indexing | ❌ BLOCKED | Site inaccessible |
-| robots.txt | ⚠️ N/A | Cannot check (site down) |
-| sitemap.xml | ⚠️ N/A | Cannot check (site down) |
+| Component          | Status     | Issue                        |
+| ------------------ | ---------- | ---------------------------- |
+| DNS Resolution     | ✅ Working | Points to Cloudflare/Durable |
+| SSL Certificate    | ❌ FAILED  | Handshake failure            |
+| Site Accessibility | ❌ DOWN    | Cannot connect               |
+| Google Indexing    | ❌ BLOCKED | Site inaccessible            |
+| robots.txt         | ⚠️ N/A     | Cannot check (site down)     |
+| sitemap.xml        | ⚠️ N/A     | Cannot check (site down)     |
 
 ---
 
@@ -186,6 +199,7 @@ Once SSL is fixed and site loads:
 ## 🆘 If Still Not Working
 
 Contact Durable Support:
+
 - Email: support@durablesites.co
 - Provide: Domain name (www.elevateforhumanity.org)
 - Issue: "SSL certificate not provisioning for custom domain"

@@ -1,9 +1,11 @@
 # Fix Durable Site SEO for elevateforhumanity.org
 
 ## ⚠️ Issue
+
 The robots.txt and sitemap.xml on www.elevateforhumanity.org are pointing to **elevateconnectsdirectory.org** instead of **elevateforhumanity.org**, preventing Google from indexing the site properly.
 
 ## 🎯 Solution
+
 Since www.elevateforhumanity.org is hosted on Durable (durablesites.co), you need to update the SEO files directly in the Durable platform.
 
 ---
@@ -11,14 +13,17 @@ Since www.elevateforhumanity.org is hosted on Durable (durablesites.co), you nee
 ## 📋 Steps to Fix
 
 ### 1. Log in to Durable
+
 Go to: [https://durablesites.co](https://durablesites.co)
 
 ### 2. Access SEO Settings
+
 1. Navigate to your site dashboard
 2. Look for **Settings** → **SEO** or **Advanced Settings**
 3. Find the **robots.txt** and **sitemap.xml** configuration
 
 ### 3. Update robots.txt
+
 Replace the content with:
 
 ```txt
@@ -70,6 +75,7 @@ Sitemap: https://elevateforhumanity.org/sitemap.xml
 ```
 
 ### 4. Update sitemap.xml
+
 Replace the content with:
 
 ```xml
@@ -145,6 +151,7 @@ Replace the content with:
 ```
 
 ### 5. Save Changes
+
 Click **Save** or **Publish** to apply the changes.
 
 ---
