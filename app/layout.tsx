@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import './ui-fixes.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';

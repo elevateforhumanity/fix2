@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Users, Award, ArrowRight, Clock, DollarSign, Briefcase, Star, Play, Quote } from 'lucide-react';
+import { CheckCircle, ArrowRight, Clock, DollarSign, Briefcase, Star, TrendingUp, Users, Award, Calendar } from 'lucide-react';
 import { Header } from '@/components/ui/Header';
 import { Footer } from '@/components/ui/Footer';
-import { Badge } from '@/components/ui/Badge';
 
 export default function HomePage() {
   const programs = [
@@ -12,91 +11,97 @@ export default function HomePage() {
       title: 'Certified Nursing Assistant (CNA)',
       category: 'Healthcare',
       duration: '6-8 weeks',
-      placement: '92%',
-      salary: '$32,000/year',
-      students: 342,
-      rating: 4.8,
-      description: 'Launch your healthcare career with state-approved CNA training. Learn patient care, vital signs, and clinical skills in real healthcare settings.',
-      highlights: ['State Certification', 'Clinical Experience', 'Job Placement Guaranteed'],
+      startingSalary: '$32,000+',
+      description: 'Start your healthcare career in weeks, not years. Get hands-on training in real medical facilities. State certification included.',
+      urgency: 'Next class starts Feb 5th - Only 8 spots left',
+      highlights: [
+        'Train in actual hospitals and nursing homes',
+        'State certification exam included',
+        'Job placement assistance guaranteed',
+        'Financial aid available - most students pay $0'
+      ],
+      realBenefits: [
+        'Work 3 days/week, earn full-time pay',
+        'Hospitals hiring immediately after graduation',
+        'Flexible schedules - perfect for parents',
+        'Step into nursing degree programs'
+      ],
       image: '/media/programs/healthcare-1.jpg',
       slug: 'cna',
+      color: 'from-blue-600 to-cyan-600'
     },
     {
       id: 2,
       title: 'HVAC Technician',
       category: 'Skilled Trades',
       duration: '12 weeks',
-      placement: '88%',
-      salary: '$48,000/year',
-      students: 256,
-      rating: 4.7,
-      description: 'Master heating, cooling, and ventilation systems. Hands-on training with industry-standard equipment and EPA certification prep.',
-      highlights: ['EPA Certification', 'Tool Kit Included', 'Apprenticeship Ready'],
+      startingSalary: '$48,000+',
+      description: 'High-demand trade with immediate job openings. Master heating, cooling, and refrigeration. Start your own business or work for top companies.',
+      urgency: 'Companies pre-hiring our graduates - Apply now',
+      highlights: [
+        'EPA certification included in training',
+        'Work with real HVAC systems, not just books',
+        'Tool kit provided - $2,000 value',
+        'Partner companies hiring before graduation'
+      ],
+      realBenefits: [
+        'Year-round work - AC in summer, heat in winter',
+        'Start your own business after 2 years',
+        'Overtime pay during peak seasons',
+        'Technology-focused - smart home systems'
+      ],
       image: '/media/programs/trades-1.jpg',
       slug: 'hvac',
+      color: 'from-orange-600 to-red-600'
     },
     {
       id: 3,
       title: 'Barber Apprenticeship',
       category: 'Skilled Trades',
       duration: '12-18 months',
-      placement: '95%',
-      salary: '$35,000/year',
-      students: 189,
-      rating: 4.9,
-      description: 'State-approved apprenticeship program. Learn cutting, styling, and business skills while earning in a real barbershop.',
-      highlights: ['Earn While Learning', 'State License', '1,500 Hours Training'],
+      startingSalary: '$35,000+',
+      description: 'Earn while you learn in a real barbershop. Build your clientele while training. State license and business skills included.',
+      urgency: 'Barbershops waiting for apprentices - Limited spots',
+      highlights: [
+        'Get paid while training in real shops',
+        'Build your client base from day one',
+        'State license exam prep included',
+        'Business and marketing training'
+      ],
+      realBenefits: [
+        'Set your own schedule as licensed barber',
+        'Cash tips on top of hourly pay',
+        'Rent a chair or open your own shop',
+        'Recession-proof - people always need haircuts'
+      ],
       image: '/media/programs/barber-hero.jpg',
       slug: 'barber',
+      color: 'from-purple-600 to-pink-600'
     },
     {
       id: 4,
       title: 'Commercial Truck Driving (CDL)',
       category: 'Transportation',
-      duration: '4-6 weeks',
-      placement: '90%',
-      salary: '$55,000/year',
-      students: 198,
-      rating: 4.6,
-      description: 'Get your Class A CDL and start a high-paying career. Behind-the-wheel training with experienced instructors.',
-      highlights: ['Class A CDL', 'Job Placement', 'High Demand'],
+      duration: '4 weeks',
+      startingSalary: '$55,000+',
+      description: 'Get your CDL Class A in 4 weeks. Trucking companies offering sign-on bonuses up to $10,000. Start earning immediately.',
+      urgency: 'Trucking shortage - Companies hiring NOW',
+      highlights: [
+        'CDL Class A license in just 4 weeks',
+        'Train on 18-wheelers, not simulators',
+        'Companies offering $5K-$10K sign-on bonuses',
+        'Job placement with major carriers'
+      ],
+      realBenefits: [
+        'Home weekly or regional routes available',
+        'Benefits from day one with major carriers',
+        'Paid training programs after graduation',
+        'See the country while earning'
+      ],
       image: '/media/programs/truck-driving.jpg',
       slug: 'truck-driving',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      program: 'CNA Certification',
-      image: '/media/testimonials/sarah.jpg',
-      quote: 'The CNA program changed my life. I went from unemployment to a stable healthcare career in just 8 weeks. The instructors were amazing and the job placement support was incredible.',
-      rating: 5,
-      outcome: 'Now working at Aurora Medical Center',
-    },
-    {
-      name: 'Michael Rodriguez',
-      program: 'HVAC Technician',
-      image: '/media/testimonials/michael.jpg',
-      quote: 'Best decision I ever made. The hands-on training was exactly what I needed. Within 2 weeks of graduating, I had 3 job offers. Now I am making more than I ever thought possible.',
-      rating: 5,
-      outcome: 'Earning $52,000/year',
-    },
-    {
-      name: 'David Chen',
-      program: 'Barber Apprenticeship',
-      image: '/media/testimonials/david.jpg',
-      quote: 'I love that I could earn while learning. My mentor taught me everything about the business side too. Now I am planning to open my own shop next year.',
-      rating: 5,
-      outcome: 'Licensed Barber, Planning Own Business',
-    },
-  ];
-
-  const stats = [
-    { number: '2,500+', label: 'Students Trained', icon: Users },
-    { number: '92%', label: 'Job Placement Rate', icon: Briefcase },
-    { number: '12+', label: 'Career Programs', icon: Award },
-    { number: '$45K', label: 'Average Starting Salary', icon: DollarSign },
+      color: 'from-green-600 to-emerald-600'
+    }
   ];
 
   return (
@@ -104,288 +109,279 @@ export default function HomePage() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative py-20 px-4 md:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white">
-                <div className="inline-block px-4 py-2 bg-red-600 text-white text-sm font-semibold tracking-wide uppercase mb-6 rounded-full">
-                  🎓 100% WIOA-Funded Training
-                </div>
-                <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Transform Your Life with <span className="text-red-500">Free Career Training</span>
-                </h1>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Get the skills employers need through Wisconsin&apos;s premier workforce development program. 100% funded training, job placement support, and career services—all at no cost to you.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Link 
-                    href="/apply" 
-                    className="px-8 py-4 bg-red-600 text-white font-semibold hover:bg-red-700 transition text-center rounded-lg text-lg shadow-lg hover:shadow-xl"
-                  >
-                    Check Your Eligibility →
-                  </Link>
-                  <Link 
-                    href="/programs" 
-                    className="px-8 py-4 bg-white text-slate-900 font-semibold hover:bg-gray-100 transition text-center rounded-lg text-lg shadow-lg"
-                  >
-                    Explore Programs
-                  </Link>
-                </div>
-                <div className="flex items-center gap-6 text-sm">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-400" />
-                    <span>No Tuition</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-400" />
-                    <span>State Approved</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-400" />
-                    <span>Job Guaranteed</span>
-                  </div>
-                </div>
+        {/* Hero Section - Powerful and Direct */}
+        <section className="relative bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+          
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 rounded-full px-4 py-2 mb-6">
+                <TrendingUp className="w-4 h-4 text-red-400" />
+                <span className="text-sm font-medium text-red-300">High-Demand Careers • Start in Weeks</span>
               </div>
 
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                  <Image
-                    src="/media/homepage-hero.jpg"
-                    alt="Students in training"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <button className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition shadow-2xl">
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                    </button>
-                  </div>
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Stop Waiting.
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+                  Start Earning.
+                </span>
+              </h1>
+
+              <p className="text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
+                No 4-year degree required. No massive debt. Just real skills, real training, and real jobs waiting for you.
+                <span className="block mt-4 text-red-400 font-semibold">
+                  Most students qualify for 100% free training through WIOA.
+                </span>
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Link 
+                  href="/apply"
+                  className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-xl"
+                >
+                  Check If You Qualify for Free Training
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link 
+                  href="/programs"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg border-2 border-white/30 transition-all"
+                >
+                  View All Programs
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-400 mb-1">4-12</div>
+                  <div className="text-sm text-slate-400">Weeks to Complete</div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-slate-900">2,500+ Graduates</div>
-                      <div className="text-sm text-slate-600">92% Job Placement</div>
-                    </div>
-                  </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-400 mb-1">$0</div>
+                  <div className="text-sm text-slate-400">For Most Students</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-400 mb-1">$35K-$55K</div>
+                  <div className="text-sm text-slate-400">Starting Salaries</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-400 mb-1">100%</div>
+                  <div className="text-sm text-slate-400">Job Assistance</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16 px-4 md:px-8 bg-white border-b">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={index} className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                      <Icon className="w-8 h-8 text-red-600" />
-                    </div>
-                    <div className="text-4xl font-bold text-slate-900 mb-2">{stat.number}</div>
-                    <div className="text-slate-600">{stat.label}</div>
-                  </div>
-                );
-              })}
+        {/* Urgency Banner */}
+        <section className="bg-red-600 text-white py-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Calendar className="w-6 h-6" />
+                <span className="font-bold text-lg">Next Classes Starting Soon</span>
+              </div>
+              <div className="flex items-center gap-6 text-sm">
+                <span>CNA: Feb 5th</span>
+                <span>HVAC: Feb 12th</span>
+                <span>CDL: Feb 1st</span>
+                <Link href="/apply" className="bg-white text-red-600 px-6 py-2 rounded-lg font-bold hover:bg-slate-100 transition-colors">
+                  Apply Now
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Programs Section */}
-        <section className="py-20 px-4 md:px-8 bg-slate-50">
-          <div className="max-w-7xl mx-auto">
+        {/* Programs Section - Detailed and Compelling */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-2 bg-red-50 text-red-700 text-sm font-semibold tracking-wide uppercase mb-4 rounded-full">
-                🎯 HIGH-DEMAND CAREERS
-              </div>
-              <h2 className="text-5xl font-bold text-slate-900 mb-4">Our Training Programs</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Choose Your Career Path
+              </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Choose from career paths with guaranteed job placement. All programs are 100% funded through WIOA.
+                Real training. Real jobs. Real future. Pick the program that fits your life and start in weeks.
               </p>
             </div>
-            
-            <div className="grid lg:grid-cols-2 gap-8">
-              {programs.map((program) => (
-                <div key={program.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-transparent hover:border-red-600">
-                  <div className="relative h-72">
-                    <Image
-                      src={program.image}
-                      alt={program.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
-                        <Play className="w-8 h-8 text-white ml-1" fill="white" />
+
+            <div className="space-y-12">
+              {programs.map((program, index) => (
+                <div 
+                  key={program.id}
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+                >
+                  <div className="grid lg:grid-cols-2 gap-0">
+                    {/* Image Side */}
+                    <div className={`relative h-80 lg:h-auto ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-90`}></div>
+                      <Image
+                        src={program.image}
+                        alt={program.title}
+                        fill
+                        className="object-cover mix-blend-overlay"
+                      />
+                      <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <div className="text-2xl font-bold text-slate-900">{program.startingSalary}</div>
+                        <div className="text-xs text-slate-600">Starting Salary</div>
+                      </div>
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <div className="bg-red-600 text-white px-4 py-3 rounded-lg font-bold text-center">
+                          {program.urgency}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge className="bg-red-600 text-white">100% FUNDED</Badge>
-                        <Badge className="bg-white/90 text-slate-900">{program.category}</Badge>
+                    {/* Content Side */}
+                    <div className="p-8 lg:p-12">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                          {program.category}
+                        </span>
+                        <span className="flex items-center gap-1 text-slate-600 text-sm">
+                          <Clock className="w-4 h-4" />
+                          {program.duration}
+                        </span>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-2">
+
+                      <h3 className="text-3xl font-bold text-slate-900 mb-4">
                         {program.title}
                       </h3>
-                      <div className="flex items-center gap-4 text-white/90 text-sm">
-                        <div className="flex items-center gap-1">
-                          <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          <span className="font-semibold">{program.rating}</span>
-                        </div>
-                        <span>•</span>
-                        <span>{program.students} students</span>
+
+                      <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                        {program.description}
+                      </p>
+
+                      <div className="mb-6">
+                        <h4 className="font-bold text-slate-900 mb-3">What You'll Get:</h4>
+                        <ul className="space-y-2">
+                          {program.highlights.map((highlight, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                              <span className="text-slate-700">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mb-8">
+                        <h4 className="font-bold text-slate-900 mb-3">Why This Career:</h4>
+                        <ul className="space-y-2">
+                          {program.realBenefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <Star className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                              <span className="text-slate-700">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Link
+                          href={`/enroll/${program.slug}`}
+                          className="flex-1 inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-4 rounded-lg transition-all"
+                        >
+                          Enroll Now
+                          <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <Link
+                          href={`/programs/${program.slug}`}
+                          className="flex-1 inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold px-6 py-4 rounded-lg transition-all"
+                        >
+                          Learn More
+                        </Link>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="p-6">
-                    <p className="text-slate-700 mb-6 leading-relaxed text-lg">
-                      {program.description}
-                    </p>
-                    
-                    <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600 mb-1">{program.duration}</div>
-                        <div className="text-xs text-slate-600">Duration</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-green-600 mb-1">{program.placement}</div>
-                        <div className="text-xs text-slate-600">Job Placement</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-orange-600 mb-1">{program.salary}</div>
-                        <div className="text-xs text-slate-600">Avg. Salary</div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2 mb-6">
-                      {program.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-slate-700">
-                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                          <span className="font-medium">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link 
-                      href={`/programs/${program.slug}`}
-                      className="block w-full py-4 bg-red-600 text-white text-center font-semibold rounded-lg hover:bg-red-700 transition"
-                    >
-                      View Program Details →
-                    </Link>
                   </div>
                 </div>
               ))}
             </div>
-
-            <div className="text-center mt-12">
-              <Link 
-                href="/programs"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition text-lg"
-              >
-                View All 12+ Programs
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
           </div>
         </section>
 
-        {/* Success Stories */}
-        <section className="py-20 px-4 md:px-8 bg-white">
-          <div className="max-w-7xl mx-auto">
+        {/* Why Choose Us - Real Benefits */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-2 bg-green-50 text-green-700 text-sm font-semibold tracking-wide uppercase mb-4 rounded-full">
-                💚 SUCCESS STORIES
-              </div>
-              <h2 className="text-5xl font-bold text-slate-900 mb-4">Real Students, Real Results</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Why Elevate Connects Works
+              </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Hear from graduates who transformed their careers through our programs
+                We're not a traditional school. We're a direct path to employment.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-slate-50 rounded-2xl p-8 relative">
-                  <Quote className="absolute top-6 right-6 w-12 h-12 text-red-200" />
-                  
-                  <div className="flex items-center gap-4 mb-6">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={64}
-                      height={64}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <div className="font-bold text-slate-900">{testimonial.name}</div>
-                      <div className="text-sm text-slate-600">{testimonial.program}</div>
-                      <div className="flex gap-1 mt-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-700 mb-6 leading-relaxed italic">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-
-                  <div className="pt-4 border-t border-slate-200">
-                    <div className="flex items-center gap-2 text-green-600 font-semibold">
-                      <CheckCircle className="w-5 h-5" />
-                      <span>{testimonial.outcome}</span>
-                    </div>
-                  </div>
+              <div className="bg-slate-50 rounded-xl p-8">
+                <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                  <DollarSign className="w-8 h-8 text-red-600" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Most Students Pay $0
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  WIOA funding covers tuition for eligible students. We handle all the paperwork. You focus on training.
+                </p>
+                <Link href="/wioa-eligibility" className="inline-flex items-center gap-2 text-red-600 font-semibold mt-4 hover:gap-3 transition-all">
+                  Check Your Eligibility
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
 
-            <div className="text-center mt-12">
-              <Link 
-                href="/success-stories"
-                className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-lg"
-              >
-                Read More Success Stories
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+              <div className="bg-slate-50 rounded-xl p-8">
+                <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                  <Briefcase className="w-8 h-8 text-red-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Jobs Waiting for You
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  We partner with employers who need workers NOW. Many students have job offers before graduation.
+                </p>
+                <Link href="/employers" className="inline-flex items-center gap-2 text-red-600 font-semibold mt-4 hover:gap-3 transition-all">
+                  See Our Partners
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              <div className="bg-slate-50 rounded-xl p-8">
+                <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                  <Clock className="w-8 h-8 text-red-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Fast Track to Career
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  4-12 weeks, not 4 years. Get certified, get hired, get earning. Life doesn't wait - neither should your career.
+                </p>
+                <Link href="/programs" className="inline-flex items-center gap-2 text-red-600 font-semibold mt-4 hover:gap-3 transition-all">
+                  View Programs
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-red-600 to-orange-600">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-5xl font-bold mb-6">Ready to Start Your New Career?</h2>
-            <p className="text-xl mb-8 text-white/90">
-              Check your eligibility in under 2 minutes. Most Wisconsin residents qualify for 100% funded training.
+        {/* Final CTA */}
+        <section className="py-20 bg-gradient-to-br from-red-600 to-orange-600 text-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Ready to Change Your Life?
+            </h2>
+            <p className="text-xl text-red-100 mb-8">
+              Classes starting soon. Spots are limited. Apply now to see if you qualify for free training.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/apply"
-                className="px-10 py-5 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition text-lg shadow-xl"
-              >
-                Check Eligibility Now →
-              </Link>
-              <Link 
-                href="/contact"
-                className="px-10 py-5 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
-              >
-                Talk to an Advisor
-              </Link>
-            </div>
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center gap-2 bg-white text-red-600 hover:bg-slate-100 font-bold px-12 py-5 rounded-lg text-lg transition-all transform hover:scale-105 shadow-xl"
+            >
+              Start Your Application
+              <ArrowRight className="w-6 h-6" />
+            </Link>
+            <p className="mt-6 text-red-100 text-sm">
+              Takes 2 minutes • No commitment required • Find out if you qualify
+            </p>
           </div>
         </section>
       </main>
