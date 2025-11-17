@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const programs = [
   {
@@ -67,7 +66,11 @@ export default function ProgramsPage() {
           </nav>
         </div>
       </header>
-      <section className="border-b border-slate-800 bg-slate-950">
+      <section className="relative border-b border-emerald-500/20 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950 overflow-hidden">
+        {/* Canva-style background */}
+        <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-gradient-to-br from-emerald-500/15 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-gradient-to-tl from-sky-500/15 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
         <div className="mx-auto max-w-6xl px-4 py-14 lg:px-6 lg:py-16">
           <div className="max-w-3xl space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
@@ -83,86 +86,101 @@ export default function ProgramsPage() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            <Link href="/programs/barber" className="group">
-              <article className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-emerald-400/70 transition-all">
-                <div className="relative h-48">
-                  <Image
-                    src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
-                    alt="Barber training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {/* Barber Program */}
+            <Link 
+              href="/programs/barber" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
-                <div className="p-5 space-y-2">
-                  <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-emerald-300">
+                <div className="mb-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
                     Apprenticeship · License Track
-                  </p>
-                  <h2 className="text-[0.98rem] font-semibold text-slate-50">
-                    Barber Apprenticeship (Milady-Powered)
-                  </h2>
-                  <p className="text-[0.84rem] text-slate-300">
-                    Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.
-                  </p>
-                  <div className="pt-2 font-semibold text-emerald-300 hover:text-emerald-200">
-                    View this pathway →
-                  </div>
+                  </span>
                 </div>
-              </article>
+                <h2 className="text-xl font-bold text-slate-50 mb-3">
+                  Barber Apprenticeship
+                </h2>
+                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+                  Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.
+                </p>
+                <div className="flex items-center text-emerald-400 text-sm font-semibold group-hover:text-emerald-300">
+                  View Program 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
             </Link>
 
-            <Link href="/programs/medical-assistant" className="group">
-              <article className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-sky-400/70 transition-all">
-                <div className="relative h-48">
-                  <Image
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
-                    alt="Medical assistant training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+            {/* Medical Assistant Program */}
+            <Link 
+              href="/programs/medical-assistant" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-sky-500 hover:shadow-2xl hover:shadow-sky-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl group-hover:bg-sky-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
                 </div>
-                <div className="p-5 space-y-2">
-                  <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-sky-300">
+                <div className="mb-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-sky-400">
                     Healthcare · Partner Program
-                  </p>
-                  <h2 className="text-[0.98rem] font-semibold text-slate-50">
-                    Medical Assistant Pathway
-                  </h2>
-                  <p className="text-[0.84rem] text-slate-300">
-                    Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.
-                  </p>
-                  <div className="pt-2 font-semibold text-sky-300 hover:text-sky-200">
-                    View this pathway →
-                  </div>
+                  </span>
                 </div>
-              </article>
+                <h2 className="text-xl font-bold text-slate-50 mb-3">
+                  Medical Assistant Pathway
+                </h2>
+                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+                  Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.
+                </p>
+                <div className="flex items-center text-sky-400 text-sm font-semibold group-hover:text-sky-300">
+                  View Program 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
             </Link>
 
-            <Link href="/programs/hvac" className="group">
-              <article className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-emerald-400/70 transition-all">
-                <div className="relative h-48">
-                  <Image
-                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-                    alt="HVAC training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+            {/* HVAC Program */}
+            <Link 
+              href="/programs/hvac" 
+              className="group relative overflow-hidden rounded-2xl border-2 border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 transition-all hover:border-amber-500 hover:shadow-2xl hover:shadow-amber-500/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all" />
+              <div className="relative">
+                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-amber-500/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
-                <div className="p-5 space-y-2">
-                  <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-emerald-300">
+                <div className="mb-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
                     Skilled Trades · External School
-                  </p>
-                  <h2 className="text-[0.98rem] font-semibold text-slate-50">
-                    HVAC Technician (Partner School)
-                  </h2>
-                  <p className="text-[0.84rem] text-slate-300">
-                    Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.
-                  </p>
-                  <div className="pt-2 font-semibold text-emerald-300 hover:text-emerald-200">
-                    View this pathway →
-                  </div>
+                  </span>
                 </div>
-              </article>
+                <h2 className="text-xl font-bold text-slate-50 mb-3">
+                  HVAC Technician
+                </h2>
+                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+                  Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.
+                </p>
+                <div className="flex items-center text-amber-400 text-sm font-semibold group-hover:text-amber-300">
+                  View Program 
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
             </Link>
           </div>
         </div>

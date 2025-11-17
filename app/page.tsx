@@ -88,9 +88,14 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-sky-500/15 blur-3xl" />
+      <section className="relative overflow-hidden border-b border-emerald-500/20 bg-gradient-to-br from-slate-950 via-emerald-950/30 to-slate-950">
+        {/* Canva-style background elements */}
+        <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-gradient-to-br from-emerald-500/20 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute right-0 top-20 h-80 w-80 rounded-full bg-gradient-to-bl from-sky-500/20 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-gradient-to-t from-amber-500/10 to-transparent blur-3xl" />
+        
+        {/* Grid pattern overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
         <div className="mx-auto max-w-5xl px-4 pb-16 pt-16 text-center lg:px-6 lg:pb-24 lg:pt-24">
           {/* MAIN COPY */}
@@ -150,8 +155,11 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className="border-b border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900"
+        className="relative border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 overflow-hidden"
       >
+        {/* Background accents */}
+        <div className="pointer-events-none absolute left-0 top-1/3 h-72 w-72 rounded-full bg-gradient-to-r from-sky-500/5 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute right-0 bottom-1/3 h-72 w-72 rounded-full bg-gradient-to-l from-amber-500/5 to-transparent blur-3xl" />
         <div className="mx-auto max-w-5xl px-4 py-16 lg:px-6 lg:py-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl mb-3">
@@ -262,7 +270,9 @@ export default function Home() {
       </section>
 
       {/* PROGRAMS SECTION */}
-      <section className="border-b border-slate-800 bg-slate-950">
+      <section className="relative border-b border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900 overflow-hidden">
+        {/* Subtle background accent */}
+        <div className="pointer-events-none absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-gradient-to-l from-emerald-500/5 to-transparent blur-3xl" />
         <div className="mx-auto max-w-6xl px-4 py-16 lg:px-6 lg:py-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl mb-3">
@@ -353,7 +363,8 @@ export default function Home() {
       </section>
 
       {/* WHY ELEVATE / DIFFERENTIATORS */}
-      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 overflow-hidden">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-b from-emerald-500/5 to-transparent blur-3xl" />
         <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
           <div className="max-w-3xl space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
@@ -404,7 +415,9 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-gradient-to-r from-emerald-600 via-sky-500 to-amber-400">
+      <section className="relative bg-gradient-to-br from-emerald-600 via-emerald-500 to-sky-500 overflow-hidden">
+        {/* Animated gradient overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
         <div className="mx-auto max-w-6xl px-4 py-10 text-slate-950 lg:px-6 lg:py-12">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
