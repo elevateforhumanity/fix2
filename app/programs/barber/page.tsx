@@ -1,163 +1,85 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card';
+import Link from "next/link";
 
-export const metadata = {
-  title: 'Barber Apprenticeship | Elevate for Humanity',
-  description:
-    'State-approved barber apprenticeship program leading to Indiana barber license.',
-};
+const bullets = [
+  "Milady-powered barbering curriculum for theory, safety, and technique.",
+  "Shop-based experience where learners can observe, assist, and grow into the chair.",
+  "Elevate LMS tracking for attendance, milestones, and apprenticeship hours.",
+  "Live Q&A spaces so learners can ask real questions and stay encouraged.",
+  "A clear path toward state barber licensing support and long-term careers.",
+];
+
+const fits = [
+  "Young adults who want a trade that lets them create and connect with people.",
+  "Helpers already in the shop who are ready for structured growth and licensing.",
+  "Career changers coming from retail, warehouse, or gig work.",
+  "Learners referred by WorkOne, EmployIndy, churches, and local partners.",
+];
 
 export default function BarberProgramPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-r from-red-600 to-orange-500">
-        <div className="absolute inset-0 bg-black/40" />
-        <Image
-          src="/media/programs/barber-hero.jpg"
-          alt="Professional barber at work"
-          fill
-          className="object-cover mix-blend-overlay"
-          priority
-        />
-        <div className="relative container mx-auto px-4 h-full flex items-center">
-          <div className="text-white max-w-3xl">
-            <p className="text-sm uppercase tracking-wide mb-4 text-orange-200">
-              State-Approved Apprenticeship
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 pb-12 pt-16 lg:px-6 lg:pb-16 lg:pt-20">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              Barber apprenticeship · Milady-powered
             </p>
-            <h1 className="text-5xl font-bold mb-4">Barber Apprenticeship Program</h1>
-            <p className="text-xl text-gray-100">
-              Master the craft of barbering through a state-approved apprenticeship. Learn cutting, styling, and business skills in a real barbershop environment.
+            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.8rem]">
+              Barber Apprenticeship Pathway
+            </h1>
+            <p className="text-sm text-slate-300">
+              Elevate's barber apprenticeship pathway combines Milady's trusted curriculum,
+              real barbershop experience, and LMS tracking so learners, shops, and agencies
+              can move together toward licensing—not guess their way through it.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/apply/barber"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
+              >
+                Apply for the barber pathway
+              </Link>
+              <Link
+                href="/partners"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
+              >
+                Host apprentices or refer learners
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="container mx-auto px-4 py-12 space-y-8">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Program Highlights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 list-disc list-inside">
-                  <li>
-                    State-approved curriculum aligned with Indiana licensing
-                    requirements
-                  </li>
-                  <li>
-                    1,500 hours of hands-on training in a working barbershop
-                  </li>
-                  <li>Learn classic and modern cutting techniques</li>
-                  <li>Business management and customer service skills</li>
-                  <li>Preparation for state licensing exam</li>
-                  <li>Earn while you learn through apprenticeship model</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>What You'll Master</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-semibold mb-2">Technical Skills</h4>
-                    <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li>Clipper techniques</li>
-                      <li>Scissor work</li>
-                      <li>Straight razor shaving</li>
-                      <li>Fades and tapers</li>
-                      <li>Beard grooming</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Professional Skills</h4>
-                    <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li>Client consultation</li>
-                      <li>Sanitation and safety</li>
-                      <li>Shop management</li>
-                      <li>Retail and upselling</li>
-                      <li>Building clientele</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Apprenticeship Pathway</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ol className="space-y-3 list-decimal list-inside">
-                  <li>Apply and complete intake process</li>
-                  <li>Match with a licensed master barber and approved shop</li>
-                  <li>Begin apprenticeship with structured training plan</li>
-                  <li>Complete 1,500 hours of documented training</li>
-                  <li>Pass state licensing exam</li>
-                  <li>Launch your career as a licensed barber</li>
-                </ol>
-              </CardContent>
-            </Card>
+          <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr,0.9fr] md:items-start">
+            <div className="space-y-3 text-sm text-slate-200">
+              <h2 className="text-[1.1rem] font-semibold text-slate-50">
+                What this pathway is designed to do.
+              </h2>
+              <p className="text-slate-300">
+                This pathway is built so shops can do what they do best—build barbers—while
+                Elevate and Milady provide structure, content, and documentation.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {bullets.map((b) => (
+                  <li key={b}>• {b}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.75)]">
+              <h3 className="text-[0.95rem] font-semibold text-slate-50">
+                Who this is a good fit for.
+              </h3>
+              <ul className="mt-3 space-y-2">
+                {fits.map((f) => (
+                  <li key={f}>• {f}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-[0.75rem] text-slate-400">
+                Exact licensing rules and apprenticeship requirements vary by state. Elevate
+                helps learners understand the path and stay organized alongside shop owners
+                and agencies.
+              </p>
+            </div>
           </div>
-          <aside className="space-y-6">
-            <Card className="border-l-4 border-l-red-600">
-              <CardHeader>
-                <CardTitle>Program Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Duration</h4>
-                  <p className="text-sm text-muted-foreground">
-                    12-18 months (1,500 hours)
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Format</h4>
-                  <p className="text-sm text-muted-foreground">
-                    In-shop apprenticeship with online coursework
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Funding</h4>
-                  <p className="text-sm text-muted-foreground">
-                    WIOA and apprenticeship funding available
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Outcome</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Indiana State Barber License
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-gradient-to-br from-red-50 to-orange-50">
-              <CardHeader>
-                <CardTitle>Start Your Journey</CardTitle>
-                <CardDescription>
-                  Join the next generation of professional barbers.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-                  <Link href="/apply">Apply for Barber Apprenticeship</Link>
-                </Button>
-                <Button asChild variant="outline" className="w-full border-orange-500 text-orange-700 hover:bg-orange-50">
-                  <Link href="/contact">Schedule a Visit</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </aside>
         </div>
       </section>
     </main>

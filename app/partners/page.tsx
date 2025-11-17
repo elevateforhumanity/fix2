@@ -1,0 +1,70 @@
+import Link from "next/link";
+
+const partnerTypes = [
+  {
+    title: "Workforce & referral agencies",
+    body: "Use Elevate as your shared front door for barber, healthcare, and trades pathways. Track who you send, who starts, and who finishes—without chasing paper.",
+  },
+  {
+    title: "Schools, churches, and community hubs",
+    body: "Turn everyday conversations into clear next steps. When someone is ready, you can confidently say, "Go to Elevate" and know what happens next.",
+  },
+  {
+    title: "Credentialing partners & training providers",
+    body: "Keep your curriculum, approvals, and brand. Elevate wraps around your programs with LMS orchestration, communication, and narrative for funders.",
+  },
+  {
+    title: "Employers and barbershops",
+    body: "Get closer to the talent pipeline. Co-design cohorts, host apprentices, and see who is actually close to ready for real roles.",
+  },
+];
+
+export default function PartnersPage() {
+  return (
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 pb-12 pt-16 lg:px-6 lg:pb-16 lg:pt-20">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              For partners
+            </p>
+            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.8rem]">
+              A front door you can trust for the people you serve.
+            </h1>
+            <p className="text-sm text-slate-300">
+              Elevate for Humanity was built so workforce boards, agencies, schools, churches,
+              and employers could share one high-trust hub for training and pathways—instead
+              of every organization trying to build their own silo.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
+              >
+                Talk with Elevate about partnership
+              </Link>
+              <Link
+                href="/demo"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
+              >
+                See how the LMS works
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {partnerTypes.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.75)]"
+              >
+                <h2 className="text-[0.98rem] font-semibold text-slate-50">{p.title}</h2>
+                <p className="mt-2 text-[0.85rem] text-slate-300">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

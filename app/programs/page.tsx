@@ -1,129 +1,79 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { ecdCourses } from '@/content/courses/ecdCatalog';
+import Link from "next/link";
+
+const programs = [
+  {
+    slug: "/programs/barber",
+    name: "Barber Apprenticeship (Milady-Powered)",
+    tag: "Apprenticeship · License Track",
+    summary:
+      "Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.",
+  },
+  {
+    slug: "/programs/medical-assistant",
+    name: "Medical Assistant Pathway",
+    tag: "Healthcare · Partner Program",
+    summary:
+      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.",
+  },
+  {
+    slug: "/programs/hvac",
+    name: "HVAC Technician (Partner School)",
+    tag: "Skilled Trades · External School",
+    summary:
+      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
+  },
+];
 
 export default function ProgramsPage() {
-  const categories = [
-    { name: 'All Programs', slug: 'all' },
-    { name: 'Healthcare', slug: 'healthcare' },
-    { name: 'Skilled Trades', slug: 'trades' },
-    { name: 'Technology', slug: 'technology' },
-    { name: 'Business', slug: 'business' },
-  ];
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <div className="text-sm font-semibold text-blue-400 uppercase tracking-wide mb-4">
-              Training Programs
-            </div>
-            <h1 className="text-5xl font-bold mb-6">
-              Explore Career Training Programs
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      <section className="border-b border-slate-800 bg-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-14 lg:px-6 lg:py-16">
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              Elevate programs
+            </p>
+            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.7rem]">
+              Programs that speak the same language as your community.
             </h1>
-            <p className="text-xl text-slate-300 mb-8">
-              Browse WIOA-funded training programs, registered apprenticeships, and workforce development opportunities across Indiana.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {categories.map((cat) => (
-                <button
-                  key={cat.slug}
-                  className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition"
-                >
-                  {cat.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Programs Grid */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              All Training Programs ({ecdCourses.length})
-            </h2>
-            <p className="text-lg text-slate-600">
-              State-approved programs with full or partial WIOA funding
+            <p className="text-sm text-slate-300">
+              Every pathway is designed so a learner, a parent, a pastor, and a case manager
+              can read it and instantly understand what it is, who it is for, and how it leads
+              to work.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ecdCourses.map((course) => (
-              <Link
-                key={course.slug}
-                href={`/programs/${course.slug}`}
-                className="group"
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {programs.map((program) => (
+              <article
+                key={program.slug}
+                className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.65)] hover:border-emerald-400/70"
               >
-                <div className="bg-white border border-slate-200 overflow-hidden hover:border-orange-500 transition">
-                  <div className="relative h-48">
-                    <Image
-                      src={`/generated-images/ecd-courses/${course.coverImageKey}.png`}
-                      alt={course.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded">
-                        {course.category}
-                      </span>
-                      <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded">
-                        WIOA Eligible
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition">
-                      {course.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 mb-4 line-clamp-2">
-                      {course.shortDescription}
-                    </p>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-500">
-                        {course.duration || '12-24 weeks'}
-                      </span>
-                      <span className="text-red-600 font-semibold group-hover:underline">
-                        Learn More →
-                      </span>
-                    </div>
-                  </div>
+                <div className="space-y-2">
+                  <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-emerald-300">
+                    {program.tag}
+                  </p>
+                  <h2 className="text-[0.98rem] font-semibold text-slate-50">
+                    {program.name}
+                  </h2>
+                  <p className="text-[0.84rem] text-slate-300">{program.summary}</p>
                 </div>
-              </Link>
+                <div className="mt-4 flex items-center justify-between text-[0.78rem]">
+                  <Link
+                    href={program.slug}
+                    className="font-semibold text-emerald-300 hover:text-emerald-200"
+                  >
+                    View this pathway →
+                  </Link>
+                  <span className="text-[0.7rem] text-slate-500">
+                    Cohorts · Referrals · Pilots
+                  </span>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4 bg-slate-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Ready to Start Your Training?
-          </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            Check your eligibility for WIOA-funded training programs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="px-8 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition"
-            >
-              Check Eligibility
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-3 bg-white text-slate-700 border border-slate-300 font-semibold hover:bg-slate-50 transition"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }

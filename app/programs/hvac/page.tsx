@@ -1,171 +1,85 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card';
+import Link from "next/link";
 
-export const metadata = {
-  title: 'HVAC Technician Pathway | Elevate for Humanity',
-  description:
-    'Launch your HVAC career with workforce-ready training, apprenticeships, and funding pathways.',
-};
+const hvacBullets = [
+  "Orientation to HVAC work, expectations, and career paths.",
+  "Connection to a trusted external HVAC school or training provider.",
+  "Elevate intake, readiness checks, and ongoing touchpoints.",
+  "Visibility for agencies into enrollment, engagement, and completion.",
+  "Support with next steps into apprenticeships or entry-level roles.",
+];
 
-export default function HVACProgramPage() {
+const hvacFit = [
+  "Hands-on learners who like tools, problem solving, and being on the move.",
+  "People coming from construction, warehouse, or maintenance who want a focused trade.",
+  "Re-entry participants and career changers looking for steady, skilled work.",
+  "Referrals from workforce boards, nonprofits, schools, and employers.",
+];
+
+export default function HvacProgramPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-r from-red-600 to-orange-500">
-        <div className="absolute inset-0 bg-black/40" />
-        <Image
-          src="/media/programs/trades-1.jpg"
-          alt="HVAC technician at work"
-          fill
-          className="object-cover mix-blend-overlay"
-          priority
-        />
-        <div className="relative container mx-auto px-4 h-full flex items-center">
-          <div className="text-white max-w-3xl">
-            <p className="text-sm uppercase tracking-wide mb-4 text-orange-200">
-              Workforce Training Program
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 pb-12 pt-16 lg:px-6 lg:pb-16 lg:pt-20">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              Skilled trades pathway · Partner HVAC school
             </p>
-            <h1 className="text-5xl font-bold mb-4">HVAC Technician Career Pathway</h1>
-            <p className="text-xl text-gray-100">
-              Hands-on, workforce-focused HVAC training built for working adults, career changers, and young people who want a skilled trade with real demand.
+            <h1 className="text-2xl font-semibold text-slate-50 sm:text-[1.8rem]">
+              HVAC Technician Pathway
+            </h1>
+            <p className="text-sm text-slate-300">
+              Elevate acts as the connector between learners, agencies, and a trusted HVAC
+              school. We handle intake, expectations, and updates so everyone knows what's
+              happening as training moves forward.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/apply/hvac"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300"
+              >
+                Start the HVAC pathway
+              </Link>
+              <Link
+                href="/partners"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/80 px-6 py-2.5 text-sm font-semibold text-slate-100 hover:border-emerald-300 hover:text-emerald-100"
+              >
+                Explore HVAC cohorts and partners
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="container mx-auto px-4 py-12 space-y-8">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>What You'll Learn</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 list-disc list-inside">
-                  <li>
-                    HVAC fundamentals: heating, cooling, ventilation, and
-                    refrigeration
-                  </li>
-                  <li>
-                    Tools, safety, and field etiquette for residential and light
-                    commercial work
-                  </li>
-                  <li>Basic electrical concepts related to HVAC systems</li>
-                  <li>
-                    Troubleshooting, maintenance, and customer communication
-                  </li>
-                  <li>
-                    Preparation for industry-recognized entry-level
-                    certifications
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Who This Program Is For</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 list-disc list-inside">
-                  <li>
-                    Adults looking for a new career in a high-demand trade
-                  </li>
-                  <li>
-                    Young adults who want a skilled trade instead of a 4-year
-                    degree
-                  </li>
-                  <li>
-                    People already in construction who want to specialize and
-                    increase earnings
-                  </li>
-                  <li>
-                    Anyone seeking stable employment with growth potential
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Program Pathway</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ol className="space-y-3 list-decimal list-inside">
-                  <li>Complete your Elevate intake and funding screening</li>
-                  <li>Enroll in the HVAC program and attend orientation</li>
-                  <li>
-                    Complete online modules and guided in-person or lab
-                    experiences
-                  </li>
-                  <li>
-                    Work with our team on employer connections and
-                    apprenticeships
-                  </li>
-                  <li>
-                    Transition into employment with job search support and
-                    coaching
-                  </li>
-                </ol>
-              </CardContent>
-            </Card>
+          <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr,0.9fr] md:items-start">
+            <div className="space-y-3 text-sm text-slate-200">
+              <h2 className="text-[1.1rem] font-semibold text-slate-50">
+                What this pathway focuses on.
+              </h2>
+              <p className="text-slate-300">
+                Elevate is not the HVAC school. We&apos;re the guide rail that keeps learners
+                and agencies informed from referral to completion.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {hvacBullets.map((b) => (
+                  <li key={b}>• {b}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.75)]">
+              <h3 className="text-[0.95rem] font-semibold text-slate-50">
+                Who this is a strong fit for.
+              </h3>
+              <ul className="mt-3 space-y-2">
+                {hvacFit.map((f) => (
+                  <li key={f}>• {f}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-[0.75rem] text-slate-400">
+                Program length, credentials, and lab details depend on the partner HVAC
+                school. Elevate helps clarify those details at intake and keeps them visible
+                throughout.
+              </p>
+            </div>
           </div>
-          <aside className="space-y-6">
-            <Card className="border-l-4 border-l-red-600">
-              <CardHeader>
-                <CardTitle>Program Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Format</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Blended online + hands-on
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Schedule</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Flexible, evenings and weekends available
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Funding</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Workforce grant pathways may be available
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Support</h4>
-                  <p className="text-sm text-muted-foreground">
-                    1:1 case management and career coaching
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-gradient-to-br from-red-50 to-orange-50">
-              <CardHeader>
-                <CardTitle>Ready to Get Started?</CardTitle>
-                <CardDescription>
-                  Complete the interest form and our team will follow up with
-                  next steps.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-                  <Link href="/apply">Start HVAC Interest Form</Link>
-                </Button>
-                <Button asChild variant="outline" className="w-full border-orange-500 text-orange-700 hover:bg-orange-50">
-                  <Link href="/contact">Talk with the Elevate Team</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </aside>
         </div>
       </section>
     </main>
