@@ -20,7 +20,10 @@ interface DiscussionForumProps {
   posts?: ForumPost[];
 }
 
-export function DiscussionForum({ courseId, posts = [] }: DiscussionForumProps) {
+export function DiscussionForum({
+  courseId,
+  posts = [],
+}: DiscussionForumProps) {
   const [newPost, setNewPost] = useState('');
   const [forumPosts, setForumPosts] = useState<ForumPost[]>(posts);
 

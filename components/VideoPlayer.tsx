@@ -1,7 +1,14 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings } from 'lucide-react';
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  Settings,
+} from 'lucide-react';
 
 interface VideoPlayerProps {
   src: string;
@@ -10,7 +17,12 @@ interface VideoPlayerProps {
   onComplete?: () => void;
 }
 
-export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerProps) {
+export function VideoPlayer({
+  src,
+  title,
+  onProgress,
+  onComplete,
+}: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -37,7 +49,8 @@ export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerP
 
   const handleTimeUpdate = () => {
     if (videoRef.current) {
-      const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      const currentProgress =
+        (videoRef.current.currentTime / videoRef.current.duration) * 100;
       setProgress(currentProgress);
       onProgress?.(currentProgress);
 
@@ -69,7 +82,7 @@ export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerP
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={() => onComplete?.()}
       />
-      
+
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
         <div className="flex items-center gap-4">
           <button
@@ -78,14 +91,14 @@ export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerP
           >
             {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
-          
+
           <button
             onClick={toggleMute}
             className="text-white hover:text-red-500 transition"
           >
             {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
           </button>
-          
+
           <div className="flex-1">
             <div className="h-1 bg-gray-600 rounded-full overflow-hidden">
               <div
@@ -94,15 +107,16 @@ export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerP
               />
             </div>
           </div>
-          
+
           <span className="text-white text-sm">
-            {videoRef.current && formatTime(videoRef.current.currentTime)} / {formatTime(duration)}
+            {videoRef.current && formatTime(videoRef.current.currentTime)} /{' '}
+            {formatTime(duration)}
           </span>
-          
+
           <button className="text-white hover:text-red-500 transition">
             <Settings size={20} />
           </button>
-          
+
           <button className="text-white hover:text-red-500 transition">
             <Maximize size={20} />
           </button>

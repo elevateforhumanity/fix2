@@ -18,7 +18,10 @@ interface InteractiveQuizProps {
   onComplete?: (score: number) => void;
 }
 
-export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps) {
+export function InteractiveQuiz({
+  questions,
+  onComplete,
+}: InteractiveQuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -36,11 +39,11 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
 
   const handleSubmit = () => {
     if (selectedAnswer === null) return;
-    
+
     setShowFeedback(true);
     const newAnswers = [...answers, selectedAnswer];
     setAnswers(newAnswers);
-    
+
     if (isCorrect) {
       setScore(score + 1);
     }
@@ -67,7 +70,7 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
       <CardContent className="space-y-6">
         <div>
           <h3 className="text-lg font-semibold mb-4">{question.question}</h3>
-          
+
           <div className="space-y-3">
             {question.options.map((option, index) => (
               <button
@@ -99,8 +102,12 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
         </div>
 
         {showFeedback && (
-          <div className={`p-4 rounded-lg ${isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-            <p className={`font-semibold mb-2 ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
+          <div
+            className={`p-4 rounded-lg ${isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}
+          >
+            <p
+              className={`font-semibold mb-2 ${isCorrect ? 'text-green-800' : 'text-red-800'}`}
+            >
               {isCorrect ? '✓ Correct!' : '✗ Incorrect'}
             </p>
             <p className="text-sm text-gray-700">{question.explanation}</p>
@@ -111,7 +118,7 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
           <div className="text-sm text-gray-600">
             Score: {score} / {currentQuestion + (showFeedback ? 1 : 0)}
           </div>
-          
+
           {!showFeedback ? (
             <Button
               onClick={handleSubmit}
