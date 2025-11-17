@@ -7,7 +7,7 @@ export function getOptimizedImageUrl(
   if (src.startsWith('http')) {
     return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
   }
-  
+
   // For local images, return as-is (Next.js will optimize)
   return src;
 }
