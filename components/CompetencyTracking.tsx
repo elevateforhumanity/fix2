@@ -81,10 +81,14 @@ export function CompetencyTracking() {
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(competencies.map(c => c.category)))];
-  const filteredCompetencies = activeCategory === 'all' 
-    ? competencies 
-    : competencies.filter(c => c.category === activeCategory);
+  const categories = [
+    'all',
+    ...Array.from(new Set(competencies.map((c) => c.category))),
+  ];
+  const filteredCompetencies =
+    activeCategory === 'all'
+      ? competencies
+      : competencies.filter((c) => c.category === activeCategory);
 
   const levelColors: Record<string, string> = {
     beginner: 'bg-blue-100 text-blue-700',
@@ -96,7 +100,7 @@ export function CompetencyTracking() {
   const statusColors: Record<string, string> = {
     'not-started': 'bg-gray-100 text-gray-700',
     'in-progress': 'bg-yellow-100 text-yellow-700',
-    'mastered': 'bg-green-100 text-green-700',
+    mastered: 'bg-green-100 text-green-700',
   };
 
   return (
@@ -104,7 +108,9 @@ export function CompetencyTracking() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Competency Tracking</h1>
-          <p className="text-red-100">Monitor your skill development and mastery</p>
+          <p className="text-red-100">
+            Monitor your skill development and mastery
+          </p>
         </div>
       </div>
 
@@ -112,24 +118,30 @@ export function CompetencyTracking() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Total Competencies</h3>
-            <p className="text-3xl font-bold text-red-600">{competencies.length}</p>
+            <p className="text-3xl font-bold text-red-600">
+              {competencies.length}
+            </p>
           </Card>
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Mastered</h3>
             <p className="text-3xl font-bold text-green-600">
-              {competencies.filter(c => c.status === 'mastered').length}
+              {competencies.filter((c) => c.status === 'mastered').length}
             </p>
           </Card>
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">In Progress</h3>
             <p className="text-3xl font-bold text-yellow-600">
-              {competencies.filter(c => c.status === 'in-progress').length}
+              {competencies.filter((c) => c.status === 'in-progress').length}
             </p>
           </Card>
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Avg Progress</h3>
             <p className="text-3xl font-bold text-orange-600">
-              {Math.round(competencies.reduce((sum, c) => sum + c.progress, 0) / competencies.length)}%
+              {Math.round(
+                competencies.reduce((sum, c) => sum + c.progress, 0) /
+                  competencies.length
+              )}
+              %
             </p>
           </Card>
         </div>
@@ -157,20 +169,27 @@ export function CompetencyTracking() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold">{competency.name}</h3>
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${levelColors[competency.level]}`}>
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-medium ${levelColors[competency.level]}`}
+                    >
                       {competency.level}
                     </span>
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${statusColors[competency.status]}`}>
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-medium ${statusColors[competency.status]}`}
+                    >
                       {competency.status.replace('-', ' ')}
                     </span>
                   </div>
                   <p className="text-sm text-gray-600">{competency.category}</p>
                   <p className="text-sm text-gray-500">
-                    {competency.assessments} assessments • Last assessed: {competency.lastAssessed}
+                    {competency.assessments} assessments • Last assessed:{' '}
+                    {competency.lastAssessed}
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-red-600">{competency.progress}%</div>
+                  <div className="text-3xl font-bold text-red-600">
+                    {competency.progress}%
+                  </div>
                   <p className="text-sm text-gray-600">Progress</p>
                 </div>
               </div>
@@ -186,8 +205,12 @@ export function CompetencyTracking() {
 
               <div className="flex gap-2">
                 <Button size="sm">Take Assessment</Button>
-                <Button size="sm" variant="secondary">View Details</Button>
-                <Button size="sm" variant="secondary">Learning Resources</Button>
+                <Button size="sm" variant="secondary">
+                  View Details
+                </Button>
+                <Button size="sm" variant="secondary">
+                  Learning Resources
+                </Button>
               </div>
             </Card>
           ))}
@@ -198,10 +221,14 @@ export function CompetencyTracking() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <h4 className="font-semibold text-blue-700 mb-2">Beginner</h4>
-              <p className="text-sm text-gray-600">Basic understanding and awareness</p>
+              <p className="text-sm text-gray-600">
+                Basic understanding and awareness
+              </p>
             </div>
             <div>
-              <h4 className="font-semibold text-purple-700 mb-2">Intermediate</h4>
+              <h4 className="font-semibold text-purple-700 mb-2">
+                Intermediate
+              </h4>
               <p className="text-sm text-gray-600">Can apply with guidance</p>
             </div>
             <div>
@@ -210,7 +237,9 @@ export function CompetencyTracking() {
             </div>
             <div>
               <h4 className="font-semibold text-red-700 mb-2">Expert</h4>
-              <p className="text-sm text-gray-600">Can teach and mentor others</p>
+              <p className="text-sm text-gray-600">
+                Can teach and mentor others
+              </p>
             </div>
           </div>
         </Card>

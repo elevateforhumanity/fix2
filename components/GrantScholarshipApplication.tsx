@@ -72,11 +72,19 @@ export function GrantScholarshipApplication() {
                   onClick={() => setSelectedGrant(grant.id)}
                 >
                   <h3 className="font-bold text-lg">{grant.name}</h3>
-                  <p className="text-2xl font-bold text-red-600">${grant.amount.toLocaleString()}</p>
-                  <p className="text-sm text-gray-600">Deadline: {grant.deadline}</p>
-                  <span className={`inline-block mt-2 px-2 py-1 rounded text-xs ${
-                    grant.status === 'open' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'
-                  }`}>
+                  <p className="text-2xl font-bold text-red-600">
+                    ${grant.amount.toLocaleString()}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Deadline: {grant.deadline}
+                  </p>
+                  <span
+                    className={`inline-block mt-2 px-2 py-1 rounded text-xs ${
+                      grant.status === 'open'
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
                     {grant.status}
                   </span>
                 </Card>
@@ -91,49 +99,70 @@ export function GrantScholarshipApplication() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-1">First Name</label>
+                      <label className="block text-sm font-medium mb-1">
+                        First Name
+                      </label>
                       <input
                         type="text"
                         className="w-full px-3 py-2 border rounded"
                         value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            firstName: e.target.value,
+                          })
+                        }
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Last Name</label>
+                      <label className="block text-sm font-medium mb-1">
+                        Last Name
+                      </label>
                       <input
                         type="text"
                         className="w-full px-3 py-2 border rounded"
                         value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, lastName: e.target.value })
+                        }
                         required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-1">Email</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Email
+                    </label>
                     <input
                       type="email"
                       className="w-full px-3 py-2 border rounded"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-1">Essay (500 words)</label>
+                    <label className="block text-sm font-medium mb-1">
+                      Essay (500 words)
+                    </label>
                     <textarea
                       className="w-full px-3 py-2 border rounded h-32"
                       value={formData.essay}
-                      onChange={(e) => setFormData({ ...formData, essay: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, essay: e.target.value })
+                      }
                       required
                     />
                   </div>
 
-                  <Button type="submit" className="w-full">Submit Application</Button>
+                  <Button type="submit" className="w-full">
+                    Submit Application
+                  </Button>
                 </form>
               </Card>
             ) : (

@@ -48,9 +48,10 @@ export function EmployerTalentPipeline() {
   ];
 
   const stages = ['all', 'sourced', 'screening', 'interview', 'offer', 'hired'];
-  const filteredCandidates = selectedStage === 'all' 
-    ? candidates 
-    : candidates.filter(c => c.stage === selectedStage);
+  const filteredCandidates =
+    selectedStage === 'all'
+      ? candidates
+      : candidates.filter((c) => c.stage === selectedStage);
 
   const stageColors: Record<string, string> = {
     sourced: 'bg-gray-100 text-gray-700',
@@ -74,7 +75,7 @@ export function EmployerTalentPipeline() {
           {stages.slice(1).map((stage) => (
             <Card key={stage} className="p-4 text-center">
               <p className="text-2xl font-bold text-red-600">
-                {candidates.filter(c => c.stage === stage).length}
+                {candidates.filter((c) => c.stage === stage).length}
               </p>
               <p className="text-sm text-gray-600 capitalize">{stage}</p>
             </Card>
@@ -104,24 +105,35 @@ export function EmployerTalentPipeline() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold">{candidate.name}</h3>
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${stageColors[candidate.stage]}`}>
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-medium ${stageColors[candidate.stage]}`}
+                    >
                       {candidate.stage}
                     </span>
                   </div>
                   <p className="text-gray-600">{candidate.program}</p>
-                  <p className="text-sm text-gray-500">Graduates: {candidate.graduationDate}</p>
+                  <p className="text-sm text-gray-500">
+                    Graduates: {candidate.graduationDate}
+                  </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-red-600">{candidate.matchScore}%</div>
+                  <div className="text-3xl font-bold text-red-600">
+                    {candidate.matchScore}%
+                  </div>
                   <p className="text-sm text-gray-600">Match Score</p>
                 </div>
               </div>
 
               <div className="mb-4">
-                <p className="text-sm font-semibold text-gray-700 mb-2">Skills:</p>
+                <p className="text-sm font-semibold text-gray-700 mb-2">
+                  Skills:
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {candidate.skills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded">
+                    <span
+                      key={skill}
+                      className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded"
+                    >
                       {skill}
                     </span>
                   ))}
@@ -130,8 +142,12 @@ export function EmployerTalentPipeline() {
 
               <div className="flex gap-2">
                 <Button size="sm">View Profile</Button>
-                <Button size="sm" variant="secondary">Schedule Interview</Button>
-                <Button size="sm" variant="secondary">Send Message</Button>
+                <Button size="sm" variant="secondary">
+                  Schedule Interview
+                </Button>
+                <Button size="sm" variant="secondary">
+                  Send Message
+                </Button>
               </div>
             </Card>
           ))}

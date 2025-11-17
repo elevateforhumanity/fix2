@@ -23,7 +23,9 @@ interface Goal {
 }
 
 export function StudentSuccessCoaching() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'sessions' | 'goals' | 'resources'>('dashboard');
+  const [activeTab, setActiveTab] = useState<
+    'dashboard' | 'sessions' | 'goals' | 'resources'
+  >('dashboard');
 
   const sessions: CoachingSession[] = [
     {
@@ -82,17 +84,21 @@ export function StudentSuccessCoaching() {
       <div className="bg-white border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-8">
-            {(['dashboard', 'sessions', 'goals', 'resources'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`py-4 px-2 border-b-2 font-medium ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
-                }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
+            {(['dashboard', 'sessions', 'goals', 'resources'] as const).map(
+              (tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`py-4 px-2 border-b-2 font-medium ${
+                    activeTab === tab
+                      ? 'border-red-600 text-red-600'
+                      : 'border-transparent text-gray-500'
+                  }`}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
@@ -102,12 +108,16 @@ export function StudentSuccessCoaching() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="p-6">
               <h3 className="text-sm text-gray-600 mb-2">Coaching Sessions</h3>
-              <p className="text-3xl font-bold text-red-600">{sessions.length}</p>
+              <p className="text-3xl font-bold text-red-600">
+                {sessions.length}
+              </p>
               <p className="text-sm text-gray-500">1 upcoming</p>
             </Card>
             <Card className="p-6">
               <h3 className="text-sm text-gray-600 mb-2">Active Goals</h3>
-              <p className="text-3xl font-bold text-orange-500">{goals.filter(g => g.status !== 'completed').length}</p>
+              <p className="text-3xl font-bold text-orange-500">
+                {goals.filter((g) => g.status !== 'completed').length}
+              </p>
               <p className="text-sm text-gray-500">2 in progress</p>
             </Card>
             <Card className="p-6">
@@ -132,14 +142,20 @@ export function StudentSuccessCoaching() {
                     <p className="text-gray-600">Coach: {session.coach}</p>
                     <p className="text-sm text-gray-500">{session.date}</p>
                     {session.notes && (
-                      <p className="mt-2 text-sm text-gray-600">{session.notes}</p>
+                      <p className="mt-2 text-sm text-gray-600">
+                        {session.notes}
+                      </p>
                     )}
                   </div>
-                  <span className={`px-3 py-1 rounded text-sm ${
-                    session.status === 'scheduled' ? 'bg-blue-100 text-blue-700' :
-                    session.status === 'completed' ? 'bg-green-100 text-green-700' :
-                    'bg-gray-100 text-gray-700'
-                  }`}>
+                  <span
+                    className={`px-3 py-1 rounded text-sm ${
+                      session.status === 'scheduled'
+                        ? 'bg-blue-100 text-blue-700'
+                        : session.status === 'completed'
+                          ? 'bg-green-100 text-green-700'
+                          : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
                     {session.status}
                   </span>
                 </div>
@@ -162,11 +178,15 @@ export function StudentSuccessCoaching() {
                     <p className="text-sm text-gray-600">{goal.category}</p>
                     <p className="text-sm text-gray-500">Due: {goal.dueDate}</p>
                   </div>
-                  <span className={`px-3 py-1 rounded text-sm ${
-                    goal.status === 'on-track' ? 'bg-green-100 text-green-700' :
-                    goal.status === 'at-risk' ? 'bg-yellow-100 text-yellow-700' :
-                    'bg-blue-100 text-blue-700'
-                  }`}>
+                  <span
+                    className={`px-3 py-1 rounded text-sm ${
+                      goal.status === 'on-track'
+                        ? 'bg-green-100 text-green-700'
+                        : goal.status === 'at-risk'
+                          ? 'bg-yellow-100 text-yellow-700'
+                          : 'bg-blue-100 text-blue-700'
+                    }`}
+                  >
                     {goal.status}
                   </span>
                 </div>
@@ -192,17 +212,29 @@ export function StudentSuccessCoaching() {
             <Card className="p-6">
               <h3 className="text-xl font-bold mb-4">Study Skills</h3>
               <ul className="space-y-2">
-                <li className="text-blue-600 hover:underline cursor-pointer">Time Management Guide</li>
-                <li className="text-blue-600 hover:underline cursor-pointer">Note-Taking Strategies</li>
-                <li className="text-blue-600 hover:underline cursor-pointer">Test Preparation Tips</li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Time Management Guide
+                </li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Note-Taking Strategies
+                </li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Test Preparation Tips
+                </li>
               </ul>
             </Card>
             <Card className="p-6">
               <h3 className="text-xl font-bold mb-4">Career Resources</h3>
               <ul className="space-y-2">
-                <li className="text-blue-600 hover:underline cursor-pointer">Resume Writing Workshop</li>
-                <li className="text-blue-600 hover:underline cursor-pointer">Interview Preparation</li>
-                <li className="text-blue-600 hover:underline cursor-pointer">Networking Strategies</li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Resume Writing Workshop
+                </li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Interview Preparation
+                </li>
+                <li className="text-blue-600 hover:underline cursor-pointer">
+                  Networking Strategies
+                </li>
               </ul>
             </Card>
           </div>

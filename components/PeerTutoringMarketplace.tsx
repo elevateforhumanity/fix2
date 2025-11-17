@@ -55,10 +55,14 @@ export function PeerTutoringMarketplace() {
     },
   ];
 
-  const subjects = ['all', ...Array.from(new Set(tutors.flatMap(t => t.subjects)))];
-  const filteredTutors = selectedSubject === 'all' 
-    ? tutors 
-    : tutors.filter(t => t.subjects.includes(selectedSubject));
+  const subjects = [
+    'all',
+    ...Array.from(new Set(tutors.flatMap((t) => t.subjects))),
+  ];
+  const filteredTutors =
+    selectedSubject === 'all'
+      ? tutors
+      : tutors.filter((t) => t.subjects.includes(selectedSubject));
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -96,7 +100,9 @@ export function PeerTutoringMarketplace() {
                   <div className="flex items-center gap-1 text-sm">
                     <span className="text-yellow-500">★</span>
                     <span className="font-semibold">{tutor.rating}</span>
-                    <span className="text-gray-500">({tutor.reviews} reviews)</span>
+                    <span className="text-gray-500">
+                      ({tutor.reviews} reviews)
+                    </span>
                   </div>
                 </div>
               </div>
@@ -104,10 +110,15 @@ export function PeerTutoringMarketplace() {
               <p className="text-gray-600 text-sm mb-4">{tutor.bio}</p>
 
               <div className="mb-4">
-                <p className="text-sm font-semibold text-gray-700 mb-2">Subjects:</p>
+                <p className="text-sm font-semibold text-gray-700 mb-2">
+                  Subjects:
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {tutor.subjects.map((subject) => (
-                    <span key={subject} className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">
+                    <span
+                      key={subject}
+                      className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                    >
                       {subject}
                     </span>
                   ))}
@@ -116,7 +127,9 @@ export function PeerTutoringMarketplace() {
 
               <div className="mb-4 text-sm text-gray-600">
                 <p>📅 {tutor.availability}</p>
-                <p className="font-bold text-red-600 text-lg mt-2">${tutor.hourlyRate}/hour</p>
+                <p className="font-bold text-red-600 text-lg mt-2">
+                  ${tutor.hourlyRate}/hour
+                </p>
               </div>
 
               <Button className="w-full">Book Session</Button>

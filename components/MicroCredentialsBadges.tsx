@@ -18,14 +18,17 @@ interface Badge {
 }
 
 export function MicroCredentialsBadges() {
-  const [activeTab, setActiveTab] = useState<'earned' | 'available' | 'in-progress'>('earned');
+  const [activeTab, setActiveTab] = useState<
+    'earned' | 'available' | 'in-progress'
+  >('earned');
 
   const badges: Badge[] = [
     {
       id: '1',
       name: 'JavaScript Master',
       icon: '🏆',
-      description: 'Demonstrated advanced proficiency in JavaScript programming',
+      description:
+        'Demonstrated advanced proficiency in JavaScript programming',
       category: 'Technical',
       earnedDate: '2024-01-15',
       issuer: 'Elevate Connects',
@@ -59,7 +62,8 @@ export function MicroCredentialsBadges() {
       category: 'Soft Skills',
       earnedDate: '2024-01-20',
       issuer: 'Elevate Connects',
-      verificationUrl: 'https://verify.elevateconnects.com/badge/team-leader-003',
+      verificationUrl:
+        'https://verify.elevateconnects.com/badge/team-leader-003',
       requirements: [
         'Lead 2+ team projects',
         'Complete leadership training',
@@ -111,21 +115,27 @@ export function MicroCredentialsBadges() {
     },
   ];
 
-  const earnedBadges = badges.filter(b => b.earnedDate);
-  const inProgressBadges = badges.filter(b => b.progress && !b.earnedDate);
-  const availableBadges = badges.filter(b => !b.progress && !b.earnedDate);
+  const earnedBadges = badges.filter((b) => b.earnedDate);
+  const inProgressBadges = badges.filter((b) => b.progress && !b.earnedDate);
+  const availableBadges = badges.filter((b) => !b.progress && !b.earnedDate);
 
-  const displayBadges = 
-    activeTab === 'earned' ? earnedBadges :
-    activeTab === 'in-progress' ? inProgressBadges :
-    availableBadges;
+  const displayBadges =
+    activeTab === 'earned'
+      ? earnedBadges
+      : activeTab === 'in-progress'
+        ? inProgressBadges
+        : availableBadges;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Micro-Credentials & Digital Badges</h1>
-          <p className="text-red-100">Showcase your verified skills and achievements</p>
+          <h1 className="text-4xl font-bold mb-2">
+            Micro-Credentials & Digital Badges
+          </h1>
+          <p className="text-red-100">
+            Showcase your verified skills and achievements
+          </p>
         </div>
       </div>
 
@@ -133,17 +143,23 @@ export function MicroCredentialsBadges() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card className="p-6 text-center">
             <div className="text-4xl mb-2">🏆</div>
-            <p className="text-3xl font-bold text-red-600">{earnedBadges.length}</p>
+            <p className="text-3xl font-bold text-red-600">
+              {earnedBadges.length}
+            </p>
             <p className="text-gray-600">Badges Earned</p>
           </Card>
           <Card className="p-6 text-center">
             <div className="text-4xl mb-2">⏳</div>
-            <p className="text-3xl font-bold text-orange-500">{inProgressBadges.length}</p>
+            <p className="text-3xl font-bold text-orange-500">
+              {inProgressBadges.length}
+            </p>
             <p className="text-gray-600">In Progress</p>
           </Card>
           <Card className="p-6 text-center">
             <div className="text-4xl mb-2">🎯</div>
-            <p className="text-3xl font-bold text-blue-600">{availableBadges.length}</p>
+            <p className="text-3xl font-bold text-blue-600">
+              {availableBadges.length}
+            </p>
             <p className="text-gray-600">Available</p>
           </Card>
         </div>
@@ -155,10 +171,15 @@ export function MicroCredentialsBadges() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab
+                    ? 'border-red-600 text-red-600'
+                    : 'border-transparent text-gray-500'
                 }`}
               >
-                {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                {tab
+                  .split('-')
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
               </button>
             ))}
           </div>
@@ -166,9 +187,14 @@ export function MicroCredentialsBadges() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayBadges.map((badge) => (
-            <Card key={badge.id} className="p-6 hover:shadow-lg transition-shadow">
+            <Card
+              key={badge.id}
+              className="p-6 hover:shadow-lg transition-shadow"
+            >
               <div className="text-center mb-4">
-                <div className={`text-6xl mb-3 ${badge.earnedDate ? '' : 'opacity-40'}`}>
+                <div
+                  className={`text-6xl mb-3 ${badge.earnedDate ? '' : 'opacity-40'}`}
+                >
                   {badge.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{badge.name}</h3>
@@ -177,13 +203,17 @@ export function MicroCredentialsBadges() {
                 </span>
               </div>
 
-              <p className="text-gray-600 text-sm mb-4 text-center">{badge.description}</p>
+              <p className="text-gray-600 text-sm mb-4 text-center">
+                {badge.description}
+              </p>
 
               {badge.progress !== undefined && !badge.earnedDate && (
                 <div className="mb-4">
                   <div className="flex justify-between text-sm mb-1">
                     <span className="text-gray-600">Progress</span>
-                    <span className="font-semibold text-red-600">{badge.progress}%</span>
+                    <span className="font-semibold text-red-600">
+                      {badge.progress}%
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
@@ -195,11 +225,18 @@ export function MicroCredentialsBadges() {
               )}
 
               <div className="mb-4">
-                <p className="text-sm font-semibold text-gray-700 mb-2">Requirements:</p>
+                <p className="text-sm font-semibold text-gray-700 mb-2">
+                  Requirements:
+                </p>
                 <ul className="space-y-1">
                   {badge.requirements.map((req, idx) => (
-                    <li key={idx} className="text-xs text-gray-600 flex items-start">
-                      <span className={`mr-2 ${badge.earnedDate ? 'text-green-500' : 'text-gray-400'}`}>
+                    <li
+                      key={idx}
+                      className="text-xs text-gray-600 flex items-start"
+                    >
+                      <span
+                        className={`mr-2 ${badge.earnedDate ? 'text-green-500' : 'text-gray-400'}`}
+                      >
                         {badge.earnedDate ? '✓' : '○'}
                       </span>
                       {req}
@@ -211,16 +248,21 @@ export function MicroCredentialsBadges() {
               {badge.earnedDate && (
                 <div className="mb-4 p-3 bg-green-50 rounded">
                   <p className="text-sm text-green-700 font-semibold">
-                    ✓ Earned on {new Date(badge.earnedDate).toLocaleDateString()}
+                    ✓ Earned on{' '}
+                    {new Date(badge.earnedDate).toLocaleDateString()}
                   </p>
-                  <p className="text-xs text-green-600 mt-1">Issued by {badge.issuer}</p>
+                  <p className="text-xs text-green-600 mt-1">
+                    Issued by {badge.issuer}
+                  </p>
                 </div>
               )}
 
               <div className="space-y-2">
                 {badge.earnedDate ? (
                   <>
-                    <Button className="w-full" size="sm">Share on LinkedIn</Button>
+                    <Button className="w-full" size="sm">
+                      Share on LinkedIn
+                    </Button>
                     <Button variant="secondary" className="w-full" size="sm">
                       Download Certificate
                     </Button>
@@ -236,7 +278,9 @@ export function MicroCredentialsBadges() {
                     )}
                   </>
                 ) : (
-                  <Button className="w-full" size="sm">View Requirements</Button>
+                  <Button className="w-full" size="sm">
+                    View Requirements
+                  </Button>
                 )}
               </div>
             </Card>
@@ -253,7 +297,9 @@ export function MicroCredentialsBadges() {
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-orange-700 mb-2">🌐 Shareable</h4>
+              <h4 className="font-semibold text-orange-700 mb-2">
+                🌐 Shareable
+              </h4>
               <p className="text-sm text-gray-600">
                 Share on LinkedIn, resume, or portfolio with verification links
               </p>
