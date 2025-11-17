@@ -58,7 +58,12 @@ export const emailTemplates = {
   }),
 
   // Course enrollment
-  courseEnrollment: (data: { name: string; courseName: string; startDate: string; courseUrl: string }) => ({
+  courseEnrollment: (data: {
+    name: string;
+    courseName: string;
+    startDate: string;
+    courseUrl: string;
+  }) => ({
     subject: `✅ You're enrolled in ${data.courseName}!`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">
@@ -93,7 +98,13 @@ export const emailTemplates = {
   }),
 
   // Assignment due reminder
-  assignmentReminder: (data: { name: string; assignmentName: string; courseName: string; dueDate: string; assignmentUrl: string }) => ({
+  assignmentReminder: (data: {
+    name: string;
+    assignmentName: string;
+    courseName: string;
+    dueDate: string;
+    assignmentUrl: string;
+  }) => ({
     subject: `⏰ Reminder: ${data.assignmentName} due soon`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">
@@ -129,7 +140,12 @@ export const emailTemplates = {
   }),
 
   // Certificate issued
-  certificateIssued: (data: { name: string; courseName: string; certificateUrl: string; linkedInUrl: string }) => ({
+  certificateIssued: (data: {
+    name: string;
+    courseName: string;
+    certificateUrl: string;
+    linkedInUrl: string;
+  }) => ({
     subject: `🎉 Your ${data.courseName} Certificate is Ready!`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">
@@ -170,7 +186,13 @@ export const emailTemplates = {
   }),
 
   // Achievement unlocked
-  achievementUnlocked: (data: { name: string; achievementName: string; achievementDescription: string; points: number; achievementsUrl: string }) => ({
+  achievementUnlocked: (data: {
+    name: string;
+    achievementName: string;
+    achievementDescription: string;
+    points: number;
+    achievementsUrl: string;
+  }) => ({
     subject: `🏆 Achievement Unlocked: ${data.achievementName}`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">
@@ -204,7 +226,13 @@ export const emailTemplates = {
   }),
 
   // Job placement notification
-  jobPlacement: (data: { name: string; jobTitle: string; company: string; salary: string; startDate: string }) => ({
+  jobPlacement: (data: {
+    name: string;
+    jobTitle: string;
+    company: string;
+    salary: string;
+    startDate: string;
+  }) => ({
     subject: `🎊 Congratulations on Your New Job!`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">
@@ -238,7 +266,14 @@ export const emailTemplates = {
   }),
 
   // Weekly progress report
-  weeklyProgress: (data: { name: string; coursesInProgress: number; lessonsCompleted: number; quizScore: number; studyStreak: number; dashboardUrl: string }) => ({
+  weeklyProgress: (data: {
+    name: string;
+    coursesInProgress: number;
+    lessonsCompleted: number;
+    quizScore: number;
+    studyStreak: number;
+    dashboardUrl: string;
+  }) => ({
     subject: `📊 Your Weekly Progress Report`,
     html: `
       <div style="${baseStyles} max-width: 600px; margin: 0 auto;">

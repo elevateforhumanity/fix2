@@ -3,9 +3,17 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { 
-  Users, TrendingUp, DollarSign, Award, Download, 
-  Calendar, Filter, BarChart3, PieChart, LineChart 
+import {
+  Users,
+  TrendingUp,
+  DollarSign,
+  Award,
+  Download,
+  Calendar,
+  Filter,
+  BarChart3,
+  PieChart,
+  LineChart,
 } from 'lucide-react';
 
 export function AdminReportingDashboard() {
@@ -52,19 +60,74 @@ export function AdminReportingDashboard() {
   ];
 
   const programPerformance = [
-    { name: 'CNA Certification', students: 342, completion: 92, revenue: 45600, placement: 94 },
-    { name: 'HVAC Technician', students: 256, completion: 88, revenue: 38400, placement: 91 },
-    { name: 'Barber Apprenticeship', students: 189, completion: 95, revenue: 28350, placement: 96 },
-    { name: 'Web Development', students: 167, completion: 85, revenue: 25050, placement: 88 },
-    { name: 'Truck Driving CDL', students: 145, completion: 90, revenue: 21750, placement: 93 },
+    {
+      name: 'CNA Certification',
+      students: 342,
+      completion: 92,
+      revenue: 45600,
+      placement: 94,
+    },
+    {
+      name: 'HVAC Technician',
+      students: 256,
+      completion: 88,
+      revenue: 38400,
+      placement: 91,
+    },
+    {
+      name: 'Barber Apprenticeship',
+      students: 189,
+      completion: 95,
+      revenue: 28350,
+      placement: 96,
+    },
+    {
+      name: 'Web Development',
+      students: 167,
+      completion: 85,
+      revenue: 25050,
+      placement: 88,
+    },
+    {
+      name: 'Truck Driving CDL',
+      students: 145,
+      completion: 90,
+      revenue: 21750,
+      placement: 93,
+    },
   ];
 
   const recentActivity = [
-    { type: 'enrollment', student: 'Sarah Johnson', program: 'CNA', time: '5 min ago' },
-    { type: 'completion', student: 'Michael Chen', program: 'HVAC', time: '12 min ago' },
-    { type: 'payment', student: 'Emily Rodriguez', amount: '$299', time: '23 min ago' },
-    { type: 'enrollment', student: 'David Kim', program: 'Web Dev', time: '1 hour ago' },
-    { type: 'completion', student: 'Lisa Williams', program: 'Barber', time: '2 hours ago' },
+    {
+      type: 'enrollment',
+      student: 'Sarah Johnson',
+      program: 'CNA',
+      time: '5 min ago',
+    },
+    {
+      type: 'completion',
+      student: 'Michael Chen',
+      program: 'HVAC',
+      time: '12 min ago',
+    },
+    {
+      type: 'payment',
+      student: 'Emily Rodriguez',
+      amount: '$299',
+      time: '23 min ago',
+    },
+    {
+      type: 'enrollment',
+      student: 'David Kim',
+      program: 'Web Dev',
+      time: '1 hour ago',
+    },
+    {
+      type: 'completion',
+      student: 'Lisa Williams',
+      program: 'Barber',
+      time: '2 hours ago',
+    },
   ];
 
   const exportReport = (format: string) => {
@@ -80,7 +143,7 @@ export function AdminReportingDashboard() {
           <h1 className="text-3xl font-bold">Reporting Dashboard</h1>
           <p className="text-gray-600">Comprehensive analytics and insights</p>
         </div>
-        
+
         <div className="flex gap-3">
           <select
             value={dateRange}
@@ -92,12 +155,12 @@ export function AdminReportingDashboard() {
             <option value="90days">Last 90 Days</option>
             <option value="year">This Year</option>
           </select>
-          
+
           <Button variant="outline" onClick={() => exportReport('pdf')}>
             <Download size={16} className="mr-2" />
             Export PDF
           </Button>
-          
+
           <Button variant="outline" onClick={() => exportReport('csv')}>
             <Download size={16} className="mr-2" />
             Export CSV
@@ -116,7 +179,9 @@ export function AdminReportingDashboard() {
                   <div className={`p-3 rounded-lg ${metric.bgColor}`}>
                     <Icon className={metric.color} size={24} />
                   </div>
-                  <span className={`text-sm font-semibold ${metric.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+                  <span
+                    className={`text-sm font-semibold ${metric.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}
+                  >
                     {metric.change}
                   </span>
                 </div>
@@ -140,17 +205,37 @@ export function AdminReportingDashboard() {
           </CardHeader>
           <CardContent>
             <div className="h-64 flex items-end justify-between gap-2">
-              {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map((value, index) => (
-                <div key={index} className="flex-1 flex flex-col items-center">
+              {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map(
+                (value, index) => (
                   <div
-                    className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t transition-all hover:opacity-80"
-                    style={{ height: `${(value / 115) * 100}%` }}
-                  />
-                  <div className="text-xs text-gray-600 mt-2">
-                    {['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'][index]}
+                    key={index}
+                    className="flex-1 flex flex-col items-center"
+                  >
+                    <div
+                      className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t transition-all hover:opacity-80"
+                      style={{ height: `${(value / 115) * 100}%` }}
+                    />
+                    <div className="text-xs text-gray-600 mt-2">
+                      {
+                        [
+                          'J',
+                          'F',
+                          'M',
+                          'A',
+                          'M',
+                          'J',
+                          'J',
+                          'A',
+                          'S',
+                          'O',
+                          'N',
+                          'D',
+                        ][index]
+                      }
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </CardContent>
         </Card>
@@ -166,13 +251,25 @@ export function AdminReportingDashboard() {
           <CardContent>
             <div className="space-y-3">
               {programPerformance.slice(0, 5).map((program, index) => {
-                const colors = ['bg-red-600', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500'];
-                const percentage = (program.revenue / 159150 * 100).toFixed(1);
+                const colors = [
+                  'bg-red-600',
+                  'bg-orange-500',
+                  'bg-yellow-500',
+                  'bg-green-500',
+                  'bg-blue-500',
+                ];
+                const percentage = ((program.revenue / 159150) * 100).toFixed(
+                  1
+                );
                 return (
                   <div key={index}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">{program.name}</span>
-                      <span className="text-sm text-gray-600">${program.revenue.toLocaleString()}</span>
+                      <span className="text-sm font-medium">
+                        {program.name}
+                      </span>
+                      <span className="text-sm text-gray-600">
+                        ${program.revenue.toLocaleString()}
+                      </span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
@@ -205,15 +302,26 @@ export function AdminReportingDashboard() {
               <thead>
                 <tr className="border-b">
                   <th className="text-left py-3 px-4 font-semibold">Program</th>
-                  <th className="text-right py-3 px-4 font-semibold">Students</th>
-                  <th className="text-right py-3 px-4 font-semibold">Completion</th>
-                  <th className="text-right py-3 px-4 font-semibold">Revenue</th>
-                  <th className="text-right py-3 px-4 font-semibold">Placement</th>
+                  <th className="text-right py-3 px-4 font-semibold">
+                    Students
+                  </th>
+                  <th className="text-right py-3 px-4 font-semibold">
+                    Completion
+                  </th>
+                  <th className="text-right py-3 px-4 font-semibold">
+                    Revenue
+                  </th>
+                  <th className="text-right py-3 px-4 font-semibold">
+                    Placement
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {programPerformance.map((program, index) => (
-                  <tr key={index} className="border-b hover:bg-gray-50 transition">
+                  <tr
+                    key={index}
+                    className="border-b hover:bg-gray-50 transition"
+                  >
                     <td className="py-3 px-4 font-medium">{program.name}</td>
                     <td className="py-3 px-4 text-right">{program.students}</td>
                     <td className="py-3 px-4 text-right">
@@ -245,17 +353,27 @@ export function AdminReportingDashboard() {
         <CardContent>
           <div className="space-y-3">
             {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-center gap-4 p-3 border rounded-lg hover:bg-gray-50 transition">
-                <div className={`w-2 h-2 rounded-full ${
-                  activity.type === 'enrollment' ? 'bg-blue-600' :
-                  activity.type === 'completion' ? 'bg-green-600' :
-                  'bg-orange-600'
-                }`} />
+              <div
+                key={index}
+                className="flex items-center gap-4 p-3 border rounded-lg hover:bg-gray-50 transition"
+              >
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    activity.type === 'enrollment'
+                      ? 'bg-blue-600'
+                      : activity.type === 'completion'
+                        ? 'bg-green-600'
+                        : 'bg-orange-600'
+                  }`}
+                />
                 <div className="flex-1">
                   <div className="font-medium">
-                    {activity.type === 'enrollment' && `${activity.student} enrolled in ${activity.program}`}
-                    {activity.type === 'completion' && `${activity.student} completed ${activity.program}`}
-                    {activity.type === 'payment' && `${activity.student} made a payment of ${activity.amount}`}
+                    {activity.type === 'enrollment' &&
+                      `${activity.student} enrolled in ${activity.program}`}
+                    {activity.type === 'completion' &&
+                      `${activity.student} completed ${activity.program}`}
+                    {activity.type === 'payment' &&
+                      `${activity.student} made a payment of ${activity.amount}`}
                   </div>
                   <div className="text-sm text-gray-600">{activity.time}</div>
                 </div>
