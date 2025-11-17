@@ -121,13 +121,13 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
-                  DOL-Registered Apprenticeships.<br/>
-                  <span className="text-blue-600">100% Free Training</span>.<br/>
-                  Real Jobs Waiting.
+                  Free Training.<br/>
+                  <span className="text-blue-600">Job Advancement</span>.<br/>
+                  Real Careers.
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                  <strong>WIOA, WRG, JRI, and OJT funding available</strong>. DOL-registered apprenticeships. ETPL-approved training. WorkOne and EmployIndy referrals accepted. <strong>Most students pay $0</strong>.
+                  <strong>100% free training</strong> through WIOA, WRG, and JRI funding. Hybrid model with credentialing partners + Elevate support. DOL-registered apprenticeships. <strong>From unemployed to employed in weeks</strong>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -750,91 +750,120 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Jobs Waiting - Specific Employers & Roles */}
+        {/* What We Offer - Our Programs & Training */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-                Real Jobs. Real Employers. Hiring Now.
+                What You Get at Elevate
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Our employer partners are actively hiring graduates. These aren't "potential" jobs - they're open positions waiting for trained candidates.
+                Real training. Real credentials. Real support. Everything you need to launch your career.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Healthcare Jobs */}
+              {/* CNA Training */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100">
                 <div className="text-4xl mb-4">🏥</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Healthcare</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">Certified Nursing Assistant</div>
-                    <div className="text-sm text-slate-600 mb-2">IU Health, Community Health Network, Ascension</div>
-                    <div className="text-lg font-bold text-blue-600">$32,000 - $38,000/yr</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">CNA Training</h3>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">6-8 week program</span>
                   </div>
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">Patient Care Technician</div>
-                    <div className="text-sm text-slate-600 mb-2">Eskenazi Health, St. Vincent</div>
-                    <div className="text-lg font-bold text-blue-600">$34,000 - $40,000/yr</div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Clinical training in real hospitals</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">State certification exam prep</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Job placement assistance</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">WIOA & WRG eligible</span>
                   </div>
                 </div>
                 <Link href="/programs/cna" className="block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-all">
-                  Apply for CNA Program →
+                  Learn About CNA Program →
                 </Link>
               </div>
 
-              {/* Trades Jobs */}
+              {/* HVAC Training */}
               <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-100">
                 <div className="text-4xl mb-4">🔧</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Skilled Trades</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">HVAC Technician</div>
-                    <div className="text-sm text-slate-600 mb-2">Carrier, Trane, Local HVAC Companies</div>
-                    <div className="text-lg font-bold text-orange-600">$45,000 - $65,000/yr</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">HVAC Training</h3>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">12-week comprehensive program</span>
                   </div>
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">CDL Truck Driver</div>
-                    <div className="text-sm text-slate-600 mb-2">Schneider, Werner, Local Fleets</div>
-                    <div className="text-lg font-bold text-orange-600">$50,000 - $70,000/yr</div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Hands-on with real HVAC systems</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">EPA 608 certification included</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Employer connections</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">ETPL-approved training</span>
                   </div>
                 </div>
                 <Link href="/programs/hvac" className="block w-full text-center bg-orange-600 text-white font-bold py-3 rounded-lg hover:bg-orange-700 transition-all">
-                  Apply for HVAC Program →
+                  Learn About HVAC Program →
                 </Link>
               </div>
 
-              {/* Apprenticeship Jobs */}
+              {/* Barber Apprenticeship */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-100">
                 <div className="text-4xl mb-4">✂️</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Apprenticeships</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">Barber Apprentice</div>
-                    <div className="text-sm text-slate-600 mb-2">Kenny's Barber Academy, Local Shops</div>
-                    <div className="text-lg font-bold text-purple-600">$15-$25/hr + Tips</div>
-                    <div className="text-xs text-green-600 font-semibold mt-1">✓ Earn while you learn</div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Barber Apprenticeship</h3>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">DOL-registered apprenticeship</span>
                   </div>
-                  <div className="bg-white rounded-lg p-4">
-                    <div className="font-bold text-slate-900 mb-1">Building Maintenance Tech</div>
-                    <div className="text-sm text-slate-600 mb-2">Property Management Companies</div>
-                    <div className="text-lg font-bold text-purple-600">$35,000 - $45,000/yr</div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Earn while you learn</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Work in real barbershops</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">State barber license pathway</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">OJT & JRI eligible</span>
                   </div>
                 </div>
                 <Link href="/programs/barber" className="block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition-all">
-                  Apply for Apprenticeship →
+                  Learn About Apprenticeship →
                 </Link>
               </div>
             </div>
 
             <div className="bg-slate-900 rounded-2xl p-8 md:p-12 text-white text-center">
-              <h3 className="text-3xl font-bold mb-4">Don't See Your Dream Job?</h3>
+              <h3 className="text-3xl font-bold mb-4">More Programs Coming Soon</h3>
               <p className="text-xl text-slate-300 mb-6 max-w-2xl mx-auto">
-                We're adding new programs every month based on employer demand. Tell us what you want to do and we'll help you get there.
+                CDL Truck Driving, Building Maintenance, and more high-demand careers. All with the same free training and job placement support.
               </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-slate-100 transition-all">
-                Request a New Program
+              <Link href="/programs" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-slate-100 transition-all">
+                View All Programs
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
