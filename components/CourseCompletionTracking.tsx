@@ -74,7 +74,9 @@ export function CourseCompletionTracking() {
         <Card className="p-6 mb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Overall Progress</h2>
-            <span className="text-3xl font-bold text-red-600">{overallProgress}%</span>
+            <span className="text-3xl font-bold text-red-600">
+              {overallProgress}%
+            </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-4">
             <div
@@ -83,7 +85,8 @@ export function CourseCompletionTracking() {
             />
           </div>
           <p className="text-sm text-gray-600 mt-2">
-            {milestones.filter(m => m.completed).length} of {milestones.length} milestones completed
+            {milestones.filter((m) => m.completed).length} of{' '}
+            {milestones.length} milestones completed
           </p>
         </Card>
 
@@ -91,11 +94,15 @@ export function CourseCompletionTracking() {
           {milestones.map((milestone, index) => (
             <Card key={milestone.id} className="p-6">
               <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold flex-shrink-0 ${
-                  milestone.completed ? 'bg-green-500 text-white' :
-                  milestone.progress > 0 ? 'bg-blue-500 text-white' :
-                  'bg-gray-300 text-gray-600'
-                }`}>
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-bold flex-shrink-0 ${
+                    milestone.completed
+                      ? 'bg-green-500 text-white'
+                      : milestone.progress > 0
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-600'
+                  }`}
+                >
                   {milestone.completed ? '✓' : index + 1}
                 </div>
 
@@ -103,10 +110,16 @@ export function CourseCompletionTracking() {
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <h3 className="text-xl font-bold">{milestone.title}</h3>
-                      <p className="text-sm text-gray-600">{milestone.description}</p>
-                      <p className="text-xs text-gray-500 mt-1">Due: {milestone.dueDate}</p>
+                      <p className="text-sm text-gray-600">
+                        {milestone.description}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Due: {milestone.dueDate}
+                      </p>
                     </div>
-                    <span className="text-2xl font-bold text-red-600">{milestone.progress}%</span>
+                    <span className="text-2xl font-bold text-red-600">
+                      {milestone.progress}%
+                    </span>
                   </div>
 
                   <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
@@ -120,7 +133,9 @@ export function CourseCompletionTracking() {
                     <Button size="sm">Continue</Button>
                   )}
                   {!milestone.completed && milestone.progress === 0 && (
-                    <Button size="sm" variant="secondary">Start</Button>
+                    <Button size="sm" variant="secondary">
+                      Start
+                    </Button>
                   )}
                 </div>
               </div>

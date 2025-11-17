@@ -17,7 +17,12 @@ export function InstructorPerformanceDashboard() {
   };
 
   const courses = [
-    { name: 'Full-Stack Web Development', students: 120, rating: 4.9, completion: 85 },
+    {
+      name: 'Full-Stack Web Development',
+      students: 120,
+      rating: 4.9,
+      completion: 85,
+    },
     { name: 'JavaScript Advanced', students: 85, rating: 4.7, completion: 90 },
     { name: 'React Fundamentals', students: 40, rating: 4.8, completion: 88 },
   ];
@@ -48,37 +53,49 @@ export function InstructorPerformanceDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Total Students</h3>
-            <p className="text-3xl font-bold text-red-600">{metrics.totalStudents}</p>
+            <p className="text-3xl font-bold text-red-600">
+              {metrics.totalStudents}
+            </p>
             <p className="text-sm text-green-600">↑ 12% from last period</p>
           </Card>
 
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Average Rating</h3>
-            <p className="text-3xl font-bold text-orange-500">{metrics.avgRating}</p>
+            <p className="text-3xl font-bold text-orange-500">
+              {metrics.avgRating}
+            </p>
             <p className="text-sm text-gray-600">⭐⭐⭐⭐⭐</p>
           </Card>
 
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Courses Teaching</h3>
-            <p className="text-3xl font-bold text-blue-600">{metrics.coursesTeaching}</p>
+            <p className="text-3xl font-bold text-blue-600">
+              {metrics.coursesTeaching}
+            </p>
             <p className="text-sm text-gray-600">Active courses</p>
           </Card>
 
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Completion Rate</h3>
-            <p className="text-3xl font-bold text-green-600">{metrics.completionRate}%</p>
+            <p className="text-3xl font-bold text-green-600">
+              {metrics.completionRate}%
+            </p>
             <p className="text-sm text-green-600">Above average</p>
           </Card>
 
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Avg Response Time</h3>
-            <p className="text-3xl font-bold text-purple-600">{metrics.responseTime}h</p>
+            <p className="text-3xl font-bold text-purple-600">
+              {metrics.responseTime}h
+            </p>
             <p className="text-sm text-green-600">Excellent</p>
           </Card>
 
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Student Engagement</h3>
-            <p className="text-3xl font-bold text-indigo-600">{metrics.engagement}%</p>
+            <p className="text-3xl font-bold text-indigo-600">
+              {metrics.engagement}%
+            </p>
             <p className="text-sm text-green-600">Very high</p>
           </Card>
         </div>
@@ -115,21 +132,24 @@ export function InstructorPerformanceDashboard() {
           <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
             <h3 className="font-bold mb-2">🎯 Strength</h3>
             <p className="text-sm text-gray-700">
-              Your response time is 40% faster than average. Students appreciate your quick feedback!
+              Your response time is 40% faster than average. Students appreciate
+              your quick feedback!
             </p>
           </Card>
 
           <Card className="p-6 bg-gradient-to-r from-blue-50 to-cyan-50">
             <h3 className="font-bold mb-2">💡 Tip</h3>
             <p className="text-sm text-gray-700">
-              Consider adding more interactive elements to boost engagement in React Fundamentals.
+              Consider adding more interactive elements to boost engagement in
+              React Fundamentals.
             </p>
           </Card>
 
           <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50">
             <h3 className="font-bold mb-2">🏆 Achievement</h3>
             <p className="text-sm text-gray-700">
-              You've maintained a 4.8+ rating for 6 months straight. Excellent work!
+              You've maintained a 4.8+ rating for 6 months straight. Excellent
+              work!
             </p>
           </Card>
         </div>

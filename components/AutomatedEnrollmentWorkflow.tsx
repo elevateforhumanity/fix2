@@ -9,10 +9,30 @@ export function AutomatedEnrollmentWorkflow() {
 
   const workflow = [
     { step: 1, title: 'Student Applies', status: 'completed', automated: true },
-    { step: 2, title: 'Eligibility Check', status: 'completed', automated: true },
-    { step: 3, title: 'Payment Processing', status: 'in-progress', automated: true },
-    { step: 4, title: 'Course Access Granted', status: 'pending', automated: true },
-    { step: 5, title: 'Welcome Email Sent', status: 'pending', automated: true },
+    {
+      step: 2,
+      title: 'Eligibility Check',
+      status: 'completed',
+      automated: true,
+    },
+    {
+      step: 3,
+      title: 'Payment Processing',
+      status: 'in-progress',
+      automated: true,
+    },
+    {
+      step: 4,
+      title: 'Course Access Granted',
+      status: 'pending',
+      automated: true,
+    },
+    {
+      step: 5,
+      title: 'Welcome Email Sent',
+      status: 'pending',
+      automated: true,
+    },
   ];
 
   return (
@@ -30,11 +50,15 @@ export function AutomatedEnrollmentWorkflow() {
           <div className="space-y-4">
             {workflow.map((item) => (
               <div key={item.step} className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${
-                  item.status === 'completed' ? 'bg-green-500 text-white' :
-                  item.status === 'in-progress' ? 'bg-blue-500 text-white' :
-                  'bg-gray-300 text-gray-600'
-                }`}>
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${
+                    item.status === 'completed'
+                      ? 'bg-green-500 text-white'
+                      : item.status === 'in-progress'
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-600'
+                  }`}
+                >
                   {item.status === 'completed' ? '✓' : item.step}
                 </div>
                 <div className="flex-1">

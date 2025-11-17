@@ -59,7 +59,9 @@ export function CoursePrerequisiteManagement() {
   ];
 
   const getPrerequisiteTitles = (prereqIds: string[]) => {
-    return prereqIds.map(id => courses.find(c => c.id === id)?.title || '').filter(Boolean);
+    return prereqIds
+      .map((id) => courses.find((c) => c.id === id)?.title || '')
+      .filter(Boolean);
   };
 
   return (
@@ -75,47 +77,67 @@ export function CoursePrerequisiteManagement() {
         <Card className="p-6 mb-8 bg-gradient-to-r from-blue-50 to-cyan-50">
           <h3 className="text-xl font-bold mb-2">Learning Path Structure</h3>
           <p className="text-gray-700">
-            Courses are organized in a logical sequence. Complete prerequisites to unlock advanced courses.
+            Courses are organized in a logical sequence. Complete prerequisites
+            to unlock advanced courses.
           </p>
         </Card>
 
         <div className="space-y-4">
           {courses.map((course) => (
-            <Card key={course.id} className={`p-6 ${
-              course.status === 'locked' ? 'opacity-60' : ''
-            }`}>
+            <Card
+              key={course.id}
+              className={`p-6 ${
+                course.status === 'locked' ? 'opacity-60' : ''
+              }`}
+            >
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold">{course.title}</h3>
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${
-                      course.status === 'completed' ? 'bg-green-100 text-green-700' :
-                      course.status === 'available' ? 'bg-blue-100 text-blue-700' :
-                      'bg-gray-100 text-gray-700'
-                    }`}>
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-medium ${
+                        course.status === 'completed'
+                          ? 'bg-green-100 text-green-700'
+                          : course.status === 'available'
+                            ? 'bg-blue-100 text-blue-700'
+                            : 'bg-gray-100 text-gray-700'
+                      }`}
+                    >
                       {course.status.toUpperCase()}
                     </span>
                   </div>
 
                   {course.prerequisites.length > 0 && (
                     <div className="mb-3">
-                      <p className="text-sm font-semibold text-gray-700 mb-1">Prerequisites:</p>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">
+                        Prerequisites:
+                      </p>
                       <div className="flex flex-wrap gap-2">
-                        {getPrerequisiteTitles(course.prerequisites).map((title) => (
-                          <span key={title} className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">
-                            {title}
-                          </span>
-                        ))}
+                        {getPrerequisiteTitles(course.prerequisites).map(
+                          (title) => (
+                            <span
+                              key={title}
+                              className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                            >
+                              {title}
+                            </span>
+                          )
+                        )}
                       </div>
                     </div>
                   )}
 
                   {course.unlocks.length > 0 && (
                     <div>
-                      <p className="text-sm font-semibold text-gray-700 mb-1">Unlocks:</p>
+                      <p className="text-sm font-semibold text-gray-700 mb-1">
+                        Unlocks:
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {getPrerequisiteTitles(course.unlocks).map((title) => (
-                          <span key={title} className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">
+                          <span
+                            key={title}
+                            className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded"
+                          >
                             {title}
                           </span>
                         ))}
