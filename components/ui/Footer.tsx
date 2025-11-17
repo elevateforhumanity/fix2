@@ -7,37 +7,41 @@ export const Footer: React.FC = () => {
 
   const footerLinks = {
     programs: [
-      { name: 'Healthcare Programs', href: '/programs?category=healthcare' },
-      { name: 'Skilled Trades', href: '/programs?category=trades' },
-      { name: 'Technology', href: '/programs?category=technology' },
-      { name: 'Business & Admin', href: '/programs?category=business' },
+      { name: 'CNA Training', href: '/programs/cna' },
+      { name: 'HVAC Technician', href: '/programs/hvac' },
+      { name: 'Barber Apprenticeship', href: '/programs/barber' },
+      { name: 'CDL Truck Driving', href: '/programs/truck-driving' },
       { name: 'All Programs', href: '/programs' },
+      { name: 'Compare Programs', href: '/compare' },
     ],
-    resources: [
+    students: [
+      { name: 'Apply Now', href: '/apply' },
       { name: 'WIOA Eligibility', href: '/wioa-eligibility' },
       { name: 'Financial Aid', href: '/financial-aid' },
+      { name: 'Student Portal', href: '/lms/dashboard' },
       { name: 'Career Services', href: '/career-services' },
       { name: 'Success Stories', href: '/success-stories' },
-      { name: 'FAQ', href: '/faq' },
     ],
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Mission', href: '/about#mission' },
-      { name: 'Partners', href: '/about#partners' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Careers', href: '/careers' },
+    resources: [
+      { name: 'FAQ', href: '/faq' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Resources Library', href: '/resources' },
+      { name: 'Calendar', href: '/calendar' },
+      { name: 'AI Tutor', href: '/ai-tutor' },
+      { name: 'Contact Support', href: '/contact' },
     ],
     employers: [
       { name: 'Hire Our Graduates', href: '/employers' },
-      { name: 'Partner With Us', href: '/employers/partner' },
-      { name: 'Post a Job', href: '/employers/post-job' },
-      { name: 'Employer Resources', href: '/employers/resources' },
+      { name: 'Post a Job', href: '/employer/post-job' },
+      { name: 'Employer Dashboard', href: '/employer/dashboard' },
+      { name: 'Workforce Partners', href: '/partners/workforce' },
     ],
-    legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Accessibility', href: '/accessibility' },
-      { name: 'Non-Discrimination', href: '/non-discrimination' },
+    company: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact', href: '/contact' },
+      { name: 'Careers', href: '/careers' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
     ],
   };
 
@@ -109,6 +113,23 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* For Students */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">For Students</h4>
+            <ul className="space-y-3">
+              {footerLinks.students.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Resources */}
           <div>
             <h4 className="text-white font-semibold mb-4">Resources</h4>
@@ -126,24 +147,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Employers */}
+          {/* For Employers */}
           <div>
             <h4 className="text-white font-semibold mb-4">For Employers</h4>
             <ul className="space-y-3">
@@ -160,11 +164,11 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Company */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
+              {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}

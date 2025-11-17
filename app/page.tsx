@@ -299,6 +299,111 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Employer Partners Section */}
+        <section className="py-16 bg-white border-y border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                Our Hiring Partners
+              </h2>
+              <p className="text-slate-600">
+                Companies actively hiring our graduates
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+              <div className="text-center">
+                <div className="text-4xl mb-2">🏥</div>
+                <p className="text-sm font-semibold text-slate-700">Healthcare Facilities</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-2">🔧</div>
+                <p className="text-sm font-semibold text-slate-700">HVAC Companies</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-2">✂️</div>
+                <p className="text-sm font-semibold text-slate-700">Barbershop Chains</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-2">🚛</div>
+                <p className="text-sm font-semibold text-slate-700">Trucking Companies</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Success Stories */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Real Students. Real Results.
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                See how our graduates transformed their lives in weeks, not years.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    MJ
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">Marcus J.</h3>
+                    <p className="text-sm text-slate-600">HVAC Graduate</p>
+                  </div>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "I went from unemployed to earning $48K in just 12 weeks. The hands-on training was exactly what I needed. Now I'm working for a top HVAC company with full benefits."
+                </p>
+                <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
+                  <CheckCircle className="w-4 h-4" />
+                  Hired within 2 weeks of graduation
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    TA
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">Taylor A.</h3>
+                    <p className="text-sm text-slate-600">CNA Graduate</p>
+                  </div>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "As a single mom, I needed something fast. The CNA program was perfect - 6 weeks and I had my certification. Now I work 3 days a week and make enough to support my family."
+                </p>
+                <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
+                  <CheckCircle className="w-4 h-4" />
+                  Training was 100% free through WIOA
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    JR
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">Jordan R.</h3>
+                    <p className="text-sm text-slate-600">CDL Graduate</p>
+                  </div>
+                </div>
+                <p className="text-slate-700 italic mb-4">
+                  "Got my CDL in 4 weeks and received a $7,500 sign-on bonus from my first employer. I'm home every weekend and making more than I ever did in retail."
+                </p>
+                <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
+                  <CheckCircle className="w-4 h-4" />
+                  $55K first year + bonuses
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Why Choose Us - Real Benefits */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -359,6 +464,135 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Traditional College vs Elevate Connects
+              </h2>
+              <p className="text-xl text-slate-600">
+                See the difference for yourself
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                <div className="p-8">
+                  <h3 className="text-lg font-bold text-slate-900 mb-6">Factor</h3>
+                  <div className="space-y-6">
+                    <div className="font-semibold text-slate-700">Time to Complete</div>
+                    <div className="font-semibold text-slate-700">Total Cost</div>
+                    <div className="font-semibold text-slate-700">Outcome</div>
+                    <div className="font-semibold text-slate-700">Job Assistance</div>
+                    <div className="font-semibold text-slate-700">Start Earning</div>
+                  </div>
+                </div>
+
+                <div className="p-8 bg-slate-50">
+                  <h3 className="text-lg font-bold text-slate-600 mb-6">Traditional College</h3>
+                  <div className="space-y-6 text-slate-600">
+                    <div>4 years</div>
+                    <div>$40,000 - $100,000+</div>
+                    <div>Degree (maybe)</div>
+                    <div>Career center only</div>
+                    <div>After 4+ years</div>
+                  </div>
+                </div>
+
+                <div className="p-8 bg-gradient-to-br from-red-50 to-orange-50">
+                  <h3 className="text-lg font-bold text-red-600 mb-6">Elevate Connects</h3>
+                  <div className="space-y-6 text-slate-900 font-semibold">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      4-12 weeks
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      $0 (WIOA funded)
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Job + Certification
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Direct placement
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Within weeks
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
+                <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
+                  How do I qualify for free training?
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  Most students qualify through WIOA (Workforce Innovation and Opportunity Act) funding. If you're unemployed, underemployed, or looking to change careers, you likely qualify. We handle all the paperwork - just fill out our 2-minute application and we'll check your eligibility.
+                </p>
+              </details>
+
+              <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
+                <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
+                  When do classes start?
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  We have rolling start dates throughout the year. Current upcoming classes: CNA (Feb 5th), HVAC (Feb 12th), CDL (Feb 1st), Barber (ongoing apprenticeships). Apply now to secure your spot in the next available class.
+                </p>
+              </details>
+
+              <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
+                <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
+                  What if I already have a job?
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  Many of our programs offer evening and weekend options. We also work with employers who allow employees to train during work hours. If you're looking to switch careers or increase your income, we can work with your schedule.
+                </p>
+              </details>
+
+              <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
+                <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
+                  Do you really help with job placement?
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  Yes! We partner with employers who are actively hiring. Many students receive job offers before graduation. We provide resume help, interview prep, and direct introductions to hiring managers. Our goal is to get you employed, not just certified.
+                </p>
+              </details>
+
+              <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
+                <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
+                  What's the catch? Why is it free?
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  There's no catch. WIOA is a federal program designed to help people get job training. The government pays for your training because they want you employed and paying taxes. We're an approved WIOA provider, so we can offer this at no cost to eligible students.
+                </p>
+              </details>
             </div>
           </div>
         </section>

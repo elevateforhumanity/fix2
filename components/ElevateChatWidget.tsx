@@ -12,11 +12,11 @@ export function ElevateChatWidget() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-24 right-24 z-40 rounded-full bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-white text-sm font-semibold px-5 py-3 shadow-2xl hover:scale-105 transition-transform flex items-center gap-2"
-        title="Chat with Elevate AI"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-orange-600 text-white shadow-2xl hover:scale-110 hover:shadow-3xl transition-all flex items-center justify-center animate-bounce"
+        title="Chat with Elevate AI - Get Help Now!"
+        aria-label="Open chat assistant"
       >
-        <MessageCircle size={20} />
-        <span className="hidden sm:inline">Chat with AI</span>
+        <MessageCircle size={28} />
       </button>
       {/* Modal overlay */}
       {open && (
