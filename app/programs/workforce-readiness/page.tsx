@@ -1,5 +1,5 @@
 // app/programs/workforce-readiness/page.tsx
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function WorkforceReadinessPage() {
   return (
@@ -37,10 +37,10 @@ export default function WorkforceReadinessPage() {
             Program Overview
           </h2>
           <p className="text-sm md:text-base text-slate-200">
-            This pathway is built for adults and youth who need a fresh start,
-            a second chance, or a clearer roadmap into stable work. We blend
-            soft skills, digital skills, career exploration, and barrier
-            navigation so you don&apos;t have to figure it all out alone.
+            This pathway is built for adults and youth who need a fresh start, a
+            second chance, or a clearer roadmap into stable work. We blend soft
+            skills, digital skills, career exploration, and barrier navigation
+            so you don&apos;t have to figure it all out alone.
           </p>
         </div>
 
@@ -84,9 +84,7 @@ export default function WorkforceReadinessPage() {
             </ul>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-            <h2 className="text-lg font-bold mb-3">
-              What You&apos;ll Work On
-            </h2>
+            <h2 className="text-lg font-bold mb-3">What You&apos;ll Work On</h2>
             <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
               <li>Resumes, applications, and interview prep</li>
               <li>Soft skills, communication, and workplace expectations</li>
@@ -121,8 +119,8 @@ export default function WorkforceReadinessPage() {
             </h2>
             <p className="text-sm md:text-base text-slate-200">
               Share where you&apos;re starting from. We&apos;ll help map out
-              realistic next steps into training, apprenticeships, or
-              employment — one step at a time.
+              realistic next steps into training, apprenticeships, or employment
+              — one step at a time.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
