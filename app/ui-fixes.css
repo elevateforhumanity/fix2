@@ -1,7 +1,9 @@
 /* UI Fixes for Homepage and Global Issues */
 
 /* Ensure all buttons have proper contrast */
-button, .btn, a[class*="bg-white"] {
+button,
+.btn,
+a[class*='bg-white'] {
   color: inherit !important;
 }
 
@@ -28,14 +30,14 @@ button, .btn, a[class*="bg-white"] {
 }
 
 /* Fix any transparent or missing backgrounds */
-button:not([class*="bg-"]) {
+button:not([class*='bg-']) {
   background-color: #dc2626;
   color: white;
 }
 
 /* Ensure proper image fallbacks */
-img[src*="placeholder"],
-img[alt*="placeholder"] {
+img[src*='placeholder'],
+img[alt*='placeholder'] {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
@@ -43,13 +45,14 @@ img[alt*="placeholder"] {
 }
 
 /* Fix favicon display */
-link[rel="icon"],
-link[rel="shortcut icon"] {
-  href: "/favicon.ico";
+link[rel='icon'],
+link[rel='shortcut icon'] {
+  href: '/favicon.ico';
 }
 
 /* Ensure all CTAs are clickable */
-a, button {
+a,
+button {
   cursor: pointer;
   pointer-events: auto;
 }
@@ -69,7 +72,7 @@ a, button {
   color: white;
 }
 
-.bg-gradient-to-br.from-slate-900 a:not([class*="bg-"]) {
+.bg-gradient-to-br.from-slate-900 a:not([class*='bg-']) {
   color: white;
   text-decoration: underline;
 }
@@ -84,7 +87,7 @@ img {
   background-color: #f1f5f9; /* slate-100 */
 }
 
-img[src*="/media/"] {
+img[src*='/media/'] {
   object-fit: cover;
 }
 
@@ -99,7 +102,9 @@ img[src*="/media/"] {
 }
 
 /* Ensure proper button sizing and padding */
-button, .btn, a[class*="px-"] {
+button,
+.btn,
+a[class*='px-'] {
   min-height: 44px; /* Touch target size */
   display: inline-flex;
   align-items: center;
@@ -114,9 +119,9 @@ a:hover {
 }
 
 /* Ensure proper link styling */
-a[href^="/programs/"],
-a[href^="/enroll/"],
-a[href^="/apply"] {
+a[href^='/programs/'],
+a[href^='/enroll/'],
+a[href^='/apply'] {
   text-decoration: none;
 }
 
@@ -154,7 +159,9 @@ section {
 .shadow-lg,
 .shadow-xl,
 .shadow-2xl {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 /* Fix any animation issues */
@@ -203,12 +210,13 @@ a:focus {
   .text-5xl {
     font-size: 2.5rem;
   }
-  
+
   .text-6xl {
     font-size: 3rem;
   }
-  
-  button, .btn {
+
+  button,
+  .btn {
     width: 100%;
   }
 }
