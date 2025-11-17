@@ -31,7 +31,8 @@ export function AdaptiveLearningPath() {
     {
       id: '1',
       name: 'Full-Stack Developer',
-      description: 'Personalized path based on your JavaScript proficiency and career goals',
+      description:
+        'Personalized path based on your JavaScript proficiency and career goals',
       totalDuration: '6 months',
       matchScore: 95,
       courses: [
@@ -70,7 +71,8 @@ export function AdaptiveLearningPath() {
     {
       id: '2',
       name: 'Frontend Specialist',
-      description: 'Optimized for your visual design interests and UI/UX background',
+      description:
+        'Optimized for your visual design interests and UI/UX background',
       totalDuration: '4 months',
       matchScore: 87,
       courses: [
@@ -98,14 +100,16 @@ export function AdaptiveLearningPath() {
     },
   ];
 
-  const selectedPathData = learningPaths.find(p => p.id === selectedPath);
+  const selectedPathData = learningPaths.find((p) => p.id === selectedPath);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Adaptive Learning Paths</h1>
-          <p className="text-red-100">AI-recommended courses tailored to your goals and skills</p>
+          <p className="text-red-100">
+            AI-recommended courses tailored to your goals and skills
+          </p>
         </div>
       </div>
 
@@ -114,14 +118,23 @@ export function AdaptiveLearningPath() {
           <div className="flex items-start gap-4">
             <div className="text-4xl">🤖</div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Your Personalized Recommendations</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Your Personalized Recommendations
+              </h3>
               <p className="text-gray-700 mb-2">
-                Based on your current skills, learning patterns, and career goals, we've curated these learning paths for you.
+                Based on your current skills, learning patterns, and career
+                goals, we've curated these learning paths for you.
               </p>
               <div className="flex gap-4 text-sm">
-                <span className="px-3 py-1 bg-white rounded">JavaScript: Advanced</span>
-                <span className="px-3 py-1 bg-white rounded">Goal: Full-Stack Developer</span>
-                <span className="px-3 py-1 bg-white rounded">Learning Style: Visual</span>
+                <span className="px-3 py-1 bg-white rounded">
+                  JavaScript: Advanced
+                </span>
+                <span className="px-3 py-1 bg-white rounded">
+                  Goal: Full-Stack Developer
+                </span>
+                <span className="px-3 py-1 bg-white rounded">
+                  Learning Style: Visual
+                </span>
               </div>
             </div>
           </div>
@@ -139,10 +152,14 @@ export function AdaptiveLearningPath() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="text-2xl font-bold mb-2">{path.name}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{path.description}</p>
+                  <p className="text-gray-600 text-sm mb-3">
+                    {path.description}
+                  </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-red-600">{path.matchScore}%</div>
+                  <div className="text-3xl font-bold text-red-600">
+                    {path.matchScore}%
+                  </div>
                   <p className="text-xs text-gray-600">Match</p>
                 </div>
               </div>
@@ -154,14 +171,23 @@ export function AdaptiveLearningPath() {
 
               <div className="space-y-2">
                 {path.courses.slice(0, 3).map((course) => (
-                  <div key={course.id} className="flex items-center gap-2 text-sm">
-                    {course.recommended && <span className="text-green-500">✓</span>}
+                  <div
+                    key={course.id}
+                    className="flex items-center gap-2 text-sm"
+                  >
+                    {course.recommended && (
+                      <span className="text-green-500">✓</span>
+                    )}
                     <span className="text-gray-700">{course.title}</span>
-                    <span className={`px-2 py-0.5 rounded text-xs ${
-                      course.difficulty === 'beginner' ? 'bg-blue-100 text-blue-700' :
-                      course.difficulty === 'intermediate' ? 'bg-purple-100 text-purple-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
+                    <span
+                      className={`px-2 py-0.5 rounded text-xs ${
+                        course.difficulty === 'beginner'
+                          ? 'bg-blue-100 text-blue-700'
+                          : course.difficulty === 'intermediate'
+                            ? 'bg-purple-100 text-purple-700'
+                            : 'bg-red-100 text-red-700'
+                      }`}
+                    >
                       {course.difficulty}
                     </span>
                   </div>
@@ -177,7 +203,9 @@ export function AdaptiveLearningPath() {
 
         {selectedPathData && (
           <Card className="p-6">
-            <h3 className="text-2xl font-bold mb-6">Course Sequence: {selectedPathData.name}</h3>
+            <h3 className="text-2xl font-bold mb-6">
+              Course Sequence: {selectedPathData.name}
+            </h3>
             <div className="space-y-4">
               {selectedPathData.courses.map((course, index) => (
                 <div key={course.id} className="relative">
@@ -192,26 +220,39 @@ export function AdaptiveLearningPath() {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <h4 className="text-lg font-bold">{course.title}</h4>
-                          <p className="text-sm text-gray-600">{course.duration}</p>
+                          <p className="text-sm text-gray-600">
+                            {course.duration}
+                          </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-xl font-bold text-red-600">{course.matchScore}%</div>
+                          <div className="text-xl font-bold text-red-600">
+                            {course.matchScore}%
+                          </div>
                           <p className="text-xs text-gray-600">Match</p>
                         </div>
                       </div>
 
                       {course.prerequisites.length > 0 && (
                         <div className="mb-2">
-                          <p className="text-xs font-semibold text-gray-700">Prerequisites:</p>
-                          <p className="text-xs text-gray-600">{course.prerequisites.join(', ')}</p>
+                          <p className="text-xs font-semibold text-gray-700">
+                            Prerequisites:
+                          </p>
+                          <p className="text-xs text-gray-600">
+                            {course.prerequisites.join(', ')}
+                          </p>
                         </div>
                       )}
 
                       <div className="mb-3">
-                        <p className="text-xs font-semibold text-gray-700 mb-1">Skills you'll learn:</p>
+                        <p className="text-xs font-semibold text-gray-700 mb-1">
+                          Skills you'll learn:
+                        </p>
                         <div className="flex flex-wrap gap-1">
                           {course.skills.map((skill) => (
-                            <span key={skill} className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs rounded">
+                            <span
+                              key={skill}
+                              className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs rounded"
+                            >
                               {skill}
                             </span>
                           ))}
@@ -221,7 +262,9 @@ export function AdaptiveLearningPath() {
                       {course.recommended && (
                         <div className="flex items-center gap-2 text-sm text-green-700">
                           <span>✓</span>
-                          <span className="font-medium">Highly recommended for you</span>
+                          <span className="font-medium">
+                            Highly recommended for you
+                          </span>
                         </div>
                       )}
                     </div>
@@ -235,14 +278,20 @@ export function AdaptiveLearningPath() {
               <ul className="space-y-1 text-sm text-gray-700">
                 <li>• Builds on your existing JavaScript knowledge</li>
                 <li>• Aligns with your full-stack developer career goal</li>
-                <li>• Matches your visual learning style with interactive content</li>
-                <li>• Optimized completion timeline based on your study patterns</li>
+                <li>
+                  • Matches your visual learning style with interactive content
+                </li>
+                <li>
+                  • Optimized completion timeline based on your study patterns
+                </li>
               </ul>
             </div>
 
             <div className="flex gap-3 mt-6">
               <Button className="flex-1">Start Learning Path</Button>
-              <Button variant="secondary" className="flex-1">Customize Path</Button>
+              <Button variant="secondary" className="flex-1">
+                Customize Path
+              </Button>
             </div>
           </Card>
         )}

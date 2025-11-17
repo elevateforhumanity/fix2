@@ -24,7 +24,8 @@ export function ARTrainingModules() {
       id: '1',
       title: 'HVAC System Assembly',
       category: 'Technical Training',
-      description: 'Learn to assemble and troubleshoot HVAC systems using interactive 3D models',
+      description:
+        'Learn to assemble and troubleshoot HVAC systems using interactive 3D models',
       duration: '45 minutes',
       difficulty: 'intermediate',
       completionRate: 0,
@@ -40,7 +41,8 @@ export function ARTrainingModules() {
       id: '2',
       title: 'Medical Equipment Operation',
       category: 'Healthcare',
-      description: 'Practice operating medical equipment in a safe, virtual environment',
+      description:
+        'Practice operating medical equipment in a safe, virtual environment',
       duration: '30 minutes',
       difficulty: 'beginner',
       completionRate: 0,
@@ -56,7 +58,8 @@ export function ARTrainingModules() {
       id: '3',
       title: 'Automotive Engine Repair',
       category: 'Automotive',
-      description: 'Explore engine components and learn repair procedures through AR',
+      description:
+        'Explore engine components and learn repair procedures through AR',
       duration: '60 minutes',
       difficulty: 'advanced',
       completionRate: 0,
@@ -72,7 +75,8 @@ export function ARTrainingModules() {
       id: '4',
       title: 'Electrical Wiring Basics',
       category: 'Electrical',
-      description: 'Master electrical wiring techniques with interactive AR guidance',
+      description:
+        'Master electrical wiring techniques with interactive AR guidance',
       duration: '40 minutes',
       difficulty: 'beginner',
       completionRate: 0,
@@ -88,7 +92,8 @@ export function ARTrainingModules() {
       id: '5',
       title: 'Welding Techniques',
       category: 'Manufacturing',
-      description: 'Practice welding techniques in a virtual environment before hands-on work',
+      description:
+        'Practice welding techniques in a virtual environment before hands-on work',
       duration: '50 minutes',
       difficulty: 'intermediate',
       completionRate: 0,
@@ -104,7 +109,8 @@ export function ARTrainingModules() {
       id: '6',
       title: 'Culinary Knife Skills',
       category: 'Culinary Arts',
-      description: 'Learn proper knife techniques and food preparation through AR',
+      description:
+        'Learn proper knife techniques and food preparation through AR',
       duration: '35 minutes',
       difficulty: 'beginner',
       completionRate: 0,
@@ -118,14 +124,16 @@ export function ARTrainingModules() {
     },
   ];
 
-  const selectedModuleData = modules.find(m => m.id === selectedModule);
+  const selectedModuleData = modules.find((m) => m.id === selectedModule);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">AR Training Modules</h1>
-          <p className="text-red-100">Immersive hands-on learning with augmented reality</p>
+          <p className="text-red-100">
+            Immersive hands-on learning with augmented reality
+          </p>
         </div>
       </div>
 
@@ -134,10 +142,13 @@ export function ARTrainingModules() {
           <div className="flex items-start gap-4">
             <div className="text-5xl">🥽</div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Experience Learning in 3D</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Experience Learning in 3D
+              </h3>
               <p className="text-gray-700 mb-3">
-                Our AR training modules use your device's camera to overlay interactive 3D models in your real environment.
-                Practice skills safely before working with actual equipment.
+                Our AR training modules use your device's camera to overlay
+                interactive 3D models in your real environment. Practice skills
+                safely before working with actual equipment.
               </p>
               <div className="flex gap-4 text-sm">
                 <div className="flex items-center gap-2">
@@ -162,7 +173,10 @@ export function ARTrainingModules() {
             <h2 className="text-2xl font-bold mb-6">Available Modules</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {modules.map((module) => (
-                <Card key={module.id} className="p-6 hover:shadow-lg transition-shadow">
+                <Card
+                  key={module.id}
+                  className="p-6 hover:shadow-lg transition-shadow"
+                >
                   <div className="text-center mb-4">
                     <div className="text-6xl mb-3">{module.thumbnail}</div>
                     <h3 className="text-xl font-bold mb-2">{module.title}</h3>
@@ -171,24 +185,35 @@ export function ARTrainingModules() {
                     </span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-4">{module.description}</p>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {module.description}
+                  </p>
 
                   <div className="flex justify-between text-sm text-gray-600 mb-4">
                     <span>⏱️ {module.duration}</span>
-                    <span className={`px-2 py-0.5 rounded text-xs ${
-                      module.difficulty === 'beginner' ? 'bg-blue-100 text-blue-700' :
-                      module.difficulty === 'intermediate' ? 'bg-purple-100 text-purple-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
+                    <span
+                      className={`px-2 py-0.5 rounded text-xs ${
+                        module.difficulty === 'beginner'
+                          ? 'bg-blue-100 text-blue-700'
+                          : module.difficulty === 'intermediate'
+                            ? 'bg-purple-100 text-purple-700'
+                            : 'bg-red-100 text-red-700'
+                      }`}
+                    >
                       {module.difficulty}
                     </span>
                   </div>
 
                   <div className="mb-4">
-                    <p className="text-xs font-semibold text-gray-700 mb-2">Features:</p>
+                    <p className="text-xs font-semibold text-gray-700 mb-2">
+                      Features:
+                    </p>
                     <ul className="space-y-1">
                       {module.features.slice(0, 3).map((feature, idx) => (
-                        <li key={idx} className="text-xs text-gray-600 flex items-start">
+                        <li
+                          key={idx}
+                          className="text-xs text-gray-600 flex items-start"
+                        >
                           <span className="text-green-500 mr-1">✓</span>
                           {feature}
                         </li>
@@ -223,8 +248,12 @@ export function ARTrainingModules() {
                     <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-white mb-4">
                       <div className="text-center">
                         <div className="text-8xl mb-4">🥽</div>
-                        <p className="text-2xl font-bold mb-2">AR Experience Active</p>
-                        <p className="text-purple-200">Point your camera at a flat surface to begin</p>
+                        <p className="text-2xl font-bold mb-2">
+                          AR Experience Active
+                        </p>
+                        <p className="text-purple-200">
+                          Point your camera at a flat surface to begin
+                        </p>
                       </div>
                     </div>
 
@@ -245,13 +274,24 @@ export function ARTrainingModules() {
                         'Quality check and testing',
                         'Final assessment',
                       ].map((step, idx) => (
-                        <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                            idx === 0 ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-600'
-                          }`}>
+                        <div
+                          key={idx}
+                          className="flex items-center gap-3 p-3 bg-gray-50 rounded"
+                        >
+                          <div
+                            className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
+                              idx === 0
+                                ? 'bg-red-600 text-white'
+                                : 'bg-gray-300 text-gray-600'
+                            }`}
+                          >
                             {idx + 1}
                           </div>
-                          <span className={idx === 0 ? 'font-semibold' : 'text-gray-600'}>
+                          <span
+                            className={
+                              idx === 0 ? 'font-semibold' : 'text-gray-600'
+                            }
+                          >
                             {step}
                           </span>
                         </div>
@@ -262,21 +302,31 @@ export function ARTrainingModules() {
 
                 <div className="space-y-6">
                   <Card className="p-6">
-                    <h3 className="text-xl font-bold mb-4">{selectedModuleData.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{selectedModuleData.description}</p>
+                    <h3 className="text-xl font-bold mb-4">
+                      {selectedModuleData.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4">
+                      {selectedModuleData.description}
+                    </p>
 
                     <div className="space-y-3 text-sm">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Duration:</span>
-                        <span className="font-semibold">{selectedModuleData.duration}</span>
+                        <span className="font-semibold">
+                          {selectedModuleData.duration}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Difficulty:</span>
-                        <span className="font-semibold capitalize">{selectedModuleData.difficulty}</span>
+                        <span className="font-semibold capitalize">
+                          {selectedModuleData.difficulty}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Category:</span>
-                        <span className="font-semibold">{selectedModuleData.category}</span>
+                        <span className="font-semibold">
+                          {selectedModuleData.category}
+                        </span>
                       </div>
                     </div>
                   </Card>
@@ -286,12 +336,16 @@ export function ARTrainingModules() {
                     <div className="mb-2">
                       <div className="flex justify-between text-sm mb-1">
                         <span>Completion</span>
-                        <span className="font-semibold">{selectedModuleData.completionRate}%</span>
+                        <span className="font-semibold">
+                          {selectedModuleData.completionRate}%
+                        </span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
-                          style={{ width: `${selectedModuleData.completionRate}%` }}
+                          style={{
+                            width: `${selectedModuleData.completionRate}%`,
+                          }}
                         />
                       </div>
                     </div>
@@ -301,7 +355,10 @@ export function ARTrainingModules() {
                     <h3 className="font-bold mb-3">Features</h3>
                     <ul className="space-y-2">
                       {selectedModuleData.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-gray-600 flex items-start">
+                        <li
+                          key={idx}
+                          className="text-sm text-gray-600 flex items-start"
+                        >
                           <span className="text-green-500 mr-2">✓</span>
                           {feature}
                         </li>
@@ -312,7 +369,8 @@ export function ARTrainingModules() {
                   <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
                     <h3 className="font-bold mb-2">💡 Pro Tip</h3>
                     <p className="text-sm text-gray-700">
-                      Use headphones for the best experience. Audio cues will guide you through each step.
+                      Use headphones for the best experience. Audio cues will
+                      guide you through each step.
                     </p>
                   </Card>
                 </div>

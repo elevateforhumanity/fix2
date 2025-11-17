@@ -25,7 +25,8 @@ export function AICareerCounseling() {
     {
       id: '1',
       sender: 'ai',
-      content: "Hi! I'm your AI Career Counselor. I'm here to help you explore career paths, plan your education, and achieve your professional goals. What would you like to discuss today?",
+      content:
+        "Hi! I'm your AI Career Counselor. I'm here to help you explore career paths, plan your education, and achieve your professional goals. What would you like to discuss today?",
       timestamp: new Date().toLocaleTimeString(),
       suggestions: [
         'Explore career options',
@@ -75,7 +76,8 @@ export function AICareerCounseling() {
     const aiResponse: Message = {
       id: (Date.now() + 1).toString(),
       sender: 'ai',
-      content: "Based on your JavaScript skills and interest in web development, I recommend focusing on React and Node.js. These technologies are in high demand and align well with your learning style. Would you like me to create a personalized learning path?",
+      content:
+        'Based on your JavaScript skills and interest in web development, I recommend focusing on React and Node.js. These technologies are in high demand and align well with your learning style. Would you like me to create a personalized learning path?',
       timestamp: new Date().toLocaleTimeString(),
       suggestions: [
         'Yes, create learning path',
@@ -97,7 +99,9 @@ export function AICareerCounseling() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">AI Career Counseling</h1>
-          <p className="text-red-100">Get personalized career guidance powered by AI</p>
+          <p className="text-red-100">
+            Get personalized career guidance powered by AI
+          </p>
         </div>
       </div>
 
@@ -121,16 +125,24 @@ export function AICareerCounseling() {
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.map((message) => (
                   <div key={message.id}>
-                    <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[80%] ${
-                        message.sender === 'user'
-                          ? 'bg-red-600 text-white'
-                          : 'bg-gray-100 text-gray-900'
-                      } rounded-lg p-4`}>
+                    <div
+                      className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[80%] ${
+                          message.sender === 'user'
+                            ? 'bg-red-600 text-white'
+                            : 'bg-gray-100 text-gray-900'
+                        } rounded-lg p-4`}
+                      >
                         <p className="text-sm">{message.content}</p>
-                        <p className={`text-xs mt-2 ${
-                          message.sender === 'user' ? 'text-red-200' : 'text-gray-500'
-                        }`}>
+                        <p
+                          className={`text-xs mt-2 ${
+                            message.sender === 'user'
+                              ? 'text-red-200'
+                              : 'text-gray-500'
+                          }`}
+                        >
                           {message.timestamp}
                         </p>
                       </div>
@@ -183,7 +195,10 @@ export function AICareerCounseling() {
                   <p className="text-gray-600">Primary Skills</p>
                   <div className="flex flex-wrap gap-1 mt-1">
                     {['JavaScript', 'React', 'CSS'].map((skill) => (
-                      <span key={skill} className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs rounded">
+                      <span
+                        key={skill}
+                        className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs rounded"
+                      >
                         {skill}
                       </span>
                     ))}
@@ -203,9 +218,13 @@ export function AICareerCounseling() {
                   <div key={idx} className="p-3 bg-gray-50 rounded-lg">
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-sm">{rec.title}</h4>
-                      <span className="text-xs font-bold text-red-600">{rec.matchScore}%</span>
+                      <span className="text-xs font-bold text-red-600">
+                        {rec.matchScore}%
+                      </span>
                     </div>
-                    <p className="text-xs text-gray-600 mb-1">💰 {rec.salary}</p>
+                    <p className="text-xs text-gray-600 mb-1">
+                      💰 {rec.salary}
+                    </p>
                     <p className="text-xs text-green-600">📈 {rec.growth}</p>
                   </div>
                 ))}
@@ -231,19 +250,25 @@ export function AICareerCounseling() {
               <h3 className="font-bold mb-3">AI Insights</h3>
               <div className="space-y-3 text-sm">
                 <div className="p-3 bg-blue-50 rounded">
-                  <p className="font-semibold text-blue-900 mb-1">💡 Skill Gap</p>
+                  <p className="font-semibold text-blue-900 mb-1">
+                    💡 Skill Gap
+                  </p>
                   <p className="text-xs text-blue-700">
                     Focus on TypeScript to increase your marketability by 30%
                   </p>
                 </div>
                 <div className="p-3 bg-green-50 rounded">
-                  <p className="font-semibold text-green-900 mb-1">🎯 Next Step</p>
+                  <p className="font-semibold text-green-900 mb-1">
+                    🎯 Next Step
+                  </p>
                   <p className="text-xs text-green-700">
                     Complete Node.js course to qualify for 15 new job openings
                   </p>
                 </div>
                 <div className="p-3 bg-purple-50 rounded">
-                  <p className="font-semibold text-purple-900 mb-1">📈 Trend Alert</p>
+                  <p className="font-semibold text-purple-900 mb-1">
+                    📈 Trend Alert
+                  </p>
                   <p className="text-xs text-purple-700">
                     React developers in your area earn 18% above average
                   </p>

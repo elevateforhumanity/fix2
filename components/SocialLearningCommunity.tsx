@@ -24,14 +24,17 @@ interface StudyGroup {
 }
 
 export function SocialLearningCommunity() {
-  const [activeTab, setActiveTab] = useState<'feed' | 'groups' | 'discussions'>('feed');
+  const [activeTab, setActiveTab] = useState<'feed' | 'groups' | 'discussions'>(
+    'feed'
+  );
 
   const posts: Post[] = [
     {
       id: '1',
       author: 'Sarah Chen',
       avatar: '👩‍💻',
-      content: 'Just completed the React Hooks module! The useEffect cleanup pattern finally clicked for me. Anyone else struggled with this?',
+      content:
+        'Just completed the React Hooks module! The useEffect cleanup pattern finally clicked for me. Anyone else struggled with this?',
       timestamp: '2 hours ago',
       likes: 24,
       comments: 8,
@@ -41,7 +44,8 @@ export function SocialLearningCommunity() {
       id: '2',
       author: 'Marcus Johnson',
       avatar: '👨‍🎓',
-      content: 'Looking for study partners for the upcoming Node.js certification exam. Planning to meet virtually every Tuesday evening.',
+      content:
+        'Looking for study partners for the upcoming Node.js certification exam. Planning to meet virtually every Tuesday evening.',
       timestamp: '5 hours ago',
       likes: 15,
       comments: 12,
@@ -51,7 +55,8 @@ export function SocialLearningCommunity() {
       id: '3',
       author: 'Emily Rodriguez',
       avatar: '👩‍🔬',
-      content: 'Pro tip: When debugging async code, console.log the promise itself before awaiting. Saved me hours today! 🚀',
+      content:
+        'Pro tip: When debugging async code, console.log the promise itself before awaiting. Saved me hours today! 🚀',
       timestamp: '1 day ago',
       likes: 42,
       comments: 6,
@@ -88,7 +93,9 @@ export function SocialLearningCommunity() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Learning Community</h1>
-          <p className="text-red-100">Connect, collaborate, and learn together</p>
+          <p className="text-red-100">
+            Connect, collaborate, and learn together
+          </p>
         </div>
       </div>
 
@@ -100,7 +107,9 @@ export function SocialLearningCommunity() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium capitalize ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab
+                    ? 'border-red-600 text-red-600'
+                    : 'border-transparent text-gray-500'
                 }`}
               >
                 {tab}
@@ -144,21 +153,32 @@ export function SocialLearningCommunity() {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <h4 className="font-bold">{post.author}</h4>
-                          <p className="text-sm text-gray-500">{post.timestamp}</p>
+                          <p className="text-sm text-gray-500">
+                            {post.timestamp}
+                          </p>
                         </div>
                       </div>
                       <p className="text-gray-700 mb-3">{post.content}</p>
                       <div className="flex flex-wrap gap-2 mb-3">
                         {post.tags.map((tag) => (
-                          <span key={tag} className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                          >
                             #{tag}
                           </span>
                         ))}
                       </div>
                       <div className="flex gap-4 text-sm text-gray-600">
-                        <button className="hover:text-red-600">❤️ {post.likes}</button>
-                        <button className="hover:text-blue-600">💬 {post.comments}</button>
-                        <button className="hover:text-green-600">🔗 Share</button>
+                        <button className="hover:text-red-600">
+                          ❤️ {post.likes}
+                        </button>
+                        <button className="hover:text-blue-600">
+                          💬 {post.comments}
+                        </button>
+                        <button className="hover:text-green-600">
+                          🔗 Share
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -170,9 +190,20 @@ export function SocialLearningCommunity() {
               <Card className="p-6">
                 <h3 className="font-bold mb-4">Trending Topics</h3>
                 <div className="space-y-2">
-                  {['#React', '#JavaScript', '#WebDevelopment', '#NodeJS', '#TypeScript'].map((tag) => (
-                    <div key={tag} className="flex justify-between items-center">
-                      <span className="text-blue-600 hover:underline cursor-pointer">{tag}</span>
+                  {[
+                    '#React',
+                    '#JavaScript',
+                    '#WebDevelopment',
+                    '#NodeJS',
+                    '#TypeScript',
+                  ].map((tag) => (
+                    <div
+                      key={tag}
+                      className="flex justify-between items-center"
+                    >
+                      <span className="text-blue-600 hover:underline cursor-pointer">
+                        {tag}
+                      </span>
                       <span className="text-sm text-gray-500">245 posts</span>
                     </div>
                   ))}
@@ -183,15 +214,22 @@ export function SocialLearningCommunity() {
                 <h3 className="font-bold mb-4">Suggested Connections</h3>
                 <div className="space-y-3">
                   {['Alex Kim', 'Jordan Lee', 'Taylor Smith'].map((name) => (
-                    <div key={name} className="flex items-center justify-between">
+                    <div
+                      key={name}
+                      className="flex items-center justify-between"
+                    >
                       <div className="flex items-center gap-2">
                         <div className="text-2xl">👤</div>
                         <div>
                           <p className="font-medium text-sm">{name}</p>
-                          <p className="text-xs text-gray-500">Full-Stack Developer</p>
+                          <p className="text-xs text-gray-500">
+                            Full-Stack Developer
+                          </p>
                         </div>
                       </div>
-                      <Button size="sm" variant="secondary">Follow</Button>
+                      <Button size="sm" variant="secondary">
+                        Follow
+                      </Button>
                     </div>
                   ))}
                 </div>
@@ -215,7 +253,9 @@ export function SocialLearningCommunity() {
                     <p>👥 {group.members} members</p>
                     <p>📅 Next: {group.nextSession}</p>
                   </div>
-                  <Button className="w-full" size="sm">Join Group</Button>
+                  <Button className="w-full" size="sm">
+                    Join Group
+                  </Button>
                 </Card>
               ))}
             </div>
@@ -229,19 +269,35 @@ export function SocialLearningCommunity() {
               <Button>New Discussion</Button>
             </div>
             <Card className="p-6">
-              <h3 className="text-lg font-bold mb-2">How to handle state in large React apps?</h3>
-              <p className="text-sm text-gray-600 mb-3">Posted by Alex Chen • 24 replies • Last activity 1 hour ago</p>
+              <h3 className="text-lg font-bold mb-2">
+                How to handle state in large React apps?
+              </h3>
+              <p className="text-sm text-gray-600 mb-3">
+                Posted by Alex Chen • 24 replies • Last activity 1 hour ago
+              </p>
               <div className="flex gap-2">
-                <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">#React</span>
-                <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">#StateManagement</span>
+                <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                  #React
+                </span>
+                <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">
+                  #StateManagement
+                </span>
               </div>
             </Card>
             <Card className="p-6">
-              <h3 className="text-lg font-bold mb-2">Best practices for API error handling</h3>
-              <p className="text-sm text-gray-600 mb-3">Posted by Sarah Lee • 18 replies • Last activity 3 hours ago</p>
+              <h3 className="text-lg font-bold mb-2">
+                Best practices for API error handling
+              </h3>
+              <p className="text-sm text-gray-600 mb-3">
+                Posted by Sarah Lee • 18 replies • Last activity 3 hours ago
+              </p>
               <div className="flex gap-2">
-                <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">#Backend</span>
-                <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">#BestPractices</span>
+                <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
+                  #Backend
+                </span>
+                <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">
+                  #BestPractices
+                </span>
               </div>
             </Card>
           </div>

@@ -30,7 +30,10 @@ export function SkillsGapAnalysis() {
       requiredLevel: 85,
       gap: 40,
       priority: 'high',
-      trainingOptions: ['TypeScript Fundamentals', 'Advanced TypeScript Patterns'],
+      trainingOptions: [
+        'TypeScript Fundamentals',
+        'Advanced TypeScript Patterns',
+      ],
     },
     {
       skill: 'AWS',
@@ -107,7 +110,9 @@ export function SkillsGapAnalysis() {
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Skills Gap Analysis</h1>
-          <p className="text-red-100">Identify and close skill gaps in your workforce</p>
+          <p className="text-red-100">
+            Identify and close skill gaps in your workforce
+          </p>
         </div>
       </div>
 
@@ -116,10 +121,13 @@ export function SkillsGapAnalysis() {
           <div className="flex items-start gap-4">
             <div className="text-5xl">📊</div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Automated Skills Assessment</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Automated Skills Assessment
+              </h3>
               <p className="text-gray-700 mb-3">
-                Our AI analyzes your team's current skills against industry requirements and job descriptions
-                to identify critical gaps and recommend targeted training.
+                Our AI analyzes your team's current skills against industry
+                requirements and job descriptions to identify critical gaps and
+                recommend targeted training.
               </p>
               <div className="flex gap-4 text-sm">
                 <div className="flex items-center gap-2">
@@ -151,7 +159,7 @@ export function SkillsGapAnalysis() {
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Critical Gaps</h3>
             <p className="text-3xl font-bold text-red-600">
-              {skillGaps.filter(g => g.priority === 'high').length}
+              {skillGaps.filter((g) => g.priority === 'high').length}
             </p>
             <p className="text-sm text-gray-600">Require immediate attention</p>
           </Card>
@@ -159,7 +167,10 @@ export function SkillsGapAnalysis() {
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Average Gap</h3>
             <p className="text-3xl font-bold text-orange-500">
-              {Math.round(skillGaps.reduce((sum, g) => sum + g.gap, 0) / skillGaps.length)}%
+              {Math.round(
+                skillGaps.reduce((sum, g) => sum + g.gap, 0) / skillGaps.length
+              )}
+              %
             </p>
             <p className="text-sm text-gray-600">Across all skills</p>
           </Card>
@@ -181,16 +192,22 @@ export function SkillsGapAnalysis() {
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <h4 className="text-lg font-bold">{gap.skill}</h4>
-                    <span className={`inline-block mt-1 px-3 py-1 rounded text-xs font-medium ${
-                      gap.priority === 'high' ? 'bg-red-100 text-red-700' :
-                      gap.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-blue-100 text-blue-700'
-                    }`}>
+                    <span
+                      className={`inline-block mt-1 px-3 py-1 rounded text-xs font-medium ${
+                        gap.priority === 'high'
+                          ? 'bg-red-100 text-red-700'
+                          : gap.priority === 'medium'
+                            ? 'bg-yellow-100 text-yellow-700'
+                            : 'bg-blue-100 text-blue-700'
+                      }`}
+                    >
                       {gap.priority.toUpperCase()} PRIORITY
                     </span>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-red-600">{gap.gap}%</div>
+                    <div className="text-2xl font-bold text-red-600">
+                      {gap.gap}%
+                    </div>
                     <p className="text-xs text-gray-600">Gap</p>
                   </div>
                 </div>
@@ -220,7 +237,9 @@ export function SkillsGapAnalysis() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Recommended Training:</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">
+                    Recommended Training:
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {gap.trainingOptions.map((option) => (
                       <button
@@ -255,28 +274,36 @@ export function SkillsGapAnalysis() {
                 {teamMembers.map((member) => (
                   <tr key={member.id} className="border-b hover:bg-gray-50">
                     <td className="py-3 px-4 font-medium">{member.name}</td>
-                    <td className="py-3 px-4 text-sm text-gray-600">{member.role}</td>
-                    {['JavaScript', 'React', 'TypeScript', 'AWS'].map((skillName) => {
-                      const skill = member.skills.find(s => s.name === skillName);
-                      const level = skill?.level || 0;
-                      return (
-                        <td key={skillName} className="py-3 px-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-16 bg-gray-200 rounded-full h-2">
-                              <div
-                                className={`h-2 rounded-full ${
-                                  level >= 70 ? 'bg-green-600' :
-                                  level >= 50 ? 'bg-yellow-600' :
-                                  'bg-red-600'
-                                }`}
-                                style={{ width: `${level}%` }}
-                              />
+                    <td className="py-3 px-4 text-sm text-gray-600">
+                      {member.role}
+                    </td>
+                    {['JavaScript', 'React', 'TypeScript', 'AWS'].map(
+                      (skillName) => {
+                        const skill = member.skills.find(
+                          (s) => s.name === skillName
+                        );
+                        const level = skill?.level || 0;
+                        return (
+                          <td key={skillName} className="py-3 px-4">
+                            <div className="flex items-center gap-2">
+                              <div className="w-16 bg-gray-200 rounded-full h-2">
+                                <div
+                                  className={`h-2 rounded-full ${
+                                    level >= 70
+                                      ? 'bg-green-600'
+                                      : level >= 50
+                                        ? 'bg-yellow-600'
+                                        : 'bg-red-600'
+                                  }`}
+                                  style={{ width: `${level}%` }}
+                                />
+                              </div>
+                              <span className="text-sm">{level}%</span>
                             </div>
-                            <span className="text-sm">{level}%</span>
-                          </div>
-                        </td>
-                      );
-                    })}
+                          </td>
+                        );
+                      }
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -289,21 +316,27 @@ export function SkillsGapAnalysis() {
             <h3 className="text-xl font-bold mb-4">Action Plan</h3>
             <div className="space-y-3">
               <div className="p-4 bg-red-50 rounded">
-                <h4 className="font-semibold text-red-900 mb-2">🔴 Immediate (1-2 months)</h4>
+                <h4 className="font-semibold text-red-900 mb-2">
+                  🔴 Immediate (1-2 months)
+                </h4>
                 <ul className="text-sm text-red-700 space-y-1">
                   <li>• Enroll team in TypeScript Fundamentals</li>
                   <li>• Start AWS Cloud Practitioner certification</li>
                 </ul>
               </div>
               <div className="p-4 bg-yellow-50 rounded">
-                <h4 className="font-semibold text-yellow-900 mb-2">🟡 Short-term (3-6 months)</h4>
+                <h4 className="font-semibold text-yellow-900 mb-2">
+                  🟡 Short-term (3-6 months)
+                </h4>
                 <ul className="text-sm text-yellow-700 space-y-1">
                   <li>• Complete Docker training program</li>
                   <li>• Implement GraphQL in pilot project</li>
                 </ul>
               </div>
               <div className="p-4 bg-blue-50 rounded">
-                <h4 className="font-semibold text-blue-900 mb-2">🔵 Long-term (6-12 months)</h4>
+                <h4 className="font-semibold text-blue-900 mb-2">
+                  🔵 Long-term (6-12 months)
+                </h4>
                 <ul className="text-sm text-blue-700 space-y-1">
                   <li>• Advanced testing certification</li>
                   <li>• Continuous skill assessment</li>
@@ -316,7 +349,9 @@ export function SkillsGapAnalysis() {
             <h3 className="text-xl font-bold mb-4">ROI Projection</h3>
             <div className="space-y-4">
               <div className="p-4 bg-green-50 rounded">
-                <h4 className="font-semibold text-green-900 mb-2">Expected Benefits</h4>
+                <h4 className="font-semibold text-green-900 mb-2">
+                  Expected Benefits
+                </h4>
                 <ul className="text-sm text-green-700 space-y-2">
                   <li className="flex justify-between">
                     <span>Productivity increase:</span>
@@ -338,7 +373,9 @@ export function SkillsGapAnalysis() {
               </div>
 
               <div className="p-4 bg-blue-50 rounded">
-                <h4 className="font-semibold text-blue-900 mb-2">Investment Required</h4>
+                <h4 className="font-semibold text-blue-900 mb-2">
+                  Investment Required
+                </h4>
                 <ul className="text-sm text-blue-700 space-y-2">
                   <li className="flex justify-between">
                     <span>Training costs:</span>

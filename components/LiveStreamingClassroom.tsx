@@ -29,7 +29,9 @@ interface Poll {
 }
 
 export function LiveStreamingClassroom() {
-  const [activePanel, setActivePanel] = useState<'chat' | 'participants' | 'polls'>('chat');
+  const [activePanel, setActivePanel] = useState<
+    'chat' | 'participants' | 'polls'
+  >('chat');
   const [handRaised, setHandRaised] = useState(false);
 
   const participants: Participant[] = [
@@ -101,12 +103,20 @@ export function LiveStreamingClassroom() {
         <div className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">JavaScript Advanced Concepts</h1>
-            <p className="text-sm text-gray-400">Live Session • 45 participants</p>
+            <p className="text-sm text-gray-400">
+              Live Session • 45 participants
+            </p>
           </div>
           <div className="flex gap-2">
-            <Button variant="secondary" size="sm">🔴 Recording</Button>
-            <Button variant="secondary" size="sm">⚙️ Settings</Button>
-            <Button size="sm" className="bg-red-600 hover:bg-red-700">Leave</Button>
+            <Button variant="secondary" size="sm">
+              🔴 Recording
+            </Button>
+            <Button variant="secondary" size="sm">
+              ⚙️ Settings
+            </Button>
+            <Button size="sm" className="bg-red-600 hover:bg-red-700">
+              Leave
+            </Button>
           </div>
         </div>
 
@@ -118,7 +128,9 @@ export function LiveStreamingClassroom() {
               <div className="text-center text-white">
                 <div className="text-6xl mb-4">🎥</div>
                 <p className="text-xl">Live Stream Active</p>
-                <p className="text-sm text-gray-400 mt-2">Dr. Emily Rodriguez is presenting</p>
+                <p className="text-sm text-gray-400 mt-2">
+                  Dr. Emily Rodriguez is presenting
+                </p>
               </div>
 
               {/* Screen Share Indicator */}
@@ -155,7 +167,9 @@ export function LiveStreamingClassroom() {
               <button
                 onClick={() => setHandRaised(!handRaised)}
                 className={`p-3 rounded-full text-white ${
-                  handRaised ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-gray-700 hover:bg-gray-600'
+                  handRaised
+                    ? 'bg-yellow-600 hover:bg-yellow-700'
+                    : 'bg-gray-700 hover:bg-gray-600'
                 }`}
               >
                 ✋ {handRaised ? 'Lower Hand' : 'Raise Hand'}
@@ -196,8 +210,12 @@ export function LiveStreamingClassroom() {
                     {chatMessages.map((msg) => (
                       <div key={msg.id} className="bg-gray-700 rounded p-3">
                         <div className="flex justify-between items-start mb-1">
-                          <span className="font-semibold text-white text-sm">{msg.author}</span>
-                          <span className="text-xs text-gray-400">{msg.timestamp}</span>
+                          <span className="font-semibold text-white text-sm">
+                            {msg.author}
+                          </span>
+                          <span className="text-xs text-gray-400">
+                            {msg.timestamp}
+                          </span>
                         </div>
                         <p className="text-sm text-gray-300">{msg.message}</p>
                       </div>
@@ -224,18 +242,29 @@ export function LiveStreamingClassroom() {
                     {participants.length} participants
                   </div>
                   {participants.map((p) => (
-                    <div key={p.id} className="flex items-center justify-between p-2 hover:bg-gray-700 rounded">
+                    <div
+                      key={p.id}
+                      className="flex items-center justify-between p-2 hover:bg-gray-700 rounded"
+                    >
                       <div className="flex items-center gap-3">
                         <div className="text-2xl">{p.avatar}</div>
                         <div>
-                          <p className="text-white text-sm font-medium">{p.name}</p>
-                          <p className="text-xs text-gray-400 capitalize">{p.role}</p>
+                          <p className="text-white text-sm font-medium">
+                            {p.name}
+                          </p>
+                          <p className="text-xs text-gray-400 capitalize">
+                            {p.role}
+                          </p>
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        {p.handRaised && <span className="text-yellow-500">✋</span>}
+                        {p.handRaised && (
+                          <span className="text-yellow-500">✋</span>
+                        )}
                         {p.muted && <span className="text-gray-500">🎤</span>}
-                        {!p.videoOn && <span className="text-gray-500">📹</span>}
+                        {!p.videoOn && (
+                          <span className="text-gray-500">📹</span>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -246,19 +275,31 @@ export function LiveStreamingClassroom() {
                 <div className="p-4">
                   {poll.active && (
                     <Card className="p-4 bg-gray-700 border-gray-600">
-                      <h3 className="text-white font-bold mb-3">{poll.question}</h3>
+                      <h3 className="text-white font-bold mb-3">
+                        {poll.question}
+                      </h3>
                       <div className="space-y-2">
                         {poll.options.map((option, idx) => {
-                          const totalVotes = poll.options.reduce((sum, o) => sum + o.votes, 0);
-                          const percentage = totalVotes > 0 ? (option.votes / totalVotes) * 100 : 0;
+                          const totalVotes = poll.options.reduce(
+                            (sum, o) => sum + o.votes,
+                            0
+                          );
+                          const percentage =
+                            totalVotes > 0
+                              ? (option.votes / totalVotes) * 100
+                              : 0;
                           return (
                             <button
                               key={idx}
                               className="w-full text-left p-3 bg-gray-600 hover:bg-gray-500 rounded transition-colors"
                             >
                               <div className="flex justify-between items-center mb-1">
-                                <span className="text-white text-sm">{option.text}</span>
-                                <span className="text-gray-300 text-sm">{option.votes} votes</span>
+                                <span className="text-white text-sm">
+                                  {option.text}
+                                </span>
+                                <span className="text-gray-300 text-sm">
+                                  {option.votes} votes
+                                </span>
                               </div>
                               <div className="w-full bg-gray-800 rounded-full h-2">
                                 <div

@@ -17,7 +17,9 @@ interface Placement {
 }
 
 export function JobPlacementTracking() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'placements' | 'pipeline'>('overview');
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'placements' | 'pipeline'
+  >('overview');
   const [filterStatus, setFilterStatus] = useState<string>('all');
 
   const placements: Placement[] = [
@@ -68,22 +70,27 @@ export function JobPlacementTracking() {
   ];
 
   const metrics = {
-    totalPlacements: placements.filter(p => p.status === 'placed').length,
+    totalPlacements: placements.filter((p) => p.status === 'placed').length,
     placementRate: 87,
-    avgSalary: Math.round(placements.reduce((sum, p) => sum + p.salary, 0) / placements.length),
+    avgSalary: Math.round(
+      placements.reduce((sum, p) => sum + p.salary, 0) / placements.length
+    ),
     avgTimeToPlacement: 45,
   };
 
-  const filteredPlacements = filterStatus === 'all' 
-    ? placements 
-    : placements.filter(p => p.status === filterStatus);
+  const filteredPlacements =
+    filterStatus === 'all'
+      ? placements
+      : placements.filter((p) => p.status === filterStatus);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Job Placement Tracking</h1>
-          <p className="text-red-100">Monitor student success and employment outcomes</p>
+          <p className="text-red-100">
+            Monitor student success and employment outcomes
+          </p>
         </div>
       </div>
 
@@ -95,7 +102,9 @@ export function JobPlacementTracking() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium capitalize ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab
+                    ? 'border-red-600 text-red-600'
+                    : 'border-transparent text-gray-500'
                 }`}
               >
                 {tab}
@@ -109,43 +118,73 @@ export function JobPlacementTracking() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <Card className="p-6">
                 <h3 className="text-sm text-gray-600 mb-2">Total Placements</h3>
-                <p className="text-3xl font-bold text-red-600">{metrics.totalPlacements}</p>
-                <p className="text-sm text-green-600">↑ 12% from last quarter</p>
+                <p className="text-3xl font-bold text-red-600">
+                  {metrics.totalPlacements}
+                </p>
+                <p className="text-sm text-green-600">
+                  ↑ 12% from last quarter
+                </p>
               </Card>
 
               <Card className="p-6">
                 <h3 className="text-sm text-gray-600 mb-2">Placement Rate</h3>
-                <p className="text-3xl font-bold text-green-600">{metrics.placementRate}%</p>
+                <p className="text-3xl font-bold text-green-600">
+                  {metrics.placementRate}%
+                </p>
                 <p className="text-sm text-gray-600">Within 90 days</p>
               </Card>
 
               <Card className="p-6">
-                <h3 className="text-sm text-gray-600 mb-2">Avg Starting Salary</h3>
-                <p className="text-3xl font-bold text-orange-500">${(metrics.avgSalary / 1000).toFixed(0)}k</p>
+                <h3 className="text-sm text-gray-600 mb-2">
+                  Avg Starting Salary
+                </h3>
+                <p className="text-3xl font-bold text-orange-500">
+                  ${(metrics.avgSalary / 1000).toFixed(0)}k
+                </p>
                 <p className="text-sm text-green-600">↑ 8% from last year</p>
               </Card>
 
               <Card className="p-6">
-                <h3 className="text-sm text-gray-600 mb-2">Avg Time to Placement</h3>
-                <p className="text-3xl font-bold text-blue-600">{metrics.avgTimeToPlacement} days</p>
+                <h3 className="text-sm text-gray-600 mb-2">
+                  Avg Time to Placement
+                </h3>
+                <p className="text-3xl font-bold text-blue-600">
+                  {metrics.avgTimeToPlacement} days
+                </p>
                 <p className="text-sm text-green-600">↓ 15% improvement</p>
               </Card>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               <Card className="p-6">
-                <h3 className="text-xl font-bold mb-4">Placements by Program</h3>
+                <h3 className="text-xl font-bold mb-4">
+                  Placements by Program
+                </h3>
                 <div className="space-y-4">
                   {[
-                    { program: 'Full-Stack Web Development', count: 15, percentage: 35 },
-                    { program: 'Certified Nursing Assistant', count: 12, percentage: 28 },
+                    {
+                      program: 'Full-Stack Web Development',
+                      count: 15,
+                      percentage: 35,
+                    },
+                    {
+                      program: 'Certified Nursing Assistant',
+                      count: 12,
+                      percentage: 28,
+                    },
                     { program: 'HVAC Technician', count: 10, percentage: 23 },
-                    { program: 'Commercial Truck Driving', count: 6, percentage: 14 },
+                    {
+                      program: 'Commercial Truck Driving',
+                      count: 6,
+                      percentage: 14,
+                    },
                   ].map((item) => (
                     <div key={item.program}>
                       <div className="flex justify-between text-sm mb-1">
                         <span className="font-medium">{item.program}</span>
-                        <span className="text-gray-600">{item.count} placements</span>
+                        <span className="text-gray-600">
+                          {item.count} placements
+                        </span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
@@ -167,7 +206,10 @@ export function JobPlacementTracking() {
                     { name: 'Climate Control Systems', hires: 5, logo: '🔧' },
                     { name: 'Digital Innovations', hires: 4, logo: '🚀' },
                   ].map((partner) => (
-                    <div key={partner.name} className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                    <div
+                      key={partner.name}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded"
+                    >
                       <div className="flex items-center gap-3">
                         <div className="text-2xl">{partner.logo}</div>
                         <span className="font-medium">{partner.name}</span>
@@ -187,19 +229,22 @@ export function JobPlacementTracking() {
                 <div className="p-4 bg-white rounded">
                   <p className="text-3xl mb-2">🎉</p>
                   <p className="text-sm text-gray-700">
-                    <strong>Jordan Martinez</strong> secured a $75k position at Tech Solutions Inc within 30 days of graduation
+                    <strong>Jordan Martinez</strong> secured a $75k position at
+                    Tech Solutions Inc within 30 days of graduation
                   </p>
                 </div>
                 <div className="p-4 bg-white rounded">
                   <p className="text-3xl mb-2">🏆</p>
                   <p className="text-sm text-gray-700">
-                    <strong>Taylor Anderson</strong> received multiple offers and chose Healthcare Plus for career growth
+                    <strong>Taylor Anderson</strong> received multiple offers
+                    and chose Healthcare Plus for career growth
                   </p>
                 </div>
                 <div className="p-4 bg-white rounded">
                   <p className="text-3xl mb-2">⭐</p>
                   <p className="text-sm text-gray-700">
-                    <strong>Alex Kim</strong> matched with Climate Control Systems with a 95% compatibility score
+                    <strong>Alex Kim</strong> matched with Climate Control
+                    Systems with a 95% compatibility score
                   </p>
                 </div>
               </div>
@@ -232,12 +277,18 @@ export function JobPlacementTracking() {
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold">{placement.studentName}</h3>
-                        <span className={`px-3 py-1 rounded text-xs font-medium ${
-                          placement.status === 'placed' ? 'bg-green-100 text-green-700' :
-                          placement.status === 'offer-pending' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-blue-100 text-blue-700'
-                        }`}>
+                        <h3 className="text-xl font-bold">
+                          {placement.studentName}
+                        </h3>
+                        <span
+                          className={`px-3 py-1 rounded text-xs font-medium ${
+                            placement.status === 'placed'
+                              ? 'bg-green-100 text-green-700'
+                              : placement.status === 'offer-pending'
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-blue-100 text-blue-700'
+                          }`}
+                        >
                           {placement.status.replace('-', ' ').toUpperCase()}
                         </span>
                       </div>
@@ -264,7 +315,9 @@ export function JobPlacementTracking() {
                       </div>
                     </div>
                     <div className="text-right ml-6">
-                      <div className="text-3xl font-bold text-red-600">{placement.matchScore}%</div>
+                      <div className="text-3xl font-bold text-red-600">
+                        {placement.matchScore}%
+                      </div>
                       <p className="text-sm text-gray-600">Match Score</p>
                     </div>
                   </div>
@@ -286,7 +339,9 @@ export function JobPlacementTracking() {
               ].map((stage) => (
                 <Card key={stage.stage} className="p-6">
                   <h3 className="text-lg font-bold mb-4">{stage.stage}</h3>
-                  <p className={`text-4xl font-bold mb-2 text-${stage.color}-600`}>
+                  <p
+                    className={`text-4xl font-bold mb-2 text-${stage.color}-600`}
+                  >
                     {stage.count}
                   </p>
                   <p className="text-sm text-gray-600">students</p>
