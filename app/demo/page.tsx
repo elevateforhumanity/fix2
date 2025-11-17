@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function DemoPage() {
   return (
@@ -12,11 +12,13 @@ export default function DemoPage() {
             See how Elevate becomes your front door.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            In a demo, we'll walk through the learner view, partner view, and how reporting can
-            line up with the boards, funders, and stories that matter to you.
+            In a demo, we'll walk through the learner view, partner view, and
+            how reporting can line up with the boards, funders, and stories that
+            matter to you.
           </p>
           <p className="mt-3 text-sm text-slate-300">
-            Use the contact page to request a time that works. We can include your local partners in the conversation.
+            Use the contact page to request a time that works. We can include
+            your local partners in the conversation.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">

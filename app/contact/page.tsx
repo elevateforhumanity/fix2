@@ -10,9 +10,9 @@ export default function ContactPage() {
             Let's talk about the people you're trying to move.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            Share a little about who you serve, the programs or pathways you&apos;re
-            interested in, and what success would look like. Elevate will follow up with you
-            to schedule a conversation.
+            Share a little about who you serve, the programs or pathways
+            you&apos;re interested in, and what success would look like. Elevate
+            will follow up with you to schedule a conversation.
           </p>
 
           <form className="mt-8 space-y-4 text-sm">
@@ -60,7 +60,8 @@ export default function ContactPage() {
               Send message (demo only)
             </button>
             <p className="mt-2 text-[0.75rem] text-slate-500">
-              This form is a visual demo. Your dev team can wire it to email or your CRM.
+              This form is a visual demo. Your dev team can wire it to email or
+              your CRM.
             </p>
           </form>
         </div>

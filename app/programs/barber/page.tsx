@@ -1,18 +1,18 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const bullets = [
-  "Milady-powered barbering curriculum for theory, safety, and technique.",
-  "Shop-based experience where learners can observe, assist, and grow into the chair.",
-  "Elevate LMS tracking for attendance, milestones, and apprenticeship hours.",
-  "Live Q&A spaces so learners can ask real questions and stay encouraged.",
-  "A clear path toward state barber licensing support and long-term careers.",
+  'Milady-powered barbering curriculum for theory, safety, and technique.',
+  'Shop-based experience where learners can observe, assist, and grow into the chair.',
+  'Elevate LMS tracking for attendance, milestones, and apprenticeship hours.',
+  'Live Q&A spaces so learners can ask real questions and stay encouraged.',
+  'A clear path toward state barber licensing support and long-term careers.',
 ];
 
 const fits = [
-  "Young adults who want a trade that lets them create and connect with people.",
-  "Helpers already in the shop who are ready for structured growth and licensing.",
-  "Career changers coming from retail, warehouse, or gig work.",
-  "Learners referred by WorkOne, EmployIndy, churches, and local partners.",
+  'Young adults who want a trade that lets them create and connect with people.',
+  'Helpers already in the shop who are ready for structured growth and licensing.',
+  'Career changers coming from retail, warehouse, or gig work.',
+  'Learners referred by WorkOne, EmployIndy, churches, and local partners.',
 ];
 
 export default function BarberProgramPage() {
@@ -28,9 +28,10 @@ export default function BarberProgramPage() {
               Barber Apprenticeship Pathway
             </h1>
             <p className="text-sm text-slate-300">
-              Elevate's barber apprenticeship pathway combines Milady's trusted curriculum,
-              real barbershop experience, and LMS tracking so learners, shops, and agencies
-              can move together toward licensing—not guess their way through it.
+              Elevate's barber apprenticeship pathway combines Milady's trusted
+              curriculum, real barbershop experience, and LMS tracking so
+              learners, shops, and agencies can move together toward
+              licensing—not guess their way through it.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -54,8 +55,9 @@ export default function BarberProgramPage() {
                 What this pathway is designed to do.
               </h2>
               <p className="text-slate-300">
-                This pathway is built so shops can do what they do best—build barbers—while
-                Elevate and Milady provide structure, content, and documentation.
+                This pathway is built so shops can do what they do best—build
+                barbers—while Elevate and Milady provide structure, content, and
+                documentation.
               </p>
               <ul className="mt-3 space-y-2">
                 {bullets.map((b) => (
@@ -74,9 +76,9 @@ export default function BarberProgramPage() {
                 ))}
               </ul>
               <p className="mt-4 text-[0.75rem] text-slate-400">
-                Exact licensing rules and apprenticeship requirements vary by state. Elevate
-                helps learners understand the path and stay organized alongside shop owners
-                and agencies.
+                Exact licensing rules and apprenticeship requirements vary by
+                state. Elevate helps learners understand the path and stay
+                organized alongside shop owners and agencies.
               </p>
             </div>
           </div>

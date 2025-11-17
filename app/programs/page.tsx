@@ -1,26 +1,26 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const programs = [
   {
-    slug: "/programs/barber",
-    name: "Barber Apprenticeship (Milady-Powered)",
-    tag: "Apprenticeship · License Track",
+    slug: '/programs/barber',
+    name: 'Barber Apprenticeship (Milady-Powered)',
+    tag: 'Apprenticeship · License Track',
     summary:
-      "Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.",
+      'Milady curriculum, shop-based experience, and Elevate tracking for learners moving toward real barber careers and licensing support.',
   },
   {
-    slug: "/programs/medical-assistant",
-    name: "Medical Assistant Pathway",
-    tag: "Healthcare · Partner Program",
+    slug: '/programs/medical-assistant',
+    name: 'Medical Assistant Pathway',
+    tag: 'Healthcare · Partner Program',
     summary:
-      "Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.",
+      'Partner medical assistant training wrapped in Elevate onboarding, reminders, and reporting for agencies and healthcare employers.',
   },
   {
-    slug: "/programs/hvac",
-    name: "HVAC Technician (Partner School)",
-    tag: "Skilled Trades · External School",
+    slug: '/programs/hvac',
+    name: 'HVAC Technician (Partner School)',
+    tag: 'Skilled Trades · External School',
     summary:
-      "Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.",
+      'Elevate as the front door and connector to a trusted HVAC school, with visibility for case managers and employers.',
   },
 ];
 
@@ -37,9 +37,9 @@ export default function ProgramsPage() {
               Programs that speak the same language as your community.
             </h1>
             <p className="text-sm text-slate-300">
-              Every pathway is designed so a learner, a parent, a pastor, and a case manager
-              can read it and instantly understand what it is, who it is for, and how it leads
-              to work.
+              Every pathway is designed so a learner, a parent, a pastor, and a
+              case manager can read it and instantly understand what it is, who
+              it is for, and how it leads to work.
             </p>
           </div>
 
@@ -56,7 +56,9 @@ export default function ProgramsPage() {
                   <h2 className="text-[0.98rem] font-semibold text-slate-50">
                     {program.name}
                   </h2>
-                  <p className="text-[0.84rem] text-slate-300">{program.summary}</p>
+                  <p className="text-[0.84rem] text-slate-300">
+                    {program.summary}
+                  </p>
                 </div>
                 <div className="mt-4 flex items-center justify-between text-[0.78rem]">
                   <Link
