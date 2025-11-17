@@ -91,22 +91,27 @@ export default function Home() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 md:flex">
-            <Link href="/programs" className="hover:text-emerald-300">
-              Programs
-            </Link>
-            <Link href="#how-it-works" className="hover:text-emerald-300">
-              How Elevate Works
-            </Link>
-            <Link href="/partners" className="hover:text-emerald-300">
-              For Agencies & Partners
-            </Link>
-            <Link href="/about" className="hover:text-emerald-300">
-              About
-            </Link>
+          <nav className="flex items-center gap-3">
+            {/* Desktop Navigation */}
+            <div className="hidden items-center gap-6 text-xs font-medium text-slate-300 md:flex">
+              <Link href="/programs" className="hover:text-emerald-300">
+                Programs
+              </Link>
+              <Link href="#how-it-works" className="hover:text-emerald-300">
+                How Elevate Works
+              </Link>
+              <Link href="/partners" className="hover:text-emerald-300">
+                For Agencies & Partners
+              </Link>
+              <Link href="/about" className="hover:text-emerald-300">
+                About
+              </Link>
+            </div>
+            
+            {/* Login Button - Always Visible */}
             <Link
               href="/login"
-              className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[0.7rem] text-slate-100 hover:border-emerald-400 hover:text-emerald-200"
+              className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1.5 text-xs text-slate-100 hover:border-emerald-400 hover:text-emerald-200 md:text-[0.7rem]"
             >
               Login
             </Link>
@@ -272,7 +277,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {steps.map((step) => (
               <div
                 key={step.title}
@@ -313,7 +318,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-7 grid gap-5 md:grid-cols-3">
+          <div className="mt-7 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {programs.map((program) => (
               <article
                 key={program.name}
@@ -359,9 +364,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Barber Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
                 alt="Barber apprenticeship"
@@ -381,7 +386,7 @@ export default function Home() {
             </div>
 
             {/* Medical Assistant Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
                 alt="Medical assistant training"
@@ -401,7 +406,7 @@ export default function Home() {
             </div>
 
             {/* HVAC Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 group cursor-pointer">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
                 alt="HVAC training"
@@ -435,7 +440,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {reasons.map((item) => (
               <div
                 key={item.title}
