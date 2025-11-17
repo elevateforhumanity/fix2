@@ -1,6 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, ArrowRight, Clock, DollarSign, Briefcase, Star, TrendingUp, Users, Award, Calendar } from 'lucide-react';
+import {
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  DollarSign,
+  Briefcase,
+  Star,
+  TrendingUp,
+  Users,
+  Award,
+  Calendar,
+} from 'lucide-react';
 import { Header } from '@/components/ui/Header';
 import { Footer } from '@/components/ui/Footer';
 
@@ -12,23 +23,24 @@ export default function HomePage() {
       category: 'Healthcare',
       duration: '6-8 weeks',
       startingSalary: '$32,000+',
-      description: 'Start your healthcare career in weeks, not years. Get hands-on training in real medical facilities. State certification included.',
+      description:
+        'Start your healthcare career in weeks, not years. Get hands-on training in real medical facilities. State certification included.',
       urgency: 'Next class starts Feb 5th - Only 8 spots left',
       highlights: [
         'Train in actual hospitals and nursing homes',
         'State certification exam included',
         'Job placement assistance guaranteed',
-        'Financial aid available - most students pay $0'
+        'Financial aid available - most students pay $0',
       ],
       realBenefits: [
         'Work 3 days/week, earn full-time pay',
         'Hospitals hiring immediately after graduation',
         'Flexible schedules - perfect for parents',
-        'Step into nursing degree programs'
+        'Step into nursing degree programs',
       ],
       image: '/media/programs/healthcare-1.jpg',
       slug: 'cna',
-      color: 'from-blue-600 to-cyan-600'
+      color: 'from-blue-600 to-cyan-600',
     },
     {
       id: 2,
@@ -36,23 +48,24 @@ export default function HomePage() {
       category: 'Skilled Trades',
       duration: '12 weeks',
       startingSalary: '$48,000+',
-      description: 'High-demand trade with immediate job openings. Master heating, cooling, and refrigeration. Start your own business or work for top companies.',
+      description:
+        'High-demand trade with immediate job openings. Master heating, cooling, and refrigeration. Start your own business or work for top companies.',
       urgency: 'Companies pre-hiring our graduates - Apply now',
       highlights: [
         'EPA certification included in training',
         'Work with real HVAC systems, not just books',
         'Tool kit provided - $2,000 value',
-        'Partner companies hiring before graduation'
+        'Partner companies hiring before graduation',
       ],
       realBenefits: [
         'Year-round work - AC in summer, heat in winter',
         'Start your own business after 2 years',
         'Overtime pay during peak seasons',
-        'Technology-focused - smart home systems'
+        'Technology-focused - smart home systems',
       ],
       image: '/media/programs/trades-1.jpg',
       slug: 'hvac',
-      color: 'from-orange-600 to-red-600'
+      color: 'from-orange-600 to-red-600',
     },
     {
       id: 3,
@@ -60,23 +73,24 @@ export default function HomePage() {
       category: 'Skilled Trades',
       duration: '12-18 months',
       startingSalary: '$35,000+',
-      description: 'Earn while you learn in a real barbershop. Build your clientele while training. State license and business skills included.',
+      description:
+        'Earn while you learn in a real barbershop. Build your clientele while training. State license and business skills included.',
       urgency: 'Barbershops waiting for apprentices - Limited spots',
       highlights: [
         'Get paid while training in real shops',
         'Build your client base from day one',
         'State license exam prep included',
-        'Business and marketing training'
+        'Business and marketing training',
       ],
       realBenefits: [
         'Set your own schedule as licensed barber',
         'Cash tips on top of hourly pay',
         'Rent a chair or open your own shop',
-        'Recession-proof - people always need haircuts'
+        'Recession-proof - people always need haircuts',
       ],
       image: '/media/programs/barber-hero.jpg',
       slug: 'barber',
-      color: 'from-purple-600 to-pink-600'
+      color: 'from-purple-600 to-pink-600',
     },
     {
       id: 4,
@@ -84,24 +98,25 @@ export default function HomePage() {
       category: 'Transportation',
       duration: '4 weeks',
       startingSalary: '$55,000+',
-      description: 'Get your CDL Class A in 4 weeks. Trucking companies offering sign-on bonuses up to $10,000. Start earning immediately.',
+      description:
+        'Get your CDL Class A in 4 weeks. Trucking companies offering sign-on bonuses up to $10,000. Start earning immediately.',
       urgency: 'Trucking shortage - Companies hiring NOW',
       highlights: [
         'CDL Class A license in just 4 weeks',
         'Train on 18-wheelers, not simulators',
         'Companies offering $5K-$10K sign-on bonuses',
-        'Job placement with major carriers'
+        'Job placement with major carriers',
       ],
       realBenefits: [
         'Home weekly or regional routes available',
         'Benefits from day one with major carriers',
         'Paid training programs after graduation',
-        'See the country while earning'
+        'See the country while earning',
       ],
       image: '/media/programs/truck-driving.jpg',
       slug: 'truck-driving',
-      color: 'from-green-600 to-emerald-600'
-    }
+      color: 'from-green-600 to-emerald-600',
+    },
   ];
 
   return (
@@ -117,28 +132,34 @@ export default function HomePage() {
               <div>
                 <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2 mb-6">
                   <TrendingUp className="w-4 h-4 text-slate-600" />
-                  <span className="text-sm font-medium text-slate-700">High-Demand Careers • Start in Weeks</span>
+                  <span className="text-sm font-medium text-slate-700">
+                    High-Demand Careers • Start in Weeks
+                  </span>
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
-                  Free Training.<br/>
-                  <span className="text-blue-600">Job Advancement</span>.<br/>
+                  Free Training.
+                  <br />
+                  <span className="text-blue-600">Job Advancement</span>.<br />
                   Real Careers.
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                  <strong>100% free training</strong> through WIOA, WRG, and JRI funding. Hybrid model with credentialing partners + Elevate support. DOL-registered apprenticeships. <strong>From unemployed to employed in weeks</strong>.
+                  <strong>100% free training</strong> through WIOA, WRG, and JRI
+                  funding. Hybrid model with credentialing partners + Elevate
+                  support. DOL-registered apprenticeships.{' '}
+                  <strong>From unemployed to employed in weeks</strong>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Link 
+                  <Link
                     href="/apply"
                     className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 text-lg"
                   >
                     Apply Now - Classes Start Feb 5th
                     <ArrowRight className="w-6 h-6" />
                   </Link>
-                  <Link 
+                  <Link
                     href="/programs"
                     className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold px-10 py-5 rounded-lg border-2 border-slate-300 transition-all text-lg"
                   >
@@ -163,16 +184,28 @@ export default function HomePage() {
 
                 <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200">
                   <div>
-                    <div className="text-3xl font-bold text-slate-900 mb-1">4-12</div>
-                    <div className="text-sm text-slate-600">Weeks to Complete</div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">
+                      4-12
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Weeks to Complete
+                    </div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-slate-900 mb-1">$0</div>
-                    <div className="text-sm text-slate-600">For Most Students</div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">
+                      $0
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      For Most Students
+                    </div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-slate-900 mb-1">$35K+</div>
-                    <div className="text-sm text-slate-600">Starting Salaries</div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">
+                      $35K+
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Starting Salaries
+                    </div>
                   </div>
                 </div>
               </div>
@@ -223,8 +256,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">CNA Training</h3>
-                  <p className="text-sm text-slate-600">Watch how our students train in real medical facilities</p>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    CNA Training
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Watch how our students train in real medical facilities
+                  </p>
                 </div>
               </div>
 
@@ -244,8 +281,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">Barber Apprenticeship</h3>
-                  <p className="text-sm text-slate-600">See apprentices earning while they learn</p>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Barber Apprenticeship
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    See apprentices earning while they learn
+                  </p>
                 </div>
               </div>
 
@@ -265,8 +306,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">HVAC Technician</h3>
-                  <p className="text-sm text-slate-600">Hands-on training with real equipment</p>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    HVAC Technician
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Hands-on training with real equipment
+                  </p>
                 </div>
               </div>
             </div>
@@ -281,7 +326,8 @@ export default function HomePage() {
                 Who We Help
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Workforce training and apprenticeships that transform communities through partner-powered pathways.
+                Workforce training and apprenticeships that transform
+                communities through partner-powered pathways.
               </p>
             </div>
 
@@ -291,9 +337,13 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Students</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Students
+                </h3>
                 <p className="text-slate-700 mb-6 leading-relaxed">
-                  Hands-on job training, industry certifications, and DOL-registered apprenticeships. Most students qualify for 100% free training through WIOA.
+                  Hands-on job training, industry certifications, and
+                  DOL-registered apprenticeships. Most students qualify for 100%
+                  free training through WIOA.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
@@ -302,14 +352,21 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">$0 cost for most students</span>
+                    <span className="text-slate-700">
+                      $0 cost for most students
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Job placement assistance</span>
+                    <span className="text-slate-700">
+                      Job placement assistance
+                    </span>
                   </li>
                 </ul>
-                <Link href="/apply" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+                >
                   Apply Now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -320,25 +377,38 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6">
                   <Briefcase className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Employers</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Employers
+                </h3>
                 <p className="text-slate-700 mb-6 leading-relaxed">
-                  Skilled talent pipeline with subsidized training. Host apprentices, access OJT/WEX programs, and hire job-ready graduates.
+                  Skilled talent pipeline with subsidized training. Host
+                  apprentices, access OJT/WEX programs, and hire job-ready
+                  graduates.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Pre-screened candidates</span>
+                    <span className="text-slate-700">
+                      Pre-screened candidates
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Subsidized training costs</span>
+                    <span className="text-slate-700">
+                      Subsidized training costs
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Apprenticeship support</span>
+                    <span className="text-slate-700">
+                      Apprenticeship support
+                    </span>
                   </li>
                 </ul>
-                <Link href="/employers" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/employers"
+                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
+                >
                   Partner With Us
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -349,9 +419,13 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
                   <Award className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Workforce Agencies</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Workforce Agencies
+                </h3>
                 <p className="text-slate-700 mb-6 leading-relaxed">
-                  ETPL-approved training with full compliance for WRG, JRI, WIOA, and DOL-registered apprenticeships. Seamless reporting for WorkOne and EmployIndy.
+                  ETPL-approved training with full compliance for WRG, JRI,
+                  WIOA, and DOL-registered apprenticeships. Seamless reporting
+                  for WorkOne and EmployIndy.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
@@ -364,10 +438,15 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Client progress tracking</span>
+                    <span className="text-slate-700">
+                      Client progress tracking
+                    </span>
                   </li>
                 </ul>
-                <Link href="/agencies" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/agencies"
+                  className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all"
+                >
                   Agency Portal
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -390,50 +469,78 @@ export default function HomePage() {
               <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
                 <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
                   How do I qualify for free training?
-                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
                 </summary>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  Most students qualify through WIOA (Workforce Innovation and Opportunity Act) funding. If you're unemployed, underemployed, or looking to change careers, you likely qualify. We handle all the paperwork - just fill out our 2-minute application and we'll check your eligibility.
+                  Most students qualify through WIOA (Workforce Innovation and
+                  Opportunity Act) funding. If you're unemployed, underemployed,
+                  or looking to change careers, you likely qualify. We handle
+                  all the paperwork - just fill out our 2-minute application and
+                  we'll check your eligibility.
                 </p>
               </details>
 
               <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
                 <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
                   When do classes start?
-                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
                 </summary>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  We have rolling start dates throughout the year. Current upcoming classes: CNA (Feb 5th), HVAC (Feb 12th), CDL (Feb 1st), Barber (ongoing apprenticeships). Apply now to secure your spot in the next available class.
+                  We have rolling start dates throughout the year. Current
+                  upcoming classes: CNA (Feb 5th), HVAC (Feb 12th), CDL (Feb
+                  1st), Barber (ongoing apprenticeships). Apply now to secure
+                  your spot in the next available class.
                 </p>
               </details>
 
               <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
                 <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
                   What if I already have a job?
-                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
                 </summary>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  Many of our programs offer evening and weekend options. We also work with employers who allow employees to train during work hours. If you're looking to switch careers or increase your income, we can work with your schedule.
+                  Many of our programs offer evening and weekend options. We
+                  also work with employers who allow employees to train during
+                  work hours. If you're looking to switch careers or increase
+                  your income, we can work with your schedule.
                 </p>
               </details>
 
               <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
                 <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
                   Do you really help with job placement?
-                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
                 </summary>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  Yes! We partner with employers who are actively hiring. Many students receive job offers before graduation. We provide resume help, interview prep, and direct introductions to hiring managers. Our goal is to get you employed, not just certified.
+                  Yes! We partner with employers who are actively hiring. Many
+                  students receive job offers before graduation. We provide
+                  resume help, interview prep, and direct introductions to
+                  hiring managers. Our goal is to get you employed, not just
+                  certified.
                 </p>
               </details>
 
               <details className="group bg-slate-50 rounded-lg p-6 cursor-pointer">
                 <summary className="flex justify-between items-center font-bold text-slate-900 text-lg">
                   What's the catch? Why is it free?
-                  <span className="text-red-600 group-open:rotate-180 transition-transform">▼</span>
+                  <span className="text-red-600 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
                 </summary>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  There's no catch. WIOA is a federal program designed to help people get job training. The government pays for your training because they want you employed and paying taxes. We're an approved WIOA provider, so we can offer this at no cost to eligible students.
+                  There's no catch. WIOA is a federal program designed to help
+                  people get job training. The government pays for your training
+                  because they want you employed and paying taxes. We're an
+                  approved WIOA provider, so we can offer this at no cost to
+                  eligible students.
                 </p>
               </details>
             </div>
@@ -447,7 +554,8 @@ export default function HomePage() {
               Ready to Change Your Life?
             </h2>
             <p className="text-xl text-red-100 mb-8">
-              Classes starting soon. Spots are limited. Apply now to see if you qualify for free training.
+              Classes starting soon. Spots are limited. Apply now to see if you
+              qualify for free training.
             </p>
             <Link
               href="/apply"
