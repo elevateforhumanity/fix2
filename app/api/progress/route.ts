@@ -1,89 +1,64 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const userId = searchParams.get('userId');
+  const courseId = searchParams.get('courseId');
+
+  const progress = {
+    userId,
+    courseId,
+    overallProgress: 65,
+    completedLessons: 13,
+    totalLessons: 20,
+    timeSpent: 1250, // minutes
+    lastActivity: new Date().toISOString(),
+    modules: [
+      {
+        id: '1',
+        title: 'Introduction to Patient Care',
+        progress: 100,
+        status: 'completed',
+        lessons: 5,
+        completedLessons: 5,
+      },
+      {
+        id: '2',
+        title: 'Vital Signs and Monitoring',
+        progress: 80,
+        status: 'in-progress',
+        lessons: 6,
+        completedLessons: 5,
+      },
+      {
+        id: '3',
+        title: 'Clinical Skills',
+        progress: 25,
+        status: 'in-progress',
+        lessons: 9,
+        completedLessons: 3,
+      },
+    ],
+  };
+
+  return NextResponse.json(progress);
+}
 
 export async function POST(request: Request) {
-  try {
-    const supabase = await createClient();
+  const body = await request.json();
 
-    // Get authenticated user
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const body = await request.json().catch(() => ({}));
-
-    const {
-      lessonId,
-      courseId,
-      duration,
-      watchedSeconds,
-      completed,
-    }: {
-      lessonId?: string | number;
-      courseId?: string | number;
-      duration?: number;
-      watchedSeconds?: number;
-      completed?: boolean;
-    } = body || {};
-
-    if (!lessonId) {
-      return NextResponse.json({ error: 'Missing lessonId' }, { status: 400 });
-    }
-
-    // Normalize to numbers
-    const lesson_id =
-      typeof lessonId === 'string' ? parseInt(lessonId) : lessonId;
-    const course_id = courseId
-      ? typeof courseId === 'string'
-        ? parseInt(courseId)
-        : courseId
-      : null;
-
-    // Upsert progress
-    const { error: upsertError } = await supabase
-      .from('lesson_progress')
-      .upsert(
-        {
-          student_id: user.id,
-          course_id,
-          lesson_id,
-          duration_seconds: duration ? Math.round(duration) : null,
-          watched_seconds: watchedSeconds ? Math.round(watchedSeconds) : null,
-          completed: !!completed,
-          last_watched_at: new Date().toISOString(),
-        },
-        {
-          onConflict: 'student_id,lesson_id',
-        }
-      );
-
-    if (upsertError) {
-      console.error('Error upserting lesson_progress:', upsertError);
-      return NextResponse.json(
-        { error: 'Failed to save progress' },
-        { status: 500 }
-      );
-    }
-
-    console.log('📹 Video progress saved:', {
-      userId: user.id,
-      lessonId: lesson_id,
-      courseId: course_id,
-      completed,
-      percentWatched:
-        duration && watchedSeconds
-          ? Math.round((watchedSeconds / duration) * 100)
-          : 0,
-    });
-
-    return NextResponse.json({ ok: true });
-  } catch (error) {
-    console.error('Error in /api/progress:', error);
-    return NextResponse.json({ error: 'Internal error' }, { status: 500 });
+  if (!body.userId || !body.courseId || !body.lessonId) {
+    return NextResponse.json(
+      { error: 'Missing required fields' },
+      { status: 400 }
+    );
   }
+
+  // Update progress (mock)
+  const updatedProgress = {
+    ...body,
+    updatedAt: new Date().toISOString(),
+  };
+
+  return NextResponse.json(updatedProgress);
 }
