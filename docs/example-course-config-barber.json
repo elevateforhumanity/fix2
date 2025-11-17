@@ -1,0 +1,177 @@
+{
+  "id": "barber-apprenticeship-pathway-v1",
+  "title": "Barber Apprenticeship Pathway – Elevate for Humanity",
+  "description": "A composed barber apprenticeship pathway that uses Milady's barbering curriculum plus Elevate live coaching, quizzes, and workforce compliance steps.",
+  "totalHours": 300,
+  "tags": ["Barber", "Apprenticeship", "WRG", "ETPL", "WorkOne", "EmployIndy"],
+  "blocks": [
+    {
+      "id": "intro-welcome-video",
+      "type": "free_online",
+      "displayTitle": "Welcome from Elevate – How This Barber Pathway Works",
+      "description": "Elevate intro video explaining how Milady fits into the pathway, how to log in, and how completion + credentials work.",
+      "required": true,
+      "expectedHours": 0.5,
+      "sourceType": "video",
+      "launchUrl": "https://your-video-host.com/elevate/barber-welcome",
+      "attachedQuizId": "quiz-barber-orientation"
+    },
+    {
+      "id": "admin-intake-forms",
+      "type": "admin_task",
+      "displayTitle": "Complete Intake & Eligibility Forms",
+      "description": "Complete intake and funding eligibility forms (WRG, WIOA, JRI, etc.) and provide needed info for workforce partners.",
+      "required": true,
+      "expectedHours": 1,
+      "taskKind": "form_completion",
+      "requiredDocumentType": "INTAKE_FORMS"
+    },
+    {
+      "id": "admin-id-upload",
+      "type": "admin_task",
+      "displayTitle": "Upload ID & Required Documents",
+      "description": "Upload government ID and any required barbershop/apprenticeship documents.",
+      "required": true,
+      "expectedHours": 0.5,
+      "taskKind": "document_upload",
+      "requiredDocumentType": "ID_AND_APPRENTICESHIP_DOCS"
+    },
+    {
+      "id": "partner-milady-barber-core",
+      "type": "partner_course",
+      "displayTitle": "Milady Barbering Core Theory",
+      "description": "Complete the Milady core barber theory modules through the Milady platform.",
+      "required": true,
+      "expectedHours": 120,
+      "partnerId": "milady",
+      "partnerCourseId": "barber_core_theory",
+      "launchUrl": "https://milady-partner.example.com/courses/barber-core-theory",
+      "completionProofType": "certificate_upload",
+      "attachedQuizId": "quiz-barber-theory-check"
+    },
+    {
+      "id": "partner-milady-safety-sanitation",
+      "type": "partner_course",
+      "displayTitle": "Milady Safety & Sanitation",
+      "description": "Milady module covering infection control, sanitation, and state safety requirements.",
+      "required": true,
+      "expectedHours": 40,
+      "partnerId": "milady",
+      "partnerCourseId": "barber_sanitation_safety",
+      "launchUrl": "https://milady-partner.example.com/courses/barber-sanitation-safety",
+      "completionProofType": "certificate_upload",
+      "attachedQuizId": "quiz-barber-safety-check"
+    },
+    {
+      "id": "partner-milady-exam-prep",
+      "type": "partner_course",
+      "displayTitle": "Milady State Board Exam Prep – Barber",
+      "description": "Milady's exam prep modules to get ready for the state barber licensing exam.",
+      "required": false,
+      "expectedHours": 30,
+      "partnerId": "milady",
+      "partnerCourseId": "barber_exam_prep",
+      "launchUrl": "https://milady-partner.example.com/courses/barber-exam-prep",
+      "completionProofType": "certificate_upload"
+    },
+    {
+      "id": "free-barbershop-business-basics",
+      "type": "free_online",
+      "displayTitle": "Barbershop Business & Client Experience Basics",
+      "description": "Supplemental content on shop etiquette, customer service, and basic business concepts.",
+      "required": false,
+      "expectedHours": 4,
+      "sourceType": "web",
+      "launchUrl": "https://your-microcourse-or-selected-resource.com/barbershop-business",
+      "attachedQuizId": "quiz-barber-business"
+    },
+    {
+      "id": "live-weekly-qna",
+      "type": "live_session",
+      "displayTitle": "Weekly Live Barber Q&A with Elevate Instructor",
+      "description": "Live coaching and Q&A to support apprentices with Milady content, shop expectations, and exam prep.",
+      "required": true,
+      "expectedHours": 10,
+      "meetingLink": "https://zoom.us/j/your-barber-qna-link",
+      "scheduleType": "recurring",
+      "recurringRule": "RRULE:FREQ=WEEKLY;BYDAY=WE;BYHOUR=18;BYMINUTE=0;BYSECOND=0"
+    },
+    {
+      "id": "quiz-barber-orientation",
+      "type": "quiz",
+      "displayTitle": "Orientation Check – Understanding the Barber Pathway",
+      "description": "Quick quiz to confirm you understand how Milady + Elevate + apprenticeship fit together.",
+      "required": true,
+      "expectedHours": 0.5,
+      "quizId": "barber_orientation_001",
+      "passingScore": 70
+    },
+    {
+      "id": "quiz-barber-theory-check",
+      "type": "quiz",
+      "displayTitle": "Barber Theory Knowledge Check (Elevate)",
+      "description": "Short quiz to verify understanding of core theory covered in Milady.",
+      "required": true,
+      "expectedHours": 1,
+      "quizId": "barber_theory_check_001",
+      "passingScore": 75
+    },
+    {
+      "id": "quiz-barber-safety-check",
+      "type": "quiz",
+      "displayTitle": "Safety & Sanitation Check (Elevate)",
+      "description": "Reinforces safety, sanitation, and infection-control standards.",
+      "required": true,
+      "expectedHours": 0.5,
+      "quizId": "barber_safety_check_001",
+      "passingScore": 75
+    },
+    {
+      "id": "quiz-barber-business",
+      "type": "quiz",
+      "displayTitle": "Barbershop Business & Client Experience Quiz",
+      "description": "Simple assessment on customer experience, professionalism, and shop basics.",
+      "required": false,
+      "expectedHours": 0.5,
+      "quizId": "barber_business_001",
+      "passingScore": 70
+    },
+    {
+      "id": "quiz-barber-final",
+      "type": "quiz",
+      "displayTitle": "Final Barber Pathway Assessment (Elevate)",
+      "description": "Final assessment that pulls together theory, safety, professionalism, and shop behavior.",
+      "required": true,
+      "expectedHours": 1,
+      "quizId": "barber_final_assessment_001",
+      "passingScore": 80
+    },
+    {
+      "id": "admin-proof-milady-completion",
+      "type": "admin_task",
+      "displayTitle": "Upload Proof of Milady Barber Program Completion",
+      "description": "Upload certificates or proof of completion from Milady's barber program.",
+      "required": true,
+      "expectedHours": 0.5,
+      "taskKind": "document_upload",
+      "requiredDocumentType": "MILADY_BARBER_CREDENTIAL"
+    }
+  ],
+  "completionRules": {
+    "requireAllRequiredBlocks": true,
+    "minimumQuizAverage": 75,
+    "minimumLiveSessionsAttended": 4
+  },
+  "emailAutomation": {
+    "onEnrollTemplateId": "email_barber_welcome",
+    "onCompletionTemplateId": "email_barber_completion_congrats",
+    "onInactiveTemplateId": "email_barber_inactive_nudge",
+    "onInactiveDays": 7,
+    "beforeLiveSessionTemplateId": "email_barber_live_session_reminder",
+    "beforeLiveSessionHours": 24
+  },
+  "ownerOrgId": "elevate_for_humanity",
+  "ownerUserId": "admin_elevate_root",
+  "createdAt": "2025-11-17T00:00:00.000Z",
+  "updatedAt": "2025-11-17T00:00:00.000Z"
+}
