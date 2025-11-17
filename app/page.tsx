@@ -162,16 +162,96 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Column - Visual */}
+              {/* Right Column - Hero Image */}
               <div className="relative hidden lg:block">
-                <div className="relative bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                  <div className="aspect-video bg-white rounded-xl flex items-center justify-center border border-slate-200">
-                    <div className="text-center">
-                      <Users className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                      <p className="text-lg font-semibold text-slate-900">Real Training</p>
-                      <p className="text-sm text-slate-600">Real Jobs</p>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/media/hero/homepage.jpg"
+                    alt="Students in training"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Video Highlights Section */}
+        <section className="py-16 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                See Our Programs in Action
+              </h2>
+              <p className="text-lg text-slate-600">
+                Real students, real training, real results.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Video Snippet 1 */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div className="relative aspect-video bg-slate-200">
+                  <Image
+                    src="/images/programs/efh-cna-hero.jpg"
+                    alt="CNA Training"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
                     </div>
                   </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-slate-900 mb-2">CNA Training</h3>
+                  <p className="text-sm text-slate-600">Watch how our students train in real medical facilities</p>
+                </div>
+              </div>
+
+              {/* Video Snippet 2 */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div className="relative aspect-video bg-slate-200">
+                  <Image
+                    src="/media/programs/barber-hero.jpg"
+                    alt="Barber Training"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-slate-900 mb-2">Barber Apprenticeship</h3>
+                  <p className="text-sm text-slate-600">See apprentices earning while they learn</p>
+                </div>
+              </div>
+
+              {/* Video Snippet 3 */}
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div className="relative aspect-video bg-slate-200">
+                  <Image
+                    src="/media/programs/trades-1.jpg"
+                    alt="HVAC Training"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[16px] border-l-slate-900 border-y-[10px] border-y-transparent ml-1"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-slate-900 mb-2">HVAC Technician</h3>
+                  <p className="text-sm text-slate-600">Hands-on training with real equipment</p>
                 </div>
               </div>
             </div>
@@ -398,8 +478,102 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Student Success Stories with Photos */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Real Students, Real Success
+              </h2>
+              <p className="text-xl text-slate-600">
+                Hear from graduates who transformed their lives in weeks, not years.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                    <Image
+                      src="/media/testimonials/student1.jpg"
+                      alt="Marcus J."
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">Marcus J.</p>
+                    <p className="text-sm text-slate-600">HVAC Graduate</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed">
+                  "I went from unemployed to earning $48K in 12 weeks. The training was hands-on and the job placement team connected me with a great company."
+                </p>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                    <Image
+                      src="/media/testimonials/student2.jpg"
+                      alt="Sarah M."
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">Sarah M.</p>
+                    <p className="text-sm text-slate-600">CNA Graduate</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed">
+                  "As a single mom, I needed something fast and affordable. Elevate's CNA program was free through WIOA and I started working at a hospital 8 weeks later."
+                </p>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                    <Image
+                      src="/media/testimonials/student3.jpg"
+                      alt="James T."
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">James T.</p>
+                    <p className="text-sm text-slate-600">Barber Apprentice</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-slate-700 leading-relaxed">
+                  "I'm getting paid while I learn. Building my client base and working toward my license. Best decision I ever made."
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Urgency Banner */}
-        <section className="bg-red-600 text-white py-4">
+        <section className="bg-slate-900 text-white py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
