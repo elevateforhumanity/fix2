@@ -1,33 +1,37 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const programs = [
   {
-    slug: "medical-assistant",
-    name: "Medical Assistant",
-    blurb: "Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.",
-    funding: "WRG • WIOA • Workforce Grants",
-    duration: "4–6 Months • Hybrid",
+    slug: 'medical-assistant',
+    name: 'Medical Assistant',
+    blurb:
+      'Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.',
+    funding: 'WRG • WIOA • Workforce Grants',
+    duration: '4–6 Months • Hybrid',
   },
   {
-    slug: "barber",
-    name: "Barber Apprenticeship",
-    blurb: "State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.",
-    funding: "DOL Apprenticeship • WIOA",
-    duration: "12–18 Months • On-the-Job + Classroom",
+    slug: 'barber',
+    name: 'Barber Apprenticeship',
+    blurb:
+      'State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.',
+    funding: 'DOL Apprenticeship • WIOA',
+    duration: '12–18 Months • On-the-Job + Classroom',
   },
   {
-    slug: "hvac",
-    name: "HVAC Technician",
-    blurb: "Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.",
-    funding: "Workforce Grants • Employer Sponsors",
-    duration: "4–9 Months • Lab + Field",
+    slug: 'hvac',
+    name: 'HVAC Technician',
+    blurb:
+      'Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.',
+    funding: 'Workforce Grants • Employer Sponsors',
+    duration: '4–9 Months • Lab + Field',
   },
   {
-    slug: "workforce-readiness",
-    name: "Workforce Readiness & Re-Entry",
-    blurb: "Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.",
-    funding: "Support Services • Referrals",
-    duration: "4–12 Weeks • Coaching + Workshops",
+    slug: 'workforce-readiness',
+    name: 'Workforce Readiness & Re-Entry',
+    blurb:
+      'Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.',
+    funding: 'Support Services • Referrals',
+    duration: '4–12 Weeks • Coaching + Workshops',
   },
 ];
 
@@ -57,10 +61,10 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mb-6 max-w-2xl text-base md:text-lg text-slate-100">
-            We connect adults, youth, and re-entry talent with{" "}
+            We connect adults, youth, and re-entry talent with{' '}
             <span className="font-semibold text-orange-300">
               state-approved training, apprenticeships, and employer partners
-            </span>{" "}
+            </span>{' '}
             so you can elevate your income, your family, and your community.
           </p>
 
@@ -92,7 +96,10 @@ export default function HomePage() {
           </div>
 
           <div className="mt-6 text-xs md:text-sm text-slate-200">
-            <p>In partnership with training providers, employers, and workforce boards.</p>
+            <p>
+              In partnership with training providers, employers, and workforce
+              boards.
+            </p>
             <p>Many learners qualify for little to no out-of-pocket cost.</p>
           </div>
         </div>
@@ -125,10 +132,7 @@ export default function HomePage() {
       </section>
 
       {/* PROGRAMS GRID */}
-      <section
-        id="programs"
-        className="bg-slate-950 py-12 md:py-16"
-      >
+      <section id="programs" className="bg-slate-950 py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -136,7 +140,7 @@ export default function HomePage() {
                 Training & Apprenticeship Programs
               </h2>
               <p className="mt-2 max-w-xl text-sm md:text-base text-slate-200">
-                Choose a pathway that matches your goals. Many programs accept{" "}
+                Choose a pathway that matches your goals. Many programs accept{' '}
                 workforce funding, apprenticeships, or employer sponsorships.
               </p>
             </div>
@@ -161,9 +165,7 @@ export default function HomePage() {
                 <p className="mb-3 text-xs uppercase tracking-[0.15em] text-orange-300">
                   {program.duration}
                 </p>
-                <p className="mb-3 text-sm text-slate-200">
-                  {program.blurb}
-                </p>
+                <p className="mb-3 text-sm text-slate-200">{program.blurb}</p>
                 <p className="mb-4 text-xs font-semibold text-slate-300">
                   Funding: {program.funding}
                 </p>
@@ -198,8 +200,8 @@ export default function HomePage() {
                 Connect & Explore
               </h3>
               <p className="text-sm text-slate-200">
-                Complete a short interest form. Our team reviews funding options,
-                program fit, and support services with you.
+                Complete a short interest form. Our team reviews funding
+                options, program fit, and support services with you.
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-950 p-5">
@@ -237,9 +239,9 @@ export default function HomePage() {
             Ready to Elevate Your Future?
           </h2>
           <p className="mb-6 text-sm md:text-base text-orange-50">
-            Whether you&apos;re just getting started, returning to the workforce,
-            or changing careers, we&apos;ll help you find the right program and
-            funding options.
+            Whether you&apos;re just getting started, returning to the
+            workforce, or changing careers, we&apos;ll help you find the right
+            program and funding options.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -263,22 +265,37 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="mb-2 text-sm font-semibold text-white">
+                Elevate For Humanity™
+              </p>
               <p className="text-xs text-slate-400">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
-              <Link href="/privacy" className="hover:text-orange-300">Privacy</Link>
-              <Link href="/terms" className="hover:text-orange-300">Terms</Link>
+              <Link href="/programs" className="hover:text-orange-300">
+                Programs
+              </Link>
+              <Link href="/partners" className="hover:text-orange-300">
+                Partners
+              </Link>
+              <Link href="/about" className="hover:text-orange-300">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-orange-300">
+                Contact
+              </Link>
+              <Link href="/privacy" className="hover:text-orange-300">
+                Privacy
+              </Link>
+              <Link href="/terms" className="hover:text-orange-300">
+                Terms
+              </Link>
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate For Humanity. All rights
+            reserved.
           </div>
         </div>
       </footer>

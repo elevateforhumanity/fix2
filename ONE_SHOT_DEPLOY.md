@@ -3,6 +3,7 @@
 ## ✅ What's Ready
 
 Your site is now fully configured with:
+
 - ✅ Professional homepage with video hero
 - ✅ All 3 program pages with video integration
 - ✅ Canva-style backgrounds and gradients
@@ -18,6 +19,7 @@ Your site is now fully configured with:
 Follow: `INVIDEO_COMPLETE_SETUP.md`
 
 You need 5 videos:
+
 1. `hero-elevate-home.mp4` - Homepage hero
 2. `program-medical-assistant.mp4` - Medical Assistant page
 3. `program-barber-apprenticeship.mp4` - Barber page
@@ -117,6 +119,7 @@ fix2/
 ### Videos Not Showing?
 
 **Check 1: File names match exactly**
+
 ```bash
 ls -la public/videos/
 # Should show:
@@ -127,11 +130,13 @@ ls -la public/videos/
 ```
 
 **Check 2: Videos are in correct format**
+
 - Format: MP4
 - Codec: H.264
 - Size: Under 30MB each for fast loading
 
 **Check 3: Clear cache**
+
 ```bash
 # Hard refresh in browser
 # Chrome/Edge: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
@@ -143,12 +148,14 @@ ls -la public/videos/
 If videos are over 30MB each, consider:
 
 **Option A: Compress videos**
+
 ```bash
 # Use HandBrake or online compressor
 # Target: 1080p, H.264, ~10-20MB per video
 ```
 
 **Option B: Use video hosting**
+
 - Upload to YouTube (unlisted)
 - Or use Cloudflare Stream
 - Update video src to hosted URL
@@ -160,6 +167,7 @@ If videos are over 30MB each, consider:
 ### Change Colors
 
 Edit `app/page.tsx` and search for:
+
 - `orange-` → Your brand color
 - `slate-` → Your background color
 
@@ -173,6 +181,7 @@ Edit `app/page.tsx` and search for:
 ### Update Copy
 
 All copy is in the page files - no database needed!
+
 - Homepage: `app/page.tsx`
 - Programs: `app/programs/[slug]/page.tsx`
 
@@ -198,6 +207,7 @@ Before going live:
 ## 🎉 You're Done!
 
 Your site is now:
+
 - ✅ Professional and polished
 - ✅ Video-integrated
 - ✅ Mobile responsive
@@ -205,6 +215,7 @@ Your site is now:
 - ✅ No placeholders
 
 **Next steps:**
+
 1. Create videos in InVideo (30 min)
 2. Upload to public/videos/
 3. Test and deploy
@@ -213,6 +224,7 @@ Your site is now:
 ---
 
 **Need help? Check:**
+
 - `INVIDEO_COMPLETE_SETUP.md` - Video creation guide
 - `README.md` - General project info
 - Or ask in your team chat!

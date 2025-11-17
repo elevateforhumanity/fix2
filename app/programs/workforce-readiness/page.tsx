@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function WorkforceReadinessPage() {
   return (
@@ -36,10 +36,10 @@ export default function WorkforceReadinessPage() {
             Program Overview
           </h2>
           <p className="text-sm md:text-base text-slate-200">
-            This pathway is built for adults and youth who need a fresh start,
-            a second chance, or a clearer roadmap into stable work. We blend
-            soft skills, digital skills, career exploration, and barrier
-            navigation so you don&apos;t have to figure it all out alone.
+            This pathway is built for adults and youth who need a fresh start, a
+            second chance, or a clearer roadmap into stable work. We blend soft
+            skills, digital skills, career exploration, and barrier navigation
+            so you don&apos;t have to figure it all out alone.
           </p>
         </div>
 
@@ -83,9 +83,7 @@ export default function WorkforceReadinessPage() {
             </ul>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-            <h2 className="text-lg font-bold mb-3">
-              What You&apos;ll Work On
-            </h2>
+            <h2 className="text-lg font-bold mb-3">What You&apos;ll Work On</h2>
             <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1">
               <li>Resumes, applications, and interview prep</li>
               <li>Soft skills, communication, and workplace expectations</li>
@@ -120,8 +118,8 @@ export default function WorkforceReadinessPage() {
             </h2>
             <p className="text-sm md:text-base text-slate-200">
               Share where you&apos;re starting from. We&apos;ll help map out
-              realistic next steps into training, apprenticeships, or
-              employment — one step at a time.
+              realistic next steps into training, apprenticeships, or employment
+              — one step at a time.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -146,20 +144,31 @@ export default function WorkforceReadinessPage() {
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="mb-2 text-sm font-semibold text-white">
+                Elevate For Humanity™
+              </p>
               <p className="text-xs text-slate-400">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
+              <Link href="/programs" className="hover:text-orange-300">
+                Programs
+              </Link>
+              <Link href="/partners" className="hover:text-orange-300">
+                Partners
+              </Link>
+              <Link href="/about" className="hover:text-orange-300">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-orange-300">
+                Contact
+              </Link>
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate For Humanity. All rights
+            reserved.
           </div>
         </div>
       </footer>
