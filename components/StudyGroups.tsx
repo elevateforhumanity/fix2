@@ -3,7 +3,14 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Users, Plus, MessageCircle, Calendar, Lock, Globe } from 'lucide-react';
+import {
+  Users,
+  Plus,
+  MessageCircle,
+  Calendar,
+  Lock,
+  Globe,
+} from 'lucide-react';
 
 interface StudyGroup {
   id: string;
@@ -88,7 +95,7 @@ export function StudyGroups() {
             <CardContent className="p-6">
               <h3 className="font-bold text-lg mb-2">{group.name}</h3>
               <p className="text-sm text-gray-600 mb-3">{group.description}</p>
-              
+
               <div className="space-y-2 mb-4">
                 <div className="flex items-center gap-2 text-sm">
                   <Users size={16} className="text-gray-400" />
@@ -126,16 +133,20 @@ export function StudyGroups() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold mb-2">Group Name</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Group Name
+                </label>
                 <input
                   type="text"
                   placeholder="Enter group name"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-semibold mb-2">Description</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Description
+                </label>
                 <textarea
                   placeholder="What's this group about?"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
@@ -144,7 +155,9 @@ export function StudyGroups() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Course</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Course
+                </label>
                 <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500">
                   <option>Select a course</option>
                   <option>Certified Nursing Assistant</option>
@@ -154,10 +167,17 @@ export function StudyGroups() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Privacy</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Privacy
+                </label>
                 <div className="flex gap-4">
                   <label className="flex items-center gap-2">
-                    <input type="radio" name="privacy" value="public" defaultChecked />
+                    <input
+                      type="radio"
+                      name="privacy"
+                      value="public"
+                      defaultChecked
+                    />
                     <span>Public</span>
                   </label>
                   <label className="flex items-center gap-2">
