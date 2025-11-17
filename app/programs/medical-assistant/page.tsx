@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function MedicalAssistantPage() {
   return (
@@ -32,7 +32,9 @@ export default function MedicalAssistantPage() {
       {/* PROGRAM DETAILS */}
       <section className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-12 space-y-8">
         <div>
-          <h2 className="text-xl md:text-2xl font-bold mb-3">Program Overview</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-3">
+            Program Overview
+          </h2>
           <p className="text-sm md:text-base text-slate-200">
             This pathway is designed for adults and youth who want a fast,
             focused route into healthcare. Training covers clinical skills,
@@ -94,13 +96,22 @@ export default function MedicalAssistantPage() {
             Many learners qualify for workforce grants through programs like:
           </p>
           <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1 mb-4">
-            <li><strong>WIOA</strong> (Workforce Innovation and Opportunity Act)</li>
-            <li><strong>WRG</strong> (Workforce Ready Grant - Indiana)</li>
-            <li><strong>Employer Sponsorships</strong></li>
-            <li><strong>Job Ready Indy</strong> and other local programs</li>
+            <li>
+              <strong>WIOA</strong> (Workforce Innovation and Opportunity Act)
+            </li>
+            <li>
+              <strong>WRG</strong> (Workforce Ready Grant - Indiana)
+            </li>
+            <li>
+              <strong>Employer Sponsorships</strong>
+            </li>
+            <li>
+              <strong>Job Ready Indy</strong> and other local programs
+            </li>
           </ul>
           <p className="text-sm text-slate-300">
-            Our team will help you explore all available funding options during your application.
+            Our team will help you explore all available funding options during
+            your application.
           </p>
         </div>
 
@@ -125,20 +136,31 @@ export default function MedicalAssistantPage() {
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="mb-2 text-sm font-semibold text-white">
+                Elevate For Humanity™
+              </p>
               <p className="text-xs text-slate-400">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
+              <Link href="/programs" className="hover:text-orange-300">
+                Programs
+              </Link>
+              <Link href="/partners" className="hover:text-orange-300">
+                Partners
+              </Link>
+              <Link href="/about" className="hover:text-orange-300">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-orange-300">
+                Contact
+              </Link>
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate For Humanity. All rights
+            reserved.
           </div>
         </div>
       </footer>

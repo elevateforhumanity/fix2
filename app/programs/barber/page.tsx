@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function BarberPage() {
   return (
@@ -31,7 +31,9 @@ export default function BarberPage() {
       {/* PROGRAM DETAILS */}
       <section className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-12 space-y-8">
         <div>
-          <h2 className="text-xl md:text-2xl font-bold mb-3">Program Overview</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-3">
+            Program Overview
+          </h2>
           <p className="text-sm md:text-base text-slate-200">
             This is a DOL-approved apprenticeship program. You'll work in a real
             barbershop, learning from licensed barbers while earning income and
@@ -88,11 +90,22 @@ export default function BarberPage() {
         <div className="rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/20 to-slate-900 p-6">
           <h2 className="text-xl font-bold mb-3">Apprenticeship Benefits</h2>
           <ul className="list-disc pl-5 text-sm md:text-base text-slate-200 space-y-1 mb-4">
-            <li><strong>Earn While You Learn</strong> - Get paid as you train</li>
-            <li><strong>State-Approved</strong> - DOL registered apprenticeship</li>
-            <li><strong>Real Experience</strong> - Work in actual barbershops</li>
-            <li><strong>License Track</strong> - Build hours toward state licensure</li>
-            <li><strong>Support Services</strong> - Coaching and case management</li>
+            <li>
+              <strong>Earn While You Learn</strong> - Get paid as you train
+            </li>
+            <li>
+              <strong>State-Approved</strong> - DOL registered apprenticeship
+            </li>
+            <li>
+              <strong>Real Experience</strong> - Work in actual barbershops
+            </li>
+            <li>
+              <strong>License Track</strong> - Build hours toward state
+              licensure
+            </li>
+            <li>
+              <strong>Support Services</strong> - Coaching and case management
+            </li>
           </ul>
         </div>
 
@@ -117,20 +130,31 @@ export default function BarberPage() {
         <div className="mx-auto max-w-6xl px-6 md:px-12">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
+              <p className="mb-2 text-sm font-semibold text-white">
+                Elevate For Humanity™
+              </p>
               <p className="text-xs text-slate-400">
                 Workforce training, apprenticeships, and career pathways.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
+              <Link href="/programs" className="hover:text-orange-300">
+                Programs
+              </Link>
+              <Link href="/partners" className="hover:text-orange-300">
+                Partners
+              </Link>
+              <Link href="/about" className="hover:text-orange-300">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-orange-300">
+                Contact
+              </Link>
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate For Humanity. All rights
+            reserved.
           </div>
         </div>
       </footer>

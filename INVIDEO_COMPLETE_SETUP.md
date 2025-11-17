@@ -1,6 +1,7 @@
 # 🎬 InVideo Complete Setup - One Shot Implementation
 
 ## 🎯 Goal
+
 Get professional videos for your entire site in 30 minutes using InVideo AI.
 
 ---
@@ -18,11 +19,13 @@ Get professional videos for your entire site in 30 minutes using InVideo AI.
 ### A. Homepage Hero Video (16:9 Horizontal)
 
 **Search in InVideo:**
+
 ```
 business promo cinematic website hero
 ```
 
 **Customize with:**
+
 - Headline: "Elevate For Humanity™"
 - Subheadline: "Free & Funded Workforce Training • Apprenticeships • Career Pathways"
 - Bullets:
@@ -38,9 +41,11 @@ business promo cinematic website hero
 ### B. Program Videos (16:9 Horizontal - 30-45 seconds each)
 
 #### Medical Assistant
+
 **Search:** `nursing promo video` OR `healthcare training promo`
 
 **Script to paste:**
+
 ```
 If you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate Connects Directory is designed for you.
 
@@ -58,9 +63,11 @@ Visit ElevateConnectsDirectory.org to learn more.
 ---
 
 #### Barber Apprenticeship
+
 **Search:** `barber shop promo` OR `grooming studio promo`
 
 **Script to paste:**
+
 ```
 Do you see yourself behind the chair as a professional barber? The Barber Apprenticeship program in the Elevate Connects Directory helps you get there.
 
@@ -78,9 +85,11 @@ Visit ElevateConnectsDirectory.org to start your journey.
 ---
 
 #### HVAC Technician
+
 **Search:** `trade school promo` OR `technical training promo`
 
 **Script to paste:**
+
 ```
 If you like solving problems with your hands and tools, the HVAC Technician Training pathway in the Elevate Connects Directory is a strong entry into HVAC careers.
 
@@ -102,6 +111,7 @@ Visit ElevateConnectsDirectory.org to explore this pathway.
 **Search:** `education instagram reel` OR `course launch reel`
 
 Create 3-4 short reels (15-30 seconds):
+
 - `reel-elevate-enroll-today.mp4`
 - `reel-barber-apprenticeship.mp4`
 - `reel-workforce-funding.mp4`
@@ -142,12 +152,14 @@ mkdir -p public/videos
 ### Option B: Use Video Hosting (Better for Performance)
 
 **Upload to YouTube (Unlisted):**
+
 1. Upload each video to YouTube
 2. Set as "Unlisted"
 3. Get embed URLs
 4. Use in code like: `https://www.youtube.com/embed/VIDEO_ID`
 
 **Or use Cloudflare Stream:**
+
 - Better performance
 - No YouTube branding
 - $1/1000 minutes viewed
@@ -159,6 +171,7 @@ mkdir -p public/videos
 The homepage is already set up to use these videos!
 
 Just make sure your videos are in:
+
 ```
 public/videos/hero-elevate-home.mp4
 public/videos/program-medical-assistant.mp4
@@ -206,6 +219,7 @@ public/videos/program-hvac.mp4
 ## 📞 Need Help?
 
 If videos aren't showing:
+
 1. Check file names match exactly
 2. Check files are in `public/videos/` folder
 3. Check browser console for errors
