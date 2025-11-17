@@ -1,3 +1,4 @@
+// app/programs/workforce-readiness/page.tsx
 import Link from "next/link";
 
 export default function WorkforceReadinessPage() {
@@ -126,7 +127,7 @@ export default function WorkforceReadinessPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/apply?program=workforce-readiness"
+              href="/enroll?program=workforce-readiness"
               className="rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-orange-500/40 hover:bg-orange-400 transition"
             >
               Start My Application
@@ -140,29 +141,6 @@ export default function WorkforceReadinessPage() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-black py-8 mt-12">
-        <div className="mx-auto max-w-6xl px-6 md:px-12">
-          <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-            <div>
-              <p className="mb-2 text-sm font-semibold text-white">Elevate For Humanity™</p>
-              <p className="text-xs text-slate-400">
-                Workforce training, apprenticeships, and career pathways.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-6 text-xs text-slate-400">
-              <Link href="/programs" className="hover:text-orange-300">Programs</Link>
-              <Link href="/partners" className="hover:text-orange-300">Partners</Link>
-              <Link href="/about" className="hover:text-orange-300">About</Link>
-              <Link href="/contact" className="hover:text-orange-300">Contact</Link>
-            </div>
-          </div>
-          <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-            © {new Date().getFullYear()} Elevate For Humanity. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
