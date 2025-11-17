@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, ArrowRight, TrendingUp, Users, Award, Briefcase, Star } from 'lucide-react';
+import {
+  CheckCircle,
+  ArrowRight,
+  TrendingUp,
+  Users,
+  Award,
+  Briefcase,
+  Star,
+} from 'lucide-react';
 import { Header } from '@/components/ui/Header';
 import { Footer } from '@/components/ui/Footer';
 
@@ -21,10 +29,12 @@ export default function HomePage() {
                 </h1>
 
                 <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-                  Need workforce training backed by industry-leading compliance and partners? Your best student, employer, and agency experience awaits.
+                  Need workforce training backed by industry-leading compliance
+                  and partners? Your best student, employer, and agency
+                  experience awaits.
                 </p>
 
-                <Link 
+                <Link
                   href="/apply"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-lg transition-all text-lg"
                 >
@@ -55,23 +65,33 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-12 opacity-60">
               <div className="flex flex-col items-center">
                 <Award className="w-12 h-12 text-slate-600 mb-2" />
-                <span className="text-sm font-semibold text-slate-700">U.S. DOL</span>
+                <span className="text-sm font-semibold text-slate-700">
+                  U.S. DOL
+                </span>
               </div>
               <div className="flex flex-col items-center">
                 <Award className="w-12 h-12 text-slate-600 mb-2" />
-                <span className="text-sm font-semibold text-slate-700">DWD Indiana</span>
+                <span className="text-sm font-semibold text-slate-700">
+                  DWD Indiana
+                </span>
               </div>
               <div className="flex flex-col items-center">
                 <Briefcase className="w-12 h-12 text-slate-600 mb-2" />
-                <span className="text-sm font-semibold text-slate-700">WorkOne</span>
+                <span className="text-sm font-semibold text-slate-700">
+                  WorkOne
+                </span>
               </div>
               <div className="flex flex-col items-center">
                 <Users className="w-12 h-12 text-slate-600 mb-2" />
-                <span className="text-sm font-semibold text-slate-700">EmployIndy</span>
+                <span className="text-sm font-semibold text-slate-700">
+                  EmployIndy
+                </span>
               </div>
               <div className="flex flex-col items-center">
                 <CheckCircle className="w-12 h-12 text-slate-600 mb-2" />
-                <span className="text-sm font-semibold text-slate-700">ETPL Approved</span>
+                <span className="text-sm font-semibold text-slate-700">
+                  ETPL Approved
+                </span>
               </div>
             </div>
           </div>
@@ -85,7 +105,8 @@ export default function HomePage() {
                 Make workforce training your advantage
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Equip your community with the key pillars of a future-proof workforce development experience.
+                Equip your community with the key pillars of a future-proof
+                workforce development experience.
               </p>
             </div>
 
@@ -95,9 +116,12 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <TrendingUp className="w-10 h-10 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Bridge Gaps</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Bridge Gaps
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Close skill gaps faster with DOL-registered apprenticeships and ETPL-approved programs.
+                  Close skill gaps faster with DOL-registered apprenticeships
+                  and ETPL-approved programs.
                 </p>
               </div>
 
@@ -106,9 +130,12 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Users className="w-10 h-10 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Engage Learners</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Engage Learners
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Hands-on training in real facilities with industry partners and job placement support.
+                  Hands-on training in real facilities with industry partners
+                  and job placement support.
                 </p>
               </div>
 
@@ -117,9 +144,12 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Reduce Admin</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Reduce Admin
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Automated reporting for WorkOne, EmployIndy, and DWD with seamless compliance tracking.
+                  Automated reporting for WorkOne, EmployIndy, and DWD with
+                  seamless compliance tracking.
                 </p>
               </div>
 
@@ -128,15 +158,18 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Award className="w-10 h-10 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Reliable Support</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Reliable Support
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Dedicated support for students, employers, and workforce agencies throughout the journey.
+                  Dedicated support for students, employers, and workforce
+                  agencies throughout the journey.
                 </p>
               </div>
             </div>
 
             <div className="text-center mt-12">
-              <Link 
+              <Link
                 href="/apply"
                 className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-lg transition-all text-lg"
               >
@@ -161,11 +194,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
                   <CheckCircle className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">Healthcare</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  Healthcare
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  CNA training with state certification and immediate job placement in hospitals and nursing homes.
+                  CNA training with state certification and immediate job
+                  placement in hospitals and nursing homes.
                 </p>
-                <Link href="/programs/cna" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/programs/cna"
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+                >
                   Explore Program
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -176,11 +215,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
                   <Briefcase className="w-8 h-8 text-orange-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">Skilled Trades</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  Skilled Trades
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  HVAC, Barber, and Building Maintenance programs with DOL-registered apprenticeships.
+                  HVAC, Barber, and Building Maintenance programs with
+                  DOL-registered apprenticeships.
                 </p>
-                <Link href="/programs" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
+                >
                   Explore Programs
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -191,11 +236,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
                   <TrendingUp className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">Transportation</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  Transportation
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  CDL Class A training in 4 weeks with companies offering sign-on bonuses up to $10K.
+                  CDL Class A training in 4 weeks with companies offering
+                  sign-on bonuses up to $10K.
                 </p>
-                <Link href="/programs/truck-driving" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/programs/truck-driving"
+                  className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all"
+                >
                   Explore Program
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -206,11 +257,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                   <Users className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">For Employers</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  For Employers
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Host apprentices, access OJT/WEX programs, and build your skilled talent pipeline.
+                  Host apprentices, access OJT/WEX programs, and build your
+                  skilled talent pipeline.
                 </p>
-                <Link href="/employers" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/employers"
+                  className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all"
+                >
                   Partner With Us
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -221,11 +278,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
                   <Award className="w-8 h-8 text-indigo-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">For Agencies</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  For Agencies
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  ETPL, WRG, WIOA, and JRI compliance with automated reporting for WorkOne and EmployIndy.
+                  ETPL, WRG, WIOA, and JRI compliance with automated reporting
+                  for WorkOne and EmployIndy.
                 </p>
-                <Link href="/agencies" className="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/agencies"
+                  className="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all"
+                >
                   Agency Portal
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -236,11 +299,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-cyan-100 rounded-xl flex items-center justify-center mb-6">
                   <Star className="w-8 h-8 text-cyan-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">For Students</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  For Students
+                </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Free training through WIOA, hands-on learning, and job placement assistance.
+                  Free training through WIOA, hands-on learning, and job
+                  placement assistance.
                 </p>
-                <Link href="/apply" className="inline-flex items-center gap-2 text-cyan-600 font-semibold hover:gap-3 transition-all">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 text-cyan-600 font-semibold hover:gap-3 transition-all"
+                >
                   Apply Now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -256,7 +325,8 @@ export default function HomePage() {
               Ready to start your workforce training?
             </h2>
             <p className="text-xl text-blue-100 mb-10">
-              Apply now to see if you qualify for free training through WIOA, WRG, or JRI.
+              Apply now to see if you qualify for free training through WIOA,
+              WRG, or JRI.
             </p>
             <Link
               href="/apply"
