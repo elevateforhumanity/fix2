@@ -352,12 +352,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VIDEO SECTION */}
+      {/* PROGRAM HIGHLIGHTS SECTION */}
       <section className="border-b border-slate-800 bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-12 lg:px-6 lg:py-16">
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-2">
-              See Elevate in action
+              Explore our programs
             </p>
             <h2 className="text-2xl font-semibold text-slate-50 sm:text-[1.6rem]">
               Real students, real training, real careers.
@@ -365,65 +365,65 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {/* Barber Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
+            {/* Barber Program */}
+            <Link href="/programs/barber" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
               <Image
-                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                src="/generated-images/ecd-courses/barber-apprenticeship-cover.png"
                 alt="Barber apprenticeship"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
                 <p className="text-sm font-bold">Barber Apprenticeship</p>
-                <p className="text-xs text-slate-200">2:30 min</p>
+                <p className="text-xs text-slate-200">Learn more →</p>
               </div>
-            </div>
+            </Link>
 
-            {/* Medical Assistant Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
+            {/* Medical Assistant Program */}
+            <Link href="/programs/medical-assistant" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
               <Image
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                src="/generated-images/ecd-courses/medical-assistant-cover.png"
                 alt="Medical assistant training"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
                 <p className="text-sm font-bold">Medical Assistant</p>
-                <p className="text-xs text-slate-200">3:15 min</p>
+                <p className="text-xs text-slate-200">Learn more →</p>
               </div>
-            </div>
+            </Link>
 
-            {/* HVAC Video */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer">
+            {/* HVAC Program */}
+            <Link href="/programs/hvac" className="relative rounded-2xl overflow-hidden shadow-xl h-56 sm:h-64 group cursor-pointer block">
               <Image
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                src="/generated-images/ecd-courses/hvac-technician-cover.png"
                 alt="HVAC training"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-16 h-16 bg-emerald-400/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Play className="w-6 h-6 text-slate-900 ml-1" fill="currentColor" />
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 text-white">
                 <p className="text-sm font-bold">HVAC Technician</p>
-                <p className="text-xs text-slate-200">2:45 min</p>
+                <p className="text-xs text-slate-200">Learn more →</p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
