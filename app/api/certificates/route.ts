@@ -1,41 +1,75 @@
 import { NextResponse } from 'next/server';
+import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const userId = searchParams.get('userId');
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
-  const certificates = [
-    {
-      id: 'CERT-2024-001',
-      userId,
-      courseName: 'Certified Nursing Assistant (CNA)',
-      studentName: 'John Doe',
-      completionDate: '2024-03-01',
-      issueDate: '2024-03-05',
-      status: 'issued',
-      downloadUrl: '/api/certificates/CERT-2024-001/download',
-    },
-  ];
+    const supabase = await createServerSupabaseClient();
+    
+    const { data: certificates, error } = await supabase
+      .from('certificates')
+      .select(`
+        *,
+        profiles!certificates_student_id_fkey (
+          full_name,
+          email
+        ),
+        courses (
+          title
+        )
+      `)
+      .eq('student_id', user.id)
+      .order('issued_at', { ascending: false });
 
-  return NextResponse.json({ certificates });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ certificates: certificates || [] });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
-  if (!body.userId || !body.courseId) {
-    return NextResponse.json(
-      { error: 'Missing required fields' },
-      { status: 400 }
-    );
+    const body = await request.json();
+
+    if (!body.courseId) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    const supabase = await createServerSupabaseClient();
+
+    const { data: certificate, error } = await supabase
+      .from('certificates')
+      .insert({
+        student_id: user.id,
+        course_id: body.courseId,
+        certificate_number: `CERT-${Date.now()}`,
+        issued_at: new Date().toISOString(),
+      })
+      .select()
+      .single();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json(certificate, { status: 201 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
-
-  const certificate = {
-    id: `CERT-${Date.now()}`,
-    ...body,
-    issueDate: new Date().toISOString(),
-    status: 'issued',
-  };
-
-  return NextResponse.json(certificate, { status: 201 });
 }

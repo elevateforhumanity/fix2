@@ -1,0 +1,42 @@
+// app/api/employee/me/route.ts
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+
+export async function GET() {
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user }
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Get employee record for current user
+    const { data: employee, error } = await supabase
+      .from('employees')
+      .select(
+        `
+        *,
+        profile:profiles(*),
+        department:departments(*),
+        position:positions(*)
+      `
+      )
+      .eq('profile_id', user.id)
+      .single();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 404 });
+    }
+
+    return NextResponse.json({ employee });
+  } catch (error: any) {
+    console.error('Error fetching employee:', error);
+    return NextResponse.json(
+      { error: error.message || 'Failed to fetch employee data' },
+      { status: 500 }
+    );
+  }
+}

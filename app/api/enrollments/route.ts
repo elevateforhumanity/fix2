@@ -1,52 +1,97 @@
 import { NextResponse } from 'next/server';
+import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const userId = searchParams.get('userId');
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
-  const enrollments = [
-    {
-      id: '1',
-      userId: userId || '1',
-      courseId: '1',
-      courseName: 'Certified Nursing Assistant (CNA)',
-      progress: 65,
-      status: 'in-progress',
-      enrolledAt: '2024-02-15',
-      lastAccessed: '2024-03-15',
-    },
-    {
-      id: '2',
-      userId: userId || '1',
-      courseId: '2',
-      courseName: 'HVAC Technician',
-      progress: 30,
-      status: 'in-progress',
-      enrolledAt: '2024-03-01',
-      lastAccessed: '2024-03-14',
-    },
-  ];
+    const supabase = await createServerSupabaseClient();
+    const { data: enrollments, error } = await supabase
+      .from('enrollments')
+      .select(`
+        id,
+        student_id,
+        course_id,
+        status,
+        progress_percentage,
+        enrolled_at,
+        completed_at,
+        courses (
+          id,
+          title,
+          description,
+          duration_hours
+        )
+      `)
+      .eq('student_id', user.id)
+      .order('enrolled_at', { ascending: false });
 
-  return NextResponse.json({ enrollments });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ enrollments });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
-  if (!body.userId || !body.courseId) {
-    return NextResponse.json(
-      { error: 'Missing userId or courseId' },
-      { status: 400 }
-    );
+    const body = await request.json();
+    const { courseId } = body;
+
+    if (!courseId) {
+      return NextResponse.json(
+        { error: 'Missing courseId' },
+        { status: 400 }
+      );
+    }
+
+    const supabase = await createServerSupabaseClient();
+
+    // Check if already enrolled
+    const { data: existing } = await supabase
+      .from('enrollments')
+      .select('id')
+      .eq('student_id', user.id)
+      .eq('course_id', courseId)
+      .single();
+
+    if (existing) {
+      return NextResponse.json(
+        { error: 'Already enrolled in this course' },
+        { status: 400 }
+      );
+    }
+
+    // Create enrollment
+    const { data: enrollment, error } = await supabase
+      .from('enrollments')
+      .insert({
+        student_id: user.id,
+        course_id: courseId,
+        status: 'active',
+        progress_percentage: 0,
+        enrolled_at: new Date().toISOString(),
+      })
+      .select()
+      .single();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json(enrollment, { status: 201 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
-
-  const enrollment = {
-    id: Date.now().toString(),
-    ...body,
-    progress: 0,
-    status: 'enrolled',
-    enrolledAt: new Date().toISOString(),
-  };
-
-  return NextResponse.json(enrollment, { status: 201 });
 }

@@ -1,228 +1,239 @@
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { Progress } from '@/components/ui/Progress';
-import { Award, TrendingUp, TrendingDown } from 'lucide-react';
+import { Award, CheckCircle, XCircle, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { getCurrentUser, requireStudent } from '@/lib/auth';
+import { createServerSupabaseClient } from '@/lib/auth';
 
-export default function StudentGradesPage() {
-  const courses = [
-    {
-      id: 1,
-      name: 'HVAC Fundamentals',
-      grade: 92,
-      credits: 3,
-      status: 'completed',
-      assignments: [
-        { name: 'Quiz 1', grade: 95, weight: 10 },
-        { name: 'Quiz 2', grade: 88, weight: 10 },
-        { name: 'Midterm', grade: 92, weight: 30 },
-        { name: 'Final Project', grade: 90, weight: 50 },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Electrical Systems',
-      grade: 88,
-      credits: 4,
-      status: 'in-progress',
-      assignments: [
-        { name: 'Lab 1', grade: 90, weight: 20 },
-        { name: 'Lab 2', grade: 85, weight: 20 },
-        { name: 'Midterm', grade: 88, weight: 30 },
-        { name: 'Final', grade: null, weight: 30 },
-      ],
-    },
-    {
-      id: 3,
-      name: 'HVAC Systems II',
-      grade: 85,
-      credits: 4,
-      status: 'in-progress',
-      assignments: [
-        { name: 'Quiz 1', grade: 82, weight: 15 },
-        { name: 'Quiz 2', grade: 88, weight: 15 },
-        { name: 'Project', grade: null, weight: 70 },
-      ],
-    },
-    {
-      id: 4,
-      name: 'Workplace Safety',
-      grade: 95,
-      credits: 2,
-      status: 'in-progress',
-      assignments: [
-        { name: 'Safety Quiz', grade: 95, weight: 40 },
-        { name: 'Essay', grade: 95, weight: 60 },
-      ],
-    },
-  ];
+export default async function StudentGradesPage() {
+  await requireStudent();
+  const user = await getCurrentUser();
+  const supabase = await createServerSupabaseClient();
 
-  const calculateGPA = () => {
-    const completed = courses.filter(c => c.status === 'completed');
-    if (completed.length === 0) return 0;
-    
-    const totalPoints = completed.reduce((sum, c) => {
-      const gradePoint = c.grade >= 90 ? 4.0 : c.grade >= 80 ? 3.0 : c.grade >= 70 ? 2.0 : c.grade >= 60 ? 1.0 : 0;
-      return sum + (gradePoint * c.credits);
-    }, 0);
-    
-    const totalCredits = completed.reduce((sum, c) => sum + c.credits, 0);
-    return (totalPoints / totalCredits).toFixed(2);
-  };
+  // Fetch all grades for the student
+  const { data: grades } = await supabase
+    .from('grades')
+    .select(
+      `
+      id,
+      score,
+      max_score,
+      passed,
+      graded_at,
+      feedback,
+      courses!inner (
+        id,
+        title
+      ),
+      quizzes (
+        id,
+        title
+      ),
+      assignments (
+        id,
+        title
+      )
+    `
+    )
+    .eq('student_id', user.id)
+    .order('graded_at', { ascending: false });
 
-  const getGradeColor = (grade: number) => {
-    if (grade >= 90) return 'text-green-600';
-    if (grade >= 80) return 'text-red-600';
-    if (grade >= 70) return 'text-yellow-600';
-    return 'text-red-600';
-  };
+  // Calculate overall stats
+  const totalGrades = grades?.length || 0;
+  const passedGrades = grades?.filter((g) => g.passed).length || 0;
+  const averageScore =
+    totalGrades > 0
+      ? Math.round(
+          grades!.reduce((sum, g) => sum + (g.score / g.max_score) * 100, 0) /
+            totalGrades
+        )
+      : 0;
 
-  const getLetterGrade = (grade: number) => {
-    if (grade >= 90) return 'A';
-    if (grade >= 80) return 'B';
-    if (grade >= 70) return 'C';
-    if (grade >= 60) return 'D';
-    return 'F';
-  };
+  // Group grades by course
+  const gradesByCourse = grades?.reduce((acc: any, grade) => {
+    const course = Array.isArray(grade.courses)
+      ? grade.courses[0]
+      : grade.courses;
+    const courseId = course?.id;
+    if (!courseId) return acc;
+
+    if (!acc[courseId]) {
+      acc[courseId] = {
+        course,
+        grades: []
+      };
+    }
+    acc[courseId].grades.push(grade);
+    return acc;
+  }, {});
 
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h1 className="text-3xl font-bold text-slate-900">Grades</h1>
+          <h1 className="text-3xl font-bold text-slate-900">My Grades</h1>
           <p className="text-slate-600 mt-1">Track your academic performance</p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* GPA Overview */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
+        {/* Overall Stats */}
+        <div className="grid gap-6 md:grid-cols-3 mb-8">
           <Card>
             <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Current GPA</div>
-                  <div className="text-3xl font-bold text-green-600 mt-1">{calculateGPA()}</div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-100 rounded-lg">
+                  <Award className="h-6 w-6 text-blue-600" />
                 </div>
-                <Award className="h-8 w-8 text-green-600" />
+                <div>
+                  <p className="text-sm text-gray-600">Average Score</p>
+                  <p className="text-2xl font-bold text-gray-900">{averageScore}%</p>
+                </div>
               </div>
             </CardContent>
           </Card>
+
           <Card>
             <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Credits Earned</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {courses.filter(c => c.status === 'completed').reduce((sum, c) => sum + c.credits, 0)}
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-green-100 rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-green-600" />
                 </div>
-                <TrendingUp className="h-8 w-8 text-red-600" />
+                <div>
+                  <p className="text-sm text-gray-600">Passed</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {passedGrades}/{totalGrades}
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
+
           <Card>
             <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Courses Completed</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {courses.filter(c => c.status === 'completed').length}
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <Clock className="h-6 w-6 text-purple-600" />
                 </div>
-                <Award className="h-8 w-8 text-purple-600" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-slate-600">Average Grade</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">
-                    {Math.round(courses.reduce((sum, c) => sum + c.grade, 0) / courses.length)}%
-                  </div>
+                  <p className="text-sm text-gray-600">Total Assessments</p>
+                  <p className="text-2xl font-bold text-gray-900">{totalGrades}</p>
                 </div>
-                <TrendingUp className="h-8 w-8 text-green-600" />
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Course Grades */}
-        <div className="space-y-6">
-          {courses.map((course) => (
-            <Card key={course.id}>
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle>{course.name}</CardTitle>
-                  <div className="flex items-center gap-4">
-                    <Badge variant={course.status === 'completed' ? 'success' : 'primary'}>
-                      {course.status === 'completed' ? 'Completed' : 'In Progress'}
-                    </Badge>
-                    <div className="text-right">
-                      <div className={`text-3xl font-bold ${getGradeColor(course.grade)}`}>
-                        {course.grade}%
-                      </div>
-                      <div className="text-sm text-slate-600">
-                        Grade: {getLetterGrade(course.grade)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-slate-600">Overall Progress</span>
-                      <span className="text-sm font-semibold text-slate-900">{course.grade}%</span>
-                    </div>
-                    <Progress value={course.grade} />
-                  </div>
+        {/* Grades by Course */}
+        {gradesByCourse && Object.keys(gradesByCourse).length > 0 ? (
+          <div className="space-y-6">
+            {Object.values(gradesByCourse).map((courseData: any) => {
+              const courseGrades = courseData.grades;
+              const courseAverage =
+                courseGrades.length > 0
+                  ? Math.round(
+                      courseGrades.reduce(
+                        (sum: number, g: any) =>
+                          sum + (g.score / g.max_score) * 100,
+                        0
+                      ) / courseGrades.length
+                    )
+                  : 0;
 
-                  <div className="border-t border-slate-200 pt-4">
-                    <h4 className="font-semibold text-slate-900 mb-3">Assignment Breakdown</h4>
+              return (
+                <Card key={courseData.course.id}>
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <CardTitle>{courseData.course.title}</CardTitle>
+                      <div className="text-right">
+                        <p className="text-sm text-gray-600">Course Average</p>
+                        <p className="text-2xl font-bold text-gray-900">
+                          {courseAverage}%
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
                     <div className="space-y-3">
-                      {course.assignments.map((assignment, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                          <div className="flex-1">
-                            <div className="font-medium text-slate-900">{assignment.name}</div>
-                            <div className="text-sm text-slate-600">Weight: {assignment.weight}%</div>
-                          </div>
-                          <div className="text-right">
-                            {assignment.grade !== null ? (
-                              <>
-                                <div className={`text-xl font-bold ${getGradeColor(assignment.grade)}`}>
-                                  {assignment.grade}%
-                                </div>
-                                <div className="text-sm text-slate-600">
-                                  {getLetterGrade(assignment.grade)}
-                                </div>
-                              </>
-                            ) : (
-                              <Badge variant="warning">Pending</Badge>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                      {courseGrades.map((grade: any) => {
+                        const quiz = Array.isArray(grade.quizzes)
+                          ? grade.quizzes[0]
+                          : grade.quizzes;
+                        const assignment = Array.isArray(grade.assignments)
+                          ? grade.assignments[0]
+                          : grade.assignments;
+                        const assessmentTitle =
+                          quiz?.title || assignment?.title || 'Assessment';
+                        const percentage = Math.round(
+                          (grade.score / grade.max_score) * 100
+                        );
 
-                  <div className="border-t border-slate-200 pt-4 flex justify-between items-center">
-                    <div className="text-sm text-slate-600">
-                      Credits: {course.credits}
+                        return (
+                          <div
+                            key={grade.id}
+                            className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                          >
+                            <div className="flex items-center gap-3">
+                              {grade.passed ? (
+                                <CheckCircle className="h-5 w-5 text-green-600" />
+                              ) : (
+                                <XCircle className="h-5 w-5 text-red-600" />
+                              )}
+                              <div>
+                                <p className="font-medium text-gray-900">
+                                  {assessmentTitle}
+                                </p>
+                                <p className="text-sm text-gray-600">
+                                  {new Date(grade.graded_at).toLocaleDateString(
+                                    'en-US',
+                                    {
+                                      month: 'short',
+                                      day: 'numeric',
+                                      year: 'numeric'
+                                    }
+                                  )}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-gray-900">
+                                {grade.score}/{grade.max_score}
+                              </p>
+                              <p
+                                className={`text-sm font-medium ${
+                                  grade.passed
+                                    ? 'text-green-600'
+                                    : 'text-red-600'
+                                }`}
+                              >
+                                {percentage}%
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                    <div className="text-sm text-slate-600">
-                      {course.assignments.filter(a => a.grade !== null).length} of {course.assignments.length} assignments graded
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        ) : (
+          <Card>
+            <CardContent className="p-12 text-center">
+              <Award className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+              <h2 className="text-2xl font-bold mb-2">No Grades Yet</h2>
+              <p className="text-gray-600 mb-6">
+                Complete quizzes and assignments to see your grades here.
+              </p>
+              <Link
+                href="/lms/courses"
+                className="inline-block px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+              >
+                View My Courses
+              </Link>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
