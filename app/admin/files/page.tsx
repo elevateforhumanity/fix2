@@ -2,7 +2,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Upload, File, Trash2, Download, FolderOpen, Users } from 'lucide-react';
+import {
+  Upload,
+  File,
+  Trash2,
+  Download,
+  FolderOpen,
+  Users,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type FileItem = {
@@ -53,7 +60,7 @@ export default function AdminFilesPage() {
 
       const res = await fetch('/api/files', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
 
       if (!res.ok) {
@@ -73,7 +80,7 @@ export default function AdminFilesPage() {
 
     try {
       const res = await fetch(`/api/files?id=${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
       });
 
       if (!res.ok) {
@@ -126,7 +133,9 @@ export default function AdminFilesPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Files</p>
-                <p className="text-2xl font-bold text-gray-900">{files.length}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {files.length}
+                </p>
               </div>
             </div>
           </div>
@@ -220,22 +229,29 @@ export default function AdminFilesPage() {
                 </thead>
                 <tbody>
                   {files.map((file) => (
-                    <tr key={file.id} className="border-b border-gray-100 hover:bg-gray-50">
+                    <tr
+                      key={file.id}
+                      className="border-b border-gray-100 hover:bg-gray-50"
+                    >
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-3">
                           <File className="h-5 w-5 text-gray-400" />
-                          <span className="font-medium text-gray-900">{file.name}</span>
+                          <span className="font-medium text-gray-900">
+                            {file.name}
+                          </span>
                         </div>
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {formatFileSize(file.size)}
                       </td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{file.type}</td>
+                      <td className="py-3 px-4 text-sm text-gray-600">
+                        {file.type}
+                      </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {new Date(file.created_at).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
-                          year: 'numeric'
+                          year: 'numeric',
                         })}
                       </td>
                       <td className="py-3 px-4">
@@ -267,7 +283,9 @@ export default function AdminFilesPage() {
             <div className="text-center py-12">
               <FolderOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">No Files Yet</h3>
-              <p className="text-gray-600">Upload your first file to get started</p>
+              <p className="text-gray-600">
+                Upload your first file to get started
+              </p>
             </div>
           )}
         </div>

@@ -6,7 +6,7 @@ import path from 'path';
 export async function POST(request: Request) {
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     // Read all migration files
     const migrationsDir = path.join(process.cwd(), 'supabase', 'migrations');
     const migrationFiles = [
@@ -23,15 +23,15 @@ export async function POST(request: Request) {
     ];
 
     const results = [];
-    
+
     for (const file of migrationFiles) {
       const filePath = path.join(migrationsDir, file);
       if (fs.existsSync(filePath)) {
         const sql = fs.readFileSync(filePath, 'utf8');
-        
+
         try {
           const { error } = await supabase.rpc('exec_sql', { sql_query: sql });
-          
+
           if (error) {
             results.push({ file, status: 'error', error: error.message });
           } else {

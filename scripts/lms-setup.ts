@@ -19,12 +19,14 @@ const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!url || !serviceKey) {
-  console.error('❌ Missing Supabase env vars. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.');
+  console.error(
+    '❌ Missing Supabase env vars. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.'
+  );
   process.exit(1);
 }
 
 const supabase = createClient(url, serviceKey, {
-  auth: { persistSession: false }
+  auth: { persistSession: false },
 });
 
 async function ensureRoles() {
@@ -34,7 +36,10 @@ async function ensureRoles() {
   for (const role of roles) {
     const { error } = await supabase
       .from('lms_roles')
-      .upsert({ code: role, name: role.replace('_', ' ').toUpperCase() }, { onConflict: 'code' });
+      .upsert(
+        { code: role, name: role.replace('_', ' ').toUpperCase() },
+        { onConflict: 'code' }
+      );
 
     if (error && error.code !== '42P01') {
       // 42P01 = table does not exist – silently skip if your schema names are different
@@ -53,7 +58,7 @@ async function ensurePrograms() {
       description:
         'Hands-on HVAC Technician training aligned with Indiana workforce boards, WIOA, and employer partners.',
       category: 'Skilled Trades',
-      delivery_mode: 'hybrid'
+      delivery_mode: 'hybrid',
     },
     {
       code: 'barber',
@@ -61,7 +66,7 @@ async function ensurePrograms() {
       description:
         'State-recognized Barber Apprenticeship program with on-the-job training directly inside partner barbershops.',
       category: 'Barber & Beauty',
-      delivery_mode: 'hybrid'
+      delivery_mode: 'hybrid',
     },
     {
       code: 'med-assistant',
@@ -69,27 +74,28 @@ async function ensurePrograms() {
       description:
         'Medical Assistant training in partnership with approved credentialing institutions, wrapped in WIOA-compliant supports.',
       category: 'Healthcare',
-      delivery_mode: 'hybrid'
-    }
+      delivery_mode: 'hybrid',
+    },
   ];
 
   for (const program of programs) {
-    const { error } = await supabase
-      .from('programs')
-      .upsert(
-        {
-          code: program.code,
-          name: program.name,
-          description: program.description,
-          category: program.category,
-          delivery_mode: program.delivery_mode,
-          is_active: true
-        },
-        { onConflict: 'code' }
-      );
+    const { error } = await supabase.from('programs').upsert(
+      {
+        code: program.code,
+        name: program.name,
+        description: program.description,
+        category: program.category,
+        delivery_mode: program.delivery_mode,
+        is_active: true,
+      },
+      { onConflict: 'code' }
+    );
 
     if (error && error.code !== '42P01') {
-      console.warn(`   ⚠️ Could not upsert program "${program.code}":`, error.message);
+      console.warn(
+        `   ⚠️ Could not upsert program "${program.code}":`,
+        error.message
+      );
     }
   }
 }
@@ -107,9 +113,14 @@ async function flagDemoCourses() {
 
     if (error && error.code !== '42703') {
       // 42703 = column does not exist
-      console.warn(`   ⚠️ Could not update demo flag for keyword "${keyword}":`, error.message);
+      console.warn(
+        `   ⚠️ Could not update demo flag for keyword "${keyword}":`,
+        error.message
+      );
     } else if (!error && data && data.length > 0) {
-      console.log(`   ✅ Marked ${data.length} course(s) as demo for keyword "${keyword}".`);
+      console.log(
+        `   ✅ Marked ${data.length} course(s) as demo for keyword "${keyword}".`
+      );
     }
   }
 }
@@ -121,7 +132,9 @@ async function main() {
   await ensurePrograms();
   await flagDemoCourses();
 
-  console.log('✅ LMS setup complete. You can now run pnpm dev or pnpm lms:build.');
+  console.log(
+    '✅ LMS setup complete. You can now run pnpm dev or pnpm lms:build.'
+  );
 }
 
 main().catch((err) => {

@@ -16,7 +16,12 @@ type ModuleInput = {
   lessons: LessonInput[];
 };
 
-const LESSON_TYPES: LessonInput['type'][] = ['video', 'reading', 'quiz', 'assignment'];
+const LESSON_TYPES: LessonInput['type'][] = [
+  'video',
+  'reading',
+  'quiz',
+  'assignment',
+];
 
 function createId() {
   return Math.random().toString(36).slice(2);
@@ -24,12 +29,22 @@ function createId() {
 
 export default function CourseBuilderPage() {
   const router = useRouter();
-  const [programCode, setProgramCode] = useState<'hvac' | 'barber' | 'med-assistant' | ''>('');
+  const [programCode, setProgramCode] = useState<
+    'hvac' | 'barber' | 'med-assistant' | ''
+  >('');
   const [title, setTitle] = useState('');
-  const [level, setLevel] = useState<'intro' | 'standard' | 'advanced'>('standard');
-  const [deliveryMode, setDeliveryMode] = useState<'online' | 'hybrid' | 'in_person'>('hybrid');
+  const [level, setLevel] = useState<'intro' | 'standard' | 'advanced'>(
+    'standard'
+  );
+  const [deliveryMode, setDeliveryMode] = useState<
+    'online' | 'hybrid' | 'in_person'
+  >('hybrid');
   const [modules, setModules] = useState<ModuleInput[]>([
-    { id: createId(), title: 'Module 1 – Orientation & Expectations', lessons: [] }
+    {
+      id: createId(),
+      title: 'Module 1 – Orientation & Expectations',
+      lessons: [],
+    },
   ]);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,10 +53,10 @@ export default function CourseBuilderPage() {
     programCode === 'hvac'
       ? 'HVAC Technician'
       : programCode === 'barber'
-      ? 'Barber Apprenticeship'
-      : programCode === 'med-assistant'
-      ? 'Medical Assistant'
-      : 'Select program';
+        ? 'Barber Apprenticeship'
+        : programCode === 'med-assistant'
+          ? 'Medical Assistant'
+          : 'Select program';
 
   function addModule() {
     setModules((prev) => [
@@ -49,13 +64,15 @@ export default function CourseBuilderPage() {
       {
         id: createId(),
         title: `Module ${prev.length + 1}`,
-        lessons: []
-      }
+        lessons: [],
+      },
     ]);
   }
 
   function updateModuleTitle(id: string, value: string) {
-    setModules((prev) => prev.map((m) => (m.id === id ? { ...m, title: value } : m)));
+    setModules((prev) =>
+      prev.map((m) => (m.id === id ? { ...m, title: value } : m))
+    );
   }
 
   function addLesson(moduleId: string) {
@@ -69,9 +86,9 @@ export default function CourseBuilderPage() {
                 {
                   id: createId(),
                   title: `Lesson ${m.lessons.length + 1}`,
-                  type: 'video'
-                }
-              ]
+                  type: 'video',
+                },
+              ],
             }
           : m
       )
@@ -92,10 +109,10 @@ export default function CourseBuilderPage() {
                 l.id === lessonId
                   ? {
                       ...l,
-                      ...patch
+                      ...patch,
                     }
                   : l
-              )
+              ),
             }
           : m
       )
@@ -130,8 +147,8 @@ export default function CourseBuilderPage() {
           title,
           level,
           delivery_mode: deliveryMode,
-          modules
-        })
+          modules,
+        }),
       });
 
       if (!res.ok) {
@@ -160,9 +177,10 @@ export default function CourseBuilderPage() {
               Build a course once, reuse it everywhere
             </h1>
             <p className="mt-2 text-xs text-slate-300 md:text-sm">
-              This builder is for Elevate staff and program holders. Create a course one time and
-              reuse it across funding streams — WRG, WIOA, JRI, employer-sponsored, and private
-              pay — without rewriting the syllabus.
+              This builder is for Elevate staff and program holders. Create a
+              course one time and reuse it across funding streams — WRG, WIOA,
+              JRI, employer-sponsored, and private pay — without rewriting the
+              syllabus.
             </p>
           </div>
           <button
@@ -187,7 +205,8 @@ export default function CourseBuilderPage() {
               />
             </label>
             <p className="mt-1 text-[11px] text-slate-400">
-              Use language a student can understand. Avoid internal codes at the front of the title.
+              Use language a student can understand. Avoid internal codes at the
+              front of the title.
             </p>
           </div>
 
@@ -230,7 +249,9 @@ export default function CourseBuilderPage() {
                   }`}
                 >
                   <p className="font-semibold">Medical Assistant</p>
-                  <p className="text-[10px] text-slate-400">Clinical & admin pathway</p>
+                  <p className="text-[10px] text-slate-400">
+                    Clinical & admin pathway
+                  </p>
                 </button>
               </div>
             </div>
@@ -253,18 +274,22 @@ export default function CourseBuilderPage() {
                 <select
                   className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs outline-none focus:border-sky-400"
                   value={deliveryMode}
-                  onChange={(e) => setDeliveryMode(e.target.value as typeof deliveryMode)}
+                  onChange={(e) =>
+                    setDeliveryMode(e.target.value as typeof deliveryMode)
+                  }
                 >
                   <option value="online">Online only</option>
                   <option value="hybrid">Hybrid (online + hands-on)</option>
-                  <option value="in_person">In person (classroom / shop)</option>
+                  <option value="in_person">
+                    In person (classroom / shop)
+                  </option>
                 </select>
               </div>
             </div>
 
             <p className="text-[11px] text-slate-400">
-              Program + level + delivery mode are used to build your ETPL, WIOA, and WRG reporting
-              and to keep all program holders consistent.
+              Program + level + delivery mode are used to build your ETPL, WIOA,
+              and WRG reporting and to keep all program holders consistent.
             </p>
           </div>
         </section>
@@ -295,7 +320,9 @@ export default function CourseBuilderPage() {
                     <input
                       className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs outline-none focus:border-sky-400"
                       value={module.title}
-                      onChange={(e) => updateModuleTitle(module.id, e.target.value)}
+                      onChange={(e) =>
+                        updateModuleTitle(module.id, e.target.value)
+                      }
                     />
                     <p className="mt-1 text-[10px] text-slate-500">
                       Example: "Safety, professionalism, and expectations"
@@ -317,7 +344,7 @@ export default function CourseBuilderPage() {
                         value={lesson.type}
                         onChange={(e) =>
                           updateLesson(module.id, lesson.id, {
-                            type: e.target.value as LessonInput['type']
+                            type: e.target.value as LessonInput['type'],
                           })
                         }
                       >
@@ -326,10 +353,10 @@ export default function CourseBuilderPage() {
                             {t === 'video'
                               ? 'Video'
                               : t === 'reading'
-                              ? 'Reading'
-                              : t === 'quiz'
-                              ? 'Quiz'
-                              : 'Assignment'}
+                                ? 'Reading'
+                                : t === 'quiz'
+                                  ? 'Quiz'
+                                  : 'Assignment'}
                           </option>
                         ))}
                       </select>
@@ -338,7 +365,9 @@ export default function CourseBuilderPage() {
                         placeholder="Lesson title"
                         value={lesson.title}
                         onChange={(e) =>
-                          updateLesson(module.id, lesson.id, { title: e.target.value })
+                          updateLesson(module.id, lesson.id, {
+                            title: e.target.value,
+                          })
                         }
                       />
                     </div>

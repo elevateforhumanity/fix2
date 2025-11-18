@@ -1,6 +1,13 @@
 // app/docs/page.tsx
 import Link from 'next/link';
-import { BookOpen, Users, GraduationCap, Building2, FileText, Video } from 'lucide-react';
+import {
+  BookOpen,
+  Users,
+  GraduationCap,
+  Building2,
+  FileText,
+  Video,
+} from 'lucide-react';
 
 export default function DocsPage() {
   return (
@@ -12,7 +19,10 @@ export default function DocsPage() {
           <span>Elevate for Humanity</span>
         </div>
         <nav className="flex gap-6">
-          <Link href="/" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Home
           </Link>
           <Link href="/docs" className="text-red-600 font-semibold">
@@ -35,7 +45,9 @@ export default function DocsPage() {
       <main className="elevate-container py-12">
         {/* Quick Start */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Start Guides</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Quick Start Guides
+          </h2>
           <div className="grid gap-6 md:grid-cols-3">
             <Link
               href="/docs/students"
@@ -53,7 +65,9 @@ export default function DocsPage() {
               className="elevate-card hover:border-red-300 transition"
             >
               <Building2 className="h-8 w-8 text-orange-600 mb-3" />
-              <h3 className="font-bold text-gray-900 mb-2">For Program Holders</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                For Program Holders
+              </h3>
               <p className="text-sm text-gray-600">
                 Manage programs, track learners, and report outcomes
               </p>
@@ -64,7 +78,9 @@ export default function DocsPage() {
               className="elevate-card hover:border-red-300 transition"
             >
               <Users className="h-8 w-8 text-blue-600 mb-3" />
-              <h3 className="font-bold text-gray-900 mb-2">For Administrators</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                For Administrators
+              </h3>
               <p className="text-sm text-gray-600">
                 Configure the system, manage users, and generate reports
               </p>
@@ -74,7 +90,9 @@ export default function DocsPage() {
 
         {/* Features */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Feature Documentation</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Feature Documentation
+          </h2>
           <div className="space-y-4">
             <Link
               href="/docs/lms"
@@ -82,7 +100,9 @@ export default function DocsPage() {
             >
               <Video className="h-6 w-6 text-red-600" />
               <div>
-                <h3 className="font-bold text-gray-900">Learning Management System</h3>
+                <h3 className="font-bold text-gray-900">
+                  Learning Management System
+                </h3>
                 <p className="text-sm text-gray-600">
                   Courses, lessons, quizzes, and progress tracking
                 </p>
@@ -108,7 +128,9 @@ export default function DocsPage() {
             >
               <FileText className="h-6 w-6 text-blue-600" />
               <div>
-                <h3 className="font-bold text-gray-900">Reporting & Analytics</h3>
+                <h3 className="font-bold text-gray-900">
+                  Reporting & Analytics
+                </h3>
                 <p className="text-sm text-gray-600">
                   Generate reports for WIOA, WRG, and other funding sources
                 </p>
@@ -119,7 +141,9 @@ export default function DocsPage() {
 
         {/* API Documentation */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Developer Resources</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Developer Resources
+          </h2>
           <div className="elevate-card">
             <h3 className="font-bold text-gray-900 mb-2">API Documentation</h3>
             <p className="text-gray-600 mb-4">

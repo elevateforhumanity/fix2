@@ -9,7 +9,7 @@ import {
   Calendar,
   FileText,
   Clock,
-  Briefcase
+  Briefcase,
 } from 'lucide-react';
 
 type EmployeeData = {
@@ -114,7 +114,9 @@ export default function EmployeePortalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Employee Portal</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Employee Portal
+              </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Welcome back, {employee.profile?.full_name}
               </p>
@@ -152,7 +154,9 @@ export default function EmployeePortalPage() {
               <div className="grid gap-4 md:grid-cols-3">
                 <div>
                   <p className="text-sm text-gray-600">Employee ID</p>
-                  <p className="font-medium text-gray-900">{employee.employee_number}</p>
+                  <p className="font-medium text-gray-900">
+                    {employee.employee_number}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Department</p>
@@ -178,7 +182,7 @@ export default function EmployeePortalPage() {
                     {new Date(employee.hire_date).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
-                      year: 'numeric'
+                      year: 'numeric',
                     })}
                   </p>
                 </div>
@@ -249,16 +253,22 @@ export default function EmployeePortalPage() {
               <div>
                 <p className="text-sm text-gray-600">Pay Period</p>
                 <p className="font-medium text-gray-900">
-                  {new Date(recentPayroll.pay_period_start).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric'
-                  })}{' '}
+                  {new Date(recentPayroll.pay_period_start).toLocaleDateString(
+                    'en-US',
+                    {
+                      month: 'short',
+                      day: 'numeric',
+                    }
+                  )}{' '}
                   -{' '}
-                  {new Date(recentPayroll.pay_period_end).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })}
+                  {new Date(recentPayroll.pay_period_end).toLocaleDateString(
+                    'en-US',
+                    {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    }
+                  )}
                 </p>
               </div>
               <div className="text-right">

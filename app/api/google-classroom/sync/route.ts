@@ -3,18 +3,23 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     // Import Google Classroom sync module
-    const { syncAllCourses } = await import('@/google-classroom-autopilot/src/lms-sync');
-    
+    const { syncAllCourses } = await import(
+      '@/google-classroom-autopilot/src/lms-sync'
+    );
+
     const result = await syncAllCourses();
-    
-    return NextResponse.json({ 
+
+    return NextResponse.json({
       success: true,
-      synced: result 
+      synced: result,
     });
   } catch (error: any) {
-    return NextResponse.json({ 
-      error: error.message 
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: error.message,
+      },
+      { status: 500 }
+    );
   }
 }
 
@@ -30,6 +35,6 @@ export async function GET() {
       'alerts',
       'email-webhooks',
       'identity-import',
-    ]
+    ],
   });
 }

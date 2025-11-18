@@ -70,7 +70,8 @@ export default function EnrollmentApplicationPage() {
           <CardHeader>
             <CardTitle className="text-3xl">Apply for Free Training</CardTitle>
             <p className="text-gray-600 mt-2">
-              Complete this form to start your enrollment. All programs are 100% funded.
+              Complete this form to start your enrollment. All programs are 100%
+              funded.
             </p>
           </CardHeader>
           <CardContent>
@@ -85,7 +86,9 @@ export default function EnrollmentApplicationPage() {
                     type="text"
                     required
                     value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, firstName: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -97,7 +100,9 @@ export default function EnrollmentApplicationPage() {
                     type="text"
                     required
                     value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lastName: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -111,7 +116,9 @@ export default function EnrollmentApplicationPage() {
                   type="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
@@ -124,7 +131,9 @@ export default function EnrollmentApplicationPage() {
                   type="tel"
                   required
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="(317) 555-0100"
                 />
@@ -137,7 +146,9 @@ export default function EnrollmentApplicationPage() {
                 <select
                   required
                   value={formData.program}
-                  onChange={(e) => setFormData({ ...formData, program: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, program: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Choose a program...</option>
@@ -156,12 +167,18 @@ export default function EnrollmentApplicationPage() {
                 <select
                   required
                   value={formData.fundingSource}
-                  onChange={(e) => setFormData({ ...formData, fundingSource: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fundingSource: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="WIOA">WIOA (Workforce Innovation & Opportunity Act)</option>
+                  <option value="WIOA">
+                    WIOA (Workforce Innovation & Opportunity Act)
+                  </option>
                   <option value="WRG">WRG (Workforce Ready Grant)</option>
-                  <option value="JRI">JRI (Justice Reinvestment Initiative)</option>
+                  <option value="JRI">
+                    JRI (Justice Reinvestment Initiative)
+                  </option>
                   <option value="Other">Other / Not Sure</option>
                 </select>
               </div>

@@ -61,7 +61,8 @@ export default function CreateCoursePage() {
           <CardHeader>
             <CardTitle className="text-3xl">Create New Course</CardTitle>
             <p className="text-gray-600 mt-2">
-              Add a new course to your LMS. You can add modules and lessons after creating the course.
+              Add a new course to your LMS. You can add modules and lessons
+              after creating the course.
             </p>
           </CardHeader>
           <CardContent>
@@ -74,7 +75,9 @@ export default function CreateCoursePage() {
                   type="text"
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="e.g., Medical Assistant Certification"
                 />
@@ -87,7 +90,9 @@ export default function CreateCoursePage() {
                 <input
                   type="text"
                   value={formData.subtitle}
-                  onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subtitle: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="e.g., Hands-on clinical training"
                 />
@@ -101,7 +106,9 @@ export default function CreateCoursePage() {
                   required
                   rows={4}
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Describe what students will learn..."
                 />
@@ -115,7 +122,9 @@ export default function CreateCoursePage() {
                   <select
                     required
                     value={formData.level}
-                    onChange={(e) => setFormData({ ...formData, level: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, level: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="Beginner">Beginner</option>
@@ -134,7 +143,12 @@ export default function CreateCoursePage() {
                     required
                     min="1"
                     value={formData.duration_hours}
-                    onChange={(e) => setFormData({ ...formData, duration_hours: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        duration_hours: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="e.g., 160"
                   />
@@ -149,7 +163,9 @@ export default function CreateCoursePage() {
                   <select
                     required
                     value={formData.status}
-                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, status: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="draft">Draft</option>
@@ -163,7 +179,12 @@ export default function CreateCoursePage() {
                   </label>
                   <select
                     value={formData.is_free ? 'free' : 'paid'}
-                    onChange={(e) => setFormData({ ...formData, is_free: e.target.value === 'free' })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        is_free: e.target.value === 'free',
+                      })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="free">Free</option>

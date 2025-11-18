@@ -11,7 +11,11 @@ interface EnrollButtonProps {
   isEnrolled: boolean;
 }
 
-export default function EnrollButton({ courseId, courseSlug, isEnrolled }: EnrollButtonProps) {
+export default function EnrollButton({
+  courseId,
+  courseSlug,
+  isEnrolled,
+}: EnrollButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -47,20 +51,14 @@ export default function EnrollButton({ courseId, courseSlug, isEnrolled }: Enrol
   if (isEnrolled) {
     return (
       <Button className="w-full" asChild>
-        <a href={`/lms/courses/${courseId}`}>
-          Continue Learning
-        </a>
+        <a href={`/lms/courses/${courseId}`}>Continue Learning</a>
       </Button>
     );
   }
 
   return (
     <div className="space-y-2">
-      <Button 
-        className="w-full" 
-        onClick={handleEnroll}
-        disabled={loading}
-      >
+      <Button className="w-full" onClick={handleEnroll} disabled={loading}>
         {loading ? (
           <>
             <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -70,9 +68,7 @@ export default function EnrollButton({ courseId, courseSlug, isEnrolled }: Enrol
           'Enroll Now'
         )}
       </Button>
-      {error && (
-        <p className="text-xs text-red-600 text-center">{error}</p>
-      )}
+      {error && <p className="text-xs text-red-600 text-center">{error}</p>}
       <Button variant="outline" className="w-full" asChild>
         <a href={`/lms/courses/${courseId}`}>View Details</a>
       </Button>

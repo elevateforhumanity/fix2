@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const supabase = await createClient();
     const {
-      data: { user }
+      data: { user },
     } = await supabase.auth.getUser();
 
     if (!user) {
@@ -21,7 +21,10 @@ export async function GET() {
       .single();
 
     if (!employee) {
-      return NextResponse.json({ error: 'Employee not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Employee not found' },
+        { status: 404 }
+      );
     }
 
     // Get payroll records

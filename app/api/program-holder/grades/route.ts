@@ -69,10 +69,8 @@ export async function GET(req: NextRequest) {
     const averageScore =
       totalGrades > 0
         ? Math.round(
-            grades.reduce(
-              (sum, g) => sum + (g.score / g.max_score) * 100,
-              0
-            ) / totalGrades
+            grades.reduce((sum, g) => sum + (g.score / g.max_score) * 100, 0) /
+              totalGrades
           )
         : 0;
 
@@ -86,7 +84,7 @@ export async function GET(req: NextRequest) {
           grades: [],
           average: 0,
           passed: 0,
-          total: 0
+          total: 0,
         };
       }
       acc[grade.student_id].grades.push(grade);
@@ -103,8 +101,7 @@ export async function GET(req: NextRequest) {
         student.total > 0
           ? Math.round(
               student.grades.reduce(
-                (sum: number, g: any) =>
-                  sum + (g.score / g.max_score) * 100,
+                (sum: number, g: any) => sum + (g.score / g.max_score) * 100,
                 0
               ) / student.total
             )
@@ -115,10 +112,10 @@ export async function GET(req: NextRequest) {
       summary: {
         total_grades: totalGrades,
         passed_grades: passedGrades,
-        average_score: averageScore
+        average_score: averageScore,
       },
       students: Object.values(studentGrades),
-      recent_grades: grades.slice(0, 20)
+      recent_grades: grades.slice(0, 20),
     });
   } catch (error: any) {
     console.error('Error fetching grades:', error);

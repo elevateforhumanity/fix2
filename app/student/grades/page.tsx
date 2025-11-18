@@ -59,7 +59,7 @@ export default async function StudentGradesPage() {
     if (!acc[courseId]) {
       acc[courseId] = {
         course,
-        grades: []
+        grades: [],
       };
     }
     acc[courseId].grades.push(grade);
@@ -86,7 +86,9 @@ export default async function StudentGradesPage() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Average Score</p>
-                  <p className="text-2xl font-bold text-gray-900">{averageScore}%</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {averageScore}%
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -116,7 +118,9 @@ export default async function StudentGradesPage() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Total Assessments</p>
-                  <p className="text-2xl font-bold text-gray-900">{totalGrades}</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {totalGrades}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -188,7 +192,7 @@ export default async function StudentGradesPage() {
                                     {
                                       month: 'short',
                                       day: 'numeric',
-                                      year: 'numeric'
+                                      year: 'numeric',
                                     }
                                   )}
                                 </p>

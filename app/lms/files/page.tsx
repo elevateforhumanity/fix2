@@ -51,7 +51,7 @@ export default function FilesPage() {
 
       const res = await fetch('/api/files', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
 
       if (!res.ok) {
@@ -71,7 +71,7 @@ export default function FilesPage() {
 
     try {
       const res = await fetch(`/api/files?id=${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
       });
 
       if (!res.ok) {
@@ -99,10 +99,16 @@ export default function FilesPage() {
           <span>Elevate for Humanity</span>
         </div>
         <nav className="flex gap-6">
-          <a href="/lms/dashboard" className="text-gray-700 hover:text-red-600 font-medium">
+          <a
+            href="/lms/dashboard"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Dashboard
           </a>
-          <a href="/lms/courses" className="text-gray-700 hover:text-red-600 font-medium">
+          <a
+            href="/lms/courses"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Courses
           </a>
           <a href="/lms/files" className="text-red-600 font-semibold">
@@ -117,7 +123,8 @@ export default function FilesPage() {
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">My Files</h1>
             <p className="text-gray-600">
-              Upload and manage your course materials, assignments, and documents
+              Upload and manage your course materials, assignments, and
+              documents
             </p>
           </div>
 
@@ -169,14 +176,19 @@ export default function FilesPage() {
                         <File className="h-5 w-5 text-gray-600" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-900 truncate">{file.name}</p>
+                        <p className="font-medium text-gray-900 truncate">
+                          {file.name}
+                        </p>
                         <p className="text-sm text-gray-600">
                           {formatFileSize(file.size)} •{' '}
-                          {new Date(file.created_at).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric'
-                          })}
+                          {new Date(file.created_at).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                            }
+                          )}
                         </p>
                       </div>
                     </div>

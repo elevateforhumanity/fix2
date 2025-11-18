@@ -4,7 +4,7 @@ import { createServerSupabaseClient } from '@/lib/auth';
 export async function GET() {
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     const { data: courses, error } = await supabase
       .from('courses')
       .select('*')
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   try {
     const supabase = await createServerSupabaseClient();
     const body = await request.json();
-    
+
     if (!body.title) {
       return NextResponse.json(
         { error: 'Missing required fields' },

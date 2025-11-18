@@ -20,7 +20,7 @@ export default function VideoUploadPage() {
     if (!file) return;
 
     setUploading(true);
-    
+
     // Create FormData for file upload
     const data = new FormData();
     data.append('file', file);
@@ -34,14 +34,14 @@ export default function VideoUploadPage() {
         method: 'POST',
         body: data,
       });
-      
+
       const result = await res.json();
       setUploadedUrl(result.url);
       alert('Video uploaded successfully!');
     } catch (error: any) {
       alert('Upload failed: ' + error.message);
     }
-    
+
     setUploading(false);
   };
 
@@ -55,7 +55,8 @@ export default function VideoUploadPage() {
               Upload Course Video
             </CardTitle>
             <p className="text-gray-600 mt-2">
-              Upload videos for course lessons. Supports MP4, WebM, and other common formats.
+              Upload videos for course lessons. Supports MP4, WebM, and other
+              common formats.
             </p>
           </CardHeader>
           <CardContent>
@@ -68,7 +69,9 @@ export default function VideoUploadPage() {
                   type="text"
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="e.g., Introduction to Medical Terminology"
                 />
@@ -81,7 +84,9 @@ export default function VideoUploadPage() {
                 <textarea
                   rows={3}
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Brief description of the video content..."
                 />
@@ -95,7 +100,9 @@ export default function VideoUploadPage() {
                   <input
                     type="number"
                     value={formData.courseId}
-                    onChange={(e) => setFormData({ ...formData, courseId: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, courseId: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     placeholder="Course ID"
                   />
@@ -107,7 +114,9 @@ export default function VideoUploadPage() {
                   <input
                     type="number"
                     value={formData.lessonId}
-                    onChange={(e) => setFormData({ ...formData, lessonId: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lessonId: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     placeholder="Lesson ID"
                   />
@@ -136,8 +145,12 @@ export default function VideoUploadPage() {
 
               {uploading && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-                  <p className="text-blue-900 font-semibold">Uploading video...</p>
-                  <p className="text-sm text-blue-700 mt-1">This may take a few minutes</p>
+                  <p className="text-blue-900 font-semibold">
+                    Uploading video...
+                  </p>
+                  <p className="text-sm text-blue-700 mt-1">
+                    This may take a few minutes
+                  </p>
                 </div>
               )}
 
@@ -147,14 +160,19 @@ export default function VideoUploadPage() {
                     <CheckCircle className="h-5 w-5" />
                     Upload Complete!
                   </div>
-                  <p className="text-sm text-green-800">Video URL: {uploadedUrl}</p>
+                  <p className="text-sm text-green-800">
+                    Video URL: {uploadedUrl}
+                  </p>
                 </div>
               )}
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <h4 className="font-bold text-yellow-900 mb-2">Video Autopilot Available</h4>
+                <h4 className="font-bold text-yellow-900 mb-2">
+                  Video Autopilot Available
+                </h4>
                 <p className="text-sm text-yellow-800 mb-3">
-                  Use the video autopilot generator to automatically create course videos from scripts.
+                  Use the video autopilot generator to automatically create
+                  course videos from scripts.
                 </p>
                 <Button variant="outline" size="sm">
                   Launch Video Autopilot

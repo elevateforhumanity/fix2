@@ -4,13 +4,17 @@ import { Button } from '@/components/ui/Button';
 import { Progress } from '@/components/ui/Progress';
 import { BookOpen, Clock, Award, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import { createServerSupabaseClient, getCurrentUser, requireStudent } from '@/lib/auth';
+import {
+  createServerSupabaseClient,
+  getCurrentUser,
+  requireStudent,
+} from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
 export default async function StudentCoursesPage() {
   await requireStudent();
   const user = await getCurrentUser();
-  
+
   if (!user) {
     redirect('/login');
   }
@@ -20,7 +24,8 @@ export default async function StudentCoursesPage() {
   // Fetch student's enrollments with course details
   const { data: enrollments, error } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       id,
       status,
       enrolled_at,
@@ -34,20 +39,22 @@ export default async function StudentCoursesPage() {
         duration_hours,
         level
       )
-    `)
+    `
+    )
     .eq('student_id', user.id)
     .order('enrolled_at', { ascending: false });
 
-  const courses = enrollments?.map(enrollment => ({
-    id: enrollment.courses?.id || 0,
-    title: enrollment.courses?.title || 'Unknown Course',
-    subtitle: enrollment.courses?.subtitle || '',
-    progress: enrollment.progress_percentage || 0,
-    status: enrollment.status,
-    duration_hours: enrollment.courses?.duration_hours || 0,
-    level: enrollment.courses?.level || 'All Levels',
-    enrollmentId: enrollment.id,
-  })) || [];
+  const courses =
+    enrollments?.map((enrollment) => ({
+      id: enrollment.courses?.id || 0,
+      title: enrollment.courses?.title || 'Unknown Course',
+      subtitle: enrollment.courses?.subtitle || '',
+      progress: enrollment.progress_percentage || 0,
+      status: enrollment.status,
+      duration_hours: enrollment.courses?.duration_hours || 0,
+      level: enrollment.courses?.level || 'All Levels',
+      enrollmentId: enrollment.id,
+    })) || [];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -70,7 +77,9 @@ export default async function StudentCoursesPage() {
         <div className="bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <h1 className="text-3xl font-bold text-slate-900">My Courses</h1>
-            <p className="text-slate-600 mt-1">Track your progress and access course materials</p>
+            <p className="text-slate-600 mt-1">
+              Track your progress and access course materials
+            </p>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -79,7 +88,8 @@ export default async function StudentCoursesPage() {
               <BookOpen className="h-16 w-16 mx-auto text-gray-400 mb-4" />
               <h2 className="text-2xl font-bold mb-2">No Courses Yet</h2>
               <p className="text-gray-600 mb-6">
-                You haven't enrolled in any courses yet. Browse our catalog to get started!
+                You haven't enrolled in any courses yet. Browse our catalog to
+                get started!
               </p>
               <Button asChild>
                 <Link href="/lms/courses">Browse Courses</Link>
@@ -96,7 +106,9 @@ export default async function StudentCoursesPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-3xl font-bold text-slate-900">My Courses</h1>
-          <p className="text-slate-600 mt-1">Track your progress and access course materials</p>
+          <p className="text-slate-600 mt-1">
+            Track your progress and access course materials
+          </p>
         </div>
       </div>
 
@@ -106,14 +118,16 @@ export default async function StudentCoursesPage() {
           <Card>
             <CardContent className="p-6">
               <div className="text-sm text-slate-600">Total Courses</div>
-              <div className="text-3xl font-bold text-slate-900 mt-1">{courses.length}</div>
+              <div className="text-3xl font-bold text-slate-900 mt-1">
+                {courses.length}
+              </div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6">
               <div className="text-sm text-slate-600">In Progress</div>
               <div className="text-3xl font-bold text-red-600 mt-1">
-                {courses.filter(c => c.status === 'active').length}
+                {courses.filter((c) => c.status === 'active').length}
               </div>
             </CardContent>
           </Card>
@@ -121,7 +135,7 @@ export default async function StudentCoursesPage() {
             <CardContent className="p-6">
               <div className="text-sm text-slate-600">Completed</div>
               <div className="text-3xl font-bold text-green-600 mt-1">
-                {courses.filter(c => c.status === 'completed').length}
+                {courses.filter((c) => c.status === 'completed').length}
               </div>
             </CardContent>
           </Card>
@@ -130,15 +144,22 @@ export default async function StudentCoursesPage() {
         {/* Courses List */}
         <div className="space-y-6">
           {courses.map((course) => (
-            <Card key={course.id} className="hover:border-orange-500 transition-colors">
+            <Card
+              key={course.id}
+              className="hover:border-orange-500 transition-colors"
+            >
               <CardContent className="p-6">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-1">{course.title}</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mb-1">
+                          {course.title}
+                        </h3>
                         {course.subtitle && (
-                          <p className="text-slate-600 text-sm">{course.subtitle}</p>
+                          <p className="text-slate-600 text-sm">
+                            {course.subtitle}
+                          </p>
                         )}
                         {course.duration_hours > 0 && (
                           <p className="text-slate-500 text-sm mt-1">
@@ -149,11 +170,14 @@ export default async function StudentCoursesPage() {
                       {getStatusBadge(course.status)}
                     </div>
 
-                    {(course.status === 'active' || course.status === 'completed') && (
+                    {(course.status === 'active' ||
+                      course.status === 'completed') && (
                       <div className="space-y-3">
                         <div>
                           <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm text-slate-600">Progress</span>
+                            <span className="text-sm text-slate-600">
+                              Progress
+                            </span>
                             <span className="text-sm font-semibold text-slate-900">
                               {course.progress}%
                             </span>
@@ -171,21 +195,32 @@ export default async function StudentCoursesPage() {
                   </div>
 
                   <div className="flex flex-col gap-2 lg:w-48">
-                    <Button 
-                      variant="primary" 
+                    <Button
+                      variant="primary"
                       fullWidth
-                      disabled={course.status === 'pending' || course.status === 'withdrawn'}
-                      asChild={course.status === 'active' || course.status === 'completed'}
+                      disabled={
+                        course.status === 'pending' ||
+                        course.status === 'withdrawn'
+                      }
+                      asChild={
+                        course.status === 'active' ||
+                        course.status === 'completed'
+                      }
                     >
-                      {(course.status === 'active' || course.status === 'completed') ? (
+                      {course.status === 'active' ||
+                      course.status === 'completed' ? (
                         <Link href={`/lms/courses/${course.id}`}>
                           <BookOpen className="h-4 w-4 mr-2" />
-                          {course.status === 'completed' ? 'Review' : 'Continue'}
+                          {course.status === 'completed'
+                            ? 'Review'
+                            : 'Continue'}
                         </Link>
                       ) : (
                         <>
                           <BookOpen className="h-4 w-4 mr-2" />
-                          {course.status === 'pending' ? 'Pending' : 'Unavailable'}
+                          {course.status === 'pending'
+                            ? 'Pending'
+                            : 'Unavailable'}
                         </>
                       )}
                     </Button>

@@ -28,7 +28,10 @@ export async function POST(req: NextRequest) {
 
     if (!program_code || !title || !level || !delivery_mode) {
       return NextResponse.json(
-        { error: 'Missing required fields: program_code, title, level, delivery_mode' },
+        {
+          error:
+            'Missing required fields: program_code, title, level, delivery_mode',
+        },
         { status: 400 }
       );
     }
@@ -65,7 +68,11 @@ export async function POST(req: NextRequest) {
 
       // Create lessons for this module
       if (Array.isArray(module.lessons)) {
-        for (let lessonIndex = 0; lessonIndex < module.lessons.length; lessonIndex++) {
+        for (
+          let lessonIndex = 0;
+          lessonIndex < module.lessons.length;
+          lessonIndex++
+        ) {
           const lesson = module.lessons[lessonIndex];
 
           await query(
@@ -93,15 +100,15 @@ export async function POST(req: NextRequest) {
           lesson_count: modules.reduce(
             (sum: number, m: ModuleInput) => sum + (m.lessons?.length || 0),
             0
-          )
-        })
+          ),
+        }),
       ]
     );
 
     return NextResponse.json({
       success: true,
       courseId,
-      message: 'Course created successfully'
+      message: 'Course created successfully',
     });
   } catch (error: any) {
     console.error('Error creating course:', error);

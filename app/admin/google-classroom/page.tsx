@@ -31,14 +31,46 @@ export default function GoogleClassroomPage() {
   };
 
   const modules = [
-    { name: 'LMS Sync', description: 'Sync courses between Google Classroom and LMS', status: 'active' },
-    { name: 'Email Correlation', description: 'Match student emails across systems', status: 'active' },
-    { name: 'Guardian Preferences', description: 'Parent notification settings', status: 'active' },
-    { name: 'Missing Assignments', description: 'Automated reminder emails', status: 'active' },
-    { name: 'Auto Sync Jobs', description: 'Scheduled background syncing', status: 'active' },
-    { name: 'Alerts', description: 'Real-time system alerts', status: 'active' },
-    { name: 'Email Webhooks', description: 'Email event handling', status: 'active' },
-    { name: 'Identity Import', description: 'Bulk student import', status: 'active' },
+    {
+      name: 'LMS Sync',
+      description: 'Sync courses between Google Classroom and LMS',
+      status: 'active',
+    },
+    {
+      name: 'Email Correlation',
+      description: 'Match student emails across systems',
+      status: 'active',
+    },
+    {
+      name: 'Guardian Preferences',
+      description: 'Parent notification settings',
+      status: 'active',
+    },
+    {
+      name: 'Missing Assignments',
+      description: 'Automated reminder emails',
+      status: 'active',
+    },
+    {
+      name: 'Auto Sync Jobs',
+      description: 'Scheduled background syncing',
+      status: 'active',
+    },
+    {
+      name: 'Alerts',
+      description: 'Real-time system alerts',
+      status: 'active',
+    },
+    {
+      name: 'Email Webhooks',
+      description: 'Email event handling',
+      status: 'active',
+    },
+    {
+      name: 'Identity Import',
+      description: 'Bulk student import',
+      status: 'active',
+    },
   ];
 
   return (
@@ -46,7 +78,9 @@ export default function GoogleClassroomPage() {
       <div className="max-w-6xl mx-auto px-4">
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-3xl">Google Classroom Autopilot</CardTitle>
+            <CardTitle className="text-3xl">
+              Google Classroom Autopilot
+            </CardTitle>
             <p className="text-gray-600 mt-2">
               Automated synchronization between Google Classroom and your LMS
             </p>
@@ -107,7 +141,9 @@ export default function GoogleClassroomPage() {
           <CardContent>
             <div className="space-y-4 text-sm">
               <div>
-                <h4 className="font-bold mb-2">1. Google Cloud Console Setup</h4>
+                <h4 className="font-bold mb-2">
+                  1. Google Cloud Console Setup
+                </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-600">
                   <li>Create a Google Cloud project</li>
                   <li>Enable Google Classroom API</li>
@@ -118,15 +154,21 @@ export default function GoogleClassroomPage() {
               <div>
                 <h4 className="font-bold mb-2">2. Environment Variables</h4>
                 <div className="bg-gray-100 p-3 rounded font-mono text-xs">
-                  GOOGLE_CLIENT_ID=your_client_id<br/>
-                  GOOGLE_CLIENT_SECRET=your_client_secret<br/>
+                  GOOGLE_CLIENT_ID=your_client_id
+                  <br />
+                  GOOGLE_CLIENT_SECRET=your_client_secret
+                  <br />
                   GOOGLE_REDIRECT_URI=your_redirect_uri
                 </div>
               </div>
               <div>
                 <h4 className="font-bold mb-2">3. Domain-Wide Delegation</h4>
                 <p className="text-gray-600">
-                  See <code>google-classroom-autopilot/DOMAIN_WIDE_DELEGATION_SETUP.md</code> for detailed instructions
+                  See{' '}
+                  <code>
+                    google-classroom-autopilot/DOMAIN_WIDE_DELEGATION_SETUP.md
+                  </code>{' '}
+                  for detailed instructions
                 </p>
               </div>
             </div>

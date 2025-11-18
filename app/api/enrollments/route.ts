@@ -11,7 +11,8 @@ export async function GET(request: Request) {
     const supabase = await createServerSupabaseClient();
     const { data: enrollments, error } = await supabase
       .from('enrollments')
-      .select(`
+      .select(
+        `
         id,
         student_id,
         course_id,
@@ -25,7 +26,8 @@ export async function GET(request: Request) {
           description,
           duration_hours
         )
-      `)
+      `
+      )
       .eq('student_id', user.id)
       .order('enrolled_at', { ascending: false });
 
@@ -50,10 +52,7 @@ export async function POST(request: Request) {
     const { courseId } = body;
 
     if (!courseId) {
-      return NextResponse.json(
-        { error: 'Missing courseId' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing courseId' }, { status: 400 });
     }
 
     const supabase = await createServerSupabaseClient();

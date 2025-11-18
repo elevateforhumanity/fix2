@@ -27,9 +27,9 @@ export async function POST(request: Request) {
     }
 
     // Get public URL
-    const { data: { publicUrl } } = supabase.storage
-      .from('videos')
-      .getPublicUrl(fileName);
+    const {
+      data: { publicUrl },
+    } = supabase.storage.from('videos').getPublicUrl(fileName);
 
     // Save video metadata to database
     const { data: videoData, error: dbError } = await supabase

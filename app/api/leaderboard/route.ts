@@ -12,9 +12,9 @@ export async function GET(request: Request) {
     const timeframe = searchParams.get('timeframe') || 'week';
 
     // Leaderboard feature not yet implemented
-    return NextResponse.json({ 
-      leaderboard: [], 
-      timeframe 
+    return NextResponse.json({
+      leaderboard: [],
+      timeframe,
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

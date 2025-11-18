@@ -311,13 +311,13 @@ export default async function AdminDashboardPage() {
             <h2 className="elevate-card-title mb-4">System Info</h2>
             <div className="space-y-4">
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                <span className="text-sm text-gray-600">
-                  Total Students
-                </span>
+                <span className="text-sm text-gray-600">Total Students</span>
                 <span className="font-bold">{totalStudents || 0}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                <span className="text-sm text-gray-600">Active Enrollments</span>
+                <span className="text-sm text-gray-600">
+                  Active Enrollments
+                </span>
                 <span className="font-bold">{activeEnrollments || 0}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
@@ -473,9 +473,7 @@ export default async function AdminDashboardPage() {
           >
             <TrendingUp className="h-7 w-7 mb-2 text-purple-600" />
             <h3 className="elevate-card-title">Database Migrations</h3>
-            <p className="elevate-card-subtitle mt-1">
-              Load courses and data
-            </p>
+            <p className="elevate-card-subtitle mt-1">Load courses and data</p>
           </Link>
           <Link
             href="/admin/certificates"

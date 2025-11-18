@@ -34,7 +34,9 @@ export default function MiladyRISEPage() {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-3xl">Milady RISE Certification</CardTitle>
+              <CardTitle className="text-3xl">
+                Milady RISE Certification
+              </CardTitle>
               <Badge variant="success">Partner Program</Badge>
             </div>
             <p className="text-gray-600 mt-2">
@@ -44,7 +46,9 @@ export default function MiladyRISEPage() {
           <CardContent>
             <div className="space-y-6">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="font-bold text-blue-900 mb-3">Program Benefits</h3>
+                <h3 className="font-bold text-blue-900 mb-3">
+                  Program Benefits
+                </h3>
                 <ul className="space-y-2 text-blue-800">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
@@ -69,8 +73,9 @@ export default function MiladyRISEPage() {
                 <div>
                   <h3 className="font-bold text-lg mb-3">Ready to Enroll?</h3>
                   <p className="text-gray-600 mb-4">
-                    Click below to activate your Milady RISE certification enrollment. 
-                    You'll receive your unique promo code and enrollment instructions.
+                    Click below to activate your Milady RISE certification
+                    enrollment. You'll receive your unique promo code and
+                    enrollment instructions.
                   </p>
                   <Button
                     onClick={handleEnroll}
@@ -90,13 +95,17 @@ export default function MiladyRISEPage() {
                   {enrollmentData?.next_steps && (
                     <div className="space-y-4">
                       <div>
-                        <p className="font-semibold text-green-900 mb-2">Your Promo Code:</p>
+                        <p className="font-semibold text-green-900 mb-2">
+                          Your Promo Code:
+                        </p>
                         <div className="bg-white p-3 rounded border border-green-300 font-mono text-lg">
                           {enrollmentData.next_steps.promo_code}
                         </div>
                       </div>
                       <div>
-                        <p className="font-semibold text-green-900 mb-2">Next Steps:</p>
+                        <p className="font-semibold text-green-900 mb-2">
+                          Next Steps:
+                        </p>
                         <ol className="list-decimal list-inside space-y-2 text-green-800">
                           <li>Visit the Milady RISE enrollment portal</li>
                           <li>Enter your promo code during registration</li>
@@ -105,9 +114,9 @@ export default function MiladyRISEPage() {
                         </ol>
                       </div>
                       <Button asChild size="lg" className="w-full">
-                        <a 
-                          href={enrollmentData.next_steps.url} 
-                          target="_blank" 
+                        <a
+                          href={enrollmentData.next_steps.url}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-2"
                         >
@@ -123,9 +132,10 @@ export default function MiladyRISEPage() {
               <div className="border-t pt-6">
                 <h3 className="font-bold text-lg mb-3">About Milady RISE</h3>
                 <p className="text-gray-600 text-sm">
-                  Milady RISE is the beauty industry's leading professional development program. 
-                  Through our partnership, Elevate for Humanity students receive exclusive access 
-                  to industry-recognized certifications at no cost.
+                  Milady RISE is the beauty industry's leading professional
+                  development program. Through our partnership, Elevate for
+                  Humanity students receive exclusive access to
+                  industry-recognized certifications at no cost.
                 </p>
               </div>
             </div>

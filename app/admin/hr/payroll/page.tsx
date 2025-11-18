@@ -62,8 +62,8 @@ export default function PayrollPage() {
             new Date().getFullYear(),
             new Date().getMonth() + 1,
             0
-          ).toISOString()
-        })
+          ).toISOString(),
+        }),
       });
 
       if (!res.ok) throw new Error('Failed to process payroll');
@@ -79,7 +79,9 @@ export default function PayrollPage() {
 
   const totalGross = payrolls.reduce((sum, p) => sum + p.gross_pay, 0);
   const totalNet = payrolls.reduce((sum, p) => sum + p.net_pay, 0);
-  const processedCount = payrolls.filter((p) => p.status === 'processed').length;
+  const processedCount = payrolls.filter(
+    (p) => p.status === 'processed'
+  ).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -94,7 +96,9 @@ export default function PayrollPage() {
               >
                 ← Back to HR
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900">Payroll Processing</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Payroll Processing
+              </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Process and manage employee payroll
               </p>
@@ -195,7 +199,10 @@ export default function PayrollPage() {
                 </thead>
                 <tbody>
                   {payrolls.map((payroll) => (
-                    <tr key={payroll.id} className="border-t border-gray-100 hover:bg-gray-50">
+                    <tr
+                      key={payroll.id}
+                      className="border-t border-gray-100 hover:bg-gray-50"
+                    >
                       <td className="py-3 px-4">
                         <div>
                           <p className="font-medium text-gray-900">
@@ -207,16 +214,22 @@ export default function PayrollPage() {
                         </div>
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
-                        {new Date(payroll.pay_period_start).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric'
-                        })}{' '}
+                        {new Date(payroll.pay_period_start).toLocaleDateString(
+                          'en-US',
+                          {
+                            month: 'short',
+                            day: 'numeric',
+                          }
+                        )}{' '}
                         -{' '}
-                        {new Date(payroll.pay_period_end).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric'
-                        })}
+                        {new Date(payroll.pay_period_end).toLocaleDateString(
+                          'en-US',
+                          {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          }
+                        )}
                       </td>
                       <td className="py-3 px-4 text-right text-sm font-medium text-gray-900">
                         ${payroll.gross_pay.toLocaleString()}
@@ -230,8 +243,8 @@ export default function PayrollPage() {
                             payroll.status === 'processed'
                               ? 'bg-green-100 text-green-800'
                               : payroll.status === 'pending'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-gray-100 text-gray-800'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-gray-100 text-gray-800'
                           }`}
                         >
                           {payroll.status}
@@ -239,11 +252,14 @@ export default function PayrollPage() {
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {payroll.processed_at
-                          ? new Date(payroll.processed_at).toLocaleDateString('en-US', {
-                              month: 'short',
-                              day: 'numeric',
-                              year: 'numeric'
-                            })
+                          ? new Date(payroll.processed_at).toLocaleDateString(
+                              'en-US',
+                              {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                              }
+                            )
                           : '-'}
                       </td>
                     </tr>
@@ -254,7 +270,9 @@ export default function PayrollPage() {
           ) : (
             <div className="text-center py-12">
               <Calendar className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">No Payroll Records</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                No Payroll Records
+              </h3>
               <p className="text-gray-600 mb-6">
                 Process your first payroll to get started
               </p>

@@ -24,7 +24,8 @@ export default async function CoursesPage() {
   // Fetch all published courses from database
   const { data: courses, error } = await supabase
     .from('courses')
-    .select(`
+    .select(
+      `
       id,
       slug,
       title,
@@ -35,7 +36,8 @@ export default async function CoursesPage() {
       status,
       is_free,
       metadata
-    `)
+    `
+    )
     .eq('status', 'published')
     .order('title');
 
@@ -47,8 +49,8 @@ export default async function CoursesPage() {
       .select('course_id')
       .eq('student_id', user.id)
       .in('status', ['active', 'completed']);
-    
-    enrolledCourseIds = enrollments?.map(e => e.course_id) || [];
+
+    enrolledCourseIds = enrollments?.map((e) => e.course_id) || [];
   }
 
   if (error || !courses || courses.length === 0) {
@@ -110,9 +112,12 @@ export default async function CoursesPage() {
           {courses.map((course) => {
             const isEnrolled = enrolledCourseIds.includes(course.id);
             const levelBadge = course.level || 'All Levels';
-            
+
             return (
-              <Card key={course.id} className="flex flex-col hover:border-orange-500 transition-colors">
+              <Card
+                key={course.id}
+                className="flex flex-col hover:border-orange-500 transition-colors"
+              >
                 <div className="h-48 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
                   <BookOpen className="h-16 w-16 text-white/80" />
                 </div>
@@ -122,7 +127,10 @@ export default async function CoursesPage() {
                       {isEnrolled ? 'Enrolled' : levelBadge}
                     </Badge>
                     {course.is_free && (
-                      <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700 border-green-200"
+                      >
                         FREE
                       </Badge>
                     )}
@@ -155,10 +163,14 @@ export default async function CoursesPage() {
                   ) : (
                     <div className="space-y-2">
                       <Button className="w-full" asChild>
-                        <Link href={`/lms/courses/${course.id}`}>View Course</Link>
+                        <Link href={`/lms/courses/${course.id}`}>
+                          View Course
+                        </Link>
                       </Button>
                       <Button variant="outline" className="w-full" asChild>
-                        <Link href={`/enroll?course=${course.slug}`}>Enroll Now</Link>
+                        <Link href={`/enroll?course=${course.slug}`}>
+                          Enroll Now
+                        </Link>
                       </Button>
                     </div>
                   )}

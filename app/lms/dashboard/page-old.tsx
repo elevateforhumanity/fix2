@@ -44,8 +44,10 @@ export default async function LMSDashboard() {
     .select('id, status, progress_percentage')
     .eq('student_id', user.id);
 
-  const activeEnrollments = enrollments?.filter(e => e.status === 'active') || [];
-  const completedEnrollments = enrollments?.filter(e => e.status === 'completed') || [];
+  const activeEnrollments =
+    enrollments?.filter((e) => e.status === 'active') || [];
+  const completedEnrollments =
+    enrollments?.filter((e) => e.status === 'completed') || [];
 
   // Get certificates
   const { data: certificates } = await supabase
@@ -59,7 +61,8 @@ export default async function LMSDashboard() {
     .select('total_hours')
     .eq('student_id', user.id);
 
-  const totalHours = contactHours?.reduce((sum, h) => sum + h.total_hours, 0) || 0;
+  const totalHours =
+    contactHours?.reduce((sum, h) => sum + h.total_hours, 0) || 0;
 
   const stats = [
     {
@@ -82,9 +85,10 @@ export default async function LMSDashboard() {
     },
     {
       label: 'Average Progress',
-      value: enrollments && enrollments.length > 0 
-        ? `${Math.round(enrollments.reduce((sum, e) => sum + (e.progress_percentage || 0), 0) / enrollments.length)}%`
-        : '0%',
+      value:
+        enrollments && enrollments.length > 0
+          ? `${Math.round(enrollments.reduce((sum, e) => sum + (e.progress_percentage || 0), 0) / enrollments.length)}%`
+          : '0%',
       icon: Target,
       change: 'Across all courses',
     },

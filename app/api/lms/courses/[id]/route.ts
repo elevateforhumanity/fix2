@@ -57,14 +57,14 @@ export async function GET(
     // Group lessons by module
     const modules = modulesResult.rows.map((module) => ({
       ...module,
-      lessons: lessons.filter((l) => l.module_id === module.id)
+      lessons: lessons.filter((l) => l.module_id === module.id),
     }));
 
     return NextResponse.json({
       course: {
         ...course,
-        modules
-      }
+        modules,
+      },
     });
   } catch (error: any) {
     console.error('Error fetching course:', error);

@@ -11,13 +11,14 @@ export default function EnrollmentSuccessPage() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
-          
+
           <h1 className="text-4xl font-black text-gray-900 mb-4">
             Application Submitted!
           </h1>
-          
+
           <p className="text-xl text-gray-600 mb-8">
-            Thank you for applying. We've received your application and will contact you within 24-48 hours.
+            Thank you for applying. We've received your application and will
+            contact you within 24-48 hours.
           </p>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8 text-left">
@@ -33,7 +34,9 @@ export default function EnrollmentSuccessPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="font-bold text-blue-600">3.</span>
-                <span>You'll receive your login credentials and start date</span>
+                <span>
+                  You'll receive your login credentials and start date
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="font-bold text-blue-600">4.</span>
@@ -52,7 +55,10 @@ export default function EnrollmentSuccessPage() {
           </div>
 
           <p className="text-sm text-gray-600 mt-8">
-            Questions? Call us at <a href="tel:317-555-0100" className="text-blue-600 font-semibold">(317) 555-0100</a>
+            Questions? Call us at{' '}
+            <a href="tel:317-555-0100" className="text-blue-600 font-semibold">
+              (317) 555-0100
+            </a>
           </p>
         </CardContent>
       </Card>

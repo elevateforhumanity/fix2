@@ -9,10 +9,11 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createServerSupabaseClient();
-    
+
     const { data: certificates, error } = await supabase
       .from('certificates')
-      .select(`
+      .select(
+        `
         *,
         profiles!certificates_student_id_fkey (
           full_name,
@@ -21,7 +22,8 @@ export async function GET(request: Request) {
         courses (
           title
         )
-      `)
+      `
+      )
       .eq('student_id', user.id)
       .order('issued_at', { ascending: false });
 

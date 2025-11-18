@@ -19,17 +19,20 @@ async function getStudentDashboardData(): Promise<{
 }> {
   // Server-side fetching via internal API or direct Supabase call
   // Here we call an internal API route you already have wired to Supabase.
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || ''}/api/lms/dashboard`, {
-    cache: 'no-store',
-    credentials: 'include'
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL || ''}/api/lms/dashboard`,
+    {
+      cache: 'no-store',
+      credentials: 'include',
+    }
+  );
 
   if (!res.ok) {
     return {
       firstName: 'Student',
       activeCourses: [],
       completedCount: 0,
-      upcomingDueCount: 0
+      upcomingDueCount: 0,
     };
   }
 
@@ -55,11 +58,12 @@ export default async function StudentDashboardPage() {
               Elevate for Humanity · Student Portal
             </p>
             <h1 className="mt-1 text-3xl font-semibold md:text-4xl">
-              Welcome back, <span className="text-sky-300">{data.firstName}</span>
+              Welcome back,{' '}
+              <span className="text-sky-300">{data.firstName}</span>
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-slate-300">
-              Your training, case management, and certificates live in one place. Stay on track with
-              your{' '}
+              Your training, case management, and certificates live in one
+              place. Stay on track with your{' '}
               <span className="font-semibold text-sky-300">
                 workforce, WRG, and apprenticeship programs
               </span>{' '}
@@ -90,7 +94,9 @@ export default async function StudentDashboardPage() {
             </p>
             <p className="mt-2 text-3xl font-semibold">
               {data.activeCourses.length}
-              <span className="ml-2 text-xs font-normal text-slate-400">in progress</span>
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                in progress
+              </span>
             </p>
             <p className="mt-1 text-xs text-slate-400">
               HVAC, Barber Apprenticeship, Medical Assistant and more.
@@ -102,10 +108,13 @@ export default async function StudentDashboardPage() {
             </p>
             <p className="mt-2 text-3xl font-semibold">
               {data.completedCount}
-              <span className="ml-2 text-xs font-normal text-slate-400">certified</span>
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                certified
+              </span>
             </p>
             <p className="mt-1 text-xs text-slate-400">
-              Certificates sync with Elevate's verification portal for employers.
+              Certificates sync with Elevate's verification portal for
+              employers.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-sm">
@@ -114,10 +123,13 @@ export default async function StudentDashboardPage() {
             </p>
             <p className="mt-2 text-3xl font-semibold">
               {data.upcomingDueCount}
-              <span className="ml-2 text-xs font-normal text-slate-400">this week</span>
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                this week
+              </span>
             </p>
             <p className="mt-1 text-xs text-slate-400">
-              Assignments and milestones aligned with your IEP and workforce plan.
+              Assignments and milestones aligned with your IEP and workforce
+              plan.
             </p>
           </div>
         </section>
@@ -125,7 +137,9 @@ export default async function StudentDashboardPage() {
         {/* Active courses */}
         <section className="mt-2">
           <div className="flex items-center justify-between gap-2">
-            <h2 className="text-lg font-semibold text-slate-50">Your active courses</h2>
+            <h2 className="text-lg font-semibold text-slate-50">
+              Your active courses
+            </h2>
             <Link
               href="/lms/courses"
               className="text-xs font-medium text-sky-300 hover:text-sky-200"
@@ -137,7 +151,10 @@ export default async function StudentDashboardPage() {
           {data.activeCourses.length === 0 ? (
             <p className="mt-4 text-sm text-slate-400">
               You are not enrolled in any courses yet. Visit the{' '}
-              <Link href="/programs" className="text-sky-300 underline underline-offset-2">
+              <Link
+                href="/programs"
+                className="text-sky-300 underline underline-offset-2"
+              >
                 programs catalog
               </Link>{' '}
               or contact your case manager to get started.
@@ -195,11 +212,16 @@ export default async function StudentDashboardPage() {
         {/* Certificates & compliance */}
         <section className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <h2 className="text-sm font-semibold text-slate-50">Certificates & badges</h2>
+            <h2 className="text-sm font-semibold text-slate-50">
+              Certificates & badges
+            </h2>
             <p className="mt-2 text-xs text-slate-400">
               Once you finish a course, Elevate automatically unlocks your{' '}
-              <span className="font-semibold text-sky-300">digital certificate</span> and routes it
-              to case managers and employer partners through the Elevate Connects Directory.
+              <span className="font-semibold text-sky-300">
+                digital certificate
+              </span>{' '}
+              and routes it to case managers and employer partners through the
+              Elevate Connects Directory.
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-sky-200">
@@ -221,11 +243,13 @@ export default async function StudentDashboardPage() {
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <h2 className="text-sm font-semibold text-slate-50">Support & case management</h2>
+            <h2 className="text-sm font-semibold text-slate-50">
+              Support & case management
+            </h2>
             <p className="mt-2 text-xs text-slate-400">
-              Elevate wraps your training in real supports: transportation, childcare, tools,
-              uniforms, and more — depending on your funding source (WRG, WIOA, JRI, employer
-              sponsorship).
+              Elevate wraps your training in real supports: transportation,
+              childcare, tools, uniforms, and more — depending on your funding
+              source (WRG, WIOA, JRI, employer sponsorship).
             </p>
             <ul className="mt-3 space-y-1 text-xs text-slate-300">
               <li>• View and sign your Individual Employment Plan (IEP).</li>

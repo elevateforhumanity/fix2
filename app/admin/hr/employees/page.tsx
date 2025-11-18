@@ -34,7 +34,7 @@ export default function EmployeesListPage() {
     page: 1,
     limit: 50,
     total: 0,
-    totalPages: 0
+    totalPages: 0,
   });
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function EmployeesListPage() {
       const params = new URLSearchParams({
         status: statusFilter,
         page: pagination.page.toString(),
-        limit: pagination.limit.toString()
+        limit: pagination.limit.toString(),
       });
 
       if (search) {
@@ -55,7 +55,7 @@ export default function EmployeesListPage() {
 
       const res = await fetch(`/api/hr/employees?${params}`);
       if (!res.ok) throw new Error('Failed to load employees');
-      
+
       const data = await res.json();
       setEmployees(data.employees || []);
       setPagination(data.pagination);
@@ -121,7 +121,9 @@ export default function EmployeesListPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total</p>
-                <p className="text-2xl font-bold text-gray-900">{pagination.total}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {pagination.total}
+                </p>
               </div>
             </div>
           </div>
@@ -134,7 +136,10 @@ export default function EmployeesListPage() {
               <div>
                 <p className="text-sm text-gray-600">Active</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {employees.filter((e) => e.employment_status === 'active').length}
+                  {
+                    employees.filter((e) => e.employment_status === 'active')
+                      .length
+                  }
                 </p>
               </div>
             </div>
@@ -148,7 +153,10 @@ export default function EmployeesListPage() {
               <div>
                 <p className="text-sm text-gray-600">On Leave</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {employees.filter((e) => e.employment_status === 'on_leave').length}
+                  {
+                    employees.filter((e) => e.employment_status === 'on_leave')
+                      .length
+                  }
                 </p>
               </div>
             </div>
@@ -162,7 +170,11 @@ export default function EmployeesListPage() {
               <div>
                 <p className="text-sm text-gray-600">Departments</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {new Set(employees.map((e) => e.department?.name).filter(Boolean)).size}
+                  {
+                    new Set(
+                      employees.map((e) => e.department?.name).filter(Boolean)
+                    ).size
+                  }
                 </p>
               </div>
             </div>
@@ -241,7 +253,10 @@ export default function EmployeesListPage() {
                   </thead>
                   <tbody>
                     {filteredEmployees.map((employee) => (
-                      <tr key={employee.id} className="border-t border-gray-100 hover:bg-gray-50">
+                      <tr
+                        key={employee.id}
+                        className="border-t border-gray-100 hover:bg-gray-50"
+                      >
                         <td className="py-3 px-4">
                           <div>
                             <p className="font-medium text-gray-900">
@@ -267,11 +282,14 @@ export default function EmployeesListPage() {
                           </span>
                         </td>
                         <td className="py-3 px-4 text-sm text-gray-600">
-                          {new Date(employee.hire_date).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric'
-                          })}
+                          {new Date(employee.hire_date).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                            }
+                          )}
                         </td>
                         <td className="py-3 px-4 text-right">
                           <Link
@@ -296,7 +314,10 @@ export default function EmployeesListPage() {
                   <div className="flex gap-2">
                     <button
                       onClick={() =>
-                        setPagination({ ...pagination, page: pagination.page - 1 })
+                        setPagination({
+                          ...pagination,
+                          page: pagination.page - 1,
+                        })
                       }
                       disabled={pagination.page === 1}
                       className="px-3 py-1 border border-gray-300 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
@@ -305,7 +326,10 @@ export default function EmployeesListPage() {
                     </button>
                     <button
                       onClick={() =>
-                        setPagination({ ...pagination, page: pagination.page + 1 })
+                        setPagination({
+                          ...pagination,
+                          page: pagination.page + 1,
+                        })
                       }
                       disabled={pagination.page === pagination.totalPages}
                       className="px-3 py-1 border border-gray-300 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
@@ -319,9 +343,13 @@ export default function EmployeesListPage() {
           ) : (
             <div className="text-center py-12">
               <Users className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">No Employees Found</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                No Employees Found
+              </h3>
               <p className="text-gray-600 mb-6">
-                {search ? 'Try adjusting your search' : 'Add your first employee to get started'}
+                {search
+                  ? 'Try adjusting your search'
+                  : 'Add your first employee to get started'}
               </p>
               <Link
                 href="/admin/hr/employees/new"

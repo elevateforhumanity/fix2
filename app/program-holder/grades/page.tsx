@@ -90,8 +90,8 @@ export default function ProgramHolderGradesPage() {
             Student Performance & Grades
           </h1>
           <p className="mt-2 text-xs text-slate-300 md:text-sm">
-            Track quiz scores, assignment grades, and overall student performance across all your
-            programs.
+            Track quiz scores, assignment grades, and overall student
+            performance across all your programs.
           </p>
         </header>
 
@@ -105,7 +105,9 @@ export default function ProgramHolderGradesPage() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-400">Average Score</p>
-                  <p className="text-2xl font-bold text-slate-50">{summary.average_score}%</p>
+                  <p className="text-2xl font-bold text-slate-50">
+                    {summary.average_score}%
+                  </p>
                 </div>
               </div>
             </div>
@@ -119,7 +121,9 @@ export default function ProgramHolderGradesPage() {
                   <p className="text-xs text-slate-400">Pass Rate</p>
                   <p className="text-2xl font-bold text-slate-50">
                     {summary.total_grades > 0
-                      ? Math.round((summary.passed_grades / summary.total_grades) * 100)
+                      ? Math.round(
+                          (summary.passed_grades / summary.total_grades) * 100
+                        )
                       : 0}
                     %
                   </p>
@@ -134,7 +138,9 @@ export default function ProgramHolderGradesPage() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-400">Total Assessments</p>
-                  <p className="text-2xl font-bold text-slate-50">{summary.total_grades}</p>
+                  <p className="text-2xl font-bold text-slate-50">
+                    {summary.total_grades}
+                  </p>
                 </div>
               </div>
             </div>
@@ -145,7 +151,9 @@ export default function ProgramHolderGradesPage() {
         <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
           <div className="mb-4 flex items-center gap-2">
             <Users className="h-5 w-5 text-sky-400" />
-            <h2 className="text-sm font-semibold text-slate-50">Student Performance</h2>
+            <h2 className="text-sm font-semibold text-slate-50">
+              Student Performance
+            </h2>
           </div>
 
           {students.length > 0 ? (
@@ -157,11 +165,17 @@ export default function ProgramHolderGradesPage() {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-slate-100">{student.student_name}</p>
-                      <p className="text-xs text-slate-400">{student.student_email}</p>
+                      <p className="font-medium text-slate-100">
+                        {student.student_name}
+                      </p>
+                      <p className="text-xs text-slate-400">
+                        {student.student_email}
+                      </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-bold text-slate-50">{student.average}%</p>
+                      <p className="text-lg font-bold text-slate-50">
+                        {student.average}%
+                      </p>
                       <p className="text-xs text-slate-400">
                         {student.passed}/{student.total} passed
                       </p>
@@ -173,20 +187,27 @@ export default function ProgramHolderGradesPage() {
           ) : (
             <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-8 text-center">
               <Award className="mx-auto h-12 w-12 text-slate-600" />
-              <p className="mt-3 text-sm text-slate-400">No grades recorded yet</p>
+              <p className="mt-3 text-sm text-slate-400">
+                No grades recorded yet
+              </p>
             </div>
           )}
         </section>
 
         {/* Recent Grades */}
         <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-          <h2 className="mb-4 text-sm font-semibold text-slate-50">Recent Grades</h2>
+          <h2 className="mb-4 text-sm font-semibold text-slate-50">
+            Recent Grades
+          </h2>
 
           {recentGrades.length > 0 ? (
             <div className="space-y-2">
               {recentGrades.map((grade) => {
-                const percentage = Math.round((grade.score / grade.max_score) * 100);
-                const assessmentTitle = grade.quiz_title || grade.assignment_title || 'Assessment';
+                const percentage = Math.round(
+                  (grade.score / grade.max_score) * 100
+                );
+                const assessmentTitle =
+                  grade.quiz_title || grade.assignment_title || 'Assessment';
 
                 return (
                   <div
@@ -200,7 +221,9 @@ export default function ProgramHolderGradesPage() {
                         <div className="h-4 w-4 rounded-full border-2 border-red-400" />
                       )}
                       <div>
-                        <p className="font-medium text-slate-200">{grade.student_name}</p>
+                        <p className="font-medium text-slate-200">
+                          {grade.student_name}
+                        </p>
                         <p className="text-slate-400">
                           {assessmentTitle} · {grade.course_title}
                         </p>

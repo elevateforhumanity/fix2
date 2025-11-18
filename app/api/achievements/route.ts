@@ -9,14 +9,14 @@ export async function GET(request: Request) {
     }
 
     // Return empty achievements for now - this feature needs to be built
-    return NextResponse.json({ 
-      achievements: [], 
+    return NextResponse.json({
+      achievements: [],
       stats: {
         totalPoints: 0,
         level: 1,
         streak: 0,
         totalAchievements: 0,
-      }
+      },
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

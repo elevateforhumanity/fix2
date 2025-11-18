@@ -17,7 +17,8 @@ export default async function AdminStudentsPage() {
   // Fetch all students with their enrollment counts
   const { data: students, error } = await supabase
     .from('profiles')
-    .select(`
+    .select(
+      `
       id,
       email,
       full_name,
@@ -25,26 +26,37 @@ export default async function AdminStudentsPage() {
       role,
       created_at,
       metadata
-    `)
+    `
+    )
     .eq('role', 'student')
     .order('created_at', { ascending: false });
 
   // Get enrollment counts for each student
-  const studentIds = students?.map(s => s.id) || [];
+  const studentIds = students?.map((s) => s.id) || [];
   const { data: enrollments } = await supabase
     .from('enrollments')
     .select('student_id, status')
     .in('student_id', studentIds);
 
-  const enrollmentMap = enrollments?.reduce((acc: Record<string, { active: number; completed: number; total: number }>, e) => {
-    if (!acc[e.student_id]) {
-      acc[e.student_id] = { active: 0, completed: 0, total: 0 };
-    }
-    acc[e.student_id].total++;
-    if (e.status === 'active') acc[e.student_id].active++;
-    if (e.status === 'completed') acc[e.student_id].completed++;
-    return acc;
-  }, {}) || {};
+  const enrollmentMap =
+    enrollments?.reduce(
+      (
+        acc: Record<
+          string,
+          { active: number; completed: number; total: number }
+        >,
+        e
+      ) => {
+        if (!acc[e.student_id]) {
+          acc[e.student_id] = { active: 0, completed: 0, total: 0 };
+        }
+        acc[e.student_id].total++;
+        if (e.status === 'active') acc[e.student_id].active++;
+        if (e.status === 'completed') acc[e.student_id].completed++;
+        return acc;
+      },
+      {}
+    ) || {};
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,19 +67,31 @@ export default async function AdminStudentsPage() {
           <span>Elevate for Humanity</span>
         </div>
         <nav className="flex gap-6 items-center">
-          <Link href="/admin/dashboard" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/admin/dashboard"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Dashboard
           </Link>
           <Link href="/admin/students" className="text-red-600 font-semibold">
             Students
           </Link>
-          <Link href="/admin/courses" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/admin/courses"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Courses
           </Link>
-          <Link href="/admin/certificates" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/admin/certificates"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Certificates
           </Link>
-          <Link href="/admin/reports" className="text-gray-700 hover:text-red-600 font-medium">
+          <Link
+            href="/admin/reports"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
             Reports
           </Link>
         </nav>
@@ -93,7 +117,9 @@ export default async function AdminStudentsPage() {
                 <Users className="h-8 w-8 text-red-600" />
                 <div>
                   <div className="text-sm text-gray-600">Total Students</div>
-                  <div className="text-3xl font-bold">{students?.length || 0}</div>
+                  <div className="text-3xl font-bold">
+                    {students?.length || 0}
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -103,9 +129,14 @@ export default async function AdminStudentsPage() {
               <div className="flex items-center gap-3">
                 <Users className="h-8 w-8 text-green-600" />
                 <div>
-                  <div className="text-sm text-gray-600">Active Enrollments</div>
+                  <div className="text-sm text-gray-600">
+                    Active Enrollments
+                  </div>
                   <div className="text-3xl font-bold">
-                    {Object.values(enrollmentMap).reduce((sum, e) => sum + e.active, 0)}
+                    {Object.values(enrollmentMap).reduce(
+                      (sum, e) => sum + e.active,
+                      0
+                    )}
                   </div>
                 </div>
               </div>
@@ -118,7 +149,10 @@ export default async function AdminStudentsPage() {
                 <div>
                   <div className="text-sm text-gray-600">Completed</div>
                   <div className="text-3xl font-bold">
-                    {Object.values(enrollmentMap).reduce((sum, e) => sum + e.completed, 0)}
+                    {Object.values(enrollmentMap).reduce(
+                      (sum, e) => sum + e.completed,
+                      0
+                    )}
                   </div>
                 </div>
               </div>
@@ -131,10 +165,13 @@ export default async function AdminStudentsPage() {
                 <div>
                   <div className="text-sm text-gray-600">New This Month</div>
                   <div className="text-3xl font-bold">
-                    {students?.filter(s => {
+                    {students?.filter((s) => {
                       const created = new Date(s.created_at);
                       const now = new Date();
-                      return created.getMonth() === now.getMonth() && created.getFullYear() === now.getFullYear();
+                      return (
+                        created.getMonth() === now.getMonth() &&
+                        created.getFullYear() === now.getFullYear()
+                      );
                     }).length || 0}
                   </div>
                 </div>
@@ -161,8 +198,12 @@ export default async function AdminStudentsPage() {
                 <tbody>
                   {students && students.length > 0 ? (
                     students.map((student) => {
-                      const enrollmentData = enrollmentMap[student.id] || { active: 0, completed: 0, total: 0 };
-                      
+                      const enrollmentData = enrollmentMap[student.id] || {
+                        active: 0,
+                        completed: 0,
+                        total: 0,
+                      };
+
                       return (
                         <tr key={student.id}>
                           <td>
@@ -192,7 +233,10 @@ export default async function AdminStudentsPage() {
                           <td>
                             <div className="space-y-1">
                               <div className="text-sm">
-                                <span className="font-medium">{enrollmentData.total}</span> total
+                                <span className="font-medium">
+                                  {enrollmentData.total}
+                                </span>{' '}
+                                total
                               </div>
                               <div className="flex gap-2 text-xs">
                                 <Badge variant="success" className="text-xs">
@@ -205,18 +249,29 @@ export default async function AdminStudentsPage() {
                             </div>
                           </td>
                           <td>
-                            <Badge variant={enrollmentData.active > 0 ? 'success' : 'secondary'}>
-                              {enrollmentData.active > 0 ? 'Active' : 'Inactive'}
+                            <Badge
+                              variant={
+                                enrollmentData.active > 0
+                                  ? 'success'
+                                  : 'secondary'
+                              }
+                            >
+                              {enrollmentData.active > 0
+                                ? 'Active'
+                                : 'Inactive'}
                             </Badge>
                           </td>
                           <td>
                             <div className="flex items-center gap-2 text-sm text-gray-600">
                               <Calendar className="h-3 w-3" />
-                              {new Date(student.created_at).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric',
-                              })}
+                              {new Date(student.created_at).toLocaleDateString(
+                                'en-US',
+                                {
+                                  month: 'short',
+                                  day: 'numeric',
+                                  year: 'numeric',
+                                }
+                              )}
                             </div>
                           </td>
                           <td>
@@ -234,7 +289,10 @@ export default async function AdminStudentsPage() {
                     })
                   ) : (
                     <tr>
-                      <td colSpan={6} className="text-center text-gray-500 py-8">
+                      <td
+                        colSpan={6}
+                        className="text-center text-gray-500 py-8"
+                      >
                         No students found
                       </td>
                     </tr>

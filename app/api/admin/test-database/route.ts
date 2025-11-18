@@ -4,25 +4,25 @@ import { createServerSupabaseClient } from '@/lib/auth';
 export async function GET() {
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     // Test courses
     const { data: courses, error: coursesError } = await supabase
       .from('courses')
       .select('id, title, status')
       .limit(100);
-    
+
     // Test programs
     const { data: programs, error: programsError } = await supabase
       .from('programs')
       .select('id, title, status')
       .limit(100);
-    
+
     // Test modules
     const { data: modules, error: modulesError } = await supabase
       .from('modules')
       .select('id, title')
       .limit(100);
-    
+
     // Test lessons
     const { data: lessons, error: lessonsError } = await supabase
       .from('lessons')

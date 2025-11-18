@@ -13,7 +13,7 @@ export default function SecuritySettingsPage() {
     requireUppercase: true,
     requireLowercase: true,
     requireNumbers: true,
-    requireSpecialChars: true
+    requireSpecialChars: true,
   });
 
   return (
@@ -23,7 +23,9 @@ export default function SecuritySettingsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Security Settings</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Security Settings
+              </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Configure SSO, 2FA, and security policies
               </p>
@@ -78,7 +80,9 @@ export default function SecuritySettingsPage() {
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <div className="flex-1">
                     <p className="font-medium text-gray-900">Google OAuth</p>
-                    <p className="text-sm text-gray-600">Configured and active</p>
+                    <p className="text-sm text-gray-600">
+                      Configured and active
+                    </p>
                   </div>
                   <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
                     Active
@@ -88,8 +92,12 @@ export default function SecuritySettingsPage() {
                 <div className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg">
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <div className="flex-1">
-                    <p className="font-medium text-gray-900">Microsoft Azure AD</p>
-                    <p className="text-sm text-gray-600">Configured and active</p>
+                    <p className="font-medium text-gray-900">
+                      Microsoft Azure AD
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Configured and active
+                    </p>
                   </div>
                   <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
                     Active
@@ -107,7 +115,9 @@ export default function SecuritySettingsPage() {
               <Key className="h-5 w-5 text-purple-600" />
             </div>
             <div>
-              <h2 className="font-bold text-gray-900">Two-Factor Authentication (2FA)</h2>
+              <h2 className="font-bold text-gray-900">
+                Two-Factor Authentication (2FA)
+              </h2>
               <p className="text-sm text-gray-600">
                 Require additional verification for user logins
               </p>
@@ -116,7 +126,9 @@ export default function SecuritySettingsPage() {
 
           <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
             <div>
-              <p className="font-medium text-gray-900">Require 2FA for all users</p>
+              <p className="font-medium text-gray-900">
+                Require 2FA for all users
+              </p>
               <p className="text-sm text-gray-600">
                 Users must set up 2FA before accessing the system
               </p>
@@ -158,7 +170,7 @@ export default function SecuritySettingsPage() {
                 onChange={(e) =>
                   setPasswordPolicy({
                     ...passwordPolicy,
-                    minLength: parseInt(e.target.value)
+                    minLength: parseInt(e.target.value),
                   })
                 }
                 className="w-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
@@ -173,7 +185,7 @@ export default function SecuritySettingsPage() {
                   onChange={(e) =>
                     setPasswordPolicy({
                       ...passwordPolicy,
-                      requireUppercase: e.target.checked
+                      requireUppercase: e.target.checked,
                     })
                   }
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
@@ -190,7 +202,7 @@ export default function SecuritySettingsPage() {
                   onChange={(e) =>
                     setPasswordPolicy({
                       ...passwordPolicy,
-                      requireLowercase: e.target.checked
+                      requireLowercase: e.target.checked,
                     })
                   }
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
@@ -207,12 +219,14 @@ export default function SecuritySettingsPage() {
                   onChange={(e) =>
                     setPasswordPolicy({
                       ...passwordPolicy,
-                      requireNumbers: e.target.checked
+                      requireNumbers: e.target.checked,
                     })
                   }
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
                 />
-                <span className="text-sm text-gray-700">Require at least one number</span>
+                <span className="text-sm text-gray-700">
+                  Require at least one number
+                </span>
               </label>
 
               <label className="flex items-center gap-3">
@@ -222,7 +236,7 @@ export default function SecuritySettingsPage() {
                   onChange={(e) =>
                     setPasswordPolicy({
                       ...passwordPolicy,
-                      requireSpecialChars: e.target.checked
+                      requireSpecialChars: e.target.checked,
                     })
                   }
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
