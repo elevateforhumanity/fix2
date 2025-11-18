@@ -10,7 +10,9 @@ const ADMIN_IP_WHITELIST = (process.env.ADMIN_IP_WHITELIST || '')
   .map((ip) => ip.trim())
   .filter(Boolean);
 
-const SESSION_MAX_AGE_MINUTES = Number(process.env.SESSION_MAX_AGE_MINUTES || 60);
+const SESSION_MAX_AGE_MINUTES = Number(
+  process.env.SESSION_MAX_AGE_MINUTES || 60
+);
 
 function isAdminRoute(pathname: string) {
   return pathname.startsWith('/admin') || pathname.startsWith('/api/admin');
@@ -28,7 +30,7 @@ function addSecurityHeaders(response: NextResponse) {
       "font-src 'self' data: https://fonts.gstatic.com",
       'connect-src *',
       "frame-ancestors 'self'",
-      "form-action 'self'"
+      "form-action 'self'",
     ].join('; ')
   );
 
@@ -101,7 +103,7 @@ export function proxy(req: NextRequest) {
     httpOnly: true,
     sameSite: 'lax',
     secure: process.env.NODE_ENV === 'production',
-    path: '/'
+    path: '/',
   });
 
   // Admin IP whitelist (basic protection for admin/ backoffice)
@@ -125,5 +127,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)']
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };
