@@ -1,22 +1,22 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const partnerTypes = [
   {
-    title: "Workforce and referral agencies",
-    body: "Use Elevate as your shared front door for barber, healthcare, and trades pathways. Track who you send, who starts, and who finishes—without chasing paper.",
+    title: 'Workforce and referral agencies',
+    body: 'Use Elevate as your shared front door for barber, healthcare, and trades pathways. Track who you send, who starts, and who finishes—without chasing paper.',
   },
   {
-    title: "Schools, churches, and community hubs",
+    title: 'Schools, churches, and community hubs',
     body: "Turn everyday conversations into clear next steps. When someone is ready, you can confidently say, 'Go to Elevate' and know what happens next.",
   },
   {
-    title: "Credentialing partners and training providers",
-    body: "Keep your curriculum, approvals, and brand. Elevate wraps around your programs with LMS orchestration, communication, and narrative for funders.",
+    title: 'Credentialing partners and training providers',
+    body: 'Keep your curriculum, approvals, and brand. Elevate wraps around your programs with LMS orchestration, communication, and narrative for funders.',
   },
   {
-    title: "Employers and barbershops",
-    body: "Get closer to the talent pipeline. Co-design cohorts, host apprentices, and see who is actually close to ready for real roles.",
+    title: 'Employers and barbershops',
+    body: 'Get closer to the talent pipeline. Co-design cohorts, host apprentices, and see who is actually close to ready for real roles.',
   },
 ];
 
@@ -72,9 +72,10 @@ export default function PartnersPage() {
               A front door you can trust for the people you serve.
             </h1>
             <p className="text-sm text-slate-300">
-              Elevate for Humanity was built so workforce boards, agencies, schools, churches,
-              and employers could share one high-trust hub for training and pathways—instead
-              of every organization trying to build their own silo.
+              Elevate for Humanity was built so workforce boards, agencies,
+              schools, churches, and employers could share one high-trust hub
+              for training and pathways—instead of every organization trying to
+              build their own silo.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -103,8 +104,12 @@ export default function PartnersPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">
-                <p className="text-sm font-semibold mb-2">Partnership opportunities</p>
-                <p className="text-2xl font-bold">Work together to move people into careers</p>
+                <p className="text-sm font-semibold mb-2">
+                  Partnership opportunities
+                </p>
+                <p className="text-2xl font-bold">
+                  Work together to move people into careers
+                </p>
               </div>
             </div>
           </div>
@@ -115,7 +120,9 @@ export default function PartnersPage() {
                 key={p.title}
                 className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-sm text-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.75)]"
               >
-                <h2 className="text-[0.98rem] font-semibold text-slate-50">{p.title}</h2>
+                <h2 className="text-[0.98rem] font-semibold text-slate-50">
+                  {p.title}
+                </h2>
                 <p className="mt-2 text-[0.85rem] text-slate-300">{p.body}</p>
               </div>
             ))}
@@ -126,7 +133,10 @@ export default function PartnersPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms
