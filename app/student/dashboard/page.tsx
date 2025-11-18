@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { BookOpen, FileText, Award, Calendar, TrendingUp, Clock } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/Card';
 
 export default function StudentDashboardPage() {
   return (

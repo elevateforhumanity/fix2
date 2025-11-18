@@ -78,6 +78,7 @@
     "react-hook-form": "^7.64.0",
     "react-signature-canvas": "1.1.0-alpha.2",
     "recharts": "^3.3.0",
+    "redis": "5.9.0",
     "resend": "6.4.2",
     "sharp": "0.34.5",
     "signature_pad": "5.1.1",
