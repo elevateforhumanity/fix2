@@ -17,7 +17,7 @@ export async function GET(_request: NextRequest) {
     console.error('Error fetching benefits plans:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch benefits plans' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     if (!plan_name || !plan_type) {
       return NextResponse.json(
         { error: 'plan_name and plan_type are required' },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     console.error('Error creating benefits plan:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create benefits plan' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

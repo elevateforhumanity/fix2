@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
           profile:profiles(full_name, email)
         ),
         policy:leave_policies(*)
-      `,
+      `
       )
       .order('created_at', { ascending: false });
 
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching leave requests:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch leave requests' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -48,16 +48,28 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
     const body = await request.json();
 
-    const { employee_id, policy_id, start_date, end_date, total_hours, reason } =
-      body;
+    const {
+      employee_id,
+      policy_id,
+      start_date,
+      end_date,
+      total_hours,
+      reason,
+    } = body;
 
-    if (!employee_id || !policy_id || !start_date || !end_date || !total_hours) {
+    if (
+      !employee_id ||
+      !policy_id ||
+      !start_date ||
+      !end_date ||
+      !total_hours
+    ) {
       return NextResponse.json(
         {
           error:
             'Missing required fields: employee_id, policy_id, start_date, end_date, total_hours',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -82,7 +94,7 @@ export async function POST(request: NextRequest) {
     console.error('Error creating leave request:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create leave request' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

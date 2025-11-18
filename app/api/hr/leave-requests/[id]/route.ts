@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createClient();
@@ -11,10 +11,7 @@ export async function PATCH(
     const { status, rejection_reason } = body;
 
     if (!['approved', 'rejected', 'cancelled'].includes(status)) {
-      return NextResponse.json(
-        { error: 'Invalid status' },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: 'Invalid status' }, { status: 400 });
     }
 
     // Get current user
@@ -33,7 +30,7 @@ export async function PATCH(
     if (!existing) {
       return NextResponse.json(
         { error: 'Leave request not found' },
-        { status: 404 },
+        { status: 404 }
       );
     }
 
@@ -61,7 +58,7 @@ export async function PATCH(
           p_policy_id: existing.policy_id,
           p_year: new Date(existing.start_date).getFullYear(),
           p_hours: existing.total_hours,
-        },
+        }
       );
       if (balanceError) {
         console.error('Error updating leave balance:', balanceError);
@@ -73,7 +70,7 @@ export async function PATCH(
     console.error('Error updating leave request:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update leave request' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
