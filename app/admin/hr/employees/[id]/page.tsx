@@ -4,7 +4,14 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { User, Mail, Calendar, DollarSign, Save, ArrowLeft } from 'lucide-react';
+import {
+  User,
+  Mail,
+  Calendar,
+  DollarSign,
+  Save,
+  ArrowLeft,
+} from 'lucide-react';
 
 type Employee = {
   id: string;
@@ -66,7 +73,7 @@ export default function EmployeeDetailPage() {
       if (!res.ok) throw new Error('Failed to load employee');
       const data = await res.json();
       setEmployee(data.employee);
-      
+
       // Initialize form data
       setFormData({
         employment_type: data.employee.employment_type || '',
@@ -225,11 +232,15 @@ export default function EmployeeDetailPage() {
             <div className="space-y-3">
               <div>
                 <p className="text-sm text-gray-600">Full Name</p>
-                <p className="font-medium text-gray-900">{employee.profile?.full_name}</p>
+                <p className="font-medium text-gray-900">
+                  {employee.profile?.full_name}
+                </p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Email</p>
-                <p className="font-medium text-gray-900">{employee.profile?.email}</p>
+                <p className="font-medium text-gray-900">
+                  {employee.profile?.email}
+                </p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Phone</p>
@@ -263,7 +274,10 @@ export default function EmployeeDetailPage() {
                   <select
                     value={formData.employment_type}
                     onChange={(e) =>
-                      setFormData({ ...formData, employment_type: e.target.value })
+                      setFormData({
+                        ...formData,
+                        employment_type: e.target.value,
+                      })
                     }
                     className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
@@ -284,7 +298,10 @@ export default function EmployeeDetailPage() {
                   <select
                     value={formData.employment_status}
                     onChange={(e) =>
-                      setFormData({ ...formData, employment_status: e.target.value })
+                      setFormData({
+                        ...formData,
+                        employment_status: e.target.value,
+                      })
                     }
                     className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
@@ -298,8 +315,8 @@ export default function EmployeeDetailPage() {
                       employee.employment_status === 'active'
                         ? 'bg-green-100 text-green-800'
                         : employee.employment_status === 'on_leave'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-red-100 text-red-800'
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-red-100 text-red-800'
                     }`}
                   >
                     {employee.employment_status}
@@ -330,11 +347,15 @@ export default function EmployeeDetailPage() {
                     <option value="hourly">Hourly</option>
                   </select>
                 ) : (
-                  <p className="font-medium text-gray-900 capitalize">{employee.pay_type}</p>
+                  <p className="font-medium text-gray-900 capitalize">
+                    {employee.pay_type}
+                  </p>
                 )}
               </div>
 
-              {(editing ? formData.pay_type === 'salary' : employee.pay_type === 'salary') && (
+              {(editing
+                ? formData.pay_type === 'salary'
+                : employee.pay_type === 'salary') && (
                 <div>
                   <p className="text-sm text-gray-600">Annual Salary</p>
                   {editing ? (
@@ -354,7 +375,9 @@ export default function EmployeeDetailPage() {
                 </div>
               )}
 
-              {(editing ? formData.pay_type === 'hourly' : employee.pay_type === 'hourly') && (
+              {(editing
+                ? formData.pay_type === 'hourly'
+                : employee.pay_type === 'hourly') && (
                 <div>
                   <p className="text-sm text-gray-600">Hourly Rate</p>
                   {editing ? (
@@ -363,7 +386,10 @@ export default function EmployeeDetailPage() {
                       step="0.01"
                       value={formData.hourly_rate}
                       onChange={(e) =>
-                        setFormData({ ...formData, hourly_rate: e.target.value })
+                        setFormData({
+                          ...formData,
+                          hourly_rate: e.target.value,
+                        })
                       }
                       className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     />
@@ -381,7 +407,10 @@ export default function EmployeeDetailPage() {
                   <select
                     value={formData.pay_frequency}
                     onChange={(e) =>
-                      setFormData({ ...formData, pay_frequency: e.target.value })
+                      setFormData({
+                        ...formData,
+                        pay_frequency: e.target.value,
+                      })
                     }
                     className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
@@ -401,7 +430,9 @@ export default function EmployeeDetailPage() {
 
           {/* Department & Position */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-lg font-bold text-gray-900 mb-4">Department & Position</h2>
+            <h2 className="text-lg font-bold text-gray-900 mb-4">
+              Department & Position
+            </h2>
             <div className="space-y-3">
               <div>
                 <p className="text-sm text-gray-600">Department</p>
@@ -426,14 +457,18 @@ export default function EmployeeDetailPage() {
             className="p-4 bg-white border border-gray-200 rounded-lg hover:border-red-300 transition"
           >
             <h3 className="font-bold text-gray-900 mb-1">Time Entries</h3>
-            <p className="text-sm text-gray-600">View and approve time entries</p>
+            <p className="text-sm text-gray-600">
+              View and approve time entries
+            </p>
           </Link>
           <Link
             href={`/admin/hr/leave?employee_id=${employeeId}`}
             className="p-4 bg-white border border-gray-200 rounded-lg hover:border-red-300 transition"
           >
             <h3 className="font-bold text-gray-900 mb-1">Leave Requests</h3>
-            <p className="text-sm text-gray-600">Manage PTO and leave requests</p>
+            <p className="text-sm text-gray-600">
+              Manage PTO and leave requests
+            </p>
           </Link>
           <Link
             href={`/admin/hr/payroll?employee_id=${employeeId}`}

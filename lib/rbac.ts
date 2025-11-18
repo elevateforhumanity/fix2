@@ -2,9 +2,9 @@ import { createClient } from '@/lib/supabase/server';
 
 /**
  * RBAC Helper - Role-Based Access Control
- * 
+ *
  * Enforces role-based permissions at the API layer
- * 
+ *
  * Roles:
  * - admin: Full system access
  * - hr_admin: HR and payroll management
@@ -110,9 +110,11 @@ const ROLE_HIERARCHY: Record<string, number> = {
 /**
  * Check if user's role is at least the specified level
  */
-export async function requireRoleLevel(minRole: string): Promise<{ user: any; profile: any }> {
+export async function requireRoleLevel(
+  minRole: string
+): Promise<{ user: any; profile: any }> {
   const { user, profile } = await requireRole(Object.keys(ROLE_HIERARCHY));
-  
+
   const userLevel = ROLE_HIERARCHY[profile.role] || 0;
   const requiredLevel = ROLE_HIERARCHY[minRole] || 0;
 

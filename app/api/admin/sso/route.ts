@@ -7,14 +7,14 @@ export async function GET() {
   try {
     await requireRole(['admin']);
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('sso_connections')
       .select('*')
       .order('provider');
-      
+
     if (error) throw error;
-    
+
     return NextResponse.json({ connections: data });
   } catch (err: any) {
     const { error, status } = handleRBACError(err);

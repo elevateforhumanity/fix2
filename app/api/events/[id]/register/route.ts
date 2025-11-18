@@ -71,13 +71,17 @@ export async function POST(
       .single();
     if (error) throw error;
 
-    return NextResponse.json({ 
-      registration: data, 
-      status,
-      message: status === 'waitlisted' 
-        ? 'You have been added to the waitlist' 
-        : 'Registration successful'
-    }, { status: 201 });
+    return NextResponse.json(
+      {
+        registration: data,
+        status,
+        message:
+          status === 'waitlisted'
+            ? 'You have been added to the waitlist'
+            : 'Registration successful',
+      },
+      { status: 201 }
+    );
   } catch (err: any) {
     console.error('POST /events/[id]/register error', err);
     return NextResponse.json(

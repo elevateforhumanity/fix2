@@ -32,7 +32,9 @@ export default function TimeApprovalPage() {
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState('pending');
   const [dateFilter, setDateFilter] = useState({
-    start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0],
     end: new Date().toISOString().split('T')[0],
   });
 
@@ -50,7 +52,7 @@ export default function TimeApprovalPage() {
 
       const res = await fetch(`/api/hr/time-entries?${params}`);
       if (!res.ok) throw new Error('Failed to load time entries');
-      
+
       const data = await res.json();
       setTimeEntries(data.timeEntries || []);
     } catch (error) {
@@ -83,9 +85,9 @@ export default function TimeApprovalPage() {
       const res = await fetch(`/api/hr/time-entries/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           status: 'rejected',
-          notes: reason 
+          notes: reason,
         }),
       });
 
@@ -97,7 +99,8 @@ export default function TimeApprovalPage() {
   }
 
   async function handleBulkApprove() {
-    if (!confirm(`Approve all ${timeEntries.length} pending time entries?`)) return;
+    if (!confirm(`Approve all ${timeEntries.length} pending time entries?`))
+      return;
 
     try {
       await Promise.all(
@@ -120,8 +123,14 @@ export default function TimeApprovalPage() {
     (sum, entry) => sum + entry.regular_hours + entry.overtime_hours,
     0
   );
-  const totalRegular = timeEntries.reduce((sum, entry) => sum + entry.regular_hours, 0);
-  const totalOvertime = timeEntries.reduce((sum, entry) => sum + entry.overtime_hours, 0);
+  const totalRegular = timeEntries.reduce(
+    (sum, entry) => sum + entry.regular_hours,
+    0
+  );
+  const totalOvertime = timeEntries.reduce(
+    (sum, entry) => sum + entry.overtime_hours,
+    0
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -136,7 +145,9 @@ export default function TimeApprovalPage() {
               >
                 ← Back to HR
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900 mt-2">Time & Attendance</h1>
+              <h1 className="text-2xl font-bold text-gray-900 mt-2">
+                Time & Attendance
+              </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Review and approve employee time entries
               </p>
@@ -164,7 +175,9 @@ export default function TimeApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Hours</p>
-                <p className="text-2xl font-bold text-gray-900">{totalHours.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {totalHours.toFixed(1)}
+                </p>
               </div>
             </div>
           </div>
@@ -176,7 +189,9 @@ export default function TimeApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Regular Hours</p>
-                <p className="text-2xl font-bold text-gray-900">{totalRegular.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {totalRegular.toFixed(1)}
+                </p>
               </div>
             </div>
           </div>
@@ -188,7 +203,9 @@ export default function TimeApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Overtime Hours</p>
-                <p className="text-2xl font-bold text-gray-900">{totalOvertime.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {totalOvertime.toFixed(1)}
+                </p>
               </div>
             </div>
           </div>
@@ -200,7 +217,9 @@ export default function TimeApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Entries</p>
-                <p className="text-2xl font-bold text-gray-900">{timeEntries.length}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {timeEntries.length}
+                </p>
               </div>
             </div>
           </div>
@@ -223,14 +242,18 @@ export default function TimeApprovalPage() {
             <input
               type="date"
               value={dateFilter.start}
-              onChange={(e) => setDateFilter({ ...dateFilter, start: e.target.value })}
+              onChange={(e) =>
+                setDateFilter({ ...dateFilter, start: e.target.value })
+              }
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
             <span className="text-gray-600">to</span>
             <input
               type="date"
               value={dateFilter.end}
-              onChange={(e) => setDateFilter({ ...dateFilter, end: e.target.value })}
+              onChange={(e) =>
+                setDateFilter({ ...dateFilter, end: e.target.value })
+              }
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </div>
@@ -278,7 +301,10 @@ export default function TimeApprovalPage() {
                 </thead>
                 <tbody>
                   {timeEntries.map((entry) => (
-                    <tr key={entry.id} className="border-t border-gray-100 hover:bg-gray-50">
+                    <tr
+                      key={entry.id}
+                      className="border-t border-gray-100 hover:bg-gray-50"
+                    >
                       <td className="py-3 px-4">
                         <div>
                           <p className="font-medium text-gray-900">
@@ -290,26 +316,35 @@ export default function TimeApprovalPage() {
                         </div>
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
-                        {new Date(entry.entry_date).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
+                        {new Date(entry.entry_date).toLocaleDateString(
+                          'en-US',
+                          {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          }
+                        )}
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {entry.clock_in
-                          ? new Date(entry.clock_in).toLocaleTimeString('en-US', {
-                              hour: 'numeric',
-                              minute: '2-digit',
-                            })
+                          ? new Date(entry.clock_in).toLocaleTimeString(
+                              'en-US',
+                              {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                              }
+                            )
                           : '-'}
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-600">
                         {entry.clock_out
-                          ? new Date(entry.clock_out).toLocaleTimeString('en-US', {
-                              hour: 'numeric',
-                              minute: '2-digit',
-                            })
+                          ? new Date(entry.clock_out).toLocaleTimeString(
+                              'en-US',
+                              {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                              }
+                            )
                           : '-'}
                       </td>
                       <td className="py-3 px-4 text-right text-sm font-medium text-gray-900">
@@ -324,8 +359,8 @@ export default function TimeApprovalPage() {
                             entry.status === 'approved'
                               ? 'bg-green-100 text-green-800'
                               : entry.status === 'rejected'
-                              ? 'bg-red-100 text-red-800'
-                              : 'bg-yellow-100 text-yellow-800'
+                                ? 'bg-red-100 text-red-800'
+                                : 'bg-yellow-100 text-yellow-800'
                           }`}
                         >
                           {entry.status}

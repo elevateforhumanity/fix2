@@ -58,10 +58,7 @@ export async function POST(req: NextRequest) {
     const { email, full_name, phone, source, tags } = body;
 
     if (!email) {
-      return NextResponse.json(
-        { error: 'Email is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
     const { data, error } = await supabase

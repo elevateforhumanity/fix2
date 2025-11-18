@@ -45,7 +45,7 @@ export default function LeaveApprovalPage() {
       const params = new URLSearchParams({ status: statusFilter });
       const res = await fetch(`/api/hr/leave-requests?${params}`);
       if (!res.ok) throw new Error('Failed to load leave requests');
-      
+
       const data = await res.json();
       setLeaveRequests(data.leaveRequests || []);
     } catch (error) {
@@ -80,9 +80,9 @@ export default function LeaveApprovalPage() {
       const res = await fetch(`/api/hr/leave-requests/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           status: 'rejected',
-          rejection_reason: reason 
+          rejection_reason: reason,
         }),
       });
 
@@ -93,7 +93,10 @@ export default function LeaveApprovalPage() {
     }
   }
 
-  const totalHours = leaveRequests.reduce((sum, req) => sum + req.total_hours, 0);
+  const totalHours = leaveRequests.reduce(
+    (sum, req) => sum + req.total_hours,
+    0
+  );
   const totalDays = totalHours / 8; // Assuming 8-hour workday
 
   return (
@@ -109,7 +112,9 @@ export default function LeaveApprovalPage() {
               >
                 ← Back to HR
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900 mt-2">Leave Management</h1>
+              <h1 className="text-2xl font-bold text-gray-900 mt-2">
+                Leave Management
+              </h1>
               <p className="text-sm text-gray-600 mt-1">
                 Review and approve employee leave requests
               </p>
@@ -128,7 +133,9 @@ export default function LeaveApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Requests</p>
-                <p className="text-2xl font-bold text-gray-900">{leaveRequests.length}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {leaveRequests.length}
+                </p>
               </div>
             </div>
           </div>
@@ -140,7 +147,9 @@ export default function LeaveApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Hours</p>
-                <p className="text-2xl font-bold text-gray-900">{totalHours.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {totalHours.toFixed(1)}
+                </p>
               </div>
             </div>
           </div>
@@ -152,7 +161,9 @@ export default function LeaveApprovalPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Days</p>
-                <p className="text-2xl font-bold text-gray-900">{totalDays.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {totalDays.toFixed(1)}
+                </p>
               </div>
             </div>
           </div>
@@ -202,10 +213,10 @@ export default function LeaveApprovalPage() {
                               request.status === 'approved'
                                 ? 'bg-green-100 text-green-800'
                                 : request.status === 'rejected'
-                                ? 'bg-red-100 text-red-800'
-                                : request.status === 'cancelled'
-                                ? 'bg-gray-100 text-gray-800'
-                                : 'bg-yellow-100 text-yellow-800'
+                                  ? 'bg-red-100 text-red-800'
+                                  : request.status === 'cancelled'
+                                    ? 'bg-gray-100 text-gray-800'
+                                    : 'bg-yellow-100 text-yellow-800'
                             }`}
                           >
                             {request.status}
@@ -213,7 +224,8 @@ export default function LeaveApprovalPage() {
                         </div>
 
                         <p className="text-sm text-gray-600 mb-3">
-                          {request.employee?.employee_number} • {request.employee?.profile?.email}
+                          {request.employee?.employee_number} •{' '}
+                          {request.employee?.profile?.email}
                         </p>
 
                         <div className="grid gap-3 md:grid-cols-2 mb-3">
@@ -226,7 +238,8 @@ export default function LeaveApprovalPage() {
                           <div>
                             <p className="text-xs text-gray-600">Duration</p>
                             <p className="font-medium text-gray-900">
-                              {days.toFixed(1)} days ({request.total_hours} hours)
+                              {days.toFixed(1)} days ({request.total_hours}{' '}
+                              hours)
                             </p>
                           </div>
                           <div>
@@ -254,7 +267,9 @@ export default function LeaveApprovalPage() {
                         {request.reason && (
                           <div className="mb-3">
                             <p className="text-xs text-gray-600">Reason</p>
-                            <p className="text-sm text-gray-900">{request.reason}</p>
+                            <p className="text-sm text-gray-900">
+                              {request.reason}
+                            </p>
                           </div>
                         )}
 
@@ -263,7 +278,9 @@ export default function LeaveApprovalPage() {
                             <p className="text-xs text-red-600 font-medium mb-1">
                               Rejection Reason
                             </p>
-                            <p className="text-sm text-red-900">{request.rejection_reason}</p>
+                            <p className="text-sm text-red-900">
+                              {request.rejection_reason}
+                            </p>
                           </div>
                         )}
                       </div>
@@ -294,7 +311,9 @@ export default function LeaveApprovalPage() {
           ) : (
             <div className="text-center py-12">
               <Calendar className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2">No Leave Requests</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                No Leave Requests
+              </h3>
               <p className="text-gray-600">
                 No {statusFilter} leave requests at this time
               </p>
