@@ -5,6 +5,7 @@ This document explains how to configure and use the production-ready features im
 ## 🚀 Features Implemented
 
 ### 1. CI/CD Pipeline (GitHub Actions)
+
 - **File**: `.github/workflows/ci-cd.yml`
 - **Triggers**: Push to main/master, Pull Requests
 - **Steps**:
@@ -13,22 +14,26 @@ This document explains how to configure and use the production-ready features im
   - Deploy to Vercel
 
 ### 2. Automated Database Backups
+
 - **File**: `.github/workflows/db-backup.yml`
 - **Schedule**: Daily at 06:00 UTC
 - **Storage**: AWS S3
 - **Notifications**: Slack alerts on success/failure
 
 ### 3. Error Monitoring (Sentry)
+
 - **Files**: `sentry.*.config.ts`, `instrumentation.ts`
 - **Features**: Error tracking, performance monitoring, session replay
 - **Coverage**: Client-side, server-side, and edge runtime
 
 ### 4. Slack/Teams Notifications
+
 - **File**: `lib/notifySlack.ts`
 - **Functions**: `notifySlack()`, `notifyTeams()`
 - **Severities**: info, warning, error, critical
 
 ### 5. Help Center
+
 - **File**: `app/help/page.tsx`
 - **Sections**: Students, Instructors, Administrators
 - **Features**: Search, categorized articles, contact support
@@ -38,6 +43,7 @@ This document explains how to configure and use the production-ready features im
 ## 📋 Required GitHub Secrets
 
 ### For CI/CD Pipeline
+
 ```
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -51,6 +57,7 @@ VERCEL_PROJECT_ID
 ```
 
 ### For Database Backups
+
 ```
 SUPABASE_DB_URL          # Full PostgreSQL connection string
 AWS_ACCESS_KEY_ID
@@ -61,6 +68,7 @@ SLACK_WEBHOOK_URL        # For backup notifications
 ```
 
 ### For Monitoring
+
 ```
 SENTRY_DSN
 SENTRY_AUTH_TOKEN        # For source maps upload
@@ -105,15 +113,15 @@ export async function POST(request: Request) {
     // Your logic here
     await notifySlack('User registration completed', {
       severity: 'info',
-      context: { userId: '123', email: 'user@example.com' }
+      context: { userId: '123', email: 'user@example.com' },
     });
   } catch (error: any) {
     await notifySlack('Registration failed', {
       severity: 'error',
       context: {
         message: error.message,
-        stack: error.stack
-      }
+        stack: error.stack,
+      },
     });
   }
 }
@@ -128,8 +136,8 @@ await notifyTeams('Critical system alert', {
   severity: 'critical',
   context: {
     service: 'payment-processor',
-    error: 'Connection timeout'
-  }
+    error: 'Connection timeout',
+  },
 });
 ```
 
@@ -146,8 +154,8 @@ try {
   Sentry.captureException(error, {
     tags: {
       section: 'payment',
-      userId: user.id
-    }
+      userId: user.id,
+    },
   });
 }
 ```
@@ -193,6 +201,7 @@ gh secret set SLACK_WEBHOOK_URL
 ## 🧪 Testing the Setup
 
 ### Test CI/CD Pipeline
+
 ```bash
 # Push to main branch
 git push origin main
@@ -201,6 +210,7 @@ git push origin main
 ```
 
 ### Test Database Backup
+
 ```bash
 # Manually trigger the workflow
 gh workflow run db-backup.yml
@@ -209,12 +219,14 @@ gh workflow run db-backup.yml
 ```
 
 ### Test Slack Notifications
+
 ```bash
 # Create a test API route
 curl -X POST https://your-domain.com/api/test-slack
 ```
 
 ### Test Sentry
+
 ```bash
 # Trigger an error in your app
 # Check Sentry dashboard for the error
@@ -225,16 +237,19 @@ curl -X POST https://your-domain.com/api/test-slack
 ## 📊 Monitoring Dashboard
 
 ### Sentry Dashboard
+
 - **URL**: https://sentry.io/organizations/your-org/projects/
 - **Metrics**: Error rate, performance, user sessions
 - **Alerts**: Configure alerts for error spikes
 
 ### GitHub Actions
+
 - **URL**: https://github.com/your-org/your-repo/actions
 - **Workflows**: CI/CD, Database Backups
 - **Logs**: View detailed logs for each run
 
 ### Vercel Dashboard
+
 - **URL**: https://vercel.com/your-team/your-project
 - **Deployments**: View deployment history
 - **Analytics**: Performance metrics
@@ -244,15 +259,18 @@ curl -X POST https://your-domain.com/api/test-slack
 ## 🔄 Maintenance
 
 ### Daily
+
 - ✅ Automated database backups (06:00 UTC)
 - ✅ Automated deployments on push to main
 
 ### Weekly
+
 - Review Sentry error reports
 - Check GitHub Actions success rate
 - Verify backup integrity
 
 ### Monthly
+
 - Review and rotate API keys
 - Update dependencies
 - Test disaster recovery procedures
@@ -262,24 +280,28 @@ curl -X POST https://your-domain.com/api/test-slack
 ## 🆘 Troubleshooting
 
 ### CI/CD Pipeline Fails
+
 1. Check GitHub Actions logs
 2. Verify all secrets are set correctly
 3. Ensure Vercel project is linked
 4. Check Supabase migrations are valid
 
 ### Database Backup Fails
+
 1. Verify `SUPABASE_DB_URL` is correct
 2. Check AWS credentials and S3 bucket permissions
 3. Review GitHub Actions logs
 4. Check Slack for failure notification
 
 ### Sentry Not Capturing Errors
+
 1. Verify `SENTRY_DSN` is set in environment
 2. Check `instrumentation.ts` is present
 3. Ensure `experimental.instrumentationHook` is enabled in `next.config.mjs`
 4. Rebuild and redeploy
 
 ### Slack Notifications Not Working
+
 1. Verify `SLACK_WEBHOOK_URL` is correct
 2. Test webhook with curl:
    ```bash

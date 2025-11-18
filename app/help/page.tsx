@@ -8,12 +8,14 @@ const sections = [
       {
         title: 'Getting Started',
         href: '/help/students/getting-started',
-        description: 'Create your account, enroll in programs, and access your courses.',
+        description:
+          'Create your account, enroll in programs, and access your courses.',
       },
       {
         title: 'Attendance and Progress',
         href: '/help/students/attendance-progress',
-        description: 'How attendance is tracked and how to stay in good standing.',
+        description:
+          'How attendance is tracked and how to stay in good standing.',
       },
       {
         title: 'Certificates and Credentials',
@@ -28,17 +30,20 @@ const sections = [
       {
         title: 'Managing Your Cohort',
         href: '/help/instructors/cohort-management',
-        description: 'Take attendance, track progress, and support your students.',
+        description:
+          'Take attendance, track progress, and support your students.',
       },
       {
         title: 'Reporting and Compliance',
         href: '/help/instructors/reporting',
-        description: 'What data must be submitted for WIOA, WRG, DOL, and state partners.',
+        description:
+          'What data must be submitted for WIOA, WRG, DOL, and state partners.',
       },
       {
         title: 'Scheduling Live Sessions',
         href: '/help/instructors/live-sessions',
-        description: 'Use Zoom/Teams to schedule live classes with your cohort.',
+        description:
+          'Use Zoom/Teams to schedule live classes with your cohort.',
       },
     ],
   },
@@ -48,17 +53,20 @@ const sections = [
       {
         title: 'Tenant and Site Setup',
         href: '/help/admin/tenant-setup',
-        description: 'Configure white-label branding, domains, and feature flags.',
+        description:
+          'Configure white-label branding, domains, and feature flags.',
       },
       {
         title: 'Compliance and Audits',
         href: '/help/admin/compliance',
-        description: 'How Elevate supports DOL, WIOA, FERPA, and data privacy audits.',
+        description:
+          'How Elevate supports DOL, WIOA, FERPA, and data privacy audits.',
       },
       {
         title: 'Support and Escalations',
         href: '/help/admin/support',
-        description: 'How to contact support, open tickets, and escalate issues.',
+        description:
+          'How to contact support, open tickets, and escalate issues.',
       },
     ],
   },
@@ -76,8 +84,8 @@ export default function HelpCenterPage() {
             How can we help you today?
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
-            Guides for students, instructors, employers, and administrators using the Elevate
-            Workforce and LMS platform.
+            Guides for students, instructors, employers, and administrators
+            using the Elevate Workforce and LMS platform.
           </p>
         </header>
 
@@ -110,7 +118,9 @@ export default function HelpCenterPage() {
                       <p className="text-sm font-medium text-slate-900 group-hover:text-orange-600">
                         {item.title}
                       </p>
-                      <p className="mt-1 text-xs text-slate-600">{item.description}</p>
+                      <p className="mt-1 text-xs text-slate-600">
+                        {item.description}
+                      </p>
                     </Link>
                   </li>
                 ))}
@@ -124,7 +134,8 @@ export default function HelpCenterPage() {
             Still need help?
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Contact our support team or your Elevate site coordinator for one-on-one assistance.
+            Contact our support team or your Elevate site coordinator for
+            one-on-one assistance.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm">
             <a

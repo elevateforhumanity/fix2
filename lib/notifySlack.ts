@@ -24,7 +24,7 @@ export async function notifySlack(
     info: 'ℹ️',
     warning: '⚠️',
     error: '❌',
-    critical: '🚨'
+    critical: '🚨',
   };
 
   const emoji = emojiMap[severity];
@@ -45,9 +45,7 @@ export async function notifySlack(
       text: {
         type: 'mrkdwn',
         text:
-          '```' +
-          JSON.stringify(opts.context, null, 2).slice(0, 2900) +
-          '```',
+          '```' + JSON.stringify(opts.context, null, 2).slice(0, 2900) + '```',
       },
     });
   }
@@ -100,7 +98,8 @@ export async function notifyTeams(
     '@type': 'MessageCard',
     '@context': 'https://schema.org/extensions',
     summary: message,
-    themeColor: severity === 'critical' || severity === 'error' ? 'FF0000' : '0078D4',
+    themeColor:
+      severity === 'critical' || severity === 'error' ? 'FF0000' : '0078D4',
     title: `${severity.toUpperCase()}: ${message}`,
     sections: [
       {

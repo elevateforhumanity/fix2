@@ -39,9 +39,7 @@ export async function POST(request: NextRequest) {
       };
     });
 
-    const { error } = await supabase
-      .from('xapi_statements')
-      .insert(records);
+    const { error } = await supabase.from('xapi_statements').insert(records);
 
     if (error) {
       console.error('xAPI storage error:', error);

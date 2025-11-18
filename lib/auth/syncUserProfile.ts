@@ -36,7 +36,7 @@ export async function syncUserProfile(input: SyncUserInput) {
         last_login_at: new Date().toISOString(),
         last_login_provider: provider,
         last_login_provider_account_id: providerAccountId,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
       })
       .eq('email', email);
   } else {
@@ -49,7 +49,7 @@ export async function syncUserProfile(input: SyncUserInput) {
       last_login_provider: provider,
       last_login_provider_account_id: providerAccountId,
       created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
+      updated_at: new Date().toISOString(),
     });
   }
 }

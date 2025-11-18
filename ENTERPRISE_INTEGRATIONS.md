@@ -53,11 +53,11 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
-  
+
   if (!session) {
     redirect('/auth/login');
   }
-  
+
   return <div>Welcome {session.user?.name}</div>;
 }
 ```
@@ -134,7 +134,7 @@ export function welcomeEmail(name: string, programName: string) {
       <h1>Welcome ${name}!</h1>
       <p>You've been enrolled in ${programName}.</p>
       <a href="https://yourdomain.com/dashboard">Go to Dashboard</a>
-    `
+    `,
   };
 }
 ```
@@ -192,15 +192,11 @@ TEAMS_WEBHOOK_URL=https://outlook.office.com/webhook/...
 ```typescript
 import { sendTeamsMessage } from '@/lib/notifications/teams';
 
-await sendTeamsMessage(
-  'New Enrollment',
-  'Student enrolled in HVAC program',
-  {
-    studentEmail: 'student@example.com',
-    programName: 'HVAC Technician',
-    enrollmentDate: new Date().toISOString()
-  }
-);
+await sendTeamsMessage('New Enrollment', 'Student enrolled in HVAC program', {
+  studentEmail: 'student@example.com',
+  programName: 'HVAC Technician',
+  enrollmentDate: new Date().toISOString(),
+});
 ```
 
 ### Use Cases
@@ -268,30 +264,30 @@ xAPI (Experience API / Tin Can API) for tracking learning experiences.
 const statement = {
   actor: {
     mbox: 'mailto:student@example.com',
-    name: 'John Doe'
+    name: 'John Doe',
   },
   verb: {
     id: 'http://adlnet.gov/expapi/verbs/completed',
-    display: { 'en-US': 'completed' }
+    display: { 'en-US': 'completed' },
   },
   object: {
     id: 'http://example.com/activities/module-1',
     objectType: 'Activity',
     definition: {
-      name: { 'en-US': 'Safety Module 1' }
-    }
+      name: { 'en-US': 'Safety Module 1' },
+    },
   },
   result: {
     score: { scaled: 0.95 },
     success: true,
-    completion: true
-  }
+    completion: true,
+  },
 };
 
 await fetch('/api/xapi/statement', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(statement)
+  body: JSON.stringify(statement),
 });
 ```
 
@@ -362,32 +358,32 @@ import { sendTeamsMessage } from '@/lib/notifications/teams';
 
 export async function POST(request: Request) {
   const { studentEmail, studentPhone, programName } = await request.json();
-  
+
   // Save enrollment to database
   // ...
-  
+
   // Email student
   await sendEmail({
     to: studentEmail,
     subject: `Welcome to ${programName}`,
-    html: welcomeEmailTemplate(programName)
+    html: welcomeEmailTemplate(programName),
   });
-  
+
   // SMS reminder
   if (studentPhone) {
     await sendSms({
       to: studentPhone,
-      body: `You're enrolled in ${programName}. Check your email for details.`
+      body: `You're enrolled in ${programName}. Check your email for details.`,
     });
   }
-  
+
   // Notify staff via Teams
   await sendTeamsMessage(
     'New Enrollment',
     `New student enrolled in ${programName}`,
     { studentEmail, programName }
   );
-  
+
   return NextResponse.json({ success: true });
 }
 ```
@@ -402,7 +398,7 @@ import { notifySlack } from '@/lib/notifySlack';
 async function handleCourseCompletion(userId: string, courseId: string) {
   // Update database
   // ...
-  
+
   // Send xAPI statement
   await fetch('/api/xapi/statement', {
     method: 'POST',
@@ -410,21 +406,21 @@ async function handleCourseCompletion(userId: string, courseId: string) {
       actor: { mbox: `mailto:${userEmail}` },
       verb: { id: 'http://adlnet.gov/expapi/verbs/completed' },
       object: { id: `course:${courseId}` },
-      result: { completion: true }
-    })
+      result: { completion: true },
+    }),
   });
-  
+
   // Email certificate
   await sendEmail({
     to: userEmail,
     subject: 'Course Completed!',
-    html: certificateEmailTemplate(courseName)
+    html: certificateEmailTemplate(courseName),
   });
-  
+
   // Notify Slack
   await notifySlack('Course Completion', {
     severity: 'info',
-    context: { userId, courseId, courseName }
+    context: { userId, courseId, courseName },
   });
 }
 ```
