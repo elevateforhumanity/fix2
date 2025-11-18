@@ -10,7 +10,7 @@ const supabase = createClient(
 
 export async function GET(req: NextRequest) {
   const tenantId = req.headers.get('x-tenant-id');
-  
+
   if (!tenantId) {
     return NextResponse.json({ error: 'Tenant ID required' }, { status: 400 });
   }
@@ -26,7 +26,8 @@ export async function GET(req: NextRequest) {
     .eq('tenant_id', tenantId)
     .gte('created_at', fifteenMinutesAgo.toISOString());
 
-  const uniqueActiveUsers = new Set(activeUsers?.map(u => u.user_id) || []).size;
+  const uniqueActiveUsers = new Set(activeUsers?.map((u) => u.user_id) || [])
+    .size;
 
   // Courses in progress
   const { count: coursesInProgress } = await supabase
@@ -54,6 +55,6 @@ export async function GET(req: NextRequest) {
     coursesInProgress: coursesInProgress || 0,
     completionsToday: completionsToday || 0,
     enrollmentsToday: enrollmentsToday || 0,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 }

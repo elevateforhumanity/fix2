@@ -3,22 +3,30 @@
 
 import useSWR from 'swr';
 
-const fetcher = (url: string) => fetch(url, {
-  headers: {
-    'x-tenant-id': 'default' // TODO: Get from context
-  }
-}).then((r) => r.json());
+const fetcher = (url: string) =>
+  fetch(url, {
+    headers: {
+      'x-tenant-id': 'default', // TODO: Get from context
+    },
+  }).then((r) => r.json());
 
 export default function AnalyticsDashboard() {
-  const { data, error, isLoading } = useSWR('/api/admin/analytics/overview', fetcher, {
-    refreshInterval: 15000 // Refresh every 15 seconds
-  });
+  const { data, error, isLoading } = useSWR(
+    '/api/admin/analytics/overview',
+    fetcher,
+    {
+      refreshInterval: 15000, // Refresh every 15 seconds
+    }
+  );
 
   if (isLoading) {
     return (
       <div className="grid gap-4 md:grid-cols-4">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="rounded-lg border bg-slate-50 p-4 animate-pulse">
+          <div
+            key={i}
+            className="rounded-lg border bg-slate-50 p-4 animate-pulse"
+          >
             <div className="h-4 bg-slate-200 rounded w-3/4 mb-2"></div>
             <div className="h-8 bg-slate-200 rounded w-1/2"></div>
           </div>
@@ -40,25 +48,33 @@ export default function AnalyticsDashboard() {
       <div className="grid gap-4 md:grid-cols-4">
         <div className="rounded-lg border bg-white p-4 shadow-sm">
           <p className="text-sm text-slate-500 mb-1">Active Users</p>
-          <p className="text-3xl font-semibold text-slate-900">{data.activeUsers}</p>
+          <p className="text-3xl font-semibold text-slate-900">
+            {data.activeUsers}
+          </p>
           <p className="text-xs text-slate-400 mt-1">Last 15 minutes</p>
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
           <p className="text-sm text-slate-500 mb-1">Courses in Progress</p>
-          <p className="text-3xl font-semibold text-blue-600">{data.coursesInProgress}</p>
+          <p className="text-3xl font-semibold text-blue-600">
+            {data.coursesInProgress}
+          </p>
           <p className="text-xs text-slate-400 mt-1">Currently active</p>
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
           <p className="text-sm text-slate-500 mb-1">Completions Today</p>
-          <p className="text-3xl font-semibold text-green-600">{data.completionsToday}</p>
+          <p className="text-3xl font-semibold text-green-600">
+            {data.completionsToday}
+          </p>
           <p className="text-xs text-slate-400 mt-1">Since midnight</p>
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
           <p className="text-sm text-slate-500 mb-1">New Enrollments</p>
-          <p className="text-3xl font-semibold text-purple-600">{data.enrollmentsToday}</p>
+          <p className="text-3xl font-semibold text-purple-600">
+            {data.enrollmentsToday}
+          </p>
           <p className="text-xs text-slate-400 mt-1">Today</p>
         </div>
       </div>

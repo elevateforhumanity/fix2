@@ -18,13 +18,19 @@ export function CookieBanner() {
 
   const acceptCookies = () => {
     window.localStorage.setItem('cookie-consent', 'accepted');
-    window.localStorage.setItem('cookie-consent-date', new Date().toISOString());
+    window.localStorage.setItem(
+      'cookie-consent-date',
+      new Date().toISOString()
+    );
     setVisible(false);
   };
 
   const declineCookies = () => {
     window.localStorage.setItem('cookie-consent', 'declined');
-    window.localStorage.setItem('cookie-consent-date', new Date().toISOString());
+    window.localStorage.setItem(
+      'cookie-consent-date',
+      new Date().toISOString()
+    );
     setVisible(false);
   };
 
@@ -57,10 +63,10 @@ export function CookieBanner() {
               <strong className="font-semibold">We use cookies</strong>
             </p>
             <p className="text-slate-300">
-              We use cookies to operate the Elevate for Humanity platform, secure
-              your session, and improve your experience. Essential cookies are
-              required for the platform to function. By clicking "Accept All", you
-              consent to our use of cookies.{' '}
+              We use cookies to operate the Elevate for Humanity platform,
+              secure your session, and improve your experience. Essential
+              cookies are required for the platform to function. By clicking
+              "Accept All", you consent to our use of cookies.{' '}
               <Link
                 href="/cookies"
                 className="underline hover:text-white transition"

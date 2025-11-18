@@ -11,7 +11,7 @@ const supabase = createClient(
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
-  
+
   if (!email) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 });
   }
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     supabase.from('course_enrollments').select('*').eq('user_id', userId),
     supabase.from('course_completions').select('*').eq('user_id', userId),
     supabase.from('user_activity_events').select('*').eq('user_id', userId),
-    supabase.from('grades').select('*').eq('user_id', userId)
+    supabase.from('grades').select('*').eq('user_id', userId),
   ]);
 
   const exportPayload = {
@@ -43,13 +43,13 @@ export async function POST(req: NextRequest) {
       email: user.email,
       full_name: user.full_name,
       created_at: user.created_at,
-      updated_at: user.updated_at
+      updated_at: user.updated_at,
     },
     enrollments: enrollments.data || [],
     completions: completions.data || [],
     activity: activity.data || [],
     grades: grades.data || [],
-    export_date: new Date().toISOString()
+    export_date: new Date().toISOString(),
   };
 
   // Log the export request
@@ -62,13 +62,13 @@ export async function POST(req: NextRequest) {
     resourceId: user.id,
     metadata: { email, export_type: 'full_data_export' },
     ipAddress,
-    userAgent
+    userAgent,
   });
 
   return NextResponse.json(exportPayload, {
     headers: {
       'Content-Disposition': `attachment; filename="efh-data-export-${userId}.json"`,
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   });
 }

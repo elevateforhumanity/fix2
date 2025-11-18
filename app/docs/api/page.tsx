@@ -10,7 +10,7 @@ export default function ApiDocsPage() {
 
   useEffect(() => {
     if (!ref.current) return;
-    
+
     // SwaggerUI will mount itself
     SwaggerUI({
       domNode: ref.current,
@@ -21,7 +21,7 @@ export default function ApiDocsPage() {
       filter: true,
       showExtensions: true,
       showCommonExtensions: true,
-      tryItOutEnabled: true
+      tryItOutEnabled: true,
     });
   }, []);
 
@@ -34,7 +34,8 @@ export default function ApiDocsPage() {
             Elevate for Humanity API Documentation
           </h1>
           <p className="text-slate-600">
-            REST API documentation for the Elevate workforce training and LMS platform.
+            REST API documentation for the Elevate workforce training and LMS
+            platform.
           </p>
           <div className="mt-4 flex gap-4">
             <a
@@ -66,7 +67,8 @@ export default function ApiDocsPage() {
       <div className="bg-white border-t border-slate-200 mt-12">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <p className="text-sm text-slate-600">
-            © {new Date().getFullYear()} Elevate for Humanity. All rights reserved.
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
           </p>
         </div>
       </div>

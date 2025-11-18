@@ -8,20 +8,19 @@ export async function GET() {
     info: {
       title: 'Elevate for Humanity LMS API',
       version: '1.0.0',
-      description: 'REST API documentation for the Elevate for Humanity workforce training and LMS platform.',
+      description:
+        'REST API documentation for the Elevate for Humanity workforce training and LMS platform.',
       contact: {
         name: 'Elevate for Humanity',
         email: 'support@elevateforhumanity.org',
-        url: 'https://elevateforhumanity.org'
+        url: 'https://elevateforhumanity.org',
       },
       license: {
         name: 'Proprietary',
-        url: 'https://elevateforhumanity.org/terms'
-      }
+        url: 'https://elevateforhumanity.org/terms',
+      },
     },
-    servers: [
-      { url: '/api', description: 'Current environment' }
-    ],
+    servers: [{ url: '/api', description: 'Current environment' }],
     tags: [
       { name: 'Auth', description: 'Authentication and user management' },
       { name: 'Courses', description: 'Course management' },
@@ -29,7 +28,7 @@ export async function GET() {
       { name: 'HR', description: 'Human resources and payroll' },
       { name: 'Marketing', description: 'Marketing automation' },
       { name: 'Events', description: 'Events management' },
-      { name: 'SSO', description: 'Single Sign-On configuration' }
+      { name: 'SSO', description: 'Single Sign-On configuration' },
     ],
     paths: {
       '/auth/register': {
@@ -43,22 +42,31 @@ export async function GET() {
                 schema: {
                   type: 'object',
                   properties: {
-                    email: { type: 'string', format: 'email', example: 'user@example.com' },
-                    password: { 
-                      type: 'string', 
+                    email: {
+                      type: 'string',
+                      format: 'email',
+                      example: 'user@example.com',
+                    },
+                    password: {
+                      type: 'string',
                       format: 'password',
-                      description: 'Must be at least 8 characters with uppercase, lowercase, number, and special character',
-                      example: 'SecurePass123!'
+                      description:
+                        'Must be at least 8 characters with uppercase, lowercase, number, and special character',
+                      example: 'SecurePass123!',
                     },
                     tenantId: { type: 'string', format: 'uuid' },
                     firstName: { type: 'string', example: 'John' },
                     lastName: { type: 'string', example: 'Doe' },
-                    role: { type: 'string', enum: ['student', 'instructor', 'admin'], example: 'student' }
+                    role: {
+                      type: 'string',
+                      enum: ['student', 'instructor', 'admin'],
+                      example: 'student',
+                    },
                   },
-                  required: ['email', 'password']
-                }
-              }
-            }
+                  required: ['email', 'password'],
+                },
+              },
+            },
           },
           responses: {
             '201': {
@@ -73,13 +81,13 @@ export async function GET() {
                         properties: {
                           id: { type: 'string', format: 'uuid' },
                           email: { type: 'string', format: 'email' },
-                          role: { type: 'string' }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+                          role: { type: 'string' },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
             },
             '400': {
               description: 'Validation error or user already exists',
@@ -88,17 +96,17 @@ export async function GET() {
                   schema: {
                     type: 'object',
                     properties: {
-                      error: { type: 'string' }
-                    }
-                  }
-                }
-              }
+                      error: { type: 'string' },
+                    },
+                  },
+                },
+              },
             },
             '429': {
-              description: 'Too many requests'
-            }
-          }
-        }
+              description: 'Too many requests',
+            },
+          },
+        },
       },
       '/courses': {
         get: {
@@ -108,13 +116,13 @@ export async function GET() {
             {
               name: 'page',
               in: 'query',
-              schema: { type: 'integer', default: 1 }
+              schema: { type: 'integer', default: 1 },
             },
             {
               name: 'limit',
               in: 'query',
-              schema: { type: 'integer', default: 20 }
-            }
+              schema: { type: 'integer', default: 20 },
+            },
           ],
           responses: {
             '200': {
@@ -133,20 +141,20 @@ export async function GET() {
                             title: { type: 'string' },
                             description: { type: 'string' },
                             duration_hours: { type: 'number' },
-                            is_published: { type: 'boolean' }
-                          }
-                        }
+                            is_published: { type: 'boolean' },
+                          },
+                        },
                       },
                       total: { type: 'integer' },
                       page: { type: 'integer' },
-                      limit: { type: 'integer' }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+                      limit: { type: 'integer' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
       '/enrollments': {
         post: {
@@ -160,22 +168,22 @@ export async function GET() {
                   type: 'object',
                   properties: {
                     courseId: { type: 'string', format: 'uuid' },
-                    studentId: { type: 'string', format: 'uuid' }
+                    studentId: { type: 'string', format: 'uuid' },
                   },
-                  required: ['courseId', 'studentId']
-                }
-              }
-            }
+                  required: ['courseId', 'studentId'],
+                },
+              },
+            },
           },
           responses: {
             '201': {
-              description: 'Enrollment created'
+              description: 'Enrollment created',
             },
             '400': {
-              description: 'Invalid request'
-            }
-          }
-        }
+              description: 'Invalid request',
+            },
+          },
+        },
       },
       '/hr/employees': {
         get: {
@@ -183,9 +191,9 @@ export async function GET() {
           tags: ['HR'],
           responses: {
             '200': {
-              description: 'List of employees'
-            }
-          }
+              description: 'List of employees',
+            },
+          },
         },
         post: {
           summary: 'Create a new employee',
@@ -202,19 +210,19 @@ export async function GET() {
                     email: { type: 'string', format: 'email' },
                     departmentId: { type: 'string', format: 'uuid' },
                     position: { type: 'string' },
-                    salary: { type: 'number' }
+                    salary: { type: 'number' },
                   },
-                  required: ['firstName', 'lastName', 'email', 'position']
-                }
-              }
-            }
+                  required: ['firstName', 'lastName', 'email', 'position'],
+                },
+              },
+            },
           },
           responses: {
             '201': {
-              description: 'Employee created'
-            }
-          }
-        }
+              description: 'Employee created',
+            },
+          },
+        },
       },
       '/marketing/campaigns': {
         get: {
@@ -222,10 +230,10 @@ export async function GET() {
           tags: ['Marketing'],
           responses: {
             '200': {
-              description: 'List of campaigns'
-            }
-          }
-        }
+              description: 'List of campaigns',
+            },
+          },
+        },
       },
       '/events': {
         get: {
@@ -233,24 +241,24 @@ export async function GET() {
           tags: ['Events'],
           responses: {
             '200': {
-              description: 'List of events'
-            }
-          }
-        }
-      }
+              description: 'List of events',
+            },
+          },
+        },
+      },
     },
     components: {
       securitySchemes: {
         bearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'JWT'
+          bearerFormat: 'JWT',
         },
         apiKey: {
           type: 'apiKey',
           in: 'header',
-          name: 'X-API-Key'
-        }
+          name: 'X-API-Key',
+        },
       },
       schemas: {
         Error: {
@@ -258,15 +266,12 @@ export async function GET() {
           properties: {
             error: { type: 'string' },
             message: { type: 'string' },
-            code: { type: 'string' }
-          }
-        }
-      }
+            code: { type: 'string' },
+          },
+        },
+      },
     },
-    security: [
-      { bearerAuth: [] },
-      { apiKey: [] }
-    ]
+    security: [{ bearerAuth: [] }, { apiKey: [] }],
   };
 
   return NextResponse.json(openapi);

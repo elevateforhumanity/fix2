@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       phone: null,
       address: null,
       deleted_at: new Date().toISOString(),
-      delete_reason: reason || 'user_request'
+      delete_reason: reason || 'user_request',
     })
     .eq('id', user.id);
 
@@ -52,11 +52,11 @@ export async function POST(req: NextRequest) {
     resourceId: user.id,
     metadata: { email, reason, anonymized_email: anonymizedEmail },
     ipAddress,
-    userAgent
+    userAgent,
   });
 
-  return NextResponse.json({ 
+  return NextResponse.json({
     status: 'ok',
-    message: 'User data has been anonymized and marked for deletion'
+    message: 'User data has been anonymized and marked for deletion',
   });
 }
