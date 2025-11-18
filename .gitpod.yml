@@ -1,5 +1,5 @@
-# Elevate for Humanity - Gitpod Configuration
-# Professional LMS development environment
+# Elevate for Humanity - Enterprise Gitpod Configuration
+# Professional LMS development environment with enterprise features
 
 image:
   file: .gitpod.Dockerfile
@@ -20,6 +20,11 @@ ports:
     visibility: private
     name: Supabase Studio
     description: Local Supabase Studio
+  - port: 9229
+    onOpen: ignore
+    visibility: private
+    name: Node Debugger
+    description: Node.js debugging port
 
 tasks:
   - name: LMS UX & Compliance Benchmark

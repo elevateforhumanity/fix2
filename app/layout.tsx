@@ -12,6 +12,7 @@ import OfflineIndicator from '@/components/OfflineIndicator';
 import NotificationPrompt from '@/components/NotificationPrompt';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import CookieConsent from '@/components/CookieConsent';
+import { CookieBanner } from '@/components/CookieBanner';
 import CourseraStyleHeader from '@/components/CourseraStyleHeader';
 import CourseraStyleFooter from '@/components/CourseraStyleFooter';
 
@@ -115,6 +116,7 @@ export default function RootLayout({
         <CourseraStyleFooter />
         <ElevateChatWidget />
         <CookieConsent />
+        <CookieBanner />
       </body>
     </html>
   );

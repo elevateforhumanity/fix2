@@ -1,11 +1,11 @@
-# Elevate for Humanity - Gitpod Docker Image
-# Optimized for React + Vite + Tailwind + Supabase LMS development
+# Elevate for Humanity - Enterprise Gitpod Docker Image
+# Optimized for Next.js + Tailwind + Supabase + Redis + Enterprise LMS
 
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-node:20
 
-# Install Node.js 20.11.1 (matches production)
+# Install pnpm globally
 USER gitpod
-RUN bash -c ". .nvm/nvm.sh && nvm install 20.11.1 && nvm use 20.11.1 && nvm alias default 20.11.1"
+RUN npm install -g pnpm@latest
 
 # Install system dependencies
 USER root
