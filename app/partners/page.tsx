@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const partnerTypes = [
   {
-    title: "Workforce & referral agencies",
+    title: "Workforce and referral agencies",
     body: "Use Elevate as your shared front door for barber, healthcare, and trades pathways. Track who you send, who starts, and who finishes—without chasing paper.",
   },
   {
@@ -11,7 +11,7 @@ const partnerTypes = [
     body: "Turn everyday conversations into clear next steps. When someone is ready, you can confidently say, 'Go to Elevate' and know what happens next.",
   },
   {
-    title: "Credentialing partners & training providers",
+    title: "Credentialing partners and training providers",
     body: "Keep your curriculum, approvals, and brand. Elevate wraps around your programs with LMS orchestration, communication, and narrative for funders.",
   },
   {
@@ -48,7 +48,7 @@ export default function PartnersPage() {
               How Elevate Works
             </Link>
             <Link href="/partners" className="hover:text-emerald-300">
-              For Agencies & Partners
+              For Agencies and Partners
             </Link>
             <Link href="/about" className="hover:text-emerald-300">
               About
