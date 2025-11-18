@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
           profile:profiles(full_name, email)
         ),
         plan:benefits_plans(*)
-      `,
+      `
       )
       .order('created_at', { ascending: false });
 
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching benefits enrollments:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch enrollments' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
           error:
             'Missing required fields: employee_id, plan_id, coverage_level, effective_date',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
     console.error('Error creating benefits enrollment:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create enrollment' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

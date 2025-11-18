@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
           profile:profiles(full_name, email)
         ),
         reviewer:profiles!reviewer_id(full_name, email)
-      `,
+      `
       )
       .order('review_period_end', { ascending: false });
 
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching performance reviews:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch reviews' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
           error:
             'Missing required fields: employee_id, reviewer_id, review_period_start, review_period_end, review_type',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
     console.error('Error creating performance review:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create review' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
