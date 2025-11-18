@@ -308,29 +308,29 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
           <div className="elevate-card">
-            <h2 className="elevate-card-title mb-4">Quick Stats</h2>
+            <h2 className="elevate-card-title mb-4">System Info</h2>
             <div className="space-y-4">
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                <span className="text-sm text-gray-600">
-                  Avg. Completion Time
-                </span>
-                <span className="font-bold">8 weeks</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                <span className="text-sm text-gray-600">Avg. Quiz Score</span>
-                <span className="font-bold">82%</span>
+                <span className="text-sm text-gray-600">Total Students</span>
+                <span className="font-bold">{totalStudents || 0}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">
-                  Student Satisfaction
+                  Active Enrollments
                 </span>
-                <span className="font-bold">4.6/5.0</span>
+                <span className="font-bold">{activeEnrollments || 0}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                 <span className="text-sm text-gray-600">
-                  Job Placement Rate
+                  Completed Enrollments
                 </span>
-                <span className="font-bold">85%</span>
+                <span className="font-bold">{completedEnrollments || 0}</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                <span className="text-sm text-gray-600">
+                  Certificates Issued
+                </span>
+                <span className="font-bold">{certificatesIssued || 0}</span>
               </div>
             </div>
           </div>
@@ -426,7 +426,7 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
         {/* Quick Actions */}
-        <div className="mt-8 grid gap-4 md:grid-cols-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Link
             href="/admin/students"
             className="elevate-card hover:border-orange-500/50 transition-all"
@@ -446,6 +446,34 @@ export default async function AdminDashboardPage() {
             <p className="elevate-card-subtitle mt-1">
               Create and edit course content
             </p>
+          </Link>
+          <Link
+            href="/admin/quiz-builder"
+            className="elevate-card hover:border-blue-500/50 transition-all"
+          >
+            <CheckCircle className="h-7 w-7 mb-2 text-blue-600" />
+            <h3 className="elevate-card-title">Quiz Builder</h3>
+            <p className="elevate-card-subtitle mt-1">
+              Create and manage quizzes
+            </p>
+          </Link>
+          <Link
+            href="/admin/google-classroom"
+            className="elevate-card hover:border-green-500/50 transition-all"
+          >
+            <BookOpen className="h-7 w-7 mb-2 text-green-600" />
+            <h3 className="elevate-card-title">Google Classroom</h3>
+            <p className="elevate-card-subtitle mt-1">
+              Sync with Google Classroom
+            </p>
+          </Link>
+          <Link
+            href="/admin/migrations"
+            className="elevate-card hover:border-purple-500/50 transition-all"
+          >
+            <TrendingUp className="h-7 w-7 mb-2 text-purple-600" />
+            <h3 className="elevate-card-title">Database Migrations</h3>
+            <p className="elevate-card-subtitle mt-1">Load courses and data</p>
           </Link>
           <Link
             href="/admin/certificates"

@@ -1,246 +1,153 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { 
-  Briefcase, 
-  Users, 
-  TrendingUp, 
-  FileText,
-  Plus,
-  Eye,
-  CheckCircle
-} from 'lucide-react';
+import Link from 'next/link';
+import { Briefcase, Users, FileText, Plus } from 'lucide-react';
 
 export default function EmployerDashboardPage() {
-  const stats = {
-    activeJobs: 5,
-    totalApplications: 47,
-    newApplications: 12,
-    hiredCandidates: 8,
-  };
-
-  const recentJobs = [
-    {
-      id: 1,
-      title: 'HVAC Technician',
-      location: 'Milwaukee, WI',
-      posted: '2024-02-10',
-      applications: 15,
-      status: 'active',
-    },
-    {
-      id: 2,
-      title: 'Certified Nursing Assistant',
-      location: 'Madison, WI',
-      posted: '2024-02-08',
-      applications: 22,
-      status: 'active',
-    },
-    {
-      id: 3,
-      title: 'Electrician Apprentice',
-      location: 'Green Bay, WI',
-      posted: '2024-02-05',
-      applications: 10,
-      status: 'active',
-    },
-  ];
-
-  const recentApplications = [
-    {
-      id: 1,
-      candidateName: 'Sarah Johnson',
-      position: 'HVAC Technician',
-      appliedDate: '2024-02-15',
-      status: 'new',
-    },
-    {
-      id: 2,
-      candidateName: 'Michael Chen',
-      position: 'CNA',
-      appliedDate: '2024-02-15',
-      status: 'new',
-    },
-    {
-      id: 3,
-      candidateName: 'Emily Rodriguez',
-      position: 'Electrician Apprentice',
-      appliedDate: '2024-02-14',
-      status: 'reviewed',
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-slate-900">Employer Dashboard</h1>
-              <p className="text-slate-600 mt-1">Manage your job postings and candidates</p>
-            </div>
-            <Button variant="primary">
-              <Plus className="h-4 w-4 mr-2" />
-              Post New Job
-            </Button>
-          </div>
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white border-b">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <h1 className="text-3xl font-bold text-gray-900">
+            Employer Dashboard
+          </h1>
+          <p className="text-gray-600 mt-1">
+            Connect with qualified candidates
+          </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Stats */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Active Jobs</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">{stats.activeJobs}</div>
-                </div>
-                <Briefcase className="h-8 w-8 text-red-600" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Total Applications</div>
-                  <div className="text-3xl font-bold text-slate-900 mt-1">{stats.totalApplications}</div>
-                </div>
-                <FileText className="h-8 w-8 text-purple-600" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">New Applications</div>
-                  <div className="text-3xl font-bold text-orange-600 mt-1">{stats.newApplications}</div>
-                </div>
-                <TrendingUp className="h-8 w-8 text-orange-600" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-600">Hired</div>
-                  <div className="text-3xl font-bold text-green-600 mt-1">{stats.hiredCandidates}</div>
-                </div>
-                <CheckCircle className="h-8 w-8 text-green-600" />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Active Jobs */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>Active Job Postings</span>
-                <Button variant="ghost" size="sm">View All</Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {recentJobs.map((job) => (
-                  <div
-                    key={job.id}
-                    className="p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <h3 className="font-semibold text-slate-900">{job.title}</h3>
-                        <p className="text-sm text-slate-600">{job.location}</p>
-                      </div>
-                      <Badge variant="success">Active</Badge>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">Posted: {job.posted}</span>
-                      <div className="flex items-center gap-4">
-                        <span className="text-slate-900 font-medium">
-                          {job.applications} applications
-                        </span>
-                        <Button variant="outline" size="sm">
-                          <Eye className="h-4 w-4 mr-1" />
-                          View
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Recent Applications */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>Recent Applications</span>
-                <Button variant="ghost" size="sm">View All</Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {recentApplications.map((app) => (
-                  <div
-                    key={app.id}
-                    className="p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <h3 className="font-semibold text-slate-900">{app.candidateName}</h3>
-                        <p className="text-sm text-slate-600">{app.position}</p>
-                      </div>
-                      <Badge variant={app.status === 'new' ? 'warning' : 'primary'}>
-                        {app.status === 'new' ? 'New' : 'Reviewed'}
-                      </Badge>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">Applied: {app.appliedDate}</span>
-                      <Button variant="outline" size="sm">
-                        Review
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
+      <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Quick Actions */}
-        <Card className="mt-8">
-          <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-3 gap-4">
-              <Button variant="outline" className="h-24 flex-col">
-                <Plus className="h-6 w-6 mb-2" />
-                Post New Job
-              </Button>
-              <Button variant="outline" className="h-24 flex-col">
-                <Users className="h-6 w-6 mb-2" />
-                Browse Candidates
-              </Button>
-              <Button variant="outline" className="h-24 flex-col">
-                <FileText className="h-6 w-6 mb-2" />
-                View Reports
-              </Button>
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <Link
+            href="/employer/post-job"
+            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-blue-500"
+          >
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <Plus className="w-6 h-6 text-blue-600" />
             </div>
-          </CardContent>
-        </Card>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Post a Job</h3>
+            <p className="text-gray-600 text-sm">Create a new job posting</p>
+          </Link>
+
+          <Link
+            href="/employer/jobs"
+            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-orange-500"
+          >
+            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+              <Briefcase className="w-6 h-6 text-orange-600" />
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              My Job Postings
+            </h3>
+            <p className="text-gray-600 text-sm">View and manage your jobs</p>
+          </Link>
+
+          <Link
+            href="/employer/candidates"
+            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-green-500"
+          >
+            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <Users className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Browse Candidates
+            </h3>
+            <p className="text-gray-600 text-sm">Find qualified talent</p>
+          </Link>
+        </div>
+
+        {/* Getting Started */}
+        <div className="bg-white rounded-xl p-8 border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Getting Started
+          </h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-blue-600 font-bold">1</span>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Post Your First Job
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  Create a job posting to start receiving applications from
+                  qualified candidates.
+                </p>
+                <Link
+                  href="/employer/post-job"
+                  className="text-blue-600 text-sm font-semibold hover:underline"
+                >
+                  Post a Job →
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-blue-600 font-bold">2</span>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Browse Our Talent Pool
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  Search through our database of trained and certified
+                  candidates.
+                </p>
+                <Link
+                  href="/employer/candidates"
+                  className="text-blue-600 text-sm font-semibold hover:underline"
+                >
+                  Browse Candidates →
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-blue-600 font-bold">3</span>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Partner with Us
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  Sign an MOU to become an official training partner and access
+                  additional benefits.
+                </p>
+                <Link
+                  href="/employer/mou"
+                  className="text-blue-600 text-sm font-semibold hover:underline"
+                >
+                  View MOU Options →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Support */}
+        <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
+          <div className="flex items-start gap-4">
+            <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2">Need Help?</h3>
+              <p className="text-gray-700 text-sm mb-3">
+                Our team is here to help you find the right talent for your
+                organization.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-semibold"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,385 +1,266 @@
+// app/lms/dashboard/page.tsx
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import {
-  BookOpen,
-  Clock,
-  Award,
-  TrendingUp,
-  Target,
-  Calendar,
-} from 'lucide-react';
-import LMSNav from '@/components/lms/LMSNav';
-import LoginTracker from '@/components/lms/LoginTracker';
-import AttendanceTracker from '@/components/lms/AttendanceTracker';
-import { ActivityFeed } from '@/components/dashboard/ActivityFeed';
-import { ProgressChart } from '@/components/dashboard/ProgressChart';
-import { UpcomingCalendar } from '@/components/dashboard/UpcomingCalendar';
-import { getCurrentUser, requireStudent } from '@/lib/auth';
-import { createServerSupabaseClient } from '@/lib/auth';
+import { Suspense } from 'react';
 
-export const metadata = {
-  title: 'Dashboard | Elevate LMS',
-  description: 'Your learning dashboard',
+type CourseSummary = {
+  id: string;
+  title: string;
+  program_code: string | null;
+  progress: number;
+  status: 'not_started' | 'in_progress' | 'completed';
+  next_due_at: string | null;
 };
 
-const stats = [
-  {
-    label: 'Courses Enrolled',
-    value: '4',
-    icon: BookOpen,
-    change: '+1 this month',
-  },
-  {
-    label: 'Hours Completed',
-    value: '42',
-    icon: Clock,
-    change: '+8 this week',
-  },
-  {
-    label: 'Certificates Earned',
-    value: '1',
-    icon: Award,
-    change: 'Barber Fundamentals',
-  },
-  {
-    label: 'Average Score',
-    value: '87%',
-    icon: Target,
-    change: '+5% improvement',
-  },
-];
+async function getStudentDashboardData(): Promise<{
+  firstName: string;
+  activeCourses: CourseSummary[];
+  completedCount: number;
+  upcomingDueCount: number;
+}> {
+  // Server-side fetching via internal API or direct Supabase call
+  // Here we call an internal API route you already have wired to Supabase.
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL || ''}/api/lms/dashboard`,
+    {
+      cache: 'no-store',
+      credentials: 'include',
+    }
+  );
 
-const upcomingDeadlines = [
-  {
-    course: 'CNA Certification Prep',
-    task: 'Module 3 Quiz',
-    dueDate: '2024-11-15',
-  },
-  {
-    course: 'HVAC Technician Training',
-    task: 'Safety Assessment',
-    dueDate: '2024-11-18',
-  },
-];
+  if (!res.ok) {
+    return {
+      firstName: 'Student',
+      activeCourses: [],
+      completedCount: 0,
+      upcomingDueCount: 0,
+    };
+  }
 
-export default async function LMSDashboard() {
-  // Require student authentication
-  await requireStudent();
+  return res.json();
+}
 
-  const user = await getCurrentUser();
-  const supabase = await createServerSupabaseClient();
+function statusLabel(status: CourseSummary['status']) {
+  if (status === 'completed') return 'Completed';
+  if (status === 'in_progress') return 'In Progress';
+  return 'Not Started';
+}
 
-  // Fetch user's enrollments with course details
-  const { data: enrollments, error } = await supabase
-    .from('enrollments')
-    .select(
-      `
-      id,
-      status,
-      progress,
-      enrolled_at,
-      courses (
-        id,
-        title,
-        slug,
-        description,
-        duration_weeks,
-        programs (
-          name,
-          slug
-        )
-      )
-    `
-    )
-    .eq('student_id', user.id)
-    .order('enrolled_at', { ascending: false });
+export default async function StudentDashboardPage() {
+  const data = await getStudentDashboardData();
 
-  // Map enrollments to course cards
-  const enrolledCourses =
-    enrollments?.map((enrollment: any) => {
-      const course = enrollment.courses;
-      const programSlug = course.programs?.slug || 'default';
-
-      return {
-        id: course.id,
-        slug: course.slug,
-        title: course.title,
-        progress: enrollment.progress || 0,
-        nextLesson:
-          enrollment.status === 'completed'
-            ? 'Course Completed!'
-            : 'Continue where you left off',
-        thumbnail: `/course-covers/${programSlug}/cover.svg`,
-        totalLessons: 24, // TODO: Calculate from modules/lessons
-        completedLessons: Math.floor(((enrollment.progress || 0) * 24) / 100),
-        status: enrollment.status,
-        instructor: 'Instructor Name', // TODO: Add instructor to courses table
-        duration: `${course.duration_weeks} weeks`,
-      };
-    }) || [];
-
-  const firstName =
-    user.user_metadata?.full_name?.split(' ')[0] ||
-    user.email?.split('@')[0] ||
-    'Student';
   return (
-    <div className="min-h-screen bg-white">
-      <LoginTracker />
-      <AttendanceTracker activityType="dashboard" />
-      {/* Navigation */}
-      <header className="elevate-nav">
-        <div className="elevate-logo">
-          <div className="elevate-logo-mark">E</div>
-          <span>Elevate for Humanity</span>
-        </div>
-        <nav className="flex gap-6 items-center">
-          <Link href="/lms/dashboard" className="text-red-600 font-semibold">
-            Dashboard
-          </Link>
-          <Link
-            href="/lms/courses"
-            className="text-gray-700 hover:text-red-600 font-medium"
-          >
-            Courses
-          </Link>
-          <Link
-            href="/lms/progress"
-            className="text-gray-700 hover:text-red-600 font-medium"
-          >
-            Progress
-          </Link>
-          <Link
-            href="/lms/certificates"
-            className="text-gray-700 hover:text-red-600 font-medium"
-          >
-            Certificates
-          </Link>
-        </nav>
-        <div className="flex gap-4 items-center">
-          <button className="relative">
-            <span className="text-2xl">🔔</span>
-            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center">
-              3
-            </span>
-          </button>
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold">
-            J
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 md:px-8">
+        {/* Header */}
+        <header className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-sky-400">
+              Elevate for Humanity · Student Portal
+            </p>
+            <h1 className="mt-1 text-3xl font-semibold md:text-4xl">
+              Welcome back,{' '}
+              <span className="text-sky-300">{data.firstName}</span>
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm text-slate-300">
+              Your training, case management, and certificates live in one
+              place. Stay on track with your{' '}
+              <span className="font-semibold text-sky-300">
+                workforce, WRG, and apprenticeship programs
+              </span>{' '}
+              through Elevate Connects Directory.
+            </p>
           </div>
-        </div>
-      </header>
-      {/* Hero Section */}
-      <section className="elevate-hero">
-        <div className="elevate-hero-content">
-          <div className="elevate-hero-kicker">Student Learning Portal</div>
-          <h1 className="elevate-hero-title">Welcome back, {firstName}!</h1>
-          <p className="elevate-hero-subtitle">
-            Continue your learning journey and achieve your workforce training
-            goals
-          </p>
           <div className="flex gap-3">
-            {enrolledCourses.length > 0 && (
-              <Link
-                href={`/lms/courses/${enrolledCourses[0].id}`}
-                className="elevate-btn-primary"
-              >
-                Continue Learning
-              </Link>
-            )}
-            <Link href="/lms/progress" className="elevate-btn-secondary">
-              View Progress
+            <Link
+              href="/programs"
+              className="rounded-2xl border border-sky-500/60 px-4 py-2 text-sm font-medium text-sky-100 shadow-sm transition hover:border-sky-300 hover:bg-sky-900/40"
+            >
+              Browse Programs
+            </Link>
+            <Link
+              href="/support/case-manager"
+              className="rounded-2xl bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-md shadow-sky-700/40 transition hover:bg-sky-400"
+            >
+              Message My Case Manager
             </Link>
           </div>
-        </div>
-      </section>
-      <main
-        className="elevate-container"
-        style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
-      >
-        {/* Stats Grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-5">
-          {stats.map((stat) => (
-            <div key={stat.label} className="elevate-card">
-              <div className="elevate-card-header">
-                <div>
-                  <div className="elevate-card-subtitle">{stat.label}</div>
-                  <div className="text-2xl font-bold mt-1">{stat.value}</div>
-                </div>
-                <stat.icon className="h-5 w-5 text-slate-400" />
-              </div>
-              <p className="text-xs text-slate-400 mt-2">{stat.change}</p>
-            </div>
-          ))}
-        </div>
-        {/* Continue Learning */}
-        <section className="mb-5">
-          <div className="elevate-page-heading">
-            <h2 className="elevate-page-title">Continue Learning</h2>
-            <Link href="/lms/courses" className="elevate-btn-secondary text-xs">
-              View All Courses
-            </Link>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {enrolledCourses.map((course) => {
-              const isCompleted = course.status === 'completed';
-              const progressColor = isCompleted ? 'bg-green-500' : 'bg-red-600';
-              const buttonClass = isCompleted
-                ? 'elevate-btn-secondary w-full text-center block'
-                : 'elevate-btn-primary w-full text-center block';
+        </header>
 
-              return (
-                <div key={course.id} className="elevate-card">
-                  <div className="relative rounded-lg overflow-hidden mb-4">
-                    <img
-                      src={course.thumbnail}
-                      alt={course.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    {isCompleted && (
-                      <span className="elevate-pill elevate-pill--success absolute top-3 right-3">
-                        <Award className="h-4 w-4" />
-                        Completed
-                      </span>
-                    )}
-                  </div>
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
-                        {course.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {course.instructor}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {course.nextLesson}
-                      </p>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-2">
-                        <span className="text-gray-600">Progress</span>
-                        <span className="font-semibold text-gray-900">
-                          {course.completedLessons}/{course.totalLessons}{' '}
-                          lessons
-                        </span>
-                      </div>
-                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full transition-all rounded-full ${progressColor}`}
-                          style={{ width: `${course.progress}%` }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <Link
-                        href={`/lms/courses/${course.id}`}
-                        className={buttonClass}
-                      >
-                        {isCompleted ? 'Review Course' : 'Continue Learning'}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+        {/* Stats */}
+        <section className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Active Courses
+            </p>
+            <p className="mt-2 text-3xl font-semibold">
+              {data.activeCourses.length}
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                in progress
+              </span>
+            </p>
+            <p className="mt-1 text-xs text-slate-400">
+              HVAC, Barber Apprenticeship, Medical Assistant and more.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Completed Pathways
+            </p>
+            <p className="mt-2 text-3xl font-semibold">
+              {data.completedCount}
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                certified
+              </span>
+            </p>
+            <p className="mt-1 text-xs text-slate-400">
+              Certificates sync with Elevate's verification portal for
+              employers.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Upcoming Deadlines
+            </p>
+            <p className="mt-2 text-3xl font-semibold">
+              {data.upcomingDueCount}
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                this week
+              </span>
+            </p>
+            <p className="mt-1 text-xs text-slate-400">
+              Assignments and milestones aligned with your IEP and workforce
+              plan.
+            </p>
           </div>
         </section>
-        {/* Upcoming Deadlines */}
-        <section className="mb-5">
-          <h2 className="elevate-page-title mb-3">Upcoming Deadlines</h2>
-          <div className="elevate-card">
-            <div className="space-y-3">
-              {upcomingDeadlines.map((deadline, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-3 border border-slate-700 rounded-lg"
-                >
-                  <div className="flex items-center gap-3">
-                    <Calendar className="h-5 w-5 text-orange-500" />
-                    <div>
-                      <p className="font-medium text-sm">{deadline.task}</p>
-                      <p className="text-xs text-slate-400">
-                        {deadline.course}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm font-medium">
-                      {new Date(deadline.dueDate).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                      })}
-                    </p>
-                    <p className="text-xs text-slate-400">
-                      {Math.ceil(
-                        (new Date(deadline.dueDate).getTime() -
-                          new Date().getTime()) /
-                          (1000 * 60 * 60 * 24)
-                      )}{' '}
-                      days left
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        {/* Dashboard Widgets Grid */}
-        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-          <ProgressChart />
-          <UpcomingCalendar />
-          <ActivityFeed />
-        </section>
-        {/* Quick Actions */}
-        <section>
-          <h2 className="elevate-page-title mb-3">Quick Actions</h2>
-          <div className="grid gap-4 md:grid-cols-4">
+
+        {/* Active courses */}
+        <section className="mt-2">
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-lg font-semibold text-slate-50">
+              Your active courses
+            </h2>
             <Link
               href="/lms/courses"
-              className="elevate-card hover:border-orange-500/50 transition-all"
+              className="text-xs font-medium text-sky-300 hover:text-sky-200"
             >
-              <BookOpen className="h-7 w-7 mb-2 text-orange-500" />
-              <h3 className="elevate-card-title">Browse Courses</h3>
-              <p className="elevate-card-subtitle mt-1">
-                Explore available training programs
-              </p>
+              View all courses →
             </Link>
-            <Link
-              href="/lms/progress"
-              className="elevate-card hover:border-orange-500/50 transition-all"
-            >
-              <TrendingUp className="h-7 w-7 mb-2 text-red-500" />
-              <h3 className="elevate-card-title">My Progress</h3>
-              <p className="elevate-card-subtitle mt-1">
-                Track your learning achievements
-              </p>
-            </Link>
+          </div>
+
+          {data.activeCourses.length === 0 ? (
+            <p className="mt-4 text-sm text-slate-400">
+              You are not enrolled in any courses yet. Visit the{' '}
+              <Link
+                href="/programs"
+                className="text-sky-300 underline underline-offset-2"
+              >
+                programs catalog
+              </Link>{' '}
+              or contact your case manager to get started.
+            </p>
+          ) : (
+            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {data.activeCourses.map((course) => (
+                <Link
+                  key={course.id}
+                  href={`/lms/courses/${course.id}`}
+                  className="group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 shadow-sm transition hover:border-sky-500/70 hover:bg-slate-900"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-sky-400">
+                        {course.program_code
+                          ? course.program_code.toUpperCase()
+                          : 'ELEVATE PROGRAM'}
+                      </p>
+                      <h3 className="mt-1 text-sm font-semibold text-slate-50 line-clamp-2">
+                        {course.title}
+                      </h3>
+                    </div>
+                    <span className="rounded-full bg-slate-800 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-300">
+                      {statusLabel(course.status)}
+                    </span>
+                  </div>
+
+                  <div className="mt-3">
+                    <div className="flex items-center justify-between text-[11px] text-slate-400">
+                      <span>Progress</span>
+                      <span>{Math.round(course.progress)}%</span>
+                    </div>
+                    <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+                      <div
+                        className="h-full rounded-full bg-sky-500 transition-all group-hover:bg-sky-400"
+                        style={{ width: `${Math.max(4, course.progress)}%` }}
+                      />
+                    </div>
+                    {course.next_due_at && (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Next assignment due:{' '}
+                        <span className="font-medium text-sky-300">
+                          {new Date(course.next_due_at).toLocaleDateString()}
+                        </span>
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* Certificates & compliance */}
+        <section className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+            <h2 className="text-sm font-semibold text-slate-50">
+              Certificates & badges
+            </h2>
+            <p className="mt-2 text-xs text-slate-400">
+              Once you finish a course, Elevate automatically unlocks your{' '}
+              <span className="font-semibold text-sky-300">
+                digital certificate
+              </span>{' '}
+              and routes it to case managers and employer partners through the
+              Elevate Connects Directory.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-sky-200">
+                Workforce Ready
+              </span>
+              <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-sky-200">
+                Apprenticeship Ready
+              </span>
+              <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-sky-200">
+                Industry Credential
+              </span>
+            </div>
             <Link
               href="/lms/certificates"
-              className="elevate-card hover:border-green-500/50 transition-all"
+              className="mt-3 inline-flex text-xs font-medium text-sky-300 hover:text-sky-200"
             >
-              <Award className="h-7 w-7 mb-2 text-green-500" />
-              <h3 className="elevate-card-title">My Certificates</h3>
-              <p className="elevate-card-subtitle mt-1">
-                View and download certificates
-              </p>
+              View my certificates →
             </Link>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+            <h2 className="text-sm font-semibold text-slate-50">
+              Support & case management
+            </h2>
+            <p className="mt-2 text-xs text-slate-400">
+              Elevate wraps your training in real supports: transportation,
+              childcare, tools, uniforms, and more — depending on your funding
+              source (WRG, WIOA, JRI, employer sponsorship).
+            </p>
+            <ul className="mt-3 space-y-1 text-xs text-slate-300">
+              <li>• View and sign your Individual Employment Plan (IEP).</li>
+              <li>• Track case manager notes and next steps.</li>
+              <li>• Upload required paperwork securely.</li>
+            </ul>
             <Link
-              href="/lms/profile"
-              className="elevate-card hover:border-purple-500/50 transition-all"
+              href="/wioa/case"
+              className="mt-3 inline-flex text-xs font-medium text-sky-300 hover:text-sky-200"
             >
-              <Target className="h-7 w-7 mb-2 text-purple-500" />
-              <h3 className="elevate-card-title">Profile Settings</h3>
-              <p className="elevate-card-subtitle mt-1">
-                Manage your account settings
-              </p>
+              Open my case file →
             </Link>
           </div>
         </section>

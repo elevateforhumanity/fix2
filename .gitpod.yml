@@ -5,29 +5,21 @@ image:
   file: .gitpod.Dockerfile
 
 ports:
-  - port: 5173
-    onOpen: open-preview
-    visibility: public
-    name: Vite Dev Server
-    description: EFH LMS Development Server
-  - port: 8080
-    onOpen: open-preview
-    visibility: public
-    name: Vite Preview Server
-    description: Production Build Preview
-  - port: 4173
-    onOpen: ignore
-    visibility: public
-    name: Vite Preview (Alt)
-    description: Alternative Preview Port
-  - port: 7070
-    onOpen: ignore
-    visibility: public
-    name: Backend API
-    description: Python FastAPI Backend
   - port: 3000
+    onOpen: open-preview
+    visibility: public
+    name: Next.js Dev Server
+    description: Elevate LMS - Main Application
+  - port: 5432
     onOpen: ignore
     visibility: private
+    name: PostgreSQL
+    description: Database (if local)
+  - port: 54321
+    onOpen: ignore
+    visibility: private
+    name: Supabase Studio
+    description: Local Supabase Studio
 
 tasks:
   - name: LMS UX & Compliance Benchmark

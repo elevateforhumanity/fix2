@@ -62,8 +62,8 @@ export default function ProgramHolderApply() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              Thank you for applying to become an Elevate for Humanity Training
-              Provider. Your application has been submitted and is under review.
+              Thank you for applying to become a Program Holder with Elevate for
+              Humanity. Your application has been submitted and is under review.
             </p>
             <p>
               An Elevate team member will review your application and contact
@@ -97,7 +97,7 @@ export default function ProgramHolderApply() {
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardHeader>
-              <CardTitle>Become an Elevate Training Provider</CardTitle>
+              <CardTitle>Apply to Become a Program Holder</CardTitle>
               <p className="text-sm text-muted-foreground mt-2">
                 Complete this form to apply as a Program Holder / Worksite
                 Partner. Once approved, you'll receive access to your delegate

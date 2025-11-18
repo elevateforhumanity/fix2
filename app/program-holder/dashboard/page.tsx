@@ -142,6 +142,12 @@ export default function ProgramHolderDashboard() {
             Cases
           </a>
           <a
+            href="/program-holder/grades"
+            className="text-gray-700 hover:text-red-600 font-medium"
+          >
+            Grades
+          </a>
+          <a
             href="/program-holder/mou"
             className="text-gray-700 hover:text-red-600 font-medium"
           >
