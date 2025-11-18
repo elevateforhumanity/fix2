@@ -25,6 +25,7 @@ psql $DATABASE_URL -f migrations/20251118_lti_and_help.sql
 ### Verify Tables Created
 
 Check that these tables exist:
+
 - `question_banks`
 - `questions`
 - `exams`
@@ -94,11 +95,13 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ## 3. Dependencies
 
 All required dependencies are already installed:
+
 - ✅ `stripe` (v19.1.0)
 - ✅ `jsonwebtoken` (v9.0.2)
 - ✅ `@stripe/stripe-js` (v8.1.0)
 
 If you need to reinstall:
+
 ```bash
 pnpm install
 ```
@@ -114,7 +117,11 @@ Add to your root layout (`app/layout.tsx`):
 ```tsx
 import { ServiceWorkerRegister } from '@/components/offline/ServiceWorkerRegister';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
@@ -170,15 +177,15 @@ export default function HelpCenterPage() {
 
 ```sql
 INSERT INTO help_articles (slug, title, category, audience, body) VALUES
-('getting-started', 'Getting Started with Elevate', 'Getting Started', 'student', 
+('getting-started', 'Getting Started with Elevate', 'Getting Started', 'student',
  'Welcome to Elevate for Humanity! This guide will help you get started with your learning journey...'),
- 
+
 ('how-to-enroll', 'How to Enroll in a Course', 'Courses', 'student',
  'To enroll in a course, navigate to the course catalog and click the Enroll button...'),
- 
+
 ('attendance-tracking', 'Tracking Student Attendance', 'Instructors', 'instructor',
  'Instructors can track attendance by navigating to the course dashboard...'),
- 
+
 ('wioa-reporting', 'WIOA Reporting Guide', 'Compliance', 'admin',
  'To generate WIOA reports, navigate to Reports → WIOA and select your date range...');
 ```
@@ -333,6 +340,7 @@ psql $PRODUCTION_DATABASE_URL -f migrations/20251118_lti_and_help.sql
 ### Set Up Alerts
 
 Monitor these endpoints:
+
 - `/api/exams/start` - Exam launches
 - `/api/exams/submit` - Exam submissions
 - `/api/billing/report-usage` - Usage reporting
@@ -342,6 +350,7 @@ Monitor these endpoints:
 ### Key Metrics
 
 Track:
+
 - Exam completion rate
 - Average exam scores
 - Support ticket volume
@@ -356,6 +365,7 @@ Track:
 ### Update Admin Guides
 
 Document for admins:
+
 - How to create question banks
 - How to configure exams
 - How to generate WIOA reports
@@ -365,6 +375,7 @@ Document for admins:
 ### Update User Guides
 
 Document for users:
+
 - How to take exams
 - How to use offline mode
 - How to submit support tickets
@@ -426,6 +437,7 @@ Document for users:
 ## Support
 
 For issues or questions:
+
 1. Check the troubleshooting section above
 2. Review the detailed documentation:
    - `ADVANCED_FEATURES_BATCH_1.md`
@@ -439,6 +451,7 @@ For issues or questions:
 ## Next Steps
 
 After setup is complete:
+
 1. ✅ Test all features in staging
 2. ✅ Train admin users
 3. ✅ Create user documentation

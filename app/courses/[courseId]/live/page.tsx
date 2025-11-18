@@ -1,15 +1,15 @@
-import { createClient } from "@/utils/supabase/server";
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { createClient } from '@/utils/supabase/server';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 async function getMeetings(courseId: string) {
   const supabase = await createClient();
 
   const { data } = await supabase
-    .from("meetings")
-    .select("*")
-    .eq("course_id", courseId)
-    .order("start_time", { ascending: true });
+    .from('meetings')
+    .select('*')
+    .eq('course_id', courseId)
+    .order('start_time', { ascending: true });
 
   return data || [];
 }
@@ -25,7 +25,7 @@ export default async function LiveClassPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   const meetings = await getMeetings(params.courseId);
@@ -62,10 +62,10 @@ export default async function LiveClassPage({
                     )}
                   </div>
                   <p className="mt-1 text-xs text-slate-600">
-                    {m.provider.toUpperCase()} •{" "}
-                    {startTime.toLocaleString("en-US", {
-                      dateStyle: "medium",
-                      timeStyle: "short",
+                    {m.provider.toUpperCase()} •{' '}
+                    {startTime.toLocaleString('en-US', {
+                      dateStyle: 'medium',
+                      timeStyle: 'short',
                     })}
                   </p>
                 </div>
@@ -73,13 +73,13 @@ export default async function LiveClassPage({
                   href={m.join_url}
                   className={`rounded-2xl px-3 py-1.5 text-xs font-semibold text-white shadow-sm ${
                     isLive
-                      ? "bg-red-500 hover:bg-red-600"
-                      : "bg-emerald-500 hover:bg-emerald-600"
+                      ? 'bg-red-500 hover:bg-red-600'
+                      : 'bg-emerald-500 hover:bg-emerald-600'
                   }`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {isLive ? "Join Now" : "Join"}
+                  {isLive ? 'Join Now' : 'Join'}
                 </Link>
               </div>
             );

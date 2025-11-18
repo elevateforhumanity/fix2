@@ -1,6 +1,6 @@
 // app/api/reports/run/route.ts
-import { NextResponse } from "next/server";
-import { createClient } from "@/utils/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/utils/supabase/server';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -10,30 +10,30 @@ export async function POST(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is admin
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "admin") {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (profile?.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const { type, tenantId } = await request.json();
 
-  if (type === "enrollments_by_program") {
+  if (type === 'enrollments_by_program') {
     const query = supabase
-      .from("enrollments")
-      .select("program_id, count")
-      .order("count", { ascending: false });
+      .from('enrollments')
+      .select('program_id, count')
+      .order('count', { ascending: false });
 
     if (tenantId) {
-      query.eq("tenant_id", tenantId);
+      query.eq('tenant_id', tenantId);
     }
 
     const { data, error } = await query;
@@ -45,8 +45,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ rows: data });
   }
 
-  if (type === "completions_by_month") {
-    const { data, error } = await supabase.rpc("get_completions_by_month", {
+  if (type === 'completions_by_month') {
+    const { data, error } = await supabase.rpc('get_completions_by_month', {
       p_tenant_id: tenantId || null,
     });
 
@@ -57,9 +57,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ rows: data });
   }
 
-  if (type === "user_activity") {
+  if (type === 'user_activity') {
     const { data, error } = await supabase
-      .from("profiles")
+      .from('profiles')
       .select(
         `
         id,
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
         enrollments:enrollments(count)
       `
       )
-      .order("last_sign_in_at", { ascending: false })
+      .order('last_sign_in_at', { ascending: false })
       .limit(100);
 
     if (error) {
@@ -79,5 +79,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ rows: data });
   }
 
-  return NextResponse.json({ error: "Unknown report type" }, { status: 400 });
+  return NextResponse.json({ error: 'Unknown report type' }, { status: 400 });
 }

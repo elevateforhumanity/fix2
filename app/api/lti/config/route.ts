@@ -2,15 +2,20 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const toolUrl = process.env.LTI_TOOL_URL || 'https://elevateconnectsdirectory.org';
+  const toolUrl =
+    process.env.LTI_TOOL_URL || 'https://elevateconnectsdirectory.org';
 
   const config = {
     title: 'Elevate for Humanity LMS',
-    description: 'Workforce & apprenticeship training LMS by Elevate for Humanity',
+    description:
+      'Workforce & apprenticeship training LMS by Elevate for Humanity',
     jwks_uri: `${toolUrl}/api/lti/jwks`,
     initiate_login_uri: `${toolUrl}/api/lti/login`,
     redirect_uris: [`${toolUrl}/api/lti/launch`],
-    scopes: ['openid', 'https://purl.imsglobal.org/spec/lti-nrps/scope/contextmembership.readonly'],
+    scopes: [
+      'openid',
+      'https://purl.imsglobal.org/spec/lti-nrps/scope/contextmembership.readonly',
+    ],
     extensions: [
       {
         platform: 'canvas.instructure.com',

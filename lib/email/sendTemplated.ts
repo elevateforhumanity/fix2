@@ -1,7 +1,7 @@
-import { getEmailTemplate, renderTemplate, renderSubject } from "./templates";
-import sgMail from "@sendgrid/mail";
+import { getEmailTemplate, renderTemplate, renderSubject } from './templates';
+import sgMail from '@sendgrid/mail';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 export async function sendTenantTemplatedEmail(params: {
   key: string;
@@ -12,7 +12,7 @@ export async function sendTenantTemplatedEmail(params: {
   const tmpl = await getEmailTemplate(params.key, params.tenantId);
 
   if (!tmpl) {
-    console.warn("Missing email template for key", params.key);
+    console.warn('Missing email template for key', params.key);
     return;
   }
 
@@ -20,7 +20,7 @@ export async function sendTenantTemplatedEmail(params: {
   const subject = renderSubject(tmpl.subject, params.variables);
 
   if (!process.env.SENDGRID_API_KEY) {
-    console.log("SendGrid not configured, would send email:");
+    console.log('SendGrid not configured, would send email:');
     console.log({ to: params.to, subject, html });
     return;
   }
@@ -28,12 +28,12 @@ export async function sendTenantTemplatedEmail(params: {
   try {
     await sgMail.send({
       to: params.to,
-      from: process.env.SENDGRID_FROM || "noreply@elevateforhumanity.org",
+      from: process.env.SENDGRID_FROM || 'noreply@elevateforhumanity.org',
       subject,
       html,
     });
   } catch (error) {
-    console.error("Failed to send templated email:", error);
+    console.error('Failed to send templated email:', error);
     throw error;
   }
 }
@@ -46,12 +46,12 @@ export async function sendWelcomeEmail(params: {
   platformName?: string;
 }) {
   await sendTenantTemplatedEmail({
-    key: "welcome_student",
+    key: 'welcome_student',
     tenantId: params.tenantId,
     to: params.studentEmail,
     variables: {
       student_name: params.studentName,
-      platform_name: params.platformName || "Elevate for Humanity",
+      platform_name: params.platformName || 'Elevate for Humanity',
     },
   });
 }
@@ -64,7 +64,7 @@ export async function sendEnrollmentConfirmation(params: {
   startDate: string;
 }) {
   await sendTenantTemplatedEmail({
-    key: "enrollment_confirmation",
+    key: 'enrollment_confirmation',
     tenantId: params.tenantId,
     to: params.studentEmail,
     variables: {
@@ -83,7 +83,7 @@ export async function sendCourseReminder(params: {
   progress: number;
 }) {
   await sendTenantTemplatedEmail({
-    key: "course_reminder",
+    key: 'course_reminder',
     tenantId: params.tenantId,
     to: params.studentEmail,
     variables: {
@@ -101,7 +101,7 @@ export async function sendCertificateEarned(params: {
   courseTitle: string;
 }) {
   await sendTenantTemplatedEmail({
-    key: "certificate_earned",
+    key: 'certificate_earned',
     tenantId: params.tenantId,
     to: params.studentEmail,
     variables: {

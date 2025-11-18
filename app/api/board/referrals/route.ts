@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/utils/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/utils/supabase/server';
 
 export async function GET(request: Request) {
   const supabase = await createClient();
@@ -8,25 +8,25 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is board member
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, organization")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role, organization')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "board") {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (profile?.role !== 'board') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const { data: referrals, error } = await supabase
-    .from("referrals")
-    .select("*")
-    .eq("board_org", profile.organization || "")
-    .order("created_at", { ascending: false });
+    .from('referrals')
+    .select('*')
+    .eq('board_org', profile.organization || '')
+    .order('created_at', { ascending: false });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -42,18 +42,18 @@ export async function POST(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is board member
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, organization")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role, organization')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "board") {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (profile?.role !== 'board') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const {
@@ -67,15 +67,15 @@ export async function POST(request: Request) {
 
   if (!participantName) {
     return NextResponse.json(
-      { error: "participantName is required" },
+      { error: 'participantName is required' },
       { status: 400 }
     );
   }
 
   const { data: referral, error } = await supabase
-    .from("referrals")
+    .from('referrals')
     .insert({
-      board_org: profile.organization || "Unknown Board",
+      board_org: profile.organization || 'Unknown Board',
       board_user_id: user.id,
       participant_name: participantName,
       participant_email: participantEmail || null,
@@ -83,7 +83,7 @@ export async function POST(request: Request) {
       program_name: programName || null,
       course_id: courseId || null,
       notes: notes || null,
-      status: "referred",
+      status: 'referred',
     })
     .select()
     .single();
@@ -93,11 +93,11 @@ export async function POST(request: Request) {
   }
 
   // Log the referral creation
-  await supabase.from("audit_logs").insert({
+  await supabase.from('audit_logs').insert({
     actor_id: user.id,
     actor_email: user.email,
-    action: "board_created_referral",
-    resource_type: "referral",
+    action: 'board_created_referral',
+    resource_type: 'referral',
     resource_id: referral.id,
     metadata: {
       participantName,

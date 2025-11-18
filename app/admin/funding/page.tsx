@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type FundingProgram = {
   id: string;
@@ -12,20 +12,20 @@ type FundingProgram = {
 };
 
 export default function FundingPage() {
-  const [programTitle, setProgramTitle] = useState("HVAC Technician Program");
-  const [targetPopulation, setTargetPopulation] = useState<string[]>(["adult"]);
+  const [programTitle, setProgramTitle] = useState('HVAC Technician Program');
+  const [targetPopulation, setTargetPopulation] = useState<string[]>(['adult']);
   const [hasApprenticeship, setHasApprenticeship] = useState(false);
-  const [sector, setSector] = useState("construction");
+  const [sector, setSector] = useState('construction');
   const [loading, setLoading] = useState(false);
   const [matches, setMatches] = useState<FundingProgram[]>([]);
-  const [narrative, setNarrative] = useState<string>("");
+  const [narrative, setNarrative] = useState<string>('');
 
   async function run() {
     setLoading(true);
     try {
-      const res = await fetch("/api/funding/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/funding/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           programTitle,
           targetPopulation,
@@ -35,9 +35,9 @@ export default function FundingPage() {
       });
       const data = await res.json();
       setMatches(data.matches || []);
-      setNarrative(data.narrative || "");
+      setNarrative(data.narrative || '');
     } catch (error) {
-      console.error("Failed to get funding recommendations:", error);
+      console.error('Failed to get funding recommendations:', error);
     } finally {
       setLoading(false);
     }
@@ -103,7 +103,7 @@ export default function FundingPage() {
                 Target population
               </p>
               <div className="mt-1 flex flex-wrap gap-2">
-                {["youth", "adult", "reentry", "low-income", "dislocated"].map(
+                {['youth', 'adult', 'reentry', 'low-income', 'dislocated'].map(
                   (p) => (
                     <button
                       key={p}
@@ -111,8 +111,8 @@ export default function FundingPage() {
                       onClick={() => togglePopulation(p)}
                       className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
                         targetPopulation.includes(p)
-                          ? "bg-orange-500 text-white"
-                          : "bg-slate-100 text-slate-700"
+                          ? 'bg-orange-500 text-white'
+                          : 'bg-slate-100 text-slate-700'
                       }`}
                     >
                       {p}
@@ -143,7 +143,7 @@ export default function FundingPage() {
               disabled={loading}
               className="mt-2 w-full rounded-2xl bg-orange-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-60"
             >
-              {loading ? "Analyzing…" : "Find funding matches"}
+              {loading ? 'Analyzing…' : 'Find funding matches'}
             </button>
           </div>
 
@@ -160,9 +160,7 @@ export default function FundingPage() {
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <p className="font-semibold text-slate-900">
-                          {m.name}
-                        </p>
+                        <p className="font-semibold text-slate-900">{m.name}</p>
                         <p className="text-[10px] uppercase text-slate-500">
                           {m.category}
                         </p>

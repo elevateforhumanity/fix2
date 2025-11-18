@@ -7,12 +7,14 @@ Batch 10 introduces enterprise-grade features for workforce development partners
 ## Features Implemented
 
 ### 1. Workforce Board Portal
+
 **Purpose**: Enable workforce development boards to track referrals and monitor training outcomes.
 
 **Access**: `/board/dashboard`  
 **Role Required**: `board`
 
 **Key Capabilities**:
+
 - View all students referred by the board's organization
 - Track enrollment status and completion rates
 - Monitor employment outcomes
@@ -20,6 +22,7 @@ Batch 10 introduces enterprise-grade features for workforce development partners
 - View training hours and sector distribution
 
 **Database Schema**:
+
 ```sql
 -- Added to profiles table
 ALTER TABLE profiles
@@ -35,6 +38,7 @@ ADD COLUMN zip_code text;
 ```
 
 **Use Cases**:
+
 - Workforce boards track ROI on training investments
 - Monitor participant progress across multiple training providers
 - Generate quarterly WIOA performance reports
@@ -43,12 +47,14 @@ ADD COLUMN zip_code text;
 ---
 
 ### 2. Training Partner Portal
+
 **Purpose**: Allow training providers to manage their learner roster and track outcomes.
 
 **Access**: `/partner/dashboard`  
 **Role Required**: `partner`
 
 **Key Capabilities**:
+
 - View all learners enrolled in partner's courses (tenant-scoped)
 - Track attendance and training hours
 - Monitor completion rates and employment outcomes
@@ -56,11 +62,13 @@ ADD COLUMN zip_code text;
 - Manage learner roster
 
 **Tenant Isolation**:
+
 - Partners only see learners from their own tenant
 - Row-level security enforced at database level
 - No cross-tenant data leakage
 
 **Use Cases**:
+
 - Training providers manage their student roster
 - Track attendance for funding compliance
 - Generate reports for accreditation bodies
@@ -69,12 +77,14 @@ ADD COLUMN zip_code text;
 ---
 
 ### 3. Compliance Checklist
+
 **Purpose**: Track and manage compliance requirements across multiple frameworks.
 
 **Access**: `/admin/compliance`  
 **Role Required**: `admin`
 
 **Compliance Frameworks Covered**:
+
 1. **SOC 2 Type II** - Data security and privacy controls
 2. **WIOA** - Workforce Innovation and Opportunity Act requirements
 3. **WCAG 2.1 AA** - Web accessibility standards
@@ -82,13 +92,14 @@ ADD COLUMN zip_code text;
 5. **GDPR** - EU data protection requirements
 
 **Database Schema**:
+
 ```sql
 CREATE TABLE compliance_items (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   category text NOT NULL,
   title text NOT NULL,
   description text,
-  status text NOT NULL DEFAULT 'todo' 
+  status text NOT NULL DEFAULT 'todo'
     CHECK (status IN ('todo', 'in_progress', 'complete')),
   evidence_url text,
   last_reviewed_at timestamptz,
@@ -98,6 +109,7 @@ CREATE TABLE compliance_items (
 ```
 
 **Features**:
+
 - Visual progress tracking by category
 - Status management (To Do → In Progress → Complete)
 - Last reviewed timestamps
@@ -105,6 +117,7 @@ CREATE TABLE compliance_items (
 - Expandable/collapsible categories
 
 **Seeded Compliance Items**:
+
 - SOC 2 Type II Audit
 - WIOA Quarterly Reporting
 - WCAG 2.1 AA Compliance
@@ -117,6 +130,7 @@ CREATE TABLE compliance_items (
 - Multi-Factor Authentication
 
 **Use Cases**:
+
 - Prepare for SOC 2 audits
 - Track WIOA compliance requirements
 - Manage accessibility testing
@@ -126,12 +140,14 @@ CREATE TABLE compliance_items (
 ---
 
 ### 4. Audit Log Viewer
+
 **Purpose**: Comprehensive activity tracking for security monitoring and compliance.
 
 **Access**: `/admin/audit-logs`  
 **Role Required**: `admin`
 
 **Database Schema**:
+
 ```sql
 CREATE TABLE audit_logs (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -148,12 +164,14 @@ CREATE TABLE audit_logs (
 ```
 
 **Indexed Fields**:
+
 - `actor_id` - Fast lookup by user
 - `action` - Filter by action type
 - `created_at` - Chronological sorting
 - `resource_type, resource_id` - Resource-based queries
 
 **Features**:
+
 - Real-time activity monitoring
 - Filter by action type
 - Filter by resource type
@@ -163,6 +181,7 @@ CREATE TABLE audit_logs (
 - Actor information with profile lookup
 
 **Logged Actions**:
+
 - `compliance_item_updated` - Compliance checklist changes
 - `user_created` - New user registrations
 - `enrollment_created` - New course enrollments
@@ -172,6 +191,7 @@ CREATE TABLE audit_logs (
 - Custom actions as needed
 
 **Use Cases**:
+
 - SOC 2 audit trail
 - Security incident investigation
 - Compliance reporting
@@ -183,9 +203,11 @@ CREATE TABLE audit_logs (
 ## API Endpoints
 
 ### Compliance Items API
+
 **Endpoint**: `/api/compliance/items`
 
 **GET** - Fetch all compliance items
+
 ```typescript
 Response: {
   items: ComplianceItem[]
@@ -193,6 +215,7 @@ Response: {
 ```
 
 **PATCH** - Update compliance item status
+
 ```typescript
 Request: {
   id: string,
@@ -210,9 +233,11 @@ Response: {
 ---
 
 ### Audit Logs API
+
 **Endpoint**: `/api/audit-logs`
 
 **GET** - Fetch audit logs with filtering
+
 ```typescript
 Query Parameters:
   - limit: number (default: 100, max: 100)
@@ -236,6 +261,7 @@ Response: {
 **File**: `migrations/20251118_audit_logs_portals.sql`
 
 **Changes**:
+
 1. Created `audit_logs` table with indexes
 2. Created `compliance_items` table with indexes
 3. Added `board` and `partner` roles to user roles
@@ -244,6 +270,7 @@ Response: {
 6. Seeded 10 default compliance items
 
 **To Apply**:
+
 ```bash
 # Using Supabase CLI
 supabase db push
@@ -259,23 +286,27 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 ## Security Considerations
 
 ### Role-Based Access Control (RBAC)
+
 - **Board Portal**: Only users with `role = 'board'` can access
 - **Partner Portal**: Only users with `role = 'partner'` can access
 - **Compliance Checklist**: Only users with `role = 'admin'` can access
 - **Audit Logs**: Only users with `role = 'admin'` can access
 
 ### Tenant Isolation
+
 - Partner portal enforces tenant-level data isolation
 - Row-level security policies prevent cross-tenant access
 - All queries filtered by `tenant_id`
 
 ### Audit Trail
+
 - All compliance changes logged to `audit_logs`
 - Actor information captured (user ID and email)
 - Timestamps recorded for all actions
 - Immutable log entries (no updates or deletes)
 
 ### Data Protection
+
 - Sensitive data encrypted at rest
 - TLS 1.3 for all connections
 - FERPA-compliant student data handling
@@ -286,6 +317,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 ## WIOA Compliance Features
 
 ### Reporting Requirements Met
+
 1. **Participant Tracking**: All enrollments tracked with referral source
 2. **Training Hours**: Hours tracked per enrollment for funding verification
 3. **Sector Classification**: Industry sector recorded for labor market analysis
@@ -294,6 +326,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 6. **Quarterly Reporting**: Automated data collection for DOL reports
 
 ### ETPL (Eligible Training Provider List) Support
+
 - Training providers can demonstrate outcomes
 - Completion rates tracked and reported
 - Employment outcomes monitored
@@ -304,6 +337,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 ## SOC 2 Compliance Features
 
 ### Security Controls
+
 1. **Access Control**: Role-based access with least privilege
 2. **Audit Logging**: Comprehensive activity tracking
 3. **Data Encryption**: At rest and in transit
@@ -311,6 +345,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 5. **Monitoring**: Real-time security event tracking
 
 ### Audit Trail Requirements
+
 - All administrative actions logged
 - User authentication events tracked
 - Data access logged with actor information
@@ -318,6 +353,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 - Retention policy configurable
 
 ### Compliance Checklist
+
 - SOC 2 Type II audit preparation
 - Control documentation
 - Evidence collection
@@ -328,6 +364,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 ## Accessibility (WCAG 2.1 AA)
 
 ### Compliance Checklist Features
+
 - Keyboard navigation support
 - Screen reader compatible
 - Color contrast ratios meet AA standards
@@ -335,6 +372,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 - ARIA labels on interactive elements
 
 ### Testing Requirements
+
 - NVDA screen reader testing
 - JAWS screen reader testing
 - Keyboard-only navigation testing
@@ -346,6 +384,7 @@ psql $DATABASE_URL < migrations/20251118_audit_logs_portals.sql
 ## Performance Optimization
 
 ### Database Indexes
+
 ```sql
 -- Audit logs
 CREATE INDEX idx_audit_logs_actor ON audit_logs(actor_id);
@@ -359,12 +398,14 @@ CREATE INDEX idx_compliance_items_category ON compliance_items(category);
 ```
 
 ### Query Optimization
+
 - Pagination for large datasets (50-100 records per page)
 - Filtered queries use indexed columns
 - Profile joins optimized with foreign keys
 - Tenant-scoped queries use indexed tenant_id
 
 ### Caching Strategy
+
 - Client-side state management for UI responsiveness
 - Optimistic updates for better UX
 - Server-side caching for read-heavy endpoints (future enhancement)
@@ -374,6 +415,7 @@ CREATE INDEX idx_compliance_items_category ON compliance_items(category);
 ## User Roles
 
 ### New Roles Added
+
 1. **board** - Workforce development board staff
    - Access: Board portal
    - Scope: Organization-level data
@@ -385,6 +427,7 @@ CREATE INDEX idx_compliance_items_category ON compliance_items(category);
    - Permissions: Read-only learner roster
 
 ### Existing Roles
+
 - **admin** - Full system access
 - **instructor** - Course management
 - **student** - Learner access
@@ -394,12 +437,14 @@ CREATE INDEX idx_compliance_items_category ON compliance_items(category);
 ## Integration Points
 
 ### Existing Systems
+
 - **User Management**: Integrates with existing profiles table
 - **Course System**: Links to courses and enrollments
 - **Certificate System**: Audit logs track certificate issuance
 - **Authentication**: Uses existing Supabase Auth
 
 ### External Systems (Future)
+
 - **WIOA Reporting**: Export data for state workforce systems
 - **SIEM Integration**: Forward audit logs to security monitoring
 - **Compliance Tools**: Export compliance data for audit platforms
@@ -409,9 +454,11 @@ CREATE INDEX idx_compliance_items_category ON compliance_items(category);
 ## Testing
 
 ### Test Plan
+
 See `BATCH_10_TEST_PLAN.md` for comprehensive testing procedures.
 
 ### Key Test Areas
+
 1. Role-based access control
 2. Tenant isolation
 3. Audit log creation
@@ -421,6 +468,7 @@ See `BATCH_10_TEST_PLAN.md` for comprehensive testing procedures.
 7. CSV export functionality
 
 ### Test Data Setup
+
 ```sql
 -- Create test board user
 INSERT INTO profiles (email, full_name, role, organization)
@@ -436,18 +484,22 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 ## Deployment
 
 ### Prerequisites
+
 1. Database migration applied
 2. Environment variables configured
 3. User roles seeded
 4. Test data created (optional)
 
 ### Deployment Steps
+
 1. Apply database migration:
+
    ```bash
    supabase db push
    ```
 
 2. Deploy application:
+
    ```bash
    npm run build
    npm run start
@@ -464,6 +516,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 5. Test role-based access control
 
 ### Rollback Plan
+
 - Migration is additive only (no destructive changes)
 - New tables can be dropped if needed
 - New columns can be removed if needed
@@ -474,6 +527,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 ## Monitoring
 
 ### Key Metrics
+
 1. **Audit Log Volume**: Track log creation rate
 2. **Compliance Progress**: Monitor completion percentage
 3. **Portal Usage**: Track board and partner logins
@@ -481,6 +535,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 5. **Database Growth**: Track audit log table size
 
 ### Alerts
+
 - Audit log creation failures
 - Unauthorized access attempts
 - Compliance item status changes
@@ -491,6 +546,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 ## Future Enhancements
 
 ### Phase 2 Features
+
 1. **IP Address Tracking**: Capture client IP in audit logs
 2. **User Agent Tracking**: Record browser/device information
 3. **Advanced Filtering**: Date range filters, multi-select
@@ -500,6 +556,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 7. **Dashboard Widgets**: Embed compliance metrics in admin dashboard
 
 ### Phase 3 Features
+
 1. **SIEM Integration**: Forward logs to Splunk/ELK
 2. **Compliance Automation**: Auto-check certain compliance items
 3. **Risk Scoring**: Calculate compliance risk scores
@@ -512,18 +569,21 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 ## Support and Maintenance
 
 ### Documentation
+
 - User guides for each portal
 - Admin documentation for compliance management
 - API documentation for integrations
 - Database schema documentation
 
 ### Training Materials
+
 - Board portal user training
 - Partner portal user training
 - Compliance checklist management
 - Audit log analysis
 
 ### Maintenance Tasks
+
 1. **Weekly**: Review audit logs for anomalies
 2. **Monthly**: Update compliance checklist status
 3. **Quarterly**: Generate WIOA reports
@@ -534,6 +594,7 @@ VALUES ('partner@test.com', 'Test Partner', 'partner', 'test-tenant');
 ## Conclusion
 
 Batch 10 transforms the platform into an enterprise-grade workforce development ecosystem with:
+
 - ✅ Multi-stakeholder portals (board, partner, admin)
 - ✅ Comprehensive compliance tracking (SOC 2, WIOA, WCAG, FERPA, GDPR)
 - ✅ Security audit trail for SOC 2 compliance
@@ -542,6 +603,7 @@ Batch 10 transforms the platform into an enterprise-grade workforce development 
 - ✅ Role-based access control
 
 The platform now meets the requirements for:
+
 - SOC 2 Type II certification
 - WIOA ETPL listing
 - WCAG 2.1 AA accessibility
@@ -553,23 +615,27 @@ The platform now meets the requirements for:
 ## Quick Reference
 
 ### URLs
+
 - Board Portal: `/board/dashboard`
 - Partner Portal: `/partner/dashboard`
 - Compliance Checklist: `/admin/compliance`
 - Audit Logs: `/admin/audit-logs`
 
 ### API Endpoints
+
 - GET `/api/compliance/items` - Fetch compliance items
 - PATCH `/api/compliance/items` - Update compliance status
 - GET `/api/audit-logs` - Fetch audit logs (with filters)
 
 ### Database Tables
+
 - `audit_logs` - Activity tracking
 - `compliance_items` - Compliance checklist
 - `profiles` - User roles and organization
 - `enrollments` - Referral tracking
 
 ### Roles
+
 - `admin` - Full access
 - `board` - Board portal access
 - `partner` - Partner portal access

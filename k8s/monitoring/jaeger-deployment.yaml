@@ -42,9 +42,9 @@ spec:
               name: otlp-http
           env:
             - name: COLLECTOR_ZIPKIN_HOST_PORT
-              value: ":9411"
+              value: ':9411'
             - name: COLLECTOR_OTLP_ENABLED
-              value: "true"
+              value: 'true'
           resources:
             requests:
               cpu: 200m

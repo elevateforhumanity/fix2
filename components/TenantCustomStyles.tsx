@@ -1,10 +1,10 @@
 // components/TenantCustomStyles.tsx
-import { getTenantFromHost } from "@/lib/multiTenant/tenantFromHost";
-import { headers } from "next/headers";
+import { getTenantFromHost } from '@/lib/multiTenant/tenantFromHost';
+import { headers } from 'next/headers';
 
 export async function TenantCustomStyles() {
   const headersList = await headers();
-  const host = headersList.get("host") ?? undefined;
+  const host = headersList.get('host') ?? undefined;
   const tenant = await getTenantFromHost(host);
 
   if (!tenant) return null;
@@ -20,7 +20,7 @@ export async function TenantCustomStyles() {
             __html: `
               :root {
                 --tenant-primary: ${tenant.primary_color};
-                --tenant-secondary: ${tenant.secondary_color || "#0f172a"};
+                --tenant-secondary: ${tenant.secondary_color || '#0f172a'};
               }
             `,
           }}

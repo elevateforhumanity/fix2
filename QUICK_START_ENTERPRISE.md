@@ -70,18 +70,21 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces
 ## Step 4: Test Core Features (1 min)
 
 ### Test Health Endpoint
+
 ```bash
 curl http://localhost:3000/api/health
 # Should return: {"status":"ok"}
 ```
 
 ### Test Metrics Endpoint
+
 ```bash
 curl http://localhost:3000/api/metrics
 # Should return Prometheus metrics
 ```
 
 ### Test Data Export
+
 ```bash
 # Login first, then:
 curl http://localhost:3000/api/account/export \
@@ -94,11 +97,13 @@ curl http://localhost:3000/api/account/export \
 ## Step 5: Deploy (Optional)
 
 ### Option A: Vercel (Existing)
+
 ```bash
 vercel --prod
 ```
 
 ### Option B: Kubernetes (New)
+
 ```bash
 # Build and push image
 docker build -t ghcr.io/elevateforhumanity/efh-web:latest .
@@ -117,28 +122,33 @@ kubectl apply -f k8s/hpa-app.yaml
 ## 🎯 What You Can Do Now
 
 ### Assessments
+
 - Create question banks
 - Build randomized exams
 - Enable proctoring
 - Auto-grade submissions
 
 ### Billing
+
 - Track tenant usage
 - Report to Stripe
 - Metered billing
 
 ### Compliance
+
 - Export WIOA reports
 - Export user data (GDPR)
 - Handle deletion requests
 
 ### Integrations
+
 - Launch from Canvas/Moodle (LTI)
 - Create Zendesk tickets
 - Sync Salesforce leads
 - Search help articles
 
 ### Operations
+
 - Deploy to Kubernetes
 - Monitor with OpenTelemetry
 - Scale automatically
@@ -177,21 +187,25 @@ kubectl apply -f k8s/hpa-app.yaml
 ## 🆘 Quick Troubleshooting
 
 ### Migrations Fail
+
 - Check database connection
 - Verify Supabase credentials
 - Run migrations in order
 
 ### API Endpoints Return 500
+
 - Check environment variables
 - Verify Supabase service role key
 - Check server logs
 
 ### Kubernetes Pods Not Starting
+
 - Verify image exists
 - Check secrets created
 - Review pod logs: `kubectl logs -n efh-prod -l app=efh-web`
 
 ### Integrations Not Working
+
 - Verify API credentials
 - Check network connectivity
 - Review integration logs

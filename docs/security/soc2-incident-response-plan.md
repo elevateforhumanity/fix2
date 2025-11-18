@@ -25,6 +25,7 @@ This document outlines the procedures for detecting, responding to, and recoveri
 ### 1. Detection and Reporting
 
 **Detection Methods**:
+
 - Automated security alerts
 - User reports
 - Vendor notifications
@@ -32,6 +33,7 @@ This document outlines the procedures for detecting, responding to, and recoveri
 - Penetration testing findings
 
 **Reporting**:
+
 - Internal: security@elevateforhumanity.org
 - External: Report via website contact form or phone
 - Anonymous: Whistleblower hotline
@@ -47,12 +49,14 @@ This document outlines the procedures for detecting, responding to, and recoveri
 ### 3. Containment (Immediate)
 
 **Short-term Containment**:
+
 - Isolate affected systems
 - Disable compromised accounts
 - Block malicious IP addresses
 - Preserve evidence for investigation
 
 **Long-term Containment**:
+
 - Apply security patches
 - Implement additional monitoring
 - Deploy temporary workarounds
@@ -107,6 +111,7 @@ This document outlines the procedures for detecting, responding to, and recoveri
 ### Communication Templates
 
 **Customer Notification**:
+
 ```
 Subject: Security Incident Notification
 
@@ -129,12 +134,12 @@ Elevate for Humanity Security Team
 
 ## Incident Severity Matrix
 
-| Severity | Impact | Response Time | Notification |
-|----------|--------|---------------|--------------|
-| P1 | Data breach, full outage | Immediate | All stakeholders |
-| P2 | Security vulnerability, partial outage | 1 hour | Leadership, affected customers |
-| P3 | Performance issues, minor security issue | 4 hours | Internal team |
-| P4 | Minor bugs, cosmetic issues | 24 hours | Development team |
+| Severity | Impact                                   | Response Time | Notification                   |
+| -------- | ---------------------------------------- | ------------- | ------------------------------ |
+| P1       | Data breach, full outage                 | Immediate     | All stakeholders               |
+| P2       | Security vulnerability, partial outage   | 1 hour        | Leadership, affected customers |
+| P3       | Performance issues, minor security issue | 4 hours       | Internal team                  |
+| P4       | Minor bugs, cosmetic issues              | 24 hours      | Development team               |
 
 ## Evidence Preservation
 
@@ -147,16 +152,19 @@ Elevate for Humanity Security Team
 ## Legal and Regulatory Requirements
 
 ### FERPA
+
 - Notify affected students within 45 days
 - Document breach in student records
 - Report to Department of Education if required
 
 ### WIOA
+
 - Notify workforce board within 24 hours
 - Document impact on program operations
 - Implement corrective actions
 
 ### GDPR (if applicable)
+
 - Notify supervisory authority within 72 hours
 - Notify affected individuals without undue delay
 - Document breach in data protection register

@@ -5,7 +5,9 @@ import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 
 const exporter = new OTLPTraceExporter({
-  url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT || 'http://otel-collector:4318/v1/traces',
+  url:
+    process.env.OTEL_EXPORTER_OTLP_ENDPOINT ||
+    'http://otel-collector:4318/v1/traces',
 });
 
 const sdk = new NodeSDK({

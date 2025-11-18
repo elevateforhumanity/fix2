@@ -2,7 +2,7 @@
 const SIEM_ENDPOINT = process.env.SIEM_ENDPOINT; // Datadog/Splunk HTTP collector
 const SIEM_API_KEY = process.env.SIEM_API_KEY;
 
-export type LogLevel = "info" | "warn" | "error" | "debug";
+export type LogLevel = 'info' | 'warn' | 'error' | 'debug';
 
 export async function sendSecurityLog(event: {
   level: LogLevel;
@@ -14,7 +14,7 @@ export async function sendSecurityLog(event: {
 }) {
   if (!SIEM_ENDPOINT || !SIEM_API_KEY) {
     // No SIEM configured – fail soft, but still log locally.
-    console.log("[SIEM]", event);
+    console.log('[SIEM]', event);
     return;
   }
 
@@ -26,21 +26,21 @@ export async function sendSecurityLog(event: {
     actorEmail: event.actorEmail,
     ip: event.ip,
     metadata: event.metadata ?? {},
-    service: "efh-next-app",
-    env: process.env.NODE_ENV || "development",
+    service: 'efh-next-app',
+    env: process.env.NODE_ENV || 'development',
   };
 
   try {
     await fetch(SIEM_ENDPOINT, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "DD-API-KEY": SIEM_API_KEY,
+        'Content-Type': 'application/json',
+        'DD-API-KEY': SIEM_API_KEY,
       },
       body: JSON.stringify(body),
     });
   } catch (error) {
-    console.error("Failed to send SIEM log:", error);
+    console.error('Failed to send SIEM log:', error);
   }
 }
 
@@ -51,8 +51,8 @@ export async function logAuthAttempt(params: {
   reason?: string;
 }) {
   await sendSecurityLog({
-    level: params.success ? "info" : "warn",
-    message: params.success ? "Successful login" : "Failed login attempt",
+    level: params.success ? 'info' : 'warn',
+    message: params.success ? 'Successful login' : 'Failed login attempt',
     actorEmail: params.email,
     ip: params.ip,
     metadata: {
@@ -71,7 +71,7 @@ export async function logAdminAction(params: {
   metadata?: Record<string, any>;
 }) {
   await sendSecurityLog({
-    level: "info",
+    level: 'info',
     message: `Admin action: ${params.action}`,
     actorId: params.actorId,
     actorEmail: params.actorEmail,

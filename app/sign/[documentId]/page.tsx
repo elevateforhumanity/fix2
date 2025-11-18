@@ -57,18 +57,23 @@ export default function SignDocumentPage({
     e.preventDefault();
 
     if (!agreed) {
-      alert('You must confirm that you have reviewed and agree to this document.');
+      alert(
+        'You must confirm that you have reviewed and agree to this document.'
+      );
       return;
     }
 
     setSubmitting(true);
 
     try {
-      const res = await fetch(`/api/signature/documents/${params.documentId}/sign`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ signerName, signerEmail, role }),
-      });
+      const res = await fetch(
+        `/api/signature/documents/${params.documentId}/sign`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ signerName, signerEmail, role }),
+        }
+      );
 
       if (!res.ok) {
         const data = await res.json();
@@ -99,7 +104,9 @@ export default function SignDocumentPage({
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
           <FileSignature className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-          <p className="text-gray-600">Document not found or no longer available.</p>
+          <p className="text-gray-600">
+            Document not found or no longer available.
+          </p>
         </div>
       </div>
     );
@@ -114,7 +121,9 @@ export default function SignDocumentPage({
             {doc.title}
           </h1>
           {doc.created_for_org && (
-            <p className="mt-2 text-sm text-slate-600">For: {doc.created_for_org}</p>
+            <p className="mt-2 text-sm text-slate-600">
+              For: {doc.created_for_org}
+            </p>
           )}
           <span className="inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
             {doc.type.replace('_', ' ').toUpperCase()}
@@ -193,7 +202,8 @@ export default function SignDocumentPage({
                     className="mt-1 h-4 w-4 rounded border-slate-300"
                   />
                   <span className="text-xs text-slate-700">
-                    I confirm that I have read and agree to the terms of this document.
+                    I confirm that I have read and agree to the terms of this
+                    document.
                   </span>
                 </label>
 
@@ -226,10 +236,16 @@ export default function SignDocumentPage({
                     <div className="flex items-start gap-2">
                       <User className="w-4 h-4 text-slate-400 mt-1" />
                       <div className="flex-1">
-                        <p className="font-medium text-slate-900">{sig.signer_name}</p>
-                        <p className="text-xs text-slate-600">{sig.signer_email}</p>
+                        <p className="font-medium text-slate-900">
+                          {sig.signer_name}
+                        </p>
+                        <p className="text-xs text-slate-600">
+                          {sig.signer_email}
+                        </p>
                         {sig.role && (
-                          <p className="text-xs text-slate-500 mt-1">{sig.role}</p>
+                          <p className="text-xs text-slate-500 mt-1">
+                            {sig.role}
+                          </p>
                         )}
                         <p className="text-xs text-slate-400 mt-1">
                           Signed {new Date(sig.signed_at).toLocaleString()}

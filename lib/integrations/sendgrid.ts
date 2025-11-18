@@ -1,6 +1,7 @@
 // lib/integrations/sendgrid.ts
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const SENDGRID_FROM = process.env.SENDGRID_FROM || 'no-reply@elevateforhumanity.org';
+const SENDGRID_FROM =
+  process.env.SENDGRID_FROM || 'no-reply@elevateforhumanity.org';
 
 export async function sendTransactionalEmail(params: {
   to: string;

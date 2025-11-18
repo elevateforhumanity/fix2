@@ -1,6 +1,6 @@
-import * as fs from "fs";
-import * as http from "http";
-import * as https from "https";
+import * as fs from 'fs';
+import * as http from 'http';
+import * as https from 'https';
 
 type Budget = {
   ttfb_ms: number;
@@ -10,28 +10,28 @@ type Budget = {
 type Budgets = Record<string, Budget>;
 
 const budgets: Budgets = JSON.parse(
-  fs.readFileSync("perf-budgets.json", "utf8")
+  fs.readFileSync('perf-budgets.json', 'utf8')
 );
 
 const BASE_URL =
-  process.env.PERF_BASE_URL || "https://elevateconnectsdirectory.org";
+  process.env.PERF_BASE_URL || 'https://elevateconnectsdirectory.org';
 
 function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
   return new Promise((resolve, reject) => {
     const url = new URL(path, BASE_URL);
-    const client = url.protocol === "https:" ? https : http;
+    const client = url.protocol === 'https:' ? https : http;
     const start = Date.now();
     let firstByteTime: number | null = null;
     let bytes = 0;
 
     const req = client.request(url, (res) => {
-      res.on("data", (chunk) => {
+      res.on('data', (chunk) => {
         if (firstByteTime === null) {
           firstByteTime = Date.now();
         }
         bytes += chunk.length;
       });
-      res.on("end", () => {
+      res.on('end', () => {
         resolve({
           ttfb: (firstByteTime ?? Date.now()) - start,
           bytes,
@@ -39,10 +39,10 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
       });
     });
 
-    req.on("error", reject);
+    req.on('error', reject);
     req.setTimeout(10000, () => {
       req.destroy();
-      reject(new Error("Request timeout"));
+      reject(new Error('Request timeout'));
     });
     req.end();
   });
@@ -60,7 +60,7 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
   console.log(`\n🔍 Checking performance budgets for ${BASE_URL}\n`);
 
   for (const [key, budget] of Object.entries(budgets)) {
-    const path = key === "home" ? "/" : `/${key}`;
+    const path = key === 'home' ? '/' : `/${key}`;
 
     try {
       const { ttfb, bytes } = await fetchMetrics(path);
@@ -74,10 +74,10 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
 
       console.log(`📄 ${key.toUpperCase()}`);
       console.log(
-        `   TTFB: ${ttfb}ms ${ttfbPassed ? "✅" : "❌"} (budget: ${budget.ttfb_ms}ms)`
+        `   TTFB: ${ttfb}ms ${ttfbPassed ? '✅' : '❌'} (budget: ${budget.ttfb_ms}ms)`
       );
       console.log(
-        `   Size: ${kb.toFixed(1)}kb ${sizePassed ? "✅" : "❌"} (budget: ${budget.total_bytes_kb}kb)`
+        `   Size: ${kb.toFixed(1)}kb ${sizePassed ? '✅' : '❌'} (budget: ${budget.total_bytes_kb}kb)`
       );
       console.log();
 
@@ -94,15 +94,15 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
   const passedCount = results.filter((r) => r.passed).length;
   const totalCount = results.length;
 
-  console.log(`\n${"=".repeat(50)}`);
+  console.log(`\n${'='.repeat(50)}`);
   console.log(`📊 Summary: ${passedCount}/${totalCount} pages passed budgets`);
-  console.log(`${"=".repeat(50)}\n`);
+  console.log(`${'='.repeat(50)}\n`);
 
   if (failed) {
-    console.error("❌ Performance budget check FAILED");
+    console.error('❌ Performance budget check FAILED');
     process.exit(1);
   } else {
-    console.log("✅ All performance budgets passed!");
+    console.log('✅ All performance budgets passed!');
     process.exit(0);
   }
 })();

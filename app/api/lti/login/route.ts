@@ -9,7 +9,10 @@ export async function GET(request: Request) {
   const targetLinkUri = url.searchParams.get('target_link_uri');
 
   if (!iss || !loginHint || !clientId || !targetLinkUri) {
-    return NextResponse.json({ error: 'Missing LTI parameters' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'Missing LTI parameters' },
+      { status: 400 }
+    );
   }
 
   const state = crypto.randomUUID();

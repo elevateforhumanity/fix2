@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { FileSignature, Copy, Check } from 'lucide-react';
 
 export default function NewSignatureDocumentPage() {
-  const [type, setType] = useState<'mou' | 'letter_of_support' | 'other'>('mou');
+  const [type, setType] = useState<'mou' | 'letter_of_support' | 'other'>(
+    'mou'
+  );
   const [title, setTitle] = useState('Memorandum of Understanding');
   const [createdForOrg, setCreatedForOrg] = useState('');
   const [body, setBody] = useState('');
@@ -57,11 +59,15 @@ export default function NewSignatureDocumentPage() {
           Create Signable Document
         </h1>
         <p className="text-gray-600">
-          Create MOUs or Letters of Support and generate shareable signature links for partners or boards.
+          Create MOUs or Letters of Support and generate shareable signature
+          links for partners or boards.
         </p>
       </div>
 
-      <form onSubmit={handleCreate} className="bg-white rounded-lg shadow p-6 space-y-4">
+      <form
+        onSubmit={handleCreate}
+        className="bg-white rounded-lg shadow p-6 space-y-4"
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -83,7 +89,9 @@ export default function NewSignatureDocumentPage() {
             </label>
             <select
               value={type}
-              onChange={(e) => setType(e.target.value as 'mou' | 'letter_of_support' | 'other')}
+              onChange={(e) =>
+                setType(e.target.value as 'mou' | 'letter_of_support' | 'other')
+              }
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="mou">MOU</option>
@@ -138,7 +146,8 @@ export default function NewSignatureDocumentPage() {
             </p>
             <div className="flex items-center gap-2">
               <code className="flex-1 px-3 py-2 bg-white border rounded text-xs font-mono text-blue-600 overflow-x-auto">
-                {window.location.origin}{signUrl}
+                {window.location.origin}
+                {signUrl}
               </code>
               <button
                 type="button"

@@ -6,7 +6,9 @@ import { useState } from 'react';
 export function SupportTicketForm() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

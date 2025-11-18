@@ -271,22 +271,29 @@ export default function BoardReferralsPage() {
                         {referral.participant_email && (
                           <div className="flex items-center gap-1">
                             <Mail className="w-3 h-3" />
-                            <span className="text-xs">{referral.participant_email}</span>
+                            <span className="text-xs">
+                              {referral.participant_email}
+                            </span>
                           </div>
                         )}
                         {referral.participant_phone && (
                           <div className="flex items-center gap-1">
                             <Phone className="w-3 h-3" />
-                            <span className="text-xs">{referral.participant_phone}</span>
+                            <span className="text-xs">
+                              {referral.participant_phone}
+                            </span>
                           </div>
                         )}
-                        {!referral.participant_email && !referral.participant_phone && '-'}
+                        {!referral.participant_email &&
+                          !referral.participant_phone &&
+                          '-'}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
                         className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          statusColors[referral.status] || 'bg-gray-100 text-gray-800'
+                          statusColors[referral.status] ||
+                          'bg-gray-100 text-gray-800'
                         }`}
                       >
                         {referral.status.replace('_', ' ')}

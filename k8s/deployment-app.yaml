@@ -31,7 +31,7 @@ spec:
                   name: efh-secrets
                   key: DATABASE_URL
             - name: NEXTAUTH_URL
-              value: "https://elevateconnectsdirectory.org"
+              value: 'https://elevateconnectsdirectory.org'
             - name: SENTRY_DSN
               valueFrom:
                 secretKeyRef:
@@ -55,8 +55,8 @@ spec:
             failureThreshold: 5
           resources:
             requests:
-              cpu: "200m"
-              memory: "512Mi"
+              cpu: '200m'
+              memory: '512Mi'
             limits:
-              cpu: "1"
-              memory: "1Gi"
+              cpu: '1'
+              memory: '1Gi'

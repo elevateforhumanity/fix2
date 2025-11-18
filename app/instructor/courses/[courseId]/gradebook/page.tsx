@@ -1,23 +1,23 @@
-import GradebookClient from "./GradebookClient";
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import GradebookClient from './GradebookClient';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 async function getCourseGradebook(courseId: string, instructorId: string) {
   const supabase = await createClient();
 
   // Get course
   const { data: course } = await supabase
-    .from("courses")
-    .select("id, title, instructor_id")
-    .eq("id", courseId)
-    .eq("instructor_id", instructorId)
+    .from('courses')
+    .select('id, title, instructor_id')
+    .eq('id', courseId)
+    .eq('instructor_id', instructorId)
     .single();
 
   if (!course) return null;
 
   // Get enrollments with user info
   const { data: enrollments } = await supabase
-    .from("enrollments")
+    .from('enrollments')
     .select(
       `
       id,
@@ -29,29 +29,29 @@ async function getCourseGradebook(courseId: string, instructorId: string) {
       )
     `
     )
-    .eq("course_id", courseId);
+    .eq('course_id', courseId);
 
   // Get grade items
   const { data: gradeItems } = await supabase
-    .from("grade_items")
-    .select("*")
-    .eq("course_id", courseId)
-    .order("created_at", { ascending: true });
+    .from('grade_items')
+    .select('*')
+    .eq('course_id', courseId)
+    .order('created_at', { ascending: true });
 
   // Get all grades for this course
   const { data: grades } = await supabase
-    .from("grades")
-    .select("*")
+    .from('grades')
+    .select('*')
     .in(
-      "grade_item_id",
+      'grade_item_id',
       (gradeItems || []).map((gi) => gi.id)
     );
 
   const students = (enrollments || []).map((e: any) => ({
     enrollmentId: e.id,
     userId: e.user_id,
-    name: e.profiles?.full_name ?? e.profiles?.email ?? "Unknown",
-    email: e.profiles?.email ?? "",
+    name: e.profiles?.full_name ?? e.profiles?.email ?? 'Unknown',
+    email: e.profiles?.email ?? '',
   }));
 
   return {
@@ -83,18 +83,18 @@ export default async function GradebookPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   // Check if user is instructor
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "instructor") {
-    redirect("/");
+  if (profile?.role !== 'instructor') {
+    redirect('/');
   }
 
   const data = await getCourseGradebook(params.courseId, user.id);

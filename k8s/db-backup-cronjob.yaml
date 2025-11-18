@@ -4,7 +4,7 @@ metadata:
   name: efh-db-backup
   namespace: efh-prod
 spec:
-  schedule: "0 4 * * *" # daily at 4am UTC
+  schedule: '0 4 * * *' # daily at 4am UTC
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 3
   jobTemplate:

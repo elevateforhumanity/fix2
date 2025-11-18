@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function SupportPage() {
-  const [subject, setSubject] = useState("");
-  const [body, setBody] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
+  const [subject, setSubject] = useState('');
+  const [body, setBody] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'done'>('idle');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("submitting");
-    const res = await fetch("/api/support/ticket", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    setStatus('submitting');
+    const res = await fetch('/api/support/ticket', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ subject, body }),
     });
     if (res.ok) {
-      setStatus("done");
-      setSubject("");
-      setBody("");
+      setStatus('done');
+      setSubject('');
+      setBody('');
     } else {
-      setStatus("idle");
-      alert("There was an issue submitting your request.");
+      setStatus('idle');
+      alert('There was an issue submitting your request.');
     }
   }
 
@@ -59,12 +59,12 @@ export default function SupportPage() {
           </div>
           <button
             type="submit"
-            disabled={status === "submitting"}
+            disabled={status === 'submitting'}
             className="rounded-2xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-60"
           >
-            {status === "submitting" ? "Submitting…" : "Submit Ticket"}
+            {status === 'submitting' ? 'Submitting…' : 'Submit Ticket'}
           </button>
-          {status === "done" && (
+          {status === 'done' && (
             <p className="text-xs text-emerald-600">
               Your ticket was submitted. Our team will follow up by email.
             </p>

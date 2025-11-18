@@ -1,6 +1,9 @@
 // app/api/partners/lead/route.ts
 import { NextResponse } from 'next/server';
-import { createOrUpdateContact, createOpportunity } from '@/lib/integrations/salesforce';
+import {
+  createOrUpdateContact,
+  createOpportunity,
+} from '@/lib/integrations/salesforce';
 
 export async function POST(request: Request) {
   const { name, email, phone, company, programInterest } = await request.json();

@@ -1,11 +1,11 @@
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 async function getInstructorMetrics(instructorId: string) {
   const supabase = await createClient();
 
   const { data: courses } = await supabase
-    .from("courses")
+    .from('courses')
     .select(
       `
       id,
@@ -17,20 +17,22 @@ async function getInstructorMetrics(instructorId: string) {
       )
     `
     )
-    .eq("instructor_id", instructorId);
+    .eq('instructor_id', instructorId);
 
   return (courses || []).map((c: any) => {
     const enrollments = c.enrollments || [];
     const completed = enrollments.filter(
-      (e: any) => e.status === "completed"
+      (e: any) => e.status === 'completed'
     ).length;
     const completionRate =
       enrollments.length === 0 ? 0 : (completed / enrollments.length) * 100;
     const avgProgress =
       enrollments.length === 0
         ? 0
-        : enrollments.reduce((sum: number, e: any) => sum + (e.progress || 0), 0) /
-          enrollments.length;
+        : enrollments.reduce(
+            (sum: number, e: any) => sum + (e.progress || 0),
+            0
+          ) / enrollments.length;
 
     return {
       id: c.id,
@@ -49,18 +51,18 @@ export default async function InstructorAnalyticsPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   // Check if user is instructor
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "instructor") {
-    redirect("/");
+  if (profile?.role !== 'instructor') {
+    redirect('/');
   }
 
   const metrics = await getInstructorMetrics(user.id);

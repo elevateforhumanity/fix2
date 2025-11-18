@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   DndContext,
@@ -7,14 +7,14 @@ import {
   useSensor,
   useSensors,
   DragEndEvent,
-} from "@dnd-kit/core";
+} from '@dnd-kit/core';
 import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-import { useState } from "react";
-import { SortableItem } from "./sortable-item";
+} from '@dnd-kit/sortable';
+import { useState } from 'react';
+import { SortableItem } from './sortable-item';
 
 type ModuleItem = {
   id: string;
@@ -24,40 +24,40 @@ type ModuleItem = {
 
 const initialModules: ModuleItem[] = [
   {
-    id: "m1",
-    title: "Orientation & Safety",
-    description: "Introduction to workplace safety and program overview",
+    id: 'm1',
+    title: 'Orientation & Safety',
+    description: 'Introduction to workplace safety and program overview',
   },
   {
-    id: "m2",
-    title: "Core Technical Skills",
-    description: "Fundamental skills and knowledge for the occupation",
+    id: 'm2',
+    title: 'Core Technical Skills',
+    description: 'Fundamental skills and knowledge for the occupation',
   },
   {
-    id: "m3",
-    title: "Hands-on Lab",
-    description: "Practical application and skill demonstration",
+    id: 'm3',
+    title: 'Hands-on Lab',
+    description: 'Practical application and skill demonstration',
   },
   {
-    id: "m4",
-    title: "Soft Skills & Professionalism",
-    description: "Communication, teamwork, and workplace behavior",
+    id: 'm4',
+    title: 'Soft Skills & Professionalism',
+    description: 'Communication, teamwork, and workplace behavior',
   },
   {
-    id: "m5",
-    title: "Industry Certifications",
-    description: "Preparation for industry-recognized credentials",
+    id: 'm5',
+    title: 'Industry Certifications',
+    description: 'Preparation for industry-recognized credentials',
   },
   {
-    id: "m6",
-    title: "Job Readiness & Placement",
-    description: "Resume building, interviewing, and job search strategies",
+    id: 'm6',
+    title: 'Job Readiness & Placement',
+    description: 'Resume building, interviewing, and job search strategies',
   },
 ];
 
 export default function ProgramBuilderPage() {
   const [modules, setModules] = useState<ModuleItem[]>(initialModules);
-  const [programTitle, setProgramTitle] = useState("New Workforce Program");
+  const [programTitle, setProgramTitle] = useState('New Workforce Program');
   const [saving, setSaving] = useState(false);
 
   const sensors = useSensors(useSensor(PointerSensor));
@@ -75,9 +75,9 @@ export default function ProgramBuilderPage() {
     setSaving(true);
     try {
       // In production, save to API
-      await fetch("/api/programs/builder/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      await fetch('/api/programs/builder/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: programTitle,
           modules: modules.map((m, index) => ({
@@ -86,9 +86,9 @@ export default function ProgramBuilderPage() {
           })),
         }),
       });
-      alert("Program saved successfully!");
+      alert('Program saved successfully!');
     } catch (error) {
-      alert("Failed to save program");
+      alert('Failed to save program');
     } finally {
       setSaving(false);
     }
@@ -97,8 +97,8 @@ export default function ProgramBuilderPage() {
   function addModule() {
     const newModule: ModuleItem = {
       id: `m${Date.now()}`,
-      title: "New Module",
-      description: "Add description here",
+      title: 'New Module',
+      description: 'Add description here',
     };
     setModules([...modules, newModule]);
   }
@@ -201,7 +201,7 @@ export default function ProgramBuilderPage() {
             disabled={saving}
             className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-50"
           >
-            {saving ? "Saving..." : "Save Program"}
+            {saving ? 'Saving...' : 'Save Program'}
           </button>
         </div>
       </section>

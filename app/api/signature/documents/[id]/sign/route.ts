@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/utils/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/utils/supabase/server';
 
 export async function POST(
   request: Request,
@@ -10,31 +10,31 @@ export async function POST(
 
   if (!signerName || !signerEmail) {
     return NextResponse.json(
-      { error: "signerName and signerEmail are required" },
+      { error: 'signerName and signerEmail are required' },
       { status: 400 }
     );
   }
 
   // Verify document exists
   const { data: doc } = await supabase
-    .from("signature_documents")
-    .select("id, title, type")
-    .eq("id", params.id)
+    .from('signature_documents')
+    .select('id, title, type')
+    .eq('id', params.id)
     .single();
 
   if (!doc) {
-    return NextResponse.json({ error: "Document not found" }, { status: 404 });
+    return NextResponse.json({ error: 'Document not found' }, { status: 404 });
   }
 
   // Get IP address from headers
   const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0] ||
-    request.headers.get("x-real-ip") ||
+    request.headers.get('x-forwarded-for')?.split(',')[0] ||
+    request.headers.get('x-real-ip') ||
     null;
 
   // Create signature
   const { data: signature, error } = await supabase
-    .from("signatures")
+    .from('signatures')
     .insert({
       document_id: doc.id,
       signer_name: signerName,
@@ -50,11 +50,11 @@ export async function POST(
   }
 
   // Log the signature
-  await supabase.from("audit_logs").insert({
+  await supabase.from('audit_logs').insert({
     actor_id: null,
     actor_email: signerEmail,
-    action: "document_signed",
-    resource_type: "signature",
+    action: 'document_signed',
+    resource_type: 'signature',
     resource_id: signature.id,
     metadata: {
       documentId: doc.id,

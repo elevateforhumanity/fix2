@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type SectorRow = { sector: string | null; _count: { _all: number } };
 type ZipRow = { zipCode: string | null; _count: { _all: number } };
@@ -23,11 +23,11 @@ export default function ImpactDashboardPage() {
     async function load() {
       setLoading(true);
       try {
-        const res = await fetch("/api/impact/summary");
+        const res = await fetch('/api/impact/summary');
         const json = await res.json();
         setData(json);
       } catch (error) {
-        console.error("Failed to load impact data:", error);
+        console.error('Failed to load impact data:', error);
       } finally {
         setLoading(false);
       }
@@ -84,7 +84,7 @@ export default function ImpactDashboardPage() {
             </p>
             <div className="mt-3 space-y-2 text-xs">
               {data.bySector.map((row) => {
-                const label = row.sector || "Unspecified";
+                const label = row.sector || 'Unspecified';
                 const count = row._count._all;
                 const pct =
                   data.totalEnrollments === 0
@@ -126,7 +126,7 @@ export default function ImpactDashboardPage() {
             </p>
             <div className="mt-3 space-y-2 text-xs">
               {data.byZip.map((row) => {
-                const label = row.zipCode || "Unknown";
+                const label = row.zipCode || 'Unknown';
                 const count = row._count._all;
                 return (
                   <div
@@ -135,7 +135,7 @@ export default function ImpactDashboardPage() {
                   >
                     <span className="font-medium text-slate-800">{label}</span>
                     <span className="text-[11px] text-slate-500">
-                      {count} learner{count === 1 ? "" : "s"}
+                      {count} learner{count === 1 ? '' : 's'}
                     </span>
                   </div>
                 );
@@ -168,7 +168,9 @@ function StatCard({
         {label}
       </p>
       <p className="mt-2 text-2xl font-semibold text-slate-900">{value}</p>
-      {subtitle && <p className="mt-1 text-[11px] text-slate-500">{subtitle}</p>}
+      {subtitle && (
+        <p className="mt-1 text-[11px] text-slate-500">{subtitle}</p>
+      )}
     </div>
   );
 }

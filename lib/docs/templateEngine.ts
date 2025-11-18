@@ -4,7 +4,7 @@ export function fillTemplate(
 ): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    const token = new RegExp(`{{\\s*${key}\\s*}}`, "g");
+    const token = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
     out = out.replace(token, value);
   }
   return out;

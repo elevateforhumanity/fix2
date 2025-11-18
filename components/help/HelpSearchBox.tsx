@@ -23,7 +23,9 @@ export function HelpSearchBox() {
     if (!query.trim()) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/help/search?q=${encodeURIComponent(query)}`);
+      const res = await fetch(
+        `/api/help/search?q=${encodeURIComponent(query)}`
+      );
       const data = await res.json();
       setResults(data.results || []);
     } finally {
@@ -63,9 +65,7 @@ export function HelpSearchBox() {
               <p className="mt-1 text-xs text-slate-500">
                 {r.category} • {r.audience}
               </p>
-              <p className="mt-1 text-xs text-slate-600">
-                {r.snippet}...
-              </p>
+              <p className="mt-1 text-xs text-slate-600">{r.snippet}...</p>
             </Link>
           ))}
         </div>

@@ -1,6 +1,7 @@
 # Monitoring Stack Deployment
 
 ## Overview
+
 Complete observability stack with Prometheus (metrics), Grafana (dashboards), and Jaeger (distributed tracing).
 
 ## Components
@@ -43,11 +44,13 @@ kubectl apply -f ingress.yaml
 ## Access URLs
 
 After deployment:
+
 - **Grafana**: https://monitoring.elevateconnectsdirectory.org/grafana
 - **Prometheus**: https://monitoring.elevateconnectsdirectory.org/prometheus
 - **Jaeger**: https://monitoring.elevateconnectsdirectory.org/jaeger
 
 Default Grafana credentials:
+
 - Username: `admin`
 - Password: (set in secret above)
 
@@ -58,7 +61,7 @@ Update your application deployment to send traces to Jaeger:
 ```yaml
 env:
   - name: OTEL_EXPORTER_OTLP_ENDPOINT
-    value: "http://jaeger-collector.monitoring.svc.cluster.local:4318/v1/traces"
+    value: 'http://jaeger-collector.monitoring.svc.cluster.local:4318/v1/traces'
 ```
 
 ## Grafana Dashboards
@@ -77,16 +80,19 @@ env:
 Create a new dashboard with these panels:
 
 **HTTP Requests**:
+
 ```promql
 rate(efh_http_requests_total[5m])
 ```
 
 **Response Time** (if you add histogram metrics):
+
 ```promql
 histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
 ```
 
 **Active Users**:
+
 ```promql
 count(up{job="efh-web"})
 ```
@@ -96,21 +102,25 @@ count(up{job="efh-web"})
 ### Useful Queries
 
 **CPU Usage**:
+
 ```promql
 rate(container_cpu_usage_seconds_total{namespace="efh-prod"}[5m])
 ```
 
 **Memory Usage**:
+
 ```promql
 container_memory_usage_bytes{namespace="efh-prod"}
 ```
 
 **Pod Count**:
+
 ```promql
 count(kube_pod_info{namespace="efh-prod"})
 ```
 
 **Request Rate**:
+
 ```promql
 rate(efh_http_requests_total[5m])
 ```
@@ -145,17 +155,17 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "High error rate detected"
-          description: "Error rate is {{ $value }} errors/sec"
-      
+          summary: 'High error rate detected'
+          description: 'Error rate is {{ $value }} errors/sec'
+
       - alert: PodDown
         expr: up{job="efh-web"} == 0
         for: 2m
         labels:
           severity: critical
         annotations:
-          summary: "EFH pod is down"
-          description: "Pod {{ $labels.pod }} is not responding"
+          summary: 'EFH pod is down'
+          description: 'Pod {{ $labels.pod }} is not responding'
 ```
 
 ## Jaeger Tracing
@@ -170,6 +180,7 @@ groups:
 ### Trace Analysis
 
 Look for:
+
 - Slow database queries
 - External API calls
 - Error traces
@@ -331,6 +342,7 @@ args:
 ## Support
 
 For issues:
+
 - Check pod logs: `kubectl logs -n monitoring <pod-name>`
 - Review events: `kubectl get events -n monitoring`
 - Prometheus docs: https://prometheus.io/docs/

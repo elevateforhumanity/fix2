@@ -161,7 +161,8 @@ export default function PartnerAttendancePage() {
                   <option value="">Select a learner...</option>
                   {enrollments.map((enrollment) => (
                     <option key={enrollment.id} value={enrollment.id}>
-                      {enrollment.profiles.full_name} - {enrollment.courses.title}
+                      {enrollment.profiles.full_name} -{' '}
+                      {enrollment.courses.title}
                     </option>
                   ))}
                 </select>
@@ -237,7 +238,10 @@ export default function PartnerAttendancePage() {
         {records.length === 0 ? (
           <div className="p-8 text-center text-gray-500">
             <Clock className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-            <p>No attendance records yet. Record your first session to get started.</p>
+            <p>
+              No attendance records yet. Record your first session to get
+              started.
+            </p>
           </div>
         ) : (
           <div className="overflow-x-auto">

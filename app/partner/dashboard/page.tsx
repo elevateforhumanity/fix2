@@ -1,5 +1,5 @@
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function PartnerDashboardPage() {
   const supabase = await createClient();
@@ -8,23 +8,23 @@ export default async function PartnerDashboardPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   // Get user profile
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, tenant_id, organization")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role, tenant_id, organization')
+    .eq('id', user.id)
     .single();
 
-  if (!profile || profile.role !== "partner") {
-    redirect("/");
+  if (!profile || profile.role !== 'partner') {
+    redirect('/');
   }
 
   // Get students for this partner's tenant
   const { data: students } = await supabase
-    .from("enrollments")
+    .from('enrollments')
     .select(
       `
       id,
@@ -41,16 +41,16 @@ export default async function PartnerDashboardPage() {
       )
     `
     )
-    .eq("tenant_id", profile.tenant_id)
-    .order("created_at", { ascending: false })
+    .eq('tenant_id', profile.tenant_id)
+    .order('created_at', { ascending: false })
     .limit(100);
 
   // Calculate summary stats
   const totalStudents = students?.length || 0;
   const activeStudents =
-    students?.filter((s) => s.status === "in_progress").length || 0;
+    students?.filter((s) => s.status === 'in_progress').length || 0;
   const completedStudents =
-    students?.filter((s) => s.status === "completed").length || 0;
+    students?.filter((s) => s.status === 'completed').length || 0;
   const totalHours =
     students?.reduce((sum, s) => sum + (s.hours_trained || 0), 0) || 0;
 
@@ -61,7 +61,7 @@ export default async function PartnerDashboardPage() {
           Partner Dashboard
         </h1>
         <p className="mt-2 text-sm text-slate-600">
-          Learners and progress within {profile.organization || "your"}{" "}
+          Learners and progress within {profile.organization || 'your'}{' '}
           partnership.
         </p>
 
@@ -100,22 +100,22 @@ export default async function PartnerDashboardPage() {
                 {(students || []).map((s: any) => (
                   <tr key={s.id} className="border-t border-slate-100">
                     <td className="px-3 py-2 text-slate-800">
-                      {s.profiles?.full_name || s.profiles?.email || "Unknown"}
+                      {s.profiles?.full_name || s.profiles?.email || 'Unknown'}
                     </td>
                     <td className="px-3 py-2 text-slate-700">
-                      {s.courses?.title || "N/A"}
+                      {s.courses?.title || 'N/A'}
                     </td>
                     <td className="px-3 py-2">
                       <span
                         className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
-                          s.status === "completed"
-                            ? "bg-emerald-50 text-emerald-600"
-                            : s.status === "in_progress"
-                            ? "bg-blue-50 text-blue-600"
-                            : "bg-slate-100 text-slate-600"
+                          s.status === 'completed'
+                            ? 'bg-emerald-50 text-emerald-600'
+                            : s.status === 'in_progress'
+                              ? 'bg-blue-50 text-blue-600'
+                              : 'bg-slate-100 text-slate-600'
                         }`}
                       >
-                        {s.status?.replace("_", " ") || "enrolled"}
+                        {s.status?.replace('_', ' ') || 'enrolled'}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right text-slate-700">

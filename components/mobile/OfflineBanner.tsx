@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function OfflineBanner() {
   const [online, setOnline] = useState(true);
@@ -9,18 +9,18 @@ export function OfflineBanner() {
   useEffect(() => {
     const update = () => setOnline(navigator.onLine);
     update();
-    window.addEventListener("online", update);
-    window.addEventListener("offline", update);
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
     return () => {
-      window.removeEventListener("online", update);
-      window.removeEventListener("offline", update);
+      window.removeEventListener('online', update);
+      window.removeEventListener('offline', update);
     };
   }, []);
 
   async function handleSync() {
     setSyncing(true);
     try {
-      await fetch("/api/offline/sync", { method: "POST" });
+      await fetch('/api/offline/sync', { method: 'POST' });
     } finally {
       setSyncing(false);
     }
@@ -38,7 +38,7 @@ export function OfflineBanner() {
         className="rounded-xl bg-white/10 px-3 py-1 text-[11px] font-semibold"
         disabled={syncing}
       >
-        {syncing ? "Syncing…" : "Sync now"}
+        {syncing ? 'Syncing…' : 'Sync now'}
       </button>
     </div>
   );

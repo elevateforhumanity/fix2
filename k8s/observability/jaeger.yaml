@@ -43,7 +43,7 @@ spec:
             - containerPort: 4318
           env:
             - name: COLLECTOR_OTLP_ENABLED
-              value: "true"
+              value: 'true'
           resources:
             requests:
               cpu: 200m

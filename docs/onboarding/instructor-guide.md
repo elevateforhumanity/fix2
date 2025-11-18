@@ -7,6 +7,7 @@ Welcome to Elevate for Humanity! This guide will help you get started as an inst
 ## 2. Your Dashboard
 
 After logging in, you'll see:
+
 - **My Courses**: Courses you're teaching
 - **Students**: Enrolled students
 - **Assignments**: Pending grading
@@ -17,6 +18,7 @@ After logging in, you'll see:
 ### 3.1 Course Structure
 
 Each course contains:
+
 - **Modules**: Major topics
 - **Lessons**: Individual learning units
 - **Assessments**: Quizzes and exams

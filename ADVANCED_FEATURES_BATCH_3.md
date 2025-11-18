@@ -1,14 +1,17 @@
 # Advanced Features Batch 3 - Implementation Summary
 
 ## Overview
+
 This batch adds enterprise infrastructure, observability, CRM integration, accessibility compliance, and data privacy features.
 
 ## ✅ Completed Features
 
 ### 1. Kubernetes Deployment (Production-Ready)
+
 **Purpose**: Deploy the application to Kubernetes with auto-scaling, health checks, and blue-green deployment support.
 
 **Files Created** (`k8s/` directory):
+
 - `namespace.yaml` - Isolated production namespace
 - `deployment-app.yaml` - Application deployment with 3 replicas
 - `service-app.yaml` - ClusterIP service
@@ -17,6 +20,7 @@ This batch adds enterprise infrastructure, observability, CRM integration, acces
 - `README.md` - Comprehensive deployment guide
 
 **Features**:
+
 - ✅ 3 replicas with rolling updates
 - ✅ Auto-scaling (3-15 pods based on CPU)
 - ✅ Health checks (readiness + liveness probes)
@@ -26,6 +30,7 @@ This batch adds enterprise infrastructure, observability, CRM integration, acces
 - ✅ Revision history (5 versions)
 
 **Deployment Architecture**:
+
 ```
 Internet → Ingress (TLS) → Service → Pods (3-15)
                                       ↓
@@ -33,6 +38,7 @@ Internet → Ingress (TLS) → Service → Pods (3-15)
 ```
 
 **Quick Deploy**:
+
 ```bash
 kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/deployment-app.yaml
@@ -42,30 +48,36 @@ kubectl apply -f k8s/hpa-app.yaml
 ```
 
 **Health Checks**:
+
 - **Readiness**: `/api/health` - 10s initial, 10s period
 - **Liveness**: `/api/health` - 30s initial, 20s period
 
 **Auto-Scaling**:
+
 - Min replicas: 3
 - Max replicas: 15
 - Target CPU: 65%
 
 **Resource Allocation**:
 Per pod:
+
 - Requests: 200m CPU, 512Mi memory
 - Limits: 1 CPU, 1Gi memory
 
 ---
 
 ### 2. OpenTelemetry Observability
+
 **Purpose**: Distributed tracing and metrics collection for monitoring application performance.
 
 **Files Created**:
+
 - `otel/otel-node.ts` - OpenTelemetry SDK initialization
 - `instrumentation.ts` - Updated with OTel integration
 - `app/api/metrics/route.ts` - Prometheus metrics endpoint
 
 **Features**:
+
 - ✅ Distributed tracing with OTLP exporter
 - ✅ Automatic trace collection
 - ✅ Prometheus metrics endpoint
@@ -73,27 +85,32 @@ Per pod:
 - ✅ Graceful shutdown handling
 
 **Integration Flow**:
+
 ```
 Next.js App → OpenTelemetry SDK → OTLP Collector → Jaeger/Prometheus
 ```
 
 **Metrics Endpoint**:
+
 - `GET /api/metrics` - Prometheus-compatible metrics
 - Format: OpenMetrics text format
 - Metrics exposed:
   - `efh_http_requests_total` - Total HTTP requests
 
 **Environment Variables**:
+
 ```bash
 OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces
 ```
 
 **Observability Stack**:
+
 - **Traces**: Jaeger (via OTLP)
 - **Metrics**: Prometheus (scrape `/api/metrics`)
 - **Logs**: Existing Sentry integration
 
 **Dependencies Required**:
+
 ```bash
 npm install @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/exporter-trace-otlp-http
 ```
@@ -101,13 +118,16 @@ npm install @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/exporter-t
 ---
 
 ### 3. Salesforce CRM Integration
+
 **Purpose**: Sync leads, contacts, and opportunities with Salesforce for sales pipeline management.
 
 **Files Created**:
+
 - `lib/integrations/salesforce.ts` - Salesforce API client
 - `app/api/partners/lead/route.ts` - Partner lead submission endpoint
 
 **Features**:
+
 - ✅ OAuth 2.0 password flow authentication
 - ✅ Token caching with expiration
 - ✅ Contact creation/update (upsert by email)
@@ -118,24 +138,30 @@ npm install @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/exporter-t
 **API Functions**:
 
 #### `createOrUpdateContact(params)`
+
 Creates or updates a Salesforce Contact:
+
 - Searches by email
 - Updates if exists, creates if new
 - Returns Contact ID
 
 #### `createOpportunity(params)`
+
 Creates a Salesforce Opportunity:
+
 - Links to Account (optional)
 - Sets close date and stage
 - Sets amount
 - Returns Opportunity ID
 
 **API Endpoint**:
+
 - `POST /api/partners/lead` - Submit partner lead
 - Creates Contact + Opportunity in Salesforce
 - Returns contact ID
 
 **Environment Variables**:
+
 ```bash
 SF_INSTANCE_URL=https://your-instance.my.salesforce.com
 SF_CLIENT_ID=your_connected_app_client_id
@@ -145,6 +171,7 @@ SF_PASSWORD=your_password_plus_security_token
 ```
 
 **Setup Steps**:
+
 1. Create Connected App in Salesforce
 2. Enable OAuth settings
 3. Get Client ID and Secret
@@ -152,6 +179,7 @@ SF_PASSWORD=your_password_plus_security_token
 5. Configure environment variables
 
 **Usage Example**:
+
 ```typescript
 // Submit partner lead
 const response = await fetch('/api/partners/lead', {
@@ -162,12 +190,13 @@ const response = await fetch('/api/partners/lead', {
     email: 'john@example.com',
     phone: '555-1234',
     company: 'Acme Corp',
-    programInterest: 'Barber Apprenticeship'
-  })
+    programInterest: 'Barber Apprenticeship',
+  }),
 });
 ```
 
 **Salesforce Objects**:
+
 - **Contact**: Stores lead/partner information
 - **Opportunity**: Tracks potential deals
 - **Account**: Company/organization (optional)
@@ -175,13 +204,16 @@ const response = await fetch('/api/partners/lead', {
 ---
 
 ### 4. Accessibility & WCAG Compliance
+
 **Purpose**: Ensure the platform meets WCAG 2.1 AA standards for accessibility.
 
 **Files Created**:
+
 - `components/accessibility/SkipToContent.tsx` - Skip navigation link
 - Updated `.eslintrc.cjs` - Added jsx-a11y plugin
 
 **Features**:
+
 - ✅ Skip to main content link
 - ✅ Screen reader support
 - ✅ Keyboard navigation
@@ -189,15 +221,18 @@ const response = await fetch('/api/partners/lead', {
 - ✅ ESLint accessibility linting
 
 **Skip Link Component**:
+
 ```tsx
 <SkipToContent />
 ```
+
 - Hidden by default
 - Visible on keyboard focus
 - Jumps to `#main-content`
 - Styled with focus ring
 
 **CSS Utilities**:
+
 ```css
 .sr-only {
   position: absolute;
@@ -213,6 +248,7 @@ const response = await fetch('/api/partners/lead', {
 ```
 
 **ESLint Configuration**:
+
 ```javascript
 {
   extends: ['plugin:jsx-a11y/recommended'],
@@ -226,6 +262,7 @@ const response = await fetch('/api/partners/lead', {
 
 **Integration**:
 Add to root layout:
+
 ```tsx
 import { SkipToContent } from '@/components/accessibility/SkipToContent';
 
@@ -242,6 +279,7 @@ export default function RootLayout({ children }) {
 ```
 
 **WCAG Compliance Checklist**:
+
 - ✅ Skip navigation links
 - ✅ Semantic HTML
 - ✅ ARIA labels where needed
@@ -253,6 +291,7 @@ export default function RootLayout({ children }) {
 - ⚠️ Automated accessibility testing (TODO)
 
 **Dependencies**:
+
 ```bash
 npm install --save-dev eslint-plugin-jsx-a11y
 ```
@@ -260,9 +299,11 @@ npm install --save-dev eslint-plugin-jsx-a11y
 ---
 
 ### 5. GDPR/FERPA Data Privacy
+
 **Purpose**: Provide users with data export and deletion capabilities as required by GDPR and FERPA.
 
 **Database Schema** (`migrations/20251118_gdpr_ferpa.sql`):
+
 - `account_deletion_requests` - Tracks deletion requests
   - Status: pending, processed, rejected
   - Audit trail (requested_at, processed_at, processed_by)
@@ -270,7 +311,9 @@ npm install --save-dev eslint-plugin-jsx-a11y
 **API Endpoints**:
 
 #### `GET /api/account/export`
+
 Export all user data:
+
 - Requires authentication
 - Returns JSON file with:
   - User profile
@@ -280,13 +323,16 @@ Export all user data:
 - Filename: `efh-account-export.json`
 
 #### `POST /api/account/delete`
+
 Request account deletion:
+
 - Requires authentication
 - Creates deletion request record
 - Status: pending (requires admin review)
 - Returns confirmation message
 
 **Features**:
+
 - ✅ Self-service data export
 - ✅ Account deletion requests
 - ✅ Audit trail for deletions
@@ -296,6 +342,7 @@ Request account deletion:
 - ✅ FERPA compliance
 
 **Data Export Format**:
+
 ```json
 {
   "user": {
@@ -325,6 +372,7 @@ Request account deletion:
 ```
 
 **Deletion Process**:
+
 1. User requests deletion via API
 2. Request logged in `account_deletion_requests`
 3. Admin reviews request
@@ -333,6 +381,7 @@ Request account deletion:
 6. Request marked as processed
 
 **Admin Review UI** (TODO):
+
 - View pending deletion requests
 - Review user data
 - Approve/reject requests
@@ -340,6 +389,7 @@ Request account deletion:
 - Audit log
 
 **Compliance Notes**:
+
 - **GDPR**: 30-day response time for data requests
 - **FERPA**: Educational records protection
 - **CCPA**: California Consumer Privacy Act compliance
@@ -350,6 +400,7 @@ Request account deletion:
 ## Files Created
 
 ### Kubernetes Deployment (6 files)
+
 - `k8s/namespace.yaml`
 - `k8s/deployment-app.yaml`
 - `k8s/service-app.yaml`
@@ -358,18 +409,22 @@ Request account deletion:
 - `k8s/README.md`
 
 ### Observability (3 files)
+
 - `otel/otel-node.ts`
 - `instrumentation.ts` (updated)
 - `app/api/metrics/route.ts`
 
 ### Salesforce Integration (2 files)
+
 - `lib/integrations/salesforce.ts`
 - `app/api/partners/lead/route.ts`
 
 ### Accessibility (1 file)
+
 - `components/accessibility/SkipToContent.tsx`
 
 ### Data Privacy (3 files)
+
 - `migrations/20251118_gdpr_ferpa.sql`
 - `app/api/account/export/route.ts`
 - `app/api/account/delete/route.ts`
@@ -417,6 +472,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 ## Testing Checklist
 
 ### Kubernetes Deployment
+
 - [ ] Build Docker image
 - [ ] Push to ghcr.io
 - [ ] Create namespace
@@ -428,6 +484,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 - [ ] Test ingress/TLS
 
 ### OpenTelemetry
+
 - [ ] Deploy OTLP collector
 - [ ] Verify traces exported
 - [ ] Check Jaeger UI for traces
@@ -436,6 +493,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 - [ ] Test graceful shutdown
 
 ### Salesforce Integration
+
 - [ ] Create Connected App
 - [ ] Configure OAuth
 - [ ] Test authentication
@@ -445,6 +503,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 - [ ] Check error handling
 
 ### Accessibility
+
 - [ ] Tab through navigation
 - [ ] Test skip link (Tab key)
 - [ ] Verify focus indicators
@@ -453,6 +512,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 - [ ] Check keyboard shortcuts
 
 ### Data Privacy
+
 - [ ] Export user data
 - [ ] Verify JSON format
 - [ ] Request account deletion
@@ -465,6 +525,7 @@ npm install --save-dev eslint-plugin-jsx-a11y
 ## Integration Notes
 
 ### Adding Skip Link to Layout
+
 ```tsx
 // app/layout.tsx
 import { SkipToContent } from '@/components/accessibility/SkipToContent';
@@ -482,13 +543,14 @@ export default function RootLayout({ children }) {
 ```
 
 ### Exposing Data Privacy in User Settings
+
 ```tsx
 // app/settings/privacy/page.tsx
 export default function PrivacySettingsPage() {
   return (
     <div>
       <h1>Privacy Settings</h1>
-      
+
       <section>
         <h2>Export Your Data</h2>
         <p>Download all your data in JSON format.</p>
@@ -496,13 +558,11 @@ export default function PrivacySettingsPage() {
           <button>Export Data</button>
         </a>
       </section>
-      
+
       <section>
         <h2>Delete Your Account</h2>
         <p>Request permanent deletion of your account.</p>
-        <button onClick={handleDeleteRequest}>
-          Request Deletion
-        </button>
+        <button onClick={handleDeleteRequest}>Request Deletion</button>
       </section>
     </div>
   );
@@ -514,6 +574,7 @@ export default function PrivacySettingsPage() {
 ## Production Hardening TODO
 
 ### Kubernetes
+
 - [ ] Set up cluster autoscaler
 - [ ] Configure network policies
 - [ ] Add pod security policies
@@ -523,6 +584,7 @@ export default function PrivacySettingsPage() {
 - [ ] Set up log aggregation
 
 ### Observability
+
 - [ ] Deploy full observability stack
 - [ ] Configure Grafana dashboards
 - [ ] Set up alerting rules
@@ -531,6 +593,7 @@ export default function PrivacySettingsPage() {
 - [ ] Add performance monitoring
 
 ### Salesforce
+
 - [ ] Implement webhook handlers
 - [ ] Add bidirectional sync
 - [ ] Create custom fields
@@ -539,6 +602,7 @@ export default function PrivacySettingsPage() {
 - [ ] Add error retry logic
 
 ### Accessibility
+
 - [ ] Conduct full WCAG audit
 - [ ] Add automated testing (axe-core)
 - [ ] Test with multiple screen readers
@@ -547,6 +611,7 @@ export default function PrivacySettingsPage() {
 - [ ] Add keyboard shortcuts guide
 
 ### Data Privacy
+
 - [ ] Automate deletion process
 - [ ] Add data retention policies
 - [ ] Implement data anonymization
@@ -559,6 +624,7 @@ export default function PrivacySettingsPage() {
 ## Status: ✅ COMPLETE
 
 All features in Batch 3 are implemented and ready for testing. The platform now has:
+
 - Production-ready Kubernetes deployment
 - OpenTelemetry observability
 - Salesforce CRM integration
@@ -566,6 +632,7 @@ All features in Batch 3 are implemented and ready for testing. The platform now 
 - GDPR/FERPA data privacy
 
 **Combined with Batches 1 & 2**, the platform now includes:
+
 1. Advanced assessments
 2. Proctoring integration
 3. Usage-based billing

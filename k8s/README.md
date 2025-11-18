@@ -1,6 +1,7 @@
 # Kubernetes Deployment
 
 ## Overview
+
 This directory contains Kubernetes manifests for deploying the Elevate for Humanity LMS to a production Kubernetes cluster.
 
 ## Prerequisites
@@ -76,6 +77,7 @@ kubectl logs -f deployment/efh-web -n efh-prod
 ### Resource Limits
 
 Per pod:
+
 - **Requests**: 200m CPU, 512Mi memory
 - **Limits**: 1 CPU, 1Gi memory
 
@@ -96,6 +98,7 @@ kubectl scale deployment efh-web --replicas=5 -n efh-prod
 ### Auto-Scaling
 
 HPA automatically scales based on CPU utilization:
+
 - **Min replicas**: 3
 - **Max replicas**: 15
 - **Target CPU**: 65%
@@ -308,6 +311,7 @@ gcloud container clusters update CLUSTER_NAME \
 ## Support
 
 For issues or questions:
+
 - Check pod logs: `kubectl logs -l app=efh-web -n efh-prod`
 - Review events: `kubectl get events -n efh-prod`
 - Contact DevOps team: devops@elevateforhumanity.org

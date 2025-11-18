@@ -71,7 +71,14 @@ export default function AuditLogs() {
 
   function exportLogs() {
     const csv = [
-      ['Timestamp', 'Actor', 'Action', 'Resource Type', 'Resource ID', 'IP Address'].join(','),
+      [
+        'Timestamp',
+        'Actor',
+        'Action',
+        'Resource Type',
+        'Resource ID',
+        'IP Address',
+      ].join(','),
       ...logs.map((log) =>
         [
           log.created_at,
@@ -135,7 +142,8 @@ export default function AuditLogs() {
           Audit Logs
         </h1>
         <p className="text-gray-600">
-          Comprehensive activity tracking for SOC 2 compliance and security monitoring
+          Comprehensive activity tracking for SOC 2 compliance and security
+          monitoring
         </p>
       </div>
 
@@ -258,7 +266,9 @@ export default function AuditLogs() {
                         <div className="text-sm font-medium text-gray-900">
                           {log.profiles?.full_name || 'Unknown'}
                         </div>
-                        <div className="text-xs text-gray-500">{log.actor_email}</div>
+                        <div className="text-xs text-gray-500">
+                          {log.actor_email}
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -298,8 +308,8 @@ export default function AuditLogs() {
         {totalPages > 1 && (
           <div className="px-6 py-4 border-t flex items-center justify-between">
             <div className="text-sm text-gray-600">
-              Showing {page * pageSize + 1} to {Math.min((page + 1) * pageSize, total)} of{' '}
-              {total} results
+              Showing {page * pageSize + 1} to{' '}
+              {Math.min((page + 1) * pageSize, total)} of {total} results
             </div>
             <div className="flex gap-2">
               <button

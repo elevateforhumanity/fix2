@@ -16,6 +16,7 @@ Welcome to Elevate for Humanity! This guide will help you navigate your learning
 ### 2.2 Your Dashboard
 
 Your dashboard shows:
+
 - **My Courses**: Enrolled courses
 - **Progress**: Completion status
 - **Upcoming**: Deadlines and live sessions

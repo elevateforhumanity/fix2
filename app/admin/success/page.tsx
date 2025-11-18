@@ -33,7 +33,9 @@ async function getSuccessMetrics() {
   ]);
 
   const completionRate =
-    enrollments === 0 ? 0 : ((completedEnrollments || 0) / (enrollments || 1)) * 100;
+    enrollments === 0
+      ? 0
+      : ((completedEnrollments || 0) / (enrollments || 1)) * 100;
 
   return {
     totalStudents: totalStudents || 0,

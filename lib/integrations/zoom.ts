@@ -97,7 +97,9 @@ export async function deleteZoomMeeting(meetingId: number): Promise<void> {
 /**
  * Get meeting details
  */
-export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResponse> {
+export async function getZoomMeeting(
+  meetingId: number
+): Promise<ZoomMeetingResponse> {
   if (!ZOOM_JWT_TOKEN) {
     throw new Error('ZOOM_JWT_TOKEN not configured');
   }

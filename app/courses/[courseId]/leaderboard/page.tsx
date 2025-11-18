@@ -1,7 +1,7 @@
 // app/courses/[courseId]/leaderboard/page.tsx
-import { getCourseLeaderboard } from "@/lib/gamification/points";
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import { getCourseLeaderboard } from '@/lib/gamification/points';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function LeaderboardPage({
   params,
@@ -14,7 +14,7 @@ export default async function LeaderboardPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   const scores = await getCourseLeaderboard(params.courseId);
@@ -47,7 +47,7 @@ export default async function LeaderboardPage({
                 <tr key={s.id} className="border-t border-slate-100">
                   <td className="px-4 py-2 text-slate-700">{i + 1}</td>
                   <td className="px-4 py-2 text-slate-800">
-                    {s.profiles?.full_name ?? s.profiles?.email ?? "Unknown"}
+                    {s.profiles?.full_name ?? s.profiles?.email ?? 'Unknown'}
                   </td>
                   <td className="px-4 py-2 text-slate-800">{s.points}</td>
                 </tr>

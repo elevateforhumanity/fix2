@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 type Student = {
   enrollmentId: string;
@@ -31,7 +31,7 @@ export default function GradebookClient({ initialData }: Props) {
 
   function getGradeValue(gi: GradeItem, enrollmentId: string): string {
     const g = gi.grades.find((x) => x.enrollmentId === enrollmentId);
-    return g ? String(g.points) : "";
+    return g ? String(g.points) : '';
   }
 
   async function handleChange(
@@ -39,16 +39,14 @@ export default function GradebookClient({ initialData }: Props) {
     enrollmentId: string,
     value: string
   ) {
-    const points = value === "" ? null : Number(value);
-    if (value !== "" && Number.isNaN(points)) return;
+    const points = value === '' ? null : Number(value);
+    if (value !== '' && Number.isNaN(points)) return;
 
     // Update local state optimistically
     setGradeItems((prev) =>
       prev.map((gi) => {
         if (gi.id !== gradeItemId) return gi;
-        const existing = gi.grades.find(
-          (g) => g.enrollmentId === enrollmentId
-        );
+        const existing = gi.grades.find((g) => g.enrollmentId === enrollmentId);
         if (!existing) {
           return {
             ...gi,
@@ -74,13 +72,13 @@ export default function GradebookClient({ initialData }: Props) {
 
     setSaving(true);
     try {
-      await fetch("/api/grade/upsert", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      await fetch('/api/grade/upsert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ gradeItemId, enrollmentId, points }),
       });
     } catch (error) {
-      console.error("Failed to save grade:", error);
+      console.error('Failed to save grade:', error);
     } finally {
       setSaving(false);
     }
@@ -147,7 +145,7 @@ export default function GradebookClient({ initialData }: Props) {
                   0
                 );
                 const percentage =
-                  maxTotal > 0 ? ((total / maxTotal) * 100).toFixed(1) : "0.0";
+                  maxTotal > 0 ? ((total / maxTotal) * 100).toFixed(1) : '0.0';
 
                 return (
                   <tr

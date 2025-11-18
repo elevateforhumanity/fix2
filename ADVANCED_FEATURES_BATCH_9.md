@@ -9,6 +9,7 @@ This batch adds critical instructor productivity tools, automated document gener
 ## 🎯 Overview
 
 Batch 9 adds:
+
 - **Inline Grade Editing**: Real-time gradebook editing with auto-save
 - **MOU & Letter Generator**: Automated partnership document creation
 - **Impact Dashboard**: Board-ready metrics showing community impact
@@ -21,9 +22,11 @@ Batch 9 adds:
 ### 1. Inline Grade Editing System
 
 #### 1.1 Grade Upsert API
+
 **File**: `app/api/grade/upsert/route.ts`
 
 **Features**:
+
 - Instructor-only access control
 - Validates grade item ownership
 - Upserts grades (insert or update)
@@ -31,6 +34,7 @@ Batch 9 adds:
 - Error handling and validation
 
 **API Endpoint**:
+
 ```
 POST /api/grade/upsert
 {
@@ -41,14 +45,17 @@ POST /api/grade/upsert
 ```
 
 **Security**:
+
 - Verifies user is instructor
 - Confirms instructor owns the course
 - Prevents unauthorized grade modifications
 
 #### 1.2 Interactive Gradebook UI
+
 **File**: `app/instructor/courses/[courseId]/gradebook/GradebookClient.tsx`
 
 **Features**:
+
 - Editable input fields for each grade
 - Auto-save on blur (when user clicks away)
 - Optimistic UI updates (instant feedback)
@@ -57,6 +64,7 @@ POST /api/grade/upsert
 - Sticky student column for scrolling
 
 **User Experience**:
+
 1. Instructor clicks on a grade cell
 2. Enters or updates the grade
 3. Clicks away or presses Tab
@@ -65,6 +73,7 @@ POST /api/grade/upsert
 6. Total percentage updates instantly
 
 **Example Usage**:
+
 ```
 Navigate to: /instructor/courses/[courseId]/gradebook
 Click any grade cell
@@ -74,6 +83,7 @@ Grade saves automatically
 ```
 
 **UI Improvements**:
+
 - Input fields with focus styling
 - Placeholder "–" for empty grades
 - Right-aligned numbers for readability
@@ -84,30 +94,35 @@ Grade saves automatically
 ### 2. MOU & Letter of Support Generator
 
 #### 2.1 Template Engine
+
 **File**: `lib/docs/templateEngine.ts`
 
 **Function**: `fillTemplate(template, vars)`
 
 **Features**:
+
 - Variable substitution with `{{ variable }}` syntax
 - Regex-based replacement
 - Whitespace-tolerant matching
 - Returns filled template string
 
 **Example**:
+
 ```typescript
-const template = "Hello {{ name }}, welcome to {{ platform }}!";
+const template = 'Hello {{ name }}, welcome to {{ platform }}!';
 const filled = fillTemplate(template, {
-  name: "John",
-  platform: "Elevate"
+  name: 'John',
+  platform: 'Elevate',
 });
 // Result: "Hello John, welcome to Elevate!"
 ```
 
 #### 2.2 Letter of Support Template
+
 **File**: `lib/docs/templates/letterOfSupport.ts`
 
 **Template Variables**:
+
 - `{{ date }}` - Current date
 - `{{ funder_name }}` - Funding organization name
 - `{{ funder_address }}` - Funder address
@@ -120,6 +135,7 @@ const filled = fillTemplate(template, {
 - `{{ partner_signer_title }}` - Signer title
 
 **Template Structure**:
+
 1. Date and funder address
 2. Re: line with program name
 3. Opening paragraph (support statement)
@@ -131,9 +147,11 @@ const filled = fillTemplate(template, {
 **Use Case**: Grant applications requiring partner support letters
 
 #### 2.3 MOU Template
+
 **File**: `lib/docs/templates/mou.ts`
 
 **Template Variables**:
+
 - `{{ efh_name }}` - Elevate for Humanity name
 - `{{ partner_name }}` - Partner organization
 - `{{ program_name }}` - Training program
@@ -143,6 +161,7 @@ const filled = fillTemplate(template, {
 - `{{ partner_signer_name }}`, `{{ partner_signer_title }}` - Partner signer
 
 **MOU Sections**:
+
 1. **Purpose**: Outlines collaboration goals
 2. **Scope of Collaboration**: Roles and responsibilities
    - EFH responsibilities (curriculum, platform, compliance)
@@ -155,11 +174,13 @@ const filled = fillTemplate(template, {
 **Use Case**: Formalizing partnerships with training providers, employers, workforce boards
 
 #### 2.4 Document Generation API
+
 **File**: `app/api/docs/generate/route.ts`
 
 **Endpoint**: `POST /api/docs/generate`
 
 **Request**:
+
 ```json
 {
   "type": "mou" | "letter_of_support",
@@ -174,6 +195,7 @@ const filled = fillTemplate(template, {
 ```
 
 **Response**:
+
 ```json
 {
   "document": "MEMORANDUM OF UNDERSTANDING\nBetween\n..."
@@ -181,14 +203,17 @@ const filled = fillTemplate(template, {
 ```
 
 **Security**:
+
 - Requires authentication
 - Validates document type
 - Sanitizes variables
 
 #### 2.5 MOU Generator UI
+
 **File**: `app/admin/docs/mou/page.tsx`
 
 **Features**:
+
 - Form inputs for all variables
 - Date pickers for start/end dates
 - "Generate MOU Draft" button
@@ -197,6 +222,7 @@ const filled = fillTemplate(template, {
 - Real-time preview
 
 **Workflow**:
+
 1. Admin fills in program details
 2. Enters partner information
 3. Sets start and end dates
@@ -206,6 +232,7 @@ const filled = fillTemplate(template, {
 7. Copies and sends to partner
 
 **UI Components**:
+
 - Left panel: Input form
 - Right panel: Generated document (editable)
 - Monospace font for document readability
@@ -215,9 +242,11 @@ const filled = fillTemplate(template, {
 ### 3. Board-Ready Impact Dashboard
 
 #### 3.1 Impact Summary API
+
 **File**: `app/api/impact/summary/route.ts`
 
 **Metrics Calculated**:
+
 1. **Total Students**: Count of student profiles
 2. **Total Enrollments**: All course enrollments
 3. **Completed Enrollments**: Finished courses
@@ -227,12 +256,14 @@ const filled = fillTemplate(template, {
 7. **By ZIP Code**: Geographic distribution (top 10)
 
 **Data Aggregation**:
+
 - Counts from profiles, enrollments tables
 - Manual grouping for sector and ZIP
 - Percentage calculations
 - Top 10 ZIP codes by volume
 
 **Response Format**:
+
 ```json
 {
   "totalStudents": 1250,
@@ -252,11 +283,13 @@ const filled = fillTemplate(template, {
 ```
 
 **Security**:
+
 - Admin-only access
 - Requires authentication
 - Role verification
 
 #### 3.2 Impact Dashboard UI
+
 **File**: `app/admin/impact/page.tsx`
 
 **Dashboard Sections**:
@@ -283,6 +316,7 @@ const filled = fillTemplate(template, {
    - Rounded cards with borders
 
 **Visual Design**:
+
 - Clean, professional layout
 - Orange accent color
 - Rounded corners (2xl)
@@ -290,6 +324,7 @@ const filled = fillTemplate(template, {
 - Responsive grid layout
 
 **Use Cases**:
+
 - Board presentations
 - Grant reporting
 - Community impact reports
@@ -297,6 +332,7 @@ const filled = fillTemplate(template, {
 - Annual reports
 
 **Example Insights**:
+
 - "We've served 1,250 students across 15 ZIP codes"
 - "Healthcare sector represents 25% of enrollments"
 - "75% completion rate exceeds industry average"
@@ -309,9 +345,10 @@ const filled = fillTemplate(template, {
 ### Migration: `20251118_gradebook.sql`
 
 **Constraint Added**:
+
 ```sql
-ALTER TABLE grades 
-ADD CONSTRAINT grades_unique_item_enrollment 
+ALTER TABLE grades
+ADD CONSTRAINT grades_unique_item_enrollment
 UNIQUE (grade_item_id, enrollment_id);
 ```
 
@@ -326,6 +363,7 @@ UNIQUE (grade_item_id, enrollment_id);
 No new environment variables required for Batch 9.
 
 **Optional** (for enhanced features):
+
 - `SENDGRID_API_KEY` - For emailing generated documents
 - `AWS_S3_BUCKET` - For storing generated documents
 
@@ -334,6 +372,7 @@ No new environment variables required for Batch 9.
 ## 📊 Testing Checklist
 
 ### Inline Grade Editing:
+
 - [ ] Instructor can edit grades in gradebook
 - [ ] Grades save automatically on blur
 - [ ] "Saving…" indicator appears
@@ -343,6 +382,7 @@ No new environment variables required for Batch 9.
 - [ ] Instructors can only edit their own courses
 
 ### Document Generation:
+
 - [ ] MOU generator loads with default values
 - [ ] All form fields are editable
 - [ ] "Generate MOU Draft" button works
@@ -352,6 +392,7 @@ No new environment variables required for Batch 9.
 - [ ] Letter of support can be generated (same API)
 
 ### Impact Dashboard:
+
 - [ ] Dashboard loads for admins
 - [ ] All metrics display correctly
 - [ ] Sector chart shows percentages
@@ -365,6 +406,7 @@ No new environment variables required for Batch 9.
 ## 🚀 Usage Examples
 
 ### 1. Edit Grades as Instructor
+
 ```
 1. Navigate to /instructor/courses/[courseId]/gradebook
 2. Click on any grade cell
@@ -375,6 +417,7 @@ No new environment variables required for Batch 9.
 ```
 
 ### 2. Generate MOU
+
 ```
 1. Navigate to /admin/docs/mou
 2. Fill in program details:
@@ -389,6 +432,7 @@ No new environment variables required for Batch 9.
 ```
 
 ### 3. View Impact Dashboard
+
 ```
 1. Navigate to /admin/impact
 2. View key metrics:
@@ -400,6 +444,7 @@ No new environment variables required for Batch 9.
 ```
 
 ### 4. Generate Letter of Support
+
 ```typescript
 // API call
 const response = await fetch('/api/docs/generate', {
@@ -416,9 +461,9 @@ const response = await fetch('/api/docs/generate', {
       sector_description: 'advanced manufacturing and automation',
       partner_contact_info: 'contact@workforce.org',
       partner_signer_name: 'Jane Smith',
-      partner_signer_title: 'Executive Director'
-    }
-  })
+      partner_signer_title: 'Executive Director',
+    },
+  }),
 });
 
 const { document } = await response.json();
@@ -430,18 +475,21 @@ const { document } = await response.json();
 ## 💡 Key Benefits
 
 ### For Instructors:
+
 - **Efficiency**: No more separate grade entry forms
 - **Speed**: Inline editing saves time
 - **Accuracy**: Immediate feedback prevents errors
 - **Convenience**: Auto-save means no lost work
 
 ### For Administrators:
+
 - **Partnership Speed**: Generate MOUs in minutes, not days
 - **Consistency**: Standardized templates ensure quality
 - **Professionalism**: Polished documents for partners
 - **Impact Reporting**: Board-ready metrics instantly
 
 ### For Organizations:
+
 - **Grant Success**: Professional support letters
 - **Partnership Growth**: Quick MOU turnaround
 - **Stakeholder Communication**: Clear impact metrics
@@ -452,18 +500,21 @@ const { document } = await response.json();
 ## 🎓 Real-World Applications
 
 ### Gradebook Editing:
+
 1. **Weekly Grading**: Instructor grades 30 students in 10 minutes
 2. **Progress Monitoring**: Quick updates during class
 3. **Parent Conferences**: Real-time grade access
 4. **Intervention**: Identify struggling students immediately
 
 ### Document Generation:
+
 1. **Grant Applications**: Generate 5 support letters in 30 minutes
 2. **New Partnerships**: MOU ready for signature same day
 3. **Workforce Board Agreements**: Standardized MOUs for all partners
 4. **Employer Partnerships**: Quick turnaround on training agreements
 
 ### Impact Dashboard:
+
 1. **Board Meetings**: Present quarterly impact in 5 minutes
 2. **Grant Reporting**: Export metrics for funder reports
 3. **Community Updates**: Share impact with stakeholders
@@ -476,18 +527,21 @@ const { document } = await response.json();
 ### After Batch 9, the platform now has:
 
 **Instructor Productivity**:
+
 - ✅ Inline grade editing
 - ✅ Auto-save functionality
 - ✅ Real-time total calculations
 - ✅ Optimistic UI updates
 
 **Partnership Tools**:
+
 - ✅ MOU generator
 - ✅ Letter of support generator
 - ✅ Customizable templates
 - ✅ Variable substitution
 
 **Impact Reporting**:
+
 - ✅ Board-ready dashboard
 - ✅ Sector analysis
 - ✅ Geographic distribution
@@ -498,6 +552,7 @@ const { document } = await response.json();
 ## 🔮 Future Enhancements
 
 ### Gradebook:
+
 1. Bulk grade import (CSV)
 2. Grade curves and adjustments
 3. Weighted categories
@@ -506,6 +561,7 @@ const { document } = await response.json();
 6. Export to Excel
 
 ### Document Generation:
+
 1. PDF export with signatures
 2. DocuSign integration
 3. Template library (10+ templates)
@@ -514,6 +570,7 @@ const { document } = await response.json();
 6. Email delivery
 
 ### Impact Dashboard:
+
 1. Date range filters
 2. Tenant comparison
 3. Trend analysis (month-over-month)
@@ -526,9 +583,11 @@ const { document } = await response.json();
 ## 📝 Documentation
 
 ### Files Created:
+
 - `ADVANCED_FEATURES_BATCH_9.md` - This comprehensive documentation
 
 ### Code Files:
+
 - `app/api/grade/upsert/route.ts` - Grade editing API
 - `app/instructor/courses/[courseId]/gradebook/GradebookClient.tsx` - Interactive gradebook
 - `lib/docs/templateEngine.ts` - Template engine
@@ -550,6 +609,7 @@ const { document } = await response.json();
 **UI Pages**: 3 new pages
 
 **The platform now provides**:
+
 - Real-time grade editing
 - Automated partnership documents
 - Board-ready impact reporting
@@ -563,6 +623,7 @@ const { document } = await response.json();
 **Batch 9 is COMPLETE and PRODUCTION-READY!**
 
 The Elevate for Humanity LMS now has:
+
 - 9 feature batches completed
 - 170+ files created
 - 48+ database tables

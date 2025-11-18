@@ -1,25 +1,25 @@
-import { CapacitorConfig } from "@capacitor/cli";
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: "org.elevateforhumanity.lms",
-  appName: "Elevate LMS",
-  webDir: "out", // or ".next" if using SSR export strategy
+  appId: 'org.elevateforhumanity.lms',
+  appName: 'Elevate LMS',
+  webDir: 'out', // or ".next" if using SSR export strategy
   bundledWebRuntime: false,
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
-      androidScaleType: "CENTER_CROP",
+      androidScaleType: 'CENTER_CROP',
       showSpinner: true,
-      spinnerColor: "#f97316",
-      backgroundColor: "#ffffff",
+      spinnerColor: '#f97316',
+      backgroundColor: '#ffffff',
     },
     PushNotifications: {
-      presentationOptions: ["badge", "sound", "alert"],
+      presentationOptions: ['badge', 'sound', 'alert'],
     },
   },
   server: {
-    androidScheme: "https",
-    iosScheme: "https",
+    androidScheme: 'https',
+    iosScheme: 'https',
   },
 };
 

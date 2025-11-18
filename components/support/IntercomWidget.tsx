@@ -1,7 +1,7 @@
 // components/support/IntercomWidget.tsx
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 declare global {
   interface Window {
@@ -22,9 +22,9 @@ export function IntercomWidget({
     (function () {
       const w = window as any;
       const ic = w.Intercom;
-      if (typeof ic === "function") {
-        ic("reattach_activator");
-        ic("update", {});
+      if (typeof ic === 'function') {
+        ic('reattach_activator');
+        ic('update', {});
       } else {
         const d = document;
         const i = function () {
@@ -36,23 +36,23 @@ export function IntercomWidget({
         };
         w.Intercom = i;
         function l() {
-          const s = d.createElement("script");
-          s.type = "text/javascript";
+          const s = d.createElement('script');
+          s.type = 'text/javascript';
           s.async = true;
           s.src = `https://widget.intercom.io/widget/${appId}`;
-          const x = d.getElementsByTagName("script")[0];
+          const x = d.getElementsByTagName('script')[0];
           x.parentNode?.insertBefore(s, x);
         }
-        if (document.readyState === "complete") {
+        if (document.readyState === 'complete') {
           l();
         } else {
-          w.addEventListener("load", l);
+          w.addEventListener('load', l);
         }
       }
     })();
 
     if (user && window.Intercom) {
-      window.Intercom("boot", {
+      window.Intercom('boot', {
         app_id: process.env.NEXT_PUBLIC_INTERCOM_APP_ID,
         user_id: user.id,
         email: user.email,
@@ -62,7 +62,7 @@ export function IntercomWidget({
 
     return () => {
       if (window.Intercom) {
-        window.Intercom("shutdown");
+        window.Intercom('shutdown');
       }
     };
   }, [user]);

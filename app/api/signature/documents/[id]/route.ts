@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/utils/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/utils/supabase/server';
 
 export async function GET(
   request: Request,
@@ -8,16 +8,18 @@ export async function GET(
   const supabase = await createClient();
 
   const { data: doc, error } = await supabase
-    .from("signature_documents")
-    .select(`
+    .from('signature_documents')
+    .select(
+      `
       *,
       signatures(*)
-    `)
-    .eq("id", params.id)
+    `
+    )
+    .eq('id', params.id)
     .single();
 
   if (error || !doc) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
   return NextResponse.json({ document: doc });

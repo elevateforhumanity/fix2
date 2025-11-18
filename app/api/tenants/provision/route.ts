@@ -15,8 +15,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  const { name, slug, primaryDomain, maxActiveLearners, maxCourses, maxStorageGb } =
-    await request.json();
+  const {
+    name,
+    slug,
+    primaryDomain,
+    maxActiveLearners,
+    maxCourses,
+    maxStorageGb,
+  } = await request.json();
 
   if (!name || !slug) {
     return NextResponse.json(

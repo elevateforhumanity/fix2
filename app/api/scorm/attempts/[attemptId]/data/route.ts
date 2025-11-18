@@ -62,20 +62,19 @@ export async function POST(
   const updates = [];
   for (const [key, value] of Object.entries(data)) {
     updates.push(
-      supabase
-        .from('scorm_cmi_data')
-        .upsert({
-          attempt_id: attemptId,
-          cmi_key: key,
-          cmi_value: value as string,
-        })
+      supabase.from('scorm_cmi_data').upsert({
+        attempt_id: attemptId,
+        cmi_key: key,
+        cmi_value: value as string,
+      })
     );
   }
 
   await Promise.all(updates);
 
   // Update attempt status based on CMI data
-  const status = data['cmi.core.lesson_status'] || data['cmi.completion_status'];
+  const status =
+    data['cmi.core.lesson_status'] || data['cmi.completion_status'];
   const score = data['cmi.core.score.raw'] || data['cmi.score.raw'];
 
   if (status || score) {

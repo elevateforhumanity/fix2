@@ -5,16 +5,16 @@ const WORKDAY_USERNAME = process.env.WORKDAY_USERNAME;
 const WORKDAY_PASSWORD = process.env.WORKDAY_PASSWORD;
 
 function getAuthHeader() {
-  const token = Buffer.from(
-    `${WORKDAY_USERNAME}:${WORKDAY_PASSWORD}`
-  ).toString("base64");
+  const token = Buffer.from(`${WORKDAY_USERNAME}:${WORKDAY_PASSWORD}`).toString(
+    'base64'
+  );
   return `Basic ${token}`;
 }
 
 // Example: pull employees for sync
 export async function fetchWorkdayEmployees() {
   if (!WORKDAY_BASE_URL || !WORKDAY_TENANT) {
-    console.warn("Workday not configured");
+    console.warn('Workday not configured');
     return [];
   }
 
@@ -23,14 +23,14 @@ export async function fetchWorkdayEmployees() {
   const res = await fetch(url, {
     headers: {
       Authorization: getAuthHeader(),
-      Accept: "application/json",
+      Accept: 'application/json',
     },
   });
 
   if (!res.ok) {
     const text = await res.text();
-    console.error("Workday fetch error:", text);
-    throw new Error("Failed to fetch Workday employees");
+    console.error('Workday fetch error:', text);
+    throw new Error('Failed to fetch Workday employees');
   }
 
   const data = await res.json();
