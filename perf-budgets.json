@@ -1,0 +1,18 @@
+{
+  "home": {
+    "ttfb_ms": 800,
+    "total_bytes_kb": 1500
+  },
+  "dashboard": {
+    "ttfb_ms": 900,
+    "total_bytes_kb": 2000
+  },
+  "programs": {
+    "ttfb_ms": 850,
+    "total_bytes_kb": 1800
+  },
+  "courses": {
+    "ttfb_ms": 900,
+    "total_bytes_kb": 2200
+  }
+}
