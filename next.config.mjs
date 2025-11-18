@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   // Remove 'output: export' to enable API routes
   trailingSlash: true,
+  experimental: {
+    instrumentationHook: true,
+  },
   images: {
     unoptimized: false, // ✅ Enable Next.js image optimization
     formats: ['image/webp', 'image/avif'],
