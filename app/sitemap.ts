@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const { data: programs, error: programsError } = await supabase
       .from('programs')
       .select('slug, created_at')
-      .eq('status', 'active');
+      .eq('is_published', true);
 
     // Skip courses table if it doesn't exist
     const courses = null;
