@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createClient();
@@ -12,7 +12,14 @@ export async function PATCH(
     const { clock_in, clock_out, break_minutes, lunch_minutes, status, notes } =
       body;
 
-    const update: any = { clock_in, clock_out, break_minutes, lunch_minutes, status, notes };
+    const update: any = {
+      clock_in,
+      clock_out,
+      break_minutes,
+      lunch_minutes,
+      status,
+      notes,
+    };
 
     // recompute hours if both provided
     if (clock_in && clock_out) {
@@ -22,7 +29,7 @@ export async function PATCH(
       const diffHours = diffMs / 1000 / 60 / 60;
       const regHours = Math.max(
         0,
-        diffHours - (break_minutes || 0 + (lunch_minutes || 0)) / 60,
+        diffHours - (break_minutes || 0 + (lunch_minutes || 0)) / 60
       );
       update.regular_hours = regHours;
       update.total_hours = regHours;
@@ -42,14 +49,14 @@ export async function PATCH(
     console.error('Error updating time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update time entry' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createClient();
@@ -65,7 +72,7 @@ export async function DELETE(
     console.error('Error deleting time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to delete time entry' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

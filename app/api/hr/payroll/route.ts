@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 // Utility: simple tax calc (you can later replace with real tax engine)
 function calculateTaxes(grossPay: number) {
   const federalTax = grossPay * 0.12; // placeholder
-  const stateTax = grossPay * 0.05;   // placeholder
-  const localTax = grossPay * 0.01;   // placeholder
+  const stateTax = grossPay * 0.05; // placeholder
+  const localTax = grossPay * 0.01; // placeholder
   const socialSecurity = grossPay * 0.062;
   const medicare = grossPay * 0.0145;
 
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
         processed_by_profile:profiles!processed_by(full_name, email),
         approved_by_profile:profiles!approved_by(full_name, email),
         pay_stubs(count)
-      `,
+      `
       )
       .order('pay_date', { ascending: false });
 
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching payroll runs:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch payroll runs' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
           error:
             'Missing required fields: pay_period_start, pay_period_end, pay_date',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
 
     // Generate run number
     const runNumber = `PR-${new Date().getFullYear()}-${String(
-      Date.now(),
+      Date.now()
     ).slice(-6)}`;
 
     // Create payroll run (draft)
@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
         hourly_rate,
         pay_type,
         pay_frequency
-      `,
+      `
       )
       .eq('employment_status', 'active');
 
@@ -148,16 +148,16 @@ export async function POST(request: NextRequest) {
     // 3) Build pay stubs
     for (const employee of employees || []) {
       const empTime = (timeEntries || []).filter(
-        (te) => te.employee_id === employee.id,
+        (te) => te.employee_id === employee.id
       );
 
       const regularHours = empTime.reduce(
         (sum: number, te: any) => sum + (te.regular_hours || 0),
-        0,
+        0
       );
       const overtimeHours = empTime.reduce(
         (sum: number, te: any) => sum + (te.overtime_hours || 0),
-        0,
+        0
       );
 
       let regularPay = 0;
@@ -192,7 +192,10 @@ export async function POST(request: NextRequest) {
       const otherDeductions = 0;
 
       const totalStubDeductions =
-        taxes.totalTaxes + totalBenefitsDeductions + garnishments + otherDeductions;
+        taxes.totalTaxes +
+        totalBenefitsDeductions +
+        garnishments +
+        otherDeductions;
 
       const netPay = grossPay - totalStubDeductions;
 
@@ -277,13 +280,13 @@ export async function POST(request: NextRequest) {
           employeeCount: payStubsToInsert.length,
         },
       },
-      { status: 201 },
+      { status: 201 }
     );
   } catch (error: any) {
     console.error('Error creating payroll run:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create payroll run' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

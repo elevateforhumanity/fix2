@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
           employee_number,
           profile:profiles(full_name, email)
         )
-      `,
+      `
       )
       .order('entry_date', { ascending: false });
 
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching time entries:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch time entries' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     if (!employee_id || !entry_date) {
       return NextResponse.json(
         { error: 'Missing required fields: employee_id, entry_date' },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       const diffHours = diffMs / 1000 / 60 / 60;
       regular_hours = Math.max(
         0,
-        diffHours - (break_minutes + lunch_minutes) / 60,
+        diffHours - (break_minutes + lunch_minutes) / 60
       );
     }
 
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     console.error('Error creating time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create time entry' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
