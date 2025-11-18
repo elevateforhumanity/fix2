@@ -1,0 +1,88 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+
+export async function POST(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const supabase = await createClient();
+    const body = await req.json();
+    const { full_name, email, phone, answers } = body;
+
+    if (!full_name || !email) {
+      return NextResponse.json(
+        { error: 'Missing required fields: full_name, email' },
+        { status: 400 }
+      );
+    }
+
+    // Load event
+    const { data: event, error: eErr } = await supabase
+      .from('events')
+      .select('*')
+      .eq('id', params.id)
+      .single();
+    if (eErr || !event) throw eErr || new Error('Event not found');
+
+    // Check if event is published
+    if (event.status !== 'published') {
+      return NextResponse.json(
+        { error: 'Event is not available for registration' },
+        { status: 400 }
+      );
+    }
+
+    // Count registrations
+    const { count } = await supabase
+      .from('event_registrations')
+      .select('*', { count: 'exact', head: true })
+      .eq('event_id', params.id)
+      .neq('status', 'cancelled');
+
+    let status: string = 'registered';
+    if (event.capacity && (count || 0) >= event.capacity) {
+      if (event.allow_waitlist) {
+        status = 'waitlisted';
+      } else {
+        return NextResponse.json(
+          { error: 'Event is at full capacity' },
+          { status: 400 }
+        );
+      }
+    }
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    const { data, error } = await supabase
+      .from('event_registrations')
+      .insert({
+        event_id: params.id,
+        profile_id: user?.id ?? null,
+        full_name,
+        email,
+        phone,
+        status,
+        answers,
+      })
+      .select('*')
+      .single();
+    if (error) throw error;
+
+    return NextResponse.json({ 
+      registration: data, 
+      status,
+      message: status === 'waitlisted' 
+        ? 'You have been added to the waitlist' 
+        : 'Registration successful'
+    }, { status: 201 });
+  } catch (err: any) {
+    console.error('POST /events/[id]/register error', err);
+    return NextResponse.json(
+      { error: err.message || 'Failed to register' },
+      { status: 500 }
+    );
+  }
+}
