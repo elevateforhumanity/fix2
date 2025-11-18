@@ -1,6 +1,27 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Utility: simple tax calc (you can later replace with real tax engine)
+function calculateTaxes(grossPay: number) {
+  const federalTax = grossPay * 0.12; // placeholder
+  const stateTax = grossPay * 0.05;   // placeholder
+  const localTax = grossPay * 0.01;   // placeholder
+  const socialSecurity = grossPay * 0.062;
+  const medicare = grossPay * 0.0145;
+
+  const totalTaxes =
+    federalTax + stateTax + localTax + socialSecurity + medicare;
+
+  return {
+    federalTax,
+    stateTax,
+    localTax,
+    socialSecurity,
+    medicare,
+    totalTaxes,
+  };
+}
+
 // GET /api/hr/payroll - List payroll runs
 export async function GET(request: NextRequest) {
   try {
@@ -18,7 +39,7 @@ export async function GET(request: NextRequest) {
         processed_by_profile:profiles!processed_by(full_name, email),
         approved_by_profile:profiles!approved_by(full_name, email),
         pay_stubs(count)
-      `
+      `,
       )
       .order('pay_date', { ascending: false });
 
@@ -41,12 +62,12 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching payroll runs:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch payroll runs' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
-// POST /api/hr/payroll - Create new payroll run
+// POST /api/hr/payroll - Create new payroll run & pay stubs
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
@@ -60,19 +81,23 @@ export async function POST(request: NextRequest) {
           error:
             'Missing required fields: pay_period_start, pay_period_end, pay_date',
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
-
-    // Generate run number
-    const runNumber = `PR-${new Date().getFullYear()}-${String(Date.now()).slice(-6)}`;
 
     // Get current user
     const {
       data: { user },
+      error: userError,
     } = await supabase.auth.getUser();
+    if (userError) throw userError;
 
-    // Create payroll run
+    // Generate run number
+    const runNumber = `PR-${new Date().getFullYear()}-${String(
+      Date.now(),
+    ).slice(-6)}`;
+
+    // Create payroll run (draft)
     const { data: payrollRun, error: runError } = await supabase
       .from('payroll_runs')
       .insert({
@@ -80,15 +105,15 @@ export async function POST(request: NextRequest) {
         pay_period_start,
         pay_period_end,
         pay_date,
-        status: 'draft',
-        processed_by: user?.id,
+        status: 'processing',
+        processed_by: user?.id ?? null,
       })
-      .select()
+      .select('*')
       .single();
 
     if (runError) throw runError;
 
-    // Get all active employees
+    // 1) Fetch all active employees
     const { data: employees, error: empError } = await supabase
       .from('employees')
       .select(
@@ -98,13 +123,13 @@ export async function POST(request: NextRequest) {
         hourly_rate,
         pay_type,
         pay_frequency
-      `
+      `,
       )
       .eq('employment_status', 'active');
 
     if (empError) throw empError;
 
-    // Get time entries for the period
+    // 2) Fetch approved time entries in that period
     const { data: timeEntries, error: timeError } = await supabase
       .from('time_entries')
       .select('*')
@@ -114,103 +139,151 @@ export async function POST(request: NextRequest) {
 
     if (timeError) throw timeError;
 
-    // Calculate pay stubs
-    const payStubs =
-      employees?.map((employee) => {
-        const empTimeEntries =
-          timeEntries?.filter((te) => te.employee_id === employee.id) || [];
+    const payStubsToInsert: any[] = [];
+    let totalGross = 0;
+    let totalNet = 0;
+    let totalTaxes = 0;
+    let totalDeductions = 0;
 
-        const regularHours = empTimeEntries.reduce(
-          (sum, te) => sum + (te.regular_hours || 0),
-          0
-        );
-        const overtimeHours = empTimeEntries.reduce(
-          (sum, te) => sum + (te.overtime_hours || 0),
-          0
-        );
+    // 3) Build pay stubs
+    for (const employee of employees || []) {
+      const empTime = (timeEntries || []).filter(
+        (te) => te.employee_id === employee.id,
+      );
 
-        let regularPay = 0;
-        let overtimePay = 0;
-        let grossPay = 0;
+      const regularHours = empTime.reduce(
+        (sum: number, te: any) => sum + (te.regular_hours || 0),
+        0,
+      );
+      const overtimeHours = empTime.reduce(
+        (sum: number, te: any) => sum + (te.overtime_hours || 0),
+        0,
+      );
 
-        if (employee.pay_type === 'hourly') {
-          const rate = employee.hourly_rate || 0;
-          regularPay = regularHours * rate;
-          overtimePay = overtimeHours * rate * 1.5;
-          grossPay = regularPay + overtimePay;
+      let regularPay = 0;
+      let overtimePay = 0;
+      let grossPay = 0;
+
+      if (employee.pay_type === 'hourly') {
+        const rate = employee.hourly_rate || 0;
+        regularPay = regularHours * rate;
+        overtimePay = overtimeHours * rate * 1.5;
+        grossPay = regularPay + overtimePay;
+      } else {
+        const annualSalary = employee.salary || 0;
+
+        if (employee.pay_frequency === 'weekly') {
+          grossPay = annualSalary / 52;
+        } else if (employee.pay_frequency === 'bi-weekly') {
+          grossPay = annualSalary / 26;
+        } else if (employee.pay_frequency === 'semi-monthly') {
+          grossPay = annualSalary / 24;
         } else {
-          // Salary - calculate based on pay frequency
-          const annualSalary = employee.salary || 0;
-          if (employee.pay_frequency === 'weekly') {
-            grossPay = annualSalary / 52;
-          } else if (employee.pay_frequency === 'bi-weekly') {
-            grossPay = annualSalary / 26;
-          } else if (employee.pay_frequency === 'semi-monthly') {
-            grossPay = annualSalary / 24;
-          } else {
-            grossPay = annualSalary / 12;
-          }
-          regularPay = grossPay;
+          grossPay = annualSalary / 12;
         }
 
-        // Calculate taxes (simplified - real implementation would be more complex)
-        const federalTax = grossPay * 0.12; // Simplified
-        const stateTax = grossPay * 0.05; // Simplified
-        const socialSecurityTax = grossPay * 0.062;
-        const medicareTax = grossPay * 0.0145;
-        const totalTaxes =
-          federalTax + stateTax + socialSecurityTax + medicareTax;
+        regularPay = grossPay;
+      }
 
-        const netPay = grossPay - totalTaxes;
+      const taxes = calculateTaxes(grossPay);
 
-        return {
-          payroll_run_id: payrollRun.id,
-          employee_id: employee.id,
-          regular_hours: regularHours,
-          overtime_hours: overtimeHours,
-          regular_pay: regularPay,
-          overtime_pay: overtimePay,
-          gross_pay: grossPay,
-          federal_income_tax: federalTax,
-          state_income_tax: stateTax,
-          social_security_tax: socialSecurityTax,
-          medicare_tax: medicareTax,
-          total_taxes: totalTaxes,
-          net_pay: netPay,
-          status: 'pending',
-        };
-      }) || [];
+      const totalBenefitsDeductions = 0; // hook benefits logic here later
+      const garnishments = 0; // hook garnishment logic here later
+      const otherDeductions = 0;
 
-    // Insert pay stubs
-    if (payStubs.length > 0) {
-      const { error: stubError } = await supabase
-        .from('pay_stubs')
-        .insert(payStubs);
+      const totalStubDeductions =
+        taxes.totalTaxes + totalBenefitsDeductions + garnishments + otherDeductions;
 
-      if (stubError) throw stubError;
+      const netPay = grossPay - totalStubDeductions;
 
-      // Update payroll run totals
-      const totalGross = payStubs.reduce((sum, ps) => sum + ps.gross_pay, 0);
-      const totalNet = payStubs.reduce((sum, ps) => sum + ps.net_pay, 0);
-      const totalTaxes = payStubs.reduce((sum, ps) => sum + ps.total_taxes, 0);
+      totalGross += grossPay;
+      totalNet += netPay;
+      totalTaxes += taxes.totalTaxes;
+      totalDeductions += totalStubDeductions;
 
-      await supabase
-        .from('payroll_runs')
-        .update({
-          total_gross: totalGross,
-          total_net: totalNet,
-          total_taxes: totalTaxes,
-          employee_count: payStubs.length,
-        })
-        .eq('id', payrollRun.id);
+      payStubsToInsert.push({
+        payroll_run_id: payrollRun.id,
+        employee_id: employee.id,
+        regular_hours: regularHours,
+        overtime_hours: overtimeHours,
+        regular_pay: regularPay,
+        overtime_pay: overtimePay,
+        bonus: 0,
+        commission: 0,
+        other_earnings: 0,
+        gross_pay: grossPay,
+        federal_income_tax: taxes.federalTax,
+        state_income_tax: taxes.stateTax,
+        local_income_tax: taxes.localTax,
+        social_security_tax: taxes.socialSecurity,
+        medicare_tax: taxes.medicare,
+        total_taxes: taxes.totalTaxes,
+        health_insurance: 0,
+        dental_insurance: 0,
+        vision_insurance: 0,
+        retirement_401k: 0,
+        retirement_401k_match: 0,
+        hsa_contribution: 0,
+        fsa_contribution: 0,
+        life_insurance: 0,
+        disability_insurance: 0,
+        garnishments,
+        other_deductions: otherDeductions,
+        total_deductions: totalStubDeductions,
+        net_pay: netPay,
+        ytd_gross: 0, // TODO: compute YTD from prior stubs
+        ytd_taxes: 0,
+        ytd_deductions: 0,
+        ytd_net: 0,
+        payment_method: 'direct_deposit',
+        status: 'pending',
+      });
     }
 
-    return NextResponse.json({ payrollRun }, { status: 201 });
+    // 4) Insert pay stubs
+    if (payStubsToInsert.length > 0) {
+      const { error: stubError } = await supabase
+        .from('pay_stubs')
+        .insert(payStubsToInsert);
+
+      if (stubError) throw stubError;
+    }
+
+    // 5) Update payroll run totals
+    const { data: updatedRun, error: updateError } = await supabase
+      .from('payroll_runs')
+      .update({
+        total_gross: totalGross,
+        total_net: totalNet,
+        total_taxes: totalTaxes,
+        total_deductions: totalDeductions,
+        employee_count: payStubsToInsert.length,
+        status: 'draft',
+      })
+      .eq('id', payrollRun.id)
+      .select('*')
+      .single();
+
+    if (updateError) throw updateError;
+
+    return NextResponse.json(
+      {
+        payrollRun: updatedRun,
+        summary: {
+          totalGross,
+          totalNet,
+          totalTaxes,
+          totalDeductions,
+          employeeCount: payStubsToInsert.length,
+        },
+      },
+      { status: 201 },
+    );
   } catch (error: any) {
     console.error('Error creating payroll run:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create payroll run' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
