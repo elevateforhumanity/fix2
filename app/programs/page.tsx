@@ -100,7 +100,7 @@ export default function ProgramsPage() {
               </p>
             </div>
             <Link
-              href="/apply"
+              href="/start"
               className="inline-flex items-center rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-400 transition"
             >
               Start My Application
@@ -160,7 +160,7 @@ export default function ProgramsPage() {
               </ul>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link
-                  href="/apply"
+                  href="/start"
                   className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-slate-100 transition"
                 >
                   Start My Application
