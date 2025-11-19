@@ -1,235 +1,204 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from "react";
+import Link from "next/link";
 
-function VideoMeetingContent() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const meetingCode = searchParams.get('code');
-
-  const [isInMeeting, setIsInMeeting] = useState(false);
-  const [inputCode, setInputCode] = useState('');
-  const [localStream, setLocalStream] = useState<MediaStream | null>(null);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isVideoOff, setIsVideoOff] = useState(false);
-  const [participants, setParticipants] = useState<string[]>([]);
-
-  const localVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (meetingCode) {
-      joinMeeting(meetingCode);
-    }
-  }, [meetingCode]);
-
-  const startLocalStream = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
-      setLocalStream(stream);
-      if (localVideoRef.current) {
-        localVideoRef.current.srcObject = stream;
-      }
-      return stream;
-    } catch (error) {
-      console.error('Error accessing media devices:', error);
-      alert('Could not access camera/microphone. Please check permissions.');
-      return null;
-    }
-  };
-
-  const joinMeeting = async (code: string) => {
-    const stream = await startLocalStream();
-    if (stream) {
-      setIsInMeeting(true);
-      setParticipants(['You', 'Participant 2']);
-    }
-  };
-
-  const createMeeting = async () => {
-    const newCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-    router.push(`/video?code=${newCode}`);
-  };
-
-  const leaveMeeting = () => {
-    if (localStream) {
-      localStream.getTracks().forEach((track) => track.stop());
-    }
-    setLocalStream(null);
-    setIsInMeeting(false);
-    setParticipants([]);
-    router.push('/video');
-  };
-
-  const toggleMute = () => {
-    if (localStream) {
-      localStream.getAudioTracks().forEach((track) => {
-        track.enabled = !track.enabled;
-      });
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const toggleVideo = () => {
-    if (localStream) {
-      localStream.getVideoTracks().forEach((track) => {
-        track.enabled = !track.enabled;
-      });
-      setIsVideoOff(!isVideoOff);
-    }
-  };
-
-  if (!isInMeeting) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-xl p-8">
-          <h1 className="text-3xl font-bold text-white mb-6 text-center">
-            Video Meeting
-          </h1>
-          <div className="space-y-6">
-            <button
-              onClick={createMeeting}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
-            >
-              Start New Meeting
-            </button>
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-600" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-800 text-gray-400">Or</span>
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Join with code
-              </label>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={inputCode}
-                  onChange={(e) => setInputCode(e.target.value.toUpperCase())}
-                  placeholder="Enter code"
-                  className="flex-1 bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-2"
-                  maxLength={6}
-                />
-                <button
-                  onClick={() => inputCode && joinMeeting(inputCode)}
-                  disabled={!inputCode}
-                  className="bg-green-600 hover:bg-green-700 disabled:bg-gray-600 text-white font-semibold px-6 py-2 rounded-lg"
-                >
-                  Join
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+export default function VideoPage() {
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
-      <div className="bg-gray-800 border-b border-gray-700 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold text-white">
-              Meeting: {meetingCode}
+    <main className="min-h-screen bg-slate-900">
+      {/* Video Section */}
+      <section className="relative">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              See How Elevate Works
             </h1>
-            <p className="text-sm text-gray-400">
-              {participants.length} participants
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+              Watch our video to learn how we connect learners to free training, employers to talent,
+              and case managers to powerful tools for workforce development.
             </p>
           </div>
-          <button
-            onClick={leaveMeeting}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-lg"
-          >
-            Leave
-          </button>
-        </div>
-      </div>
-      <div className="flex-1 p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-          <div className="relative bg-gray-800 rounded-lg overflow-hidden">
+
+          {/* Video Player */}
+          <div className="relative aspect-video max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-slate-800">
             <video
-              ref={localVideoRef}
+              controls
               autoPlay
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded">
-              You {isMuted && '(Muted)'}
-            </div>
-            {isVideoOff && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-700">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-3xl">👤</span>
-                  </div>
-                  <p className="text-white">Camera Off</p>
-                </div>
+              className="w-full h-full"
+              poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            >
+              <source src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4" type="video/mp4" />
+              <source src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Play button overlay (shows when paused) */}
+            {!isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer">
+                <button
+                  onClick={(e) => {
+                    const video = e.currentTarget.parentElement?.querySelector('video');
+                    video?.play();
+                  }}
+                  className="bg-white/90 hover:bg-white rounded-full p-8 shadow-2xl transition transform hover:scale-110"
+                >
+                  <svg className="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                  </svg>
+                </button>
               </div>
             )}
           </div>
-          {participants.slice(1).map((p, i) => (
-            <div
-              key={i}
-              className="bg-gray-800 rounded-lg flex items-center justify-center"
-            >
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <span className="text-3xl">👤</span>
-                </div>
-                <p className="text-white">{p}</p>
+
+          {/* Video Description */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div className="bg-slate-800 rounded-xl p-6">
+                <div className="text-4xl mb-3">🎓</div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Free Training
+                </h3>
+                <p className="text-sm text-slate-300">
+                  Access workforce-funded programs in healthcare, trades, CDL, and more
+                </p>
+              </div>
+
+              <div className="bg-slate-800 rounded-xl p-6">
+                <div className="text-4xl mb-3">🤝</div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Real Partnerships
+                </h3>
+                <p className="text-sm text-slate-300">
+                  Connect with employers, training sites, and workforce agencies
+                </p>
+              </div>
+
+              <div className="bg-slate-800 rounded-xl p-6">
+                <div className="text-4xl mb-3">💼</div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Job Placement
+                </h3>
+                <p className="text-sm text-slate-300">
+                  Get hired by employers looking for trained, work-ready candidates
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-      <div className="bg-gray-800 border-t border-gray-700 px-6 py-4">
-        <div className="flex items-center justify-center gap-4">
-          <button
-            onClick={toggleMute}
-            className={`${isMuted ? 'bg-red-600' : 'bg-gray-700'} text-white p-4 rounded-full`}
-          >
-            {isMuted ? '🔇' : '🎤'}
-          </button>
-          <button
-            onClick={toggleVideo}
-            className={`${isVideoOff ? 'bg-red-600' : 'bg-gray-700'} text-white p-4 rounded-full`}
-          >
-            {isVideoOff ? '📹' : '📷'}
-          </button>
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText(meetingCode || '');
-              alert('Code copied!');
-            }}
-            className="bg-gray-700 text-white px-6 py-3 rounded-lg"
-          >
-            Copy Code
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+          </div>
 
-export default function VideoMeetingPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center min-h-screen">
-          Loading...
+          {/* CTAs */}
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/start"
+              className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-lg"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/programs"
+              className="inline-block px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition"
+            >
+              View Programs
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
-      }
-    >
-      <VideoMeetingContent />
-    </Suspense>
+      </section>
+
+      {/* Additional Info */}
+      <section className="bg-slate-800 border-t border-slate-700">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
+            What You'll Learn in This Video
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">How Elevate Works</h3>
+                  <p className="text-sm text-slate-300">
+                    See our platform in action and understand how we connect learners, employers, and partners
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Available Programs</h3>
+                  <p className="text-sm text-slate-300">
+                    Explore our training programs in healthcare, trades, CDL, and workforce readiness
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Funding Options</h3>
+                  <p className="text-sm text-slate-300">
+                    Learn about WRG, WIOA, and other workforce funding that makes training free or low-cost
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Partner Network</h3>
+                  <p className="text-sm text-slate-300">
+                    See how we work with barbershops, clinics, employers, and workforce agencies
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  5
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Success Stories</h3>
+                  <p className="text-sm text-slate-300">
+                    Hear from learners who completed training and found meaningful employment
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                  6
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Next Steps</h3>
+                  <p className="text-sm text-slate-300">
+                    Find out how to apply, what to expect, and how to get started today
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
