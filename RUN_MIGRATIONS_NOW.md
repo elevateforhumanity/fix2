@@ -11,6 +11,7 @@
 👉 **[CLICK HERE: Open Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql)**
 
 Or manually:
+
 1. Go to https://supabase.com/dashboard
 2. Select your project
 3. Click "SQL Editor" in left sidebar
@@ -21,6 +22,7 @@ Or manually:
 ### Step 2: Copy This ENTIRE File
 
 Open this file in the repository:
+
 ```
 supabase/migrations/RUN_ALL_MIGRATIONS.sql
 ```
@@ -43,6 +45,7 @@ supabase/migrations/RUN_ALL_MIGRATIONS.sql
 ## 📋 What Gets Loaded
 
 ### Programs (16 total):
+
 1. ✅ Barber Apprenticeship
 2. ✅ HVAC Technician
 3. ✅ CNA Certification
@@ -61,6 +64,7 @@ supabase/migrations/RUN_ALL_MIGRATIONS.sql
 16. ✅ Certified Community Healthcare Worker
 
 ### Courses (50+ total):
+
 - Full curriculum for each program
 - Lessons and modules
 - Assignments and quizzes
@@ -106,6 +110,7 @@ SELECT slug, title FROM programs ORDER BY title;
 **Solution:** Data already exists! You're good to go.
 
 To verify:
+
 ```sql
 SELECT COUNT(*) FROM programs;
 ```
@@ -117,17 +122,20 @@ If it returns 16, you're all set!
 ## 🎯 Quick Copy-Paste Commands
 
 ### Check if migrations are needed:
+
 ```sql
 SELECT COUNT(*) FROM programs;
 SELECT COUNT(*) FROM courses;
 ```
 
 ### If tables don't exist, create them:
+
 ```sql
 -- Copy entire contents of supabase-schema.sql here
 ```
 
 ### Load all data:
+
 ```sql
 -- Copy entire contents of RUN_ALL_MIGRATIONS.sql here
 ```
@@ -182,6 +190,7 @@ supabase db execute --file supabase/migrations/RUN_ALL_MIGRATIONS.sql
 ## 🎓 After Migrations Run
 
 Your site will have:
+
 - ✅ All 16 programs visible at `/programs`
 - ✅ All 50+ courses available
 - ✅ Students can enroll
@@ -197,15 +206,18 @@ Your site will have:
 ## 📞 Need Help?
 
 **Can't find the file?**
+
 - It's in: `supabase/migrations/RUN_ALL_MIGRATIONS.sql`
 - Or view on GitHub: https://github.com/elevateforhumanity/fix2/blob/main/supabase/migrations/RUN_ALL_MIGRATIONS.sql
 
 **Supabase not working?**
+
 - Check you're logged in: https://supabase.com/dashboard
 - Verify project is created
 - Check you have the correct project selected
 
 **Still stuck?**
+
 - Check `RUN_MIGRATIONS_GUIDE.md` for detailed step-by-step
 - Check `MIGRATION_STATUS.md` for full migration list
 

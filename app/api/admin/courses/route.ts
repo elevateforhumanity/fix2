@@ -43,15 +43,13 @@ export async function POST(request: Request) {
 
       // Insert lessons
       for (const [lessonIndex, lesson] of module.lessons.entries()) {
-        const { error: lessonError } = await supabase
-          .from('lessons')
-          .insert({
-            module_id: moduleData.id,
-            title: lesson.title,
-            description: lesson.description,
-            content: JSON.stringify(lesson.blocks),
-            order: lessonIndex,
-          });
+        const { error: lessonError } = await supabase.from('lessons').insert({
+          module_id: moduleData.id,
+          title: lesson.title,
+          description: lesson.description,
+          content: JSON.stringify(lesson.blocks),
+          order: lessonIndex,
+        });
 
         if (lessonError) {
           console.error('Error creating lesson:', lessonError);
@@ -78,13 +76,15 @@ export async function GET(request: Request) {
 
     const { data: courses, error } = await supabase
       .from('courses')
-      .select(`
+      .select(
+        `
         *,
         modules (
           *,
           lessons (*)
         )
-      `)
+      `
+      )
       .order('created_at', { ascending: false });
 
     if (error) {
