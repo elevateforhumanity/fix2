@@ -87,8 +87,7 @@ export default async function WorkforcePartnersPage() {
               training programs that accelerate employability, support community
               uplift, and meet the needs of employers across Indiana and the
               United States. Our programs align with WIOA, WRG-style funding,
-              Job Ready Indy, JRI, Reentry, Apprenticeship,
-              and SEAL pathways.
+              Job Ready Indy, JRI, Reentry, Apprenticeship, and SEAL pathways.
             </p>
           </div>
         </div>

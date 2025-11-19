@@ -1,39 +1,39 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "HVAC Technician Program | Elevate Connects Directory",
+  title: 'HVAC Technician Program | Elevate Connects Directory',
   description:
-    "Hands-on HVAC training with lab and field experience, EPA certification prep, and direct pathways to employment in heating, cooling, and refrigeration.",
+    'Hands-on HVAC training with lab and field experience, EPA certification prep, and direct pathways to employment in heating, cooling, and refrigeration.',
 };
 
 const hvacHighlights = [
-  "Heating, cooling, and refrigeration system fundamentals",
-  "Hands-on lab training with real HVAC equipment and tools",
-  "EPA 608 certification prep (required for refrigerant handling)",
-  "Electrical systems, troubleshooting, and safety protocols",
-  "Career coaching and job placement with HVAC contractors",
+  'Heating, cooling, and refrigeration system fundamentals',
+  'Hands-on lab training with real HVAC equipment and tools',
+  'EPA 608 certification prep (required for refrigerant handling)',
+  'Electrical systems, troubleshooting, and safety protocols',
+  'Career coaching and job placement with HVAC contractors',
 ];
 
 const whoItServes = [
-  "Young adults seeking a skilled trade with strong earning potential",
-  "Career changers looking for stable, in-demand technical work",
-  "Re-entry individuals rebuilding careers in the trades",
-  "Workforce clients referred by WRG and community partners",
+  'Young adults seeking a skilled trade with strong earning potential',
+  'Career changers looking for stable, in-demand technical work',
+  'Re-entry individuals rebuilding careers in the trades',
+  'Workforce clients referred by WRG and community partners',
 ];
 
 const fundingOptions = [
-  "Workforce Ready Grant (WRG) – where eligible",
-  "WIOA & workforce board funding – where approved",
-  "Workforce grants and employer-sponsored training",
-  "Support services for tools, transportation, and supplies",
-  "Payment plans or self-pay options when funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible',
+  'WIOA & workforce board funding – where approved',
+  'Workforce grants and employer-sponsored training',
+  'Support services for tools, transportation, and supplies',
+  'Payment plans or self-pay options when funding is not available',
 ];
 
 const outcomes = [
-  "EPA 608 certification (required for HVAC work)",
-  "Documented technical competencies in HVAC systems",
-  "Hands-on experience with installation, maintenance, and repair",
-  "Direct pathways to employment with HVAC contractors and service companies",
+  'EPA 608 certification (required for HVAC work)',
+  'Documented technical competencies in HVAC systems',
+  'Hands-on experience with installation, maintenance, and repair',
+  'Direct pathways to employment with HVAC contractors and service companies',
 ];
 
 export default function HVACTechnicianPage() {
@@ -53,8 +53,11 @@ export default function HVACTechnicianPage() {
               Master heating, cooling, and refrigeration systems in a
               high-demand trade. Our HVAC program combines hands-on lab
               training, field experience, and EPA certification prep to prepare
-              you for{" "}
-              <span className="font-semibold">technician roles with strong earning potential</span>.
+              you for{' '}
+              <span className="font-semibold">
+                technician roles with strong earning potential
+              </span>
+              .
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -123,8 +126,8 @@ export default function HVACTechnicianPage() {
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               This program covers heating, cooling, and refrigeration systems
-              with hands-on training to prepare you for real-world HVAC work
-              and EPA certification.
+              with hands-on training to prepare you for real-world HVAC work and
+              EPA certification.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               {hvacHighlights.map((item) => (

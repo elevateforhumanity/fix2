@@ -77,8 +77,8 @@ export default function ProgramsFullPage() {
             <p className="text-lg mb-8 text-white/80 max-w-3xl mx-auto">
               Elevate for Humanity connects learners, employers, and training
               providers through a powerful workforce ecosystem aligned with
-              Indiana's most impactful initiatives — WIOA, WRG, JRI,
-              and Registered Apprenticeships.
+              Indiana's most impactful initiatives — WIOA, WRG, JRI, and
+              Registered Apprenticeships.
             </p>
             <div className="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm rounded-lg text-xl font-bold">
               Innovate pathways. Elevate communities. Reset the workforce.
@@ -171,9 +171,8 @@ export default function ProgramsFullPage() {
                 JRI - Job Ready Indy
               </h3>
               <p className="text-gray-600 mb-4">
-                Youth-focused credential that helps young adults
-                develop workplace skills and connect to work experience
-                opportunities.
+                Youth-focused credential that helps young adults develop
+                workplace skills and connect to work experience opportunities.
               </p>
               <div className="mb-4">
                 <p className="font-semibold text-gray-900 mb-2">
@@ -263,9 +262,8 @@ export default function ProgramsFullPage() {
                 Modern Apprenticeship Program
               </h3>
               <p className="text-gray-600 mb-4">
-                Modern Apprenticeship Program builds
-                career pathways through youth programs, JAG partnerships, and
-                opportunity youth support.
+                Modern Apprenticeship Program builds career pathways through
+                youth programs, JAG partnerships, and opportunity youth support.
               </p>
               <div className="mb-4">
                 <p className="font-semibold text-gray-900 mb-2">Includes:</p>

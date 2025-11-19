@@ -1,39 +1,39 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Building Maintenance Technician Program | Elevate Connects Directory",
+  title: 'Building Maintenance Technician Program | Elevate Connects Directory',
   description:
-    "Hands-on building maintenance training covering HVAC, plumbing, electrical, and facility systems with direct pathways to employment in property management and facilities.",
+    'Hands-on building maintenance training covering HVAC, plumbing, electrical, and facility systems with direct pathways to employment in property management and facilities.',
 };
 
 const buildingHighlights = [
-  "Building systems: HVAC, plumbing, electrical, and mechanical basics",
-  "Preventive maintenance, troubleshooting, and repair techniques",
-  "Safety protocols, tools, and equipment operation",
-  "Facility management and work order systems",
-  "Career coaching and job placement with property management companies",
+  'Building systems: HVAC, plumbing, electrical, and mechanical basics',
+  'Preventive maintenance, troubleshooting, and repair techniques',
+  'Safety protocols, tools, and equipment operation',
+  'Facility management and work order systems',
+  'Career coaching and job placement with property management companies',
 ];
 
 const whoItServes = [
-  "Young adults seeking stable work in facilities and property management",
-  "Career changers looking for hands-on technical roles",
-  "Re-entry individuals rebuilding careers in the trades",
-  "Workforce clients referred by WRG and community partners",
+  'Young adults seeking stable work in facilities and property management',
+  'Career changers looking for hands-on technical roles',
+  'Re-entry individuals rebuilding careers in the trades',
+  'Workforce clients referred by WRG and community partners',
 ];
 
 const fundingOptions = [
-  "Workforce Ready Grant (WRG) – where eligible",
-  "WIOA & workforce board funding – where approved",
-  "Workforce grants and apprenticeship structures",
-  "Support services for tools, transportation, and supplies",
-  "Payment plans or self-pay options when funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible',
+  'WIOA & workforce board funding – where approved',
+  'Workforce grants and apprenticeship structures',
+  'Support services for tools, transportation, and supplies',
+  'Payment plans or self-pay options when funding is not available',
 ];
 
 const outcomes = [
-  "Technical competencies in building systems and maintenance",
-  "Hands-on experience with real equipment and scenarios",
-  "Safety certifications and tool proficiency",
-  "Direct pathways to employment with property management and facilities companies",
+  'Technical competencies in building systems and maintenance',
+  'Hands-on experience with real equipment and scenarios',
+  'Safety certifications and tool proficiency',
+  'Direct pathways to employment with property management and facilities companies',
 ];
 
 export default function BuildingMaintenancePage() {
@@ -52,8 +52,11 @@ export default function BuildingMaintenancePage() {
             <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
               Keep buildings running smoothly with hands-on training in HVAC,
               plumbing, electrical, and facility systems. Our Building
-              Maintenance program prepares you for{" "}
-              <span className="font-semibold">stable, in-demand roles in property management and facilities</span>.
+              Maintenance program prepares you for{' '}
+              <span className="font-semibold">
+                stable, in-demand roles in property management and facilities
+              </span>
+              .
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -248,7 +251,9 @@ export default function BuildingMaintenancePage() {
               <li>• Technical competency requirements and safety protocols</li>
               <li>• Hands-on training expectations and equipment use</li>
               <li>• Safety certifications and tool proficiency standards</li>
-              <li>• Job placement support and property management connections</li>
+              <li>
+                • Job placement support and property management connections
+              </li>
             </ul>
           </div>
         </div>
