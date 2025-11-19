@@ -1,11 +1,13 @@
 // lib/integrations/twilio.ts
+import { logger } from '@/lib/logger';
+
 const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
 const TWILIO_FROM_NUMBER = process.env.TWILIO_FROM_NUMBER;
 
 export async function sendSms(to: string, body: string) {
   if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER) {
-    console.warn('Twilio not configured; skipping SMS');
+    logger.warn('Twilio not configured; skipping SMS', { to });
     return;
   }
 
@@ -32,7 +34,7 @@ export async function sendSms(to: string, body: string) {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Twilio SMS error:', text);
+    logger.error('Twilio SMS error', new Error(text), { to, status: res.status });
     throw new Error('Failed to send SMS');
   }
 

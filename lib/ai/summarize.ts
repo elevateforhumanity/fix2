@@ -1,10 +1,11 @@
 import OpenAI from "openai";
+import { logger } from "@/lib/logger";
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function summarizeText(text: string, maxLength = 200) {
   if (!process.env.OPENAI_API_KEY) {
-    console.warn("OpenAI API key not configured");
+    logger.warn("OpenAI API key not configured");
     return text.slice(0, maxLength) + "...";
   }
 
@@ -25,7 +26,10 @@ export async function summarizeText(text: string, maxLength = 200) {
 
     return res.choices[0].message.content || text.slice(0, maxLength) + "...";
   } catch (error) {
-    console.error("Summarization error:", error);
+    logger.error("Summarization error", error as Error, { 
+      textLength: text.length,
+      maxLength 
+    });
     return text.slice(0, maxLength) + "...";
   }
 }
