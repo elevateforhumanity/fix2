@@ -248,11 +248,6 @@
     "generate-covers": "node scripts/generate-course-covers.mjs"
   },
   "overrides": {
-    "glob": "^13.0.0",
-    "inflight": "npm:lru-cache@^10.0.0",
-    "node-domexception": "npm:domexception@^4.0.0",
-    "w3c-hr-time": "npm:@types/w3c-hr-time@^1.0.0",
-    "request": "npm:axios@^1.0.0",
-    "request-promise-native": "npm:axios@^1.0.0"
+    "inflight": "npm:lru-cache@^10.0.0"
   }
 }

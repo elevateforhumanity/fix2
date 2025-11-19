@@ -1,7 +1,6 @@
 // SSO Configuration for SAML, OAuth, LDAP
-import { Strategy as SAMLStrategy } from 'passport-saml';
+import { Strategy as SAMLStrategy } from '@node-saml/passport-saml';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { OIDCStrategy } from 'passport-azure-ad';
 
 type SAMLConfig = typeof samlConfig;
 type GoogleOAuthConfig = typeof googleOAuthConfig;
