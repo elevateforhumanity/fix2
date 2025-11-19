@@ -1,60 +1,60 @@
 // app/programs/page.tsx
-import Link from "next/link";
+import Link from 'next/link';
 
 const programs = [
   {
-    slug: "medical-assistant",
-    name: "Medical Assistant Pathway",
-    category: "Healthcare",
-    length: "4–6 months · Hybrid",
-    funding: "WRG · WIOA · Workforce Grants",
+    slug: 'medical-assistant',
+    name: 'Medical Assistant Pathway',
+    category: 'Healthcare',
+    length: '4–6 months · Hybrid',
+    funding: 'WRG · WIOA · Workforce Grants',
     blurb:
-      "Hands-on clinical and front-office skills for entry-level roles in clinics, hospitals, and specialty practices. Built with partner schools and Elevate support.",
+      'Hands-on clinical and front-office skills for entry-level roles in clinics, hospitals, and specialty practices. Built with partner schools and Elevate support.',
   },
   {
-    slug: "barber",
-    name: "Barber Apprenticeship",
-    category: "Apprenticeship · License Track",
-    length: "12–18 months · Shop + Classroom",
-    funding: "Apprenticeship · WIOA",
+    slug: 'barber',
+    name: 'Barber Apprenticeship',
+    category: 'Apprenticeship · License Track',
+    length: '12–18 months · Shop + Classroom',
+    funding: 'Apprenticeship · WIOA',
     blurb:
-      "State-approved barber apprenticeship that mixes Milady-based theory with real shop experience, coaching, and licensing support.",
+      'State-approved barber apprenticeship that mixes Milady-based theory with real shop experience, coaching, and licensing support.',
   },
   {
-    slug: "hvac",
-    name: "HVAC Technician",
-    category: "Skilled Trades",
-    length: "4–9 months · Lab + Field",
-    funding: "Workforce Grants · Employer Sponsors",
+    slug: 'hvac',
+    name: 'HVAC Technician',
+    category: 'Skilled Trades',
+    length: '4–9 months · Lab + Field',
+    funding: 'Workforce Grants · Employer Sponsors',
     blurb:
-      "Partner-led technical training in heating, ventilation, and air conditioning with Elevate as the front door, tracker, and connector.",
+      'Partner-led technical training in heating, ventilation, and air conditioning with Elevate as the front door, tracker, and connector.',
   },
   {
-    slug: "building-tech",
-    name: "Building Maintenance Technician",
-    category: "Facilities & Property",
-    length: "4–9 months · On-site",
-    funding: "Workforce Grants · Apprenticeship",
+    slug: 'building-tech',
+    name: 'Building Maintenance Technician',
+    category: 'Facilities & Property',
+    length: '4–9 months · On-site',
+    funding: 'Workforce Grants · Apprenticeship',
     blurb:
-      "Training for core skills in building systems, repairs, and property maintenance for residential, commercial, or institutional sites.",
+      'Training for core skills in building systems, repairs, and property maintenance for residential, commercial, or institutional sites.',
   },
   {
-    slug: "cdl",
-    name: "CDL / Transportation Pathways",
-    category: "Transportation",
-    length: "Varies · Range + Road",
-    funding: "Workforce Grants · Employer Sponsors",
+    slug: 'cdl',
+    name: 'CDL / Transportation Pathways',
+    category: 'Transportation',
+    length: 'Varies · Range + Road',
+    funding: 'Workforce Grants · Employer Sponsors',
     blurb:
-      "Connections to CDL programs and transportation employers, with Elevate support for readiness, paperwork, and employer alignment.",
+      'Connections to CDL programs and transportation employers, with Elevate support for readiness, paperwork, and employer alignment.',
   },
   {
-    slug: "workforce-readiness",
-    name: "Workforce Readiness & Re-Entry",
-    category: "Readiness & Soft Skills",
-    length: "4–12 weeks · Workshops + Coaching",
-    funding: "Support Services · Referrals",
+    slug: 'workforce-readiness',
+    name: 'Workforce Readiness & Re-Entry',
+    category: 'Readiness & Soft Skills',
+    length: '4–12 weeks · Workshops + Coaching',
+    funding: 'Support Services · Referrals',
     blurb:
-      "Coaching, soft skills, and barrier support for adults and re-entry talent preparing to step back into training or employment.",
+      'Coaching, soft skills, and barrier support for adults and re-entry talent preparing to step back into training or employment.',
   },
 ];
 
@@ -179,7 +179,7 @@ export default function ProgramsPage() {
                 For case managers & partners
               </p>
               <p className="mb-2">
-                Elevate simplifies referrals by turning this catalog into{" "}
+                Elevate simplifies referrals by turning this catalog into{' '}
                 <span className="font-semibold">
                   real, trackable plans with status updates you can see.
                 </span>

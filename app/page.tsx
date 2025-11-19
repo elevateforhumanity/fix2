@@ -9,7 +9,8 @@ const programs = [
       'Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.',
     funding: 'WRG • WIOA • Workforce Grants',
     duration: '4–6 Months • Hybrid',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
   },
   {
     slug: 'barber',
@@ -18,7 +19,8 @@ const programs = [
       'State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.',
     funding: 'DOL Apprenticeship • WIOA',
     duration: '12–18 Months • On-the-Job + Classroom',
-    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
   },
   {
     slug: 'hvac',
@@ -27,7 +29,8 @@ const programs = [
       'Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.',
     funding: 'Workforce Grants • Employer Sponsors',
     duration: '4–9 Months • Lab + Field',
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
   },
   {
     slug: 'building-tech',
@@ -36,7 +39,8 @@ const programs = [
       'Training for building systems, repairs, and facility maintenance to keep properties safe and functional.',
     funding: 'Workforce Grants • Apprenticeship',
     duration: '4–9 Months • Hands-On',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
   },
   {
     slug: 'workforce-readiness',
@@ -45,7 +49,8 @@ const programs = [
       'Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.',
     funding: 'Support Services • Referrals',
     duration: '4–12 Weeks • Coaching + Workshops',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
   },
 ];
 
@@ -69,7 +74,7 @@ export default function HomePage() {
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
+
         <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -77,17 +82,17 @@ export default function HomePage() {
               <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6">
                 🎓 100% Funded Training Programs
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
                 Transform Your
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">
                   Career Today
                 </span>
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-red-100 mb-8 leading-relaxed font-light">
-                Free workforce training, apprenticeships, and direct job placement. 
-                No cost. No barriers. Just opportunity.
+                Free workforce training, apprenticeships, and direct job
+                placement. No cost. No barriers. Just opportunity.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-10">
@@ -96,8 +101,18 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-red-700 font-bold rounded-xl hover:bg-yellow-400 hover:text-red-900 transition-all shadow-2xl hover:shadow-yellow-400/50 hover:scale-105"
                 >
                   Get Started Free
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
                   </svg>
                 </Link>
                 <Link
@@ -127,13 +142,27 @@ export default function HomePage() {
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      <svg
+                        className="w-6 h-6 text-red-900"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg mb-1">Hands-On Training</h3>
-                      <p className="text-red-100 text-sm">Real-world skills from industry experts</p>
+                      <h3 className="text-white font-bold text-lg mb-1">
+                        Hands-On Training
+                      </h3>
+                      <p className="text-red-100 text-sm">
+                        Real-world skills from industry experts
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -141,13 +170,27 @@ export default function HomePage() {
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <svg
+                        className="w-6 h-6 text-red-900"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg mb-1">Job Placement</h3>
-                      <p className="text-red-100 text-sm">Direct connections to employers</p>
+                      <h3 className="text-white font-bold text-lg mb-1">
+                        Job Placement
+                      </h3>
+                      <p className="text-red-100 text-sm">
+                        Direct connections to employers
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -155,13 +198,27 @@ export default function HomePage() {
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      <svg
+                        className="w-6 h-6 text-red-900"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg mb-1">Certifications</h3>
-                      <p className="text-red-100 text-sm">Industry-recognized credentials</p>
+                      <h3 className="text-white font-bold text-lg mb-1">
+                        Certifications
+                      </h3>
+                      <p className="text-red-100 text-sm">
+                        Industry-recognized credentials
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -312,7 +369,8 @@ export default function HomePage() {
               Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Real people, real results. See how our graduates are building careers.
+              Real people, real results. See how our graduates are building
+              careers.
             </p>
           </div>
 
@@ -327,10 +385,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">Marcus J.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">Barber Apprenticeship Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  Marcus J.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  Barber Apprenticeship Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "From incarceration to owning my own chair. Elevate gave me the structure and support I needed."
+                  "From incarceration to owning my own chair. Elevate gave me
+                  the structure and support I needed."
                 </p>
               </div>
             </div>
@@ -345,10 +408,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">Sarah M.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">Medical Assistant Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  Sarah M.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  Medical Assistant Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "Single mom to certified MA in 5 months. Now working at a clinic with benefits for my family."
+                  "Single mom to certified MA in 5 months. Now working at a
+                  clinic with benefits for my family."
                 </p>
               </div>
             </div>
@@ -363,10 +431,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">James T.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">HVAC Technician Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  James T.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  HVAC Technician Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "Went from warehouse work to skilled trades. Making 2x my old salary with room to grow."
+                  "Went from warehouse work to skilled trades. Making 2x my old
+                  salary with room to grow."
                 </p>
               </div>
             </div>
