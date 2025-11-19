@@ -10,8 +10,8 @@ export class SMSService {
   private fromNumber: string;
 
   private constructor() {
-    this.apiKey = process.env.TWILIO_API_KEY || '';
-    this.fromNumber = process.env.TWILIO_PHONE_NUMBER || '+1234567890';
+    this.apiKey = '';
+    this.fromNumber = '+1234567890';
   }
 
   static getInstance(): SMSService {
@@ -23,10 +23,8 @@ export class SMSService {
 
   async send(notification: SMSNotification): Promise<boolean> {
     try {
-      // In production, integrate with Twilio or similar
-      console.log('Sending SMS:', notification);
-      
-      // Mock implementation
+      // SMS notifications disabled - use email or in-app notifications instead
+      console.log('SMS notification (disabled):', notification);
       return true;
     } catch (error) {
       console.error('SMS send error:', error);
