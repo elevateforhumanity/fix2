@@ -1,14 +1,14 @@
-import { createClient } from "@/lib/supabase/server";
-import Link from "next/link";
+import { createClient } from '@/lib/supabase/server';
+import Link from 'next/link';
 
 async function getMarketplaceCourses() {
   const supabase = await createClient();
 
   const { data } = await supabase
-    .from("marketplace_courses")
-    .select("*")
-    .eq("is_published", true)
-    .order("created_at", { ascending: false });
+    .from('marketplace_courses')
+    .select('*')
+    .eq('is_published', true)
+    .order('created_at', { ascending: false });
 
   return data || [];
 }
@@ -47,7 +47,7 @@ export default async function MarketplacePage() {
               </p>
               <p className="mt-3 text-xs font-semibold text-orange-600">
                 {c.price_cents === 0
-                  ? "Free / Partnership"
+                  ? 'Free / Partnership'
                   : `$${(c.price_cents / 100).toFixed(2)} per tenant`}
               </p>
             </Link>

@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -8,31 +8,31 @@ export async function POST(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is admin
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "admin") {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (profile?.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const { type, title, body, createdForOrg } = await request.json();
 
   if (!type || !title || !body) {
     return NextResponse.json(
-      { error: "type, title, and body are required" },
+      { error: 'type, title, and body are required' },
       { status: 400 }
     );
   }
 
   const { data: doc, error } = await supabase
-    .from("signature_documents")
+    .from('signature_documents')
     .insert({
       type,
       title,
@@ -48,11 +48,11 @@ export async function POST(request: Request) {
   }
 
   // Log document creation
-  await supabase.from("audit_logs").insert({
+  await supabase.from('audit_logs').insert({
     actor_id: user.id,
     actor_email: user.email,
-    action: "signature_document_created",
-    resource_type: "signature_document",
+    action: 'signature_document_created',
+    resource_type: 'signature_document',
     resource_id: doc.id,
     metadata: { type, title, createdForOrg },
   });

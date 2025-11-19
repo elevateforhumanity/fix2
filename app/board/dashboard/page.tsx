@@ -1,5 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function BoardDashboardPage() {
   const supabase = await createClient();
@@ -8,42 +8,40 @@ export default async function BoardDashboardPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   // Get user profile
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, organization")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role, organization')
+    .eq('id', user.id)
     .single();
 
-  if (!profile || profile.role !== "board") {
-    redirect("/");
+  if (!profile || profile.role !== 'board') {
+    redirect('/');
   }
 
   // Get referral metrics
   const { count: referrals } = await supabase
-    .from("enrollments")
-    .select("*", { count: "exact", head: true })
-    .eq("referred_by", profile.organization);
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('referred_by', profile.organization);
 
   const { count: completions } = await supabase
-    .from("enrollments")
-    .select("*", { count: "exact", head: true })
-    .eq("referred_by", profile.organization)
-    .eq("status", "completed");
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('referred_by', profile.organization)
+    .eq('status', 'completed');
 
   const { count: active } = await supabase
-    .from("enrollments")
-    .select("*", { count: "exact", head: true })
-    .eq("referred_by", profile.organization)
-    .eq("status", "in_progress");
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('referred_by', profile.organization)
+    .eq('status', 'in_progress');
 
   const rate =
-    referrals && referrals > 0
-      ? ((completions || 0) / referrals) * 100
-      : 0;
+    referrals && referrals > 0 ? ((completions || 0) / referrals) * 100 : 0;
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -54,8 +52,8 @@ export default async function BoardDashboardPage() {
               Workforce Board Dashboard
             </h1>
             <p className="mt-2 text-sm text-slate-600">
-              Summary of learners referred by {profile.organization || "your board"}{" "}
-              and their outcomes.
+              Summary of learners referred by{' '}
+              {profile.organization || 'your board'} and their outcomes.
             </p>
           </div>
           <form action="/api/board/compliance-report" method="get">

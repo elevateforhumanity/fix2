@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function GET(request: Request) {
   const supabase = await createClient();
@@ -8,36 +8,36 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is admin
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (profile?.role !== "admin") {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (profile?.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   // Get total students
   const { count: totalStudents } = await supabase
-    .from("profiles")
-    .select("*", { count: "exact", head: true })
-    .eq("role", "student");
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('role', 'student');
 
   // Get total enrollments
   const { count: totalEnrollments } = await supabase
-    .from("enrollments")
-    .select("*", { count: "exact", head: true });
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true });
 
   // Get completed enrollments
   const { count: completedEnrollments } = await supabase
-    .from("enrollments")
-    .select("*", { count: "exact", head: true })
-    .eq("status", "completed");
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'completed');
 
   // Calculate completion rate
   const completionRate =
@@ -47,20 +47,20 @@ export async function GET(request: Request) {
 
   // Get total hours (if you have this field)
   // Note: Adjust field name based on your schema
-  const { data: hoursData } = await supabase.rpc("sum_training_hours");
+  const { data: hoursData } = await supabase.rpc('sum_training_hours');
   const totalHours = hoursData || 0;
 
   // Get enrollments by sector (if you have this field)
   // Note: This is a placeholder - adjust based on your schema
   const { data: bySectorData } = await supabase
-    .from("enrollments")
-    .select("sector")
-    .not("sector", "is", null);
+    .from('enrollments')
+    .select('sector')
+    .not('sector', 'is', null);
 
   // Group by sector manually
   const sectorCounts: Record<string, number> = {};
   (bySectorData || []).forEach((row: any) => {
-    const sector = row.sector || "Unspecified";
+    const sector = row.sector || 'Unspecified';
     sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
   });
 
@@ -71,14 +71,14 @@ export async function GET(request: Request) {
 
   // Get enrollments by ZIP code (if you have this field)
   const { data: byZipData } = await supabase
-    .from("enrollments")
-    .select("zip_code")
-    .not("zip_code", "is", null);
+    .from('enrollments')
+    .select('zip_code')
+    .not('zip_code', 'is', null);
 
   // Group by ZIP manually
   const zipCounts: Record<string, number> = {};
   (byZipData || []).forEach((row: any) => {
-    const zip = row.zip_code || "Unknown";
+    const zip = row.zip_code || 'Unknown';
     zipCounts[zip] = (zipCounts[zip] || 0) + 1;
   });
 

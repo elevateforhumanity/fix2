@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { fillTemplate } from "@/lib/docs/templateEngine";
-import { LETTER_OF_SUPPORT_TEMPLATE } from "@/lib/docs/templates/letterOfSupport";
-import { MOU_TEMPLATE } from "@/lib/docs/templates/mou";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { fillTemplate } from '@/lib/docs/templateEngine';
+import { LETTER_OF_SUPPORT_TEMPLATE } from '@/lib/docs/templates/letterOfSupport';
+import { MOU_TEMPLATE } from '@/lib/docs/templates/mou';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(req: Request) {
   const supabase = await createClient();
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { type, variables } = await req.json();
@@ -19,12 +19,12 @@ export async function POST(req: Request) {
   const safeVars = variables || {};
   let template: string;
 
-  if (type === "letter_of_support") {
+  if (type === 'letter_of_support') {
     template = LETTER_OF_SUPPORT_TEMPLATE;
-  } else if (type === "mou") {
+  } else if (type === 'mou') {
     template = MOU_TEMPLATE;
   } else {
-    return NextResponse.json({ error: "Unknown type" }, { status: 400 });
+    return NextResponse.json({ error: 'Unknown type' }, { status: 400 });
   }
 
   const filled = fillTemplate(template, safeVars as Record<string, string>);

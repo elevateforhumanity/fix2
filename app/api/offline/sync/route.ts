@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(req: Request) {
   const supabase = await createClient();
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
@@ -19,23 +19,23 @@ export async function POST(req: Request) {
       for (const action of pendingActions) {
         // Handle different action types
         switch (action.type) {
-          case "progress_update":
+          case 'progress_update':
             await supabase
-              .from("enrollments")
+              .from('enrollments')
               .update({ progress: action.progress })
-              .eq("id", action.enrollmentId);
+              .eq('id', action.enrollmentId);
             break;
 
-          case "lesson_complete":
-            await supabase.from("lesson_completions").insert({
+          case 'lesson_complete':
+            await supabase.from('lesson_completions').insert({
               user_id: user.id,
               lesson_id: action.lessonId,
               completed_at: action.timestamp,
             });
             break;
 
-          case "quiz_submission":
-            await supabase.from("quiz_submissions").insert({
+          case 'quiz_submission':
+            await supabase.from('quiz_submissions').insert({
               user_id: user.id,
               quiz_id: action.quizId,
               answers: action.answers,
@@ -54,9 +54,9 @@ export async function POST(req: Request) {
       synced: pendingActions?.length || 0,
     });
   } catch (error: any) {
-    console.error("Sync error:", error);
+    console.error('Sync error:', error);
     return NextResponse.json(
-      { error: error.message || "Sync failed" },
+      { error: error.message || 'Sync failed' },
       { status: 500 }
     );
   }

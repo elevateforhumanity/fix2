@@ -1,17 +1,17 @@
 // app/courses/[courseId]/discussion/page.tsx
-import { createClient } from "@/lib/supabase/server";
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { createClient } from '@/lib/supabase/server';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 async function getThreads(courseId: string) {
   const supabase = await createClient();
 
   const { data } = await supabase
-    .from("discussion_threads")
-    .select("*")
-    .eq("course_id", courseId)
-    .order("pinned", { ascending: false })
-    .order("created_at", { ascending: false });
+    .from('discussion_threads')
+    .select('*')
+    .eq('course_id', courseId)
+    .order('pinned', { ascending: false })
+    .order('created_at', { ascending: false });
 
   return data || [];
 }
@@ -27,7 +27,7 @@ export default async function DiscussionPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   const threads = await getThreads(params.courseId);
