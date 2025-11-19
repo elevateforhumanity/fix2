@@ -94,3 +94,4 @@ cloudflare-token.txt
 # Keep build artifacts that are needed
 !dist/**
 nextjs-site-backup-*.tar.gz
+# Build trigger
