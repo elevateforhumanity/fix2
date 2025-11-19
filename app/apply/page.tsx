@@ -1,27 +1,27 @@
 // app/apply/page.tsx
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
 type ApplyPageProps = {
   searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 const PROGRAM_LABELS: Record<string, string> = {
-  "medical-assistant": "Medical Assistant",
-  "barber": "Barber Apprenticeship",
-  "barber-apprenticeship": "Barber Apprenticeship",
-  "hvac": "HVAC Technician",
-  "hvac-technician": "HVAC Technician",
-  "building-maintenance": "Building Maintenance Technician",
-  "building-tech": "Building Maintenance Technician",
-  "workforce-readiness": "Workforce Readiness & Re-Entry",
-  "cdl": "CDL Training",
-  "truck-driving": "CDL Training",
+  'medical-assistant': 'Medical Assistant',
+  barber: 'Barber Apprenticeship',
+  'barber-apprenticeship': 'Barber Apprenticeship',
+  hvac: 'HVAC Technician',
+  'hvac-technician': 'HVAC Technician',
+  'building-maintenance': 'Building Maintenance Technician',
+  'building-tech': 'Building Maintenance Technician',
+  'workforce-readiness': 'Workforce Readiness & Re-Entry',
+  cdl: 'CDL Training',
+  'truck-driving': 'CDL Training',
 };
 
 function getProgramName(raw?: string | string[]) {
-  if (!raw) return "a program with Elevate";
+  if (!raw) return 'a program with Elevate';
   const value = Array.isArray(raw) ? raw[0] : raw;
-  return PROGRAM_LABELS[value] ?? "a program with Elevate";
+  return PROGRAM_LABELS[value] ?? 'a program with Elevate';
 }
 
 function ApplyForm({ programParam }: { programParam?: string | string[] }) {
@@ -34,9 +34,9 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
           Start your application for {programName}
         </h1>
         <p className="mt-2 text-sm text-slate-700">
-          Complete this short form and our team will reach out to confirm funding
-          options, program fit, and next steps. Case managers can also use this
-          form for referrals.
+          Complete this short form and our team will reach out to confirm
+          funding options, program fit, and next steps. Case managers can also
+          use this form for referrals.
         </p>
 
         <form
@@ -50,8 +50,16 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
             name="program"
             value={getProgramName(programParam)}
           />
-          <input type="hidden" name="_subject" value={`New Application: ${getProgramName(programParam)}`} />
-          <input type="hidden" name="_next" value="https://elevateconnectsdirectory.org/enroll/success" />
+          <input
+            type="hidden"
+            name="_subject"
+            value={`New Application: ${getProgramName(programParam)}`}
+          />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://elevateconnectsdirectory.org/enroll/success"
+          />
 
           <div>
             <label className="block text-xs font-semibold text-slate-700">
@@ -145,11 +153,13 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
 
 export default function ApplyPage({ searchParams }: ApplyPageProps) {
   return (
-    <Suspense fallback={
-      <main className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-sm text-slate-600">Loading application…</p>
-      </main>
-    }>
+    <Suspense
+      fallback={
+        <main className="min-h-screen flex items-center justify-center bg-slate-50">
+          <p className="text-sm text-slate-600">Loading application…</p>
+        </main>
+      }
+    >
       <ApplyForm programParam={searchParams?.program} />
     </Suspense>
   );
