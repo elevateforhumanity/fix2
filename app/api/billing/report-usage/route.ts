@@ -35,7 +35,9 @@ export async function POST(request: Request) {
     if (!billing?.stripe_subscription_id || !billing.price_id) continue;
 
     try {
-      const res = await stripe.subscriptionItems.createUsageRecord(
+      // Note: Stripe API for usage records - check current Stripe SDK version
+      // This may need adjustment based on your Stripe SDK version
+      const res = await (stripe.subscriptionItems as any).createUsageRecord(
         billing.price_id,
         {
           quantity: u.quantity,

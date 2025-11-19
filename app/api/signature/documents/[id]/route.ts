@@ -3,8 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const supabase = await createClient();
 
   const { data: doc, error } = await supabase
@@ -13,7 +14,7 @@ export async function GET(
       *,
       signatures(*)
     `)
-    .eq("id", params.id)
+    .eq("id", id)
     .single();
 
   if (error || !doc) {

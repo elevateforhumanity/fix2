@@ -23,7 +23,7 @@ export async function fetchBambooHREmployees() {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error("BambooHR error:", text);
+    logger.error("BambooHR error", new Error(text), { status: res.status });
     throw new Error("Failed to fetch BambooHR employees");
   }
 

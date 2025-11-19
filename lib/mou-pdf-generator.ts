@@ -28,7 +28,7 @@ export async function generateMOUPDF(data: MOUPDFData): Promise<Uint8Array> {
   const addText = (
     text: string,
     size: number,
-    font: any,
+    font: Awaited<ReturnType<typeof PDFDocument.prototype.embedFont>>,
     yPos: number,
     bold = false
   ) => {
@@ -46,7 +46,7 @@ export async function generateMOUPDF(data: MOUPDFData): Promise<Uint8Array> {
   const addWrappedText = (
     text: string,
     size: number,
-    font: any,
+    font: Awaited<ReturnType<typeof PDFDocument.prototype.embedFont>>,
     yPos: number,
     lineHeight = size + 4
   ) => {

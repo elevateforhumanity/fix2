@@ -10,6 +10,8 @@
  * No manual updates required
  */
 
+import { logger } from '@/lib/logger';
+
 interface DataFeed {
   id: string;
   name: string;
@@ -17,14 +19,14 @@ interface DataFeed {
   type: 'api' | 'rss' | 'json' | 'xml';
   updateFrequency: number; // milliseconds
   lastUpdate: Date;
-  parser: (data: any) => any;
+  parser: (data: unknown) => unknown;
 }
 
 interface ContentRule {
   id: string;
   selector: string;
   dataFeed: string;
-  transform: (data: any) => string;
+  transform: (data: unknown) => string;
   autoUpdate: boolean;
 }
 
@@ -175,7 +177,7 @@ export class ContentAutomation {
    */
   private async updateFeed(feed: DataFeed): Promise<void> {
     try {
-      console.log(`Updating feed: ${feed.name}`);
+      logger.info(`Updating feed: ${feed.name}`, { feedId: feed.id, feedName: feed.name, feedUrl: feed.url });
 
       const response = await fetch(feed.url);
       if (!response.ok) {
@@ -208,7 +210,7 @@ export class ContentAutomation {
       // Apply content rules
       await this.applyContentRules(feed.id);
     } catch (error) {
-      console.error(`Error updating feed ${feed.name}:`, error);
+      logger.error(`Error updating feed ${feed.name}`, error as Error, { feedId: feed.id, feedName: feed.name });
     }
   }
 
@@ -234,7 +236,7 @@ export class ContentAutomation {
   /**
    * Format wage data
    */
-  private formatWageData(data: any): string {
+  private formatWageData(data: { wages?: Array<{ occupation: string; medianWage: string }> }): string {
     if (!data || !data.wages) return '';
 
     return `
@@ -243,7 +245,7 @@ export class ContentAutomation {
         <div class="wage-grid">
           ${data.wages
             .map(
-              (w: any) => `
+              (w) => `
             <div class="wage-item">
               <span class="occupation">${w.occupation}</span>
               <span class="wage">${w.medianWage}</span>
@@ -260,7 +262,7 @@ export class ContentAutomation {
   /**
    * Format contract opportunities
    */
-  private formatContractData(data: any): string {
+  private formatContractData(data: { opportunities?: Array<{ title: string; description: string; value: string; deadline: string; url: string }> }): string {
     if (!data || !data.opportunities) return '';
 
     return `
@@ -270,7 +272,7 @@ export class ContentAutomation {
           ${data.opportunities
             .slice(0, 10)
             .map(
-              (c: any) => `
+              (c) => `
             <div class="contract-item">
               <h4>${c.title}</h4>
               <p>${c.description}</p>
@@ -291,7 +293,7 @@ export class ContentAutomation {
   /**
    * Format job postings
    */
-  private formatJobData(data: any): string {
+  private formatJobData(data: { jobs?: Array<{ title: string; company: string; location: string; salary: string; url: string }> }): string {
     if (!data || !data.jobs) return '';
 
     return `
@@ -301,7 +303,7 @@ export class ContentAutomation {
           ${data.jobs
             .slice(0, 20)
             .map(
-              (j: any) => `
+              (j) => `
             <div class="job-item">
               <h4>${j.title}</h4>
               <p class="company">${j.company}</p>
@@ -320,7 +322,7 @@ export class ContentAutomation {
   /**
    * Format program data
    */
-  private formatProgramData(data: any): string {
+  private formatProgramData(data: { programs?: Array<{ name: string; description: string; duration: string; cost: string; credential: string }> }): string {
     if (!data || !data.programs) return '';
 
     return `
@@ -329,7 +331,7 @@ export class ContentAutomation {
         <div class="program-list">
           ${data.programs
             .map(
-              (p: any) => `
+              (p) => `
             <div class="program-item">
               <h4>${p.name}</h4>
               <p>${p.description}</p>
@@ -350,7 +352,7 @@ export class ContentAutomation {
   /**
    * Format partner logos with real images
    */
-  private formatPartnerLogos(data: any): string {
+  private formatPartnerLogos(data: { partners?: Array<{ name: string; logo: string; url: string }> }): string {
     const partners = data?.partners || [
       {
         name: 'CompTIA',
@@ -437,7 +439,7 @@ export class ContentAutomation {
   /**
    * Format grant opportunities
    */
-  private formatGrantData(data: any): string {
+  private formatGrantData(data: { grants?: Array<{ title: string; description: string; amount: string; deadline: string; agency: string; url: string }> }): string {
     if (!data || !data.grants) return '';
 
     return `
@@ -447,7 +449,7 @@ export class ContentAutomation {
           ${data.grants
             .slice(0, 10)
             .map(
-              (g: any) => `
+              (g) => `
             <div class="grant-item">
               <h4>${g.title}</h4>
               <p>${g.description}</p>
@@ -469,7 +471,7 @@ export class ContentAutomation {
   /**
    * Parse XML data
    */
-  private parseXML(xmlString: string): any {
+  private parseXML(xmlString: string): unknown {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
     return xmlDoc;
@@ -478,7 +480,7 @@ export class ContentAutomation {
   /**
    * Parse RSS feed
    */
-  private parseRSS(rssString: string): any {
+  private parseRSS(rssString: string): Array<{ title?: string | null; description?: string | null; link?: string | null; pubDate?: string | null }> {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(rssString, 'text/xml');
     const items = xmlDoc.querySelectorAll('item');
@@ -508,7 +510,7 @@ export class ContentAutomation {
   /**
    * Get cached data
    */
-  getCachedData(feedId: string): any {
+  getCachedData(feedId: string): unknown {
     return this.cache.get(feedId);
   }
 

@@ -3,8 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
     const body = await request.json();
@@ -23,7 +24,7 @@ export async function PATCH(
     const { data: existing, error: existingError } = await supabase
       .from('leave_requests')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (existingError) throw existingError;
@@ -43,7 +44,7 @@ export async function PATCH(
         reviewed_at: new Date().toISOString(),
         rejection_reason: status === 'rejected' ? rejection_reason : null,
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select('*')
       .single();
 

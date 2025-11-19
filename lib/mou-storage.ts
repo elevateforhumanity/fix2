@@ -1,4 +1,5 @@
 import { createBrowserClient } from '@supabase/ssr';
+import { logger } from '@/lib/logger';
 
 /**
  * Get a signed URL for downloading a signed MOU from storage
@@ -18,7 +19,7 @@ export async function getSignedMOUUrl(
     .createSignedUrl(filename, 3600); // 1 hour expiry
 
   if (error) {
-    console.error('Error creating signed URL:', error);
+    logger.error('Error creating signed URL', error as Error, { filename });
     return null;
   }
 
@@ -43,7 +44,7 @@ export async function downloadSignedMOU(
     .download(filename);
 
   if (error) {
-    console.error('Error downloading MOU:', error);
+    logger.error('Error downloading MOU', error as Error, { filename });
     return null;
   }
 
@@ -66,7 +67,7 @@ export async function signedMOUExists(filename: string): Promise<boolean> {
   });
 
   if (error) {
-    console.error('Error checking MOU existence:', error);
+    logger.error('Error checking MOU existence', error as Error, { filename });
     return false;
   }
 

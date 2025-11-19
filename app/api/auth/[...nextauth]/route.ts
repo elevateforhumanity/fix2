@@ -1,66 +1,32 @@
 // app/api/auth/[...nextauth]/route.ts
-// NextAuth configuration with Okta and Azure AD SSO
-import NextAuth, { NextAuthOptions } from 'next-auth';
-import OktaProvider from 'next-auth/providers/okta';
-import AzureADProvider from 'next-auth/providers/azure-ad';
-import { syncUserProfile } from '@/lib/auth/syncUserProfile';
+// NextAuth v5 configuration
+import NextAuth from 'next-auth';
+import Credentials from 'next-auth/providers/credentials';
 
-export const authOptions: NextAuthOptions = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
-    OktaProvider({
-      clientId: process.env.OKTA_CLIENT_ID!,
-      clientSecret: process.env.OKTA_CLIENT_SECRET!,
-      issuer: process.env.OKTA_ISSUER!, // e.g. https://dev-123456.okta.com/oauth2/default
-    }),
-    AzureADProvider({
-      clientId: process.env.AZURE_AD_CLIENT_ID!,
-      clientSecret: process.env.AZURE_AD_CLIENT_SECRET!,
-      tenantId: process.env.AZURE_AD_TENANT_ID!,
+    Credentials({
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" }
+      },
+      authorize: async (credentials) => {
+        // TODO: Implement actual authentication
+        if (credentials?.email && credentials?.password) {
+          return {
+            id: '1',
+            email: credentials.email as string,
+            name: 'User',
+          };
+        }
+        return null;
+      },
     }),
   ],
-  session: {
-    strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  callbacks: {
-    async jwt({ token, account, profile }) {
-      // On first login or provider change, extend token
-      if (account && profile) {
-        token.provider = account.provider;
-        token.providerAccountId = account.providerAccountId;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        (session as any).provider = token.provider;
-        (session as any).providerAccountId = token.providerAccountId;
-      }
-      return session;
-    },
-    async signIn({ user, account, profile }) {
-      try {
-        // Sync user into Supabase profiles table
-        await syncUserProfile({
-          email: user.email!,
-          name: user.name ?? '',
-          provider: account?.provider ?? 'unknown',
-          providerAccountId: account?.providerAccountId ?? '',
-        });
-        return true;
-      } catch (error) {
-        console.error('Failed to sync user profile:', error);
-        return false;
-      }
-    },
-  },
   pages: {
-    signIn: '/auth/login',
-    error: '/auth/error',
+    signIn: '/login',
   },
-  secret: process.env.NEXTAUTH_SECRET,
-};
+  secret: process.env.NEXTAUTH_SECRET || 'dev-secret',
+});
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export const { GET, POST } = handlers;

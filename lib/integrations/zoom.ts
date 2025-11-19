@@ -66,7 +66,7 @@ export async function createZoomMeeting(
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom create meeting error', new Error(text), { topic, startTime });
+    logger.error('Zoom create meeting error', new Error(text), { topic: input.topic, startTime: input.startTime, status: res.status });
     throw new Error('Failed to create Zoom meeting');
   }
 
@@ -90,7 +90,7 @@ export async function deleteZoomMeeting(meetingId: number): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom delete meeting error:', text);
+    logger.error('Zoom delete meeting error', new Error(text), { meetingId, status: res.status });
     throw new Error('Failed to delete Zoom meeting');
   }
 }
@@ -112,7 +112,7 @@ export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResp
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom get meeting error:', text);
+    logger.error('Zoom get meeting error', new Error(text), { meetingId, status: res.status });
     throw new Error('Failed to get Zoom meeting');
   }
 

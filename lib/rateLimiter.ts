@@ -75,7 +75,7 @@ export async function rateLimit(
 
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    req.ip ||
+    (req as any).ip ||
     'unknown';
 
   const key = `rl:${keyPrefix}:${ip}`;
@@ -87,7 +87,7 @@ export async function rateLimit(
       const current = Number((await client.get(key)) || 0);
 
       if (current >= requests) {
-        const ttl = await client.ttl(key);
+        const ttl = Number(await client.ttl(key));
         return NextResponse.json(
           { 
             error: 'Too many requests. Please slow down.',
@@ -166,7 +166,7 @@ export async function cacheGet<T>(key: string): Promise<T | null> {
 
   try {
     const value = await client.get(key);
-    return value ? JSON.parse(value) : null;
+    return value ? JSON.parse(value as string) : null;
   } catch (error) {
     console.error('Cache get error:', error);
     return null;

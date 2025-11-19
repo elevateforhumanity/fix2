@@ -30,7 +30,7 @@ export async function fetchWorkdayEmployees() {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error("Workday fetch error:", text);
+    logger.error("Workday fetch error", new Error(text), { status: res.status });
     throw new Error("Failed to fetch Workday employees");
   }
 

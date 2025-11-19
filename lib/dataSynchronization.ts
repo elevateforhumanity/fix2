@@ -153,7 +153,7 @@ class DataSynchronizationManager {
 
     if (!state.isOnline) {
       console.log(`[Sync] Offline - queuing change for ${table}`);
-      this.queueChange(table, { data, operation });
+      this.queueChange(table, { data, operation, timestamp: Date.now() });
       return false;
     }
 
@@ -206,7 +206,7 @@ class DataSynchronizationManager {
       console.error(
         `[Sync] Max retries reached for ${operation} on ${table}`
       );
-      this.queueChange(table, { data, operation });
+      this.queueChange(table, { data, operation, timestamp: Date.now() });
       return;
     }
 

@@ -3,8 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
     const body = await request.json();
@@ -38,7 +39,7 @@ export async function PATCH(
     const { data, error } = await supabase
       .from('time_entries')
       .update(update)
-      .eq('id', params.id)
+      .eq('id', id)
       .select('*')
       .single();
 
@@ -56,14 +57,15 @@ export async function PATCH(
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
     const { error } = await supabase
       .from('time_entries')
       .delete()
-      .eq('id', params.id);
+      .eq('id', id);
 
     if (error) throw error;
 

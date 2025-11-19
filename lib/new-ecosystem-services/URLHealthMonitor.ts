@@ -10,6 +10,8 @@
  * Detects broken links, dead services, and non-functional endpoints
  */
 
+import { logger } from '@/lib/logger';
+
 interface URLCheck {
   url: string;
   status: 'healthy' | 'degraded' | 'down' | 'unknown';
@@ -188,7 +190,7 @@ export class URLHealthMonitor {
 
       this.healthStatus.set(url, check);
       return check;
-    } catch (error: any) {
+    } catch (error) {
       const check: URLCheck = {
         url,
         status: 'down',
@@ -242,7 +244,7 @@ export class URLHealthMonitor {
 
       this.healthStatus.set(endpointId, check);
       return check;
-    } catch (error: any) {
+    } catch (error) {
       const check: URLCheck = {
         url: endpoint.url,
         status: 'down',
@@ -273,7 +275,7 @@ export class URLHealthMonitor {
         const check = await this.checkEndpoint(id);
         checks.set(id, check);
       } catch (error) {
-        console.error(`Error checking endpoint ${id}:`, error);
+        logger.error(`Error checking endpoint ${id}`, error as Error, { endpointId: id });
       }
     }
 
@@ -313,8 +315,9 @@ export class URLHealthMonitor {
       return primaryURL;
     }
 
-    console.warn(
-      `Primary endpoint ${primaryId} is down, using fallback ${fallbackId}`
+    logger.warn(
+      `Primary endpoint ${primaryId} is down, using fallback ${fallbackId}`,
+      { primaryId, fallbackId }
     );
     return await this.getSafeURL(fallbackId);
   }
@@ -326,10 +329,12 @@ export class URLHealthMonitor {
     endpoint: ServiceEndpoint,
     check: URLCheck
   ): void {
-    console.error(`🚨 CRITICAL SERVICE DOWN: ${endpoint.name}`);
-    console.error(`URL: ${endpoint.url}`);
-    console.error(`Status: ${check.statusCode || 'No response'}`);
-    console.error(`Error: ${check.errorMessage || 'Unknown error'}`);
+    logger.error(`🚨 CRITICAL SERVICE DOWN: ${endpoint.name}`, new Error(check.errorMessage || 'Unknown error'), {
+      endpointName: endpoint.name,
+      url: endpoint.url,
+      statusCode: check.statusCode || 'No response',
+      errorMessage: check.errorMessage || 'Unknown error'
+    });
 
     // In production, send alerts via email, Slack, PagerDuty, etc.
     this.sendAlert({
@@ -344,17 +349,17 @@ export class URLHealthMonitor {
   /**
    * Send alert (implement with your alerting system)
    */
-  private async sendAlert(alert: any): Promise<void> {
+  private async sendAlert(alert: { type: string; severity: string; endpoint: string; message: string; timestamp: Date; error?: string }): Promise<void> {
     // Implement alerting logic here
     // Examples: Email, Slack, PagerDuty, Discord, etc.
-    console.log('ALERT:', alert);
+    logger.info('ALERT', alert);
   }
 
   /**
    * Start monitoring all endpoints
    */
   startMonitoring(): void {
-    console.log('🔍 Starting URL health monitoring...');
+    logger.info('🔍 Starting URL health monitoring');
 
     for (const [id, endpoint] of this.endpoints) {
       // Initial check

@@ -10,10 +10,10 @@ const supabase = createClient(
 
 export async function GET(
   request: Request,
-  { params }: { params: { attemptId: string } }
+  { params }: { params: Promise<{ attemptId: string }> }
 ) {
+  const { attemptId } = await params;
   const session = await requireAuth();
-  const { attemptId } = params;
 
   const { data: attempt } = await supabase
     .from('scorm_attempts')
@@ -41,10 +41,10 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  { params }: { params: { attemptId: string } }
+  { params }: { params: Promise<{ attemptId: string }> }
 ) {
+  const { attemptId } = await params;
   const session = await requireAuth();
-  const { attemptId } = params;
   const { data } = await request.json();
 
   const { data: attempt } = await supabase

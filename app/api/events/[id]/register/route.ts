@@ -3,9 +3,10 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = await createClient();
     const body = await req.json();
     const { full_name, email, phone, answers } = body;
@@ -21,7 +22,7 @@ export async function POST(
     const { data: event, error: eErr } = await supabase
       .from('events')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
     if (eErr || !event) throw eErr || new Error('Event not found');
 
@@ -37,7 +38,7 @@ export async function POST(
     const { count } = await supabase
       .from('event_registrations')
       .select('*', { count: 'exact', head: true })
-      .eq('event_id', params.id)
+      .eq('event_id', id)
       .neq('status', 'cancelled');
 
     let status: string = 'registered';
@@ -59,7 +60,7 @@ export async function POST(
     const { data, error } = await supabase
       .from('event_registrations')
       .insert({
-        event_id: params.id,
+        event_id: id,
         profile_id: user?.id ?? null,
         full_name,
         email,

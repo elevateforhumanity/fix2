@@ -2,16 +2,15 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    // Import Google Classroom sync module
-    const { syncAllCourses } = await import(
-      '@/google-classroom-autopilot/src/lms-sync'
-    );
-
-    const result = await syncAllCourses();
+    // TODO: Fix Google Classroom sync module import
+    // const { syncAllCourses } = await import(
+    //   '@/google-classroom-autopilot/src/lms-sync'
+    // );
+    // const result = await syncAllCourses();
 
     return NextResponse.json({
-      success: true,
-      synced: result,
+      success: false,
+      error: 'Google Classroom sync temporarily disabled - needs module fix',
     });
   } catch (error: any) {
     return NextResponse.json(

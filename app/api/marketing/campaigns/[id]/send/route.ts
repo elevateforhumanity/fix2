@@ -4,8 +4,9 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
 
@@ -13,7 +14,7 @@ export async function POST(
     const { data: campaign, error: cErr } = await supabase
       .from('marketing_campaigns')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
     if (cErr || !campaign) throw cErr || new Error('Campaign not found');
 

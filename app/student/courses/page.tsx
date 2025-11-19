@@ -45,16 +45,19 @@ export default async function StudentCoursesPage() {
     .order('enrolled_at', { ascending: false });
 
   const courses =
-    enrollments?.map((enrollment) => ({
-      id: enrollment.courses?.id || 0,
-      title: enrollment.courses?.title || 'Unknown Course',
-      subtitle: enrollment.courses?.subtitle || '',
-      progress: enrollment.progress_percentage || 0,
-      status: enrollment.status,
-      duration_hours: enrollment.courses?.duration_hours || 0,
-      level: enrollment.courses?.level || 'All Levels',
-      enrollmentId: enrollment.id,
-    })) || [];
+    enrollments?.map((enrollment) => {
+      const course = enrollment.courses as any;
+      return {
+        id: course?.id || 0,
+        title: course?.title || 'Unknown Course',
+        subtitle: course?.subtitle || '',
+        progress: enrollment.progress_percentage || 0,
+        status: enrollment.status,
+        duration_hours: course?.duration_hours || 0,
+        level: course?.level || 'All Levels',
+        enrollmentId: enrollment.id,
+      };
+    }) || [];
 
   const getStatusBadge = (status: string) => {
     switch (status) {

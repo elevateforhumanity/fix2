@@ -1,5 +1,6 @@
 // lib/gamification/points.ts
 import { createClient } from "@/lib/supabase/server";
+import { logger } from "@/lib/logger";
 
 export async function addPoints(
   userId: string,
@@ -64,16 +65,18 @@ export async function awardBadge(userId: string, badgeKey: string) {
     .single();
 
   if (!badge) {
-    console.warn(`Badge ${badgeKey} not found`);
+    logger.warn(`Badge ${badgeKey} not found`, { badgeKey, userId });
     return;
   }
 
+  // Use upsert to avoid duplicate badge awards
   await supabase
     .from("user_badges")
-    .insert({
+    .upsert({
       user_id: userId,
       badge_id: badge.id,
-    })
-    .onConflict("user_id,badge_id")
-    .ignore();
+    }, {
+      onConflict: 'user_id,badge_id',
+      ignoreDuplicates: true
+    });
 }

@@ -33,7 +33,7 @@ export async function sendTransactionalEmail(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('SendGrid error:', text);
+    logger.error('SendGrid error', new Error(text), { to: params.to, subject: params.subject, status: res.status });
     throw new Error('Failed to send email');
   }
 

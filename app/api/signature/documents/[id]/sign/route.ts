@@ -3,8 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const supabase = await createClient();
   const { signerName, signerEmail, role } = await request.json();
 
@@ -19,7 +20,7 @@ export async function POST(
   const { data: doc } = await supabase
     .from("signature_documents")
     .select("id, title, type")
-    .eq("id", params.id)
+    .eq("id", id)
     .single();
 
   if (!doc) {

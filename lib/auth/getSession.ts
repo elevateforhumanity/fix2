@@ -1,10 +1,9 @@
 // lib/auth/getSession.ts
 // Helper to require authentication in server components
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { auth } from '@/app/api/auth/[...nextauth]/route';
 
 export async function requireAuth() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   if (!session) {
     throw new Error('UNAUTHENTICATED');
   }
@@ -12,5 +11,5 @@ export async function requireAuth() {
 }
 
 export async function getSession() {
-  return getServerSession(authOptions);
+  return auth();
 }

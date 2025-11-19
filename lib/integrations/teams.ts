@@ -34,6 +34,6 @@ export async function sendTeamsCard(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Teams webhook error:', text);
+    logger.error('Teams webhook error', new Error(text), { title: params.title, status: res.status });
   }
 }

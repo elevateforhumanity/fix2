@@ -73,7 +73,7 @@ export async function getMOUStatus(programHolderId: string) {
  * Server-side check for MOU status (for API routes)
  */
 export async function checkMOUStatusServer(
-  supabase: any,
+  supabase: { from: (table: string) => any },
   programHolderId: string
 ) {
   const { data, error } = await supabase

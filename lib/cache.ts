@@ -29,7 +29,7 @@ export async function cacheGet<T = any>(key: string): Promise<T | null> {
   try {
     const value = await c.get(key);
     if (!value) return null;
-    return JSON.parse(value) as T;
+    return JSON.parse(value as string) as T;
   } catch (error) {
     console.error('Cache get error:', error);
     return null;
@@ -73,13 +73,13 @@ export async function cacheInvalidatePattern(pattern: string): Promise<void> {
     const keysToDelete: string[] = [];
     
     do {
-      const result = await c.scan(cursor, {
+      const result = await c.scan(cursor as any, {
         MATCH: pattern,
         COUNT: 100
       });
       
-      cursor = result.cursor;
-      keysToDelete.push(...result.keys);
+      cursor = Number(result.cursor);
+      keysToDelete.push(...(result.keys as string[]));
     } while (cursor !== 0);
     
     if (keysToDelete.length > 0) {

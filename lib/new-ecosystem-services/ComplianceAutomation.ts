@@ -10,6 +10,8 @@
  * Updates automatically without manual intervention
  */
 
+import { logger } from '@/lib/logger';
+
 interface ComplianceRule {
   id: string;
   name: string;
@@ -185,7 +187,7 @@ export class ComplianceAutomation {
 
         results.push(rule);
       } catch (error) {
-        console.error(`Error checking rule ${rule.id}:`, error);
+        logger.error(`Error checking rule ${rule.id}`, error as Error, { ruleId: rule.id, ruleName: rule.name });
         rule.status = 'warning';
         results.push(rule);
       }
@@ -219,7 +221,7 @@ export class ComplianceAutomation {
    * Automatically fix compliance issues
    */
   private async autoFixRule(rule: ComplianceRule): Promise<void> {
-    console.log(`Auto-fixing rule: ${rule.name}`);
+    logger.info(`Auto-fixing rule: ${rule.name}`, { ruleId: rule.id, ruleName: rule.name });
 
     switch (rule.id) {
       case 'wcag-aa':
@@ -311,7 +313,7 @@ export class ComplianceAutomation {
   private async updatePrivacyPolicies(): Promise<void> {
     // Fetch latest privacy policy templates
     // Update privacy policy page
-    console.log('Updating privacy policies...');
+    logger.info('Updating privacy policies');
   }
 
   /**
@@ -372,7 +374,7 @@ export class ComplianceAutomation {
       try {
         await this.fetchFromSource(source);
       } catch (error) {
-        console.error(`Error fetching from ${source.name}:`, error);
+        logger.error(`Error fetching from ${source.name}`, error as Error, { sourceName: source.name, sourceUrl: source.url });
       }
     }
   }
@@ -381,7 +383,7 @@ export class ComplianceAutomation {
    * Fetch from individual data source
    */
   private async fetchFromSource(source: ComplianceDataSource): Promise<void> {
-    console.log(`Fetching updates from ${source.name}...`);
+    logger.info(`Fetching updates from ${source.name}`, { sourceName: source.name, sourceUrl: source.url });
 
     // In production, implement actual API calls
     // For now, simulate

@@ -61,7 +61,7 @@ export async function selectQuestionsForExamAttempt(
     ...pickRandom(easy, easyCount),
     ...pickRandom(medium, mediumCount),
     ...pickRandom(hard, hardCount),
-  ].slice(0, target);
+  ].slice(0, target) as Question[];
 
   return selected;
 }
