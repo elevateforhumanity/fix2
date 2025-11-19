@@ -15,36 +15,27 @@ export default async function AdminCoursesPage() {
   
   let courses = [];
   let error = null;
+  let needsMigration = false;
 
   try {
     const supabase = await createServerSupabaseClient();
     
-    // Fetch programs from database (using programs table as courses)
-    const result = await supabase
-      .from('programs')
+    // Try to fetch from courses table first
+    const coursesResult = await supabase
+      .from('courses')
       .select('*')
-      .eq('published', true)
       .order('created_at', { ascending: false });
     
-    if (result.data) {
-      // Map programs to course format
-      courses = result.data.map((prog: any) => ({
-        id: prog.id,
-        slug: prog.slug,
-        title: prog.title,
-        subtitle: prog.category || '',
-        description: prog.description || '',
-        level: 'beginner',
-        duration_hours: 0,
-        status: prog.published ? 'published' : 'draft',
-        is_free: true,
-        created_at: prog.created_at
-      }));
+    if (coursesResult.error) {
+      // Courses table doesn't exist - need migration
+      needsMigration = true;
+      error = coursesResult.error;
+    } else if (coursesResult.data) {
+      courses = coursesResult.data;
     }
-    
-    error = result.error;
   } catch (e) {
-    console.error('Error fetching programs:', e);
+    console.error('Error fetching courses:', e);
+    needsMigration = true;
   }
 
   // Get enrollment counts (skip for now)
@@ -101,6 +92,37 @@ export default async function AdminCoursesPage() {
       </section>
 
       <main className="elevate-container py-8">
+        {/* Migration Needed Banner */}
+        {needsMigration && (
+          <div className="mb-6 p-6 bg-red-50 border-2 border-red-200 rounded-lg">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-red-900 mb-2">⚠️ Courses Table Not Created</h3>
+                <p className="text-sm text-red-800 mb-3">
+                  The courses table doesn't exist in your database yet. You need to run the migration SQL to create it.
+                </p>
+                <div className="bg-white p-4 rounded border border-red-300 mb-3">
+                  <p className="text-sm font-semibold text-gray-900 mb-2">Quick Fix (2 minutes):</p>
+                  <ol className="text-sm text-gray-800 space-y-1 list-decimal list-inside">
+                    <li>Open: <a href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new" target="_blank" className="text-blue-600 underline">Supabase SQL Editor</a></li>
+                    <li>Copy SQL from: <a href="https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql" target="_blank" className="text-blue-600 underline">FINAL_MIGRATION.sql</a></li>
+                    <li>Paste and click "Run"</li>
+                    <li>Refresh this page</li>
+                  </ol>
+                </div>
+                <p className="text-xs text-red-700">
+                  This will create the courses table and insert 17 courses. Takes 10 seconds.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Actions */}
         <div className="flex justify-between items-center mb-6">
           <div>
