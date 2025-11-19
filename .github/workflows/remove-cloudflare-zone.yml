@@ -176,14 +176,5 @@ jobs:
           git config user.name "Elevate Autopilot"
           git config user.email "noreply@elevateforhumanity.org"
           git add CLOUDFLARE_REMOVAL_REPORT.md
-          git commit -m "Add Cloudflare zone removal report
-
-Zone elevateforhumanity.org successfully removed from Cloudflare.
-
-Next steps:
-- Update nameservers at domain registrar
-- Configure domain in Durablesites.co
-- Wait for DNS propagation
-
-Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes to commit"
+          git commit -m "Add Cloudflare zone removal report" -m "Zone elevateforhumanity.org successfully removed from Cloudflare." -m "Next steps: Update nameservers at domain registrar, Configure domain in Durablesites.co, Wait for DNS propagation" -m "Co-authored-by: Ona <no-reply@ona.com>" || echo "No changes to commit"
           git push || echo "Nothing to push"
