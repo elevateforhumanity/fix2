@@ -1,67 +1,67 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Barber Apprenticeship Program | Elevate Connects Directory",
+  title: 'Barber Apprenticeship Program | Elevate Connects Directory',
   description:
-    "State-approved Barber Apprenticeship with shop-based training, paid experience, and a clear path to licensure for Indiana learners, re-entry participants, and workforce clients.",
+    'State-approved Barber Apprenticeship with shop-based training, paid experience, and a clear path to licensure for Indiana learners, re-entry participants, and workforce clients.',
 };
 
 const HIGHLIGHTS = [
-  "State-approved barber apprenticeship with real barbershop experience",
-  "Earn while you learn with paid on-the-job training (where available)",
-  "Licensure-focused training aligned with Indiana barber board requirements",
-  "Coaching on business, booking, client retention, and shop etiquette",
-  "Supportive environment for learners, career-changers, and re-entry participants",
+  'State-approved barber apprenticeship with real barbershop experience',
+  'Earn while you learn with paid on-the-job training (where available)',
+  'Licensure-focused training aligned with Indiana barber board requirements',
+  'Coaching on business, booking, client retention, and shop etiquette',
+  'Supportive environment for learners, career-changers, and re-entry participants',
 ];
 
 const WHO_IT_SERVES = [
-  "Young adults ready to build a long-term skilled trade career",
-  "Career changers who want a hands-on, creative profession",
-  "Re-entry / justice-involved individuals rebuilding work history",
-  "Workforce clients referred by WRG, WIOA, SNAP E&T, and other partners",
+  'Young adults ready to build a long-term skilled trade career',
+  'Career changers who want a hands-on, creative profession',
+  'Re-entry / justice-involved individuals rebuilding work history',
+  'Workforce clients referred by WRG, WIOA, SNAP E&T, and other partners',
 ];
 
 const CURRICULUM = [
-  "Foundations: sanitation, safety, professional conduct, and shop readiness",
-  "Clipper work: fades, tapers, line-ups, and texturizing techniques",
-  "Shaving & grooming: razor work, beard design, and facial treatments",
-  "Client care: consultations, communication, and service recovery",
-  "Shop systems: booking, POS, retail products, and simple bookkeeping",
-  "Licensure prep: state exam readiness, documentation, and next steps",
+  'Foundations: sanitation, safety, professional conduct, and shop readiness',
+  'Clipper work: fades, tapers, line-ups, and texturizing techniques',
+  'Shaving & grooming: razor work, beard design, and facial treatments',
+  'Client care: consultations, communication, and service recovery',
+  'Shop systems: booking, POS, retail products, and simple bookkeeping',
+  'Licensure prep: state exam readiness, documentation, and next steps',
 ];
 
 const FUNDING = [
-  "Workforce Ready Grant (WRG) – where eligible and approved",
-  "WIOA / workforce board sponsorship – where available",
-  "Registered Apprenticeship and On-the-Job Training structures",
-  "Employer-sponsored apprenticeship slots in partner barbershops",
-  "Self-pay and payment plan options if public funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible and approved',
+  'WIOA / workforce board sponsorship – where available',
+  'Registered Apprenticeship and On-the-Job Training structures',
+  'Employer-sponsored apprenticeship slots in partner barbershops',
+  'Self-pay and payment plan options if public funding is not available',
 ];
 
 const OUTCOMES = [
-  "Documented barber apprenticeship hours in approved barbershops",
-  "Licensure exam readiness and support navigating state paperwork",
-  "Real client experience, not just mannequin practice",
-  "Job placement support with partner barbershops and salons",
-  "Foundations for chair rental, booth ownership, or shop ownership",
+  'Documented barber apprenticeship hours in approved barbershops',
+  'Licensure exam readiness and support navigating state paperwork',
+  'Real client experience, not just mannequin practice',
+  'Job placement support with partner barbershops and salons',
+  'Foundations for chair rental, booth ownership, or shop ownership',
 ];
 
 const FAQ = [
   {
-    q: "How long does the Barber Apprenticeship Program take?",
-    a: "Most learners complete their hours over 12–18 months, depending on schedule, shop availability, and state hour requirements. During orientation we build a realistic timeline with you.",
+    q: 'How long does the Barber Apprenticeship Program take?',
+    a: 'Most learners complete their hours over 12–18 months, depending on schedule, shop availability, and state hour requirements. During orientation we build a realistic timeline with you.',
   },
   {
-    q: "Do I need experience to start?",
-    a: "No. We work with beginners, career changers, and re-entry participants. You bring commitment and reliability; we help with skills, structure, and a pathway to licensure.",
+    q: 'Do I need experience to start?',
+    a: 'No. We work with beginners, career changers, and re-entry participants. You bring commitment and reliability; we help with skills, structure, and a pathway to licensure.',
   },
   {
-    q: "Can this be funded through WRG, WIOA, or other workforce programs?",
-    a: "In many cases, yes. We work with workforce boards, case managers, and community organizations to braid funding and reduce out-of-pocket costs where possible.",
+    q: 'Can this be funded through WRG, WIOA, or other workforce programs?',
+    a: 'In many cases, yes. We work with workforce boards, case managers, and community organizations to braid funding and reduce out-of-pocket costs where possible.',
   },
   {
-    q: "What if I already work in a barbershop?",
-    a: "Great. We can often work with your existing shop as an apprenticeship site if they meet requirements, or we can connect you to approved partner locations.",
+    q: 'What if I already work in a barbershop?',
+    a: 'Great. We can often work with your existing shop as an apprenticeship site if they meet requirements, or we can connect you to approved partner locations.',
   },
 ];
 
@@ -103,8 +103,8 @@ export default function BarberApprenticeshipPage() {
 
             <p className="mt-4 text-[11px] text-slate-500">
               Ideal for learners, re-entry participants, and case managers
-              looking for a clear, compliant pathway from "interested in barbering"
-              to "licensed, employed, and earning."
+              looking for a clear, compliant pathway from "interested in
+              barbering" to "licensed, employed, and earning."
             </p>
           </div>
 
@@ -144,9 +144,9 @@ export default function BarberApprenticeshipPage() {
               </div>
             </dl>
             <p className="mt-4 text-[11px] text-slate-300">
-              During intake, we review your goals, schedule, and funding
-              options so you understand what it will take to reach licensure
-              and employment.
+              During intake, we review your goals, schedule, and funding options
+              so you understand what it will take to reach licensure and
+              employment.
             </p>
           </div>
         </div>
@@ -180,8 +180,8 @@ export default function BarberApprenticeshipPage() {
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               This program is built for real life. We understand gaps in work
-              history, childcare, re-entry, and transportation challenges.
-              You don't have to be perfect — just serious about your next step.
+              history, childcare, re-entry, and transportation challenges. You
+              don't have to be perfect — just serious about your next step.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               {WHO_IT_SERVES.map((item) => (
@@ -223,10 +223,10 @@ export default function BarberApprenticeshipPage() {
                 Shop-based learning, not just theory
               </h3>
               <p className="mt-2 text-xs text-slate-200">
-                You&apos;ll split time between shop work and guided
-                instruction. That means learning how to fade, shave, and style
-                — and how to show up on time, communicate with clients, and
-                work as part of a professional team.
+                You&apos;ll split time between shop work and guided instruction.
+                That means learning how to fade, shave, and style — and how to
+                show up on time, communicate with clients, and work as part of a
+                professional team.
               </p>
               <p className="mt-3 text-xs text-slate-200">
                 Expect to practice on mannequins at first, then transition to
@@ -260,9 +260,9 @@ export default function BarberApprenticeshipPage() {
               ))}
             </ul>
             <p className="mt-4 text-xs text-slate-500">
-              Final funding decisions depend on eligibility, county, and
-              partner approvals. During intake, we will review options and help
-              you and your case manager understand what&apos;s possible.
+              Final funding decisions depend on eligibility, county, and partner
+              approvals. During intake, we will review options and help you and
+              your case manager understand what&apos;s possible.
             </p>
           </div>
 
@@ -274,7 +274,9 @@ export default function BarberApprenticeshipPage() {
               We provide documentation to support workforce compliance:
             </p>
             <ul className="mt-3 space-y-1.5 text-xs text-slate-700">
-              <li>• Enrollment verification and individualized training plans</li>
+              <li>
+                • Enrollment verification and individualized training plans
+              </li>
               <li>• Attendance, participation, and progress reports</li>
               <li>• Skill milestones and competency checklists</li>
               <li>• Credential / licensure attempt and completion updates</li>
@@ -385,8 +387,8 @@ export default function BarberApprenticeshipPage() {
           </div>
           <p className="mt-4 text-[11px] text-slate-400">
             Case managers, shop owners, and agencies can also contact us
-            directly to discuss cohorts, sponsorships, and referral pathways
-            for your clients.
+            directly to discuss cohorts, sponsorships, and referral pathways for
+            your clients.
           </p>
         </div>
       </section>
