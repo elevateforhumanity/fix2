@@ -8,46 +8,42 @@
    ============================================ */
 
 :root {
-  /* Brand colors - Red, White, Orange, Blue */
-  --brand-red: #dc2626; /* bright red */
-  --brand-red-dark: #b91c1c;
-  --brand-red-light: #ef4444;
-  --brand-red-soft: rgba(220, 38, 38, 0.08);
+  /* Professional Brand Colors - Blue (Primary) + Orange (Accent) */
+  --brand-blue: #3b82f6; /* professional blue - PRIMARY */
+  --brand-blue-dark: #2563eb;
+  --brand-blue-darker: #1d4ed8;
+  --brand-blue-light: #60a5fa;
+  --brand-blue-soft: rgba(59, 130, 246, 0.1);
 
-  --brand-orange: #f97316; /* vibrant orange */
+  --brand-orange: #f97316; /* warm orange - ACCENT */
   --brand-orange-dark: #ea580c;
   --brand-orange-light: #fb923c;
-  --brand-orange-soft: rgba(249, 115, 22, 0.08);
+  --brand-orange-soft: rgba(249, 115, 22, 0.1);
 
-  --brand-blue: #2563eb; /* professional blue */
-  --brand-blue-dark: #1e40af;
-  --brand-blue-light: #3b82f6;
-  --brand-blue-soft: rgba(37, 99, 235, 0.08);
+  --brand-white: #ffffff;
 
-  --brand-white: #ffffff; /* pure white */
+  /* Primary = Blue (Trust, Education) */
+  --brand-primary: #3b82f6;
+  --brand-primary-dark: #2563eb;
+  --brand-primary-light: #60a5fa;
+  --brand-primary-soft: rgba(59, 130, 246, 0.1);
 
-  /* Primary = Red */
-  --brand-primary: #dc2626;
-  --brand-primary-dark: #b91c1c;
-  --brand-primary-light: #ef4444;
-  --brand-primary-soft: rgba(220, 38, 38, 0.08);
-
-  /* Secondary = Orange */
+  /* Secondary = Orange (Energy, Action) */
   --brand-secondary: #f97316;
   --brand-secondary-dark: #ea580c;
   --brand-secondary-light: #fb923c;
 
   /* Accent = Blue */
-  --brand-accent: #2563eb;
-  --brand-accent-dark: #1e40af;
-  --brand-accent-light: #3b82f6;
+  --brand-accent: #3b82f6;
+  --brand-accent-dark: #2563eb;
+  --brand-accent-light: #60a5fa;
 
-  /* Backgrounds - Light Theme */
-  --brand-bg: #ffffff; /* pure white */
-  --brand-bg-soft: #f9fafb; /* off-white */
-  --brand-bg-gray: #f3f4f6; /* light gray */
-  --brand-surface: #ffffff; /* card surface */
-  --brand-surface-hover: #f9fafb;
+  /* Backgrounds - Clean, Modern */
+  --brand-bg: #ffffff;
+  --brand-bg-soft: #f8fafc; /* slate-50 */
+  --brand-bg-gray: #f1f5f9; /* slate-100 */
+  --brand-surface: #ffffff;
+  --brand-surface-hover: #f8fafc;
 
   /* Borders */
   --brand-border: #e5e7eb;
