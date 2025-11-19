@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function GET() {
   try {
@@ -12,24 +12,21 @@ export async function GET() {
     // }
 
     const { data, error } = await supabase
-      .from("program_holder_acknowledgements")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .from('program_holder_acknowledgements')
+      .select('*')
+      .order('created_at', { ascending: false });
 
     if (error) {
-      console.error("Supabase query error:", error);
+      console.error('Supabase query error:', error);
       return NextResponse.json(
-        { error: "Failed to fetch acknowledgements" },
+        { error: 'Failed to fetch acknowledgements' },
         { status: 500 }
       );
     }
 
     return NextResponse.json({ acknowledgements: data || [] });
   } catch (err: any) {
-    console.error("API error:", err);
-    return NextResponse.json(
-      { error: "Unexpected error" },
-      { status: 500 }
-    );
+    console.error('API error:', err);
+    return NextResponse.json({ error: 'Unexpected error' }, { status: 500 });
   }
 }

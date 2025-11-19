@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface Acknowledgement {
   id: string;
@@ -15,10 +15,12 @@ interface Acknowledgement {
 }
 
 export default function ProgramHolderAcknowledgementsPage() {
-  const [acknowledgements, setAcknowledgements] = useState<Acknowledgement[]>([]);
+  const [acknowledgements, setAcknowledgements] = useState<Acknowledgement[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchAcknowledgements();
@@ -27,17 +29,17 @@ export default function ProgramHolderAcknowledgementsPage() {
   async function fetchAcknowledgements() {
     try {
       setLoading(true);
-      const res = await fetch("/api/admin/program-holder-acknowledgements");
-      
+      const res = await fetch('/api/admin/program-holder-acknowledgements');
+
       if (!res.ok) {
-        throw new Error("Failed to fetch acknowledgements");
+        throw new Error('Failed to fetch acknowledgements');
       }
 
       const data = await res.json();
       setAcknowledgements(data.acknowledgements || []);
     } catch (err: any) {
       console.error(err);
-      setError(err.message || "Failed to load acknowledgements");
+      setError(err.message || 'Failed to load acknowledgements');
     } finally {
       setLoading(false);
     }
@@ -53,12 +55,12 @@ export default function ProgramHolderAcknowledgementsPage() {
   });
 
   function formatDate(dateString: string) {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
     });
   }
 
@@ -73,7 +75,8 @@ export default function ProgramHolderAcknowledgementsPage() {
                 Program Holder Acknowledgements
               </h1>
               <p className="mt-1 text-sm text-slate-600">
-                View all site partner acknowledgements submitted through the portal
+                View all site partner acknowledgements submitted through the
+                portal
               </p>
             </div>
             <Link
@@ -115,7 +118,9 @@ export default function ProgramHolderAcknowledgementsPage() {
         {loading && (
           <div className="rounded-lg border border-slate-200 bg-white p-12 text-center">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-blue-600"></div>
-            <p className="mt-4 text-sm text-slate-600">Loading acknowledgements...</p>
+            <p className="mt-4 text-sm text-slate-600">
+              Loading acknowledgements...
+            </p>
           </div>
         )}
 
@@ -192,9 +197,13 @@ export default function ProgramHolderAcknowledgementsPage() {
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
-                        <div className="text-sm text-slate-900">{ack.contact_name}</div>
+                        <div className="text-sm text-slate-900">
+                          {ack.contact_name}
+                        </div>
                         {ack.title && (
-                          <div className="text-xs text-slate-500">{ack.title}</div>
+                          <div className="text-xs text-slate-500">
+                            {ack.title}
+                          </div>
                         )}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
@@ -207,7 +216,7 @@ export default function ProgramHolderAcknowledgementsPage() {
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
                         <div className="text-sm text-slate-900">
-                          {ack.phone || "—"}
+                          {ack.phone || '—'}
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
@@ -224,13 +233,16 @@ export default function ProgramHolderAcknowledgementsPage() {
         )}
 
         {/* No Results */}
-        {!loading && !error && searchTerm && filteredAcknowledgements.length === 0 && (
-          <div className="rounded-lg border border-slate-200 bg-white p-8 text-center">
-            <p className="text-sm text-slate-600">
-              No acknowledgements match your search for "{searchTerm}"
-            </p>
-          </div>
-        )}
+        {!loading &&
+          !error &&
+          searchTerm &&
+          filteredAcknowledgements.length === 0 && (
+            <div className="rounded-lg border border-slate-200 bg-white p-8 text-center">
+              <p className="text-sm text-slate-600">
+                No acknowledgements match your search for "{searchTerm}"
+              </p>
+            </div>
+          )}
       </div>
     </main>
   );
