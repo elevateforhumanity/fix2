@@ -7,6 +7,7 @@ This guide provides the exact layout structure for creating a professional, bran
 ## 📐 PAGE SETUP
 
 **Specifications:**
+
 - **Size:** US Letter (8.5" × 11")
 - **Margins:** 0.75" all sides
 - **Orientation:** Portrait
@@ -31,6 +32,7 @@ This guide provides the exact layout structure for creating a professional, bran
 ```
 
 **Styling:**
+
 - Logo: Centered, 1" height, full color
 - Title: 18pt bold, orange (#F97316), centered
 - Subtitle: 12pt regular, slate (#334155), centered
@@ -41,33 +43,42 @@ This guide provides the exact layout structure for creating a professional, bran
 ## 📄 BODY SECTIONS
 
 ### Section Headers
+
 ```
 1. PURPOSE
 ```
+
 **Styling:**
+
 - Font: 12pt bold, slate (#334155)
 - Spacing: 18pt before, 6pt after
 - Numbering: Sequential (1, 2, 3...)
 - Optional: Light orange underline (1pt, #F97316)
 
 ### Body Text
+
 ```
 This Universal MOU outlines expectations for hosting Elevate learners,
 apprentices, and trainees across any program or training pathway...
 ```
+
 **Styling:**
+
 - Font: 10pt regular, dark slate (#1E293B)
 - Line height: 1.5
 - Paragraph spacing: 6pt after
 - Alignment: Left (not justified)
 
 ### Bullet Lists
+
 ```
 • Training, shadowing, and work experience
 • Externships, internships, and apprenticeship hours
 • Administrative tasks and support activities
 ```
+
 **Styling:**
+
 - Bullet: Orange circle (•) or orange checkmark (✓)
 - Font: 10pt regular
 - Indent: 0.25" from left
@@ -78,6 +89,7 @@ apprentices, and trainees across any program or training pathway...
 ## 📋 SECTION LAYOUT
 
 ### Section 1: Purpose
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ 1. PURPOSE                                               │
@@ -90,6 +102,7 @@ apprentices, and trainees across any program or training pathway...
 ```
 
 ### Section 2: Scope of Collaboration
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ 2. SCOPE OF COLLABORATION                                │
@@ -105,6 +118,7 @@ apprentices, and trainees across any program or training pathway...
 ```
 
 ### Section 3: Responsibilities (Two-Column Layout)
+
 ```
 ┌──────────────────────────┬──────────────────────────────┐
 │ ELEVATE FOR HUMANITY     │ PARTNER / SITE               │
@@ -117,6 +131,7 @@ apprentices, and trainees across any program or training pathway...
 ```
 
 ### Section 5: Safety & Boundaries (Highlighted Box)
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ 5. SAFETY & PROFESSIONAL BOUNDARIES                      │
@@ -162,6 +177,7 @@ apprentices, and trainees across any program or training pathway...
 ```
 
 **Styling:**
+
 - Two-column layout
 - Light gray borders around each column
 - Signature lines: 2.5" wide, 1pt black line
@@ -173,12 +189,14 @@ apprentices, and trainees across any program or training pathway...
 ## 🎨 COLOR PALETTE
 
 ### Primary Colors
+
 - **Orange:** #F97316 (headers, bullets, accents)
 - **Slate:** #334155 (body text, section headers)
 - **Dark Slate:** #1E293B (main body text)
 - **Light Gray:** #F8FAFC (background boxes)
 
 ### Usage Guidelines
+
 - **Headers:** Orange or Slate
 - **Body text:** Dark Slate
 - **Bullets:** Orange
@@ -190,6 +208,7 @@ apprentices, and trainees across any program or training pathway...
 ## 📏 SPACING GUIDE
 
 ### Vertical Spacing
+
 - **Between sections:** 18pt
 - **After section headers:** 6pt
 - **Between paragraphs:** 6pt
@@ -197,6 +216,7 @@ apprentices, and trainees across any program or training pathway...
 - **Before signature section:** 24pt
 
 ### Horizontal Spacing
+
 - **Left margin:** 0.75"
 - **Right margin:** 0.75"
 - **Bullet indent:** 0.25"
@@ -207,6 +227,7 @@ apprentices, and trainees across any program or training pathway...
 ## 🔤 TYPOGRAPHY
 
 ### Font Hierarchy
+
 1. **Document Title:** 18pt bold, orange
 2. **Section Headers:** 12pt bold, slate
 3. **Subsection Headers:** 11pt bold, slate
@@ -215,6 +236,7 @@ apprentices, and trainees across any program or training pathway...
 6. **Signature Labels:** 9pt regular, slate
 
 ### Font Recommendations
+
 **Primary:** Inter (modern, clean)
 **Alternative 1:** Helvetica (classic, professional)
 **Alternative 2:** Arial (universal compatibility)
@@ -234,6 +256,7 @@ apprentices, and trainees across any program or training pathway...
 ```
 
 **Styling:**
+
 - Font: 8pt, gray (#6B7280)
 - Alignment: Centered
 - Position: 0.5" from bottom
@@ -244,12 +267,14 @@ apprentices, and trainees across any program or training pathway...
 ## 🖼️ LOGO PLACEMENT
 
 ### Header Logo
+
 - **Position:** Centered, top of page 1
 - **Size:** 1" height (width auto-scales)
 - **Format:** PNG or SVG (high resolution)
 - **Spacing:** 0.25" above, 0.5" below
 
 ### Watermark (Optional)
+
 - **Position:** Center of page, behind text
 - **Opacity:** 5-10%
 - **Size:** 4" × 4"
@@ -260,6 +285,7 @@ apprentices, and trainees across any program or training pathway...
 ## 📦 EXPORT SETTINGS
 
 ### PDF Export
+
 - **Resolution:** 300 DPI minimum
 - **Color Mode:** RGB (for screen) or CMYK (for print)
 - **Compression:** Medium (balance quality and file size)
@@ -267,6 +293,7 @@ apprentices, and trainees across any program or training pathway...
 - **File Size:** Target < 500KB
 
 ### Print Settings
+
 - **Paper:** White, 24lb or heavier
 - **Finish:** Matte or semi-gloss
 - **Binding:** Staple top-left or use folder
@@ -277,6 +304,7 @@ apprentices, and trainees across any program or training pathway...
 ## 🛠️ TOOLS & TEMPLATES
 
 ### Microsoft Word Template
+
 1. Set up page margins (0.75" all sides)
 2. Insert logo in header (centered)
 3. Create styles for headers (12pt bold)
@@ -285,6 +313,7 @@ apprentices, and trainees across any program or training pathway...
 6. Save as .dotx template
 
 ### Google Docs Template
+
 1. File → Page Setup → Margins: 0.75"
 2. Insert → Image → Upload logo
 3. Format → Paragraph Styles → Set heading styles
@@ -292,6 +321,7 @@ apprentices, and trainees across any program or training pathway...
 5. File → Make a Copy for each use
 
 ### Canva Template
+
 1. Create Design → Document (US Letter)
 2. Upload logo to Brand Kit
 3. Set brand colors (#F97316, #334155)
@@ -306,6 +336,7 @@ apprentices, and trainees across any program or training pathway...
 Before finalizing PDF:
 
 ### Content
+
 - [ ] All sections included (1-11)
 - [ ] No placeholder text remains
 - [ ] Contact information updated
@@ -313,6 +344,7 @@ Before finalizing PDF:
 - [ ] Signature lines clear
 
 ### Design
+
 - [ ] Logo is high-resolution
 - [ ] Colors match brand (#F97316, #334155)
 - [ ] Fonts are consistent
@@ -320,6 +352,7 @@ Before finalizing PDF:
 - [ ] No orphaned headers
 
 ### Technical
+
 - [ ] PDF is searchable (not scanned)
 - [ ] File size < 500KB
 - [ ] Fonts embedded
@@ -331,18 +364,21 @@ Before finalizing PDF:
 ## 📧 DISTRIBUTION
 
 ### Email Attachment
+
 - Attach PDF to email
 - Include brief instructions
 - Request signed copy back
 - Set follow-up reminder
 
 ### DocuSign Upload
+
 - Upload branded PDF
 - Add signature fields
 - Configure signing order
 - Send for e-signature
 
 ### Portal Download
+
 - Host on website
 - Provide download link
 - Track downloads

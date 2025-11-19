@@ -9,7 +9,8 @@ const programs = [
       'Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.',
     funding: 'WRG • WIOA • Workforce Grants',
     duration: '4–6 Months • Hybrid',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
   },
   {
     slug: 'barber',
@@ -18,7 +19,8 @@ const programs = [
       'State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.',
     funding: 'DOL Apprenticeship • WIOA',
     duration: '12–18 Months • On-the-Job + Classroom',
-    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
   },
   {
     slug: 'hvac',
@@ -27,7 +29,8 @@ const programs = [
       'Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.',
     funding: 'Workforce Grants • Employer Sponsors',
     duration: '4–9 Months • Lab + Field',
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
   },
   {
     slug: 'building-tech',
@@ -36,7 +39,8 @@ const programs = [
       'Training for building systems, repairs, and facility maintenance to keep properties safe and functional.',
     funding: 'Workforce Grants • Apprenticeship',
     duration: '4–9 Months • Hands-On',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
   },
   {
     slug: 'workforce-readiness',
@@ -45,7 +49,8 @@ const programs = [
       'Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.',
     funding: 'Support Services • Referrals',
     duration: '4–12 Weeks • Coaching + Workshops',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+    image:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
   },
 ];
 
@@ -64,7 +69,7 @@ export default function HomePage() {
             priority
           />
         </div>
-        
+
         <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -98,12 +103,26 @@ export default function HomePage() {
                   href="/programs"
                   className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition group"
                 >
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
                   </svg>
                   <div className="text-left">
-                    <div className="text-sm font-semibold text-white">I'm a Learner</div>
-                    <div className="text-xs text-blue-100">Explore programs</div>
+                    <div className="text-sm font-semibold text-white">
+                      I'm a Learner
+                    </div>
+                    <div className="text-xs text-blue-100">
+                      Explore programs
+                    </div>
                   </div>
                 </Link>
 
@@ -111,11 +130,23 @@ export default function HomePage() {
                   href="/partners"
                   className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition group"
                 >
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
                   </svg>
                   <div className="text-left">
-                    <div className="text-sm font-semibold text-white">I'm a Case Manager</div>
+                    <div className="text-sm font-semibold text-white">
+                      I'm a Case Manager
+                    </div>
                     <div className="text-xs text-blue-100">Partner with us</div>
                   </div>
                 </Link>
@@ -124,11 +155,23 @@ export default function HomePage() {
                   href="/employers"
                   className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition group"
                 >
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
                   </svg>
                   <div className="text-left">
-                    <div className="text-sm font-semibold text-white">I'm an Employer</div>
+                    <div className="text-sm font-semibold text-white">
+                      I'm an Employer
+                    </div>
                     <div className="text-xs text-blue-100">Hire talent</div>
                   </div>
                 </Link>
@@ -190,8 +233,14 @@ export default function HomePage() {
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4" type="video/mp4" />
-                  <source src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4" type="video/mp4" />
+                  <source
+                    src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4"
+                    type="video/mp4"
+                  />
                   {/* Fallback image if video doesn't load */}
                   <Image
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
@@ -363,7 +412,8 @@ export default function HomePage() {
               Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Real people, real results. See how our graduates are building careers.
+              Real people, real results. See how our graduates are building
+              careers.
             </p>
           </div>
 
@@ -378,10 +428,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">Marcus J.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">Barber Apprenticeship Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  Marcus J.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  Barber Apprenticeship Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "From incarceration to owning my own chair. Elevate gave me the structure and support I needed."
+                  "From incarceration to owning my own chair. Elevate gave me
+                  the structure and support I needed."
                 </p>
               </div>
             </div>
@@ -396,10 +451,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">Sarah M.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">Medical Assistant Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  Sarah M.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  Medical Assistant Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "Single mom to certified MA in 5 months. Now working at a clinic with benefits for my family."
+                  "Single mom to certified MA in 5 months. Now working at a
+                  clinic with benefits for my family."
                 </p>
               </div>
             </div>
@@ -414,10 +474,15 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">James T.</h3>
-                <p className="text-sm text-blue-600 font-semibold mb-3">HVAC Technician Graduate</p>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                  James T.
+                </h3>
+                <p className="text-sm text-blue-600 font-semibold mb-3">
+                  HVAC Technician Graduate
+                </p>
                 <p className="text-gray-600 text-sm">
-                  "Went from warehouse work to skilled trades. Making 2x my old salary with room to grow."
+                  "Went from warehouse work to skilled trades. Making 2x my old
+                  salary with room to grow."
                 </p>
               </div>
             </div>
