@@ -12,20 +12,20 @@ export const metadata = {
 
 export default async function AdminCoursesPage() {
   await requireAdmin();
-  
+
   let courses = [];
   let error = null;
 
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     // Fetch programs from database (using programs table as courses)
     const result = await supabase
       .from('programs')
       .select('*')
       .eq('published', true)
       .order('created_at', { ascending: false });
-    
+
     if (result.data) {
       // Map programs to course format
       courses = result.data.map((prog: any) => ({
@@ -38,10 +38,10 @@ export default async function AdminCoursesPage() {
         duration_hours: 0,
         status: prog.published ? 'published' : 'draft',
         is_free: true,
-        created_at: prog.created_at
+        created_at: prog.created_at,
       }));
     }
-    
+
     error = result.error;
   } catch (e) {
     console.error('Error fetching programs:', e);
