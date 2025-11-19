@@ -1,33 +1,33 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Partner With Elevate | Training Sites, Employers & Barbershops",
+  title: 'Partner With Elevate | Training Sites, Employers & Barbershops',
   description:
-    "Become a training partner, apprenticeship site, or employer partner with Elevate for Humanity. Host learners, build your talent pipeline, and align with workforce funding.",
+    'Become a training partner, apprenticeship site, or employer partner with Elevate for Humanity. Host learners, build your talent pipeline, and align with workforce funding.',
 };
 
 const PARTNER_TYPES = [
-  "Barbershops and salons that want to host barber apprentices",
-  "Healthcare clinics and practices that need Medical Assistants and front-office staff",
-  "HVAC, building maintenance, and skilled trades employers looking for entry-level talent",
-  "CDL, logistics, warehouse, and distribution employers building local pipelines",
-  "Community organizations and nonprofits that co-host training or support services",
+  'Barbershops and salons that want to host barber apprentices',
+  'Healthcare clinics and practices that need Medical Assistants and front-office staff',
+  'HVAC, building maintenance, and skilled trades employers looking for entry-level talent',
+  'CDL, logistics, warehouse, and distribution employers building local pipelines',
+  'Community organizations and nonprofits that co-host training or support services',
 ];
 
 const WHAT_PARTNERS_GET = [
-  "A structured talent pipeline aligned to your real hiring needs",
-  "Learners who are coached on attendance, professionalism, and soft skills",
-  "Support with documentation, hours tracking, and basic compliance needs",
-  "Connection to workforce boards and funding where eligible",
-  "Visibility in the Elevate Connects Directory so learners and partners can find you",
+  'A structured talent pipeline aligned to your real hiring needs',
+  'Learners who are coached on attendance, professionalism, and soft skills',
+  'Support with documentation, hours tracking, and basic compliance needs',
+  'Connection to workforce boards and funding where eligible',
+  'Visibility in the Elevate Connects Directory so learners and partners can find you',
 ];
 
 const EXPECTATIONS = [
-  "Provide a safe, professional learning environment for learners and apprentices",
-  "Allow learners to practice skills under supervision, within clear boundaries",
-  "Communicate issues (attendance, performance, conduct) early so we can respond",
-  "Complete simple check-ins, evaluations, or hour logs as requested",
-  "Stay aligned with state, licensing, and workforce requirements for your industry",
+  'Provide a safe, professional learning environment for learners and apprentices',
+  'Allow learners to practice skills under supervision, within clear boundaries',
+  'Communicate issues (attendance, performance, conduct) early so we can respond',
+  'Complete simple check-ins, evaluations, or hour logs as requested',
+  'Stay aligned with state, licensing, and workforce requirements for your industry',
 ];
 
 export default function PartnersPage() {
@@ -72,11 +72,15 @@ export default function PartnersPage() {
 
           {/* SNAPSHOT */}
           <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-slate-900 px-5 py-5 text-sm text-slate-50 shadow-lg md:w-80">
-            <h2 className="text-sm font-semibold text-white">Partner Snapshot</h2>
+            <h2 className="text-sm font-semibold text-white">
+              Partner Snapshot
+            </h2>
             <dl className="mt-3 space-y-2 text-xs text-slate-100/90">
               <div className="flex justify-between">
                 <dt className="text-slate-300">Partner Types</dt>
-                <dd className="font-medium">Shops, clinics, trades, employers</dd>
+                <dd className="font-medium">
+                  Shops, clinics, trades, employers
+                </dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Commitment</dt>
@@ -84,7 +88,9 @@ export default function PartnersPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Focus Areas</dt>
-                <dd className="font-medium">Workforce, apprenticeship, re-entry</dd>
+                <dd className="font-medium">
+                  Workforce, apprenticeship, re-entry
+                </dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Support</dt>
@@ -92,9 +98,9 @@ export default function PartnersPage() {
               </div>
             </dl>
             <p className="mt-4 text-[11px] text-slate-300">
-              We keep expectations clear: you provide the real-world environment,
-              we support learners and help handle documentation, behavior, and
-              workforce requirements.
+              We keep expectations clear: you provide the real-world
+              environment, we support learners and help handle documentation,
+              behavior, and workforce requirements.
             </p>
           </div>
         </div>

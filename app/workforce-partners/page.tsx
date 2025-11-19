@@ -1,33 +1,33 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Workforce & Agency Partners | Elevate Connects Directory",
+  title: 'Workforce & Agency Partners | Elevate Connects Directory',
   description:
-    "Tools, reporting, and referral pathways for workforce boards, case managers, re-entry programs, and community agencies partnering with Elevate for Humanity.",
+    'Tools, reporting, and referral pathways for workforce boards, case managers, re-entry programs, and community agencies partnering with Elevate for Humanity.',
 };
 
 const AGENCIES = [
-  "WorkOne and local workforce boards",
-  "WRG, WIOA, SNAP E&T, and TANF programs",
-  "Re-entry and justice-involved support organizations",
-  "Community-based organizations, coalitions, and faith-based groups",
-  "Housing, mental health, and wraparound service providers",
+  'WorkOne and local workforce boards',
+  'WRG, WIOA, SNAP E&T, and TANF programs',
+  'Re-entry and justice-involved support organizations',
+  'Community-based organizations, coalitions, and faith-based groups',
+  'Housing, mental health, and wraparound service providers',
 ];
 
 const WHAT_WE_PROVIDE = [
-  "Approved training programs with clear outcomes and documentation",
-  "Standardized enrollment, attendance, and completion reporting",
-  "Case notes and milestone updates that support your compliance",
-  "Communication when learners are struggling, not just when they disappear",
-  "Pathways into apprenticeship, employment, and ongoing upskilling",
+  'Approved training programs with clear outcomes and documentation',
+  'Standardized enrollment, attendance, and completion reporting',
+  'Case notes and milestone updates that support your compliance',
+  'Communication when learners are struggling, not just when they disappear',
+  'Pathways into apprenticeship, employment, and ongoing upskilling',
 ];
 
 const REPORTING = [
-  "Enrollment confirmations and training start dates",
-  "Attendance summaries and participation flags",
-  "Skills milestones and credential attempts/completions (where applicable)",
-  "Employment and retention updates where we are engaged for placement",
-  "Data extracts for board reporting, audits, and performance reviews",
+  'Enrollment confirmations and training start dates',
+  'Attendance summaries and participation flags',
+  'Skills milestones and credential attempts/completions (where applicable)',
+  'Employment and retention updates where we are engaged for placement',
+  'Data extracts for board reporting, audits, and performance reviews',
 ];
 
 export default function WorkforcePartnersPage() {
@@ -77,7 +77,9 @@ export default function WorkforcePartnersPage() {
             <dl className="mt-3 space-y-2 text-xs text-slate-100/90">
               <div className="flex justify-between">
                 <dt className="text-slate-300">Focus</dt>
-                <dd className="font-medium">Training, placement, documentation</dd>
+                <dd className="font-medium">
+                  Training, placement, documentation
+                </dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Programs</dt>
@@ -87,7 +89,9 @@ export default function WorkforcePartnersPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Reporting</dt>
-                <dd className="font-medium">Attendance, milestones, outcomes</dd>
+                <dd className="font-medium">
+                  Attendance, milestones, outcomes
+                </dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Model</dt>
@@ -96,8 +100,8 @@ export default function WorkforcePartnersPage() {
             </dl>
             <p className="mt-4 text-[11px] text-slate-300">
               Our goal is simple: make it easier for you to connect people to
-              training, see what happened, and report on it without needing
-              five spreadsheets and three emails per learner.
+              training, see what happened, and report on it without needing five
+              spreadsheets and three emails per learner.
             </p>
           </div>
         </div>
@@ -131,8 +135,8 @@ export default function WorkforcePartnersPage() {
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               We know you answer to policies, performance targets, and audits.
-              We respect that. Our systems are built to help you stay
-              compliant, not surprised.
+              We respect that. Our systems are built to help you stay compliant,
+              not surprised.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               {WHAT_WE_PROVIDE.map((item) => (
@@ -175,8 +179,8 @@ export default function WorkforcePartnersPage() {
               </h3>
               <p className="mt-2 text-xs text-slate-200">
                 During onboarding, we map your reporting cycles, forms, and
-                required data points to our system so we&apos;re not sending
-                you a pile of PDFs you can&apos;t use.
+                required data points to our system so we&apos;re not sending you
+                a pile of PDFs you can&apos;t use.
               </p>
               <p className="mt-3 text-xs text-slate-200">
                 That includes clarifying how referrals flow, how we signal
