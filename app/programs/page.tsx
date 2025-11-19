@@ -60,26 +60,26 @@ const programs = [
 
 export default function ProgramsPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-white">
       {/* Header */}
-      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="bg-gradient-to-br from-slate-50 to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
             Elevate For Humanity™ Programs
           </p>
-          <h1 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold md:text-4xl text-slate-900">
             High-impact training and apprenticeship pathways.
           </h1>
-          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
+          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-600">
             Each pathway is built in partnership with credentialed schools and
             employers. Elevate handles onboarding, support, and reporting so
             learners and agencies see a clear, step-by-step plan.
           </p>
-          <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">
-            <span className="rounded-full border border-white/15 px-3 py-1">
+          <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm">
+            <span className="rounded-full border-2 border-blue-200 bg-white px-3 py-1 text-slate-700">
               Indiana Workforce · WRG · WIOA-Aligned
             </span>
-            <span className="rounded-full border border-white/15 px-3 py-1">
+            <span className="rounded-full border-2 border-blue-200 bg-white px-3 py-1 text-slate-700">
               Re-entry friendly options available
             </span>
           </div>
@@ -87,45 +87,45 @@ export default function ProgramsPage() {
       </section>
 
       {/* Program grid */}
-      <section className="border-b border-white/10 bg-slate-950">
+      <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
           <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-xl font-semibold md:text-2xl">
+              <h2 className="text-xl font-semibold md:text-2xl text-slate-900">
                 Explore current Elevate pathways.
               </h2>
-              <p className="mt-1 text-sm text-slate-300 max-w-xl">
+              <p className="mt-1 text-sm text-slate-600 max-w-xl">
                 This catalog continues to grow as we add new credentialing
                 partners, apprenticeship sponsors, and employer-aligned options.
               </p>
             </div>
             <Link
               href="/start"
-              className="inline-flex items-center rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-400 transition"
+              className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 transition shadow-lg"
             >
               Start My Application
             </Link>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {programs.map((program) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900/80 p-4 hover:border-orange-400/80 hover:bg-slate-900 transition"
+                className="group flex h-full flex-col rounded-2xl border-2 border-slate-200 bg-white p-6 hover:border-blue-500 hover:shadow-xl transition-all"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-300">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-600">
                   {program.category}
                 </p>
-                <h3 className="mt-1 text-lg font-semibold">{program.name}</h3>
-                <p className="mt-1 text-xs text-slate-300">{program.length}</p>
-                <p className="mt-3 flex-1 text-sm text-slate-200">
+                <h3 className="mt-1 text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{program.name}</h3>
+                <p className="mt-1 text-xs text-slate-500">{program.length}</p>
+                <p className="mt-3 flex-1 text-sm text-slate-600 leading-relaxed">
                   {program.blurb}
                 </p>
-                <p className="mt-3 text-xs text-slate-400">
+                <p className="mt-3 text-xs text-slate-500">
                   Funding: {program.funding}
                 </p>
-                <p className="mt-2 text-xs font-semibold text-orange-300 group-hover:translate-x-0.5 transition">
+                <p className="mt-2 text-xs font-semibold text-blue-600 group-hover:translate-x-0.5 transition">
                   View program details →
                 </p>
               </Link>
@@ -135,22 +135,22 @@ export default function ProgramsPage() {
       </section>
 
       {/* Help choosing section */}
-      <section className="bg-slate-950">
+      <section className="bg-blue-600">
         <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
           <div className="grid gap-8 md:grid-cols-[2fr,1.3fr] items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+              <p className="text-xs font-semibold uppercase tracking-wide text-blue-200">
                 Not sure where to start?
               </p>
-              <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+              <h2 className="mt-2 text-xl font-semibold md:text-2xl text-white">
                 We help you match your story to the right pathway.
               </h2>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 text-sm text-blue-100">
                 You don&apos;t have to figure this out alone. We listen to your
                 situation, barriers, and goals, then help you choose a starting
                 point that makes sense for your life right now.
               </p>
-              <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
+              <ul className="mt-3 space-y-1.5 text-sm text-blue-100">
                 <li>• Unsure which program fits? We'll walk through it.</li>
                 <li>• Re-entry or justice-involved? We have options.</li>
                 <li>
@@ -161,21 +161,21 @@ export default function ProgramsPage() {
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link
                   href="/start"
-                  className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-slate-100 transition"
+                  className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition shadow-lg"
                 >
                   Start My Application
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:border-white hover:bg-white/5 transition"
+                  className="rounded-xl border-2 border-white px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition"
                 >
                   Talk With Our Team
                 </Link>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-wide text-orange-300 mb-2">
+            <div className="rounded-2xl border-2 border-white/20 bg-white/10 backdrop-blur-sm p-5 text-sm text-white">
+              <p className="text-xs font-semibold uppercase tracking-wide text-blue-200 mb-2">
                 For case managers & partners
               </p>
               <p className="mb-2">

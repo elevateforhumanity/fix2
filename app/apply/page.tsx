@@ -60,7 +60,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
             <input
               required
               name="name"
-              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
               placeholder="First and last name"
             />
           </div>
@@ -74,7 +74,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
                 required
                 name="phone"
                 type="tel"
-                className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
                 placeholder="Best number to reach you"
               />
             </div>
@@ -86,7 +86,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
                 required
                 type="email"
                 name="email"
-                className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
                 placeholder="you@example.com"
               />
             </div>
@@ -98,7 +98,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
             </label>
             <input
               name="location"
-              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
               placeholder="Where do you live?"
             />
           </div>
@@ -109,7 +109,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
             </label>
             <input
               name="case_manager"
-              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
               placeholder="If yes, list their name/organization"
             />
           </div>
@@ -133,7 +133,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
 
           <button
             type="submit"
-            className="mt-4 w-full rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700"
+            className="mt-4 w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-all"
           >
             Submit my interest for {programName}
           </button>
