@@ -176,7 +176,8 @@ export default function Compliance() {
         <div>
           <h1 className="text-3xl font-bold mb-2">Compliance Checklist</h1>
           <p className="text-gray-600">
-            Track and manage compliance requirements across SOC 2, WIOA, WCAG, FERPA, and GDPR
+            Track and manage compliance requirements across SOC 2, WIOA, WCAG,
+            FERPA, and GDPR
           </p>
         </div>
         <button
@@ -237,7 +238,9 @@ export default function Compliance() {
       {/* Compliance Items by Category */}
       <div className="space-y-4">
         {categories.map((category) => {
-          const categoryItems = items.filter((item) => item.category === category);
+          const categoryItems = items.filter(
+            (item) => item.category === category
+          );
           const isExpanded = expandedCategories.has(category);
           const categoryComplete = categoryItems.filter(
             (i) => i.status === 'complete'
@@ -283,11 +286,15 @@ export default function Compliance() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <h3 className="font-medium mb-1">{item.title}</h3>
-                          <p className="text-sm text-gray-600">{item.description}</p>
+                          <p className="text-sm text-gray-600">
+                            {item.description}
+                          </p>
                           {item.last_reviewed_at && (
                             <p className="text-xs text-gray-400 mt-2">
                               Last reviewed:{' '}
-                              {new Date(item.last_reviewed_at).toLocaleDateString()}
+                              {new Date(
+                                item.last_reviewed_at
+                              ).toLocaleDateString()}
                             </p>
                           )}
 
@@ -299,7 +306,10 @@ export default function Compliance() {
                             {item.compliance_evidence.length > 0 && (
                               <ul className="space-y-1 mb-2">
                                 {item.compliance_evidence.map((ev) => (
-                                  <li key={ev.id} className="flex items-center justify-between text-xs">
+                                  <li
+                                    key={ev.id}
+                                    className="flex items-center justify-between text-xs"
+                                  >
                                     <a
                                       href={ev.file_url}
                                       target="_blank"
@@ -309,7 +319,9 @@ export default function Compliance() {
                                       {ev.file_name}
                                     </a>
                                     <span className="text-gray-500 ml-2">
-                                      {new Date(ev.uploaded_at).toLocaleDateString()}
+                                      {new Date(
+                                        ev.uploaded_at
+                                      ).toLocaleDateString()}
                                     </span>
                                   </li>
                                 ))}
@@ -317,14 +329,19 @@ export default function Compliance() {
                             )}
                             <label className="inline-flex items-center gap-2 px-3 py-1 bg-white border rounded cursor-pointer hover:bg-gray-50 text-xs">
                               <span>
-                                {uploadingId === item.id ? 'Uploading...' : 'Attach Evidence'}
+                                {uploadingId === item.id
+                                  ? 'Uploading...'
+                                  : 'Attach Evidence'}
                               </span>
                               <input
                                 type="file"
                                 className="hidden"
                                 disabled={uploadingId === item.id}
                                 onChange={(e) =>
-                                  handleUploadEvidence(item.id, e.target.files?.[0] ?? null)
+                                  handleUploadEvidence(
+                                    item.id,
+                                    e.target.files?.[0] ?? null
+                                  )
                                 }
                               />
                             </label>
