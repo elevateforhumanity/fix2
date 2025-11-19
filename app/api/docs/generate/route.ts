@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { fillTemplate } from "@/lib/docs/templateEngine";
 import { LETTER_OF_SUPPORT_TEMPLATE } from "@/lib/docs/templates/letterOfSupport";
 import { MOU_TEMPLATE } from "@/lib/docs/templates/mou";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
   const supabase = await createClient();

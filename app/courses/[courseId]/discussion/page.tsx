@@ -1,5 +1,5 @@
 // app/courses/[courseId]/discussion/page.tsx
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 

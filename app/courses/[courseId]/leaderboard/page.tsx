@@ -1,6 +1,6 @@
 // app/courses/[courseId]/leaderboard/page.tsx
 import { getCourseLeaderboard } from "@/lib/gamification/points";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
 export default async function LeaderboardPage({
