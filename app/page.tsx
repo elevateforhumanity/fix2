@@ -109,12 +109,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Clean image */}
+            {/* Right: Clean image - Business training/education event */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                  alt="Students in training"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                  alt="Business professionals in training session - diverse group learning together"
                   width={800}
                   height={600}
                   className="w-full h-auto"
@@ -146,8 +146,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-                alt="Training and skill development"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80"
+                alt="Students collaborating and learning together in modern classroom setting"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-lg"
@@ -181,7 +181,16 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {programs.map((program) => (
+            {programs.map((program, index) => {
+              const programImages = [
+                'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80', // Medical Assistant
+                'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=400&q=80', // Barber
+                'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80', // HVAC
+                'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80', // Building Maintenance
+                'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80', // CDL/Truck Driving
+                'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80', // Workforce Readiness
+              ];
+              return (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
@@ -189,7 +198,7 @@ export default function HomePage() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={`https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80`}
+                    src={programImages[index] || programImages[0]}
                     alt={program.name}
                     width={400}
                     height={300}
@@ -244,31 +253,43 @@ export default function HomePage() {
             {[
               {
                 name: "Jordan Lee",
-                text: "The support from Elevate for Humanity has been transformative. Their funding allowed me to enroll in a high-quality apprenticeship program, setting me on a path to a fulfilling career."
+                text: "The support from Elevate for Humanity has been transformative. Their funding allowed me to enroll in a high-quality apprenticeship program, setting me on a path to a fulfilling career.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
               },
               {
                 name: "Alex Morgan",
-                text: "Elevate for Humanity provided essential funding that opened doors to my dream apprenticeship. Their commitment to empowering individuals with career opportunities is truly inspiring."
+                text: "Elevate for Humanity provided essential funding that opened doors to my dream apprenticeship. Their commitment to empowering individuals with career opportunities is truly inspiring.",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80"
               },
               {
                 name: "Taylor Rivers",
-                text: "Elevate for Humanity's funding was a game-changer for me. It enabled my participation in an incredible training program that propelled my career forward."
+                text: "Elevate for Humanity's funding was a game-changer for me. It enabled my participation in an incredible training program that propelled my career forward.",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
               }
             ].map((testimonial, i) => (
               <div key={i} className="bg-slate-50 rounded-2xl p-8">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  ))}
+                <div className="flex items-center gap-4 mb-4">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={60}
+                    height={60}
+                    className="rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-slate-700 leading-relaxed mb-4">
+                <p className="text-slate-700 leading-relaxed">
                   "{testimonial.text}"
                 </p>
-                <div className="font-semibold text-slate-900">
-                  - {testimonial.name}
-                </div>
               </div>
             ))}
           </div>
