@@ -14,7 +14,7 @@ Key Information:
 - Programs: Medical Assistant, Barber Apprenticeship, HVAC, Building Maintenance, CDL, Workforce Readiness
 - Funding: WRG, WIOA, JRI - most programs are free or low-cost
 - Apply: /apply or /start
-- Contact: /contact or call (555) 123-4567
+- Contact: /contact or call (317) 314-3757
 - Partners: We work with barbershops, clinics, employers, workforce boards
 
 Response Style:
@@ -70,7 +70,7 @@ export async function POST(req: Request) {
     });
 
     const response = completion.choices[0]?.message?.content || 
-      "I apologize, I'm having trouble responding right now. Please call us at (555) 123-4567 or visit our contact page.";
+      "I apologize, I'm having trouble responding right now. Please call us at (317) 314-3757 or visit our contact page.";
 
     return NextResponse.json({ response });
   } catch (error: any) {
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
     
     // Return helpful fallback
     return NextResponse.json({
-      response: "I'm having a brief technical issue. For immediate assistance, please call (555) 123-4567 or email info@elevateforhumanity.org. I apologize for the inconvenience!",
+      response: "I'm having a brief technical issue. For immediate assistance, please call (317) 314-3757 or email info@elevateforhumanity.org. I apologize for the inconvenience!",
     });
   }
 }
@@ -104,7 +104,7 @@ function getFallbackResponse(message: string): string {
 
   // Contact/speak to someone
   if (lowerMessage.includes("speak") || lowerMessage.includes("talk") || lowerMessage.includes("call") || lowerMessage.includes("person") || lowerMessage.includes("human")) {
-    return "I'd be happy to connect you with our team! You can call us at (555) 123-4567, email info@elevateforhumanity.org, or fill out our contact form at /contact. Would you like me to schedule a callback for you?";
+    return "I'd be happy to connect you with our team! You can call us at (317) 314-3757, text us at the same number, email info@elevateforhumanity.org, or fill out our contact form at /contact. Would you like me to schedule a callback for you?";
   }
 
   // Hours/location

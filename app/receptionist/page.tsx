@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/lib/contact-info";
 
 interface Message {
   role: "user" | "assistant";
@@ -115,7 +116,7 @@ export default function AIReceptionistPage() {
       console.error("Error:", error);
       const errorMessage: Message = {
         role: "assistant",
-        content: "I apologize, but I'm having trouble connecting right now. Please try again or call us directly at (555) 123-4567.",
+        content: `I apologize, but I'm having trouble connecting right now. Please try again or call us directly at ${CONTACT_INFO.phone.display}.`,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -286,18 +287,27 @@ export default function AIReceptionistPage() {
               Contact Form
             </Link>
             <a
-              href="tel:+15551234567"
-              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition"
+              href={`tel:${CONTACT_INFO.phone.tel}`}
+              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
             >
-              Call (555) 123-4567
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Call {CONTACT_INFO.phone.display}
             </a>
             <a
-              href="mailto:info@elevateforhumanity.org"
-              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition"
+              href={`mailto:${CONTACT_INFO.email.general}`}
+              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
             >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
               Email Us
             </a>
           </div>
+          <p className="text-xs text-blue-700 mt-3">
+            📞 Office Hours: {CONTACT_INFO.hours.office}
+          </p>
         </div>
       </div>
     </main>
