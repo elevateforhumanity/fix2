@@ -13,14 +13,14 @@ export const metadata = {
 
 export default async function AdminCoursesPage() {
   await requireAdmin();
-  
+
   let courses = null;
   let error = null;
   let usingMockData = false;
 
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     // Try to fetch courses from database
     const result = await supabase
       .from('courses')
@@ -39,10 +39,10 @@ export default async function AdminCoursesPage() {
       `
       )
       .order('created_at', { ascending: false });
-    
+
     courses = result.data;
     error = result.error;
-    
+
     // If no courses or error, use mock data
     if (!courses || courses.length === 0 || error) {
       console.log('Using mock courses data');
@@ -59,7 +59,7 @@ export default async function AdminCoursesPage() {
   // Get enrollment counts for each course
   const courseIds = courses?.map((c) => c.id) || [];
   let enrollmentMap: Record<number, number> = {};
-  
+
   if (!usingMockData) {
     try {
       const supabase = await createServerSupabaseClient();
@@ -67,11 +67,12 @@ export default async function AdminCoursesPage() {
         .from('enrollments')
         .select('course_id')
         .in('course_id', courseIds);
-      
-      enrollmentMap = enrollmentCounts?.reduce((acc: Record<number, number>, e) => {
-        acc[e.course_id] = (acc[e.course_id] || 0) + 1;
-        return acc;
-      }, {}) || {};
+
+      enrollmentMap =
+        enrollmentCounts?.reduce((acc: Record<number, number>, e) => {
+          acc[e.course_id] = (acc[e.course_id] || 0) + 1;
+          return acc;
+        }, {}) || {};
     } catch (e) {
       // Ignore enrollment errors
     }
@@ -133,18 +134,29 @@ export default async function AdminCoursesPage() {
           <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                <svg
+                  className="h-5 w-5 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold text-blue-900">Using Mock Course Data</h3>
+                <h3 className="text-sm font-semibold text-blue-900">
+                  Using Mock Course Data
+                </h3>
                 <p className="text-sm text-blue-700 mt-1">
-                  Showing 17 sample courses for testing. To activate real courses, run database migrations in Supabase.
+                  Showing 17 sample courses for testing. To activate real
+                  courses, run database migrations in Supabase.
                 </p>
                 <div className="mt-2">
-                  <Link 
-                    href="/ACTIVATE_COURSES_NOW.md" 
+                  <Link
+                    href="/ACTIVATE_COURSES_NOW.md"
                     className="text-sm font-medium text-blue-600 hover:text-blue-800 underline"
                   >
                     View Activation Guide →

@@ -8,12 +8,14 @@
 ## 🎯 Executive Summary
 
 ### Course Status:
+
 - ✅ **17 Full LMS Courses** - Configured in SQL migrations
 - ✅ **12 Program Pages** - Live on website with professional templates
 - ⚠️ **Database Migrations** - Need to be run in Supabase
 - ✅ **Course Catalog** - JSON configuration ready
 
 ### Total Training Hours Available:
+
 - **1,500+ hours** of structured training content
 - **Multiple pathways** across 6 industry sectors
 - **100% WIOA-funded** for eligible participants
@@ -23,12 +25,14 @@
 ## 📊 Course Categories
 
 ### 1. Healthcare (4 Courses)
+
 - Medical Assistant
 - CNA & Healthcare Careers
 - Certified Community Healthcare Worker
 - Emergency Health & Safety Technician
 
 ### 2. Skilled Trades (6 Courses)
+
 - HVAC Technician
 - Building Technician & Skilled Trades
 - Electrical Apprenticeship
@@ -36,32 +40,40 @@
 - Welding & Metal Fabrication
 
 ### 3. Beauty & Grooming (3 Courses)
+
 - Barber Apprenticeship
 - Professional Esthetician
 - Beauty & Career Educator
 
 ### 4. Transportation (1 Course)
+
 - CDL & Transportation Training
 
 ### 5. Technology (1 Course)
+
 - IT Support & Help Desk Apprenticeship
 
 ### 6. Business & Professional (2 Courses)
+
 - Business Start-Up & Marketing
 - Tax Preparation & Financial Services
 
 ### 7. Social Services (3 Courses)
+
 - Direct Support Professional
 - Certified Peer Support Professional
 - Certified Peer Recovery Coach
 
 ### 8. Hospitality (1 Course)
+
 - Culinary Arts & Food Service
 
 ### 9. Retail & Customer Service (1 Course)
+
 - NRF Rise Up Certificate
 
 ### 10. Justice & Reentry (2 Courses)
+
 - Public Safety Reentry Specialist
 - JRI Complete Series
 
@@ -70,6 +82,7 @@
 ## 🗄️ Database Courses (Need Migration)
 
 ### Part 1 Courses (3 courses):
+
 1. **Business Start-Up & Marketing**
    - Duration: 32 hours (5 weeks)
    - Provider: Rise Forward / Elevate for Humanity
@@ -92,6 +105,7 @@
    - CIP Code: 51.1599
 
 ### Part 2 Courses (3 courses):
+
 4. **Professional Esthetician**
    - Duration: 700 hours (6 months)
    - Provider: Elevate for Humanity / Licensed School
@@ -114,6 +128,7 @@
    - CIP Code: 43.0103
 
 ### Part 3 Courses (3 courses):
+
 7. **Barber Apprenticeship (Full Program)**
    - Duration: 1,500 hours (12-18 months)
    - Provider: Elevate for Humanity / Licensed Barbershop
@@ -136,6 +151,7 @@
    - CIP Code: 51.1508
 
 ### Part 4 Courses (3 courses):
+
 10. **Certified Peer Recovery Coach**
     - Duration: 80 hours (8 weeks)
     - Provider: Elevate for Humanity
@@ -158,6 +174,7 @@
     - CIP Code: 51.0000
 
 ### Additional Courses:
+
 13. **HVAC Technician**
     - Duration: 600 hours (6 months)
     - Provider: Elevate for Humanity / Trade School Partner
@@ -198,6 +215,7 @@
 ## 🌐 Website Program Pages (Live)
 
 ### Professional Program Pages with Full Content:
+
 1. ✅ **HVAC Technician** - `/programs/hvac-technician`
 2. ✅ **Barber Apprenticeship** - `/programs/barber-apprenticeship`
 3. ✅ **Medical Assistant** - `/programs/medical-assistant`
@@ -212,6 +230,7 @@
 12. ✅ **Culinary Arts** - `/programs/culinary-arts`
 
 ### Each Program Page Includes:
+
 - Hero section with program title and CTA
 - Program overview with key details
 - Learning outcomes (what you'll learn)
@@ -226,16 +245,19 @@
 ## 📁 Course Configuration Files
 
 ### JSON Catalog:
+
 - **File**: `content/courses/ecd-courses.json`
 - **Courses**: 12 programs
 - **Status**: ✅ Ready
 
 ### TypeScript Catalog:
+
 - **File**: `content/courses/catalog.ts`
 - **Functions**: getCourseBySlug, getCoursesByCategory, getAllCategories
 - **Status**: ✅ Ready
 
 ### SQL Migrations:
+
 1. `20241116_create_lms_courses_part1.sql` - 3 courses
 2. `20241116_create_lms_courses_part2.sql` - 3 courses
 3. `20241116_create_lms_courses_part3.sql` - 3 courses
@@ -265,6 +287,7 @@
    - Verify success message
 
 3. **Migration Order**:
+
    ```
    1. 20241115_add_all_etpl_programs.sql (16 programs)
    2. 20241116_create_lms_courses_part1.sql (3 courses)
@@ -286,6 +309,7 @@
 ## 🎓 Course Features
 
 ### Every Course Includes:
+
 - ✅ Detailed course description
 - ✅ Learning objectives
 - ✅ Module breakdown
@@ -299,6 +323,7 @@
 - ✅ Format details (online/hybrid/in-person)
 
 ### LMS Features:
+
 - ✅ Progress tracking
 - ✅ Quiz system
 - ✅ Certificate generation
@@ -315,6 +340,7 @@
 ## 💰 Funding & Compliance
 
 ### All Courses Are:
+
 - ✅ **100% Free** for WIOA-eligible participants
 - ✅ **ETPL Compliant** with proper CIP codes
 - ✅ **WRG Approved** for workforce development
@@ -322,6 +348,7 @@
 - ✅ **Outcome Tracked** for performance reporting
 
 ### Funding Sources:
+
 - WIOA (Workforce Innovation and Opportunity Act)
 - WRG (Workforce Ready Grant)
 - JRI (Justice Reinvestment Initiative)
@@ -334,6 +361,7 @@
 ## 📈 Platform Capabilities
 
 ### Current Status:
+
 - ✅ **17 Full Courses** configured in migrations
 - ✅ **12 Program Pages** live on website
 - ✅ **Course Catalog** system ready
@@ -343,6 +371,7 @@
 - ⚠️ **Database Migrations** need to be run
 
 ### Once Migrations Run:
+
 - Students can enroll in courses
 - Instructors can manage content
 - Admins can track progress
@@ -355,12 +384,14 @@
 ## 🚀 Next Steps
 
 ### Immediate (Today):
+
 1. ✅ Review this inventory
 2. ⚠️ Run database migrations in Supabase
 3. ⚠️ Verify courses appear in admin dashboard
 4. ⚠️ Test enrollment flow
 
 ### This Week:
+
 1. Add course cover images
 2. Upload course videos
 3. Create sample lessons
@@ -368,6 +399,7 @@
 5. Train staff on LMS
 
 ### This Month:
+
 1. Launch first cohort
 2. Gather student feedback
 3. Refine course content
@@ -379,12 +411,14 @@
 ## 📞 Support
 
 ### Questions About Courses?
+
 - **AI Chat Widget**: Click the floating button on any page
 - **AI Receptionist**: Visit `/receptionist`
 - **Call/Text**: (317) 314-3757
 - **Request Callback**: Visit `/call-now`
 
 ### Technical Support:
+
 - Check `RUN_MIGRATIONS_GUIDE.md` for detailed migration instructions
 - Review `DEPLOYMENT_STATUS.md` for platform status
 - See `QUICK_START.md` for getting started
@@ -394,12 +428,14 @@
 ## 📊 Platform Value
 
 ### Course Library Value:
+
 - **17 Full Courses**: $850,000 - $1,700,000
 - **12 Program Pages**: $120,000 - $240,000
 - **LMS Infrastructure**: $500,000 - $1,000,000
 - **Total Course Value**: $1,470,000 - $2,940,000
 
 ### Combined with Platform:
+
 - **Total Platform Value**: $2.5M - $8M
 - **Monthly Operating Costs**: $0 (using free services)
 - **Revenue Potential**: $500K - $2M annually
@@ -412,5 +448,5 @@
 
 ---
 
-*Last Updated: November 19, 2025*  
-*Document: COURSE_INVENTORY.md*
+_Last Updated: November 19, 2025_  
+_Document: COURSE_INVENTORY.md_

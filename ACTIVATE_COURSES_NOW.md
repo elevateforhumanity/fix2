@@ -9,12 +9,15 @@
 ## ⚠️ PREREQUISITES
 
 ### You Need:
+
 1. ✅ Supabase account (free tier works)
 2. ✅ Supabase project created
 3. ✅ Project URL and API keys
 
 ### Don't Have Supabase Yet?
+
 **Create Free Account** (5 minutes):
+
 1. Go to: https://supabase.com
 2. Click "Start your project"
 3. Sign up with GitHub (recommended)
@@ -29,6 +32,7 @@
 ## 📋 STEP 1: GET YOUR SUPABASE CREDENTIALS
 
 ### A. Access Your Project:
+
 1. Go to: https://app.supabase.com
 2. Click on your project
 3. Click **"Settings"** (gear icon) in left sidebar
@@ -78,6 +82,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.YOUR_SERVICE_KEY
 ## 📋 STEP 3: RUN DATABASE MIGRATIONS
 
 ### A. Access Supabase SQL Editor:
+
 1. Go to your Supabase project dashboard
 2. Click **"SQL Editor"** in left sidebar
 3. Click **"New query"** button
@@ -95,6 +100,7 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **What it does**: Creates 16 programs with ETPL data, funding sources, CIP codes
 
 **How to run**:
+
 1. Open the file in your code editor
 2. Copy ALL contents (Ctrl+A, Ctrl+C)
 3. Paste into Supabase SQL Editor
@@ -102,11 +108,13 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 5. Wait for success message
 
 **Expected output**:
+
 ```
 ✅ Successfully added/updated 16 ETPL programs and certifications
 ```
 
 **Programs added**:
+
 - Business Start-Up & Marketing
 - Emergency Health & Safety Technician
 - HVAC Technician
@@ -133,17 +141,20 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **What it does**: Creates first 3 LMS courses with modules
 
 **Courses added**:
+
 1. Business Start-Up & Marketing (32 hours, 5 modules)
 2. Emergency Health & Safety Technician (40 hours, 6 modules)
 3. Direct Support Professional (120 hours, 12 modules)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_create_lms_courses_part1.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ Part 1 Complete: Created 3 LMS courses with modules
 ```
@@ -155,17 +166,20 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_create_lms_courses_part2.sql`
 
 **Courses added**:
+
 1. Professional Esthetician (700 hours)
 2. Tax Preparation & Financial Services (80 hours)
 3. Public Safety Reentry Specialist (160 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_create_lms_courses_part2.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ Part 2 Complete: Created 3 LMS courses with modules
 ```
@@ -177,17 +191,20 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_create_lms_courses_part3.sql`
 
 **Courses added**:
+
 1. Barber Apprenticeship Full Program (1,500 hours)
 2. Beauty & Career Educator (240 hours)
 3. Certified Peer Support Professional (80 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_create_lms_courses_part3.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ Part 3 Complete: Created 3 LMS courses with modules
 ```
@@ -199,17 +216,20 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_create_lms_courses_part4.sql`
 
 **Courses added**:
+
 1. Certified Peer Recovery Coach (80 hours)
 2. CPR Certification (8 hours)
 3. Certified Community Healthcare Worker (160 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_create_lms_courses_part4.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ Part 4 Complete: Created 3 LMS courses with modules
 ```
@@ -221,15 +241,18 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_add_jri_courses.sql`
 
 **Courses added**:
+
 1. JRI Complete Series (120 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_add_jri_courses.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ JRI Course Added: Justice Reinvestment Initiative Complete Series
 ```
@@ -241,15 +264,18 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_add_nrf_rise_up_courses.sql`
 
 **Courses added**:
+
 1. NRF Rise Up Certificate (40 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_add_nrf_rise_up_courses.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ NRF Rise Up Course Added: Retail Industry Fundamentals
 ```
@@ -261,15 +287,18 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 **File**: `supabase/migrations/20241116_create_medical_assistant_course.sql`
 
 **Courses added**:
+
 1. Medical Assistant (720 hours)
 
 **How to run**:
+
 1. Open `supabase/migrations/20241116_create_medical_assistant_course.sql`
 2. Copy ALL contents
 3. Paste into Supabase SQL Editor
 4. Click **"Run"**
 
 **Expected output**:
+
 ```
 ✅ Medical Assistant Course Added: 720-hour clinical program
 ```
@@ -281,49 +310,60 @@ Copy and paste each migration file's contents into the SQL Editor and click **"R
 ### Run These Verification Queries:
 
 **1. Check Courses Count**:
+
 ```sql
 SELECT COUNT(*) as total_courses FROM courses;
 ```
+
 **Expected**: 17 courses
 
 **2. Check Programs Count**:
+
 ```sql
 SELECT COUNT(*) as total_programs FROM programs;
 ```
+
 **Expected**: 16 programs
 
 **3. Check Modules Count**:
+
 ```sql
 SELECT COUNT(*) as total_modules FROM modules;
 ```
+
 **Expected**: 50+ modules
 
 **4. List All Courses**:
+
 ```sql
-SELECT 
-  slug, 
-  title, 
+SELECT
+  slug,
+  title,
   duration_hours,
   status
-FROM courses 
+FROM courses
 ORDER BY title;
 ```
+
 **Expected**: 17 rows with course details
 
 **5. List All Programs**:
+
 ```sql
-SELECT 
-  slug, 
-  title, 
+SELECT
+  slug,
+  title,
   funding_sources
-FROM programs 
+FROM programs
 ORDER BY title;
 ```
+
 **Expected**: 16 rows with program details
 
 **6. Check Course Modules**:
+
 ```sql
-SELECT 
+SELECT
   c.title as course_title,
   COUNT(m.id) as module_count
 FROM courses c
@@ -331,6 +371,7 @@ LEFT JOIN modules m ON m.course_id = c.id
 GROUP BY c.id, c.title
 ORDER BY c.title;
 ```
+
 **Expected**: Each course should have 3-12 modules
 
 ---
@@ -338,6 +379,7 @@ ORDER BY c.title;
 ## 📋 STEP 5: TEST IN APPLICATION
 
 ### A. Restart Your Application:
+
 ```bash
 # Stop dev server (Ctrl+C)
 npm run dev
@@ -394,6 +436,7 @@ After completing all steps, you should have:
 **Cause**: Tables not created yet
 
 **Fix**: Run the base schema migration first:
+
 ```sql
 -- Run this in Supabase SQL Editor
 -- File: supabase/migrations/20241115_create_base_schema.sql
@@ -415,7 +458,8 @@ After completing all steps, you should have:
 
 **Cause**: Environment variables not loaded
 
-**Fix**: 
+**Fix**:
+
 1. Restart dev server
 2. Clear browser cache
 3. Check `.env.local` file exists
@@ -426,6 +470,7 @@ After completing all steps, you should have:
 **Cause**: Syntax error in `.env.local`
 
 **Fix**:
+
 1. Check for spaces around `=` (should be no spaces)
 2. Check for quotes (should be no quotes)
 3. Check for line breaks in keys (should be single line)
@@ -435,12 +480,14 @@ After completing all steps, you should have:
 ## 📞 NEED HELP?
 
 ### Quick Support:
+
 - **AI Chat Widget**: Click floating button on any page
 - **AI Receptionist**: Visit `/receptionist`
 - **Call/Text**: (317) 314-3757
 - **Request Callback**: Visit `/call-now`
 
 ### Documentation:
+
 - **Course Inventory**: `COURSE_INVENTORY.md`
 - **Migration Guide**: `RUN_MIGRATIONS_GUIDE.md`
 - **Supabase Setup**: `SUPABASE_SETUP_GUIDE.md`
@@ -481,12 +528,14 @@ After completing all steps, you should have:
 ## 💰 VALUE UNLOCKED
 
 ### Before Migration:
+
 - 12 program pages (marketing only)
 - No enrollment capability
 - No progress tracking
 - Value: $720K - $1.44M
 
 ### After Migration:
+
 - 17 full LMS courses
 - Complete enrollment system
 - Progress tracking
@@ -496,6 +545,7 @@ After completing all steps, you should have:
 - Value: $2.5M - $8M
 
 ### ROI:
+
 - **Time Investment**: 30-45 minutes
 - **Cost**: $0 (free Supabase tier)
 - **Value Added**: $1.78M - $6.56M
@@ -507,5 +557,5 @@ After completing all steps, you should have:
 
 ---
 
-*Last Updated: November 19, 2025*  
-*Document: ACTIVATE_COURSES_NOW.md*
+_Last Updated: November 19, 2025_  
+_Document: ACTIVATE_COURSES_NOW.md_
