@@ -59,7 +59,7 @@
     "express-slow-down": "3.0.1",
     "express-useragent": "1.0.15",
     "express-validator": "7.3.1",
-    "form-data": "4.0.4",
+    "form-data": "4.0.5",
     "framer-motion": "12.23.24",
     "glob": "^13.0.0",
     "googleapis": "166.0.0",
