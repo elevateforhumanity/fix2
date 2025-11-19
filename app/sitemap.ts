@@ -27,6 +27,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   try {
+    // Skip dynamic content during build if no database connection
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
+        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
+      console.log('Sitemap: Using static routes only (no database connection)');
+      return staticSitemap;
+    }
+
     const supabase = createBuildTimeSupabaseClient();
 
     // Get dynamic program pages - use created_at instead of updated_at
@@ -39,7 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const courses = null;
 
     if (programsError) {
-      console.error('Sitemap generation error:', { programsError });
+      console.log('Sitemap: Database query failed, using static routes only');
       return staticSitemap;
     }
 
@@ -57,7 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return sitemap;
   } catch (err) {
-    console.error('Sitemap generation failed, returning static sitemap:', err);
+    console.log('Sitemap: Error during generation, using static routes only');
     // Fallback to static sitemap if Supabase fails
     return staticSitemap;
   }
