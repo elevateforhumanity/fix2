@@ -65,7 +65,14 @@ export const validators = {
   minAge: (min: number) => (value: string) => {
     const birthDate = new Date(value);
     const today = new Date();
-    const age = today.getFullYear() - birthDate.getFullYear();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+    // Adjust age if birthday hasn't occurred yet this year
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    
     if (age < min) {
       return `Must be at least ${min} years old`;
     }
