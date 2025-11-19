@@ -28,8 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Skip dynamic content during build if no database connection
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
-        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')
+    ) {
       console.log('Sitemap: Using static routes only (no database connection)');
       return staticSitemap;
     }
@@ -56,7 +58,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Program pages
       ...(programs || []).map((program) => ({
         url: `${baseUrl}/programs/${program.slug}`,
-        lastModified: program.created_at ? new Date(program.created_at) : new Date(),
+        lastModified: program.created_at
+          ? new Date(program.created_at)
+          : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
       })),
