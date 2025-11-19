@@ -1,5 +1,5 @@
-import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
-import { Card } from "@/components/ui/Card";
+import { ProgramPageShell } from '@/components/programs/ProgramPageShell';
+import { Card } from '@/components/ui/Card';
 
 export default function HvacProgramPage() {
   return (
@@ -14,15 +14,15 @@ export default function HvacProgramPage() {
       funding="Workforce Ready Grant, WIOA, and partner funding where eligible."
       audience="Adults and young adults ready to work with their hands, troubleshoot systems, and move into a skilled trade."
       outcomes={[
-        "Understand basic electrical, refrigeration, and HVAC safety",
-        "Assist with installation and maintenance of HVAC systems",
-        "Read basic schematics and use trade tools correctly",
-        "Prepare for entry-level roles with local HVAC employers",
+        'Understand basic electrical, refrigeration, and HVAC safety',
+        'Assist with installation and maintenance of HVAC systems',
+        'Read basic schematics and use trade tools correctly',
+        'Prepare for entry-level roles with local HVAC employers',
       ]}
       highlights={[
-        "Hands-on labs through approved partner schools",
-        "Built to plug into state workforce funding streams",
-        "Pathway to in-demand, year-round employment",
+        'Hands-on labs through approved partner schools',
+        'Built to plug into state workforce funding streams',
+        'Pathway to in-demand, year-round employment',
       ]}
       employerNotes="Use this program as a talent pipeline to bring in entry-level techs you can grow into lead installers and service technicians."
       applyHref="/apply?program=hvac"

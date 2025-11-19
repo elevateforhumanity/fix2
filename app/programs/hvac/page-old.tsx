@@ -1,5 +1,5 @@
 // app/programs/hvac/page.tsx
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function HvacProgramPage() {
   return (
@@ -55,7 +55,8 @@ export default function HvacProgramPage() {
                 Who this pathway is for
               </p>
               <h2 className="mt-2 text-xl font-semibold md:text-2xl">
-                For problem-solvers who like hands-on work and being in the field.
+                For problem-solvers who like hands-on work and being in the
+                field.
               </h2>
               <p className="mt-2 text-sm text-slate-300">
                 This HVAC pathway is a strong fit if you:
@@ -69,7 +70,8 @@ export default function HvacProgramPage() {
               </ul>
               <p className="mt-3 text-sm text-slate-300">
                 HVAC is a high-demand trade with strong income potential for
-                people who like to work with their hands and solve real-world problems.
+                people who like to work with their hands and solve real-world
+                problems.
               </p>
             </div>
 
@@ -78,14 +80,30 @@ export default function HvacProgramPage() {
                 Program snapshot
               </p>
               <ul className="space-y-1.5">
-                <li>• <span className="font-semibold">Length:</span> 4–9 months (varies by partner)</li>
-                <li>• <span className="font-semibold">Format:</span> Classroom + lab + hands-on projects</li>
-                <li>• <span className="font-semibold">Location:</span> Partner HVAC training sites</li>
-                <li>• <span className="font-semibold">Support:</span> Elevate onboarding, reminders, barrier support</li>
-                <li>• <span className="font-semibold">Outcome:</span> Prepared for entry-level HVAC roles and further credentialing</li>
+                <li>
+                  • <span className="font-semibold">Length:</span> 4–9 months
+                  (varies by partner)
+                </li>
+                <li>
+                  • <span className="font-semibold">Format:</span> Classroom +
+                  lab + hands-on projects
+                </li>
+                <li>
+                  • <span className="font-semibold">Location:</span> Partner
+                  HVAC training sites
+                </li>
+                <li>
+                  • <span className="font-semibold">Support:</span> Elevate
+                  onboarding, reminders, barrier support
+                </li>
+                <li>
+                  • <span className="font-semibold">Outcome:</span> Prepared for
+                  entry-level HVAC roles and further credentialing
+                </li>
               </ul>
               <p className="mt-3 text-xs text-slate-400">
-                *Exact courses, certifications, and credential routes depend on the training provider.
+                *Exact courses, certifications, and credential routes depend on
+                the training provider.
               </p>
             </div>
           </div>
@@ -151,11 +169,12 @@ export default function HvacProgramPage() {
                 Roles & responsibilities
               </p>
               <h2 className="mt-2 text-xl font-semibold md:text-2xl">
-                Elevate is your coordinator. The HVAC school is your training site.
+                Elevate is your coordinator. The HVAC school is your training
+                site.
               </h2>
               <p className="mt-2 text-sm text-slate-300">
-                Elevate partners with HVAC schools so learners, case managers, and
-                employers have one hub instead of ten phone calls.
+                Elevate partners with HVAC schools so learners, case managers,
+                and employers have one hub instead of ten phone calls.
               </p>
               <div className="mt-4 grid gap-3 text-sm text-slate-200">
                 <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-3">
@@ -178,7 +197,9 @@ export default function HvacProgramPage() {
                     <li>• Provides classroom and lab training</li>
                     <li>• Evaluates technical skills and competencies</li>
                     <li>• Maintains training site, tools, and safety</li>
-                    <li>• Shares attendance and completion details with Elevate</li>
+                    <li>
+                      • Shares attendance and completion details with Elevate
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -189,11 +210,12 @@ export default function HvacProgramPage() {
                 For agencies & partners
               </p>
               <p className="mb-2">
-                Elevate keeps your referrals visible through{" "}
+                Elevate keeps your referrals visible through{' '}
                 <span className="font-semibold">
                   documented steps and status updates
                 </span>
-                , instead of "we sent them to a trade school and hope it worked out."
+                , instead of "we sent them to a trade school and hope it worked
+                out."
               </p>
               <Link
                 href="/partners"
@@ -218,10 +240,13 @@ export default function HvacProgramPage() {
                 Many learners qualify for support with tuition and tools.
               </h2>
               <p className="mt-2 text-sm text-slate-300">
-                Depending on your region and eligibility, HVAC learners may access:
+                Depending on your region and eligibility, HVAC learners may
+                access:
               </p>
               <ul className="mt-3 space-y-1.5 text-sm text-slate-200">
-                <li>• Workforce training funds (WRG, WIOA, and similar programs)</li>
+                <li>
+                  • Workforce training funds (WRG, WIOA, and similar programs)
+                </li>
                 <li>• Supportive services for transportation or equipment</li>
                 <li>• Employer sponsorship when hiring into HVAC roles</li>
               </ul>
@@ -236,8 +261,8 @@ export default function HvacProgramPage() {
                 Next step
               </p>
               <p className="mb-3">
-                Complete a short interest form so we can see if HVAC is available
-                in your area and which partner school is the best fit.
+                Complete a short interest form so we can see if HVAC is
+                available in your area and which partner school is the best fit.
               </p>
               <Link
                 href="/apply"
@@ -246,7 +271,8 @@ export default function HvacProgramPage() {
                 Start My Application
               </Link>
               <p className="mt-3 text-xs text-slate-400">
-                Case managers can also send referrals directly through the partner form.
+                Case managers can also send referrals directly through the
+                partner form.
               </p>
               <Link
                 href="/partners"
@@ -268,8 +294,9 @@ export default function HvacProgramPage() {
                 Ready to explore the HVAC pathway?
               </h2>
               <p className="mt-3 text-sm text-slate-100">
-                Share where you are now and where you&apos;d like to go. We&apos;ll
-                help you see if HVAC is the right fit and what steps to take next.
+                Share where you are now and where you&apos;d like to go.
+                We&apos;ll help you see if HVAC is the right fit and what steps
+                to take next.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">

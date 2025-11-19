@@ -1,5 +1,5 @@
-import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
-import { Card } from "@/components/ui/Card";
+import { ProgramPageShell } from '@/components/programs/ProgramPageShell';
+import { Card } from '@/components/ui/Card';
 
 export default function MedicalAssistantProgramPage() {
   return (
@@ -14,15 +14,15 @@ export default function MedicalAssistantProgramPage() {
       funding="Designed to connect with WIOA / workforce funding where eligible."
       audience="People who want a patient-facing role, are detail-oriented, and ready to enter healthcare quickly."
       outcomes={[
-        "Support basic clinical tasks under supervision of licensed staff",
-        "Handle front-office duties like scheduling, intake, and documentation",
-        "Apply medical terminology and patient communication best practices",
-        "Prepare for certification options and entry-level employment in clinics",
+        'Support basic clinical tasks under supervision of licensed staff',
+        'Handle front-office duties like scheduling, intake, and documentation',
+        'Apply medical terminology and patient communication best practices',
+        'Prepare for certification options and entry-level employment in clinics',
       ]}
       highlights={[
-        "Healthcare-focused training in a short timeline",
-        "Connections to employer and clinical partners",
-        "Workforce-friendly design for adults returning to school",
+        'Healthcare-focused training in a short timeline',
+        'Connections to employer and clinical partners',
+        'Workforce-friendly design for adults returning to school',
       ]}
       employerNotes="Use this program to build an entry-level talent pipeline for front desk and clinical support roles, with learners already trained on core skills and professionalism."
       applyHref="/apply?program=medical-assistant"

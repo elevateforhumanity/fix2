@@ -1,67 +1,67 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Medical Assistant Program | Elevate Connects Directory",
+  title: 'Medical Assistant Program | Elevate Connects Directory',
   description:
-    "Workforce-aligned Medical Assistant training with hands-on labs, externships, and a path to industry-recognized credentials and entry-level healthcare jobs.",
+    'Workforce-aligned Medical Assistant training with hands-on labs, externships, and a path to industry-recognized credentials and entry-level healthcare jobs.',
 };
 
 const HIGHLIGHTS = [
-  "Hands-on Medical Assistant training with labs and real-world skills",
-  "Externship experience in clinics, practices, or healthcare sites",
-  "Preparation for industry-recognized MA certification exams (where available)",
-  "Focus on both clinical and administrative skills employers actually use",
-  "Supportive environment for new starters, career-changers, and re-entry learners",
+  'Hands-on Medical Assistant training with labs and real-world skills',
+  'Externship experience in clinics, practices, or healthcare sites',
+  'Preparation for industry-recognized MA certification exams (where available)',
+  'Focus on both clinical and administrative skills employers actually use',
+  'Supportive environment for new starters, career-changers, and re-entry learners',
 ];
 
 const WHO_IT_SERVES = [
-  "Learners who want an entry-level healthcare career with growth potential",
-  "Career changers moving from retail, food service, or other industries into healthcare",
-  "Re-entry / justice-involved participants building a new track record in a high-demand field",
-  "Workforce clients referred by WRG, WIOA, SNAP E&T, VR, and community partners",
+  'Learners who want an entry-level healthcare career with growth potential',
+  'Career changers moving from retail, food service, or other industries into healthcare',
+  'Re-entry / justice-involved participants building a new track record in a high-demand field',
+  'Workforce clients referred by WRG, WIOA, SNAP E&T, VR, and community partners',
 ];
 
 const CURRICULUM = [
-  "Healthcare foundations: medical terminology, anatomy & physiology basics",
-  "Clinical skills: vitals, patient intake, rooming, and basic procedures support",
-  "Lab skills: specimen collection, CLIA-waived testing, and documentation (where applicable)",
-  "Administrative: scheduling, phone etiquette, electronic health records, and charting basics",
-  "Professional skills: communication, teamwork, confidentiality, and patient experience",
-  "Certification & career prep: exam readiness, resumes, interviews, and job search strategy",
+  'Healthcare foundations: medical terminology, anatomy & physiology basics',
+  'Clinical skills: vitals, patient intake, rooming, and basic procedures support',
+  'Lab skills: specimen collection, CLIA-waived testing, and documentation (where applicable)',
+  'Administrative: scheduling, phone etiquette, electronic health records, and charting basics',
+  'Professional skills: communication, teamwork, confidentiality, and patient experience',
+  'Certification & career prep: exam readiness, resumes, interviews, and job search strategy',
 ];
 
 const FUNDING = [
-  "Workforce Ready Grant (WRG) – where eligible and approved",
-  "WIOA / workforce board sponsorship – depending on local approvals",
-  "Support through re-entry, community, and faith-based partners where available",
-  "Employer partnerships and tuition assistance, when offered by hiring partners",
-  "Self-pay and payment plan options if public funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible and approved',
+  'WIOA / workforce board sponsorship – depending on local approvals',
+  'Support through re-entry, community, and faith-based partners where available',
+  'Employer partnerships and tuition assistance, when offered by hiring partners',
+  'Self-pay and payment plan options if public funding is not available',
 ];
 
 const OUTCOMES = [
-  "Entry-level Medical Assistant skills to support providers and care teams",
-  "Documentation of training, competencies, and externship hours (where applicable)",
-  "Preparation for industry-recognized Medical Assistant credential exams (where available)",
-  "Résumé, interview practice, and job search support for outpatient / clinic roles",
-  "A pathway into healthcare with room to grow into other allied health roles",
+  'Entry-level Medical Assistant skills to support providers and care teams',
+  'Documentation of training, competencies, and externship hours (where applicable)',
+  'Preparation for industry-recognized Medical Assistant credential exams (where available)',
+  'Résumé, interview practice, and job search support for outpatient / clinic roles',
+  'A pathway into healthcare with room to grow into other allied health roles',
 ];
 
 const FAQ = [
   {
-    q: "How long does the Medical Assistant Program take?",
-    a: "Most Medical Assistant programs run approximately 4–9 months depending on schedule, externship length, and partner site availability. During orientation we review the specific timeline for your cohort.",
+    q: 'How long does the Medical Assistant Program take?',
+    a: 'Most Medical Assistant programs run approximately 4–9 months depending on schedule, externship length, and partner site availability. During orientation we review the specific timeline for your cohort.',
   },
   {
-    q: "Do I need previous healthcare experience?",
+    q: 'Do I need previous healthcare experience?',
     a: "No. Many learners are new to healthcare. We start with foundations and build from there. You'll need reliability, willingness to learn, and comfort working with people.",
   },
   {
-    q: "Can this be funded through WRG, WIOA, or other workforce programs?",
-    a: "In many cases, yes. We work with workforce boards, case managers, and community partners to braid funding and reduce out-of-pocket costs where possible based on eligibility and approvals.",
+    q: 'Can this be funded through WRG, WIOA, or other workforce programs?',
+    a: 'In many cases, yes. We work with workforce boards, case managers, and community partners to braid funding and reduce out-of-pocket costs where possible based on eligibility and approvals.',
   },
   {
-    q: "Will I be ready to work after I finish?",
-    a: "The goal of this program is to prepare you with real skills, externship experience where available, and support for credential exams and job search. Employers make final hiring decisions, but we align to what clinics and practices are asking for.",
+    q: 'Will I be ready to work after I finish?',
+    a: 'The goal of this program is to prepare you with real skills, externship experience where available, and support for credential exams and job search. Employers make final hiring decisions, but we align to what clinics and practices are asking for.',
   },
 ];
 
@@ -272,15 +272,21 @@ export default function MedicalAssistantPage() {
               For case managers & workforce partners
             </h3>
             <p className="mt-2 text-xs text-slate-600">
-              We understand compliance, documentation, and audits. For
-              workforce and community partners, we can provide:
+              We understand compliance, documentation, and audits. For workforce
+              and community partners, we can provide:
             </p>
             <ul className="mt-3 space-y-1.5 text-xs text-slate-700">
-              <li>• Enrollment verification and individualized training plans</li>
+              <li>
+                • Enrollment verification and individualized training plans
+              </li>
               <li>• Attendance and participation reporting</li>
               <li>• Progress notes and skill milestone tracking</li>
-              <li>• Credential attempt and completion updates (where applicable)</li>
-              <li>• Employment and retention follow-up for outcome reporting</li>
+              <li>
+                • Credential attempt and completion updates (where applicable)
+              </li>
+              <li>
+                • Employment and retention follow-up for outcome reporting
+              </li>
             </ul>
             <Link
               href="/partners"
@@ -302,9 +308,9 @@ export default function MedicalAssistantPage() {
               </h2>
               <p className="mt-2 text-sm text-slate-200">
                 This program is designed to lead to real entry-level
-                opportunities in healthcare, not just a line on a resume. You&apos;ll
-                leave with skills, experience, and a clearer sense of where you
-                can grow next.
+                opportunities in healthcare, not just a line on a resume.
+                You&apos;ll leave with skills, experience, and a clearer sense
+                of where you can grow next.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-slate-100">
                 {OUTCOMES.map((item) => (
@@ -322,8 +328,8 @@ export default function MedicalAssistantPage() {
               </h3>
               <p className="mt-2 text-xs text-slate-300">
                 Medical Assistant can be a destination role or a first step
-                toward nursing, allied health, or other healthcare careers.
-                We talk openly about what those paths can look like and what it
+                toward nursing, allied health, or other healthcare careers. We
+                talk openly about what those paths can look like and what it
                 takes to keep moving.
               </p>
               <p className="mt-3 text-xs text-slate-300">
@@ -362,10 +368,10 @@ export default function MedicalAssistantPage() {
               Ready to begin your healthcare career?
             </h2>
             <p className="mt-3 text-sm text-slate-200">
-              Whether you&apos;re stepping into healthcare for the first time
-              or returning to build something new, the Medical Assistant
-              Program gives you structure, support, and a practical on-ramp
-              into clinics and care teams that need you.
+              Whether you&apos;re stepping into healthcare for the first time or
+              returning to build something new, the Medical Assistant Program
+              gives you structure, support, and a practical on-ramp into clinics
+              and care teams that need you.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">

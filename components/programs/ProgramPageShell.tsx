@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
-import { Section } from "@/components/ui/Section";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import Link from "next/link";
+import { ReactNode } from 'react';
+import { Section } from '@/components/ui/Section';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
 
 type ProgramPageShellProps = {
   title: string;
@@ -34,7 +34,7 @@ export function ProgramPageShell({
   outcomes,
   highlights,
   employerNotes,
-  applyHref = "/apply",
+  applyHref = '/apply',
   children,
 }: ProgramPageShellProps) {
   return (
@@ -69,15 +69,11 @@ export function ProgramPageShell({
                 <p>Credential / outcome</p>
               </div>
               <div>
-                <p className="text-base font-bold text-slate-900">
-                  {duration}
-                </p>
+                <p className="text-base font-bold text-slate-900">{duration}</p>
                 <p>Approximate program length</p>
               </div>
               <div>
-                <p className="text-base font-bold text-slate-900">
-                  {schedule}
-                </p>
+                <p className="text-base font-bold text-slate-900">{schedule}</p>
                 <p>Schedule</p>
               </div>
             </div>
@@ -140,9 +136,7 @@ export function ProgramPageShell({
             </ul>
           </Card>
 
-          <div className="space-y-4">
-            {children}
-          </div>
+          <div className="space-y-4">{children}</div>
         </div>
       </Section>
     </main>

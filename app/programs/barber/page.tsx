@@ -1,5 +1,5 @@
-import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
-import { Card } from "@/components/ui/Card";
+import { ProgramPageShell } from '@/components/programs/ProgramPageShell';
+import { Card } from '@/components/ui/Card';
 
 export default function BarberProgramPage() {
   return (
@@ -14,15 +14,15 @@ export default function BarberProgramPage() {
       funding="Apprenticeship model with potential workforce funding support."
       audience="Individuals serious about a long-term career in barbering, customer service, and entrepreneurship."
       outcomes={[
-        "Develop core cutting, lining, and grooming skills under supervision",
-        "Build real client relationships and service habits in a live shop",
-        "Track hours and competencies toward state licensing requirements",
-        "Understand shop professionalism, sanitation, and basic business operations",
+        'Develop core cutting, lining, and grooming skills under supervision',
+        'Build real client relationships and service habits in a live shop',
+        'Track hours and competencies toward state licensing requirements',
+        'Understand shop professionalism, sanitation, and basic business operations',
       ]}
       highlights={[
-        "Earn while you learn in a real barbershop environment",
-        "One of only a few sponsored barber apprenticeships in the state",
-        "Pathway to licensure and eventually owning your own chair or shop",
+        'Earn while you learn in a real barbershop environment',
+        'One of only a few sponsored barber apprenticeships in the state',
+        'Pathway to licensure and eventually owning your own chair or shop',
       ]}
       employerNotes="Register as a sponsor shop to train future licensed barbers in-house and build a reliable pipeline of talent that understands your culture and standards."
       applyHref="/apply?program=barber-apprenticeship"
@@ -35,7 +35,9 @@ export default function BarberProgramPage() {
           <li>• On-the-job training inside a partnering barbershop</li>
           <li>• Related instruction through an approved education partner</li>
           <li>• Hour tracking and competency checks toward licensing</li>
-          <li>• Support from Elevate around workforce and wrap-around resources</li>
+          <li>
+            • Support from Elevate around workforce and wrap-around resources
+          </li>
         </ul>
       </Card>
     </ProgramPageShell>
