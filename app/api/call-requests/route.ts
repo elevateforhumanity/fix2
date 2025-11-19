@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(req: Request) {
   try {
@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
     if (!phoneNumber) {
       return NextResponse.json(
-        { error: "Phone number is required" },
+        { error: 'Phone number is required' },
         { status: 400 }
       );
     }
@@ -15,31 +15,28 @@ export async function POST(req: Request) {
     const supabase = await createClient();
 
     const { data, error } = await supabase
-      .from("call_requests")
+      .from('call_requests')
       .insert({
         phone_number: phoneNumber,
         name,
-        status: "pending",
+        status: 'pending',
         requested_at: requestedAt,
       })
       .select()
       .single();
 
     if (error) {
-      console.error("Database error:", error);
+      console.error('Database error:', error);
       return NextResponse.json(
-        { error: "Failed to save request" },
+        { error: 'Failed to save request' },
         { status: 500 }
       );
     }
 
     return NextResponse.json({ success: true, id: data.id });
   } catch (error) {
-    console.error("API error:", error);
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500 }
-    );
+    console.error('API error:', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
 
@@ -49,10 +46,10 @@ export async function GET() {
     const supabase = await createClient();
 
     const { data, error } = await supabase
-      .from("call_requests")
-      .select("*")
-      .eq("status", "pending")
-      .order("requested_at", { ascending: false })
+      .from('call_requests')
+      .select('*')
+      .eq('status', 'pending')
+      .order('requested_at', { ascending: false })
       .limit(50);
 
     if (error) {
@@ -61,10 +58,7 @@ export async function GET() {
 
     return NextResponse.json({ requests: data || [] });
   } catch (error) {
-    console.error("API error:", error);
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500 }
-    );
+    console.error('API error:', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
