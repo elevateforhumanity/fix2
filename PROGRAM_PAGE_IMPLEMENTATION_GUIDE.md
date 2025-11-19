@@ -1,4 +1,5 @@
 # 🎯 PROGRAM PAGE IMPLEMENTATION GUIDE
+
 ## Gold Standard Template for All Programs
 
 ---
@@ -39,6 +40,7 @@
 ## 🏗️ TEMPLATE STRUCTURE (MANDATORY FOR ALL PROGRAMS)
 
 ### Section 1: Hero
+
 ```tsx
 <section className="border-b border-slate-100 bg-white">
   <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
@@ -49,6 +51,7 @@
 ```
 
 **Required Elements:**
+
 - Program category badge (uppercase, tracking-[0.2em])
 - H1 title (text-3xl sm:text-4xl)
 - Description paragraph
@@ -56,6 +59,7 @@
 - Snapshot card with program details
 
 ### Section 2: What You'll Learn + Who It Serves
+
 ```tsx
 <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
   <div className="grid gap-10 md:grid-cols-2 md:gap-12">
@@ -66,11 +70,13 @@
 ```
 
 **Required Elements:**
+
 - Bullet lists with colored dots
 - Orange dots (bg-orange-500) for highlights
 - Slate dots (bg-slate-700) for audience
 
 ### Section 3: Curriculum Overview
+
 ```tsx
 <section className="border-y border-slate-100 bg-white">
   <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
@@ -83,10 +89,12 @@
 ```
 
 **Required Elements:**
+
 - 6+ curriculum items with indigo dots (bg-indigo-500)
 - Dark card (bg-slate-900/95) with expectations
 
 ### Section 4: Funding & Case Management
+
 ```tsx
 <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
   <div className="grid gap-10 md:grid-cols-[1.3fr,1fr] md:gap-12">
@@ -97,10 +105,12 @@
 ```
 
 **Required Elements:**
+
 - Funding list with emerald dots (bg-emerald-500)
 - White card for case managers with documentation list
 
 ### Section 5: Outcomes
+
 ```tsx
 <section className="border-y border-slate-100 bg-slate-900/95">
   <div className="mx-auto max-w-6xl px-4 py-10 text-slate-50 md:py-14">
@@ -113,27 +123,29 @@
 ```
 
 **Required Elements:**
+
 - Dark background (bg-slate-900/95)
 - Outcomes with orange dots (bg-orange-400)
 - Dark card with career pathway info
 
 ### Section 6: FAQ
+
 ```tsx
 <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
   <h2 className="text-lg font-semibold text-slate-900">
     Frequently asked questions
   </h2>
-  <div className="mt-4 space-y-4">
-    {/* FAQ cards */}
-  </div>
+  <div className="mt-4 space-y-4">{/* FAQ cards */}</div>
 </section>
 ```
 
 **Required Elements:**
+
 - 4-6 Q&A pairs minimum
 - White cards with rounded-2xl borders
 
 ### Section 7: Final CTA
+
 ```tsx
 <section className="border-t border-slate-100 bg-slate-900">
   <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
@@ -144,6 +156,7 @@
 ```
 
 **Required Elements:**
+
 - Dark background
 - Two CTAs with proper links
 - Small text for case managers
@@ -153,23 +166,27 @@
 ## 🎨 STYLING RULES (NON-NEGOTIABLE)
 
 ### Colors
+
 - **Light sections:** `bg-white` or `bg-slate-50`
 - **Dark sections:** `bg-slate-900` or `bg-slate-900/95`
 - **Primary CTA:** `bg-orange-500 hover:bg-orange-600`
 - **Borders:** `border-slate-100` or `border-slate-700` (dark)
 
 ### Spacing
+
 - **Container:** `max-w-6xl mx-auto px-4`
 - **Section padding:** `py-10 md:py-14`
 - **Grid gaps:** `gap-10 md:gap-12`
 
 ### Typography
+
 - **H1:** `text-3xl sm:text-4xl font-semibold`
 - **H2:** `text-lg font-semibold`
 - **Body:** `text-sm md:text-base`
 - **Small text:** `text-xs`
 
 ### Cards
+
 - **Rounded:** `rounded-2xl`
 - **Borders:** `border border-slate-100`
 - **Shadows:** `shadow-sm` or `shadow-lg` (hero)
@@ -181,9 +198,9 @@
 
 ```tsx
 export const metadata = {
-  title: "PROGRAM NAME | Elevate Connects Directory",
+  title: 'PROGRAM NAME | Elevate Connects Directory',
   description:
-    "Brief description of program, who it serves, and workforce outcomes.",
+    'Brief description of program, who it serves, and workforce outcomes.',
 };
 ```
 
@@ -208,61 +225,61 @@ export const metadata = {
 
 ```tsx
 const HIGHLIGHTS = [
-  "Highlight 1",
-  "Highlight 2",
-  "Highlight 3",
-  "Highlight 4",
-  "Highlight 5",
+  'Highlight 1',
+  'Highlight 2',
+  'Highlight 3',
+  'Highlight 4',
+  'Highlight 5',
 ];
 
 const WHO_IT_SERVES = [
-  "Audience group 1",
-  "Audience group 2",
-  "Audience group 3",
-  "Audience group 4",
+  'Audience group 1',
+  'Audience group 2',
+  'Audience group 3',
+  'Audience group 4',
 ];
 
 const CURRICULUM = [
-  "Curriculum item 1",
-  "Curriculum item 2",
-  "Curriculum item 3",
-  "Curriculum item 4",
-  "Curriculum item 5",
-  "Curriculum item 6",
+  'Curriculum item 1',
+  'Curriculum item 2',
+  'Curriculum item 3',
+  'Curriculum item 4',
+  'Curriculum item 5',
+  'Curriculum item 6',
 ];
 
 const FUNDING = [
-  "Funding option 1",
-  "Funding option 2",
-  "Funding option 3",
-  "Funding option 4",
-  "Funding option 5",
+  'Funding option 1',
+  'Funding option 2',
+  'Funding option 3',
+  'Funding option 4',
+  'Funding option 5',
 ];
 
 const OUTCOMES = [
-  "Outcome 1",
-  "Outcome 2",
-  "Outcome 3",
-  "Outcome 4",
-  "Outcome 5",
+  'Outcome 1',
+  'Outcome 2',
+  'Outcome 3',
+  'Outcome 4',
+  'Outcome 5',
 ];
 
 const FAQ = [
   {
-    q: "Question 1?",
-    a: "Answer 1.",
+    q: 'Question 1?',
+    a: 'Answer 1.',
   },
   {
-    q: "Question 2?",
-    a: "Answer 2.",
+    q: 'Question 2?',
+    a: 'Answer 2.',
   },
   {
-    q: "Question 3?",
-    a: "Answer 3.",
+    q: 'Question 3?',
+    a: 'Answer 3.',
   },
   {
-    q: "Question 4?",
-    a: "Answer 4.",
+    q: 'Question 4?',
+    a: 'Answer 4.',
   },
 ];
 ```
@@ -272,20 +289,24 @@ const FAQ = [
 ## 🚨 CRITICAL ISSUES TO FIX
 
 ### 1. Route Inconsistencies
+
 **Problem:** Multiple program pages exist with different naming conventions.
 
 **Current duplicates:**
+
 - `/programs/hvac` vs `/programs/hvac-tech` vs `/programs/hvac-technician`
 - `/programs/barber` vs `/programs/barber-apprenticeship`
 - `/programs/building-tech` vs `/programs/building-maintenance`
 
-**Solution:** 
+**Solution:**
+
 1. Choose ONE canonical URL per program
 2. Delete duplicate pages
 3. Update all navigation links
 4. Add redirects for old URLs
 
 **Recommended canonical URLs:**
+
 - `/programs/barber-apprenticeship` ✅
 - `/programs/medical-assistant` ✅
 - `/programs/hvac-technician` ✅
@@ -295,11 +316,13 @@ const FAQ = [
 - `/programs/truck-driving` (new)
 
 ### 2. Missing Pages
+
 - `/accessibility` - Linked in footer but doesn't exist
 - `/terms` - Linked in some pages (should redirect to `/terms-of-service`)
 - `/privacy` - Linked in some pages (should redirect to `/privacy-policy`)
 
 ### 3. Placeholder Links
+
 - Mobile app badges in footer link to `#`
 - Social media icons link to `#`
 - Either add real URLs or remove these elements
@@ -309,6 +332,7 @@ const FAQ = [
 ## ✅ DEPLOYMENT CHECKLIST
 
 Before deploying:
+
 - [ ] All program pages follow gold standard template
 - [ ] No duplicate program routes exist
 - [ ] All navigation links updated to canonical URLs
@@ -323,6 +347,7 @@ Before deploying:
 ## 🎯 SUCCESS CRITERIA
 
 A program page is "gold standard" when:
+
 1. ✅ Follows exact section structure from Barber/MA/HVAC
 2. ✅ Uses identical Tailwind classes and spacing
 3. ✅ Has all 7 required sections
