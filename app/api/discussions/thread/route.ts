@@ -4,8 +4,10 @@ import { createClient } from '@/lib/supabase/server';
 export async function POST(req: Request) {
   try {
     const supabase = await createClient();
-    
-    const { data: { user } } = await supabase.auth.getUser();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -15,7 +17,7 @@ export async function POST(req: Request) {
     if (!courseId || !title || !body) {
       return NextResponse.json(
         { error: 'courseId, title, and body are required' },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -32,7 +34,10 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('Discussion thread error:', error);
-      return NextResponse.json({ error: 'Failed to create thread' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to create thread' },
+        { status: 500 }
+      );
     }
 
     // Simple gamification: award "first post" badge
@@ -55,6 +60,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ thread });
   } catch (error) {
     console.error('Discussion API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

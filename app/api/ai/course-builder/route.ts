@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
     return NextResponse.json(
-      { error: "AI features not configured. Please set OPENAI_API_KEY." },
+      { error: 'AI features not configured. Please set OPENAI_API_KEY.' },
       { status: 503 }
     );
   }
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   const client = getOpenAIClient();
   if (!client) {
     return NextResponse.json(
-      { error: "AI service unavailable" },
+      { error: 'AI service unavailable' },
       { status: 503 }
     );
   }
@@ -24,13 +24,13 @@ export async function POST(req: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { topic, level, tenantId } = await req.json();
 
   const prompt = `
-Create a full LMS course structure on "${topic}" for workforce development at ${level || "intermediate"} level.
+Create a full LMS course structure on "${topic}" for workforce development at ${level || 'intermediate'} level.
 Include:
 - 6 modules with clear learning objectives
 - 4–8 lessons per module with detailed content outlines
@@ -71,15 +71,15 @@ Format as JSON with this structure:
 
   try {
     const completion = await client.chat.completions.create({
-      model: "gpt-4",
-      messages: [{ role: "user", content: prompt }],
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: prompt }],
       temperature: 0.7,
     });
 
     const content = completion.choices[0].message.content;
 
     const { data: course } = await supabase
-      .from("ai_generated_courses")
+      .from('ai_generated_courses')
       .insert({
         tenant_id: tenantId,
         topic,
@@ -91,9 +91,9 @@ Format as JSON with this structure:
 
     return NextResponse.json({ course, content });
   } catch (error: any) {
-    console.error("AI course builder error:", error);
+    console.error('AI course builder error:', error);
     return NextResponse.json(
-      { error: error.message || "Failed to generate course" },
+      { error: error.message || 'Failed to generate course' },
       { status: 500 }
     );
   }

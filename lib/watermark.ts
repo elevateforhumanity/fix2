@@ -13,19 +13,18 @@ export interface WatermarkData {
 /**
  * Add invisible watermark to content
  */
-export function watermarkContent(
-  content: string,
-  data: WatermarkData
-): string {
-  const watermark = Buffer.from(JSON.stringify({
-    u: data.userId,
-    c: data.contentId,
-    t: data.timestamp.getTime(),
-  })).toString('base64');
-  
+export function watermarkContent(content: string, data: WatermarkData): string {
+  const watermark = Buffer.from(
+    JSON.stringify({
+      u: data.userId,
+      c: data.contentId,
+      t: data.timestamp.getTime(),
+    })
+  ).toString('base64');
+
   // Add invisible HTML comment
   const invisibleWatermark = `<!-- wm:${watermark} -->`;
-  
+
   return content + invisibleWatermark;
 }
 
@@ -39,11 +38,11 @@ export function extractWatermark(content: string): {
 } | null {
   const match = content.match(/<!-- wm:([A-Za-z0-9+/=]+) -->/);
   if (!match) return null;
-  
+
   try {
     const decoded = Buffer.from(match[1], 'base64').toString('utf-8');
     const data = JSON.parse(decoded);
-    
+
     return {
       userId: data.u,
       contentId: data.c,
@@ -66,7 +65,7 @@ export async function logContentAccess(data: WatermarkData): Promise<void> {
     ip: data.ipAddress,
     time: data.timestamp,
   });
-  
+
   // Send email notification
   const subject = `Content Access Alert: ${data.contentType} ${data.contentId}`;
   const message = `
@@ -81,7 +80,7 @@ User Agent: ${data.userAgent}
 
 This is an automated notification from your Elevate for Humanity LMS platform.
   `.trim();
-  
+
   try {
     await notifySendgrid(subject, message);
   } catch (error) {
@@ -99,11 +98,11 @@ export async function detectSuspiciousUsage(
   // In production, check database for patterns
   // For now, just log
   console.log('Checking usage pattern:', { userId, contentId });
-  
+
   // Example: Check if user accessed same content multiple times rapidly
   // Example: Check if content was accessed from multiple IPs
   // Example: Check if content was downloaded/copied
-  
+
   return false; // Not suspicious
 }
 
@@ -116,7 +115,7 @@ export async function watermarkBuild(
   deployedTo: string
 ): Promise<void> {
   const timestamp = new Date();
-  
+
   const message = `
 Build Deployment Notification
 ==============================
@@ -132,7 +131,7 @@ Any unauthorized use will be detected and reported.
 Platform: Elevate for Humanity LMS
 Value: $2.5M - $8M
   `.trim();
-  
+
   try {
     await notifySendgrid('Build Deployment Alert', message);
     console.log('Build watermarked and notification sent');

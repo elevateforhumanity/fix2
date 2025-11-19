@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
 
 export async function GET(request: Request) {
   if (!isOpenAIConfigured()) {
     return NextResponse.json(
-      { error: "AI features not configured. Please set OPENAI_API_KEY." },
+      { error: 'AI features not configured. Please set OPENAI_API_KEY.' },
       { status: 503 }
     );
   }
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   const client = getOpenAIClient();
   if (!client) {
     return NextResponse.json(
-      { error: "AI service unavailable" },
+      { error: 'AI service unavailable' },
       { status: 503 }
     );
   }
@@ -24,22 +24,22 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   // Check if user is admin or instructor
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
     .single();
 
-  if (!profile || !["admin", "instructor"].includes(profile.role)) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (!profile || !['admin', 'instructor'].includes(profile.role)) {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const { data: enrollments } = await supabase
-    .from("enrollments")
+    .from('enrollments')
     .select(
       `
       id,
@@ -54,7 +54,7 @@ export async function GET(request: Request) {
       )
     `
     )
-    .eq("status", "in_progress")
+    .eq('status', 'in_progress')
     .limit(100);
 
   if (!enrollments || enrollments.length === 0) {
@@ -74,7 +74,7 @@ export async function GET(request: Request) {
       progress: e.progress || 0,
       daysSinceStart,
       daysSinceActivity,
-      userEmail: e.profiles?.email || "unknown",
+      userEmail: e.profiles?.email || 'unknown',
     };
   });
 
@@ -94,12 +94,12 @@ ${JSON.stringify(features, null, 2)}
 
   try {
     const completion = await client.chat.completions.create({
-      model: "gpt-4-turbo-preview",
-      messages: [{ role: "user", content: prompt }],
+      model: 'gpt-4-turbo-preview',
+      messages: [{ role: 'user', content: prompt }],
       temperature: 0.3,
     });
 
-    const text = completion.choices[0].message.content || "[]";
+    const text = completion.choices[0].message.content || '[]';
     let parsed: any;
 
     try {
@@ -116,9 +116,9 @@ ${JSON.stringify(features, null, 2)}
 
     return NextResponse.json({ scores: parsed });
   } catch (error: any) {
-    console.error("Dropout risk prediction error:", error);
+    console.error('Dropout risk prediction error:', error);
     return NextResponse.json(
-      { error: error.message || "Failed to predict dropout risk" },
+      { error: error.message || 'Failed to predict dropout risk' },
       { status: 500 }
     );
   }

@@ -12,9 +12,11 @@ Your platform has **solid security fundamentals** but **moderate anti-scraping p
 ## Current Security Features ✅
 
 ### 1. Rate Limiting ✅ (IMPLEMENTED)
+
 **Location:** `lib/rateLimiter.ts`
 
 **Features:**
+
 - ✅ IP-based rate limiting
 - ✅ Redis support (with in-memory fallback)
 - ✅ Configurable limits per endpoint
@@ -23,9 +25,10 @@ Your platform has **solid security fundamentals** but **moderate anti-scraping p
 - ✅ X-RateLimit headers
 
 **Configuration:**
+
 ```typescript
-RATE_LIMIT_REQUESTS=100  // requests per window
-RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
+RATE_LIMIT_REQUESTS = 100; // requests per window
+RATE_LIMIT_WINDOW_SECONDS = 60; // 60 seconds = 1 minute
 ```
 
 **Default:** 100 requests per minute per IP
@@ -35,9 +38,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 2. Security Headers ✅ (IMPLEMENTED)
+
 **Location:** `next.config.mjs`
 
 **Headers Configured:**
+
 - ✅ `Strict-Transport-Security` (HSTS)
 - ✅ `X-Frame-Options: SAMEORIGIN` (Clickjacking protection)
 - ✅ `X-Content-Type-Options: nosniff` (MIME sniffing protection)
@@ -51,9 +56,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 3. Robots.txt ✅ (IMPLEMENTED)
+
 **Location:** `public/robots.txt`
 
 **Configuration:**
+
 - ✅ Allows legitimate search engines (Google, Bing, etc.)
 - ✅ Blocks API routes from crawling
 - ✅ Blocks admin/student/employer portals
@@ -65,6 +72,7 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 4. Authentication & Authorization ✅
+
 - ✅ NextAuth v5 (latest)
 - ✅ Session management
 - ✅ Two-factor authentication (2FA)
@@ -76,6 +84,7 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 5. Database Security ✅
+
 - ✅ Supabase with Row-Level Security (RLS)
 - ✅ Parameterized queries (Prisma ORM)
 - ✅ SQL injection protection
@@ -86,6 +95,7 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 6. API Security ✅
+
 - ✅ API key authentication
 - ✅ JWT tokens
 - ✅ CORS configuration
@@ -98,7 +108,9 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ## What's Missing for Anti-Scraping ⚠️
 
 ### 1. Bot Detection ❌ (NOT IMPLEMENTED)
+
 **Missing:**
+
 - ❌ User-Agent analysis
 - ❌ Browser fingerprinting
 - ❌ Behavioral analysis
@@ -112,9 +124,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 2. Advanced Rate Limiting ⚠️ (PARTIAL)
+
 **Current:** Basic IP-based rate limiting
 
 **Missing:**
+
 - ⚠️ Per-user rate limiting (in addition to IP)
 - ⚠️ Per-endpoint custom limits
 - ⚠️ Burst protection
@@ -126,7 +140,9 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 3. Request Fingerprinting ❌ (NOT IMPLEMENTED)
+
 **Missing:**
+
 - ❌ TLS fingerprinting
 - ❌ HTTP/2 fingerprinting
 - ❌ Header order analysis
@@ -137,7 +153,9 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 4. Honeypot Traps ❌ (NOT IMPLEMENTED)
+
 **Missing:**
+
 - ❌ Hidden form fields
 - ❌ Fake API endpoints
 - ❌ Trap links in robots.txt
@@ -148,7 +166,9 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 5. IP Reputation ❌ (NOT IMPLEMENTED)
+
 **Missing:**
+
 - ❌ IP blacklist/whitelist
 - ❌ VPN/Proxy detection
 - ❌ Datacenter IP blocking
@@ -160,9 +180,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 6. Content Protection ⚠️ (PARTIAL)
+
 **Current:** Basic access control
 
 **Missing:**
+
 - ⚠️ Watermarking
 - ⚠️ Dynamic content obfuscation
 - ⚠️ Anti-copy protection
@@ -174,9 +196,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### 7. Monitoring & Alerting ⚠️ (PARTIAL)
+
 **Current:** Sentry error tracking
 
 **Missing:**
+
 - ⚠️ Real-time scraping detection
 - ⚠️ Anomaly detection
 - ⚠️ Traffic pattern analysis
@@ -190,9 +214,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ## Anti-Scraping Threat Assessment
 
 ### Low Sophistication Scrapers (PROTECTED ✅)
+
 **Examples:** Simple Python scripts, curl, wget
 
 **Your Protection:**
+
 - ✅ Rate limiting blocks them
 - ✅ Robots.txt discourages them
 - ✅ Security headers prevent some attacks
@@ -202,9 +228,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### Medium Sophistication Scrapers (PARTIALLY PROTECTED ⚠️)
+
 **Examples:** Scrapy, Selenium, Puppeteer with basic evasion
 
 **Your Protection:**
+
 - ✅ Rate limiting slows them down
 - ⚠️ Can rotate IPs to bypass
 - ⚠️ Can mimic legitimate browsers
@@ -215,9 +243,11 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ---
 
 ### High Sophistication Scrapers (NOT PROTECTED ❌)
+
 **Examples:** Residential proxies, browser automation with anti-detection
 
 **Your Protection:**
+
 - ❌ Can bypass rate limiting with proxy rotation
 - ❌ Can mimic real user behavior
 - ❌ No advanced detection mechanisms
@@ -232,6 +262,7 @@ RATE_LIMIT_WINDOW_SECONDS=60  // 60 seconds = 1 minute
 ### Priority 1: HIGH (Implement Immediately)
 
 #### 1. Add Bot Detection Middleware
+
 **Create:** `middleware.ts` in root
 
 ```typescript
@@ -263,32 +294,24 @@ const ALLOWED_BOTS = [
 
 export function middleware(request: NextRequest) {
   const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
-  
+
   // Check if it's a suspicious bot
-  const isSuspicious = SUSPICIOUS_USER_AGENTS.some(bot => 
+  const isSuspicious = SUSPICIOUS_USER_AGENTS.some((bot) =>
     userAgent.includes(bot)
   );
-  
+
   // Check if it's an allowed bot
-  const isAllowed = ALLOWED_BOTS.some(bot => 
-    userAgent.includes(bot)
-  );
-  
+  const isAllowed = ALLOWED_BOTS.some((bot) => userAgent.includes(bot));
+
   if (isSuspicious && !isAllowed) {
-    return NextResponse.json(
-      { error: 'Access denied' },
-      { status: 403 }
-    );
+    return NextResponse.json({ error: 'Access denied' }, { status: 403 });
   }
-  
+
   // Check for missing or suspicious headers
   if (!userAgent || userAgent.length < 10) {
-    return NextResponse.json(
-      { error: 'Invalid request' },
-      { status: 403 }
-    );
+    return NextResponse.json({ error: 'Invalid request' }, { status: 403 });
   }
-  
+
   return NextResponse.next();
 }
 
@@ -307,15 +330,18 @@ export const config = {
 ---
 
 #### 2. Add CAPTCHA to Critical Endpoints
+
 **Install:** `npm install @hcaptcha/react-hcaptcha`
 
 **Add to:**
+
 - Login page
 - Registration page
 - Contact forms
 - High-value API endpoints
 
 **Example:**
+
 ```typescript
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 
@@ -331,6 +357,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 ---
 
 #### 3. Implement Request Fingerprinting
+
 **Create:** `lib/fingerprint.ts`
 
 ```typescript
@@ -345,12 +372,12 @@ export function generateFingerprint(req: NextRequest): string {
     req.headers.get('accept') || '',
     req.ip || '',
   ];
-  
+
   const fingerprint = crypto
     .createHash('sha256')
     .update(components.join('|'))
     .digest('hex');
-  
+
   return fingerprint;
 }
 
@@ -360,14 +387,14 @@ export async function trackFingerprint(
 ): Promise<boolean> {
   // Track in Redis or database
   // Return true if suspicious (too many requests from same fingerprint)
-  
+
   const key = `fp:${fingerprint}:${action}`;
   const count = await getCount(key); // Implement with Redis
-  
+
   if (count > 10) {
     return true; // Suspicious
   }
-  
+
   await incrementCount(key);
   return false;
 }
@@ -378,6 +405,7 @@ export async function trackFingerprint(
 ---
 
 #### 4. Add Real-time Monitoring
+
 **Create:** `lib/security-monitor.ts`
 
 ```typescript
@@ -395,19 +423,19 @@ const events: SecurityEvent[] = [];
 
 export async function logSecurityEvent(event: SecurityEvent) {
   events.push(event);
-  
+
   // Check for patterns
   const recentEvents = events.filter(
-    e => e.timestamp > new Date(Date.now() - 60000) // Last minute
+    (e) => e.timestamp > new Date(Date.now() - 60000) // Last minute
   );
-  
+
   // Alert if too many security events
   if (recentEvents.length > 50) {
     await notifyCritical(
       `Security alert: ${recentEvents.length} security events in last minute`
     );
   }
-  
+
   // Store in database for analysis
   // await storeSecurityEvent(event);
 }
@@ -420,12 +448,15 @@ export async function logSecurityEvent(event: SecurityEvent) {
 ### Priority 2: MEDIUM (Implement Within 30 Days)
 
 #### 5. IP Reputation Service
+
 **Options:**
+
 - **IPQualityScore** - $99/month
 - **MaxMind GeoIP2** - $50/month
 - **IPHub** - $20/month
 
 **Implementation:**
+
 ```typescript
 import axios from 'axios';
 
@@ -439,7 +470,7 @@ export async function checkIPReputation(ip: string): Promise<{
   const response = await axios.get(
     `https://ipqualityscore.com/api/json/ip/${process.env.IPQS_KEY}/${ip}`
   );
-  
+
   return {
     isProxy: response.data.proxy,
     isVPN: response.data.vpn,
@@ -455,6 +486,7 @@ export async function checkIPReputation(ip: string): Promise<{
 ---
 
 #### 6. Progressive Rate Limiting
+
 **Enhance:** `lib/rateLimiter.ts`
 
 ```typescript
@@ -463,7 +495,7 @@ export async function progressiveRateLimit(
   keyPrefix: string
 ): Promise<NextResponse | null> {
   const violations = await getViolationCount(req.ip);
-  
+
   // Progressive penalties
   const limits = [
     { violations: 0, requests: 100, window: 60 },
@@ -472,16 +504,16 @@ export async function progressiveRateLimit(
     { violations: 3, requests: 5, window: 60 },
     { violations: 4, requests: 0, window: 3600 }, // 1 hour ban
   ];
-  
-  const limit = limits.find(l => violations >= l.violations) || limits[0];
-  
+
+  const limit = limits.find((l) => violations >= l.violations) || limits[0];
+
   if (limit.requests === 0) {
     return NextResponse.json(
       { error: 'Too many violations. Temporarily banned.' },
       { status: 403 }
     );
   }
-  
+
   return rateLimit(req, keyPrefix, {
     requests: limit.requests,
     windowSeconds: limit.window,
@@ -494,6 +526,7 @@ export async function progressiveRateLimit(
 ---
 
 #### 7. Honeypot Endpoints
+
 **Create:** `app/api/trap/route.ts`
 
 ```typescript
@@ -503,7 +536,7 @@ import { logSecurityEvent } from '@/lib/security-monitor';
 export async function GET(req: NextRequest) {
   // This endpoint should never be accessed by legitimate users
   const ip = req.headers.get('x-forwarded-for') || req.ip;
-  
+
   await logSecurityEvent({
     type: 'bot_detected',
     ip: ip || 'unknown',
@@ -511,10 +544,10 @@ export async function GET(req: NextRequest) {
     endpoint: '/api/trap',
     timestamp: new Date(),
   });
-  
+
   // Add IP to blacklist
   await blacklistIP(ip);
-  
+
   // Return fake data to waste bot's time
   return NextResponse.json({
     data: Array(1000).fill({ fake: 'data' }),
@@ -523,6 +556,7 @@ export async function GET(req: NextRequest) {
 ```
 
 Add to `robots.txt`:
+
 ```
 Disallow: /api/trap
 ```
@@ -534,12 +568,11 @@ Disallow: /api/trap
 ### Priority 3: LOW (Nice to Have)
 
 #### 8. Content Watermarking
+
 For course content and certificates:
+
 ```typescript
-export function watermarkContent(
-  content: string,
-  userId: string
-): string {
+export function watermarkContent(content: string, userId: string): string {
   // Add invisible watermark
   const watermark = `<!-- ${userId}:${Date.now()} -->`;
   return content + watermark;
@@ -547,6 +580,7 @@ export function watermarkContent(
 ```
 
 #### 9. DevTools Detection
+
 ```typescript
 // In client-side code
 const devtools = {
@@ -568,6 +602,7 @@ setInterval(() => {
 ```
 
 #### 10. Screenshot Detection
+
 ```typescript
 // Detect screenshot attempts
 document.addEventListener('keyup', (e) => {
@@ -583,6 +618,7 @@ document.addEventListener('keyup', (e) => {
 ## Implementation Roadmap
 
 ### Week 1: Critical Protection
+
 - [ ] Create `middleware.ts` with bot detection
 - [ ] Add CAPTCHA to login/registration
 - [ ] Implement request fingerprinting
@@ -592,6 +628,7 @@ document.addEventListener('keyup', (e) => {
 **Cost:** $0 (using existing tools)
 
 ### Week 2-3: Enhanced Protection
+
 - [ ] Integrate IP reputation service
 - [ ] Implement progressive rate limiting
 - [ ] Create honeypot endpoints
@@ -601,6 +638,7 @@ document.addEventListener('keyup', (e) => {
 **Cost:** $50-100/month for IP reputation
 
 ### Week 4: Monitoring & Optimization
+
 - [ ] Set up security dashboards
 - [ ] Configure alerts
 - [ ] Test all protections
@@ -614,17 +652,20 @@ document.addEventListener('keyup', (e) => {
 ## Cost Analysis
 
 ### Current Costs: $0/month
+
 - Rate limiting: Built-in
 - Security headers: Built-in
 - Robots.txt: Free
 
 ### Recommended Additions: $50-200/month
+
 - **IP Reputation Service:** $50-100/month
 - **CAPTCHA (hCaptcha):** Free (up to 1M requests)
 - **Cloudflare Pro:** $20/month (optional, adds DDoS protection)
 - **Security monitoring:** $0 (use existing Sentry)
 
 ### Enterprise Options: $500-2000/month
+
 - **Cloudflare Enterprise:** $200-5000/month
 - **PerimeterX:** $500+/month
 - **DataDome:** $1000+/month
@@ -636,15 +677,15 @@ document.addEventListener('keyup', (e) => {
 
 ### Your Platform vs. Competitors
 
-| Feature | You | Moodle | Docebo | Thinkific |
-|---------|-----|--------|--------|-----------|
-| Rate Limiting | ✅ | ✅ | ✅ | ✅ |
-| Security Headers | ✅ | ⚠️ | ✅ | ✅ |
-| Bot Detection | ❌ | ⚠️ | ✅ | ✅ |
-| CAPTCHA | ❌ | ✅ | ✅ | ✅ |
-| IP Reputation | ❌ | ❌ | ✅ | ⚠️ |
-| Fingerprinting | ❌ | ❌ | ✅ | ❌ |
-| WAF | ❌ | ⚠️ | ✅ | ✅ |
+| Feature          | You | Moodle | Docebo | Thinkific |
+| ---------------- | --- | ------ | ------ | --------- |
+| Rate Limiting    | ✅  | ✅     | ✅     | ✅        |
+| Security Headers | ✅  | ⚠️     | ✅     | ✅        |
+| Bot Detection    | ❌  | ⚠️     | ✅     | ✅        |
+| CAPTCHA          | ❌  | ✅     | ✅     | ✅        |
+| IP Reputation    | ❌  | ❌     | ✅     | ⚠️        |
+| Fingerprinting   | ❌  | ❌     | ✅     | ❌        |
+| WAF              | ❌  | ⚠️     | ✅     | ✅        |
 
 **Verdict:** You're **on par with Moodle**, but **behind Docebo/Thinkific** in anti-scraping.
 
@@ -653,18 +694,21 @@ document.addEventListener('keyup', (e) => {
 ## Final Recommendations
 
 ### Immediate Actions (This Week)
+
 1. ✅ Create `middleware.ts` with bot detection
 2. ✅ Add CAPTCHA to critical forms
 3. ✅ Implement request fingerprinting
 4. ✅ Set up security event logging
 
 ### Short-term (This Month)
+
 1. ⚠️ Integrate IP reputation service
 2. ⚠️ Implement progressive rate limiting
 3. ⚠️ Create honeypot traps
 4. ⚠️ Add automated blacklisting
 
 ### Long-term (This Quarter)
+
 1. 📊 Analyze security logs for patterns
 2. 🔧 Optimize rate limits based on data
 3. 🛡️ Consider Cloudflare Pro or WAF
@@ -677,12 +721,14 @@ document.addEventListener('keyup', (e) => {
 ### Current State: 🟡 MODERATE PROTECTION
 
 **What You Have:**
+
 - ✅ Rate limiting (good)
 - ✅ Security headers (excellent)
 - ✅ Basic bot blocking (moderate)
 - ✅ Authentication (excellent)
 
 **What You're Missing:**
+
 - ❌ Advanced bot detection
 - ❌ CAPTCHA
 - ❌ IP reputation
@@ -691,6 +737,7 @@ document.addEventListener('keyup', (e) => {
 ### After Implementing Recommendations: 🟢 STRONG PROTECTION
 
 **You'll Have:**
+
 - ✅ Multi-layer bot detection
 - ✅ CAPTCHA on critical endpoints
 - ✅ IP reputation checking
@@ -699,12 +746,14 @@ document.addEventListener('keyup', (e) => {
 - ✅ Automated blocking
 
 **Protection Level:**
+
 - ✅ Blocks 95% of scrapers
 - ✅ Slows down sophisticated scrapers
 - ✅ Detects and alerts on scraping attempts
 - ✅ Comparable to enterprise platforms
 
 ### Investment Required:
+
 - **Time:** 40-60 hours of development
 - **Cost:** $50-200/month for services
 - **ROI:** Protects $2.5M+ platform value

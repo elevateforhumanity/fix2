@@ -46,6 +46,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, report: text });
   } catch (error) {
     console.error('Daily report error:', error);
-    return NextResponse.json({ error: 'Report generation failed' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Report generation failed' },
+      { status: 500 }
+    );
   }
 }

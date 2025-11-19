@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
-import { matchFundingPrograms } from "@/lib/funding/match";
-import { createClient } from "@/lib/supabase/server";
-import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { NextResponse } from 'next/server';
+import { matchFundingPrograms } from '@/lib/funding/match';
+import { createClient } from '@/lib/supabase/server';
+import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
     return NextResponse.json(
-      { error: "AI features not configured. Please set OPENAI_API_KEY." },
+      { error: 'AI features not configured. Please set OPENAI_API_KEY.' },
       { status: 503 }
     );
   }
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   const client = getOpenAIClient();
   if (!client) {
     return NextResponse.json(
-      { error: "AI service unavailable" },
+      { error: 'AI service unavailable' },
       { status: 503 }
     );
   }
@@ -25,20 +25,15 @@ export async function POST(req: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const {
-    programTitle,
-    cipCode,
-    targetPopulation,
-    hasApprenticeship,
-    sector,
-  } = await req.json();
+  const { programTitle, cipCode, targetPopulation, hasApprenticeship, sector } =
+    await req.json();
 
   if (!programTitle) {
     return NextResponse.json(
-      { error: "Program title required" },
+      { error: 'Program title required' },
       { status: 400 }
     );
   }
@@ -53,15 +48,15 @@ export async function POST(req: Request) {
   });
 
   // Generate AI narrative if OpenAI is configured
-  let narrative = "";
+  let narrative = '';
 
   if (process.env.OPENAI_API_KEY && matches.length > 0) {
     const summaryPrompt = `
 Program: ${programTitle}
-CIP Code: ${cipCode || "N/A"}
-Target populations: ${(targetPopulation || []).join(", ") || "General"}
-Has apprenticeship pathway: ${hasApprenticeship ? "Yes" : "No"}
-Sector: ${sector || "N/A"}
+CIP Code: ${cipCode || 'N/A'}
+Target populations: ${(targetPopulation || []).join(', ') || 'General'}
+Has apprenticeship pathway: ${hasApprenticeship ? 'Yes' : 'No'}
+Sector: ${sector || 'N/A'}
 
 Matching funding programs:
 ${matches
@@ -69,11 +64,11 @@ ${matches
   .map(
     (m) =>
       `- ${m.name} (${m.category}): ${m.description}
-   Tags: ${m.tags.join(", ")}
-   Eligibility: ${m.eligibility || "See program details"}
-   Funding: ${m.fundingAmount || "Varies"}`
+   Tags: ${m.tags.join(', ')}
+   Eligibility: ${m.eligibility || 'See program details'}
+   Funding: ${m.fundingAmount || 'Varies'}`
   )
-  .join("\n\n")}
+  .join('\n\n')}
 
 Write a strategic 2-3 paragraph explanation covering:
 1. Why these funding programs align with this training program
@@ -86,21 +81,21 @@ Be specific and actionable. Focus on practical next steps.
 
     try {
       const completion = await client.chat.completions.create({
-        model: "gpt-4-turbo-preview",
-        messages: [{ role: "user", content: summaryPrompt }],
+        model: 'gpt-4-turbo-preview',
+        messages: [{ role: 'user', content: summaryPrompt }],
         temperature: 0.7,
         max_tokens: 800,
       });
 
-      narrative = completion.choices[0].message.content || "";
+      narrative = completion.choices[0].message.content || '';
     } catch (error) {
-      console.error("Failed to generate funding narrative:", error);
+      console.error('Failed to generate funding narrative:', error);
       narrative =
-        "Unable to generate detailed recommendations at this time. Please review the matching programs above.";
+        'Unable to generate detailed recommendations at this time. Please review the matching programs above.';
     }
   } else if (matches.length === 0) {
     narrative =
-      "No direct funding matches found. Consider broadening your program description or target populations. General workforce development funding (WIOA Adult/Youth) may still be applicable.";
+      'No direct funding matches found. Consider broadening your program description or target populations. General workforce development funding (WIOA Adult/Youth) may still be applicable.';
   }
 
   return NextResponse.json({

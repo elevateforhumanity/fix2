@@ -10,7 +10,8 @@ interface CaptchaProps {
 export default function Captcha({ onVerify, siteKey }: CaptchaProps) {
   const [loaded, setLoaded] = useState(false);
   const captchaRef = useRef<HTMLDivElement>(null);
-  const key = siteKey || process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || 'placeholder-key';
+  const key =
+    siteKey || process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || 'placeholder-key';
 
   useEffect(() => {
     // Load hCaptcha script
