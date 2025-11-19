@@ -6,6 +6,7 @@
 
 import { createBrowserClient } from '@supabase/ssr';
 import type { RealtimeChannel } from '@supabase/supabase-js';
+import { logger } from '@/lib/logger';
 
 function createClient() {
   return createBrowserClient(
@@ -14,17 +15,32 @@ function createClient() {
   );
 }
 
+type DatabasePayload = {
+  old: Record<string, unknown>;
+  new: Record<string, unknown>;
+  eventType: 'INSERT' | 'UPDATE' | 'DELETE';
+  schema: string;
+  table: string;
+  commit_timestamp: string;
+};
+
 interface SyncConfig {
   table: string;
-  onUpdate: (payload: any) => void;
-  onInsert?: (payload: any) => void;
-  onDelete?: (payload: any) => void;
-  filter?: Record<string, any>;
+  onUpdate: (payload: DatabasePayload) => void;
+  onInsert?: (payload: DatabasePayload) => void;
+  onDelete?: (payload: DatabasePayload) => void;
+  filter?: Record<string, unknown>;
+}
+
+interface PendingChange {
+  operation: 'insert' | 'update' | 'delete';
+  data: Record<string, unknown>;
+  timestamp: number;
 }
 
 interface SyncState {
   lastSync: Date;
-  pendingChanges: any[];
+  pendingChanges: PendingChange[];
   isOnline: boolean;
   syncInProgress: boolean;
 }
@@ -32,7 +48,7 @@ interface SyncState {
 class DataSynchronizationManager {
   private subscriptions: Map<string, RealtimeChannel> = new Map();
   private syncState: Map<string, SyncState> = new Map();
-  private retryQueue: Map<string, any[]> = new Map();
+  private retryQueue: Map<string, PendingChange[]> = new Map();
   private maxRetries = 3;
   private retryDelay = 1000;
 
@@ -124,7 +140,7 @@ class DataSynchronizationManager {
    */
   async syncData(
     table: string,
-    data: any,
+    data: Record<string, unknown>,
     operation: 'insert' | 'update' | 'delete'
   ): Promise<boolean> {
     const supabase = createClient();
@@ -182,7 +198,7 @@ class DataSynchronizationManager {
    */
   private async retrySync(
     table: string,
-    data: any,
+    data: Record<string, unknown>,
     operation: 'insert' | 'update' | 'delete',
     attempt: number = 1
   ): Promise<void> {
@@ -211,7 +227,7 @@ class DataSynchronizationManager {
   /**
    * Queue changes for offline sync
    */
-  private queueChange(table: string, change: any): void {
+  private queueChange(table: string, change: PendingChange): void {
     const queue = this.retryQueue.get(table) || [];
     queue.push(change);
     this.retryQueue.set(table, queue);
@@ -272,7 +288,7 @@ class DataSynchronizationManager {
   /**
    * Build filter string for Supabase
    */
-  private buildFilter(filter: Record<string, any>): string {
+  private buildFilter(filter: Record<string, unknown>): string {
     return Object.entries(filter)
       .map(([key, value]) => `${key}=eq.${value}`)
       .join(',');
@@ -354,26 +370,26 @@ export const ConflictResolution = {
   /**
    * Server wins - always use server data
    */
-  serverWins: (serverData: any, localData: any) => serverData,
+  serverWins: (serverData: Record<string, unknown>, _localData: Record<string, unknown>) => serverData,
 
   /**
    * Client wins - always use local data
    */
-  clientWins: (serverData: any, localData: any) => localData,
+  clientWins: (_serverData: Record<string, unknown>, localData: Record<string, unknown>) => localData,
 
   /**
    * Last write wins - use most recent timestamp
    */
-  lastWriteWins: (serverData: any, localData: any) => {
-    const serverTime = new Date(serverData.updated_at || serverData.created_at);
-    const localTime = new Date(localData.updated_at || localData.created_at);
+  lastWriteWins: (serverData: Record<string, unknown>, localData: Record<string, unknown>) => {
+    const serverTime = new Date((serverData.updated_at || serverData.created_at) as string);
+    const localTime = new Date((localData.updated_at || localData.created_at) as string);
     return serverTime > localTime ? serverData : localData;
   },
 
   /**
    * Merge - combine both datasets
    */
-  merge: (serverData: any, localData: any) => {
+  merge: (serverData: Record<string, unknown>, localData: Record<string, unknown>) => {
     return { ...serverData, ...localData };
   },
 };
