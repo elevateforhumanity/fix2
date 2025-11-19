@@ -1,4 +1,5 @@
 # Elevate for Humanity
+
 ## Universal Program Holder & Site Responsibility Handbook
 
 This handbook explains what is expected from **program holders, training sites, and partner locations** that host Elevate for Humanity learners, apprentices, and participants.
@@ -173,10 +174,10 @@ By participating as a program holder or site partner, you acknowledge that you:
 
 **Primary Point of Contact at Elevate for Humanity:**
 
-- Name: ___________________________
-- Email: ___________________________
-- Phone: ___________________________
-- Backup Contact: ___________________
+- Name: \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- Email: \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- Phone: \***\*\*\*\*\*\*\***\_\_\_\***\*\*\*\*\*\*\***
+- Backup Contact: **\*\*\*\***\_\_\_**\*\*\*\***
 
 For questions about this handbook or to request adjustments for your site, contact us at:
 

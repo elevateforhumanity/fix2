@@ -1,32 +1,32 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Start Here | Student Onboarding | Elevate for Humanity",
+  title: 'Start Here | Student Onboarding | Elevate for Humanity',
   description:
-    "Everything new learners need to know to start with Elevate for Humanity: expectations, support, technology, attendance, and next steps.",
+    'Everything new learners need to know to start with Elevate for Humanity: expectations, support, technology, attendance, and next steps.',
 };
 
 const STEPS = [
-  "Confirm your contact information and emergency contact",
-  "Complete any required intake or funding paperwork with your case manager",
-  "Review your program start date, time, and location (in-person or online)",
-  "Log in to the Elevate portal and check your first assignments or orientation tasks",
-  "Set up transportation, childcare, and your weekly schedule so you can show up consistently",
+  'Confirm your contact information and emergency contact',
+  'Complete any required intake or funding paperwork with your case manager',
+  'Review your program start date, time, and location (in-person or online)',
+  'Log in to the Elevate portal and check your first assignments or orientation tasks',
+  'Set up transportation, childcare, and your weekly schedule so you can show up consistently',
 ];
 
 const EXPECTATIONS = [
-  "Show up on time, ready to participate and communicate",
-  "Let us or your case manager know if something is blocking you (transportation, schedule, tech, etc.)",
-  "Respect staff, partners, other learners, and the space you are in",
-  "Take care of any paperwork or portal tasks by the deadlines we share",
-  "Treat this like an opportunity that can open doors if you stay engaged",
+  'Show up on time, ready to participate and communicate',
+  'Let us or your case manager know if something is blocking you (transportation, schedule, tech, etc.)',
+  'Respect staff, partners, other learners, and the space you are in',
+  'Take care of any paperwork or portal tasks by the deadlines we share',
+  'Treat this like an opportunity that can open doors if you stay engaged',
 ];
 
 const SUPPORT = [
-  "Case managers and referring partners (if you have one)",
-  "Program staff and instructors at Elevate or partner sites",
-  "Digital support for logging into the portal, resetting passwords, or accessing classes",
-  "Referrals to community resources for things like childcare, transportation, or basic needs",
+  'Case managers and referring partners (if you have one)',
+  'Program staff and instructors at Elevate or partner sites',
+  'Digital support for logging into the portal, resetting passwords, or accessing classes',
+  'Referrals to community resources for things like childcare, transportation, or basic needs',
 ];
 
 export default function StudentStartPage() {
@@ -136,7 +136,8 @@ export default function StudentStartPage() {
         <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-semibold text-white">
-              This is your start. We&apos;ll walk with you, but you have to walk.
+              This is your start. We&apos;ll walk with you, but you have to
+              walk.
             </h2>
             <p className="mt-3 text-sm text-slate-200">
               Your attendance, communication, and effort matter. The skills,
