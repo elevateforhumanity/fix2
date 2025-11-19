@@ -15,6 +15,7 @@
 ## 🗂️ Available Migrations
 
 ### Core Schema & Programs (7 files)
+
 - ✅ `20240116_add_cip_soc_codes.sql` - CIP/SOC classification codes
 - ✅ `20240116_seed_cip_soc_codes.sql` - Seed CIP/SOC data
 - ✅ `20241115_add_all_etpl_programs.sql` - 16 ETPL approved programs
@@ -24,17 +25,20 @@
 - ✅ `create_phone_system_tables.sql` - Phone system (no Twilio)
 
 ### LMS Courses (4 files)
+
 - ✅ `20241116_create_lms_courses_part1.sql` - Business, Emergency Health, DSP
 - ✅ `20241116_create_lms_courses_part2.sql` - HVAC, Esthetician, Tax Prep
 - ✅ `20241116_create_lms_courses_part3.sql` - Reentry, Barber, Beauty Educator
 - ✅ `20241116_create_lms_courses_part4.sql` - Peer Support, CPR, Healthcare Worker
 
 ### LMS Features (3 files)
+
 - ✅ `20251116020545_lesson_progress.sql` - Lesson progress tracking
 - ✅ `20251116020748_course_completion_view.sql` - Course completion views
 - ✅ `20251117_advanced_lms_features.sql` - Advanced LMS features
 
 ### Enterprise Features (7 files)
+
 - ✅ `20251117_advanced_rbac.sql` - Advanced RBAC system
 - ✅ `20251117_hr_payroll_system.sql` - HR & Payroll system
 - ✅ `20251117_multi_tenancy.sql` - Multi-tenancy support
@@ -44,12 +48,14 @@
 - ✅ `20251118_scorm_xapi.sql` - SCORM & xAPI support
 
 ### Additional Features (3 files)
+
 - ✅ `20241118_events_management.sql` - Events management
 - ✅ `20241118_marketing_automation.sql` - Marketing automation
 - ✅ `20241118_sso_connections.sql` - SSO connections
 - ✅ `20251118_user_activity.sql` - User activity tracking
 
 ### Helper Files
+
 - ✅ `RUN_ALL_MIGRATIONS.sql` - **Run this file to execute all migrations at once**
 
 ---
@@ -100,12 +106,14 @@ SELECT COUNT(*) FROM phone_logs;
 ## 📋 What Each Migration Does
 
 ### Programs & Courses
+
 - **16 ETPL Programs**: Barber, HVAC, CNA, Medical Assistant, etc.
 - **50+ LMS Courses**: Full curriculum with lessons and modules
 - **JRI Reentry**: Justice-involved reentry programs
 - **NRF Rise Up**: Retail career training
 
 ### LMS Features
+
 - Lesson progress tracking
 - Course completion tracking
 - Assignments and quizzes
@@ -113,6 +121,7 @@ SELECT COUNT(*) FROM phone_logs;
 - Certificates
 
 ### Enterprise Features
+
 - Role-based access control (RBAC)
 - Multi-tenancy support
 - SSO & 2FA authentication
@@ -121,6 +130,7 @@ SELECT COUNT(*) FROM phone_logs;
 - Custom branding per tenant
 
 ### Integrations
+
 - SCORM & xAPI support
 - Events management
 - Marketing automation
@@ -183,6 +193,7 @@ After running migrations, verify:
 ## 📞 Support
 
 If you encounter issues:
+
 - Check `RUN_MIGRATIONS_GUIDE.md` for detailed instructions
 - Review Supabase SQL Editor error messages
 - Verify environment variables are set correctly
