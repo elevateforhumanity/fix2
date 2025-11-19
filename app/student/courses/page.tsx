@@ -10,6 +10,7 @@ import {
   requireStudent,
 } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+import { getMockCourses } from '@/lib/mock-courses';
 
 export default async function StudentCoursesPage() {
   await requireStudent();
@@ -19,45 +20,79 @@ export default async function StudentCoursesPage() {
     redirect('/login');
   }
 
-  const supabase = await createServerSupabaseClient();
+  let courses: any[] = [];
+  let usingMockData = false;
 
-  // Fetch student's enrollments with course details
-  const { data: enrollments, error } = await supabase
-    .from('enrollments')
-    .select(
-      `
-      id,
-      status,
-      enrolled_at,
-      completed_at,
-      progress_percentage,
-      courses (
+  try {
+    const supabase = await createServerSupabaseClient();
+
+    // Fetch student's enrollments with course details
+    const { data: enrollments, error } = await supabase
+      .from('enrollments')
+      .select(
+        `
         id,
-        title,
-        subtitle,
-        description,
-        duration_hours,
-        level
+        status,
+        enrolled_at,
+        completed_at,
+        progress_percentage,
+        courses (
+          id,
+          title,
+          subtitle,
+          description,
+          duration_hours,
+          level
+        )
+      `
       )
-    `
-    )
-    .eq('student_id', user.id)
-    .order('enrolled_at', { ascending: false });
+      .eq('student_id', user.id)
+      .order('enrolled_at', { ascending: false });
 
-  const courses =
-    enrollments?.map((enrollment) => {
-      const course = enrollment.courses as any;
-      return {
-        id: course?.id || 0,
-        title: course?.title || 'Unknown Course',
-        subtitle: course?.subtitle || '',
-        progress: enrollment.progress_percentage || 0,
-        status: enrollment.status,
-        duration_hours: course?.duration_hours || 0,
-        level: course?.level || 'All Levels',
-        enrollmentId: enrollment.id,
-      };
-    }) || [];
+    if (enrollments && enrollments.length > 0) {
+      courses = enrollments.map((enrollment) => {
+        const course = enrollment.courses as any;
+        return {
+          id: course?.id || 0,
+          title: course?.title || 'Unknown Course',
+          subtitle: course?.subtitle || '',
+          progress: enrollment.progress_percentage || 0,
+          status: enrollment.status,
+          duration_hours: course?.duration_hours || 0,
+          level: course?.level || 'All Levels',
+          enrollmentId: enrollment.id,
+        };
+      });
+    } else {
+      // No enrollments, show available courses from mock data
+      usingMockData = true;
+      const mockCourses = getMockCourses();
+      courses = mockCourses.slice(0, 6).map((course) => ({
+        id: course.id,
+        title: course.title,
+        subtitle: course.subtitle,
+        progress: 0,
+        status: 'available',
+        duration_hours: course.duration_hours,
+        level: course.level,
+        enrollmentId: null,
+      }));
+    }
+  } catch (e) {
+    // Supabase not configured, show mock courses
+    usingMockData = true;
+    const mockCourses = getMockCourses();
+    courses = mockCourses.slice(0, 6).map((course) => ({
+      id: course.id,
+      title: course.title,
+      subtitle: course.subtitle,
+      progress: 0,
+      status: 'available',
+      duration_hours: course.duration_hours,
+      level: course.level,
+      enrollmentId: null,
+    }));
+  }
 
   const getStatusBadge = (status: string) => {
     switch (status) {
