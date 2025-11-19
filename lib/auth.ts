@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import type { UserRole } from '@/types/database';
+import { logger } from '@/lib/logger';
 
 // =====================================================
 // BUILD-TIME CLIENT (No cookies, for generateStaticParams)
@@ -42,7 +43,7 @@ export async function createServerSupabaseClient() {
 // Alias for compatibility with old code using createRouteHandlerClient
 // Old API: createRouteHandlerClient({ cookies })
 // New API: createServerSupabaseClient() - cookies are handled internally
-export async function createRouteHandlerClient(_options?: any) {
+export async function createRouteHandlerClient(_options?: Record<string, unknown>) {
   return await createServerSupabaseClient();
 }
 
@@ -54,7 +55,7 @@ export async function getSession() {
   } = await supabase.auth.getSession();
 
   if (error) {
-    console.error('Error getting session:', error);
+    logger.error('Error getting session', error as Error);
     return null;
   }
 
@@ -73,7 +74,7 @@ export async function getCurrentUser() {
     .single();
 
   if (error) {
-    console.error('Error fetching profile:', error);
+    logger.error('Error fetching profile', error as Error, { userId: session.user.id });
     return null;
   }
 

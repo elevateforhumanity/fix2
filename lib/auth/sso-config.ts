@@ -3,10 +3,15 @@ import { Strategy as SAMLStrategy } from 'passport-saml';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { OIDCStrategy } from 'passport-azure-ad';
 
+type SAMLConfig = typeof samlConfig;
+type GoogleOAuthConfig = typeof googleOAuthConfig;
+type AzureADConfig = typeof azureADConfig;
+type LDAPConfig = typeof ldapConfig;
+
 export interface SSOConfig {
   provider: 'saml' | 'oauth' | 'ldap' | 'azure_ad' | 'google';
   enabled: boolean;
-  config: any;
+  config: SAMLConfig | GoogleOAuthConfig | AzureADConfig | LDAPConfig;
 }
 
 // SAML Configuration
