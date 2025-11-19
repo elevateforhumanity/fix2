@@ -52,52 +52,129 @@ const programs = [
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO SECTION - Coursera Style with Video Background */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 py-16 md:py-24 overflow-hidden">
-        {/* Background Image */}
+      {/* HERO SECTION - Rich Modern Design */}
+      <section className="relative bg-gradient-to-br from-red-600 via-red-700 to-red-900 py-20 md:py-32 overflow-hidden">
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
           <Image
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
             alt="Students learning together"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-10"
             priority
           />
         </div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         
         <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Learn without limits
+              <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6">
+                🎓 100% Funded Training Programs
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                Transform Your
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">
+                  Career Today
+                </span>
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
-                Start, switch, or advance your career with free and funded
-                workforce training, apprenticeships, and real job connections.
+              
+              <p className="text-xl md:text-2xl text-red-100 mb-8 leading-relaxed font-light">
+                Free workforce training, apprenticeships, and direct job placement. 
+                No cost. No barriers. Just opportunity.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-6">
+              <div className="flex flex-wrap gap-4 mb-10">
                 <Link
                   href="/start"
-                  className="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-lg hover:bg-blue-50 transition shadow-lg"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-red-700 font-bold rounded-xl hover:bg-yellow-400 hover:text-red-900 transition-all shadow-2xl hover:shadow-yellow-400/50 hover:scale-105"
                 >
-                  Start Now
+                  Get Started Free
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </Link>
                 <Link
                   href="#programs"
-                  className="inline-block px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition"
+                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-red-700 transition-all"
                 >
-                  Explore Programs
+                  View Programs
                 </Link>
               </div>
 
-              {/* Segmented CTAs */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-3xl">
-                <Link
-                  href="/programs"
-                  className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition group"
-                >
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-6 pt-8 border-t border-white/20">
+                <div>
+                  <div className="text-4xl font-bold text-yellow-300">$0</div>
+                  <div className="text-red-100 text-sm">Cost to You</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-yellow-300">100%</div>
+                  <div className="text-red-100 text-sm">Funded Programs</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content - Feature Cards */}
+            <div className="hidden md:block">
+              <div className="grid gap-4">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg mb-1">Hands-On Training</h3>
+                      <p className="text-red-100 text-sm">Real-world skills from industry experts</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg mb-1">Job Placement</h3>
+                      <p className="text-red-100 text-sm">Direct connections to employers</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg mb-1">Certifications</h3>
+                      <p className="text-red-100 text-sm">Industry-recognized credentials</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Segmented CTAs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-3xl mt-12">
+            <Link
+              href="/programs"
+              className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition group"
+            >
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
@@ -211,21 +288,6 @@ export default function HomePage() {
       <section className="bg-white py-8 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-center">
-            <div>
-              <div className="text-3xl font-bold text-gray-900">1,000+</div>
-              <div className="text-sm text-gray-600">Students Trained</div>
-            </div>
-            <div className="h-12 w-px bg-gray-200 hidden md:block"></div>
-            <div>
-              <div className="text-3xl font-bold text-gray-900">50+</div>
-              <div className="text-sm text-gray-600">Employer Partners</div>
-            </div>
-            <div className="h-12 w-px bg-gray-200 hidden md:block"></div>
-            <div>
-              <div className="text-3xl font-bold text-gray-900">85%</div>
-              <div className="text-sm text-gray-600">Job Placement Rate</div>
-            </div>
-            <div className="h-12 w-px bg-gray-200 hidden md:block"></div>
             <div>
               <div className="text-3xl font-bold text-gray-900">$0</div>
               <div className="text-sm text-gray-600">Out-of-Pocket Cost</div>

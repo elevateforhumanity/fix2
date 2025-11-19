@@ -26,12 +26,12 @@ export default function Hero() {
             </div>
             <div className="grid grid-cols-2 gap-6 pt-8 border-t border-slate-200">
               <div>
-                <div className="text-3xl font-bold text-brand-600">1,247</div>
-                <div className="text-sm text-slate-600">Students Trained</div>
+                <div className="text-3xl font-bold text-brand-600">$0</div>
+                <div className="text-sm text-slate-600">Cost to Students</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-brand-600">92%</div>
-                <div className="text-sm text-slate-600">Job Placement</div>
+                <div className="text-3xl font-bold text-brand-600">100%</div>
+                <div className="text-sm text-slate-600">Funded Programs</div>
               </div>
             </div>
           </div>
