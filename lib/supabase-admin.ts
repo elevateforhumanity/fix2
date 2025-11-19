@@ -38,14 +38,24 @@ export const supabaseAdmin = new Proxy({} as ReturnType<typeof createClient>, {
 
 // Helper function to get user by email
 export async function getUserByEmail(email: string) {
-  const { data, error } = await supabaseAdmin.auth.admin.listUsers();
+  // Use getUserByEmail API instead of fetching all users
+  // This is more efficient and doesn't load all users into memory
+  const { data, error } = await supabaseAdmin.rpc('get_user_by_email', { email_param: email });
 
   if (error) {
-    throw error;
+    // Fallback to auth.admin API if RPC doesn't exist
+    // Note: This still fetches all users - consider creating the RPC function
+    const { data: listData, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    
+    if (listError) {
+      throw listError;
+    }
+
+    const user = listData.users.find((u: any) => u.email === email);
+    return user || null;
   }
 
-  const user = data.users.find((u: any) => u.email === email);
-  return user || null;
+  return data || null;
 }
 
 // Helper function to get user by ID

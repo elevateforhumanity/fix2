@@ -111,9 +111,9 @@ export class SocialMediaAutomation {
   scheduleDailyPosts(): void {
     const today = new Date();
     const postTimes = [
-      new Date(today.setHours(9, 0, 0, 0)), // 9 AM
-      new Date(today.setHours(13, 0, 0, 0)), // 1 PM
-      new Date(today.setHours(18, 0, 0, 0)), // 6 PM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 9, 0, 0, 0), // 9 AM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 0, 0, 0), // 1 PM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 18, 0, 0, 0), // 6 PM
     ];
 
     postTimes.forEach((time, index) => {
@@ -355,12 +355,12 @@ export class SocialMediaAutomation {
    * Generate 3x daily report
    */
   async generateDailyReport(): Promise<DailyReport> {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
 
     const todaysPosts = this.scheduledPosts.filter((post) => {
-      const postDate = new Date(post.scheduledTime);
-      postDate.setHours(0, 0, 0, 0);
+      const postTime = new Date(post.scheduledTime);
+      const postDate = new Date(postTime.getFullYear(), postTime.getMonth(), postTime.getDate(), 0, 0, 0, 0);
       return postDate.getTime() === today.getTime();
     });
 
@@ -422,10 +422,11 @@ export class SocialMediaAutomation {
    * Schedule 3x daily reports
    */
   scheduleReports(): void {
+    const today = new Date();
     const reportTimes = [
-      new Date().setHours(10, 0, 0, 0), // 10 AM
-      new Date().setHours(15, 0, 0, 0), // 3 PM
-      new Date().setHours(20, 0, 0, 0), // 8 PM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 0, 0, 0), // 10 AM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 15, 0, 0, 0), // 3 PM
+      new Date(today.getFullYear(), today.getMonth(), today.getDate(), 20, 0, 0, 0), // 8 PM
     ];
 
     reportTimes.forEach((time) => {

@@ -67,9 +67,28 @@ export async function cacheInvalidatePattern(pattern: string): Promise<void> {
   if (!c) return;
 
   try {
-    const keys = await c.keys(pattern);
-    if (keys.length > 0) {
-      await c.del(keys);
+    // Use SCAN instead of KEYS to avoid blocking Redis
+    // SCAN is cursor-based and doesn't block the server
+    let cursor = 0;
+    const keysToDelete: string[] = [];
+    
+    do {
+      const result = await c.scan(cursor, {
+        MATCH: pattern,
+        COUNT: 100
+      });
+      
+      cursor = result.cursor;
+      keysToDelete.push(...result.keys);
+    } while (cursor !== 0);
+    
+    if (keysToDelete.length > 0) {
+      // Delete in batches to avoid blocking
+      const batchSize = 100;
+      for (let i = 0; i < keysToDelete.length; i += batchSize) {
+        const batch = keysToDelete.slice(i, i + batchSize);
+        await c.del(batch);
+      }
     }
   } catch (error) {
     console.error('Cache invalidate pattern error:', error);

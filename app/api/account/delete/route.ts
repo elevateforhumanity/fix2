@@ -26,10 +26,18 @@ export async function POST() {
     return NextResponse.json({ error: 'User not found' }, { status: 404 });
   }
 
-  await supabase.from('account_deletion_requests').insert({
+  const { error: insertError } = await supabase.from('account_deletion_requests').insert({
     user_id: user.id,
     email: user.email,
   });
+
+  if (insertError) {
+    console.error('Error creating deletion request:', insertError);
+    return NextResponse.json(
+      { error: 'Failed to create deletion request. Please try again.' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({
     ok: true,
