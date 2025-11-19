@@ -35,23 +35,26 @@ export class EmailService {
   async send(notification: EmailNotification): Promise<boolean> {
     try {
       // In production, integrate with SendGrid, AWS SES, or similar
-      logger.info('Sending email', { 
-        to: notification.to, 
-        subject: notification.subject 
+      logger.info('Sending email', {
+        to: notification.to,
+        subject: notification.subject,
       });
-      
+
       // Mock implementation
       return true;
     } catch (error) {
-      logger.error('Email send error', error as Error, { 
-        to: notification.to 
+      logger.error('Email send error', error as Error, {
+        to: notification.to,
       });
       return false;
     }
   }
 
   // Welcome email
-  async sendWelcomeEmail(userEmail: string, userName: string): Promise<boolean> {
+  async sendWelcomeEmail(
+    userEmail: string,
+    userName: string
+  ): Promise<boolean> {
     const template = this.getWelcomeTemplate(userName);
     return this.send({
       to: userEmail,
@@ -85,7 +88,11 @@ export class EmailService {
     assignmentName: string,
     dueDate: string
   ): Promise<boolean> {
-    const template = this.getAssignmentReminderTemplate(userName, assignmentName, dueDate);
+    const template = this.getAssignmentReminderTemplate(
+      userName,
+      assignmentName,
+      dueDate
+    );
     return this.send({
       to: userEmail,
       from: this.fromEmail,
@@ -102,7 +109,11 @@ export class EmailService {
     courseName: string,
     certificateUrl: string
   ): Promise<boolean> {
-    const template = this.getCertificateTemplate(userName, courseName, certificateUrl);
+    const template = this.getCertificateTemplate(
+      userName,
+      courseName,
+      certificateUrl
+    );
     return this.send({
       to: userEmail,
       from: this.fromEmail,
@@ -161,7 +172,10 @@ export class EmailService {
     };
   }
 
-  private getEnrollmentTemplate(userName: string, courseName: string): EmailTemplate {
+  private getEnrollmentTemplate(
+    userName: string,
+    courseName: string
+  ): EmailTemplate {
     return {
       subject: `You're enrolled in ${courseName}!`,
       html: `
@@ -257,7 +271,10 @@ export class EmailService {
     };
   }
 
-  private getAchievementTemplate(userName: string, achievementName: string): EmailTemplate {
+  private getAchievementTemplate(
+    userName: string,
+    achievementName: string
+  ): EmailTemplate {
     return {
       subject: `🏆 Achievement Unlocked: ${achievementName}`,
       html: `

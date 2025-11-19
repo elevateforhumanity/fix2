@@ -1,7 +1,8 @@
 // lib/integrations/sendgrid.ts
 import { logger } from '@/lib/logger';
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const SENDGRID_FROM = process.env.SENDGRID_FROM || 'no-reply@elevateforhumanity.org';
+const SENDGRID_FROM =
+  process.env.SENDGRID_FROM || 'no-reply@elevateforhumanity.org';
 
 export async function sendTransactionalEmail(params: {
   to: string;
@@ -33,7 +34,11 @@ export async function sendTransactionalEmail(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('SendGrid error', new Error(text), { to: params.to, subject: params.subject, status: res.status });
+    logger.error('SendGrid error', new Error(text), {
+      to: params.to,
+      subject: params.subject,
+      status: res.status,
+    });
     throw new Error('Failed to send email');
   }
 

@@ -17,7 +17,7 @@ class Logger {
 
   private formatMessage(entry: LogEntry): string {
     const { level, message, timestamp, context, error } = entry;
-    
+
     if (this.isDevelopment) {
       // Pretty format for development
       let output = `[${timestamp}] ${level.toUpperCase()}: ${message}`;
@@ -29,19 +29,26 @@ class Logger {
       }
       return output;
     }
-    
+
     // JSON format for production (easier to parse by log aggregators)
     return JSON.stringify({
       ...entry,
-      error: error ? {
-        message: error.message,
-        stack: error.stack,
-        name: error.name,
-      } : undefined,
+      error: error
+        ? {
+            message: error.message,
+            stack: error.stack,
+            name: error.name,
+          }
+        : undefined,
     });
   }
 
-  private log(level: LogLevel, message: string, context?: Record<string, any>, error?: Error) {
+  private log(
+    level: LogLevel,
+    message: string,
+    context?: Record<string, any>,
+    error?: Error
+  ) {
     // Skip logging in test environment unless explicitly enabled
     if (this.isTest && !process.env.ENABLE_TEST_LOGGING) {
       return;
@@ -118,8 +125,12 @@ export const logger = new Logger();
 
 // Convenience exports
 export const log = {
-  debug: (message: string, context?: Record<string, any>) => logger.debug(message, context),
-  info: (message: string, context?: Record<string, any>) => logger.info(message, context),
-  warn: (message: string, context?: Record<string, any>) => logger.warn(message, context),
-  error: (message: string, error?: Error, context?: Record<string, any>) => logger.error(message, error, context),
+  debug: (message: string, context?: Record<string, any>) =>
+    logger.debug(message, context),
+  info: (message: string, context?: Record<string, any>) =>
+    logger.info(message, context),
+  warn: (message: string, context?: Record<string, any>) =>
+    logger.warn(message, context),
+  error: (message: string, error?: Error, context?: Record<string, any>) =>
+    logger.error(message, error, context),
 };

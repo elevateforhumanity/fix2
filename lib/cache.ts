@@ -71,17 +71,17 @@ export async function cacheInvalidatePattern(pattern: string): Promise<void> {
     // SCAN is cursor-based and doesn't block the server
     let cursor = 0;
     const keysToDelete: string[] = [];
-    
+
     do {
       const result = await c.scan(cursor as any, {
         MATCH: pattern,
-        COUNT: 100
+        COUNT: 100,
       });
-      
+
       cursor = Number(result.cursor);
       keysToDelete.push(...(result.keys as string[]));
     } while (cursor !== 0);
-    
+
     if (keysToDelete.length > 0) {
       // Delete in batches to avoid blocking
       const batchSize = 100;

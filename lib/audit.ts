@@ -33,7 +33,7 @@ export async function logAuditEvent(event: AuditEvent): Promise<void> {
       resource_id: event.resourceId,
       metadata: event.metadata || {},
       ip_address: event.ipAddress,
-      user_agent: event.userAgent
+      user_agent: event.userAgent,
     });
 
     if (error) {
@@ -109,22 +109,24 @@ export const AuditActions = {
   // System actions
   SETTINGS_UPDATED: 'settings_updated',
   INTEGRATION_CONFIGURED: 'integration_configured',
-  MIGRATION_RUN: 'migration_run'
+  MIGRATION_RUN: 'migration_run',
 } as const;
 
 /**
  * Helper to extract IP and User Agent from Next.js request
  */
-export function getRequestMetadata(req: Request | { headers: Headers; ip?: string }) {
+export function getRequestMetadata(
+  req: Request | { headers: Headers; ip?: string }
+) {
   const headers = req.headers;
-  
+
   return {
-    ipAddress: 
+    ipAddress:
       headers.get?.('x-forwarded-for')?.split(',')[0]?.trim() ||
       headers.get?.('x-real-ip') ||
       ('ip' in req ? req.ip : null) ||
       null,
-    userAgent: headers.get?.('user-agent') || null
+    userAgent: headers.get?.('user-agent') || null,
   };
 }
 
@@ -144,22 +146,25 @@ export async function auditedAction<T>(
   }
 ): Promise<T> {
   const { ipAddress, userAgent } = getRequestMetadata(req);
-  
+
   try {
     const result = await fn();
-    
+
     // Log successful action
     await logAuditEvent({
       tenantId: options?.tenantId,
       userId: options?.userId,
       action,
       resourceType,
-      resourceId: typeof result === 'object' && result && 'id' in result ? String(result.id) : null,
+      resourceId:
+        typeof result === 'object' && result && 'id' in result
+          ? String(result.id)
+          : null,
       metadata: options?.metadata,
       ipAddress,
-      userAgent
+      userAgent,
     });
-    
+
     return result;
   } catch (error) {
     // Log failed action
@@ -170,12 +175,12 @@ export async function auditedAction<T>(
       resourceType,
       metadata: {
         ...options?.metadata,
-        error: error instanceof Error ? error.message : String(error)
+        error: error instanceof Error ? error.message : String(error),
       },
       ipAddress,
-      userAgent
+      userAgent,
     });
-    
+
     throw error;
   }
 }

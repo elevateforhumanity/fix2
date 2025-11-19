@@ -187,7 +187,10 @@ export class ComplianceAutomation {
 
         results.push(rule);
       } catch (error) {
-        logger.error(`Error checking rule ${rule.id}`, error as Error, { ruleId: rule.id, ruleName: rule.name });
+        logger.error(`Error checking rule ${rule.id}`, error as Error, {
+          ruleId: rule.id,
+          ruleName: rule.name,
+        });
         rule.status = 'warning';
         results.push(rule);
       }
@@ -221,7 +224,10 @@ export class ComplianceAutomation {
    * Automatically fix compliance issues
    */
   private async autoFixRule(rule: ComplianceRule): Promise<void> {
-    logger.info(`Auto-fixing rule: ${rule.name}`, { ruleId: rule.id, ruleName: rule.name });
+    logger.info(`Auto-fixing rule: ${rule.name}`, {
+      ruleId: rule.id,
+      ruleName: rule.name,
+    });
 
     switch (rule.id) {
       case 'wcag-aa':
@@ -374,7 +380,10 @@ export class ComplianceAutomation {
       try {
         await this.fetchFromSource(source);
       } catch (error) {
-        logger.error(`Error fetching from ${source.name}`, error as Error, { sourceName: source.name, sourceUrl: source.url });
+        logger.error(`Error fetching from ${source.name}`, error as Error, {
+          sourceName: source.name,
+          sourceUrl: source.url,
+        });
       }
     }
   }
@@ -383,7 +392,10 @@ export class ComplianceAutomation {
    * Fetch from individual data source
    */
   private async fetchFromSource(source: ComplianceDataSource): Promise<void> {
-    logger.info(`Fetching updates from ${source.name}`, { sourceName: source.name, sourceUrl: source.url });
+    logger.info(`Fetching updates from ${source.name}`, {
+      sourceName: source.name,
+      sourceUrl: source.url,
+    });
 
     // In production, implement actual API calls
     // For now, simulate

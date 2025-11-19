@@ -28,11 +28,16 @@ async function getAccessToken() {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Salesforce auth error', new Error(text), { status: res.status });
+    logger.error('Salesforce auth error', new Error(text), {
+      status: res.status,
+    });
     throw new Error('Failed to authenticate with Salesforce');
   }
 
-  const json = await res.json() as { access_token: string; expires_in: number };
+  const json = (await res.json()) as {
+    access_token: string;
+    expires_in: number;
+  };
   cachedToken = {
     accessToken: json.access_token,
     expiresAt: now + json.expires_in * 1000,
@@ -62,7 +67,9 @@ export async function createOrUpdateContact(params: {
     }
   );
 
-  const queryJson = await queryRes.json() as { records?: Array<{ Id: string }> };
+  const queryJson = (await queryRes.json()) as {
+    records?: Array<{ Id: string }>;
+  };
   const existing = queryJson.records?.[0];
 
   const contactBody = {
@@ -103,11 +110,14 @@ export async function createOrUpdateContact(params: {
 
     if (!res.ok) {
       const text = await res.text();
-      logger.error('Salesforce create contact error', new Error(text), { email: params.email, status: res.status });
+      logger.error('Salesforce create contact error', new Error(text), {
+        email: params.email,
+        status: res.status,
+      });
       throw new Error('Failed to create Salesforce contact');
     }
 
-    const json = await res.json() as { id: string };
+    const json = (await res.json()) as { id: string };
     return json.id;
   }
 }
@@ -144,10 +154,13 @@ export async function createOpportunity(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Salesforce create opportunity error', new Error(text), { name, status: res.status });
+    logger.error('Salesforce create opportunity error', new Error(text), {
+      name,
+      status: res.status,
+    });
     throw new Error('Failed to create Salesforce opportunity');
   }
 
-  const json = await res.json() as { id: string };
+  const json = (await res.json()) as { id: string };
   return json.id;
 }

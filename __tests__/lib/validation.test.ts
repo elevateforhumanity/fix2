@@ -26,10 +26,18 @@ describe('validators', () => {
 
   describe('email', () => {
     it('should return error for invalid email', () => {
-      expect(validators.email('invalid')).toBe('Please enter a valid email address');
-      expect(validators.email('invalid@')).toBe('Please enter a valid email address');
-      expect(validators.email('@invalid.com')).toBe('Please enter a valid email address');
-      expect(validators.email('invalid@domain')).toBe('Please enter a valid email address');
+      expect(validators.email('invalid')).toBe(
+        'Please enter a valid email address'
+      );
+      expect(validators.email('invalid@')).toBe(
+        'Please enter a valid email address'
+      );
+      expect(validators.email('@invalid.com')).toBe(
+        'Please enter a valid email address'
+      );
+      expect(validators.email('invalid@domain')).toBe(
+        'Please enter a valid email address'
+      );
     });
 
     it('should return null for valid email', () => {
@@ -41,7 +49,9 @@ describe('validators', () => {
   describe('phone', () => {
     it('should return error for invalid phone', () => {
       expect(validators.phone('123')).toBe('Please enter a valid phone number');
-      expect(validators.phone('abcdefghij')).toBe('Please enter a valid phone number');
+      expect(validators.phone('abcdefghij')).toBe(
+        'Please enter a valid phone number'
+      );
     });
 
     it('should return null for valid phone formats', () => {
@@ -93,8 +103,12 @@ describe('validators', () => {
 
   describe('ssn', () => {
     it('should return error for invalid SSN', () => {
-      expect(validators.ssn('123')).toBe('Please enter a valid SSN (XXX-XX-XXXX)');
-      expect(validators.ssn('abc-de-fghi')).toBe('Please enter a valid SSN (XXX-XX-XXXX)');
+      expect(validators.ssn('123')).toBe(
+        'Please enter a valid SSN (XXX-XX-XXXX)'
+      );
+      expect(validators.ssn('abc-de-fghi')).toBe(
+        'Please enter a valid SSN (XXX-XX-XXXX)'
+      );
     });
 
     it('should return null for valid SSN formats', () => {
@@ -117,7 +131,11 @@ describe('validators', () => {
 
   describe('minAge', () => {
     // Helper to create a date string for a person of specific age
-    const createBirthDate = (yearsAgo: number, monthsAgo: number = 0, daysAgo: number = 0): string => {
+    const createBirthDate = (
+      yearsAgo: number,
+      monthsAgo: number = 0,
+      daysAgo: number = 0
+    ): string => {
       const date = new Date();
       date.setFullYear(date.getFullYear() - yearsAgo);
       date.setMonth(date.getMonth() - monthsAgo);
@@ -146,14 +164,14 @@ describe('validators', () => {
     it('should handle birthday not yet occurred this year', () => {
       const validator = validators.minAge(18);
       const today = new Date();
-      
+
       // Create a birthdate 18 years ago but 1 day in the future
       const birthDate = new Date(today);
       birthDate.setFullYear(today.getFullYear() - 18);
       birthDate.setDate(today.getDate() + 1);
-      
+
       const birthDateStr = birthDate.toISOString().split('T')[0];
-      
+
       // Should still be 17 since birthday hasn't occurred yet
       expect(validator(birthDateStr)).toBe('Must be at least 18 years old');
     });
@@ -161,14 +179,14 @@ describe('validators', () => {
     it('should handle birthday that occurred yesterday', () => {
       const validator = validators.minAge(18);
       const today = new Date();
-      
+
       // Create a birthdate exactly 18 years ago minus 1 day
       const birthDate = new Date(today);
       birthDate.setFullYear(today.getFullYear() - 18);
       birthDate.setDate(today.getDate() - 1);
-      
+
       const birthDateStr = birthDate.toISOString().split('T')[0];
-      
+
       // Should be 18 since birthday was yesterday
       expect(validator(birthDateStr)).toBeNull();
     });
@@ -176,24 +194,24 @@ describe('validators', () => {
     it('should handle edge case of birthday today', () => {
       const validator = validators.minAge(18);
       const today = new Date();
-      
+
       // Create a birthdate exactly 18 years ago today
       const birthDate = new Date(today);
       birthDate.setFullYear(today.getFullYear() - 18);
-      
+
       const birthDateStr = birthDate.toISOString().split('T')[0];
-      
+
       // Should be 18 since birthday is today
       expect(validator(birthDateStr)).toBeNull();
     });
 
     it('should handle leap year birthdays', () => {
       const validator = validators.minAge(21);
-      
+
       // Test someone born on Feb 29, 2000 (leap year)
       // They should be over 21 years old by now (2024+)
       const birthDate = '2000-02-29';
-      
+
       expect(validator(birthDate)).toBeNull();
     });
   });

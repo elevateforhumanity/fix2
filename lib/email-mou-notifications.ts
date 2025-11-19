@@ -76,17 +76,17 @@ export async function sendMOUSignedConfirmation(
     });
 
     if (error) {
-      logger.error('Error sending MOU confirmation email', error as Error, { 
+      logger.error('Error sending MOU confirmation email', error as Error, {
         to: data.contactEmail,
-        programHolder: data.programHolderName 
+        programHolder: data.programHolderName,
       });
       return false;
     }
 
     return true;
   } catch (error) {
-    logger.error('Error sending MOU confirmation email', error as Error, { 
-      to: data.contactEmail 
+    logger.error('Error sending MOU confirmation email', error as Error, {
+      to: data.contactEmail,
     });
     return false;
   }
@@ -141,16 +141,16 @@ export async function sendMOUSignedAdminNotification(
     });
 
     if (error) {
-      logger.error('Error sending admin notification email', error as Error, { 
-        programHolder: data.programHolderName 
+      logger.error('Error sending admin notification email', error as Error, {
+        programHolder: data.programHolderName,
       });
       return false;
     }
 
     return true;
   } catch (error) {
-    logger.error('Error sending admin notification email', error as Error, { 
-      programHolder: data.programHolderName 
+    logger.error('Error sending admin notification email', error as Error, {
+      programHolder: data.programHolderName,
     });
     return false;
   }

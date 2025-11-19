@@ -43,7 +43,9 @@ export async function createServerSupabaseClient() {
 // Alias for compatibility with old code using createRouteHandlerClient
 // Old API: createRouteHandlerClient({ cookies })
 // New API: createServerSupabaseClient() - cookies are handled internally
-export async function createRouteHandlerClient(_options?: Record<string, unknown>) {
+export async function createRouteHandlerClient(
+  _options?: Record<string, unknown>
+) {
   return await createServerSupabaseClient();
 }
 
@@ -74,7 +76,9 @@ export async function getCurrentUser() {
     .single();
 
   if (error) {
-    logger.error('Error fetching profile', error as Error, { userId: session.user.id });
+    logger.error('Error fetching profile', error as Error, {
+      userId: session.user.id,
+    });
     return null;
   }
 

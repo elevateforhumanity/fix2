@@ -12,7 +12,9 @@ export type TenantCompliance = {
   hipaa: boolean;
 };
 
-export async function getTenantCompliance(tenantId: string): Promise<TenantCompliance> {
+export async function getTenantCompliance(
+  tenantId: string
+): Promise<TenantCompliance> {
   const { data: tenant } = await supabase
     .from('tenants')
     .select('compliance_wioa, compliance_ferpa, compliance_hipaa')
@@ -35,13 +37,12 @@ export async function updateTenantCompliance(
   compliance: Partial<TenantCompliance>
 ): Promise<void> {
   const updates: Record<string, boolean> = {};
-  
-  if (compliance.wioa !== undefined) updates.compliance_wioa = compliance.wioa;
-  if (compliance.ferpa !== undefined) updates.compliance_ferpa = compliance.ferpa;
-  if (compliance.hipaa !== undefined) updates.compliance_hipaa = compliance.hipaa;
 
-  await supabase
-    .from('tenants')
-    .update(updates)
-    .eq('id', tenantId);
+  if (compliance.wioa !== undefined) updates.compliance_wioa = compliance.wioa;
+  if (compliance.ferpa !== undefined)
+    updates.compliance_ferpa = compliance.ferpa;
+  if (compliance.hipaa !== undefined)
+    updates.compliance_hipaa = compliance.hipaa;
+
+  await supabase.from('tenants').update(updates).eq('id', tenantId);
 }

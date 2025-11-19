@@ -22,7 +22,12 @@ export async function sendEmail({
 }: EmailOptions) {
   // If no API key, log (development mode)
   if (!RESEND_API_KEY) {
-    logger.info('Email (dev mode)', { to, subject, from, htmlPreview: html.substring(0, 200) });
+    logger.info('Email (dev mode)', {
+      to,
+      subject,
+      from,
+      htmlPreview: html.substring(0, 200),
+    });
     return { success: true, messageId: 'dev-mode' };
   }
 

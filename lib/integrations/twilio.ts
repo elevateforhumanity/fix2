@@ -34,7 +34,10 @@ export async function sendSms(to: string, body: string) {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Twilio SMS error', new Error(text), { to, status: res.status });
+    logger.error('Twilio SMS error', new Error(text), {
+      to,
+      status: res.status,
+    });
     throw new Error('Failed to send SMS');
   }
 

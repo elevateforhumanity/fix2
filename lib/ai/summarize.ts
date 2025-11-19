@@ -1,36 +1,36 @@
-import OpenAI from "openai";
-import { logger } from "@/lib/logger";
+import OpenAI from 'openai';
+import { logger } from '@/lib/logger';
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function summarizeText(text: string, maxLength = 200) {
   if (!process.env.OPENAI_API_KEY) {
-    logger.warn("OpenAI API key not configured");
-    return text.slice(0, maxLength) + "...";
+    logger.warn('OpenAI API key not configured');
+    return text.slice(0, maxLength) + '...';
   }
 
   try {
     const res = await client.chat.completions.create({
-      model: "gpt-4-turbo-preview",
+      model: 'gpt-4-turbo-preview',
       messages: [
         {
-          role: "system",
+          role: 'system',
           content:
-            "Summarize content at 8th-grade reading level. Be concise and clear.",
+            'Summarize content at 8th-grade reading level. Be concise and clear.',
         },
-        { role: "user", content: text },
+        { role: 'user', content: text },
       ],
       temperature: 0.5,
       max_tokens: 150,
     });
 
-    return res.choices[0].message.content || text.slice(0, maxLength) + "...";
+    return res.choices[0].message.content || text.slice(0, maxLength) + '...';
   } catch (error) {
-    logger.error("Summarization error", error as Error, { 
+    logger.error('Summarization error', error as Error, {
       textLength: text.length,
-      maxLength 
+      maxLength,
     });
-    return text.slice(0, maxLength) + "...";
+    return text.slice(0, maxLength) + '...';
   }
 }
 

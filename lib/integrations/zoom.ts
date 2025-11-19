@@ -66,7 +66,11 @@ export async function createZoomMeeting(
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom create meeting error', new Error(text), { topic: input.topic, startTime: input.startTime, status: res.status });
+    logger.error('Zoom create meeting error', new Error(text), {
+      topic: input.topic,
+      startTime: input.startTime,
+      status: res.status,
+    });
     throw new Error('Failed to create Zoom meeting');
   }
 
@@ -90,7 +94,10 @@ export async function deleteZoomMeeting(meetingId: number): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom delete meeting error', new Error(text), { meetingId, status: res.status });
+    logger.error('Zoom delete meeting error', new Error(text), {
+      meetingId,
+      status: res.status,
+    });
     throw new Error('Failed to delete Zoom meeting');
   }
 }
@@ -98,7 +105,9 @@ export async function deleteZoomMeeting(meetingId: number): Promise<void> {
 /**
  * Get meeting details
  */
-export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResponse> {
+export async function getZoomMeeting(
+  meetingId: number
+): Promise<ZoomMeetingResponse> {
   if (!ZOOM_JWT_TOKEN) {
     throw new Error('ZOOM_JWT_TOKEN not configured');
   }
@@ -112,7 +121,10 @@ export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResp
 
   if (!res.ok) {
     const text = await res.text();
-    logger.error('Zoom get meeting error', new Error(text), { meetingId, status: res.status });
+    logger.error('Zoom get meeting error', new Error(text), {
+      meetingId,
+      status: res.status,
+    });
     throw new Error('Failed to get Zoom meeting');
   }
 
