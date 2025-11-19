@@ -42,7 +42,7 @@ module.exports = {
           800: '#9a3412',
           900: '#7c2d12',
         },
-        
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
