@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Search } from "lucide-react";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { Search } from 'lucide-react';
 
 export function GlobalSearch() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initial = searchParams?.get("q") ?? "";
+  const initial = searchParams?.get('q') ?? '';
   const [query, setQuery] = useState(initial);
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const q = query.trim();
     if (!q) {
-      router.push("/courses");
+      router.push('/courses');
       return;
     }
     router.push(`/courses?q=${encodeURIComponent(q)}`);

@@ -1,8 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
-import { StarRating } from "./StarRating";
-import { ProgressBar } from "./ProgressBar";
-import { Clock, Users } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { StarRating } from './StarRating';
+import { ProgressBar } from './ProgressBar';
+import { Clock, Users } from 'lucide-react';
 
 type CourseCardProps = {
   slug: string;
@@ -50,15 +50,13 @@ export function CourseCard(props: CourseCardProps) {
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-accent-500">
-            {provider ?? "Elevate for Humanity"}
+            {provider ?? 'Elevate for Humanity'}
           </p>
           <h3 className="line-clamp-2 text-base font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">
             {title}
           </h3>
           {level && (
-            <span className="badge badge-primary text-xs">
-              {level}
-            </span>
+            <span className="badge badge-primary text-xs">{level}</span>
           )}
         </div>
 
@@ -83,7 +81,7 @@ export function CourseCard(props: CourseCardProps) {
           </div>
         )}
 
-        {typeof progress === "number" && (
+        {typeof progress === 'number' && (
           <div className="mt-auto pt-3 border-t border-slate-100">
             <ProgressBar progress={progress} size="sm" />
           </div>

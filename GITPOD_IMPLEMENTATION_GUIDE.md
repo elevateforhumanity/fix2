@@ -34,60 +34,61 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       // Enhanced spacing scale
       spacing: {
-        18: "4.5rem",
-        88: "22rem",
-        128: "32rem",
+        18: '4.5rem',
+        88: '22rem',
+        128: '32rem',
       },
       // Professional shadow system
       boxShadow: {
-        card: "0 1px 3px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.04)",
-        "card-hover": "0 18px 35px rgba(15,23,42,0.18), 0 8px 12px rgba(15,23,42,0.12)",
-        lg: "0 10px 25px -5px rgba(15,23,42,0.1), 0 8px 10px -6px rgba(15,23,42,0.1)",
-        xl: "0 20px 40px -10px rgba(15,23,42,0.15), 0 10px 20px -8px rgba(15,23,42,0.1)",
+        card: '0 1px 3px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.04)',
+        'card-hover':
+          '0 18px 35px rgba(15,23,42,0.18), 0 8px 12px rgba(15,23,42,0.12)',
+        lg: '0 10px 25px -5px rgba(15,23,42,0.1), 0 8px 10px -6px rgba(15,23,42,0.1)',
+        xl: '0 20px 40px -10px rgba(15,23,42,0.15), 0 10px 20px -8px rgba(15,23,42,0.1)',
       },
       // Modern border radius
       borderRadius: {
-        xl: "0.9rem",
-        "2xl": "1.25rem",
-        "3xl": "1.5rem",
+        xl: '0.9rem',
+        '2xl': '1.25rem',
+        '3xl': '1.5rem',
       },
       // Smooth transitions
       transitionTimingFunction: {
-        smooth: "cubic-bezier(0.22, 0.61, 0.36, 1)",
+        smooth: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
       },
       // Extended color palette
       colors: {
         primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
         accent: {
-          50: "#fff7ed",
-          100: "#ffedd5",
-          200: "#fed7aa",
-          300: "#fdba74",
-          400: "#fb923c",
-          500: "#f97316",
-          600: "#ea580c",
-          700: "#c2410c",
-          800: "#9a3412",
-          900: "#7c2d12",
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
         },
       },
     },
@@ -108,7 +109,14 @@ module.exports = {
 @layer base {
   body {
     @apply bg-slate-50 text-slate-900 antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'SF Pro Text',
+      'Segoe UI',
+      Roboto,
+      sans-serif;
   }
 
   h1 {
@@ -233,23 +241,23 @@ Create folder: `components/lms/`
 **File:** `components/lms/GlobalSearch.tsx`
 
 ```tsx
-"use client";
+'use client';
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Search } from "lucide-react";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { Search } from 'lucide-react';
 
 export function GlobalSearch() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initial = searchParams?.get("q") ?? "";
+  const initial = searchParams?.get('q') ?? '';
   const [query, setQuery] = useState(initial);
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const q = query.trim();
     if (!q) {
-      router.push("/courses");
+      router.push('/courses');
       return;
     }
     router.push(`/courses?q=${encodeURIComponent(q)}`);
@@ -290,14 +298,15 @@ export function GlobalSearch() {
 **File:** `components/lms/StarRating.tsx`
 
 ```tsx
-import { Star } from "lucide-react";
+import { Star } from 'lucide-react';
 
-type Props = { rating: number; count?: number; size?: "sm" | "md" | "lg" };
+type Props = { rating: number; count?: number; size?: 'sm' | 'md' | 'lg' };
 
-export function StarRating({ rating, count, size = "md" }: Props) {
+export function StarRating({ rating, count, size = 'md' }: Props) {
   const clamped = Math.max(0, Math.min(5, rating || 0));
-  const sizeClass = size === "sm" ? "h-3 w-3" : size === "lg" ? "h-6 w-6" : "h-4 w-4";
-  
+  const sizeClass =
+    size === 'sm' ? 'h-3 w-3' : size === 'lg' ? 'h-6 w-6' : 'h-4 w-4';
+
   return (
     <div className="flex items-center gap-2">
       <div className="flex gap-0.5">
@@ -305,14 +314,20 @@ export function StarRating({ rating, count, size = "md" }: Props) {
           <Star
             key={star}
             className={`${sizeClass} ${
-              star <= clamped ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"
+              star <= clamped
+                ? 'fill-yellow-400 text-yellow-400'
+                : 'fill-slate-200 text-slate-200'
             }`}
           />
         ))}
       </div>
-      <span className="text-xs font-semibold text-slate-800">{clamped.toFixed(1)}</span>
-      {typeof count === "number" && (
-        <span className="text-xs text-slate-500">({count.toLocaleString()})</span>
+      <span className="text-xs font-semibold text-slate-800">
+        {clamped.toFixed(1)}
+      </span>
+      {typeof count === 'number' && (
+        <span className="text-xs text-slate-500">
+          ({count.toLocaleString()})
+        </span>
       )}
     </div>
   );
@@ -324,12 +339,20 @@ export function StarRating({ rating, count, size = "md" }: Props) {
 **File:** `components/lms/ProgressBar.tsx`
 
 ```tsx
-type Props = { progress: number; showLabel?: boolean; size?: "sm" | "md" | "lg" };
+type Props = {
+  progress: number;
+  showLabel?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+};
 
-export function ProgressBar({ progress, showLabel = true, size = "md" }: Props) {
+export function ProgressBar({
+  progress,
+  showLabel = true,
+  size = 'md',
+}: Props) {
   const pct = Math.max(0, Math.min(100, progress || 0));
-  const heightClass = size === "sm" ? "h-1.5" : size === "lg" ? "h-3" : "h-2";
-  
+  const heightClass = size === 'sm' ? 'h-1.5' : size === 'lg' ? 'h-3' : 'h-2';
+
   return (
     <div className="space-y-1.5">
       {showLabel && (
@@ -356,12 +379,15 @@ export function ProgressBar({ progress, showLabel = true, size = "md" }: Props) 
 **File:** `components/lms/LoadingSpinner.tsx`
 
 ```tsx
-export function LoadingSpinner({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const sizeClass = size === "sm" ? "h-6 w-6" : size === "lg" ? "h-16 w-16" : "h-10 w-10";
-  
+export function LoadingSpinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
+  const sizeClass =
+    size === 'sm' ? 'h-6 w-6' : size === 'lg' ? 'h-16 w-16' : 'h-10 w-10';
+
   return (
     <div className="flex items-center justify-center py-12">
-      <div className={`${sizeClass} animate-spin rounded-full border-3 border-accent-500 border-t-transparent`} />
+      <div
+        className={`${sizeClass} animate-spin rounded-full border-3 border-accent-500 border-t-transparent`}
+      />
     </div>
   );
 }
@@ -372,7 +398,7 @@ export function LoadingSpinner({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
 **File:** `components/lms/EmptyState.tsx`
 
 ```tsx
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export function EmptyState({
   icon,
@@ -387,7 +413,7 @@ export function EmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="mb-4 text-5xl text-slate-300">{icon ?? "📭"}</div>
+      <div className="mb-4 text-5xl text-slate-300">{icon ?? '📭'}</div>
       <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
       <p className="mt-2 max-w-md text-sm text-slate-600">{description}</p>
       {action && <div className="mt-6">{action}</div>}
@@ -401,11 +427,11 @@ export function EmptyState({
 **File:** `components/lms/CourseCard.tsx`
 
 ```tsx
-import Link from "next/link";
-import Image from "next/image";
-import { StarRating } from "./StarRating";
-import { ProgressBar } from "./ProgressBar";
-import { Clock, Users } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { StarRating } from './StarRating';
+import { ProgressBar } from './ProgressBar';
+import { Clock, Users } from 'lucide-react';
 
 type CourseCardProps = {
   slug: string;
@@ -453,15 +479,13 @@ export function CourseCard(props: CourseCardProps) {
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-accent-500">
-            {provider ?? "Elevate for Humanity"}
+            {provider ?? 'Elevate for Humanity'}
           </p>
           <h3 className="line-clamp-2 text-base font-semibold text-slate-900 group-hover:text-primary-600 transition-colors">
             {title}
           </h3>
           {level && (
-            <span className="badge badge-primary text-xs">
-              {level}
-            </span>
+            <span className="badge badge-primary text-xs">{level}</span>
           )}
         </div>
 
@@ -486,7 +510,7 @@ export function CourseCard(props: CourseCardProps) {
           </div>
         )}
 
-        {typeof progress === "number" && (
+        {typeof progress === 'number' && (
           <div className="mt-auto pt-3 border-t border-slate-100">
             <ProgressBar progress={progress} size="sm" />
           </div>
@@ -504,12 +528,12 @@ export function CourseCard(props: CourseCardProps) {
 **File:** `app/courses/page.tsx`
 
 ```tsx
-import { supabaseServer } from "@/lib/supabase-server";
-import { GlobalSearch } from "@/components/lms/GlobalSearch";
-import { CourseCard } from "@/components/lms/CourseCard";
-import { EmptyState } from "@/components/lms/EmptyState";
-import { Filter, SlidersHorizontal } from "lucide-react";
-import Link from "next/link";
+import { supabaseServer } from '@/lib/supabase-server';
+import { GlobalSearch } from '@/components/lms/GlobalSearch';
+import { CourseCard } from '@/components/lms/CourseCard';
+import { EmptyState } from '@/components/lms/EmptyState';
+import { Filter, SlidersHorizontal } from 'lucide-react';
+import Link from 'next/link';
 
 type SearchParams = {
   q?: string;
@@ -525,35 +549,44 @@ export default async function CoursesPage({
 }) {
   const supabase = supabaseServer();
 
-  const q = searchParams.q?.trim() ?? "";
-  const level = searchParams.level?.trim() ?? "";
-  const category = searchParams.category?.trim() ?? "";
-  const sort = searchParams.sort ?? "popular";
+  const q = searchParams.q?.trim() ?? '';
+  const level = searchParams.level?.trim() ?? '';
+  const category = searchParams.category?.trim() ?? '';
+  const sort = searchParams.sort ?? 'popular';
 
-  let query = supabase.from("courses").select("*");
+  let query = supabase.from('courses').select('*');
 
   if (q) {
     query = query.or(`title.ilike.%${q}%,description.ilike.%${q}%`);
   }
   if (level) {
-    query = query.eq("level", level);
+    query = query.eq('level', level);
   }
   if (category) {
-    query = query.eq("category", category);
+    query = query.eq('category', category);
   }
 
-  if (sort === "newest") query = query.order("created_at", { ascending: false });
-  else if (sort === "rating") query = query.order("rating", { ascending: false });
-  else query = query.order("enrollments", { ascending: false });
+  if (sort === 'newest')
+    query = query.order('created_at', { ascending: false });
+  else if (sort === 'rating')
+    query = query.order('rating', { ascending: false });
+  else query = query.order('enrollments', { ascending: false });
 
   const { data: courses, error } = await query;
 
   if (error) {
-    console.error("Error fetching courses:", error);
+    console.error('Error fetching courses:', error);
   }
 
-  const levels = ["Beginner", "Intermediate", "Advanced"];
-  const categories = ["Healthcare", "Barbering", "HVAC", "Construction", "CDL", "Technology"];
+  const levels = ['Beginner', 'Intermediate', 'Advanced'];
+  const categories = [
+    'Healthcare',
+    'Barbering',
+    'HVAC',
+    'Construction',
+    'CDL',
+    'Technology',
+  ];
 
   return (
     <main className="section">
@@ -563,8 +596,8 @@ export default async function CoursesPage({
           <div className="space-y-3">
             <h1 className="gradient-text">Browse Programs & Courses</h1>
             <p className="mx-auto max-w-2xl text-slate-600">
-              Find workforce training, apprenticeships, and credentials that match
-              your goals. Filter by category, level, and more.
+              Find workforce training, apprenticeships, and credentials that
+              match your goals. Filter by category, level, and more.
             </p>
           </div>
           <GlobalSearch />
@@ -588,8 +621,8 @@ export default async function CoursesPage({
                     const value = lvl.toLowerCase();
                     const selected = level === value;
                     const params = new URLSearchParams(searchParams as any);
-                    if (selected) params.delete("level");
-                    else params.set("level", value);
+                    if (selected) params.delete('level');
+                    else params.set('level', value);
                     const href = `/courses?${params.toString()}`;
 
                     return (
@@ -598,8 +631,8 @@ export default async function CoursesPage({
                         href={href}
                         className={`block rounded-xl px-4 py-2 text-sm font-medium transition-all ${
                           selected
-                            ? "bg-accent-500 text-white shadow-md"
-                            : "bg-slate-50 text-slate-700 hover:bg-slate-100"
+                            ? 'bg-accent-500 text-white shadow-md'
+                            : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         {lvl}
@@ -617,8 +650,8 @@ export default async function CoursesPage({
                     const value = cat.toLowerCase();
                     const selected = category === value;
                     const params = new URLSearchParams(searchParams as any);
-                    if (selected) params.delete("category");
-                    else params.set("category", value);
+                    if (selected) params.delete('category');
+                    else params.set('category', value);
                     const href = `/courses?${params.toString()}`;
 
                     return (
@@ -627,8 +660,8 @@ export default async function CoursesPage({
                         href={href}
                         className={`block rounded-xl px-4 py-2 text-sm font-medium transition-all ${
                           selected
-                            ? "bg-accent-500 text-white shadow-md"
-                            : "bg-slate-50 text-slate-700 hover:bg-slate-100"
+                            ? 'bg-accent-500 text-white shadow-md'
+                            : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         {cat}
@@ -657,11 +690,11 @@ export default async function CoursesPage({
               <div className="text-sm text-slate-600">
                 <span className="font-semibold text-slate-900">
                   {courses?.length ?? 0}
-                </span>{" "}
-                result{(courses?.length ?? 0) === 1 ? "" : "s"}
+                </span>{' '}
+                result{(courses?.length ?? 0) === 1 ? '' : 's'}
                 {q && (
                   <>
-                    {" "}
+                    {' '}
                     for <span className="font-semibold">"{q}"</span>
                   </>
                 )}
@@ -671,13 +704,13 @@ export default async function CoursesPage({
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-slate-600">Sort by:</span>
                 {[
-                  { key: "popular", label: "Most Popular" },
-                  { key: "rating", label: "Highest Rated" },
-                  { key: "newest", label: "Newest" },
+                  { key: 'popular', label: 'Most Popular' },
+                  { key: 'rating', label: 'Highest Rated' },
+                  { key: 'newest', label: 'Newest' },
                 ].map(({ key, label }) => {
                   const selected = sort === key;
                   const params = new URLSearchParams(searchParams as any);
-                  params.set("sort", key);
+                  params.set('sort', key);
                   const href = `/courses?${params.toString()}`;
 
                   return (
@@ -686,8 +719,8 @@ export default async function CoursesPage({
                       href={href}
                       className={`rounded-full px-4 py-1.5 font-medium transition-all ${
                         selected
-                          ? "bg-slate-900 text-white shadow-md"
-                          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                          ? 'bg-slate-900 text-white shadow-md'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       }`}
                     >
                       {label}
@@ -790,6 +823,7 @@ git push origin main
 ## 📞 SUPPORT
 
 If you encounter issues:
+
 1. Check console for errors
 2. Verify Supabase schema matches
 3. Ensure all dependencies installed

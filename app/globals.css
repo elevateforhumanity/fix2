@@ -1,4 +1,4 @@
-@import "../styles/design-tokens.css";
+@import '../styles/design-tokens.css';
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,13 @@
 @layer base {
   body {
     @apply bg-slate-50 text-slate-900 antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'SF Pro Text',
+      'Segoe UI',
+      sans-serif;
   }
 
   h1 {
