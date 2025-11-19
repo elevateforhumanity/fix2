@@ -1,14 +1,11 @@
 // app/api/admin/analytics/overview/route.ts
 // Real-time analytics overview
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function GET(req: NextRequest) {
+  const supabase = createSupabaseClient();
   const tenantId = req.headers.get('x-tenant-id');
   
   if (!tenantId) {

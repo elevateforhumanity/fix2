@@ -1,13 +1,10 @@
 // app/api/xapi/route.ts
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
+  const supabase = createSupabaseClient();
   // xAPI endpoint for receiving learning activity statements
   const body = await request.json();
 
@@ -40,6 +37,7 @@ export async function POST(request: Request) {
 }
 
 export async function GET(request: Request) {
+  const supabase = createSupabaseClient();
   // xAPI GET endpoint for retrieving statements
   const { searchParams } = new URL(request.url);
   const actor = searchParams.get('agent');

@@ -1,12 +1,7 @@
 // lib/audit.ts
 // Audit logging helper for enterprise compliance
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { logger } from '@/lib/logger';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export type AuditEvent = {
   tenantId?: string | null;
@@ -25,6 +20,7 @@ export type AuditEvent = {
  */
 export async function logAuditEvent(event: AuditEvent): Promise<void> {
   try {
+    const supabase = createSupabaseClient();
     const { error } = await supabase.from('audit_logs').insert({
       tenant_id: event.tenantId,
       user_id: event.userId,

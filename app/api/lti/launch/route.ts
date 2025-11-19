@@ -1,14 +1,11 @@
 // app/api/lti/launch/route.ts
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
+  const supabase = createSupabaseClient();
   const formData = await request.formData();
   const idToken = String(formData.get('id_token') || '');
   const state = String(formData.get('state') || '');

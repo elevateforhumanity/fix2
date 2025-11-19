@@ -1,22 +1,18 @@
-import { createClient } from "@supabase/supabase-js";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+import { createSupabaseClient } from "@/lib/supabase-api";
 
 // Bucket name: create a bucket in Supabase called "compliance-evidence"
 const BUCKET = "compliance-evidence";
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 export async function uploadComplianceEvidenceFile(
   file: File,
   itemId: string
 ) {
+  const supabase = createSupabaseClient();
   const ext = file.name.split(".").pop() || "bin";
   const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
   const path = `items/${itemId}/${fileName}`;
 
-  const { data, error } = await supabase.storage
+  const { data, error} = await supabase.storage
     .from(BUCKET)
     .upload(path, file, {
       cacheControl: "3600",

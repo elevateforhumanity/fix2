@@ -1,17 +1,14 @@
 // app/api/scorm/attempts/[attemptId]/data/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ attemptId: string }> }
 ) {
+  const supabase = createSupabaseClient();
   const { attemptId } = await params;
   const session = await requireAuth();
 
@@ -43,6 +40,7 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ attemptId: string }> }
 ) {
+  const supabase = createSupabaseClient();
   const { attemptId } = await params;
   const session = await requireAuth();
   const { data } = await request.json();

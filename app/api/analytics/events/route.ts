@@ -1,14 +1,11 @@
 // app/api/analytics/events/route.ts
 // Track user activity events
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(req: NextRequest) {
+  const supabase = createSupabaseClient();
   const { tenantId, userId, eventType, payload, path } = await req.json();
 
   if (!eventType || !tenantId) {

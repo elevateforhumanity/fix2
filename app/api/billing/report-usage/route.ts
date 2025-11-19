@@ -1,14 +1,11 @@
 // app/api/billing/report-usage/route.ts
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/billing/stripe';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
+  const supabase = createSupabaseClient();
   const auth = request.headers.get('x-internal-token');
   if (auth !== process.env.INTERNAL_CRON_TOKEN) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

@@ -1,14 +1,10 @@
 // app/api/auth/register/route.ts
 // User registration with password complexity enforcement
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
 import { rateLimit } from '@/lib/rateLimiter';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 /**
  * Password complexity requirements:
@@ -43,6 +39,7 @@ function isStrongPassword(password: string): { valid: boolean; message?: string 
 }
 
 export async function POST(req: NextRequest) {
+  const supabase = createSupabaseClient();
   // Rate limiting
   const limited = await rateLimit(req, 'auth-register', {
     requests: 5,

@@ -1,10 +1,5 @@
 // lib/assessments/selectQuestions.ts
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 interface Question {
   id: string;
@@ -24,6 +19,7 @@ export async function selectQuestionsForExamAttempt(
   examId: string,
   adaptive: boolean
 ): Promise<Question[]> {
+  const supabase = createSupabaseClient();
   const { data: exam, error: examError } = await supabase
     .from('exams')
     .select('*, bank:question_banks(*, questions(*))')

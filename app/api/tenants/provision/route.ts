@@ -1,15 +1,12 @@
 // app/api/tenants/provision/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 import { sendSlackMessage } from '@/lib/notifications/slack';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
+  const supabase = createSupabaseClient();
   const session = await requireAuth();
   if (!(session as any).isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });

@@ -1,16 +1,13 @@
 // app/api/exams/start/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 import { selectQuestionsForExamAttempt } from '@/lib/assessments/selectQuestions';
 import { getProctoringLaunchUrl } from '@/lib/integrations/proctoring';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
+  const supabase = createSupabaseClient();
   const session = await requireAuth();
   const { examId } = await request.json();
 

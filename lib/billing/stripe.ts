@@ -1,10 +1,13 @@
 // lib/billing/stripe.ts
 import Stripe from 'stripe';
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY not set');
+// Use placeholder during build, will fail at runtime if not set in production
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder';
+
+if (!process.env.STRIPE_SECRET_KEY && process.env.NODE_ENV === 'production') {
+  console.warn('STRIPE_SECRET_KEY not set - Stripe functionality will not work');
 }
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+export const stripe = new Stripe(stripeKey, {
   apiVersion: '2025-10-29.clover',
 });

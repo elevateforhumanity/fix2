@@ -1,12 +1,8 @@
 // app/api/xapi/statement/route.ts
 // xAPI Learning Record Store (LRS) endpoint
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createSupabaseClient } from "@/lib/supabase-api";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export const runtime = 'nodejs';
 
@@ -15,6 +11,7 @@ export const runtime = 'nodejs';
  * Receive and store xAPI statements
  */
 export async function POST(request: NextRequest) {
+  const supabase = createSupabaseClient();
   try {
     const body = await request.json();
 
@@ -66,6 +63,7 @@ export async function POST(request: NextRequest) {
  * Retrieve xAPI statements (LRS query)
  */
 export async function GET(request: NextRequest) {
+  const supabase = createSupabaseClient();
   try {
     const { searchParams } = new URL(request.url);
     const learnerId = searchParams.get('actor');
