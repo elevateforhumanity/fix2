@@ -1,26 +1,23 @@
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 // Bucket name: create a bucket in Supabase called "compliance-evidence"
-const BUCKET = "compliance-evidence";
+const BUCKET = 'compliance-evidence';
 
-export async function uploadComplianceEvidenceFile(
-  file: File,
-  itemId: string
-) {
+export async function uploadComplianceEvidenceFile(file: File, itemId: string) {
   const supabase = createSupabaseClient();
-  const ext = file.name.split(".").pop() || "bin";
+  const ext = file.name.split('.').pop() || 'bin';
   const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
   const path = `items/${itemId}/${fileName}`;
 
-  const { data, error} = await supabase.storage
+  const { data, error } = await supabase.storage
     .from(BUCKET)
     .upload(path, file, {
-      cacheControl: "3600",
+      cacheControl: '3600',
       upsert: false,
     });
 
   if (error) {
-    console.error("Supabase upload error:", error);
+    console.error('Supabase upload error:', error);
     throw error;
   }
 

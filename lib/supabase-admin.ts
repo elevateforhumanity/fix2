@@ -13,11 +13,17 @@ let _supabaseAdmin: ReturnType<typeof createClient> | null = null;
 function getSupabaseAdmin() {
   if (_supabaseAdmin) return _supabaseAdmin;
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key';
+  const supabaseUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+  const supabaseServiceKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key';
 
   // Only throw error in production, allow build to continue in development
-  if ((!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) && process.env.NODE_ENV === 'production') {
+  if (
+    (!process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      !process.env.SUPABASE_SERVICE_ROLE_KEY) &&
+    process.env.NODE_ENV === 'production'
+  ) {
     throw new Error('Missing Supabase environment variables for admin client');
   }
 
@@ -41,8 +47,9 @@ export const supabaseAdmin = new Proxy({} as ReturnType<typeof createClient>, {
 export async function getUserByEmail(email: string) {
   // TODO: Create a database RPC function for efficient email lookup
   // For now, using auth.admin API (fetches all users - not ideal for large user bases)
-  const { data: listData, error: listError } = await supabaseAdmin.auth.admin.listUsers();
-  
+  const { data: listData, error: listError } =
+    await supabaseAdmin.auth.admin.listUsers();
+
   if (listError) {
     throw listError;
   }

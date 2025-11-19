@@ -1,7 +1,6 @@
 // app/api/help/search/route.ts
 import { NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function GET(request: Request) {
   const supabase = createSupabaseClient();

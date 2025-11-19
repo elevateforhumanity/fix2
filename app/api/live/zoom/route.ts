@@ -1,15 +1,21 @@
 // app/api/live/zoom/route.ts
 // API endpoint for instructors to schedule Zoom live sessions
 import { NextRequest, NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { createZoomMeeting } from '@/lib/integrations/zoom';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
-
 
 export async function POST(request: NextRequest) {
   const supabase = createSupabaseClient();
   try {
-    const { courseId, topic, startTime, durationMinutes, instructorZoomId, tenantId } = await request.json();
+    const {
+      courseId,
+      topic,
+      startTime,
+      durationMinutes,
+      instructorZoomId,
+      tenantId,
+    } = await request.json();
 
     if (!courseId || !topic || !startTime || !durationMinutes) {
       return NextResponse.json(
@@ -67,14 +73,16 @@ export async function POST(request: NextRequest) {
       resourceId: liveSession.id,
       metadata: { topic, provider: 'zoom', meetingId: meeting.id },
       ipAddress,
-      userAgent
+      userAgent,
     });
 
     return NextResponse.json({ liveSession, meeting });
   } catch (error) {
     console.error('Zoom meeting creation error:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Internal server error' },
+      {
+        error: error instanceof Error ? error.message : 'Internal server error',
+      },
       { status: 500 }
     );
   }

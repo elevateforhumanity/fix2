@@ -1,8 +1,7 @@
 // app/api/billing/report-usage/route.ts
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/billing/stripe';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();
@@ -17,7 +16,10 @@ export async function POST(request: Request) {
     .eq('reported_to_stripe', false);
 
   if (error || !pendingUsage) {
-    return NextResponse.json({ error: 'Failed to fetch usage' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch usage' },
+      { status: 500 }
+    );
   }
 
   const updates = [];

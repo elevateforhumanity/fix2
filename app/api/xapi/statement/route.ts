@@ -1,8 +1,7 @@
 // app/api/xapi/statement/route.ts
 // xAPI Learning Record Store (LRS) endpoint
 import { NextRequest, NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export const runtime = 'nodejs';
 
@@ -36,9 +35,7 @@ export async function POST(request: NextRequest) {
       };
     });
 
-    const { error } = await supabase
-      .from('xapi_statements')
-      .insert(records);
+    const { error } = await supabase.from('xapi_statements').insert(records);
 
     if (error) {
       console.error('xAPI storage error:', error);

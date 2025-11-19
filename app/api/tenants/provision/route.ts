@@ -1,9 +1,8 @@
 // app/api/tenants/provision/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { sendSlackMessage } from '@/lib/notifications/slack';
-
 
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();
@@ -12,8 +11,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  const { name, slug, primaryDomain, maxActiveLearners, maxCourses, maxStorageGb } =
-    await request.json();
+  const {
+    name,
+    slug,
+    primaryDomain,
+    maxActiveLearners,
+    maxCourses,
+    maxStorageGb,
+  } = await request.json();
 
   if (!name || !slug) {
     return NextResponse.json(

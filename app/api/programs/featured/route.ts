@@ -1,9 +1,8 @@
 // app/api/programs/featured/route.ts
 // Cached featured programs endpoint
 import { NextRequest, NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { cacheGet, cacheSet } from '@/lib/cache';
-
 
 export async function GET(_req: NextRequest) {
   const supabase = createSupabaseClient();

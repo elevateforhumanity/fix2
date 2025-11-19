@@ -1,10 +1,9 @@
 // app/api/auth/register/route.ts
 // User registration with password complexity enforcement
 import { NextRequest, NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
 import { rateLimit } from '@/lib/rateLimiter';
-
 
 /**
  * Password complexity requirements:
@@ -14,25 +13,43 @@ import { rateLimit } from '@/lib/rateLimiter';
  * - At least one digit
  * - At least one special character
  */
-function isStrongPassword(password: string): { valid: boolean; message?: string } {
+function isStrongPassword(password: string): {
+  valid: boolean;
+  message?: string;
+} {
   if (password.length < 8) {
-    return { valid: false, message: 'Password must be at least 8 characters long' };
+    return {
+      valid: false,
+      message: 'Password must be at least 8 characters long',
+    };
   }
 
   if (!/[A-Z]/.test(password)) {
-    return { valid: false, message: 'Password must contain at least one uppercase letter' };
+    return {
+      valid: false,
+      message: 'Password must contain at least one uppercase letter',
+    };
   }
 
   if (!/[a-z]/.test(password)) {
-    return { valid: false, message: 'Password must contain at least one lowercase letter' };
+    return {
+      valid: false,
+      message: 'Password must contain at least one lowercase letter',
+    };
   }
 
   if (!/\d/.test(password)) {
-    return { valid: false, message: 'Password must contain at least one number' };
+    return {
+      valid: false,
+      message: 'Password must contain at least one number',
+    };
   }
 
   if (!/[@$!%*?&#^()[\]{}+_=<>|/~`.,;-]/.test(password)) {
-    return { valid: false, message: 'Password must contain at least one special character' };
+    return {
+      valid: false,
+      message: 'Password must contain at least one special character',
+    };
   }
 
   return { valid: true };
@@ -43,12 +60,13 @@ export async function POST(req: NextRequest) {
   // Rate limiting
   const limited = await rateLimit(req, 'auth-register', {
     requests: 5,
-    windowSeconds: 300 // 5 requests per 5 minutes
+    windowSeconds: 300, // 5 requests per 5 minutes
   });
   if (limited) return limited;
 
   try {
-    const { email, password, tenantId, firstName, lastName, role } = await req.json();
+    const { email, password, tenantId, firstName, lastName, role } =
+      await req.json();
 
     // Validate required fields
     if (!email || !password) {
@@ -85,8 +103,8 @@ export async function POST(req: NextRequest) {
         tenant_id: tenantId,
         first_name: firstName,
         last_name: lastName,
-        role: role || 'student'
-      }
+        role: role || 'student',
+      },
     });
 
     if (error) {
@@ -99,13 +117,10 @@ export async function POST(req: NextRequest) {
         resourceType: 'user',
         metadata: { email, error: error.message },
         ipAddress,
-        userAgent
+        userAgent,
       });
 
-      return NextResponse.json(
-        { error: error.message },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     // Log successful registration
@@ -118,7 +133,7 @@ export async function POST(req: NextRequest) {
       resourceId: data.user?.id || null,
       metadata: { email, role: role || 'student' },
       ipAddress,
-      userAgent
+      userAgent,
     });
 
     return NextResponse.json(
@@ -126,8 +141,8 @@ export async function POST(req: NextRequest) {
         user: {
           id: data.user?.id,
           email: data.user?.email,
-          role: data.user?.user_metadata?.role
-        }
+          role: data.user?.user_metadata?.role,
+        },
       },
       { status: 201 }
     );

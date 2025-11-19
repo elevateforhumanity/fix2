@@ -1,7 +1,6 @@
 // app/api/xapi/route.ts
 import { NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();

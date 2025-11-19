@@ -1,8 +1,7 @@
 // app/api/exams/submit/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();
@@ -18,7 +17,9 @@ export async function POST(request: Request) {
 
   const { data: attempt, error: attemptError } = await supabase
     .from('exam_attempts')
-    .select('*, exam:exams(*), exam_attempt_questions(*, question:questions(*))')
+    .select(
+      '*, exam:exams(*), exam_attempt_questions(*, question:questions(*))'
+    )
     .eq('id', attemptId)
     .single();
 
@@ -43,10 +44,7 @@ export async function POST(request: Request) {
     (now.getTime() - new Date(attempt.started_at).getTime()) / (1000 * 60);
   if (elapsedMinutes > attempt.exam.time_limit_minutes + 5) {
     // 5-minute grace
-    return NextResponse.json(
-      { error: 'Time limit exceeded' },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: 'Time limit exceeded' }, { status: 400 });
   }
 
   // Map answers by attemptQuestionId
@@ -64,7 +62,8 @@ export async function POST(request: Request) {
     if (typeof studentAnswer === 'undefined') continue;
 
     const correctAnswer = aq.question.correct_answer;
-    const isCorrect = JSON.stringify(studentAnswer) === JSON.stringify(correctAnswer);
+    const isCorrect =
+      JSON.stringify(studentAnswer) === JSON.stringify(correctAnswer);
     if (isCorrect) correctCount++;
 
     updates.push(

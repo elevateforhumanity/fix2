@@ -1,20 +1,23 @@
 // app/api/analytics/events/route.ts
 // Track user activity events
 import { NextRequest, NextResponse } from 'next/server';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function POST(req: NextRequest) {
   const supabase = createSupabaseClient();
   const { tenantId, userId, eventType, payload, path } = await req.json();
 
   if (!eventType || !tenantId) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'Missing required fields' },
+      { status: 400 }
+    );
   }
 
-  const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
-                    req.headers.get('x-real-ip') || 
-                    null;
+  const ipAddress =
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    req.headers.get('x-real-ip') ||
+    null;
   const userAgent = req.headers.get('user-agent') || null;
   const referrer = req.headers.get('referer') || null;
 
@@ -26,7 +29,7 @@ export async function POST(req: NextRequest) {
     path,
     referrer,
     user_agent: userAgent,
-    ip_address: ipAddress
+    ip_address: ipAddress,
   });
 
   return NextResponse.json({ status: 'ok' });
