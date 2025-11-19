@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Environment Variables - Clickable Links</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        .link-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .link-box a {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+        .code-box {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .step {
+            background: #f9fafb;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #10b981;
+        }
+        .required {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+        .optional {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔑 Get Your Environment Variables</h1>
+        <p><strong>Click the blue boxes below to go directly to each service</strong></p>
+
+        <h2>🎯 REQUIRED (Must Have These)</h2>
+
+        <div class="step required">
+            <h3>1. Supabase (Database) - FREE</h3>
+            <p><strong>What it does:</strong> Powers your entire database, user authentication, and data storage</p>
+            
+            <div class="link-box">
+                <a href="https://supabase.com/dashboard" target="_blank">👉 CLICK HERE: Create Supabase Account →</a>
+            </div>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Click the blue link above</li>
+                <li>Sign in with GitHub (free account)</li>
+                <li>Click "New Project"</li>
+                <li>Name it "elevate-lms"</li>
+                <li>Set a database password (save it!)</li>
+                <li>Click "Create new project"</li>
+                <li>Go to Settings → API</li>
+                <li>Copy these 3 values:</li>
+            </ol>
+
+            <div class="code-box">
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co<br>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<br>
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+            </div>
+        </div>
+
+        <div class="step required">
+            <h3>2. NextAuth Secret (Security) - FREE</h3>
+            <p><strong>What it does:</strong> Secures user sessions and login tokens</p>
+            
+            <div class="link-box">
+                <a href="https://generate-secret.vercel.app/32" target="_blank">👉 CLICK HERE: Generate Secret →</a>
+            </div>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Click the blue link above</li>
+                <li>Copy the generated secret</li>
+                <li>Paste it into Vercel as NEXTAUTH_SECRET</li>
+            </ol>
+
+            <div class="code-box">
+NEXTAUTH_SECRET=paste-your-generated-secret-here<br>
+NEXTAUTH_URL=https://elevateconnectsdirectory.org<br>
+NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+            </div>
+        </div>
+
+        <h2>💳 OPTIONAL: Payment Processing</h2>
+
+        <div class="step optional">
+            <h3>Stripe (Accept Payments) - FREE to start</h3>
+            <p><strong>What it does:</strong> Lets you charge for courses, accept donations</p>
+            
+            <div class="link-box">
+                <a href="https://dashboard.stripe.com/register" target="_blank">👉 CLICK HERE: Create Stripe Account →</a>
+            </div>
+
+            <p><strong>After signing up:</strong></p>
+            <div class="link-box">
+                <a href="https://dashboard.stripe.com/apikeys" target="_blank">👉 CLICK HERE: Get API Keys →</a>
+            </div>
+
+            <div class="code-box">
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...<br>
+STRIPE_SECRET_KEY=sk_live_...
+            </div>
+
+            <p><strong>For webhooks (optional):</strong></p>
+            <div class="link-box">
+                <a href="https://dashboard.stripe.com/webhooks" target="_blank">👉 CLICK HERE: Setup Webhooks →</a>
+            </div>
+        </div>
+
+        <h2>📧 OPTIONAL: Email Notifications</h2>
+
+        <div class="step optional">
+            <h3>Option A: Resend (Recommended) - FREE</h3>
+            <p><strong>What it does:</strong> Sends welcome emails, password resets, notifications</p>
+            
+            <div class="link-box">
+                <a href="https://resend.com/signup" target="_blank">👉 CLICK HERE: Create Resend Account →</a>
+            </div>
+
+            <p><strong>After signing up:</strong></p>
+            <div class="link-box">
+                <a href="https://resend.com/api-keys" target="_blank">👉 CLICK HERE: Get API Key →</a>
+            </div>
+
+            <div class="code-box">
+RESEND_API_KEY=re_...
+            </div>
+
+            <p><strong>Free tier:</strong> 3,000 emails/month</p>
+        </div>
+
+        <div class="step optional">
+            <h3>Option B: SendGrid (Alternative) - FREE</h3>
+            
+            <div class="link-box">
+                <a href="https://signup.sendgrid.com/" target="_blank">👉 CLICK HERE: Create SendGrid Account →</a>
+            </div>
+
+            <p><strong>After signing up:</strong></p>
+            <div class="link-box">
+                <a href="https://app.sendgrid.com/settings/api_keys" target="_blank">👉 CLICK HERE: Get API Key →</a>
+            </div>
+
+            <div class="code-box">
+SENDGRID_API_KEY=SG...<br>
+SENDGRID_FROM=noreply@elevateforhumanity.org
+            </div>
+
+            <p><strong>Free tier:</strong> 100 emails/day</p>
+        </div>
+
+        <h2>📊 OPTIONAL: Analytics</h2>
+
+        <div class="step optional">
+            <h3>Google Analytics - FREE Forever</h3>
+            <p><strong>What it does:</strong> Tracks visitors, page views, user behavior</p>
+            
+            <div class="link-box">
+                <a href="https://analytics.google.com/" target="_blank">👉 CLICK HERE: Setup Google Analytics →</a>
+            </div>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Click the link above</li>
+                <li>Sign in with Google</li>
+                <li>Create account: "Elevate for Humanity"</li>
+                <li>Create property: "Elevate LMS"</li>
+                <li>Add website: https://elevateconnectsdirectory.org</li>
+                <li>Copy your Measurement ID (starts with G-)</li>
+            </ol>
+
+            <div class="code-box">
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+            </div>
+        </div>
+
+        <h2>🐛 OPTIONAL: Error Tracking</h2>
+
+        <div class="step optional">
+            <h3>Sentry - FREE</h3>
+            <p><strong>What it does:</strong> Catches errors, shows you what broke and why</p>
+            
+            <div class="link-box">
+                <a href="https://sentry.io/signup/" target="_blank">👉 CLICK HERE: Create Sentry Account →</a>
+            </div>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Click the link above</li>
+                <li>Sign up with GitHub</li>
+                <li>Create project: "elevate-lms" (Next.js)</li>
+                <li>Copy your DSN</li>
+            </ol>
+
+            <div class="code-box">
+NEXT_PUBLIC_SENTRY_DSN=https://xxxxx@xxxxx.ingest.sentry.io/xxxxx
+            </div>
+
+            <p><strong>Free tier:</strong> 5,000 errors/month</p>
+        </div>
+
+        <h2>📝 Add Variables to Vercel</h2>
+
+        <div class="link-box" style="background: #dcfce7; border-left-color: #10b981;">
+            <a href="https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables" target="_blank">
+                👉 CLICK HERE: Add Variables to Vercel →
+            </a>
+        </div>
+
+        <p><strong>For each variable:</strong></p>
+        <ol>
+            <li>Click "Add New"</li>
+            <li>Enter variable name (e.g., NEXT_PUBLIC_SUPABASE_URL)</li>
+            <li>Paste the value</li>
+            <li>Select all environments: ✅ Production ✅ Preview ✅ Development</li>
+            <li>Check "Sensitive" if it's a secret</li>
+            <li>Click "Save"</li>
+        </ol>
+
+        <p><strong>After adding all variables:</strong></p>
+        <ol>
+            <li>Go to "Deployments" tab</li>
+            <li>Click "..." on latest deployment</li>
+            <li>Click "Redeploy"</li>
+            <li>Wait 2-3 minutes</li>
+            <li>✅ Done!</li>
+        </ol>
+
+        <h2>✅ Quick Checklist</h2>
+
+        <div class="step required">
+            <h3>Minimum Required (15 minutes):</h3>
+            <ul>
+                <li>☐ Supabase account + 3 keys</li>
+                <li>☐ NextAuth secret (generated)</li>
+                <li>☐ Site URL (already have it)</li>
+                <li>☐ Add all to Vercel</li>
+                <li>☐ Redeploy</li>
+            </ul>
+        </div>
+
+        <div class="step optional">
+            <h3>Recommended (add later):</h3>
+            <ul>
+                <li>☐ Stripe (for payments)</li>
+                <li>☐ Resend (for emails)</li>
+                <li>☐ Google Analytics (for tracking)</li>
+                <li>☐ Sentry (for errors)</li>
+            </ul>
+        </div>
+
+        <h2>💰 Cost Summary</h2>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f3f4f6;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #d1d5db;">Service</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #d1d5db;">Free Tier</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #d1d5db;">Cost</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Supabase</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">500MB DB, 2GB bandwidth</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">$0 (or $25/mo Pro)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Stripe</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Unlimited</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">2.9% + 30¢ per transaction</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Resend</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">3,000 emails/month</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">$0 (or $20/mo)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Google Analytics</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Unlimited</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">$0 forever</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">Sentry</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">5,000 errors/month</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">$0 (or $26/mo)</td>
+            </tr>
+            <tr style="background: #dcfce7; font-weight: bold;">
+                <td style="padding: 10px; border: 1px solid #d1d5db;">TOTAL</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">All free tiers</td>
+                <td style="padding: 10px; border: 1px solid #d1d5db;">$0/month</td>
+            </tr>
+        </table>
+
+        <p style="text-align: center; margin-top: 30px; padding: 20px; background: #dbeafe; border-radius: 10px;">
+            <strong>🎯 Start with the FREE tiers - upgrade only when you need to!</strong>
+        </p>
+    </div>
+</body>
+</html>
