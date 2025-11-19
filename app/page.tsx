@@ -200,36 +200,37 @@ export default function HomePage() {
                 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80', // Workforce Readiness
               ];
               return (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={programImages[index] || programImages[0]}
-                    alt={program.name}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {program.name}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                    {program.blurb}
-                  </p>
-                  <div className="inline-flex items-center text-blue-600 font-semibold text-sm">
-                    Learn More
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                <Link
+                  key={program.slug}
+                  href={`/programs/${program.slug}`}
+                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={programImages[index] || programImages[0]}
+                      alt={program.name}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </div>
-              </Link>
-            ))}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      {program.name}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                      {program.blurb}
+                    </p>
+                    <div className="inline-flex items-center text-blue-600 font-semibold text-sm">
+                      Learn More
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
@@ -323,121 +324,6 @@ export default function HomePage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
-        </div>
-      </section>
-
-      {/* OLD SECTIONS BELOW - Keep for now */}
-      <div className="hidden">
-        {/* Hide old sections but keep in code */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-white font-bold text-lg mb-1">Job Placement</h3>
-              <p className="text-red-100 text-sm">Direct connections to employers</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all hover:scale-105">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-red-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-white font-bold text-lg mb-1">Certifications</h3>
-                      <p className="text-red-100 text-sm">Industry-recognized credentials</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST / STATS STRIP - Coursera Style */}
-      <section className="bg-white py-8 border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-center">
-            <div>
-              <div className="text-3xl font-bold text-gray-900">$0</div>
-              <div className="text-sm text-gray-600">Out-of-Pocket Cost</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROGRAMS GRID - Coursera Style */}
-      <section id="programs" className="bg-gray-50 py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Explore our catalog
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl">
-              Choose from state-approved training programs with workforce
-              funding available
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {programs.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-500"
-              >
-                {/* Course Thumbnail Image */}
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={program.image}
-                    alt={program.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-white/90 text-xs font-semibold text-blue-700 rounded">
-                      {program.duration}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                    {program.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {program.blurb}
-                  </p>
-
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <span>Funding: {program.funding}</span>
-                    <span className="text-blue-600 font-semibold group-hover:underline">
-                      Learn more →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/programs"
-              className="inline-block px-8 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-lg hover:bg-blue-600 hover:text-white transition"
-            >
-              View All Programs
-            </Link>
-          </div>
         </div>
       </section>
 
