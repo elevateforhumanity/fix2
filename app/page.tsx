@@ -79,10 +79,10 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-4 mb-6">
                 <Link
-                  href="/apply"
+                  href="/start"
                   className="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-lg hover:bg-blue-50 transition shadow-lg"
                 >
-                  Join for Free
+                  Start Now
                 </Link>
                 <Link
                   href="#programs"
@@ -180,27 +180,27 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Image - Hands-on Training */}
+            {/* Right Video - Autoplay */}
             <div className="relative">
               <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
-                  alt="Hands-on vocational training"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              {/* Video Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Link
-                  href="/video"
-                  className="bg-white/90 hover:bg-white rounded-full p-6 shadow-2xl transition transform hover:scale-110"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
                 >
-                  <svg className="w-12 h-12 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                  </svg>
-                </Link>
+                  <source src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4" type="video/mp4" />
+                  <source src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4" type="video/mp4" />
+                  {/* Fallback image if video doesn't load */}
+                  <Image
+                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+                    alt="Hands-on vocational training"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </video>
               </div>
             </div>
           </div>
