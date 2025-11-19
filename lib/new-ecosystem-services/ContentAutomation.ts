@@ -353,72 +353,21 @@ export class ContentAutomation {
    * Format partner logos with real images
    */
   private formatPartnerLogos(data: { partners?: Array<{ name: string; logo: string; url: string }> }): string {
-    const partners = data?.partners || [
-      {
-        name: 'CompTIA',
-        logo: '/images/partners/comptia-logo.png',
-        url: 'https://www.comptia.org',
-      },
-      {
-        name: 'Microsoft',
-        logo: '/images/partners/microsoft-logo.png',
-        url: 'https://www.microsoft.com',
-      },
-      {
-        name: 'AWS',
-        logo: '/images/partners/aws-logo.png',
-        url: 'https://aws.amazon.com',
-      },
-      {
-        name: 'Cisco',
-        logo: '/images/partners/cisco-logo.png',
-        url: 'https://www.cisco.com',
-      },
-      {
-        name: 'AHIMA',
-        logo: '/images/partners/ahima-logo.png',
-        url: 'https://www.ahima.org',
-      },
-      {
-        name: 'HIMSS',
-        logo: '/images/partners/himss-logo.png',
-        url: 'https://www.himss.org',
-      },
-      {
-        name: 'Epic',
-        logo: '/images/partners/epic-logo.png',
-        url: 'https://www.epic.com',
-      },
-      {
-        name: 'Cerner',
-        logo: '/images/partners/cerner-logo.png',
-        url: 'https://www.cerner.com',
-      },
-      {
-        name: 'PMI',
-        logo: '/images/partners/pmi-logo.png',
-        url: 'https://www.pmi.org',
-      },
-      {
-        name: 'HRCI',
-        logo: '/images/partners/hrci-logo.png',
-        url: 'https://www.hrci.org',
-      },
-      {
-        name: 'ACT WorkKeys',
-        logo: '/images/partners/workkeys-logo.png',
-        url: 'https://www.act.org/workkeys',
-      },
-      {
-        name: 'Certiport',
-        logo: '/images/partners/certiport-logo.png',
-        url: 'https://certiport.pearsonvue.com',
-      },
-    ];
+    // No partner logos - funding sources only, no company names
+    const partners = data?.partners || [];
+
+    if (partners.length === 0) {
+      return `
+        <div class="funding-sources">
+          <h3>Funding Sources</h3>
+          <p>Programs funded through WIOA, WRG, and JRI workforce development initiatives.</p>
+        </div>
+      `;
+    }
 
     return `
       <div class="partner-logos">
-        <h3>Our Credentialing Partners</h3>
+        <h3>Funding Partners</h3>
         <div class="logo-grid">
           ${partners
             .map(
@@ -431,7 +380,6 @@ export class ContentAutomation {
             )
             .join('')}
         </div>
-        <p class="credibility-note">All partnerships verified and active as of ${new Date().toLocaleDateString()}</p>
       </div>
     `;
   }
