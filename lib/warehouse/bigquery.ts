@@ -1,6 +1,6 @@
 // lib/warehouse/bigquery.ts
-import { BigQuery } from "@google-cloud/bigquery";
-import { createClient } from "@/lib/supabase/server";
+import { BigQuery } from '@google-cloud/bigquery';
+import { createClient } from '@/lib/supabase/server';
 
 const BIGQUERY_PROJECT_ID = process.env.BIGQUERY_PROJECT_ID;
 const BIGQUERY_DATASET = process.env.BIGQUERY_DATASET;
@@ -19,14 +19,14 @@ function getClient() {
 export async function exportEnrollmentsToBigQuery() {
   const bq = getClient();
   if (!bq || !BIGQUERY_DATASET) {
-    console.warn("BigQuery not configured");
+    console.warn('BigQuery not configured');
     return;
   }
 
   const supabase = await createClient();
 
   const { data: enrollments } = await supabase
-    .from("enrollments")
+    .from('enrollments')
     .select(
       `
       id,
@@ -41,12 +41,12 @@ export async function exportEnrollmentsToBigQuery() {
     .limit(1000);
 
   if (!enrollments || enrollments.length === 0) {
-    console.log("No enrollments to export");
+    console.log('No enrollments to export');
     return;
   }
 
   const dataset = bq.dataset(BIGQUERY_DATASET);
-  const table = dataset.table("enrollments");
+  const table = dataset.table('enrollments');
 
   const rows = enrollments.map((e) => ({
     enrollment_id: e.id,
@@ -65,14 +65,14 @@ export async function exportEnrollmentsToBigQuery() {
 export async function exportCourseCompletionsToBigQuery() {
   const bq = getClient();
   if (!bq || !BIGQUERY_DATASET) {
-    console.warn("BigQuery not configured");
+    console.warn('BigQuery not configured');
     return;
   }
 
   const supabase = await createClient();
 
   const { data: completions } = await supabase
-    .from("enrollments")
+    .from('enrollments')
     .select(
       `
       id,
@@ -82,16 +82,16 @@ export async function exportCourseCompletionsToBigQuery() {
       final_score
     `
     )
-    .not("completed_at", "is", null)
+    .not('completed_at', 'is', null)
     .limit(1000);
 
   if (!completions || completions.length === 0) {
-    console.log("No completions to export");
+    console.log('No completions to export');
     return;
   }
 
   const dataset = bq.dataset(BIGQUERY_DATASET);
-  const table = dataset.table("course_completions");
+  const table = dataset.table('course_completions');
 
   const rows = completions.map((c) => ({
     enrollment_id: c.id,

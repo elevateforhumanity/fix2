@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from '@/lib/supabase/server';
 
 export async function getEmailTemplate(key: string, tenantId?: string | null) {
   const supabase = await createClient();
@@ -6,10 +6,10 @@ export async function getEmailTemplate(key: string, tenantId?: string | null) {
   // Try tenant-specific first
   if (tenantId) {
     const { data: tenantTemplate } = await supabase
-      .from("email_templates")
-      .select("*")
-      .eq("tenant_id", tenantId)
-      .eq("key", key)
+      .from('email_templates')
+      .select('*')
+      .eq('tenant_id', tenantId)
+      .eq('key', key)
       .single();
 
     if (tenantTemplate) return tenantTemplate;
@@ -17,10 +17,10 @@ export async function getEmailTemplate(key: string, tenantId?: string | null) {
 
   // Fallback to global template
   const { data: globalTemplate } = await supabase
-    .from("email_templates")
-    .select("*")
-    .is("tenant_id", null)
-    .eq("key", key)
+    .from('email_templates')
+    .select('*')
+    .is('tenant_id', null)
+    .eq('key', key)
     .single();
 
   return globalTemplate;
@@ -32,7 +32,7 @@ export function renderTemplate(
 ): string {
   let out = html;
   for (const [k, v] of Object.entries(vars)) {
-    const token = new RegExp(`{{\\s*${k}\\s*}}`, "g");
+    const token = new RegExp(`{{\\s*${k}\\s*}}`, 'g');
     out = out.replace(token, v);
   }
   return out;
