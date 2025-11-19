@@ -261,3 +261,69 @@ model Session {
   @@index([expiresAt])
   @@map("sessions")
 }
+
+// xAPI Statement tracking
+model XapiStatement {
+  id         String   @id @default(uuid())
+  actor      Json
+  verb       Json
+  object     Json
+  raw        Json
+  receivedAt DateTime @default(now()) @map("received_at")
+
+  @@index([receivedAt])
+  @@map("xapi_statements")
+}
+
+// Discussion Forums
+model DiscussionThread {
+  id        String   @id @default(uuid())
+  courseId  String   @map("course_id")
+  title     String
+  body      String
+  authorId  String   @map("author_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  replies   DiscussionReply[]
+
+  @@index([courseId])
+  @@index([authorId])
+  @@map("discussion_threads")
+}
+
+model DiscussionReply {
+  id        String   @id @default(uuid())
+  threadId  String   @map("thread_id")
+  authorId  String   @map("author_id")
+  body      String
+  createdAt DateTime @default(now()) @map("created_at")
+  thread    DiscussionThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+
+  @@index([threadId])
+  @@index([authorId])
+  @@map("discussion_replies")
+}
+
+// Gamification - Badges
+model Badge {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String
+  icon        String
+  userBadges  UserBadge[]
+
+  @@map("badges")
+}
+
+model UserBadge {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  badgeId   String   @map("badge_id")
+  awardedAt DateTime @default(now()) @map("awarded_at")
+  badge     Badge    @relation(fields: [badgeId], references: [id])
+
+  @@unique([userId, badgeId])
+  @@index([userId])
+  @@index([badgeId])
+  @@map("user_badges")
+}

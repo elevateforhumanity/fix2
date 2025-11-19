@@ -1,10 +1,23 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import OpenAI from "openai";
-
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
 
 export async function GET(request: Request) {
+  if (!isOpenAIConfigured()) {
+    return NextResponse.json(
+      { error: "AI features not configured. Please set OPENAI_API_KEY." },
+      { status: 503 }
+    );
+  }
+
+  const client = getOpenAIClient();
+  if (!client) {
+    return NextResponse.json(
+      { error: "AI service unavailable" },
+      { status: 503 }
+    );
+  }
+
   const supabase = await createClient();
   const {
     data: { user },

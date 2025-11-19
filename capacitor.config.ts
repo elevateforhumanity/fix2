@@ -18,6 +18,8 @@ const config: CapacitorConfig = {
     },
   },
   server: {
+    url: process.env.CAPACITOR_SERVER_URL || "https://elevateconnectsdirectory.org",
+    cleartext: false,
     androidScheme: "https",
     iosScheme: "https",
   },

@@ -2,6 +2,8 @@
 // NextAuth v5 configuration
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Okta from 'next-auth/providers/okta';
+import AzureAD from 'next-auth/providers/azure-ad';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -22,6 +24,25 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return null;
       },
     }),
+    // Enterprise SSO providers
+    ...(process.env.OKTA_CLIENT_ID && process.env.OKTA_CLIENT_SECRET && process.env.OKTA_ISSUER
+      ? [
+          Okta({
+            clientId: process.env.OKTA_CLIENT_ID,
+            clientSecret: process.env.OKTA_CLIENT_SECRET,
+            issuer: process.env.OKTA_ISSUER,
+          }),
+        ]
+      : []),
+    ...(process.env.AZURE_AD_CLIENT_ID && process.env.AZURE_AD_CLIENT_SECRET && process.env.AZURE_AD_TENANT_ID
+      ? [
+          AzureAD({
+            clientId: process.env.AZURE_AD_CLIENT_ID,
+            clientSecret: process.env.AZURE_AD_CLIENT_SECRET,
+            issuer: `https://login.microsoftonline.com/${process.env.AZURE_AD_TENANT_ID}/v2.0`,
+          }),
+        ]
+      : []),
   ],
   pages: {
     signIn: '/login',
