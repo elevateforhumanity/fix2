@@ -1,6 +1,129 @@
+@import "../styles/design-tokens.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-snug;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold leading-snug;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  p {
+    @apply text-sm md:text-base leading-relaxed text-slate-700;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Section spacing */
+  .section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Container with padding */
+  .container-padded {
+    @apply mx-auto max-w-7xl px-4 md:px-6 lg:px-8;
+  }
+
+  /* Modern card */
+  .card {
+    @apply rounded-2xl bg-white shadow-card border border-slate-100;
+  }
+
+  /* Interactive card with hover */
+  .card-interactive {
+    @apply card transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ease-smooth;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-500 text-white shadow-md hover:bg-accent-600 active:scale-95 focus:ring-4 focus:ring-accent-100;
+  }
+
+  .btn-secondary {
+    @apply btn bg-brand-600 text-white shadow-md hover:bg-brand-700 active:scale-95 focus:ring-4 focus:ring-brand-100;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-slate-300 bg-white text-slate-700 hover:bg-slate-50 active:scale-95 focus:ring-4 focus:ring-slate-100;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-700 hover:bg-slate-100 active:bg-slate-200;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm shadow-card focus:border-accent-500 focus:outline-none focus:ring-4 focus:ring-accent-100 transition-all;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  .badge-primary {
+    @apply badge bg-brand-100 text-brand-700;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-100 text-amber-700;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-700;
+  }
+}
+
+@layer utilities {
+  /* Smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent;
+  }
+}
 
 /* ============================================
    ELEVATE CONNECTS BRAND THEME

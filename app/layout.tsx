@@ -15,6 +15,7 @@ import CookieConsent from '@/components/CookieConsent';
 import { CookieBanner } from '@/components/CookieBanner';
 import CourseraStyleHeader from '@/components/CourseraStyleHeader';
 import CourseraStyleFooter from '@/components/CourseraStyleFooter';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -117,6 +118,28 @@ export default function RootLayout({
         <ElevateChatWidget />
         <CookieConsent />
         <CookieBanner />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              borderRadius: "12px",
+              fontSize: "0.875rem",
+              padding: "12px 16px",
+            },
+            success: {
+              iconTheme: {
+                primary: "#22c55e",
+                secondary: "#fff",
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: "#ef4444",
+                secondary: "#fff",
+              },
+            },
+          }}
+        />
       </body>
     </html>
   );
