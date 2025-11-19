@@ -1,7 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { BookOpen, FileText, Award, Calendar, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import {
+  BookOpen,
+  FileText,
+  Award,
+  Calendar,
+  TrendingUp,
+  Clock,
+  CheckCircle,
+} from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 
 export default function StudentDashboardPage() {
@@ -10,7 +18,9 @@ export default function StudentDashboardPage() {
       {/* Simple Header */}
       <div className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome back, John!</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Welcome back, John!
+          </h1>
           <p className="text-gray-600 mt-1">HVAC Technician Training</p>
         </div>
       </div>
@@ -29,7 +39,10 @@ export default function StudentDashboardPage() {
             </div>
           </div>
           <div className="mt-6 bg-white/20 rounded-full h-3">
-            <div className="bg-white rounded-full h-3" style={{ width: '67%' }}></div>
+            <div
+              className="bg-white rounded-full h-3"
+              style={{ width: '67%' }}
+            ></div>
           </div>
         </div>
 
@@ -40,7 +53,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Courses</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">3</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    3
+                  </div>
                 </div>
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
@@ -52,7 +67,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Certificates</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">2</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    2
+                  </div>
                 </div>
                 <Award className="h-8 w-8 text-yellow-600" />
               </div>
@@ -64,7 +81,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">GPA</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">3.8</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    3.8
+                  </div>
                 </div>
                 <TrendingUp className="h-8 w-8 text-green-600" />
               </div>
@@ -76,7 +95,9 @@ export default function StudentDashboardPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-slate-600">Attendance</div>
-                  <div className="text-2xl font-bold text-slate-900 mt-1">98%</div>
+                  <div className="text-2xl font-bold text-slate-900 mt-1">
+                    98%
+                  </div>
                 </div>
                 <CheckCircle className="h-8 w-8 text-purple-600" />
               </div>
@@ -97,8 +118,12 @@ export default function StudentDashboardPage() {
                 <div className="bg-blue-50 rounded-lg p-4">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h4 className="font-semibold text-slate-900">HVAC Systems Installation</h4>
-                      <p className="text-sm text-slate-600 mt-1">Module 3: Ductwork Design</p>
+                      <h4 className="font-semibold text-slate-900">
+                        HVAC Systems Installation
+                      </h4>
+                      <p className="text-sm text-slate-600 mt-1">
+                        Module 3: Ductwork Design
+                      </p>
                       <div className="flex items-center gap-4 mt-3 text-sm text-slate-600">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
@@ -154,7 +179,9 @@ export default function StudentDashboardPage() {
             {/* Upcoming Assignments */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Upcoming Assignments</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Upcoming Assignments
+                </h3>
                 <div className="space-y-3">
                   <AssignmentItem
                     title="Module 3 Quiz"
@@ -179,7 +206,9 @@ export default function StudentDashboardPage() {
             {/* Recent Achievements */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Recent Achievements</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Recent Achievements
+                </h3>
                 <div className="space-y-3">
                   <AchievementItem
                     title="Perfect Attendance"
@@ -255,11 +284,15 @@ function AssignmentItem({
 }) {
   return (
     <div className="flex items-start gap-3">
-      <FileText className={`h-5 w-5 mt-0.5 ${urgent ? 'text-red-500' : 'text-slate-400'}`} />
+      <FileText
+        className={`h-5 w-5 mt-0.5 ${urgent ? 'text-red-500' : 'text-slate-400'}`}
+      />
       <div className="flex-1">
         <h4 className="font-medium text-slate-900 text-sm">{title}</h4>
         <p className="text-xs text-slate-600">{course}</p>
-        <p className={`text-xs mt-1 ${urgent ? 'text-red-600 font-medium' : 'text-slate-500'}`}>
+        <p
+          className={`text-xs mt-1 ${urgent ? 'text-red-600 font-medium' : 'text-slate-500'}`}
+        >
           Due {dueDate}
         </p>
       </div>
