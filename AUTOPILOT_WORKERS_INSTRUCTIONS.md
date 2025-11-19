@@ -19,19 +19,23 @@
 ## 🎯 Quick Start (3 Steps)
 
 ### Step 1: Open Supabase SQL Editor
+
 ```
 https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
 ```
 
 ### Step 2: Get Migration SQL
+
 ```
 https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
 ```
+
 - Open this link
 - Press Ctrl+A (select all)
 - Press Ctrl+C (copy)
 
 ### Step 3: Run Migration
+
 - Go back to Supabase SQL Editor
 - Press Ctrl+V (paste)
 - Click "Run" button
@@ -42,6 +46,7 @@ https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE
 ## ✅ Verification
 
 ### Check Database:
+
 ```sql
 SELECT COUNT(*) FROM programs; -- Should return 16
 SELECT COUNT(*) FROM courses;  -- Should return 17
@@ -49,11 +54,13 @@ SELECT COUNT(*) FROM modules;  -- Should return 50+
 ```
 
 ### Check Website:
+
 ```
 https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
 
 **Expected**:
+
 - ✅ NO blue banner
 - ✅ 17 courses visible
 - ✅ All from database
@@ -72,11 +79,13 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ## 🔧 What This Does
 
 **Creates in Database**:
+
 - 16 Programs (Business, HVAC, Medical, Barber, etc.)
 - 17 Courses (all programs + Rise Up Certificate)
 - 50+ Modules (course content structure)
 
 **Result on Website**:
+
 - Blue "Mock Data" banner disappears
 - Real courses from database display
 - Full enrollment functionality active
@@ -111,12 +120,15 @@ Now:     Task ready for execution
 ## 🚨 If You Encounter Issues
 
 ### Error: "relation does not exist"
+
 **Solution**: Tables need to be created first. See troubleshooting in task file.
 
 ### Error: "duplicate key"
+
 **Solution**: Migration already run. This is OK! Skip to verification.
 
 ### Blue banner still shows
+
 **Solution**: Wait 2-3 minutes, hard refresh browser (Ctrl+Shift+R)
 
 ---
@@ -124,6 +136,7 @@ Now:     Task ready for execution
 ## 📞 Report Completion
 
 **When done, report**:
+
 - ✅ Execution time
 - ✅ Programs count (should be 16)
 - ✅ Courses count (should be 17)
@@ -136,6 +149,7 @@ Now:     Task ready for execution
 ## 🎉 After This Task
 
 **Next Phase**: Remove mock data system
+
 - Another worker will handle this
 - Requires code changes
 - Will be triggered after your completion
@@ -163,6 +177,6 @@ Now:     Task ready for execution
 
 ---
 
-*Task Created: November 19, 2025 19:45 UTC*  
-*Status: ACTIVE*  
-*Priority: HIGH*
+_Task Created: November 19, 2025 19:45 UTC_  
+_Status: ACTIVE_  
+_Priority: HIGH_
