@@ -1,4 +1,6 @@
 // Email notification system
+import { logger } from '@/lib/logger';
+
 export interface EmailTemplate {
   subject: string;
   html: string;
@@ -33,12 +35,17 @@ export class EmailService {
   async send(notification: EmailNotification): Promise<boolean> {
     try {
       // In production, integrate with SendGrid, AWS SES, or similar
-      console.log('Sending email:', notification);
+      logger.info('Sending email', { 
+        to: notification.to, 
+        subject: notification.subject 
+      });
       
       // Mock implementation
       return true;
     } catch (error) {
-      console.error('Email send error:', error);
+      logger.error('Email send error', error as Error, { 
+        to: notification.to 
+      });
       return false;
     }
   }
