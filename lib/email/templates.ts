@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 export async function getEmailTemplate(key: string, tenantId?: string | null) {
   const supabase = await createClient();

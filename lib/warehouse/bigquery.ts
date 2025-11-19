@@ -1,6 +1,6 @@
 // lib/warehouse/bigquery.ts
 import { BigQuery } from "@google-cloud/bigquery";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 const BIGQUERY_PROJECT_ID = process.env.BIGQUERY_PROJECT_ID;
 const BIGQUERY_DATASET = process.env.BIGQUERY_DATASET;
