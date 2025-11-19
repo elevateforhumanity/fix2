@@ -58,7 +58,10 @@ export default function BulkCertificatesPage() {
               <div className="border border-slate-300 rounded-lg p-4 max-h-96 overflow-y-auto">
                 <div className="space-y-2">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <label key={i} className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded">
+                    <label
+                      key={i}
+                      className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded"
+                    >
                       <input type="checkbox" className="w-4 h-4 text-red-600" />
                       <span className="text-slate-700">Student Name {i}</span>
                       <span className="text-slate-500 text-sm ml-auto">
@@ -93,8 +96,9 @@ export default function BulkCertificatesPage() {
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
           <h3 className="font-semibold text-blue-900 mb-2">💡 Tip</h3>
           <p className="text-blue-800 text-sm">
-            Certificates will be automatically emailed to students and available in
-            their dashboard. You can also download a ZIP file of all certificates.
+            Certificates will be automatically emailed to students and available
+            in their dashboard. You can also download a ZIP file of all
+            certificates.
           </p>
         </div>
       </div>

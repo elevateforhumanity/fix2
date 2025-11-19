@@ -70,9 +70,7 @@ export default function LMSHelpPage() {
 
           <div className="bg-white rounded-lg shadow-lg p-6">
             <FileText className="h-12 w-12 text-red-600 mb-4" />
-            <h2 className="text-xl font-semibold text-slate-900 mb-2">
-              FAQs
-            </h2>
+            <h2 className="text-xl font-semibold text-slate-900 mb-2">FAQs</h2>
             <p className="text-slate-600 mb-4">
               Quick answers to common questions
             </p>
@@ -95,8 +93,8 @@ export default function LMSHelpPage() {
                 How do I access my courses?
               </summary>
               <p className="text-slate-600 mt-2">
-                Navigate to the LMS Dashboard and click on "My Courses". All your
-                enrolled courses will be displayed there.
+                Navigate to the LMS Dashboard and click on "My Courses". All
+                your enrolled courses will be displayed there.
               </p>
             </details>
 
@@ -105,9 +103,9 @@ export default function LMSHelpPage() {
                 How do I submit an assignment?
               </summary>
               <p className="text-slate-600 mt-2">
-                Go to the course page, click on the assignment, and use the upload
-                button to submit your work. You'll receive a confirmation once
-                submitted.
+                Go to the course page, click on the assignment, and use the
+                upload button to submit your work. You'll receive a confirmation
+                once submitted.
               </p>
             </details>
 
@@ -126,8 +124,9 @@ export default function LMSHelpPage() {
                 How do I get my certificate?
               </summary>
               <p className="text-slate-600 mt-2">
-                Once you complete all course requirements, your certificate will be
-                automatically generated and available in the Certificates section.
+                Once you complete all course requirements, your certificate will
+                be automatically generated and available in the Certificates
+                section.
               </p>
             </details>
           </div>
@@ -136,7 +135,8 @@ export default function LMSHelpPage() {
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
           <h3 className="font-semibold text-blue-900 mb-2">Need More Help?</h3>
           <p className="text-blue-800 mb-4">
-            Can't find what you're looking for? Our support team is here to help.
+            Can't find what you're looking for? Our support team is here to
+            help.
           </p>
           <Link
             href="/lms/support"

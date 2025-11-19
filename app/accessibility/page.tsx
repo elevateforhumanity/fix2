@@ -20,10 +20,10 @@ export default function AccessibilityPage() {
               Our Commitment
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              Elevate for Humanity is committed to ensuring digital accessibility
-              for people with disabilities. We are continually improving the user
-              experience for everyone and applying the relevant accessibility
-              standards.
+              Elevate for Humanity is committed to ensuring digital
+              accessibility for people with disabilities. We are continually
+              improving the user experience for everyone and applying the
+              relevant accessibility standards.
             </p>
           </section>
 
@@ -32,9 +32,9 @@ export default function AccessibilityPage() {
               Conformance Status
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              We aim to conform to the Web Content Accessibility Guidelines (WCAG)
-              2.1 Level AA standards. These guidelines explain how to make web
-              content more accessible for people with disabilities.
+              We aim to conform to the Web Content Accessibility Guidelines
+              (WCAG) 2.1 Level AA standards. These guidelines explain how to
+              make web content more accessible for people with disabilities.
             </p>
           </section>
 
@@ -58,8 +58,8 @@ export default function AccessibilityPage() {
               Feedback
             </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
-              We welcome your feedback on the accessibility of our platform. If you
-              encounter any accessibility barriers, please contact us:
+              We welcome your feedback on the accessibility of our platform. If
+              you encounter any accessibility barriers, please contact us:
             </p>
             <div className="bg-slate-50 p-4 rounded-lg">
               <p className="text-slate-700">
@@ -82,10 +82,10 @@ export default function AccessibilityPage() {
               Technical Specifications
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              This website is built using modern web technologies including HTML5,
-              CSS3, and JavaScript. We test our platform with various assistive
-              technologies including screen readers, keyboard navigation, and voice
-              control software.
+              This website is built using modern web technologies including
+              HTML5, CSS3, and JavaScript. We test our platform with various
+              assistive technologies including screen readers, keyboard
+              navigation, and voice control software.
             </p>
           </section>
 

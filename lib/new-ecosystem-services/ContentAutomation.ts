@@ -177,7 +177,11 @@ export class ContentAutomation {
    */
   private async updateFeed(feed: DataFeed): Promise<void> {
     try {
-      logger.info(`Updating feed: ${feed.name}`, { feedId: feed.id, feedName: feed.name, feedUrl: feed.url });
+      logger.info(`Updating feed: ${feed.name}`, {
+        feedId: feed.id,
+        feedName: feed.name,
+        feedUrl: feed.url,
+      });
 
       const response = await fetch(feed.url);
       if (!response.ok) {
@@ -210,7 +214,10 @@ export class ContentAutomation {
       // Apply content rules
       await this.applyContentRules(feed.id);
     } catch (error) {
-      logger.error(`Error updating feed ${feed.name}`, error as Error, { feedId: feed.id, feedName: feed.name });
+      logger.error(`Error updating feed ${feed.name}`, error as Error, {
+        feedId: feed.id,
+        feedName: feed.name,
+      });
     }
   }
 
@@ -236,7 +243,9 @@ export class ContentAutomation {
   /**
    * Format wage data
    */
-  private formatWageData(data: { wages?: Array<{ occupation: string; medianWage: string }> }): string {
+  private formatWageData(data: {
+    wages?: Array<{ occupation: string; medianWage: string }>;
+  }): string {
     if (!data || !data.wages) return '';
 
     return `
@@ -262,7 +271,15 @@ export class ContentAutomation {
   /**
    * Format contract opportunities
    */
-  private formatContractData(data: { opportunities?: Array<{ title: string; description: string; value: string; deadline: string; url: string }> }): string {
+  private formatContractData(data: {
+    opportunities?: Array<{
+      title: string;
+      description: string;
+      value: string;
+      deadline: string;
+      url: string;
+    }>;
+  }): string {
     if (!data || !data.opportunities) return '';
 
     return `
@@ -293,7 +310,15 @@ export class ContentAutomation {
   /**
    * Format job postings
    */
-  private formatJobData(data: { jobs?: Array<{ title: string; company: string; location: string; salary: string; url: string }> }): string {
+  private formatJobData(data: {
+    jobs?: Array<{
+      title: string;
+      company: string;
+      location: string;
+      salary: string;
+      url: string;
+    }>;
+  }): string {
     if (!data || !data.jobs) return '';
 
     return `
@@ -322,7 +347,15 @@ export class ContentAutomation {
   /**
    * Format program data
    */
-  private formatProgramData(data: { programs?: Array<{ name: string; description: string; duration: string; cost: string; credential: string }> }): string {
+  private formatProgramData(data: {
+    programs?: Array<{
+      name: string;
+      description: string;
+      duration: string;
+      cost: string;
+      credential: string;
+    }>;
+  }): string {
     if (!data || !data.programs) return '';
 
     return `
@@ -352,7 +385,9 @@ export class ContentAutomation {
   /**
    * Format partner logos with real images
    */
-  private formatPartnerLogos(data: { partners?: Array<{ name: string; logo: string; url: string }> }): string {
+  private formatPartnerLogos(data: {
+    partners?: Array<{ name: string; logo: string; url: string }>;
+  }): string {
     // No partner logos - funding sources only, no company names
     const partners = data?.partners || [];
 
@@ -387,7 +422,16 @@ export class ContentAutomation {
   /**
    * Format grant opportunities
    */
-  private formatGrantData(data: { grants?: Array<{ title: string; description: string; amount: string; deadline: string; agency: string; url: string }> }): string {
+  private formatGrantData(data: {
+    grants?: Array<{
+      title: string;
+      description: string;
+      amount: string;
+      deadline: string;
+      agency: string;
+      url: string;
+    }>;
+  }): string {
     if (!data || !data.grants) return '';
 
     return `
@@ -428,7 +472,12 @@ export class ContentAutomation {
   /**
    * Parse RSS feed
    */
-  private parseRSS(rssString: string): Array<{ title?: string | null; description?: string | null; link?: string | null; pubDate?: string | null }> {
+  private parseRSS(rssString: string): Array<{
+    title?: string | null;
+    description?: string | null;
+    link?: string | null;
+    pubDate?: string | null;
+  }> {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(rssString, 'text/xml');
     const items = xmlDoc.querySelectorAll('item');

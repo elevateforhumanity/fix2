@@ -65,7 +65,10 @@ export default function DelegateStudentsPage() {
               </thead>
               <tbody>
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <tr key={i} className="border-b border-slate-100 hover:bg-slate-50">
+                  <tr
+                    key={i}
+                    className="border-b border-slate-100 hover:bg-slate-50"
+                  >
                     <td className="py-3 px-4">
                       <div>
                         <div className="font-medium text-slate-900">
@@ -76,7 +79,9 @@ export default function DelegateStudentsPage() {
                         </div>
                       </div>
                     </td>
-                    <td className="py-3 px-4 text-slate-700">HVAC Technician</td>
+                    <td className="py-3 px-4 text-slate-700">
+                      HVAC Technician
+                    </td>
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
                         <div className="flex-1 bg-slate-200 rounded-full h-2">
@@ -85,7 +90,9 @@ export default function DelegateStudentsPage() {
                             style={{ width: `${i * 20}%` }}
                           />
                         </div>
-                        <span className="text-sm text-slate-600">{i * 20}%</span>
+                        <span className="text-sm text-slate-600">
+                          {i * 20}%
+                        </span>
                       </div>
                     </td>
                     <td className="py-3 px-4">

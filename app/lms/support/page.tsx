@@ -34,13 +34,18 @@ export default function LMSSupportPage() {
             >
               support@elevateforhumanity.org
             </a>
-            <p className="text-xs text-slate-500 mt-2">Response within 24 hours</p>
+            <p className="text-xs text-slate-500 mt-2">
+              Response within 24 hours
+            </p>
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <Phone className="h-12 w-12 text-red-600 mx-auto mb-4" />
             <h3 className="font-semibold text-slate-900 mb-2">Phone</h3>
-            <a href="tel:+13175550100" className="text-red-600 hover:underline text-sm">
+            <a
+              href="tel:+13175550100"
+              className="text-red-600 hover:underline text-sm"
+            >
               (317) 555-0100
             </a>
             <p className="text-xs text-slate-500 mt-2">Mon-Fri, 9am-5pm EST</p>
@@ -52,7 +57,9 @@ export default function LMSSupportPage() {
             <button className="text-red-600 hover:underline text-sm">
               Start Chat
             </button>
-            <p className="text-xs text-slate-500 mt-2">Available during business hours</p>
+            <p className="text-xs text-slate-500 mt-2">
+              Available during business hours
+            </p>
           </div>
         </div>
 
@@ -125,7 +132,8 @@ export default function LMSSupportPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               />
               <p className="text-xs text-slate-500 mt-1">
-                Upload screenshots or files that might help us understand your issue
+                Upload screenshots or files that might help us understand your
+                issue
               </p>
             </div>
 
@@ -154,8 +162,10 @@ export default function LMSSupportPage() {
                 Support Hours
               </h3>
               <p className="text-amber-800 text-sm">
-                Monday - Friday: 9:00 AM - 5:00 PM EST<br />
-                Saturday - Sunday: Closed<br />
+                Monday - Friday: 9:00 AM - 5:00 PM EST
+                <br />
+                Saturday - Sunday: Closed
+                <br />
                 Emergency support available 24/7 for critical issues
               </p>
             </div>

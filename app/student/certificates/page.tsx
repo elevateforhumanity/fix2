@@ -62,9 +62,7 @@ export default function StudentCertificatesPage() {
                 <h3 className="text-xl font-bold text-slate-600 mb-2">
                   Certificate of Completion
                 </h3>
-                <p className="text-lg text-slate-500 mb-2">
-                  Medical Assistant
-                </p>
+                <p className="text-lg text-slate-500 mb-2">Medical Assistant</p>
                 <p className="text-sm text-slate-500">In Progress - 65%</p>
               </div>
             </div>
