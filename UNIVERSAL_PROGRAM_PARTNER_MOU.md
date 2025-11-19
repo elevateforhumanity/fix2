@@ -1,11 +1,11 @@
 # ⭐ UNIVERSAL PROGRAM PARTNER MOU
 
-### *Between Elevate for Humanity and ______________________*
+### _Between Elevate for Humanity and \***\*\*\*\*\***\_\_\***\*\*\*\*\***_
 
 This Universal Program Partner Memorandum of Understanding ("MOU") is entered into by and between:
 
-* **Elevate for Humanity** ("Elevate"), and
-* **________________________________________** ("Partner" or "Site"),
+- **Elevate for Humanity** ("Elevate"), and
+- **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\*** ("Partner" or "Site"),
 
 collectively referred to as the "Parties."
 
@@ -17,10 +17,10 @@ This MOU outlines expectations, roles, responsibilities, and commitments for Par
 
 The purpose of this MOU is to:
 
-* Establish a clear framework for **hosting learners safely and professionally**
-* Support **hands-on training**, skill development, and real-world experience
-* Ensure **accountability, communication, and documentation** between Elevate and the Partner
-* Align with any applicable **apprenticeship, workforce, licensing, or compliance** requirements
+- Establish a clear framework for **hosting learners safely and professionally**
+- Support **hands-on training**, skill development, and real-world experience
+- Ensure **accountability, communication, and documentation** between Elevate and the Partner
+- Align with any applicable **apprenticeship, workforce, licensing, or compliance** requirements
 
 This is a flexible, universal agreement covering **any program, industry, or training pathway**.
 
@@ -30,11 +30,11 @@ This is a flexible, universal agreement covering **any program, industry, or tra
 
 Under this MOU, the Partner may host learners for:
 
-* Training, shadowing, work experience (WEX), externships, internships, or apprenticeship hours
-* Hands-on or simulated practice aligned to the learner's program
-* Workforce, re-entry, or skill-building activities
-* Administrative or support tasks as appropriate
-* Any other mutually agreed learning experience
+- Training, shadowing, work experience (WEX), externships, internships, or apprenticeship hours
+- Hands-on or simulated practice aligned to the learner's program
+- Workforce, re-entry, or skill-building activities
+- Administrative or support tasks as appropriate
+- Any other mutually agreed learning experience
 
 Specific schedules, tasks, and cohort details may be confirmed via email without rewriting this MOU.
 
@@ -48,30 +48,30 @@ Elevate agrees to:
 
 Provide or coordinate training appropriate to the program, including:
 
-* Foundational skills
-* Professional conduct and expectations
-* Safety, sanitation, or confidentiality basics (as applicable)
+- Foundational skills
+- Professional conduct and expectations
+- Safety, sanitation, or confidentiality basics (as applicable)
 
 ### **B. Communication**
 
-* Provide a designated **point of contact** for the Partner
-* Respond promptly to concerns
-* Keep Partner informed of learner status or changes
+- Provide a designated **point of contact** for the Partner
+- Respond promptly to concerns
+- Keep Partner informed of learner status or changes
 
 ### **C. Support & Case Coordination**
 
-* Intervene when attendance, behavior, or performance issues arise
-* Coordinate with workforce boards, case managers, or agencies when relevant
+- Intervene when attendance, behavior, or performance issues arise
+- Coordinate with workforce boards, case managers, or agencies when relevant
 
 ### **D. Documentation**
 
 Provide simple tools or templates for:
 
-* Attendance
-* Hours
-* Evaluations
-* Incident notes
-* Skill progress (if applicable)
+- Attendance
+- Hours
+- Evaluations
+- Incident notes
+- Skill progress (if applicable)
 
 ---
 
@@ -81,33 +81,31 @@ Partner agrees to:
 
 ### **A. Environment**
 
-* Provide a **safe, clean, and professional** environment
-* Treat learners with respect and dignity
-* Follow all applicable safety, licensing, sanitation, and workplace laws
+- Provide a **safe, clean, and professional** environment
+- Treat learners with respect and dignity
+- Follow all applicable safety, licensing, sanitation, and workplace laws
 
 ### **B. Supervision**
 
-* Provide adequate supervision appropriate to the program
-* Ensure learners only perform tasks permitted by:
-
-  * Site policy
-  * State rules
-  * Safety and liability requirements
+- Provide adequate supervision appropriate to the program
+- Ensure learners only perform tasks permitted by:
+  - Site policy
+  - State rules
+  - Safety and liability requirements
 
 ### **C. Attendance & Communication**
 
-* Track attendance and hours accurately
-* Notify Elevate promptly of:
-
-  * Tardiness or absences
-  * No call / no show
-  * Disciplinary issues
-  * Safety concerns or incidents
+- Track attendance and hours accurately
+- Notify Elevate promptly of:
+  - Tardiness or absences
+  - No call / no show
+  - Disciplinary issues
+  - Safety concerns or incidents
 
 ### **D. Feedback**
 
-* Provide simple evaluations or feedback when requested
-* Alert Elevate if a learner is not progressing or is not a good fit
+- Provide simple evaluations or feedback when requested
+- Alert Elevate if a learner is not progressing or is not a good fit
 
 ---
 
@@ -115,19 +113,18 @@ Partner agrees to:
 
 The Partner agrees to:
 
-* Maintain a worksite free from harassment, discrimination, and unsafe behavior
-* Report concerns such as:
-
-  * Violence or threats
-  * Harassment
-  * HIPAA/confidentiality issues
-  * Substance use affecting safety
-  * Any harm or risk to learners
+- Maintain a worksite free from harassment, discrimination, and unsafe behavior
+- Report concerns such as:
+  - Violence or threats
+  - Harassment
+  - HIPAA/confidentiality issues
+  - Substance use affecting safety
+  - Any harm or risk to learners
 
 Elevate agrees to:
 
-* Take concerns seriously
-* Retrain, coach, reassign, or remove learners as needed
+- Take concerns seriously
+- Retrain, coach, reassign, or remove learners as needed
 
 ---
 
@@ -135,31 +132,31 @@ Elevate agrees to:
 
 1. Learners are **participants**, not Elevate employees.
 2. If Partner hires a learner:
+   - The employment relationship is solely between **Partner and the learner**.
 
-   * The employment relationship is solely between **Partner and the learner**.
 3. Elevate does not manage wages, payroll, or HR for Partner sites.
 
 ---
 
 # **7. Confidentiality & Data Sharing**
 
-* Only essential information will be shared between Parties
-* Learner information will be used for:
+- Only essential information will be shared between Parties
+- Learner information will be used for:
+  - Training
+  - Support
+  - Compliance
+  - Workforce/apprenticeship reporting
 
-  * Training
-  * Support
-  * Compliance
-  * Workforce/apprenticeship reporting
-* Patient, customer, or sensitive data (if applicable) must be protected at all times
-* Any required confidentiality agreements will be explained to learners
+- Patient, customer, or sensitive data (if applicable) must be protected at all times
+- Any required confidentiality agreements will be explained to learners
 
 ---
 
 # **8. Photos, Marketing, and Logos**
 
-* No photos of learners may be publicly posted without consent
-* No site may use Elevate's name or logo without approval
-* Co-branded marketing must be reviewed by Elevate
+- No photos of learners may be publicly posted without consent
+- No site may use Elevate's name or logo without approval
+- Co-branded marketing must be reviewed by Elevate
 
 ---
 
@@ -184,17 +181,17 @@ The Parties agree to work together to **close out or transition current learners
 
 ### **Elevate for Humanity**
 
-Name: __________________________________________
-Title: ___________________________________________
-Email: __________________________________________
-Phone: __________________________________________
+Name: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Title: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Email: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Phone: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
 
 ### **Partner / Site**
 
-Organization Name: _______________________________
-Primary Contact Name & Title: _____________________
-Email: __________________________________________
-Phone: __________________________________________
+Organization Name: **\*\***\*\***\*\***\_\_\_**\*\***\*\***\*\***
+Primary Contact Name & Title: \***\*\*\*\*\***\_\***\*\*\*\*\***
+Email: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Phone: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
 
 ---
 
@@ -204,17 +201,17 @@ By signing below, the Parties agree to the terms of this Universal Program Partn
 
 ### **Elevate for Humanity**
 
-Signature: _______________________________________
-Name: ____________________________________________
-Title: _____________________________________________
-Date: ____ / ____ / ______
+Signature: **\*\*\*\***\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\***\*\*\*\***
+Name: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Title: \***\*\*\*\*\***\*\*\***\*\*\*\*\***\_\***\*\*\*\*\***\*\*\***\*\*\*\*\***
+Date: \_**\_ / \_\_** / **\_\_**
 
 ### **Partner / Site**
 
-Signature: _______________________________________
-Name: ____________________________________________
-Title: _____________________________________________
-Date: ____ / ____ / ______
+Signature: **\*\*\*\***\*\***\*\*\*\***\_\_\_**\*\*\*\***\*\***\*\*\*\***
+Name: **\*\*\*\***\*\*\*\***\*\*\*\***\_\_\_\_**\*\*\*\***\*\*\*\***\*\*\*\***
+Title: \***\*\*\*\*\***\*\*\***\*\*\*\*\***\_\***\*\*\*\*\***\*\*\***\*\*\*\*\***
+Date: \_**\_ / \_\_** / **\_\_**
 
 ---
 
@@ -223,6 +220,7 @@ Date: ____ / ____ / ______
 **Document Type:** Universal Program Partner MOU
 
 **Applicable To:**
+
 - Barber shops and salons
 - Healthcare clinics and medical offices
 - HVAC, trades, and building maintenance sites

@@ -1,76 +1,79 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function PartnerEnrollmentPage() {
   const [formData, setFormData] = useState({
     // Organization Info
-    organizationName: "",
-    organizationType: "",
-    industry: "",
-    website: "",
-    
+    organizationName: '',
+    organizationType: '',
+    industry: '',
+    website: '',
+
     // Primary Contact
-    contactName: "",
-    contactTitle: "",
-    contactEmail: "",
-    contactPhone: "",
-    
+    contactName: '',
+    contactTitle: '',
+    contactEmail: '',
+    contactPhone: '',
+
     // Address
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+
     // Partnership Details
     programsInterested: [] as string[],
-    capacityPerMonth: "",
-    preferredSchedule: "",
-    hasSupervision: "",
-    
+    capacityPerMonth: '',
+    preferredSchedule: '',
+    hasSupervision: '',
+
     // Additional Info
-    experience: "",
-    specialRequirements: "",
-    howHeard: "",
-    
+    experience: '',
+    specialRequirements: '',
+    howHeard: '',
+
     // Agreement
     agreedToTerms: false,
   });
 
   const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState<null | { type: "success" | "error"; msg: string }>(null);
+  const [status, setStatus] = useState<null | {
+    type: 'success' | 'error';
+    msg: string;
+  }>(null);
 
   const programOptions = [
-    "Barber Apprenticeship",
-    "Medical Assistant",
-    "HVAC Technician",
-    "Building Maintenance",
-    "CDL / Commercial Driving",
-    "Workforce Readiness",
-    "Digital Skills",
-    "Other (specify in notes)",
+    'Barber Apprenticeship',
+    'Medical Assistant',
+    'HVAC Technician',
+    'Building Maintenance',
+    'CDL / Commercial Driving',
+    'Workforce Readiness',
+    'Digital Skills',
+    'Other (specify in notes)',
   ];
 
   const organizationTypes = [
-    "Barbershop / Salon",
-    "Healthcare Clinic / Medical Office",
-    "HVAC / Trades Company",
-    "Building Maintenance / Facilities",
-    "Logistics / Transportation",
-    "Manufacturing",
-    "Office / Administrative",
-    "Community Organization",
-    "Workforce Development Agency",
-    "Other",
+    'Barbershop / Salon',
+    'Healthcare Clinic / Medical Office',
+    'HVAC / Trades Company',
+    'Building Maintenance / Facilities',
+    'Logistics / Transportation',
+    'Manufacturing',
+    'Office / Administrative',
+    'Community Organization',
+    'Workforce Development Agency',
+    'Other',
   ];
 
   function handleProgramToggle(program: string) {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       programsInterested: prev.programsInterested.includes(program)
-        ? prev.programsInterested.filter(p => p !== program)
-        : [...prev.programsInterested, program]
+        ? prev.programsInterested.filter((p) => p !== program)
+        : [...prev.programsInterested, program],
     }));
   }
 
@@ -79,17 +82,21 @@ export default function PartnerEnrollmentPage() {
     setStatus(null);
 
     // Validation
-    if (!formData.organizationName || !formData.contactName || !formData.contactEmail) {
+    if (
+      !formData.organizationName ||
+      !formData.contactName ||
+      !formData.contactEmail
+    ) {
       setStatus({
-        type: "error",
-        msg: "Please complete all required fields.",
+        type: 'error',
+        msg: 'Please complete all required fields.',
       });
       return;
     }
 
     if (formData.programsInterested.length === 0) {
       setStatus({
-        type: "error",
+        type: 'error',
         msg: "Please select at least one program you're interested in hosting.",
       });
       return;
@@ -97,58 +104,58 @@ export default function PartnerEnrollmentPage() {
 
     if (!formData.agreedToTerms) {
       setStatus({
-        type: "error",
-        msg: "Please agree to the terms to continue.",
+        type: 'error',
+        msg: 'Please agree to the terms to continue.',
       });
       return;
     }
 
     try {
       setSubmitting(true);
-      const res = await fetch("/api/partners/enroll", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/partners/enroll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data?.error || "Unable to submit enrollment.");
+        throw new Error(data?.error || 'Unable to submit enrollment.');
       }
 
       setStatus({
-        type: "success",
+        type: 'success',
         msg: "Thank you! Your partner enrollment has been received. We'll contact you within 2 business days.",
       });
 
       // Reset form
       setFormData({
-        organizationName: "",
-        organizationType: "",
-        industry: "",
-        website: "",
-        contactName: "",
-        contactTitle: "",
-        contactEmail: "",
-        contactPhone: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: "",
+        organizationName: '',
+        organizationType: '',
+        industry: '',
+        website: '',
+        contactName: '',
+        contactTitle: '',
+        contactEmail: '',
+        contactPhone: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
         programsInterested: [],
-        capacityPerMonth: "",
-        preferredSchedule: "",
-        hasSupervision: "",
-        experience: "",
-        specialRequirements: "",
-        howHeard: "",
+        capacityPerMonth: '',
+        preferredSchedule: '',
+        hasSupervision: '',
+        experience: '',
+        specialRequirements: '',
+        howHeard: '',
         agreedToTerms: false,
       });
     } catch (err: any) {
       console.error(err);
       setStatus({
-        type: "error",
-        msg: err?.message || "Something went wrong. Please try again.",
+        type: 'error',
+        msg: err?.message || 'Something went wrong. Please try again.',
       });
     } finally {
       setSubmitting(false);
@@ -167,8 +174,9 @@ export default function PartnerEnrollmentPage() {
             Become a Training Partner
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-slate-700">
-            Join our network of employers, training sites, and organizations hosting Elevate learners.
-            Complete this form to start the partnership process.
+            Join our network of employers, training sites, and organizations
+            hosting Elevate learners. Complete this form to start the
+            partnership process.
           </p>
         </div>
       </section>
@@ -181,7 +189,7 @@ export default function PartnerEnrollmentPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               Organization Information
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1">
@@ -192,7 +200,12 @@ export default function PartnerEnrollmentPage() {
                   required
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.organizationName}
-                  onChange={(e) => setFormData({...formData, organizationName: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      organizationName: e.target.value,
+                    })
+                  }
                   placeholder="Your business or organization name"
                 />
               </div>
@@ -206,11 +219,18 @@ export default function PartnerEnrollmentPage() {
                     required
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.organizationType}
-                    onChange={(e) => setFormData({...formData, organizationType: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        organizationType: e.target.value,
+                      })
+                    }
                   >
                     <option value="">Select type...</option>
-                    {organizationTypes.map(type => (
-                      <option key={type} value={type}>{type}</option>
+                    {organizationTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -223,7 +243,9 @@ export default function PartnerEnrollmentPage() {
                     type="text"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.industry}
-                    onChange={(e) => setFormData({...formData, industry: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, industry: e.target.value })
+                    }
                     placeholder="e.g., Healthcare, Trades, Logistics"
                   />
                 </div>
@@ -237,7 +259,9 @@ export default function PartnerEnrollmentPage() {
                   type="url"
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.website}
-                  onChange={(e) => setFormData({...formData, website: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, website: e.target.value })
+                  }
                   placeholder="https://yourwebsite.com"
                 />
               </div>
@@ -249,7 +273,7 @@ export default function PartnerEnrollmentPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               Primary Contact
             </h2>
-            
+
             <div className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
@@ -261,7 +285,9 @@ export default function PartnerEnrollmentPage() {
                     required
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.contactName}
-                    onChange={(e) => setFormData({...formData, contactName: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactName: e.target.value })
+                    }
                     placeholder="First and last name"
                   />
                 </div>
@@ -274,7 +300,9 @@ export default function PartnerEnrollmentPage() {
                     type="text"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.contactTitle}
-                    onChange={(e) => setFormData({...formData, contactTitle: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactTitle: e.target.value })
+                    }
                     placeholder="Owner, Manager, Director, etc."
                   />
                 </div>
@@ -290,7 +318,9 @@ export default function PartnerEnrollmentPage() {
                     required
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.contactEmail}
-                    onChange={(e) => setFormData({...formData, contactEmail: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactEmail: e.target.value })
+                    }
                     placeholder="you@example.com"
                   />
                 </div>
@@ -304,7 +334,9 @@ export default function PartnerEnrollmentPage() {
                     required
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.contactPhone}
-                    onChange={(e) => setFormData({...formData, contactPhone: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactPhone: e.target.value })
+                    }
                     placeholder="(555) 555-5555"
                   />
                 </div>
@@ -317,7 +349,7 @@ export default function PartnerEnrollmentPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               Location
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1">
@@ -327,7 +359,9 @@ export default function PartnerEnrollmentPage() {
                   type="text"
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.address}
-                  onChange={(e) => setFormData({...formData, address: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, address: e.target.value })
+                  }
                   placeholder="123 Main Street"
                 />
               </div>
@@ -341,7 +375,9 @@ export default function PartnerEnrollmentPage() {
                     type="text"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.city}
-                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, city: e.target.value })
+                    }
                   />
                 </div>
 
@@ -353,7 +389,9 @@ export default function PartnerEnrollmentPage() {
                     type="text"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.state}
-                    onChange={(e) => setFormData({...formData, state: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, state: e.target.value })
+                    }
                     placeholder="IN"
                   />
                 </div>
@@ -366,7 +404,9 @@ export default function PartnerEnrollmentPage() {
                     type="text"
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-1 focus:ring-orange-500"
                     value={formData.zip}
-                    onChange={(e) => setFormData({...formData, zip: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, zip: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -378,18 +418,22 @@ export default function PartnerEnrollmentPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               Partnership Details
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  Programs Interested in Hosting <span className="text-red-500">*</span>
+                  Programs Interested in Hosting{' '}
+                  <span className="text-red-500">*</span>
                 </label>
                 <p className="text-xs text-slate-600 mb-3">
                   Select all that apply
                 </p>
                 <div className="space-y-2">
-                  {programOptions.map(program => (
-                    <label key={program} className="flex items-center gap-2 text-sm text-slate-700">
+                  {programOptions.map((program) => (
+                    <label
+                      key={program}
+                      className="flex items-center gap-2 text-sm text-slate-700"
+                    >
                       <input
                         type="checkbox"
                         className="h-4 w-4 rounded border-slate-300 text-orange-500 focus:ring-orange-500"
@@ -410,7 +454,12 @@ export default function PartnerEnrollmentPage() {
                   <select
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.capacityPerMonth}
-                    onChange={(e) => setFormData({...formData, capacityPerMonth: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        capacityPerMonth: e.target.value,
+                      })
+                    }
                   >
                     <option value="">Select capacity...</option>
                     <option value="1-2">1-2 learners</option>
@@ -427,11 +476,20 @@ export default function PartnerEnrollmentPage() {
                   <select
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.preferredSchedule}
-                    onChange={(e) => setFormData({...formData, preferredSchedule: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        preferredSchedule: e.target.value,
+                      })
+                    }
                   >
                     <option value="">Select schedule...</option>
-                    <option value="Full-time (40 hrs/week)">Full-time (40 hrs/week)</option>
-                    <option value="Part-time (20-30 hrs/week)">Part-time (20-30 hrs/week)</option>
+                    <option value="Full-time (40 hrs/week)">
+                      Full-time (40 hrs/week)
+                    </option>
+                    <option value="Part-time (20-30 hrs/week)">
+                      Part-time (20-30 hrs/week)
+                    </option>
                     <option value="Flexible">Flexible</option>
                     <option value="Weekends only">Weekends only</option>
                   </select>
@@ -445,7 +503,9 @@ export default function PartnerEnrollmentPage() {
                 <select
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.hasSupervision}
-                  onChange={(e) => setFormData({...formData, hasSupervision: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, hasSupervision: e.target.value })
+                  }
                 >
                   <option value="">Select...</option>
                   <option value="Yes">Yes</option>
@@ -461,7 +521,7 @@ export default function PartnerEnrollmentPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               Additional Information
             </h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1">
@@ -471,7 +531,9 @@ export default function PartnerEnrollmentPage() {
                   rows={3}
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.experience}
-                  onChange={(e) => setFormData({...formData, experience: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, experience: e.target.value })
+                  }
                   placeholder="Briefly describe any previous experience..."
                 />
               </div>
@@ -484,7 +546,12 @@ export default function PartnerEnrollmentPage() {
                   rows={3}
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.specialRequirements}
-                  onChange={(e) => setFormData({...formData, specialRequirements: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      specialRequirements: e.target.value,
+                    })
+                  }
                   placeholder="Background checks, drug testing, specific certifications, etc."
                 />
               </div>
@@ -497,7 +564,9 @@ export default function PartnerEnrollmentPage() {
                   type="text"
                   className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.howHeard}
-                  onChange={(e) => setFormData({...formData, howHeard: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, howHeard: e.target.value })
+                  }
                   placeholder="Referral, website, event, etc."
                 />
               </div>
@@ -512,29 +581,42 @@ export default function PartnerEnrollmentPage() {
                 required
                 className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-500 focus:ring-orange-500"
                 checked={formData.agreedToTerms}
-                onChange={(e) => setFormData({...formData, agreedToTerms: e.target.checked})}
+                onChange={(e) =>
+                  setFormData({ ...formData, agreedToTerms: e.target.checked })
+                }
               />
               <span>
-                I confirm that I am authorized to represent this organization and agree to review the{" "}
-                <Link href="/program-holders/acknowledgement" className="text-orange-600 hover:text-orange-700 font-semibold">
+                I confirm that I am authorized to represent this organization
+                and agree to review the{' '}
+                <Link
+                  href="/program-holders/acknowledgement"
+                  className="text-orange-600 hover:text-orange-700 font-semibold"
+                >
                   Program Holder Responsibilities
-                </Link>{" "}
-                and{" "}
-                <a href="/UNIVERSAL_PROGRAM_PARTNER_MOU.md" target="_blank" className="text-orange-600 hover:text-orange-700 font-semibold">
+                </Link>{' '}
+                and{' '}
+                <a
+                  href="/UNIVERSAL_PROGRAM_PARTNER_MOU.md"
+                  target="_blank"
+                  className="text-orange-600 hover:text-orange-700 font-semibold"
+                >
                   Universal Partner MOU
-                </a>{" "}
-                as part of the partnership process. <span className="text-red-500">*</span>
+                </a>{' '}
+                as part of the partnership process.{' '}
+                <span className="text-red-500">*</span>
               </span>
             </label>
           </div>
 
           {/* Status Message */}
           {status && (
-            <div className={`rounded-xl p-4 ${
-              status.type === "success" 
-                ? "bg-emerald-50 border border-emerald-200 text-emerald-800" 
-                : "bg-red-50 border border-red-200 text-red-800"
-            }`}>
+            <div
+              className={`rounded-xl p-4 ${
+                status.type === 'success'
+                  ? 'bg-emerald-50 border border-emerald-200 text-emerald-800'
+                  : 'bg-red-50 border border-red-200 text-red-800'
+              }`}
+            >
               <p className="text-sm">{status.msg}</p>
             </div>
           )}
@@ -546,7 +628,7 @@ export default function PartnerEnrollmentPage() {
               disabled={submitting}
               className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-60"
             >
-              {submitting ? "Submitting..." : "Submit Partner Enrollment"}
+              {submitting ? 'Submitting...' : 'Submit Partner Enrollment'}
             </button>
             <Link
               href="/partners"
