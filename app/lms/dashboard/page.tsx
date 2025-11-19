@@ -1,18 +1,18 @@
 // app/lms/dashboard/page.tsx
-"use client";
+'use client';
 
-import { Section } from "@/components/ui/Section";
-import { AnimatedCard } from "@/components/ui/AnimatedCard";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { ProgressBar } from "@/components/ui/ProgressBar";
-import { StarRating } from "@/components/ui/StarRating";
-import Link from "next/link";
-import { Toaster, toast } from "react-hot-toast";
+import { Section } from '@/components/ui/Section';
+import { AnimatedCard } from '@/components/ui/AnimatedCard';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { StarRating } from '@/components/ui/StarRating';
+import Link from 'next/link';
+import { Toaster, toast } from 'react-hot-toast';
 
 // TODO: Replace with real data from your DB
 const MOCK_DASHBOARD = {
-  learnerName: "Elevate Learner",
+  learnerName: 'Elevate Learner',
   stats: {
     inProgress: 3,
     completed: 1,
@@ -21,29 +21,29 @@ const MOCK_DASHBOARD = {
   },
   continueCourses: [
     {
-      id: "hvac-101",
-      title: "HVAC Technician Fundamentals",
-      programType: "HVAC • Skilled Trades",
+      id: 'hvac-101',
+      title: 'HVAC Technician Fundamentals',
+      programType: 'HVAC • Skilled Trades',
       progress: 45,
-      nextLesson: "Electrical Basics: Safety & Tools",
+      nextLesson: 'Electrical Basics: Safety & Tools',
       rating: 4.6,
       reviews: 38,
     },
     {
-      id: "barber-apprentice-1",
-      title: "Barber Foundations: Shop Readiness",
-      programType: "Barber Apprenticeship",
+      id: 'barber-apprentice-1',
+      title: 'Barber Foundations: Shop Readiness',
+      programType: 'Barber Apprenticeship',
       progress: 20,
-      nextLesson: "Sanitation & State Requirements",
+      nextLesson: 'Sanitation & State Requirements',
       rating: 4.9,
       reviews: 21,
     },
     {
-      id: "ma-101",
-      title: "Intro to Medical Assisting",
-      programType: "Healthcare • Medical Assistant",
+      id: 'ma-101',
+      title: 'Intro to Medical Assisting',
+      programType: 'Healthcare • Medical Assistant',
       progress: 60,
-      nextLesson: "Vital Signs Practice Lab",
+      nextLesson: 'Vital Signs Practice Lab',
       rating: 4.7,
       reviews: 17,
     },
@@ -51,17 +51,17 @@ const MOCK_DASHBOARD = {
   upcoming: [
     {
       id: 1,
-      title: "HVAC Lab – Refrigeration Basics",
-      date: "Tuesday, Nov 25",
-      time: "6:00 PM – 8:30 PM",
-      location: "Partner campus lab",
+      title: 'HVAC Lab – Refrigeration Basics',
+      date: 'Tuesday, Nov 25',
+      time: '6:00 PM – 8:30 PM',
+      location: 'Partner campus lab',
     },
     {
       id: 2,
-      title: "Barber Apprenticeship Check-in",
-      date: "Thursday, Nov 27",
-      time: "1:00 PM",
-      location: "Sponsor shop",
+      title: 'Barber Apprenticeship Check-in',
+      date: 'Thursday, Nov 27',
+      time: '1:00 PM',
+      location: 'Sponsor shop',
     },
   ],
 };
@@ -70,7 +70,9 @@ export default function LmsDashboardPage() {
   const learner = MOCK_DASHBOARD;
 
   const handleShare = () => {
-    toast.success("Share link copied! You can send this to an employer or case manager.");
+    toast.success(
+      'Share link copied! You can send this to an employer or case manager.'
+    );
   };
 
   return (
@@ -89,8 +91,9 @@ export default function LmsDashboardPage() {
                   Welcome back, {learner.learnerName}.
                 </h1>
                 <p className="max-w-xl text-sm md:text-base text-slate-700">
-                  Pick up where you left off, see your program progress, and keep moving
-                  toward funded training, apprenticeships, and employment.
+                  Pick up where you left off, see your program progress, and
+                  keep moving toward funded training, apprenticeships, and
+                  employment.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -146,7 +149,9 @@ export default function LmsDashboardPage() {
                 <p className="mt-1 text-2xl font-bold text-slate-900">
                   {learner.stats.hours}
                 </p>
-                <p className="text-xs text-slate-600">Approximate time on platform</p>
+                <p className="text-xs text-slate-600">
+                  Approximate time on platform
+                </p>
               </AnimatedCard>
             </div>
 
@@ -185,7 +190,10 @@ export default function LmsDashboardPage() {
                         </p>
                         <ProgressBar progress={course.progress} />
                         <div className="mt-2 flex items-center justify-between text-[11px] text-slate-600">
-                          <StarRating rating={course.rating} count={course.reviews} />
+                          <StarRating
+                            rating={course.rating}
+                            count={course.reviews}
+                          />
                           <span>{course.progress}% complete</span>
                         </div>
                       </AnimatedCard>
@@ -205,8 +213,8 @@ export default function LmsDashboardPage() {
 
                 {learner.upcoming.length === 0 ? (
                   <p className="text-xs text-slate-600">
-                    No upcoming items yet. Your navigator or program will add labs,
-                    orientation, and check-ins here.
+                    No upcoming items yet. Your navigator or program will add
+                    labs, orientation, and check-ins here.
                   </p>
                 ) : (
                   <ul className="space-y-3">
