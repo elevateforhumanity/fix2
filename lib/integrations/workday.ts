@@ -1,4 +1,5 @@
 // lib/integrations/workday.ts
+import { logger } from '@/lib/logger';
 const WORKDAY_BASE_URL = process.env.WORKDAY_BASE_URL; // e.g. https://wd5.myworkday.com/ccx/
 const WORKDAY_TENANT = process.env.WORKDAY_TENANT;
 const WORKDAY_USERNAME = process.env.WORKDAY_USERNAME;
@@ -14,7 +15,7 @@ function getAuthHeader() {
 // Example: pull employees for sync
 export async function fetchWorkdayEmployees() {
   if (!WORKDAY_BASE_URL || !WORKDAY_TENANT) {
-    console.warn("Workday not configured");
+    logger.warn("Workday not configured");
     return [];
   }
 
@@ -29,7 +30,7 @@ export async function fetchWorkdayEmployees() {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error("Workday fetch error:", text);
+    logger.error("Workday fetch error:", text);
     throw new Error("Failed to fetch Workday employees");
   }
 

@@ -1,4 +1,5 @@
 // lib/integrations/zoom.ts
+import { logger } from '@/lib/logger';
 // Zoom API integration for live learning sessions
 
 const ZOOM_API_BASE = 'https://api.zoom.us/v2';
@@ -65,7 +66,7 @@ export async function createZoomMeeting(
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Zoom create meeting error:', text);
+    logger.error('Zoom create meeting error', new Error(text), { topic, startTime });
     throw new Error('Failed to create Zoom meeting');
   }
 
@@ -89,7 +90,7 @@ export async function deleteZoomMeeting(meetingId: number): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Zoom delete meeting error:', text);
+    logger.error('Zoom delete meeting error:', text);
     throw new Error('Failed to delete Zoom meeting');
   }
 }
@@ -111,7 +112,7 @@ export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResp
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Zoom get meeting error:', text);
+    logger.error('Zoom get meeting error:', text);
     throw new Error('Failed to get Zoom meeting');
   }
 

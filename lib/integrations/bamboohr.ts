@@ -1,10 +1,11 @@
 // lib/integrations/bamboohr.ts
+import { logger } from '@/lib/logger';
 const BAMBOOHR_API_KEY = process.env.BAMBOOHR_API_KEY;
 const BAMBOOHR_SUBDOMAIN = process.env.BAMBOOHR_SUBDOMAIN;
 
 export async function fetchBambooHREmployees() {
   if (!BAMBOOHR_API_KEY || !BAMBOOHR_SUBDOMAIN) {
-    console.warn("BambooHR not configured");
+    logger.warn("BambooHR not configured");
     return [];
   }
 
@@ -22,7 +23,7 @@ export async function fetchBambooHREmployees() {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error("BambooHR error:", text);
+    logger.error("BambooHR error:", text);
     throw new Error("Failed to fetch BambooHR employees");
   }
 

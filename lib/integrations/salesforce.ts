@@ -1,4 +1,5 @@
 // lib/integrations/salesforce.ts
+import { logger } from '@/lib/logger';
 const SF_INSTANCE_URL = process.env.SF_INSTANCE_URL;
 const SF_CLIENT_ID = process.env.SF_CLIENT_ID;
 const SF_CLIENT_SECRET = process.env.SF_CLIENT_SECRET;
@@ -27,7 +28,7 @@ async function getAccessToken() {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Salesforce auth error:', text);
+    logger.error('Salesforce auth error:', text);
     throw new Error('Failed to authenticate with Salesforce');
   }
 
@@ -102,7 +103,7 @@ export async function createOrUpdateContact(params: {
 
     if (!res.ok) {
       const text = await res.text();
-      console.error('Salesforce create contact error:', text);
+      logger.error('Salesforce create contact error:', text);
       throw new Error('Failed to create Salesforce contact');
     }
 
@@ -143,7 +144,7 @@ export async function createOpportunity(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Salesforce create opportunity error:', text);
+    logger.error('Salesforce create opportunity error:', text);
     throw new Error('Failed to create Salesforce opportunity');
   }
 

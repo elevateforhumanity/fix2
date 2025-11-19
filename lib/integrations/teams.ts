@@ -1,4 +1,5 @@
 // lib/integrations/teams.ts
+import { logger } from '@/lib/logger';
 const TEAMS_WEBHOOK_URL = process.env.TEAMS_WEBHOOK_URL;
 
 export async function sendTeamsCard(params: {
@@ -7,7 +8,7 @@ export async function sendTeamsCard(params: {
   facts?: Array<{ name: string; value: string }>;
 }) {
   if (!TEAMS_WEBHOOK_URL) {
-    console.warn('TEAMS_WEBHOOK_URL not set, skipping Teams notification');
+    logger.warn('TEAMS_WEBHOOK_URL not set, skipping Teams notification');
     return;
   }
 
@@ -33,6 +34,6 @@ export async function sendTeamsCard(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Teams webhook error:', text);
+    logger.error('Teams webhook error:', text);
   }
 }

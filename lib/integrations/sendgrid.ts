@@ -1,4 +1,5 @@
 // lib/integrations/sendgrid.ts
+import { logger } from '@/lib/logger';
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 const SENDGRID_FROM = process.env.SENDGRID_FROM || 'no-reply@elevateforhumanity.org';
 
@@ -9,7 +10,7 @@ export async function sendTransactionalEmail(params: {
   text?: string;
 }) {
   if (!SENDGRID_API_KEY) {
-    console.warn('SendGrid not configured, skipping email');
+    logger.warn('SendGrid not configured, skipping email');
     return;
   }
 
@@ -32,7 +33,7 @@ export async function sendTransactionalEmail(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('SendGrid error:', text);
+    logger.error('SendGrid error:', text);
     throw new Error('Failed to send email');
   }
 
