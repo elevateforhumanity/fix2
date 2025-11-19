@@ -51,7 +51,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
             value={getProgramName(programParam)}
           />
           <input type="hidden" name="_subject" value={`New Application: ${getProgramName(programParam)}`} />
-          <input type="hidden" name="_next" value="https://elevateconnectsdirectory.org/enroll/success" />
+          <input type="hidden" name="_next" value="https://www.elevateforhumanity.org/enroll/success" />
 
           <div>
             <label className="block text-xs font-semibold text-slate-700">
