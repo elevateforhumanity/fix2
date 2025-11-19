@@ -9,6 +9,7 @@
 Your LMS scores **17%** compared to top platforms (Canvas, Coursera, Udemy).
 
 **What users see:**
+
 - ❌ Looks basic/homemade
 - ❌ Feels cramped
 - ❌ Missing key features
@@ -16,6 +17,7 @@ Your LMS scores **17%** compared to top platforms (Canvas, Coursera, Udemy).
 - ❌ Lacks polish
 
 **What you need:**
+
 - ✅ Professional appearance
 - ✅ Smooth interactions
 - ✅ Clear hierarchy
@@ -27,6 +29,7 @@ Your LMS scores **17%** compared to top platforms (Canvas, Coursera, Udemy).
 ## ⚡ QUICK WINS (Do These TODAY - 2 Hours)
 
 ### 1. Add More White Space (30 min)
+
 ```css
 /* Add to globals.css */
 .container {
@@ -44,6 +47,7 @@ Your LMS scores **17%** compared to top platforms (Canvas, Coursera, Udemy).
 ```
 
 ### 2. Add Shadows (15 min)
+
 ```css
 /* Add to tailwind.config.js */
 boxShadow: {
@@ -57,6 +61,7 @@ className="shadow-card hover:shadow-card-hover transition-shadow"
 ```
 
 ### 3. Better Hover Effects (30 min)
+
 ```css
 /* Add smooth transitions */
 .card {
@@ -78,6 +83,7 @@ className="shadow-card hover:shadow-card-hover transition-shadow"
 ```
 
 ### 4. Add Loading States (30 min)
+
 ```tsx
 // Create components/LoadingSpinner.tsx
 export function LoadingSpinner() {
@@ -89,16 +95,35 @@ export function LoadingSpinner() {
 }
 
 // Use everywhere data loads
-{loading ? <LoadingSpinner /> : <YourContent />}
+{
+  loading ? <LoadingSpinner /> : <YourContent />;
+}
 ```
 
 ### 5. Better Typography (15 min)
+
 ```css
 /* Add to globals.css */
-h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; }
-h2 { font-size: 2.25rem; font-weight: 700; line-height: 1.3; }
-h3 { font-size: 1.875rem; font-weight: 600; line-height: 1.4; }
-p { font-size: 1.125rem; line-height: 1.75; color: #4b5563; }
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #4b5563;
+}
 ```
 
 **Result:** Instantly looks 50% better!
@@ -110,6 +135,7 @@ p { font-size: 1.125rem; line-height: 1.75; color: #4b5563; }
 ### Day 1-2: Search & Discovery (8 hours)
 
 **Add Global Search:**
+
 ```tsx
 // components/GlobalSearch.tsx
 export function GlobalSearch() {
@@ -133,9 +159,16 @@ export function GlobalSearch() {
 ### Day 3: Ratings & Reviews (6 hours)
 
 **Star Rating Component:**
+
 ```tsx
 // components/StarRating.tsx
-export function StarRating({ rating, count }: { rating: number; count: number }) {
+export function StarRating({
+  rating,
+  count,
+}: {
+  rating: number;
+  count: number;
+}) {
   return (
     <div className="flex items-center gap-2">
       <div className="flex">
@@ -161,6 +194,7 @@ export function StarRating({ rating, count }: { rating: number; count: number })
 ### Day 4-5: Progress Tracking (6 hours)
 
 **Progress Bar Component:**
+
 ```tsx
 // components/ProgressBar.tsx
 export function ProgressBar({ progress }: { progress: number }) {
@@ -182,6 +216,7 @@ export function ProgressBar({ progress }: { progress: number }) {
 ```
 
 **Add to:**
+
 - Course cards
 - Student dashboard
 - Lesson pages
@@ -193,22 +228,24 @@ export function ProgressBar({ progress }: { progress: number }) {
 ### Day 1: Spacing & Layout (4 hours)
 
 **Create spacing system:**
+
 ```js
 // tailwind.config.js
 module.exports = {
   theme: {
     extend: {
       spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
+        18: '4.5rem',
+        88: '22rem',
+        128: '32rem',
       },
     },
   },
-}
+};
 ```
 
 **Apply consistently:**
+
 - Sections: `py-16` or `py-24`
 - Cards: `p-6` or `p-8`
 - Gaps: `gap-6` or `gap-8`
@@ -216,6 +253,7 @@ module.exports = {
 ### Day 2: Shadows & Depth (4 hours)
 
 **Shadow system:**
+
 ```js
 // tailwind.config.js
 boxShadow: {
@@ -229,6 +267,7 @@ boxShadow: {
 ```
 
 **Apply:**
+
 - Cards: `shadow-md hover:shadow-xl`
 - Modals: `shadow-2xl`
 - Dropdowns: `shadow-lg`
@@ -236,28 +275,30 @@ boxShadow: {
 ### Day 3: Animations (6 hours)
 
 **Create animation utilities:**
+
 ```tsx
 // components/animations.tsx
 export const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 export const slideIn = {
   initial: { x: -20, opacity: 0 },
   animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.3 }
+  transition: { duration: 0.3 },
 };
 
 export const scaleIn = {
   initial: { scale: 0.9, opacity: 0 },
   animate: { scale: 1, opacity: 1 },
-  transition: { duration: 0.2 }
+  transition: { duration: 0.2 },
 };
 ```
 
 **Add to:**
+
 - Page transitions
 - Modal opens
 - Card hovers
@@ -266,13 +307,14 @@ export const scaleIn = {
 ### Day 4: Empty & Error States (3 hours)
 
 **Empty State Component:**
+
 ```tsx
 // components/EmptyState.tsx
-export function EmptyState({ 
-  icon, 
-  title, 
-  description, 
-  action 
+export function EmptyState({
+  icon,
+  title,
+  description,
+  action,
 }: {
   icon: React.ReactNode;
   title: string;
@@ -281,9 +323,7 @@ export function EmptyState({
 }) {
   return (
     <div className="text-center py-12">
-      <div className="w-16 h-16 mx-auto mb-4 text-gray-400">
-        {icon}
-      </div>
+      <div className="w-16 h-16 mx-auto mb-4 text-gray-400">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600 mb-6">{description}</p>
       {action}
@@ -293,6 +333,7 @@ export function EmptyState({
 ```
 
 **Use when:**
+
 - No courses enrolled
 - No search results
 - No notifications
@@ -301,11 +342,13 @@ export function EmptyState({
 ### Day 5: Toast Notifications (3 hours)
 
 **Install toast library:**
+
 ```bash
 npm install react-hot-toast
 ```
 
 **Add to layout:**
+
 ```tsx
 import { Toaster } from 'react-hot-toast';
 
@@ -322,6 +365,7 @@ export default function RootLayout({ children }) {
 ```
 
 **Use everywhere:**
+
 ```tsx
 import toast from 'react-hot-toast';
 
@@ -340,6 +384,7 @@ toast.loading('Saving...');
 ## 📦 COMPONENT LIBRARY TO BUILD
 
 ### Priority 1 (Week 1):
+
 1. ✅ LoadingSpinner
 2. ✅ StarRating
 3. ✅ ProgressBar
@@ -347,6 +392,7 @@ toast.loading('Saving...');
 5. ✅ CourseCard (improved)
 
 ### Priority 2 (Week 2):
+
 6. ✅ EmptyState
 7. ✅ ErrorState
 8. ✅ Toast notifications
@@ -354,6 +400,7 @@ toast.loading('Saving...');
 10. ✅ Dropdown menu
 
 ### Priority 3 (Week 3):
+
 11. ✅ Tabs
 12. ✅ Accordion
 13. ✅ Tooltip
@@ -375,7 +422,7 @@ Create `styles/design-tokens.css`:
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
-  
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -384,7 +431,7 @@ Create `styles/design-tokens.css`:
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  
+
   /* Typography */
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
@@ -394,13 +441,13 @@ Create `styles/design-tokens.css`:
   --font-2xl: 1.5rem;
   --font-3xl: 1.875rem;
   --font-4xl: 2.25rem;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  
+
   /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -415,12 +462,14 @@ Create `styles/design-tokens.css`:
 ## 📊 BEFORE & AFTER METRICS
 
 ### Current (Before):
+
 - Design Score: 17%
 - User Trust: Low
 - Completion Rate: Unknown
 - Looks: Mediocre/Basic
 
 ### Target (After 2 Weeks):
+
 - Design Score: 70%+
 - User Trust: High
 - Completion Rate: Improved
@@ -431,6 +480,7 @@ Create `styles/design-tokens.css`:
 ## ✅ CHECKLIST
 
 ### Week 1:
+
 - [ ] Add white space everywhere
 - [ ] Add shadows to cards
 - [ ] Improve hover effects
@@ -441,6 +491,7 @@ Create `styles/design-tokens.css`:
 - [ ] Add progress bars
 
 ### Week 2:
+
 - [ ] Consistent spacing
 - [ ] Shadow system
 - [ ] Smooth animations
