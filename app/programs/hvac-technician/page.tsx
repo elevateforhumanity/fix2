@@ -18,7 +18,7 @@ const whoItServes = [
   "Young adults seeking a skilled trade with strong earning potential",
   "Career changers looking for stable, in-demand technical work",
   "Re-entry individuals rebuilding careers in the trades",
-  "Workforce clients referred by WorkOne, WRG, and community partners",
+  "Workforce clients referred by WRG and community partners",
 ];
 
 const fundingOptions = [

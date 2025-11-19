@@ -222,8 +222,8 @@ export default async function VerifyCertificatePage({ params }: Props) {
                 <p className="text-sm text-blue-800 mb-3">
                   Elevate for Humanity is a workforce development organization
                   providing career and technical training in partnership with
-                  WorkOne Indiana, the Indiana Department of Workforce
-                  Development, and EmployIndy. Our programs are designed to
+                  the Indiana Department of Workforce Development and local
+                  workforce boards. Our programs are designed to
                   prepare individuals for high-demand careers through hands-on
                   training and industry-recognized certifications.
                 </p>

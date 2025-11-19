@@ -66,7 +66,7 @@ export default function FAQPage() {
     {
       question: "How do I know if I'm eligible?",
       answer:
-        'Eligibility depends on factors like income, employment status, age, and barriers to employment. The best way to find out is to complete our eligibility assessment or contact your local WorkOne center.',
+        'Eligibility depends on factors like income, employment status, age, and barriers to employment. The best way to find out is to complete our eligibility assessment or contact your local workforce development office.',
     },
   ];
 

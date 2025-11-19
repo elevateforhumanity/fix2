@@ -13,7 +13,7 @@ import {
 export const metadata = {
   title: 'Workforce Training Programs | Elevate for Humanity',
   description:
-    'WIOA, WRG, JRI, DOL Registered Apprenticeships, EmployIndy partnerships. Free workforce training across Indiana.',
+    'WIOA, WRG, JRI, DOL Registered Apprenticeships. Free workforce training across Indiana.',
 };
 
 export default function ProgramsFullPage() {
@@ -77,7 +77,7 @@ export default function ProgramsFullPage() {
             <p className="text-lg mb-8 text-white/80 max-w-3xl mx-auto">
               Elevate for Humanity connects learners, employers, and training
               providers through a powerful workforce ecosystem aligned with
-              Indiana's most impactful initiatives — WIOA, WRG, JRI, EmployIndy,
+              Indiana's most impactful initiatives — WIOA, WRG, JRI,
               and Registered Apprenticeships.
             </p>
             <div className="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm rounded-lg text-xl font-bold">
@@ -125,7 +125,7 @@ export default function ProgramsFullPage() {
                 </ul>
               </div>
               <p className="text-sm text-gray-600 italic">
-                We partner with WorkOne, EmployIndy, and state-approved ETPL
+                We partner with local workforce boards and state-approved ETPL
                 providers.
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function ProgramsFullPage() {
                 JRI - Job Ready Indy
               </h3>
               <p className="text-gray-600 mb-4">
-                Youth-focused credential from EmployIndy helps young adults
+                Youth-focused credential that helps young adults
                 develop workplace skills and connect to work experience
                 opportunities.
               </p>
@@ -254,16 +254,16 @@ export default function ProgramsFullPage() {
                 carriers • Tech firms
               </p>
             </div>
-            {/* EmployIndy */}
+            {/* Modern Apprenticeship */}
             <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-shadow">
               <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
                 <TrendingUp className="h-8 w-8 text-indigo-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                EmployIndy & MAP
+                Modern Apprenticeship Program
               </h3>
               <p className="text-gray-600 mb-4">
-                Modern Apprenticeship Program and EmployIndy initiatives build
+                Modern Apprenticeship Program builds
                 career pathways through youth programs, JAG partnerships, and
                 opportunity youth support.
               </p>
@@ -372,8 +372,7 @@ export default function ProgramsFullPage() {
                 Funding-Aligned
               </h3>
               <p className="text-gray-600">
-                Programs aligned with WIOA, WRG, JRI, DOL Apprenticeships, and
-                EmployIndy.
+                Programs aligned with WIOA, WRG, JRI, and DOL Apprenticeships.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg">

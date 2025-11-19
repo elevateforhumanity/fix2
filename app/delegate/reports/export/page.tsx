@@ -285,7 +285,7 @@ export default function ExportReportsPage() {
               Export Reports
             </h1>
             <p className="text-gray-600">
-              Generate compliance reports for DWD, WorkOne, EmployIndy, or
+              Generate compliance reports for DWD, local workforce boards, or
               internal tracking
             </p>
           </div>

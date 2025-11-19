@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const AGENCIES = [
-  "WorkOne and local workforce boards",
+  "Local workforce boards and development agencies",
   "WRG, WIOA, SNAP E&T, and TANF programs",
   "Re-entry and justice-involved support organizations",
   "Community-based organizations, coalitions, and faith-based groups",

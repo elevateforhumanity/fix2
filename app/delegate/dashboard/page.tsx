@@ -400,7 +400,7 @@ export default async function DelegateDashboard() {
             <div className="elevate-card-header">
               <h3 className="elevate-card-title">Generate Reports</h3>
               <p className="elevate-card-subtitle mt-1">
-                Create compliance reports for DWD, WorkOne, or EmployIndy
+                Create compliance reports for DWD or local workforce boards
               </p>
             </div>
           </Link>

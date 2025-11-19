@@ -18,7 +18,7 @@ const whoItServes = [
   "Young adults seeking stable work in facilities and property management",
   "Career changers looking for hands-on technical roles",
   "Re-entry individuals rebuilding careers in the trades",
-  "Workforce clients referred by WorkOne, WRG, and community partners",
+  "Workforce clients referred by WRG and community partners",
 ];
 
 const fundingOptions = [

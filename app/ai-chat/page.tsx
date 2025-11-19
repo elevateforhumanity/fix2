@@ -15,7 +15,7 @@ const PRESET_PROMPTS: { label: string; text: string }[] = [
   },
   {
     label: "Apprenticeship Pitch",
-    text: "Create a clear, funder-ready explanation of how Elevate for Humanity uses DOL-registered apprenticeships and JRI/EmployIndy partners to move people into sustainable careers."
+    text: "Create a clear, funder-ready explanation of how Elevate for Humanity uses DOL-registered apprenticeships and JRI partners to move people into sustainable careers."
   },
   {
     label: "Partner One-Pager",
@@ -230,7 +230,7 @@ export default function AIChatPage() {
               <li>• Write partner outreach emails that convert.</li>
             </ul>
             <div className="mt-2 rounded-2xl bg-gradient-to-br from-efh-orange/10 to-efh-red/10 p-3 text-[11px] text-slate-700">
-              Pro tip: Paste language from WorkOne, EmployIndy, WRG, or JRI and say
+              Pro tip: Paste language from WRG or JRI and say
               "Rewrite this in Elevate for Humanity voice for students, partners,
               or funders."
             </div>

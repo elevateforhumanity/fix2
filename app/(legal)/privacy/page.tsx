@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
           <h3 className="mt-4 text-lg font-semibold">3.1 Workforce Partners</h3>
           <p className="mb-4">
             We share training and employment data with workforce development boards,
-            referring agencies (WorkOne, EmployIndy), and employers as necessary to
+            referring agencies and workforce partners, and employers as necessary to
             facilitate your training and job placement.
           </p>
 

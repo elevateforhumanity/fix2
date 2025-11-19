@@ -20,7 +20,7 @@ const alignments = [
   'WIOA Adult/Dislocated Worker',
   'WIOA Youth (in-school & out-of-school)',
   'WRG-Style Training Programs',
-  'WorkOne / EmployIndy',
+  'Local workforce boards',
   'JRI (Justice Reinvestment Initiatives)',
   'Reentry workforce transition',
   'State Earn & Learn (SEAL)',
@@ -87,7 +87,7 @@ export default async function WorkforcePartnersPage() {
               training programs that accelerate employability, support community
               uplift, and meet the needs of employers across Indiana and the
               United States. Our programs align with WIOA, WRG-style funding,
-              Job Ready Indy, JRI, WorkOne, EmployIndy, Reentry, Apprenticeship,
+              Job Ready Indy, JRI, Reentry, Apprenticeship,
               and SEAL pathways.
             </p>
           </div>
