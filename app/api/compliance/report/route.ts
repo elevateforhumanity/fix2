@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import PDFDocument from "pdfkit";
 import { createClient } from "@/utils/supabase/server";
 
 export const runtime = "nodejs";
 
 export async function GET() {
+  // Dynamic import for CommonJS module
+  const PDFDocument = (await import("pdfkit")).default;
   const supabase = await createClient();
   const {
     data: { user },
