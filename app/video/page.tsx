@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function VideoPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,8 +17,9 @@ export default function VideoPage() {
               See How Elevate Works
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-              Watch our video to learn how we connect learners to free training, employers to talent,
-              and case managers to powerful tools for workforce development.
+              Watch our video to learn how we connect learners to free training,
+              employers to talent, and case managers to powerful tools for
+              workforce development.
             </p>
           </div>
 
@@ -32,22 +33,33 @@ export default function VideoPage() {
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             >
-              <source src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4" type="video/mp4" />
-              <source src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4" type="video/mp4" />
+              <source
+                src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-4753/1080p.mp4"
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
-            
+
             {/* Play button overlay (shows when paused) */}
             {!isPlaying && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer">
                 <button
                   onClick={(e) => {
-                    const video = e.currentTarget.parentElement?.querySelector('video');
+                    const video =
+                      e.currentTarget.parentElement?.querySelector('video');
                     video?.play();
                   }}
                   className="bg-white/90 hover:bg-white rounded-full p-8 shadow-2xl transition transform hover:scale-110"
                 >
-                  <svg className="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-16 h-16 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                 </button>
@@ -64,7 +76,8 @@ export default function VideoPage() {
                   Free Training
                 </h3>
                 <p className="text-sm text-slate-300">
-                  Access workforce-funded programs in healthcare, trades, CDL, and more
+                  Access workforce-funded programs in healthcare, trades, CDL,
+                  and more
                 </p>
               </div>
 
@@ -84,7 +97,8 @@ export default function VideoPage() {
                   Job Placement
                 </h3>
                 <p className="text-sm text-slate-300">
-                  Get hired by employers looking for trained, work-ready candidates
+                  Get hired by employers looking for trained, work-ready
+                  candidates
                 </p>
               </div>
             </div>
@@ -127,9 +141,12 @@ export default function VideoPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">How Elevate Works</h3>
+                  <h3 className="font-semibold text-white mb-1">
+                    How Elevate Works
+                  </h3>
                   <p className="text-sm text-slate-300">
-                    See our platform in action and understand how we connect learners, employers, and partners
+                    See our platform in action and understand how we connect
+                    learners, employers, and partners
                   </p>
                 </div>
               </div>
@@ -139,9 +156,12 @@ export default function VideoPage() {
                   2
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">Available Programs</h3>
+                  <h3 className="font-semibold text-white mb-1">
+                    Available Programs
+                  </h3>
                   <p className="text-sm text-slate-300">
-                    Explore our training programs in healthcare, trades, CDL, and workforce readiness
+                    Explore our training programs in healthcare, trades, CDL,
+                    and workforce readiness
                   </p>
                 </div>
               </div>
@@ -151,9 +171,12 @@ export default function VideoPage() {
                   3
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">Funding Options</h3>
+                  <h3 className="font-semibold text-white mb-1">
+                    Funding Options
+                  </h3>
                   <p className="text-sm text-slate-300">
-                    Learn about WRG, WIOA, and other workforce funding that makes training free or low-cost
+                    Learn about WRG, WIOA, and other workforce funding that
+                    makes training free or low-cost
                   </p>
                 </div>
               </div>
@@ -165,9 +188,12 @@ export default function VideoPage() {
                   4
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">Partner Network</h3>
+                  <h3 className="font-semibold text-white mb-1">
+                    Partner Network
+                  </h3>
                   <p className="text-sm text-slate-300">
-                    See how we work with barbershops, clinics, employers, and workforce agencies
+                    See how we work with barbershops, clinics, employers, and
+                    workforce agencies
                   </p>
                 </div>
               </div>
@@ -177,9 +203,12 @@ export default function VideoPage() {
                   5
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">Success Stories</h3>
+                  <h3 className="font-semibold text-white mb-1">
+                    Success Stories
+                  </h3>
                   <p className="text-sm text-slate-300">
-                    Hear from learners who completed training and found meaningful employment
+                    Hear from learners who completed training and found
+                    meaningful employment
                   </p>
                 </div>
               </div>
@@ -191,7 +220,8 @@ export default function VideoPage() {
                 <div>
                   <h3 className="font-semibold text-white mb-1">Next Steps</h3>
                   <p className="text-sm text-slate-300">
-                    Find out how to apply, what to expect, and how to get started today
+                    Find out how to apply, what to expect, and how to get
+                    started today
                   </p>
                 </div>
               </div>
