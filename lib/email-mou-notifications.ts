@@ -1,9 +1,10 @@
 import { Resend } from 'resend';
+import { logger } from '@/lib/logger';
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn(
+    logger.warn(
       'RESEND_API_KEY not configured - email notifications will be skipped'
     );
     return null;
@@ -75,13 +76,18 @@ export async function sendMOUSignedConfirmation(
     });
 
     if (error) {
-      console.error('Error sending MOU confirmation email:', error);
+      logger.error('Error sending MOU confirmation email', error as Error, { 
+        to: data.contactEmail,
+        programHolder: data.programHolderName 
+      });
       return false;
     }
 
     return true;
   } catch (error) {
-    console.error('Error sending MOU confirmation email:', error);
+    logger.error('Error sending MOU confirmation email', error as Error, { 
+      to: data.contactEmail 
+    });
     return false;
   }
 }
@@ -135,13 +141,17 @@ export async function sendMOUSignedAdminNotification(
     });
 
     if (error) {
-      console.error('Error sending admin notification email:', error);
+      logger.error('Error sending admin notification email', error as Error, { 
+        programHolder: data.programHolderName 
+      });
       return false;
     }
 
     return true;
   } catch (error) {
-    console.error('Error sending admin notification email:', error);
+    logger.error('Error sending admin notification email', error as Error, { 
+      programHolder: data.programHolderName 
+    });
     return false;
   }
 }

@@ -2,6 +2,8 @@
 // This uses Resend (https://resend.com) - a modern email API
 // Alternative: SendGrid, Mailgun, AWS SES, or Supabase Edge Functions
 
+import { logger } from '@/lib/logger';
+
 interface EmailOptions {
   to: string;
   subject: string;
@@ -18,10 +20,9 @@ export async function sendEmail({
   html,
   from = FROM_EMAIL,
 }: EmailOptions) {
-  // If no API key, log to console (development mode)
+  // If no API key, log (development mode)
   if (!RESEND_API_KEY) {
-    console.log('📧 Email (dev mode):', { to, subject, from });
-    console.log('HTML:', html.substring(0, 200) + '...');
+    logger.info('Email (dev mode)', { to, subject, from, htmlPreview: html.substring(0, 200) });
     return { success: true, messageId: 'dev-mode' };
   }
 
@@ -48,7 +49,7 @@ export async function sendEmail({
     const data = await response.json();
     return { success: true, messageId: data.id };
   } catch (error) {
-    console.error('Failed to send email:', error);
+    logger.error('Failed to send email', error as Error, { to, subject });
     return { success: false, error };
   }
 }
