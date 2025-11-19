@@ -5,13 +5,13 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 /**
  * Self-Hosted Analytics - 100% Free
- * 
+ *
  * Tracks:
  * - Page views
  * - User sessions
  * - Performance metrics (Web Vitals)
  * - Custom events
- * 
+ *
  * Data stored in Supabase (no external costs)
  */
 export default function SelfHostedAnalytics() {

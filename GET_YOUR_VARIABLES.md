@@ -10,11 +10,12 @@
 
 **What it does:** Powers your entire database, user authentication, and data storage
 
-**Get it here:** 
+**Get it here:**
 
 👉 **[CLICK HERE: Create Supabase Account](https://supabase.com/dashboard)**
 
 **Steps:**
+
 1. Click the link above → https://supabase.com/dashboard
 2. Sign in with GitHub (free account)
 3. Click "New Project"
@@ -24,8 +25,9 @@
 7. Click "Create new project" (takes 2 minutes)
 
 **Once created, get your keys:**
+
 1. Click "Settings" (gear icon) in left sidebar
-2. Click "API" 
+2. Click "API"
 3. Copy these 3 values:
 
 ```bash
@@ -40,6 +42,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 **What happens when you add these:**
+
 - ✅ Database works
 - ✅ User login/signup works
 - ✅ All data storage works
@@ -57,11 +60,13 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 👉 **[CLICK HERE: Generate Secret Online](https://generate-secret.vercel.app/32)**
 
 **Steps:**
+
 1. Click the link above → https://generate-secret.vercel.app/32
 2. Copy the generated secret
 3. Paste it into Vercel as `NEXTAUTH_SECRET`
 
 **OR use terminal:**
+
 1. Open terminal or command prompt
 2. Run this command:
    ```bash
@@ -75,6 +80,7 @@ NEXTAUTH_URL=https://elevateconnectsdirectory.org
 ```
 
 **What happens when you add these:**
+
 - ✅ User sessions stay logged in
 - ✅ Login/logout works securely
 - ✅ Password resets work
@@ -93,6 +99,7 @@ NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
 ```
 
 **What happens when you add this:**
+
 - ✅ Links work correctly
 - ✅ Redirects work
 - ✅ Email links point to right domain
@@ -109,6 +116,7 @@ NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
 👉 **[CLICK HERE: Create Stripe Account](https://dashboard.stripe.com/register)**
 
 **Steps:**
+
 1. Click the link above → https://dashboard.stripe.com/register
 2. Sign up (free account)
 3. Complete business verification (can skip for testing)
@@ -131,13 +139,14 @@ STRIPE_SECRET_KEY=sk_live_...
 2. Click "Add endpoint"
 3. Enter: `https://elevateconnectsdirectory.org/api/webhooks/stripe`
 4. Select events: `checkout.session.completed`, `payment_intent.succeeded`
-5. Copy "Signing secret" (starts with whsec_)
+5. Copy "Signing secret" (starts with whsec\_)
 
 ```bash
 STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
 **What happens when you add these:**
+
 - ✅ "Enroll Now" buttons work
 - ✅ Can charge for premium courses
 - ✅ Donation page works
@@ -157,19 +166,21 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 👉 **[CLICK HERE: Create Resend Account](https://resend.com/signup)**
 
 **Steps:**
+
 1. Click the link above → https://resend.com/signup
 2. Sign up with GitHub (free)
 3. Verify your email
 4. Go to API Keys → https://resend.com/api-keys
 5. Click "Create API Key"
 6. Name it "Production"
-7. Copy the key (starts with re_)
+7. Copy the key (starts with re\_)
 
 ```bash
 RESEND_API_KEY=re_...
 ```
 
 **What happens when you add this:**
+
 - ✅ Welcome emails sent to new users
 - ✅ Password reset emails work
 - ✅ Course enrollment confirmations
@@ -185,6 +196,7 @@ RESEND_API_KEY=re_...
 👉 **[CLICK HERE: Create SendGrid Account](https://signup.sendgrid.com/)**
 
 **Steps:**
+
 1. Click the link above → https://signup.sendgrid.com/
 2. Sign up (free account)
 3. Verify email and complete setup
@@ -209,6 +221,7 @@ SENDGRID_FROM=noreply@elevateforhumanity.org
 👉 **[CLICK HERE: Google Security Settings](https://myaccount.google.com/security)**
 
 **Steps:**
+
 1. Click the link above → https://myaccount.google.com/security
 2. Enable "2-Step Verification" (required)
 3. Go to App Passwords → https://myaccount.google.com/apppasswords
@@ -238,6 +251,7 @@ SMTP_FROM_NAME=Elevate for Humanity
 👉 **[CLICK HERE: Setup Google Analytics](https://analytics.google.com/)**
 
 **Steps:**
+
 1. Click the link above → https://analytics.google.com/
 2. Sign in with Google account
 3. Click "Start measuring"
@@ -260,6 +274,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 **What happens when you add this:**
+
 - ✅ See how many visitors you have
 - ✅ Track which pages are popular
 - ✅ See where users come from
@@ -279,6 +294,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 👉 **[CLICK HERE: Create Sentry Account](https://sentry.io/signup/)**
 
 **Steps:**
+
 1. Click the link above → https://sentry.io/signup/
 2. Sign up with GitHub (free)
 3. Create organization: "Elevate for Humanity"
@@ -295,6 +311,7 @@ SENTRY_ENVIRONMENT=production
 ```
 
 **What happens when you add this:**
+
 - ✅ Get notified when errors occur
 - ✅ See exactly what caused the error
 - ✅ Track error frequency
@@ -314,6 +331,7 @@ SENTRY_ENVIRONMENT=production
 👉 **[CLICK HERE: Google Cloud Console](https://console.cloud.google.com/)**
 
 **Steps:**
+
 1. Click the link above → https://console.cloud.google.com/
 2. Create new project: "Elevate LMS"
 3. Go to "APIs & Services" → "OAuth consent screen"
@@ -335,6 +353,7 @@ GOOGLE_CLIENT_SECRET=GOCSPX-xxxxx
 ```
 
 **What happens when you add these:**
+
 - ✅ "Sign in with Google" button appears
 - ✅ Users can login with Google account
 - ✅ No password needed
@@ -391,18 +410,22 @@ GOOGLE_CLIENT_SECRET=GOCSPX-xxxxx
 ## 🆘 Need Help?
 
 **Supabase Issues:**
+
 - Docs: https://supabase.com/docs
 - Discord: https://discord.supabase.com/
 
 **Stripe Issues:**
+
 - Docs: https://stripe.com/docs
 - Support: https://support.stripe.com/
 
 **Resend Issues:**
+
 - Docs: https://resend.com/docs
 - Support: support@resend.com
 
 **General Issues:**
+
 - Check `ENVIRONMENT_VARIABLES_AUDIT.md` for full list
 - Check `.env.example` for format examples
 
@@ -410,15 +433,15 @@ GOOGLE_CLIENT_SECRET=GOCSPX-xxxxx
 
 ## 🎯 What Each Service Costs
 
-| Service | Free Tier | Paid Tier | What You Get |
-|---------|-----------|-----------|--------------|
-| **Supabase** | 500MB DB, 2GB bandwidth | $25/mo for 8GB | Database, auth, storage |
-| **Stripe** | Free setup | 2.9% + 30¢ per transaction | Payment processing |
-| **Resend** | 3,000 emails/mo | $20/mo for 50k | Email delivery |
-| **SendGrid** | 100 emails/day | $20/mo for 50k | Email delivery |
-| **Google Analytics** | Unlimited | Free forever | Website analytics |
-| **Sentry** | 5,000 errors/mo | $26/mo for 50k | Error tracking |
-| **Google OAuth** | Unlimited | Free forever | Social login |
+| Service              | Free Tier               | Paid Tier                  | What You Get            |
+| -------------------- | ----------------------- | -------------------------- | ----------------------- |
+| **Supabase**         | 500MB DB, 2GB bandwidth | $25/mo for 8GB             | Database, auth, storage |
+| **Stripe**           | Free setup              | 2.9% + 30¢ per transaction | Payment processing      |
+| **Resend**           | 3,000 emails/mo         | $20/mo for 50k             | Email delivery          |
+| **SendGrid**         | 100 emails/day          | $20/mo for 50k             | Email delivery          |
+| **Google Analytics** | Unlimited               | Free forever               | Website analytics       |
+| **Sentry**           | 5,000 errors/mo         | $26/mo for 50k             | Error tracking          |
+| **Google OAuth**     | Unlimited               | Free forever               | Social login            |
 
 **Total minimum cost:** $0/month (using free tiers)
 **Recommended setup:** $25/month (Supabase Pro + free tiers for everything else)
@@ -428,18 +451,14 @@ GOOGLE_CLIENT_SECRET=GOCSPX-xxxxx
 ## 🚀 Priority Order
 
 **Do these first (required):**
+
 1. ✅ Supabase (database)
 2. ✅ NextAuth Secret (security)
 3. ✅ Site URL (configuration)
 
-**Do these next (highly recommended):**
-4. 📧 Resend or SendGrid (emails)
-5. 💳 Stripe (if you need payments)
+**Do these next (highly recommended):** 4. 📧 Resend or SendGrid (emails) 5. 💳 Stripe (if you need payments)
 
-**Do these when ready (nice to have):**
-6. 📊 Google Analytics (tracking)
-7. 🐛 Sentry (error monitoring)
-8. 🔐 Google OAuth (social login)
+**Do these when ready (nice to have):** 6. 📊 Google Analytics (tracking) 7. 🐛 Sentry (error monitoring) 8. 🔐 Google OAuth (social login)
 
 ---
 
