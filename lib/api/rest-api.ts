@@ -13,7 +13,7 @@ export interface APIKey {
   rateLimit: number;
 }
 
-export interface APIResponse<T = any> {
+export interface APIResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
@@ -161,7 +161,7 @@ export function apiResponse<T>(
   success: boolean,
   data?: T,
   error?: string,
-  meta?: any
+  meta?: Record<string, unknown>
 ): APIResponse<T> {
   return {
     success,

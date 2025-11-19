@@ -8,8 +8,16 @@ const supabase = createClient(
 
 interface Question {
   id: string;
-  difficulty: string;
-  [key: string]: any;
+  difficulty: 'easy' | 'medium' | 'hard';
+  question_text?: string;
+  question_type?: string;
+  points?: number;
+  time_limit?: number;
+  options?: unknown[];
+  correct_answer?: unknown;
+  explanation?: string;
+  tags?: string[];
+  [key: string]: unknown;
 }
 
 export async function selectQuestionsForExamAttempt(

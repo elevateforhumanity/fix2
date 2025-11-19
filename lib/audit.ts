@@ -1,6 +1,7 @@
 // lib/audit.ts
 // Audit logging helper for enterprise compliance
 import { createClient } from '@supabase/supabase-js';
+import { logger } from '@/lib/logger';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -13,7 +14,7 @@ export type AuditEvent = {
   action: string;
   resourceType?: string | null;
   resourceId?: string | null;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   ipAddress?: string | null;
   userAgent?: string | null;
 };
@@ -36,11 +37,11 @@ export async function logAuditEvent(event: AuditEvent): Promise<void> {
     });
 
     if (error) {
-      console.error('Failed to write audit log:', error);
+      logger.error('Failed to write audit log', error as Error, { event });
     }
   } catch (e) {
     // Do not crash app for logging failures
-    console.error('Audit logging exception:', e);
+    logger.error('Audit logging exception', e as Error, { event });
   }
 }
 
@@ -114,7 +115,7 @@ export const AuditActions = {
 /**
  * Helper to extract IP and User Agent from Next.js request
  */
-export function getRequestMetadata(req: Request | any) {
+export function getRequestMetadata(req: Request | { headers: Headers; ip?: string }) {
   const headers = req.headers;
   
   return {
@@ -132,14 +133,14 @@ export function getRequestMetadata(req: Request | any) {
  * Usage: await auditedAction(req, 'user_created', async () => { ... })
  */
 export async function auditedAction<T>(
-  req: Request | any,
+  req: Request | { headers: Headers; ip?: string },
   action: string,
   resourceType: string | null,
   fn: () => Promise<T>,
   options?: {
     tenantId?: string;
     userId?: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, unknown>;
   }
 ): Promise<T> {
   const { ipAddress, userAgent } = getRequestMetadata(req);

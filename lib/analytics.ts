@@ -1,6 +1,24 @@
+type GtagCommand = 'config' | 'event' | 'set' | 'consent';
+type GtagConfigParams = {
+  page_path?: string;
+  page_title?: string;
+  page_location?: string;
+  [key: string]: string | number | boolean | undefined;
+};
+type GtagEventParams = {
+  event_category?: string;
+  event_label?: string;
+  value?: number;
+  [key: string]: string | number | boolean | undefined;
+};
+
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    gtag?: (
+      command: GtagCommand,
+      targetId: string,
+      params?: GtagConfigParams | GtagEventParams
+    ) => void;
   }
 }
 
