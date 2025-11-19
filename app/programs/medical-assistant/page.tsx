@@ -1,39 +1,39 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Medical Assistant Program | Elevate Connects Directory",
+  title: 'Medical Assistant Program | Elevate Connects Directory',
   description:
-    "Hands-on Medical Assistant training with clinical externships, certification prep, and direct pathways to employment in clinics, hospitals, and specialty practices.",
+    'Hands-on Medical Assistant training with clinical externships, certification prep, and direct pathways to employment in clinics, hospitals, and specialty practices.',
 };
 
 const medicalHighlights = [
-  "Clinical skills: vital signs, EKG, phlebotomy, injections, and patient intake",
-  "Administrative training: scheduling, medical records, insurance, and billing basics",
-  "Real externship placements in clinics, urgent care, and specialty offices",
-  "Certification exam prep (CCMA, RMA, or CMA pathways)",
-  "Career coaching and job placement support with healthcare employers",
+  'Clinical skills: vital signs, EKG, phlebotomy, injections, and patient intake',
+  'Administrative training: scheduling, medical records, insurance, and billing basics',
+  'Real externship placements in clinics, urgent care, and specialty offices',
+  'Certification exam prep (CCMA, RMA, or CMA pathways)',
+  'Career coaching and job placement support with healthcare employers',
 ];
 
 const whoItServes = [
-  "Career changers looking to enter healthcare quickly",
-  "Young adults seeking a stable, in-demand healthcare role",
-  "Re-entry individuals rebuilding careers in a growing field",
-  "Workforce clients referred by WorkOne, WRG, and community partners",
+  'Career changers looking to enter healthcare quickly',
+  'Young adults seeking a stable, in-demand healthcare role',
+  'Re-entry individuals rebuilding careers in a growing field',
+  'Workforce clients referred by WorkOne, WRG, and community partners',
 ];
 
 const fundingOptions = [
-  "Workforce Ready Grant (WRG) – where eligible",
-  "WIOA & workforce board funding – where approved",
-  "Healthcare workforce grants and employer sponsorships",
-  "Support services for transportation, childcare, and supplies",
-  "Payment plans or self-pay options when funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible',
+  'WIOA & workforce board funding – where approved',
+  'Healthcare workforce grants and employer sponsorships',
+  'Support services for transportation, childcare, and supplies',
+  'Payment plans or self-pay options when funding is not available',
 ];
 
 const outcomes = [
-  "National certification eligibility (CCMA, RMA, or CMA)",
-  "Documented clinical and administrative competencies",
-  "Externship experience with real patients and healthcare teams",
-  "Direct pathways to employment in clinics, hospitals, and specialty practices",
+  'National certification eligibility (CCMA, RMA, or CMA)',
+  'Documented clinical and administrative competencies',
+  'Externship experience with real patients and healthcare teams',
+  'Direct pathways to employment in clinics, hospitals, and specialty practices',
 ];
 
 export default function MedicalAssistantPage() {
@@ -53,8 +53,11 @@ export default function MedicalAssistantPage() {
               Launch your healthcare career in as little as 4–6 months. Our
               Medical Assistant program combines hands-on clinical training,
               real externships, and certification prep to prepare you for
-              entry-level roles in{" "}
-              <span className="font-semibold">clinics, hospitals, and specialty practices</span>.
+              entry-level roles in{' '}
+              <span className="font-semibold">
+                clinics, hospitals, and specialty practices
+              </span>
+              .
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -240,8 +243,8 @@ export default function MedicalAssistantPage() {
             <p className="mt-2 text-xs text-slate-600">
               Upon completion, you&apos;ll be eligible to sit for national
               certification exams (CCMA, RMA, or CMA). Our program aligns with
-              certification requirements and includes exam prep to help you
-              pass on your first attempt.
+              certification requirements and includes exam prep to help you pass
+              on your first attempt.
             </p>
             <p className="mt-3 text-xs text-slate-600">
               During orientation, you&apos;ll review:

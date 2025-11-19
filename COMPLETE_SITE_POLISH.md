@@ -7,6 +7,7 @@ This document contains ALL remaining code to make your site 100% polished.
 ---
 
 ## ✅ COMPLETED:
+
 1. Barber Apprenticeship page - GOLD STANDARD
 2. Medical Assistant page - CLINICAL TEMPLATE
 3. Segmented CTAs on homepage
@@ -14,36 +15,43 @@ This document contains ALL remaining code to make your site 100% polished.
 ## 🔄 REMAINING (Copy/paste these files):
 
 ### 1. HVAC Technician Page
+
 **File:** `app/programs/hvac-technician/page.tsx`
 
 See HVAC_PAGE.tsx in this directory
 
 ### 2. Building Maintenance Page
+
 **File:** `app/programs/building-maintenance/page.tsx`
 
 See BUILDING_PAGE.tsx in this directory
 
 ### 3. Workforce Readiness Page
+
 **File:** `app/programs/workforce-readiness/page.tsx`
 
 See WORKFORCE_PAGE.tsx in this directory
 
 ### 4. Enhanced Partners Page
+
 **File:** `app/partners/page.tsx`
 
 See PARTNERS_PAGE.tsx in this directory
 
 ### 5. Enhanced Employers Page
+
 **File:** `app/employers/page.tsx`
 
 See EMPLOYERS_PAGE.tsx in this directory
 
 ### 6. Homepage "Ready to Get Started" Enhancement
+
 **File:** `app/page.tsx` (find and replace section)
 
 See HOMEPAGE_ENHANCEMENT.md in this directory
 
 ### 7. Mobile App Badges Fix
+
 **File:** `components/CourseraStyleFooter.tsx`
 
 See FOOTER_FIX.md in this directory
@@ -65,6 +73,7 @@ git push origin main
 ## Summary
 
 Once you create these 7 files/changes, your site will be:
+
 - ✅ 100% polished
 - ✅ All 5 program pages complete
 - ✅ Partners page enhanced

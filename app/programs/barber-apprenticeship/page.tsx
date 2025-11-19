@@ -1,39 +1,39 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Barber Apprenticeship Program | Elevate Connects Directory",
+  title: 'Barber Apprenticeship Program | Elevate Connects Directory',
   description:
-    "State-approved Barber Apprenticeship program with shop-based training, paid hours, and a clear path to licensure for Indiana learners, re-entry, and workforce clients.",
+    'State-approved Barber Apprenticeship program with shop-based training, paid hours, and a clear path to licensure for Indiana learners, re-entry, and workforce clients.',
 };
 
 const barberHighlights = [
-  "State-approved apprenticeship with real shop-based training",
-  "Earn while you learn with paid on-the-job hours",
-  "Licensure-focused curriculum aligned to Indiana requirements",
-  "Business skills: client retention, scheduling, retail, and shop management",
-  "Career coaching and wraparound support services",
+  'State-approved apprenticeship with real shop-based training',
+  'Earn while you learn with paid on-the-job hours',
+  'Licensure-focused curriculum aligned to Indiana requirements',
+  'Business skills: client retention, scheduling, retail, and shop management',
+  'Career coaching and wraparound support services',
 ];
 
 const whoItServes = [
-  "Young adults ready to start a skilled trade",
-  "Career changers looking for a licensed, creative profession",
-  "Re-entry / justice-involved individuals rebuilding their careers",
-  "Workforce clients referred by WorkOne, WRG, and community partners",
+  'Young adults ready to start a skilled trade',
+  'Career changers looking for a licensed, creative profession',
+  'Re-entry / justice-involved individuals rebuilding their careers',
+  'Workforce clients referred by WorkOne, WRG, and community partners',
 ];
 
 const fundingOptions = [
-  "Workforce Ready Grant (WRG) – where eligible",
-  "WIOA & workforce board funding – where approved",
-  "Registered Apprenticeship / On-the-Job Training (OJT) structures",
-  "Employer-sponsored apprenticeships in partner barbershops",
-  "Payment plans or self-pay options when funding is not available",
+  'Workforce Ready Grant (WRG) – where eligible',
+  'WIOA & workforce board funding – where approved',
+  'Registered Apprenticeship / On-the-Job Training (OJT) structures',
+  'Employer-sponsored apprenticeships in partner barbershops',
+  'Payment plans or self-pay options when funding is not available',
 ];
 
 const outcomes = [
-  "Barber licensure exam readiness",
-  "Documented apprenticeship hours in approved shops",
-  "Shop-ready skills: fades, shaves, styling, sanitation, and customer service",
-  "Pathways to employment, chair rental, or shop ownership",
+  'Barber licensure exam readiness',
+  'Documented apprenticeship hours in approved shops',
+  'Shop-ready skills: fades, shaves, styling, sanitation, and customer service',
+  'Pathways to employment, chair rental, or shop ownership',
 ];
 
 export default function BarberApprenticeshipPage() {
@@ -52,9 +52,12 @@ export default function BarberApprenticeshipPage() {
             <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
               Train inside real barbershops, earn while you learn, and build a
               licensed career in a high-demand, community-centered trade.
-              Elevate for Humanity connects learners, barbershops, and
-              workforce boards to create a clear, compliant path from{" "}
-              <span className="font-semibold">first clip to license in hand</span>.
+              Elevate for Humanity connects learners, barbershops, and workforce
+              boards to create a clear, compliant path from{' '}
+              <span className="font-semibold">
+                first clip to license in hand
+              </span>
+              .
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -103,7 +106,9 @@ export default function BarberApprenticeshipPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-slate-300">Schedule</dt>
-                <dd className="font-medium">Daytime, evening & weekend options</dd>
+                <dd className="font-medium">
+                  Daytime, evening & weekend options
+                </dd>
               </div>
             </dl>
             <p className="mt-4 text-[11px] text-slate-300">
@@ -242,9 +247,9 @@ export default function BarberApprenticeshipPage() {
             <p className="mt-2 text-xs text-slate-600">
               Exact hour requirements and licensure processes are set by the
               state and licensing board. Elevate for Humanity and our training
-              partners align curriculum and documentation to those
-              requirements, and support learners as they navigate state forms,
-              testing, and applications.
+              partners align curriculum and documentation to those requirements,
+              and support learners as they navigate state forms, testing, and
+              applications.
             </p>
             <p className="mt-3 text-xs text-slate-600">
               During orientation, you&apos;ll review:
