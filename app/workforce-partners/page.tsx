@@ -1,36 +1,36 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Partner With Elevate | Training Sites, Employers & Barbershops",
+  title: "Workforce & Agency Partners | Elevate Connects Directory",
   description:
-    "Become a training partner, apprenticeship site, or employer partner with Elevate for Humanity. Host learners, build your talent pipeline, and align with workforce funding.",
+    "Tools, reporting, and referral pathways for workforce boards, case managers, re-entry programs, and community agencies partnering with Elevate for Humanity.",
 };
 
-const PARTNER_TYPES = [
-  "Barbershops and salons that want to host barber apprentices",
-  "Healthcare clinics and practices that need Medical Assistants and front-office staff",
-  "HVAC, building maintenance, and skilled trades employers looking for entry-level talent",
-  "CDL, logistics, warehouse, and distribution employers building local pipelines",
-  "Community organizations and nonprofits that co-host training or support services",
+const AGENCIES = [
+  "WorkOne and local workforce boards",
+  "WRG, WIOA, SNAP E&T, and TANF programs",
+  "Re-entry and justice-involved support organizations",
+  "Community-based organizations, coalitions, and faith-based groups",
+  "Housing, mental health, and wraparound service providers",
 ];
 
-const WHAT_PARTNERS_GET = [
-  "A structured talent pipeline aligned to your real hiring needs",
-  "Learners who are coached on attendance, professionalism, and soft skills",
-  "Support with documentation, hours tracking, and basic compliance needs",
-  "Connection to workforce boards and funding where eligible",
-  "Visibility in the Elevate Connects Directory so learners and partners can find you",
+const WHAT_WE_PROVIDE = [
+  "Approved training programs with clear outcomes and documentation",
+  "Standardized enrollment, attendance, and completion reporting",
+  "Case notes and milestone updates that support your compliance",
+  "Communication when learners are struggling, not just when they disappear",
+  "Pathways into apprenticeship, employment, and ongoing upskilling",
 ];
 
-const EXPECTATIONS = [
-  "Provide a safe, professional learning environment for learners and apprentices",
-  "Allow learners to practice skills under supervision, within clear boundaries",
-  "Communicate issues (attendance, performance, conduct) early so we can respond",
-  "Complete simple check-ins, evaluations, or hour logs as requested",
-  "Stay aligned with state, licensing, and workforce requirements for your industry",
+const REPORTING = [
+  "Enrollment confirmations and training start dates",
+  "Attendance summaries and participation flags",
+  "Skills milestones and credential attempts/completions (where applicable)",
+  "Employment and retention updates where we are engaged for placement",
+  "Data extracts for board reporting, audits, and performance reviews",
 ];
 
-export default function PartnersPage() {
+export default function WorkforcePartnersPage() {
   return (
     <main className="bg-slate-50 text-slate-900">
       {/* HERO */}
@@ -38,82 +38,85 @@ export default function PartnersPage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
-              Partners • Training Sites • Employers
+              Workforce • Agencies • Case Managers
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Host Learners. Build Talent. Change What Work Looks Like.
+              A Training Partner That Understands Workforce and Compliance.
             </h1>
             <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-              Elevate for Humanity connects real people to real skills and real
-              workplaces. As a partner, you host learners, apprentices, or
-              interns — and we bring structure, coaching, and workforce
-              alignment so the experience is good for both you and them.
+              Elevate for Humanity is built for workforce systems, not around
+              them. We design programs, documentation, and reporting so boards,
+              case managers, and agencies can plug in without having to fight
+              the platform just to get what you need.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/apply?type=partner"
+                href="/apply?type=workforce-partner"
                 className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
               >
-                Apply to Become a Partner
+                Set Up a Workforce Partnership
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400"
               >
-                Schedule a Partner Call
+                Request a Board / Agency Meeting
               </Link>
             </div>
             <p className="mt-4 text-[11px] text-slate-500">
-              We work with barbershops, clinics, trades employers, logistics
-              companies, nonprofits, and more. If you support people or hire
-              people, there&apos;s likely a way to build with us.
+              Ideal for workforce boards, re-entry programs, and agencies that
+              are tired of chasing down attendance sheets and unclear outcomes.
             </p>
           </div>
 
           {/* SNAPSHOT */}
           <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-slate-900 px-5 py-5 text-sm text-slate-50 shadow-lg md:w-80">
-            <h2 className="text-sm font-semibold text-white">Partner Snapshot</h2>
+            <h2 className="text-sm font-semibold text-white">
+              Agency & Board Snapshot
+            </h2>
             <dl className="mt-3 space-y-2 text-xs text-slate-100/90">
               <div className="flex justify-between">
-                <dt className="text-slate-300">Partner Types</dt>
-                <dd className="font-medium">Shops, clinics, trades, employers</dd>
+                <dt className="text-slate-300">Focus</dt>
+                <dd className="font-medium">Training, placement, documentation</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-slate-300">Commitment</dt>
-                <dd className="font-medium">Cohort-based or ongoing</dd>
+                <dt className="text-slate-300">Programs</dt>
+                <dd className="font-medium">
+                  Trades, healthcare, digital skills, re-entry
+                </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-slate-300">Focus Areas</dt>
-                <dd className="font-medium">Workforce, apprenticeship, re-entry</dd>
+                <dt className="text-slate-300">Reporting</dt>
+                <dd className="font-medium">Attendance, milestones, outcomes</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-slate-300">Support</dt>
-                <dd className="font-medium">Attendance, coaching, reporting</dd>
+                <dt className="text-slate-300">Model</dt>
+                <dd className="font-medium">Board- and referral-friendly</dd>
               </div>
             </dl>
             <p className="mt-4 text-[11px] text-slate-300">
-              We keep expectations clear: you provide the real-world environment,
-              we support learners and help handle documentation, behavior, and
-              workforce requirements.
+              Our goal is simple: make it easier for you to connect people to
+              training, see what happened, and report on it without needing
+              five spreadsheets and three emails per learner.
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHO WE PARTNER WITH */}
+      {/* WHO WE SERVE */}
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <div className="grid gap-10 md:grid-cols-2 md:gap-12">
           <div>
             <h2 className="text-lg font-semibold text-slate-900">
-              Who we partner with
+              Who we support alongside you
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              If your organization hires people, serves people, or supports
-              people, we likely have a way to plug you into training, placement,
-              or wraparound support.
+              Elevate sits in the middle — between the learner, the partner
+              site, and the systems that fund or track their progress. We help
+              all three talk to each other.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              {PARTNER_TYPES.map((item) => (
+              {AGENCIES.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-orange-500" />
                   <span>{item}</span>
@@ -124,15 +127,15 @@ export default function PartnersPage() {
 
           <div>
             <h2 className="text-lg font-semibold text-slate-900">
-              What partners receive
+              What we provide to boards & agencies
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              We are not a "send us a warm body" shop. We care about fit,
-              readiness, and long-term success. Partners get a coordinated
-              relationship, not one-off chaos.
+              We know you answer to policies, performance targets, and audits.
+              We respect that. Our systems are built to help you stay
+              compliant, not surprised.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              {WHAT_PARTNERS_GET.map((item) => (
+              {WHAT_WE_PROVIDE.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-slate-700" />
                   <span>{item}</span>
@@ -143,21 +146,21 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* EXPECTATIONS */}
+      {/* REPORTING */}
       <section className="border-y border-slate-100 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
           <div className="grid gap-10 md:grid-cols-[1.3fr,1fr] md:gap-12">
             <div>
               <h2 className="text-lg font-semibold text-slate-900">
-                What we ask of our partners
+                Reporting & documentation you can trust
               </h2>
               <p className="mt-2 text-sm text-slate-600">
-                We keep expectations clear and simple. You don&apos;t have to be
-                perfect — you just need to be willing to host, communicate, and
-                treat learners as humans in progress.
+                No more guessing where a learner is in the process. Our systems
+                track key moments and can provide clean summaries for your
+                files, portals, and board meetings.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                {EXPECTATIONS.map((item) => (
+                {REPORTING.map((item) => (
                   <li key={item} className="flex gap-2">
                     <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     <span>{item}</span>
@@ -168,19 +171,24 @@ export default function PartnersPage() {
 
             <div className="rounded-2xl border border-slate-100 bg-slate-900/95 p-5 text-sm text-slate-50 shadow-md">
               <h3 className="text-sm font-semibold text-white">
-                Compliance & documentation support
+                Board & agency onboarding
               </h3>
               <p className="mt-2 text-xs text-slate-200">
-                We help keep things organized — attendance logs, hour tracking,
-                evaluations, and proof of training. For barbershops, clinics,
-                and trades employers, that means you&apos;re not left alone with
-                paperwork.
+                During onboarding, we map your reporting cycles, forms, and
+                required data points to our system so we&apos;re not sending
+                you a pile of PDFs you can&apos;t use.
               </p>
               <p className="mt-3 text-xs text-slate-200">
-                For workforce-funded learners, we align with WIOA, WRG, SNAP
-                E&amp;T, and re-entry reporting needs so partners aren&apos;t
-                guessing what to fill out.
+                That includes clarifying how referrals flow, how we signal
+                risk/concern, and what success looks like in your language
+                (credential, placement, retention, etc.).
               </p>
+              <Link
+                href="/contact"
+                className="mt-4 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm hover:bg-slate-100"
+              >
+                Request Board / Agency Onboarding
+              </Link>
             </div>
           </div>
         </div>
@@ -191,32 +199,31 @@ export default function PartnersPage() {
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-semibold text-white">
-              Ready to host learners or apprentices?
+              Let&apos;s make training, reporting, and outcomes easier.
             </h2>
             <p className="mt-3 text-sm text-slate-200">
-              Tell us about your shop, clinic, site, or organization, and we'll
-              explore how to plug you into Elevate&apos;s ecosystem of training,
-              support, and workforce funding.
+              If you&apos;re responsible for helping people access training and
+              employment, we want to be the partner who makes that easier for
+              you — not harder.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/apply?type=partner"
+              href="/apply?type=workforce-partner"
               className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-400"
             >
-              Start Partner Application
+              Start Workforce Partner Intake
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center rounded-2xl border border-slate-600 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-slate-400"
             >
-              Request a Partner Meeting
+              Schedule a Strategy Session
             </Link>
           </div>
           <p className="mt-4 text-[11px] text-slate-400">
-            We welcome conversations with barbershops, healthcare providers,
-            trades employers, community orgs, and others who want to build real
-            pathways, not just one-time placements.
+            We are open to pilots, cohorts, MOUs, and deeper collaborations.
+            Boards, agencies, coalitions, and re-entry programs are welcome.
           </p>
         </div>
       </section>
