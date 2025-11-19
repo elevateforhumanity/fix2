@@ -1,0 +1,50 @@
+🚨 CRITICAL TASK ACTIVE - LOOP UNTIL COMPLETE
+==============================================
+
+Task: Create Courses Table in Supabase
+Priority: CRITICAL
+Status: ACTIVE - RETRY UNTIL SUCCESS
+Max Retries: 10
+Retry Interval: 30 seconds
+
+WORKER INSTRUCTIONS:
+-------------------
+Execute this task and KEEP RETRYING until successful.
+
+Task File: .autopilot/active-tasks/create-courses-table-NOW.json
+
+QUICK EXECUTION:
+---------------
+1. Open: https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
+2. Get SQL from: https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql
+3. Copy the SQL CODE (not the URL!)
+4. Paste in SQL Editor
+5. Click "Run"
+6. Verify: SELECT COUNT(*) FROM courses; (should be 17)
+
+IMPORTANT:
+---------
+⚠️ Copy the SQL CODE from the GitHub page, NOT the URL itself!
+⚠️ The SQL starts with: CREATE TABLE IF NOT EXISTS courses
+⚠️ If you get syntax error, you pasted the URL - try again!
+
+LOOP LOGIC:
+----------
+- Check every 30 seconds if courses table exists
+- If not, retry the migration
+- Stop when: courses table exists AND has 17+ courses
+- Max 10 retries, then escalate
+
+VERIFICATION:
+------------
+After running, verify with:
+  curl -s "https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/courses?select=count" \
+    -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE"
+
+Should return data with count >= 17
+
+SUCCESS = Task complete, stop looping
+FAILURE = Retry after 30 seconds
+
+ACTIVATED: 2025-11-19 21:10 UTC
+DEADLINE: Complete within 30 minutes

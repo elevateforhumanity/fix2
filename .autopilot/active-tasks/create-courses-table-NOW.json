@@ -1,0 +1,195 @@
+{
+  "task_id": "create-courses-table-NOW",
+  "status": "ACTIVE",
+  "priority": "CRITICAL",
+  "assigned_to": "WORKER_AVAILABLE",
+  "created_at": "2025-11-19T21:10:00Z",
+  "deadline": "IMMEDIATE",
+  "blocking": true,
+  "task_type": "database_migration",
+  "retry_until_success": true,
+  "max_retries": 10,
+  "retry_interval": "30 seconds",
+  
+  "title": "🚨 CRITICAL: Create Courses Table in Supabase",
+  
+  "context": {
+    "problem": "Courses table does not exist in database",
+    "impact": "Admin page shows error, no courses can be displayed",
+    "solution": "Run SQL migration to create courses table and insert 17 courses",
+    "estimated_time": "2 minutes",
+    "user_tried": "User attempted but pasted URL instead of SQL code"
+  },
+  
+  "credentials": {
+    "supabase_url": "https://cuxzzpsyufcewtmicszk.supabase.co",
+    "supabase_project_id": "cuxzzpsyufcewtmicszk",
+    "database_password": "KingGreebe08",
+    "sql_editor_url": "https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new"
+  },
+  
+  "sql_to_execute": {
+    "file": "FINAL_MIGRATION.sql",
+    "url": "https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql",
+    "local_path": "/workspaces/fix2/FINAL_MIGRATION.sql"
+  },
+  
+  "step_by_step": [
+    {
+      "step": 1,
+      "action": "Open Supabase SQL Editor",
+      "url": "https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new",
+      "instructions": "Navigate to SQL Editor, click 'New query' if needed"
+    },
+    {
+      "step": 2,
+      "action": "Get SQL Code",
+      "method": "Download from GitHub",
+      "url": "https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql",
+      "instructions": [
+        "Open the GitHub raw URL",
+        "Copy ALL the SQL code (starts with CREATE TABLE)",
+        "DO NOT copy the URL itself - copy the SQL code content"
+      ],
+      "common_mistake": "User pasted URL instead of SQL code - avoid this!"
+    },
+    {
+      "step": 3,
+      "action": "Paste SQL in Editor",
+      "instructions": [
+        "Click in the SQL Editor text area",
+        "Paste the SQL code (Ctrl+V or Cmd+V)",
+        "Verify it starts with: CREATE TABLE IF NOT EXISTS courses",
+        "Verify it ends with: SELECT 'SUCCESS!' as message"
+      ]
+    },
+    {
+      "step": 4,
+      "action": "Execute SQL",
+      "instructions": [
+        "Click the 'Run' button (or press Ctrl+Enter)",
+        "Wait 5-10 seconds for execution",
+        "Look for success message"
+      ]
+    },
+    {
+      "step": 5,
+      "action": "Verify Success",
+      "verification_query": "SELECT COUNT(*) FROM courses;",
+      "expected_result": "17 courses",
+      "instructions": [
+        "Run verification query in new SQL tab",
+        "Should return count of 17",
+        "If error 'table does not exist', retry from step 1"
+      ]
+    },
+    {
+      "step": 6,
+      "action": "Verify on Website",
+      "url": "https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses",
+      "expected": [
+        "Red error banner should disappear",
+        "17 courses should be visible",
+        "No errors in console"
+      ]
+    }
+  ],
+  
+  "retry_logic": {
+    "if_table_exists": "Skip creation, just verify data",
+    "if_data_exists": "Success - mark complete",
+    "if_error_syntax": "Check SQL code was pasted correctly, retry",
+    "if_error_network": "Wait 30 seconds, retry",
+    "if_error_permissions": "Verify using service role key, retry",
+    "max_attempts": 10,
+    "stop_on_success": true
+  },
+  
+  "success_criteria": {
+    "database": {
+      "courses_table_exists": true,
+      "courses_count": 17,
+      "indexes_created": true
+    },
+    "website": {
+      "error_banner_gone": true,
+      "courses_visible": true,
+      "admin_page_loads": true
+    }
+  },
+  
+  "verification_checklist": [
+    "[ ] Opened Supabase SQL Editor",
+    "[ ] Downloaded SQL from GitHub (not URL)",
+    "[ ] Pasted SQL code in editor",
+    "[ ] Clicked 'Run' button",
+    "[ ] Saw success message",
+    "[ ] Ran verification query",
+    "[ ] Got count of 17 courses",
+    "[ ] Checked website - error gone",
+    "[ ] Took screenshot of success"
+  ],
+  
+  "troubleshooting": {
+    "error_syntax_near_elevateforhumanity": {
+      "problem": "Pasted URL instead of SQL code",
+      "solution": "Open the URL in browser, copy the SQL CODE that appears, not the URL itself"
+    },
+    "error_table_already_exists": {
+      "problem": "Table already created",
+      "solution": "This is OK! Just verify data exists with SELECT COUNT(*)"
+    },
+    "error_duplicate_key": {
+      "problem": "Courses already inserted",
+      "solution": "This is OK! Task is complete, mark as done"
+    },
+    "error_network": {
+      "problem": "Cannot connect to Supabase",
+      "solution": "Wait 30 seconds and retry"
+    }
+  },
+  
+  "loop_until_complete": {
+    "enabled": true,
+    "check_interval": "30 seconds",
+    "verification_method": "Query courses table via API",
+    "api_check": {
+      "url": "https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/courses?select=count",
+      "headers": {
+        "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE"
+      },
+      "success_condition": "Response contains data and count >= 17"
+    },
+    "stop_when": "Courses table exists AND contains 17+ courses"
+  },
+  
+  "completion_report": {
+    "required_info": [
+      "Execution time",
+      "Number of retries",
+      "Courses count in database",
+      "Website verification status",
+      "Any errors encountered",
+      "Final success confirmation"
+    ],
+    "screenshots": [
+      "Supabase SQL Editor showing success",
+      "Verification query showing 17 courses",
+      "Website showing courses (no error banner)"
+    ]
+  },
+  
+  "escalation": {
+    "if_not_complete_in": "30 minutes",
+    "escalate_to": "Project lead",
+    "escalation_message": "Worker unable to create courses table after 10 retries. Manual intervention needed."
+  },
+  
+  "activation": {
+    "status": "ACTIVE",
+    "worker_notification": "IMMEDIATE",
+    "priority": "CRITICAL - BLOCKING OTHER WORK",
+    "can_run_parallel": false,
+    "must_complete_before": "Any other course-related tasks"
+  }
+}
