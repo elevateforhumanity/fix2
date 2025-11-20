@@ -53,6 +53,7 @@ Forces a brand-new production deployment and clears all stale cache. No more wai
 **Triggers automatically on every push to main.**
 
 Or run manually:
+
 1. Go to: https://github.com/elevateforhumanity/fix2/actions
 2. Click "Autopilot – Vercel Hard Refresh"
 3. Click "Run workflow"
@@ -60,6 +61,7 @@ Or run manually:
 5. Click "Run workflow"
 
 It will:
+
 - ✅ Create a fresh deployment
 - ✅ Wait for it to finish building
 - ✅ Make it live
@@ -101,7 +103,7 @@ These pages will NEVER serve stale cache:
 To add more pages, add this to the top of the page file:
 
 ```typescript
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 ```
 
 ---
@@ -111,6 +113,7 @@ export const dynamic = "force-dynamic";
 ### "Missing env vars" error
 
 Make sure you've added all three secrets to GitHub:
+
 - VERCEL_TOKEN
 - VERCEL_PROJECT_ID
 - VERCEL_ORG_ID
@@ -136,6 +139,7 @@ https://vercel.com/elevate-48e460c9s-projects/fix2-gpql/deployments
 ## 🎉 Success!
 
 Once set up, you can:
+
 - ✅ Force new deployments anytime
 - ✅ Never wait for stale cache to expire
 - ✅ See changes immediately

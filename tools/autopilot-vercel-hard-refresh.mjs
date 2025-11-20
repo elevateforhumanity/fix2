@@ -19,43 +19,43 @@ const ORG_ID = process.env.VERCEL_ORG_ID;
 
 if (!VERCEL_TOKEN || !PROJECT_ID || !ORG_ID) {
   console.error(
-    "❌ Missing env vars. Please set VERCEL_TOKEN, VERCEL_PROJECT_ID, VERCEL_ORG_ID"
+    '❌ Missing env vars. Please set VERCEL_TOKEN, VERCEL_PROJECT_ID, VERCEL_ORG_ID'
   );
   process.exit(1);
 }
 
 const headers = {
   Authorization: `Bearer ${VERCEL_TOKEN}`,
-  "Content-Type": "application/json",
+  'Content-Type': 'application/json',
 };
 
 async function main() {
   try {
-    console.log("🚀 Autopilot: starting hard refresh for Vercel…");
+    console.log('🚀 Autopilot: starting hard refresh for Vercel…');
 
     // 1) Create a new production deployment from the current Git branch
-    const branch = process.env.VERCEL_GIT_COMMIT_REF || "main";
+    const branch = process.env.VERCEL_GIT_COMMIT_REF || 'main';
 
     console.log(`📦 Creating new deployment from branch: ${branch}`);
 
-    const createRes = await fetch("https://api.vercel.com/v13/deployments", {
-      method: "POST",
+    const createRes = await fetch('https://api.vercel.com/v13/deployments', {
+      method: 'POST',
       headers,
       body: JSON.stringify({
-        name: "fix2-gpql",
+        name: 'fix2-gpql',
         projectId: PROJECT_ID,
-        target: "production",
+        target: 'production',
         gitSource: {
-          type: "github",
+          type: 'github',
           ref: branch,
-          repoId: "elevateforhumanity/fix2",
+          repoId: 'elevateforhumanity/fix2',
         },
       }),
     });
 
     if (!createRes.ok) {
       const text = await createRes.text();
-      console.error("❌ Failed to create deployment:", text);
+      console.error('❌ Failed to create deployment:', text);
       process.exit(1);
     }
 
@@ -65,7 +65,7 @@ async function main() {
 
     console.log(`✅ Deployment created: ${deploymentId}`);
     console.log(`🔗 Preview URL: https://${deploymentUrl}`);
-    console.log("⏳ Waiting for deployment to be ready…");
+    console.log('⏳ Waiting for deployment to be ready…');
 
     // 2) Poll deployment status until ready or error
     let done = false;
@@ -83,34 +83,40 @@ async function main() {
 
       if (!statusRes.ok) {
         const text = await statusRes.text();
-        console.error("❌ Failed to fetch deployment status:", text);
+        console.error('❌ Failed to fetch deployment status:', text);
         process.exit(1);
       }
 
       const statusJson = await statusRes.json();
       const state = statusJson?.readyState;
 
-      console.log(`🔍 Deployment state: ${state} (attempt ${attempts}/${maxAttempts})`);
+      console.log(
+        `🔍 Deployment state: ${state} (attempt ${attempts}/${maxAttempts})`
+      );
 
-      if (state === "READY") {
+      if (state === 'READY') {
         done = true;
-        console.log("✅ Deployment is READY. Hard refresh complete.");
-        console.log(`🌐 Production URL: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app`);
-      } else if (["ERROR", "CANCELED"].includes(state)) {
-        console.error("❌ Deployment failed:", state);
+        console.log('✅ Deployment is READY. Hard refresh complete.');
+        console.log(
+          '🌐 Production URL: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app'
+        );
+      } else if (['ERROR', 'CANCELED'].includes(state)) {
+        console.error('❌ Deployment failed:', state);
         process.exit(1);
       }
     }
 
     if (!done) {
-      console.error("⏰ Timed out waiting for deployment to become READY.");
+      console.error('⏰ Timed out waiting for deployment to become READY.');
       process.exit(1);
     }
 
-    console.log("🎉 New production deployment is live.");
-    console.log("💡 If you use ISR, make sure you're calling revalidateTag/revalidatePath properly.");
+    console.log('🎉 New production deployment is live.');
+    console.log(
+      "💡 If you use ISR, make sure you're calling revalidateTag/revalidatePath properly."
+    );
   } catch (err) {
-    console.error("❌ Autopilot Vercel hard refresh failed:", err);
+    console.error('❌ Autopilot Vercel hard refresh failed:', err);
     process.exit(1);
   }
 }

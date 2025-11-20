@@ -6,7 +6,7 @@ import { BookOpen, Plus, Edit, Eye } from 'lucide-react';
 import { requireAdmin, createServerSupabaseClient } from '@/lib/auth';
 
 // Force dynamic rendering - always fresh data
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Manage Courses | Admin',
@@ -15,20 +15,20 @@ export const metadata = {
 
 export default async function AdminCoursesPage() {
   await requireAdmin();
-  
+
   let courses = [];
   let error = null;
   let needsMigration = false;
 
   try {
     const supabase = await createServerSupabaseClient();
-    
+
     // Try to fetch from courses table first
     const coursesResult = await supabase
       .from('courses')
       .select('*')
       .order('created_at', { ascending: false });
-    
+
     if (coursesResult.error) {
       // Courses table doesn't exist - need migration
       needsMigration = true;
@@ -100,26 +100,58 @@ export default async function AdminCoursesPage() {
           <div className="mb-6 p-6 bg-red-50 border-2 border-red-200 rounded-lg">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
-                <svg className="h-6 w-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                <svg
+                  className="h-6 w-6 text-red-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-red-900 mb-2">⚠️ Courses Table Not Created</h3>
+                <h3 className="text-lg font-bold text-red-900 mb-2">
+                  ⚠️ Courses Table Not Created
+                </h3>
                 <p className="text-sm text-red-800 mb-3">
-                  The courses table doesn't exist in your database yet. You need to run the migration SQL to create it.
+                  The courses table doesn't exist in your database yet. You need
+                  to run the migration SQL to create it.
                 </p>
                 <div className="bg-white p-4 rounded border border-red-300 mb-3">
-                  <p className="text-sm font-semibold text-gray-900 mb-2">Quick Fix (2 minutes):</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-2">
+                    Quick Fix (2 minutes):
+                  </p>
                   <ol className="text-sm text-gray-800 space-y-1 list-decimal list-inside">
-                    <li>Open: <a href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new" target="_blank" className="text-blue-600 underline">Supabase SQL Editor</a></li>
-                    <li>Copy SQL from: <a href="https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql" target="_blank" className="text-blue-600 underline">FINAL_MIGRATION.sql</a></li>
+                    <li>
+                      Open:{' '}
+                      <a
+                        href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new"
+                        target="_blank"
+                        className="text-blue-600 underline"
+                      >
+                        Supabase SQL Editor
+                      </a>
+                    </li>
+                    <li>
+                      Copy SQL from:{' '}
+                      <a
+                        href="https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql"
+                        target="_blank"
+                        className="text-blue-600 underline"
+                      >
+                        FINAL_MIGRATION.sql
+                      </a>
+                    </li>
                     <li>Paste and click "Run"</li>
                     <li>Refresh this page</li>
                   </ol>
                 </div>
                 <p className="text-xs text-red-700">
-                  This will create the courses table and insert 17 courses. Takes 10 seconds.
+                  This will create the courses table and insert 17 courses.
+                  Takes 10 seconds.
                 </p>
               </div>
             </div>
