@@ -4,7 +4,7 @@
 import fetch from 'node-fetch';
 
 const BASE_URL =
-  process.env.READINESS_BASE_URL || 'https://elevateconnectsdirectory.org';
+  process.env.READINESS_BASE_URL || 'https://elevateforhumanity.org';
 
 // Critical routes that must work for students and partners
 const routes = [

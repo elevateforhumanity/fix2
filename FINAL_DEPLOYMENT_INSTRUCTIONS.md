@@ -82,7 +82,7 @@ INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bull
 
 ### Step 3: Test Site (5 minutes)
 
-**Visit:** www.elevateconnectsdirectory.org
+**Visit:** www.elevateforhumanity.org
 
 **Check:**
 
@@ -219,7 +219,7 @@ In `app/page.tsx`, uncomment the video tags and update src:
 
 After deployment:
 
-- [ ] Site loads at www.elevateconnectsdirectory.org
+- [ ] Site loads at www.elevateforhumanity.org
 - [ ] Branding shows "Elevate for Humanity" prominently
 - [ ] "Innovate. Elevate. Reset." tagline visible
 - [ ] 3 video placeholder sections visible

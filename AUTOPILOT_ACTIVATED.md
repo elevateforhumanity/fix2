@@ -151,7 +151,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Production**:
 ```
-https://www.elevateconnectsdirectory.org/admin/courses
+https://www.elevateforhumanity.org/admin/courses
 ```
 
 ---

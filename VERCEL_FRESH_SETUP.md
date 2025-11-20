@@ -286,7 +286,7 @@ If you want a custom domain:
 2. **Click "Domains"**
 
 3. **Add Domain**
-   - Enter your domain (e.g., `elevateconnectsdirectory.org`)
+   - Enter your domain (e.g., `elevateforhumanity.org`)
    - Click "Add"
 
 4. **Configure DNS**

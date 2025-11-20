@@ -65,7 +65,7 @@ Based on documentation found in the repository, you may have multiple Vercel pro
 
 **KEEP**: The project with:
 - ✅ Most recent successful deployment
-- ✅ Custom domain configured (www.elevateconnectsdirectory.org)
+- ✅ Custom domain configured (www.elevateforhumanity.org)
 - ✅ All environment variables present
 - ✅ Connected to correct GitHub repo (elevateforhumanity/fix2)
 
@@ -95,7 +95,7 @@ For each project, check:
 |-------|---------------|------------|
 | **Last Deployment** | Deployments tab | Recent (within 7 days) |
 | **Environment Variables** | Settings → Env Vars | All 6 critical vars present |
-| **Custom Domain** | Settings → Domains | Has www.elevateconnectsdirectory.org |
+| **Custom Domain** | Settings → Domains | Has www.elevateforhumanity.org |
 | **GitHub Connection** | Settings → Git | Connected to elevateforhumanity/fix2 |
 | **Build Success** | Deployments tab | Latest build succeeded |
 
@@ -105,7 +105,7 @@ For each project, check:
 Project: fix2-one
 ├─ Last Deployment: ✅ Today
 ├─ Environment Variables: ✅ All present
-├─ Custom Domain: ✅ www.elevateconnectsdirectory.org
+├─ Custom Domain: ✅ www.elevateforhumanity.org
 ├─ GitHub: ✅ elevateforhumanity/fix2
 └─ Build Status: ✅ Success
    → KEEP THIS ONE ✅
@@ -155,8 +155,8 @@ After deleting duplicates:
    - [ ] NEXT_PUBLIC_SITE_URL (all 3 envs)
 
 3. Verify Settings → Domains:
-   - [ ] www.elevateconnectsdirectory.org (production)
-   - [ ] elevateconnectsdirectory.org (redirect to www)
+   - [ ] www.elevateforhumanity.org (production)
+   - [ ] elevateforhumanity.org (redirect to www)
    - [ ] *.vercel.app (preview)
 
 4. Verify Settings → Git:
@@ -209,7 +209,7 @@ After cleanup, verify:
 - [ ] All environment variables present
 
 ### Production Site:
-- [ ] https://www.elevateconnectsdirectory.org loads
+- [ ] https://www.elevateforhumanity.org loads
 - [ ] Homepage displays correctly
 - [ ] Login/signup works
 - [ ] Programs page loads
@@ -284,7 +284,7 @@ This script will:
 ### If You're Unsure Which to Keep:
 
 **Safe Choice**: Keep the project with:
-1. Custom domain (www.elevateconnectsdirectory.org)
+1. Custom domain (www.elevateforhumanity.org)
 2. Most recent successful deployment
 3. All environment variables configured
 

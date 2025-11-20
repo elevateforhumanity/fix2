@@ -105,7 +105,7 @@ If GitHub Actions are failing due to missing secrets:
 Once you fix the deployment:
 
 ### 1. Check Homepage
-Visit: https://www.elevateconnectsdirectory.org
+Visit: https://www.elevateforhumanity.org
 
 **You SHOULD see:**
 - Bright red/orange banner at the very top
@@ -113,7 +113,7 @@ Visit: https://www.elevateconnectsdirectory.org
 - Black border under the banner
 
 ### 2. Check LMS Dashboard
-Visit: https://www.elevateconnectsdirectory.org/lms/dashboard
+Visit: https://www.elevateforhumanity.org/lms/dashboard
 
 **You SHOULD see:**
 - Red heading: "🚀 NEW BUILD DEPLOYED SUCCESSFULLY"

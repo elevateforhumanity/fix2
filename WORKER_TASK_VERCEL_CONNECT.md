@@ -95,7 +95,7 @@ Environment: Production
 
 ```
 Key: NEXT_PUBLIC_SITE_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 Environment: Production
 ```
 

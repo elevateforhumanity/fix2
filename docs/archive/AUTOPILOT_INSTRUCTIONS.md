@@ -9,7 +9,7 @@
 
 1. ✅ Install Netlify CLI (if needed)
 2. ✅ Add elevateforhumanity.org to Netlify
-3. ✅ Add elevateconnectsdirectory.org to Netlify
+3. ✅ Add elevateforhumanity.org to Netlify
 4. ✅ Set elevateforhumanity.org as primary domain
 5. ✅ Monitor SSL certificate provisioning
 6. ✅ Report when complete
@@ -68,7 +68,7 @@ Total:                         ~10-15 minutes
 🔐 Check Netlify authentication
 📦 Install Netlify CLI (if needed)
 🌐 Add elevateforhumanity.org
-🌐 Add elevateconnectsdirectory.org
+🌐 Add elevateforhumanity.org
 🎯 Set elevateforhumanity.org as primary
 ```
 
@@ -110,11 +110,11 @@ Checking SSL status... (90s elapsed)
 
 Domains added:
   ✅ elevateforhumanity.org (primary)
-  ✅ elevateconnectsdirectory.org
+  ✅ elevateforhumanity.org
 
 Next steps:
   1. Visit: https://elevateforhumanity.org
-  2. Visit: https://www.elevateconnectsdirectory.org
+  2. Visit: https://www.elevateforhumanity.org
 ```
 
 ---
@@ -133,7 +133,7 @@ If you prefer to do it manually or autopilot has issues:
 2. Enter: elevateforhumanity.org
 3. Click "Verify"
 4. Click "Add custom domain" again
-5. Enter: elevateconnectsdirectory.org
+5. Enter: elevateforhumanity.org
 6. Click "Verify"
 7. Set elevateforhumanity.org as primary
 8. Wait 5-10 minutes for SSL
@@ -148,7 +148,7 @@ If you prefer to do it manually or autopilot has issues:
 
 ```bash
 curl -I https://elevateforhumanity.org
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 **Should show:**
@@ -161,7 +161,7 @@ HTTP/2 200
 **Or visit in browser:**
 
 - https://elevateforhumanity.org (should work with 🔒)
-- https://www.elevateconnectsdirectory.org (should work with 🔒)
+- https://www.elevateforhumanity.org (should work with 🔒)
 
 ---
 
@@ -180,7 +180,7 @@ HTTP/2 200
 Adding: elevateforhumanity.org
 ✅ Domain added
 
-Adding: elevateconnectsdirectory.org
+Adding: elevateforhumanity.org
 ✅ Domain added
 
 🎯 Setting primary domain...

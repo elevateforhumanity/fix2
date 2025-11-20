@@ -144,19 +144,19 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
 ```bash
 # Test case management
-curl https://elevateconnectsdirectory.org/api/wioa/case-management
+curl https://elevateforhumanity.org/api/wioa/case-management
 
 # Test eligibility
-curl https://elevateconnectsdirectory.org/api/wioa/eligibility
+curl https://elevateforhumanity.org/api/wioa/eligibility
 
 # Test IEP
-curl https://elevateconnectsdirectory.org/api/wioa/iep
+curl https://elevateforhumanity.org/api/wioa/iep
 
 # Test employment tracking
-curl https://elevateconnectsdirectory.org/api/wioa/employment
+curl https://elevateforhumanity.org/api/wioa/employment
 
 # Test reporting
-curl https://elevateconnectsdirectory.org/api/wioa/reporting?type=performance
+curl https://elevateforhumanity.org/api/wioa/reporting?type=performance
 ```
 
 ## API Documentation

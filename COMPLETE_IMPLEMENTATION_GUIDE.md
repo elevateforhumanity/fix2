@@ -124,7 +124,7 @@ export VERCEL_TOKEN="your_vercel_token_here"
 **Example:**
 ```
 Project: fix2-one
-├─ Custom domain: www.elevateconnectsdirectory.org (+50)
+├─ Custom domain: www.elevateforhumanity.org (+50)
 ├─ Deployed 2 days ago (+30)
 ├─ Build: READY (+20)
 ├─ Repo: elevateforhumanity/fix2 (+20)

@@ -6,7 +6,7 @@ Professional, humanized scripts for recording platform demos. Read these while s
 
 ## 1️⃣ STUDENT / LEARNER PORTAL
 
-**🎥 Start on:** https://www.elevateconnectsdirectory.org/lms/dashboard
+**🎥 Start on:** https://www.elevateforhumanity.org/lms/dashboard
 
 ### Script
 
@@ -35,7 +35,7 @@ Everything here was built to feel simple, supportive, and job-focused."
 
 ## 2️⃣ WORKFORCE ENROLLMENT (WRG / WIOA / JRI / EmployIndy)
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/lms/enroll-workforce
+**🎥 Go to:** https://www.elevateforhumanity.org/lms/enroll-workforce
 
 ### Script
 
@@ -60,8 +60,8 @@ Most LMS systems focus on course content. We focus on education + workforce comp
 
 ## 3️⃣ CERTIFICATES + PUBLIC VERIFICATION
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/lms/certificates  
-**🎥 Then show:** https://www.elevateconnectsdirectory.org/cert/verify/SAMPLE123
+**🎥 Go to:** https://www.elevateforhumanity.org/lms/certificates  
+**🎥 Then show:** https://www.elevateforhumanity.org/cert/verify/SAMPLE123
 
 ### Script
 
@@ -84,7 +84,7 @@ Our credential system also supports revocations, replacements, and compliance tr
 
 ## 4️⃣ PROGRAM HOLDER PORTAL
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/program-holder/dashboard
+**🎥 Go to:** https://www.elevateforhumanity.org/program-holder/dashboard
 
 ### Script
 
@@ -109,7 +109,7 @@ They also have access to revenue-share details and training documentation."
 
 ## 5️⃣ DIGITAL MOU SIGNING (1/3 Revenue Share)
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/program-holder/mou
+**🎥 Go to:** https://www.elevateforhumanity.org/program-holder/mou
 
 ### Script
 
@@ -135,7 +135,7 @@ This keeps every partner compliant before onboarding their students."
 
 ## 6️⃣ DELEGATE / CASE MANAGER PORTAL
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/delegate/reports
+**🎥 Go to:** https://www.elevateforhumanity.org/delegate/reports
 
 ### Script
 
@@ -158,9 +158,9 @@ This portal is critical for WRG, WIOA, JRI, and EmployIndy partnerships — beca
 
 ## 7️⃣ ADMIN PORTAL
 
-**🎥 Go to:** https://www.elevateconnectsdirectory.org/admin/program-holders  
-**🎥 Then:** https://www.elevateconnectsdirectory.org/admin/reports  
-**🎥 Then:** https://www.elevateconnectsdirectory.org/admin/reports/caseload
+**🎥 Go to:** https://www.elevateforhumanity.org/admin/program-holders  
+**🎥 Then:** https://www.elevateforhumanity.org/admin/reports  
+**🎥 Then:** https://www.elevateforhumanity.org/admin/reports/caseload
 
 ### Script
 
@@ -189,7 +189,7 @@ This is something most LMS systems do not support — a true multi-layer workfor
 
 ## 8️⃣ PUBLIC PAGES (Trust & Compliance)
 
-**🎥 Visit:** https://www.elevateconnectsdirectory.org/enroll/sample-program
+**🎥 Visit:** https://www.elevateforhumanity.org/enroll/sample-program
 
 ### Script
 
@@ -291,7 +291,7 @@ If you're training people for careers — not just clicks — Elevate is the pla
 
 **For Website:**
 
-> "Ready to see Elevate in action? Schedule a demo at elevateconnectsdirectory.org"
+> "Ready to see Elevate in action? Schedule a demo at elevateforhumanity.org"
 
 **For Social Media:**
 

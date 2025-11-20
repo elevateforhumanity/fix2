@@ -121,7 +121,7 @@ This script is designed for your homepage hero section. It should feel polished,
 **Text Overlay:**
 
 - "Schedule a Demo"
-- "elevateconnectsdirectory.org"
+- "elevateforhumanity.org"
 - Button: "Get Started"
 
 ---

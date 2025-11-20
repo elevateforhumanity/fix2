@@ -233,7 +233,7 @@ npm run autopilot:vercel:hard-refresh
 
 ### Deployment
 - **Hosting:** Vercel
-- **Domain:** elevateconnectsdirectory.org
+- **Domain:** elevateforhumanity.org
 - **CDN:** Vercel Edge Network
 - **CI/CD:** GitHub Actions
 
@@ -332,7 +332,7 @@ npm run autopilot:vercel:hard-refresh
 
 **Project Lead:** Elizabeth Greene  
 **Repository:** https://github.com/elevateforhumanity/fix2  
-**Production:** https://elevateconnectsdirectory.org  
+**Production:** https://elevateforhumanity.org  
 **Staging:** https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app
 
 ---

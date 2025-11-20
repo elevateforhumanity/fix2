@@ -31,7 +31,7 @@ In the root of your project (`/workspaces/fix2/`), create a file named `.env.loc
 # Copy this template and fill in your actual values
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # Supabase (REQUIRED)
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
@@ -40,7 +40,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.YOUR_SERVICE_ROLE
 
 # Email (Optional - for notifications)
 RESEND_API_KEY=re_your_resend_key_here
-EMAIL_FROM=noreply@elevateconnectsdirectory.org
+EMAIL_FROM=noreply@elevateforhumanity.org
 
 # Stripe (Optional - for payments)
 STRIPE_SECRET_KEY=sk_test_your_stripe_key_here
@@ -251,7 +251,7 @@ For production deployment, set environment variables in Netlify:
    NEXT_PUBLIC_SUPABASE_URL = https://YOUR_PROJECT_REF.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGci...
    SUPABASE_SERVICE_ROLE_KEY = eyJhbGci...
-   NEXT_PUBLIC_SITE_URL = https://www.elevateconnectsdirectory.org
+   NEXT_PUBLIC_SITE_URL = https://www.elevateforhumanity.org
    ```
 
 4. **Redeploy**:
@@ -271,7 +271,7 @@ For production deployment, set environment variables in Netlify:
 ### Project Support:
 
 - Contact: (317) 314-3757
-- Email: support@elevateconnectsdirectory.org
+- Email: support@elevateforhumanity.org
 
 ---
 

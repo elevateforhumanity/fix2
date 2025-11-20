@@ -25,13 +25,13 @@ DNS changes need time to propagate globally.
 **Check propagation:**
 
 1. Go to: https://dnschecker.org
-2. Enter: `elevateconnectsdirectory.org`
+2. Enter: `elevateforhumanity.org`
 3. Select: **A Record**
 4. Should show: `75.2.60.5` ✅
 
 **Also check www:**
 
-1. Enter: `www.elevateconnectsdirectory.org`
+1. Enter: `www.elevateforhumanity.org`
 2. Select: **CNAME**
 3. Should show: `elevateproduction.netlify.app` ✅
 
@@ -48,7 +48,7 @@ Once DNS has propagated (10-15 minutes):
 
 2. **Click:** "Add custom domain"
 
-3. **Enter:** `elevateconnectsdirectory.org`
+3. **Enter:** `elevateforhumanity.org`
 
 4. **Click:** "Verify"
 
@@ -67,14 +67,14 @@ Once DNS has propagated (10-15 minutes):
 
 After SSL is provisioned:
 
-1. **Visit:** https://www.elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateforhumanity.org
 2. **Should show:** Your LMS site
 3. **SSL:** Should be secure (🔒 in browser)
 
 **Also test www:**
 
-1. **Visit:** https://www.elevateconnectsdirectory.org
-2. **Should redirect to:** https://www.elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateforhumanity.org
+2. **Should redirect to:** https://www.elevateforhumanity.org
 3. **Should show:** Your LMS site
 
 ---
@@ -111,7 +111,7 @@ Total:         ~20-30 minutes
 
 ### Testing:
 
-- [ ] https://www.elevateconnectsdirectory.org loads
+- [ ] https://www.elevateforhumanity.org loads
 - [ ] SSL works (🔒)
 - [ ] www redirects to apex
 - [ ] Site displays correctly
@@ -152,8 +152,8 @@ HTTPS enabled automatically
 
 ```
 Your site is live at:
-- https://www.elevateconnectsdirectory.org ✅
-- https://www.elevateconnectsdirectory.org ✅
+- https://www.elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org ✅
 - Both with SSL (🔒)
 - Both showing your LMS
 ```
@@ -182,8 +182,8 @@ Add these:
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://www.elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```
@@ -264,7 +264,7 @@ NODE_ENV=production
    - ✅ Domain status: "Active"
 
 3. **Browser shows:**
-   - ✅ https://www.elevateconnectsdirectory.org loads
+   - ✅ https://www.elevateforhumanity.org loads
    - ✅ Padlock icon (🔒) in address bar
    - ✅ Your LMS site displays
    - ✅ No security warnings
@@ -276,7 +276,7 @@ NODE_ENV=production
 ### Your Domain:
 
 ```
-elevateconnectsdirectory.org
+elevateforhumanity.org
 ```
 
 ### Your DNS:
@@ -311,7 +311,7 @@ https://dnschecker.org
 **Right now:**
 
 1. Go to: https://dnschecker.org
-2. Enter: elevateconnectsdirectory.org
+2. Enter: elevateforhumanity.org
 3. Check if DNS has propagated (green checkmarks)
 
 **If propagated (50%+ green):**
@@ -329,7 +329,7 @@ https://dnschecker.org
 **CURRENT STATUS:** ✅ DNS Configured  
 **NEXT ACTION:** Wait for propagation, then add domain in Netlify  
 **ETA:** 20-30 minutes total  
-**RESULT:** Your LMS live at elevateconnectsdirectory.org
+**RESULT:** Your LMS live at elevateforhumanity.org
 
 ---
 

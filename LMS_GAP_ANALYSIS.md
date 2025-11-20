@@ -1,7 +1,7 @@
 # Elevate Connects Directory - LMS Gap Analysis
 
 **Date:** 2025-11-15  
-**Current Site:** www.elevateconnectsdirectory.org  
+**Current Site:** www.elevateforhumanity.org  
 **Comparison:** Moodle, LearnWorlds, Docebo
 
 ---

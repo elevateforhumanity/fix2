@@ -41,7 +41,7 @@
     "migration_file_github": "https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql",
     "migration_file_local": "supabase/COMPLETE_MIGRATION.sql",
     "verify_website": "https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses",
-    "production_site": "https://www.elevateconnectsdirectory.org/admin/courses"
+    "production_site": "https://www.elevateforhumanity.org/admin/courses"
   },
   
   "migration_details": {

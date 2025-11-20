@@ -95,8 +95,8 @@ export function getOrganizationSchema(): Organization {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'Elevate for Humanity',
-    url: 'https://elevateconnectsdirectory.org',
-    logo: 'https://elevateconnectsdirectory.org/images/Elevate_for_Humanity_logo_81bf0fab.png',
+    url: 'https://elevateforhumanity.org',
+    logo: 'https://elevateforhumanity.org/images/Elevate_for_Humanity_logo_81bf0fab.png',
     description:
       'Free workforce training and career development programs through WIOA funding. Offering CNA, Barber, Construction, and Technology training.',
     address: {
@@ -131,11 +131,11 @@ export function getWebSiteSchema(): WebSite {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Elevate for Humanity',
-    url: 'https://elevateconnectsdirectory.org',
+    url: 'https://elevateforhumanity.org',
     potentialAction: {
       '@type': 'SearchAction',
       target:
-        'https://elevateconnectsdirectory.org/search?q={search_term_string}',
+        'https://elevateforhumanity.org/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };

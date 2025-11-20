@@ -126,7 +126,7 @@ We've received your information and will review it within 2-3 business days. Her
 3. We'll schedule a call to discuss next steps
 4. We'll provide the MOU and required paperwork
 
-In the meantime, feel free to explore our website and learn more about our programs at elevateconnectsdirectory.org
+In the meantime, feel free to explore our website and learn more about our programs at elevateforhumanity.org
 
 If you have any immediate questions, please reply to this email or call us at (317) 555-0100.
 
@@ -135,7 +135,7 @@ Thank you for your interest in partnering with Elevate for Humanity!
 Warm regards,
 Elizabeth Greene
 Founder, Elevate for Humanity
-elevateconnectsdirectory.org`
+elevateforhumanity.org`
         })
       });
 

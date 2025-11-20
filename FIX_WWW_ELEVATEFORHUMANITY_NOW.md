@@ -69,8 +69,8 @@ elevateforhumanity.org      →  Redirect to www  ✅
 
 ### LMS Platform (Netlify - this repo)
 ```
-www.elevateconnectsdirectory.org  →  elevateproduction.netlify.app  ✅
-elevateconnectsdirectory.org      →  Redirect to www                ✅
+www.elevateforhumanity.org  →  elevateproduction.netlify.app  ✅
+elevateforhumanity.org      →  Redirect to www                ✅
 ```
 
 ---
@@ -108,7 +108,7 @@ This was incorrect. The marketing site should stay on Durablesites.co.
 
 **Correct Setup:**
 - Marketing site = Durablesites.co = www.elevateforhumanity.org
-- LMS Platform = Netlify = www.elevateconnectsdirectory.org
+- LMS Platform = Netlify = www.elevateforhumanity.org
 
 ---
 
@@ -141,7 +141,7 @@ After fixing DNS, test:
    - Should show: Marketing content, program information
    - Should NOT show: LMS login, course dashboard
 
-2. **LMS Platform**: https://www.elevateconnectsdirectory.org
+2. **LMS Platform**: https://www.elevateforhumanity.org
    - Should show: LMS login, course dashboard, student portal
    - Should NOT show: Marketing content
 
@@ -161,7 +161,7 @@ Once www.elevateforhumanity.org is working:
    - Point to www.elevateforhumanity.org
 
 3. **Add Cross-Links**
-   - Marketing site: "Access LMS" → www.elevateconnectsdirectory.org
+   - Marketing site: "Access LMS" → www.elevateforhumanity.org
    - LMS: "Back to Main Site" → www.elevateforhumanity.org
 
 ---
@@ -172,6 +172,6 @@ Once www.elevateforhumanity.org is working:
 
 **Solution**: Change DNS CNAME for www to point to Durablesites.co target
 
-**Result**: Marketing site works on www.elevateforhumanity.org, LMS works on www.elevateconnectsdirectory.org
+**Result**: Marketing site works on www.elevateforhumanity.org, LMS works on www.elevateforhumanity.org
 
 **Time to Fix**: 5-15 minutes (plus DNS propagation)

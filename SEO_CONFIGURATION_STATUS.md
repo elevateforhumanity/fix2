@@ -25,9 +25,9 @@
 - ✅ Dynamically includes program pages from database
 - ✅ Dynamically includes course pages from database
 - ✅ Proper priority and change frequency settings
-- ✅ Uses correct domain: `https://www.elevateconnectsdirectory.org`
+- ✅ Uses correct domain: `https://www.elevateforhumanity.org`
 
-**URL**: https://www.elevateconnectsdirectory.org/sitemap.xml
+**URL**: https://www.elevateforhumanity.org/sitemap.xml
 
 **What it includes**:
 
@@ -59,7 +59,7 @@
 - ✅ References sitemap location
 - ✅ Uses correct domain
 
-**URL**: https://www.elevateconnectsdirectory.org/robots.txt
+**URL**: https://www.elevateforhumanity.org/robots.txt
 
 **What it does**:
 
@@ -74,7 +74,7 @@ Disallow: /lms/notifications
 Disallow: /_next/
 Disallow: /private/
 
-Sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 ---
@@ -128,7 +128,7 @@ trackCourseEnrollment(courseId, courseName);
 
 **Status**: ✅ **VERIFIED**
 
-**Domain**: elevateconnectsdirectory.org
+**Domain**: elevateforhumanity.org
 
 **Verification Codes Found**:
 
@@ -148,7 +148,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 2. Deploy to production
 3. Go to Google Search Console: https://search.google.com/search-console
 4. Verify domain is showing as verified
-5. Submit sitemap: `https://www.elevateconnectsdirectory.org/sitemap.xml`
+5. Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
 6. Monitor indexing status
 
 ---
@@ -166,7 +166,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 
 1. Go to Bing Webmaster Tools: https://www.bing.com/webmasters
 2. Sign in with Microsoft account
-3. Add site: `https://www.elevateconnectsdirectory.org`
+3. Add site: `https://www.elevateforhumanity.org`
 4. Choose verification method:
 
 **Option A: Meta Tag (Recommended)**
@@ -191,7 +191,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 
 **After Verification**:
 
-1. Submit sitemap: `https://www.elevateconnectsdirectory.org/sitemap.xml`
+1. Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
 2. Configure crawl settings
 3. Monitor indexing
 
@@ -219,8 +219,8 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "Elevate for Humanity",
-  "url": "https://www.elevateconnectsdirectory.org",
-  "logo": "https://www.elevateconnectsdirectory.org/assets/logo-efh.svg",
+  "url": "https://www.elevateforhumanity.org",
+  "logo": "https://www.elevateforhumanity.org/assets/logo-efh.svg",
   "description": "Career & Technical training that elevates communities...",
   "address": {
     "@type": "PostalAddress",
@@ -231,7 +231,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
-    "email": "info@elevateconnectsdirectory.org"
+    "email": "info@elevateforhumanity.org"
   },
   "sameAs": [
     "https://www.facebook.com/elevateforhumanity",
@@ -281,7 +281,7 @@ TXT @ google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 openGraph: {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description: 'Career & Technical training that elevates communities...',
-  url: 'https://www.elevateconnectsdirectory.org',
+  url: 'https://www.elevateforhumanity.org',
   siteName: 'Elevate for Humanity',
   locale: 'en_US',
   type: 'website',
@@ -309,7 +309,7 @@ twitter: {
    openGraph: {
      images: [
        {
-         url: 'https://www.elevateconnectsdirectory.org/og-image.jpg',
+         url: 'https://www.elevateforhumanity.org/og-image.jpg',
          width: 1200,
          height: 630,
          alt: 'Elevate for Humanity',
@@ -322,7 +322,7 @@ twitter: {
 
 ## Domain Configuration
 
-### Primary Domain: elevateconnectsdirectory.org
+### Primary Domain: elevateforhumanity.org
 
 **DNS Records**:
 
@@ -338,7 +338,7 @@ TXT   @    google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 
 **Status**: ✅ Fully configured and verified
 
-### Secondary Domain: elevateconnectsdirectory.org
+### Secondary Domain: elevateforhumanity.org
 
 **DNS Records**:
 
@@ -351,9 +351,9 @@ CNAME www  elevateproduction.netlify.app
 
 **Recommendation**:
 
-- Use `elevateconnectsdirectory.org` as primary domain
-- Redirect `elevateconnectsdirectory.org` to `elevateconnectsdirectory.org`
-- All SEO files now use `elevateconnectsdirectory.org`
+- Use `elevateforhumanity.org` as primary domain
+- Redirect `elevateforhumanity.org` to `elevateforhumanity.org`
+- All SEO files now use `elevateforhumanity.org`
 
 ---
 
@@ -372,7 +372,7 @@ CNAME www  elevateproduction.netlify.app
 - [x] Google Search Console verification codes added
 - [x] Favicon configured
 - [x] Theme color set
-- [x] Domain URLs updated to elevateconnectsdirectory.org
+- [x] Domain URLs updated to elevateforhumanity.org
 
 ### ⚠️ Needs Action (Quick Setup)
 
@@ -416,7 +416,7 @@ CNAME www  elevateproduction.netlify.app
 
 ```bash
 1. Go to https://www.bing.com/webmasters
-2. Add site: elevateconnectsdirectory.org
+2. Add site: elevateforhumanity.org
 3. Get verification code
 4. Update app/layout.tsx with code
 5. Deploy
@@ -428,15 +428,15 @@ CNAME www  elevateproduction.netlify.app
 ```bash
 Google Search Console:
 1. Go to https://search.google.com/search-console
-2. Select property: elevateconnectsdirectory.org
+2. Select property: elevateforhumanity.org
 3. Go to Sitemaps
-4. Submit: https://www.elevateconnectsdirectory.org/sitemap.xml
+4. Submit: https://www.elevateforhumanity.org/sitemap.xml
 
 Bing Webmaster Tools:
 1. Go to https://www.bing.com/webmasters
-2. Select site: elevateconnectsdirectory.org
+2. Select site: elevateforhumanity.org
 3. Go to Sitemaps
-4. Submit: https://www.elevateconnectsdirectory.org/sitemap.xml
+4. Submit: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 ### 4. Create Social Images (15 minutes)
@@ -458,9 +458,9 @@ Bing Webmaster Tools:
 
 After deployment, test these URLs:
 
-- **Sitemap**: https://www.elevateconnectsdirectory.org/sitemap.xml
-- **Robots**: https://www.elevateconnectsdirectory.org/robots.txt
-- **Homepage**: https://www.elevateconnectsdirectory.org/
+- **Sitemap**: https://www.elevateforhumanity.org/sitemap.xml
+- **Robots**: https://www.elevateforhumanity.org/robots.txt
+- **Homepage**: https://www.elevateforhumanity.org/
 - **Rich Results Test**: https://search.google.com/test/rich-results
 - **PageSpeed Insights**: https://pagespeed.web.dev/
 - **Mobile-Friendly Test**: https://search.google.com/test/mobile-friendly

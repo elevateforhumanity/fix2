@@ -37,14 +37,14 @@ export default {
         case 'add_domain':
           result = await addCustomDomain(
             env,
-            domain || 'elevateconnectsdirectory.org'
+            domain || 'elevateforhumanity.org'
           );
           break;
 
         case 'check_ssl':
           result = await checkSSLStatus(
             env,
-            domain || 'elevateconnectsdirectory.org'
+            domain || 'elevateforhumanity.org'
           );
           break;
 
@@ -59,7 +59,7 @@ export default {
         case 'full_setup':
           result = await fullDomainSetup(
             env,
-            domain || 'elevateconnectsdirectory.org'
+            domain || 'elevateforhumanity.org'
           );
           break;
 

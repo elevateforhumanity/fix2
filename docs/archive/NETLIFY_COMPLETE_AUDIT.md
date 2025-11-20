@@ -4,7 +4,7 @@
 
 **Date**: 2025-11-11  
 **Site**: elevateproduction  
-**Target Domain**: elevateconnectsdirectory.org
+**Target Domain**: elevateforhumanity.org
 
 ---
 
@@ -74,7 +74,7 @@ Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environm
 ```
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=[from Supabase]
-VITE_SITE_URL=https://www.elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
 NODE_ENV=production
 ```
 
@@ -83,7 +83,7 @@ NODE_ENV=production
 **Action Required:**
 
 1. Go to environment variables
-2. Verify VITE_SITE_URL = https://www.elevateconnectsdirectory.org
+2. Verify VITE_SITE_URL = https://www.elevateforhumanity.org
 3. Verify all Supabase variables are set
 4. Verify NODE_ENV = production
 
@@ -110,15 +110,15 @@ Status: ❌ NONE CONFIGURED
 **DNS Configuration:**
 
 ```
-elevateconnectsdirectory.org → 75.2.60.5 ✅
-www.elevateconnectsdirectory.org → elevateproduction.netlify.app ✅
+elevateforhumanity.org → 75.2.60.5 ✅
+www.elevateforhumanity.org → elevateproduction.netlify.app ✅
 ```
 
 **SSL Status:**
 
 ```
-elevateconnectsdirectory.org: ❌ Using *.netlify.app certificate
-www.elevateconnectsdirectory.org: ❌ Using *.netlify.app certificate
+elevateforhumanity.org: ❌ Using *.netlify.app certificate
+www.elevateforhumanity.org: ❌ Using *.netlify.app certificate
 ```
 
 **Finding**: ❌ CRITICAL - Custom domain NOT added to Netlify
@@ -127,8 +127,8 @@ www.elevateconnectsdirectory.org: ❌ Using *.netlify.app certificate
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click "Add domain alias"
-3. Add: `elevateconnectsdirectory.org`
-4. Add: `www.elevateconnectsdirectory.org` (optional)
+3. Add: `elevateforhumanity.org`
+4. Add: `www.elevateforhumanity.org` (optional)
 5. Wait for SSL provisioning (2-10 minutes)
 
 ---
@@ -145,12 +145,12 @@ External DNS: systemdns.com
 **DNS Records (External):**
 
 ```
-elevateconnectsdirectory.org
+elevateforhumanity.org
   Type: A
   Value: 75.2.60.5
   Status: ✅ Correct
 
-www.elevateconnectsdirectory.org
+www.elevateforhumanity.org
   Type: CNAME
   Value: elevateproduction.netlify.app
   Status: ✅ Correct
@@ -176,7 +176,7 @@ Auto-renew: ✅ Yes
 **Custom Domain:**
 
 ```
-Domain: elevateconnectsdirectory.org
+Domain: elevateforhumanity.org
 Certificate: ❌ NOT CONFIGURED
 Status: ❌ Domain not added
 ```
@@ -488,9 +488,9 @@ Time: Should be recent
 
 ### Critical (Must Fix) ❌
 
-- [ ] **Add custom domain**: elevateconnectsdirectory.org
+- [ ] **Add custom domain**: elevateforhumanity.org
 - [ ] **Wait for SSL**: 2-10 minutes after adding domain
-- [ ] **Verify SSL**: Check certificate is for elevateconnectsdirectory.org
+- [ ] **Verify SSL**: Check certificate is for elevateforhumanity.org
 
 ### Important (Should Verify) ⚠️
 
@@ -525,7 +525,7 @@ Time: Should be recent
 1. Open: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Scroll to "Custom domains" section
 3. Click "Add domain alias"
-4. Enter: `elevateconnectsdirectory.org`
+4. Enter: `elevateforhumanity.org`
 5. Click "Verify"
 6. Click "Add domain"
 7. Wait 2-10 minutes for SSL
@@ -536,7 +536,7 @@ Time: Should be recent
 2. Check these variables exist:
    - VITE_SUPABASE_URL
    - VITE_SUPABASE_ANON_KEY
-   - VITE_SITE_URL (should be https://www.elevateconnectsdirectory.org)
+   - VITE_SITE_URL (should be https://www.elevateforhumanity.org)
    - NODE_ENV (should be production)
 3. Add/update if needed
 4. Trigger new deploy if changed
@@ -565,7 +565,7 @@ Time: Should be recent
 
 1. Wait for SSL certificate (check: https://app.netlify.com/sites/elevateproduction/settings/domain)
 2. Clear browser cache (Ctrl+Shift+R)
-3. Visit: https://www.elevateconnectsdirectory.org
+3. Visit: https://www.elevateforhumanity.org
 4. Verify:
    - No SSL errors
    - Site loads correctly
@@ -601,7 +601,7 @@ Time: Should be recent
 
 ### Priority Actions
 
-1. **CRITICAL**: Add elevateconnectsdirectory.org to Netlify (5 minutes)
+1. **CRITICAL**: Add elevateforhumanity.org to Netlify (5 minutes)
 2. **IMPORTANT**: Verify environment variables (2 minutes)
 3. **RECOMMENDED**: Enable asset optimization (1 minute)
 4. **OPTIONAL**: Set up notifications (2 minutes)

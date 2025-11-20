@@ -10,7 +10,7 @@
 
 ### LMS Application
 
-**Domain**: `www.elevateconnectsdirectory.org`  
+**Domain**: `www.elevateforhumanity.org`  
 **Purpose**: Learning Management System (LMS)  
 **Hosting**: Netlify  
 **Netlify Site**: `elevateproduction.netlify.app`  
@@ -31,12 +31,12 @@ Added proper error handling to prevent 500 errors:
 
 Updated all URLs to use the correct LMS domain:
 
-- `.env.production` → `https://www.elevateconnectsdirectory.org`
-- `app/layout.tsx` → `https://www.elevateconnectsdirectory.org`
-- `app/sitemap.ts` → `https://www.elevateconnectsdirectory.org`
-- `app/robots.ts` → `https://www.elevateconnectsdirectory.org`
-- `components/StructuredData.tsx` → `https://www.elevateconnectsdirectory.org`
-- GitHub Actions workflow → `https://www.elevateconnectsdirectory.org`
+- `.env.production` → `https://www.elevateforhumanity.org`
+- `app/layout.tsx` → `https://www.elevateforhumanity.org`
+- `app/sitemap.ts` → `https://www.elevateforhumanity.org`
+- `app/robots.ts` → `https://www.elevateforhumanity.org`
+- `components/StructuredData.tsx` → `https://www.elevateforhumanity.org`
+- GitHub Actions workflow → `https://www.elevateforhumanity.org`
 
 ## Netlify Configuration Required
 
@@ -46,7 +46,7 @@ For the site to work, you need to ensure in Netlify:
 
 In Netlify Dashboard → Domain settings:
 
-- ✅ Add custom domain: `www.elevateconnectsdirectory.org`
+- ✅ Add custom domain: `www.elevateforhumanity.org`
 - ✅ Verify DNS is pointing to Netlify
 - ✅ Enable HTTPS/SSL
 
@@ -58,14 +58,14 @@ In Netlify Dashboard → Environment variables:
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 NODE_ENV=production
 ```
 
 ### 3. DNS Configuration
 
-In your DNS provider (for elevateconnectsdirectory.org):
+In your DNS provider (for elevateforhumanity.org):
 
 ```
 Type   Name   Content                          TTL
@@ -77,7 +77,7 @@ CNAME  www    elevateproduction.netlify.app    Auto
 ### Check if domain is configured:
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 **Expected**: Should return 200 OK (not 500)
@@ -85,7 +85,7 @@ curl -I https://www.elevateconnectsdirectory.org
 ### Check if DNS is pointing to Netlify:
 
 ```bash
-dig www.elevateconnectsdirectory.org
+dig www.elevateforhumanity.org
 ```
 
 **Expected**: Should show CNAME to `elevateproduction.netlify.app`
@@ -96,7 +96,7 @@ dig www.elevateconnectsdirectory.org
 
 1. **Domain not added to Netlify**
    - Go to Netlify Dashboard → Domain settings
-   - Add `www.elevateconnectsdirectory.org` as custom domain
+   - Add `www.elevateforhumanity.org` as custom domain
 
 2. **DNS not pointing to Netlify**
    - Check DNS records
@@ -113,19 +113,19 @@ dig www.elevateconnectsdirectory.org
 ## Commits Made
 
 1. **Commit `57211594`**: Fix 500 error - Add error handling to middleware
-2. **Commit `5edbb2c1`**: Use correct LMS URL - www.elevateconnectsdirectory.org
+2. **Commit `5edbb2c1`**: Use correct LMS URL - www.elevateforhumanity.org
 
 ## Next Steps
 
-1. **Verify domain in Netlify**: Ensure `www.elevateconnectsdirectory.org` is added
+1. **Verify domain in Netlify**: Ensure `www.elevateforhumanity.org` is added
 2. **Check DNS**: Ensure DNS points to Netlify
 3. **Wait for deployment**: Netlify should auto-deploy (2-3 minutes)
-4. **Test site**: Visit https://www.elevateconnectsdirectory.org
+4. **Test site**: Visit https://www.elevateforhumanity.org
 
 ## Summary
 
 ✅ **Code fixed**: Middleware error handling added  
-✅ **URLs updated**: All using www.elevateconnectsdirectory.org  
+✅ **URLs updated**: All using www.elevateforhumanity.org  
 ✅ **Build passing**: npm run build completes successfully  
 ⏳ **Netlify deployment**: Waiting for auto-deploy  
 ⏳ **Domain configuration**: Verify in Netlify dashboard

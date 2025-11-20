@@ -29,7 +29,7 @@ Purpose: Public-facing marketing website
 Hosted by: Durable.co
 ```
 
-### elevateconnectsdirectory.org (Netlify LMS)
+### elevateforhumanity.org (Netlify LMS)
 
 ```
 Should point to: Netlify servers
@@ -81,7 +81,7 @@ TXT    @    google-site-verification...  (keep)
 
 **Don't point to Netlify!**
 
-### elevateconnectsdirectory.org (POINT TO NETLIFY):
+### elevateforhumanity.org (POINT TO NETLIFY):
 
 ```
 A      @    75.2.60.5  ✅
@@ -102,13 +102,13 @@ DURABLE.CO
 └── DNS: Managed by Durable (default)
 
 NETLIFY
-├── Domain: elevateconnectsdirectory.org
+├── Domain: elevateforhumanity.org
 ├── Purpose: LMS / Student Portal
 ├── Hosted by: Netlify
 └── DNS: Points to Netlify (75.2.60.5)
 
 CONNECTION
-└── Link on Durable site → elevateconnectsdirectory.org
+└── Link on Durable site → elevateforhumanity.org
 ```
 
 ---
@@ -123,14 +123,14 @@ CONNECTION
 - Remove CNAME: elevateproduction.netlify.app
 - Let Durable use default DNS
 
-### 2. Keep elevateconnectsdirectory.org DNS (CORRECT)
+### 2. Keep elevateforhumanity.org DNS (CORRECT)
 
 **Leave as is:**
 
 - A: 75.2.60.5
 - CNAME: elevateproduction.netlify.app
 
-### 3. Only Add elevateconnectsdirectory.org to Netlify
+### 3. Only Add elevateforhumanity.org to Netlify
 
 **Don't add elevateforhumanity.org to Netlify!**
 
@@ -141,8 +141,8 @@ CONNECTION
 ### Only Add ONE Domain to Netlify:
 
 ```bash
-# Only add elevateconnectsdirectory.org
-netlify domains:add elevateconnectsdirectory.org
+# Only add elevateforhumanity.org
+netlify domains:add elevateforhumanity.org
 ```
 
 **Don't add elevateforhumanity.org!**
@@ -156,9 +156,9 @@ netlify domains:add elevateconnectsdirectory.org
 - ✅ Points to Durable
 - ✅ Shows Durable marketing site
 - ✅ Has button: "Access Student Portal"
-- ✅ Button links to: elevateconnectsdirectory.org
+- ✅ Button links to: elevateforhumanity.org
 
-### elevateconnectsdirectory.org:
+### elevateforhumanity.org:
 
 - ✅ Points to Netlify
 - ✅ Shows Netlify LMS
@@ -178,13 +178,13 @@ netlify domains:add elevateconnectsdirectory.org
 
 **Then:**
 
-Only add elevateconnectsdirectory.org to Netlify (not elevateforhumanity.org)
+Only add elevateforhumanity.org to Netlify (not elevateforhumanity.org)
 
 ---
 
 **SUMMARY:**
 
 **elevateforhumanity.org** = Durable marketing site (revert DNS)  
-**elevateconnectsdirectory.org** = Netlify LMS (keep DNS as is)
+**elevateforhumanity.org** = Netlify LMS (keep DNS as is)
 
 **Don't point elevateforhumanity.org to Netlify!**

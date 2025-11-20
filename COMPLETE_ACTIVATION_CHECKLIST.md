@@ -173,7 +173,7 @@ git push origin main
 
 ### Update Production
 
-**Production URL**: https://www.elevateconnectsdirectory.org
+**Production URL**: https://www.elevateforhumanity.org
 
 **Verify**:
 - [ ] Same as preview deployment
@@ -254,7 +254,7 @@ https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE
 https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Production**:
-https://www.elevateconnectsdirectory.org/admin/courses
+https://www.elevateforhumanity.org/admin/courses
 
 ---
 

@@ -185,8 +185,8 @@ Copy social media scripts for consistent messaging.
 ## 📞 Key Information
 
 **Phone**: (317) 314-3757  
-**Website**: https://www.elevateconnectsdirectory.org  
-**Support Email**: support@elevateconnectsdirectory.org
+**Website**: https://www.elevateforhumanity.org  
+**Support Email**: support@elevateforhumanity.org
 
 ---
 
@@ -194,21 +194,21 @@ Copy social media scripts for consistent messaging.
 
 ### Students
 
-- Homepage: https://www.elevateconnectsdirectory.org
-- HVAC: https://www.elevateconnectsdirectory.org/programs/hvac
-- Barber: https://www.elevateconnectsdirectory.org/programs/barber
-- CNA: https://www.elevateconnectsdirectory.org/programs/cna
-- Portal: https://www.elevateconnectsdirectory.org/lms/dashboard
+- Homepage: https://www.elevateforhumanity.org
+- HVAC: https://www.elevateforhumanity.org/programs/hvac
+- Barber: https://www.elevateforhumanity.org/programs/barber
+- CNA: https://www.elevateforhumanity.org/programs/cna
+- Portal: https://www.elevateforhumanity.org/lms/dashboard
 
 ### Partners
 
-- Apply: https://www.elevateconnectsdirectory.org/program-holder/apply
-- Dashboard: https://www.elevateconnectsdirectory.org/program-holder/dashboard
+- Apply: https://www.elevateforhumanity.org/program-holder/apply
+- Dashboard: https://www.elevateforhumanity.org/program-holder/dashboard
 
 ### Admins
 
-- Dashboard: https://www.elevateconnectsdirectory.org/admin/dashboard
-- Certificates: https://www.elevateconnectsdirectory.org/admin/certificates/issue
+- Dashboard: https://www.elevateforhumanity.org/admin/dashboard
+- Certificates: https://www.elevateforhumanity.org/admin/certificates/issue
 
 ---
 
@@ -321,7 +321,7 @@ If you need help with the script pack:
 
 1. **Check the scripts**: Most questions are answered in the pack
 2. **Call support**: (317) 314-3757
-3. **Email**: support@elevateconnectsdirectory.org
+3. **Email**: support@elevateforhumanity.org
 4. **Review docs**: Check other documentation files
 
 ---

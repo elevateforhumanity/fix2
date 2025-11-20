@@ -1,7 +1,7 @@
 # URL Update Complete
 
 **Date:** 2025-01-11  
-**Task:** Switch all URLs from elevateconnectsdirectory.org to elevateconnects1.netlify.app
+**Task:** Switch all URLs from elevateforhumanity.org to elevateconnects1.netlify.app
 
 ---
 
@@ -115,8 +115,8 @@ The application is now configured for **https://elevateconnects1.netlify.app/**
 ### Old Domain
 
 ```
-https://www.elevateconnectsdirectory.org
-https://www.elevateconnectsdirectory.org
+https://www.elevateforhumanity.org
+https://www.elevateforhumanity.org
 ```
 
 ### New Domain

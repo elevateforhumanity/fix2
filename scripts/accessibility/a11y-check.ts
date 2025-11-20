@@ -7,7 +7,7 @@ async function run() {
   const page = await browser.newPage();
 
   const url =
-    process.env.A11Y_URL || "https://elevateconnectsdirectory.org";
+    process.env.A11Y_URL || "https://elevateforhumanity.org";
   console.log(`Running accessibility check on: ${url}`);
 
   await page.goto(url, { waitUntil: "networkidle" });

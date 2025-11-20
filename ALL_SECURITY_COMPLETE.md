@@ -195,14 +195,14 @@ In Vercel Dashboard → Settings → Environment Variables:
 
 **Production:**
 ```
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
 NEXTAUTH_SECRET=your-secret
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 
 **Optional (for full features):**

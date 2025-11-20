@@ -665,7 +665,7 @@ We're thrilled to announce the official launch of Elevate for Humanity's new Lea
 ✓ Access to career support
 
 👉 Get Started Today:
-Visit: https://www.elevateconnectsdirectory.org
+Visit: https://www.elevateforhumanity.org
 Click "Browse Programs" to explore courses
 Sign up in minutes - it's FREE!
 

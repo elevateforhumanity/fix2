@@ -2,10 +2,10 @@
 
 ## Current Status
 
-- ✅ `https://elevateconnectsdirectory.org/` - Marketing site works
-- ❌ `https://elevateconnectsdirectory.org/lms/dashboard` - 500 error
-- ❌ `https://www.elevateconnectsdirectory.org/` - 500 error
-- ❌ `https://www.elevateconnectsdirectory.org/lms/dashboard` - 500 error
+- ✅ `https://elevateforhumanity.org/` - Marketing site works
+- ❌ `https://elevateforhumanity.org/lms/dashboard` - 500 error
+- ❌ `https://www.elevateforhumanity.org/` - 500 error
+- ❌ `https://www.elevateforhumanity.org/lms/dashboard` - 500 error
 
 ## Root Cause
 
@@ -36,7 +36,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ
 
 NEXT_PUBLIC_SITE_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 ```
 
 ### 2. Get SUPABASE_SERVICE_ROLE_KEY
@@ -59,12 +59,12 @@ After adding all 6 environment variables:
 
 After deployment completes, test:
 
-- https://www.elevateconnectsdirectory.org/ (should load)
-- https://www.elevateconnectsdirectory.org/lms/dashboard (should load)
+- https://www.elevateforhumanity.org/ (should load)
+- https://www.elevateforhumanity.org/lms/dashboard (should load)
 
 ## Why This Happened
 
-- Code was updated to use `www.elevateconnectsdirectory.org`
+- Code was updated to use `www.elevateforhumanity.org`
 - `.env.local` in the repo was updated (for local development)
 - **But Netlify environment variables were not updated**
 - Without these variables, the app cannot connect to Supabase and crashes with 500 error
@@ -73,7 +73,7 @@ After deployment completes, test:
 
 ✅ Added error handling to `sitemap.ts` (won't crash if Supabase fails)
 ✅ Added error handling to `generateStaticParams` in program pages
-✅ Updated all domain references to `www.elevateconnectsdirectory.org`
+✅ Updated all domain references to `www.elevateforhumanity.org`
 
 ## What's Left
 

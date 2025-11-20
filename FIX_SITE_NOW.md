@@ -34,13 +34,13 @@ Get from: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/a
 ### 4. NEXT_PUBLIC_APP_URL
 
 ```
-https://elevateconnectsdirectory.org
+https://elevateforhumanity.org
 ```
 
 ### 5. NEXT_PUBLIC_SITE_URL
 
 ```
-https://elevateconnectsdirectory.org
+https://elevateforhumanity.org
 ```
 
 ### 6. NODE_ENV
@@ -57,7 +57,7 @@ production
 
 ## Site Will Be Live in 2-3 Minutes
 
-Check: https://elevateconnectsdirectory.org
+Check: https://elevateforhumanity.org
 
 ---
 

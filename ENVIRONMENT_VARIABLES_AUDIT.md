@@ -16,11 +16,11 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 # Site Configuration (REQUIRED)
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 
 # Authentication (REQUIRED)
 NEXTAUTH_SECRET=your-nextauth-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 
 ---
@@ -187,9 +187,9 @@ Based on your Vercel dashboard, these are set:
 
 ### ⚠️ May Need to Add
 - `NEXT_PUBLIC_SUPABASE_URL` - Check if set
-- `NEXT_PUBLIC_SITE_URL` - Should be `https://elevateconnectsdirectory.org`
+- `NEXT_PUBLIC_SITE_URL` - Should be `https://elevateforhumanity.org`
 - `NEXTAUTH_SECRET` - Generate with: `openssl rand -base64 32`
-- `NEXTAUTH_URL` - Should be `https://elevateconnectsdirectory.org`
+- `NEXTAUTH_URL` - Should be `https://elevateforhumanity.org`
 
 ---
 
@@ -202,7 +202,7 @@ If you want the **absolute minimum** to get the site working:
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 ```
 
 Everything else is optional and can be added later as needed.

@@ -38,13 +38,13 @@ Scopes: All scopes
 
 ```
 Variable name: NEXT_PUBLIC_APP_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://elevateforhumanity.org
 Scopes: All scopes
 ```
 
 ```
 Variable name: NEXT_PUBLIC_SITE_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://elevateforhumanity.org
 Scopes: All scopes
 ```
 
@@ -60,7 +60,7 @@ Scopes: All scopes
 
 5. Wait 2-3 minutes for deployment to complete
 
-6. Test the site: https://elevateconnectsdirectory.org
+6. Test the site: https://elevateforhumanity.org
 
 ### Option 2: Use GitHub Actions (Automated)
 
@@ -99,7 +99,7 @@ With environment variables:
 After setting variables and deploying, check:
 
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://elevateforhumanity.org
 ```
 
 **Expected**: `200 OK` with HTML content

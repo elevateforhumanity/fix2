@@ -48,7 +48,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
     html: `
       <h1>Welcome, ${name}!</h1>
       <p>Thank you for joining Elevate for Humanity. We're excited to support your learning journey.</p>
-      <p><a href="https://elevateconnectsdirectory.org/dashboard">Get Started</a></p>
+      <p><a href="https://elevateforhumanity.org/dashboard">Get Started</a></p>
     `,
   });
 }
@@ -63,7 +63,7 @@ export async function sendEnrollmentConfirmation(
     html: `
       <h1>You're Enrolled!</h1>
       <p>Your enrollment in <strong>${courseName}</strong> has been confirmed.</p>
-      <p><a href="https://elevateconnectsdirectory.org/courses">View Course</a></p>
+      <p><a href="https://elevateforhumanity.org/courses">View Course</a></p>
     `,
   });
 }

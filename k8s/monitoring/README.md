@@ -43,9 +43,9 @@ kubectl apply -f ingress.yaml
 ## Access URLs
 
 After deployment:
-- **Grafana**: https://monitoring.elevateconnectsdirectory.org/grafana
-- **Prometheus**: https://monitoring.elevateconnectsdirectory.org/prometheus
-- **Jaeger**: https://monitoring.elevateconnectsdirectory.org/jaeger
+- **Grafana**: https://monitoring.elevateforhumanity.org/grafana
+- **Prometheus**: https://monitoring.elevateforhumanity.org/prometheus
+- **Jaeger**: https://monitoring.elevateforhumanity.org/jaeger
 
 Default Grafana credentials:
 - Username: `admin`

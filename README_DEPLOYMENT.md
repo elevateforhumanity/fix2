@@ -1,6 +1,6 @@
 # DEPLOYMENT GUIDE
 
-**Your Domain:** elevateconnectsdirectory.org (at Durable.co)
+**Your Domain:** elevateforhumanity.org (at Durable.co)
 **Hosting:** Netlify
 **Status:** ✅ Ready to Deploy
 
@@ -11,7 +11,7 @@
 ### Step 1: Configure DNS in Durable.co (5 min)
 
 1. Login: https://durable.co/login
-2. Go to: Domain Settings for elevateconnectsdirectory.org
+2. Go to: Domain Settings for elevateforhumanity.org
 3. Add these records:
 
 ```
@@ -24,13 +24,13 @@ CNAME  www  elevateproduction.netlify.app
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click: "Add custom domain"
-3. Enter: elevateconnectsdirectory.org
+3. Enter: elevateforhumanity.org
 4. Click: "Verify"
 
 ### Step 3: Wait & Test (10 min)
 
 1. Wait: 10-15 minutes for SSL
-2. Visit: https://www.elevateconnectsdirectory.org
+2. Visit: https://www.elevateforhumanity.org
 3. Done!
 
 ---

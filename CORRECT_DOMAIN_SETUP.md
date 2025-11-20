@@ -15,7 +15,7 @@
 - **Suggested domains**:
   - `lms.elevateforhumanity.org`
   - `app.elevateforhumanity.org`
-  - `www.elevateconnectsdirectory.org`
+  - `www.elevateforhumanity.org`
 
 ---
 
@@ -97,11 +97,11 @@ Since www.elevateforhumanity.org should be on Durable, the Vercel project needs 
    NEXT_PUBLIC_SITE_URL=https://lms.elevateforhumanity.org
    ```
 
-### Alternative: Use www.elevateconnectsdirectory.org
+### Alternative: Use www.elevateforhumanity.org
 
-If you want to keep using elevateconnectsdirectory.org:
+If you want to keep using elevateforhumanity.org:
 
-1. Add domain in Vercel: `www.elevateconnectsdirectory.org`
+1. Add domain in Vercel: `www.elevateforhumanity.org`
 2. DNS should already be configured (if it was on Netlify)
 3. Update environment variables accordingly
 
@@ -122,7 +122,7 @@ MX     @      SMTP.GOOGLE.COM           Email
 TXT    @      google-site-verification  Google verification
 ```
 
-### elevateconnectsdirectory.org zone (if using):
+### elevateforhumanity.org zone (if using):
 
 ```
 Type   Name   Target                    Purpose

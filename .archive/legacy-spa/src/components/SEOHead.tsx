@@ -33,7 +33,7 @@ export default function SEOHead({
   noindex = false,
   canonical,
 }: SEOHeadProps) {
-  const siteUrl = 'https://elevateconnectsdirectory.org';
+  const siteUrl = 'https://elevateforhumanity.org';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
   const fullTitle = title.includes('Elevate for Humanity')

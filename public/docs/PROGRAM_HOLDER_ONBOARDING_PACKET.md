@@ -180,7 +180,7 @@ Phone: (317) 555-0102
 
 ### Technical Support
 Email: support@elevateforhumanity.org
-Portal: elevateconnectsdirectory.org/support
+Portal: elevateforhumanity.org/support
 
 ---
 
@@ -282,4 +282,4 @@ Together, we're elevating communities through quality workforce training!
 
 **Elevate for Humanity**
 Career & Technical Training that Elevates Communities
-elevateconnectsdirectory.org
+elevateforhumanity.org

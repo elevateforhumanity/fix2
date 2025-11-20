@@ -137,7 +137,7 @@ We're excited to help you on your career journey. Here's what happens next:
 • And more!
 
 **Next Steps:**
-1. Complete your application at: https://elevateconnectsdirectory.org/apply
+1. Complete your application at: https://elevateforhumanity.org/apply
 2. Schedule a consultation call
 3. Get matched with the right program
 4. Start your training!

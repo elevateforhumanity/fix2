@@ -1,6 +1,6 @@
 # ✅ WORK COMPLETED - Session Summary
 **Date:** November 19, 2024
-**Platform:** Elevate for Humanity LMS (elevateconnectsdirectory.org)
+**Platform:** Elevate for Humanity LMS (elevateforhumanity.org)
 
 ---
 

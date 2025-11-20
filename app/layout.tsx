@@ -24,34 +24,84 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-// Cache bust: 2025-11-16-05:36
+// SEO Optimized - Updated 2025-11-20
 export const metadata: Metadata = {
-  title: 'Elevate for Humanity | Workforce Training & Career Development',
+  metadataBase: new URL('https://www.elevateforhumanity.org'),
+  title: {
+    default: 'Elevate for Humanity - Workforce Training & Career Development Programs',
+    template: '%s | Elevate for Humanity',
+  },
   description:
-    'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
+    'Transform your career with 100% funded workforce training programs. Barber apprenticeships, HVAC, medical assistant, CDL training & more. WIOA, WRG & workforce grants available. Indianapolis, Indiana.',
   keywords: [
-    'workforce training',
-    'career development',
-    'WIOA',
-    'job training',
-    'technical education',
-    'apprenticeships',
-    'Marion County',
-    'Indiana',
+    'workforce training Indianapolis',
+    'career development Indiana',
+    'WIOA programs',
+    'WRG training',
+    'barber apprenticeship Indianapolis',
+    'HVAC training Indiana',
+    'medical assistant program',
+    'CDL training Indianapolis',
+    'truck driving school',
+    'building maintenance training',
+    'funded training programs',
+    'free job training',
+    'vocational training Indiana',
+    'career change programs',
+    'workforce development',
+    'JRI training',
+    'EmployIndy programs',
+    'DOL apprenticeships',
   ],
   authors: [{ name: 'Elevate for Humanity' }],
+  creator: 'Elevate for Humanity',
+  publisher: 'Elevate for Humanity',
   manifest: '/manifest.json',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Elevate for Humanity | Workforce Training & Career Development',
+    type: 'website',
+    title: 'Elevate for Humanity - Workforce Training & Career Development Programs',
     description:
-      'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-    url: 'https://elevateconnectsdirectory.org',
+      'Transform your career with 100% funded workforce training. Barber, HVAC, medical assistant, CDL & more. Indianapolis, Indiana.',
+    url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
+    images: [
+      {
+        url: 'https://www.elevateforhumanity.org/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Elevate for Humanity - Workforce Training Programs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elevate for Humanity - Workforce Training Programs',
+    description: 'Transform your career with 100% funded workforce training programs.',
+    images: ['https://www.elevateforhumanity.org/og-image.jpg'],
+  },
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org',
+  },
+  verification: {
+    google: 'google-site-verification-code',
+    bing: 'bing-site-verification-code',
+  },
     type: 'website',
     images: [
       {
-        url: 'https://elevateconnectsdirectory.org/assets/og-image.jpg',
+        url: 'https://elevateforhumanity.org/assets/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - Workforce Training',

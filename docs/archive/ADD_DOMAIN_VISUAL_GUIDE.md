@@ -47,7 +47,7 @@ A popup will appear:
 │                                                      │
 │ Enter your domain:                                   │
 │ ┌─────────────────────────────────────────────────┐ │
-│ │ elevateconnectsdirectory.org                    │ │
+│ │ elevateforhumanity.org                    │ │
 │ └─────────────────────────────────────────────────┘ │
 │                                                      │
 │           [Cancel]  [Verify]                        │
@@ -55,7 +55,7 @@ A popup will appear:
 └─────────────────────────────────────────────────────┘
 ```
 
-**Type exactly:** `elevateconnectsdirectory.org`
+**Type exactly:** `elevateforhumanity.org`
 
 ---
 
@@ -70,7 +70,7 @@ Netlify will check the DNS:
 │                                                      │
 │ ✅ DNS configured correctly                         │
 │                                                      │
-│ elevateconnectsdirectory.org points to:            │
+│ elevateforhumanity.org points to:            │
 │ 75.2.60.5 (Netlify)                                │
 │                                                      │
 │ This domain is ready to be added.                   │
@@ -95,7 +95,7 @@ Domain will be added:
 │ elevateproduction.netlify.app                       │
 │                                                      │
 │ Domain aliases                                       │
-│ elevateconnectsdirectory.org                        │
+│ elevateforhumanity.org                        │
 │ HTTPS: Certificate provisioning in progress... ⏳   │
 │                                                      │
 └─────────────────────────────────────────────────────┘
@@ -118,7 +118,7 @@ Refresh the page every minute. You'll see:
 │ elevateproduction.netlify.app                       │
 │                                                      │
 │ Domain aliases                                       │
-│ elevateconnectsdirectory.org                        │
+│ elevateforhumanity.org                        │
 │ HTTPS: Secured ✓                                    │
 │ Certificate: Let's Encrypt                          │
 │ Expires: (90 days from now)                         │
@@ -132,7 +132,7 @@ Refresh the page every minute. You'll see:
 
 1. **Clear browser cache**: Press `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
 
-2. **Visit**: https://www.elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateforhumanity.org
 
 3. **You should see**:
    - 🔒 Secure padlock in address bar
@@ -147,7 +147,7 @@ Refresh the page every minute. You'll see:
 
 Your site is now live at:
 
-- ✅ https://www.elevateconnectsdirectory.org (custom domain)
+- ✅ https://www.elevateforhumanity.org (custom domain)
 - ✅ https://elevateproduction.netlify.app (Netlify subdomain)
 
 Both URLs work with valid SSL certificates!
@@ -180,7 +180,7 @@ Both URLs work with valid SSL certificates!
 
 ### SSL not provisioning after 15 minutes
 
-- Check the domain spelling is exactly: `elevateconnectsdirectory.org`
+- Check the domain spelling is exactly: `elevateforhumanity.org`
 - Verify DNS still points to 75.2.60.5
 - Contact Netlify support: https://www.netlify.com/support/
 - They have instant chat support
@@ -217,7 +217,7 @@ https://www.netlify.com/support/
 
 - [ ] Open Netlify dashboard
 - [ ] Click "Add domain alias"
-- [ ] Type: elevateconnectsdirectory.org
+- [ ] Type: elevateforhumanity.org
 - [ ] Click "Verify"
 - [ ] Click "Add domain"
 - [ ] Wait for SSL (2-10 min)

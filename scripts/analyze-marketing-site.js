@@ -376,9 +376,9 @@ async function analyzeSite() {
         instructions: [
           'Go to Pages → Homepage',
           'Add CTA button: "Enroll Now"',
-          'Link to: https://elevateconnectsdirectory.org/signup',
+          'Link to: https://elevateforhumanity.org/signup',
           'Add "Student Login" button',
-          'Link to: https://elevateconnectsdirectory.org/login',
+          'Link to: https://elevateforhumanity.org/login',
           'Add to navigation menu: "Student Portal"',
         ],
       },

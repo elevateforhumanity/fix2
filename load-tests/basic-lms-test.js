@@ -13,7 +13,7 @@ export const options = {
   },
 };
 
-const BASE_URL = __ENV.BASE_URL || "https://elevateconnectsdirectory.org";
+const BASE_URL = __ENV.BASE_URL || "https://elevateforhumanity.org";
 
 export default function () {
   // Test homepage

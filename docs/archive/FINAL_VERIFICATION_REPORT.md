@@ -236,14 +236,14 @@
 ✅ <meta name="keywords" content="career training, workforce development..."/>
 ✅ <meta name="author" content="Elevate for Humanity"/>
 ✅ <meta name="robots" content="index, follow"/>
-✅ <link rel="canonical" href="https://www.elevateconnectsdirectory.org/"/>
+✅ <link rel="canonical" href="https://www.elevateforhumanity.org/"/>
 ```
 
 ### Open Graph Tags
 
 ```
 ✅ <meta property="og:type" content="website"/>
-✅ <meta property="og:url" content="https://www.elevateconnectsdirectory.org/"/>
+✅ <meta property="og:url" content="https://www.elevateforhumanity.org/"/>
 ✅ <meta property="og:title" content="Elevate for Humanity - Career Training..."/>
 ✅ <meta property="og:description" content="Transform your career..."/>
 ✅ <meta property="og:image" content=".../images/og-image.jpg"/>
@@ -255,7 +255,7 @@
 
 ```
 ✅ <meta name="twitter:card" content="summary_large_image"/>
-✅ <meta name="twitter:url" content="https://www.elevateconnectsdirectory.org/"/>
+✅ <meta name="twitter:url" content="https://www.elevateforhumanity.org/"/>
 ✅ <meta name="twitter:title" content="Elevate for Humanity..."/>
 ✅ <meta name="twitter:description" content="Transform your career..."/>
 ✅ <meta name="twitter:image" content=".../images/og-image.jpg"/>
@@ -298,7 +298,7 @@
 ✅ Status: HTTP 200
 ✅ User-agent: * (all crawlers allowed)
 ✅ Allow: / (all pages crawlable)
-✅ Sitemap: https://www.elevateconnectsdirectory.org/sitemap.xml
+✅ Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 ### Crawlability
@@ -378,7 +378,7 @@
 ### DNS Configuration ✅
 
 ```
-✅ Domain: elevateconnectsdirectory.org
+✅ Domain: elevateforhumanity.org
 ✅ Type: A Record
 ✅ Value: 75.2.60.5 (Netlify Load Balancer)
 ✅ TTL: Auto
@@ -390,7 +390,7 @@
 
 ```
 ⏳ Current: *.netlify.app (Netlify wildcard)
-⏳ Required: elevateconnectsdirectory.org (custom domain)
+⏳ Required: elevateforhumanity.org (custom domain)
 ⏳ Status: Domain not added to Netlify
 ⏳ Action: Add domain in Netlify dashboard
 ⏳ Script: bash scripts/autopilot-add-domain.sh
@@ -606,7 +606,7 @@ bash scripts/autopilot-add-domain.sh
 # Option 2: Manual
 # 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 # 2. Click "Add custom domain"
-# 3. Enter: elevateconnectsdirectory.org
+# 3. Enter: elevateforhumanity.org
 # 4. Wait 2-10 minutes for SSL
 ```
 
@@ -626,7 +626,7 @@ bash scripts/autopilot-add-domain.sh
 
 ### After SSL Configuration
 
-**https://www.elevateconnectsdirectory.org**
+**https://www.elevateforhumanity.org**
 
 - Status: ⏳ Pending SSL
 - DNS: ✅ Configured

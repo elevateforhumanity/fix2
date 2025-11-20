@@ -12,7 +12,7 @@ We've pushed an **aggressive rebuild** that forces Vercel to:
 ### Method 1: Check Build Info API (EASIEST)
 Visit this URL in your browser:
 ```
-https://www.elevateconnectsdirectory.org/api/build-info
+https://www.elevateforhumanity.org/api/build-info
 ```
 
 **You should see:**
@@ -34,7 +34,7 @@ https://www.elevateconnectsdirectory.org/api/build-info
 ### Method 2: Check Health Endpoint
 Visit:
 ```
-https://www.elevateconnectsdirectory.org/api/health
+https://www.elevateforhumanity.org/api/health
 ```
 
 Look for:

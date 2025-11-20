@@ -55,7 +55,7 @@ STRIPE_SECRET_KEY=sk_test_...
 INTERNAL_CRON_TOKEN=generate-a-secure-random-token-here
 
 # LTI 1.3 Integration
-LTI_TOOL_URL=https://elevateconnectsdirectory.org
+LTI_TOOL_URL=https://elevateforhumanity.org
 LTI_PUBLIC_KEY_N=base64url-encoded-rsa-modulus
 
 # Zendesk Support
@@ -229,7 +229,7 @@ jobs:
     steps:
       - name: Report Usage
         run: |
-          curl -X POST https://elevateconnectsdirectory.org/api/billing/report-usage \
+          curl -X POST https://elevateforhumanity.org/api/billing/report-usage \
             -H "x-internal-token: ${{ secrets.INTERNAL_CRON_TOKEN }}" \
             -H "Content-Type: application/json"
 ```

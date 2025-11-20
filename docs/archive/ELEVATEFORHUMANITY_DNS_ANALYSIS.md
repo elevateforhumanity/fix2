@@ -45,11 +45,11 @@ Should be: CNAME  www  elevateproduction.netlify.app
 **You have TWO domains:**
 
 1. **elevateforhumanity.org** (this one - currently pointing to Durable)
-2. **elevateconnectsdirectory.org** (already configured correctly ✅)
+2. **elevateforhumanity.org** (already configured correctly ✅)
 
 ### Options:
 
-#### Option A: Use elevateconnectsdirectory.org (RECOMMENDED)
+#### Option A: Use elevateforhumanity.org (RECOMMENDED)
 
 ```
 ✅ Already configured correctly
@@ -74,7 +74,7 @@ Action: Fix DNS to point to Netlify
 
 ```
 elevateforhumanity.org → Durable marketing site
-elevateconnectsdirectory.org → Netlify LMS
+elevateforhumanity.org → Netlify LMS
 
 ✅ Best of both worlds
 ✅ Separate marketing and LMS
@@ -94,7 +94,7 @@ elevateconnectsdirectory.org → Netlify LMS
 - Hosted by: Durable.co
 - Leave DNS as is ✅
 
-**elevateconnectsdirectory.org:**
+**elevateforhumanity.org:**
 
 - Points to: Netlify (75.2.60.5)
 - Purpose: LMS application
@@ -104,7 +104,7 @@ elevateconnectsdirectory.org → Netlify LMS
 **Result:**
 
 - Marketing site: elevateforhumanity.org (Durable)
-- Student portal: elevateconnectsdirectory.org (Netlify)
+- Student portal: elevateforhumanity.org (Netlify)
 - Two separate systems, no conflicts
 
 ---
@@ -154,7 +154,7 @@ elevateforhumanity.org
 ├── CNAME www: elevateforhumanity.org (broken)
 └── Purpose: Durable marketing site
 
-elevateconnectsdirectory.org
+elevateforhumanity.org
 ├── A: 75.2.60.5 (Netlify)
 ├── CNAME www: elevateproduction.netlify.app
 └── Purpose: Netlify LMS ✅
@@ -168,7 +168,7 @@ elevateforhumanity.org
 ├── CNAME www: elevateproduction.netlify.app
 └── Purpose: Netlify LMS
 
-elevateconnectsdirectory.org
+elevateforhumanity.org
 ├── A: 75.2.60.5 (Netlify)
 ├── CNAME www: elevateproduction.netlify.app
 └── Purpose: Netlify LMS
@@ -189,14 +189,14 @@ Result: Both domains point to same LMS
    - Keep DNS as is
    - Hosted by Durable
 
-2. **elevateconnectsdirectory.org** (Netlify)
+2. **elevateforhumanity.org** (Netlify)
    - Use for: LMS, student portal, courses
    - DNS already correct
    - Hosted by Netlify
 
 3. **Link them together:**
    - Add button on Durable site: "Access Student Portal"
-   - Links to: elevateconnectsdirectory.org
+   - Links to: elevateforhumanity.org
    - Simple, clean, works perfectly
 
 **Benefits:**
@@ -217,9 +217,9 @@ Result: Both domains point to same LMS
 
 - ✅ Leave DNS as is
 - ✅ Use for Durable marketing site
-- ✅ Add link to elevateconnectsdirectory.org
+- ✅ Add link to elevateforhumanity.org
 
-**For elevateconnectsdirectory.org:**
+**For elevateforhumanity.org:**
 
 - ✅ DNS already correct
 - ⏳ Wait for DNS propagation (10-15 min)
@@ -236,7 +236,7 @@ Result: Both domains point to same LMS
 3. Wait for DNS propagation
 4. Add domain in Netlify
 
-**For elevateconnectsdirectory.org:**
+**For elevateforhumanity.org:**
 
 - Already done ✅
 
@@ -271,7 +271,7 @@ elevateforhumanity.org:
 - CNAME: Broken (points to itself)
 - Status: Needs fixing if using for Netlify
 
-elevateconnectsdirectory.org:
+elevateforhumanity.org:
 - Points to: Netlify (75.2.60.5)
 - CNAME: Correct (elevateproduction.netlify.app)
 - Status: ✅ Ready to go
@@ -281,7 +281,7 @@ elevateconnectsdirectory.org:
 
 ```
 Keep elevateforhumanity.org for Durable marketing
-Use elevateconnectsdirectory.org for Netlify LMS
+Use elevateforhumanity.org for Netlify LMS
 Link them with a button
 Best of both worlds ✅
 ```
@@ -293,7 +293,7 @@ Best of both worlds ✅
 ### Option 1: Keep Separate (Recommended)
 
 - Leave elevateforhumanity.org pointing to Durable
-- Use elevateconnectsdirectory.org for LMS
+- Use elevateforhumanity.org for LMS
 - No changes needed to elevateforhumanity.org DNS
 
 ### Option 2: Point Both to Netlify
@@ -305,7 +305,7 @@ Best of both worlds ✅
 ### Option 3: Only Use elevateforhumanity.org
 
 - Fix elevateforhumanity.org DNS
-- Don't use elevateconnectsdirectory.org
+- Don't use elevateforhumanity.org
 - One domain for everything
 
 ---
@@ -314,7 +314,7 @@ Best of both worlds ✅
 
 **Which domain do you want to use for your LMS?**
 
-A) elevateconnectsdirectory.org (already configured ✅)
+A) elevateforhumanity.org (already configured ✅)
 B) elevateforhumanity.org (needs DNS fix)
 C) Both (point both to Netlify)
 D) Keep separate (Durable marketing + Netlify LMS)

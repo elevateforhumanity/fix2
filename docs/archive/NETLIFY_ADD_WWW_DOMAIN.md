@@ -1,10 +1,10 @@
-# Add www.elevateconnectsdirectory.org to Netlify
+# Add www.elevateforhumanity.org to Netlify
 
 ## Current Status
 
 **DNS Configuration:** ✅ CORRECT
 
-- www.elevateconnectsdirectory.org → CNAME → elevateproduction.netlify.app
+- www.elevateforhumanity.org → CNAME → elevateproduction.netlify.app
 
 **Netlify Configuration:** ❌ NOT ADDED
 
@@ -13,7 +13,7 @@
 
 ## What Needs to Be Done
 
-Add **www.elevateconnectsdirectory.org** as a custom domain in Netlify.
+Add **www.elevateforhumanity.org** as a custom domain in Netlify.
 
 ---
 
@@ -35,7 +35,7 @@ bash scripts/netlify-add-www-domain.sh
 
 This will:
 
-- Add www.elevateconnectsdirectory.org to Netlify
+- Add www.elevateforhumanity.org to Netlify
 - Trigger SSL certificate provisioning
 - Wait for SSL to be ready
 - Verify everything works
@@ -52,7 +52,7 @@ This will:
 
 1. Scroll to "Domain aliases" section
 2. Click **"Add domain alias"** button
-3. Type: `www.elevateconnectsdirectory.org`
+3. Type: `www.elevateforhumanity.org`
 4. Click **"Verify"**
 5. Click **"Add domain"**
 
@@ -65,7 +65,7 @@ This will:
 
 ### Step 4: Test
 
-1. Visit: https://www.elevateconnectsdirectory.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should load without SSL errors
 3. Clear browser cache if needed (Ctrl+Shift+R)
 
@@ -76,7 +76,7 @@ This will:
 ### Before Adding Domain:
 
 ```
-Browser → www.elevateconnectsdirectory.org
+Browser → www.elevateforhumanity.org
        → DNS: elevateproduction.netlify.app
        → Netlify: "I don't know this domain"
        → Serves: *.netlify.app certificate
@@ -86,10 +86,10 @@ Browser → www.elevateconnectsdirectory.org
 ### After Adding Domain:
 
 ```
-Browser → www.elevateconnectsdirectory.org
+Browser → www.elevateforhumanity.org
        → DNS: elevateproduction.netlify.app
        → Netlify: "I know this domain!"
-       → Serves: www.elevateconnectsdirectory.org certificate
+       → Serves: www.elevateforhumanity.org certificate
        → Browser: ✅ Secure connection
 ```
 
@@ -109,11 +109,11 @@ After adding the domain, verify:
 
 ```bash
 # Check SSL certificate
-curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
-# Should show: CN=www.elevateconnectsdirectory.org or CN=*.elevateconnectsdirectory.org
+curl -Ivk https://www.elevateforhumanity.org 2>&1 | grep "subject:"
+# Should show: CN=www.elevateforhumanity.org or CN=*.elevateforhumanity.org
 
 # Check site loads
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Should show: HTTP/2 200
 ```
 
@@ -135,7 +135,7 @@ curl -I https://www.elevateconnectsdirectory.org
 
 ### SSL not provisioning after 15 minutes
 
-- Check domain spelling: `www.elevateconnectsdirectory.org`
+- Check domain spelling: `www.elevateforhumanity.org`
 - Verify DNS still points to elevateproduction.netlify.app
 - Contact Netlify support: https://www.netlify.com/support/
 
@@ -144,7 +144,7 @@ curl -I https://www.elevateconnectsdirectory.org
 ## Important Notes
 
 1. **www vs non-www**: You're adding the www version
-2. **Apex domain**: elevateconnectsdirectory.org (without www) can be added separately if needed
+2. **Apex domain**: elevateforhumanity.org (without www) can be added separately if needed
 3. **Primary domain**: You can set www as primary in Netlify settings
 4. **Redirects**: Configure www → non-www or vice versa in Netlify settings
 
@@ -155,7 +155,7 @@ curl -I https://www.elevateconnectsdirectory.org
 Once you see "HTTPS: Secured ✓" in Netlify:
 
 1. **Clear browser cache**: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-2. **Visit**: https://www.elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateforhumanity.org
 3. **Verify**:
    - No SSL errors ✅
    - Site loads correctly ✅

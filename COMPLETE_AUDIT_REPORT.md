@@ -117,7 +117,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 #### NextAuth (Authentication)
 ```bash
 NEXTAUTH_SECRET=your-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 **Generate secret:**
 ```bash
@@ -264,7 +264,7 @@ partnership. Could you please provide:
 2. Brand guidelines for logo usage
 3. Any specific requirements for display
 
-Our website: https://elevateconnectsdirectory.org
+Our website: https://elevateforhumanity.org
 
 Thank you!
 

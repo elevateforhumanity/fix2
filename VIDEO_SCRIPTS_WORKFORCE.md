@@ -70,7 +70,7 @@
 **End screen:**
 
 - Logo: Elevate for Humanity
-- URL: www.elevateconnectsdirectory.org
+- URL: www.elevateforhumanity.org
 - Text: "Check Your Eligibility Today"
 
 ---
@@ -304,7 +304,7 @@
 
 - End screen with logo
 - Text: "Partner With Us"
-- URL: www.elevateconnectsdirectory.org/employers
+- URL: www.elevateforhumanity.org/employers
 
 **Voiceover:**
 
@@ -328,7 +328,7 @@
 - Logo: Elevate for Humanity
 - Tagline: "Innovate. Elevate. Reset."
 - Colors: Blue, purple, orange, teal
-- Always show: www.elevateconnectsdirectory.org
+- Always show: www.elevateforhumanity.org
 
 **Accessibility:**
 

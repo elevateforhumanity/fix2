@@ -56,7 +56,7 @@
 
 ```env
 # Site URL
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # Supabase (Get from https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api)
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -88,7 +88,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 **In Vercel Dashboard → Settings → Domains:**
 
 1. **Add Domain:**
-   - Enter: `www.elevateconnectsdirectory.org`
+   - Enter: `www.elevateforhumanity.org`
    - Click "Add"
 
 2. **Configure DNS:**
@@ -103,7 +103,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 3. **Wait for SSL:**
    - Vercel auto-provisions SSL certificate
    - Takes 1-5 minutes
-   - Site will be live at https://www.elevateconnectsdirectory.org
+   - Site will be live at https://www.elevateforhumanity.org
 
 ---
 
@@ -113,7 +113,7 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_pixel_id
 ┌─────────────────────────────────────────────────┐
 │  FRONTEND (Next.js 16)                          │
 │  - Deployed on Vercel                           │
-│  - www.elevateconnectsdirectory.org             │
+│  - www.elevateforhumanity.org             │
 │  - Static + Server-rendered pages               │
 └─────────────────┬───────────────────────────────┘
                   │

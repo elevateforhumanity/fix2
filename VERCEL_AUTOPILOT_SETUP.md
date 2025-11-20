@@ -162,7 +162,7 @@ You should see all 5 secrets:
 
 ### Open Your Site
 
-**Link**: [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
+**Link**: [https://elevateforhumanity.org](https://elevateforhumanity.org)
 
 ### Check These Pages:
 

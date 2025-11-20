@@ -189,7 +189,7 @@ Thank you again for reaching out — I'm looking forward to working together and
 Warm regards,
 Elizabeth Greene
 Founder, Elevate for Humanity
-elevateconnectsdirectory.org`);
+elevateforhumanity.org`);
   }
 
 

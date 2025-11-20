@@ -8,22 +8,22 @@
 
 ```
 Home
-https://www.elevateconnectsdirectory.org/
+https://www.elevateforhumanity.org/
 
 Programs
-https://www.elevateconnectsdirectory.org/programs
+https://www.elevateforhumanity.org/programs
 
 About
-https://www.elevateconnectsdirectory.org/about
+https://www.elevateforhumanity.org/about
 
 Partners
-https://www.elevateconnectsdirectory.org/partners
+https://www.elevateforhumanity.org/partners
 
 For Employers
-https://www.elevateconnectsdirectory.org/employers
+https://www.elevateforhumanity.org/employers
 
 Contact
-https://www.elevateconnectsdirectory.org/contact
+https://www.elevateforhumanity.org/contact
 ```
 
 ---
@@ -32,25 +32,25 @@ https://www.elevateconnectsdirectory.org/contact
 
 ```
 All Programs
-https://www.elevateconnectsdirectory.org/programs
+https://www.elevateforhumanity.org/programs
 
 Medical Assistant
-https://www.elevateconnectsdirectory.org/programs/medical-assistant
+https://www.elevateforhumanity.org/programs/medical-assistant
 
 HVAC Technician
-https://www.elevateconnectsdirectory.org/programs/hvac
+https://www.elevateforhumanity.org/programs/hvac
 
 Barber Apprenticeship
-https://www.elevateconnectsdirectory.org/programs/barber
+https://www.elevateforhumanity.org/programs/barber
 
 CDL Training
-https://www.elevateconnectsdirectory.org/programs/truck-driving
+https://www.elevateforhumanity.org/programs/truck-driving
 
 Building Tech
-https://www.elevateconnectsdirectory.org/programs/building-tech
+https://www.elevateforhumanity.org/programs/building-tech
 
 Workforce Readiness
-https://www.elevateconnectsdirectory.org/programs/workforce-readiness
+https://www.elevateforhumanity.org/programs/workforce-readiness
 ```
 
 ---
@@ -59,19 +59,19 @@ https://www.elevateconnectsdirectory.org/programs/workforce-readiness
 
 ```
 Join for Free / Apply Now
-https://www.elevateconnectsdirectory.org/apply
+https://www.elevateforhumanity.org/apply
 
 Enroll Now
-https://www.elevateconnectsdirectory.org/enroll
+https://www.elevateforhumanity.org/enroll
 
 Get Started
-https://www.elevateconnectsdirectory.org/apply
+https://www.elevateforhumanity.org/apply
 
 Talk to an Advisor
-https://www.elevateconnectsdirectory.org/contact
+https://www.elevateforhumanity.org/contact
 
 Request Info
-https://www.elevateconnectsdirectory.org/contact
+https://www.elevateforhumanity.org/contact
 ```
 
 ---
@@ -80,25 +80,25 @@ https://www.elevateconnectsdirectory.org/contact
 
 ```
 Student Login
-https://www.elevateconnectsdirectory.org/student/dashboard
+https://www.elevateforhumanity.org/student/dashboard
 
 Instructor Login
-https://www.elevateconnectsdirectory.org/instructor/dashboard
+https://www.elevateforhumanity.org/instructor/dashboard
 
 Admin Login
-https://www.elevateconnectsdirectory.org/admin/dashboard
+https://www.elevateforhumanity.org/admin/dashboard
 
 Program Holder Login
-https://www.elevateconnectsdirectory.org/program-holder/dashboard
+https://www.elevateforhumanity.org/program-holder/dashboard
 
 Employer Login
-https://www.elevateconnectsdirectory.org/employer/dashboard
+https://www.elevateforhumanity.org/employer/dashboard
 
 Sign Up
-https://www.elevateconnectsdirectory.org/signup
+https://www.elevateforhumanity.org/signup
 
 Log In
-https://www.elevateconnectsdirectory.org/login
+https://www.elevateforhumanity.org/login
 ```
 
 ---
@@ -107,22 +107,22 @@ https://www.elevateconnectsdirectory.org/login
 
 ```
 Financial Aid
-https://www.elevateconnectsdirectory.org/financial-aid
+https://www.elevateforhumanity.org/financial-aid
 
 Success Stories
-https://www.elevateconnectsdirectory.org/success-stories
+https://www.elevateforhumanity.org/success-stories
 
 FAQ
-https://www.elevateconnectsdirectory.org/faq
+https://www.elevateforhumanity.org/faq
 
 Blog
-https://www.elevateconnectsdirectory.org/blog
+https://www.elevateforhumanity.org/blog
 
 Careers
-https://www.elevateconnectsdirectory.org/careers
+https://www.elevateforhumanity.org/careers
 
 Pricing
-https://www.elevateconnectsdirectory.org/pricing
+https://www.elevateforhumanity.org/pricing
 ```
 
 ---
@@ -133,61 +133,61 @@ https://www.elevateconnectsdirectory.org/pricing
 
 ```
 About Us
-https://www.elevateconnectsdirectory.org/about
+https://www.elevateforhumanity.org/about
 
 What We Offer
-https://www.elevateconnectsdirectory.org/programs
+https://www.elevateforhumanity.org/programs
 
 Partners
-https://www.elevateconnectsdirectory.org/partners
+https://www.elevateforhumanity.org/partners
 
 Careers
-https://www.elevateconnectsdirectory.org/careers
+https://www.elevateforhumanity.org/careers
 ```
 
 ### Column 2: Community
 
 ```
 For Learners
-https://www.elevateconnectsdirectory.org/student/dashboard
+https://www.elevateforhumanity.org/student/dashboard
 
 For Employers
-https://www.elevateconnectsdirectory.org/employers
+https://www.elevateforhumanity.org/employers
 
 For Training Providers
-https://www.elevateconnectsdirectory.org/program-holder/dashboard
+https://www.elevateforhumanity.org/program-holder/dashboard
 
 Blog
-https://www.elevateconnectsdirectory.org/blog
+https://www.elevateforhumanity.org/blog
 ```
 
 ### Column 3: Support
 
 ```
 Contact
-https://www.elevateconnectsdirectory.org/contact
+https://www.elevateforhumanity.org/contact
 
 Help Center
-https://www.elevateconnectsdirectory.org/faq
+https://www.elevateforhumanity.org/faq
 
 Financial Aid
-https://www.elevateconnectsdirectory.org/financial-aid
+https://www.elevateforhumanity.org/financial-aid
 
 Success Stories
-https://www.elevateconnectsdirectory.org/success-stories
+https://www.elevateforhumanity.org/success-stories
 ```
 
 ### Column 4: Legal
 
 ```
 Privacy Policy
-https://www.elevateconnectsdirectory.org/privacy-policy
+https://www.elevateforhumanity.org/privacy-policy
 
 Terms of Service
-https://www.elevateconnectsdirectory.org/terms-of-service
+https://www.elevateforhumanity.org/terms-of-service
 
 Accessibility
-https://www.elevateconnectsdirectory.org/accessibility
+https://www.elevateforhumanity.org/accessibility
 ```
 
 ---
@@ -196,16 +196,16 @@ https://www.elevateconnectsdirectory.org/accessibility
 
 ```
 Workforce Enrollment
-https://www.elevateconnectsdirectory.org/enroll/workforce
+https://www.elevateforhumanity.org/enroll/workforce
 
 General Enrollment
-https://www.elevateconnectsdirectory.org/enroll
+https://www.elevateforhumanity.org/enroll
 
 Application Form
-https://www.elevateconnectsdirectory.org/apply
+https://www.elevateforhumanity.org/apply
 
 Certificate Verification
-https://www.elevateconnectsdirectory.org/verify
+https://www.elevateforhumanity.org/verify
 ```
 
 ---
@@ -317,20 +317,20 @@ Footer:
 ### Hero Section CTA:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/apply">Join for Free</a>
-<a href="https://www.elevateconnectsdirectory.org/programs">Explore Programs</a>
+<a href="https://www.elevateforhumanity.org/apply">Join for Free</a>
+<a href="https://www.elevateforhumanity.org/programs">Explore Programs</a>
 ```
 
 ### Program Cards:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/programs/medical-assistant"
+<a href="https://www.elevateforhumanity.org/programs/medical-assistant"
   >Learn More →</a
 >
-<a href="https://www.elevateconnectsdirectory.org/programs/hvac"
+<a href="https://www.elevateforhumanity.org/programs/hvac"
   >Learn More →</a
 >
-<a href="https://www.elevateconnectsdirectory.org/programs/barber"
+<a href="https://www.elevateforhumanity.org/programs/barber"
   >Learn More →</a
 >
 ```
@@ -338,10 +338,10 @@ Footer:
 ### Footer CTA:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/apply"
+<a href="https://www.elevateforhumanity.org/apply"
   >Start My Application</a
 >
-<a href="https://www.elevateconnectsdirectory.org/contact"
+<a href="https://www.elevateforhumanity.org/contact"
   >Talk to an Advisor</a
 >
 ```

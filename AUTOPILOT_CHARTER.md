@@ -10,7 +10,7 @@
 
 ## Primary Mission
 
-Keep **elevateconnectsdirectory.org** online and healthy by:
+Keep **elevateforhumanity.org** online and healthy by:
 
 1. **Owning environment variables** for:
    - Netlify → build + runtime
@@ -71,9 +71,9 @@ Keep **elevateconnectsdirectory.org** online and healthy by:
 | `NEXT_PUBLIC_SUPABASE_URL`      | `https://cuxzzpsyufcewtmicszk.supabase.co` | Hardcoded                   |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value from GitHub Secret                   | `SUPABASE_ANON_KEY`         |
 | `SUPABASE_SERVICE_ROLE_KEY`     | Value from GitHub Secret                   | `SUPABASE_SERVICE_ROLE_KEY` |
-| `NEXT_PUBLIC_APP_URL`           | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_SITE_URL`          | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_BASE_URL`          | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
+| `NEXT_PUBLIC_APP_URL`           | `https://elevateforhumanity.org`     | Hardcoded                   |
+| `NEXT_PUBLIC_SITE_URL`          | `https://elevateforhumanity.org`     | Hardcoded                   |
+| `NEXT_PUBLIC_BASE_URL`          | `https://elevateforhumanity.org`     | Hardcoded                   |
 | `NODE_ENV`                      | `production`                               | Hardcoded                   |
 
 **Behavior Per Variable**:
@@ -191,7 +191,7 @@ Keep **elevateconnectsdirectory.org** online and healthy by:
 - Clear, actionable error messages
 
 **Success Criteria**:
-After autopilot runs, **elevateconnectsdirectory.org** should:
+After autopilot runs, **elevateforhumanity.org** should:
 
 - Build successfully on Netlify
 - Load without Internal Server Error

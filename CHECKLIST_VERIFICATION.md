@@ -318,7 +318,7 @@
 
 ### 🚀 DEPLOYMENT STATUS
 
-**Site:** https://www.elevateconnectsdirectory.org
+**Site:** https://www.elevateforhumanity.org
 **Status:** ✅ LIVE
 **Build:** ✅ Successful
 **Pages:** 18 static pages generated

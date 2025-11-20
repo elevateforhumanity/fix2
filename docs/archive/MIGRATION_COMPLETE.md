@@ -125,7 +125,7 @@ export async function generateStaticParams() {
 
 ## 🚀 Deployment Status
 
-**Live Site:** https://www.elevateconnectsdirectory.org
+**Live Site:** https://www.elevateforhumanity.org
 **Status:** Deployed via Netlify
 **Build:** Successful
 

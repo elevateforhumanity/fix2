@@ -76,7 +76,7 @@ Ensure ALL 6 environment variables are present in ALL 3 environments (Production
 
 | Environment | Required | Value                                      | Status |
 | ----------- | -------- | ------------------------------------------ | ------ |
-| Production  | ✅ Yes   | `https://www.elevateconnectsdirectory.org` | [ ]    |
+| Production  | ✅ Yes   | `https://www.elevateforhumanity.org` | [ ]    |
 | Preview     | ✅ Yes   | Leave empty or use preview URL pattern     | [ ]    |
 | Development | ✅ Yes   | `http://localhost:3000`                    | [ ]    |
 

@@ -313,7 +313,7 @@ async function main() {
   log(`\n📊 Summary:`, 'cyan');
   log(`  • Kept project: ${toKeep.name}`, 'green');
   log(`  • Deleted projects: ${deletedCount}`, deletedCount > 0 ? 'green' : 'yellow');
-  log(`  • Production URL: https://www.elevateconnectsdirectory.org`, 'blue');
+  log(`  • Production URL: https://www.elevateforhumanity.org`, 'blue');
   
   log('\n🎯 Next Steps:', 'cyan');
   log('  1. Verify production site works', 'blue');

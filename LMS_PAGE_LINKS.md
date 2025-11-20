@@ -1,6 +1,6 @@
 # 🎓 LMS Platform - All Page Links
 
-**Base URL:** `https://www.elevateconnectsdirectory.org` (or your domain)
+**Base URL:** `https://www.elevateforhumanity.org` (or your domain)
 
 ---
 

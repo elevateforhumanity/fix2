@@ -4,7 +4,7 @@
 
 The autopilot worker will:
 
-1. ✅ Add `elevateconnectsdirectory.org` to Netlify automatically
+1. ✅ Add `elevateforhumanity.org` to Netlify automatically
 2. ✅ Provision SSL certificate
 3. ✅ Trigger cache-clearing rebuild
 4. ✅ Fix the SSL error completely
@@ -124,7 +124,7 @@ bash scripts/trigger-autopilot-worker.sh
 🤖 TRIGGERING AUTOPILOT WORKER
 ================================
 
-Target: elevateconnectsdirectory.org
+Target: elevateforhumanity.org
 Worker: https://autopilot-deploy.YOUR_SUBDOMAIN.workers.dev
 
 Sending request to autopilot worker...
@@ -138,7 +138,7 @@ Response:
         "status": "success",
         "result": {
           "status": "added",
-          "domain": "elevateconnectsdirectory.org",
+          "domain": "elevateforhumanity.org",
           "message": "Domain added successfully, SSL provisioning started"
         }
       },
@@ -152,7 +152,7 @@ Response:
       }
     ],
     "status": "complete",
-    "message": "Domain elevateconnectsdirectory.org configuration complete. SSL certificate will be ready in 2-10 minutes."
+    "message": "Domain elevateforhumanity.org configuration complete. SSL certificate will be ready in 2-10 minutes."
   }
 }
 
@@ -173,7 +173,7 @@ bash scripts/autopilot-check-ssl.sh
 **When SSL is ready, you'll see:**
 
 ```
-✅ Valid SSL for elevateconnectsdirectory.org
+✅ Valid SSL for elevateforhumanity.org
 ```
 
 ---
@@ -183,7 +183,7 @@ bash scripts/autopilot-check-ssl.sh
 Once SSL is ready:
 
 1. **Clear browser cache**: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-2. **Visit**: https://www.elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateforhumanity.org
 3. **Verify**:
    - ✅ No SSL errors
    - ✅ Site loads correctly
@@ -235,7 +235,7 @@ If the worker doesn't work, you can still add the domain manually:
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click "Add domain alias"
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Click "Add domain"
 5. Wait 2-10 minutes for SSL
 
@@ -273,7 +273,7 @@ curl -H "Authorization: Bearer YOUR_NETLIFY_TOKEN" \
 ### Check SSL certificate:
 
 ```bash
-curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -Ivk https://www.elevateforhumanity.org 2>&1 | grep "subject:"
 ```
 
 ---
@@ -300,7 +300,7 @@ curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
 
 - ✅ Domain added to Netlify
 - ✅ SSL certificate provisioned
-- ✅ Site accessible at https://www.elevateconnectsdirectory.org
+- ✅ Site accessible at https://www.elevateforhumanity.org
 - ✅ No more SSL errors!
 
 ---

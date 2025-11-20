@@ -2,7 +2,7 @@
 
 ## 🎉 What's Been Built
 
-### Complete AI-Powered Course System for www.elevateconnectsdirectory.org
+### Complete AI-Powered Course System for www.elevateforhumanity.org
 
 **Status:** ✅ Fully integrated and ready to deploy
 

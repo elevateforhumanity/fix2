@@ -4,33 +4,33 @@
 
 ### Homepage & Marketing
 
-- [Homepage](https://www.elevateconnectsdirectory.org)
-- [About Us](https://www.elevateconnectsdirectory.org/about)
-- [Programs Overview](https://www.elevateconnectsdirectory.org/programs)
-- [Compare Programs](https://www.elevateconnectsdirectory.org/compare)
-- [Pricing](https://www.elevateconnectsdirectory.org/pricing)
-- [Blog](https://www.elevateconnectsdirectory.org/blog)
-- [Contact](https://www.elevateconnectsdirectory.org/contact)
-- [Privacy Policy](https://www.elevateconnectsdirectory.org/privacy-policy)
+- [Homepage](https://www.elevateforhumanity.org)
+- [About Us](https://www.elevateforhumanity.org/about)
+- [Programs Overview](https://www.elevateforhumanity.org/programs)
+- [Compare Programs](https://www.elevateforhumanity.org/compare)
+- [Pricing](https://www.elevateforhumanity.org/pricing)
+- [Blog](https://www.elevateforhumanity.org/blog)
+- [Contact](https://www.elevateforhumanity.org/contact)
+- [Privacy Policy](https://www.elevateforhumanity.org/privacy-policy)
 
 ### Program Pages (✅ Production-Ready)
 
-- [HVAC Technician](https://www.elevateconnectsdirectory.org/programs/hvac) ✅ **NEW**
-- [Barber Apprenticeship](https://www.elevateconnectsdirectory.org/programs/barber) ✅ **NEW**
-- [CNA Certification](https://www.elevateconnectsdirectory.org/programs/cna) ✅ **NEW**
-- [Dynamic Program Page](https://www.elevateconnectsdirectory.org/programs/[slug]) (template)
+- [HVAC Technician](https://www.elevateforhumanity.org/programs/hvac) ✅ **NEW**
+- [Barber Apprenticeship](https://www.elevateforhumanity.org/programs/barber) ✅ **NEW**
+- [CNA Certification](https://www.elevateforhumanity.org/programs/cna) ✅ **NEW**
+- [Dynamic Program Page](https://www.elevateforhumanity.org/programs/[slug]) (template)
 
 ### Authentication
 
-- [Sign Up](https://www.elevateconnectsdirectory.org/signup)
-- [Login](https://www.elevateconnectsdirectory.org/login)
-- [Apply](https://www.elevateconnectsdirectory.org/apply)
-- [Enroll in Program](https://www.elevateconnectsdirectory.org/enroll/[program])
+- [Sign Up](https://www.elevateforhumanity.org/signup)
+- [Login](https://www.elevateforhumanity.org/login)
+- [Apply](https://www.elevateforhumanity.org/apply)
+- [Enroll in Program](https://www.elevateforhumanity.org/enroll/[program])
 
 ### Certificate Verification (Public)
 
-- [Verify Certificate by Code](https://www.elevateconnectsdirectory.org/cert/verify/[code])
-- [Verify Certificate by Serial](https://www.elevateconnectsdirectory.org/cert/verify/[serial])
+- [Verify Certificate by Code](https://www.elevateforhumanity.org/cert/verify/[code])
+- [Verify Certificate by Serial](https://www.elevateforhumanity.org/cert/verify/[serial])
 
 ---
 
@@ -38,39 +38,39 @@
 
 ### Dashboard & Overview
 
-- [LMS Dashboard](https://www.elevateconnectsdirectory.org/lms/dashboard)
-- [My Profile](https://www.elevateconnectsdirectory.org/lms/profile)
-- [My Progress](https://www.elevateconnectsdirectory.org/lms/progress)
-- [My Certificates](https://www.elevateconnectsdirectory.org/lms/certificates)
-- [My Grades](https://www.elevateconnectsdirectory.org/lms/grades)
+- [LMS Dashboard](https://www.elevateforhumanity.org/lms/dashboard)
+- [My Profile](https://www.elevateforhumanity.org/lms/profile)
+- [My Progress](https://www.elevateforhumanity.org/lms/progress)
+- [My Certificates](https://www.elevateforhumanity.org/lms/certificates)
+- [My Grades](https://www.elevateforhumanity.org/lms/grades)
 
 ### Courses & Learning
 
-- [Browse Courses](https://www.elevateconnectsdirectory.org/lms/courses)
-- [Course Details](https://www.elevateconnectsdirectory.org/lms/courses/[id])
-- [Lesson Viewer](https://www.elevateconnectsdirectory.org/lms/courses/[id]/lessons/[lessonId])
-- [Learning Paths](https://www.elevateconnectsdirectory.org/lms/learning-paths)
+- [Browse Courses](https://www.elevateforhumanity.org/lms/courses)
+- [Course Details](https://www.elevateforhumanity.org/lms/courses/[id])
+- [Lesson Viewer](https://www.elevateforhumanity.org/lms/courses/[id]/lessons/[lessonId])
+- [Learning Paths](https://www.elevateforhumanity.org/lms/learning-paths)
 
 ### Assessments
 
-- [Assignments](https://www.elevateconnectsdirectory.org/lms/assignments)
-- [Assignment Details](https://www.elevateconnectsdirectory.org/lms/assignments/[id])
-- [Quizzes](https://www.elevateconnectsdirectory.org/lms/quizzes/[quizId])
-- [Quiz Taking](https://www.elevateconnectsdirectory.org/lms/quiz/[id])
-- [Quiz Results](https://www.elevateconnectsdirectory.org/lms/quizzes/[quizId]/results/[attemptId])
+- [Assignments](https://www.elevateforhumanity.org/lms/assignments)
+- [Assignment Details](https://www.elevateforhumanity.org/lms/assignments/[id])
+- [Quizzes](https://www.elevateforhumanity.org/lms/quizzes/[quizId])
+- [Quiz Taking](https://www.elevateforhumanity.org/lms/quiz/[id])
+- [Quiz Results](https://www.elevateforhumanity.org/lms/quizzes/[quizId]/results/[attemptId])
 
 ### Engagement
 
-- [Messages](https://www.elevateconnectsdirectory.org/lms/messages)
-- [Notifications](https://www.elevateconnectsdirectory.org/lms/notifications)
-- [Calendar](https://www.elevateconnectsdirectory.org/lms/calendar)
-- [Resources](https://www.elevateconnectsdirectory.org/lms/resources)
-- [Attendance](https://www.elevateconnectsdirectory.org/lms/attendance)
+- [Messages](https://www.elevateforhumanity.org/lms/messages)
+- [Notifications](https://www.elevateforhumanity.org/lms/notifications)
+- [Calendar](https://www.elevateforhumanity.org/lms/calendar)
+- [Resources](https://www.elevateforhumanity.org/lms/resources)
+- [Attendance](https://www.elevateforhumanity.org/lms/attendance)
 
 ### Enrollment
 
-- [Enroll in Courses](https://www.elevateconnectsdirectory.org/lms/enroll)
-- [Workforce Enrollment](https://www.elevateconnectsdirectory.org/lms/enroll-workforce)
+- [Enroll in Courses](https://www.elevateforhumanity.org/lms/enroll)
+- [Workforce Enrollment](https://www.elevateforhumanity.org/lms/enroll-workforce)
 
 ---
 
@@ -78,36 +78,36 @@
 
 ### Dashboard & Overview
 
-- [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard)
-- [Applications](https://www.elevateconnectsdirectory.org/admin/applications)
+- [Admin Dashboard](https://www.elevateforhumanity.org/admin/dashboard)
+- [Applications](https://www.elevateforhumanity.org/admin/applications)
 
 ### User Management
 
-- [Learner Details](https://www.elevateconnectsdirectory.org/admin/learner/[id])
-- [Delegates](https://www.elevateconnectsdirectory.org/admin/delegates)
+- [Learner Details](https://www.elevateforhumanity.org/admin/learner/[id])
+- [Delegates](https://www.elevateforhumanity.org/admin/delegates)
 
 ### Course Management
 
-- [Course Content Editor](https://www.elevateconnectsdirectory.org/admin/courses/[id]/content)
-- [Course Quizzes](https://www.elevateconnectsdirectory.org/admin/courses/[id]/quizzes)
-- [Quiz Questions](https://www.elevateconnectsdirectory.org/admin/courses/[id]/quizzes/[quizId]/questions)
+- [Course Content Editor](https://www.elevateforhumanity.org/admin/courses/[id]/content)
+- [Course Quizzes](https://www.elevateforhumanity.org/admin/courses/[id]/quizzes)
+- [Quiz Questions](https://www.elevateforhumanity.org/admin/courses/[id]/quizzes/[quizId]/questions)
 
 ### Certificates
 
-- [Certificates Overview](https://www.elevateconnectsdirectory.org/admin/certificates)
-- [Issue Certificate](https://www.elevateconnectsdirectory.org/admin/certificates/issue)
-- [Bulk Certifications](https://www.elevateconnectsdirectory.org/admin/certifications/bulk)
+- [Certificates Overview](https://www.elevateforhumanity.org/admin/certificates)
+- [Issue Certificate](https://www.elevateforhumanity.org/admin/certificates/issue)
+- [Bulk Certifications](https://www.elevateforhumanity.org/admin/certifications/bulk)
 
 ### Program Holders
 
-- [Program Holders List](https://www.elevateconnectsdirectory.org/admin/program-holders)
-- [Countersign MOU](https://www.elevateconnectsdirectory.org/admin/program-holders/[id]/countersign-mou)
+- [Program Holders List](https://www.elevateforhumanity.org/admin/program-holders)
+- [Countersign MOU](https://www.elevateforhumanity.org/admin/program-holders/[id]/countersign-mou)
 
 ### Programs & Reports
 
-- [Program Dashboard](https://www.elevateconnectsdirectory.org/admin/programs/[code]/dashboard)
-- [Reports Overview](https://www.elevateconnectsdirectory.org/admin/reports)
-- [Caseload Report](https://www.elevateconnectsdirectory.org/admin/reports/caseload)
+- [Program Dashboard](https://www.elevateforhumanity.org/admin/programs/[code]/dashboard)
+- [Reports Overview](https://www.elevateforhumanity.org/admin/reports)
+- [Caseload Report](https://www.elevateforhumanity.org/admin/reports/caseload)
 
 ---
 
@@ -115,13 +115,13 @@
 
 ### Dashboard & Management
 
-- [Program Holder Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard)
-- [Apply as Program Holder](https://www.elevateconnectsdirectory.org/program-holder/apply)
+- [Program Holder Dashboard](https://www.elevateforhumanity.org/program-holder/dashboard)
+- [Apply as Program Holder](https://www.elevateforhumanity.org/program-holder/apply)
 
 ### MOU Management
 
-- [MOU Overview](https://www.elevateconnectsdirectory.org/program-holder/mou)
-- [Sign MOU](https://www.elevateconnectsdirectory.org/program-holder/sign-mou)
+- [MOU Overview](https://www.elevateforhumanity.org/program-holder/mou)
+- [Sign MOU](https://www.elevateforhumanity.org/program-holder/sign-mou)
 
 ---
 
@@ -129,16 +129,16 @@
 
 ### Dashboard & Reports
 
-- [Delegate Dashboard](https://www.elevateconnectsdirectory.org/delegate/dashboard)
-- [Reports](https://www.elevateconnectsdirectory.org/delegate/reports)
-- [Export Reports](https://www.elevateconnectsdirectory.org/delegate/reports/export)
+- [Delegate Dashboard](https://www.elevateforhumanity.org/delegate/dashboard)
+- [Reports](https://www.elevateforhumanity.org/delegate/reports)
+- [Export Reports](https://www.elevateforhumanity.org/delegate/reports/export)
 
 ---
 
 ## 🔒 UTILITY PAGES
 
-- [Unauthorized Access](https://www.elevateconnectsdirectory.org/unauthorized)
-- [Demo](https://www.elevateconnectsdirectory.org/demo)
+- [Unauthorized Access](https://www.elevateforhumanity.org/unauthorized)
+- [Demo](https://www.elevateforhumanity.org/demo)
 
 ---
 
@@ -266,27 +266,27 @@
 
 ### Student Journey
 
-1. [Homepage](https://www.elevateconnectsdirectory.org) → Browse programs
-2. [HVAC Program](https://www.elevateconnectsdirectory.org/programs/hvac) → Learn details
-3. [Apply](https://www.elevateconnectsdirectory.org/apply) → Submit application
-4. [Sign Up](https://www.elevateconnectsdirectory.org/signup) → Create account
-5. [LMS Dashboard](https://www.elevateconnectsdirectory.org/lms/dashboard) → Access courses
-6. [Course](https://www.elevateconnectsdirectory.org/lms/courses/[id]) → Start learning
-7. [Certificates](https://www.elevateconnectsdirectory.org/lms/certificates) → Download credential
+1. [Homepage](https://www.elevateforhumanity.org) → Browse programs
+2. [HVAC Program](https://www.elevateforhumanity.org/programs/hvac) → Learn details
+3. [Apply](https://www.elevateforhumanity.org/apply) → Submit application
+4. [Sign Up](https://www.elevateforhumanity.org/signup) → Create account
+5. [LMS Dashboard](https://www.elevateforhumanity.org/lms/dashboard) → Access courses
+6. [Course](https://www.elevateforhumanity.org/lms/courses/[id]) → Start learning
+7. [Certificates](https://www.elevateforhumanity.org/lms/certificates) → Download credential
 
 ### Partner Journey
 
-1. [Homepage](https://www.elevateconnectsdirectory.org) → Learn about partnership
-2. [Program Holder Apply](https://www.elevateconnectsdirectory.org/program-holder/apply) → Submit application
-3. [Sign MOU](https://www.elevateconnectsdirectory.org/program-holder/sign-mou) → Sign agreement
-4. [Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard) → Manage referrals
+1. [Homepage](https://www.elevateforhumanity.org) → Learn about partnership
+2. [Program Holder Apply](https://www.elevateforhumanity.org/program-holder/apply) → Submit application
+3. [Sign MOU](https://www.elevateforhumanity.org/program-holder/sign-mou) → Sign agreement
+4. [Dashboard](https://www.elevateforhumanity.org/program-holder/dashboard) → Manage referrals
 
 ### Admin Journey
 
-1. [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard) → Overview
-2. [Applications](https://www.elevateconnectsdirectory.org/admin/applications) → Review applications
-3. [Issue Certificate](https://www.elevateconnectsdirectory.org/admin/certificates/issue) → Award credentials
-4. [Reports](https://www.elevateconnectsdirectory.org/admin/reports) → View analytics
+1. [Admin Dashboard](https://www.elevateforhumanity.org/admin/dashboard) → Overview
+2. [Applications](https://www.elevateforhumanity.org/admin/applications) → Review applications
+3. [Issue Certificate](https://www.elevateforhumanity.org/admin/certificates/issue) → Award credentials
+4. [Reports](https://www.elevateforhumanity.org/admin/reports) → View analytics
 
 ---
 
@@ -294,28 +294,28 @@
 
 ### For Students
 
-- 🏠 [Start Here](https://www.elevateconnectsdirectory.org)
-- 📚 [Browse Programs](https://www.elevateconnectsdirectory.org/programs)
-- 📝 [Apply Now](https://www.elevateconnectsdirectory.org/apply)
-- 🎓 [Student Portal](https://www.elevateconnectsdirectory.org/lms/dashboard)
+- 🏠 [Start Here](https://www.elevateforhumanity.org)
+- 📚 [Browse Programs](https://www.elevateforhumanity.org/programs)
+- 📝 [Apply Now](https://www.elevateforhumanity.org/apply)
+- 🎓 [Student Portal](https://www.elevateforhumanity.org/lms/dashboard)
 
 ### For Partners
 
-- 🤝 [Become a Partner](https://www.elevateconnectsdirectory.org/program-holder/apply)
-- 📊 [Partner Dashboard](https://www.elevateconnectsdirectory.org/program-holder/dashboard)
-- 👥 [Delegate Portal](https://www.elevateconnectsdirectory.org/delegate/dashboard)
+- 🤝 [Become a Partner](https://www.elevateforhumanity.org/program-holder/apply)
+- 📊 [Partner Dashboard](https://www.elevateforhumanity.org/program-holder/dashboard)
+- 👥 [Delegate Portal](https://www.elevateforhumanity.org/delegate/dashboard)
 
 ### For Admins
 
-- 🔧 [Admin Dashboard](https://www.elevateconnectsdirectory.org/admin/dashboard)
-- 📜 [Issue Certificates](https://www.elevateconnectsdirectory.org/admin/certificates/issue)
-- 📈 [View Reports](https://www.elevateconnectsdirectory.org/admin/reports)
+- 🔧 [Admin Dashboard](https://www.elevateforhumanity.org/admin/dashboard)
+- 📜 [Issue Certificates](https://www.elevateforhumanity.org/admin/certificates/issue)
+- 📈 [View Reports](https://www.elevateforhumanity.org/admin/reports)
 
 ### For Public
 
-- ✅ [Verify Certificate](https://www.elevateconnectsdirectory.org/cert/verify/[serial])
-- 📞 [Contact Us](https://www.elevateconnectsdirectory.org/contact)
-- ℹ️ [About](https://www.elevateconnectsdirectory.org/about)
+- ✅ [Verify Certificate](https://www.elevateforhumanity.org/cert/verify/[serial])
+- 📞 [Contact Us](https://www.elevateforhumanity.org/contact)
+- ℹ️ [About](https://www.elevateforhumanity.org/about)
 
 ---
 
@@ -332,7 +332,7 @@ All pages are responsive and work on:
 
 ## 🚀 DEPLOYMENT
 
-**Live Site**: [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+**Live Site**: [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 **Platform**: Netlify
 **Status**: ✅ Production Ready

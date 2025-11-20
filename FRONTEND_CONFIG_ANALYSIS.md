@@ -99,7 +99,7 @@ VITE_SENTRY_DSN=your-sentry-dsn
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-key
-NEXT_PUBLIC_API_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_API_URL=https://www.elevateforhumanity.org
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-P6LRX0JW5N
 ```
 

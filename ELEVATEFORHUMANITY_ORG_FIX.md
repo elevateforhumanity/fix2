@@ -2,7 +2,7 @@
 
 ## ✅ WHAT'S WORKING
 
-**www.elevateconnectsdirectory.org** (LMS Platform - this repository)
+**www.elevateforhumanity.org** (LMS Platform - this repository)
 - Status: ✅ FULLY WORKING
 - Hosted on: Netlify
 - SSL: ✅ Valid certificate
@@ -25,7 +25,7 @@ The domain **www.elevateforhumanity.org** is pointing to Cloudflare's IP address
 2. OR the SSL certificate is not provisioned
 3. OR the domain is not added to the hosting platform behind Cloudflare
 
-**This is NOT related to the code I just deployed.** The code deployment was for elevateconnectsdirectory.org (the LMS), which is working fine.
+**This is NOT related to the code I just deployed.** The code deployment was for elevateforhumanity.org (the LMS), which is working fine.
 
 ## 🔧 HOW TO FIX
 
@@ -74,7 +74,7 @@ www.elevateforhumanity.org
 ├─ SSL: ❌ Handshake failure
 └─ Status: ❌ NOT ACCESSIBLE
 
-www.elevateconnectsdirectory.org
+www.elevateforhumanity.org
 ├─ DNS: Points to Netlify (elevateproduction.netlify.app)
 ├─ SSL: ✅ Valid certificate
 └─ Status: ✅ WORKING
@@ -105,7 +105,7 @@ You need to:
 
 The deployment was for:
 - Repository: elevateforhumanity/fix2
-- Domain: www.elevateconnectsdirectory.org
+- Domain: www.elevateforhumanity.org
 - Status: ✅ WORKING
 
 The issue with www.elevateforhumanity.org is a **separate hosting/DNS configuration problem** that existed before the deployment.
@@ -118,7 +118,7 @@ The commit I just pushed (d5445591) includes:
 - Deployment automation tools
 - Documentation updates
 
-All deployed to: **www.elevateconnectsdirectory.org** (working fine)
+All deployed to: **www.elevateforhumanity.org** (working fine)
 
 NOT deployed to: **www.elevateforhumanity.org** (different site, different hosting)
 
@@ -145,7 +145,7 @@ Test the sites:
 
 ```bash
 # LMS (working)
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Should return: HTTP/2 200
 
 # Marketing site (not working)

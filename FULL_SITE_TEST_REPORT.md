@@ -1,6 +1,6 @@
 # Full Site Test Report
 **Date:** 2025-11-19  
-**Domain:** www.elevateconnectsdirectory.org  
+**Domain:** www.elevateforhumanity.org  
 **Target:** www.elevateforhumanity.org
 
 ---

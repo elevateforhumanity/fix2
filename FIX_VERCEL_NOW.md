@@ -57,7 +57,7 @@ Click "Save"
 
 ```
 Name: NEXT_PUBLIC_APP_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://elevateforhumanity.org
 Environment: Production, Preview, Development (check all 3)
 ```
 
@@ -67,7 +67,7 @@ Click "Save"
 
 ```
 Name: NEXT_PUBLIC_SITE_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://elevateforhumanity.org
 Environment: Production, Preview, Development (check all 3)
 ```
 
@@ -77,7 +77,7 @@ Click "Save"
 
 ```
 Name: NEXT_PUBLIC_BASE_URL
-Value: https://elevateconnectsdirectory.org
+Value: https://elevateforhumanity.org
 Environment: Production, Preview, Development (check all 3)
 ```
 
@@ -117,7 +117,7 @@ After redeployment:
 
 - ✅ Build should succeed
 - ✅ No "supabaseUrl is required" error
-- ✅ Site loads at [https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)
+- ✅ Site loads at [https://elevateforhumanity.org](https://elevateforhumanity.org)
 
 ---
 

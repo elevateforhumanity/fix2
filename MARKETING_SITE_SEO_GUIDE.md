@@ -16,7 +16,7 @@ This guide covers setting up SEO, sitemaps, and search engine optimization for y
 - **Purpose**: Public-facing marketing, lead generation
 - **Content**: Program information, about, contact, enrollment links
 
-**LMS Site**: elevateconnectsdirectory.org
+**LMS Site**: elevateforhumanity.org
 
 - **Hosted on**: Netlify (this repository)
 - **Purpose**: Student portal, courses, learning management
@@ -465,11 +465,11 @@ On your marketing site, add clear calls-to-action:
 **Homepage**:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/signup" class="btn-primary">
+<a href="https://www.elevateforhumanity.org/signup" class="btn-primary">
   Enroll Now
 </a>
 
-<a href="https://www.elevateconnectsdirectory.org/login" class="btn-secondary">
+<a href="https://www.elevateforhumanity.org/login" class="btn-secondary">
   Student Login
 </a>
 ```
@@ -477,7 +477,7 @@ On your marketing site, add clear calls-to-action:
 **Programs Page**:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/programs/workforce-readiness">
+<a href="https://www.elevateforhumanity.org/programs/workforce-readiness">
   View Course Details
 </a>
 ```
@@ -489,7 +489,7 @@ On your marketing site, add clear calls-to-action:
 - About
 - Programs
 - Contact
-- Student Portal → https://www.elevateconnectsdirectory.org/login
+- Student Portal → https://www.elevateforhumanity.org/login
 ```
 
 ---

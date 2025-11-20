@@ -174,9 +174,9 @@ async function main() {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNjEwNDcsImV4cCI6MjA3MzczNzA0N30.DyFtzoKha_tuhKiSIPoQlKonIpaoSYrlhzntCUvLUnA',
       SUPABASE_SERVICE_ROLE_KEY:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE',
-      NEXT_PUBLIC_APP_URL: 'https://elevateconnectsdirectory.org',
-      NEXT_PUBLIC_SITE_URL: 'https://elevateconnectsdirectory.org',
-      NEXT_PUBLIC_BASE_URL: 'https://elevateconnectsdirectory.org',
+      NEXT_PUBLIC_APP_URL: 'https://elevateforhumanity.org',
+      NEXT_PUBLIC_SITE_URL: 'https://elevateforhumanity.org',
+      NEXT_PUBLIC_BASE_URL: 'https://elevateforhumanity.org',
       NODE_ENV: 'production',
     };
 
@@ -279,7 +279,7 @@ async function main() {
     console.log('');
     console.log('🔗 Next Steps:');
     console.log('   1. Wait 2-3 minutes for Vercel to deploy');
-    console.log('   2. Visit: https://elevateconnectsdirectory.org');
+    console.log('   2. Visit: https://elevateforhumanity.org');
     console.log('   3. Check: https://vercel.com/dashboard');
     console.log('');
     console.log('📝 GitHub Secrets (optional - for autopilot workflows):');

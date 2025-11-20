@@ -1,7 +1,7 @@
 # Site Audit: Current Deployment vs Latest Code
 
 **Date:** 2025-11-15  
-**Current Site:** www.elevateconnectsdirectory.org  
+**Current Site:** www.elevateforhumanity.org  
 **Status:** OLD VERSION DEPLOYED - New changes NOT live
 
 ---
@@ -414,7 +414,7 @@ After redeploying, verify:
 ### Current Deployment Info:
 
 **Platform:** Netlify or Vercel (check deployment)
-**Domain:** www.elevateconnectsdirectory.org
+**Domain:** www.elevateforhumanity.org
 **SSL:** ✅ Valid
 **CDN:** ✅ Active
 **Build:** OLD (needs update)

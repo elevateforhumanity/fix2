@@ -42,7 +42,7 @@ Resend is the email service provider for the LMS platform, handling:
 
 ### Why Verify Domain?
 
-- Send from `noreply@elevateconnectsdirectory.org` instead of `onboarding@resend.dev`
+- Send from `noreply@elevateforhumanity.org` instead of `onboarding@resend.dev`
 - Better deliverability and trust
 - Professional appearance
 - Required for production use
@@ -51,7 +51,7 @@ Resend is the email service provider for the LMS platform, handling:
 
 1. In Resend Dashboard, go to **Domains**
 2. Click **Add Domain**
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Resend will provide DNS records to add:
 
 ```
@@ -86,9 +86,9 @@ Value: resend._domainkey.resend.com
 
 If you want to keep main domain separate:
 
-- Use `mail.elevateconnectsdirectory.org` or `email.elevateconnectsdirectory.org`
+- Use `mail.elevateforhumanity.org` or `email.elevateforhumanity.org`
 - Follow same verification steps
-- Send from `noreply@mail.elevateconnectsdirectory.org`
+- Send from `noreply@mail.elevateforhumanity.org`
 
 ## Step 4: Configure Environment Variables
 
@@ -96,7 +96,7 @@ If you want to keep main domain separate:
 
 ```bash
 RESEND_API_KEY=re_your_api_key_here
-RESEND_FROM_EMAIL=noreply@elevateconnectsdirectory.org
+RESEND_FROM_EMAIL=noreply@elevateforhumanity.org
 RESEND_FROM_NAME=Elevate for Humanity
 ```
 
@@ -113,7 +113,7 @@ RESEND_API_KEY=re_your_api_key_here
 1. Go to Netlify Dashboard → Site settings → Environment variables
 2. Add:
    - `RESEND_API_KEY` = your API key
-   - `RESEND_FROM_EMAIL` = noreply@elevateconnectsdirectory.org
+   - `RESEND_FROM_EMAIL` = noreply@elevateforhumanity.org
    - `RESEND_FROM_NAME` = Elevate for Humanity
 3. Deploy to apply changes
 
@@ -163,7 +163,7 @@ export default function WelcomeEmail({
       <Body style={main}>
         <Container style={container}>
           <Img
-            src="https://www.elevateconnectsdirectory.org/logo.png"
+            src="https://www.elevateforhumanity.org/logo.png"
             width="150"
             height="50"
             alt="Elevate for Humanity"
@@ -258,7 +258,7 @@ import PasswordResetEmail from './emails/password-reset';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || 'noreply@elevateconnectsdirectory.org';
+  process.env.RESEND_FROM_EMAIL || 'noreply@elevateforhumanity.org';
 const FROM_NAME = process.env.RESEND_FROM_NAME || 'Elevate for Humanity';
 
 export async function sendWelcomeEmail(to: string, userName: string) {
@@ -606,7 +606,7 @@ async function sendEmailWithRetry(emailFn: () => Promise<any>, maxRetries = 3) {
 
 1. Go to Resend Dashboard → **Webhooks**
 2. Click **Add Webhook**
-3. URL: `https://www.elevateconnectsdirectory.org/api/webhooks/resend`
+3. URL: `https://www.elevateforhumanity.org/api/webhooks/resend`
 4. Events:
    - `email.sent`
    - `email.delivered`

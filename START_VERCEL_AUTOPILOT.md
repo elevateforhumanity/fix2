@@ -123,7 +123,7 @@ Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1
 
 ## ✅ Done! Visit Your Site
 
-**[https://elevateconnectsdirectory.org](https://elevateconnectsdirectory.org)**
+**[https://elevateforhumanity.org](https://elevateforhumanity.org)**
 
 Should now show:
 

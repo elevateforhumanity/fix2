@@ -44,7 +44,7 @@ This guide covers setting up comprehensive analytics, SEO, and search engine opt
 ### Step 2: Set Up Data Stream
 
 1. Choose platform: **Web**
-2. Website URL: `https://www.elevateconnectsdirectory.org`
+2. Website URL: `https://www.elevateforhumanity.org`
 3. Stream name: `Elevate LMS Production`
 4. Click **Create stream**
 5. Copy the **Measurement ID** (format: `G-XXXXXXXXXX`)
@@ -241,7 +241,7 @@ function EnrollButton({ courseId, courseName }: { courseId: string; courseName: 
 1. Go to https://www.bing.com/webmasters
 2. Sign in with Microsoft account
 3. Click **Add a site**
-4. Enter URL: `https://www.elevateconnectsdirectory.org`
+4. Enter URL: `https://www.elevateforhumanity.org`
 5. Choose verification method
 
 ### Step 2: Verify Site Ownership
@@ -283,7 +283,7 @@ function EnrollButton({ courseId, courseName }: { courseId: string; courseName: 
 ### Step 3: Submit Sitemap
 
 1. In Bing Webmaster Tools, go to **Sitemaps**
-2. Submit: `https://www.elevateconnectsdirectory.org/sitemap.xml`
+2. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
 3. Bing will crawl and index your site
 
 ### Step 4: Configure Bing Settings
@@ -301,7 +301,7 @@ function EnrollButton({ courseId, courseName }: { courseId: string; courseName: 
 
 1. Go to https://search.google.com/search-console
 2. Click **Add property**
-3. Choose **URL prefix**: `https://www.elevateconnectsdirectory.org`
+3. Choose **URL prefix**: `https://www.elevateforhumanity.org`
 4. Verify ownership (similar to Bing)
 
 ### Step 2: Submit Sitemap
@@ -330,7 +330,7 @@ import { MetadataRoute } from 'next';
 import { createBuildTimeSupabaseClient } from '@/lib/auth';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.elevateconnectsdirectory.org';
+  const baseUrl = 'https://www.elevateforhumanity.org';
   const supabase = createBuildTimeSupabaseClient();
 
   // Static pages
@@ -418,7 +418,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://www.elevateconnectsdirectory.org/sitemap.xml',
+    sitemap: 'https://www.elevateforhumanity.org/sitemap.xml',
   };
 }
 ```
@@ -439,8 +439,8 @@ export default function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'Elevate for Humanity',
-    url: 'https://www.elevateconnectsdirectory.org',
-    logo: 'https://www.elevateconnectsdirectory.org/assets/logo-efh.svg',
+    url: 'https://www.elevateforhumanity.org',
+    logo: 'https://www.elevateforhumanity.org/assets/logo-efh.svg',
     description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
     address: {
       '@type': 'PostalAddress',
@@ -451,7 +451,7 @@ export default function StructuredData() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'info@elevateconnectsdirectory.org',
+      email: 'info@elevateforhumanity.org',
     },
     sameAs: [
       'https://www.facebook.com/elevateforhumanity',
@@ -482,7 +482,7 @@ const courseSchema = {
   provider: {
     '@type': 'Organization',
     name: 'Elevate for Humanity',
-    url: 'https://www.elevateconnectsdirectory.org',
+    url: 'https://www.elevateforhumanity.org',
   },
   offers: {
     '@type': 'Offer',
@@ -605,7 +605,7 @@ Monitor these metrics:
    - Category: Educational Institution
    - Address: Your physical location
    - Phone: Contact number
-   - Website: https://www.elevateconnectsdirectory.org
+   - Website: https://www.elevateforhumanity.org
 3. Verify ownership
 4. Add photos, hours, services
 
@@ -644,11 +644,11 @@ Monitor these metrics:
 openGraph: {
   title: 'Elevate for Humanity',
   description: 'Career & Technical training that elevates communities',
-  url: 'https://www.elevateconnectsdirectory.org',
+  url: 'https://www.elevateforhumanity.org',
   siteName: 'Elevate for Humanity',
   images: [
     {
-      url: 'https://www.elevateconnectsdirectory.org/og-image.jpg',
+      url: 'https://www.elevateforhumanity.org/og-image.jpg',
       width: 1200,
       height: 630,
       alt: 'Elevate for Humanity',
@@ -666,7 +666,7 @@ twitter: {
   card: 'summary_large_image',
   title: 'Elevate for Humanity',
   description: 'Career & Technical training that elevates communities',
-  images: ['https://www.elevateconnectsdirectory.org/twitter-image.jpg'],
+  images: ['https://www.elevateforhumanity.org/twitter-image.jpg'],
   creator: '@elevate4humanity',
 }
 ```

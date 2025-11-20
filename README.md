@@ -10,7 +10,7 @@ Instead of a one-sided "course website," Elevate brings together:
 - A **Delegate/Case Manager portal** for workforce agencies
 - **Public verification & enrollment** pages
 
-**Live at:** [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+**Live at:** [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ---
 
@@ -63,7 +63,7 @@ This turns Elevate into a **lightweight case management layer** on top of the LM
 
 ## 🌍 Public Pages
 
-- **Homepage:** [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+- **Homepage:** [elevateforhumanity.org](https://www.elevateforhumanity.org)
 - **Privacy Policy:** `/privacy-policy`
 - **Public Enrollment:** `/enroll/:program`
 - **Certificate Verification:** `/cert/verify/:code`
@@ -279,7 +279,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx
 RESEND_API_KEY=re_xxxxx
 EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
 MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
-NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
 STRIPE_SECRET_KEY=sk_live_xxx
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -351,7 +351,7 @@ This is a private repository for Elevate for Humanity's workforce training platf
 For questions or partnership inquiries:
 
 - **Email:** elevateforhumanity@gmail.com
-- **Website:** [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+- **Website:** [elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ---
 

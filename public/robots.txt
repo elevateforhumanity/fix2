@@ -1,45 +1,28 @@
-# Robots.txt for https://elevateforhumanity.org
-# Anti-scraping protection enabled
+# Robots.txt for Elevate for Humanity
+# Updated: 2025-11-20
 
-# Allow legitimate search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /lms/messages
+Disallow: /lms/profile
+Disallow: /student/
+Disallow: /partner/
+Disallow: /delegate/
+
+# Sitemaps
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+# Bing
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Allow social media bots
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Block all other bots and scrapers
-User-agent: *
-Disallow: /api/
-Disallow: /student/
-Disallow: /employer/
-Disallow: /program-holder/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /.netlify/
-Crawl-delay: 10
-
-# Sitemap
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Crawl-delay: 0

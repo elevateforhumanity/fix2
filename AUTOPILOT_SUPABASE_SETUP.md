@@ -51,7 +51,7 @@ cat > .env.local << 'EOF'
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 EOF
 
 # Start development server
@@ -355,7 +355,7 @@ After running the autopilot, you should have:
 
 3. **Contact support**:
    - Phone: (317) 314-3757
-   - Email: support@elevateconnectsdirectory.org
+   - Email: support@elevateforhumanity.org
 
 ---
 

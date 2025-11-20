@@ -47,7 +47,7 @@ LTI launch handler:
 
 **Environment Variables Required**:
 ```bash
-LTI_TOOL_URL=https://elevateconnectsdirectory.org
+LTI_TOOL_URL=https://elevateforhumanity.org
 LTI_PUBLIC_KEY_N=<base64url-encoded-rsa-modulus>
 ```
 
@@ -309,7 +309,7 @@ Add these to `.env` and deployment platform:
 
 ```bash
 # LTI 1.3 Integration
-LTI_TOOL_URL=https://elevateconnectsdirectory.org
+LTI_TOOL_URL=https://elevateforhumanity.org
 LTI_PUBLIC_KEY_N=<base64url-encoded-rsa-modulus>
 
 # Zendesk Support

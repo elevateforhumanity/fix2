@@ -1,10 +1,10 @@
-# Add elevateconnectsdirectory.org to Netlify
+# Add elevateforhumanity.org to Netlify
 
 ## Current Status
 
 **DNS Configuration:** ✅ CORRECT
 
-- elevateconnectsdirectory.org → A Record → 75.2.60.5 (Netlify)
+- elevateforhumanity.org → A Record → 75.2.60.5 (Netlify)
 
 **Netlify Configuration:** ❌ NOT ADDED
 
@@ -16,7 +16,7 @@
 
 ## What Needs to Be Done
 
-Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in Netlify.
+Add **elevateforhumanity.org** (apex domain, no www) as a custom domain in Netlify.
 
 ---
 
@@ -30,7 +30,7 @@ Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in
 
 1. Look for "Domain aliases" section
 2. Click **"Add domain alias"** button
-3. Type exactly: `elevateconnectsdirectory.org`
+3. Type exactly: `elevateforhumanity.org`
 4. Click **"Verify"**
 5. Netlify will check DNS (should show ✅)
 6. Click **"Add domain"**
@@ -45,7 +45,7 @@ Add **elevateconnectsdirectory.org** (apex domain, no www) as a custom domain in
 ### Step 4: Test
 
 1. Clear browser cache: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-2. Visit: https://www.elevateconnectsdirectory.org
+2. Visit: https://www.elevateforhumanity.org
 3. Should load without SSL errors
 4. Should show your site with all styling
 
@@ -76,7 +76,7 @@ To get a token:
 ### Current Problem:
 
 ```
-Browser → elevateconnectsdirectory.org
+Browser → elevateforhumanity.org
        → DNS: 75.2.60.5 (Netlify)
        → Netlify: "I don't recognize this domain"
        → Serves: *.netlify.app certificate (WRONG)
@@ -86,11 +86,11 @@ Browser → elevateconnectsdirectory.org
 ### After Adding Domain:
 
 ```
-Browser → elevateconnectsdirectory.org
+Browser → elevateforhumanity.org
        → DNS: 75.2.60.5 (Netlify)
        → Netlify: "I know this domain!"
-       → Provisions: Let's Encrypt SSL for elevateconnectsdirectory.org
-       → Serves: elevateconnectsdirectory.org certificate (CORRECT)
+       → Provisions: Let's Encrypt SSL for elevateforhumanity.org
+       → Serves: elevateforhumanity.org certificate (CORRECT)
        → Browser: ✅ Secure connection, site loads
 ```
 
@@ -110,15 +110,15 @@ After adding the domain:
 
 ```bash
 # Check DNS (should already be correct)
-curl -s "https://dns.google/resolve?name=elevateconnectsdirectory.org&type=A"
+curl -s "https://dns.google/resolve?name=elevateforhumanity.org&type=A"
 # Should show: 75.2.60.5
 
 # Check SSL certificate
-curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
-# Should show: CN=elevateconnectsdirectory.org
+curl -Ivk https://www.elevateforhumanity.org 2>&1 | grep "subject:"
+# Should show: CN=elevateforhumanity.org
 
 # Check site loads
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Should show: HTTP/2 200
 ```
 
@@ -140,7 +140,7 @@ Custom domains
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
 └── Domain aliases:
-    └── elevateconnectsdirectory.org
+    └── elevateforhumanity.org
         └── HTTPS: Certificate provisioning in progress... ⏳
 ```
 
@@ -150,7 +150,7 @@ Custom domains
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
 └── Domain aliases:
-    └── elevateconnectsdirectory.org
+    └── elevateforhumanity.org
         └── HTTPS: Secured ✅
 ```
 
@@ -172,7 +172,7 @@ Custom domains
 
 ### SSL taking too long (>15 min)
 
-- Verify domain spelling: `elevateconnectsdirectory.org`
+- Verify domain spelling: `elevateforhumanity.org`
 - Check DNS still points to 75.2.60.5
 - Contact Netlify support (instant chat)
 
@@ -183,7 +183,7 @@ Custom domains
 Once SSL shows "Secured ✅":
 
 1. **Clear browser cache**: Ctrl+Shift+R or Cmd+Shift+R
-2. **Visit**: https://www.elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateforhumanity.org
 3. **Verify**:
    - ✅ No SSL errors
    - ✅ Secure padlock in browser
@@ -210,7 +210,7 @@ https://www.netlify.com/support/
 
 **Problem**: Domain not added to Netlify → Wrong SSL certificate → Browser error
 
-**Solution**: Add elevateconnectsdirectory.org in Netlify dashboard → SSL provisions → Site works
+**Solution**: Add elevateforhumanity.org in Netlify dashboard → SSL provisions → Site works
 
 **Time**: 3-11 minutes total
 

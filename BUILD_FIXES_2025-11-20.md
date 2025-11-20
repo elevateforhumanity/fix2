@@ -104,7 +104,7 @@ npm run build
 - Pushed to `main` branch
 - Automatic deployment triggered
 - Site: [fix2-one.vercel.app](https://fix2-one.vercel.app)
-- Production: [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+- Production: [elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ## Next Steps
 

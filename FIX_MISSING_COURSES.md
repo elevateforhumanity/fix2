@@ -114,7 +114,7 @@ hvac-tech | HVAC Technician        | Skilled Trades | 640 hours
 
 **Check on website:**
 
-- Visit: https://www.elevateconnectsdirectory.org/programs
+- Visit: https://www.elevateforhumanity.org/programs
 - Should show 3 programs: Barber, CNA, HVAC
 - Click each to verify detail pages load
 
@@ -300,7 +300,7 @@ SELECT slug, title, track, hours FROM programs WHERE slug IN ('barber', 'cna', '
 4. **Click "Run"**
 
 5. **Verify:**
-   - Go to: https://www.elevateconnectsdirectory.org/programs
+   - Go to: https://www.elevateforhumanity.org/programs
    - Should show 3 programs
    - Click each to test
 

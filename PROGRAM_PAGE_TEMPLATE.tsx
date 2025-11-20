@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: '[PROGRAM_NAME] | Elevate for Humanity',
     description: '[SHORT_DESCRIPTION]',
-    url: 'https://elevateconnectsdirectory.org/programs/[SLUG]',
+    url: 'https://elevateforhumanity.org/programs/[SLUG]',
     images: ['[PROGRAM_IMAGE_URL]'],
   },
 };

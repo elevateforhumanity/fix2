@@ -130,7 +130,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 #### NextAuth (Authentication)
 ```bash
 NEXTAUTH_SECRET=your-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 **Generate:**
 ```bash

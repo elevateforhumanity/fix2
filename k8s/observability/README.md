@@ -70,10 +70,10 @@ kubectl create secret tls efh-jaeger-tls \
 ## Access URLs
 
 After deployment:
-- **Grafana**: https://grafana.elevateconnectsdirectory.org
-- **Prometheus**: https://prometheus.elevateconnectsdirectory.org
-- **Alertmanager**: https://alertmanager.elevateconnectsdirectory.org
-- **Jaeger**: https://jaeger.elevateconnectsdirectory.org
+- **Grafana**: https://grafana.elevateforhumanity.org
+- **Prometheus**: https://prometheus.elevateforhumanity.org
+- **Alertmanager**: https://alertmanager.elevateforhumanity.org
+- **Jaeger**: https://jaeger.elevateforhumanity.org
 
 Default Grafana credentials:
 - Username: `admin`

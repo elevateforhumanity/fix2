@@ -48,7 +48,7 @@ Scopes: All scopes
 
 ```
 Key: NEXT_PUBLIC_APP_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 Scopes: Production
 ```
 
@@ -56,7 +56,7 @@ Scopes: Production
 
 ```
 Key: NEXT_PUBLIC_SITE_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 Scopes: Production
 ```
 
@@ -81,7 +81,7 @@ Scopes: Production
 
 ## STEP 4: Verify (30 seconds)
 
-Open: **https://www.elevateconnectsdirectory.org**
+Open: **https://www.elevateforhumanity.org**
 
 Site should load! ✅
 

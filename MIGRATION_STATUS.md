@@ -67,7 +67,7 @@
 
 ### Option 2: Use Admin Panel
 
-1. Go to: `https://www.elevateconnectsdirectory.org/admin/migrations`
+1. Go to: `https://www.elevateforhumanity.org/admin/migrations`
 2. Click **"Run All Migrations Now"**
 3. Wait for completion
 

@@ -15,7 +15,7 @@ DNS:         Points to Durable (NOT Netlify)
 Action:      REVERT DNS if you changed it
 ```
 
-### Domain 2: elevateconnectsdirectory.org
+### Domain 2: elevateforhumanity.org
 
 ```
 Purpose:     LMS / Student Portal
@@ -45,9 +45,9 @@ Action:      Add to Netlify, wait for SSL
 
 ---
 
-### Step 2: Verify elevateconnectsdirectory.org DNS (already done)
+### Step 2: Verify elevateforhumanity.org DNS (already done)
 
-**In Durable.co → DNS Settings → elevateconnectsdirectory.org**
+**In Durable.co → DNS Settings → elevateforhumanity.org**
 
 **Should have:**
 
@@ -56,23 +56,23 @@ Action:      Add to Netlify, wait for SSL
 ✅ CNAME  www  elevateproduction.netlify.app
 ```
 
-**Result:** elevateconnectsdirectory.org → Ready for Netlify
+**Result:** elevateforhumanity.org → Ready for Netlify
 
 ---
 
-### Step 3: Add elevateconnectsdirectory.org to Netlify (5 minutes)
+### Step 3: Add elevateforhumanity.org to Netlify (5 minutes)
 
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Click:** "Add custom domain"
 
-**Enter:** `elevateconnectsdirectory.org`
+**Enter:** `elevateforhumanity.org`
 
 **Click:** "Verify"
 
 **Wait:** 5-10 minutes for SSL
 
-**Result:** elevateconnectsdirectory.org → Netlify LMS with SSL
+**Result:** elevateforhumanity.org → Netlify LMS with SSL
 
 ---
 
@@ -86,7 +86,7 @@ Action:      Add to Netlify, wait for SSL
 
 **Test Netlify site:**
 
-- Visit: https://www.elevateconnectsdirectory.org
+- Visit: https://www.elevateforhumanity.org
 - Should show: Netlify LMS (fully styled now!)
 - Should have: SSL padlock (🔒)
 
@@ -103,7 +103,7 @@ Shows: Marketing website
     ↓
 User clicks: "Access Student Portal"
     ↓
-Links to: elevateconnectsdirectory.org
+Links to: elevateforhumanity.org
     ↓
 DNS (Durable) → Netlify servers (75.2.60.5)
     ↓
@@ -123,7 +123,7 @@ MX     @    SMTP.GOOGLE.COM
 TXT    @    google-site-verification...
 ```
 
-### elevateconnectsdirectory.org (Netlify):
+### elevateforhumanity.org (Netlify):
 
 ```
 A      @    75.2.60.5
@@ -140,7 +140,7 @@ Add a prominent button:
 
 ```html
 <a
-  href="https://www.elevateconnectsdirectory.org"
+  href="https://www.elevateforhumanity.org"
   style="display: inline-block;
           background: #0066CC;
           color: white;
@@ -166,7 +166,7 @@ elevateforhumanity.org:
   Hosting: Included with Durable
   Total: $0 extra
 
-elevateconnectsdirectory.org:
+elevateforhumanity.org:
   Domain: Included with Durable
   Hosting: FREE (Netlify)
   SSL: FREE (Let's Encrypt)
@@ -183,7 +183,7 @@ Grand Total: $0/month
 Step 1: Revert elevateforhumanity.org DNS    (5 min)
         Wait for DNS propagation              (10-15 min)
 
-Step 2: Verify elevateconnectsdirectory.org  (1 min)
+Step 2: Verify elevateforhumanity.org  (1 min)
 
 Step 3: Add to Netlify                       (2 min)
         Wait for SSL                          (5-10 min)
@@ -208,7 +208,7 @@ Total:                                        ~25-35 minutes
 ✅ Button: "Access Student Portal"
 ```
 
-### elevateconnectsdirectory.org (Netlify):
+### elevateforhumanity.org (Netlify):
 
 ```
 ✅ Login/Signup
@@ -232,7 +232,7 @@ Total:                                        ~25-35 minutes
 - ✅ SSL works (🔒)
 - ✅ Loads quickly
 
-**elevateconnectsdirectory.org:**
+**elevateforhumanity.org:**
 
 - ✅ Shows Netlify LMS
 - ✅ Fully styled (Tailwind CSS)
@@ -242,7 +242,7 @@ Total:                                        ~25-35 minutes
 **DNS Check:**
 
 - ✅ elevateforhumanity.org → Durable IP
-- ✅ elevateconnectsdirectory.org → 75.2.60.5
+- ✅ elevateforhumanity.org → 75.2.60.5
 
 ---
 
@@ -254,7 +254,7 @@ Total:                                        ~25-35 minutes
 - Revert DNS in Durable
 - Wait 10-15 minutes for propagation
 
-### If elevateconnectsdirectory.org shows error:
+### If elevateforhumanity.org shows error:
 
 - DNS not propagated yet
 - Wait longer (up to 24 hours)
@@ -287,11 +287,11 @@ https://app.netlify.com/sites/elevateproduction/deploys
 ## ✅ FINAL CHECKLIST
 
 - [ ] Reverted elevateforhumanity.org DNS to Durable
-- [ ] Verified elevateconnectsdirectory.org DNS points to Netlify
-- [ ] Added elevateconnectsdirectory.org to Netlify
+- [ ] Verified elevateforhumanity.org DNS points to Netlify
+- [ ] Added elevateforhumanity.org to Netlify
 - [ ] SSL certificate active
 - [ ] elevateforhumanity.org shows Durable site
-- [ ] elevateconnectsdirectory.org shows Netlify LMS
+- [ ] elevateforhumanity.org shows Netlify LMS
 - [ ] Both sites have SSL (🔒)
 - [ ] Link/button connects them
 - [ ] Everything works!
@@ -301,7 +301,7 @@ https://app.netlify.com/sites/elevateproduction/deploys
 **CURRENT STATUS:**
 
 **elevateforhumanity.org** = Durable marketing ✅  
-**elevateconnectsdirectory.org** = Netlify LMS ✅  
+**elevateforhumanity.org** = Netlify LMS ✅  
 **Styling** = Fixed and deploying ✅  
 **Ready** = Almost there! Just revert DNS and add domain ✅
 

@@ -13,7 +13,7 @@ These are **planned sister organizations** that are part of your broader mission
 
 ## 1. Elevate Connects Directory ⭐ (THIS IS YOU)
 
-**URL:** https://www.elevateconnectsdirectory.org  
+**URL:** https://www.elevateforhumanity.org  
 **Status:** 🚧 In Development (what we're deploying now)
 
 **Purpose:** Workforce LMS + Case Management Platform
@@ -149,7 +149,7 @@ Trained Workforce
 
 | Organization                   | Status      | URL                          | Purpose               |
 | ------------------------------ | ----------- | ---------------------------- | --------------------- |
-| **Elevate Connects Directory** | 🚧 Building | elevateconnectsdirectory.org | LMS Platform          |
+| **Elevate Connects Directory** | 🚧 Building | elevateforhumanity.org | LMS Platform          |
 | **Selfish Inc.**               | 🔮 Planned  | selfishinc.org               | Grants & Scholarships |
 | **Rise Forward Foundation**    | 🔮 Planned  | riseforwardfoundation.org    | Foundation Funding    |
 
@@ -252,7 +252,7 @@ export function SisterSites() {
 
 - ❌ **Don't add sister sites to your footer yet**
 - ✅ Focus on getting your LMS deployed
-- ✅ Get elevateconnectsdirectory.org working first
+- ✅ Get elevateforhumanity.org working first
 
 ### **Short-term (1-3 months):**
 
@@ -339,7 +339,7 @@ export function Footer() {
 
 **Priority:**
 
-1. Get elevateconnectsdirectory.org deployed ⭐⭐⭐
+1. Get elevateforhumanity.org deployed ⭐⭐⭐
 2. Build sister sites (later)
 3. Add cross-linking (much later)
 

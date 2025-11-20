@@ -35,7 +35,7 @@ Role: Serves your website
 ### Step 1: Configure DNS in Durable.co (5 minutes)
 
 1. **Login:** https://durable.co/login
-2. **Go to:** Domain DNS settings for `elevateconnectsdirectory.org`
+2. **Go to:** Domain DNS settings for `elevateforhumanity.org`
 3. **Add these records:**
 
 ```
@@ -58,13 +58,13 @@ Value: elevateproduction.netlify.app
 
 1. **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 2. **Click:** "Add custom domain"
-3. **Enter:** `elevateconnectsdirectory.org`
+3. **Enter:** `elevateforhumanity.org`
 4. **Click:** "Verify"
 5. **Wait:** 5-10 minutes for SSL
 
 ### Step 3: Test (1 minute)
 
-1. **Visit:** https://www.elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateforhumanity.org
 2. **Should show:** Your LMS site
 3. **SSL:** Should be secure (🔒)
 4. **Done!**
@@ -153,7 +153,7 @@ Value: elevateproduction.netlify.app
 ### Option A: Use Durable.co for Domain (Current Setup)
 
 ```
-1. Domain: elevateconnectsdirectory.org (at Durable.co)
+1. Domain: elevateforhumanity.org (at Durable.co)
 2. Point DNS to Netlify (see Step 1 above)
 3. Netlify serves site at your domain
 4. Durable.co = Domain registrar only
@@ -230,8 +230,8 @@ git push
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://www.elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```

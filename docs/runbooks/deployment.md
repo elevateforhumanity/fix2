@@ -2,8 +2,8 @@
 
 ## Environments
 
-- **Staging** – `staging.elevateconnectsdirectory.org`
-- **Production** – `elevateconnectsdirectory.org`
+- **Staging** – `staging.elevateforhumanity.org`
+- **Production** – `elevateforhumanity.org`
 
 ## CI/CD Overview
 

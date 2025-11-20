@@ -5,7 +5,7 @@
 The new build with CSS variables **IS LIVE** at:
 
 - https://elevateproduction.netlify.app
-- https://www.elevateconnectsdirectory.org
+- https://www.elevateforhumanity.org
 
 **Deployment Details:**
 
@@ -67,14 +67,14 @@ Open the site in an incognito/private window:
 - **Firefox**: `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac)
 - **Safari**: `Cmd + Shift + N`
 
-Then visit: https://www.elevateconnectsdirectory.org
+Then visit: https://www.elevateforhumanity.org
 
 ### Option 4: Cache-Busting URL
 
 Add `?v=2` to the URL:
 
 ```
-https://www.elevateconnectsdirectory.org/?v=2
+https://www.elevateforhumanity.org/?v=2
 ```
 
 This forces the browser to fetch a fresh version.
@@ -137,7 +137,7 @@ The new CSS file has a **different filename** (`index-gDzT5Lo7.css` vs old `inde
 If you still see the old version after clearing cache:
 
 1. **Check you're on the right domain**:
-   - ✅ elevateconnectsdirectory.org
+   - ✅ elevateforhumanity.org
    - ✅ elevateproduction.netlify.app
    - ❌ NOT elevateforhumanity.org (that's Durable)
 
@@ -190,6 +190,6 @@ If you still see the old version after clearing cache:
 
 ---
 
-**Quick Test**: Open in incognito window: https://www.elevateconnectsdirectory.org
+**Quick Test**: Open in incognito window: https://www.elevateforhumanity.org
 
 You should immediately see the properly styled site with colors, gradients, and all styling working correctly.

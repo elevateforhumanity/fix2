@@ -25,7 +25,7 @@ Shows:       Durable marketing site
 Independent: YES ✅
 ```
 
-### elevateconnectsdirectory.org
+### elevateforhumanity.org
 
 ```
 Status:      ✅ WORKING
@@ -67,7 +67,7 @@ Independent: YES ✅
 
 ```
 ✅ elevateforhumanity.org → Durable (separate)
-✅ elevateconnectsdirectory.org → Netlify
+✅ elevateforhumanity.org → Netlify
 ✅ Both domains independent
 ✅ No conflicts
 ✅ Clean architecture
@@ -125,7 +125,7 @@ USER VISITS: elevateforhumanity.org
     ↓
     [Optional: Link to LMS]
     ↓
-USER VISITS: elevateconnectsdirectory.org
+USER VISITS: elevateforhumanity.org
     ↓
     Netlify servers (75.2.60.5)
     ↓
@@ -148,7 +148,7 @@ USER VISITS: elevateconnectsdirectory.org
 3. Commit: git add . && git commit -m "message"
 4. Push: git push
 5. Netlify auto-deploys (2-3 minutes)
-6. Live at: elevateconnectsdirectory.org
+6. Live at: elevateforhumanity.org
 ```
 
 **Simple, automatic, reliable**
@@ -169,7 +169,7 @@ Status: ✅ Live and working
 ### LMS Site:
 
 ```
-URL: https://www.elevateconnectsdirectory.org
+URL: https://www.elevateforhumanity.org
 Purpose: Student portal / courses
 Platform: Netlify
 Status: ✅ Live and working
@@ -258,7 +258,7 @@ curl -I https://elevateforhumanity.org
 **LMS Site:**
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Should return: HTTP 200
 # Should show: Netlify LMS
 # Should have: SSL certificate
@@ -313,7 +313,7 @@ curl -I https://www.elevateconnectsdirectory.org
 - ✅ Styling fixed (Tailwind working)
 - ✅ Both domains configured correctly
 - ✅ elevateforhumanity.org on Durable
-- ✅ elevateconnectsdirectory.org on Netlify
+- ✅ elevateforhumanity.org on Netlify
 - ✅ SSL certificates active
 - ✅ Sites accessible and working
 - ✅ Zero confusion

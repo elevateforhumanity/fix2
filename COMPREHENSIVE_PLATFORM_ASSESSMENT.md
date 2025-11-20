@@ -3,7 +3,7 @@
 **Assessment Date:** November 17, 2025  
 **Platform:** Elevate Connects Directory - Enterprise LMS + Workforce Management  
 **Repository:** https://github.com/elevateforhumanity/fix2  
-**Live Site:** https://www.elevateconnectsdirectory.org
+**Live Site:** https://www.elevateforhumanity.org
 
 ---
 
