@@ -197,6 +197,7 @@
     "verify:deployment": "bash scripts/check-vercel-deployment.sh",
     "vercel:health": "bash scripts/vercel-health-check.sh",
     "vercel:nuclear": "bash scripts/nuclear-redeploy.sh",
+    "cleanup:branches": "bash scripts/cleanup-branches.sh",
     "cleanup:projects": "bash scripts/cleanup-vercel-projects.sh",
     "cleanup:deployments": "bash scripts/cleanup-old-deployments.sh",
     "cleanup:all-deployments": "bash scripts/delete-all-old-deployments.sh",

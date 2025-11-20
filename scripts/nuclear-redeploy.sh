@@ -28,7 +28,26 @@ if [ "$confirm" != "NUCLEAR" ]; then
 fi
 
 echo ""
-echo "☢️  Step 1: Deleting ALL deployments..."
+echo "☢️  Step 1: Cleaning up old branches..."
+echo ""
+
+# Delete old git branches (keep main)
+echo "  🌿 Local branches:"
+git branch | grep -v "main" | grep -v "\*" | xargs -r git branch -D 2>/dev/null || echo "    ℹ️  No local branches to delete"
+
+echo "  🌿 Remote branches (DeepSource, old feature branches):"
+git fetch --prune
+git branch -r | grep -v "main" | grep -v "HEAD" | sed 's/origin\///' | while read -r branch; do
+  if [[ "$branch" == deepsource* ]] || [[ "$branch" == feature* ]] || [[ "$branch" == fix* ]]; then
+    echo "    🗑️  Deleting remote branch: $branch"
+    git push origin --delete "$branch" 2>/dev/null || echo "      ⚠️  Could not delete (may not exist)"
+  fi
+done
+
+echo "  ✅ Branch cleanup complete"
+
+echo ""
+echo "☢️  Step 2: Deleting ALL deployments..."
 echo ""
 
 # Get ALL deployment IDs
@@ -55,14 +74,14 @@ else
 fi
 
 echo ""
-echo "☢️  Step 2: Clearing local caches..."
+echo "☢️  Step 3: Clearing local caches..."
 rm -rf .next
 rm -rf node_modules/.cache
 rm -rf .vercel/.output
 echo "  ✅ Local caches cleared"
 
 echo ""
-echo "☢️  Step 3: Triggering fresh build..."
+echo "☢️  Step 4: Triggering fresh build..."
 echo ""
 
 # Deploy fresh
@@ -72,6 +91,7 @@ echo ""
 echo "✅ NUCLEAR REDEPLOY COMPLETE!"
 echo ""
 echo "🎯 What happened:"
+echo "  ✅ Cleaned up old branches (DeepSource, feature, fix)"
 echo "  ✅ Deleted all old deployments"
 echo "  ✅ Cleared all caches"
 echo "  ✅ Triggered fresh build with --force flag"
