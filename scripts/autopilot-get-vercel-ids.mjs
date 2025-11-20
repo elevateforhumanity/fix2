@@ -9,7 +9,9 @@ const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN || process.argv[2];
 
 if (!VERCELACESSTOKEN) {
   console.error('❌ VERCELACESSTOKEN is required');
-  console.error('Usage: node autopilot-get-vercel-ids.mjs YOUR_VERCELACESSTOKEN');
+  console.error(
+    'Usage: node autopilot-get-vercel-ids.mjs YOUR_VERCELACESSTOKEN'
+  );
   console.error('Or set VERCELACESSTOKEN environment variable');
   process.exit(1);
 }
@@ -52,7 +54,7 @@ async function setVercelEnv(
         key: envName,
         value: envValue,
         type: 'encrypted',
-        target: target,
+        target,
       }),
     }
   );
@@ -96,7 +98,7 @@ async function updateVercelEnv(projectId, envName, envValue, target) {
       },
       body: JSON.stringify({
         value: envValue,
-        target: target,
+        target,
       }),
     }
   );

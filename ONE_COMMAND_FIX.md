@@ -20,6 +20,7 @@ pnpm ultimate-fix
 ```
 
 **That's it!** This one command will:
+
 1. ✅ Validate token
 2. ✅ Configure domain (www.elevateforhumanity.org)
 3. ✅ Set production branch to 'main'
@@ -33,6 +34,7 @@ pnpm ultimate-fix
 ## Step 3: Wait and Verify
 
 After 2-3 minutes:
+
 1. Open: https://www.elevateforhumanity.org
 2. Hard refresh: `Ctrl+Shift+R` or `Cmd+Shift+R`
 3. Look for build marker in bottom-right corner
@@ -63,24 +65,29 @@ pnpm ultimate-fix
 ## What Gets Fixed
 
 ✅ **Domain Configuration**
+
 - www.elevateforhumanity.org properly configured
 - Set as production domain
 
 ✅ **Production Branch**
+
 - Changed from deepsource branches to 'main'
 - All future deployments from main
 
 ✅ **Cleanup**
+
 - Old deployments deleted (keeps latest 1)
 - DeepSource branches removed
 - Clean slate
 
 ✅ **Fresh Deployment**
+
 - Build marker updated with timestamp
 - Changes committed and pushed
 - New deployment triggered from main branch
 
 ✅ **Verification**
+
 - Domain verified
 - Deployment status checked
 - Everything confirmed working
@@ -92,6 +99,7 @@ pnpm ultimate-fix
 ### "Token is invalid"
 
 Token may have expired. Create new one:
+
 1. https://vercel.com/account/tokens
 2. Create token
 3. Update GitHub secret
@@ -117,8 +125,9 @@ Then run `pnpm ultimate-fix` again.
 ## Success Criteria
 
 You'll know it worked when:
+
 - ✅ New deployment shows "Branch: main"
-- ✅ Build completes successfully  
+- ✅ Build completes successfully
 - ✅ www.elevateforhumanity.org loads fresh content
 - ✅ Build marker visible in bottom-right
 - ✅ No more deepsource deployments

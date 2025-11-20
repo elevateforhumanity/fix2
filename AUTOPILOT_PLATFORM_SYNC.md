@@ -44,7 +44,7 @@ Add these to: **Settings** → **Secrets and variables** → **Actions**
 
 | Secret Name         | Description                 |
 | ------------------- | --------------------------- |
-| `VERCELACESSTOKEN`      | Vercel API token            |
+| `VERCELACESSTOKEN`  | Vercel API token            |
 | `VERCEL_ORG_ID`     | Your Vercel organization ID |
 | `VERCEL_PROJECT_ID` | Your Vercel project ID      |
 

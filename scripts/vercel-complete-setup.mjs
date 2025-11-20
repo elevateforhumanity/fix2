@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Complete Vercel Setup - All-in-One
- * 
+ *
  * Runs all configuration steps:
  * 1. Configure domain
  * 2. Set production branch to main
@@ -28,11 +28,11 @@ function runStep(name, command) {
   console.log(`\n${'='.repeat(50)}`);
   console.log(`📦 ${name}`);
   console.log('='.repeat(50) + '\n');
-  
+
   try {
-    execSync(command, { 
+    execSync(command, {
       stdio: 'inherit',
-      env: { ...process.env, VERCELACESSTOKEN }
+      env: { ...process.env, VERCELACESSTOKEN },
     });
     console.log(`\n✅ ${name} - Complete\n`);
     return true;
@@ -46,12 +46,12 @@ async function main() {
   const steps = [
     {
       name: 'Step 1: Configure Domain',
-      command: 'node scripts/configure-domain-api.mjs'
+      command: 'node scripts/configure-domain-api.mjs',
     },
     {
       name: 'Step 2: Clean Up Old Deployments',
-      command: 'node scripts/cleanup-old-deployments-api.mjs'
-    }
+      command: 'node scripts/cleanup-old-deployments-api.mjs',
+    },
   ];
 
   let successCount = 0;
@@ -83,7 +83,9 @@ async function main() {
     console.log('   2. Wait 2-3 minutes for build');
     console.log('');
     console.log('   3. Check deployment:');
-    console.log('      https://vercel.com/elevate-48e460c9/fix2-gpql/deployments');
+    console.log(
+      '      https://vercel.com/elevate-48e460c9/fix2-gpql/deployments'
+    );
     console.log('');
     console.log('   4. Verify site:');
     console.log('      https://www.elevateforhumanity.org');

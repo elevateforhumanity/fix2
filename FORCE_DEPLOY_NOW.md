@@ -13,6 +13,7 @@ git push origin main
 ```
 
 **This will:**
+
 - ✅ Trigger a new Vercel build immediately
 - ✅ Deploy fresh code
 - ✅ Clear all cache
@@ -72,11 +73,13 @@ Then wait 3 minutes and check the site.
 ## ⚠️ **Why the Autopilot Script Didn't Work**
 
 The autopilot script requires these GitHub secrets to be set:
+
 - `VERCELACESSTOKEN`
 - `VERCEL_PROJECT_ID`
 - `VERCEL_ORG_ID`
 
 **To set them up:**
+
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 2. Add the three secrets
 3. Then the autopilot will work automatically

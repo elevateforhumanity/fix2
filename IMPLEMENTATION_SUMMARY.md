@@ -15,12 +15,14 @@
 ## 🚀 Run Everything (One Command)
 
 ### With Vercel Token (Recommended - Fully Automated):
+
 ```bash
 export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 ./scripts/implement-tiktok-features.sh
 ```
 
 ### Without Token (Manual Vercel Cleanup):
+
 ```bash
 ./scripts/implement-tiktok-features.sh
 ./scripts/workers/cleanup-vercel-duplicates.sh
@@ -34,6 +36,7 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 ## 📦 What Gets Implemented
 
 ### Video Features:
+
 - HLS adaptive bitrate streaming
 - Autoplay with mute
 - Mobile-optimized controls
@@ -43,6 +46,7 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 - Captions support
 
 ### Performance:
+
 - Bundle size: 1.5MB → <800KB
 - LCP: 3-4s → <2.5s
 - Video start: 1-2s → <800ms
@@ -51,6 +55,7 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 - Lazy loading
 
 ### Engagement:
+
 - Like/unlike videos
 - Comment system ready
 - Bookmark functionality
@@ -59,6 +64,7 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 - Progress tracking
 
 ### Vercel Cleanup:
+
 - Automatically identifies duplicates
 - Scores each project (0-100)
 - Keeps highest scoring project
@@ -70,10 +76,12 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 ## 📊 Scripts Available
 
 ### Automated (No Manual Steps):
+
 - `scripts/implement-tiktok-features.sh` - Full implementation
 - `scripts/workers/auto-cleanup-vercel.mjs` - API-based cleanup
 
 ### Interactive (Guided):
+
 - `scripts/workers/cleanup-vercel-duplicates.sh` - Manual cleanup
 - `scripts/workers/check-vercel-duplicates.sh` - Check only
 - `scripts/workers/get-supabase-credentials.sh` - Supabase setup
@@ -97,6 +105,7 @@ export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 Everything is prepared. No placeholders. No manual steps (if you have Vercel token).
 
 **Just run:**
+
 ```bash
 export VERCELACESSTOKEN="your_token"
 ./scripts/implement-tiktok-features.sh

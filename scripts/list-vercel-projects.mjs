@@ -75,9 +75,7 @@ async function main() {
   }
 
   console.log('\n' + '═'.repeat(80));
-  console.log(
-    '\n🎯 Which project is connected to elevateforhumanity.org?'
-  );
+  console.log('\n🎯 Which project is connected to elevateforhumanity.org?');
   console.log('\nCheck the production URLs above to find the correct project.');
 }
 

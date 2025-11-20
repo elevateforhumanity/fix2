@@ -17,6 +17,7 @@ pnpm vercel:setup
 ## What It Does
 
 This single command will:
+
 1. ✅ Configure www.elevateforhumanity.org domain
 2. ✅ Set production branch to 'main'
 3. ✅ Delete all old deployments (keeps latest 1)
@@ -25,6 +26,7 @@ This single command will:
 ## After Running
 
 The script will tell you to:
+
 1. Push code: `git push origin main`
 2. Wait 2-3 minutes
 3. Check: https://www.elevateforhumanity.org

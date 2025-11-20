@@ -45,7 +45,7 @@ Add these to your GitHub repository: **Settings** → **Secrets and variables** 
 
 | Secret Name                 | Description                 | How to Get                                                                    |
 | --------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| `VERCELACESSTOKEN`              | Vercel API token            | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token          |
+| `VERCELACESSTOKEN`          | Vercel API token            | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token          |
 | `VERCEL_ORG_ID`             | Your Vercel organization ID | Run `vercel link` locally, check `.vercel/project.json`                       |
 | `VERCEL_PROJECT_ID`         | Your Vercel project ID      | Run `vercel link` locally, check `.vercel/project.json`                       |
 | `SUPABASE_ANON_KEY`         | Supabase anonymous key      | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |

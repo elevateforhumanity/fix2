@@ -133,7 +133,7 @@ Add these once to GitHub: **Settings** → **Secrets and variables** → **Actio
 
 | Secret               | Description       | How to Get                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------- |
-| `VERCELACESSTOKEN`       | Vercel API token  | [Vercel Tokens](https://vercel.com/account/tokens)          |
+| `VERCELACESSTOKEN`   | Vercel API token  | [Vercel Tokens](https://vercel.com/account/tokens)          |
 | `VERCEL_ORG_ID`      | Vercel org ID     | Run `vercel link`, check `.vercel/project.json`             |
 | `VERCEL_PROJECT_ID`  | Vercel project ID | Run `vercel link`, check `.vercel/project.json`             |
 | `NETLIFY_AUTH_TOKEN` | Netlify token     | [Netlify Tokens](https://app.netlify.com/user/applications) |

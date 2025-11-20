@@ -36,14 +36,14 @@ async function apiRequest(endpoint, token, method = 'GET', body = null) {
     const options = {
       method,
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     };
 
     const req = https.request(url, options, (res) => {
       let data = '';
-      res.on('data', (chunk) => data += chunk);
+      res.on('data', (chunk) => (data += chunk));
       res.on('end', () => {
         try {
           const parsed = JSON.parse(data);
@@ -79,7 +79,10 @@ async function getVercelToken() {
   log('\nTo get your token:', 'yellow');
   log('1. Go to: https://vercel.com/account/tokens', 'yellow');
   log('2. Create a new token', 'yellow');
-  log('3. Save it to .vercel-token file or set VERCELACESSTOKEN env var', 'yellow');
+  log(
+    '3. Save it to .vercel-token file or set VERCELACESSTOKEN env var',
+    'yellow'
+  );
   process.exit(1);
 }
 
@@ -120,8 +123,8 @@ function analyzeProject(project) {
 
   // Has custom domain
   if (project.alias && project.alias.length > 0) {
-    const hasCustomDomain = project.alias.some(a => 
-      !a.domain.includes('vercel.app')
+    const hasCustomDomain = project.alias.some(
+      (a) => !a.domain.includes('vercel.app')
     );
     if (hasCustomDomain) {
       score.total += 50;
@@ -132,16 +135,23 @@ function analyzeProject(project) {
   // Recent deployment
   if (project.latestDeployments && project.latestDeployments.length > 0) {
     const latest = project.latestDeployments[0];
-    const daysSinceDeployment = (Date.now() - latest.createdAt) / (1000 * 60 * 60 * 24);
-    
+    const daysSinceDeployment =
+      (Date.now() - latest.createdAt) / (1000 * 60 * 60 * 24);
+
     if (daysSinceDeployment < 7) {
       score.total += 30;
-      score.reasons.push(`✅ Deployed ${Math.floor(daysSinceDeployment)} days ago`);
+      score.reasons.push(
+        `✅ Deployed ${Math.floor(daysSinceDeployment)} days ago`
+      );
     } else if (daysSinceDeployment < 30) {
       score.total += 15;
-      score.reasons.push(`⚠️  Deployed ${Math.floor(daysSinceDeployment)} days ago`);
+      score.reasons.push(
+        `⚠️  Deployed ${Math.floor(daysSinceDeployment)} days ago`
+      );
     } else {
-      score.reasons.push(`❌ Last deployed ${Math.floor(daysSinceDeployment)} days ago`);
+      score.reasons.push(
+        `❌ Last deployed ${Math.floor(daysSinceDeployment)} days ago`
+      );
     }
 
     // Successful deployment
@@ -179,7 +189,9 @@ function analyzeProject(project) {
 async function main() {
   log('\n🤖 Automated Vercel Duplicate Project Cleanup', 'cyan');
   log('━'.repeat(60), 'cyan');
-  log('This script will automatically identify and delete duplicate projects\n');
+  log(
+    'This script will automatically identify and delete duplicate projects\n'
+  );
 
   // Get token
   section('Step 1: Authentication');
@@ -189,12 +201,13 @@ async function main() {
   // List all projects
   section('Step 2: Fetching Projects');
   const projects = await listProjects(token);
-  
+
   // Filter for fix2/elevate related projects
-  const relevantProjects = projects.filter(p => 
-    p.name.includes('fix2') || 
-    p.name.includes('elevate') ||
-    (p.link && p.link.repo === 'elevateforhumanity/fix2')
+  const relevantProjects = projects.filter(
+    (p) =>
+      p.name.includes('fix2') ||
+      p.name.includes('elevate') ||
+      (p.link && p.link.repo === 'elevateforhumanity/fix2')
   );
 
   if (relevantProjects.length === 0) {
@@ -203,7 +216,7 @@ async function main() {
   }
 
   log(`Found ${relevantProjects.length} relevant project(s):`, 'blue');
-  relevantProjects.forEach(p => log(`  • ${p.name}`, 'blue'));
+  relevantProjects.forEach((p) => log(`  • ${p.name}`, 'blue'));
 
   if (relevantProjects.length === 1) {
     log('\n✅ Only 1 project found - no duplicates to clean up!', 'green');
@@ -219,15 +232,18 @@ async function main() {
     log(`\nAnalyzing: ${project.name}`, 'cyan');
     const details = await getProjectDetails(token, project.id);
     const score = analyzeProject(details || project);
-    
+
     analyzed.push({
       ...project,
       score: score.total,
       reasons: score.reasons,
     });
 
-    log(`Score: ${score.total}/100`, score.total >= 70 ? 'green' : score.total >= 40 ? 'yellow' : 'red');
-    score.reasons.forEach(r => log(`  ${r}`));
+    log(
+      `Score: ${score.total}/100`,
+      score.total >= 70 ? 'green' : score.total >= 40 ? 'yellow' : 'red'
+    );
+    score.reasons.forEach((r) => log(`  ${r}`));
   }
 
   // Sort by score (highest first)
@@ -239,7 +255,7 @@ async function main() {
   const toDelete = analyzed.slice(1);
 
   log(`\n✅ KEEP: ${toKeep.name} (Score: ${toKeep.score}/100)`, 'green');
-  toKeep.reasons.forEach(r => log(`  ${r}`, 'green'));
+  toKeep.reasons.forEach((r) => log(`  ${r}`, 'green'));
 
   if (toDelete.length === 0) {
     log('\n✅ No duplicates to delete', 'green');
@@ -247,16 +263,16 @@ async function main() {
   }
 
   log(`\n❌ DELETE: ${toDelete.length} duplicate project(s)`, 'red');
-  toDelete.forEach(p => {
+  toDelete.forEach((p) => {
     log(`\n  • ${p.name} (Score: ${p.score}/100)`, 'red');
-    p.reasons.forEach(r => log(`    ${r}`, 'yellow'));
+    p.reasons.forEach((r) => log(`    ${r}`, 'yellow'));
   });
 
   // Confirm deletion
   log('\n⚠️  WARNING: This will PERMANENTLY delete these projects!', 'yellow');
   log('Press Ctrl+C to cancel, or wait 5 seconds to continue...', 'yellow');
-  
-  await new Promise(resolve => setTimeout(resolve, 5000));
+
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   // Delete duplicates
   section('Step 5: Deleting Duplicates');
@@ -266,7 +282,7 @@ async function main() {
   for (const project of toDelete) {
     log(`\nDeleting: ${project.name}...`, 'yellow');
     const success = await deleteProject(token, project.id);
-    
+
     if (success) {
       log(`✅ Deleted: ${project.name}`, 'green');
       deletedCount++;
@@ -299,12 +315,17 @@ async function main() {
 
   // Update config
   if (existsSync('.vercel-autopilot-config.json')) {
-    const config = JSON.parse(readFileSync('.vercel-autopilot-config.json', 'utf8'));
+    const config = JSON.parse(
+      readFileSync('.vercel-autopilot-config.json', 'utf8')
+    );
     config.vercel_project_name = toKeep.name;
     config.vercel_project_id = toKeep.id;
     config.cleaned_up_at = new Date().toISOString();
     config.deleted_projects = deletedCount;
-    writeFileSync('.vercel-autopilot-config.json', JSON.stringify(config, null, 2));
+    writeFileSync(
+      '.vercel-autopilot-config.json',
+      JSON.stringify(config, null, 2)
+    );
     log('✅ Updated: .vercel-autopilot-config.json', 'green');
   }
 
@@ -312,19 +333,22 @@ async function main() {
   section('✅ Cleanup Complete');
   log(`\n📊 Summary:`, 'cyan');
   log(`  • Kept project: ${toKeep.name}`, 'green');
-  log(`  • Deleted projects: ${deletedCount}`, deletedCount > 0 ? 'green' : 'yellow');
+  log(
+    `  • Deleted projects: ${deletedCount}`,
+    deletedCount > 0 ? 'green' : 'yellow'
+  );
   log(`  • Production URL: https://www.elevateforhumanity.org`, 'blue');
-  
+
   log('\n🎯 Next Steps:', 'cyan');
   log('  1. Verify production site works', 'blue');
   log('  2. Check environment variables in kept project', 'blue');
   log('  3. Test deployment', 'blue');
-  
+
   log('\n✅ Your Vercel setup is now clean!', 'green');
 }
 
 // Run
-main().catch(error => {
+main().catch((error) => {
   log(`\n❌ Fatal error: ${error.message}`, 'red');
   process.exit(1);
 });

@@ -5,6 +5,7 @@
 The site returns `{"error":"Access denied"}` because **Vercel Authentication** is enabled.
 
 This is why:
+
 - You can't access the site publicly
 - Build markers don't show
 - The site appears to show old content
@@ -40,6 +41,7 @@ Add this to `vercel.json`:
 ```
 
 Then commit and push:
+
 ```bash
 git add vercel.json
 git commit -m "Disable Vercel password protection"
@@ -49,6 +51,7 @@ git push origin main
 ## Why This Happened
 
 Vercel projects can have password protection enabled for:
+
 - Security during development
 - Preventing public access before launch
 - Protecting staging environments
@@ -56,6 +59,7 @@ Vercel projects can have password protection enabled for:
 ## After Disabling
 
 The site will be publicly accessible at:
+
 - https://www.elevateforhumanity.org
 - No password required
 - Build markers will be visible

@@ -47,7 +47,7 @@ async function setVercelEnv(
         key: envName,
         value: envValue,
         type: 'encrypted',
-        target: target,
+        target,
       }),
     }
   );
@@ -146,9 +146,9 @@ async function main() {
   if (deployment.error) {
     console.log('⚠️  Could not trigger deployment automatically');
     console.log('   Go to Vercel dashboard and click "Redeploy"');
-    console.log(`   https://vercel.com/gitpod/fix2-1c7w`);
+    console.log('   https://vercel.com/gitpod/fix2-1c7w');
   } else {
-    console.log(`✅ Deployment triggered!`);
+    console.log('✅ Deployment triggered!');
     console.log(`   URL: https://${deployment.url}`);
   }
 
@@ -163,9 +163,9 @@ async function main() {
     `   Environment Variables: ${Object.keys(envVars).length} configured`
   );
   console.log('\n🔗 Links:');
-  console.log(`   Dashboard: https://vercel.com/gitpod/fix2-1c7w`);
-  console.log(`   Production: https://elevateforhumanity.org`);
-  console.log(`   Preview: https://fix2-1c7w.vercel.app`);
+  console.log('   Dashboard: https://vercel.com/gitpod/fix2-1c7w');
+  console.log('   Production: https://elevateforhumanity.org');
+  console.log('   Preview: https://fix2-1c7w.vercel.app');
   console.log('\n⏱️  Deployment will take 2-3 minutes');
   console.log(
     '   Check status at: https://vercel.com/gitpod/fix2-1c7w/deployments\n'

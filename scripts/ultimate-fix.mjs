@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * ULTIMATE FIX - One Command Does Everything
- * 
+ *
  * This script:
  * 1. Generates Vercel token (if needed)
  * 2. Configures everything
  * 3. Cleans up
  * 4. Deploys
  * 5. Verifies
- * 
+ *
  * ZERO manual steps required!
  */
 
@@ -22,14 +22,14 @@ let VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 // Step 1: Get token from GitHub secrets
 if (!VERCELACESSTOKEN) {
   console.log('🔑 Step 1: Getting Vercel token from GitHub secrets...\n');
-  
+
   try {
     // Try to get token using GitHub CLI
     const result = execSync('gh auth status 2>&1', { encoding: 'utf-8' });
-    
+
     if (result.includes('Logged in')) {
       console.log('   ✅ GitHub CLI authenticated');
-      
+
       // Get the token from GitHub secrets
       try {
         // Use GitHub API to get the secret
@@ -37,24 +37,32 @@ if (!VERCELACESSTOKEN) {
           'gh api repos/elevateforhumanity/fix2/actions/secrets/VERCELACESSTOKEN 2>&1',
           { encoding: 'utf-8' }
         );
-        
+
         if (secretResult.includes('VERCELACESSTOKEN')) {
           console.log('   ✅ Found VERCELACESSTOKEN in GitHub secrets');
-          
+
           // Note: We can't read the actual value via API, but we can use GitHub Actions
           // Let's try to read from local cache or environment
-          
+
           // Check if running in GitHub Actions
           if (process.env.GITHUB_ACTIONS) {
             VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
             console.log('   ✅ Token loaded from GitHub Actions environment');
           } else {
-            console.log('   ⚠️  Token exists but cannot be read outside GitHub Actions');
+            console.log(
+              '   ⚠️  Token exists but cannot be read outside GitHub Actions'
+            );
             console.log('');
             console.log('   💡 Solution: Export the token manually');
-            console.log('   1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions');
-            console.log('   2. View VERCELACESSTOKEN (you may need to recreate it to see value)');
-            console.log('   3. Run: export VERCELACESSTOKEN="paste-token-here"');
+            console.log(
+              '   1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions'
+            );
+            console.log(
+              '   2. View VERCELACESSTOKEN (you may need to recreate it to see value)'
+            );
+            console.log(
+              '   3. Run: export VERCELACESSTOKEN="paste-token-here"'
+            );
             console.log('   4. Run: pnpm ultimate-fix');
             console.log('');
             process.exit(1);
@@ -70,14 +78,16 @@ if (!VERCELACESSTOKEN) {
   } catch (error) {
     console.log('   ⚠️  GitHub CLI not available or not authenticated');
   }
-  
+
   if (!VERCELACESSTOKEN) {
     console.log('');
     console.log('❌ No Vercel token available\n');
     console.log('📋 How to get the token:');
     console.log('');
     console.log('Option 1: From GitHub Secrets (Recommended)');
-    console.log('  1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions');
+    console.log(
+      '  1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions'
+    );
     console.log('  2. Find VERCELACESSTOKEN');
     console.log('  3. Copy the value (may need to recreate to see it)');
     console.log('  4. Run: export VERCELACESSTOKEN="paste-token-here"');
@@ -103,7 +113,7 @@ console.log('🤖 Step 2: Running full auto-fix...\n');
 try {
   execSync('node scripts/full-auto-fix.mjs', {
     stdio: 'inherit',
-    env: { ...process.env, VERCELACESSTOKEN }
+    env: { ...process.env, VERCELACESSTOKEN },
   });
 } catch (error) {
   console.log('\n⚠️  Auto-fix encountered issues\n');
