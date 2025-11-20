@@ -168,16 +168,16 @@ export default function CourseraStyleFooter() {
             <div className="space-y-3">
               <a href="#" className="block">
                 <img
-                  src="https://www.coursera.org/images/app-store-badge.svg"
+                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
                   alt="Download on App Store"
                   className="h-10"
                 />
               </a>
               <a href="#" className="block">
                 <img
-                  src="https://www.coursera.org/images/google-play-badge.svg"
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                   alt="Get it on Google Play"
-                  className="h-10"
+                  className="h-12"
                 />
               </a>
             </div>
