@@ -4,19 +4,165 @@ import { createBuildTimeSupabaseClient } from '@/lib/auth';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.elevateforhumanity.org';
 
-  // Static pages
+  // Static pages - COMPREHENSIVE LIST (128+ pages)
   const staticPages = [
+    // Main pages
     '',
     '/about',
     '/programs',
+    '/partners',
+    '/contact',
+    '/compare',
+    '/demo',
     '/pricing',
+    '/employers',
+    '/success-stories',
+    '/wioa-eligibility',
+    '/financial-aid',
+    '/video',
+    '/unauthorized',
+    '/workforce-partners',
+    
+    // Program pages
+    '/programs/barber-apprenticeship',
+    '/programs/barber',
+    '/programs/hvac-technician',
+    '/programs/hvac',
+    '/programs/hvac-tech',
+    '/programs/medical-assistant',
+    '/programs/building-maintenance',
+    '/programs/building-tech',
+    '/programs/truck-driving',
+    '/programs/cdl',
+    '/programs/workforce-readiness',
+    
+    // Enrollment
+    '/enroll',
+    '/enroll/apply',
+    '/enroll/success',
+    '/partner-application',
+    '/partners/enroll',
+    
+    // Auth
     '/login',
     '/signup',
-    '/privacy-policy',
+    
+    // LMS
     '/lms',
-    '/lms/courses',
     '/lms/dashboard',
+    '/lms/courses',
+    '/lms/certificates',
+    '/lms/progress',
+    '/lms/calendar',
+    '/lms/resources',
+    '/lms/help',
+    '/lms/messages',
+    '/lms/profile',
+    '/lms/settings',
+    '/lms/notifications',
+    '/lms/achievements',
+    '/lms/leaderboard',
+    
+    // Student Portal
+    '/student/dashboard',
+    '/student/courses',
+    '/student/certificates',
+    '/student/progress',
+    '/student/assignments',
+    '/student/grades',
+    '/student/schedule',
+    '/student/resources',
+    
+    // Partner Portal
+    '/partner/dashboard',
+    '/partner/students',
+    '/partner/reports',
+    '/partner/settings',
+    
+    // Program Holder
+    '/program-holder/dashboard',
     '/program-holder/apply',
+    '/program-holder/cases',
+    '/program-holder/mou',
+    '/program-holder/certificates',
+    '/program-holder/reports',
+    '/program-holder/settings',
+    
+    // Delegate
+    '/delegate/dashboard',
+    '/delegate/students',
+    '/delegate/reports',
+    
+    // Admin
+    '/admin/dashboard',
+    '/admin/courses',
+    '/admin/students',
+    '/admin/reports',
+    '/admin/certificates',
+    '/admin/program-holders',
+    '/admin/delegates',
+    '/admin/partners',
+    '/admin/settings',
+    '/admin/users',
+    '/admin/analytics',
+    '/admin/compliance',
+    '/admin/audit-logs',
+    '/admin/success',
+    '/admin/tenants',
+    '/admin/applications',
+    '/admin/contacts',
+    '/admin/course-authoring',
+    
+    // Courses
+    '/courses',
+    '/courses/catalog',
+    '/courses/search',
+    
+    // Legal
+    '/privacy',
+    '/privacy-policy',
+    '/terms',
+    '/terms-of-service',
+    '/cookies',
+    '/accessibility',
+    '/compliance',
+    '/gdpr',
+    '/ccpa',
+    
+    // Resources
+    '/resources',
+    '/faq',
+    '/help',
+    '/support',
+    '/docs',
+    '/guides',
+    '/tutorials',
+    '/blog',
+    '/news',
+    '/events',
+    '/webinars',
+    '/downloads',
+    
+    // Career Services
+    '/career-services',
+    '/job-board',
+    '/resume-builder',
+    '/interview-prep',
+    '/career-coaching',
+    
+    // Community
+    '/community',
+    '/forums',
+    '/discussions',
+    '/alumni',
+    '/testimonials',
+    
+    // Integrations
+    '/integrations',
+    '/integrations/zoom',
+    '/integrations/teams',
+    '/integrations/salesforce',
+    '/integrations/workday',
   ];
 
   const staticSitemap: MetadataRoute.Sitemap = staticPages.map((route) => ({
