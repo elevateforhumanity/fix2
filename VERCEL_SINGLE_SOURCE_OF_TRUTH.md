@@ -87,6 +87,7 @@ Run this to verify your setup:
 ```
 
 This will:
+
 - Count your Vercel projects
 - Identify duplicates
 - Guide you through cleanup
@@ -99,6 +100,7 @@ This will:
 ### Identify Which Project to Keep
 
 **Keep the project that has:**
+
 1. ✅ Custom domain (www.elevateforhumanity.org)
 2. ✅ Most recent successful deployment
 3. ✅ All environment variables configured
@@ -132,6 +134,7 @@ This will:
 Your single Vercel project MUST have these variables:
 
 ### Critical (Required):
+
 - [ ] `NEXT_PUBLIC_SUPABASE_URL` (all 3 envs)
 - [ ] `NEXT_PUBLIC_SUPABASE_ANON_KEY` (all 3 envs)
 - [ ] `SUPABASE_SERVICE_ROLE_KEY` (all 3 envs)
@@ -140,6 +143,7 @@ Your single Vercel project MUST have these variables:
 - [ ] `NEXT_PUBLIC_SITE_URL` (all 3 envs)
 
 ### Optional (Recommended):
+
 - [ ] `RESEND_API_KEY`
 - [ ] `EMAIL_FROM`
 - [ ] `NEXT_PUBLIC_GA_MEASUREMENT_ID`
@@ -148,6 +152,7 @@ Your single Vercel project MUST have these variables:
 ### How to Add Missing Variables
 
 If variables are missing, run:
+
 ```bash
 ./scripts/workers/get-vercel-credentials.sh
 ```
@@ -161,6 +166,7 @@ This will guide you through adding all required variables.
 After ensuring single project, verify:
 
 ### Vercel Dashboard:
+
 - [ ] Only 1 project visible for this repo
 - [ ] Project has clear name
 - [ ] Latest deployment successful
@@ -168,6 +174,7 @@ After ensuring single project, verify:
 - [ ] All environment variables present
 
 ### Production Site:
+
 - [ ] https://www.elevateforhumanity.org loads
 - [ ] Homepage displays correctly
 - [ ] Login/signup works
@@ -175,11 +182,13 @@ After ensuring single project, verify:
 - [ ] Images load properly
 
 ### GitHub Integration:
+
 - [ ] Pushes to main trigger deployments
 - [ ] Pull requests create preview deployments
 - [ ] Deployment status shows in GitHub PRs
 
 ### Team Alignment:
+
 - [ ] Team knows which project to use
 - [ ] Documentation updated
 - [ ] No confusion about "which Vercel"
@@ -191,12 +200,14 @@ After ensuring single project, verify:
 Based on repository files, you may have:
 
 **Configured Project**: `fix2-i3z8`  
-**Mentioned Projects**: 
+**Mentioned Projects**:
+
 - fix2-one (in README as live URL)
 - fix2-1c7w (in VERCEL_ENV_AUDIT_CHECKLIST.md)
 - fix2-tlr1 (in VERCEL_CLEANUP_GUIDE.md)
 
-**Action Required**: 
+**Action Required**:
+
 1. Run `./scripts/workers/check-vercel-duplicates.sh`
 2. Identify which project is production
 3. Delete duplicates
@@ -207,16 +218,19 @@ Based on repository files, you may have:
 ## 🔧 AUTOMATION
 
 ### Check for Duplicates:
+
 ```bash
 ./scripts/workers/check-vercel-duplicates.sh
 ```
 
 ### Add Environment Variables:
+
 ```bash
 ./scripts/workers/get-vercel-credentials.sh
 ```
 
 ### Verify Supabase Connection:
+
 ```bash
 ./scripts/workers/get-supabase-credentials.sh
 ```

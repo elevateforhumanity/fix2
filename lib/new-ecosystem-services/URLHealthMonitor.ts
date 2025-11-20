@@ -275,7 +275,9 @@ export class URLHealthMonitor {
         const check = await this.checkEndpoint(id);
         checks.set(id, check);
       } catch (error) {
-        logger.error(`Error checking endpoint ${id}`, error as Error, { endpointId: id });
+        logger.error(`Error checking endpoint ${id}`, error as Error, {
+          endpointId: id,
+        });
       }
     }
 
@@ -329,12 +331,16 @@ export class URLHealthMonitor {
     endpoint: ServiceEndpoint,
     check: URLCheck
   ): void {
-    logger.error(`🚨 CRITICAL SERVICE DOWN: ${endpoint.name}`, new Error(check.errorMessage || 'Unknown error'), {
-      endpointName: endpoint.name,
-      url: endpoint.url,
-      statusCode: check.statusCode || 'No response',
-      errorMessage: check.errorMessage || 'Unknown error'
-    });
+    logger.error(
+      `🚨 CRITICAL SERVICE DOWN: ${endpoint.name}`,
+      new Error(check.errorMessage || 'Unknown error'),
+      {
+        endpointName: endpoint.name,
+        url: endpoint.url,
+        statusCode: check.statusCode || 'No response',
+        errorMessage: check.errorMessage || 'Unknown error',
+      }
+    );
 
     // In production, send alerts via email, Slack, PagerDuty, etc.
     this.sendAlert({
@@ -349,7 +355,14 @@ export class URLHealthMonitor {
   /**
    * Send alert (implement with your alerting system)
    */
-  private async sendAlert(alert: { type: string; severity: string; endpoint: string; message: string; timestamp: Date; error?: string }): Promise<void> {
+  private async sendAlert(alert: {
+    type: string;
+    severity: string;
+    endpoint: string;
+    message: string;
+    timestamp: Date;
+    error?: string;
+  }): Promise<void> {
     // Implement alerting logic here
     // Examples: Email, Slack, PagerDuty, Discord, etc.
     logger.info('ALERT', alert);

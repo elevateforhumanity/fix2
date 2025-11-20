@@ -3,6 +3,7 @@
 ## ✅ What's Been Created
 
 ### 1. Database Table
+
 - **File**: `supabase/CREATE_MARKETING_CONTACTS.sql`
 - **Table**: `marketing_contacts`
 - **Features**:
@@ -13,6 +14,7 @@
   - Timestamps and notes
 
 ### 2. Admin Interface
+
 - **URL**: `/admin/contacts`
 - **Features**:
   - View all contacts
@@ -22,6 +24,7 @@
   - Filter and search contacts
 
 ### 3. Email System
+
 - **API**: `/api/marketing/send-welcome`
 - **Features**:
   - Personalized welcome messages
@@ -30,6 +33,7 @@
   - Automatic status updates
 
 ### 4. Pre-loaded Contacts
+
 All 17 contacts you provided are ready to be imported!
 
 ---
@@ -50,6 +54,7 @@ You should see: ✅ Success. No rows returned
 ### Step 2: Insert Your Contacts
 
 **Option A: Via Script (Recommended)**
+
 ```bash
 cd /workspaces/fix2
 node scripts/insert-contacts.mjs
@@ -61,6 +66,7 @@ The SQL file already includes INSERT statements for all 17 contacts!
 ### Step 3: Verify the Setup
 
 Check that contacts were inserted:
+
 ```bash
 curl -s "https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/marketing_contacts?select=count" \
   -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE" \
@@ -79,25 +85,25 @@ Expected output: `[{"count":17}]`
 
 ## 📋 Contact List Summary
 
-| Name | Email | Interest |
-|------|-------|----------|
-| Jakelia Taylor | Info@totalsupporthomecare.org | General Interest |
-| Premella Holifield | mella.holifield@icloud.com | Educator |
-| Angela Hurns | a_hurns@yahoo.com | General Programs |
-| Kimberly Harris | harriskimberly738@gmail.com | CDL Training |
-| Koman djan | dkalandry@gmail.com | General Training |
-| Eve | eviennejoseph1083@yahoo.com | HVAC Training |
-| robert robison | rerobison5@gmail.com | Business Start-Up |
-| Sarra L Foster | 1sarralee@gmail.com | Tax Preparation |
-| Jordan McClung | keiransolace@gmail.com | Digital Design |
-| Blaise Filsinger | Blaisefilsinger@icloud.com | CDL Instructor |
-| Maryanne Lundy | maryannelundy@gmail.com | Tax Preparation |
-| Reshown Mcnary | Reshow@yahoo.com | General Programs |
-| Sonya Winford | winfordsonya@yahoo.com | HHA Training |
-| Jordan McClung | mcclujor000@warren.k12.in.us | Animation Program |
-| Elijah Bailey | Baileeli000@gmail.com | Dental Program |
-| Salena Lithetland | Litherland.salena@gmail.com | Cosmetology |
-| Miyahra Sanders | miyahras@gmail.com | Youth Cosmetology |
+| Name               | Email                         | Interest          |
+| ------------------ | ----------------------------- | ----------------- |
+| Jakelia Taylor     | Info@totalsupporthomecare.org | General Interest  |
+| Premella Holifield | mella.holifield@icloud.com    | Educator          |
+| Angela Hurns       | a_hurns@yahoo.com             | General Programs  |
+| Kimberly Harris    | harriskimberly738@gmail.com   | CDL Training      |
+| Koman djan         | dkalandry@gmail.com           | General Training  |
+| Eve                | eviennejoseph1083@yahoo.com   | HVAC Training     |
+| robert robison     | rerobison5@gmail.com          | Business Start-Up |
+| Sarra L Foster     | 1sarralee@gmail.com           | Tax Preparation   |
+| Jordan McClung     | keiransolace@gmail.com        | Digital Design    |
+| Blaise Filsinger   | Blaisefilsinger@icloud.com    | CDL Instructor    |
+| Maryanne Lundy     | maryannelundy@gmail.com       | Tax Preparation   |
+| Reshown Mcnary     | Reshow@yahoo.com              | General Programs  |
+| Sonya Winford      | winfordsonya@yahoo.com        | HHA Training      |
+| Jordan McClung     | mcclujor000@warren.k12.in.us  | Animation Program |
+| Elijah Bailey      | Baileeli000@gmail.com         | Dental Program    |
+| Salena Lithetland  | Litherland.salena@gmail.com   | Cosmetology       |
+| Miyahra Sanders    | miyahras@gmail.com            | Youth Cosmetology |
 
 ---
 
@@ -182,6 +188,7 @@ The Elevate for Humanity Team
 ## ⚙️ Email Configuration
 
 The system uses the existing email infrastructure:
+
 - **Resend API** (if configured)
 - **SendGrid** (fallback)
 
@@ -212,15 +219,18 @@ Make sure you have `RESEND_API_KEY` set in your Vercel environment variables.
 ## 🆘 Troubleshooting
 
 ### Table doesn't exist
+
 - Make sure you ran the SQL in Supabase SQL Editor
 - Check that you're in the correct project
 
 ### Contacts not showing
+
 - Verify the table was created: Check Supabase Table Editor
 - Run the insert script again
 - Check browser console for errors
 
 ### Emails not sending
+
 - Verify `RESEND_API_KEY` is set in Vercel
 - Check API logs in Vercel dashboard
 - Test with a personal email first
@@ -230,6 +240,7 @@ Make sure you have `RESEND_API_KEY` set in your Vercel environment variables.
 ## 🎉 You're All Set!
 
 Your contact management system is ready to:
+
 - ✅ Store and organize leads
 - ✅ Send personalized welcome emails
 - ✅ Track engagement and status

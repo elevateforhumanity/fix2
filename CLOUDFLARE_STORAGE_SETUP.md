@@ -160,9 +160,7 @@ console.log('✅ Upload successful!');
 ### Test from Browser
 
 ```javascript
-const response = await fetch(
-  'https://storage.elevateforhumanity.org/test.txt'
-);
+const response = await fetch('https://storage.elevateforhumanity.org/test.txt');
 const text = await response.text();
 console.log('✅ Download successful:', text);
 ```

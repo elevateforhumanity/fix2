@@ -13,6 +13,7 @@
 ### 1. Course Content System
 
 **7 ECD Courses Configured:**
+
 1. HVAC Technician Training
 2. Barber Apprenticeship
 3. CNA & Healthcare Careers
@@ -22,29 +23,34 @@
 7. Beauty & Career Educator Training
 
 **Files:**
+
 - `content/courses/ecd-courses.json` - Master course list (JSON)
 - `content/courses/ecdCatalog.ts` - TypeScript catalog with types
 
 ### 2. AI-Generated Content
 
 **Image Prompts (7 files):**
+
 - Location: `content/image-prompts/ecd-courses/`
 - Category-specific prompts (Healthcare, Skilled Trades, Beauty, Tech, Transportation)
 - Ready for DALL-E, Midjourney, Leonardo.ai, etc.
 
 **Video Scripts (8 files):**
+
 - Location: `content/video-scripts/ecd-courses/`
 - 7 course videos (45-60 seconds each)
 - 1 homepage narrator video (90 seconds)
 - All include WIOA/funding messaging
 
 **Generated Images (17 total):**
+
 - Location: `public/generated-images/`
 - 7 ECD course covers (placeholder SVGs currently)
 - 10 legacy course covers
 - Manifest: `public/generated-images/manifest.json`
 
 **Video Job Queue (33 videos):**
+
 - Location: `content/video-jobs.json`
 - Organized by priority and provider
 - Estimated cost: $33.20
@@ -52,10 +58,12 @@
 ### 3. UI Components
 
 **New Components:**
+
 - `components/courses/EcdCourseCard.tsx` - Course card with AI covers
 - `components/homepage/AiNarratorSection.tsx` - Homepage AI narrator
 
 **Updated Pages:**
+
 - `app/programs/page.tsx` - Shows 7 ECD courses with covers
 - `app/programs/[slug]/page.tsx` - Dynamic course detail pages
 - `app/page.tsx` - Homepage with AI narrator section
@@ -63,6 +71,7 @@
 ### 4. Automation Scripts
 
 **Builder System:**
+
 - `setup-ecd-course-builder.sh` - One-command setup
 - `scripts/build-ecd-course-assets.mjs` - Generate prompts/scripts from JSON
 - `scripts/generate-images.mjs` - Create course cover images
@@ -73,19 +82,25 @@
 ## 🌐 Live Pages
 
 ### Homepage (/)
+
 ✅ AI Narrator section explaining Elevate for Humanity
+
 - Video placeholder ready for AI-generated content
 - Explains WIOA, Workforce Ready Grants, Job Ready Indy
 - Links to programs
 
 ### Programs Listing (/programs)
+
 ✅ 7 ECD courses displayed with AI-generated covers
+
 - Professional course cards
 - Hover effects
 - Direct links to detail pages
 
 ### Course Detail Pages
+
 ✅ Individual pages for each course:
+
 - `/programs/hvac-technician`
 - `/programs/barber-apprenticeship`
 - `/programs/cna-healthcare`
@@ -95,6 +110,7 @@
 - `/programs/beauty-career-educator`
 
 Each page includes:
+
 - AI-generated cover image
 - Course description
 - WIOA funding information
@@ -164,16 +180,16 @@ Displayed on Course Pages
 
 ## 📊 Current Status
 
-| Component | Status | Count | Notes |
-|-----------|--------|-------|-------|
-| Courses | ✅ Live | 7 | JSON-driven |
-| Image Prompts | ✅ Generated | 7 | Category-specific |
-| Video Scripts | ✅ Generated | 8 | 7 courses + 1 homepage |
-| Course Covers | ⚠️ Placeholders | 7 | SVG gradients (functional) |
-| Videos | ⚠️ Pending | 0 | Scripts ready |
-| UI Components | ✅ Complete | 2 | Card + Narrator |
-| Pages | ✅ Live | 9 | Homepage + 7 courses + listing |
-| Build | ✅ Passing | - | No errors |
+| Component     | Status          | Count | Notes                          |
+| ------------- | --------------- | ----- | ------------------------------ |
+| Courses       | ✅ Live         | 7     | JSON-driven                    |
+| Image Prompts | ✅ Generated    | 7     | Category-specific              |
+| Video Scripts | ✅ Generated    | 8     | 7 courses + 1 homepage         |
+| Course Covers | ⚠️ Placeholders | 7     | SVG gradients (functional)     |
+| Videos        | ⚠️ Pending      | 0     | Scripts ready                  |
+| UI Components | ✅ Complete     | 2     | Card + Narrator                |
+| Pages         | ✅ Live         | 9     | Homepage + 7 courses + listing |
+| Build         | ✅ Passing      | -     | No errors                      |
 
 ---
 
@@ -185,13 +201,16 @@ Displayed on Course Pages
 **Goal:** AI-generated photorealistic images
 
 **Option A: OpenAI DALL-E 3 (Automated)**
+
 ```bash
 export OPENAI_API_KEY="your-key"
 node scripts/generate-images.mjs
 ```
+
 Cost: ~$0.28 for 7 images
 
 **Option B: Manual (Any AI Tool)**
+
 1. Copy prompts from `content/image-prompts/ecd-courses/*.md`
 2. Generate in ChatGPT Plus, Leonardo.ai, or Midjourney
 3. Save to `public/generated-images/ecd-courses/`
@@ -218,12 +237,14 @@ Cost: ~$0.28 for 7 images
    - Same process as above
 
 **Recommended Service: HeyGen ($30/mo)**
+
 - Best quality for instructor videos
 - Natural voice synthesis
 - Professional avatars
 - 20 video credits per month
 
 **Budget Alternative: D-ID (Free tier)**
+
 - 5 minutes free per month
 - Good for testing
 - Lower quality but functional
@@ -246,18 +267,21 @@ git push origin main
 ## 💰 Cost Breakdown
 
 ### Current (Placeholders): $0
+
 - ✅ Site fully functional
 - ✅ Professional appearance
 - ✅ Ready to deploy
 - ✅ All features working
 
 ### With Real Images: $0.28
+
 - OpenAI DALL-E 3 API
 - 7 high-quality images
 - One-time cost
 - Instant generation
 
 ### With Real Videos: $30/mo
+
 - HeyGen subscription
 - 8 professional videos (7 courses + 1 homepage)
 - Natural AI voices
@@ -276,6 +300,7 @@ nano content/courses/ecd-courses.json
 ```
 
 Add a new course:
+
 ```json
 {
   "slug": "welding-fabrication",
@@ -292,6 +317,7 @@ node scripts/build-ecd-course-assets.mjs
 ```
 
 This creates:
+
 - `content/image-prompts/ecd-courses/welding-fabrication-cover.md`
 - `content/video-scripts/ecd-courses/welding-fabrication-video.md`
 
@@ -304,6 +330,7 @@ node scripts/generate-images.mjs
 ### 4. Update Catalog
 
 The course automatically appears in:
+
 - `content/courses/ecdCatalog.ts`
 - `/programs` listing page
 - `/programs/welding-fabrication` detail page
@@ -323,6 +350,7 @@ Edit: `content/courses/ecd-courses.json`
 ### Customize Image Prompts
 
 Edit: `scripts/build-ecd-course-assets.mjs`
+
 - Modify `imagePromptFor()` function
 - Adjust category themes
 - Change color palettes
@@ -330,6 +358,7 @@ Edit: `scripts/build-ecd-course-assets.mjs`
 ### Customize Video Scripts
 
 Edit: `scripts/build-ecd-course-assets.mjs`
+
 - Modify `videoScriptFor()` function
 - Adjust intro lines
 - Change funding messaging
@@ -337,6 +366,7 @@ Edit: `scripts/build-ecd-course-assets.mjs`
 ### Update Homepage Narrator
 
 Edit: `content/homepage/aiInstructor.ts`
+
 - Change video URL
 - Update script file path
 
@@ -439,6 +469,7 @@ fix2/
 ## 📞 Support & Documentation
 
 **Quick Commands:**
+
 ```bash
 # View course list
 cat content/courses/ecd-courses.json | jq
@@ -457,6 +488,7 @@ npm run build && npm run dev
 ```
 
 **Documentation Files:**
+
 - `ECD-COURSE-SYSTEM-READY.md` - Initial setup guide
 - `ECD-SYSTEM-COMPLETE.md` - This file (complete system overview)
 - `INTEGRATION-COMPLETE.md` - Integration details

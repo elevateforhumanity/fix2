@@ -9,19 +9,23 @@
 ## 🎯 Current Situation
 
 ### What's Happening:
+
 Your Vercel deployment at `fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app` needs environment variables configured to:
+
 1. Connect to Supabase database (for real courses)
 2. OR use mock data fallback (for testing)
 
 ### Two Options:
 
 **Option 1: Use Mock Data (Quick - Works Now)**
+
 - No environment variables needed
 - Shows 17 sample courses
 - Good for testing/demos
 - Blue banner shows "Using Mock Data"
 
 **Option 2: Connect Real Database (Production)**
+
 - Requires Supabase credentials
 - Shows real courses from database
 - Full enrollment functionality
@@ -32,18 +36,22 @@ Your Vercel deployment at `fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app` need
 ## 🚀 Option 1: Deploy with Mock Data (Recommended First)
 
 ### Current Status:
+
 ✅ **Already working!** The code I just pushed includes mock data fallback.
 
 ### What You'll See:
+
 When you visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses`
 
 You should see:
+
 - ✅ 17 courses displayed
 - ✅ Blue banner: "Using Mock Course Data"
 - ✅ All course details visible
 - ✅ No errors
 
 ### No Action Needed:
+
 The app automatically uses mock data when Supabase credentials aren't configured.
 
 ---
@@ -51,6 +59,7 @@ The app automatically uses mock data when Supabase credentials aren't configured
 ## 🔧 Option 2: Configure Supabase (For Production)
 
 ### Step 1: Access Vercel Dashboard
+
 ```
 1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql
 2. Click "Settings" tab
@@ -58,7 +67,9 @@ The app automatically uses mock data when Supabase credentials aren't configured
 ```
 
 ### Step 2: Check Current Variables
+
 Look for these variables:
+
 ```
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -66,16 +77,19 @@ SUPABASE_SERVICE_ROLE_KEY
 ```
 
 **If they exist**:
+
 - Check if they're placeholders (contain "placeholder")
 - If yes, update them with real credentials
 - If no, they're already configured
 
 **If they don't exist**:
+
 - You need to add them (see Step 3)
 
 ### Step 3: Get Supabase Credentials
 
 **A. Create Supabase Account** (if you don't have one):
+
 ```
 1. Go to: https://supabase.com
 2. Sign up (free tier available)
@@ -87,17 +101,18 @@ SUPABASE_SERVICE_ROLE_KEY
 ```
 
 **B. Get Your Credentials**:
+
 ```
 1. In Supabase dashboard, click "Settings" (gear icon)
 2. Click "API"
 3. Copy these 3 values:
-   
+
    Project URL:
    https://xxxxxxxxxxxxx.supabase.co
-   
+
    anon/public key:
    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxxx...
-   
+
    service_role key:
    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.yyyyyy...
 ```
@@ -107,6 +122,7 @@ SUPABASE_SERVICE_ROLE_KEY
 **In Vercel Settings → Environment Variables**:
 
 1. **Add NEXT_PUBLIC_SUPABASE_URL**:
+
    ```
    Name: NEXT_PUBLIC_SUPABASE_URL
    Value: https://xxxxxxxxxxxxx.supabase.co
@@ -114,6 +130,7 @@ SUPABASE_SERVICE_ROLE_KEY
    ```
 
 2. **Add NEXT_PUBLIC_SUPABASE_ANON_KEY**:
+
    ```
    Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
    Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxxx...
@@ -121,6 +138,7 @@ SUPABASE_SERVICE_ROLE_KEY
    ```
 
 3. **Add SUPABASE_SERVICE_ROLE_KEY**:
+
    ```
    Name: SUPABASE_SERVICE_ROLE_KEY
    Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.yyyyyy...
@@ -132,6 +150,7 @@ SUPABASE_SERVICE_ROLE_KEY
 ### Step 5: Redeploy
 
 After adding variables:
+
 ```
 1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql
 2. Click "Deployments" tab
@@ -144,6 +163,7 @@ After adding variables:
 ### Step 6: Run Database Migrations
 
 **In Supabase SQL Editor**:
+
 ```
 1. Go to Supabase dashboard
 2. Click "SQL Editor"
@@ -158,6 +178,7 @@ After adding variables:
 Visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses`
 
 You should see:
+
 - ✅ 17 courses displayed
 - ✅ NO blue banner (using real database)
 - ✅ All course details visible
@@ -170,6 +191,7 @@ You should see:
 ### Check Environment Variables:
 
 **Method 1: Vercel Dashboard**
+
 ```
 1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 2. Look for:
@@ -180,6 +202,7 @@ You should see:
 ```
 
 **Method 2: Check Deployment Logs**
+
 ```
 1. Go to latest deployment
 2. Click "Build Logs"
@@ -193,12 +216,14 @@ You should see:
 ## 🎯 Recommended Approach
 
 ### For Testing (Now):
+
 1. ✅ **Do nothing** - mock data already works
 2. ✅ Visit deployment URL
 3. ✅ See 17 courses with blue banner
 4. ✅ Test UI and functionality
 
 ### For Production (Later):
+
 1. ⏳ Set up Supabase account
 2. ⏳ Add environment variables to Vercel
 3. ⏳ Redeploy
@@ -210,6 +235,7 @@ You should see:
 ## 🔍 How to Verify Current Status
 
 ### Visit Admin Courses Page:
+
 ```
 https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
@@ -217,6 +243,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ### What You'll See:
 
 **If Using Mock Data** (current state):
+
 ```
 ✅ Page loads
 ✅ Shows "17 courses in the system"
@@ -226,6 +253,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
 
 **If Using Real Database** (after configuration):
+
 ```
 ✅ Page loads
 ✅ Shows "X courses in the system" (from database)
@@ -239,6 +267,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ## 📊 Environment Variables Reference
 
 ### Required for Real Database:
+
 ```bash
 # Supabase Connection
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
@@ -247,6 +276,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 ### Optional (Recommended):
+
 ```bash
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
@@ -264,7 +294,9 @@ NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your-pixel-id
 ```
 
 ### Not Required (Mock Data Works):
+
 If you don't set Supabase variables, the app automatically:
+
 - ✅ Uses mock data
 - ✅ Shows 17 sample courses
 - ✅ Displays blue banner
@@ -275,18 +307,22 @@ If you don't set Supabase variables, the app automatically:
 ## 🚨 Common Issues
 
 ### Issue 1: "No courses found"
+
 **Cause**: Environment variables not set AND mock data not loading  
 **Fix**: Check browser console for errors, redeploy
 
 ### Issue 2: "Database connection error"
+
 **Cause**: Invalid Supabase credentials  
 **Fix**: Double-check credentials in Vercel settings
 
 ### Issue 3: "Courses show but can't enroll"
+
 **Cause**: Using mock data (by design)  
 **Fix**: This is expected - add real Supabase credentials for enrollment
 
 ### Issue 4: Blue banner won't go away
+
 **Cause**: Still using mock data  
 **Fix**: Add Supabase credentials and redeploy
 
@@ -295,6 +331,7 @@ If you don't set Supabase variables, the app automatically:
 ## ✅ Success Checklist
 
 ### Current Deployment (Mock Data):
+
 - [ ] Visit deployment URL
 - [ ] See admin courses page
 - [ ] See 17 courses displayed
@@ -303,6 +340,7 @@ If you don't set Supabase variables, the app automatically:
 - [ ] No errors in console
 
 ### After Adding Credentials:
+
 - [ ] Environment variables added to Vercel
 - [ ] Redeployed successfully
 - [ ] Database migrations run
@@ -316,15 +354,18 @@ If you don't set Supabase variables, the app automatically:
 ## 📞 Quick Links
 
 ### Vercel:
+
 - **Dashboard**: https://vercel.com/elevate-48e460c9/fix2-gpql
 - **Environment Variables**: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 - **Deployments**: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 
 ### Supabase:
+
 - **Sign Up**: https://supabase.com
 - **Dashboard**: https://app.supabase.com
 
 ### Test URLs:
+
 - **Admin Courses**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 - **Student Courses**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/student/courses
 - **Programs**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/programs
@@ -334,17 +375,20 @@ If you don't set Supabase variables, the app automatically:
 ## 🎉 Summary
 
 ### Current Status:
+
 ✅ **Code deployed with mock data fallback**  
 ✅ **Courses will display automatically**  
 ✅ **No environment variables required for testing**
 
 ### What to Do:
+
 1. **Now**: Wait 3-4 minutes for deployment to complete
 2. **Then**: Visit admin courses page
 3. **See**: 17 courses with blue banner
 4. **Later**: Add Supabase credentials when ready for production
 
 ### Result:
+
 - ✅ Courses visible immediately (mock data)
 - ✅ Can test UI and functionality
 - ✅ Can show stakeholders
@@ -358,5 +402,5 @@ If you don't set Supabase variables, the app automatically:
 
 ---
 
-*Last Updated: November 19, 2025*  
-*Document: VERCEL_ENV_SETUP.md*
+_Last Updated: November 19, 2025_  
+_Document: VERCEL_ENV_SETUP.md_

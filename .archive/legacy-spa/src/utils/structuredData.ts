@@ -134,8 +134,7 @@ export function getWebSiteSchema(): WebSite {
     url: 'https://elevateforhumanity.org',
     potentialAction: {
       '@type': 'SearchAction',
-      target:
-        'https://elevateforhumanity.org/search?q={search_term_string}',
+      target: 'https://elevateforhumanity.org/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };

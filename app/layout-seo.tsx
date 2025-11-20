@@ -6,7 +6,8 @@ export const metadata: Metadata = {
     default: 'Elevate for Humanity - Workforce Training & Career Development',
     template: '%s | Elevate for Humanity',
   },
-  description: 'Transform your career with funded workforce training programs. Barber apprenticeships, HVAC, medical assistant, CDL training, and more. 100% funded through WIOA, WRG, and workforce grants.',
+  description:
+    'Transform your career with funded workforce training programs. Barber apprenticeships, HVAC, medical assistant, CDL training, and more. 100% funded through WIOA, WRG, and workforce grants.',
   keywords: [
     'workforce training',
     'career development',
@@ -40,7 +41,8 @@ export const metadata: Metadata = {
     url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     title: 'Elevate for Humanity - Workforce Training & Career Development',
-    description: 'Transform your career with funded workforce training programs. 100% funded through WIOA, WRG, and workforce grants.',
+    description:
+      'Transform your career with funded workforce training programs. 100% funded through WIOA, WRG, and workforce grants.',
     images: [
       {
         url: 'https://www.elevateforhumanity.org/og-image.jpg',
@@ -53,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Elevate for Humanity - Workforce Training & Career Development',
-    description: 'Transform your career with funded workforce training programs.',
+    description:
+      'Transform your career with funded workforce training programs.',
     images: ['https://www.elevateforhumanity.org/og-image.jpg'],
     creator: '@elevateforhumanity',
   },

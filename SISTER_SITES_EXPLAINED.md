@@ -147,11 +147,11 @@ Trained Workforce
 
 ## 📊 CURRENT STATUS
 
-| Organization                   | Status      | URL                          | Purpose               |
-| ------------------------------ | ----------- | ---------------------------- | --------------------- |
-| **Elevate Connects Directory** | 🚧 Building | elevateforhumanity.org | LMS Platform          |
-| **Selfish Inc.**               | 🔮 Planned  | selfishinc.org               | Grants & Scholarships |
-| **Rise Forward Foundation**    | 🔮 Planned  | riseforwardfoundation.org    | Foundation Funding    |
+| Organization                   | Status      | URL                       | Purpose               |
+| ------------------------------ | ----------- | ------------------------- | --------------------- |
+| **Elevate Connects Directory** | 🚧 Building | elevateforhumanity.org    | LMS Platform          |
+| **Selfish Inc.**               | 🔮 Planned  | selfishinc.org            | Grants & Scholarships |
+| **Rise Forward Foundation**    | 🔮 Planned  | riseforwardfoundation.org | Foundation Funding    |
 
 ---
 

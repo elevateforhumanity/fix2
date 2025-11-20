@@ -5,6 +5,7 @@ This directory contains k6 load testing scripts for the Elevate for Humanity LMS
 ## Prerequisites
 
 Install k6:
+
 ```bash
 # macOS
 brew install k6
@@ -23,6 +24,7 @@ choco install k6
 ## Running Tests
 
 ### Basic LMS Test
+
 Tests homepage, dashboard, programs page, and health endpoint:
 
 ```bash
@@ -30,11 +32,13 @@ k6 run load-tests/basic-lms-test.js
 ```
 
 ### Custom Base URL
+
 ```bash
 k6 run --env BASE_URL=https://staging.elevateforhumanity.org load-tests/basic-lms-test.js
 ```
 
 ### CI/CD Integration
+
 ```bash
 k6 run --out json=results.json load-tests/basic-lms-test.js
 ```
@@ -42,6 +46,7 @@ k6 run --out json=results.json load-tests/basic-lms-test.js
 ## Test Stages
 
 The basic test runs through 3 stages:
+
 1. **Ramp-up (1 min)**: 0 → 20 virtual users
 2. **Peak load (3 min)**: 20 → 100 virtual users
 3. **Ramp-down (1 min)**: 100 → 0 virtual users

@@ -2,7 +2,7 @@
 
 /**
  * COMPREHENSIVE SITE AUDIT - Playwright Automation
- * 
+ *
  * Performs COMPLETE audit of the live site - ALL pages, not just homepage
  */
 
@@ -85,12 +85,12 @@ async function main() {
   for (const pagePath of PAGES_TO_AUDIT) {
     console.log(`\n📄 Auditing: ${pagePath}`);
     const pageUrl = `${SITE_URL}${pagePath}`;
-    
+
     try {
       const pageAudit = await auditPage(page, pageUrl, pagePath);
       auditResults.pages[pagePath] = pageAudit;
       auditResults.summary.totalPages++;
-      
+
       if (pageAudit.status === 'working') {
         auditResults.summary.workingPages++;
       } else if (pageAudit.status === 'broken') {
@@ -98,14 +98,13 @@ async function main() {
       } else if (pageAudit.status === 'incomplete') {
         auditResults.summary.incompletePages++;
       }
-      
+
       auditResults.summary.totalErrors += pageAudit.errors.length;
       auditResults.summary.totalWarnings += pageAudit.warnings.length;
-      
+
       console.log(`  Status: ${pageAudit.status}`);
       console.log(`  Errors: ${pageAudit.errors.length}`);
       console.log(`  Warnings: ${pageAudit.warnings.length}`);
-      
     } catch (error) {
       console.log(`  ❌ Failed: ${error.message}`);
       auditResults.pages[pagePath] = {
@@ -115,7 +114,7 @@ async function main() {
       };
       auditResults.summary.brokenPages++;
     }
-    
+
     await page.waitForTimeout(500);
   }
 
@@ -126,7 +125,7 @@ async function main() {
 
   console.log('\n✅ AUDIT COMPLETE');
   console.log(`\nReport saved: ${REPORT_FILE}`);
-  console.log(`\nSummary:`);
+  console.log('\nSummary:');
   console.log(`  Total Pages: ${auditResults.summary.totalPages}`);
   console.log(`  Working: ${auditResults.summary.workingPages}`);
   console.log(`  Broken: ${auditResults.summary.brokenPages}`);
@@ -163,19 +162,29 @@ async function auditPage(page, url, pagePath) {
         h1Count: document.querySelectorAll('h1').length,
         h1Text: document.querySelector('h1')?.textContent || '',
         bodyText: document.body.textContent.substring(0, 500),
-        hasNav: !!document.querySelector('nav') || !!document.querySelector('[role="navigation"]'),
+        hasNav:
+          !!document.querySelector('nav') ||
+          !!document.querySelector('[role="navigation"]'),
         hasFooter: !!document.querySelector('footer'),
         imageCount: document.querySelectorAll('img').length,
-        brokenImages: Array.from(document.querySelectorAll('img')).filter(img => !img.complete || img.naturalHeight === 0).length,
+        brokenImages: Array.from(document.querySelectorAll('img')).filter(
+          (img) => !img.complete || img.naturalHeight === 0
+        ).length,
         linkCount: document.querySelectorAll('a').length,
-        hasPlaceholder: document.body.textContent.toLowerCase().includes('placeholder') ||
-                        document.body.textContent.toLowerCase().includes('coming soon') ||
-                        document.body.textContent.toLowerCase().includes('under construction') ||
-                        document.body.textContent.toLowerCase().includes('todo'),
-        hasLorem: document.body.textContent.toLowerCase().includes('lorem ipsum'),
-        hasError: document.body.textContent.toLowerCase().includes('error') ||
-                  document.body.textContent.toLowerCase().includes('not found') ||
-                  document.body.textContent.toLowerCase().includes('404'),
+        hasPlaceholder:
+          document.body.textContent.toLowerCase().includes('placeholder') ||
+          document.body.textContent.toLowerCase().includes('coming soon') ||
+          document.body.textContent
+            .toLowerCase()
+            .includes('under construction') ||
+          document.body.textContent.toLowerCase().includes('todo'),
+        hasLorem: document.body.textContent
+          .toLowerCase()
+          .includes('lorem ipsum'),
+        hasError:
+          document.body.textContent.toLowerCase().includes('error') ||
+          document.body.textContent.toLowerCase().includes('not found') ||
+          document.body.textContent.toLowerCase().includes('404'),
       };
     });
 
@@ -197,7 +206,11 @@ async function auditPage(page, url, pagePath) {
     }
 
     // Check for missing title
-    if (!content.title || content.title === 'React App' || content.title === 'Next.js') {
+    if (
+      !content.title ||
+      content.title === 'React App' ||
+      content.title === 'Next.js'
+    ) {
       audit.warnings.push('Missing or default page title');
     }
 
@@ -215,7 +228,6 @@ async function auditPage(page, url, pagePath) {
     if (!content.hasFooter) {
       audit.warnings.push('No footer found');
     }
-
   } catch (error) {
     audit.status = 'broken';
     audit.errors.push(error.message);
@@ -262,18 +274,18 @@ function generateRecommendations() {
       priority: 'MEDIUM',
       title: 'Fix Pages with Multiple Issues',
       description: `${pagesWithWarnings.length} pages have 3+ warnings`,
-      pages: pagesWithWarnings.map(p => `${p.path} (${p.warnings} warnings)`),
+      pages: pagesWithWarnings.map((p) => `${p.path} (${p.warnings} warnings)`),
       action: 'Review and fix warnings',
     });
   }
 }
 
 async function writeReport() {
-  let report = `# COMPREHENSIVE SITE AUDIT REPORT\n\n`;
+  let report = '# COMPREHENSIVE SITE AUDIT REPORT\n\n';
   report += `**Generated:** ${auditResults.timestamp}\n`;
   report += `**Site:** ${auditResults.siteUrl}\n\n`;
 
-  report += `## Executive Summary\n\n`;
+  report += '## Executive Summary\n\n';
   report += `- **Total Pages Audited:** ${auditResults.summary.totalPages}\n`;
   report += `- **Working Pages:** ${auditResults.summary.workingPages} ✅\n`;
   report += `- **Broken Pages:** ${auditResults.summary.brokenPages} ❌\n`;
@@ -282,28 +294,33 @@ async function writeReport() {
   report += `- **Total Warnings:** ${auditResults.summary.totalWarnings}\n\n`;
 
   if (auditResults.recommendations.length > 0) {
-    report += `## 🎯 Recommendations\n\n`;
+    report += '## 🎯 Recommendations\n\n';
     auditResults.recommendations.forEach((rec, i) => {
       report += `### ${i + 1}. [${rec.priority}] ${rec.title}\n\n`;
       report += `**Description:** ${rec.description}\n\n`;
       report += `**Action:** ${rec.action}\n\n`;
-      report += `**Affected Pages:**\n`;
-      rec.pages.forEach(page => {
+      report += '**Affected Pages:**\n';
+      rec.pages.forEach((page) => {
         report += `- ${page}\n`;
       });
-      report += `\n`;
+      report += '\n';
     });
   }
 
-  report += `## 📄 Detailed Page Results\n\n`;
+  report += '## 📄 Detailed Page Results\n\n';
   Object.entries(auditResults.pages).forEach(([path, audit]) => {
-    const statusEmoji = audit.status === 'working' ? '✅' : audit.status === 'broken' ? '❌' : '⚠️';
+    const statusEmoji =
+      audit.status === 'working'
+        ? '✅'
+        : audit.status === 'broken'
+          ? '❌'
+          : '⚠️';
     report += `### ${statusEmoji} ${path}\n\n`;
     report += `**Status:** ${audit.status}\n`;
     report += `**URL:** ${audit.url}\n\n`;
 
     if (audit.content) {
-      report += `**Content:**\n`;
+      report += '**Content:**\n';
       report += `- Title: ${audit.content.title}\n`;
       report += `- H1: ${audit.content.h1Text}\n`;
       report += `- Images: ${audit.content.imageCount} (${audit.content.brokenImages} broken)\n`;
@@ -313,22 +330,22 @@ async function writeReport() {
     }
 
     if (audit.errors.length > 0) {
-      report += `**Errors:**\n`;
-      audit.errors.forEach(error => {
+      report += '**Errors:**\n';
+      audit.errors.forEach((error) => {
         report += `- ${error}\n`;
       });
-      report += `\n`;
+      report += '\n';
     }
 
     if (audit.warnings.length > 0) {
-      report += `**Warnings:**\n`;
-      audit.warnings.forEach(warning => {
+      report += '**Warnings:**\n';
+      audit.warnings.forEach((warning) => {
         report += `- ${warning}\n`;
       });
-      report += `\n`;
+      report += '\n';
     }
 
-    report += `---\n\n`;
+    report += '---\n\n';
   });
 
   fs.writeFileSync(REPORT_FILE, report);

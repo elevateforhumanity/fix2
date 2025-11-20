@@ -1,6 +1,7 @@
 # Observability Stack Deployment
 
 ## Overview
+
 Alternative observability stack using Helm charts for easier deployment and management.
 
 ## Components
@@ -70,12 +71,14 @@ kubectl create secret tls efh-jaeger-tls \
 ## Access URLs
 
 After deployment:
+
 - **Grafana**: https://grafana.elevateforhumanity.org
 - **Prometheus**: https://prometheus.elevateforhumanity.org
 - **Alertmanager**: https://alertmanager.elevateforhumanity.org
 - **Jaeger**: https://jaeger.elevateforhumanity.org
 
 Default Grafana credentials:
+
 - Username: `admin`
 - Password: `change-me-in-production` (update in values file)
 
@@ -86,7 +89,7 @@ Update your EFH deployment to send traces to Jaeger:
 ```yaml
 env:
   - name: OTEL_EXPORTER_OTLP_ENDPOINT
-    value: "http://jaeger.observability.svc.cluster.local:4318/v1/traces"
+    value: 'http://jaeger.observability.svc.cluster.local:4318/v1/traces'
 ```
 
 ## Grafana Dashboards
@@ -106,21 +109,25 @@ env:
 ### Useful Queries
 
 **EFH HTTP Requests**:
+
 ```promql
 rate(efh_http_requests_total[5m])
 ```
 
 **Pod CPU Usage**:
+
 ```promql
 rate(container_cpu_usage_seconds_total{namespace="efh-prod"}[5m])
 ```
 
 **Pod Memory Usage**:
+
 ```promql
 container_memory_usage_bytes{namespace="efh-prod"}
 ```
 
 **Pod Count**:
+
 ```promql
 count(kube_pod_info{namespace="efh-prod"})
 ```
@@ -233,6 +240,7 @@ kubectl delete namespace observability
 ## Support
 
 For issues:
+
 - Helm chart docs: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 - Jaeger docs: https://www.jaegertracing.io/docs/
 - Prometheus docs: https://prometheus.io/docs/

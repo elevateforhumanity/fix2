@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { useState, useEffect } from 'react';
+import { createClient } from '@/lib/supabase/client';
+import toast from 'react-hot-toast';
 
 type Contact = {
   id: string;
@@ -21,8 +21,8 @@ export default function AdminContactsPage() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
-  const [emailSubject, setEmailSubject] = useState("");
-  const [emailBody, setEmailBody] = useState("");
+  const [emailSubject, setEmailSubject] = useState('');
+  const [emailBody, setEmailBody] = useState('');
   const [sendingEmail, setSendingEmail] = useState(false);
 
   useEffect(() => {
@@ -33,15 +33,15 @@ export default function AdminContactsPage() {
     try {
       const supabase = createClient();
       const { data, error } = await supabase
-        .from("marketing_contacts")
-        .select("*")
-        .order("created_at", { ascending: false });
+        .from('marketing_contacts')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setContacts(data || []);
     } catch (err: any) {
-      console.error("Error loading contacts:", err);
-      toast.error("Failed to load contacts");
+      console.error('Error loading contacts:', err);
+      toast.error('Failed to load contacts');
     } finally {
       setLoading(false);
     }
@@ -51,25 +51,25 @@ export default function AdminContactsPage() {
     try {
       const supabase = createClient();
       const { error } = await supabase
-        .from("marketing_contacts")
+        .from('marketing_contacts')
         .update({ status: newStatus })
-        .eq("id", contactId);
+        .eq('id', contactId);
 
       if (error) throw error;
-      toast.success("Status updated");
+      toast.success('Status updated');
       loadContacts();
     } catch (err: any) {
-      console.error("Error updating status:", err);
-      toast.error("Failed to update status");
+      console.error('Error updating status:', err);
+      toast.error('Failed to update status');
     }
   }
 
   async function sendWelcomeEmail(contact: Contact) {
     setSendingEmail(true);
     try {
-      const response = await fetch("/api/marketing/send-welcome", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/marketing/send-welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contactId: contact.id,
           email: contact.email,
@@ -80,27 +80,29 @@ export default function AdminContactsPage() {
         }),
       });
 
-      if (!response.ok) throw new Error("Failed to send email");
+      if (!response.ok) throw new Error('Failed to send email');
 
-      toast.success(`Welcome email sent to ${contact.full_name || contact.email}`);
-      
+      toast.success(
+        `Welcome email sent to ${contact.full_name || contact.email}`
+      );
+
       // Update last_contacted_at
       const supabase = createClient();
       await supabase
-        .from("marketing_contacts")
-        .update({ 
+        .from('marketing_contacts')
+        .update({
           last_contacted_at: new Date().toISOString(),
-          status: "contacted" 
+          status: 'contacted',
         })
-        .eq("id", contact.id);
+        .eq('id', contact.id);
 
       setSelectedContact(null);
-      setEmailSubject("");
-      setEmailBody("");
+      setEmailSubject('');
+      setEmailBody('');
       loadContacts();
     } catch (err: any) {
-      console.error("Error sending email:", err);
-      toast.error("Failed to send email");
+      console.error('Error sending email:', err);
+      toast.error('Failed to send email');
     } finally {
       setSendingEmail(false);
     }
@@ -108,12 +110,14 @@ export default function AdminContactsPage() {
 
   function openEmailModal(contact: Contact) {
     setSelectedContact(contact);
-    
+
     // Generate personalized welcome message using universal partnership template
-    const name = contact.full_name || "there";
-    const interest = contact.interest || "exploring collaboration";
-    
-    setEmailSubject(`Welcome — Let's Explore a Partnership with Elevate for Humanity 🌟`);
+    const name = contact.full_name || 'there';
+    const interest = contact.interest || 'exploring collaboration';
+
+    setEmailSubject(
+      `Welcome — Let's Explore a Partnership with Elevate for Humanity 🌟`
+    );
     setEmailBody(`Hi ${name},
 
 Thank you for connecting with me — I'm excited to learn more about what you do and explore how we can collaborate through Elevate for Humanity.
@@ -192,8 +196,6 @@ Founder, Elevate for Humanity
 elevateforhumanity.org`);
   }
 
-
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -210,9 +212,12 @@ elevateforhumanity.org`);
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Contact Management</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Contact Management
+          </h1>
           <p className="mt-2 text-gray-600">
-            {contacts.length} total contacts • {contacts.filter(c => c.status === "new").length} new leads
+            {contacts.length} total contacts •{' '}
+            {contacts.filter((c) => c.status === 'new').length} new leads
           </p>
         </div>
 
@@ -243,7 +248,7 @@ elevateforhumanity.org`);
                 <tr key={contact.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div className="text-sm font-medium text-gray-900">
-                      {contact.full_name || "No name"}
+                      {contact.full_name || 'No name'}
                     </div>
                     <div className="text-sm text-gray-500">{contact.email}</div>
                     {contact.message && (
@@ -254,13 +259,15 @@ elevateforhumanity.org`);
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                      {contact.interest || "General"}
+                      {contact.interest || 'General'}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <select
                       value={contact.status}
-                      onChange={(e) => updateContactStatus(contact.id, e.target.value)}
+                      onChange={(e) =>
+                        updateContactStatus(contact.id, e.target.value)
+                      }
                       className="text-sm border-gray-300 rounded-md"
                     >
                       <option value="new">New</option>
@@ -293,7 +300,9 @@ elevateforhumanity.org`);
           <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">Send Welcome Email</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Send Welcome Email
+                </h2>
                 <p className="text-gray-600 mt-1">
                   To: {selectedContact.full_name} ({selectedContact.email})
                 </p>
@@ -302,8 +311,18 @@ elevateforhumanity.org`);
                 onClick={() => setSelectedContact(null)}
                 className="text-gray-400 hover:text-gray-600"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -345,7 +364,7 @@ elevateforhumanity.org`);
                   disabled={sendingEmail}
                   className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
                 >
-                  {sendingEmail ? "Sending..." : "Send Email"}
+                  {sendingEmail ? 'Sending...' : 'Send Email'}
                 </button>
               </div>
             </div>

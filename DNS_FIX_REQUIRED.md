@@ -9,12 +9,14 @@
 ## 📊 CURRENT SITUATION
 
 ### Repository: `elevateforhumanity/fix2`
+
 - **Purpose**: LMS Platform (Learning Management System)
 - **Should be deployed to**: `www.elevateforhumanity.org`
 - **Currently deployed to**: Netlify (elevateproduction.netlify.app)
 - **Status**: ✅ Working correctly
 
 ### Domain: www.elevateforhumanity.org
+
 - **Purpose**: Marketing website
 - **Should be hosted on**: Durablesites.co
 - **Currently pointing to**: elevateproduction.netlify.app (WRONG!)
@@ -27,12 +29,14 @@
 The DNS for **www.elevateforhumanity.org** is pointing to Netlify (the LMS), but it should be pointing to **Durablesites.co** (the marketing site).
 
 ### Current INCORRECT DNS:
+
 ```
 Type   Name   Target                          Status
 CNAME  www    elevateproduction.netlify.app   ❌ WRONG
 ```
 
 ### Correct DNS Should Be:
+
 ```
 Type   Name   Target                    Status
 CNAME  www    [durablesites.co target]  ✅ CORRECT
@@ -111,6 +115,7 @@ Then add www.elevateforhumanity.org as a custom domain in Netlify.
 Based on your documentation, the recommended setup is:
 
 ### Marketing Site (Durablesites.co)
+
 ```
 Domain: www.elevateforhumanity.org
 Purpose: Public marketing, program information, lead generation
@@ -119,6 +124,7 @@ Content: Homepage, About, Programs, Contact, Blog
 ```
 
 ### LMS Platform (Netlify - this repo)
+
 ```
 Domain: www.elevateforhumanity.org
 Purpose: Learning Management System, student portal, courses
@@ -127,6 +133,7 @@ Content: Student dashboard, courses, certificates, admin portal
 ```
 
 ### DNS Configuration:
+
 ```
 # elevateforhumanity.org (Marketing)
 A      @      [Durablesites IP]
@@ -230,12 +237,15 @@ If no results, it's not indexed yet. Can take 1-7 days.
 ## 📞 NEED HELP?
 
 ### Check DNS Propagation:
+
 https://dnschecker.org/#CNAME/www.elevateforhumanity.org
 
 ### Check SSL Certificate:
+
 https://www.ssllabs.com/ssltest/analyze.html?d=www.elevateforhumanity.org
 
 ### Test Website:
+
 https://www.elevateforhumanity.org
 
 ---

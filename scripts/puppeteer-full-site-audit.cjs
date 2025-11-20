@@ -2,7 +2,7 @@
 
 /**
  * COMPREHENSIVE SITE AUDIT - Puppeteer Automation
- * 
+ *
  * This script performs a COMPLETE audit of the live site:
  * 1. Crawls ALL pages (not just homepage)
  * 2. Checks for broken links, missing images, console errors
@@ -102,12 +102,18 @@ async function main() {
   for (const pagePath of PAGES_TO_AUDIT) {
     console.log(`\n📄 Auditing: ${pagePath}`);
     const pageUrl = `${SITE_URL}${pagePath}`;
-    
+
     try {
-      const pageAudit = await auditPage(page, pageUrl, pagePath, consoleErrors, networkErrors);
+      const pageAudit = await auditPage(
+        page,
+        pageUrl,
+        pagePath,
+        consoleErrors,
+        networkErrors
+      );
       auditResults.pages[pagePath] = pageAudit;
       auditResults.summary.totalPages++;
-      
+
       if (pageAudit.status === 'working') {
         auditResults.summary.workingPages++;
       } else if (pageAudit.status === 'broken') {
@@ -115,18 +121,17 @@ async function main() {
       } else if (pageAudit.status === 'incomplete') {
         auditResults.summary.incompletePages++;
       }
-      
+
       auditResults.summary.totalErrors += pageAudit.errors.length;
       auditResults.summary.totalWarnings += pageAudit.warnings.length;
-      
+
       console.log(`  Status: ${pageAudit.status}`);
       console.log(`  Errors: ${pageAudit.errors.length}`);
       console.log(`  Warnings: ${pageAudit.warnings.length}`);
-      
+
       // Clear errors for next page
       consoleErrors.length = 0;
       networkErrors.length = 0;
-      
     } catch (error) {
       console.log(`  ❌ Failed: ${error.message}`);
       auditResults.pages[pagePath] = {
@@ -136,7 +141,7 @@ async function main() {
       };
       auditResults.summary.brokenPages++;
     }
-    
+
     // Wait between requests
     await page.waitForTimeout(1000);
   }
@@ -151,7 +156,7 @@ async function main() {
 
   console.log('\n✅ AUDIT COMPLETE');
   console.log(`\nReport saved: ${REPORT_FILE}`);
-  console.log(`\nSummary:`);
+  console.log('\nSummary:');
   console.log(`  Total Pages: ${auditResults.summary.totalPages}`);
   console.log(`  Working: ${auditResults.summary.workingPages}`);
   console.log(`  Broken: ${auditResults.summary.brokenPages}`);
@@ -200,7 +205,9 @@ async function auditPage(page, url, pagePath, consoleErrors, networkErrors) {
     // Check for network errors
     if (networkErrors.length > 0) {
       audit.warnings.push(`Network errors: ${networkErrors.length}`);
-      audit.errors.push(...networkErrors.slice(0, 5).map(e => `Failed to load: ${e.url}`));
+      audit.errors.push(
+        ...networkErrors.slice(0, 5).map((e) => `Failed to load: ${e.url}`)
+      );
     }
 
     // Analyze page content
@@ -213,12 +220,19 @@ async function auditPage(page, url, pagePath, consoleErrors, networkErrors) {
         hasNav: !!document.querySelector('nav'),
         hasFooter: !!document.querySelector('footer'),
         imageCount: document.querySelectorAll('img').length,
-        brokenImages: Array.from(document.querySelectorAll('img')).filter(img => !img.complete || img.naturalHeight === 0).length,
+        brokenImages: Array.from(document.querySelectorAll('img')).filter(
+          (img) => !img.complete || img.naturalHeight === 0
+        ).length,
         linkCount: document.querySelectorAll('a').length,
-        hasPlaceholder: document.body.textContent.toLowerCase().includes('placeholder') ||
-                        document.body.textContent.toLowerCase().includes('coming soon') ||
-                        document.body.textContent.toLowerCase().includes('under construction'),
-        hasLorem: document.body.textContent.toLowerCase().includes('lorem ipsum'),
+        hasPlaceholder:
+          document.body.textContent.toLowerCase().includes('placeholder') ||
+          document.body.textContent.toLowerCase().includes('coming soon') ||
+          document.body.textContent
+            .toLowerCase()
+            .includes('under construction'),
+        hasLorem: document.body.textContent
+          .toLowerCase()
+          .includes('lorem ipsum'),
       };
     });
 
@@ -256,10 +270,12 @@ async function auditPage(page, url, pagePath, consoleErrors, networkErrors) {
     }
 
     // Take screenshot
-    const screenshotPath = path.join(OUTPUT_DIR, `screenshot-${pagePath.replace(/\//g, '-')}.png`);
+    const screenshotPath = path.join(
+      OUTPUT_DIR,
+      `screenshot-${pagePath.replace(/\//g, '-')}.png`
+    );
     await page.screenshot({ path: screenshotPath, fullPage: false });
     audit.screenshot = screenshotPath;
-
   } catch (error) {
     audit.status = 'broken';
     audit.errors.push(error.message);
@@ -308,18 +324,18 @@ function generateRecommendations() {
       priority: 'MEDIUM',
       title: 'Fix Pages with Multiple Issues',
       description: `${pagesWithWarnings.length} pages have 3+ warnings`,
-      pages: pagesWithWarnings.map(p => `${p.path} (${p.warnings} warnings)`),
+      pages: pagesWithWarnings.map((p) => `${p.path} (${p.warnings} warnings)`),
       action: 'Review and fix warnings on these pages',
     });
   }
 }
 
 async function writeReport() {
-  let report = `# COMPREHENSIVE SITE AUDIT REPORT\n\n`;
+  let report = '# COMPREHENSIVE SITE AUDIT REPORT\n\n';
   report += `**Generated:** ${auditResults.timestamp}\n`;
   report += `**Site:** ${auditResults.siteUrl}\n\n`;
 
-  report += `## Executive Summary\n\n`;
+  report += '## Executive Summary\n\n';
   report += `- **Total Pages Audited:** ${auditResults.summary.totalPages}\n`;
   report += `- **Working Pages:** ${auditResults.summary.workingPages} ✅\n`;
   report += `- **Broken Pages:** ${auditResults.summary.brokenPages} ❌\n`;
@@ -329,29 +345,34 @@ async function writeReport() {
 
   // Recommendations
   if (auditResults.recommendations.length > 0) {
-    report += `## 🎯 Recommendations\n\n`;
+    report += '## 🎯 Recommendations\n\n';
     auditResults.recommendations.forEach((rec, i) => {
       report += `### ${i + 1}. [${rec.priority}] ${rec.title}\n\n`;
       report += `**Description:** ${rec.description}\n\n`;
       report += `**Action:** ${rec.action}\n\n`;
-      report += `**Affected Pages:**\n`;
-      rec.pages.forEach(page => {
+      report += '**Affected Pages:**\n';
+      rec.pages.forEach((page) => {
         report += `- ${page}\n`;
       });
-      report += `\n`;
+      report += '\n';
     });
   }
 
   // Detailed page results
-  report += `## 📄 Detailed Page Results\n\n`;
+  report += '## 📄 Detailed Page Results\n\n';
   Object.entries(auditResults.pages).forEach(([path, audit]) => {
-    const statusEmoji = audit.status === 'working' ? '✅' : audit.status === 'broken' ? '❌' : '⚠️';
+    const statusEmoji =
+      audit.status === 'working'
+        ? '✅'
+        : audit.status === 'broken'
+          ? '❌'
+          : '⚠️';
     report += `### ${statusEmoji} ${path}\n\n`;
     report += `**Status:** ${audit.status}\n`;
     report += `**URL:** ${audit.url}\n\n`;
 
     if (audit.content) {
-      report += `**Content:**\n`;
+      report += '**Content:**\n';
       report += `- Title: ${audit.content.title}\n`;
       report += `- H1: ${audit.content.h1Text}\n`;
       report += `- Images: ${audit.content.imageCount} (${audit.content.brokenImages} broken)\n`;
@@ -361,22 +382,22 @@ async function writeReport() {
     }
 
     if (audit.errors.length > 0) {
-      report += `**Errors:**\n`;
-      audit.errors.forEach(error => {
+      report += '**Errors:**\n';
+      audit.errors.forEach((error) => {
         report += `- ${error}\n`;
       });
-      report += `\n`;
+      report += '\n';
     }
 
     if (audit.warnings.length > 0) {
-      report += `**Warnings:**\n`;
-      audit.warnings.forEach(warning => {
+      report += '**Warnings:**\n';
+      audit.warnings.forEach((warning) => {
         report += `- ${warning}\n`;
       });
-      report += `\n`;
+      report += '\n';
     }
 
-    report += `---\n\n`;
+    report += '---\n\n';
   });
 
   fs.writeFileSync(REPORT_FILE, report);

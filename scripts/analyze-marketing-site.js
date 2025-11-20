@@ -628,42 +628,44 @@ function generateMarkdownReport(analysis) {
     md += `**Action**: ${rec.action}\n\n`;
   });
 
-  md += `---\n\n## 📋 Durable Setup Instructions\n\n`;
+  md += '---\n\n## 📋 Durable Setup Instructions\n\n';
 
   analysis.durableInstructions.forEach((instruction) => {
     md += `### Step ${instruction.step}: ${instruction.title}\n\n`;
     instruction.instructions.forEach((inst) => {
       md += `- ${inst}\n`;
     });
-    md += `\n`;
+    md += '\n';
   });
 
-  md += `---\n\n## 🎨 Canva Animation Templates\n\n`;
+  md += '---\n\n## 🎨 Canva Animation Templates\n\n';
 
   analysis.canvaAnimations.forEach((anim, i) => {
     md += `### ${i + 1}. ${anim.type}\n\n`;
     md += `**Dimensions**: ${anim.dimensions}\n`;
     md += `**Purpose**: ${anim.purpose}\n\n`;
-    md += `**Elements to Include**:\n`;
+    md += '**Elements to Include**:\n';
     anim.elements.forEach((el) => (md += `- ${el}\n`));
-    md += `\n**Animation Sequence**:\n`;
+    md += '\n**Animation Sequence**:\n';
     anim.animation.forEach((step) => (md += `- ${step}\n`));
     md += `\n**Canva Template**: ${anim.canvaTemplate}\n`;
     md += `**Export Settings**: ${anim.exportSettings}\n\n`;
-    md += `---\n\n`;
+    md += '---\n\n';
   });
 
-  md += `## 📸 Screenshots\n\n`;
-  md += `Homepage screenshot saved to: \`analysis/homepage-screenshot.png\`\n\n`;
+  md += '## 📸 Screenshots\n\n';
+  md += 'Homepage screenshot saved to: `analysis/homepage-screenshot.png`\n\n';
 
-  md += `## 🔗 Useful Links\n\n`;
-  md += `- [Google Analytics](https://analytics.google.com/)\n`;
-  md += `- [Google Search Console](https://search.google.com/search-console)\n`;
-  md += `- [Bing Webmaster Tools](https://www.bing.com/webmasters)\n`;
-  md += `- [Canva](https://www.canva.com/)\n`;
-  md += `- [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)\n`;
-  md += `- [Twitter Card Validator](https://cards-dev.twitter.com/validator)\n`;
-  md += `- [Google Rich Results Test](https://search.google.com/test/rich-results)\n\n`;
+  md += '## 🔗 Useful Links\n\n';
+  md += '- [Google Analytics](https://analytics.google.com/)\n';
+  md += '- [Google Search Console](https://search.google.com/search-console)\n';
+  md += '- [Bing Webmaster Tools](https://www.bing.com/webmasters)\n';
+  md += '- [Canva](https://www.canva.com/)\n';
+  md +=
+    '- [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)\n';
+  md += '- [Twitter Card Validator](https://cards-dev.twitter.com/validator)\n';
+  md +=
+    '- [Google Rich Results Test](https://search.google.com/test/rich-results)\n\n';
 
   return md;
 }

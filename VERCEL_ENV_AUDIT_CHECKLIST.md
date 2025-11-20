@@ -74,11 +74,11 @@ Ensure ALL 6 environment variables are present in ALL 3 environments (Production
 
 ### Variable 6: NEXT_PUBLIC_SITE_URL ⚠️ DIFFERENT PER ENVIRONMENT
 
-| Environment | Required | Value                                      | Status |
-| ----------- | -------- | ------------------------------------------ | ------ |
-| Production  | ✅ Yes   | `https://www.elevateforhumanity.org` | [ ]    |
-| Preview     | ✅ Yes   | Leave empty or use preview URL pattern     | [ ]    |
-| Development | ✅ Yes   | `http://localhost:3000`                    | [ ]    |
+| Environment | Required | Value                                  | Status |
+| ----------- | -------- | -------------------------------------- | ------ |
+| Production  | ✅ Yes   | `https://www.elevateforhumanity.org`   | [ ]    |
+| Preview     | ✅ Yes   | Leave empty or use preview URL pattern | [ ]    |
+| Development | ✅ Yes   | `http://localhost:3000`                | [ ]    |
 
 **Note:** This variable has DIFFERENT values for each environment!
 

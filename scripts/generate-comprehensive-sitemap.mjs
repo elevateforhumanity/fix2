@@ -23,31 +23,39 @@ const pages = [
   { url: '/programs', priority: 0.9, changefreq: 'daily' },
   { url: '/partners', priority: 0.8, changefreq: 'weekly' },
   { url: '/contact', priority: 0.8, changefreq: 'monthly' },
-  
+
   // Program pages
-  { url: '/programs/barber-apprenticeship', priority: 0.9, changefreq: 'weekly' },
+  {
+    url: '/programs/barber-apprenticeship',
+    priority: 0.9,
+    changefreq: 'weekly',
+  },
   { url: '/programs/hvac-technician', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/medical-assistant', priority: 0.9, changefreq: 'weekly' },
-  { url: '/programs/building-maintenance', priority: 0.9, changefreq: 'weekly' },
+  {
+    url: '/programs/building-maintenance',
+    priority: 0.9,
+    changefreq: 'weekly',
+  },
   { url: '/programs/truck-driving', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/cdl', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/workforce-readiness', priority: 0.9, changefreq: 'weekly' },
-  
+
   // Enrollment
   { url: '/enroll', priority: 0.9, changefreq: 'weekly' },
   { url: '/partner-application', priority: 0.8, changefreq: 'weekly' },
-  
+
   // Auth
   { url: '/login', priority: 0.7, changefreq: 'monthly' },
   { url: '/signup', priority: 0.7, changefreq: 'monthly' },
-  
+
   // LMS Public
   { url: '/lms', priority: 0.8, changefreq: 'weekly' },
   { url: '/lms/dashboard', priority: 0.7, changefreq: 'daily' },
   { url: '/lms/courses', priority: 0.8, changefreq: 'daily' },
   { url: '/lms/certificates', priority: 0.7, changefreq: 'weekly' },
   { url: '/lms/progress', priority: 0.6, changefreq: 'weekly' },
-  
+
   // Legal
   { url: '/privacy', priority: 0.5, changefreq: 'monthly' },
   { url: '/privacy-policy', priority: 0.5, changefreq: 'monthly' },
@@ -55,7 +63,7 @@ const pages = [
   { url: '/terms-of-service', priority: 0.5, changefreq: 'monthly' },
   { url: '/cookies', priority: 0.4, changefreq: 'monthly' },
   { url: '/accessibility', priority: 0.5, changefreq: 'monthly' },
-  
+
   // Resources
   { url: '/resources', priority: 0.6, changefreq: 'weekly' },
   { url: '/faq', priority: 0.6, changefreq: 'weekly' },
@@ -66,13 +74,17 @@ const pages = [
 function generateSitemap() {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
-  xml += '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"\n';
+  xml +=
+    '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"\n';
   xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n';
-  xml += '        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"\n';
-  xml += '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"\n';
-  xml += '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n';
+  xml +=
+    '        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"\n';
+  xml +=
+    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"\n';
+  xml +=
+    '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n';
 
-  pages.forEach(page => {
+  pages.forEach((page) => {
     xml += '  <url>\n';
     xml += `    <loc>${DOMAIN}${page.url}</loc>\n`;
     xml += `    <lastmod>${TODAY}</lastmod>\n`;

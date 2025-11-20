@@ -64,6 +64,7 @@ Based on documentation found in the repository, you may have multiple Vercel pro
 ### Recommended Approach:
 
 **KEEP**: The project with:
+
 - ✅ Most recent successful deployment
 - ✅ Custom domain configured (www.elevateforhumanity.org)
 - ✅ All environment variables present
@@ -78,11 +79,13 @@ Based on documentation found in the repository, you may have multiple Vercel pro
 ### Step 1: Identify All Your Projects (5 minutes)
 
 Run the worker script:
+
 ```bash
 ./scripts/workers/check-vercel-duplicates.sh
 ```
 
 Or manually:
+
 1. Go to: https://vercel.com/dashboard
 2. List all projects you see
 3. Note which ones are related to "fix2" or "elevate"
@@ -91,13 +94,13 @@ Or manually:
 
 For each project, check:
 
-| Check | How to Verify | Keep If... |
-|-------|---------------|------------|
-| **Last Deployment** | Deployments tab | Recent (within 7 days) |
-| **Environment Variables** | Settings → Env Vars | All 6 critical vars present |
-| **Custom Domain** | Settings → Domains | Has www.elevateforhumanity.org |
-| **GitHub Connection** | Settings → Git | Connected to elevateforhumanity/fix2 |
-| **Build Success** | Deployments tab | Latest build succeeded |
+| Check                     | How to Verify       | Keep If...                           |
+| ------------------------- | ------------------- | ------------------------------------ |
+| **Last Deployment**       | Deployments tab     | Recent (within 7 days)               |
+| **Environment Variables** | Settings → Env Vars | All 6 critical vars present          |
+| **Custom Domain**         | Settings → Domains  | Has www.elevateforhumanity.org       |
+| **GitHub Connection**     | Settings → Git      | Connected to elevateforhumanity/fix2 |
+| **Build Success**         | Deployments tab     | Latest build succeeded               |
 
 **Decision Matrix**:
 
@@ -157,7 +160,7 @@ After deleting duplicates:
 3. Verify Settings → Domains:
    - [ ] www.elevateforhumanity.org (production)
    - [ ] elevateforhumanity.org (redirect to www)
-   - [ ] *.vercel.app (preview)
+   - [ ] \*.vercel.app (preview)
 
 4. Verify Settings → Git:
    - [ ] Connected to: elevateforhumanity/fix2
@@ -175,6 +178,7 @@ After deleting duplicates:
 ## 🎯 EXPECTED OUTCOME
 
 ### Before Cleanup:
+
 ```
 Vercel Dashboard:
 ├─ fix2-one (production, has domain)
@@ -187,6 +191,7 @@ Status: Confusing, hard to manage
 ```
 
 ### After Cleanup:
+
 ```
 Vercel Dashboard:
 └─ fix2-one (production, has domain)
@@ -202,6 +207,7 @@ Status: Clean, easy to manage
 After cleanup, verify:
 
 ### Vercel Dashboard:
+
 - [ ] Only 1 project visible
 - [ ] Project name is clear (e.g., "fix2-one" or "elevate-lms")
 - [ ] Latest deployment is successful
@@ -209,6 +215,7 @@ After cleanup, verify:
 - [ ] All environment variables present
 
 ### Production Site:
+
 - [ ] https://www.elevateforhumanity.org loads
 - [ ] Homepage displays correctly
 - [ ] Login/signup works
@@ -217,6 +224,7 @@ After cleanup, verify:
 - [ ] No console errors
 
 ### GitHub Integration:
+
 - [ ] Pushes to main trigger deployments
 - [ ] Pull requests create preview deployments
 - [ ] Deployment status shows in GitHub
@@ -226,12 +234,14 @@ After cleanup, verify:
 ## 🚨 COMMON MISTAKES TO AVOID
 
 ### ❌ DON'T:
+
 - Delete the project with the custom domain
 - Delete the project with recent deployments
 - Delete without backing up environment variables
 - Delete the project connected to your main repo
 
 ### ✅ DO:
+
 - Backup environment variables first
 - Verify which project is "production"
 - Check deployment history
@@ -271,6 +281,7 @@ Run this to check for duplicates:
 ```
 
 This script will:
+
 1. Check your Vercel dashboard
 2. List all projects
 3. Help you identify duplicates
@@ -284,11 +295,13 @@ This script will:
 ### If You're Unsure Which to Keep:
 
 **Safe Choice**: Keep the project with:
+
 1. Custom domain (www.elevateforhumanity.org)
 2. Most recent successful deployment
 3. All environment variables configured
 
-**When in Doubt**: 
+**When in Doubt**:
+
 - Take screenshots of all projects
 - Backup environment variables
 - Ask team members which they use
@@ -297,11 +310,13 @@ This script will:
 ### If You Accidentally Delete the Wrong One:
 
 **Don't Panic**:
+
 1. Vercel keeps deleted projects for 7 days
 2. Contact Vercel support to restore
 3. Or create new project and reconfigure
 
 **Prevention**:
+
 - Always backup environment variables
 - Screenshot project settings
 - Test before final deletion
@@ -327,21 +342,25 @@ You'll know cleanup is successful when:
 ### After cleanup, you'll have:
 
 **Clarity**:
+
 - One source of truth
 - Clear deployment process
 - No confusion
 
 **Efficiency**:
+
 - Faster deployments
 - Less build time wasted
 - Easier maintenance
 
 **Reliability**:
+
 - Consistent environment
 - No missing variables
 - Predictable deployments
 
 **Cost Savings**:
+
 - Fewer build minutes used
 - Less bandwidth consumed
 - Simpler billing
@@ -360,6 +379,7 @@ You'll know cleanup is successful when:
 ## 🚀 NEXT STEPS
 
 1. **Run the check script**:
+
    ```bash
    ./scripts/workers/check-vercel-duplicates.sh
    ```

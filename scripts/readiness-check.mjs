@@ -71,7 +71,7 @@ async function checkRoute(route) {
       if (!json.status || json.status !== 'ok') {
         throw new Error(`API health check failed: ${JSON.stringify(json)}`);
       }
-      console.log(`   ✅ API health check passed`);
+      console.log('   ✅ API health check passed');
       return { route, ok: true, status: res.status };
     }
 
@@ -79,7 +79,7 @@ async function checkRoute(route) {
     if (res.status >= 400 && res.status < 500) {
       // 404 might be expected for some routes during development
       if (res.status === 404 && !route.critical) {
-        console.log(`   ⚠️  404 Not Found (non-critical route)`);
+        console.log('   ⚠️  404 Not Found (non-critical route)');
         return { route, ok: true, status: res.status, warning: '404' };
       }
       throw new Error(`Client error: status ${res.status}`);
@@ -127,7 +127,7 @@ async function checkRoute(route) {
       );
     }
 
-    console.log(`   ✅ OK: page loads without critical errors`);
+    console.log('   ✅ OK: page loads without critical errors');
     return {
       route,
       ok: true,

@@ -1,14 +1,17 @@
 # Advanced Features Batch 2 - Implementation Summary
 
 ## Overview
+
 This batch adds LTI 1.3 integration, offline mode enhancements, Zendesk ticketing, and help center search capabilities.
 
 ## ✅ Completed Features
 
 ### 1. LTI 1.3 Integration (Provider Side)
+
 **Purpose**: Allow external LMS platforms (Canvas, Moodle, Blackboard) to launch EFH courses via LTI 1.3 standard.
 
 **Database Schema** (`migrations/20251118_lti_and_help.sql`):
+
 - `lti_platforms` - LTI platform registrations (issuer, client_id, auth URLs, JWKS URL)
 - `lti_deployments` - Deployment configurations per platform
 - `users.lti_subject` - LTI subject identifier for SSO
@@ -17,7 +20,9 @@ This batch adds LTI 1.3 integration, offline mode enhancements, Zendesk ticketin
 **API Endpoints Created**:
 
 #### `GET /api/lti/config`
+
 Returns LTI tool configuration JSON for platform registration:
+
 - Tool title and description
 - JWKS URI
 - Login initiation URI
@@ -26,19 +31,25 @@ Returns LTI tool configuration JSON for platform registration:
 - Platform-specific extensions (Canvas, etc.)
 
 #### `GET /api/lti/jwks`
+
 Public key endpoint for JWT signature verification:
+
 - Returns JWKS (JSON Web Key Set)
 - Uses RSA public key from environment
 - Required for secure LTI launches
 
 #### `GET /api/lti/login`
+
 OIDC login initiation endpoint:
+
 - Receives LTI launch parameters (iss, login_hint, client_id, target_link_uri)
 - Generates state and nonce for security
 - Redirects to platform's authentication endpoint
 
 #### `POST /api/lti/launch`
+
 LTI launch handler:
+
 - Receives and decodes ID token from platform
 - Maps LTI user to internal user (upsert by email)
 - Maps LTI context to course
@@ -46,12 +57,14 @@ LTI launch handler:
 - Redirects to course page with user context
 
 **Environment Variables Required**:
+
 ```bash
 LTI_TOOL_URL=https://elevateforhumanity.org
 LTI_PUBLIC_KEY_N=<base64url-encoded-rsa-modulus>
 ```
 
 **Integration Flow**:
+
 1. External LMS initiates launch → `/api/lti/login`
 2. User authenticates on their LMS
 3. LMS posts ID token → `/api/lti/launch`
@@ -59,6 +72,7 @@ LTI_PUBLIC_KEY_N=<base64url-encoded-rsa-modulus>
 5. User accesses EFH course within their LMS context
 
 **Status**: ✅ Skeleton complete
+
 - Basic endpoints functional
 - User/course mapping implemented
 - **TODO for production**: Full JWT signature verification, JWKS caching, proper state/nonce validation
@@ -66,27 +80,34 @@ LTI_PUBLIC_KEY_N=<base64url-encoded-rsa-modulus>
 ---
 
 ### 2. Offline Mode Enhancements
+
 **Purpose**: Enable students to access cached content and continue learning without internet connection.
 
 **Existing Infrastructure** (already in place):
+
 - ✅ Service worker (`public/sw.js`) - caches pages and assets
 - ✅ Offline page (`app/offline/page.tsx`) - friendly offline message
 
 **New Components Added**:
 
 #### Service Worker Registration
+
 **File**: `components/offline/ServiceWorkerRegister.tsx`
+
 - Client component that registers service worker on mount
 - Handles registration errors gracefully
 - Should be added to root layout
 
 #### Offline Cache Client
+
 **File**: `lib/offline/cacheClient.ts`
+
 - `saveCoursesToLocal(courses)` - Cache course list to localStorage
 - `getCoursesFromLocal()` - Retrieve cached courses when offline
 - Type-safe course caching
 
 **Usage Pattern**:
+
 ```typescript
 // In your course list component
 const courses = await fetchCourses();
@@ -101,6 +122,7 @@ if (cachedCourses) {
 
 **Integration**:
 Add to `app/layout.tsx`:
+
 ```tsx
 import { ServiceWorkerRegister } from '@/components/offline/ServiceWorkerRegister';
 
@@ -117,6 +139,7 @@ export default function RootLayout({ children }) {
 ```
 
 **Features**:
+
 - ✅ Automatic page caching
 - ✅ Offline fallback page
 - ✅ Course list caching
@@ -126,10 +149,12 @@ export default function RootLayout({ children }) {
 ---
 
 ### 3. Zendesk Ticketing Integration
+
 **Purpose**: Allow users to create support tickets directly from the app, integrated with Zendesk.
 
 **Zendesk Client**:
 **File**: `lib/support/zendesk.ts`
+
 - `createZendeskTicket(params)` - Creates ticket via Zendesk API
 - Basic auth with email/token
 - Automatic tagging (elevate_lms, in_app)
@@ -137,6 +162,7 @@ export default function RootLayout({ children }) {
 
 **API Endpoint**:
 **File**: `app/api/support/ticket/route.ts`
+
 - `POST /api/support/ticket`
 - Requires authentication
 - Accepts: `{ subject, message }`
@@ -145,6 +171,7 @@ export default function RootLayout({ children }) {
 
 **UI Component**:
 **File**: `components/support/SupportTicketForm.tsx`
+
 - Client-side form with subject and message fields
 - Loading states (idle, submitting, success, error)
 - User-friendly error messages
@@ -152,6 +179,7 @@ export default function RootLayout({ children }) {
 - Can be embedded in help widget or support page
 
 **Environment Variables Required**:
+
 ```bash
 ZENDESK_SUBDOMAIN=your_subdomain
 ZENDESK_EMAIL=support@elevateforhumanity.org
@@ -161,6 +189,7 @@ ZENDESK_API_TOKEN=your_api_token
 **Integration Options**:
 
 1. **In Help Widget** (recommended):
+
 ```tsx
 // In your HelpWidget component
 import { SupportTicketForm } from '@/components/support/SupportTicketForm';
@@ -168,10 +197,11 @@ import { SupportTicketForm } from '@/components/support/SupportTicketForm';
 <div className="help-widget-panel">
   <h3>Need Help?</h3>
   <SupportTicketForm />
-</div>
+</div>;
 ```
 
 2. **Dedicated Support Page**:
+
 ```tsx
 // app/support/page.tsx
 import { SupportTicketForm } from '@/components/support/SupportTicketForm';
@@ -187,6 +217,7 @@ export default function SupportPage() {
 ```
 
 **Features**:
+
 - ✅ Direct Zendesk integration
 - ✅ Authenticated ticket creation
 - ✅ Automatic user email association
@@ -197,9 +228,11 @@ export default function SupportPage() {
 ---
 
 ### 4. Help Center Search
+
 **Purpose**: Enable users to search help articles by keyword, making support content discoverable.
 
 **Database Schema** (`migrations/20251118_lti_and_help.sql`):
+
 - `help_articles` table with:
   - `slug` - URL-friendly identifier
   - `title` - Article title
@@ -209,6 +242,7 @@ export default function SupportPage() {
 
 **API Endpoint**:
 **File**: `app/api/help/search/route.ts`
+
 - `GET /api/help/search?q=query`
 - Case-insensitive search on title and body
 - Returns up to 20 results
@@ -217,6 +251,7 @@ export default function SupportPage() {
 
 **Search Component**:
 **File**: `components/help/HelpSearchBox.tsx`
+
 - Client-side search form
 - Real-time results display
 - Loading states
@@ -227,6 +262,7 @@ export default function SupportPage() {
   - Link to full article
 
 **Response Format**:
+
 ```json
 {
   "results": [
@@ -244,6 +280,7 @@ export default function SupportPage() {
 
 **Integration**:
 Replace static search input in `app/help/page.tsx`:
+
 ```tsx
 import { HelpSearchBox } from '@/components/help/HelpSearchBox';
 
@@ -259,6 +296,7 @@ export default function HelpCenterPage() {
 ```
 
 **Features**:
+
 - ✅ Full-text search on title and body
 - ✅ Case-insensitive matching
 - ✅ Category and audience filtering
@@ -268,6 +306,7 @@ export default function HelpCenterPage() {
 - ✅ Loading states
 
 **Seeding Help Articles**:
+
 ```sql
 INSERT INTO help_articles (slug, title, category, audience, body) VALUES
 ('how-to-enroll', 'How to Enroll in a Course', 'Getting Started', 'student', 'To enroll in a course, navigate to the course catalog...'),
@@ -280,24 +319,29 @@ INSERT INTO help_articles (slug, title, category, audience, body) VALUES
 ## Files Created
 
 ### Database Migrations
+
 - `migrations/20251118_lti_and_help.sql` - LTI tables, help articles, user/course LTI fields
 
 ### LTI Integration
+
 - `app/api/lti/config/route.ts` - Tool configuration endpoint
 - `app/api/lti/jwks/route.ts` - Public key endpoint
 - `app/api/lti/login/route.ts` - OIDC login initiation
 - `app/api/lti/launch/route.ts` - Launch handler with user/course mapping
 
 ### Offline Mode
+
 - `components/offline/ServiceWorkerRegister.tsx` - SW registration component
 - `lib/offline/cacheClient.ts` - Course caching utilities
 
 ### Support/Ticketing
+
 - `lib/support/zendesk.ts` - Zendesk API client
 - `app/api/support/ticket/route.ts` - Ticket creation endpoint
 - `components/support/SupportTicketForm.tsx` - In-app ticket form
 
 ### Help Center
+
 - `app/api/help/search/route.ts` - Search endpoint
 - `components/help/HelpSearchBox.tsx` - Search UI component
 
@@ -327,6 +371,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ## Testing Checklist
 
 ### LTI Integration
+
 - [ ] Access `/api/lti/config` - verify JSON response
 - [ ] Register tool in Canvas/Moodle test instance
 - [ ] Initiate LTI launch from external LMS
@@ -335,6 +380,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 - [ ] Test redirect to course page
 
 ### Offline Mode
+
 - [ ] Verify service worker registration in DevTools
 - [ ] Load course list while online
 - [ ] Disconnect network
@@ -343,6 +389,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 - [ ] Verify offline page shows when needed
 
 ### Zendesk Ticketing
+
 - [ ] Configure Zendesk credentials
 - [ ] Submit test ticket via form
 - [ ] Verify ticket appears in Zendesk
@@ -351,6 +398,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 - [ ] Test error handling (invalid credentials)
 
 ### Help Center Search
+
 - [ ] Seed help articles in database
 - [ ] Search for keyword (e.g., "enroll")
 - [ ] Verify results display
@@ -363,11 +411,16 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ## Integration Notes
 
 ### Adding Service Worker to Layout
+
 ```tsx
 // app/layout.tsx
 import { ServiceWorkerRegister } from '@/components/offline/ServiceWorkerRegister';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
@@ -380,6 +433,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ```
 
 ### Adding Support Form to Help Widget
+
 ```tsx
 // components/support/HelpWidget.tsx
 import { SupportTicketForm } from '@/components/support/SupportTicketForm';
@@ -398,6 +452,7 @@ export function HelpWidget() {
 ```
 
 ### Adding Search to Help Page
+
 ```tsx
 // app/help/page.tsx
 import { HelpSearchBox } from '@/components/help/HelpSearchBox';
@@ -418,6 +473,7 @@ export default function HelpCenterPage() {
 ## Production Hardening TODO
 
 ### LTI Integration
+
 - [ ] Implement full JWT signature verification
 - [ ] Add JWKS caching with TTL
 - [ ] Implement proper state/nonce validation
@@ -427,6 +483,7 @@ export default function HelpCenterPage() {
 - [ ] Create admin UI for platform registration
 
 ### Offline Mode
+
 - [ ] Implement IndexedDB for larger data sets
 - [ ] Add background sync for form submissions
 - [ ] Cache assessment questions for offline exams
@@ -434,6 +491,7 @@ export default function HelpCenterPage() {
 - [ ] Add offline progress indicators
 
 ### Zendesk Integration
+
 - [ ] Add attachment support
 - [ ] Implement ticket status tracking
 - [ ] Add in-app ticket history
@@ -441,6 +499,7 @@ export default function HelpCenterPage() {
 - [ ] Add priority/urgency fields
 
 ### Help Center
+
 - [ ] Implement full-text search with ranking
 - [ ] Add search filters (category, audience)
 - [ ] Implement search analytics
@@ -453,12 +512,14 @@ export default function HelpCenterPage() {
 ## Status: ✅ COMPLETE
 
 All features in Batch 2 are implemented and ready for testing. The platform now has:
+
 - LTI 1.3 integration skeleton for external LMS connectivity
 - Enhanced offline mode with course caching
 - Zendesk ticketing integration for support
 - Functional help center search
 
 **Combined with Batch 1**, the platform now includes:
+
 1. Advanced assessments with anti-cheating
 2. Proctoring integration hooks
 3. Usage-based billing (Stripe)

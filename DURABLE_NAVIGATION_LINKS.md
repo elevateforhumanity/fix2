@@ -327,23 +327,15 @@ Footer:
 <a href="https://www.elevateforhumanity.org/programs/medical-assistant"
   >Learn More →</a
 >
-<a href="https://www.elevateforhumanity.org/programs/hvac"
-  >Learn More →</a
->
-<a href="https://www.elevateforhumanity.org/programs/barber"
-  >Learn More →</a
->
+<a href="https://www.elevateforhumanity.org/programs/hvac">Learn More →</a>
+<a href="https://www.elevateforhumanity.org/programs/barber">Learn More →</a>
 ```
 
 ### Footer CTA:
 
 ```html
-<a href="https://www.elevateforhumanity.org/apply"
-  >Start My Application</a
->
-<a href="https://www.elevateforhumanity.org/contact"
-  >Talk to an Advisor</a
->
+<a href="https://www.elevateforhumanity.org/apply">Start My Application</a>
+<a href="https://www.elevateforhumanity.org/contact">Talk to an Advisor</a>
 ```
 
 ---

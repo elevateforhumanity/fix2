@@ -52,7 +52,7 @@ async function setVercelEnv(
         key: envName,
         value: envValue,
         type: 'encrypted',
-        target: target,
+        target,
       }),
     }
   );
@@ -96,7 +96,7 @@ async function updateVercelEnv(projectId, envName, envValue, target) {
       },
       body: JSON.stringify({
         value: envValue,
-        target: target,
+        target,
       }),
     }
   );

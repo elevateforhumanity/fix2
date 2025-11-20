@@ -25,6 +25,7 @@
 **Action Required**: Manual execution in Supabase SQL Editor
 
 **Instructions**:
+
 1. Open: https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
 2. Copy SQL from: https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
 3. Paste into SQL Editor
@@ -32,6 +33,7 @@
 5. Wait 30 seconds
 
 **Expected Result**:
+
 ```
 ✅ 16 programs created
 ✅ 17 courses created
@@ -39,6 +41,7 @@
 ```
 
 **Verification**:
+
 ```sql
 SELECT COUNT(*) FROM programs; -- Should return 16
 SELECT COUNT(*) FROM courses;  -- Should return 17
@@ -50,6 +53,7 @@ SELECT COUNT(*) FROM modules;  -- Should return 50+
 **Check**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Expected**:
+
 - [ ] Blue banner is GONE
 - [ ] Shows "17 courses in the system"
 - [ ] All courses from database
@@ -63,6 +67,7 @@ SELECT COUNT(*) FROM modules;  -- Should return 50+
 ### Step 1: Remove Mock Data Files
 
 **Run**:
+
 ```bash
 # Remove mock courses file
 rm lib/mock-courses.ts
@@ -76,12 +81,14 @@ rm lib/mock-courses.ts
 **File**: `app/admin/courses/page.tsx`
 
 **Remove**:
+
 - Import of `getMockCourses`
 - `usingMockData` variable
 - Mock data fallback logic
 - Blue banner component
 
 **Keep**:
+
 - Direct Supabase queries
 - Error handling
 - Course display logic
@@ -91,11 +98,13 @@ rm lib/mock-courses.ts
 **File**: `app/student/courses/page.tsx`
 
 **Remove**:
+
 - Import of `getMockCourses`
 - `usingMockData` variable
 - Mock data fallback logic
 
 **Keep**:
+
 - Direct Supabase queries
 - Enrollment logic
 - Course display
@@ -134,6 +143,7 @@ git push origin main
 **Vercel**: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 
 **Wait for**:
+
 - [ ] Build completes
 - [ ] Deployment succeeds
 - [ ] Status shows "Ready"
@@ -143,6 +153,7 @@ git push origin main
 **Admin Courses**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Verify**:
+
 - [ ] NO blue banner
 - [ ] 17 courses visible
 - [ ] All from database
@@ -153,6 +164,7 @@ git push origin main
 **Student Courses**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/student/courses
 
 **Verify**:
+
 - [ ] Courses display
 - [ ] Can browse courses
 - [ ] Enrollment works
@@ -176,6 +188,7 @@ git push origin main
 **Production URL**: https://www.elevateforhumanity.org
 
 **Verify**:
+
 - [ ] Same as preview deployment
 - [ ] 17 courses visible
 - [ ] No blue banner
@@ -187,6 +200,7 @@ git push origin main
 ## ✅ Completion Criteria
 
 ### Database:
+
 - [x] Supabase URL configured in Vercel
 - [ ] Migrations run successfully
 - [ ] 16 programs in database
@@ -194,6 +208,7 @@ git push origin main
 - [ ] 50+ modules in database
 
 ### Code:
+
 - [x] Mock data system created (temporary)
 - [ ] Mock data system removed
 - [ ] Admin page uses database only
@@ -201,6 +216,7 @@ git push origin main
 - [ ] No fallback to mock data
 
 ### Deployment:
+
 - [x] Initial deployment with mock data
 - [ ] Migrations completed
 - [ ] Final deployment without mock data
@@ -208,6 +224,7 @@ git push origin main
 - [ ] All tests passing
 
 ### Functionality:
+
 - [ ] Courses display from database
 - [ ] No blue banner visible
 - [ ] Enrollment works
@@ -221,15 +238,18 @@ git push origin main
 ## 🎯 Current Status
 
 ### Completed:
+
 ✅ Phase 1: Deployment (with mock data fallback)
 ✅ Vercel environment variables configured
 ✅ Code pushed to GitHub
 ✅ Autopilot task created
 
 ### In Progress:
+
 ⏳ Waiting for Vercel deployment to complete
 
 ### Next Steps:
+
 1. ⏳ Wait for deployment (2-3 minutes)
 2. 🔄 Run database migrations in Supabase
 3. ✅ Verify courses in database
@@ -261,11 +281,13 @@ https://www.elevateforhumanity.org/admin/courses
 ## 🚀 Automation Scripts
 
 **Activate Courses**:
+
 ```bash
 ./scripts/activate-courses.sh
 ```
 
 **Remove Mock Data** (after migrations):
+
 ```bash
 ./scripts/remove-mock-data.sh
 ```
@@ -291,5 +313,5 @@ Now:        Deployment in progress (2-3 min)
 
 ---
 
-*Last Updated: November 19, 2025 19:45 UTC*  
-*Document: COMPLETE_ACTIVATION_CHECKLIST.md*
+_Last Updated: November 19, 2025 19:45 UTC_  
+_Document: COMPLETE_ACTIVATION_CHECKLIST.md_

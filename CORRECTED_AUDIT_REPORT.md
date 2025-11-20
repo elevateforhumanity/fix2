@@ -1,4 +1,5 @@
 # Corrected Website Audit Report
+
 **Date:** 2025-11-19  
 **Repository:** elevateforhumanity/fix2
 
@@ -20,6 +21,7 @@ Based on existing program pages, you offer:
 ## ❌ PROGRAMS TO REMOVE (Not Offered)
 
 ### Images to Delete:
+
 ```bash
 # Remove welding references
 rm public/media/programs/welding.jpg
@@ -55,6 +57,7 @@ rm public/generated-images/ecd-courses/beauty-career-educator-cover.png
 ## 🖼️ GENERIC IMAGES TO REPLACE
 
 ### Placeholder Program Images (451 bytes - FAKE SVG)
+
 ```
 ❌ public/programs/cdl.jpg - Replace with real CDL training photo
 ❌ public/programs/cna.jpg - Delete (CNA not offered)
@@ -65,6 +68,7 @@ rm public/generated-images/ecd-courses/beauty-career-educator-cover.png
 ```
 
 ### Placeholder People Photos (368 bytes - FAKE SVG)
+
 ```
 ❌ public/people/alicia.jpg - Replace with real team photo
 ❌ public/people/marcus.jpg - Replace with real team photo
@@ -77,12 +81,14 @@ rm public/generated-images/ecd-courses/beauty-career-educator-cover.png
 ## 🚫 UNAUTHORIZED PARTNER REFERENCES REMOVED
 
 ### ✅ Already Removed:
+
 - TrustStrip.tsx - Removed DOL, WorkOne, EmployIndy logos
 - ContentAutomation.ts - Removed CompTIA, Microsoft, AWS, AHIMA, HIMSS, Epic, Cerner, PMI, HRCI references
 
 ### ⚠️ Still Need to Update:
 
 #### References to DOL/WorkOne/EmployIndy in Content:
+
 ```
 app/faq/page.tsx:54 - "DOL-approved program"
 app/program-holder/mou/page.tsx:123 - "EmployIndy, DOL"
@@ -117,32 +123,40 @@ app/programs-full/page.tsx:375 - "DOL Apprenticeships"
 ### Priority 1: CRITICAL (Site won't work)
 
 #### Supabase (Database & Auth)
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
+
 **Get it:** [https://supabase.com/dashboard](https://supabase.com/dashboard)
+
 1. Create account
 2. Create new project
 3. Settings > API > Copy keys
 
 #### NextAuth (Authentication)
+
 ```bash
 NEXTAUTH_SECRET=your-secret-here
 NEXTAUTH_URL=https://elevateforhumanity.org
 ```
+
 **Generate:**
+
 ```bash
 openssl rand -base64 32
 ```
 
 #### Stripe (Payments)
+
 ```bash
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 ```
+
 **Get it:** [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
 
 ---
@@ -150,24 +164,31 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ### Priority 2: IMPORTANT (Features won't work)
 
 #### OpenAI (AI Features)
+
 ```bash
 OPENAI_API_KEY=sk-...
 ```
+
 **Get it:** [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 
 #### SendGrid (Email)
+
 ```bash
 SENDGRID_API_KEY=SG....
 SENDGRID_FROM=noreply@elevateforhumanity.org
 ```
+
 **Get it:** [https://app.sendgrid.com/settings/api_keys](https://app.sendgrid.com/settings/api_keys)
 
 #### Google OAuth (Social Login)
+
 ```bash
 GOOGLE_CLIENT_ID=...apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=GOCSPX-...
 ```
+
 **Get it:** [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
+
 1. Create OAuth 2.0 Client ID
 2. Add redirect: `https://your-domain.com/api/auth/callback/google`
 
@@ -176,6 +197,7 @@ GOOGLE_CLIENT_SECRET=GOCSPX-...
 ### Priority 3: OPTIONAL (Enhanced features)
 
 #### Analytics
+
 ```bash
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
 NEXT_PUBLIC_MIXPANEL_TOKEN=...
@@ -183,12 +205,14 @@ NEXT_PUBLIC_FACEBOOK_APP_ID=...
 ```
 
 #### Video Hosting
+
 ```bash
 VIMEO_ACCESS_TOKEN=...
 WISTIA_API_TOKEN=...
 ```
 
 #### SMS Notifications
+
 ```bash
 TWILIO_SID=AC...
 TWILIO_TOKEN=...
@@ -200,6 +224,7 @@ TWILIO_FROM=+1...
 ## 🔗 MISSING ROUTES TO CREATE OR FIX
 
 ### Routes Referenced But Don't Exist:
+
 ```
 /accessibility - Create accessibility statement page
 /admin/certificates/bulk - Create bulk certificate issuance page
@@ -278,6 +303,7 @@ Update `/public/manifest.json`:
 ## 🎯 ACTION PLAN
 
 ### STEP 1: Remove Unauthorized Content (1-2 hours)
+
 ```bash
 # Remove partner references from text
 # Update all files listed above to remove DOL, WorkOne, EmployIndy names
@@ -292,15 +318,18 @@ rm public/media/programs/it.jpg
 ```
 
 ### STEP 2: Replace Generic Images (1-2 days)
+
 - Get real photos for actual programs (CDL, HVAC, Barber, Medical Assistant, Building Maintenance)
 - Get real team photos
 - Replace 451-byte placeholder files
 
 ### STEP 3: Fix Routes (2-4 hours)
+
 - Create missing pages or add redirects
 - Update links to correct routes
 
 ### STEP 4: Set Up Environment Variables (1 hour)
+
 - Supabase
 - Stripe
 - NextAuth
@@ -308,6 +337,7 @@ rm public/media/programs/it.jpg
 - SendGrid
 
 ### STEP 5: Fix PWA Manifest (15 minutes)
+
 - Update icon references
 - Remove screenshot reference
 
@@ -315,15 +345,15 @@ rm public/media/programs/it.jpg
 
 ## 📊 SUMMARY
 
-| Category | Count | Status |
-|----------|-------|--------|
-| Actual Programs | 6 | ✅ Correct |
-| Programs to Remove | 5+ | ❌ Delete images |
-| Fake Program Images | 6 | ❌ Replace |
-| Fake People Photos | 3 | ❌ Replace |
-| Partner References | 25+ | ❌ Remove names |
-| Missing Routes | 35+ | ⚠️ Create or redirect |
-| Missing API Keys | 10+ | 🔴 Critical |
+| Category            | Count | Status                |
+| ------------------- | ----- | --------------------- |
+| Actual Programs     | 6     | ✅ Correct            |
+| Programs to Remove  | 5+    | ❌ Delete images      |
+| Fake Program Images | 6     | ❌ Replace            |
+| Fake People Photos  | 3     | ❌ Replace            |
+| Partner References  | 25+   | ❌ Remove names       |
+| Missing Routes      | 35+   | ⚠️ Create or redirect |
+| Missing API Keys    | 10+   | 🔴 Critical           |
 
 ---
 
