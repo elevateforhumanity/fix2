@@ -13,17 +13,18 @@ Vercel was serving old cached builds even after new code was pushed. This system
 ## What Was Implemented
 
 ### 1️⃣ Middleware Cache Control
+
 **File:** `/middleware.ts`
 
 ```typescript
 export const config = {
-  matcher: "/:path*",
+  matcher: '/:path*',
 };
 
 export function middleware() {
   return new Response(null, {
     headers: {
-      "Cache-Control": "no-store, max-age=0, must-revalidate",
+      'Cache-Control': 'no-store, max-age=0, must-revalidate',
     },
   });
 }
@@ -34,9 +35,11 @@ export function middleware() {
 ---
 
 ### 2️⃣ Next.js Config Headers
+
 **File:** `/next.config.mjs`
 
 Added to headers:
+
 ```javascript
 {
   key: 'Cache-Control',
@@ -57,14 +60,17 @@ Added to headers:
 ---
 
 ### 3️⃣ Gitpod Force Redeploy Script
+
 **File:** `.gitpod.d/force-vercel-redeploy.sh`
 
 **Usage:**
+
 ```bash
 ./.gitpod.d/force-vercel-redeploy.sh
 ```
 
 **What it does:**
+
 1. Deletes `.next`, `node_modules/.cache`, `.vercel`
 2. Adds `CACHEBUSTER` timestamp to `.env.local`
 3. Runs `vercel --prod --force`
@@ -74,11 +80,13 @@ Added to headers:
 ---
 
 ### 4️⃣ GitHub Action Auto-Invalidate
+
 **File:** `.github/workflows/vercel-force.yml`
 
 **Triggers:** Every push to `main` branch
 
 **What it does:**
+
 1. Removes all cache directories
 2. Adds `BUILD_SALT` timestamp
 3. Deploys with `vercel --prod --force`
@@ -87,6 +95,7 @@ Added to headers:
 
 **Setup Required:**
 Add these secrets to GitHub repo:
+
 - `VERCEL_TOKEN` - Get from https://vercel.com/account/tokens
 - `VERCEL_ORG_ID` - Get from Vercel project settings
 - `VERCEL_PROJECT_ID` - Get from Vercel project settings
@@ -94,15 +103,18 @@ Add these secrets to GitHub repo:
 ---
 
 ### 5️⃣ Admin API Endpoint
+
 **File:** `/app/api/admin/force-redeploy/route.ts`
 
 **Usage:**
+
 ```bash
 curl -X POST https://www.elevateforhumanity.org/api/admin/force-redeploy \
   -H "Authorization: Bearer YOUR_ADMIN_SECRET"
 ```
 
 **What it does:**
+
 1. Clears all caches
 2. Adds cache buster
 3. Triggers Vercel deployment
@@ -118,7 +130,9 @@ Add `ADMIN_SECRET` to Vercel environment variables
 ## How to Use
 
 ### Automatic (Recommended)
+
 Just push to main - GitHub Action handles everything:
+
 ```bash
 git add -A
 git commit -m "Your changes"
@@ -126,20 +140,24 @@ git push origin main
 ```
 
 ### Manual Force Redeploy
+
 From Gitpod terminal:
+
 ```bash
 ./.gitpod.d/force-vercel-redeploy.sh
 ```
 
 ### From Admin Panel
+
 Create a button in your admin dashboard:
+
 ```typescript
 async function forceRedeploy() {
   const response = await fetch('/api/admin/force-redeploy', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${process.env.ADMIN_SECRET}`
-    }
+      Authorization: `Bearer ${process.env.ADMIN_SECRET}`,
+    },
   });
   const data = await response.json();
   console.log(data);
@@ -158,9 +176,11 @@ After deployment, check:
    - Should be unique timestamp
 
 2. **Headers are correct:**
+
    ```bash
    curl -I https://www.elevateforhumanity.org
    ```
+
    Should show:
    - `Cache-Control: no-store, max-age=0, must-revalidate`
    - `CDN-Cache-Control: no-store`
@@ -185,6 +205,7 @@ After deployment, check:
    - Select "Cached images and files"
 
 3. **Force redeploy manually:**
+
    ```bash
    ./.gitpod.d/force-vercel-redeploy.sh
    ```

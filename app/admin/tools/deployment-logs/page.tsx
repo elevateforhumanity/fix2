@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface Deployment {
   id: string;
   commit: string;
   branch: string;
-  status: "building" | "ready" | "error";
+  status: 'building' | 'ready' | 'error';
   timestamp: string;
   duration: string;
   url: string;
@@ -21,31 +21,31 @@ export default function DeploymentLogs() {
     // Mock data - replace with real Vercel API call
     const mockDeployments: Deployment[] = [
       {
-        id: "dpl_3f947afb",
-        commit: "3f947afb - 🔥 AGGRESSIVE CACHE BUSTING",
-        branch: "main",
-        status: "ready",
-        timestamp: "2 minutes ago",
-        duration: "2m 15s",
-        url: "https://fix2-gpql-git-main-elevate.vercel.app",
+        id: 'dpl_3f947afb',
+        commit: '3f947afb - 🔥 AGGRESSIVE CACHE BUSTING',
+        branch: 'main',
+        status: 'ready',
+        timestamp: '2 minutes ago',
+        duration: '2m 15s',
+        url: 'https://fix2-gpql-git-main-elevate.vercel.app',
       },
       {
-        id: "dpl_9a461a2a",
-        commit: "9a461a2a - ✨ MEDICAL ASSISTANT PROGRAM",
-        branch: "main",
-        status: "ready",
-        timestamp: "15 minutes ago",
-        duration: "2m 8s",
-        url: "https://fix2-gpql-9a461a2a.vercel.app",
+        id: 'dpl_9a461a2a',
+        commit: '9a461a2a - ✨ MEDICAL ASSISTANT PROGRAM',
+        branch: 'main',
+        status: 'ready',
+        timestamp: '15 minutes ago',
+        duration: '2m 8s',
+        url: 'https://fix2-gpql-9a461a2a.vercel.app',
       },
       {
-        id: "dpl_d8a51136",
-        commit: "d8a51136 - ✨ COMPREHENSIVE ABOUT PAGE",
-        branch: "main",
-        status: "ready",
-        timestamp: "30 minutes ago",
-        duration: "2m 12s",
-        url: "https://fix2-gpql-d8a51136.vercel.app",
+        id: 'dpl_d8a51136',
+        commit: 'd8a51136 - ✨ COMPREHENSIVE ABOUT PAGE',
+        branch: 'main',
+        status: 'ready',
+        timestamp: '30 minutes ago',
+        duration: '2m 12s',
+        url: 'https://fix2-gpql-d8a51136.vercel.app',
       },
     ];
 
@@ -55,23 +55,23 @@ export default function DeploymentLogs() {
     }, 500);
   }, []);
 
-  function getStatusBadge(status: Deployment["status"]) {
+  function getStatusBadge(status: Deployment['status']) {
     switch (status) {
-      case "building":
+      case 'building':
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
             Building
           </span>
         );
-      case "ready":
+      case 'ready':
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Ready
           </span>
         );
-      case "error":
+      case 'error':
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2 py-0.5 text-xs font-semibold text-rose-700">
             <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
@@ -201,7 +201,7 @@ export default function DeploymentLogs() {
             💡 Pro Tip: Real-time deployment tracking
           </p>
           <p className="text-xs text-blue-800">
-            To see real-time deployment logs, visit the{" "}
+            To see real-time deployment logs, visit the{' '}
             <a
               href="https://vercel.com/elevate-48e460c9/fix2-gpql"
               target="_blank"

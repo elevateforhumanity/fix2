@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function ForceDeploy() {
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
   async function run() {
     setLoading(true);
-    setMsg("");
+    setMsg('');
 
-    const res = await fetch("/api/admin/redeploy", { method: "POST" });
+    const res = await fetch('/api/admin/redeploy', { method: 'POST' });
     const data = await res.json();
 
     if (!res.ok) {
-      setMsg(data.error || "Failed.");
+      setMsg(data.error || 'Failed.');
       setLoading(false);
       return;
     }
 
-    setMsg("🚀 Fresh deployment started on Vercel.");
+    setMsg('🚀 Fresh deployment started on Vercel.');
     setLoading(false);
   }
 
@@ -28,10 +28,7 @@ export default function ForceDeploy() {
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-4 py-10">
         <div className="mb-6">
-          <Link
-            href="/admin"
-            className="text-sm text-blue-600 hover:underline"
-          >
+          <Link href="/admin" className="text-sm text-blue-600 hover:underline">
             ← Back to Admin
           </Link>
         </div>
@@ -63,14 +60,14 @@ export default function ForceDeploy() {
             onClick={run}
             disabled={loading}
           >
-            {loading ? "Deploying..." : "🚀 Force Fresh Deploy"}
+            {loading ? 'Deploying...' : '🚀 Force Fresh Deploy'}
           </button>
 
           {msg && (
             <div className="mt-6 rounded-xl border border-emerald-100 bg-emerald-50 p-4">
               <p className="text-sm text-emerald-900">{msg}</p>
               <p className="text-xs text-emerald-700 mt-2">
-                Check deployment status:{" "}
+                Check deployment status:{' '}
                 <a
                   href="https://vercel.com/elevate-48e460c9/fix2-gpql"
                   target="_blank"
@@ -102,13 +99,14 @@ export default function ForceDeploy() {
             </p>
             <ul className="text-xs text-slate-600 space-y-1">
               <li>
-                • <strong>Gitpod:</strong> Run{" "}
+                • <strong>Gitpod:</strong> Run{' '}
                 <code className="bg-slate-200 px-1 rounded">
                   ./.gitpod.d/force-vercel-redeploy.sh
                 </code>
               </li>
               <li>
-                • <strong>Git push:</strong> Any push to main triggers auto-deploy
+                • <strong>Git push:</strong> Any push to main triggers
+                auto-deploy
               </li>
               <li>
                 • <strong>Vercel Dashboard:</strong> Manual redeploy from UI
