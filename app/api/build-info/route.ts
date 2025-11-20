@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function GET() {
   let deploymentTimestamp = 'unknown';
-  
+
   try {
     const timestampPath = path.join(process.cwd(), '.deployment-timestamp');
     if (fs.existsSync(timestampPath)) {
@@ -20,7 +20,8 @@ export async function GET() {
       timestamp: deploymentTimestamp,
       buildTime: '2025-11-20T04:24:00Z',
       commitSha: process.env.VERCEL_GIT_COMMIT_SHA || 'local',
-      commitMessage: process.env.VERCEL_GIT_COMMIT_MESSAGE || 'local development',
+      commitMessage:
+        process.env.VERCEL_GIT_COMMIT_MESSAGE || 'local development',
       branch: process.env.VERCEL_GIT_COMMIT_REF || 'main',
     },
     environment: {
@@ -29,7 +30,10 @@ export async function GET() {
       vercelEnv: process.env.VERCEL_ENV || 'development',
     },
     features: {
-      supabaseConfigured: !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
+      supabaseConfigured: !!(
+        process.env.NEXT_PUBLIC_SUPABASE_URL &&
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      ),
       stripeConfigured: !!process.env.STRIPE_SECRET_KEY,
       emailConfigured: !!process.env.RESEND_API_KEY,
     },
@@ -39,8 +43,8 @@ export async function GET() {
   return NextResponse.json(buildInfo, {
     headers: {
       'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0',
+      Pragma: 'no-cache',
+      Expires: '0',
       'X-Build-Time': '2025-11-20T04:24:00Z',
     },
   });
