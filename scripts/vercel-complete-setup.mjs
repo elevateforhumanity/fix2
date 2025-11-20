@@ -11,11 +11,11 @@
 
 import { execSync } from 'child_process';
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 
-if (!VERCEL_TOKEN) {
-  console.error('❌ VERCEL_TOKEN not set');
-  console.error('Set it with: export VERCEL_TOKEN="your-token"');
+if (!VERCELACESSTOKEN) {
+  console.error('❌ VERCELACESSTOKEN not set');
+  console.error('Set it with: export VERCELACESSTOKEN="your-token"');
   console.error('');
   console.error('Get token from: https://vercel.com/account/tokens');
   process.exit(1);
@@ -32,7 +32,7 @@ function runStep(name, command) {
   try {
     execSync(command, { 
       stdio: 'inherit',
-      env: { ...process.env, VERCEL_TOKEN }
+      env: { ...process.env, VERCELACESSTOKEN }
     });
     console.log(`\n✅ ${name} - Complete\n`);
     return true;

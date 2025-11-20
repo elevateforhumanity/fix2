@@ -5,7 +5,7 @@
  * Automatically updates domain-related env vars for migration
  */
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID || 'prj_I89m6xUtwJlmA3qSE8Su7jIF7Xg7';
 const VERCEL_TEAM_ID = process.env.VERCEL_TEAM_ID || 'team_Xj2yJdLklcMExBxDPK7I2G4w';
 
@@ -28,10 +28,10 @@ async function main() {
   console.log('🔧 Vercel Environment Variable Updater');
   console.log('=====================================\n');
 
-  if (!VERCEL_TOKEN) {
-    console.error('❌ VERCEL_TOKEN environment variable is required');
+  if (!VERCELACESSTOKEN) {
+    console.error('❌ VERCELACESSTOKEN environment variable is required');
     console.error('\nSet it with:');
-    console.error('  export VERCEL_TOKEN=your_token_here');
+    console.error('  export VERCELACESSTOKEN=your_token_here');
     console.error('\nGet your token from: https://vercel.com/account/tokens');
     process.exit(1);
   }
@@ -98,7 +98,7 @@ async function getEnvironmentVariables() {
   const url = `https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/env?teamId=${VERCEL_TEAM_ID}`;
   const response = await fetch(url, {
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      'Authorization': `Bearer ${VERCELACESSTOKEN}`,
       'Content-Type': 'application/json',
     },
   });
@@ -117,7 +117,7 @@ async function deleteEnvironmentVariable(varId) {
   const response = await fetch(url, {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      'Authorization': `Bearer ${VERCELACESSTOKEN}`,
     },
   });
 
@@ -134,7 +134,7 @@ async function createEnvironmentVariable(envVar) {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      'Authorization': `Bearer ${VERCELACESSTOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -158,7 +158,7 @@ async function triggerDeployment() {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      'Authorization': `Bearer ${VERCELACESSTOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({

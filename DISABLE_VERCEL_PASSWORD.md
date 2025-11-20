@@ -23,8 +23,8 @@ This is why:
 
 3. Redeploy:
    ```bash
-   export VERCEL_TOKEN="your-token"
-   npx vercel --prod --yes --token=$VERCEL_TOKEN
+   export VERCELACESSTOKEN="your-token"
+   npx vercel --prod --yes --token=$VERCELACESSTOKEN
    ```
 
 ### Option 2: Via vercel.json

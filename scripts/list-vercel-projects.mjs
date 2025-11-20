@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // List all Vercel projects to find the correct one
 
-const VERCEL_TOKEN =
-  process.env.VERCEL_TOKEN || process.argv[2] || 'CatFXMsC0PPzwulHl0CrRtfI';
+const VERCELACESSTOKEN =
+  process.env.VERCELACESSTOKEN || process.argv[2] || 'CatFXMsC0PPzwulHl0CrRtfI';
 
 async function fetchVercelData(endpoint) {
   const response = await fetch(`https://api.vercel.com${endpoint}`, {
     headers: {
-      Authorization: `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCELACESSTOKEN}`,
       'Content-Type': 'application/json',
     },
   });

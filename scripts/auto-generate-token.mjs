@@ -74,7 +74,7 @@ try {
     console.log('   2. Click "Create Token"');
     console.log('   3. Name: fix2-gpql-automation');
     console.log('   4. Copy token and run:');
-    console.log('      export VERCEL_TOKEN="your-token"');
+    console.log('      export VERCELACESSTOKEN="your-token"');
     console.log('      pnpm auto-fix');
     console.log('');
     process.exit(1);
@@ -109,7 +109,7 @@ try {
   
   try {
     execSync(
-      `gh secret set VERCEL_TOKEN --body "${newToken}"`,
+      `gh secret set VERCELACESSTOKEN --body "${newToken}"`,
       { stdio: 'inherit' }
     );
     console.log('   ✅ GitHub secret updated\n');
@@ -117,7 +117,7 @@ try {
     console.log('   ⚠️  Could not update GitHub secret automatically');
     console.log('   Manual update required:');
     console.log('   1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions');
-    console.log('   2. Update VERCEL_TOKEN with new value');
+    console.log('   2. Update VERCELACESSTOKEN with new value');
     console.log('');
   }
   
@@ -131,16 +131,16 @@ try {
     envContent = readFileSync(envFile, 'utf-8');
     
     // Replace existing token
-    if (envContent.includes('VERCEL_TOKEN=')) {
+    if (envContent.includes('VERCELACESSTOKEN=')) {
       envContent = envContent.replace(
-        /VERCEL_TOKEN=.*/,
-        `VERCEL_TOKEN="${newToken}"`
+        /VERCELACESSTOKEN=.*/,
+        `VERCELACESSTOKEN="${newToken}"`
       );
     } else {
-      envContent += `\nVERCEL_TOKEN="${newToken}"\n`;
+      envContent += `\nVERCELACESSTOKEN="${newToken}"\n`;
     }
   } else {
-    envContent = `VERCEL_TOKEN="${newToken}"\n`;
+    envContent = `VERCELACESSTOKEN="${newToken}"\n`;
   }
   
   writeFileSync(envFile, envContent);
@@ -148,8 +148,8 @@ try {
   
   // Step 6: Export to current environment
   console.log('🌍 Step 5: Exporting to environment...');
-  process.env.VERCEL_TOKEN = newToken;
-  console.log('   ✅ Token exported to VERCEL_TOKEN\n');
+  process.env.VERCELACESSTOKEN = newToken;
+  console.log('   ✅ Token exported to VERCELACESSTOKEN\n');
   
   // Step 7: Show next steps
   console.log('==============================');
@@ -165,7 +165,7 @@ try {
   console.log('📍 Token saved to:');
   console.log(`   ✅ ${envFile}`);
   console.log('   ✅ GitHub Secrets (if gh CLI available)');
-  console.log('   ✅ Current environment (VERCEL_TOKEN)');
+  console.log('   ✅ Current environment (VERCELACESSTOKEN)');
   console.log('');
   
   console.log('🚀 Next steps:');
@@ -174,7 +174,7 @@ try {
   console.log('');
   
   console.log('💡 To use in new terminal:');
-  console.log(`   export VERCEL_TOKEN="${newToken}"`);
+  console.log(`   export VERCELACESSTOKEN="${newToken}"`);
   console.log('');
   
 } catch (error) {
@@ -189,7 +189,7 @@ try {
   console.log('   6. Copy token');
   console.log('');
   console.log('   Then run:');
-  console.log('   export VERCEL_TOKEN="your-token"');
+  console.log('   export VERCELACESSTOKEN="your-token"');
   console.log('   pnpm auto-fix');
   console.log('');
   process.exit(1);

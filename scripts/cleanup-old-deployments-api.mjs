@@ -5,14 +5,14 @@
  * Deletes all deployments except the latest one
  */
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 const PROJECT_ID = 'prj_WSdzX00UNP1rcWNXQ3RrpeuVOkeA';
 const TEAM_ID = 'team_Ae8f33vVYR36quLOS8HCeROs';
 const KEEP_LATEST = 1; // Keep only the latest deployment
 
-if (!VERCEL_TOKEN) {
-  console.error('❌ VERCEL_TOKEN not set');
-  console.error('Set it with: export VERCEL_TOKEN="your-token"');
+if (!VERCELACESSTOKEN) {
+  console.error('❌ VERCELACESSTOKEN not set');
+  console.error('Set it with: export VERCELACESSTOKEN="your-token"');
   process.exit(1);
 }
 
@@ -26,7 +26,7 @@ async function fetchDeployments() {
     `https://api.vercel.com/v6/deployments?projectId=${PROJECT_ID}&teamId=${TEAM_ID}&limit=100`,
     {
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`
       }
     }
   );
@@ -46,7 +46,7 @@ async function deleteDeployment(deploymentId) {
     {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`
       }
     }
   );
@@ -143,7 +143,7 @@ async function main() {
     if (error.message.includes('forbidden') || error.message.includes('Not authorized')) {
       console.error('💡 Token issue:');
       console.error('   1. Get new token: https://vercel.com/account/tokens');
-      console.error('   2. Set: export VERCEL_TOKEN="your-new-token"');
+      console.error('   2. Set: export VERCELACESSTOKEN="your-new-token"');
       console.error('   3. Run again: pnpm cleanup:deployments-api');
     }
     

@@ -32,7 +32,7 @@ This is a **ONE-SHOT, FULLY AUTOMATED** implementation that:
 # Create token, copy it
 
 # Set token
-export VERCEL_TOKEN="your_vercel_token_here"
+export VERCELACESSTOKEN="your_vercel_token_here"
 
 # Run everything
 ./scripts/implement-tiktok-features.sh
@@ -351,7 +351,7 @@ npm run build
 ### Vercel Cleanup Fails:
 ```bash
 # Check if token is set
-echo $VERCEL_TOKEN
+echo $VERCELACESSTOKEN
 
 # Check logs
 cat .implementation-logs/vercel-cleanup.log
@@ -423,7 +423,7 @@ npm run optimize:images
 
 ```bash
 # With Vercel token (recommended)
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 ./scripts/implement-tiktok-features.sh
 
 # Without token
@@ -436,7 +436,7 @@ export VERCEL_TOKEN="your_token"
 3. Name: "Cleanup Script"
 4. Scope: Full Account
 5. Copy token
-6. Run: `export VERCEL_TOKEN="paste_token_here"`
+6. Run: `export VERCELACESSTOKEN="paste_token_here"`
 
 ---
 

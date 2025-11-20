@@ -66,8 +66,8 @@ async function apiRequest(endpoint, token, method = 'GET', body = null) {
 
 async function getVercelToken() {
   // Check environment variable first
-  if (process.env.VERCEL_TOKEN) {
-    return process.env.VERCEL_TOKEN;
+  if (process.env.VERCELACESSTOKEN) {
+    return process.env.VERCELACESSTOKEN;
   }
 
   // Check config file
@@ -79,7 +79,7 @@ async function getVercelToken() {
   log('\nTo get your token:', 'yellow');
   log('1. Go to: https://vercel.com/account/tokens', 'yellow');
   log('2. Create a new token', 'yellow');
-  log('3. Save it to .vercel-token file or set VERCEL_TOKEN env var', 'yellow');
+  log('3. Save it to .vercel-token file or set VERCELACESSTOKEN env var', 'yellow');
   process.exit(1);
 }
 

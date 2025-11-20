@@ -87,7 +87,7 @@ Added to headers:
 
 **Setup Required:**
 Add these secrets to GitHub repo:
-- `VERCEL_TOKEN` - Get from https://vercel.com/account/tokens
+- `VERCELACESSTOKEN` - Get from https://vercel.com/account/tokens
 - `VERCEL_ORG_ID` - Get from Vercel project settings
 - `VERCEL_PROJECT_ID` - Get from Vercel project settings
 
@@ -208,7 +208,7 @@ To enable automatic cache busting on every commit:
 
 2. Add these secrets:
 
-   **VERCEL_TOKEN:**
+   **VERCELACESSTOKEN:**
    - Go to https://vercel.com/account/tokens
    - Create new token
    - Copy and paste

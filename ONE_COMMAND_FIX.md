@@ -6,11 +6,11 @@
 # Go to GitHub Secrets page
 # https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 
-# Copy the VERCEL_TOKEN value
+# Copy the VERCELACESSTOKEN value
 # (You may need to recreate it to see the value)
 
 # Then export it:
-export VERCEL_TOKEN="paste-your-token-here"
+export VERCELACESSTOKEN="paste-your-token-here"
 ```
 
 ## Step 2: Run Ultimate Fix
@@ -54,7 +54,7 @@ https://vercel.com/account/tokens
 # 6. Copy token
 
 # 7. Export and run
-export VERCEL_TOKEN="your-new-token"
+export VERCELACESSTOKEN="your-new-token"
 pnpm ultimate-fix
 ```
 

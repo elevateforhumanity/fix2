@@ -44,7 +44,7 @@ Add these to: **Settings** → **Secrets and variables** → **Actions**
 
 | Secret Name         | Description                 |
 | ------------------- | --------------------------- |
-| `VERCEL_TOKEN`      | Vercel API token            |
+| `VERCELACESSTOKEN`      | Vercel API token            |
 | `VERCEL_ORG_ID`     | Your Vercel organization ID |
 | `VERCEL_PROJECT_ID` | Your Vercel project ID      |
 
@@ -272,7 +272,7 @@ schedule:
 
 ```bash
 # Set test credentials
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 export VERCEL_ORG_ID="your_org"
 export VERCEL_PROJECT_ID="your_project"
 export NETLIFY_AUTH_TOKEN="your_token"
@@ -289,7 +289,7 @@ export SUPABASE_SERVICE_ROLE_KEY="test"
 **Vercel:**
 
 ```bash
-vercel env ls --token $VERCEL_TOKEN
+vercel env ls --token $VERCELACESSTOKEN
 ```
 
 **Netlify:**
@@ -423,7 +423,7 @@ Actions → Autopilot - Sync Netlify & Vercel Environments →
 
 ```bash
 # Vercel
-vercel env ls --token $VERCEL_TOKEN
+vercel env ls --token $VERCELACESSTOKEN
 
 # Netlify
 netlify env:list --auth $NETLIFY_AUTH_TOKEN

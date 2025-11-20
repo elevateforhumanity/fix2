@@ -5,12 +5,12 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN || process.argv[2];
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN || process.argv[2];
 
-if (!VERCEL_TOKEN) {
-  console.error('❌ VERCEL_TOKEN is required');
-  console.error('Usage: node autopilot-get-vercel-ids.mjs YOUR_VERCEL_TOKEN');
-  console.error('Or set VERCEL_TOKEN environment variable');
+if (!VERCELACESSTOKEN) {
+  console.error('❌ VERCELACESSTOKEN is required');
+  console.error('Usage: node autopilot-get-vercel-ids.mjs YOUR_VERCELACESSTOKEN');
+  console.error('Or set VERCELACESSTOKEN environment variable');
   process.exit(1);
 }
 
@@ -20,7 +20,7 @@ console.log('');
 async function fetchVercelData(endpoint) {
   const response = await fetch(`https://api.vercel.com${endpoint}`, {
     headers: {
-      Authorization: `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCELACESSTOKEN}`,
       'Content-Type': 'application/json',
     },
   });
@@ -45,7 +45,7 @@ async function setVercelEnv(
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -75,7 +75,7 @@ async function updateVercelEnv(projectId, envName, envValue, target) {
     `https://api.vercel.com/v9/projects/${projectId}/env`,
     {
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
       },
     }
   ).then((r) => r.json());
@@ -91,7 +91,7 @@ async function updateVercelEnv(projectId, envName, envValue, target) {
     {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -223,7 +223,7 @@ async function main() {
     const deployment = await fetch(`https://api.vercel.com${deployEndpoint}`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -287,7 +287,7 @@ async function main() {
       '   Add these to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions'
     );
     console.log('');
-    console.log(`   VERCEL_TOKEN: ${VERCEL_TOKEN}`);
+    console.log(`   VERCELACESSTOKEN: ${VERCELACESSTOKEN}`);
     console.log(`   VERCEL_ORG_ID: ${config.vercel_org_id}`);
     console.log(`   VERCEL_PROJECT_ID: ${config.vercel_project_id}`);
     console.log(
@@ -306,7 +306,7 @@ async function main() {
     console.error('Error:', error.message);
     console.error('');
     console.error('Troubleshooting:');
-    console.error('  1. Verify VERCEL_TOKEN is correct');
+    console.error('  1. Verify VERCELACESSTOKEN is correct');
     console.error('  2. Check token has correct permissions');
     console.error('  3. Ensure you have access to the project');
     console.error('');

@@ -30,7 +30,7 @@ Update the token in these locations:
 #### A. GitHub Secrets (for CI/CD)
 
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
-2. Find `VERCEL_TOKEN`
+2. Find `VERCELACESSTOKEN`
 3. Click "Update"
 4. Paste new token
 5. Click "Update secret"
@@ -38,7 +38,7 @@ Update the token in these locations:
 #### B. Gitpod Environment Variables
 
 1. Go to: https://gitpod.io/user/variables
-2. Find `VERCEL_TOKEN`
+2. Find `VERCELACESSTOKEN`
 3. Update value with new token
 4. Save
 
@@ -46,7 +46,7 @@ Update the token in these locations:
 
 ```bash
 # .env or .env.local
-VERCEL_TOKEN=your_new_token_here
+VERCELACESSTOKEN=your_new_token_here
 ```
 
 **Never commit this file!** (should be in .gitignore)
@@ -62,7 +62,7 @@ If you use:
 ### 4. Test New Token
 
 ```bash
-export VERCEL_TOKEN="your_new_token_here"
+export VERCELACESSTOKEN="your_new_token_here"
 ./scripts/check-vercel-link.sh
 ```
 
@@ -90,8 +90,8 @@ Should show project info without errors.
 ## ⚡ Quick Commands
 
 ```bash
-# Check current link (requires VERCEL_TOKEN)
-export VERCEL_TOKEN="your_new_token_here"
+# Check current link (requires VERCELACESSTOKEN)
+export VERCELACESSTOKEN="your_new_token_here"
 pnpm vercel:check
 
 # Hard link to fix2-gpql

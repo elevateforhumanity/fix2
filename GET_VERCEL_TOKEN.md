@@ -24,7 +24,7 @@ The key you gave me (`vck_4hHMv25bl6Y0NLdCpzLQyEVPPKJtQiLUx4V9yICDticDGLEEm91Qov
 
 ### Step 4: Run the Script
 ```bash
-export VERCEL_TOKEN=vercel_your_actual_token_here
+export VERCELACESSTOKEN=vercel_your_actual_token_here
 node scripts/update-vercel-env-vars.mjs
 ```
 

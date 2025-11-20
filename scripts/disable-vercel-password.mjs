@@ -5,7 +5,7 @@
  * Makes the site publicly accessible
  */
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID || 'prj_I89m6xUtwJlmA3qSE8Su7jIF7Xg7';
 const VERCEL_TEAM_ID = process.env.VERCEL_TEAM_ID || 'team_Xj2yJdLklcMExBxDPK7I2G4w';
 
@@ -13,8 +13,8 @@ async function main() {
   console.log('🔓 Disabling Vercel Password Protection');
   console.log('========================================\n');
 
-  if (!VERCEL_TOKEN) {
-    console.error('❌ VERCEL_TOKEN environment variable is required');
+  if (!VERCELACESSTOKEN) {
+    console.error('❌ VERCELACESSTOKEN environment variable is required');
     process.exit(1);
   }
 
@@ -26,7 +26,7 @@ async function main() {
     const response = await fetch(url, {
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`,
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -51,7 +51,7 @@ async function main() {
     const deployResponse = await fetch(deployUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`,
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

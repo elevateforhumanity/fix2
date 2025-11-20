@@ -53,7 +53,7 @@ This final batch completes the enterprise platform with CI/CD, automated backups
 ```
 DATABASE_URL
 NEXTAUTH_SECRET
-VERCEL_TOKEN
+VERCELACESSTOKEN
 SLACK_WEBHOOK_URL
 ```
 
@@ -460,7 +460,7 @@ Both pages check for admin role and redirect non-admins.
 # CI/CD (GitHub Secrets)
 DATABASE_URL=postgresql://...
 NEXTAUTH_SECRET=your-secret
-VERCEL_TOKEN=your-vercel-token
+VERCELACESSTOKEN=your-vercel-token
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 
 # Database Backups (K8s Secret)

@@ -4,7 +4,7 @@
 
 **Vercel environment variables are NOT updated**, so every deployment uses the OLD domain (elevateconnectsdirectory.org).
 
-The GitHub Actions CANNOT run because they need the VERCEL_TOKEN secret, which I cannot access.
+The GitHub Actions CANNOT run because they need the VERCELACESSTOKEN secret, which I cannot access.
 
 ---
 
@@ -34,11 +34,11 @@ The GitHub Actions CANNOT run because they need the VERCEL_TOKEN secret, which I
 
 ---
 
-### Option 2: Run the Script Locally (If you have VERCEL_TOKEN)
+### Option 2: Run the Script Locally (If you have VERCELACESSTOKEN)
 
 ```bash
 # Get your Vercel token from: https://vercel.com/account/tokens
-export VERCEL_TOKEN=your_token_here
+export VERCELACESSTOKEN=your_token_here
 
 # Run the updater
 node scripts/update-vercel-env-vars.mjs
@@ -56,7 +56,7 @@ This will:
 1. ✅ I updated ALL code (1,393 instances)
 2. ✅ I created automation scripts
 3. ✅ I triggered GitHub Actions
-4. ❌ **BUT** GitHub Actions need VERCEL_TOKEN secret
+4. ❌ **BUT** GitHub Actions need VERCELACESSTOKEN secret
 5. ❌ I cannot access GitHub secrets
 6. ❌ So environment variables never got updated
 7. ❌ So Vercel keeps deploying with OLD domain

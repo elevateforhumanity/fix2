@@ -24,7 +24,7 @@ All issues have been resolved.
 - Health check after deployment
 
 **Required GitHub Secrets:**
-- `VERCEL_TOKEN`
+- `VERCELACESSTOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 - `SUPABASE_ACCESS_TOKEN`
@@ -392,7 +392,7 @@ Add these secrets to your GitHub repository:
 **Settings → Secrets and variables → Actions → New repository secret**
 
 Required secrets:
-- `VERCEL_TOKEN` - From Vercel account settings
+- `VERCELACESSTOKEN` - From Vercel account settings
 - `VERCEL_ORG_ID` - From Vercel project settings
 - `VERCEL_PROJECT_ID` - From Vercel project settings
 - `SUPABASE_ACCESS_TOKEN` - From Supabase account

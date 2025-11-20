@@ -18,21 +18,21 @@ console.log('🤖 FULL AUTO FIX - Zero Manual Steps');
 console.log('=====================================\n');
 
 // Step 1: Get or create Vercel token
-let VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+let VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 
-if (!VERCEL_TOKEN) {
+if (!VERCELACESSTOKEN) {
   console.log('🔍 Step 1: Getting Vercel token...');
   
   // Try to get from GitHub Actions environment
   if (process.env.GITHUB_ACTIONS) {
-    VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-    if (VERCEL_TOKEN) {
+    VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
+    if (VERCELACESSTOKEN) {
       console.log('   ✅ Found token in GitHub Actions environment');
     }
   }
   
   // Try to get from .env files
-  if (!VERCEL_TOKEN) {
+  if (!VERCELACESSTOKEN) {
     console.log('   🔍 Checking for token in environment files...');
     
     const envFiles = ['.env', '.env.local', '.env.production'];
@@ -40,9 +40,9 @@ if (!VERCEL_TOKEN) {
     for (const file of envFiles) {
       try {
         const content = readFileSync(file, 'utf-8');
-        const match = content.match(/VERCEL_TOKEN=["']?([^"'\n]+)["']?/);
+        const match = content.match(/VERCELACESSTOKEN=["']?([^"'\n]+)["']?/);
         if (match) {
-          VERCEL_TOKEN = match[1];
+          VERCELACESSTOKEN = match[1];
           console.log(`   ✅ Found token in ${file}`);
           break;
         }
@@ -53,7 +53,7 @@ if (!VERCEL_TOKEN) {
   }
   
   // If still no token, create one via Vercel API
-  if (!VERCEL_TOKEN) {
+  if (!VERCELACESSTOKEN) {
     console.log('   🔑 No token found - attempting to create one...');
     console.log('');
     console.log('   ⚠️  MANUAL STEP REQUIRED:');
@@ -65,7 +65,7 @@ if (!VERCEL_TOKEN) {
     console.log('   6. Copy the token');
     console.log('');
     console.log('   Then run:');
-    console.log('   export VERCEL_TOKEN="your-new-token"');
+    console.log('   export VERCELACESSTOKEN="your-new-token"');
     console.log('   pnpm auto-fix');
     console.log('');
     process.exit(1);
@@ -76,7 +76,7 @@ if (!VERCEL_TOKEN) {
 console.log('🔐 Step 1: Validating Vercel token...');
 try {
   const response = await fetch('https://api.vercel.com/v2/user', {
-    headers: { 'Authorization': `Bearer ${VERCEL_TOKEN}` }
+    headers: { 'Authorization': `Bearer ${VERCELACESSTOKEN}` }
   });
   
   if (response.ok) {
@@ -88,7 +88,7 @@ try {
     console.log('   Create new token:');
     console.log('   1. Go to: https://vercel.com/account/tokens');
     console.log('   2. Create new token');
-    console.log('   3. Run: export VERCEL_TOKEN="your-new-token"');
+    console.log('   3. Run: export VERCELACESSTOKEN="your-new-token"');
     console.log('   4. Run: pnpm auto-fix');
     console.log('');
     process.exit(1);
@@ -105,7 +105,7 @@ console.log('🌐 Step 2: Configuring domain...');
 try {
   execSync('node scripts/configure-domain-api.mjs', {
     stdio: 'inherit',
-    env: { ...process.env, VERCEL_TOKEN }
+    env: { ...process.env, VERCELACESSTOKEN }
   });
   console.log('✅ Domain configured\n');
 } catch (error) {
@@ -117,7 +117,7 @@ console.log('🧹 Step 3: Cleaning up old deployments...');
 try {
   execSync('node scripts/cleanup-old-deployments-api.mjs', {
     stdio: 'inherit',
-    env: { ...process.env, VERCEL_TOKEN }
+    env: { ...process.env, VERCELACESSTOKEN }
   });
   console.log('✅ Deployments cleaned\n');
 } catch (error) {
@@ -200,7 +200,7 @@ try {
   const response = await fetch(
     `https://api.vercel.com/v6/deployments?projectId=prj_WSdzX00UNP1rcWNXQ3RrpeuVOkeA&teamId=team_Ae8f33vVYR36quLOS8HCeROs&limit=1`,
     {
-      headers: { 'Authorization': `Bearer ${VERCEL_TOKEN}` }
+      headers: { 'Authorization': `Bearer ${VERCELACESSTOKEN}` }
     }
   );
   

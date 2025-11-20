@@ -8,7 +8,7 @@
 
 ## THE SOLUTION (One Command)
 ```bash
-export VERCEL_TOKEN="your_token_from_vercel.com/account/tokens"
+export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 ./scripts/fix-everything-now.sh
 ```
 
@@ -38,7 +38,7 @@ export VERCEL_TOKEN="your_token_from_vercel.com/account/tokens"
 
 ## EXECUTE NOW
 ```bash
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 ./scripts/fix-everything-now.sh
 ```
 

@@ -188,7 +188,7 @@ Based on documentation, you may have multiple projects:
 
 **Option A - Automated**:
 ```bash
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 node scripts/workers/auto-cleanup-vercel.mjs
 ```
 
@@ -213,7 +213,7 @@ npm install --save hls.js video.js @videojs/http-streaming framer-motion @vercel
 npm install --save-dev sharp
 
 # 2. Clean up Vercel duplicates
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 node scripts/workers/auto-cleanup-vercel.mjs
 
 # 3. Run implementation script
@@ -266,7 +266,7 @@ node scripts/workers/auto-cleanup-vercel.mjs
 
 ```bash
 # Set Vercel token
-export VERCEL_TOKEN="your_token_from_vercel.com/account/tokens"
+export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 
 # Run complete implementation
 ./scripts/implement-tiktok-features.sh
@@ -322,7 +322,7 @@ export VERCEL_TOKEN="your_token_from_vercel.com/account/tokens"
 
 2. **Today** (30 min):
    ```bash
-   export VERCEL_TOKEN="your_token"
+   export VERCELACESSTOKEN="your_token"
    ./scripts/implement-tiktok-features.sh
    ```
    Run complete implementation

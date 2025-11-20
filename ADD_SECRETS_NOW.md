@@ -1,6 +1,6 @@
 # 🚀 ADD SECRETS NOW - Copy & Paste Ready
 
-## You have: ✅ VERCEL_TOKEN ✅ SUPABASE_ANON_KEY ✅ SUPABASE_SERVICE_ROLE_KEY
+## You have: ✅ VERCELACESSTOKEN ✅ SUPABASE_ANON_KEY ✅ SUPABASE_SERVICE_ROLE_KEY
 
 ## Still need: VERCEL_ORG_ID and VERCEL_PROJECT_ID
 
@@ -40,9 +40,9 @@ vercel link
 
 Go to: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new](https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new)
 
-### Secret 1: VERCEL_TOKEN ✅ READY
+### Secret 1: VERCELACESSTOKEN ✅ READY
 ```
-Name: VERCEL_TOKEN
+Name: VERCELACESSTOKEN
 Value: CatFXMsC0PPzwulHl0CrRtfI
 ```
 Click "Add secret"

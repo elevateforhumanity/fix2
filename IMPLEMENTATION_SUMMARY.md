@@ -16,7 +16,7 @@
 
 ### With Vercel Token (Recommended - Fully Automated):
 ```bash
-export VERCEL_TOKEN="your_token_from_vercel.com/account/tokens"
+export VERCELACESSTOKEN="your_token_from_vercel.com/account/tokens"
 ./scripts/implement-tiktok-features.sh
 ```
 
@@ -98,7 +98,7 @@ Everything is prepared. No placeholders. No manual steps (if you have Vercel tok
 
 **Just run:**
 ```bash
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 ./scripts/implement-tiktok-features.sh
 ```
 

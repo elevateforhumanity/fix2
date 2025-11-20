@@ -5,14 +5,14 @@
  * Ensures www.elevateforhumanity.org is properly configured
  */
 
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCELACESSTOKEN = process.env.VERCELACESSTOKEN;
 const PROJECT_ID = 'prj_WSdzX00UNP1rcWNXQ3RrpeuVOkeA';
 const TEAM_ID = 'team_Ae8f33vVYR36quLOS8HCeROs';
 const DOMAIN = 'www.elevateforhumanity.org';
 
-if (!VERCEL_TOKEN) {
-  console.error('❌ VERCEL_TOKEN not set');
-  console.error('Set it with: export VERCEL_TOKEN="your-token"');
+if (!VERCELACESSTOKEN) {
+  console.error('❌ VERCELACESSTOKEN not set');
+  console.error('Set it with: export VERCELACESSTOKEN="your-token"');
   process.exit(1);
 }
 
@@ -26,7 +26,7 @@ async function getProjectDomains() {
     `https://api.vercel.com/v9/projects/${PROJECT_ID}/domains?teamId=${TEAM_ID}`,
     {
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`
       }
     }
   );
@@ -48,7 +48,7 @@ async function addDomain(domain) {
     {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`,
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -73,7 +73,7 @@ async function updateDomain(domain, config) {
     {
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`,
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(config)
@@ -96,7 +96,7 @@ async function verifyDomain(domain) {
     {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`
       }
     }
   );
@@ -116,7 +116,7 @@ async function getProject() {
     `https://api.vercel.com/v9/projects/${PROJECT_ID}?teamId=${TEAM_ID}`,
     {
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`
       }
     }
   );
@@ -137,7 +137,7 @@ async function updateProject(config) {
     {
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`,
+        'Authorization': `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(config)
@@ -244,7 +244,7 @@ async function main() {
     if (error.message.includes('forbidden') || error.message.includes('Not authorized')) {
       console.error('💡 Token issue:');
       console.error('   1. Get new token: https://vercel.com/account/tokens');
-      console.error('   2. Set: export VERCEL_TOKEN="your-new-token"');
+      console.error('   2. Set: export VERCELACESSTOKEN="your-new-token"');
       console.error('   3. Run again: pnpm configure:domain');
     } else {
       console.error('💡 Manual configuration:');

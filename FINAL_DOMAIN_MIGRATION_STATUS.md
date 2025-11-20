@@ -39,7 +39,7 @@
 
 ```bash
 # 1. Get your Vercel token from: https://vercel.com/account/tokens
-export VERCEL_TOKEN=your_token_here
+export VERCELACESSTOKEN=your_token_here
 
 # 2. Run the automated updater
 node scripts/update-vercel-env-vars.mjs
@@ -115,7 +115,7 @@ node scripts/update-vercel-env-vars.mjs
 
 ### Step 1: Run Automation (30 seconds)
 ```bash
-export VERCEL_TOKEN=your_token_here
+export VERCELACESSTOKEN=your_token_here
 node scripts/update-vercel-env-vars.mjs
 ```
 
@@ -188,7 +188,7 @@ After running automation:
 ## 🆘 SUPPORT:
 
 ### If Automation Fails:
-1. Check VERCEL_TOKEN is valid
+1. Check VERCELACESSTOKEN is valid
 2. Verify token has "Full Access" permissions
 3. Check GitHub integration is active
 4. Review deployment logs in Vercel
@@ -220,7 +220,7 @@ After running automation:
 
 **Command:**
 ```bash
-export VERCEL_TOKEN=your_token_here
+export VERCELACESSTOKEN=your_token_here
 node scripts/update-vercel-env-vars.mjs
 ```
 

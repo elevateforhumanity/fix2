@@ -5,10 +5,10 @@
 ```bash
 # 1. Get your Vercel token from GitHub Secrets
 # Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
-# Copy the VERCEL_TOKEN value
+# Copy the VERCELACESSTOKEN value
 
 # 2. Set the token
-export VERCEL_TOKEN="paste-your-token-here"
+export VERCELACESSTOKEN="paste-your-token-here"
 
 # 3. Run complete setup
 pnpm vercel:setup

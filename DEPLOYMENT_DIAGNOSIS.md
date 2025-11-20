@@ -32,7 +32,7 @@ The workflow `.github/workflows/vercel-hard-refresh.yml` should run on every pus
 
 ### 2. Missing GitHub Secrets
 **Required Secrets:**
-- `VERCEL_TOKEN` - Vercel API token
+- `VERCELACESSTOKEN` - Vercel API token
 - `VERCEL_PROJECT_ID` - `prj_I89m6xUtwJlmA3qSE8Su7jIF7Xg7`
 - `VERCEL_ORG_ID` - `team_Xj2yJdLklcMExBxDPK7I2G4w`
 
@@ -88,7 +88,7 @@ If GitHub Actions are failing due to missing secrets:
    # Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
    # Click "New repository secret"
    
-   Name: VERCEL_TOKEN
+   Name: VERCELACESSTOKEN
    Value: [paste token]
    
    Name: VERCEL_PROJECT_ID

@@ -100,7 +100,7 @@ wrangler deploy --config wrangler-vercel-autopilot.toml
 
 ```bash
 wrangler secret put AUTOPILOT_TOKEN --config wrangler-vercel-autopilot.toml
-wrangler secret put VERCEL_TOKEN --config wrangler-vercel-autopilot.toml
+wrangler secret put VERCELACESSTOKEN --config wrangler-vercel-autopilot.toml
 wrangler secret put VERCEL_PROJECT_ID --config wrangler-vercel-autopilot.toml
 wrangler secret put VERCEL_TEAM_ID --config wrangler-vercel-autopilot.toml
 wrangler secret put GITHUB_TOKEN --config wrangler-vercel-autopilot.toml

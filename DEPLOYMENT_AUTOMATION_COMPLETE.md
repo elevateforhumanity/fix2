@@ -78,7 +78,7 @@ Your autopilot needs these secrets to work. Add them once:
 ### Critical (Required)
 
 ```
-VERCEL_TOKEN
+VERCELACESSTOKEN
 VERCEL_ORG_ID
 VERCEL_PROJECT_ID
 NETLIFY_AUTH_TOKEN

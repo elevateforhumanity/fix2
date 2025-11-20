@@ -120,7 +120,7 @@ Action: Run cleanup script
 ./scripts/check-vercel-status.sh
 
 # 2. Run complete fix
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 ./scripts/fix-everything-now.sh
 ```
 
@@ -179,7 +179,7 @@ npx tsc --noEmit
 ./scripts/check-vercel-status.sh
 
 # Run cleanup
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 node scripts/workers/auto-cleanup-vercel.mjs
 ```
 
@@ -240,7 +240,7 @@ You'll know it worked when:
 ./scripts/fix-everything-now.sh
 
 # Clean up Vercel
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 node scripts/workers/auto-cleanup-vercel.mjs
 ```
 
@@ -268,7 +268,7 @@ node scripts/workers/auto-cleanup-vercel.mjs
 ./scripts/check-vercel-status.sh
 
 # Clean Vercel
-export VERCEL_TOKEN="token"
+export VERCELACESSTOKEN="token"
 node scripts/workers/auto-cleanup-vercel.mjs
 
 # TikTok gap analysis

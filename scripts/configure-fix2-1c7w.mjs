@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Configure the correct Vercel project: fix2-1c7w
 
-const VERCEL_TOKEN = 'CatFXMsC0PPzwulHl0CrRtfI';
+const VERCELACESSTOKEN = 'CatFXMsC0PPzwulHl0CrRtfI';
 const PROJECT_NAME = 'fix2-1c7w';
 
 async function setVercelEnv(
@@ -15,7 +15,7 @@ async function setVercelEnv(
     const envs = await fetch(
       `https://api.vercel.com/v9/projects/${projectId}/env`,
       {
-        headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+        headers: { Authorization: `Bearer ${VERCELACESSTOKEN}` },
       }
     ).then((r) => r.json());
 
@@ -25,7 +25,7 @@ async function setVercelEnv(
         `https://api.vercel.com/v9/projects/${projectId}/env/${existing.id}`,
         {
           method: 'DELETE',
-          headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+          headers: { Authorization: `Bearer ${VERCELACESSTOKEN}` },
         }
       );
       console.log(`🗑️  Removed existing ${envName}`);
@@ -40,7 +40,7 @@ async function setVercelEnv(
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -65,7 +65,7 @@ async function main() {
 
   // Get team info
   const teams = await fetch('https://api.vercel.com/v2/teams', {
-    headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+    headers: { Authorization: `Bearer ${VERCELACESSTOKEN}` },
   }).then((r) => r.json());
 
   const teamId = teams.teams[0].id;
@@ -75,7 +75,7 @@ async function main() {
   const projects = await fetch(
     `https://api.vercel.com/v9/projects?teamId=${teamId}`,
     {
-      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+      headers: { Authorization: `Bearer ${VERCELACESSTOKEN}` },
     }
   ).then((r) => r.json());
 
@@ -127,7 +127,7 @@ async function main() {
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${VERCEL_TOKEN}`,
+        Authorization: `Bearer ${VERCELACESSTOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

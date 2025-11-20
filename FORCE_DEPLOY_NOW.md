@@ -72,7 +72,7 @@ Then wait 3 minutes and check the site.
 ## ⚠️ **Why the Autopilot Script Didn't Work**
 
 The autopilot script requires these GitHub secrets to be set:
-- `VERCEL_TOKEN`
+- `VERCELACESSTOKEN`
 - `VERCEL_PROJECT_ID`
 - `VERCEL_ORG_ID`
 

@@ -52,11 +52,11 @@ The token was exposed and must be rotated.
 pnpm vercel:check
 
 # Hard link to fix2-gpql (if needed)
-export VERCEL_TOKEN="your_new_token"
+export VERCELACESSTOKEN="your_new_token"
 pnpm vercel:link
 
 # Deploy safely (hard links + deploys)
-export VERCEL_TOKEN="your_new_token"
+export VERCELACESSTOKEN="your_new_token"
 pnpm vercel:deploy
 ```
 

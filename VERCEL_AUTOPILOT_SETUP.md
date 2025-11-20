@@ -8,7 +8,7 @@ Your Supabase keys are ready. Just need to add Vercel credentials.
 
 ## ✅ Step 1: Get Vercel Credentials (5 minutes)
 
-### 1.1 Get VERCEL_TOKEN
+### 1.1 Get VERCELACESSTOKEN
 
 1. Go to: [https://vercel.com/account/tokens](https://vercel.com/account/tokens)
 2. Click "Create Token"
@@ -51,10 +51,10 @@ Go to: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions/new]
 
 ### Add These 5 Secrets:
 
-#### 1️⃣ VERCEL_TOKEN
+#### 1️⃣ VERCELACESSTOKEN
 
 ```
-Name: VERCEL_TOKEN
+Name: VERCELACESSTOKEN
 Value: [Paste token from Step 1.1]
 ```
 
@@ -104,7 +104,7 @@ Check: [https://github.com/elevateforhumanity/fix2/settings/secrets/actions](htt
 
 You should see all 5 secrets:
 
-- ✅ VERCEL_TOKEN
+- ✅ VERCELACESSTOKEN
 - ✅ VERCEL_ORG_ID
 - ✅ VERCEL_PROJECT_ID
 - ✅ SUPABASE_ANON_KEY
@@ -214,7 +214,7 @@ Your autopilot system now runs:
 
 ## 🆘 Troubleshooting
 
-### "VERCEL_TOKEN authentication failed"
+### "VERCELACESSTOKEN authentication failed"
 
 **Solution**:
 

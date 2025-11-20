@@ -10,7 +10,7 @@ Forces a brand-new production deployment and clears all stale cache. No more wai
 
 ### Step 1: Get Your Vercel Credentials
 
-1. **Get VERCEL_TOKEN:**
+1. **Get VERCELACESSTOKEN:**
    - Go to: https://vercel.com/account/tokens
    - Click "Create Token"
    - Name it: "Autopilot Hard Refresh"
@@ -32,7 +32,7 @@ Forces a brand-new production deployment and clears all stale cache. No more wai
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 2. Click "New repository secret"
 3. Add these three secrets:
-   - `VERCEL_TOKEN` = (your token from step 1)
+   - `VERCELACESSTOKEN` = (your token from step 1)
    - `VERCEL_PROJECT_ID` = (your project ID)
    - `VERCEL_ORG_ID` = (your org ID)
 
@@ -40,7 +40,7 @@ Forces a brand-new production deployment and clears all stale cache. No more wai
 
 1. Go to: https://vercel.com/elevate-48e460c9s-projects/fix2-gpql/settings/environment-variables
 2. Add:
-   - `VERCEL_TOKEN` = (your token)
+   - `VERCELACESSTOKEN` = (your token)
    - `VERCEL_PROJECT_ID` = (your project ID)
    - `VERCEL_ORG_ID` = (your org ID)
 
@@ -69,7 +69,7 @@ It will:
 
 ```bash
 # Set environment variables
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 export VERCEL_PROJECT_ID="your_project_id"
 export VERCEL_ORG_ID="your_org_id"
 
@@ -111,13 +111,13 @@ export const dynamic = "force-dynamic";
 ### "Missing env vars" error
 
 Make sure you've added all three secrets to GitHub:
-- VERCEL_TOKEN
+- VERCELACESSTOKEN
 - VERCEL_PROJECT_ID
 - VERCEL_ORG_ID
 
 ### "Unauthorized" error
 
-Your VERCEL_TOKEN might be expired or invalid. Create a new one.
+Your VERCELACESSTOKEN might be expired or invalid. Create a new one.
 
 ### "Deployment failed" error
 

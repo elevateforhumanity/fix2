@@ -99,8 +99,8 @@ The domain `www.elevateforhumanity.org` might be:
 ### Step 1: Check Current Domains
 
 ```bash
-export VERCEL_TOKEN="rISeRdxyBGMTAEKI71HR8GnZ"
-npx vercel domains ls --token=$VERCEL_TOKEN
+export VERCELACESSTOKEN="rISeRdxyBGMTAEKI71HR8GnZ"
+npx vercel domains ls --token=$VERCELACESSTOKEN
 ```
 
 ### Step 2: Add www.elevateforhumanity.org
@@ -143,7 +143,7 @@ The domain is connected to another Vercel project. You need to:
 
 1. Find which project has it:
    ```bash
-   npx vercel domains ls --token=$VERCEL_TOKEN
+   npx vercel domains ls --token=$VERCELACESSTOKEN
    ```
 
 2. Remove it from that project:

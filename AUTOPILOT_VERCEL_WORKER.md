@@ -45,7 +45,7 @@ Add these to your GitHub repository: **Settings** → **Secrets and variables** 
 
 | Secret Name                 | Description                 | How to Get                                                                    |
 | --------------------------- | --------------------------- | ----------------------------------------------------------------------------- |
-| `VERCEL_TOKEN`              | Vercel API token            | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token          |
+| `VERCELACESSTOKEN`              | Vercel API token            | [Vercel Dashboard](https://vercel.com/account/tokens) → Create Token          |
 | `VERCEL_ORG_ID`             | Your Vercel organization ID | Run `vercel link` locally, check `.vercel/project.json`                       |
 | `VERCEL_PROJECT_ID`         | Your Vercel project ID      | Run `vercel link` locally, check `.vercel/project.json`                       |
 | `SUPABASE_ANON_KEY`         | Supabase anonymous key      | [Supabase Dashboard](https://supabase.com/dashboard) → Project Settings → API |
@@ -100,7 +100,7 @@ curl -X POST \
 
 ```bash
 # Export required secrets
-export VERCEL_TOKEN="your_token"
+export VERCELACESSTOKEN="your_token"
 export VERCEL_ORG_ID="your_org_id"
 export VERCEL_PROJECT_ID="your_project_id"
 export SUPABASE_ANON_KEY="your_anon_key"
@@ -153,7 +153,7 @@ https://vercel.com/your-team/your-project/settings
 
 ```bash
 # List your projects
-curl -H "Authorization: Bearer $VERCEL_TOKEN" \
+curl -H "Authorization: Bearer $VERCELACESSTOKEN" \
   https://api.vercel.com/v9/projects
 
 # Find your project in the response
@@ -271,7 +271,7 @@ if (vercelEnvMissing || vercelDeployFailing) {
 
 ### ⚠️ Token Permissions
 
-Your `VERCEL_TOKEN` needs these permissions:
+Your `VERCELACESSTOKEN` needs these permissions:
 
 - Read/Write access to projects
 - Read/Write access to environment variables
@@ -293,7 +293,7 @@ Secrets are stored in:
 
 ```bash
 # Set test values
-export VERCEL_TOKEN="test_token"
+export VERCELACESSTOKEN="test_token"
 export VERCEL_ORG_ID="test_org"
 export VERCEL_PROJECT_ID="test_project"
 export SUPABASE_ANON_KEY="test_anon"
@@ -316,7 +316,7 @@ After running the worker:
 
 ```bash
 # List Vercel env vars
-vercel env ls --token $VERCEL_TOKEN
+vercel env ls --token $VERCELACESSTOKEN
 
 # Or check Vercel dashboard
 # Settings → Environment Variables
@@ -326,9 +326,9 @@ vercel env ls --token $VERCEL_TOKEN
 
 ## 🔧 Troubleshooting
 
-### Error: "VERCEL_TOKEN is missing"
+### Error: "VERCELACESSTOKEN is missing"
 
-**Solution:** Add `VERCEL_TOKEN` to GitHub Secrets
+**Solution:** Add `VERCELACESSTOKEN` to GitHub Secrets
 
 ### Error: "Project not found"
 
@@ -409,13 +409,13 @@ curl -X POST \
 ### Check Configuration
 
 ```bash
-vercel env ls --token $VERCEL_TOKEN
+vercel env ls --token $VERCELACESSTOKEN
 ```
 
 ### Trigger Deploy
 
 ```bash
-vercel --prod --token $VERCEL_TOKEN
+vercel --prod --token $VERCELACESSTOKEN
 ```
 
 ---

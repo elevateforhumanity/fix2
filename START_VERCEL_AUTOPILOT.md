@@ -26,7 +26,7 @@ vercel link
 
 ### Option B: Use Vercel Dashboard
 
-**VERCEL_TOKEN**:
+**VERCELACESSTOKEN**:
 
 1. Go to: [https://vercel.com/account/tokens](https://vercel.com/account/tokens)
 2. Click "Create Token"
@@ -55,10 +55,10 @@ Go to: **[Add GitHub Secrets](https://github.com/elevateforhumanity/fix2/setting
 
 ### Copy & Paste These:
 
-#### 1. VERCEL_TOKEN
+#### 1. VERCELACESSTOKEN
 
 ```
-Name: VERCEL_TOKEN
+Name: VERCELACESSTOKEN
 Value: [Your token from Step 1]
 ```
 
@@ -154,7 +154,7 @@ Your autopilot system now:
 
 **Vercel Guardian Failed?**
 
-- Verify VERCEL_TOKEN has correct permissions
+- Verify VERCELACESSTOKEN has correct permissions
 - Check VERCEL_PROJECT_ID is correct
 
 **Site Still Shows Error?**

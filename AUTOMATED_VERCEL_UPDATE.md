@@ -21,7 +21,7 @@ I've created automated workers to update Vercel environment variables for the do
 
 ```bash
 # Set your Vercel token
-export VERCEL_TOKEN=your_token_here
+export VERCELACESSTOKEN=your_token_here
 
 # Run the updater
 node scripts/update-vercel-env-vars.mjs
@@ -102,7 +102,7 @@ Environment variables updated:
 cd workers
 
 # Set Vercel credentials
-wrangler secret put VERCEL_TOKEN --config wrangler-vercel-env-updater.toml
+wrangler secret put VERCELACESSTOKEN --config wrangler-vercel-env-updater.toml
 wrangler secret put VERCEL_PROJECT_ID --config wrangler-vercel-env-updater.toml
 wrangler secret put VERCEL_TEAM_ID --config wrangler-vercel-env-updater.toml
 ```
@@ -179,7 +179,7 @@ curl https://www.elevateforhumanity.org/api/build-info
 ## Troubleshooting:
 
 ### Error: "Failed to get env vars: 401"
-**Solution:** Your VERCEL_TOKEN is invalid or expired
+**Solution:** Your VERCELACESSTOKEN is invalid or expired
 - Generate a new token at https://vercel.com/account/tokens
 - Make sure it has "Full Access" permissions
 
@@ -234,7 +234,7 @@ curl https://www.elevateforhumanity.org/api/build-info
 
 If you encounter issues:
 1. Check the deployment logs in Vercel
-2. Verify your VERCEL_TOKEN has correct permissions
+2. Verify your VERCELACESSTOKEN has correct permissions
 3. Ensure GitHub integration is active
 4. Check that DNS is properly configured
 
