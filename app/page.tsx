@@ -491,7 +491,7 @@ export default function HomePage() {
       <div className="fixed bottom-2 right-2 bg-slate-900/90 text-white px-3 py-1.5 rounded-lg text-[10px] font-mono shadow-lg border border-slate-700 z-50">
         <div className="flex items-center gap-2">
           <span className="text-green-400">●</span>
-          <span>BUILD: 2025-11-20-10:25</span>
+          <span>BUILD: 2025-11-20 12:59</span>
         </div>
       </div>
     </main>
