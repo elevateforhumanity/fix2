@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 async function getSuccessMetrics() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  
+
   if (!supabaseUrl || !supabaseKey) {
     return {
       totalStudents: 0,
@@ -43,7 +43,9 @@ async function getSuccessMetrics() {
   ]);
 
   const completionRate =
-    enrollments === 0 ? 0 : ((completedEnrollments || 0) / (enrollments || 1)) * 100;
+    enrollments === 0
+      ? 0
+      : ((completedEnrollments || 0) / (enrollments || 1)) * 100;
 
   return {
     totalStudents: totalStudents || 0,
