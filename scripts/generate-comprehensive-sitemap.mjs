@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const DOMAIN = 'https://www.elevateforhumanity.org';
 const TODAY = new Date().toISOString().split('T')[0];
 
-// ALL public pages - COMPREHENSIVE LIST
+// ALL public pages - COMPREHENSIVE LIST (150+ pages)
 const pages = [
   // Main pages
   { url: '/', priority: 1.0, changefreq: 'daily' },
@@ -23,6 +23,16 @@ const pages = [
   { url: '/programs', priority: 0.9, changefreq: 'daily' },
   { url: '/partners', priority: 0.8, changefreq: 'weekly' },
   { url: '/contact', priority: 0.8, changefreq: 'monthly' },
+  { url: '/compare', priority: 0.7, changefreq: 'monthly' },
+  { url: '/demo', priority: 0.7, changefreq: 'monthly' },
+  { url: '/pricing', priority: 0.8, changefreq: 'monthly' },
+  { url: '/employers', priority: 0.8, changefreq: 'weekly' },
+  { url: '/success-stories', priority: 0.7, changefreq: 'weekly' },
+  { url: '/wioa-eligibility', priority: 0.8, changefreq: 'monthly' },
+  { url: '/financial-aid', priority: 0.8, changefreq: 'monthly' },
+  { url: '/video', priority: 0.6, changefreq: 'weekly' },
+  { url: '/unauthorized', priority: 0.3, changefreq: 'yearly' },
+  { url: '/workforce-partners', priority: 0.7, changefreq: 'weekly' },
   
   // Program pages - ALL variations
   { url: '/programs/barber-apprenticeship', priority: 0.9, changefreq: 'weekly' },
@@ -57,34 +67,113 @@ const pages = [
   { url: '/lms/calendar', priority: 0.6, changefreq: 'weekly' },
   { url: '/lms/resources', priority: 0.6, changefreq: 'weekly' },
   { url: '/lms/help', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/messages', priority: 0.6, changefreq: 'daily' },
+  { url: '/lms/profile', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/settings', priority: 0.5, changefreq: 'monthly' },
+  { url: '/lms/notifications', priority: 0.5, changefreq: 'daily' },
+  { url: '/lms/achievements', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/leaderboard', priority: 0.6, changefreq: 'daily' },
   
-  // Student Portal (public info pages)
-  { url: '/student/dashboard', priority: 0.6, changefreq: 'daily' },
-  { url: '/student/courses', priority: 0.7, changefreq: 'daily' },
-  { url: '/student/certificates', priority: 0.6, changefreq: 'weekly' },
+  // Student Portal
+  { url: '/student/dashboard', priority: 0.7, changefreq: 'daily' },
+  { url: '/student/courses', priority: 0.8, changefreq: 'daily' },
+  { url: '/student/certificates', priority: 0.7, changefreq: 'weekly' },
+  { url: '/student/progress', priority: 0.6, changefreq: 'weekly' },
+  { url: '/student/assignments', priority: 0.7, changefreq: 'daily' },
+  { url: '/student/grades', priority: 0.7, changefreq: 'weekly' },
+  { url: '/student/schedule', priority: 0.6, changefreq: 'weekly' },
+  { url: '/student/resources', priority: 0.6, changefreq: 'weekly' },
+  
+  // Partner Portal
+  { url: '/partner/dashboard', priority: 0.6, changefreq: 'daily' },
+  { url: '/partner/students', priority: 0.6, changefreq: 'daily' },
+  { url: '/partner/reports', priority: 0.6, changefreq: 'weekly' },
+  { url: '/partner/settings', priority: 0.5, changefreq: 'monthly' },
+  
+  // Program Holder Portal
+  { url: '/program-holder/dashboard', priority: 0.6, changefreq: 'daily' },
+  { url: '/program-holder/apply', priority: 0.7, changefreq: 'weekly' },
+  { url: '/program-holder/cases', priority: 0.6, changefreq: 'daily' },
+  { url: '/program-holder/mou', priority: 0.6, changefreq: 'weekly' },
+  { url: '/program-holder/certificates', priority: 0.6, changefreq: 'weekly' },
+  { url: '/program-holder/reports', priority: 0.6, changefreq: 'weekly' },
+  { url: '/program-holder/settings', priority: 0.5, changefreq: 'monthly' },
+  
+  // Delegate Portal
+  { url: '/delegate/dashboard', priority: 0.6, changefreq: 'daily' },
+  { url: '/delegate/students', priority: 0.6, changefreq: 'daily' },
+  { url: '/delegate/reports', priority: 0.6, changefreq: 'weekly' },
+  
+  // Admin Pages (public info only)
+  { url: '/admin/dashboard', priority: 0.5, changefreq: 'daily' },
+  { url: '/admin/courses', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/students', priority: 0.5, changefreq: 'daily' },
+  { url: '/admin/reports', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/certificates', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/program-holders', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/delegates', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/partners', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/settings', priority: 0.4, changefreq: 'monthly' },
+  { url: '/admin/users', priority: 0.5, changefreq: 'daily' },
+  { url: '/admin/analytics', priority: 0.5, changefreq: 'daily' },
+  { url: '/admin/compliance', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/audit-logs', priority: 0.4, changefreq: 'daily' },
+  { url: '/admin/success', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/tenants', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/applications', priority: 0.5, changefreq: 'daily' },
+  { url: '/admin/contacts', priority: 0.5, changefreq: 'weekly' },
+  { url: '/admin/course-authoring', priority: 0.5, changefreq: 'weekly' },
+  
+  // Courses (dynamic - examples)
+  { url: '/courses', priority: 0.8, changefreq: 'daily' },
+  { url: '/courses/catalog', priority: 0.8, changefreq: 'daily' },
+  { url: '/courses/search', priority: 0.7, changefreq: 'weekly' },
   
   // Legal & Compliance
-  { url: '/privacy', priority: 0.5, changefreq: 'monthly' },
-  { url: '/privacy-policy', priority: 0.5, changefreq: 'monthly' },
-  { url: '/terms', priority: 0.5, changefreq: 'monthly' },
-  { url: '/terms-of-service', priority: 0.5, changefreq: 'monthly' },
-  { url: '/cookies', priority: 0.4, changefreq: 'monthly' },
-  { url: '/accessibility', priority: 0.5, changefreq: 'monthly' },
+  { url: '/privacy', priority: 0.6, changefreq: 'monthly' },
+  { url: '/privacy-policy', priority: 0.6, changefreq: 'monthly' },
+  { url: '/terms', priority: 0.6, changefreq: 'monthly' },
+  { url: '/terms-of-service', priority: 0.6, changefreq: 'monthly' },
+  { url: '/cookies', priority: 0.5, changefreq: 'monthly' },
+  { url: '/accessibility', priority: 0.6, changefreq: 'monthly' },
+  { url: '/compliance', priority: 0.5, changefreq: 'monthly' },
+  { url: '/gdpr', priority: 0.5, changefreq: 'monthly' },
+  { url: '/ccpa', priority: 0.5, changefreq: 'monthly' },
   
   // Resources & Support
-  { url: '/resources', priority: 0.6, changefreq: 'weekly' },
-  { url: '/faq', priority: 0.6, changefreq: 'weekly' },
-  { url: '/help', priority: 0.6, changefreq: 'weekly' },
-  { url: '/support', priority: 0.6, changefreq: 'weekly' },
+  { url: '/resources', priority: 0.7, changefreq: 'weekly' },
+  { url: '/faq', priority: 0.7, changefreq: 'weekly' },
+  { url: '/help', priority: 0.7, changefreq: 'weekly' },
+  { url: '/support', priority: 0.7, changefreq: 'weekly' },
+  { url: '/docs', priority: 0.6, changefreq: 'weekly' },
+  { url: '/guides', priority: 0.6, changefreq: 'weekly' },
+  { url: '/tutorials', priority: 0.6, changefreq: 'weekly' },
+  { url: '/blog', priority: 0.6, changefreq: 'weekly' },
+  { url: '/news', priority: 0.6, changefreq: 'weekly' },
+  { url: '/events', priority: 0.6, changefreq: 'weekly' },
+  { url: '/webinars', priority: 0.6, changefreq: 'weekly' },
+  { url: '/downloads', priority: 0.5, changefreq: 'monthly' },
   
-  // Additional Pages
-  { url: '/compare', priority: 0.5, changefreq: 'monthly' },
-  { url: '/demo', priority: 0.6, changefreq: 'monthly' },
-  { url: '/pricing', priority: 0.7, changefreq: 'monthly' },
-  { url: '/success-stories', priority: 0.6, changefreq: 'weekly' },
-  { url: '/employers', priority: 0.7, changefreq: 'weekly' },
-  { url: '/wioa-eligibility', priority: 0.7, changefreq: 'monthly' },
-  { url: '/financial-aid', priority: 0.7, changefreq: 'monthly' },
+  // Career Services
+  { url: '/career-services', priority: 0.7, changefreq: 'weekly' },
+  { url: '/job-board', priority: 0.7, changefreq: 'daily' },
+  { url: '/resume-builder', priority: 0.6, changefreq: 'monthly' },
+  { url: '/interview-prep', priority: 0.6, changefreq: 'monthly' },
+  { url: '/career-coaching', priority: 0.6, changefreq: 'weekly' },
+  
+  // Community
+  { url: '/community', priority: 0.6, changefreq: 'weekly' },
+  { url: '/forums', priority: 0.6, changefreq: 'daily' },
+  { url: '/discussions', priority: 0.6, changefreq: 'daily' },
+  { url: '/alumni', priority: 0.6, changefreq: 'weekly' },
+  { url: '/testimonials', priority: 0.6, changefreq: 'weekly' },
+  
+  // Integrations
+  { url: '/integrations', priority: 0.5, changefreq: 'monthly' },
+  { url: '/integrations/zoom', priority: 0.5, changefreq: 'monthly' },
+  { url: '/integrations/teams', priority: 0.5, changefreq: 'monthly' },
+  { url: '/integrations/salesforce', priority: 0.5, changefreq: 'monthly' },
+  { url: '/integrations/workday', priority: 0.5, changefreq: 'monthly' },
 ];
 
 function generateSitemap() {
