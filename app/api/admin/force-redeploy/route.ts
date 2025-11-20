@@ -14,14 +14,14 @@ export async function POST(request: NextRequest) {
 
     // Clear all caches
     await execAsync('rm -rf .next node_modules/.cache .vercel');
-    
+
     // Add cache buster
     const timestamp = Date.now();
     await execAsync(`echo "CACHEBUSTER=${timestamp}" >> .env.local`);
-    
+
     // Trigger Vercel deployment
     const { stdout, stderr } = await execAsync('vercel --prod --force');
-    
+
     return NextResponse.json({
       success: true,
       message: 'Force redeploy triggered',
@@ -32,7 +32,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Force redeploy error:', error);
     return NextResponse.json(
-      { error: 'Failed to trigger redeploy', details: error instanceof Error ? error.message : 'Unknown error' },
+      {
+        error: 'Failed to trigger redeploy',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     );
   }
