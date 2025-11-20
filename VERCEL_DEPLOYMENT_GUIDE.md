@@ -20,6 +20,16 @@ If you keep checking an old hash URL, you'll think "new builds aren't working" w
 
 ## ✅ 10-Step Deployment Checklist
 
+### 0. First Time Setup (One Time Only)
+
+Authenticate with Vercel:
+
+```bash
+npx vercel login
+```
+
+Follow the prompts to log in with your Vercel account.
+
 ### 1. Make a tiny, obvious visual change
 
 In any visible component (e.g., `app/page.tsx`), add:

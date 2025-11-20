@@ -2,6 +2,18 @@
 
 ## One-Command Deploy
 
+### First Time Setup
+
+You need to authenticate with Vercel first:
+
+```bash
+npx vercel login
+```
+
+Follow the prompts to authenticate.
+
+### Deploy
+
 ```bash
 pnpm autopilot:deploy
 ```
@@ -11,9 +23,8 @@ This will:
 2. Remind you to update BUILD MARKER
 3. Clean cache
 4. Reinstall dependencies
-5. Lint code
-6. Build fresh
-7. Deploy to Vercel production
+5. Build fresh
+6. Deploy to Vercel production
 
 ---
 
