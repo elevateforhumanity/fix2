@@ -8,11 +8,13 @@
 ## 🎯 One-Click Check
 
 ### Step 1: Open This Link
+
 ```
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 ```
 
 ### Step 2: Look for These 3 Variables
+
 ```
 □ NEXT_PUBLIC_SUPABASE_URL
 □ NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -22,11 +24,13 @@ https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 ### Step 3: Check Result
 
 **If you see all 3 variables**:
+
 - Click on each one
 - Check if value contains "placeholder" or real data
 - Real data = starts with `https://` or `eyJ`
 
 **If you DON'T see these variables**:
+
 - Not configured yet
 - App is using mock data (17 sample courses)
 - This is fine for testing!
@@ -38,6 +42,7 @@ https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 ### What You'll See in Vercel:
 
 **Scenario A: Not Configured** (Current Expected)
+
 ```
 Environment Variables
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -51,6 +56,7 @@ No Supabase variables found
 ```
 
 **Scenario B: Configured** (Production)
+
 ```
 Environment Variables
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -77,6 +83,7 @@ Search variables...                    [Add Variable]
 ## 🎯 What This Means
 
 ### If NOT Configured:
+
 ```
 ✅ App works perfectly with mock data
 ✅ Shows 17 sample courses
@@ -86,6 +93,7 @@ Search variables...                    [Add Variable]
 ```
 
 ### If Configured:
+
 ```
 ✅ Connected to real Supabase database
 ✅ Shows courses from database
@@ -99,9 +107,11 @@ Search variables...                    [Add Variable]
 ## 🚀 Quick Actions
 
 ### Current Status (Expected):
+
 **Not Configured** → Using mock data → **This is fine!**
 
 ### To Test Now:
+
 ```
 Visit: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
@@ -112,6 +122,7 @@ You should see:
 ```
 
 ### To Activate Database (Later):
+
 ```
 1. Get Supabase credentials (5 min)
 2. Add to Vercel (2 min)
@@ -138,4 +149,4 @@ See `CHECK_VERCEL_ENV.md` for detailed instructions
 
 ---
 
-*Quick Check Guide - November 19, 2025*
+_Quick Check Guide - November 19, 2025_

@@ -8,6 +8,7 @@
 ## 🎉 Variables Confirmed
 
 ### Found in Vercel:
+
 ```
 ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY - All Environments (Added Nov 15)
 ✅ SUPABASE_SERVICE_ROLE_KEY - All Environments (Added Nov 15)
@@ -16,6 +17,7 @@
 ```
 
 ### Missing:
+
 ```
 ⚠️ NEXT_PUBLIC_SUPABASE_URL - NOT FOUND
 ```
@@ -25,14 +27,17 @@
 ## 🔧 Issue Identified
 
 ### Problem:
+
 The `NEXT_PUBLIC_SUPABASE_URL` variable is **missing**. This is why the app is using mock data.
 
 ### Required Variables:
+
 1. ✅ `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Present
 2. ✅ `SUPABASE_SERVICE_ROLE_KEY` - Present
 3. ❌ `NEXT_PUBLIC_SUPABASE_URL` - **MISSING**
 
 ### Result:
+
 Without the URL, the app cannot connect to Supabase, so it falls back to mock data.
 
 ---
@@ -42,6 +47,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ### Step 1: Get Your Supabase URL
 
 **Option A: If you have Supabase account**:
+
 ```
 1. Go to: https://app.supabase.com
 2. Select your project
@@ -51,6 +57,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ```
 
 **Option B: If you need to create Supabase**:
+
 ```
 1. Go to: https://supabase.com
 2. Sign up (free)
@@ -63,22 +70,24 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ### Step 2: Add to Vercel
 
 **In Vercel Dashboard**:
+
 ```
 1. Click "Create new" button (top right)
 2. Fill in:
-   
+
    Key: NEXT_PUBLIC_SUPABASE_URL
-   
+
    Value: https://your-project-ref.supabase.co
-   
+
    Environments: ✅ Production ✅ Preview ✅ Development
-   
+
 3. Click "Save"
 ```
 
 ### Step 3: Redeploy
 
 **Trigger Redeploy**:
+
 ```
 1. Go to: Deployments tab
 2. Click latest deployment
@@ -89,6 +98,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ### Step 4: Run Migrations
 
 **In Supabase SQL Editor**:
+
 ```
 1. Go to Supabase dashboard
 2. Click "SQL Editor"
@@ -107,11 +117,13 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 **In Vercel, click on each variable to see value**:
 
 **NEXT_PUBLIC_SUPABASE_ANON_KEY**:
+
 - Click to reveal value
 - Should start with: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`
 - If it says "placeholder-anon-key" → Need to update
 
 **SUPABASE_SERVICE_ROLE_KEY**:
+
 - Click to reveal value
 - Should start with: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`
 - If it says "placeholder-service-role-key" → Need to update
@@ -121,6 +133,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ## 📊 Current Status
 
 ### What's Working:
+
 ```
 ✅ 2 of 3 Supabase variables configured
 ✅ App deployed successfully
@@ -130,6 +143,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ```
 
 ### What's Missing:
+
 ```
 ❌ NEXT_PUBLIC_SUPABASE_URL not configured
 ❌ Cannot connect to database
@@ -137,6 +151,7 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ```
 
 ### Impact:
+
 ```
 ⚠️ App works but uses mock data
 ⚠️ No real enrollments
@@ -151,17 +166,20 @@ Without the URL, the app cannot connect to Supabase, so it falls back to mock da
 ### Immediate (5 minutes):
 
 **1. Add Missing URL**:
+
 ```
 Variable: NEXT_PUBLIC_SUPABASE_URL
 Value: https://your-project.supabase.co
 ```
 
 **2. Verify Other Variables**:
+
 ```
 Check if ANON_KEY and SERVICE_ROLE_KEY contain real values or "placeholder"
 ```
 
 **3. Redeploy**:
+
 ```
 Trigger redeploy in Vercel
 ```
@@ -169,11 +187,13 @@ Trigger redeploy in Vercel
 ### After Redeploy (30 minutes):
 
 **4. Run Migrations**:
+
 ```
 Execute SQL migrations in Supabase
 ```
 
 **5. Test**:
+
 ```
 Visit /admin/courses
 Blue banner should disappear
@@ -187,6 +207,7 @@ Real courses from database
 ### After Adding URL:
 
 **Before**:
+
 ```
 ❌ NEXT_PUBLIC_SUPABASE_URL: (missing)
 ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY: (present)
@@ -196,6 +217,7 @@ Result: Using mock data
 ```
 
 **After**:
+
 ```
 ✅ NEXT_PUBLIC_SUPABASE_URL: https://xxx.supabase.co
 ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGci...
@@ -226,6 +248,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 **Problem**: Variables exist but contain placeholder text
 
 **Solution**:
+
 ```
 1. Click on each variable
 2. Click "Edit"
@@ -237,6 +260,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ### If You Don't Have Supabase Account:
 
 **Create One** (5 minutes):
+
 ```
 1. Go to: https://supabase.com
 2. Sign up with GitHub (recommended)
@@ -250,19 +274,23 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ## ✅ Summary
 
 ### Found:
+
 - ✅ 2 Supabase variables in Vercel
 - ✅ RESEND_API_KEY configured
 - ✅ STRIPE_SECRET_KEY configured
 
 ### Missing:
+
 - ❌ NEXT_PUBLIC_SUPABASE_URL
 
 ### Next Step:
+
 **Add the missing URL variable** and the app will connect to your database!
 
 ---
 
-**Action Required**: 
+**Action Required**:
+
 1. Get your Supabase project URL
 2. Add it to Vercel as `NEXT_PUBLIC_SUPABASE_URL`
 3. Redeploy
@@ -270,5 +298,5 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 ---
 
-*Last Updated: November 19, 2025*  
-*Document: VERCEL_VARIABLES_FOUND.md*
+_Last Updated: November 19, 2025_  
+_Document: VERCEL_VARIABLES_FOUND.md_

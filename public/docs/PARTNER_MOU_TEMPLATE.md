@@ -1,4 +1,5 @@
 # MEMORANDUM OF UNDERSTANDING (MOU)
+
 ## Program Holder Partnership Agreement
 
 **Between:**
@@ -14,7 +15,7 @@ Indianapolis, Indiana
 [City, State ZIP]
 ("Program Holder" or "Partner")
 
-**Effective Date:** _______________
+**Effective Date:** **\*\***\_\_\_**\*\***
 
 ---
 
@@ -23,6 +24,7 @@ Indianapolis, Indiana
 This Memorandum of Understanding (MOU) establishes a partnership between Elevate for Humanity and [Partner Name] to provide quality workforce training and career development services to students in the following program(s):
 
 **Program(s) Covered:**
+
 - [ ] HVAC Technician Training
 - [ ] Medical Assistant Training
 - [ ] Barber Apprenticeship
@@ -31,7 +33,7 @@ This Memorandum of Understanding (MOU) establishes a partnership between Elevate
 - [ ] Business Start-Up
 - [ ] Tax Preparation
 - [ ] Direct Support Professional
-- [ ] Other: _______________________
+- [ ] Other: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ---
 
@@ -101,32 +103,34 @@ Program Holder agrees to:
 
 ### A. Tuition & Fees
 
-**Program Tuition:** $__________ per student
+**Program Tuition:** $\***\*\_\_\*\*** per student
 **Payment Schedule:**
+
 - [ ] Upfront (upon enrollment)
 - [ ] 50% at start / 50% at midpoint
 - [ ] Monthly installments
 - [ ] Upon completion
-- [ ] Other: _______________________
+- [ ] Other: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 **Additional Fees:**
-- Materials/Supplies: $__________
-- Testing/Certification: $__________
-- Other: $__________
+
+- Materials/Supplies: $\***\*\_\_\*\***
+- Testing/Certification: $\***\*\_\_\*\***
+- Other: $\***\*\_\_\*\***
 
 ### B. Payment Processing
 
 1. Elevate will coordinate payment from funding sources or students
-2. Payments to Program Holder will be processed within _____ days of invoice receipt
+2. Payments to Program Holder will be processed within **\_** days of invoice receipt
 3. Program Holder will submit invoices with required documentation
-4. Refund policy for student withdrawals: _______________________
+4. Refund policy for student withdrawals: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ### C. Revenue Sharing (if applicable)
 
 - [ ] Not applicable
-- [ ] Elevate retains ____% for administrative services
-- [ ] Program Holder receives ____% of tuition
-- [ ] Other arrangement: _______________________
+- [ ] Elevate retains \_\_\_\_% for administrative services
+- [ ] Program Holder receives \_\_\_\_% of tuition
+- [ ] Other arrangement: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ---
 
@@ -134,20 +138,20 @@ Program Holder agrees to:
 
 ### A. Program Information
 
-**Program Name:** _______________________
-**Duration:** _______ weeks/months
-**Total Hours:** _______ hours
-**Schedule:** _______________________
-**Location:** _______________________
-**Capacity:** _______ students per cohort
-**Prerequisites:** _______________________
+**Program Name:** \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+**Duration:** **\_\_\_** weeks/months
+**Total Hours:** **\_\_\_** hours
+**Schedule:** \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+**Location:** \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+**Capacity:** **\_\_\_** students per cohort
+**Prerequisites:** \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ### B. Curriculum & Standards
 
-- Program Holder will follow curriculum approved by: _______________________
-- Industry certifications offered: _______________________
-- Completion requirements: _______________________
-- Attendance policy: _______________________
+- Program Holder will follow curriculum approved by: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+- Industry certifications offered: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+- Completion requirements: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+- Attendance policy: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ---
 
@@ -156,20 +160,22 @@ Program Holder agrees to:
 ### A. Enrollment Process
 
 1. Elevate refers qualified students to Program Holder
-2. Program Holder reviews applications within _____ business days
+2. Program Holder reviews applications within **\_** business days
 3. Program Holder conducts intake/orientation
 4. Enrollment confirmed and start date scheduled
 
 ### B. Capacity Commitment
 
 Program Holder commits to accepting:
-- Minimum: _____ students per cohort
-- Maximum: _____ students per cohort
-- Annual capacity: _____ students
+
+- Minimum: **\_** students per cohort
+- Maximum: **\_** students per cohort
+- Annual capacity: **\_** students
 
 ### C. Student Selection
 
 Program Holder may decline students only for:
+
 - Failure to meet stated prerequisites
 - Lack of capacity
 - Documented safety concerns
@@ -205,10 +211,11 @@ Program Holder may decline students only for:
 ### A. Standards
 
 Program Holder agrees to maintain:
+
 - Current state licenses and approvals
 - Qualified instructors with appropriate credentials
 - Safe, accessible facilities meeting ADA requirements
-- Adequate liability insurance ($_______ minimum)
+- Adequate liability insurance ($**\_\_\_** minimum)
 - Compliance with all applicable regulations
 
 ### B. Reviews
@@ -225,6 +232,7 @@ Program Holder agrees to maintain:
 ### A. Regulatory Compliance
 
 Both parties agree to comply with:
+
 - WIOA regulations (if applicable)
 - State workforce development requirements
 - FERPA (student privacy)
@@ -235,6 +243,7 @@ Both parties agree to comply with:
 ### B. Non-Discrimination
 
 Neither party shall discriminate based on:
+
 - Race, color, national origin
 - Sex, gender identity, sexual orientation
 - Religion
@@ -246,6 +255,7 @@ Neither party shall discriminate based on:
 ### C. Confidentiality
 
 Both parties agree to:
+
 - Protect student personally identifiable information (PII)
 - Comply with FERPA requirements
 - Use data only for agreed purposes
@@ -258,8 +268,9 @@ Both parties agree to:
 ### A. Required Insurance
 
 Program Holder shall maintain:
-- General Liability: $_______ minimum
-- Professional Liability: $_______ minimum (if applicable)
+
+- General Liability: $**\_\_\_** minimum
+- Professional Liability: $**\_\_\_** minimum (if applicable)
 - Workers' Compensation (as required by law)
 - Property Insurance (if applicable)
 
@@ -289,15 +300,17 @@ Each party agrees to indemnify and hold harmless the other party from claims ari
 
 ### A. Term
 
-This MOU is effective from _____________ and continues for:
+This MOU is effective from **\*\***\_**\*\*** and continues for:
+
 - [ ] One (1) year, with automatic renewal
 - [ ] Two (2) years
 - [ ] Ongoing until terminated
-- [ ] Other: _______________________
+- [ ] Other: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ### B. Termination
 
 Either party may terminate this MOU:
+
 - With 60 days written notice
 - Immediately for material breach
 - Immediately for loss of required licenses/approvals
@@ -306,6 +319,7 @@ Either party may terminate this MOU:
 ### C. Wind-Down
 
 Upon termination:
+
 - Current students will be allowed to complete programs
 - Final payments will be processed
 - All confidential information will be returned or destroyed
@@ -358,7 +372,7 @@ Email: elizabeth@elevateforhumanity.org
 **Program Holder:**
 [Contact Name, Title]
 [Address]
-Email: _______________________
+Email: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ---
 
@@ -368,18 +382,17 @@ By signing below, both parties agree to the terms of this MOU:
 
 **ELEVATE FOR HUMANITY**
 
-Signature: _______________________
+Signature: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 Name: Elizabeth Greene
 Title: Founder
-Date: _______________________
-
+Date: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 **[PARTNER ORGANIZATION NAME]**
 
-Signature: _______________________
-Name: _______________________
-Title: _______________________
-Date: _______________________
+Signature: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+Name: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+Title: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
+Date: \***\*\*\*\*\***\_\_\_\***\*\*\*\*\***
 
 ---
 

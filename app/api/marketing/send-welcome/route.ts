@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { sendEmail } from "@/lib/email";
+import { NextRequest, NextResponse } from 'next/server';
+import { sendEmail } from '@/lib/email';
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
     if (!email || !subject || !emailBody) {
       return NextResponse.json(
-        { error: "Email, subject, and body are required" },
+        { error: 'Email, subject, and body are required' },
         { status: 400 }
       );
     }
@@ -18,17 +18,17 @@ export async function POST(req: NextRequest) {
       to: email,
       subject: subject,
       text: emailBody,
-      html: emailBody.replace(/\n/g, "<br>"),
+      html: emailBody.replace(/\n/g, '<br>'),
     });
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
-      message: "Welcome email sent successfully" 
+      message: 'Welcome email sent successfully',
     });
   } catch (err: any) {
-    console.error("Error sending welcome email:", err);
+    console.error('Error sending welcome email:', err);
     return NextResponse.json(
-      { error: err.message || "Failed to send email" },
+      { error: err.message || 'Failed to send email' },
       { status: 500 }
     );
   }

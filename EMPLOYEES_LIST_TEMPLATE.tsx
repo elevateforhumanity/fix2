@@ -1,11 +1,11 @@
 /**
  * FULL WORKING TEMPLATE: Employees List Page
- * 
+ *
  * File: app/(admin)/hr/employees/page.tsx
- * 
+ *
  * This is a complete, production-ready implementation that your builder
  * can use as a pattern for all other admin pages.
- * 
+ *
  * FEATURES:
  * - Server-side data fetching
  * - Client-side filtering with URL params
@@ -15,7 +15,7 @@
  * - Loading states
  * - Error handling
  * - Type-safe
- * 
+ *
  * TO ADAPT FOR OTHER PAGES:
  * 1. Change the API endpoint
  * 2. Update the TypeScript types
@@ -24,11 +24,11 @@
  * 5. Update action buttons
  */
 
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 // ============================================================================
 // TYPES - Update these for your specific page
@@ -83,10 +83,12 @@ export default function EmployeesListPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Filters from URL params
-  const [search, setSearch] = useState(searchParams.get("search") || "");
-  const [department, setDepartment] = useState(searchParams.get("department") || "");
-  const [status, setStatus] = useState(searchParams.get("status") || "");
-  const currentPage = parseInt(searchParams.get("page") || "1", 10);
+  const [search, setSearch] = useState(searchParams.get('search') || '');
+  const [department, setDepartment] = useState(
+    searchParams.get('department') || ''
+  );
+  const [status, setStatus] = useState(searchParams.get('status') || '');
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
   // ============================================================================
   // DATA FETCHING
@@ -103,24 +105,24 @@ export default function EmployeesListPage() {
     try {
       // Build query string from URL params
       const params = new URLSearchParams();
-      if (search) params.set("search", search);
-      if (department) params.set("department", department);
-      if (status) params.set("status", status);
-      params.set("page", currentPage.toString());
-      params.set("limit", pagination.limit.toString());
+      if (search) params.set('search', search);
+      if (department) params.set('department', department);
+      if (status) params.set('status', status);
+      params.set('page', currentPage.toString());
+      params.set('limit', pagination.limit.toString());
 
       const response = await fetch(`/api/hr/employees?${params.toString()}`);
 
       if (!response.ok) {
-        throw new Error("Failed to fetch employees");
+        throw new Error('Failed to fetch employees');
       }
 
       const data: EmployeesResponse = await response.json();
       setEmployees(data.employees);
       setPagination(data.pagination);
     } catch (err: any) {
-      console.error("Error fetching employees:", err);
-      setError(err.message || "Failed to load employees");
+      console.error('Error fetching employees:', err);
+      setError(err.message || 'Failed to load employees');
     } finally {
       setLoading(false);
     }
@@ -143,7 +145,7 @@ export default function EmployeesListPage() {
     });
 
     // Reset to page 1 when filters change
-    params.set("page", "1");
+    params.set('page', '1');
 
     // Update URL
     router.push(`?${params.toString()}`);
@@ -166,7 +168,7 @@ export default function EmployeesListPage() {
 
   function handlePageChange(newPage: number) {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", newPage.toString());
+    params.set('page', newPage.toString());
     router.push(`?${params.toString()}`);
   }
 
@@ -176,27 +178,27 @@ export default function EmployeesListPage() {
 
   function getStatusBadge(status: string) {
     const styles: Record<string, string> = {
-      active: "bg-green-100 text-green-800",
-      terminated: "bg-red-100 text-red-800",
-      on_leave: "bg-yellow-100 text-yellow-800",
+      active: 'bg-green-100 text-green-800',
+      terminated: 'bg-red-100 text-red-800',
+      on_leave: 'bg-yellow-100 text-yellow-800',
     };
 
     return (
       <span
         className={`px-2 py-1 text-xs font-semibold rounded-full ${
-          styles[status] || "bg-gray-100 text-gray-800"
+          styles[status] || 'bg-gray-100 text-gray-800'
         }`}
       >
-        {status.replace("_", " ").toUpperCase()}
+        {status.replace('_', ' ').toUpperCase()}
       </span>
     );
   }
 
   function formatDate(dateString: string) {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
     });
   }
 
@@ -207,7 +209,6 @@ export default function EmployeesListPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* ====================================================================
             HEADER
         ==================================================================== */}
@@ -231,7 +232,6 @@ export default function EmployeesListPage() {
         ==================================================================== */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
             {/* Search */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -289,10 +289,10 @@ export default function EmployeesListPage() {
             <div className="mt-4">
               <button
                 onClick={() => {
-                  setSearch("");
-                  setDepartment("");
-                  setStatus("");
-                  router.push("/admin/hr/employees");
+                  setSearch('');
+                  setDepartment('');
+                  setStatus('');
+                  router.push('/admin/hr/employees');
                 }}
                 className="text-sm text-blue-600 hover:text-blue-800 font-medium"
               >
@@ -365,7 +365,10 @@ export default function EmployeesListPage() {
                 <tbody className="bg-white divide-y divide-gray-200">
                   {employees.length === 0 ? (
                     <tr>
-                      <td colSpan={8} className="px-6 py-12 text-center text-gray-500">
+                      <td
+                        colSpan={8}
+                        className="px-6 py-12 text-center text-gray-500"
+                      >
                         No employees found. Try adjusting your filters.
                       </td>
                     </tr>
@@ -392,7 +395,7 @@ export default function EmployeesListPage() {
                           {employee.position}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {employee.manager?.full_name || "—"}
+                          {employee.manager?.full_name || '—'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           {getStatusBadge(employee.employment_status)}
@@ -453,41 +456,41 @@ export default function EmployeesListPage() {
  * ============================================================================
  * ADAPTATION GUIDE FOR OTHER PAGES
  * ============================================================================
- * 
+ *
  * To create a new admin list page (e.g., Payroll, Leave Requests, etc.):
- * 
+ *
  * 1. COPY THIS FILE to your new location
- * 
+ *
  * 2. UPDATE TYPES:
  *    - Change `Employee` type to match your data
  *    - Change `EmployeesResponse` to match your API response
- * 
+ *
  * 3. UPDATE API ENDPOINT:
  *    - Change `/api/hr/employees` to your endpoint
- * 
+ *
  * 4. UPDATE FILTERS:
  *    - Modify the filter dropdowns to match your data
  *    - Add/remove filters as needed
- * 
+ *
  * 5. UPDATE TABLE COLUMNS:
  *    - Change table headers
  *    - Update table cells to display your data
  *    - Modify action buttons
- * 
+ *
  * 6. UPDATE HELPER FUNCTIONS:
  *    - Modify `getStatusBadge()` for your status types
  *    - Add any custom formatting functions
- * 
+ *
  * 7. TEST:
  *    - Test all filters
  *    - Test pagination
  *    - Test search
  *    - Test error states
- * 
+ *
  * ============================================================================
  * EXAMPLE: Converting to Payroll Runs List
  * ============================================================================
- * 
+ *
  * 1. Change types:
  *    type PayrollRun = {
  *      id: string;
@@ -500,19 +503,19 @@ export default function EmployeesListPage() {
  *      total_gross: number;
  *      total_net: number;
  *    };
- * 
+ *
  * 2. Change API: `/api/hr/payroll`
- * 
+ *
  * 3. Update filters:
  *    - Year dropdown instead of department
  *    - Status: draft/processing/approved/paid
- * 
+ *
  * 4. Update table columns:
  *    - Run number, pay period, pay date, status, counts, totals
- * 
+ *
  * 5. Update actions:
  *    - "View" → `/admin/hr/payroll/${id}`
  *    - "Process" button if status is draft
- * 
+ *
  * ============================================================================
  */

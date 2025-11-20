@@ -1,76 +1,79 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { useState } from 'react';
+import { createClient } from '@/lib/supabase/client';
+import toast from 'react-hot-toast';
 
 export default function PartnerApplicationPage() {
   const [formData, setFormData] = useState({
     // Contact Information
-    organizationName: "",
-    contactName: "",
-    email: "",
-    phone: "",
-    website: "",
-    
+    organizationName: '',
+    contactName: '',
+    email: '',
+    phone: '',
+    website: '',
+
     // Partnership Type
     partnershipType: [] as string[],
-    
+
     // Location
-    address: "",
-    city: "",
-    state: "IN",
-    zip: "",
-    serviceArea: "",
-    
+    address: '',
+    city: '',
+    state: 'IN',
+    zip: '',
+    serviceArea: '',
+
     // Programs
-    currentPrograms: "",
-    desiredPrograms: "",
-    
+    currentPrograms: '',
+    desiredPrograms: '',
+
     // Capacity
-    studentCapacity: "",
-    operatingDays: "",
-    operatingHours: "",
-    virtualOnsite: "",
-    
+    studentCapacity: '',
+    operatingDays: '',
+    operatingHours: '',
+    virtualOnsite: '',
+
     // Goals
     goals: [] as string[],
-    otherGoals: "",
-    
+    otherGoals: '',
+
     // Additional Info
-    additionalInfo: "",
+    additionalInfo: '',
   });
 
   const [submitting, setSubmitting] = useState(false);
 
   const partnershipTypes = [
-    "Program Holder / Licensed School",
-    "Barbershop / Salon / Apprenticeship Site",
-    "Employer / Hiring Partner",
-    "Community Organization",
-    "Youth Agency",
-    "Training Provider / Instructor",
-    "Workforce Board / Agency",
-    "Other"
+    'Program Holder / Licensed School',
+    'Barbershop / Salon / Apprenticeship Site',
+    'Employer / Hiring Partner',
+    'Community Organization',
+    'Youth Agency',
+    'Training Provider / Instructor',
+    'Workforce Board / Agency',
+    'Other',
   ];
 
   const goalOptions = [
-    "Grow enrollment",
-    "Add workforce funding",
-    "Host apprentices",
-    "Start a new program",
-    "Strengthen compliance",
-    "Add digital/onboarding systems",
-    "Employer pipeline development",
-    "Other"
+    'Grow enrollment',
+    'Add workforce funding',
+    'Host apprentices',
+    'Start a new program',
+    'Strengthen compliance',
+    'Add digital/onboarding systems',
+    'Employer pipeline development',
+    'Other',
   ];
 
-  function handleCheckboxChange(field: "partnershipType" | "goals", value: string) {
-    setFormData(prev => ({
+  function handleCheckboxChange(
+    field: 'partnershipType' | 'goals',
+    value: string
+  ) {
+    setFormData((prev) => ({
       ...prev,
       [field]: prev[field].includes(value)
-        ? prev[field].filter(v => v !== value)
-        : [...prev[field], value]
+        ? prev[field].filter((v) => v !== value)
+        : [...prev[field], value],
     }));
   }
 
@@ -83,38 +86,38 @@ export default function PartnerApplicationPage() {
 
       // Save to marketing_contacts
       const { error: contactError } = await supabase
-        .from("marketing_contacts")
+        .from('marketing_contacts')
         .insert({
           email: formData.email,
           full_name: formData.contactName,
           phone: formData.phone,
           message: `Partnership Application from ${formData.organizationName}`,
-          interest: formData.partnershipType.join(", "),
-          status: "new",
-          source: "partner_application"
+          interest: formData.partnershipType.join(', '),
+          status: 'new',
+          source: 'partner_application',
         });
 
-      if (contactError && contactError.code !== "23505") {
+      if (contactError && contactError.code !== '23505') {
         throw contactError;
       }
 
       // Save detailed application
       const applicationData = {
         ...formData,
-        partnershipType: formData.partnershipType.join(", "),
-        goals: formData.goals.join(", "),
-        submittedAt: new Date().toISOString()
+        partnershipType: formData.partnershipType.join(', '),
+        goals: formData.goals.join(', '),
+        submittedAt: new Date().toISOString(),
       };
 
       // Send notification email
-      await fetch("/api/marketing/send-welcome", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      await fetch('/api/marketing/send-welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: formData.email,
           name: formData.contactName,
-          interest: formData.partnershipType.join(", "),
-          subject: "Thank You for Your Partnership Application",
+          interest: formData.partnershipType.join(', '),
+          subject: 'Thank You for Your Partnership Application',
           body: `Hi ${formData.contactName},
 
 Thank you for submitting your partnership application to Elevate for Humanity!
@@ -135,39 +138,38 @@ Thank you for your interest in partnering with Elevate for Humanity!
 Warm regards,
 Elizabeth Greene
 Founder, Elevate for Humanity
-elevateconnectsdirectory.org`
-        })
+elevateconnectsdirectory.org`,
+        }),
       });
 
-      toast.success("Application submitted successfully!");
-      
+      toast.success('Application submitted successfully!');
+
       // Reset form
       setFormData({
-        organizationName: "",
-        contactName: "",
-        email: "",
-        phone: "",
-        website: "",
+        organizationName: '',
+        contactName: '',
+        email: '',
+        phone: '',
+        website: '',
         partnershipType: [],
-        address: "",
-        city: "",
-        state: "IN",
-        zip: "",
-        serviceArea: "",
-        currentPrograms: "",
-        desiredPrograms: "",
-        studentCapacity: "",
-        operatingDays: "",
-        operatingHours: "",
-        virtualOnsite: "",
+        address: '',
+        city: '',
+        state: 'IN',
+        zip: '',
+        serviceArea: '',
+        currentPrograms: '',
+        desiredPrograms: '',
+        studentCapacity: '',
+        operatingDays: '',
+        operatingHours: '',
+        virtualOnsite: '',
         goals: [],
-        otherGoals: "",
-        additionalInfo: "",
+        otherGoals: '',
+        additionalInfo: '',
       });
-
     } catch (err: any) {
-      console.error("Error submitting application:", err);
-      toast.error("Failed to submit application. Please try again.");
+      console.error('Error submitting application:', err);
+      toast.error('Failed to submit application. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -182,18 +184,19 @@ elevateconnectsdirectory.org`
             Partner with Elevate for Humanity
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join our network of training providers, employers, and community organizations 
-            making a difference in workforce development.
+            Join our network of training providers, employers, and community
+            organizations making a difference in workforce development.
           </p>
         </div>
 
         {/* Form */}
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <form onSubmit={handleSubmit} className="space-y-8">
-            
             {/* Contact Information */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Contact Information
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -203,11 +206,16 @@ elevateconnectsdirectory.org`
                     type="text"
                     required
                     value={formData.organizationName}
-                    onChange={(e) => setFormData({...formData, organizationName: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        organizationName: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Contact Name *
@@ -216,11 +224,13 @@ elevateconnectsdirectory.org`
                     type="text"
                     required
                     value={formData.contactName}
-                    onChange={(e) => setFormData({...formData, contactName: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactName: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
@@ -229,11 +239,13 @@ elevateconnectsdirectory.org`
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone *
@@ -242,11 +254,13 @@ elevateconnectsdirectory.org`
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Website
@@ -254,7 +268,9 @@ elevateconnectsdirectory.org`
                   <input
                     type="url"
                     value={formData.website}
-                    onChange={(e) => setFormData({...formData, website: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, website: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -263,15 +279,24 @@ elevateconnectsdirectory.org`
 
             {/* Partnership Type */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Partnership Type *</h2>
-              <p className="text-sm text-gray-600 mb-4">Select all that apply</p>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Partnership Type *
+              </h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Select all that apply
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {partnershipTypes.map((type) => (
-                  <label key={type} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <label
+                    key={type}
+                    className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       checked={formData.partnershipType.includes(type)}
-                      onChange={() => handleCheckboxChange("partnershipType", type)}
+                      onChange={() =>
+                        handleCheckboxChange('partnershipType', type)
+                      }
                       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                     />
                     <span className="text-sm text-gray-700">{type}</span>
@@ -282,7 +307,9 @@ elevateconnectsdirectory.org`
 
             {/* Location */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Location & Service Area</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Location & Service Area
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -291,11 +318,13 @@ elevateconnectsdirectory.org`
                   <input
                     type="text"
                     value={formData.address}
-                    onChange={(e) => setFormData({...formData, address: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, address: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     City *
@@ -304,11 +333,13 @@ elevateconnectsdirectory.org`
                     type="text"
                     required
                     value={formData.city}
-                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, city: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     State *
@@ -317,11 +348,13 @@ elevateconnectsdirectory.org`
                     type="text"
                     required
                     value={formData.state}
-                    onChange={(e) => setFormData({...formData, state: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, state: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Service Area (cities/counties you serve)
@@ -329,7 +362,9 @@ elevateconnectsdirectory.org`
                   <input
                     type="text"
                     value={formData.serviceArea}
-                    onChange={(e) => setFormData({...formData, serviceArea: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, serviceArea: e.target.value })
+                    }
                     placeholder="e.g., Marion County, Indianapolis Metro Area"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -339,7 +374,9 @@ elevateconnectsdirectory.org`
 
             {/* Programs */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Programs</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Programs
+              </h2>
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -347,20 +384,30 @@ elevateconnectsdirectory.org`
                   </label>
                   <textarea
                     value={formData.currentPrograms}
-                    onChange={(e) => setFormData({...formData, currentPrograms: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        currentPrograms: e.target.value,
+                      })
+                    }
                     rows={3}
                     placeholder="e.g., HVAC, Barbering, CDL, etc."
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Programs You Want to Offer
                   </label>
                   <textarea
                     value={formData.desiredPrograms}
-                    onChange={(e) => setFormData({...formData, desiredPrograms: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        desiredPrograms: e.target.value,
+                      })
+                    }
                     rows={3}
                     placeholder="e.g., Medical Assistant, Cosmetology, etc."
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -371,7 +418,9 @@ elevateconnectsdirectory.org`
 
             {/* Capacity */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Capacity</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Capacity
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -380,12 +429,17 @@ elevateconnectsdirectory.org`
                   <input
                     type="text"
                     value={formData.studentCapacity}
-                    onChange={(e) => setFormData({...formData, studentCapacity: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        studentCapacity: e.target.value,
+                      })
+                    }
                     placeholder="e.g., 10-15 students per cohort"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Operating Days
@@ -393,12 +447,17 @@ elevateconnectsdirectory.org`
                   <input
                     type="text"
                     value={formData.operatingDays}
-                    onChange={(e) => setFormData({...formData, operatingDays: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        operatingDays: e.target.value,
+                      })
+                    }
                     placeholder="e.g., Monday-Friday"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Operating Hours
@@ -406,19 +465,29 @@ elevateconnectsdirectory.org`
                   <input
                     type="text"
                     value={formData.operatingHours}
-                    onChange={(e) => setFormData({...formData, operatingHours: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        operatingHours: e.target.value,
+                      })
+                    }
                     placeholder="e.g., 9am-5pm"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Virtual + Onsite Support
                   </label>
                   <select
                     value={formData.virtualOnsite}
-                    onChange={(e) => setFormData({...formData, virtualOnsite: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        virtualOnsite: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="">Select...</option>
@@ -432,30 +501,39 @@ elevateconnectsdirectory.org`
 
             {/* Goals */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Immediate Goals</h2>
-              <p className="text-sm text-gray-600 mb-4">Select all that apply</p>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Immediate Goals
+              </h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Select all that apply
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                 {goalOptions.map((goal) => (
-                  <label key={goal} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <label
+                    key={goal}
+                    className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       checked={formData.goals.includes(goal)}
-                      onChange={() => handleCheckboxChange("goals", goal)}
+                      onChange={() => handleCheckboxChange('goals', goal)}
                       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                     />
                     <span className="text-sm text-gray-700">{goal}</span>
                   </label>
                 ))}
               </div>
-              
-              {formData.goals.includes("Other") && (
+
+              {formData.goals.includes('Other') && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Please specify other goals
                   </label>
                   <textarea
                     value={formData.otherGoals}
-                    onChange={(e) => setFormData({...formData, otherGoals: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, otherGoals: e.target.value })
+                    }
                     rows={2}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -465,10 +543,14 @@ elevateconnectsdirectory.org`
 
             {/* Additional Information */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Additional Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Additional Information
+              </h2>
               <textarea
                 value={formData.additionalInfo}
-                onChange={(e) => setFormData({...formData, additionalInfo: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, additionalInfo: e.target.value })
+                }
                 rows={4}
                 placeholder="Tell us anything else we should know about your organization or partnership goals..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -482,7 +564,9 @@ elevateconnectsdirectory.org`
                 disabled={submitting}
                 className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
               >
-                {submitting ? "Submitting..." : "Submit Partnership Application"}
+                {submitting
+                  ? 'Submitting...'
+                  : 'Submit Partnership Application'}
               </button>
             </div>
           </form>
@@ -490,7 +574,10 @@ elevateconnectsdirectory.org`
 
         {/* Footer Note */}
         <div className="mt-8 text-center text-sm text-gray-600">
-          <p>Questions? Contact us at elizabeth@elevateforhumanity.org or (317) 555-0100</p>
+          <p>
+            Questions? Contact us at elizabeth@elevateforhumanity.org or (317)
+            555-0100
+          </p>
         </div>
       </div>
     </div>

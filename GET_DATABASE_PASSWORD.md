@@ -3,6 +3,7 @@
 ## Quick Steps:
 
 1. **Go to Supabase Dashboard**:
+
    ```
    https://app.supabase.com/project/cuxzzpsyufcewtmicszk/settings/database
    ```
@@ -32,6 +33,7 @@
 ## What I'll Do With It:
 
 Once you give me the password, I'll:
+
 1. Connect to PostgreSQL directly
 2. Create the courses table
 3. Insert all 17 courses
@@ -41,6 +43,7 @@ Once you give me the password, I'll:
 ---
 
 **Which do you prefer?**
+
 - Give me the password
 - Give me the full connection string
 - Or just run the SQL yourself (fastest - 10 seconds)

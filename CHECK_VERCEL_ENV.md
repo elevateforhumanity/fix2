@@ -11,18 +11,21 @@
 ### Method 1: Visit Vercel Dashboard (Recommended)
 
 **Step 1: Go to Environment Variables**
+
 ```
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 ```
 
 **Step 2: Look for These Variables**
 Check if these exist:
+
 - ✅ `NEXT_PUBLIC_SUPABASE_URL`
 - ✅ `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - ✅ `SUPABASE_SERVICE_ROLE_KEY`
 
 **Step 3: Check Values**
 Click on each variable to see if:
+
 - ❌ Value contains "placeholder" → Using mock data
 - ❌ Value is empty → Using mock data
 - ✅ Value starts with "https://" (URL) → Real credentials
@@ -33,6 +36,7 @@ Click on each variable to see if:
 ## 📊 What You Should See
 
 ### Scenario A: Variables NOT Configured (Current State)
+
 ```
 Environment Variables (0-3 variables)
 
@@ -45,6 +49,7 @@ Result: ✅ App uses mock data (17 courses)
 ```
 
 ### Scenario B: Variables Configured (Production Ready)
+
 ```
 Environment Variables (3+ variables)
 
@@ -70,6 +75,7 @@ Result: ✅ App connects to real database
 ### Step 1: Get Supabase Credentials
 
 **A. Create Supabase Account** (if needed):
+
 ```
 1. Go to: https://supabase.com
 2. Sign up (free)
@@ -78,6 +84,7 @@ Result: ✅ App connects to real database
 ```
 
 **B. Get Credentials**:
+
 ```
 1. Supabase Dashboard → Settings → API
 2. Copy:
@@ -91,6 +98,7 @@ Result: ✅ App connects to real database
 **Go to**: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 
 **Add Variable 1**:
+
 ```
 Name: NEXT_PUBLIC_SUPABASE_URL
 Value: https://xxxxx.supabase.co
@@ -99,6 +107,7 @@ Environments: ✅ Production ✅ Preview ✅ Development
 ```
 
 **Add Variable 2**:
+
 ```
 Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -107,6 +116,7 @@ Environments: ✅ Production ✅ Preview ✅ Development
 ```
 
 **Add Variable 3**:
+
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
 Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -115,6 +125,7 @@ Environments: ✅ Production ✅ Preview ✅ Development
 ```
 
 ### Step 3: Redeploy
+
 ```
 1. Go to: Deployments tab
 2. Click latest deployment
@@ -133,6 +144,7 @@ Environments: ✅ Production ✅ Preview ✅ Development
 **Look for Blue Banner**:
 
 **If you see this**:
+
 ```
 ┌─────────────────────────────────────────────┐
 │ ℹ️ Using Mock Course Data                  │
@@ -140,12 +152,15 @@ Environments: ✅ Production ✅ Preview ✅ Development
 │ Showing 17 sample courses for testing...   │
 └─────────────────────────────────────────────┘
 ```
+
 **Result**: ❌ Variables NOT configured (using mock data)
 
 **If you DON'T see the banner**:
+
 ```
 No blue banner at top of page
 ```
+
 **Result**: ✅ Variables configured (using real database)
 
 ---
@@ -155,6 +170,7 @@ No blue banner at top of page
 ### Check These Items:
 
 **In Vercel Dashboard**:
+
 - [ ] Go to Settings → Environment Variables
 - [ ] Count how many variables exist
 - [ ] Check if Supabase variables present
@@ -162,6 +178,7 @@ No blue banner at top of page
 - [ ] Confirm all 3 environments checked
 
 **On Live Site**:
+
 - [ ] Visit /admin/courses
 - [ ] Look for blue banner
 - [ ] Check course count
@@ -174,21 +191,25 @@ No blue banner at top of page
 ### Quick Test:
 
 **1. Open Vercel Dashboard**
+
 ```
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 ```
 
 **2. Count Variables**
+
 - **0-2 variables**: Not configured → Using mock data
 - **3+ variables**: Check if Supabase ones exist
 - **Supabase variables with real values**: Configured ✅
 
 **3. Visit Live Site**
+
 ```
 https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
 
 **4. Check Banner**
+
 - **Blue banner visible**: Using mock data
 - **No blue banner**: Using real database
 
@@ -201,6 +222,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 **In Vercel Dashboard**, click each variable to see:
 
 **NEXT_PUBLIC_SUPABASE_URL**:
+
 ```
 ✅ Good: https://abcdefgh.supabase.co
 ❌ Bad: https://placeholder.supabase.co
@@ -208,6 +230,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
 
 **NEXT_PUBLIC_SUPABASE_ANON_KEY**:
+
 ```
 ✅ Good: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI...
 ❌ Bad: placeholder-anon-key
@@ -215,6 +238,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ```
 
 **SUPABASE_SERVICE_ROLE_KEY**:
+
 ```
 ✅ Good: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI...
 ❌ Bad: placeholder-service-role-key
@@ -226,6 +250,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 ## 📊 What Each Status Means
 
 ### Status 1: No Variables
+
 ```
 Environment Variables: 0 Supabase variables
 
@@ -235,6 +260,7 @@ Action: Add variables if you want real database
 ```
 
 ### Status 2: Placeholder Values
+
 ```
 Environment Variables: 3 variables
 Values: All contain "placeholder"
@@ -245,6 +271,7 @@ Action: Replace with real Supabase credentials
 ```
 
 ### Status 3: Real Values
+
 ```
 Environment Variables: 3 variables
 Values: Real Supabase credentials
@@ -261,6 +288,7 @@ Action: Run migrations if not done yet
 ### If Variables NOT Configured:
 
 **Option A: Keep Using Mock Data** (Testing)
+
 ```
 ✅ Do nothing
 ✅ Mock data works perfectly
@@ -270,6 +298,7 @@ Action: Run migrations if not done yet
 ```
 
 **Option B: Configure Now** (Production)
+
 ```
 1. Create Supabase account (5 min)
 2. Get credentials (2 min)
@@ -282,6 +311,7 @@ Total: ~42 minutes
 ### If Variables Configured:
 
 **Check Database**:
+
 ```
 1. Verify migrations run
 2. Test enrollment
@@ -294,15 +324,18 @@ Total: ~42 minutes
 ## 📞 Quick Links
 
 ### Vercel:
+
 - **Environment Variables**: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 - **Deployments**: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 - **Dashboard**: https://vercel.com/elevate-48e460c9/fix2-gpql
 
 ### Supabase:
+
 - **Sign Up**: https://supabase.com
 - **Dashboard**: https://app.supabase.com
 
 ### Test Site:
+
 - **Admin Courses**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 ---
@@ -310,12 +343,14 @@ Total: ~42 minutes
 ## ✅ Summary
 
 ### To Check Variables:
+
 1. Go to Vercel dashboard
 2. Click Settings → Environment Variables
 3. Look for 3 Supabase variables
 4. Check if values are real or placeholder
 
 ### Current Expected Status:
+
 - ❌ Variables NOT configured (or placeholders)
 - ✅ App uses mock data
 - ✅ Blue banner shows
@@ -323,6 +358,7 @@ Total: ~42 minutes
 - ✅ Everything works for testing
 
 ### To Activate Database:
+
 1. Add real Supabase credentials
 2. Redeploy
 3. Run migrations
@@ -336,5 +372,5 @@ Total: ~42 minutes
 
 ---
 
-*Last Updated: November 19, 2025*  
-*Document: CHECK_VERCEL_ENV.md*
+_Last Updated: November 19, 2025_  
+_Document: CHECK_VERCEL_ENV.md_

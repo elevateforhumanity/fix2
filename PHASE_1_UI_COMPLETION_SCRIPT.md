@@ -1,4 +1,5 @@
 # 🚀 PHASE 1 – UI COMPLETION EXECUTION SCRIPT
+
 ## HR + Marketing + Events Backend → Frontend Integration
 
 **Objective:** Make all the new HR, Marketing, and Events backend APIs visible and usable through admin and user-facing UI.
@@ -16,11 +17,13 @@
 **Location:** `app/(admin)/layout.tsx`
 
 **Requirements:**
+
 - Wraps children in admin shell (sidebar, topbar, etc.)
 - Checks current user's role
 - If not `admin` or `hr_admin`, redirect to `/dashboard`
 
 **Files to create/verify:**
+
 - `app/(admin)/layout.tsx` ✅ (see example below)
 - `app/(admin)/page.tsx` (main admin dashboard)
 
@@ -33,7 +36,9 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function requireAdmin() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) return { user: null, role: null, isAdmin: false };
 
@@ -51,13 +56,14 @@ export async function requireAdmin() {
 ```
 
 **Usage in `app/(admin)/layout.tsx`:**
+
 ```typescript
 import { requireAdmin } from '@/lib/rbac';
 import { redirect } from 'next/navigation';
 
 export default async function AdminLayout({ children }) {
   const { isAdmin } = await requireAdmin();
-  
+
   if (!isAdmin) {
     redirect('/dashboard');
   }
@@ -76,6 +82,7 @@ export default async function AdminLayout({ children }) {
 ## 1️⃣ ADMIN HR PORTAL PAGES
 
 ### Priority Order:
+
 1. ✅ Employees List (TEMPLATE PROVIDED - see below)
 2. Employee Detail
 3. HR Dashboard
@@ -94,6 +101,7 @@ export default async function AdminLayout({ children }) {
 **Purpose:** Bird's-eye view for HR/admin
 
 **APIs to call:**
+
 ```typescript
 GET /api/hr/employees?status=active&limit=5
 GET /api/hr/payroll?year=<currentYear>&status=approved
@@ -104,16 +112,19 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **UI Sections:**
 
 **Top Row Cards:**
+
 - Total employees
 - Active employees
 - Upcoming payroll date
 - Pending leave requests
 
 **Middle:**
+
 - Table: "Latest Hires"
 - Table: "Upcoming Performance Reviews"
 
 **Bottom:**
+
 - Summary: "Leave this month" (counts or simple chart)
 
 **Design Note:** Mirror existing admin dashboard card style for consistency.
@@ -127,6 +138,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/hr/employees?page=&limit=&search=&department=&status=`
 
 **UI Components:**
+
 - Header: "Employees" + "Add Employee" button
 - Filters:
   - Search (text) → query param `search`
@@ -144,6 +156,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 - Pagination: Next/Prev using `page` and `limit`
 
 **Implementation:**
+
 - Use client component with `useSearchParams` and `useRouter`
 - Update querystring when filters change
 - Fetch via `/api/hr/employees`
@@ -161,28 +174,35 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **Tabs:**
 
 **1. Overview**
+
 - Name, picture, department, position, manager
 - Hire date, status, employment type, work location
 
 **2. Compensation**
+
 - Current salary/hourly
 - Salary history table
 
 **3. Time & Attendance**
+
 - Last 30 `time_entries` for employee
 - API: `GET /api/hr/time-entries?employeeId=[id]`
 
 **4. Leave**
+
 - `leave_balances` with policy name + available_hours
 - Table of last leave requests
 
 **5. Benefits**
+
 - Active `benefits_enrollments` + plan names, cost
 
 **6. Performance**
+
 - List of `performance_reviews` + rating + link to detail
 
 **Top Actions:**
+
 - Name, status pill
 - "Terminate Employee" → `DELETE /api/hr/employees/[id]`
 
@@ -195,6 +215,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/hr/payroll?year=&status=`
 
 **UI:**
+
 - Header: "Payroll"
 - Filters:
   - Year dropdown (current year ± 2 years)
@@ -219,6 +240,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/hr/time-entries?status=&from=&to=&employeeId=`
 
 **UI:**
+
 - Filters: Date range, status (pending/approved/rejected), employee search
 - Table:
   - Employee
@@ -237,6 +259,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/hr/leave-requests?status=&from=&to=&employeeId=`
 
 **UI:**
+
 - Filters similar to time page
 - Table:
   - Employee
@@ -256,6 +279,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `/api/hr/benefits-plans`
 
 **UI:**
+
 - List of plans:
   - Plan name
   - Plan type (health, dental, etc.)
@@ -274,6 +298,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `/api/hr/performance-reviews`
 
 **UI:**
+
 - Filters:
   - Status: draft/submitted/acknowledged/completed
   - Period (year)
@@ -299,12 +324,14 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/dashboard/hr/page.tsx`
 
 **Data:**
+
 - Current user profile → `profiles`
 - Their `employees` record
 - Their `leave_balances`, `benefits_enrollments`
 - Next payday from `payroll_runs`
 
 **UI:**
+
 - Cards:
   - Manager name
   - Department
@@ -327,6 +354,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/hr/pay-stubs?mine=true`
 
 **UI:**
+
 - Table:
   - Pay date
   - Pay period (start–end)
@@ -343,10 +371,12 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/dashboard/hr/time/page.tsx`
 
 **APIs:**
+
 - `GET /api/hr/time-entries?mine=true&date=today`
 - `POST /api/hr/time-entries` to clock in/out
 
 **UI:**
+
 - If user not clocked in → show big "Clock In" button
 - If clocked in → show big "Clock Out" button and current duration
 - Today's punches list under it
@@ -358,11 +388,13 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/dashboard/hr/leave/page.tsx`
 
 **APIs:**
+
 - `GET /api/hr/leave-requests?mine=true`
 - `GET /api/hr/leave-balances?mine=true`
 - `POST /api/hr/leave-requests` for new request
 
 **UI:**
+
 - Top cards: PTO / Sick / other balances
 - Form:
   - Leave type (policy)
@@ -380,6 +412,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **Data:** `benefits_enrollments` for current employee
 
 **UI:**
+
 - For each enrollment:
   - Plan name
   - Coverage level
@@ -397,6 +430,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **Data:** `performance_reviews` + `employee_goals` filtered by current employee
 
 **UI:**
+
 - Section: Reviews
   - Table of reviews: period, rating, status, link to view
 - Section: Goals
@@ -413,6 +447,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/marketing/campaigns`
 
 **UI:**
+
 - Header: "Campaigns" + button "New Campaign"
 - Table:
   - Name
@@ -429,11 +464,13 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 
 **File:** `app/(admin)/marketing/campaigns/new/page.tsx`
 
-**API:** 
+**API:**
+
 - `POST /api/marketing/campaigns`
 - `PATCH /api/marketing/campaigns/[id]`
 
 **Fields:**
+
 - Campaign name
 - Subject line
 - From name / from email
@@ -442,6 +479,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 - Schedule date/time (optional)
 
 **Buttons:**
+
 - Save as draft
 - Save & schedule
 
@@ -452,10 +490,12 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/(admin)/marketing/campaigns/[id]/page.tsx`
 
 **APIs:**
+
 - `GET /api/marketing/campaigns/[id]`
 - `POST /api/marketing/campaigns/[id]/send`
 
 **UI:**
+
 - Show campaign details
 - Stats box
 - Button:
@@ -470,6 +510,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/admin/contacts/page.tsx` ✅
 
 **Features:**
+
 - Search by email/name
 - Table with name, email, tags, status
 - Send welcome emails
@@ -486,6 +527,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/events?admin=true`
 
 **UI:**
+
 - Header: "Events" + button "New Event"
 - Filters:
   - Status (draft/published/completed)
@@ -505,14 +547,17 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 ### 20. Create/Edit Event
 
 **Files:**
+
 - `app/(admin)/events/new/page.tsx`
 - `app/(admin)/events/[id]/edit/page.tsx`
 
 **API:**
+
 - `POST /api/events`
 - `PATCH /api/events/[id]`
 
 **Fields (match events table):**
+
 - Title
 - Description
 - Start date/time
@@ -531,6 +576,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/events/[id]/registrations`
 
 **UI:**
+
 - Table:
   - Name
   - Email
@@ -548,6 +594,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **API:** `GET /api/events?published=true&upcoming=true`
 
 **UI:**
+
 - List of upcoming events in cards
 - Card shows: title, date, location, short description
 - Button "View" → `/events/[id]`
@@ -559,10 +606,12 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 **File:** `app/events/[id]/page.tsx`
 
 **APIs:**
+
 - `GET /api/events/[id]`
 - `POST /api/events/[id]/register` (name, email, phone)
 
 **UI:**
+
 - Event info at top
 - Simple registration form below
 - On submit:
@@ -575,6 +624,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 ## 📊 IMPLEMENTATION CHECKLIST
 
 ### Phase 1A: HR Admin (Priority)
+
 - [ ] `lib/rbac.ts` - RBAC helper
 - [ ] `app/(admin)/layout.tsx` - Admin layout with auth
 - [ ] `app/(admin)/hr/employees/page.tsx` - Employees list ⭐ START HERE
@@ -587,6 +637,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 - [ ] `app/(admin)/hr/performance/page.tsx` - Performance reviews
 
 ### Phase 1B: Employee Self-Service
+
 - [ ] `app/dashboard/hr/page.tsx` - My HR overview
 - [ ] `app/dashboard/hr/pay-stubs/page.tsx` - My pay stubs
 - [ ] `app/dashboard/hr/time/page.tsx` - Clock in/out
@@ -595,12 +646,14 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 - [ ] `app/dashboard/hr/performance/page.tsx` - My performance
 
 ### Phase 1C: Marketing
+
 - [ ] `app/(admin)/marketing/campaigns/page.tsx` - Campaigns list
 - [ ] `app/(admin)/marketing/campaigns/new/page.tsx` - Create campaign
 - [ ] `app/(admin)/marketing/campaigns/[id]/page.tsx` - Campaign detail
 - [ ] ✅ `app/admin/contacts/page.tsx` - Contacts (DONE)
 
 ### Phase 1D: Events
+
 - [ ] `app/(admin)/events/page.tsx` - Events admin list
 - [ ] `app/(admin)/events/new/page.tsx` - Create event
 - [ ] `app/(admin)/events/[id]/edit/page.tsx` - Edit event
@@ -618,6 +671,7 @@ GET /api/hr/performance-reviews?status=pending&limit=5
 This is a complete, production-ready implementation of the Employees List page that your builder can use as a pattern for all other pages.
 
 **Pattern to follow:**
+
 1. Copy the structure from the template
 2. Replace API endpoints
 3. Adjust table columns
@@ -629,6 +683,7 @@ This is a complete, production-ready implementation of the Employees List page t
 ## 📞 Support
 
 If you need clarification on any page or API endpoint, refer to:
+
 - API documentation in `/api` folders
 - Database schema in `supabase/` folder
 - Existing admin pages for design patterns
