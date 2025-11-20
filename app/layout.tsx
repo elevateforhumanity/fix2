@@ -95,46 +95,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.elevateforhumanity.org',
   },
   verification: {
-    google: 'google-site-verification-code',
-    bing: 'bing-site-verification-code',
-  },
-    type: 'website',
-    images: [
-      {
-        url: 'https://elevateforhumanity.org/assets/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Elevate for Humanity - Workforce Training',
-      },
-    ],
-  },
-  facebook: {
-    appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'Elevate',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  verification: {
     google: '9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so',
-    other: {
-      'msvalidate.01': 'add-your-bing-verification-code-here',
-    },
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon.png',
   },
 };
 
