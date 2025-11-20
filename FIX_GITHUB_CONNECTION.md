@@ -3,10 +3,12 @@
 ## 🚨 THE PROBLEM
 
 GitHub is connected to the **WRONG** Vercel project:
+
 - ❌ GitHub pushes deploy to: `fix2` (wrong, gets recreated)
 - ✅ GitHub should deploy to: `fix2-gpql` (correct, has your domain)
 
 This is why:
+
 - New deployments don't show on www.elevateforhumanity.org
 - The CLI keeps creating a new `fix2` project
 - You see deployments in the wrong project
@@ -50,6 +52,7 @@ If `fix2` project exists:
 ### Step 4: Verify
 
 1. Push a small change to GitHub:
+
    ```bash
    git commit --allow-empty -m "Test deployment"
    git push origin main
@@ -65,6 +68,7 @@ If `fix2` project exists:
 ## 🎯 After This Fix
 
 **Every time you push to GitHub:**
+
 - ✅ Deploys to `fix2-gpql`
 - ✅ Updates www.elevateforhumanity.org
 - ✅ No more wrong project creation
@@ -93,6 +97,7 @@ git push origin main
 ```
 
 Then check:
+
 1. Vercel dashboard shows new deployment in **fix2-gpql**
 2. www.elevateforhumanity.org updates with new content
 3. No new `fix2` project is created
@@ -107,6 +112,7 @@ Then check:
 ## 🎉 Success Criteria
 
 You'll know it's fixed when:
+
 - ✅ GitHub pushes trigger deployments in fix2-gpql
 - ✅ www.elevateforhumanity.org updates automatically
 - ✅ No more `fix2` project appearing
