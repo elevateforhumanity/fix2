@@ -3,7 +3,7 @@ import { requireAdmin } from "@/lib/rbac";
 
 export async function POST(req: Request) {
   try {
-    await requireAdmin(req);
+    await requireAdmin();
   } catch (error) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
