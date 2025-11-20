@@ -2,21 +2,42 @@ import { MetadataRoute } from 'next';
 import { createBuildTimeSupabaseClient } from '@/lib/auth';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://elevateforhumanity.org';
+  const baseUrl = 'https://www.elevateforhumanity.org';
 
   // Static pages
   const staticPages = [
     '',
     '/about',
     '/programs',
+    '/programs/medical-assistant',
+    '/programs/hvac',
+    '/programs/barber',
+    '/programs/truck-driving',
+    '/programs/building-maintenance',
+    '/programs/workforce-readiness',
     '/pricing',
     '/login',
     '/signup',
+    '/apply',
+    '/contact',
+    '/partners',
+    '/employers',
+    '/blog',
+    '/faq',
+    '/success-stories',
+    '/financial-aid',
+    '/wioa-eligibility',
     '/privacy-policy',
+    '/terms-of-service',
+    '/accessibility',
+    '/courses',
     '/lms',
     '/lms/courses',
     '/lms/dashboard',
     '/program-holder/apply',
+    '/program-holder/dashboard',
+    '/student/dashboard',
+    '/admin/dashboard',
   ];
 
   const staticSitemap: MetadataRoute.Sitemap = staticPages.map((route) => ({
