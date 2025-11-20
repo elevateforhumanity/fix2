@@ -22,6 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/video',
     '/unauthorized',
     '/workforce-partners',
+    '/hub',
+    '/connect',
+    '/sister-sites',
+    '/healthcare-services',
+    '/operational-agreements',
+    '/compliance',
+    '/pay',
     
     // Program pages
     '/programs/barber-apprenticeship',
@@ -35,6 +42,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/programs/truck-driving',
     '/programs/cdl',
     '/programs/workforce-readiness',
+    '/programs/ai-data-science',
+    '/programs/wioa-workforce',
+    '/programs/professional-certifications',
+    '/programs/community-connect',
     
     // Enrollment
     '/enroll',
