@@ -11,12 +11,14 @@ This document explains the smart cache strategy implemented for the Elevate for 
 **Issue:** Users see old content after deployments because of aggressive caching.
 
 **Bad Solution:** Disable all caching with `dynamic = "force-dynamic"` everywhere.
+
 - ❌ Slower page loads
 - ❌ Higher server costs
 - ❌ No CDN benefits
 - ❌ Poor user experience
 
 **Smart Solution:** Cache static assets aggressively, but keep HTML fresh.
+
 - ✅ Fast static asset delivery
 - ✅ Always-fresh HTML content
 - ✅ Low server costs
@@ -41,11 +43,13 @@ This document explains the smart cache strategy implemented for the Elevate for 
 ```
 
 **What this does:**
+
 - HTML pages are cached for 0 seconds
 - Browser must revalidate with server on every request
 - Ensures users always get the latest content
 
 **Applies to:**
+
 - `/` (homepage)
 - `/programs/*`
 - `/about`
@@ -66,11 +70,13 @@ This document explains the smart cache strategy implemented for the Elevate for 
 ```
 
 **What this does:**
+
 - JavaScript and CSS bundles cached for 1 year
 - Marked as `immutable` (never changes)
 - Next.js uses content hashes in filenames, so new builds get new URLs
 
 **Applies to:**
+
 - `/_next/static/chunks/*.js`
 - `/_next/static/css/*.css`
 - All webpack-generated assets
@@ -90,11 +96,13 @@ This document explains the smart cache strategy implemented for the Elevate for 
 ```
 
 **What this does:**
+
 - Images cached for 24 hours
 - Can serve stale images for up to 7 days while revalidating
 - Balances freshness with performance
 
 **Applies to:**
+
 - All image files
 - Favicons
 - SVG icons
@@ -163,6 +171,7 @@ pnpm verify:deployment
 ```
 
 This script checks:
+
 - ✅ HTTP status codes
 - ✅ Cache-Control headers
 - ✅ Build markers in HTML
@@ -193,12 +202,15 @@ This script checks:
 ### Deployment URLs
 
 **Latest deployment hash URL:**
+
 ```
 https://fix2-lujwfkml1-elevate-48e460c9.vercel.app
 ```
+
 ⚠️ This is password protected and is a frozen snapshot
 
 **Production domain (when configured):**
+
 ```
 https://www.elevateforhumanity.org
 ```
@@ -235,12 +247,13 @@ https://www.elevateforhumanity.org
 
 ```javascript
 // ❌ Don't do this
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-export const fetchCache = "force-no-store";
+export const fetchCache = 'force-no-store';
 ```
 
 **Problems:**
+
 - Every request hits the server
 - No static optimization
 - Slower page loads
@@ -257,6 +270,7 @@ export const fetchCache = "force-no-store";
 ```
 
 **Benefits:**
+
 - Static assets cached aggressively
 - HTML always fresh
 - Fast page loads
@@ -285,6 +299,7 @@ export const fetchCache = "force-no-store";
 ### "Static assets not updating"
 
 This is expected! Static assets use content hashes:
+
 - Old: `main-abc123.js`
 - New: `main-xyz789.js`
 

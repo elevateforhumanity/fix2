@@ -7,6 +7,7 @@ The issue wasn't actually a bug - it was a misunderstanding of how Vercel's immu
 ### The "Problem"
 
 Users were checking old deployment URLs like:
+
 ```
 https://fix2-gpql-qfpvev81v-elevate-48e460c9.vercel.app
 ```
@@ -103,9 +104,7 @@ bash scripts/add-build-marker.sh
 Or manually add to any visible component:
 
 ```tsx
-<p className="text-[10px] text-slate-400 mt-2">
-  BUILD MARKER: v2025-11-20-01
-</p>
+<p className="text-[10px] text-slate-400 mt-2">BUILD MARKER: v2025-11-20-01</p>
 ```
 
 ---
@@ -115,24 +114,30 @@ Or manually add to any visible component:
 ### 3 Types of URLs
 
 1. **Unique Hash URL** (immutable)
+
    ```
    https://fix2-gpql-abc123xyz.vercel.app
    ```
+
    - Never changes
    - Frozen snapshot of one deployment
    - ❌ Don't use for checking latest code
 
 2. **Project Base URL** (always latest)
+
    ```
    https://fix2-gpql.vercel.app
    ```
+
    - Always points to latest successful deployment
    - ✅ Use this to check current code
 
 3. **Production Domain** (custom domain)
+
    ```
    https://www.elevateforhumanity.org
    ```
+
    - Points to production deployment
    - ✅ Use this for end users
 
@@ -151,16 +156,19 @@ Build markers help you verify which deployment you're viewing.
 ### How It Works
 
 1. Before deploying, add/update a build marker:
+
    ```tsx
    BUILD MARKER: v2025-11-20-01
    ```
 
 2. Deploy with autopilot:
+
    ```bash
    pnpm autopilot:deploy
    ```
 
 3. Check the project base URL:
+
    ```
    https://fix2-gpql.vercel.app
    ```
@@ -198,11 +206,13 @@ Build markers help you verify which deployment you're viewing.
 ### "Build failed"
 
 1. **Check environment variables**
+
    ```bash
    pnpm prebuild
    ```
 
 2. **Test build locally**
+
    ```bash
    pnpm clean-build
    ```

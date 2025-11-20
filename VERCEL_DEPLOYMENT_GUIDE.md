@@ -9,6 +9,7 @@
 ## 🎯 The Problem This Solves
 
 Vercel creates **immutable deployment URLs** with unique hashes like:
+
 - `https://fix2-gpql-qfpvev81v-elevate-48e460c9.vercel.app` ← OLD deployment (frozen)
 - `https://fix2-gpql-guasaBMcMYkSJBTihNAM62wwn5qJ.vercel.app` ← NEW deployment
 
@@ -35,9 +36,7 @@ Follow the prompts to log in with your Vercel account.
 In any visible component (e.g., `app/page.tsx`), add:
 
 ```tsx
-<p className="text-[10px] text-slate-400 mt-2">
-  BUILD MARKER: v2025-11-20-01
-</p>
+<p className="text-[10px] text-slate-400 mt-2">BUILD MARKER: v2025-11-20-01</p>
 ```
 
 Change the marker each time (`...02`, `...03`, etc.). This tells you for sure which build you're looking at.
@@ -69,6 +68,7 @@ This runs clean build + deploys to production.
 ### 5. Grab the URL Vercel just printed
 
 It will show something like:
+
 ```
 https://fix2-gpql-guasaBMcMYkSJBTihNAM62wwn5qJ.vercel.app
 ```
@@ -80,6 +80,7 @@ Do not go back to an old one like `...qfpvev81v...` – those are frozen.
 ### 6. Use the "live" URLs, not old hash URLs
 
 After deploy, only check:
+
 - ✅ https://fix2-gpql.vercel.app ← project base (latest deployment)
 - ✅ https://www.elevateforhumanity.org ← once this is wired as production
 
@@ -95,11 +96,13 @@ This clears your browser cache so you're not seeing a stale copy.
 ### 8. Double-check the marker
 
 Find the page where you added:
+
 ```
 BUILD MARKER: v2025-11-20-01
 ```
 
 If you see it on:
+
 - ✅ fix2-gpql.vercel.app
 - ✅ www.elevateforhumanity.org
 
@@ -108,6 +111,7 @@ Then you know the build is live and you're not stuck on an old deployment.
 ### 9. Do NOT reuse old deployment URLs
 
 Anything like:
+
 ```
 https://fix2-gpql-qfpvev81v-elevate-48e460c9.vercel.app
 ```
@@ -117,6 +121,7 @@ Is a snapshot of one past build. It will never update. Think of those as archive
 ### 10. If something looks off
 
 Re-run:
+
 ```bash
 pnpm clean-build
 pnpm deploy:prod
@@ -130,34 +135,43 @@ pnpm deploy:prod
 ## 🚀 Available Scripts
 
 ### Clean Build
+
 Removes all caches and rebuilds from scratch:
+
 ```bash
 pnpm clean-build
 ```
 
 What it does:
+
 ```bash
 rm -rf .next node_modules/.cache && pnpm install && pnpm lint && pnpm build
 ```
 
 ### Deploy to Production
+
 Runs clean build + deploys to Vercel:
+
 ```bash
 pnpm deploy:prod
 ```
 
 What it does:
+
 ```bash
 pnpm clean-build && npx vercel --prod --confirm
 ```
 
 ### Deploy to Preview
+
 Deploys to a preview URL (not production):
+
 ```bash
 pnpm deploy:preview
 ```
 
 What it does:
+
 ```bash
 pnpm clean-build && npx vercel --confirm
 ```
@@ -187,9 +201,11 @@ pnpm clean-build && npx vercel --confirm
 ### "Build failed"
 
 1. **Check environment variables**
+
    ```bash
    pnpm prebuild
    ```
+
    This runs the vercel-check script to verify critical env vars
 
 2. **Check build logs in Vercel**
@@ -207,12 +223,12 @@ pnpm clean-build && npx vercel --confirm
 
 ## 📋 Quick Reference
 
-| What | URL |
-|------|-----|
-| **Latest deployment** | https://fix2-gpql.vercel.app |
-| **Production domain** | https://www.elevateforhumanity.org |
-| **Vercel Dashboard** | https://vercel.com/elevate-48e460c9/fix2-gpql |
-| **Old deployments** | ❌ Ignore hash URLs - they're frozen snapshots |
+| What                  | URL                                            |
+| --------------------- | ---------------------------------------------- |
+| **Latest deployment** | https://fix2-gpql.vercel.app                   |
+| **Production domain** | https://www.elevateforhumanity.org             |
+| **Vercel Dashboard**  | https://vercel.com/elevate-48e460c9/fix2-gpql  |
+| **Old deployments**   | ❌ Ignore hash URLs - they're frozen snapshots |
 
 ---
 
@@ -236,6 +252,7 @@ pnpm clean-build && npx vercel --confirm
    - Useful for: End users, production testing
 
 ### When you deploy:
+
 - ✅ Project base URL updates automatically
 - ✅ Production domain updates (if deploying to prod)
 - ❌ Old hash URLs stay frozen forever

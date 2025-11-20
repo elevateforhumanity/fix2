@@ -5,6 +5,7 @@
 Your Vercel project `fix2-gpql` is NOT connected to `www.elevateforhumanity.org`.
 
 **What you're seeing:**
+
 - Deployments go to: `fix2-gpql-git-main-elevate-48e460c9.vercel.app`
 - You want them to go to: `www.elevateforhumanity.org`
 
@@ -15,11 +16,13 @@ Your Vercel project `fix2-gpql` is NOT connected to `www.elevateforhumanity.org`
 ### Step 1: Open Vercel Domain Settings
 
 Click this link:
+
 ```
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/domains
 ```
 
 Or manually:
+
 1. Go to https://vercel.com
 2. Click on project: `fix2-gpql`
 3. Click "Settings" tab
@@ -79,6 +82,7 @@ curl -I https://www.elevateforhumanity.org
 ```
 
 Open in browser:
+
 ```
 https://www.elevateforhumanity.org
 ```
@@ -94,6 +98,7 @@ Look for the build marker in the bottom-right corner: `BUILD: 2025-11-20-10:25`
 The domain might be connected to another Vercel project.
 
 **Fix:**
+
 1. Go to: https://vercel.com/elevate-48e460c9/~/domains
 2. Find `www.elevateforhumanity.org`
 3. See which project it's connected to
@@ -105,6 +110,7 @@ The domain might be connected to another Vercel project.
 Your DNS isn't configured correctly.
 
 **Fix:**
+
 1. Double-check the CNAME record in your DNS provider
 2. Make sure it's exactly: `cname.vercel-dns.com`
 3. Wait 10-15 minutes
@@ -113,6 +119,7 @@ Your DNS isn't configured correctly.
 ### "Where do I find my DNS provider?"
 
 Common DNS providers:
+
 - **GoDaddy:** https://dcc.godaddy.com/manage/dns
 - **Cloudflare:** https://dash.cloudflare.com
 - **Namecheap:** https://ap.www.namecheap.com/domains/list

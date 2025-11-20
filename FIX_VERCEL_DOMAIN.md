@@ -5,10 +5,12 @@
 The Vercel project `fix2-gpql` is NOT connected to `www.elevateforhumanity.org`.
 
 **Current domains:**
+
 - ❌ `fix2-gpql-git-main-elevate-48e460c9.vercel.app` (auto-generated)
 - ❌ `fix2-gpql-raqq2ad4j-elevate-48e460c9.vercel.app` (deployment hash)
 
 **Desired domain:**
+
 - ✅ `www.elevateforhumanity.org`
 
 ---
@@ -18,6 +20,7 @@ The Vercel project `fix2-gpql` is NOT connected to `www.elevateforhumanity.org`.
 ### Option 1: Add Domain in Vercel Dashboard (Recommended)
 
 1. **Go to Vercel Project Settings:**
+
    ```
    https://vercel.com/elevate-48e460c9/fix2-gpql/settings/domains
    ```
@@ -28,9 +31,9 @@ The Vercel project `fix2-gpql` is NOT connected to `www.elevateforhumanity.org`.
    - Click "Add"
 
 3. **Configure DNS:**
-   
+
    Vercel will show you DNS records to add. You need to add a CNAME record:
-   
+
    ```
    Type: CNAME
    Name: www
@@ -62,6 +65,7 @@ npx vercel domains ls
 ### Option 3: Check if Domain is Already Configured Elsewhere
 
 The domain `www.elevateforhumanity.org` might be:
+
 - Connected to a different Vercel project
 - Pointing to Netlify or another host
 - Not yet purchased/registered
@@ -69,6 +73,7 @@ The domain `www.elevateforhumanity.org` might be:
 **To check:**
 
 1. **Check DNS records:**
+
    ```bash
    dig www.elevateforhumanity.org
    nslookup www.elevateforhumanity.org
@@ -106,6 +111,7 @@ npx vercel domains ls --token=$VERCEL_TOKEN
 ### Step 2: Add www.elevateforhumanity.org
 
 Go to Vercel dashboard:
+
 ```
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/domains
 ```
@@ -142,6 +148,7 @@ Should return 200 OK (not 404 or DNS error)
 The domain is connected to another Vercel project. You need to:
 
 1. Find which project has it:
+
    ```bash
    npx vercel domains ls --token=$VERCEL_TOKEN
    ```
@@ -202,16 +209,19 @@ pnpm verify:deployment
 ## Summary
 
 **Current State:**
+
 - ❌ Project has auto-generated Vercel domains
 - ❌ Custom domain NOT connected
 
 **Required Actions:**
+
 1. Add `www.elevateforhumanity.org` in Vercel dashboard
 2. Configure DNS CNAME record
 3. Wait for verification
 4. Set as production domain
 
 **Expected Result:**
+
 - ✅ `www.elevateforhumanity.org` → Your app
 - ✅ SSL certificate auto-issued
 - ✅ All deployments go to this domain

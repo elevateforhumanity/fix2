@@ -19,6 +19,7 @@ pnpm autopilot:deploy
 ```
 
 This will:
+
 1. Show git status
 2. Remind you to update BUILD MARKER
 3. Clean cache
@@ -133,13 +134,13 @@ Every deployment creates 3 types of URLs:
 
 ## Quick Reference
 
-| Command | What It Does |
-|---------|--------------|
+| Command                 | What It Does                         |
+| ----------------------- | ------------------------------------ |
 | `pnpm autopilot:deploy` | Full clean build + production deploy |
-| `pnpm deploy:prod` | Clean build + production deploy |
-| `pnpm deploy:preview` | Clean build + preview deploy |
-| `pnpm clean-build` | Clean cache + rebuild |
-| `pnpm dev` | Start dev server |
+| `pnpm deploy:prod`      | Clean build + production deploy      |
+| `pnpm deploy:preview`   | Clean build + preview deploy         |
+| `pnpm clean-build`      | Clean cache + rebuild                |
+| `pnpm dev`              | Start dev server                     |
 
 ---
 
