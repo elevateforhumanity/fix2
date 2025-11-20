@@ -95,3 +95,4 @@ cloudflare-token.txt
 !dist/**
 nextjs-site-backup-*.tar.gz
 # Build trigger
+.vercel
