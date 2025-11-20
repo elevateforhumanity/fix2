@@ -25,7 +25,7 @@ async function main() {
     const response = await fetch(`${DOMAIN}/api/build-info`);
     if (response.ok) {
       const data = await response.json();
-      console.log(`   ✅ Build info accessible`);
+      console.log('   ✅ Build info accessible');
       console.log(`   - Build Time: ${data.deployment?.buildTime || 'N/A'}`);
       console.log(`   - Timestamp: ${data.deployment?.timestamp || 'N/A'}`);
       checks.buildInfo = true;
@@ -42,7 +42,7 @@ async function main() {
     const response = await fetch(`${DOMAIN}/api/health`);
     if (response.ok) {
       const data = await response.json();
-      console.log(`   ✅ Health check passed`);
+      console.log('   ✅ Health check passed');
       console.log(`   - Status: ${data.status}`);
       console.log(`   - Version: ${data.version || 'N/A'}`);
       checks.health = true;
@@ -60,13 +60,13 @@ async function main() {
     if (response.ok) {
       const text = await response.text();
       const pageCount = (text.match(/<url>/g) || []).length;
-      console.log(`   ✅ Sitemap accessible`);
+      console.log('   ✅ Sitemap accessible');
       console.log(`   - Pages indexed: ${pageCount}`);
       if (text.includes('www.elevateforhumanity.org')) {
-        console.log(`   ✅ Contains www.elevateforhumanity.org`);
+        console.log('   ✅ Contains www.elevateforhumanity.org');
         checks.sitemap = true;
       } else {
-        console.log(`   ❌ Does not contain www.elevateforhumanity.org`);
+        console.log('   ❌ Does not contain www.elevateforhumanity.org');
       }
     } else {
       console.log(`   ❌ Sitemap returned ${response.status}`);
@@ -81,12 +81,12 @@ async function main() {
     const response = await fetch(`${DOMAIN}/robots.txt`);
     if (response.ok) {
       const text = await response.text();
-      console.log(`   ✅ Robots.txt accessible`);
+      console.log('   ✅ Robots.txt accessible');
       if (text.includes('www.elevateforhumanity.org')) {
-        console.log(`   ✅ Contains www.elevateforhumanity.org`);
+        console.log('   ✅ Contains www.elevateforhumanity.org');
         checks.robots = true;
       } else {
-        console.log(`   ❌ Does not contain www.elevateforhumanity.org`);
+        console.log('   ❌ Does not contain www.elevateforhumanity.org');
       }
     } else {
       console.log(`   ❌ Robots.txt returned ${response.status}`);
@@ -100,7 +100,7 @@ async function main() {
   try {
     const response = await fetch(DOMAIN);
     if (response.ok) {
-      console.log(`   ✅ Homepage accessible`);
+      console.log('   ✅ Homepage accessible');
       console.log(`   - Status: ${response.status}`);
       checks.homepage = true;
     } else {
@@ -139,7 +139,7 @@ async function main() {
   }
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error('Fatal error:', error);
   process.exit(1);
 });
