@@ -203,6 +203,7 @@
     "vercel:link": "bash scripts/hard-link-vercel.sh",
     "vercel:check": "bash scripts/check-vercel-link.sh",
     "vercel:deploy": "bash scripts/safe-prod-deploy.sh",
+    "vercel:fix-branch": "bash scripts/fix-production-branch.sh",
     "cleanup:projects": "bash scripts/cleanup-vercel-projects.sh",
     "cleanup:deployments": "bash scripts/cleanup-old-deployments.sh",
     "cleanup:all-deployments": "bash scripts/delete-all-old-deployments.sh",
