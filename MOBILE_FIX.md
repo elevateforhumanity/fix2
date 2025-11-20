@@ -3,6 +3,7 @@
 ## Step 1: Open GitHub Actions on Phone
 
 Tap this link:
+
 ```
 https://github.com/elevateforhumanity/fix2/actions
 ```
@@ -21,6 +22,7 @@ https://github.com/elevateforhumanity/fix2/actions
 ## Step 4: Wait
 
 The workflow will run for 3-5 minutes. You'll see:
+
 - ✅ Green checkmarks as each step completes
 - ✅ "Success" when done
 
@@ -40,12 +42,14 @@ This forces your phone to load fresh content (instead of hard refresh).
 If still seeing old content:
 
 **On iPhone (Safari):**
+
 1. Settings → Safari
 2. Tap "Clear History and Website Data"
 3. Confirm
 4. Open site again
 
 **On Android (Chrome):**
+
 1. Chrome → Three dots → Settings
 2. Privacy → Clear browsing data
 3. Select "Cached images and files"
@@ -57,6 +61,7 @@ If still seeing old content:
 ## Success!
 
 You'll know it worked when you see:
+
 - ✅ Fresh content on the site
 - ✅ Build marker in bottom-right corner (if visible on mobile)
 - ✅ No more old build issues
@@ -66,6 +71,7 @@ You'll know it worked when you see:
 ## Monitor Progress
 
 Watch the workflow:
+
 ```
 https://github.com/elevateforhumanity/fix2/actions
 ```
