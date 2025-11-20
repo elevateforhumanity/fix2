@@ -7,11 +7,11 @@ export async function requireAuth() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  
+
   if (!user) {
     throw new Error('UNAUTHENTICATED');
   }
-  
+
   return { user };
 }
 
@@ -20,6 +20,6 @@ export async function getSession() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  
+
   return user ? { user } : null;
 }
