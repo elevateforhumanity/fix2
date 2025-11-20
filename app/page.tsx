@@ -63,8 +63,6 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       {/* HERO SECTION - Video Background */}
       <section className="relative h-screen min-h-[600px] overflow-hidden">
-      {/* HERO SECTION - Video Background */}
-      <section className="relative h-screen min-h-[600px] overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
           <video
