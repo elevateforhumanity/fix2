@@ -115,6 +115,6 @@ export const config = {
     '/admin/:path*',
     '/employer/:path*',
     '/program-holder/:path*',
-    '/lms/:path*',
+    // Note: /lms routes removed - they should be publicly accessible
   ],
 };
