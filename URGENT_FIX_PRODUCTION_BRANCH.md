@@ -3,6 +3,7 @@
 ## The Problem
 
 Vercel is deploying from the WRONG branch:
+
 - ❌ Current: `deepsource-transform-aa6e7b14` (old, has TypeScript errors)
 - ✅ Should be: `main` (has all fixes, build markers)
 
@@ -17,6 +18,7 @@ This is why you keep seeing the old build!
 2. Scroll down to find **"Production Branch"** or **"Git Configuration"**
 
 3. You should see a field that says:
+
    ```
    Production Branch: deepsource-transform-aa6e7b14
    ```
