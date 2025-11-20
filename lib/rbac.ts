@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/server';
  * Roles:
  * - admin: Full system access
  * - hr_admin: HR and payroll management
+ * - super_admin: Super admin access
  * - marketing_admin: Marketing campaigns and contacts
  * - manager: Team management
  * - provider_admin: Program holder admin
@@ -15,27 +16,105 @@ import { createClient } from '@/lib/supabase/server';
  * - student: Student portal access
  */
 
-export async function requireRole(roles: string[]) {
+export type AppRole =
+  | "admin"
+  | "hr_admin"
+  | "super_admin"
+  | "delegate"
+  | "program_holder"
+  | "student"
+  | "staff"
+  | "marketing_admin"
+  | "manager"
+  | "provider_admin";
+
+export interface SessionUser {
+  id: string;
+  email?: string;
+  role?: AppRole | string | null;
+}
+
+/**
+ * Fetch current authenticated user + profile row (with role).
+ */
+export async function getCurrentUserWithRole(): Promise<{
+  user: SessionUser | null;
+  profile: { id: string; role?: string | null; full_name?: string; email?: string } | null;
+}> {
   const supabase = await createClient();
+
   const {
     data: { user },
+    error: userError,
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  if (userError || !user) {
+    return { user: null, profile: null };
+  }
+
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("id, role, full_name, email")
+    .eq("id", user.id)
+    .single();
+
+  if (profileError) {
+    // We still return the raw user so callers can decide what to do
+    return {
+      user: {
+        id: user.id,
+        email: user.email || undefined,
+        role: null,
+      },
+      profile: null,
+    };
+  }
+
+  return {
+    user: {
+      id: user.id,
+      email: user.email || undefined,
+      role: (profile?.role || null) as AppRole | string | null,
+    },
+    profile,
+  };
+}
+
+/**
+ * Require that the current user has at least one of the allowed roles.
+ * Throws an Error if not authorized.
+ */
+export async function requireAdmin(
+  allowedRoles: AppRole[] = ["admin", "hr_admin", "super_admin"]
+) {
+  const { user, profile } = await getCurrentUserWithRole();
+
+  if (!user || !profile) {
+    throw new Error("Not authenticated");
+  }
+
+  const role = (user.role || profile.role) as AppRole | string | null;
+
+  if (!role || !allowedRoles.includes(role as AppRole)) {
+    throw new Error("Not authorized");
+  }
+
+  return { user, profile, role };
+}
+
+/**
+ * Convenience helper for checking any role list.
+ */
+export async function requireRole(allowedRoles: AppRole[] | string[]) {
+  const { user, profile } = await getCurrentUserWithRole();
+
+  if (!user || !profile) {
     throw new Error('UNAUTHENTICATED');
   }
 
-  const { data: profile, error } = await supabase
-    .from('profiles')
-    .select('id, role, full_name, email')
-    .eq('id', user.id)
-    .single();
+  const role = (user.role || profile.role) as string;
 
-  if (error || !profile) {
-    throw new Error('PROFILE_NOT_FOUND');
-  }
-
-  if (!roles.includes(profile.role)) {
+  if (!allowedRoles.includes(role)) {
     throw new Error('FORBIDDEN');
   }
 
